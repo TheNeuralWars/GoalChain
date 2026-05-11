@@ -1,0 +1,17 @@
+[
+    { "id": 1, "name": "Lionel Bitcoin", "real": "Lionel Messi", "rarity": "mythic", "stats": { "atk": 99, "def": 45, "hype": 98 } },
+    { "id": 2, "name": "Cristiano Holdaldo", "real": "Cristiano Ronaldo", "rarity": "legendary", "stats": { "atk": 97, "def": 50, "hype": 99 } },
+    { "id": 3, "name": "Kylian M-Bag-pé", "real": "Kylian Mbappé", "rarity": "epic", "stats": { "atk": 96, "def": 40, "hype": 95 } },
+    { "id": 4, "name": "Erling Hash-land", "real": "Erling Haaland", "rarity": "epic", "stats": { "atk": 98, "def": 35, "hype": 92 } },
+    { "id": 5, "name": "Jude Whale-ingham", "real": "Jude Bellingham", "rarity": "legendary", "stats": { "atk": 88, "def": 85, "hype": 94 } },
+    { "id": 6, "name": "Vini Burner Jr", "real": "Vinícius Júnior", "rarity": "epic", "stats": { "atk": 94, "def": 30, "hype": 96 } },
+    { "id": 7, "name": "Lamine Ya-Hype", "real": "Lamine Yamal", "rarity": "legendary", "stats": { "atk": 90, "def": 40, "hype": 97 } },
+    { "id": 8, "name": "Kevin De Byte", "real": "Kevin De Bruyne", "rarity": "epic", "stats": { "atk": 85, "def": 70, "hype": 90 } },
+    { "id": 9, "name": "Mo Swap-lah", "real": "Mohamed Salah", "rarity": "epic", "stats": { "atk": 92, "def": 45, "hype": 88 } },
+    { "id": 10, "name": "Son HODL-min", "real": "Son Heung-min", "rarity": "epic", "stats": { "atk": 89, "def": 50, "hype": 85 } },
+    { "id": 11, "name": "Harry Chain", "real": "Harry Kane", "rarity": "rare", "stats": { "atk": 93, "def": 40, "hype": 82 } },
+    { "id": 12, "name": "Antoine G-Staking", "real": "Antoine Griezmann", "rarity": "rare", "stats": { "atk": 87, "def": 65, "hype": 85 } },
+    { "id": 13, "name": "Luka Mint-ric", "real": "Luka Modric", "rarity": "legendary", "stats": { "atk": 84, "def": 75, "hype": 90 } },
+    { "id": 14, "name": "Robert Le-Wallet-ski", "real": "Robert Lewandowski", "rarity": "epic", "stats": { "atk": 95, "def": 35, "hype": 85 } },
+    { "id": 15, "name": "Rodri Node", "real": "Rodri", "rarity": "epic", "stats": { "atk": 82, "def": 92, "hype": 80 } }
+]

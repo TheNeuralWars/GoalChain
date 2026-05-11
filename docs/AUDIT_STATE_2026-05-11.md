@@ -14,6 +14,19 @@ Este documento es un **snapshot** del estado actual del smart contract y del dis
 
 ---
 
+## Decisiones de reglas (MVP)
+
+### Cutoff de apuestas (anti-bots / anti-sniping)
+
+- Se implementa política **B**:
+  1) Solo se aceptan bets si `fixture.status == Upcoming`.
+  2) Además, se exige `clock.unix_timestamp <= fixture.start_timestamp - cutoff_buffer_seconds`.
+- Objetivo: reducir “late money” basado en información privilegiada y minimizar bots de timing.
+
+> `cutoff_buffer_seconds` se vuelve **configurable** en `GlobalConfig` (con límites razonables) para ajustar sin redeploy.
+
+---
+
 ## Hallazgos críticos (bloqueantes para Mainnet / MVP “real money”)
 
 ### 1) `claim_bet_payout` no paga (fondos no salen del vault)
@@ -38,12 +51,9 @@ Este documento es un **snapshot** del estado actual del smart contract y del dis
 - Acción: en `claim_bet_payout` derivar seeds `b"fixture", match_id.as_bytes(), [bump]`.
 
 ### 5) Ventana de apuestas (cutoff) y estados
-- Estado: se permite `place_bet` mientras fixture no esté `Completed`. No hay regla de cutoff por `start_timestamp`/`Live`.
+- Estado: se permite `place_bet` mientras fixture no esté `Completed`. No hay regla de cutoff por `start_timestamp`.
 - Riesgo: apuestas tardías, manipulación por info asimétrica.
-- Acción: definir y enforcear política:
-  - `Upcoming`: se puede apostar
-  - `Live/Completed/Cancelled`: no se puede apostar
-  - opcional: `require!(clock.unix_timestamp < fixture.start_timestamp - X)`
+- Acción: implementar regla de cutoff (ver decisión arriba).
 
 ---
 
@@ -88,10 +98,10 @@ Este documento es un **snapshot** del estado actual del smart contract y del dis
 1) Implementar `GlobalConfig` PDA + `initialize_config`.
 2) Endurecer `update_fixture_status` usando config (solo oráculo).
 3) Endurecer `initialize_fixture` usando config (solo oráculo/admin).
-4) Cerrar `place_bet` (cutoff + solo `Upcoming`).
+4) Cerrar `place_bet` (solo `Upcoming` + cutoff buffer configurable).
 5) Implementar payout completo en `claim_bet_payout`:
    - transfer a usuario
-   - transfer fees (house/jackpot/treasury)
+   - transfer fees (a treasury)
    - matemática checked
 6) Actualizar tests TS para:
    - crear mint dev
