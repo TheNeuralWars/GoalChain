@@ -47,8 +47,9 @@
             <div>
                 <h2 style="margin-bottom: 1.5rem;">Mini-Juego de Penaltis <span style="font-size: 0.8rem; vertical-align: middle; padding: 4px 8px; background: var(--secondary); border-radius: 4px;">BETA</span></h2>
                 <p style="color: var(--text-dim); margin-bottom: 2rem;">Prueba la mecánica de tiro que estamos diseñando para la PSG1 directamente desde tu navegador. El fixture real de la Copa del Mundo se integrará para apuestas en tiempo real.</p>
-                <div style="aspect-ratio: 16/9; background: #000; border: 2px solid var(--primary); border-radius: 12px; display: flex; justify-content: center; align-items: center;">
-                    <p style="color: var(--primary);">[ PREVISUALIZACIÓN DEL JUEGO PRÓXIMAMENTE ]</p>
+                <div style="aspect-ratio: 16/9; background: #050505; border: 2px solid var(--primary); border-radius: 12px; display: flex; justify-content: center; align-items: center; overflow: hidden; position: relative;">
+                    <canvas id="gameCanvas" width="800" height="450" style="max-width: 100%; height: auto;"></canvas>
+                    <div style="position: absolute; bottom: 10px; font-size: 0.7rem; color: var(--text-dim);">TOCA UNA ZONA PARA PATEAR</div>
                 </div>
             </div>
             <div>
@@ -135,5 +136,6 @@
     </footer>
 
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/penalty_game.js"></script>
 </body>
 </html>
