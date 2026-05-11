@@ -1,5 +1,6 @@
 use anchor_lang::prelude::*;
 use anchor_spl::token_interface::{self, TokenInterface, TokenAccount, Mint, TransferChecked};
+use anchor_spl::token::TokenAccount as SplTokenAccount;
 
 declare_id!("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
 
@@ -306,6 +307,21 @@ pub mod goalchain_program {
         let fixture = &ctx.accounts.fixture;
         let bet = &mut ctx.accounts.user_bet;
 
+        // --- hardening: validar vault PDA + mints en runtime (sin agrandar el stack de Accounts) ---
+        let (expected_vault, _vault_bump) = Pubkey::find_program_address(
+            &[b"fixture_vault", fixture.key().as_ref()],
+            ctx.program_id,
+        );
+        require_keys_eq!(ctx.accounts.fixture_vault.key(), expected_vault, GoalChainError::InvalidVault);
+
+        let user_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.user_token_account.data.borrow()[..])?;
+        let vault_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.fixture_vault.data.borrow()[..])?;
+        let treasury_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.treasury_token_account.data.borrow()[..])?;
+
+        require_keys_eq!(user_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
+        require_keys_eq!(vault_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
+        require_keys_eq!(treasury_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
+
         require!(fixture.status == MatchStatus::Completed, GoalChainError::MatchNotFinished);
         require!(!bet.claimed, GoalChainError::AlreadyClaimed);
 
@@ -590,12 +606,19 @@ pub struct ClaimBetPayout<'info> {
     pub fixture: Account<'info, Fixture>,
     #[account(mut, constraint = user_bet.owner == user.key() && user_bet.fixture == fixture.key())]
     pub user_bet: Account<'info, UserBet>,
+
+    /// CHECK: Validado manualmente contra token_mint en el handler
     #[account(mut)]
-    pub user_token_account: InterfaceAccount<'info, TokenAccount>,
+    pub user_token_account: UncheckedAccount<'info>,
+
+    /// CHECK: Validado manualmente (PDA + mint) en el handler
     #[account(mut)]
-    pub fixture_vault: InterfaceAccount<'info, TokenAccount>,
+    pub fixture_vault: UncheckedAccount<'info>,
+
     #[account(mut, constraint = treasury_token_account.key() == config.treasury_token_account @ GoalChainError::InvalidTreasury)]
-    pub treasury_token_account: InterfaceAccount<'info, TokenAccount>,
+    /// CHECK: Validado manualmente contra token_mint en el handler
+    pub treasury_token_account: UncheckedAccount<'info>,
+
     pub token_mint: InterfaceAccount<'info, Mint>,
     pub token_program: Interface<'info, TokenInterface>,
 }
@@ -652,4 +675,6 @@ pub enum GoalChainError {
     #[msg("Invalid pool.")] InvalidPool,
     #[msg("Invalid config.")] InvalidConfig,
     #[msg("Invalid treasury token account.")] InvalidTreasury,
+    #[msg("Invalid token mint/account mint mismatch.")] InvalidMint,
+    #[msg("Invalid fixture vault account.")] InvalidVault,
 }
