@@ -144,10 +144,25 @@
     <!-- NFT GALLERY (Genesis Squad) -->
     <section id="nfts" class="reveal">
         <div class="container">
-            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+            <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
                 <span class="hero-badge" data-i18n="nft_badge">COLECCIÓN GENESIS</span>
                 <h2 data-i18n="nft_title" class="section-title">Genesis Squad NFT Collection</h2>
-                <p data-i18n="nft_desc" class="section-subtitle">Consigue a los jugadores más raros y domina la liga. Beneficios exclusivos en el airdrop de $GCH.</p>
+                <p data-i18n="nft_desc" class="section-subtitle">Explora los 1,248 cracks del Mundial. Filtra por país y gira el cromo para ver su ADN.</p>
+            </div>
+
+            <!-- Filtro de Países -->
+            <div class="nft-filters container">
+                <div class="country-scroll" id="countryFilters">
+                    <button class="filter-btn active" data-country="all">Todos</button>
+                    <button class="filter-btn" data-country="Argentina">🇦🇷 Argentina</button>
+                    <button class="filter-btn" data-country="Brasil">🇧🇷 Brasil</button>
+                    <button class="filter-btn" data-country="Francia">🇫🇷 Francia</button>
+                    <button class="filter-btn" data-country="España">🇪🇸 España</button>
+                    <button class="filter-btn" data-country="Inglaterra">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</button>
+                    <button class="filter-btn" data-country="Alemania">🇩🇪 Alemania</button>
+                    <button class="filter-btn" data-country="México">🇲🇽 México</button>
+                </div>
+                <input type="text" id="playerSearch" placeholder="Buscar jugador..." class="search-input">
             </div>
             
             <div class="nft-slider-container">
