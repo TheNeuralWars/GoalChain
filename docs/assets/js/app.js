@@ -248,3 +248,73 @@ document.addEventListener('DOMContentLoaded', () => {
         renderSocialTasks();
     };
 });
+
+// --- Whitelist Logic ---
+const GOOGLE_SHEET_URL = 'ESCRIBE_AQUI_TU_URL_DE_APPS_SCRIPT';
+
+const modal = document.getElementById('whitelistModal');
+const wlBtn = document.querySelector('#nfts .btn-glow');
+const closeBtn = document.querySelector('.close-modal');
+
+if(wlBtn) {
+    wlBtn.onclick = (e) => {
+        e.preventDefault();
+        modal.style.display = 'flex';
+        // Auto-completar wallet si está conectada
+        const connectedWallet = localStorage.getItem('goalchain_wallet');
+        if(connectedWallet) document.getElementById('wlWallet').value = connectedWallet;
+    }
+}
+
+if(closeBtn) {
+    closeBtn.onclick = () => modal.style.display = 'none';
+}
+
+window.onclick = (event) => {
+    if (event.target == modal) modal.style.display = 'none';
+}
+
+const wlForm = document.getElementById('whitelistForm');
+if(wlForm) {
+    wlForm.onsubmit = async (e) => {
+        e.preventDefault();
+        const submitBtn = wlForm.querySelector('button');
+        submitBtn.innerText = 'ENVIANDO...';
+        submitBtn.disabled = true;
+
+        const data = {
+            email: document.getElementById('wlEmail').value,
+            wallet: document.getElementById('wlWallet').value,
+            interest: document.getElementById('wlInterest').value
+        };
+
+        try {
+            await fetch(GOOGLE_SHEET_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                cache: 'no-cache',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            document.getElementById('whitelistForm').style.display = 'none';
+            document.getElementById('wlSuccess').style.display = 'block';
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                // Reset form
+                document.getElementById('whitelistForm').style.display = 'block';
+                document.getElementById('wlSuccess').style.display = 'none';
+                wlForm.reset();
+                submitBtn.innerText = '¡QUIERO ENTRAR!';
+                submitBtn.disabled = false;
+            }, 3000);
+
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Hubo un problema. Inténtalo de nuevo.');
+            submitBtn.disabled = false;
+            submitBtn.innerText = '¡QUIERO ENTRAR!';
+        }
+    }
+}
