@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- Whitelist Logic ---
-const GOOGLE_SHEET_URL = 'ESCRIBE_AQUI_TU_URL_DE_APPS_SCRIPT';
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxYeoWdEQl-zksyL71U2ksAGWNfphWYzvs7Hyd8jx7I_rYjS-CZwL06iE0jsKVqmnVmCQ/exec';
 
 const modal = document.getElementById('whitelistModal');
 const wlBtn = document.querySelector('#nfts .btn-glow');
