@@ -1084,3 +1084,53 @@ body {
 
 .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(20,241,149,0.4); }
 .btn-buy:disabled { background: var(--glass-strong); color: var(--text-dim); cursor: not-allowed; }
+
+/* --- ECONOMICS SECTION STYLES --- */
+
+.economics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.econ-card {
+    padding: 2.5rem;
+    text-align: center;
+    border: 1px solid var(--border);
+    transition: transform 0.3s;
+}
+
+.econ-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+}
+
+.econ-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.econ-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.econ-card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.econ-stat {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--primary-dim);
+    color: var(--primary);
+    border-radius: 5px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
