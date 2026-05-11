@@ -6,14 +6,9 @@ class PenaltyGame {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
 
-        this.goals = 0;
-        this.saves = 0;
-        this.streak = 0;
-
-        // Estado inicial
+        this.goals = 0; this.saves = 0; this.streak = 0;
         this.reset();
 
-        // 3x3 grid de target zones
         const gx = 155, gy = 85, gw = 490, gh = 250;
         const tw = gw / 3, th = gh / 3;
         this.targets = [];
@@ -25,8 +20,7 @@ class PenaltyGame {
 
         this.canvas.addEventListener('mousedown', (e) => this.handleInput(e));
         this.canvas.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            this.handleInput(e.touches[0]);
+            e.preventDefault(); this.handleInput(e.touches[0]);
         }, { passive: false });
 
         this.loop();
@@ -45,7 +39,6 @@ class PenaltyGame {
 
     handleInput(e) {
         if (this.gameState !== 'READY') return;
-        
         const rect = this.canvas.getBoundingClientRect();
         const scaleX = this.width / rect.width;
         const scaleY = this.height / rect.height;
@@ -64,7 +57,6 @@ class PenaltyGame {
         this.gameState = 'SHOOTING';
         this.animationProgress = 0;
         this.shotTarget = { x: target.x + target.w / 2, y: target.y + target.h / 2, id: target.id };
-        
         const gT = this.targets[Math.floor(Math.random() * this.targets.length)];
         this.goalieTarget = { x: gT.x + gT.w / 2, id: gT.id };
     }
@@ -73,115 +65,127 @@ class PenaltyGame {
         if (this.gameState === 'SHOOTING') {
             this.animationProgress += 0.04;
             const ease = 1 - Math.pow(1 - Math.min(this.animationProgress, 1), 3);
-
-            // Mover balón
-            const startX = this.width / 2;
-            const startY = this.height - 55;
+            const startX = this.width / 2, startY = this.height - 55;
             this.ball.x = startX + (this.shotTarget.x - startX) * ease;
             this.ball.y = startY + (this.shotTarget.y - startY) * ease;
-
-            // Mover portero
             this.goalie.x = (this.width / 2) + (this.goalieTarget.x - this.width / 2) * ease;
-
-            if (this.animationProgress >= 1) {
-                this.resolveResult();
-            }
+            if (this.animationProgress >= 1) this.resolveResult();
         }
-
-        // Update particles
+        this.particles.forEach(p => { p.x += p.vx; p.y += p.vy; p.life -= 0.025; });
         this.particles = this.particles.filter(p => p.life > 0);
-        this.particles.forEach(p => {
-            p.x += p.vx; p.y += p.vy;
-            p.life -= 0.03;
-        });
     }
 
     resolveResult() {
         const isGoal = this.shotTarget.id !== this.goalieTarget.id;
         if (isGoal) {
-            this.result = '¡GOOOOOL! ⚽';
-            this.resultColor = '#14f195';
-            this.goals++; this.streak++;
-            this.spawnParticles(this.ball.x, this.ball.y, '#14f195');
+            this.result = '¡GOOOOOL! ⚽'; this.resultColor = '#14f195';
+            this.goals++; this.streak++; this.spawnParticles(this.ball.x, this.ball.y, '#14f195');
         } else {
-            this.result = '¡ATAJADA! 🧤';
-            this.resultColor = '#ff4d6a';
-            this.saves++; this.streak = 0;
-            this.spawnParticles(this.ball.x, this.ball.y, '#ff4d6a');
+            this.result = '¡ATAJADA! 🧤'; this.resultColor = '#ff4d6a';
+            this.saves++; this.streak = 0; this.spawnParticles(this.ball.x, this.ball.y, '#ff4d6a');
         }
-        
         this.updateStatsUI();
         this.gameState = 'RESULT';
         setTimeout(() => this.reset(), 1800);
     }
 
     spawnParticles(x, y, color) {
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 20; i++) {
             this.particles.push({
-                x, y, color, life: 1,
-                vx: (Math.random() - 0.5) * 10,
-                vy: (Math.random() - 0.5) * 10,
-                size: Math.random() * 4 + 2
+                x, y, color, life: 1, vx: (Math.random() - 0.5) * 8, vy: (Math.random() - 0.5) * 8, size: Math.random() * 3 + 2
             });
         }
     }
 
     updateStatsUI() {
         const g = document.getElementById('statGoals'), s = document.getElementById('statSaves'), st = document.getElementById('statStreak');
-        if (g) g.innerText = this.goals;
-        if (s) s.innerText = this.saves;
-        if (st) st.innerText = this.streak;
+        if (g) g.innerText = this.goals; if (s) s.innerText = this.saves; if (st) st.innerText = this.streak;
     }
 
     draw() {
         const ctx = this.ctx;
         ctx.clearRect(0, 0, this.width, this.height);
 
-        // Fondo y portería
-        ctx.fillStyle = '#050508'; ctx.fillRect(0, 0, this.width, this.height);
-        ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; ctx.strokeRect(150, 80, 500, 260);
+        // 1. Césped con Gradiente
+        const groundGrad = ctx.createLinearGradient(0, 0, 0, this.height);
+        groundGrad.addColorStop(0, '#0a1a0a');
+        groundGrad.addColorStop(1, '#030305');
+        ctx.fillStyle = groundGrad;
+        ctx.fillRect(0, 0, this.width, this.height);
 
-        // Zonas (solo si ready)
+        // 2. Líneas de cancha sutiles
+        ctx.strokeStyle = 'rgba(20, 241, 149, 0.15)';
+        ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(0, this.height/2); ctx.lineTo(this.width, this.height/2); ctx.stroke();
+
+        // 3. Portería con Brillo Neón
+        ctx.shadowColor = 'rgba(255, 255, 255, 0.4)';
+        ctx.shadowBlur = 15;
+        ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 5;
+        ctx.strokeRect(150, 80, 500, 260);
+        ctx.shadowBlur = 0;
+
+        // Red
+        ctx.strokeStyle = 'rgba(255,255,255,0.05)'; ctx.lineWidth = 1;
+        for(let x=150; x<=650; x+=25) { ctx.beginPath(); ctx.moveTo(x,80); ctx.lineTo(x,340); ctx.stroke(); }
+        for(let y=80; y<=340; y+=25) { ctx.beginPath(); ctx.moveTo(150,y); ctx.lineTo(650,y); ctx.stroke(); }
+
+        // 4. Zonas de Tiro (Interactivo)
         if (this.gameState === 'READY') {
-            ctx.fillStyle = 'rgba(20, 241, 149, 0.05)';
             this.targets.forEach(t => {
+                ctx.fillStyle = 'rgba(20, 241, 149, 0.08)';
                 ctx.fillRect(t.x, t.y, t.w, t.h);
-                ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.strokeRect(t.x, t.y, t.w, t.h);
+                ctx.strokeStyle = 'rgba(20, 241, 149, 0.2)'; ctx.strokeRect(t.x, t.y, t.w, t.h);
             });
         }
 
-        // Portero
+        // 5. Portero Premium (Diseño Completo)
+        const gx = this.goalie.x - this.goalie.width/2;
+        const gy = this.goalie.y;
         ctx.fillStyle = '#9945ff';
-        ctx.beginPath();
-        ctx.roundRect(this.goalie.x - this.goalie.width/2, this.goalie.y, this.goalie.width, this.goalie.height, 8);
-        ctx.fill();
+        ctx.shadowColor = 'rgba(153, 69, 255, 0.5)'; ctx.shadowBlur = 10;
+        // Cuerpo
+        ctx.beginPath(); ctx.roundRect(gx+10, gy+20, this.goalie.width-20, this.goalie.height-20, 6); ctx.fill();
+        // Cabeza
+        ctx.beginPath(); ctx.arc(this.goalie.x, gy+12, 12, 0, Math.PI*2); ctx.fill();
+        // Brazos
+        ctx.strokeStyle = '#9945ff'; ctx.lineWidth = 6; ctx.lineCap = 'round';
+        ctx.beginPath(); ctx.moveTo(gx+5, gy+35); ctx.lineTo(gx-10, gy+20); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(gx+this.goalie.width-5, gy+35); ctx.lineTo(gx+this.goalie.width+10, gy+20); ctx.stroke();
+        ctx.shadowBlur = 0;
 
-        // Balón
-        ctx.beginPath();
-        ctx.arc(this.ball.x, this.ball.y, this.ball.radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#fff'; ctx.fill();
+        // 6. Balón con Sombra y Gradiente
+        // Sombra
+        ctx.beginPath(); ctx.arc(this.ball.x+4, this.ball.y+4, this.ball.radius, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(0,0,0,0.4)'; ctx.fill();
+        // Esfera
+        const ballGrad = ctx.createRadialGradient(this.ball.x-4, this.ball.y-4, 2, this.ball.x, this.ball.y, this.ball.radius);
+        ballGrad.addColorStop(0, '#ffffff'); ballGrad.addColorStop(1, '#bbbbbb');
+        ctx.beginPath(); ctx.arc(this.ball.x, this.ball.y, this.ball.radius, 0, Math.PI*2);
+        ctx.fillStyle = ballGrad; ctx.fill();
+        // Costuras
+        ctx.strokeStyle = 'rgba(0,0,0,0.1)'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(this.ball.x-6, this.ball.y-6); ctx.lineTo(this.ball.x+6, this.ball.y+6); ctx.stroke();
 
-        // Partículas
+        // 7. Partículas
         this.particles.forEach(p => {
-            ctx.globalAlpha = p.life;
-            ctx.fillStyle = p.color;
-            ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+            ctx.globalAlpha = p.life; ctx.fillStyle = p.color;
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.size*p.life, 0, Math.PI*2); ctx.fill();
         });
         ctx.globalAlpha = 1;
 
-        // Resultado
+        // 8. Resultado Flotante
         if (this.gameState === 'RESULT') {
-            ctx.fillStyle = this.resultColor;
-            ctx.font = 'bold 40px Inter'; ctx.textAlign = 'center';
-            ctx.fillText(this.result, this.width / 2, this.height / 2 + 50);
+            ctx.fillStyle = this.resultColor; ctx.font = 'bold 38px Inter';
+            ctx.textAlign = 'center'; ctx.shadowColor = this.resultColor; ctx.shadowBlur = 15;
+            ctx.fillText(this.result, this.width / 2, this.height / 2 + 60);
+            ctx.shadowBlur = 0;
         }
     }
 
     loop() {
-        this.update();
-        this.draw();
+        this.update(); this.draw();
         requestAnimationFrame(() => this.loop());
     }
 }
-
 window.addEventListener('load', () => { new PenaltyGame('gameCanvas'); });
