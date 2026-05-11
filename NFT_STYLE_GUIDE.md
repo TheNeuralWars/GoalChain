@@ -23,3 +23,10 @@ Todas las cartas deben tener estas 4 capas obligatorias:
 ## 4. Reglas de Contenido (Legal Safety)
 - **Prohibido:** Escudos reales (AFA, CBF, etc.), logos de marcas reales (Adidas, Nike), nombres reales de jugadores en el arte.
 - **Permitido:** Banderas de países estilizadas, marcas inventadas (GoalChain, Solana, CryptoKicks).
+
+## 5. El Sobre Cerrado (The Mystery Pack)
+Antes del reveal, todos los NFTs deben usar el arte del sobre oficial:
+- **Diseño:** Un sobre de aluminio (foil) sellado al vacío, color negro mate con el logo de GoalChain en el centro.
+- **Detalles:** Rayos de energía (púrpura y verde Solana) escapando por las costuras del sobre.
+- **Tipografía:** "GOALCHAIN GENESIS" en fuente tipo bloque, metálica.
+- **Variación por Pack:** El sobre debe tener un borde dorado si es un "Legends Pack".

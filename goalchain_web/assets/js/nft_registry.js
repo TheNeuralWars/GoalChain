@@ -1,12 +1,11 @@
 /**
- * nft_registry.js - Registro Maestro y Lógica de Galería 3.0 (Web3 + Wishlist)
+ * nft_registry.js - Registro Maestro y Lógica de Galería 4.0 (Contract Panel Update)
  */
 
 let masterPlayers = [];
 let favorites = JSON.parse(localStorage.getItem('gch_favorites') || '[]');
 let showOnlyFavorites = false;
 
-// Precios por rareza
 const PRICE_MAP = {
     "mythic": "10,000 $GCH",
     "legendary": "5,000 $GCH",
@@ -43,11 +42,11 @@ function renderPlayers(filterCountry, searchQuery = '') {
     });
 
     if (filtered.length === 0) {
-        track.innerHTML = '<div style="color: var(--text-dim); padding: 40px; text-align: center; width: 100%;">No se encontraron cromos en esta categoría.</div>';
+        track.innerHTML = '<div style="color: var(--text-dim); padding: 40px; text-align: center; width: 100%;">No se encontraron cromos.</div>';
         return;
     }
 
-    const displayLimit = 40; // Rendimiento
+    const displayLimit = 30;
 
     filtered.slice(0, displayLimit).forEach(player => {
         const isFav = favorites.includes(player.id);
@@ -56,12 +55,11 @@ function renderPlayers(filterCountry, searchQuery = '') {
         card.setAttribute('data-rarity', player.rarity);
         
         const imgPath = `assets/images/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
-        const price = PRICE_MAP[player.rarity] || "50 $GCH";
+        const nftPrice = PRICE_MAP[player.rarity] || "100 $GCH";
 
         card.innerHTML = `
             <div class="favorite-heart ${isFav ? 'is-fav' : ''}" data-id="${player.id}">❤️</div>
             <div class="card-inner">
-                <!-- FRENTE: Arte y Nombre -->
                 <div class="card-front">
                     <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/images/nfts/placeholder.png'">
                     <div class="nft-overlay">
@@ -72,40 +70,52 @@ function renderPlayers(filterCountry, searchQuery = '') {
                     </div>
                 </div>
                 
-                <!-- REVERSO: Ficha Técnica + Precio -->
                 <div class="card-back">
                     <div class="ficha-header">
-                        <span class="ficha-title">GOALCHAIN ADN</span>
+                        <span class="ficha-title">CONTRATO PROFESIONAL</span>
                         <h3 class="ficha-name">${player.name}</h3>
                     </div>
                     
                     <div class="ficha-stats-grid">
-                        <div class="stat-item"><span class="stat-label">ALTURA</span><span class="stat-value">${player.height}</span></div>
-                        <div class="stat-item"><span class="stat-label">PESO</span><span class="stat-value">${player.weight}</span></div>
                         <div class="stat-item"><span class="stat-label">POSICIÓN</span><span class="stat-value">${player.position}</span></div>
                         <div class="stat-item"><span class="stat-label">PAÍS</span><span class="stat-value">${player.country}</span></div>
                     </div>
-                    
-                    <div class="price-tag">
-                        <div class="price-info">
-                            <span class="price-label">PRECIO DE MERCADO</span>
-                            <div class="price-value">${price}</div>
+
+                    <!-- Panel de Contrato -->
+                    <div class="contract-panel">
+                        <div class="contract-header">
+                            <span>VÍNCULO ACTUAL</span>
+                            <span>VERIFICADO 🔒</span>
                         </div>
-                        <img src="assets/images/logo_token.png" style="width: 24px; height: 24px;" onerror="this.style.display='none'">
+                        <div class="salary-row">
+                            <span class="salary-label">Sueldo Real (Ref):</span>
+                            <span class="salary-value">${player.contract.realSalary}</span>
+                        </div>
+                        <div class="salary-row">
+                            <span class="salary-label">Pago por Partido:</span>
+                            <span class="salary-value" style="color: #14f195;">${player.contract.matchSalary} $GCH</span>
+                        </div>
+                        <div class="clause-list">
+                            ${player.contract.clauses.map(c => `<div class="clause-item">${c}</div>`).join('')}
+                        </div>
                     </div>
 
-                    <button class="btn-buy" onclick="handleBuy(${player.id})">Comprar Ahora</button>
+                    <div class="price-tag" style="margin-top: 15px;">
+                        <div class="price-info">
+                            <span class="price-label">PRECIO NFT</span>
+                            <div class="price-value">${nftPrice}</div>
+                        </div>
+                        <button class="btn-buy" style="margin-top: 0; width: auto; padding: 5px 15px;" onclick="handleBuy(${player.id})">COMPRAR</button>
+                    </div>
                 </div>
             </div>
         `;
         
-        // Listener Giro
         card.addEventListener('click', (e) => {
-            if (e.target.classList.contains('favorite-heart') || e.target.classList.contains('btn-buy')) return;
+            if (e.target.closest('.favorite-heart') || e.target.closest('.btn-buy')) return;
             card.classList.toggle('is-flipped');
         });
 
-        // Listener Favoritos
         const heart = card.querySelector('.favorite-heart');
         heart.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -114,15 +124,6 @@ function renderPlayers(filterCountry, searchQuery = '') {
         
         track.appendChild(card);
     });
-
-    // Animación
-    if (filtered.length > 5 && !showOnlyFavorites) {
-        track.style.animation = 'scrollNFT 40s linear infinite';
-        const clones = track.innerHTML;
-        track.innerHTML += clones;
-    } else {
-        track.style.animation = 'none';
-    }
 }
 
 function toggleFavorite(id, element) {
@@ -135,18 +136,14 @@ function toggleFavorite(id, element) {
         element.classList.add('is-fav');
     }
     localStorage.setItem('gch_favorites', JSON.stringify(favorites));
-    
-    if (showOnlyFavorites) {
-        renderPlayers(document.querySelector('.filter-btn.active').getAttribute('data-country'));
-    }
+    if (showOnlyFavorites) renderPlayers(document.querySelector('.filter-btn.active').getAttribute('data-country'));
 }
 
 function handleBuy(playerId) {
-    alert(`Iniciando transacción en Solana para el jugador #${playerId}. Asegúrate de tener suficientes $GCH en tu Phantom Wallet.`);
+    alert(`Iniciando compra Web3 del jugador #${playerId}. Se requiere firma en Phantom Wallet.`);
 }
 
 function setupFilterListeners() {
-    // Botones Países
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -155,23 +152,19 @@ function setupFilterListeners() {
         });
     });
 
-    // Buscador
     const searchInput = document.getElementById('playerSearch');
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
-            const activeCountryBtn = document.querySelector('.filter-btn.active');
-            renderPlayers(activeCountryBtn.getAttribute('data-country'), e.target.value);
+            renderPlayers(document.querySelector('.filter-btn.active').getAttribute('data-country'), e.target.value);
         });
     }
 
-    // Toggle Wishlist
     const wishlistBtn = document.getElementById('wishlistBtn');
     if (wishlistBtn) {
         wishlistBtn.addEventListener('click', () => {
             showOnlyFavorites = !showOnlyFavorites;
             wishlistBtn.classList.toggle('active');
-            const activeCountryBtn = document.querySelector('.filter-btn.active');
-            renderPlayers(activeCountryBtn.getAttribute('data-country'));
+            renderPlayers(document.querySelector('.filter-btn.active').getAttribute('data-country'));
         });
     }
 }
