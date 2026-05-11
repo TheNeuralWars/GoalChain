@@ -1,0 +1,157 @@
+:root {
+    --bg-dark: #0a0a0c;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --primary: #14f195; /* Solana Green */
+    --secondary: #9945ff; /* Solana Purple */
+    --accent: #00ffbd;
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- Vibrancy Background --- */
+.vibrancy {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.vibrancy::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(20, 241, 149, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 70% 70%, rgba(153, 69, 255, 0.1) 0%, transparent 40%);
+    filter: blur(80px);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    background: linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.8)), 
+                url('../images/hero.png') no-repeat center center/cover;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    letter-spacing: -2px;
+    background: linear-gradient(to right, #fff, var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 20px rgba(20, 241, 149, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(20, 241, 149, 0.6);
+}
+
+/* --- Whitelist Card --- */
+.whitelist-section {
+    padding: 100px 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    padding: 3rem;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.glass-card input {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.glass-card input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.time-unit span {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #fff;
+    display: block;
+}
+
+.time-unit {
+    background: var(--glass);
+    padding: 1rem;
+    border-radius: 12px;
+    min-width: 80px;
+    border: 1px solid var(--border);
+}
