@@ -7,6 +7,7 @@
     <meta name="description" content="Únete a GoalChain, la plataforma definitiva de apuestas de fútbol y gaming en Solana. Juega en PSG1 y Web.">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
 </head>
 <body>
     <div class="vibrancy"></div>
@@ -14,7 +15,7 @@
     <nav style="position: absolute; top: 0; width: 100%; padding: 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 10;">
         <div class="logo" style="font-weight: 900; font-size: 1.5rem; letter-spacing: -1px;">GOAL<span style="color: var(--primary);">CHAIN</span></div>
         <div class="nav-links">
-            <a href="#whitelist" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.8rem;">Únete a la Whitelist</a>
+            <a href="#" class="btn btn-primary btn-wallet" style="padding: 0.6rem 1.5rem; font-size: 0.8rem;">Conectar Wallet</a>
         </div>
     </nav>
 
@@ -30,7 +31,7 @@
                 <div class="time-unit"><span id="hours">00</span><p style="font-size: 0.7rem; color: var(--primary);">HORAS</p></div>
                 <div class="time-unit"><span id="minutes">00</span><p style="font-size: 0.7rem; color: var(--primary);">MIN</p></div>
             </div>
-            <a href="#whitelist" class="btn btn-primary">Empezar Ahora</a>
+            <a href="#" class="btn btn-primary btn-wallet">Conectar Wallet</a>
         </div>
     </header>
 
@@ -121,7 +122,7 @@
             <p style="margin-bottom: 2rem; color: var(--text-dim);">Registra tu interés para recibir acceso anticipado y beneficios exclusivos en el lanzamiento.</p>
             <form>
                 <input type="email" placeholder="Tu correo electrónico" required>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Anotarme en la Whitelist</button>
+                <button type="submit" class="btn btn-primary btn-wallet" style="width: 100%;">Anotarme en la Whitelist</button>
             </form>
             <p style="font-size: 0.8rem; margin-top: 1.5rem; color: var(--text-dim);">🛡️ Tu wallet será tu identidad. Pronto integración con Phantom.</p>
         </div>
@@ -137,5 +138,6 @@
 
     <script src="assets/js/app.js"></script>
     <script src="assets/js/penalty_game.js"></script>
+    <script src="assets/js/solana_integration.js"></script>
 </body>
 </html>
