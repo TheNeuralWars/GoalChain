@@ -1,17 +1,1802 @@
 [
-    { "id": 1, "name": "Lionel Bitcoin", "real": "Lionel Messi", "rarity": "mythic", "stats": { "atk": 99, "def": 45, "hype": 98 } },
-    { "id": 2, "name": "Cristiano Holdaldo", "real": "Cristiano Ronaldo", "rarity": "legendary", "stats": { "atk": 97, "def": 50, "hype": 99 } },
-    { "id": 3, "name": "Kylian M-Bag-pé", "real": "Kylian Mbappé", "rarity": "epic", "stats": { "atk": 96, "def": 40, "hype": 95 } },
-    { "id": 4, "name": "Erling Hash-land", "real": "Erling Haaland", "rarity": "epic", "stats": { "atk": 98, "def": 35, "hype": 92 } },
-    { "id": 5, "name": "Jude Whale-ingham", "real": "Jude Bellingham", "rarity": "legendary", "stats": { "atk": 88, "def": 85, "hype": 94 } },
-    { "id": 6, "name": "Vini Burner Jr", "real": "Vinícius Júnior", "rarity": "epic", "stats": { "atk": 94, "def": 30, "hype": 96 } },
-    { "id": 7, "name": "Lamine Ya-Hype", "real": "Lamine Yamal", "rarity": "legendary", "stats": { "atk": 90, "def": 40, "hype": 97 } },
-    { "id": 8, "name": "Kevin De Byte", "real": "Kevin De Bruyne", "rarity": "epic", "stats": { "atk": 85, "def": 70, "hype": 90 } },
-    { "id": 9, "name": "Mo Swap-lah", "real": "Mohamed Salah", "rarity": "epic", "stats": { "atk": 92, "def": 45, "hype": 88 } },
-    { "id": 10, "name": "Son HODL-min", "real": "Son Heung-min", "rarity": "epic", "stats": { "atk": 89, "def": 50, "hype": 85 } },
-    { "id": 11, "name": "Harry Chain", "real": "Harry Kane", "rarity": "rare", "stats": { "atk": 93, "def": 40, "hype": 82 } },
-    { "id": 12, "name": "Antoine G-Staking", "real": "Antoine Griezmann", "rarity": "rare", "stats": { "atk": 87, "def": 65, "hype": 85 } },
-    { "id": 13, "name": "Luka Mint-ric", "real": "Luka Modric", "rarity": "legendary", "stats": { "atk": 84, "def": 75, "hype": 90 } },
-    { "id": 14, "name": "Robert Le-Wallet-ski", "real": "Robert Lewandowski", "rarity": "epic", "stats": { "atk": 95, "def": 35, "hype": 85 } },
-    { "id": 15, "name": "Rodri Node", "real": "Rodri", "rarity": "epic", "stats": { "atk": 82, "def": 92, "hype": 80 } }
+    {
+        "id": 888,
+        "name": "Lionel Bitcoin",
+        "realName": "Lionel Messi",
+        "nickname": "La Pulga Crypto",
+        "height": "1.70m",
+        "weight": "72kg",
+        "position": "FWD",
+        "number": 10,
+        "country": "Argentina",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 57,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 322,
+        "name": "Cristiano Holdaldo",
+        "realName": "Cristiano Ronaldo",
+        "nickname": "CR7 HODL",
+        "height": "1.87m",
+        "weight": "83kg",
+        "position": "FWD",
+        "number": 7,
+        "country": "Portugal",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 98,
+            "def": 51,
+            "hype": 87
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 361,
+        "name": "Kylian M-Bag-pé",
+        "realName": "Kylian Mbappé",
+        "nickname": "The Bag Man",
+        "height": "1.78m",
+        "weight": "75kg",
+        "position": "FWD",
+        "number": 10,
+        "country": "Francia",
+        "rarity": "epic",
+        "stats": {
+            "atk": 93,
+            "def": 31,
+            "hype": 85
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 779,
+        "name": "Erling Hash-land",
+        "realName": "Erling Haaland",
+        "nickname": "The Terminator",
+        "height": "1.94m",
+        "weight": "88kg",
+        "position": "FWD",
+        "number": 9,
+        "country": "NOR",
+        "rarity": "epic",
+        "stats": {
+            "atk": 95,
+            "def": 47,
+            "hype": 96
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 507,
+        "name": "Jude Whale-ingham",
+        "realName": "Jude Bellingham",
+        "nickname": "The Golden Whale",
+        "height": "1.86m",
+        "weight": "75kg",
+        "position": "MID",
+        "number": 5,
+        "country": "Inglaterra",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 77,
+            "def": 69,
+            "hype": 75
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 556,
+        "name": "Vini Burner Jr",
+        "realName": "Vinícius Jr",
+        "nickname": "Burner King",
+        "height": "1.76m",
+        "weight": "73kg",
+        "position": "FWD",
+        "number": 7,
+        "country": "Brasil",
+        "rarity": "epic",
+        "stats": {
+            "atk": 95,
+            "def": 38,
+            "hype": 76
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 389,
+        "name": "Lamine Ya-Hype",
+        "realName": "Lamine Yamal",
+        "nickname": "Baby Hype",
+        "height": "1.78m",
+        "weight": "70kg",
+        "position": "FWD",
+        "number": 19,
+        "country": "España",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 97,
+            "def": 52,
+            "hype": 85
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 169,
+        "name": "Kevin De Byte",
+        "realName": "Kevin De Bruyne",
+        "nickname": "The Architect",
+        "height": "1.81m",
+        "weight": "70kg",
+        "position": "MID",
+        "number": 17,
+        "country": "Bélgica",
+        "rarity": "epic",
+        "stats": {
+            "atk": 81,
+            "def": 73,
+            "hype": 96
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 720,
+        "name": "Mo Swap-lah",
+        "realName": "Mohamed Salah",
+        "nickname": "The Egyptian DEX",
+        "height": "1.75m",
+        "weight": "71kg",
+        "position": "FWD",
+        "number": 11,
+        "country": "EGY",
+        "rarity": "epic",
+        "stats": {
+            "atk": 91,
+            "def": 47,
+            "hype": 87
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 780,
+        "name": "Son HODL-min",
+        "realName": "Son Heung-min",
+        "nickname": "Sunny Bull",
+        "height": "1.83m",
+        "weight": "77kg",
+        "position": "FWD",
+        "number": 7,
+        "country": "KOR",
+        "rarity": "epic",
+        "stats": {
+            "atk": 89,
+            "def": 56,
+            "hype": 90
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 746,
+        "name": "Jamal Moon-siala",
+        "realName": "Jamal Musiala",
+        "nickname": "Moon Boy",
+        "height": "1.84m",
+        "weight": "72kg",
+        "position": "MID",
+        "number": 10,
+        "country": "Alemania",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 79,
+            "def": 77,
+            "hype": 96
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 406,
+        "name": "Florian Web3-irtz",
+        "realName": "Florian Wirtz",
+        "nickname": "Magic Node",
+        "height": "1.76m",
+        "weight": "70kg",
+        "position": "MID",
+        "number": 10,
+        "country": "Alemania",
+        "rarity": "epic",
+        "stats": {
+            "atk": 76,
+            "def": 65,
+            "hype": 74
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 177,
+        "name": "Julian Alva-Swap",
+        "realName": "Julian Alvarez",
+        "nickname": "La Araña DEX",
+        "height": "1.70m",
+        "weight": "71kg",
+        "position": "FWD",
+        "number": 9,
+        "country": "Argentina",
+        "rarity": "epic",
+        "stats": {
+            "atk": 87,
+            "def": 39,
+            "hype": 96
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 923,
+        "name": "Dibu Block",
+        "realName": "Emiliano Martinez",
+        "nickname": "The Shield",
+        "height": "1.95m",
+        "weight": "88kg",
+        "position": "GK",
+        "number": 23,
+        "country": "Argentina",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 13,
+            "def": 92,
+            "hype": 96
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 965,
+        "name": "Endrick Chain",
+        "realName": "Endrick",
+        "nickname": "New Genesis",
+        "height": "1.73m",
+        "weight": "75kg",
+        "position": "FWD",
+        "number": 16,
+        "country": "Brasil",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 92,
+            "def": 44,
+            "hype": 89
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 779,
+        "name": "Phil Flip-den",
+        "realName": "Phil Foden",
+        "nickname": "Master Flipper",
+        "height": "1.71m",
+        "weight": "70kg",
+        "position": "FWD",
+        "number": 47,
+        "country": "Inglaterra",
+        "rarity": "epic",
+        "stats": {
+            "atk": 96,
+            "def": 49,
+            "hype": 88
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 108,
+        "name": "Pedri P2P",
+        "realName": "Pedri",
+        "nickname": "Peer 2 Peer",
+        "height": "1.74m",
+        "weight": "60kg",
+        "position": "MID",
+        "number": 8,
+        "country": "España",
+        "rarity": "epic",
+        "stats": {
+            "atk": 77,
+            "def": 63,
+            "hype": 76
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 872,
+        "name": "Antoine G-Staking",
+        "realName": "Antoine Griezmann",
+        "nickname": "Staking King",
+        "height": "1.76m",
+        "weight": "73kg",
+        "position": "FWD",
+        "number": 7,
+        "country": "Francia",
+        "rarity": "epic",
+        "stats": {
+            "atk": 89,
+            "def": 52,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 703,
+        "name": "Darwin Bull-ñez",
+        "realName": "Darwin Nuñez",
+        "nickname": "The Bull",
+        "height": "1.87m",
+        "weight": "81kg",
+        "position": "FWD",
+        "number": 9,
+        "country": "Uruguay",
+        "rarity": "rare",
+        "stats": {
+            "atk": 85,
+            "def": 39,
+            "hype": 75
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición RARE."
+    },
+    {
+        "id": 590,
+        "name": "Luis Gas-Díaz",
+        "realName": "Luis Díaz",
+        "nickname": "Fast Gas",
+        "height": "1.80m",
+        "weight": "73kg",
+        "position": "FWD",
+        "number": 7,
+        "country": "COL",
+        "rarity": "rare",
+        "stats": {
+            "atk": 87,
+            "def": 40,
+            "hype": 82
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición RARE."
+    },
+    {
+        "id": 780,
+        "name": "Christian Pump-lisic",
+        "realName": "Christian Pulisic",
+        "nickname": "Captain FOMO",
+        "height": "1.78m",
+        "weight": "73kg",
+        "position": "FWD",
+        "number": 10,
+        "country": "USA",
+        "rarity": "rare",
+        "stats": {
+            "atk": 98,
+            "def": 48,
+            "hype": 87
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición RARE."
+    },
+    {
+        "id": 287,
+        "name": "Santi Gainz",
+        "realName": "Santiago Gimenez",
+        "nickname": "The Profit",
+        "height": "1.82m",
+        "weight": "79kg",
+        "position": "FWD",
+        "number": 9,
+        "country": "México",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 93,
+            "def": 55,
+            "hype": 71
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 531,
+        "name": "Harry Chain",
+        "realName": "Harry Kane",
+        "nickname": "Goal Miner",
+        "height": "1.88m",
+        "weight": "86kg",
+        "position": "FWD",
+        "number": 9,
+        "country": "Inglaterra",
+        "rarity": "rare",
+        "stats": {
+            "atk": 93,
+            "def": 36,
+            "hype": 85
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición RARE."
+    },
+    {
+        "id": 27,
+        "name": "Nicolo Block-ella",
+        "realName": "Nicolo Barella",
+        "nickname": "The Engine",
+        "height": "1.75m",
+        "weight": "68kg",
+        "position": "MID",
+        "number": 23,
+        "country": "Italia",
+        "rarity": "epic",
+        "stats": {
+            "atk": 76,
+            "def": 79,
+            "hype": 74
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 117,
+        "name": "Virgil van Vault",
+        "realName": "Virgil van Dijk",
+        "nickname": "The Vault",
+        "height": "1.93m",
+        "weight": "92kg",
+        "position": "DEF",
+        "number": 4,
+        "country": "Países Bajos",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 49,
+            "def": 90,
+            "hype": 94
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 345,
+        "name": "Crypto Hero 26",
+        "realName": "Player 26",
+        "nickname": "Nick 26",
+        "height": "1.82m",
+        "weight": "87kg",
+        "position": "MID",
+        "number": 27,
+        "country": "Argentina",
+        "rarity": "common",
+        "stats": {
+            "atk": 76,
+            "def": 76,
+            "hype": 91
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición COMMON."
+    },
+    {
+        "id": 96,
+        "name": "Crypto Hero 27",
+        "realName": "Player 27",
+        "nickname": "Nick 27",
+        "height": "1.78m",
+        "weight": "77kg",
+        "position": "FWD",
+        "number": 28,
+        "country": "Brasil",
+        "rarity": "common",
+        "stats": {
+            "atk": 98,
+            "def": 50,
+            "hype": 87
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición COMMON."
+    },
+    {
+        "id": 684,
+        "name": "Crypto Hero 28",
+        "realName": "Player 28",
+        "nickname": "Nick 28",
+        "height": "1.71m",
+        "weight": "79kg",
+        "position": "GK",
+        "number": 29,
+        "country": "Francia",
+        "rarity": "common",
+        "stats": {
+            "atk": 15,
+            "def": 95,
+            "hype": 77
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición COMMON."
+    },
+    {
+        "id": 382,
+        "name": "Crypto Hero 29",
+        "realName": "Player 29",
+        "nickname": "Nick 29",
+        "height": "1.83m",
+        "weight": "70kg",
+        "position": "DEF",
+        "number": 30,
+        "country": "Inglaterra",
+        "rarity": "common",
+        "stats": {
+            "atk": 44,
+            "def": 93,
+            "hype": 97
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición COMMON."
+    },
+    {
+        "id": 447,
+        "name": "Crypto Hero 30",
+        "realName": "Player 30",
+        "nickname": "Nick 30",
+        "height": "1.73m",
+        "weight": "76kg",
+        "position": "MID",
+        "number": 31,
+        "country": "España",
+        "rarity": "common",
+        "stats": {
+            "atk": 79,
+            "def": 68,
+            "hype": 77
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición COMMON."
+    },
+    {
+        "id": 34,
+        "name": "Crypto Hero 31",
+        "realName": "Player 31",
+        "nickname": "Nick 31",
+        "height": "1.81m",
+        "weight": "77kg",
+        "position": "FWD",
+        "number": 32,
+        "country": "Alemania",
+        "rarity": "epic",
+        "stats": {
+            "atk": 88,
+            "def": 32,
+            "hype": 91
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 694,
+        "name": "Crypto Hero 32",
+        "realName": "Player 32",
+        "nickname": "Nick 32",
+        "height": "1.83m",
+        "weight": "66kg",
+        "position": "GK",
+        "number": 33,
+        "country": "Portugal",
+        "rarity": "epic",
+        "stats": {
+            "atk": 25,
+            "def": 94,
+            "hype": 72
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 596,
+        "name": "Crypto Hero 33",
+        "realName": "Player 33",
+        "nickname": "Nick 33",
+        "height": "1.73m",
+        "weight": "70kg",
+        "position": "DEF",
+        "number": 34,
+        "country": "Italia",
+        "rarity": "epic",
+        "stats": {
+            "atk": 40,
+            "def": 90,
+            "hype": 82
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 405,
+        "name": "Crypto Hero 34",
+        "realName": "Player 34",
+        "nickname": "Nick 34",
+        "height": "1.84m",
+        "weight": "81kg",
+        "position": "MID",
+        "number": 35,
+        "country": "Uruguay",
+        "rarity": "epic",
+        "stats": {
+            "atk": 77,
+            "def": 79,
+            "hype": 86
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 728,
+        "name": "Crypto Hero 35",
+        "realName": "Player 35",
+        "nickname": "Nick 35",
+        "height": "1.82m",
+        "weight": "90kg",
+        "position": "FWD",
+        "number": 36,
+        "country": "México",
+        "rarity": "epic",
+        "stats": {
+            "atk": 96,
+            "def": 48,
+            "hype": 75
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 374,
+        "name": "Crypto Hero 36",
+        "realName": "Player 36",
+        "nickname": "Nick 36",
+        "height": "1.89m",
+        "weight": "77kg",
+        "position": "GK",
+        "number": 37,
+        "country": "USA",
+        "rarity": "epic",
+        "stats": {
+            "atk": 20,
+            "def": 90,
+            "hype": 70
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 123,
+        "name": "Crypto Hero 37",
+        "realName": "Player 37",
+        "nickname": "Nick 37",
+        "height": "1.73m",
+        "weight": "73kg",
+        "position": "DEF",
+        "number": 38,
+        "country": "Bélgica",
+        "rarity": "epic",
+        "stats": {
+            "atk": 52,
+            "def": 97,
+            "hype": 92
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 996,
+        "name": "Crypto Hero 38",
+        "realName": "Player 38",
+        "nickname": "Nick 38",
+        "height": "1.83m",
+        "weight": "77kg",
+        "position": "MID",
+        "number": 39,
+        "country": "Países Bajos",
+        "rarity": "epic",
+        "stats": {
+            "atk": 77,
+            "def": 62,
+            "hype": 71
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 935,
+        "name": "Crypto Hero 39",
+        "realName": "Player 39",
+        "nickname": "Nick 39",
+        "height": "1.87m",
+        "weight": "78kg",
+        "position": "FWD",
+        "number": 40,
+        "country": "Argentina",
+        "rarity": "epic",
+        "stats": {
+            "atk": 88,
+            "def": 57,
+            "hype": 84
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 84,
+        "name": "Crypto Hero 40",
+        "realName": "Player 40",
+        "nickname": "Nick 40",
+        "height": "1.70m",
+        "weight": "75kg",
+        "position": "GK",
+        "number": 41,
+        "country": "Brasil",
+        "rarity": "epic",
+        "stats": {
+            "atk": 26,
+            "def": 92,
+            "hype": 90
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 57,
+        "name": "Crypto Hero 41",
+        "realName": "Player 41",
+        "nickname": "Nick 41",
+        "height": "1.72m",
+        "weight": "84kg",
+        "position": "DEF",
+        "number": 42,
+        "country": "Francia",
+        "rarity": "epic",
+        "stats": {
+            "atk": 59,
+            "def": 92,
+            "hype": 83
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 138,
+        "name": "Crypto Hero 42",
+        "realName": "Player 42",
+        "nickname": "Nick 42",
+        "height": "1.75m",
+        "weight": "74kg",
+        "position": "MID",
+        "number": 43,
+        "country": "Inglaterra",
+        "rarity": "epic",
+        "stats": {
+            "atk": 89,
+            "def": 74,
+            "hype": 90
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 1031,
+        "name": "Crypto Hero 43",
+        "realName": "Player 43",
+        "nickname": "Nick 43",
+        "height": "1.76m",
+        "weight": "87kg",
+        "position": "FWD",
+        "number": 44,
+        "country": "España",
+        "rarity": "epic",
+        "stats": {
+            "atk": 92,
+            "def": 43,
+            "hype": 92
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 264,
+        "name": "Crypto Hero 44",
+        "realName": "Player 44",
+        "nickname": "Nick 44",
+        "height": "1.90m",
+        "weight": "79kg",
+        "position": "GK",
+        "number": 45,
+        "country": "Alemania",
+        "rarity": "epic",
+        "stats": {
+            "atk": 11,
+            "def": 94,
+            "hype": 75
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 471,
+        "name": "Crypto Hero 45",
+        "realName": "Player 45",
+        "nickname": "Nick 45",
+        "height": "1.75m",
+        "weight": "88kg",
+        "position": "DEF",
+        "number": 46,
+        "country": "Portugal",
+        "rarity": "epic",
+        "stats": {
+            "atk": 55,
+            "def": 92,
+            "hype": 75
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 404,
+        "name": "Crypto Hero 46",
+        "realName": "Player 46",
+        "nickname": "Nick 46",
+        "height": "1.78m",
+        "weight": "79kg",
+        "position": "MID",
+        "number": 47,
+        "country": "Italia",
+        "rarity": "epic",
+        "stats": {
+            "atk": 89,
+            "def": 76,
+            "hype": 79
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 714,
+        "name": "Crypto Hero 47",
+        "realName": "Player 47",
+        "nickname": "Nick 47",
+        "height": "1.83m",
+        "weight": "86kg",
+        "position": "FWD",
+        "number": 48,
+        "country": "Uruguay",
+        "rarity": "epic",
+        "stats": {
+            "atk": 92,
+            "def": 57,
+            "hype": 76
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 948,
+        "name": "Crypto Hero 48",
+        "realName": "Player 48",
+        "nickname": "Nick 48",
+        "height": "1.89m",
+        "weight": "72kg",
+        "position": "GK",
+        "number": 49,
+        "country": "México",
+        "rarity": "epic",
+        "stats": {
+            "atk": 26,
+            "def": 98,
+            "hype": 83
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 910,
+        "name": "Crypto Hero 49",
+        "realName": "Player 49",
+        "nickname": "Nick 49",
+        "height": "1.70m",
+        "weight": "67kg",
+        "position": "DEF",
+        "number": 50,
+        "country": "USA",
+        "rarity": "epic",
+        "stats": {
+            "atk": 57,
+            "def": 86,
+            "hype": 94
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 811,
+        "name": "Crypto Hero 50",
+        "realName": "Player 50",
+        "nickname": "Nick 50",
+        "height": "1.80m",
+        "weight": "70kg",
+        "position": "MID",
+        "number": 51,
+        "country": "Bélgica",
+        "rarity": "epic",
+        "stats": {
+            "atk": 78,
+            "def": 64,
+            "hype": 80
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 528,
+        "name": "Crypto Hero 51",
+        "realName": "Player 51",
+        "nickname": "Nick 51",
+        "height": "1.75m",
+        "weight": "71kg",
+        "position": "FWD",
+        "number": 52,
+        "country": "Países Bajos",
+        "rarity": "epic",
+        "stats": {
+            "atk": 93,
+            "def": 48,
+            "hype": 79
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 179,
+        "name": "Crypto Hero 52",
+        "realName": "Player 52",
+        "nickname": "Nick 52",
+        "height": "1.94m",
+        "weight": "77kg",
+        "position": "GK",
+        "number": 53,
+        "country": "Argentina",
+        "rarity": "epic",
+        "stats": {
+            "atk": 27,
+            "def": 94,
+            "hype": 77
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 203,
+        "name": "Crypto Hero 53",
+        "realName": "Player 53",
+        "nickname": "Nick 53",
+        "height": "1.84m",
+        "weight": "66kg",
+        "position": "DEF",
+        "number": 54,
+        "country": "Brasil",
+        "rarity": "epic",
+        "stats": {
+            "atk": 56,
+            "def": 97,
+            "hype": 82
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 638,
+        "name": "Crypto Hero 54",
+        "realName": "Player 54",
+        "nickname": "Nick 54",
+        "height": "1.78m",
+        "weight": "87kg",
+        "position": "MID",
+        "number": 55,
+        "country": "Francia",
+        "rarity": "epic",
+        "stats": {
+            "atk": 85,
+            "def": 77,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 201,
+        "name": "Crypto Hero 55",
+        "realName": "Player 55",
+        "nickname": "Nick 55",
+        "height": "1.84m",
+        "weight": "78kg",
+        "position": "FWD",
+        "number": 56,
+        "country": "Inglaterra",
+        "rarity": "epic",
+        "stats": {
+            "atk": 90,
+            "def": 52,
+            "hype": 96
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 739,
+        "name": "Crypto Hero 56",
+        "realName": "Player 56",
+        "nickname": "Nick 56",
+        "height": "1.80m",
+        "weight": "81kg",
+        "position": "GK",
+        "number": 57,
+        "country": "España",
+        "rarity": "epic",
+        "stats": {
+            "atk": 22,
+            "def": 95,
+            "hype": 72
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 446,
+        "name": "Crypto Hero 57",
+        "realName": "Player 57",
+        "nickname": "Nick 57",
+        "height": "1.85m",
+        "weight": "74kg",
+        "position": "DEF",
+        "number": 58,
+        "country": "Alemania",
+        "rarity": "epic",
+        "stats": {
+            "atk": 56,
+            "def": 96,
+            "hype": 84
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 791,
+        "name": "Crypto Hero 58",
+        "realName": "Player 58",
+        "nickname": "Nick 58",
+        "height": "1.78m",
+        "weight": "88kg",
+        "position": "MID",
+        "number": 59,
+        "country": "Portugal",
+        "rarity": "epic",
+        "stats": {
+            "atk": 79,
+            "def": 68,
+            "hype": 84
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 668,
+        "name": "Crypto Hero 59",
+        "realName": "Player 59",
+        "nickname": "Nick 59",
+        "height": "1.89m",
+        "weight": "77kg",
+        "position": "FWD",
+        "number": 60,
+        "country": "Italia",
+        "rarity": "epic",
+        "stats": {
+            "atk": 93,
+            "def": 39,
+            "hype": 90
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 312,
+        "name": "Crypto Hero 60",
+        "realName": "Player 60",
+        "nickname": "Nick 60",
+        "height": "1.80m",
+        "weight": "80kg",
+        "position": "GK",
+        "number": 61,
+        "country": "Uruguay",
+        "rarity": "epic",
+        "stats": {
+            "atk": 26,
+            "def": 94,
+            "hype": 86
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición EPIC."
+    },
+    {
+        "id": 872,
+        "name": "Crypto Hero 61",
+        "realName": "Player 61",
+        "nickname": "Nick 61",
+        "height": "1.88m",
+        "weight": "83kg",
+        "position": "DEF",
+        "number": 62,
+        "country": "México",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 42,
+            "def": 96,
+            "hype": 95
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 232,
+        "name": "Crypto Hero 62",
+        "realName": "Player 62",
+        "nickname": "Nick 62",
+        "height": "1.79m",
+        "weight": "86kg",
+        "position": "MID",
+        "number": 63,
+        "country": "USA",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 78,
+            "def": 70,
+            "hype": 89
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 254,
+        "name": "Crypto Hero 63",
+        "realName": "Player 63",
+        "nickname": "Nick 63",
+        "height": "1.76m",
+        "weight": "66kg",
+        "position": "FWD",
+        "number": 64,
+        "country": "Bélgica",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 91,
+            "def": 42,
+            "hype": 73
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 720,
+        "name": "Crypto Hero 64",
+        "realName": "Player 64",
+        "nickname": "Nick 64",
+        "height": "1.91m",
+        "weight": "74kg",
+        "position": "GK",
+        "number": 65,
+        "country": "Países Bajos",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 12,
+            "def": 98,
+            "hype": 84
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 991,
+        "name": "Crypto Hero 65",
+        "realName": "Player 65",
+        "nickname": "Nick 65",
+        "height": "1.91m",
+        "weight": "83kg",
+        "position": "DEF",
+        "number": 66,
+        "country": "Argentina",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 42,
+            "def": 92,
+            "hype": 77
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 688,
+        "name": "Crypto Hero 66",
+        "realName": "Player 66",
+        "nickname": "Nick 66",
+        "height": "1.85m",
+        "weight": "75kg",
+        "position": "MID",
+        "number": 67,
+        "country": "Brasil",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 87,
+            "def": 74,
+            "hype": 82
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 346,
+        "name": "Crypto Hero 67",
+        "realName": "Player 67",
+        "nickname": "Nick 67",
+        "height": "1.76m",
+        "weight": "74kg",
+        "position": "FWD",
+        "number": 68,
+        "country": "Francia",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 94,
+            "def": 58,
+            "hype": 78
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 562,
+        "name": "Crypto Hero 68",
+        "realName": "Player 68",
+        "nickname": "Nick 68",
+        "height": "1.93m",
+        "weight": "84kg",
+        "position": "GK",
+        "number": 69,
+        "country": "Inglaterra",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 17,
+            "def": 91,
+            "hype": 75
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 333,
+        "name": "Crypto Hero 69",
+        "realName": "Player 69",
+        "nickname": "Nick 69",
+        "height": "1.74m",
+        "weight": "87kg",
+        "position": "DEF",
+        "number": 70,
+        "country": "España",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 58,
+            "def": 88,
+            "hype": 75
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 665,
+        "name": "Crypto Hero 70",
+        "realName": "Player 70",
+        "nickname": "Nick 70",
+        "height": "1.71m",
+        "weight": "67kg",
+        "position": "MID",
+        "number": 71,
+        "country": "Alemania",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 78,
+            "def": 61,
+            "hype": 82
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 782,
+        "name": "Crypto Hero 71",
+        "realName": "Player 71",
+        "nickname": "Nick 71",
+        "height": "1.82m",
+        "weight": "77kg",
+        "position": "FWD",
+        "number": 72,
+        "country": "Portugal",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 92,
+            "def": 46,
+            "hype": 92
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 452,
+        "name": "Crypto Hero 72",
+        "realName": "Player 72",
+        "nickname": "Nick 72",
+        "height": "1.77m",
+        "weight": "77kg",
+        "position": "GK",
+        "number": 73,
+        "country": "Italia",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 27,
+            "def": 90,
+            "hype": 71
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 136,
+        "name": "Crypto Hero 73",
+        "realName": "Player 73",
+        "nickname": "Nick 73",
+        "height": "1.94m",
+        "weight": "79kg",
+        "position": "DEF",
+        "number": 74,
+        "country": "Uruguay",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 47,
+            "def": 96,
+            "hype": 74
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 764,
+        "name": "Crypto Hero 74",
+        "realName": "Player 74",
+        "nickname": "Nick 74",
+        "height": "1.88m",
+        "weight": "67kg",
+        "position": "MID",
+        "number": 75,
+        "country": "México",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 80,
+            "def": 71,
+            "hype": 80
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 142,
+        "name": "Crypto Hero 75",
+        "realName": "Player 75",
+        "nickname": "Nick 75",
+        "height": "1.94m",
+        "weight": "70kg",
+        "position": "FWD",
+        "number": 76,
+        "country": "USA",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 86,
+            "def": 42,
+            "hype": 83
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 205,
+        "name": "Crypto Hero 76",
+        "realName": "Player 76",
+        "nickname": "Nick 76",
+        "height": "1.92m",
+        "weight": "72kg",
+        "position": "GK",
+        "number": 77,
+        "country": "Bélgica",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 26,
+            "def": 93,
+            "hype": 86
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 972,
+        "name": "Crypto Hero 77",
+        "realName": "Player 77",
+        "nickname": "Nick 77",
+        "height": "1.95m",
+        "weight": "70kg",
+        "position": "DEF",
+        "number": 78,
+        "country": "Países Bajos",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 50,
+            "def": 88,
+            "hype": 95
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 263,
+        "name": "Crypto Hero 78",
+        "realName": "Player 78",
+        "nickname": "Nick 78",
+        "height": "1.82m",
+        "weight": "88kg",
+        "position": "MID",
+        "number": 79,
+        "country": "Argentina",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 83,
+            "def": 65,
+            "hype": 75
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 291,
+        "name": "Crypto Hero 79",
+        "realName": "Player 79",
+        "nickname": "Nick 79",
+        "height": "1.83m",
+        "weight": "85kg",
+        "position": "FWD",
+        "number": 80,
+        "country": "Brasil",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 85,
+            "def": 33,
+            "hype": 71
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 489,
+        "name": "Crypto Hero 80",
+        "realName": "Player 80",
+        "nickname": "Nick 80",
+        "height": "1.78m",
+        "weight": "69kg",
+        "position": "GK",
+        "number": 81,
+        "country": "Francia",
+        "rarity": "legendary",
+        "stats": {
+            "atk": 23,
+            "def": 97,
+            "hype": 94
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición LEGENDARY."
+    },
+    {
+        "id": 487,
+        "name": "Crypto Hero 81",
+        "realName": "Player 81",
+        "nickname": "Nick 81",
+        "height": "1.77m",
+        "weight": "81kg",
+        "position": "DEF",
+        "number": 82,
+        "country": "Inglaterra",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 90,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 510,
+        "name": "Crypto Hero 82",
+        "realName": "Player 82",
+        "nickname": "Nick 82",
+        "height": "1.78m",
+        "weight": "74kg",
+        "position": "MID",
+        "number": 83,
+        "country": "España",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 63,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 782,
+        "name": "Crypto Hero 83",
+        "realName": "Player 83",
+        "nickname": "Nick 83",
+        "height": "1.73m",
+        "weight": "89kg",
+        "position": "FWD",
+        "number": 84,
+        "country": "Alemania",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 38,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 109,
+        "name": "Crypto Hero 84",
+        "realName": "Player 84",
+        "nickname": "Nick 84",
+        "height": "1.79m",
+        "weight": "68kg",
+        "position": "GK",
+        "number": 85,
+        "country": "Portugal",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 96,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 403,
+        "name": "Crypto Hero 85",
+        "realName": "Player 85",
+        "nickname": "Nick 85",
+        "height": "1.75m",
+        "weight": "70kg",
+        "position": "DEF",
+        "number": 86,
+        "country": "Italia",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 95,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 885,
+        "name": "Crypto Hero 86",
+        "realName": "Player 86",
+        "nickname": "Nick 86",
+        "height": "1.90m",
+        "weight": "74kg",
+        "position": "MID",
+        "number": 87,
+        "country": "Uruguay",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 62,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 739,
+        "name": "Crypto Hero 87",
+        "realName": "Player 87",
+        "nickname": "Nick 87",
+        "height": "1.72m",
+        "weight": "85kg",
+        "position": "FWD",
+        "number": 88,
+        "country": "México",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 48,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 313,
+        "name": "Crypto Hero 88",
+        "realName": "Player 88",
+        "nickname": "Nick 88",
+        "height": "1.82m",
+        "weight": "81kg",
+        "position": "GK",
+        "number": 89,
+        "country": "USA",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 92,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 295,
+        "name": "Crypto Hero 89",
+        "realName": "Player 89",
+        "nickname": "Nick 89",
+        "height": "1.93m",
+        "weight": "83kg",
+        "position": "DEF",
+        "number": 90,
+        "country": "Bélgica",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 86,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 776,
+        "name": "Crypto Hero 90",
+        "realName": "Player 90",
+        "nickname": "Nick 90",
+        "height": "1.71m",
+        "weight": "77kg",
+        "position": "MID",
+        "number": 91,
+        "country": "Países Bajos",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 78,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 864,
+        "name": "Crypto Hero 91",
+        "realName": "Player 91",
+        "nickname": "Nick 91",
+        "height": "1.73m",
+        "weight": "68kg",
+        "position": "FWD",
+        "number": 92,
+        "country": "Argentina",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 52,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 200,
+        "name": "Crypto Hero 92",
+        "realName": "Player 92",
+        "nickname": "Nick 92",
+        "height": "1.93m",
+        "weight": "89kg",
+        "position": "GK",
+        "number": 93,
+        "country": "Brasil",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 96,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 454,
+        "name": "Crypto Hero 93",
+        "realName": "Player 93",
+        "nickname": "Nick 93",
+        "height": "1.72m",
+        "weight": "65kg",
+        "position": "DEF",
+        "number": 94,
+        "country": "Francia",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 87,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 661,
+        "name": "Crypto Hero 94",
+        "realName": "Player 94",
+        "nickname": "Nick 94",
+        "height": "1.76m",
+        "weight": "86kg",
+        "position": "MID",
+        "number": 95,
+        "country": "Inglaterra",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 77,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 907,
+        "name": "Crypto Hero 95",
+        "realName": "Player 95",
+        "nickname": "Nick 95",
+        "height": "1.94m",
+        "weight": "71kg",
+        "position": "FWD",
+        "number": 96,
+        "country": "España",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 34,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 491,
+        "name": "Crypto Hero 96",
+        "realName": "Player 96",
+        "nickname": "Nick 96",
+        "height": "1.93m",
+        "weight": "75kg",
+        "position": "GK",
+        "number": 97,
+        "country": "Alemania",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 98,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 186,
+        "name": "Crypto Hero 97",
+        "realName": "Player 97",
+        "nickname": "Nick 97",
+        "height": "1.88m",
+        "weight": "68kg",
+        "position": "DEF",
+        "number": 98,
+        "country": "Portugal",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 93,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 620,
+        "name": "Crypto Hero 98",
+        "realName": "Player 98",
+        "nickname": "Nick 98",
+        "height": "1.78m",
+        "weight": "85kg",
+        "position": "MID",
+        "number": 99,
+        "country": "Italia",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 63,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 687,
+        "name": "Crypto Hero 99",
+        "realName": "Player 99",
+        "nickname": "Nick 99",
+        "height": "1.74m",
+        "weight": "80kg",
+        "position": "FWD",
+        "number": 1,
+        "country": "Uruguay",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 47,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    },
+    {
+        "id": 589,
+        "name": "Crypto Hero 100",
+        "realName": "Player 100",
+        "nickname": "Nick 100",
+        "height": "1.85m",
+        "weight": "69kg",
+        "position": "GK",
+        "number": 2,
+        "country": "México",
+        "rarity": "mythic",
+        "stats": {
+            "atk": 99,
+            "def": 93,
+            "hype": 98
+        },
+        "details": "Cromo especial para el Mundial 2026. Edición MYTHIC."
+    }
 ]

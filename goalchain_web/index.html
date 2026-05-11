@@ -152,36 +152,9 @@
             
             <div class="nft-slider-container">
                 <div class="nft-track">
-                    <!-- Cards are styled via data-rarity following NFT_STYLE_GUIDE.md -->
-                    <div class="nft-card-3d" data-rarity="mythic">
-                        <img src="assets/images/nfts/001_lionel_bitcoin.png" alt="Lionel Bitcoin">
-                    </div>
-                    <div class="nft-card-3d" data-rarity="legendary">
-                        <img src="assets/images/nfts/002_cristiano_holdaldo.png" alt="Cristiano Holdaldo">
-                    </div>
-                    <div class="nft-card-3d" data-rarity="epic">
-                        <img src="assets/images/nfts/003_kylian_mbagpe.png" alt="Kylian M-Bag-pe">
-                    </div>
-                    <div class="nft-card-3d" data-rarity="epic">
-                        <img src="assets/images/nfts/004_erling_hashland.png" alt="Erling Hash-land">
-                    </div>
-                    <div class="nft-card-3d" data-rarity="legendary">
-                        <img src="assets/images/nfts/005_jude_whaleingham.png" alt="Jude Whale-ingham">
-                    </div>
-                    <div class="nft-card-3d" data-rarity="epic">
-                        <img src="assets/images/nfts/006_vini_burner.png" alt="Vini Burner Jr">
-                    </div>
-                    <div class="nft-card-3d" data-rarity="legendary">
-                        <img src="assets/images/nfts/007_lamine_yahype.png" alt="Lamine Ya-Hype">
-                    </div>
-                    <div class="nft-card-3d" data-rarity="epic">
-                        <img src="assets/images/nfts/008_kevin_debyte.png" alt="Kevin De Byte">
-                    </div>
-                    <div class="nft-card-3d" data-rarity="rare">
-                        <img src="assets/images/nfts/009_harry_chain.png" alt="Harry Chain">
-                    </div>
-                    <div class="nft-card-3d" data-rarity="legendary">
-                        <img src="assets/images/nfts/010_santi_gainz.png" alt="Santi Gainz">
+                    <!-- Dinámicamente cargado por assets/js/nft_registry.js -->
+                    <div class="loading-state" style="color: var(--text-dim); text-align: center; width: 100%;">
+                        <p>Iniciando Sincronización con la Blockchain...</p>
                     </div>
                 </div>
             </div>
@@ -266,5 +239,6 @@
     <script src="assets/js/penalty_game.js"></script>
     <script src="assets/js/solana_integration.js"></script>
     <script src="assets/js/contract_data.js"></script>
+    <script src="assets/js/nft_registry.js"></script>
 </body>
 </html>
