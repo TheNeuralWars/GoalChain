@@ -855,6 +855,86 @@ body {
 }
 
 /* Re-aplicar rarezas al card-inner */
-.nft-card-3d[data-rarity="mythic"] .card-front { border-color: #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
-.nft-card-3d[data-rarity="legendary"] .card-front { border-color: #e5e4e2; box-shadow: 0 0 20px rgba(153, 69, 255, 0.3); }
-.nft-card-3d[data-rarity="epic"] .card-front { border-color: #9945ff; }
+/* --- FAVORITES & PRICING UI --- */
+
+.nft-filters-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.fav-toggle-btn {
+    background: var(--glass-strong);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+}
+
+.fav-toggle-btn.active {
+    background: #ff4d6a;
+    color: #fff;
+    border-color: #ff4d6a;
+}
+
+.favorite-heart {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 20;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+    background: rgba(0,0,0,0.5);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+}
+
+.favorite-heart:hover { transform: scale(1.2); color: #ff4d6a; }
+.favorite-heart.is-fav { color: #ff4d6a; }
+
+.price-tag {
+    margin-top: auto;
+    background: var(--primary-dim);
+    padding: 0.8rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--primary-dim);
+}
+
+.price-label { font-size: 0.6rem; color: var(--primary); font-weight: 700; }
+.price-value { font-weight: 900; color: #fff; font-size: 1rem; }
+
+.btn-buy {
+    margin-top: 10px;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    background: var(--primary);
+    color: #000;
+    transition: all 0.3s;
+}
+
+.btn-buy:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(20,241,149,0.4); }
+.btn-buy:disabled { background: var(--glass-strong); color: var(--text-dim); cursor: not-allowed; }
