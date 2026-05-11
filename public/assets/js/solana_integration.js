@@ -35,7 +35,31 @@ function updateWalletUI() {
             emailInput.disabled = true;
             emailInput.value = userWalletAddress;
         }
+
+        // Mostrar sección de recompensas
+        const rewardsSection = document.getElementById('rewards');
+        if (rewardsSection) {
+            rewardsSection.style.display = 'block';
+            
+            // Generar Link de Referidos
+            const refLink = `${window.location.origin}/?ref=${userWalletAddress}`;
+            document.getElementById('referral-link-display').innerText = refLink;
+            
+            // Actualizar link de X (Twitter)
+            const shareBtn = document.getElementById('share-x-task');
+            if (shareBtn) {
+                const tweetText = encodeURIComponent(`¡Acabo de unirme a la Whitelist de GoalChain! ⚽🚀 Jugando para ganar en @Solana. Únete aquí: ${refLink} #GoalChain #Solana`);
+                shareBtn.href = `https://twitter.com/intent/tweet?text=${tweetText}`;
+            }
+        }
     }
+}
+
+function copyReferralLink() {
+    const link = document.getElementById('referral-link-display').innerText;
+    navigator.clipboard.writeText(link).then(() => {
+        alert("¡Enlace de referidos copiado al portapapeles! 🚀");
+    });
 }
 
 // Escuchar si el usuario cambia de cuenta en Phantom

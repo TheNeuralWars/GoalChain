@@ -129,6 +129,38 @@
         </div>
     </section>
 
+    <section id="rewards" style="padding: 100px 2rem; background: linear-gradient(135deg, rgba(20, 241, 149, 0.1), rgba(153, 69, 255, 0.1)); text-align: center; display: none;">
+        <div class="glass-card" style="max-width: 800px; margin: 0 auto; border: 2px solid var(--primary);">
+            <h2 style="margin-bottom: 0.5rem;">💎 Tus GoalPoints</h2>
+            <p style="color: var(--text-dim); margin-bottom: 2rem;">Acumula puntos para asegurar tu lugar en el Airdrop de $GCH</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 12px;">
+                    <div style="font-size: 0.8rem; color: var(--primary);">PUNTOS TOTALES</div>
+                    <div id="total-points" style="font-size: 2rem; font-weight: 900;">100</div>
+                </div>
+                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 12px;">
+                    <div style="font-size: 0.8rem; color: var(--secondary);">REFERIDOS</div>
+                    <div id="referral-count" style="font-size: 2rem; font-weight: 900;">0</div>
+                </div>
+            </div>
+
+            <div style="text-align: left; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                <h4 style="margin-bottom: 1rem;">Misiones Disponibles:</h4>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border);">
+                    <span>🐦 Compartir en X (Twitter)</span>
+                    <a href="https://twitter.com/intent/tweet?text=¡Acabo de unirme a la Whitelist de GoalChain! ⚽🚀 Jugando para ganar en @Solana. Únete aquí: " id="share-x-task" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem; background: #fff; color: #000;">+200 PTS</a>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+                    <span>🤝 Invitar Amigos</span>
+                    <button onclick="copyReferralLink()" class="btn" style="padding: 5px 15px; font-size: 0.7rem; background: var(--primary); color: #000;">COPIAR LINK</button>
+                </div>
+            </div>
+            
+            <p style="font-size: 0.8rem; color: var(--text-dim);">Tu enlace único: <br><span id="referral-link-display" style="color: var(--primary); word-break: break-all;">Conecta tu wallet para generar...</span></p>
+        </div>
+    </section>
+
     <footer style="padding: 4rem 2rem; text-align: center; border-top: 1px solid var(--border);">
         <p>&copy; 2026 GoalChain. Desarrollado para el ecosistema Solana.</p>
         <div style="margin-top: 1rem;">
