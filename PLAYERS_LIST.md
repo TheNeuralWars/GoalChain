@@ -1,32 +1,24 @@
-# 📋 GoalChain 2026: Official World Cup Registry (500 Players)
+# 🏆 GoalChain 2026: The Ultimate World Cup Catalog (1,248 Players)
 
-Este catálogo representa la expansión de la colección hacia el Mundial 2026, cubriendo las 48 selecciones.
+¡Misión cumplida! El álbum está completo. Hemos catalogado a cada uno de los integrantes de las 48 selecciones que competirán en el Mundial 2026.
 
-## 📊 Resumen de la Colección
-- **Total Jugadores:** 500
-- **Naciones Representadas:** 48
-- **Rarezas Mythic:** 13 (Capitanes e Ídolos Globales)
-- **Rarezas Legendary:** 26
-- **Rarezas Epic:** 102
-- **Rarezas Rare/Common:** 359
+## 📊 Estadísticas Globales
+- **Total de Cromos:** 1,248
+- **Selecciones:** 48 (Convocatorias de 26 jugadores)
+- **Rarezas Mythic:** 1 (Lionel Bitcoin)
+- **Rarezas Legendary:** 47 (Capitanes de cada nación)
+- **Rarezas Epic:** ~150
+- **Rarezas Rare/Common:** ~1,050
 
-## 🌎 Top 10 Naciones (Catalogadas)
+## 📂 Organización de los Datos
+Toda la información reside en `goalchain_web/assets/data/players.json`. La web cargará estos datos dinámicamente. 
 
-| País | Estrellas Principales | Rarity |
-|---|---|---|
-| **Argentina** | Lionel Bitcoin, Dibu Block, Julian Alva-Swap | Mythic / Legend |
-| **Brasil** | Vini Burner Jr, Endrick Chain, Neymar HODL | Legend / Epic |
-| **Francia** | Kylian M-Bag-pé, Antoine G-Staking | Legend / Epic |
-| **Inglaterra** | Jude Whale-ingham, Harry Chain | Legend / Rare |
-| **España** | Lamine Ya-Hype, Pedri P2P, Rodri Node | Legend / Epic |
-| **Alemania** | Jamal Moon-siala, Florian Web3-irtz | Legend / Epic |
-| **México** | Santi Gainz, Memo Wall, Chucky Flip | Legend / Rare |
-| **Marruecos** | Hakimi Hype, Bono Block | Epic / Legend |
-| **Japón** | Mitoma Moon, Kubo Krypto | Epic / Epic |
-| **USA** | Pulisic Pump, Reyna Rare | Rare / Rare |
+### Detalles por Jugador:
+Cada registro incluye:
+- **Biometría:** Altura y Peso real/estilizado.
+- **Identidad:** Nombre de Parodia, Nombre Real y Apodo Crypto.
+- **Técnica:** Posición (GK, DEF, MID, FWD) y Número oficial.
+- **Stats GoalChain:** Ataque, Defensa y Hype (Nivel de mercado).
 
-## 📂 Acceso a Datos
-Toda la información técnica (Altura, Peso, Stats, Número) se encuentra en:
-`goalchain_web/assets/data/players.json`
-
-Este archivo es consumido dinámicamente por la web para renderizar los cromos en tiempo real.
+## 🚀 Próximos Pasos Visuales
+Dado que tenemos más de 1.200 jugadores, el sistema de carga dinámica permitirá que el usuario navegue por toda la colección sin tiempos de espera largos. La galería 3D ahora es un universo masivo.
