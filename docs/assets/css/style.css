@@ -901,7 +901,107 @@ body {
 .clause-item::before { content: "✓"; }
 
 /* Re-aplicar rarezas al card-inner */
-/* --- FAVORITES & PRICING UI --- */
+/* --- PACK OPENING ANIMATIONS --- */
+
+.pack-container {
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.pack-sealed {
+    width: 220px;
+    height: 320px;
+    background: linear-gradient(135deg, #111 0%, #000 100%);
+    border: 3px solid var(--border);
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.pack-sealed::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, var(--primary), transparent, var(--secondary), transparent);
+    animation: rotateGlow 4s linear infinite;
+    opacity: 0.3;
+}
+
+.pack-logo-inner {
+    width: 80px;
+    z-index: 2;
+    filter: drop-shadow(0 0 10px var(--primary));
+}
+
+.pack-sealed.shaking {
+    animation: packShake 0.1s infinite;
+}
+
+.pack-sealed.burst {
+    transform: scale(1.5);
+    opacity: 0;
+}
+
+@keyframes packShake {
+    0% { transform: rotate(0deg) translate(0); }
+    25% { transform: rotate(2deg) translate(2px); }
+    75% { transform: rotate(-2deg) translate(-2px); }
+    100% { transform: rotate(0deg) translate(0); }
+}
+
+@keyframes rotateGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Modal Reveal */
+.reveal-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(20px);
+}
+
+.reveal-modal.active {
+    display: flex;
+}
+
+.reveal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: zoomIn 0.5s forwards;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.pack-odds {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    margin-top: 1rem;
+}
 
 .nft-filters-row {
     display: flex;

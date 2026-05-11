@@ -141,6 +141,37 @@
         <p class="section-subtitle reveal" data-i18n="rm_sub">Nuestro plan de desarrollo con hitos reales y tiempos concretos.</p>
         <div class="roadmap-timeline" id="roadmapTimeline"></div>
     </section>
+    <!-- PACK OPENING SECTION -->
+    <section id="mint" class="reveal" style="background: radial-gradient(circle at center, #1a1a2e 0%, #0d0d15 100%); padding: 60px 0;">
+        <div class="container" style="text-align: center;">
+            <div class="section-header">
+                <span class="hero-badge">MARKETPLACE</span>
+                <h2 class="section-title">Abre tus Sobres Genesis</h2>
+                <p class="section-subtitle">Prueba tu suerte y consigue a los capitanes del Mundial 2026.</p>
+            </div>
+
+            <div class="pack-container">
+                <div id="mysteryPack" class="pack-sealed">
+                    <img src="assets/images/logo.svg" alt="Pack Logo" class="pack-logo-inner" onerror="this.src='https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/images/logo.svg'">
+                    <div class="pack-glow"></div>
+                </div>
+                
+                <div class="pack-controls">
+                    <button id="openPackBtn" class="btn btn-primary btn-glow" style="padding: 15px 40px; font-size: 1.1rem;">ABRIR SOBRE (100 $GCH)</button>
+                    <p class="pack-odds" style="margin-top: 15px; color: var(--text-dim); font-size: 0.8rem;">Probabilidad Mythic: 0.1% | Legendary: 0.9% | Epic: 9%</p>
+                </div>
+            </div>
+
+            <!-- Modal de Revelación -->
+            <div id="revealModal" class="reveal-modal">
+                <div class="reveal-content">
+                    <div id="revealedCardContainer"></div>
+                    <button id="closeRevealBtn" class="btn btn-secondary" style="margin-top: 2rem; display: none;">GUARDAR EN COLECCIÓN</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- NFT GALLERY (Genesis Squad) -->
     <section id="nfts" class="reveal">
         <div class="container">
@@ -259,5 +290,6 @@
     <script src="assets/js/solana_integration.js"></script>
     <script src="assets/js/contract_data.js"></script>
     <script src="assets/js/nft_registry.js"></script>
+    <script src="assets/js/pack_opener.js"></script>
 </body>
 </html>
