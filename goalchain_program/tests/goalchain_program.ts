@@ -112,13 +112,7 @@ describe("goalchain_program", () => {
 
     // ===== SPL mint + ATAs for fixtures tests =====
     console.log("[tests] create SPL mint for fixtures (test token)...");
-    betMint = await createMint(
-      provider.connection,
-      payer,
-      provider.wallet.publicKey,
-      null,
-      6
-    );
+    betMint = await createMint(provider.connection, payer, provider.wallet.publicKey, null, 6);
 
     const treasury = await getOrCreateAssociatedTokenAccount(
       provider.connection,
@@ -128,20 +122,10 @@ describe("goalchain_program", () => {
     );
     treasuryAta = treasury.address;
 
-    const u1 = await getOrCreateAssociatedTokenAccount(
-      provider.connection,
-      payer,
-      betMint,
-      user1.publicKey
-    );
+    const u1 = await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, user1.publicKey);
     user1Ata = u1.address;
 
-    const u2 = await getOrCreateAssociatedTokenAccount(
-      provider.connection,
-      payer,
-      betMint,
-      user2.publicKey
-    );
+    const u2 = await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, user2.publicKey);
     user2Ata = u2.address;
 
     // Fund users with test tokens
@@ -149,27 +133,38 @@ describe("goalchain_program", () => {
     await mintTo(provider.connection, payer, betMint, user1Ata, payer, 1_000_000_000);
     await mintTo(provider.connection, payer, betMint, user2Ata, payer, 1_000_000_000);
 
-    // ===== init GlobalConfig with real treasury ATA =====
-    console.log("[tests] init GlobalConfig...");
-    await program.methods
-      .initializeConfig(
-        oracleAuthority.publicKey,
-        treasuryAta,
-        1_000, // 10%
-        new anchor.BN(15 * 60)
-      )
-      .accounts({
-        admin: admin.publicKey,
-        config: configPda,
-        systemProgram: SystemProgram.programId,
-      } as any)
-      .signers([admin])
-      .rpc();
+    // ===== init/update GlobalConfig with real treasury ATA =====
+    console.log("[tests] init/update GlobalConfig...");
+    const cfgInfo = await provider.connection.getAccountInfo(configPda, "confirmed");
+    if (!cfgInfo) {
+      await program.methods
+        .initializeConfig(oracleAuthority.publicKey, treasuryAta, 1_000, new anchor.BN(15 * 60))
+        .accounts({
+          admin: admin.publicKey,
+          config: configPda,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([admin])
+        .rpc();
+    } else {
+      await program.methods
+        .updateConfig(oracleAuthority.publicKey, treasuryAta, 1_000, new anchor.BN(15 * 60))
+        .accounts({
+          admin: admin.publicKey,
+          config: configPda,
+        } as any)
+        .signers([admin])
+        .rpc();
+    }
 
-    ;[fixturePda] = PublicKey.findProgramAddressSync(
-      [Buffer.from("fixture"), Buffer.from(matchId)],
+    ;[fixturePda] = PublicKey.findProgramAddressSync([Buffer.from("fixture"), Buffer.from(matchId)], program.programId);
+
+    // Derive vault PDA now (needed for place_bet init_if_needed)
+    const [vaultPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("fixture_vault"), fixturePda.toBuffer()],
       program.programId
     );
+    fixtureVault = vaultPda;
 
     console.log("[tests] before(): done");
   });
@@ -227,12 +222,7 @@ describe("goalchain_program", () => {
 
     // 3.1 Initialize fixture (oracle-only)
     await program.methods
-      .initializeFixture(
-        matchId,
-        "TEAM_A",
-        "TEAM_B",
-        startTime
-      )
+      .initializeFixture(matchId, "TEAM_A", "TEAM_B", startTime)
       .accounts({
         oracleAuthority: oracleAuthority.publicKey,
         config: configPda,
@@ -242,16 +232,7 @@ describe("goalchain_program", () => {
       .signers([oracleAuthority])
       .rpc();
 
-    // Fixture vault is a PDA token account: seeds ["fixture_vault", fixture]
-    const [vaultPda] = PublicKey.findProgramAddressSync(
-      [Buffer.from("fixture_vault"), fixturePda.toBuffer()],
-      program.programId
-    );
-    fixtureVault = vaultPda;
-
-    // Ensure vault token account exists and has correct mint
-    const vaultAcc = await getAccount(provider.connection, fixtureVault);
-    assert.equal(vaultAcc.mint.toBase58(), betMint.toBase58());
+    // Now vault must exist (either via place_bet init_if_needed or already created). Force-create by placing bet first.
 
     // 3.2 Place bets: user1 on TeamA, user2 on TeamB
     const bet1Amount = new anchor.BN(200_000_000); // 200
@@ -297,6 +278,10 @@ describe("goalchain_program", () => {
       } as any)
       .signers([user2])
       .rpc();
+
+    // Ensure vault token account exists and has correct mint
+    const vaultAcc = await getAccount(provider.connection, fixtureVault);
+    assert.equal(vaultAcc.mint.toBase58(), betMint.toBase58());
 
     // 3.3 Resolve fixture: Completed, winner TeamB
     await program.methods
@@ -366,7 +351,7 @@ describe("goalchain_program", () => {
     const expectedFee = 50_000_000;
     assert.equal(treasuryAfter - treasuryBefore, expectedFee);
 
-    // u2 payout = pool(500) - fee(50) = 450 (y u2 ya pagó 300 al apostar, así que neto: +150)
+    // u2 payout = pool(500) - fee(50) = 450
     const expectedPayout = 450_000_000;
     assert.equal(u2After - u2Before, expectedPayout);
 

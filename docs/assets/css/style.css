@@ -708,3 +708,58 @@ body {
 }
 
 .nft-card-3d:hover::after { opacity: 1; }
+
+/* Overlay de información del jugador */
+.nft-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nft-card-3d:hover .nft-overlay {
+    opacity: 1;
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.player-num {
+    background: var(--primary);
+    color: #000;
+    font-weight: 900;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.player-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.player-stats-mini {
+    display: flex;
+    gap: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-dim);
+}
+
+.player-stats-mini span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
