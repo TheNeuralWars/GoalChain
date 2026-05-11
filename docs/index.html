@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GoalChain | The Future of Football on Solana</title>
+    <meta name="description" content="GoalChain: Play-to-Earn football on Solana. Bet on FIFA World Cup 2026 fixtures, play penalty shootouts, and earn $GCH tokens.">
+    <meta name="theme-color" content="#06060a">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+</head>
+<body>
+    <div class="vibrancy"></div>
+
+    <!-- NAV -->
+    <nav class="main-nav" id="mainNav">
+        <div class="logo" onclick="location.href='#'">GOAL<span>CHAIN</span></div>
+        <div class="nav-links-desktop">
+            <a href="#pitch" data-i18n="nav_about">Sobre</a>
+            <a href="#gameplay" data-i18n="nav_game">Mini-Juego</a>
+            <a href="#fixture" data-i18n="nav_fixture">Fixture</a>
+            <a href="#roadmap" data-i18n="nav_roadmap">Roadmap</a>
+            <a href="#social" data-i18n="nav_social">Social</a>
+        </div>
+        <div class="nav-right">
+            <div class="lang-toggle">
+                <button id="langEs" class="active" onclick="setLang('es')">ES</button>
+                <button id="langEn" onclick="setLang('en')">EN</button>
+            </div>
+            <a href="#" class="btn btn-primary btn-sm btn-wallet" data-i18n="nav_wallet">Conectar Wallet</a>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#pitch" data-i18n="nav_about" onclick="closeMobile()">Sobre</a>
+        <a href="#gameplay" data-i18n="nav_game" onclick="closeMobile()">Mini-Juego</a>
+        <a href="#fixture" data-i18n="nav_fixture" onclick="closeMobile()">Fixture</a>
+        <a href="#roadmap" data-i18n="nav_roadmap" onclick="closeMobile()">Roadmap</a>
+        <a href="#social" data-i18n="nav_social" onclick="closeMobile()">Social</a>
+        <a href="#" class="btn btn-primary btn-wallet" data-i18n="nav_wallet" onclick="closeMobile()">Conectar Wallet</a>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-badge">⚽ <span data-i18n="hero_badge">FIFA WORLD CUP 2026 — PRÓXIMAMENTE</span></div>
+        <h1 data-i18n-html="hero_title">Domina el Campo.<br>Gana en Solana.</h1>
+        <p data-i18n="hero_sub">GoalChain es la primera plataforma de fútbol Play-to-Earn en Solana. Apuesta en vivo en el Mundial 2026, juega mini-juegos de penaltis y gana tokens $GCH.</p>
+        <div id="countdown" class="countdown-container">
+            <div class="time-unit"><span id="days">00</span><p data-i18n="cd_days">DÍAS</p></div>
+            <div class="time-unit"><span id="hours">00</span><p data-i18n="cd_hours">HORAS</p></div>
+            <div class="time-unit"><span id="minutes">00</span><p data-i18n="cd_min">MIN</p></div>
+            <div class="time-unit"><span id="seconds">00</span><p data-i18n="cd_sec">SEG</p></div>
+        </div>
+        <div class="hero-btns">
+            <a href="#" class="btn btn-primary btn-glow btn-wallet" data-i18n="nav_wallet">Conectar Wallet</a>
+            <a href="#gameplay" class="btn btn-secondary" data-i18n="hero_play">Jugar Ahora</a>
+        </div>
+    </header>
+
+    <!-- ABOUT / PITCH -->
+    <section id="pitch" class="section">
+        <h2 class="section-title reveal"><span data-i18n="pitch_title">El Fútbol ha Evolucionado</span></h2>
+        <p class="section-subtitle reveal" data-i18n="pitch_sub">GoalChain no es solo un juego. Es un ecosistema donde tu conocimiento futbolístico se convierte en activos reales en la blockchain de Solana.</p>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon">🎯</div>
+                <h3 data-i18n="feat1_t">Apuestas en Vivo</h3>
+                <p data-i18n="feat1_d">Apuesta en tiempo real en los partidos del Mundial 2026. Cuotas dinámicas impulsadas por smart contracts en Solana.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">🎮</div>
+                <h3 data-i18n="feat2_t">Play-to-Earn</h3>
+                <p data-i18n="feat2_d">Compite en mini-juegos de penaltis y torneos globales. Gana tokens $GCH y NFTs exclusivos.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">⛓️</div>
+                <h3 data-i18n="feat3_t">100% On-Chain</h3>
+                <p data-i18n="feat3_d">Toda la lógica de apuestas y recompensas vive en la blockchain de Solana. Transparencia total, sin intermediarios.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAMEPLAY -->
+    <section id="gameplay" class="section section-dark">
+        <h2 class="section-title reveal"><span data-i18n="game_title">Mini-Juego de Penaltis</span> <span style="font-size:0.5em;vertical-align:middle;padding:4px 10px;background:var(--secondary);border-radius:6px;color:#fff;">BETA</span></h2>
+        <p class="section-subtitle reveal" data-i18n="game_sub">Prueba la mecánica de tiro diseñada para la PSG1 directamente desde tu navegador. Toca una zona del arco para patear.</p>
+        <div class="gameplay-grid container">
+            <div>
+                <div class="game-container">
+                    <canvas id="gameCanvas" width="800" height="450"></canvas>
+                    <div class="game-hint" data-i18n="game_hint">TOCA UNA ZONA PARA PATEAR</div>
+                </div>
+                <div class="game-stats">
+                    <div class="game-stat"><div class="label" data-i18n="stat_goals">GOLES</div><div class="value" id="statGoals">0</div></div>
+                    <div class="game-stat"><div class="label" data-i18n="stat_saves">ATAJADAS</div><div class="value" id="statSaves">0</div></div>
+                    <div class="game-stat"><div class="label" data-i18n="stat_streak">RACHA</div><div class="value" id="statStreak">0</div></div>
+                </div>
+            </div>
+            <div>
+                <div class="glass-card reveal" style="text-align:left;">
+                    <h3 style="margin-bottom:1rem;" data-i18n="game_how_title">¿Cómo Funciona?</h3>
+                    <ul style="list-style:none;padding:0;">
+                        <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);color:var(--text-dim);font-size:0.9rem;">
+                            <span style="color:var(--primary);font-weight:700;">01.</span> <span data-i18n="game_step1">Elige una zona del arco para disparar</span>
+                        </li>
+                        <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);color:var(--text-dim);font-size:0.9rem;">
+                            <span style="color:var(--primary);font-weight:700;">02.</span> <span data-i18n="game_step2">El arquero se lanza a una posición aleatoria</span>
+                        </li>
+                        <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);color:var(--text-dim);font-size:0.9rem;">
+                            <span style="color:var(--primary);font-weight:700;">03.</span> <span data-i18n="game_step3">Acumula goles y mejora tu racha</span>
+                        </li>
+                        <li style="padding:0.5rem 0;color:var(--text-dim);font-size:0.9rem;">
+                            <span style="color:var(--primary);font-weight:700;">04.</span> <span data-i18n="game_step4">En el lanzamiento, tus rachas valdrán puntos reales</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card reveal" style="margin-top:1.5rem;border-color:var(--secondary);text-align:left;">
+                    <h4 style="color:var(--secondary);margin-bottom:0.5rem;" data-i18n="game_soon_title">🎮 Próximamente</h4>
+                    <p style="font-size:0.85rem;color:var(--text-dim);" data-i18n="game_soon_desc">Modo multijugador 5v5, torneos con premios en SOL y apuestas integradas durante los partidos del Mundial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIXTURE / GROUPS -->
+    <section id="fixture" class="section">
+        <h2 class="section-title reveal"><span data-i18n="fix_title">Fixture — Mundial 2026</span></h2>
+        <p class="section-subtitle reveal" data-i18n="fix_sub">48 selecciones, 12 grupos. Toda la acción del torneo integrada en GoalChain para apuestas en tiempo real.</p>
+        <div class="fixture-tabs" id="fixtureTabs"></div>
+        <div class="group-grid" id="groupGrid"></div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap" class="section section-dark">
+        <h2 class="section-title reveal"><span data-i18n="rm_title">Hoja de Ruta</span></h2>
+        <p class="section-subtitle reveal" data-i18n="rm_sub">Nuestro plan de desarrollo con hitos reales y tiempos concretos.</p>
+        <div class="roadmap-timeline" id="roadmapTimeline"></div>
+    </section>
+
+    <!-- SOCIAL MARKETING -->
+    <section id="social" class="section">
+        <h2 class="section-title reveal"><span data-i18n="soc_title">Gana GoalPoints</span></h2>
+        <p class="section-subtitle reveal" data-i18n="soc_sub">Completa tareas sociales para acumular puntos antes del lanzamiento. Los puntos se convertirán en tokens $GCH en el airdrop oficial.</p>
+        <div class="points-bar reveal">
+            <div class="points-label" data-i18n="soc_your_pts">TUS GOALPOINTS</div>
+            <div class="points-total" id="totalPoints">0</div>
+            <p style="font-size:0.75rem;color:var(--text-dim);margin-top:0.5rem;" data-i18n="soc_connect_info">Conecta tu wallet para comenzar</p>
+        </div>
+        <div class="social-grid" id="socialGrid"></div>
+        <div style="text-align:center;margin-top:2rem;">
+            <p style="font-size:0.8rem;color:var(--text-dim);" data-i18n="soc_ref_label">Tu enlace de referidos:</p>
+            <p id="referral-link-display" style="color:var(--primary);font-size:0.85rem;word-break:break-all;margin-top:0.3rem;" data-i18n="soc_ref_placeholder">Conecta tu wallet para generar...</p>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="section section-dark">
+        <h2 class="section-title reveal"><span data-i18n="team_title">El Equipo</span></h2>
+        <p class="section-subtitle reveal" data-i18n="team_sub">Tres hermanos, una pasión: el fútbol y la blockchain.</p>
+        <div class="team-grid">
+            <div class="glass-card team-card reveal">
+                <div class="team-avatar">🧠</div>
+                <h3 data-i18n="team1_name">Fundador</h3>
+                <p data-i18n="team1_role">Visionario & Lead Dev</p>
+            </div>
+            <div class="glass-card team-card reveal">
+                <div class="team-avatar">📊</div>
+                <h3 data-i18n="team2_name">Co-Founder</h3>
+                <p data-i18n="team2_role">Estrategia & Marketing</p>
+            </div>
+            <div class="glass-card team-card reveal">
+                <div class="team-avatar">⚙️</div>
+                <h3 data-i18n="team3_name">Co-Founder</h3>
+                <p data-i18n="team3_role">Operaciones & Comunidad</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHITELIST -->
+    <section id="whitelist" class="whitelist-section">
+        <div class="glass-card whitelist-card reveal">
+            <h2 style="margin-bottom:0.5rem;" data-i18n="wl_title">Únete a la Revolución</h2>
+            <p style="margin-bottom:1.5rem;color:var(--text-dim);font-size:0.9rem;" data-i18n="wl_sub">Regístrate para recibir acceso anticipado y beneficios exclusivos.</p>
+            <form id="whitelistForm">
+                <input type="email" placeholder="Tu correo electrónico" data-i18n-ph="wl_email" required>
+                <button type="submit" class="btn btn-primary btn-glow" style="width:100%;" data-i18n="wl_btn">Anotarme en la Whitelist</button>
+            </form>
+            <p style="font-size:0.75rem;margin-top:1rem;color:var(--text-dim);">🛡️ <span data-i18n="wl_note">Tu wallet será tu identidad. Integración con Phantom.</span></p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner">
+        <h2 data-i18n="cta_title">¿Listo para el Kick-Off?</h2>
+        <p data-i18n="cta_sub">El Mundial 2026 se acerca. No te quedes fuera.</p>
+        <a href="https://twitter.com/intent/tweet?text=Acabo+de+unirme+a+GoalChain!+El+futuro+del+fútbol+en+Solana.+⚽🚀+%23GoalChain+%23Solana" target="_blank" class="btn" style="background:#000;color:#fff;" data-i18n="cta_share">Compartir en X (Twitter)</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="logo" style="margin-bottom:0.5rem;">GOAL<span>CHAIN</span></div>
+        <p style="font-size:0.8rem;color:var(--text-dim);">&copy; 2026 GoalChain — <span data-i18n="footer_built">Desarrollado en Solana</span></p>
+        <div class="footer-links">
+            <a href="#" target="_blank">Twitter / X</a>
+            <a href="#" target="_blank">Discord</a>
+            <a href="#" target="_blank">Telegram</a>
+        </div>
+    </footer>
+
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/penalty_game.js"></script>
+    <script src="assets/js/solana_integration.js"></script>
+    <script src="assets/js/contract_data.js"></script>
+</body>
+</html>
