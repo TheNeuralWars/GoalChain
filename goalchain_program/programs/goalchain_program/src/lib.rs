@@ -324,16 +324,21 @@ pub mod goalchain_program {
             .checked_add(fixture.pool_b).ok_or(GoalChainError::MathOverflow)?
             .checked_add(fixture.pool_draw).ok_or(GoalChainError::MathOverflow)?;
 
-        // fee total en bps (ej: 1000 = 10%)
-        let fee_total = ((total_pool as u128)
+        // --- payout base (sin fees) ---
+        // share "bruto" del usuario sobre el total_pool (parimutuel)
+        let gross_user_share = ((bet.amount as u128)
+            .checked_mul(total_pool as u128).ok_or(GoalChainError::MathOverflow)?
+            .checked_div(winning_pool as u128).ok_or(GoalChainError::MathOverflow)?) as u64;
+
+        // --- fee proporcional por claim ---
+        // fee sobre el payout del usuario (no global), evita sobrecobro cuando reclaman múltiples ganadores.
+        let user_fee = ((gross_user_share as u128)
             .checked_mul(cfg.fee_bps as u128).ok_or(GoalChainError::MathOverflow)?
             .checked_div(10_000).ok_or(GoalChainError::MathOverflow)?) as u64;
 
-        let net_pool = total_pool.checked_sub(fee_total).ok_or(GoalChainError::MathOverflow)?;
-
-        let user_share = ((bet.amount as u128)
-            .checked_mul(net_pool as u128).ok_or(GoalChainError::MathOverflow)?
-            .checked_div(winning_pool as u128).ok_or(GoalChainError::MathOverflow)?) as u64;
+        let user_net_share = gross_user_share
+            .checked_sub(user_fee)
+            .ok_or(GoalChainError::MathOverflow)?;
 
         // marcar claimed antes de transfer (ataques por reintentos no cambian estado)
         bet.claimed = true;
@@ -347,7 +352,7 @@ pub mod goalchain_program {
             &bump_arr,
         ]];
 
-        // 1) payout al usuario
+        // 1) payout neto al usuario
         let cpi_user = CpiContext::new_with_signer(
             ctx.accounts.token_program.key(),
             TransferChecked {
@@ -358,10 +363,10 @@ pub mod goalchain_program {
             },
             signer_seeds,
         );
-        token_interface::transfer_checked(cpi_user, user_share, ctx.accounts.token_mint.decimals)?;
+        token_interface::transfer_checked(cpi_user, user_net_share, ctx.accounts.token_mint.decimals)?;
 
-        // 2) fees a treasury (si fee_total > 0)
-        if fee_total > 0 {
+        // 2) fee del usuario a treasury (si > 0)
+        if user_fee > 0 {
             let cpi_fee = CpiContext::new_with_signer(
                 ctx.accounts.token_program.key(),
                 TransferChecked {
@@ -372,7 +377,7 @@ pub mod goalchain_program {
                 },
                 signer_seeds,
             );
-            token_interface::transfer_checked(cpi_fee, fee_total, ctx.accounts.token_mint.decimals)?;
+            token_interface::transfer_checked(cpi_fee, user_fee, ctx.accounts.token_mint.decimals)?;
         }
 
         Ok(())

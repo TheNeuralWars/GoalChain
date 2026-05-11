@@ -852,7 +852,53 @@ body {
     font-size: 0.7rem;
     color: var(--text-dim);
     border-left: 3px solid var(--primary);
+    margin-bottom: 1rem;
 }
+
+/* --- PANEL DE CONTRATO PROFESIONAL --- */
+.contract-panel {
+    background: rgba(0,0,0,0.3);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.contract-header {
+    font-size: 0.6rem;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.salary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+}
+
+.salary-label { color: var(--text-dim); }
+.salary-value { color: #fff; font-weight: 700; }
+
+.clause-list {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.clause-item {
+    font-size: 0.6rem;
+    color: #14f195;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.clause-item::before { content: "✓"; }
 
 /* Re-aplicar rarezas al card-inner */
 /* --- FAVORITES & PRICING UI --- */
