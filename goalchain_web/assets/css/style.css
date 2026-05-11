@@ -368,6 +368,62 @@ body {
 }
 .roadmap-card li.done::before { content: '✓'; color: var(--primary); }
 
+/* --- NFT Gallery --- */
+.nft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.nft-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.nft-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(20, 241, 149, 0.15);
+}
+
+.nft-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.nft-card:hover img {
+    transform: scale(1.1);
+}
+
+.nft-info {
+    padding: 1.5rem;
+    background: linear-gradient(to top, var(--bg), transparent);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.nft-info h3 { font-size: 1.2rem; margin-bottom: 5px; }
+
+.rarity {
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 4px 12px;
+    border-radius: 50px;
+    letter-spacing: 1px;
+}
+
+.mythic .rarity { background: linear-gradient(45deg, #ffb800, #ff00ff); color: #000; }
+.epic .rarity { background: var(--secondary); color: #fff; }
+.rare .rarity { background: #00e0ff; color: #000; }
+
 /* --- Social Marketing --- */
 .social-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

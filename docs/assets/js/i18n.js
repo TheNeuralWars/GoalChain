@@ -46,6 +46,11 @@ const TRANSLATIONS = {
         cta_sub: "El Mundial 2026 se acerca. No te quedes fuera.",
         cta_share: "Compartir en X (Twitter)",
         footer_built: "Desarrollado en Solana",
+        // NFTs
+        nft_badge: 'COLECCIÓN GENESIS',
+        nft_title: 'Genesis Squad NFT Collection',
+        nft_desc: 'Consigue a los jugadores más raros y domina la liga. Beneficios exclusivos en el airdrop de $GCH.',
+        nft_btn: 'UNIRSE A LA WHITELIST',
         // Social tasks
         soc_t1_t: "Seguir en X (Twitter)", soc_t1_d: "Síguenos en @GoalChain",
         soc_t2_t: "Compartir Tweet", soc_t2_d: "Comparte nuestro tweet fijado",
