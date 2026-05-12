@@ -6,16 +6,20 @@
     <title>GoalChain | The Future of Football on Solana</title>
     <meta name="description" content="GoalChain: Play-to-Earn football on Solana. Bet on FIFA World Cup 2026 fixtures, play penalty shootouts, and earn $GCH tokens.">
     <meta name="theme-color" content="#06060a">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
     <div class="vibrancy"></div>
 
     <!-- NAV -->
     <nav class="main-nav" id="mainNav">
-        <div class="logo" onclick="location.href='#'">GOAL<span>CHAIN</span></div>
+        <div class="logo" onclick="location.href='#'" style="display: flex; align-items: center; gap: 10px;">
+            <img src="assets/img/logo.png" alt="GoalChain Logo" style="height: 32px; filter: drop-shadow(0 0 8px rgba(20, 241, 149, 0.3));">
+            GOAL<span>CHAIN</span>
+        </div>
         <div class="nav-links-desktop">
             <a href="#pitch" data-i18n="nav_about">Sobre</a>
             <a href="#gameplay" data-i18n="nav_game">Mini-Juego</a>
@@ -91,10 +95,10 @@
         <p class="section-subtitle reveal" data-i18n="game_sub">Prueba la mecánica de tiro diseñada para la PSG1 directamente desde tu navegador. Toca una zona del arco para patear.</p>
         <div class="gameplay-grid container">
             <div>
-                <div class="game-container reveal">
+                <div class="game-wrapper">
                     <!-- Panel de Apuestas -->
-                    <div class="betting-panel" style="margin-bottom: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
-                        <div style="display: flex; gap: 12px; align-items: center;">
+                    <div class="betting-panel" style="margin-bottom: 12px; background: rgba(255,255,255,0.05); padding: 12px 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); flex-wrap: wrap; gap: 10px;">
+                        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
                             <span style="font-size: 0.7rem; font-weight: 800; color: var(--primary); letter-spacing: 1px;">APUESTA POR TIRO:</span>
                             <button class="bet-btn active" data-amount="10" style="background:none; border: 1px solid var(--primary); color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;">10 $GCH</button>
                             <button class="bet-btn" data-amount="50" style="background:none; border: 1px solid rgba(255,255,255,0.2); color: var(--text-dim); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;">50 $GCH</button>
@@ -103,10 +107,10 @@
                         <div style="font-weight: 900; color: #fff; font-size: 0.9rem;">TU BOLSA: <span id="userGCH" style="color: var(--primary);">1,000</span> $GCH</div>
                     </div>
 
-                    <div class="game-canvas-wrapper">
+                    <div class="game-container reveal">
                         <canvas id="gameCanvas" width="800" height="450"></canvas>
+                        <div class="game-hint" data-i18n="game_hint">TOCA UNA ZONA PARA PATEAR</div>
                     </div>
-                    <div class="game-hint" data-i18n="game_hint">TOCA UNA ZONA PARA PATEAR</div>
                 </div>
                 <div class="game-stats">
                     <div class="game-stat"><div class="label" data-i18n="stat_goals">GOLES</div><div class="value" id="statGoals">0</div></div>
@@ -237,6 +241,11 @@
                     <button class="filter-btn" data-country="Inglaterra">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</button>
                     <button class="filter-btn" data-country="Alemania">🇩🇪 Alemania</button>
                     <button class="filter-btn" data-country="México">🇲🇽 México</button>
+                    <button class="filter-btn" data-country="Uruguay">🇺🇾 Uruguay</button>
+                    <button class="filter-btn" data-country="Egipto">🇪🇬 Egipto</button>
+                    <button class="filter-btn" data-country="Polonia">🇵🇱 Polonia</button>
+                    <button class="filter-btn" data-country="Croacia">🇭🇷 Croacia</button>
+                    <button class="filter-btn" data-country="Corea del Sur">🇰🇷 Corea</button>
                 </div>
                 
                 <div class="nft-filters-row">
@@ -318,6 +327,30 @@
         <a href="https://twitter.com/intent/tweet?text=Acabo+de+unirme+a+GoalChain!+El+futuro+del+fútbol+en+Solana.+⚽🚀+%23GoalChain+%23Solana" target="_blank" class="btn" style="background:#000;color:#fff;" data-i18n="cta_share">Compartir en X (Twitter)</a>
     </section>
 
+    <!-- COMMUNITY & TRUST SECTION -->
+    <section id="trust" class="section" style="background: var(--bg-surface); text-align: center; margin-top: 2rem;">
+        <div class="container">
+            <h2 class="section-title reveal">Respaldado por los Mejores</h2>
+            <p class="section-subtitle reveal">Seguridad institucional y liquidez global para el futuro del fútbol.</p>
+            
+            <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap;" class="reveal">
+                <a href="#" class="btn btn-primary" style="background: #5865F2; color: white; border: none; font-size: 0.85rem;"><i class="fab fa-discord"></i> Discord DAO</a>
+                <a href="#" class="btn" style="background: #000; color: white; border: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem;">𝕏 Twitter Oficial</a>
+                <a href="#" class="btn" style="background: var(--primary); color: black; border: none; font-weight: 900; font-size: 0.85rem;">🏆 Zealy Quests</a>
+            </div>
+
+            <div class="trust-badges reveal" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; margin-top: 20px;">
+                <p style="color: var(--text-dim); font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 25px; font-weight: 900;">AUDITORÍA Y PARTNERS ESTRATÉGICOS</p>
+                <div style="display: flex; justify-content: center; gap: 40px; opacity: 0.7; flex-wrap: wrap; align-items: center;">
+                    <span style="font-weight: 900; font-size: 1.1rem; color: #fff;">🛡️ CertiK</span>
+                    <span style="font-weight: 900; font-size: 1.1rem; color: #14f195;">◎ Solana</span>
+                    <span style="font-weight: 900; font-size: 1.1rem; color: #7b3fe4;">💳 MoonPay</span>
+                    <span style="font-weight: 900; font-size: 1.1rem; color: #00e4ff;">🌊 Raydium</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="site-footer">
         <div class="logo" style="margin-bottom:0.5rem;">GOAL<span>CHAIN</span></div>
@@ -329,12 +362,12 @@
         </div>
     </footer>
 
-    <script src="assets/js/i18n.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/penalty_game.js"></script>
-    <script src="assets/js/solana_integration.js"></script>
-    <script src="assets/js/contract_data.js"></script>
-    <script src="assets/js/nft_registry.js"></script>
-    <script src="assets/js/pack_opener.js"></script>
+    <script src="assets/js/i18n.js?v=1.1"></script>
+    <script src="assets/js/app.js?v=1.1"></script>
+    <script src="assets/js/penalty_game.js?v=1.1"></script>
+    <script src="assets/js/solana_integration.js?v=1.1"></script>
+    <script src="assets/js/contract_data.js?v=1.1"></script>
+    <script src="assets/js/nft_registry.js?v=1.1"></script>
+    <script src="assets/js/pack_opener.js?v=1.1"></script>
 </body>
 </html>
