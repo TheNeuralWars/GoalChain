@@ -18,8 +18,23 @@ const PRICE_MAP = {
 const NFT_IMAGE_MAP = {
     1: "001_lionel_bitcoin.png",
     2: "002_dibu_block.png",
+    3: "020_julian_alvaswap.png",
+    14: "014_mo_solana.png",
+    15: "015_pedri_protocol.png",
+    16: "016_fede_valweb3.png",
+    17: "017_darwin_nunft.png",
+    18: "018_bukayo_stock.png",
+    19: "019_phil_fod_ether.png",
+    20: "020_enzo_ledger.png",
+    21: "021_luis_swaswap.png",
+    22: "022_bernardo_solana.png",
+    24: "024_rodri_protocol.png",
+    26: "026_joshua_bit_mmi.png",
     27: "027_vini_burner_jr.png",
     28: "028_endrick_chain.png",
+    30: "030_kai_havests.png",
+    32: "032_casemiro_chain.png",
+    33: "033_allison_block.png",
     53: "053_kylian_m-bag-pé.png",
     79: "079_jude_whale-ingham.png",
     80: "080_harry_chain.png",
@@ -125,7 +140,18 @@ function renderPlayers(filterCountry, searchQuery = '') {
                         </div>
                     </div>
 
-                    <div class="price-tag" style="margin-top: 15px;">
+                    <!-- Oracle & Metadata Status -->
+                    <div class="oracle-badge" style="margin-top: 10px; font-size: 0.7rem; background: rgba(20, 241, 149, 0.1); border: 1px solid #14f195; padding: 5px; border-radius: 4px; color: #14f195;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>ORACLE SYNC: ACTIVE 🌐</span>
+                            <span>INDEX: ${player.oracle_sync.performance_index}x</span>
+                        </div>
+                        <div style="margin-top: 3px; font-family: monospace; color: var(--text-dim);">
+                            MINT: ${player.mint_address}
+                        </div>
+                    </div>
+
+                    <div class="price-tag" style="margin-top: 10px;">
                         <div class="price-info">
                             <span class="price-label">PRECIO NFT</span>
                             <div class="price-value">${nftPrice}</div>
