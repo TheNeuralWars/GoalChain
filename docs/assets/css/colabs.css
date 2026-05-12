@@ -176,3 +176,34 @@
     margin-bottom: 10px;
     border: 1px solid var(--border);
 }
+
+/* Economic Oracle Styles */
+.oracle-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.o-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    border-left: 4px solid var(--secondary);
+}
+
+.o-stat span {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+}
+
+.o-stat strong {
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-family: 'Inter', sans-serif;
+}
