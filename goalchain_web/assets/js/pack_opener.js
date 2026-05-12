@@ -47,7 +47,8 @@ function getPlayerImagePath(player) {
 
 async function initPackOpener() {
     try {
-        const response = await fetch('assets/data/players.json');
+        // Cache busting con timestamp para asegurar datos frescos
+        const response = await fetch(`assets/data/players.json?v=${new Date().getTime()}`);
         packState.players = await response.json();
         
         setupPackListeners();
