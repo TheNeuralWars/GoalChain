@@ -290,12 +290,13 @@ body {
     background: var(--primary); color: #000; border-color: var(--primary);
 }
 .group-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1rem; max-width: 1100px; margin: 0 auto;
+    display: flex; flex-wrap: nowrap; gap: 1rem; margin: 0 auto;
+    width: max-content; padding: 10px 0;
 }
 .group-card {
     background: var(--glass); border: 1px solid var(--border);
     border-radius: 12px; overflow: hidden; transition: all 0.3s;
+    min-width: 280px; scroll-snap-align: center;
 }
 .group-card:hover { border-color: var(--border-glow); }
 .group-header {
@@ -313,21 +314,22 @@ body {
 
 /* --- Roadmap --- */
 .roadmap-timeline {
-    position: relative; max-width: 800px; margin: 0 auto;
-    padding-left: 2rem;
+    position: relative; margin: 0 auto;
+    padding: 20px 0; display: flex; flex-wrap: nowrap; gap: 2rem;
+    width: max-content;
 }
 .roadmap-timeline::before {
-    content: ''; position: absolute; left: 6px; top: 0; bottom: 0;
-    width: 2px; background: linear-gradient(to bottom, var(--primary), var(--secondary), var(--primary));
+    content: ''; position: absolute; top: 30px; left: 0; right: 0;
+    height: 2px; background: linear-gradient(to right, var(--primary), var(--secondary), var(--primary));
 }
 .roadmap-item {
-    position: relative; margin-bottom: 2rem; padding-left: 2.5rem;
-    opacity: 0; transform: translateX(-20px);
-    transition: all 0.6s ease;
+    position: relative; margin-bottom: 0; padding-top: 2.5rem;
+    opacity: 0; transform: translateY(20px);
+    transition: all 0.6s ease; width: 300px; scroll-snap-align: center;
 }
-.roadmap-item.visible { opacity: 1; transform: translateX(0); }
+.roadmap-item.visible { opacity: 1; transform: translateY(0); }
 .roadmap-dot {
-    position: absolute; left: -2rem; top: 0.5rem;
+    position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
     width: 14px; height: 14px; border-radius: 50%;
     border: 2px solid var(--primary); background: var(--bg-dark);
     z-index: 2;
@@ -595,10 +597,10 @@ body {
 
 .nft-track {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 2rem;
-    justify-content: center;
     padding: 20px;
+    width: max-content;
 }
 
 .nft-card-3d {
@@ -612,6 +614,7 @@ body {
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
     cursor: pointer;
     overflow: hidden;
+    scroll-snap-align: center;
 }
 
 .nft-card-3d img {
@@ -1221,3 +1224,57 @@ body {
     font-size: 0.8rem;
     text-transform: uppercase;
 }
+
+/* --- Horizontal Carousels --- */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.carousel-container {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    scrollbar-width: none; /* Firefox */
+}
+.carousel-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--glass-strong);
+    color: var(--primary);
+    border: 1px solid var(--primary-dim);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-btn:hover {
+    background: var(--primary);
+    color: #000;
+    box-shadow: 0 0 15px rgba(20, 241, 149, 0.4);
+}
+.prev-btn {
+    left: -15px;
+}
+.next-btn {
+    right: -15px;
+}
+@media (max-width: 768px) {
+    .carousel-btn {
+        display: none; /* Ocultar flechas en móviles, el swipe es suficiente */
+    }
+}
+

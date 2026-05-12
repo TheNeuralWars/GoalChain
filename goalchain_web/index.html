@@ -149,14 +149,26 @@
         <h2 class="section-title reveal"><span data-i18n="fix_title">Fixture — Mundial 2026</span></h2>
         <p class="section-subtitle reveal" data-i18n="fix_sub">48 selecciones, 12 grupos. Toda la acción del torneo integrada en GoalChain para apuestas en tiempo real.</p>
         <div class="fixture-tabs" id="fixtureTabs"></div>
-        <div class="group-grid" id="groupGrid"></div>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('fixtureCarousel', -1)">❮</button>
+            <div class="carousel-container fixture-carousel" id="fixtureCarousel">
+                <div class="group-grid" id="groupGrid"></div>
+            </div>
+            <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('fixtureCarousel', 1)">❯</button>
+        </div>
     </section>
 
     <!-- ROADMAP -->
     <section id="roadmap" class="section section-dark">
         <h2 class="section-title reveal"><span data-i18n="rm_title">Hoja de Ruta</span></h2>
         <p class="section-subtitle reveal" data-i18n="rm_sub">Nuestro plan de desarrollo con hitos reales y tiempos concretos.</p>
-        <div class="roadmap-timeline" id="roadmapTimeline"></div>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('roadmapCarousel', -1)">❮</button>
+            <div class="carousel-container roadmap-carousel" id="roadmapCarousel">
+                <div class="roadmap-timeline" id="roadmapTimeline"></div>
+            </div>
+            <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('roadmapCarousel', 1)">❯</button>
+        </div>
     </section>
 
     <!-- TOKENOMICS SECTION -->
@@ -269,13 +281,17 @@
                 </div>
             </div>
             
-            <div class="nft-slider-container">
-                <div class="nft-track">
-                    <!-- Dinámicamente cargado por assets/js/nft_registry.js -->
-                    <div class="loading-state" style="color: var(--text-dim); text-align: center; width: 100%;">
-                        <p>Iniciando Sincronización con la Blockchain...</p>
+            <div class="carousel-wrapper" style="position: relative;">
+                <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('nftTrackContainer', -1)">❮</button>
+                <div class="carousel-container nft-carousel" id="nftTrackContainer">
+                    <div class="nft-track" id="nftTrackInner">
+                        <!-- Dinámicamente cargado por assets/js/nft_registry.js -->
+                        <div class="loading-state" style="color: var(--text-dim); text-align: center; width: 100%;">
+                            <p>Iniciando Sincronización con la Blockchain...</p>
+                        </div>
                     </div>
                 </div>
+                <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('nftTrackContainer', 1)">❯</button>
             </div>
             
             <div style="text-align:center; margin-top:3rem;">
