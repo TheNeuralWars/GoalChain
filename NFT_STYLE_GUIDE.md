@@ -8,11 +8,11 @@ Este documento es la ley visual para la creación de los 1,248 cromos. Cualquier
 - **Colores:** Gradiente Solana (#14f195 a #9945ff).
 
 ## 2. Anatomía de la Carta (Template)
-11. **El Marco (The Shell):** Formato **estrictamente rectangular**. El diseño es de "borde a borde", lo que significa que la imagen del NFT termina justo donde termina el marco (sin márgenes externos). Basado en el estilo tecnológico de Phil Fod-Ether.
-12. **El Header:** Barra superior integrada. Texto "PREMIUM DIGITAL TRADING CARD".
-13. **El Fondo (Stadium):** Estilo Fod-Ether en cuanto a paleta de colores (vibrantes) y luminosidad. **Restricción:** Reducir la cantidad de pantallas digitales en las gradas para que el fondo sea más limpio y menos saturado.
-14. **Profundidad de Campo:** Bokeh marcado para resaltar al jugador, manteniendo la coherencia con el diseño de la carta.
-15. **El Footer:** Barra inferior con estadísticas detalladas (ATT, PAC, DRI, PAS, SHO) y sellos de "Web3 Verified".
+11. **El Marco (The Shell):** Formato **estrictamente rectangular**. El diseño es de "borde a borde" (edge-to-edge), lo que significa que el NFT termina exactamente en el límite exterior del marco (sin márgenes ni aire por fuera). Estilo tecnológico Phil Fod-Ether.
+12. **Paleta de Colores:** Uso predominante de **colores Solana** (#14f195 a #9945ff) para lograr la luminosidad y vibrancia de Phil Fod-Ether.
+13. **Uniformes:** Los jugadores deben vestir uniformes con los colores oficiales de su **selección nacional**. Se permiten detalles luminosos sutiles para dar un aire futurista, pero sin exagerar (manteniendo la identidad del país).
+14. **El Fondo (Stadium & Crowd):** Estadio con público visible pero desenfocado (bokeh profundo). Se deben incluir banderas del país del equipo en el fondo de forma sutil. El enfoque siempre es el jugador.
+15. **El Footer:** Barra inferior integrada con estadísticas y sellos.
 
 ## 3. Paleta de Colores y Emisión
 - **Mythic (1/1):** Marco de Diamante Negro con partículas de luz blanca.
