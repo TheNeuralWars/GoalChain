@@ -10,8 +10,8 @@ Este documento contiene los prompts optimizados para la generación de los prime
 - **Dibu Block (ARG):** Kit verde neón, pose de vuelo horizontal atajando un balón digital con chispas, marco de carbono neón.
 - **Cristiano Holdaldo (POR):** Armadura de Cromo Negro y Oro Blanco, pose de salto "SIUUU" con una onda de choque sónica azul eléctrica que resquebraja el suelo digital.
 - **Kylian M-Bag-pé (FRA):** Azul profundo, marco de plata líquida holográfica.
-- **Vini Burner Jr (BRA):** Amarillo canario neón, marco de esmeralda con fuego digital.
-- **Jude Whale-ingham (ENG):** Blanco perla y azul, marco de platino cepillado.
+- **Vini Burner Jr (BRA):** Amarillo canario neón, pose de baile de samba con estela de "fuego digital" y chispas neón en los pies, marco de esmeralda con efectos de llama.
+- **Harry Chain (ENG):** Blanco perla y azul marino, pose de celebración con brazos abiertos y una corona digital flotante, marco de platino con grabados reales.
 - **Lamine Ya-Hype (ESP):** Rojo carmesí neón, pose de sprint a "velocidad de la luz" con estela de chispas eléctricas doradas, marco de rubí con grietas de luz.
 - **Jamal Moon-siala (GER):** Blanco minimalista, marco de cromo oscuro con luces blancas.
 - **Endrick Chain (BRA):** Verde selva futurista, marco de jade digital.

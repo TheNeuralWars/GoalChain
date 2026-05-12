@@ -11,12 +11,19 @@ let colabState = {
         { name: 'CryptoFutbolista', content: 'TikTok: Review de GoalChain', views: '150K', tokens: '15,000 $GCH', status: 'Activo' },
         { name: 'SolanaDegen88', content: 'X Thread: Por qué $GCH va a explotar', views: '45K', tokens: '4,500 $GCH', status: 'Pendiente' },
         { name: 'GoalChain_Fan', content: 'Youtube: Tutorial Penaltis', views: '12K', tokens: '1,200 $GCH', status: 'Activo' }
+    ],
+    equity: [
+        { name: 'Nico (CEO)', share: '33.3%', points: '2,500' },
+        { name: 'Hermano 1 (Dev)', share: '33.3%', points: '2,450' },
+        { name: 'Hermano 2 (Ops)', share: '33.3%', points: '2,400' }
     ]
 };
 
 function initColabApp() {
     renderNotes();
     renderInfluencers();
+    renderEquity();
+    updateOracle();
     setupTabs();
 }
 
@@ -67,7 +74,25 @@ function addNote() {
     renderNotes();
 }
 
-// --- INFLUENCER LOGIC ---
+function renderEquity() {
+    const list = document.getElementById('equityList');
+    if (!list) return;
+    list.innerHTML = colabState.equity.map(e => `
+        <div style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <div><strong>${e.name}</strong></div>
+            <div style="color: var(--primary); font-weight: 700;">${e.share} <span style="color: var(--text-dim); font-size: 0.7rem; font-weight: 400; margin-left: 5px;">(${e.points} pts)</span></div>
+        </div>
+    `).join('');
+}
+
+function updateOracle() {
+    // Aquí se conectaría con el contrato de Solana en producción
+    const burned = localStorage.getItem('burned_tokens') || '84,200';
+    const jackpot = localStorage.getItem('jackpot_pool') || '125,400';
+    
+    if (document.getElementById('jackpotTotal')) document.getElementById('jackpotTotal').innerText = jackpot + ' $GCH';
+    if (document.getElementById('burnedTotal')) document.getElementById('burnedTotal').innerText = burned + ' $GCH';
+}
 function renderInfluencers() {
     const table = document.getElementById('influencerTable');
     table.innerHTML = colabState.influencers.map(i => `
