@@ -2,8 +2,31 @@
 
 Este documento contiene los prompts optimizados para la generación de los primeros 50 cromos (Mythic + Legendary).
 
-## Estructura Base del Prompt
-`"A premium 3D hyper-realistic illustration of [PLAYER_CONCEPT], named '[PARODY_NAME]'. He is wearing a [RARITY_ARMOR] football kit with the GoalChain logo on the chest. Pose: [EPIC_POSE]. Background: futuristic stadium with neon [RARITY_COLOR] lights. Frame: [RARITY_FRAME_DESCRIPTION]. High fidelity, 8k, Unreal Engine 5 style."`
+## 🚀 Estructura Maestra V3.0 (Ultra-Technical)
+Para asegurar coherencia absoluta, cada prompt debe seguir este "Blueprint" de capas técnicas:
+
+### 1. El "Master Prompt" Frontal
+`"Full-body cinematic character portrait of [PLAYER_CONCEPT], professionally known as '[PARODY_NAME]'. 
+[MATERIALITY]: Wearing a heavy-weave micro-textured [RARITY_ARMOR] football jersey with [RARITY_COLOR] luminescent fiber optics. GoalChain logo on the chest is a 3D metallic badge with an anisotropic gold/silver finish. 
+[LIGHTING]: Cinematic 3-point lighting setup, high-key rim lighting, global illumination, volumetric stadium floodlights. 
+[COMPOSITION]: Heroic low-angle shot, focal length 85mm, shallow depth of field with creamy bokeh. 
+[ENVIRONMENT]: Futuristic stadium interior, dark carbon fiber turf, hovering digital spectators, rain of glowing [RARITY_COLOR] data particles. 
+[TECHNICAL]: Hyper-realistic 3D render, Unreal Engine 5.4, Octane Render, 32k resolution, ray-traced reflections, subsurface scattering on skin, PBR materials, masterpiece, highly detailed, sharp focus."`
+
+---
+
+### 2. El "Master Prompt" Retro (Reverso)
+`"Professional sports card back-side technical interface. 
+[BACKGROUND]: Dark matte carbon fiber with a 0.5mm micro-hexagonal texture and recessed [RARITY_COLOR] neon circuitry lines using a 'tron-like' emission. 
+[CENTER]: A high-tech hexagonal radar spider-chart, cyan and [RARITY_COLOR] glow, representing 'SOLANA DNA' attributes. 
+[ELEMENTS]: Bottom right features a 3D holographic embossed seal of the GoalChain badge with a parallax depth effect. Bottom left contains a pixel-perfect digital LCD display showing 'TX_ID: 0x88...7z' in a futuristic mono-spaced font. 
+[RENDER]: Clean industrial design, hard-surface modeling, ray-traced ambient occlusion, macro photography style, 8k, sharp edges, metallic reflections."`
+
+---
+
+## 🚫 Parámetros de Calidad y "Negative Prompts"
+Para evitar inconsistencias, añadir siempre al final (o en campo negativo):
+`"Negative: deformed hands, extra fingers, blurry logo, low resolution, flat colors, cartoony, 2D illustration, missing limbs, watermark, text overlays (except parody name), messy jersey patterns."`
 
 ## 🏆 Legendaries (Capitanes) & Epics Destacados
 - **Lionel Bitcoin (ARG):** Oro sobre Negro Diamante, señalando al cielo, partículas divinas.
