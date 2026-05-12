@@ -6,7 +6,7 @@
     <title>GoalChain | The Future of Football on Solana</title>
     <meta name="description" content="GoalChain: Play-to-Earn football on Solana. Bet on FIFA World Cup 2026 fixtures, play penalty shootouts, and earn $GCH tokens.">
     <meta name="theme-color" content="#06060a">
-    <link rel="stylesheet" href="assets/css/style.css?v=2.1">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.2">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -250,7 +250,22 @@
                 
                 <div class="nft-filters-row">
                     <input type="text" id="playerSearch" placeholder="Buscar jugador..." class="search-input">
-                    <button id="wishlistBtn" class="fav-toggle-btn">❤️ Mis Favoritos</button>
+                    <select id="nftSort" class="filter-select">
+                        <option value="id-asc">Número (Bajo-Alto)</option>
+                        <option value="id-desc">Número (Alto-Bajo)</option>
+                        <option value="rarity-desc">Más Raros Primero</option>
+                        <option value="atk-desc">Mejor Ataque</option>
+                        <option value="def-desc">Mejor Defensa</option>
+                    </select>
+                    <button id="wishlistBtn" class="fav-toggle-btn">❤️ Favoritos</button>
+                </div>
+
+                <div class="position-filters" id="positionFilters" style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;">
+                    <button class="filter-btn-sm active" data-pos="all">TODOS</button>
+                    <button class="filter-btn-sm" data-pos="GK">PORTEROS</button>
+                    <button class="filter-btn-sm" data-pos="DEF">DEFENSAS</button>
+                    <button class="filter-btn-sm" data-pos="MID">MEDIOS</button>
+                    <button class="filter-btn-sm" data-pos="FWD">DELANTEROS</button>
                 </div>
             </div>
             
@@ -367,7 +382,7 @@
     <script src="assets/js/penalty_game.js?v=1.1"></script>
     <script src="assets/js/solana_integration.js?v=1.1"></script>
     <script src="assets/js/contract_data.js?v=1.1"></script>
-    <script src="assets/js/nft_registry.js?v=1.1"></script>
+    <script src="assets/js/nft_registry.js?v=1.2"></script>
     <script src="assets/js/pack_opener.js?v=1.1"></script>
 </body>
 </html>

@@ -73,6 +73,11 @@ describe("goalchain_program", () => {
   const matchId = `MATCH_${Date.now().toString(36)}`;
   let fixturePda: PublicKey;
 
+  // ===== Live markets test state =====
+  let liveStatePda: PublicKey;
+  let marketPda: PublicKey;
+  let marketVaultPda: PublicKey;
+
   before(async () => {
     console.log("[tests] before(): start");
 
@@ -356,5 +361,154 @@ describe("goalchain_program", () => {
     assert.equal(u2After - u2Before, expectedPayout);
 
     console.log("[tests] fixtures e2e done");
+  });
+
+  it("4. Live Market (parimutuel): oracle crea market, live state, bets, resolve + claim con delay", async () => {
+    console.log("[tests] live market e2e start");
+
+    // Derive live state PDA
+    const [lsPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("live_state"), fixturePda.toBuffer()],
+      program.programId
+    );
+    liveStatePda = lsPda;
+
+    // MarketType::LiveMatchResult uses seed byte = 1
+    const [mPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("market"), fixturePda.toBuffer(), Buffer.from([1])],
+      program.programId
+    );
+    marketPda = mPda;
+
+    const [mvPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("market_vault"), marketPda.toBuffer()],
+      program.programId
+    );
+    marketVaultPda = mvPda;
+
+    // 4.1 oracle writes live state (tied)
+    await program.methods
+      .oracleUpsertLiveState(10, 1, 1, false, false)
+      .accounts({
+        oracleAuthority: oracleAuthority.publicKey,
+        config: configPda,
+        fixture: fixturePda,
+        liveState: liveStatePda,
+        systemProgram: SystemProgram.programId,
+      } as any)
+      .signers([oracleAuthority])
+      .rpc();
+
+    // 4.2 oracle creates market with delay=2s cooldown=0 close_minute=90 max_goal_diff=0 require_tied=true
+    await program.methods
+      .oracleCreateMarket(
+        { liveMatchResult: {} },
+        new anchor.BN(2),
+        new anchor.BN(0),
+        90,
+        0,
+        true,
+        betMint
+      )
+      .accounts({
+        oracleAuthority: oracleAuthority.publicKey,
+        config: configPda,
+        fixture: fixturePda,
+        market: marketPda,
+        systemProgram: SystemProgram.programId,
+      } as any)
+      .signers([oracleAuthority])
+      .rpc();
+
+    // 4.3 place bet by user1 on Draw
+    const [posPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("position"), user1.publicKey.toBuffer(), marketPda.toBuffer()],
+      program.programId
+    );
+
+    const betAmount = new anchor.BN(100_000_000);
+
+    await program.methods
+      .placeMarketBet({ draw: {} }, betAmount)
+      .accounts({
+        user: user1.publicKey,
+        config: configPda,
+        fixture: fixturePda,
+        market: marketPda,
+        liveState: liveStatePda,
+        position: posPda,
+        userTokenAccount: user1Ata,
+        marketVault: marketVaultPda,
+        tokenMint: betMint,
+        tokenProgram: TOKEN_PROGRAM_ID,
+        systemProgram: SystemProgram.programId,
+      } as any)
+      .signers([user1])
+      .rpc();
+
+    // 4.4 resolve market: winner Draw
+    await program.methods
+      .oracleUpdateMarketStatus({ resolved: {} }, { draw: {} })
+      .accounts({
+        oracleAuthority: oracleAuthority.publicKey,
+        config: configPda,
+        market: marketPda,
+      } as any)
+      .signers([oracleAuthority])
+      .rpc();
+
+    const uBefore = Number((await getAccount(provider.connection, user1Ata)).amount);
+    const treBefore = Number((await getAccount(provider.connection, treasuryAta)).amount);
+
+    // 4.5 claim immediately should fail due to delay
+    let tooEarlyFailed = false;
+    try {
+      await program.methods
+        .claimMarketPayout()
+        .accounts({
+          user: user1.publicKey,
+          config: configPda,
+          market: marketPda,
+          position: posPda,
+          userTokenAccount: user1Ata,
+          marketVault: marketVaultPda,
+          treasuryTokenAccount: treasuryAta,
+          tokenMint: betMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+        } as any)
+        .signers([user1])
+        .rpc();
+    } catch (e) {
+      tooEarlyFailed = true;
+    }
+    assert.isTrue(tooEarlyFailed);
+
+    // wait 3s and claim
+    await new Promise((r) => setTimeout(r, 3000));
+
+    await program.methods
+      .claimMarketPayout()
+      .accounts({
+        user: user1.publicKey,
+        config: configPda,
+        market: marketPda,
+        position: posPda,
+        userTokenAccount: user1Ata,
+        marketVault: marketVaultPda,
+        treasuryTokenAccount: treasuryAta,
+        tokenMint: betMint,
+        tokenProgram: TOKEN_PROGRAM_ID,
+      } as any)
+      .signers([user1])
+      .rpc();
+
+    const uAfter = Number((await getAccount(provider.connection, user1Ata)).amount);
+    const treAfter = Number((await getAccount(provider.connection, treasuryAta)).amount);
+
+    // gross share = 100, fee 10% => 90
+    assert.equal(uAfter - uBefore, 90_000_000);
+    assert.equal(treAfter - treBefore, 10_000_000);
+
+    console.log("[tests] live market e2e done");
   });
 });

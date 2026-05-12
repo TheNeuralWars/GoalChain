@@ -1,0 +1,52 @@
+{
+    "name": "Inglaterra Player 6",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jugador #6 de Inglaterra. Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/084_inglaterra_player_6.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Inglaterra"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "6"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 46
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 57
+        },
+        {
+            "trait_type": "Hype",
+            "value": 60
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/084_inglaterra_player_6.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "share": 100
+            }
+        ]
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "name": "Nación TEAM_23 Player 22",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jugador #22 de Nación TEAM_23. Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/594_nación_team_23_player_22.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Nación TEAM_23"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "22"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 47
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 91
+        },
+        {
+            "trait_type": "Hype",
+            "value": 96
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/594_nación_team_23_player_22.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "share": 100
+            }
+        ]
+    }
+}

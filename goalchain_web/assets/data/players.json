@@ -1070,24 +1070,23 @@
     },
     {
         "id": 34,
-        "name": "Brasil Player 8",
+        "name": "Gabriel Crypto-Jesus",
         "country": "Brasil",
         "rarity": "epic",
-        "position": "DEF",
-        "number": 8,
-        "height": "1.72m",
-        "weight": "61kg",
+        "position": "FWD",
+        "number": 9,
+        "height": "1.75m",
+        "weight": "73kg",
         "stats": {
-            "atk": 49,
-            "def": 64,
-            "hype": 36
+            "atk": 84,
+            "def": 40,
+            "hype": 82
         },
         "contract": {
-            "realSalary": "€10M",
-            "matchSalary": 250,
+            "realSalary": "€15M",
+            "matchSalary": 800,
             "clauses": [
-                "Bono Titularidad (+25%)",
-                "Bono Valla Invicta (GK/DEF)",
+                "Bono de Presión",
                 "Bono Goles No-Penalti"
             ]
         },
@@ -1096,32 +1095,31 @@
         "oracle_sync": {
             "status": "active",
             "source": "GCH-OFFICIAL-ORACLE",
-            "last_sync": "2026-05-12T18:43:24Z",
+            "last_sync": "2026-05-12T20:13:24Z",
             "performance_index": 1.0
         },
         "mint_address": "GCH0034X..."
     },
     {
         "id": 35,
-        "name": "Brasil Player 9",
+        "name": "Vinicius Burner Jr",
         "country": "Brasil",
-        "rarity": "common",
-        "position": "DEF",
-        "number": 9,
-        "height": "1.84m",
+        "rarity": "legendary",
+        "position": "FWD",
+        "number": 7,
+        "height": "1.76m",
         "weight": "73kg",
         "stats": {
-            "atk": 79,
-            "def": 66,
-            "hype": 39
+            "atk": 94,
+            "def": 35,
+            "hype": 98
         },
         "contract": {
-            "realSalary": "€850K",
-            "matchSalary": 50,
+            "realSalary": "€20M",
+            "matchSalary": 1500,
             "clauses": [
-                "Bono Titularidad (+25%)",
-                "Bono Valla Invicta (GK/DEF)",
-                "Bono Goles No-Penalti"
+                "Bono Balón de Oro",
+                "Bono Velocidad Punta"
             ]
         },
         "details": "Contrato profesional activo para el Mundial 2026.",
@@ -1129,24 +1127,24 @@
         "oracle_sync": {
             "status": "active",
             "source": "GCH-OFFICIAL-ORACLE",
-            "last_sync": "2026-05-12T18:43:24Z",
+            "last_sync": "2026-05-12T20:13:24Z",
             "performance_index": 1.0
         },
         "mint_address": "GCH0035X..."
     },
     {
         "id": 36,
-        "name": "Brasil Player 10",
+        "name": "Rodrygo Ledger",
         "country": "Brasil",
-        "rarity": "common",
-        "position": "DEF",
-        "number": 10,
+        "rarity": "epic",
+        "position": "FWD",
+        "number": 11,
         "height": "1.76m",
         "weight": "62kg",
         "stats": {
-            "atk": 94,
-            "def": 41,
-            "hype": 85
+            "atk": 88,
+            "def": 42,
+            "hype": 89
         },
         "contract": {
             "realSalary": "€850K",
@@ -1162,24 +1160,24 @@
         "oracle_sync": {
             "status": "active",
             "source": "GCH-OFFICIAL-ORACLE",
-            "last_sync": "2026-05-12T18:43:24Z",
+            "last_sync": "2026-05-12T20:13:24Z",
             "performance_index": 1.0
         },
         "mint_address": "GCH0036X..."
     },
     {
         "id": 37,
-        "name": "Brasil Player 11",
+        "name": "Neymar Swap",
         "country": "Brasil",
-        "rarity": "common",
-        "position": "DEF",
-        "number": 11,
+        "rarity": "legendary",
+        "position": "MID",
+        "number": 10,
         "height": "1.90m",
         "weight": "73kg",
         "stats": {
-            "atk": 88,
-            "def": 91,
-            "hype": 65
+            "atk": 91,
+            "def": 30,
+            "hype": 99
         },
         "contract": {
             "realSalary": "€850K",
@@ -1195,24 +1193,24 @@
         "oracle_sync": {
             "status": "active",
             "source": "GCH-OFFICIAL-ORACLE",
-            "last_sync": "2026-05-12T18:43:24Z",
+            "last_sync": "2026-05-12T20:13:24Z",
             "performance_index": 1.0
         },
         "mint_address": "GCH0037X..."
     },
     {
         "id": 38,
-        "name": "Brasil Player 12",
-        "country": "Brasil",
-        "rarity": "common",
-        "position": "DEF",
-        "number": 12,
+        "name": "Luka Bit-modrich",
+        "country": "Croacia",
+        "rarity": "mythic",
+        "position": "MID",
+        "number": 10,
         "height": "1.91m",
         "weight": "70kg",
         "stats": {
-            "atk": 95,
-            "def": 65,
-            "hype": 57
+            "atk": 88,
+            "def": 75,
+            "hype": 95
         },
         "contract": {
             "realSalary": "€850K",
@@ -1228,24 +1226,24 @@
         "oracle_sync": {
             "status": "active",
             "source": "GCH-OFFICIAL-ORACLE",
-            "last_sync": "2026-05-12T18:43:24Z",
+            "last_sync": "2026-05-12T20:13:24Z",
             "performance_index": 1.0
         },
         "mint_address": "GCH0038X..."
     },
     {
         "id": 39,
-        "name": "Brasil Player 13",
-        "country": "Brasil",
-        "rarity": "common",
-        "position": "GK",
-        "number": 13,
+        "name": "Robert Lewan-DAO-ski",
+        "country": "Polonia",
+        "rarity": "legendary",
+        "position": "FWD",
+        "number": 9,
         "height": "1.98m",
         "weight": "77kg",
         "stats": {
-            "atk": 77,
-            "def": 84,
-            "hype": 65
+            "atk": 93,
+            "def": 40,
+            "hype": 92
         },
         "contract": {
             "realSalary": "€850K",
@@ -1261,24 +1259,24 @@
         "oracle_sync": {
             "status": "active",
             "source": "GCH-OFFICIAL-ORACLE",
-            "last_sync": "2026-05-12T18:43:24Z",
+            "last_sync": "2026-05-12T20:13:24Z",
             "performance_index": 1.0
         },
         "mint_address": "GCH0039X..."
     },
     {
         "id": 40,
-        "name": "Brasil Player 14",
-        "country": "Brasil",
-        "rarity": "common",
-        "position": "GK",
-        "number": 14,
+        "name": "Son Heung-Mint",
+        "country": "Corea del Sur",
+        "rarity": "epic",
+        "position": "FWD",
+        "number": 7,
         "height": "1.95m",
         "weight": "87kg",
         "stats": {
-            "atk": 94,
-            "def": 54,
-            "hype": 87
+            "atk": 89,
+            "def": 45,
+            "hype": 94
         },
         "contract": {
             "realSalary": "€850K",
@@ -1294,24 +1292,24 @@
         "oracle_sync": {
             "status": "active",
             "source": "GCH-OFFICIAL-ORACLE",
-            "last_sync": "2026-05-12T18:43:24Z",
+            "last_sync": "2026-05-12T20:13:24Z",
             "performance_index": 1.0
         },
         "mint_address": "GCH0040X..."
     },
     {
         "id": 41,
-        "name": "Brasil Player 15",
-        "country": "Brasil",
-        "rarity": "common",
-        "position": "GK",
-        "number": 15,
+        "name": "Harry Chain",
+        "country": "Inglaterra",
+        "rarity": "legendary",
+        "position": "FWD",
+        "number": 9,
         "height": "1.98m",
         "weight": "80kg",
         "stats": {
-            "atk": 46,
-            "def": 42,
-            "hype": 36
+            "atk": 92,
+            "def": 40,
+            "hype": 88
         },
         "contract": {
             "realSalary": "€850K",
@@ -1327,24 +1325,24 @@
         "oracle_sync": {
             "status": "active",
             "source": "GCH-OFFICIAL-ORACLE",
-            "last_sync": "2026-05-12T18:43:24Z",
+            "last_sync": "2026-05-12T20:13:24Z",
             "performance_index": 1.0
         },
         "mint_address": "GCH0041X..."
     },
     {
         "id": 42,
-        "name": "Brasil Player 16",
-        "country": "Brasil",
-        "rarity": "common",
-        "position": "FWD",
-        "number": 16,
+        "name": "Jude Whale-ingham",
+        "country": "Inglaterra",
+        "rarity": "mythic",
+        "position": "MID",
+        "number": 5,
         "height": "1.87m",
         "weight": "80kg",
         "stats": {
-            "atk": 70,
-            "def": 51,
-            "hype": 68
+            "atk": 86,
+            "def": 78,
+            "hype": 96
         },
         "contract": {
             "realSalary": "€850K",
@@ -1360,24 +1358,24 @@
         "oracle_sync": {
             "status": "active",
             "source": "GCH-OFFICIAL-ORACLE",
-            "last_sync": "2026-05-12T18:43:24Z",
+            "last_sync": "2026-05-12T20:13:24Z",
             "performance_index": 1.0
         },
         "mint_address": "GCH0042X..."
     },
     {
         "id": 43,
-        "name": "Brasil Player 17",
-        "country": "Brasil",
-        "rarity": "common",
+        "name": "Bukayo Stock",
+        "country": "Inglaterra",
+        "rarity": "epic",
         "position": "FWD",
-        "number": 17,
+        "number": 7,
         "height": "1.81m",
         "weight": "61kg",
         "stats": {
-            "atk": 49,
-            "def": 53,
-            "hype": 81
+            "atk": 87,
+            "def": 50,
+            "hype": 93
         },
         "contract": {
             "realSalary": "€850K",
@@ -1393,7 +1391,7 @@
         "oracle_sync": {
             "status": "active",
             "source": "GCH-OFFICIAL-ORACLE",
-            "last_sync": "2026-05-12T18:43:24Z",
+            "last_sync": "2026-05-12T20:13:24Z",
             "performance_index": 1.0
         },
         "mint_address": "GCH0043X..."

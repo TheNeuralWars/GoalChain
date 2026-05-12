@@ -1,0 +1,52 @@
+{
+    "name": "España Player 18",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jugador #18 de España. Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/122_españa_player_18.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "España"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "18"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 87
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 82
+        },
+        {
+            "trait_type": "Hype",
+            "value": 80
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/122_españa_player_18.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "share": 100
+            }
+        ]
+    }
+}
