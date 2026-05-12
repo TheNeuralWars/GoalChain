@@ -91,8 +91,21 @@
         <p class="section-subtitle reveal" data-i18n="game_sub">Prueba la mecánica de tiro diseñada para la PSG1 directamente desde tu navegador. Toca una zona del arco para patear.</p>
         <div class="gameplay-grid container">
             <div>
-                <div class="game-container">
-                    <canvas id="gameCanvas" width="800" height="450"></canvas>
+                <div class="game-container reveal">
+                    <!-- Panel de Apuestas -->
+                    <div class="betting-panel" style="margin-bottom: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                        <div style="display: flex; gap: 12px; align-items: center;">
+                            <span style="font-size: 0.7rem; font-weight: 800; color: var(--primary); letter-spacing: 1px;">APUESTA POR TIRO:</span>
+                            <button class="bet-btn active" data-amount="10" style="background:none; border: 1px solid var(--primary); color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;">10 $GCH</button>
+                            <button class="bet-btn" data-amount="50" style="background:none; border: 1px solid rgba(255,255,255,0.2); color: var(--text-dim); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;">50 $GCH</button>
+                            <button class="bet-btn" data-amount="100" style="background:none; border: 1px solid rgba(255,255,255,0.2); color: var(--text-dim); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;">100 $GCH</button>
+                        </div>
+                        <div style="font-weight: 900; color: #fff; font-size: 0.9rem;">TU BOLSA: <span id="userGCH" style="color: var(--primary);">1,000</span> $GCH</div>
+                    </div>
+
+                    <div class="game-canvas-wrapper">
+                        <canvas id="gameCanvas" width="800" height="450"></canvas>
+                    </div>
                     <div class="game-hint" data-i18n="game_hint">TOCA UNA ZONA PARA PATEAR</div>
                 </div>
                 <div class="game-stats">
