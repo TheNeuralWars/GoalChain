@@ -8,10 +8,11 @@ Este documento es la ley visual para la creación de los 1,248 cromos. Cualquier
 - **Colores:** Gradiente Solana (#14f195 a #9945ff).
 
 ## 2. Anatomía de la Carta (Template)
-1. **El Marco (The Shell):** Grosor de 20px. Material según rareza.
-2. **El Header (Contract Name):** Nombre de parodia en tipografía tipo bloque.
-3. **El Arte del Jugador:** Estilo 3D Hiperrealista. El jugador debe mirar al frente con actitud épica.
-4. **El Panel de ADN (Back):** Diseño de documento oficial "FIFA-Style". Debe incluir el cuadro de **Contrato Profesional**.
+11. **El Marco (The Shell):** Basado en el estilo **Phil Fod-Ether**. Un diseño de marco tecnológico con circuitos integrados grabados, luces de neón perimetrales y esquinas reforzadas. El material/color cambia según la rareza (Ej: Oro para Legendary, Diamante para Mythic).
+12. **El Header:** Barra superior con el nombre del jugador, bandera del país y número. Debe decir "PREMIUM DIGITAL TRADING CARD".
+13. **El Arte del Jugador:** Integrado dentro del marco, estilo 3D Hiperrealista. 
+14. **El Fondo (Stadium):** Inspirado en el estilo **Phil Fod-Ether**. Alta luminosidad, colores vibrantes que contrastan con el jugador, profundidad de campo marcada (bokeh) y detalles de estadio futurista con espectadores digitales y pantallas de neón.
+15. **El Footer:** Barra inferior con estadísticas detalladas (ATT, PAC, DRI, PAS, SHO) y sellos de "Web3 Verified".
 
 ## 3. Paleta de Colores y Emisión
 - **Mythic (1/1):** Marco de Diamante Negro con partículas de luz blanca.
