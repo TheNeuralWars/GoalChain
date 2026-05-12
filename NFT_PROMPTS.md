@@ -5,12 +5,12 @@ Este documento contiene los prompts optimizados para la generación de los prime
 ## 🚀 Estructura Maestra V3.0 (Ultra-Technical)
 Para asegurar coherencia absoluta, cada prompt debe seguir este "Blueprint" de capas técnicas:
 
-### 1. El "Master Prompt" Frontal (Full Card Layout)
-`"A premium digital trading card featuring [PLAYER_CONCEPT], known as '[PARODY_NAME]'. 
-[CARD_DESIGN]: The image is a complete trading card with a high-tech [RARITY_MATERIAL] frame featuring glowing [RARITY_COLOR] circuitry. The top header says 'PREMIUM DIGITAL TRADING CARD' with the player name and flag. The bottom footer displays technical stats (ATT, PAC, DRI, PAS, SHO) and a 'Web3 Verified' seal.
+### 1. El "Master Prompt" Frontal (Full Card Layout - V4.0)
+`"A premium rectangular digital trading card featuring [PLAYER_CONCEPT], known as '[PARODY_NAME]'. 
+[CARD_DESIGN]: Perfectly rectangular card shape, edge-to-edge design with NO image outside the frame. The frame is a high-tech [RARITY_MATERIAL] structure with glowing [RARITY_COLOR] circuitry, identical to the Phil Fod-Ether style. The top integrated header says 'PREMIUM DIGITAL TRADING CARD'. The bottom footer displays technical stats (ATT, PAC, DRI, PAS, SHO).
 [SUBJECT]: The player is in a 3D hyper-realistic style, wearing a micro-textured [RARITY_ARMOR] kit. Pose: [EPIC_POSE]. 
-[ENVIRONMENT]: High-luminosity futuristic stadium, vibrant neon [RARITY_COLOR] ambient light, large digital screens with floating spectators, cinematic depth of field (bokeh), sharp player focus against a blurred high-detail background. 
-[TECHNICAL]: 4k resolution, cinematic 3-point lighting, Unreal Engine 5 style, Octane Render, crisp details, highly coherent design, professional sports memorabilia aesthetic."`
+[ENVIRONMENT]: Clean futuristic stadium background, vibrant [RARITY_COLOR] lighting, minimal digital screens, high-luminosity, cinematic bokeh, deep depth of field focused only on the player. 
+[TECHNICAL]: 4k resolution, top-down-like centered composition, Unreal Engine 5 style, crisp industrial design, professional sports memorabilia."`
 
 ---
 

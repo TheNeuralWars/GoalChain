@@ -8,10 +8,10 @@ Este documento es la ley visual para la creación de los 1,248 cromos. Cualquier
 - **Colores:** Gradiente Solana (#14f195 a #9945ff).
 
 ## 2. Anatomía de la Carta (Template)
-11. **El Marco (The Shell):** Basado en el estilo **Phil Fod-Ether**. Un diseño de marco tecnológico con circuitos integrados grabados, luces de neón perimetrales y esquinas reforzadas. El material/color cambia según la rareza (Ej: Oro para Legendary, Diamante para Mythic).
-12. **El Header:** Barra superior con el nombre del jugador, bandera del país y número. Debe decir "PREMIUM DIGITAL TRADING CARD".
-13. **El Arte del Jugador:** Integrado dentro del marco, estilo 3D Hiperrealista. 
-14. **El Fondo (Stadium):** Inspirado en el estilo **Phil Fod-Ether**. Alta luminosidad, colores vibrantes que contrastan con el jugador, profundidad de campo marcada (bokeh) y detalles de estadio futurista con espectadores digitales y pantallas de neón.
+11. **El Marco (The Shell):** Formato **estrictamente rectangular**. El diseño es de "borde a borde", lo que significa que la imagen del NFT termina justo donde termina el marco (sin márgenes externos). Basado en el estilo tecnológico de Phil Fod-Ether.
+12. **El Header:** Barra superior integrada. Texto "PREMIUM DIGITAL TRADING CARD".
+13. **El Fondo (Stadium):** Estilo Fod-Ether en cuanto a paleta de colores (vibrantes) y luminosidad. **Restricción:** Reducir la cantidad de pantallas digitales en las gradas para que el fondo sea más limpio y menos saturado.
+14. **Profundidad de Campo:** Bokeh marcado para resaltar al jugador, manteniendo la coherencia con el diseño de la carta.
 15. **El Footer:** Barra inferior con estadísticas detalladas (ATT, PAC, DRI, PAS, SHO) y sellos de "Web3 Verified".
 
 ## 3. Paleta de Colores y Emisión
