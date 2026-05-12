@@ -18,3 +18,9 @@ Este documento contiene los prompts optimizados para la generación de los prime
 
 ## 📦 El Sobre (Mystery Pack)
 - **Closed Pack:** Sobre de aluminio negro mate, rayos púrpura y verde Solana escapando de las costuras, logo GoalChain centrado en 3D.
+## 🌀 The Retro (Back Side) Master Prompt
+`"A futuristic technical data panel for a sports card back side. Background: matte black carbon fiber with subtle glowing [RARITY_COLOR] circuitry. Center: a hexagonal radar chart with neon lines showing player attributes. Bottom right: a glowing holographic circular seal with the GoalChain logo and 'OFFICIAL BLOCKCHAIN CERTIFIED' text. Bottom left: a small digital display with 'TOKEN ID: #XXXXX' in monospace font. Frame: thin 5px lines of [RARITY_MATERIAL]. 8k resolution, cinematic lighting, tech-noir aesthetic."`
+
+- **Mythic Back:** Black diamond frame, white energy pulses in the circuits.
+- **Legendary Back:** Liquid gold frame, amber neon radar chart.
+- **Epic Back:** Purple neon accents, carbon fiber texture.

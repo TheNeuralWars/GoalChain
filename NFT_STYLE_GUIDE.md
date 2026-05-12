@@ -37,3 +37,11 @@ Si el jugador tiene salud baja en la web, el cromo debe mostrar:
 
 ## 7. Seguridad Legal
 - **Prohibido:** Marcas reales (Adidas, Nike), escudos de federaciones, caras exactas de jugadores (usar parodia estilizada).
+## 8. El Diseño Retro (The Back Side)
+El reverso del cromo es un panel de datos técnicos que certifica la autenticidad del jugador en la blockchain.
+
+- **Fondo:** Fibra de carbono negra mate con un patrón de circuitos integrados sutiles (Cyber-Grid).
+- **El Radar de ADN:** En el centro, un gráfico de radar hexagonal mostrando los stats actuales del jugador. El color del gráfico debe coincidir con el neón de la rareza.
+- **Smart Contract Seal:** Un sello circular holográfico en la esquina inferior derecha. Contiene el logo de GoalChain y el texto "OFFICIAL BLOCKCHAIN CERTIFIED".
+- **Metadata Display:** En la parte inferior izquierda, el Token ID y la fecha de emisión en una tipografía monoespaciada (tipo código).
+- **Bordes:** Líneas de 5px que mantienen el material de la rareza (Diamante, Oro, etc.).
