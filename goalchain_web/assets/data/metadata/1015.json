@@ -1,0 +1,52 @@
+{
+    "name": "Capitán TEAM_40",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jugador #1 de Nación TEAM_40. Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/1015_capitán_team_40.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Nación TEAM_40"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "1"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 86
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 81
+        },
+        {
+            "trait_type": "Hype",
+            "value": 47
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/1015_capitán_team_40.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "share": 100
+            }
+        ]
+    }
+}

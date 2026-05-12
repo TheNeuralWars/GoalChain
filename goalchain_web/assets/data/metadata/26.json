@@ -1,0 +1,52 @@
+{
+    "name": "Joshua Bit-mmi",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jugador #6 de Alemania. Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/026_joshua_bit-mmi.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Alemania"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "6"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 82
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 85
+        },
+        {
+            "trait_type": "Hype",
+            "value": 90
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/026_joshua_bit-mmi.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "share": 100
+            }
+        ]
+    }
+}
