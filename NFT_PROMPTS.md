@@ -8,11 +8,11 @@ Este documento contiene los prompts optimizados para la generación de los prime
 ## 🏆 Legendaries (Capitanes) & Epics Destacados
 - **Lionel Bitcoin (ARG):** Oro sobre Negro Diamante, señalando al cielo, partículas divinas.
 - **Dibu Block (ARG):** Kit verde neón, pose de vuelo horizontal atajando un balón digital con chispas, marco de carbono neón.
-- **Cristiano Holdaldo (POR):** Armadura de Oro Blanco, pose "Siuuu" con ondas de choque digitales.
+- **Cristiano Holdaldo (POR):** Armadura de Cromo Negro y Oro Blanco, pose de salto "SIUUU" con una onda de choque sónica azul eléctrica que resquebraja el suelo digital.
 - **Kylian M-Bag-pé (FRA):** Azul profundo, marco de plata líquida holográfica.
 - **Vini Burner Jr (BRA):** Amarillo canario neón, marco de esmeralda con fuego digital.
 - **Jude Whale-ingham (ENG):** Blanco perla y azul, marco de platino cepillado.
-- **Lamine Ya-Hype (ESP):** Rojo carmesí neón, marco de rubí con rayos de energía.
+- **Lamine Ya-Hype (ESP):** Rojo carmesí neón, pose de sprint a "velocidad de la luz" con estela de chispas eléctricas doradas, marco de rubí con grietas de luz.
 - **Jamal Moon-siala (GER):** Blanco minimalista, marco de cromo oscuro con luces blancas.
 - **Endrick Chain (BRA):** Verde selva futurista, marco de jade digital.
 
