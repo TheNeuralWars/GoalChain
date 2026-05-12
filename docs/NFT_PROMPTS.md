@@ -5,11 +5,10 @@ Este documento contiene los prompts optimizados para la generación de los prime
 ## Estructura Base del Prompt
 `"A premium 3D hyper-realistic illustration of [PLAYER_CONCEPT], named '[PARODY_NAME]'. He is wearing a [RARITY_ARMOR] football kit with the GoalChain logo on the chest. Pose: [EPIC_POSE]. Background: futuristic stadium with neon [RARITY_COLOR] lights. Frame: [RARITY_FRAME_DESCRIPTION]. High fidelity, 8k, Unreal Engine 5 style."`
 
-## 💎 Mythic (1/1)
+## 🏆 Legendaries (Capitanes) & Epics Destacados
 - **Lionel Bitcoin (ARG):** Oro sobre Negro Diamante, señalando al cielo, partículas divinas.
+- **Dibu Block (ARG):** Kit verde neón, pose de vuelo horizontal atajando un balón digital con chispas, marco de carbono neón.
 - **Cristiano Holdaldo (POR):** Armadura de Oro Blanco, pose "Siuuu" con ondas de choque digitales.
-
-## 🏆 Legendaries (Capitanes)
 - **Kylian M-Bag-pé (FRA):** Azul profundo, marco de plata líquida holográfica.
 - **Vini Burner Jr (BRA):** Amarillo canario neón, marco de esmeralda con fuego digital.
 - **Jude Whale-ingham (ENG):** Blanco perla y azul, marco de platino cepillado.
