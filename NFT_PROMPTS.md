@@ -5,13 +5,12 @@ Este documento contiene los prompts optimizados para la generación de los prime
 ## 🚀 Estructura Maestra V3.0 (Ultra-Technical)
 Para asegurar coherencia absoluta, cada prompt debe seguir este "Blueprint" de capas técnicas:
 
-### 1. El "Master Prompt" Frontal
-`"Full-body cinematic character portrait of [PLAYER_CONCEPT], professionally known as '[PARODY_NAME]'. 
-[MATERIALITY]: Wearing a heavy-weave micro-textured [RARITY_ARMOR] football jersey with [RARITY_COLOR] luminescent fiber optics. GoalChain logo on the chest is a 3D metallic badge with an anisotropic gold/silver finish. 
-[LIGHTING]: Cinematic 3-point lighting setup, high-key rim lighting, global illumination, volumetric stadium floodlights. 
-[COMPOSITION]: Heroic low-angle shot, focal length 85mm, shallow depth of field with creamy bokeh. 
-[ENVIRONMENT]: Futuristic stadium interior, dark carbon fiber turf, hovering digital spectators, rain of glowing [RARITY_COLOR] data particles. 
-[TECHNICAL]: Hyper-realistic 3D render, Unreal Engine 5.4, Octane Render, 32k resolution, ray-traced reflections, subsurface scattering on skin, PBR materials, masterpiece, highly detailed, sharp focus."`
+### 1. El "Master Prompt" Frontal (Full Card Layout)
+`"A premium digital trading card featuring [PLAYER_CONCEPT], known as '[PARODY_NAME]'. 
+[CARD_DESIGN]: The image is a complete trading card with a high-tech [RARITY_MATERIAL] frame featuring glowing [RARITY_COLOR] circuitry. The top header says 'PREMIUM DIGITAL TRADING CARD' with the player name and flag. The bottom footer displays technical stats (ATT, PAC, DRI, PAS, SHO) and a 'Web3 Verified' seal.
+[SUBJECT]: The player is in a 3D hyper-realistic style, wearing a micro-textured [RARITY_ARMOR] kit. Pose: [EPIC_POSE]. 
+[ENVIRONMENT]: High-luminosity futuristic stadium, vibrant neon [RARITY_COLOR] ambient light, large digital screens with floating spectators, cinematic depth of field (bokeh), sharp player focus against a blurred high-detail background. 
+[TECHNICAL]: 4k resolution, cinematic 3-point lighting, Unreal Engine 5 style, Octane Render, crisp details, highly coherent design, professional sports memorabilia aesthetic."`
 
 ---
 
