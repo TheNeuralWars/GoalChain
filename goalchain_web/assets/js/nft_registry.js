@@ -14,6 +14,31 @@ const PRICE_MAP = {
     "common": "100 $GCH"
 };
 
+// Manual image map for generated NFTs (overrides auto-generated paths)
+const NFT_IMAGE_MAP = {
+    1: "001_lionel_bitcoin.png",
+    2: "002_dibu_block.png",
+    27: "027_vini_burner_jr.png",
+    28: "028_endrick_chain.png",
+    53: "053_kylian_m-bag-pé.png",
+    79: "079_jude_whale-ingham.png",
+    80: "080_harry_chain.png",
+    105: "105_lamine_ya-hype.png",
+    106: "106_pedri_p2p.png",
+    131: "131_jamal_moon-siala.png",
+    157: "157_cristiano_holdaldo.png"
+};
+
+function getPlayerImagePath(player) {
+    // Check manual map first
+    if (NFT_IMAGE_MAP[player.id]) {
+        return `assets/img/nfts/${NFT_IMAGE_MAP[player.id]}`;
+    }
+    // Auto-generate path (for future players)
+    const safeName = player.name.toLowerCase().replace(/ /g, '_').replace(/[^a-z0-9_\-]/g, '');
+    return `assets/img/nfts/${String(player.id).padStart(3, '0')}_${safeName}.png`;
+}
+
 async function initNFTGallery() {
     try {
         const response = await fetch('assets/data/players.json');
@@ -46,7 +71,7 @@ function renderPlayers(filterCountry, searchQuery = '') {
         return;
     }
 
-    const displayLimit = 30;
+    const displayLimit = 50;
 
     filtered.slice(0, displayLimit).forEach(player => {
         const isFav = favorites.includes(player.id);
@@ -54,14 +79,14 @@ function renderPlayers(filterCountry, searchQuery = '') {
         card.className = 'nft-card-3d';
         card.setAttribute('data-rarity', player.rarity);
         
-        const imgPath = `assets/img/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
+        const imgPath = getPlayerImagePath(player);
         const nftPrice = PRICE_MAP[player.rarity] || "100 $GCH";
 
         card.innerHTML = `
             <div class="favorite-heart ${isFav ? 'is-fav' : ''}" data-id="${player.id}">❤️</div>
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/img/nfts/lionel_bitcoin.png'">
+                    <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/img/nfts/001_lionel_bitcoin.png'">
                     <div class="nft-overlay">
                         <div class="player-info">
                             <span class="player-num">#${player.number}</span>

@@ -253,12 +253,13 @@ body {
     align-items: start; max-width: 1200px; margin: 0 auto;
 }
 .game-container {
-    aspect-ratio: 16/9; background: #030305;
+    background: #030305;
     border: 2px solid rgba(20, 241, 149, 0.3); border-radius: 16px;
-    display: flex; flex-direction: column; justify-content: center;
-    align-items: center; overflow: hidden; position: relative;
+    display: flex; flex-direction: column;
+    align-items: center; position: relative;
+    overflow: hidden;
 }
-.game-container canvas { max-width: 100%; height: auto; display: block; }
+.game-container canvas { width: 100%; height: auto; display: block; }
 .game-hint {
     position: absolute; bottom: 8px; font-size: 0.65rem;
     color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px;
@@ -588,24 +589,16 @@ body {
 
 /* --- 3D NFT Gallery --- */
 .nft-slider-container {
-    overflow: hidden;
-    padding: 4rem 0;
-    perspective: 1200px;
+    overflow: visible;
+    padding: 2rem 0;
 }
 
 .nft-track {
     display: flex;
-    gap: 2.5rem;
-    animation: scrollNFT 40s linear infinite;
-    width: max-content;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
     padding: 20px;
-}
-
-.nft-track:hover { animation-play-state: paused; }
-
-@keyframes scrollNFT {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
 }
 
 .nft-card-3d {
