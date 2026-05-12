@@ -398,6 +398,257 @@ pub mod goalchain_program {
 
         Ok(())
     }
+
+    // ---------------- LIVE MARKETS (PARIMUTUEL) ----------------
+
+    pub fn oracle_upsert_live_state(
+        ctx: Context<OracleUpsertLiveState>,
+        minute: u16,
+        score_a: u8,
+        score_b: u8,
+        is_ht: bool,
+        is_ft: bool,
+    ) -> Result<()> {
+        let live = &mut ctx.accounts.live_state;
+        live.fixture = ctx.accounts.fixture.key();
+        live.minute = minute;
+        live.score_a = score_a;
+        live.score_b = score_b;
+        live.is_ht = is_ht;
+        live.is_ft = is_ft;
+        live.last_update_ts = Clock::get()?.unix_timestamp;
+        live.bump = ctx.bumps.live_state;
+        Ok(())
+    }
+
+    pub fn oracle_create_market(
+        ctx: Context<OracleCreateMarket>,
+        market_id: u8,
+        market_type: MarketType,
+        // risk params
+        delay_seconds: i64,
+        cooldown_seconds: i64,
+        close_minute: u16,
+        max_goal_diff: u8,
+        require_tied: bool,
+        // market routing
+        token_mint: Pubkey,
+    ) -> Result<()> {
+        require!(delay_seconds >= 0, GoalChainError::InvalidMarketConfig);
+        require!(cooldown_seconds >= 0, GoalChainError::InvalidMarketConfig);
+
+        let m = &mut ctx.accounts.market;
+        m.fixture = ctx.accounts.fixture.key();
+        m.market_id = market_id;
+        m.market_type = market_type;
+        m.status = MarketStatus::Open;
+        m.token_mint = token_mint;
+
+        m.delay_seconds = delay_seconds;
+        m.cooldown_seconds = cooldown_seconds;
+        m.close_minute = close_minute;
+        m.max_goal_diff = max_goal_diff;
+        m.require_tied = require_tied;
+
+        m.pool_a = 0;
+        m.pool_b = 0;
+        m.pool_draw = 0;
+        m.winner = None;
+        m.last_bet_ts = 0;
+        m.resolved_ts = None;
+        m.bump = ctx.bumps.market;
+        Ok(())
+    }
+
+    pub fn oracle_update_market_status(
+        ctx: Context<OracleUpdateMarketStatus>,
+        status: MarketStatus,
+        winner: Option<MatchResult>,
+    ) -> Result<()> {
+        if status == MarketStatus::Resolved {
+            require!(winner.is_some(), GoalChainError::NoWinnerDeclared);
+            ctx.accounts.market.resolved_ts = Some(Clock::get()?.unix_timestamp);
+        }
+        ctx.accounts.market.status = status;
+        ctx.accounts.market.winner = winner;
+        Ok(())
+    }
+
+    pub fn place_market_bet(
+        ctx: Context<PlaceMarketBet>,
+        ticket_id: u64,
+        prediction: MatchResult,
+        amount: u64,
+    ) -> Result<()> {
+        let cfg = &ctx.accounts.config;
+        let market = &mut ctx.accounts.market;
+        let pos = &mut ctx.accounts.position;
+        let live = &ctx.accounts.live_state;
+        let clock = Clock::get()?;
+
+        require!(market.status == MarketStatus::Open, GoalChainError::BettingClosed);
+        require_keys_eq!(market.fixture, ctx.accounts.fixture.key(), GoalChainError::InvalidMarket);
+        require_keys_eq!(live.fixture, ctx.accounts.fixture.key(), GoalChainError::InvalidLiveState);
+
+        // market mint must match provided mint
+        require_keys_eq!(market.token_mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
+
+        // window by minute
+        require!(live.minute <= market.close_minute, GoalChainError::BettingClosed);
+
+        // tied / goal-diff rules
+        let diff = if live.score_a >= live.score_b { live.score_a - live.score_b } else { live.score_b - live.score_a };
+        require!(diff <= market.max_goal_diff, GoalChainError::BettingClosed);
+        if market.require_tied {
+            require!(live.score_a == live.score_b, GoalChainError::BettingClosed);
+        }
+
+        // cooldown
+        if market.last_bet_ts != 0 {
+            let next_allowed = market
+                .last_bet_ts
+                .checked_add(market.cooldown_seconds)
+                .ok_or(GoalChainError::MathOverflow)?;
+            require!(clock.unix_timestamp >= next_allowed, GoalChainError::BettingClosed);
+        }
+
+        // record position (multiple tickets per user per market)
+        pos.owner = ctx.accounts.user.key();
+        pos.market = market.key();
+        pos.ticket_id = ticket_id;
+        pos.amount = amount;
+        pos.prediction = prediction.clone();
+        pos.bet_ts = clock.unix_timestamp;
+        pos.claimed = false;
+        pos.bump = ctx.bumps.position;
+
+        // update pools
+        match prediction {
+            MatchResult::TeamA => market.pool_a = market.pool_a.checked_add(amount).ok_or(GoalChainError::MathOverflow)?,
+            MatchResult::TeamB => market.pool_b = market.pool_b.checked_add(amount).ok_or(GoalChainError::MathOverflow)?,
+            MatchResult::Draw => market.pool_draw = market.pool_draw.checked_add(amount).ok_or(GoalChainError::MathOverflow)?,
+        }
+        market.last_bet_ts = clock.unix_timestamp;
+
+        // transfer into market vault
+        let cpi_ctx = CpiContext::new(
+            ctx.accounts.token_program.key(),
+            TransferChecked {
+                from: ctx.accounts.user_token_account.to_account_info(),
+                to: ctx.accounts.market_vault.to_account_info(),
+                authority: ctx.accounts.user.to_account_info(),
+                mint: ctx.accounts.token_mint.to_account_info(),
+            },
+        );
+        token_interface::transfer_checked(cpi_ctx, amount, ctx.accounts.token_mint.decimals)?;
+
+        let _ = cfg;
+        Ok(())
+    }
+
+    pub fn claim_market_payout(ctx: Context<ClaimMarketPayout>) -> Result<()> {
+        let cfg = &ctx.accounts.config;
+        let market = &ctx.accounts.market;
+        let pos = &mut ctx.accounts.position;
+        let clock = Clock::get()?;
+
+        // --- runtime hardening: market vault PDA + mint match ---
+        let (expected_vault, _bump) = Pubkey::find_program_address(
+            &[b"market_vault", market.key().as_ref()],
+            ctx.program_id,
+        );
+        require_keys_eq!(ctx.accounts.market_vault.key(), expected_vault, GoalChainError::InvalidVault);
+
+        let user_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.user_token_account.data.borrow()[..])?;
+        let vault_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.market_vault.data.borrow()[..])?;
+        let treasury_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.treasury_token_account.data.borrow()[..])?;
+
+        require_keys_eq!(user_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
+        require_keys_eq!(vault_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
+        require_keys_eq!(treasury_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
+        require_keys_eq!(market.token_mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
+
+        require!(market.status == MarketStatus::Resolved, GoalChainError::MatchNotFinished);
+        require!(!pos.claimed, GoalChainError::AlreadyClaimed);
+
+        // delay after resolution
+        if let Some(resolved_ts) = market.resolved_ts {
+            let unlock_ts = resolved_ts
+                .checked_add(market.delay_seconds)
+                .ok_or(GoalChainError::MathOverflow)?;
+            require!(clock.unix_timestamp >= unlock_ts, GoalChainError::ClaimTooEarly);
+        } else {
+            return err!(GoalChainError::MatchNotFinished);
+        }
+
+        let winning_result = market.winner.as_ref().ok_or(GoalChainError::NoWinnerDeclared)?;
+        require!(pos.prediction == *winning_result, GoalChainError::NotAWinner);
+
+        let winning_pool = match winning_result {
+            MatchResult::TeamA => market.pool_a,
+            MatchResult::TeamB => market.pool_b,
+            MatchResult::Draw => market.pool_draw,
+        };
+        require!(winning_pool > 0, GoalChainError::InvalidPool);
+
+        let total_pool = market
+            .pool_a
+            .checked_add(market.pool_b).ok_or(GoalChainError::MathOverflow)?
+            .checked_add(market.pool_draw).ok_or(GoalChainError::MathOverflow)?;
+
+        let gross_user_share = ((pos.amount as u128)
+            .checked_mul(total_pool as u128).ok_or(GoalChainError::MathOverflow)?
+            .checked_div(winning_pool as u128).ok_or(GoalChainError::MathOverflow)?) as u64;
+
+        let user_fee = ((gross_user_share as u128)
+            .checked_mul(cfg.fee_bps as u128).ok_or(GoalChainError::MathOverflow)?
+            .checked_div(10_000).ok_or(GoalChainError::MathOverflow)?) as u64;
+
+        let user_net_share = gross_user_share
+            .checked_sub(user_fee)
+            .ok_or(GoalChainError::MathOverflow)?;
+
+        pos.claimed = true;
+
+        let bump_val = market.bump;
+        let bump_arr = [bump_val];
+        let signer_seeds: &[&[&[u8]]] = &[&[
+            b"market",
+            market.fixture.as_ref(),
+            &[market.market_id],
+            &bump_arr,
+        ]];
+
+        // payout to user
+        let cpi_user = CpiContext::new_with_signer(
+            ctx.accounts.token_program.key(),
+            TransferChecked {
+                from: ctx.accounts.market_vault.to_account_info(),
+                to: ctx.accounts.user_token_account.to_account_info(),
+                authority: ctx.accounts.market.to_account_info(),
+                mint: ctx.accounts.token_mint.to_account_info(),
+            },
+            signer_seeds,
+        );
+        token_interface::transfer_checked(cpi_user, user_net_share, ctx.accounts.token_mint.decimals)?;
+
+        // fee to treasury
+        if user_fee > 0 {
+            let cpi_fee = CpiContext::new_with_signer(
+                ctx.accounts.token_program.key(),
+                TransferChecked {
+                    from: ctx.accounts.market_vault.to_account_info(),
+                    to: ctx.accounts.treasury_token_account.to_account_info(),
+                    authority: ctx.accounts.market.to_account_info(),
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                },
+                signer_seeds,
+            );
+            token_interface::transfer_checked(cpi_fee, user_fee, ctx.accounts.token_mint.decimals)?;
+        }
+
+        Ok(())
+    }
 }
 
 // ---------------- CONFIG ACCOUNTS ----------------
@@ -518,12 +769,31 @@ pub struct RentalListing { pub owner: Pubkey, pub price_per_match: u64, pub curr
 #[derive(Accounts)]
 #[instruction(timestamp: i64)]
 pub struct CreateWager<'info> {
-    #[account(mut)] pub player_a: Signer<'info>,
-    #[account(init, payer = player_a, space = 8 + Wager::INIT_SPACE, seeds = [b"wager", player_a.key().as_ref(), timestamp.to_le_bytes().as_ref()], bump)]
+    #[account(mut)]
+    pub player_a: Signer<'info>,
+
+    #[account(
+        init,
+        payer = player_a,
+        space = 8 + Wager::INIT_SPACE,
+        seeds = [b"wager", player_a.key().as_ref(), timestamp.to_le_bytes().as_ref()],
+        bump
+    )]
     pub wager: Account<'info, Wager>,
-    #[account(mut)] pub player_a_token: InterfaceAccount<'info, TokenAccount>,
-    #[account(init, payer = player_a, seeds = [b"wager_vault", wager.key().as_ref()], bump, token::mint = token_mint, token::authority = wager)]
+
+    #[account(mut)]
+    pub player_a_token: InterfaceAccount<'info, TokenAccount>,
+
+    #[account(
+        init,
+        payer = player_a,
+        seeds = [b"wager_vault", wager.key().as_ref()],
+        bump,
+        token::mint = token_mint,
+        token::authority = wager
+    )]
     pub wager_vault: InterfaceAccount<'info, TokenAccount>,
+
     pub token_mint: InterfaceAccount<'info, Mint>,
     pub token_program: Interface<'info, TokenInterface>,
     pub system_program: Program<'info, System>,
@@ -623,18 +893,200 @@ pub struct ClaimBetPayout<'info> {
     pub token_program: Interface<'info, TokenInterface>,
 }
 
+// ---------------- LIVE MARKETS ACCOUNTS ----------------
+
+#[derive(Accounts)]
+pub struct OracleUpsertLiveState<'info> {
+    #[account(mut)]
+    pub oracle_authority: Signer<'info>,
+
+    #[account(
+        mut,
+        seeds = [b"config"],
+        bump = config.bump,
+        constraint = config.oracle_authority == oracle_authority.key() @ GoalChainError::UnauthorizedOracle,
+    )]
+    pub config: Account<'info, GlobalConfig>,
+
+    pub fixture: Account<'info, Fixture>,
+
+    #[account(
+        init_if_needed,
+        payer = oracle_authority,
+        space = 8 + LiveMatchState::INIT_SPACE,
+        seeds = [b"live_state", fixture.key().as_ref()],
+        bump
+    )]
+    pub live_state: Account<'info, LiveMatchState>,
+
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+#[instruction(market_id: u8)]
+pub struct OracleCreateMarket<'info> {
+    #[account(mut)]
+    pub oracle_authority: Signer<'info>,
+
+    #[account(
+        mut,
+        seeds = [b"config"],
+        bump = config.bump,
+        constraint = config.oracle_authority == oracle_authority.key() @ GoalChainError::UnauthorizedOracle,
+    )]
+    pub config: Account<'info, GlobalConfig>,
+
+    #[account(
+        init,
+        payer = oracle_authority,
+        space = 8 + Market::INIT_SPACE,
+        seeds = [b"market", fixture.key().as_ref(), &[market_id]],
+        bump
+    )]
+    pub market: Account<'info, Market>,
+
+    pub fixture: Account<'info, Fixture>,
+
+    pub token_mint: InterfaceAccount<'info, Mint>,
+    pub token_program: Interface<'info, TokenInterface>,
+
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct OracleUpdateMarketStatus<'info> {
+    #[account(mut)]
+    pub oracle_authority: Signer<'info>,
+
+    #[account(
+        mut,
+        seeds = [b"config"],
+        bump = config.bump,
+        constraint = config.oracle_authority == oracle_authority.key() @ GoalChainError::UnauthorizedOracle,
+    )]
+    pub config: Account<'info, GlobalConfig>,
+
+    #[account(mut)]
+    pub market: Account<'info, Market>,
+}
+
+#[derive(Accounts)]
+#[instruction(ticket_id: u64)]
+pub struct PlaceMarketBet<'info> {
+    #[account(mut)]
+    pub user: Signer<'info>,
+
+    #[account(seeds = [b"config"], bump = config.bump)]
+    pub config: Account<'info, GlobalConfig>,
+
+    #[account(mut)]
+    pub market: Account<'info, Market>,
+
+    pub fixture: Account<'info, Fixture>,
+
+    #[account(seeds = [b"live_state", fixture.key().as_ref()], bump = live_state.bump)]
+    pub live_state: Account<'info, LiveMatchState>,
+
+    #[account(
+        init,
+        payer = user,
+        space = 8 + MarketPosition::INIT_SPACE,
+        seeds = [
+            b"position",
+            user.key().as_ref(),
+            market.key().as_ref(),
+            &ticket_id.to_le_bytes(),
+        ],
+        bump
+    )]
+    pub position: Account<'info, MarketPosition>,
+
+    #[account(mut)]
+    pub user_token_account: InterfaceAccount<'info, TokenAccount>,
+
+    #[account(
+        init_if_needed,
+        payer = user,
+        token::mint = token_mint,
+        token::authority = market,
+        seeds = [b"market_vault", market.key().as_ref()],
+        bump
+    )]
+    pub market_vault: InterfaceAccount<'info, TokenAccount>,
+
+    pub token_mint: InterfaceAccount<'info, Mint>,
+    pub token_program: Interface<'info, TokenInterface>,
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct ClaimMarketPayout<'info> {
+    #[account(mut)]
+    pub user: Signer<'info>,
+
+    #[account(seeds = [b"config"], bump = config.bump)]
+    pub config: Account<'info, GlobalConfig>,
+
+    #[account(mut)]
+    pub market: Account<'info, Market>,
+
+    #[account(
+        mut,
+        constraint = position.owner == user.key() && position.market == market.key() @ GoalChainError::Unauthorized,
+    )]
+    pub position: Account<'info, MarketPosition>,
+
+    /// CHECK: validated by runtime checks (mint + ownership) in handler
+    #[account(mut)]
+    pub user_token_account: UncheckedAccount<'info>,
+
+    /// CHECK: validated by PDA + mint in handler
+    #[account(mut)]
+    pub market_vault: UncheckedAccount<'info>,
+
+    #[account(
+        mut,
+        constraint = treasury_token_account.key() == config.treasury_token_account @ GoalChainError::InvalidTreasury
+    )]
+    /// CHECK: validated by runtime mint check in handler
+    pub treasury_token_account: UncheckedAccount<'info>,
+
+    pub token_mint: InterfaceAccount<'info, Mint>,
+    pub token_program: Interface<'info, TokenInterface>,
+}
+
+// ---------------- CORE TYPES (FIXTURES) ----------------
+
+#[derive(AnchorSerialize, AnchorDeserialize, Clone, PartialEq, Eq, InitSpace)]
+pub enum MatchStatus {
+    Upcoming,
+    Live,
+    Completed,
+    Cancelled,
+}
+
+#[derive(AnchorSerialize, AnchorDeserialize, Clone, PartialEq, Eq, InitSpace)]
+pub enum MatchResult {
+    TeamA,
+    TeamB,
+    Draw,
+}
+
 #[account]
 #[derive(InitSpace)]
 pub struct Fixture {
-    #[max_len(64)] pub match_id: String,
-    #[max_len(64)] pub team_a: String,
-    #[max_len(64)] pub team_b: String,
+    #[max_len(64)]
+    pub match_id: String,
+    #[max_len(32)]
+    pub team_a: String,
+    #[max_len(32)]
+    pub team_b: String,
+    pub start_timestamp: i64,
     pub pool_a: u64,
     pub pool_b: u64,
     pub pool_draw: u64,
     pub status: MatchStatus,
     pub winner: Option<MatchResult>,
-    pub start_timestamp: i64,
     pub bump: u8,
 }
 
@@ -649,32 +1101,130 @@ pub struct UserBet {
     pub claimed: bool,
 }
 
-#[derive(AnchorSerialize, AnchorDeserialize, Clone, PartialEq, Eq, InitSpace)]
-pub enum MatchStatus { Upcoming, Live, Completed, Cancelled }
+// ---------------- LIVE MARKETS TYPES ----------------
+
+#[account]
+#[derive(InitSpace)]
+pub struct LiveMatchState {
+    pub fixture: Pubkey,
+    pub minute: u16,
+    pub score_a: u8,
+    pub score_b: u8,
+    pub is_ht: bool,
+    pub is_ft: bool,
+    pub last_update_ts: i64,
+    pub bump: u8,
+}
+
+#[derive(AnchorSerialize, AnchorDeserialize, Clone, Copy, PartialEq, Eq, InitSpace)]
+pub enum MarketType {
+    MatchResultLive,
+    NextGoal,
+    Custom,
+}
 
 #[derive(AnchorSerialize, AnchorDeserialize, Clone, PartialEq, Eq, InitSpace)]
-pub enum MatchResult { TeamA, TeamB, Draw }
+pub enum MarketStatus {
+    Open,
+    Closed,
+    Resolved,
+    Cancelled,
+}
+
+// Add a stable byte identifier used in PDA seeds to support multiple markets per fixture.
+// This is stored on-chain and reused for signer seeds.
+
+#[account]
+#[derive(InitSpace)]
+pub struct Market {
+    pub fixture: Pubkey,
+    /// Stable market identifier used for PDA derivation (0-255).
+    pub market_id: u8,
+    pub market_type: MarketType,
+    pub status: MarketStatus,
+    pub token_mint: Pubkey,
+
+    // risk params
+    pub delay_seconds: i64,
+    pub cooldown_seconds: i64,
+    pub close_minute: u16,
+    pub max_goal_diff: u8,
+    pub require_tied: bool,
+
+    // pools
+    pub pool_a: u64,
+    pub pool_b: u64,
+    pub pool_draw: u64,
+
+    // resolution
+    pub winner: Option<MatchResult>,
+    pub last_bet_ts: i64,
+    pub resolved_ts: Option<i64>,
+
+    pub bump: u8,
+}
+
+#[account]
+#[derive(InitSpace)]
+pub struct MarketPosition {
+    pub owner: Pubkey,
+    pub market: Pubkey,
+    pub ticket_id: u64,
+    pub amount: u64,
+    pub prediction: MatchResult,
+    pub bet_ts: i64,
+    pub claimed: bool,
+    pub bump: u8,
+}
+
+// ---------------- ERRORS ----------------
 
 #[error_code]
 pub enum GoalChainError {
-    #[msg("Claim rewards first.")] MustClaimFirst,
-    #[msg("Insufficient funds.")] InsufficientFunds,
-    #[msg("Unauthorized.")] Unauthorized,
-    #[msg("Unauthorized oracle.")] UnauthorizedOracle,
-    #[msg("Listing not active.")] ListingNotActive,
-    #[msg("Already rented.")] AlreadyRented,
-    #[msg("Wager not available.")] WagerNotAvailable,
-    #[msg("Wager not ready.")] WagerNotReady,
-    #[msg("Match finished.")] MatchAlreadyFinished,
-    #[msg("Match NOT finished.")] MatchNotFinished,
-    #[msg("Already claimed.")] AlreadyClaimed,
-    #[msg("No winner declared.")] NoWinnerDeclared,
-    #[msg("Not a winner.")] NotAWinner,
-    #[msg("Math overflow/underflow.")] MathOverflow,
-    #[msg("Betting is closed for this fixture.")] BettingClosed,
-    #[msg("Invalid pool.")] InvalidPool,
-    #[msg("Invalid config.")] InvalidConfig,
-    #[msg("Invalid treasury token account.")] InvalidTreasury,
-    #[msg("Invalid token mint/account mint mismatch.")] InvalidMint,
-    #[msg("Invalid fixture vault account.")] InvalidVault,
+    #[msg("Unauthorized")]
+    Unauthorized,
+    #[msg("Unauthorized oracle")]
+    UnauthorizedOracle,
+    #[msg("Invalid config")]
+    InvalidConfig,
+    #[msg("Must claim first")]
+    MustClaimFirst,
+    #[msg("Math overflow")]
+    MathOverflow,
+    #[msg("Insufficient funds")]
+    InsufficientFunds,
+    #[msg("Listing not active")]
+    ListingNotActive,
+    #[msg("Already rented")]
+    AlreadyRented,
+    #[msg("Wager not available")]
+    WagerNotAvailable,
+    #[msg("Wager not ready")]
+    WagerNotReady,
+    #[msg("Betting closed")]
+    BettingClosed,
+    #[msg("Match not finished")]
+    MatchNotFinished,
+    #[msg("No winner declared")]
+    NoWinnerDeclared,
+    #[msg("Not a winner")]
+    NotAWinner,
+    #[msg("Already claimed")]
+    AlreadyClaimed,
+    #[msg("Invalid pool")]
+    InvalidPool,
+    #[msg("Invalid vault")]
+    InvalidVault,
+    #[msg("Invalid mint")]
+    InvalidMint,
+    #[msg("Invalid treasury")]
+    InvalidTreasury,
+    #[msg("Invalid market config")]
+    InvalidMarketConfig,
+    #[msg("Invalid market")]
+    InvalidMarket,
+    #[msg("Invalid live state")]
+    InvalidLiveState,
+    #[msg("Claim too early")]
+    ClaimTooEarly,
 }
