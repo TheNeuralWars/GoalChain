@@ -5,12 +5,12 @@ Este documento contiene los prompts optimizados para la generación de los prime
 ## 🚀 Estructura Maestra V3.0 (Ultra-Technical)
 Para asegurar coherencia absoluta, cada prompt debe seguir este "Blueprint" de capas técnicas:
 
-### 1. El "Master Prompt" Frontal (Full Card Layout - V4.0)
+### 1. El "Master Prompt" Frontal (Full Card Layout - V5.0)
 `"A premium rectangular digital trading card featuring [PLAYER_CONCEPT], known as '[PARODY_NAME]'. 
-[CARD_DESIGN]: Perfectly rectangular card shape, edge-to-edge design with NO image outside the frame. The frame is a high-tech [RARITY_MATERIAL] structure with glowing [RARITY_COLOR] circuitry, identical to the Phil Fod-Ether style. The top integrated header says 'PREMIUM DIGITAL TRADING CARD'. The bottom footer displays technical stats (ATT, PAC, DRI, PAS, SHO).
-[SUBJECT]: The player is in a 3D hyper-realistic style, wearing a micro-textured [RARITY_ARMOR] kit. Pose: [EPIC_POSE]. 
-[ENVIRONMENT]: Clean futuristic stadium background, vibrant [RARITY_COLOR] lighting, minimal digital screens, high-luminosity, cinematic bokeh, deep depth of field focused only on the player. 
-[TECHNICAL]: 4k resolution, top-down-like centered composition, Unreal Engine 5 style, crisp industrial design, professional sports memorabilia."`
+[CARD_DESIGN]: Perfectly rectangular card shape, edge-to-edge design with NO image outside the frame. The frame is a high-tech [RARITY_MATERIAL] structure with glowing [RARITY_COLOR] Solana-inspired circuitry (#14f195, #9945ff). The top header says 'PREMIUM DIGITAL TRADING CARD'.
+[SUBJECT]: 3D hyper-realistic style player wearing his [NATIONAL_COUNTRY] national kit (light blue and white stripes for ARG) with subtle glowing futuristic neon fiber optics. Pose: [EPIC_POSE]. 
+[ENVIRONMENT]: Futuristic stadium background, high-luminosity, vibrant Solana green and purple ambient light. A blurred crowd is visible in the background along with [NATIONAL_COUNTRY] national flags. Deep depth of field (bokeh) focusing exclusively on the player. 
+[TECHNICAL]: 4k resolution, centered composition, edge-to-edge cropping, professional sports memorabilia, Unreal Engine 5 aesthetic."`
 
 ---
 
