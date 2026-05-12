@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoalChain | Investor Pitch Deck</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pitch: #06060a;
+            --slide-bg: rgba(255, 255, 255, 0.03);
+            --primary: #14f195;
+            --secondary: #9945ff;
+        }
+
+        body.pitch-mode {
+            background: var(--bg-pitch);
+            color: #fff;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pitch-container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #06060a 100%);
+        }
+
+        .slide {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            background: var(--slide-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 4rem;
+            box-sizing: border-box;
+            animation: fadeIn 0.5s ease-out;
+            position: relative;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide.active { display: flex; }
+
+        .slide-header {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .slide-content {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .slide-content ul { list-style: none; padding: 0; }
+        .slide-content li { margin-bottom: 1rem; padding-left: 2rem; position: relative; }
+        .slide-content li::before { content: '→'; position: absolute; left: 0; color: var(--primary); }
+
+        .slide-footer {
+            position: absolute;
+            bottom: 2rem;
+            right: 4rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            font-weight: 800;
+        }
+
+        /* Controles */
+        .controls {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .btn-control {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .btn-control:hover { background: var(--primary); color: #000; }
+
+        .lang-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 100;
+        }
+
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilos específicos para tablas de comparación */
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 1.5rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        th { color: var(--primary); text-transform: uppercase; font-size: 0.9rem; }
+    </style>
+</head>
+<body class="pitch-mode">
+
+    <div class="lang-toggle">
+        <button class="btn-control" onclick="toggleLanguage()">ES / EN</button>
+    </div>
+
+    <div class="pitch-container" id="pitchContainer">
+        <!-- Las slides se cargan dinámicamente aquí -->
+    </div>
+
+    <div class="controls">
+        <button class="btn-control" onclick="prevSlide()">← Anterior</button>
+        <button class="btn-control" onclick="nextSlide()">Siguiente →</button>
+    </div>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <script>
+        const slidesData = {
+            es: [
+                { title: "The Vision", content: "<strong>GoalChain</strong> no es solo un juego; es una economía deportiva autosustentable diseñada para capturar la atención de los 5.000 millones de fans del fútbol durante el Mundial 2026.<br><br>Apalancados en <strong>Solana</strong>, permitimos a los fans ganar dividendos basados en el rendimiento real." },
+                { title: "La Oportunidad", content: "<ul><li><strong>Audiencia:</strong> +5.000 millones de fans.</li><li><strong>Crecimiento:</strong> Mercado Web3 proyectado en $65B.</li><li><strong>El Momento:</strong> El Mundial 2026 será el evento más digital de la historia.</li></ul>" },
+                { title: "Problema vs Solución", content: "<table><tr><th>Problema</th><th>Solución</th></tr><tr><td>Economías Ponzi</td><td>Real Yield basado en Oráculos</td></tr><tr><td>Barreras Cripto</td><td>Fiat On-Ramp (Tarjetas)</td></tr><tr><td>NFTs sin utilidad</td><td>Dynamic NFTs con sueldos reales</td></tr></table>" },
+                { title: "Genesis Squad", content: "Una colección estratégica de 1,248 jugadores parodiados:<br><ul><li><strong>Mythic:</strong> Acceso VIP Mundial.</li><li><strong>Legendary:</strong> Capitanes con Staking Bonus.</li><li><strong>Epic:</strong> Multiplicadores de Apuestas.</li><li><strong>Common:</strong> Base para el sistema de Fusión.</li></ul>" },
+                { title: "Contrato Profesional", content: "Introducimos el <strong>Web3 Player Agent</strong>:<br><ul><li><strong>Sueldo Fijo:</strong> Hasta 5,000 $GCH por partido.</li><li><strong>Bonos Performance:</strong> Goles, Asistencias y Portería a Cero.</li><li><strong>Sync en Vivo:</strong> Datos reales actualizados al instante.</li></ul>" },
+                { title: "Tokenomics", content: "Mecánicas de Quema para proteger el $GCH:<br><ul><li><strong>Fusión:</strong> Quema comunes para subir de nivel.</li><li><strong>Emblemas:</strong> Quema sets para revenue share.</li><li><strong>Mantenimiento:</strong> Sinks necesarios para rendimiento.</li></ul>" },
+                { title: "Roadmap", content: "<ul><li><strong>Q4 2025:</strong> Minting & Marketplace Opening.</li><li><strong>Q1 2026:</strong> Penalty Game Beta.</li><li><strong>Q2 2026:</strong> Mundial 2026 - Oracle Sync Live.</li></ul>" },
+                { title: "The Founders", content: "Un proyecto familiar con visión global:<br><ul><li><strong>NicoPez:</strong> Arquitecto Web3.</li><li><strong>Lucas:</strong> Director de Arte 3D.</li><li><strong>Equipo:</strong> Pasión futbolera + Expertise Solana.</li></ul>" }
+            ],
+            en: [
+                { title: "The Vision", content: "<strong>GoalChain</strong> is not just a game; it is a self-sustaining sports economy designed to capture the attention of 5 billion fans during the 2026 World Cup.<br><br>Leveraging <strong>Solana</strong>, we empower fans to earn dividends based on real-world performance." },
+                { title: "The Opportunity", content: "<ul><li><strong>Audience:</strong> +5 Billion fans.</li><li><strong>Growth:</strong> Web3 market projected at $65B.</li><li><strong>The Moment:</strong> The 2026 World Cup will be the most digital event in history.</li></ul>" },
+                { title: "Problem vs Solution", content: "<table><tr><th>Problem</th><th>Solution</th></tr><tr><td>Ponzi Economies</td><td>Real Yield via Oracles</td></tr><tr><td>Crypto Barriers</td><td>Fiat On-Ramp (Credit Cards)</td></tr><tr><td>Useless NFTs</td><td>Dynamic NFTs with real salaries</td></tr></table>" },
+                { title: "Genesis Squad", content: "A strategic collection of 1,248 parodied players:<br><ul><li><strong>Mythic:</strong> World Cup VIP Access.</li><li><strong>Legendary:</strong> Captains with Staking Bonus.</li><li><strong>Epic:</strong> Betting Multipliers.</li><li><strong>Common:</strong> Foundation for the Fusion system.</li></ul>" },
+                { title: "Professional Contract", content: "Introducing the <strong>Web3 Player Agent</strong>:<br><ul><li><strong>Base Salary:</strong> Up to 5,000 $GCH per match.</li><li><strong>Performance Bonuses:</strong> Goals, Assists, Clean Sheets.</li><li><strong>Live Sync:</strong> Real data updated instantly.</li></ul>" },
+                { title: "Tokenomics", content: "Burn Mechanics to protect $GCH:<br><ul><li><strong>Fusion:</strong> Burn common cards to level up.</li><li><strong>Emblems:</strong> Burn sets for revenue share.</li><li><strong>Maintenance:</strong> Required sinks for performance.</li></ul>" },
+                { title: "Roadmap", content: "<ul><li><strong>Q4 2025:</strong> Minting & Marketplace Opening.</li><li><strong>Q1 2026:</strong> Penalty Game Beta.</li><li><strong>Q2 2026:</strong> World Cup 2026 - Oracle Sync Live.</li></ul>" },
+                { title: "The Founders", content: "A family-led project with a global vision:<br><ul><li><strong>NicoPez:</strong> Web3 Architect.</li><li><strong>Lucas:</strong> 3D Art Director.</li><li><strong>Team:</strong> Football Passion + Solana Expertise.</li></ul>" }
+            ]
+        };
+
+        let currentLang = 'es';
+        let currentSlide = 0;
+
+        function renderSlides() {
+            const container = document.getElementById('pitchContainer');
+            container.innerHTML = slidesData[currentLang].map((slide, index) => `
+                <div class="slide ${index === currentSlide ? 'active' : ''}">
+                    <div class="slide-header">${slide.title}</div>
+                    <div class="slide-content">${slide.content}</div>
+                    <div class="slide-footer">GOALCHAIN 2026 | SLIDE ${index + 1} / ${slidesData[currentLang].length}</div>
+                </div>
+            `).join('');
+            updateProgress();
+        }
+
+        function nextSlide() {
+            if (currentSlide < slidesData[currentLang].length - 1) {
+                currentSlide++;
+                renderSlides();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                renderSlides();
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            renderSlides();
+        }
+
+        function updateProgress() {
+            const progress = ((currentSlide + 1) / slidesData[currentLang].length) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        renderSlides();
+    </script>
+</body>
+</html>
