@@ -54,14 +54,14 @@ function renderPlayers(filterCountry, searchQuery = '') {
         card.className = 'nft-card-3d';
         card.setAttribute('data-rarity', player.rarity);
         
-        const imgPath = `assets/images/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
+        const imgPath = `assets/img/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
         const nftPrice = PRICE_MAP[player.rarity] || "100 $GCH";
 
         card.innerHTML = `
             <div class="favorite-heart ${isFav ? 'is-fav' : ''}" data-id="${player.id}">❤️</div>
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/images/nfts/placeholder.png'">
+                    <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/img/nfts/lionel_bitcoin.png'">
                     <div class="nft-overlay">
                         <div class="player-info">
                             <span class="player-num">#${player.number}</span>
