@@ -84,13 +84,15 @@ function revealPlayer() {
     modal.classList.add('active');
     
     // Crear el cromo revelado
-    const imgPath = `assets/images/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
+    const imgPath = typeof window.getPlayerImagePath === 'function'
+        ? window.getPlayerImagePath(player)
+        : `assets/images/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
     
     container.innerHTML = `
         <div class="nft-card-3d" data-rarity="${player.rarity}" style="transform: scale(1.2);">
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/images/nfts/placeholder.png'">
+                    <img src="${imgPath}" alt="${player.name}" onerror="handlePlayerImageError(this)">
                     <div class="nft-overlay" style="opacity:1;">
                         <div class="player-info">
                             <span class="player-num">#${player.number}</span>

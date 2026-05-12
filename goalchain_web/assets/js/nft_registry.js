@@ -6,6 +6,46 @@ let masterPlayers = [];
 let favorites = JSON.parse(localStorage.getItem('gch_favorites') || '[]');
 let showOnlyFavorites = false;
 
+const FALLBACK_NFT_IMAGE = 'assets/images/nfts/001_lionel_bitcoin.png';
+const KNOWN_NFT_IMAGES_BY_ID = {
+    1: '001_lionel_bitcoin.png',
+    2: '002_cristiano_holdaldo.png',
+    3: '003_kylian_mbagpe.png',
+    4: '004_erling_hashland.png',
+    5: '005_jude_whaleingham.png',
+    6: '006_vini_burner.png',
+    7: '007_lamine_yahype.png',
+    8: '008_kevin_debyte.png',
+    9: '009_harry_chain.png',
+    10: '010_santi_gainz.png'
+};
+
+function slugifyPlayerName(name) {
+    return (name || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '');
+}
+
+function getPlayerImagePath(player) {
+    const knownFile = KNOWN_NFT_IMAGES_BY_ID[player.id];
+    if (knownFile) {
+        return `assets/images/nfts/${knownFile}`;
+    }
+
+    const slug = slugifyPlayerName(player.name);
+    return `assets/images/nfts/${String(player.id).padStart(3, '0')}_${slug}.png`;
+}
+
+window.getPlayerImagePath = getPlayerImagePath;
+window.handlePlayerImageError = function handlePlayerImageError(img) {
+    if (!img || img.dataset.fallbackApplied === '1') return;
+    img.dataset.fallbackApplied = '1';
+    img.src = FALLBACK_NFT_IMAGE;
+};
+
 const PRICE_MAP = {
     "mythic": "10,000 $GCH",
     "legendary": "5,000 $GCH",
@@ -54,14 +94,14 @@ function renderPlayers(filterCountry, searchQuery = '') {
         card.className = 'nft-card-3d';
         card.setAttribute('data-rarity', player.rarity);
         
-        const imgPath = `assets/images/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
+        const imgPath = getPlayerImagePath(player);
         const nftPrice = PRICE_MAP[player.rarity] || "100 $GCH";
 
         card.innerHTML = `
             <div class="favorite-heart ${isFav ? 'is-fav' : ''}" data-id="${player.id}">❤️</div>
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/images/nfts/placeholder.png'">
+                    <img src="${imgPath}" alt="${player.name}" loading="lazy" onerror="handlePlayerImageError(this)">
                     <div class="nft-overlay">
                         <div class="player-info">
                             <span class="player-num">#${player.number}</span>

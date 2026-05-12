@@ -3,6 +3,7 @@ class PenaltyGame {
         this.canvas = document.getElementById(canvasId);
         if (!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
+        if (!this.ctx) return;
         this.width = this.canvas.width;
         this.height = this.canvas.height;
 
@@ -24,6 +25,26 @@ class PenaltyGame {
         }, { passive: false });
 
         this.loop();
+    }
+
+    drawRoundedRect(x, y, width, height, radius) {
+        const ctx = this.ctx;
+        if (typeof ctx.roundRect === 'function') {
+            ctx.beginPath();
+            ctx.roundRect(x, y, width, height, radius);
+            ctx.fill();
+            return;
+        }
+
+        const r = Math.min(radius, width / 2, height / 2);
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + width, y, x + width, y + height, r);
+        ctx.arcTo(x + width, y + height, x, y + height, r);
+        ctx.arcTo(x, y + height, x, y, r);
+        ctx.arcTo(x, y, x + width, y, r);
+        ctx.closePath();
+        ctx.fill();
     }
 
     reset() {
@@ -145,7 +166,7 @@ class PenaltyGame {
         ctx.fillStyle = '#9945ff';
         ctx.shadowColor = 'rgba(153, 69, 255, 0.5)'; ctx.shadowBlur = 10;
         // Cuerpo
-        ctx.beginPath(); ctx.roundRect(gx+10, gy+20, this.goalie.width-20, this.goalie.height-20, 6); ctx.fill();
+        this.drawRoundedRect(gx + 10, gy + 20, this.goalie.width - 20, this.goalie.height - 20, 6);
         // Cabeza
         ctx.beginPath(); ctx.arc(this.goalie.x, gy+12, 12, 0, Math.PI*2); ctx.fill();
         // Brazos
