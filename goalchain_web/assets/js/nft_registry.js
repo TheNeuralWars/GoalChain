@@ -56,7 +56,8 @@ function getPlayerImagePath(player) {
 
 async function initNFTGallery() {
     try {
-        const response = await fetch('assets/data/players.json');
+        // Cache busting con timestamp para asegurar datos frescos
+        const response = await fetch(`assets/data/players.json?v=${new Date().getTime()}`);
         masterPlayers = await response.json();
         
         renderPlayers('all');
