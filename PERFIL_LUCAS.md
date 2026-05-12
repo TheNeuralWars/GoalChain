@@ -7,7 +7,7 @@
 
 ## 🎯 Enfoque y Responsabilidades
 - **Perfeccionamiento Visual:** Lucas se encarga de que los cromos de GoalChain tengan un acabado premium, pulido y profesional.
-- **Dirección de Arte:** Supervisa que se cumpla el [NFT_STYLE_GUIDE.md](file:///C:/Users/lucas/.gemini/antigravity/scratch/GoalChain/NFT_STYLE_GUIDE.md) y propone mejoras estéticas.
+- **Dirección de Arte:** Supervisa que se cumpla el [NFT_STYLE_GUIDE.md](file:///C:/Users/lucas/.gemini/antigravity/scratch/GoalChain/NFT_STYLE_GUIDE.md) y propone mejoras estéticas. **Preferencia marcada por el estilo de Phil Fod-Ether (marcos tecnológicos, fondos luminosos y profundidad de campo).**
 - **Evolución de los Cromos:** Su objetivo actual es llevar la parte visual de los NFTs al siguiente nivel, mejorando la calidad de los renders, los marcos y la composición general.
 
 ## 🤝 Instrucciones para Antigravity (Mi rol contigo)
