@@ -25,8 +25,9 @@ GoalChain es un ecosistema de fútbol Web3 en Solana. Estamos en fase de pre-lan
 
 ## 🛠️ Flujo de Desarrollo
 1.  Antes de codificar, revisa el [REPO_MAP.md](./REPO_MAP.md) para entender dónde va cada pieza.
-2.  Sincroniza con Git (`add`, `commit`, `push`) al finalizar cada sesión importante.
+2.  **Sincronización Continua (Mandatorio):** Cada vez que realices un cambio en archivos de la página web (`goalchain_web`), debes realizar automáticamente un `git push` al finalizar el turno para que el usuario pueda ver los cambios en vivo inmediatamente.
 3.  Si generas imágenes o assets, coordina con **Lucas** (vía Git) para no sobreescribir su trabajo de arte.
+
 
 ---
 **Última actualización:** 13 de Mayo, 2026
