@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_47 Player 10",
+    "name": "Paraguay Pro 10 Block",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #10 de Nación TEAM_47. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Paraguay Pro 10 Block (Paraguay). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/1206_nación_team_47_player_10.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1206_paraguay_pro_10_block.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_47"
+            "value": "Paraguay"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 37
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/1206_nación_team_47_player_10.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1206_paraguay_pro_10_block.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

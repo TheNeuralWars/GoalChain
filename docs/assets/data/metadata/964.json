@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_38 Player 2",
+    "name": "Mostafa Mo-Node",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #2 de Nación TEAM_38. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Mostafa Mo-Node (Egipto). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/964_nación_team_38_player_2.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/964_mostafa_mo-node.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_38"
+            "value": "Egipto"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 58
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/964_nación_team_38_player_2.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/964_mostafa_mo-node.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]
