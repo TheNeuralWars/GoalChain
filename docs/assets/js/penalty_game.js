@@ -195,8 +195,8 @@ class PenaltyGame {
 
         // 6. Balón con Sombra y Deformación Física Sutil
         const squashProgress = Math.sin(this.animationProgress * Math.PI);
-        const scaleX = 1 + (this.gameState === 'SHOOTING' ? squashProgress * 0.1 : 0);
-        const scaleY = 1 - (this.gameState === 'SHOOTING' ? squashProgress * 0.1 : 0);
+        const scaleX = 1 + (this.gameState === 'SHOOTING' ? squashProgress * 0.03 : 0);
+        const scaleY = 1 - (this.gameState === 'SHOOTING' ? squashProgress * 0.03 : 0);
 
         ctx.save();
         ctx.translate(this.ball.x, this.ball.y);
