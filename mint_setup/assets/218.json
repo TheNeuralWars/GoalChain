@@ -1,0 +1,56 @@
+{
+    "name": "EEUU Star 11 Swap",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - EEUU Star 11 Swap (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "218.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "EEUU"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "11"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 58
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 58
+        },
+        {
+            "trait_type": "Hype",
+            "value": 32
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "218.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

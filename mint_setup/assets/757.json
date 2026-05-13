@@ -1,0 +1,56 @@
+{
+    "name": "Baris Al-Block",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Baris Al-Block (Turquía). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "757.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Turquía"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "4"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 91
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 61
+        },
+        {
+            "trait_type": "Hype",
+            "value": 47
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "757.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

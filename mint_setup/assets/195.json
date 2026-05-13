@@ -1,0 +1,56 @@
+{
+    "name": "México Star 14 Coin",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - México Star 14 Coin (México). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "195.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "México"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "14"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 69
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 75
+        },
+        {
+            "trait_type": "Hype",
+            "value": 57
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "195.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

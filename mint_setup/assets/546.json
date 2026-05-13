@@ -1,0 +1,56 @@
+{
+    "name": "Capitán TEAM_22",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Capitán TEAM_22 (Serbia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "546.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Serbia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "1"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 84
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 65
+        },
+        {
+            "trait_type": "Hype",
+            "value": 91
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "546.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

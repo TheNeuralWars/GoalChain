@@ -1,0 +1,56 @@
+{
+    "name": "Corea del Sur Pro 9 Ledger",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Corea del Sur Pro 9 Ledger (Corea del Sur). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "996.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Corea del Sur"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "9"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 67
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 63
+        },
+        {
+            "trait_type": "Hype",
+            "value": 93
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "996.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

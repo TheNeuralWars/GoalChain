@@ -1,0 +1,56 @@
+{
+    "name": "Jeremy Do-Node",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jeremy Do-Node (Bélgica). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "289.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Bélgica"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "4"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 51
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 76
+        },
+        {
+            "trait_type": "Hype",
+            "value": 85
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "289.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

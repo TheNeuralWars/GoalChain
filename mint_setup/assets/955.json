@@ -1,0 +1,56 @@
+{
+    "name": "Arabia Saudí Pro 20 Block",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Arabia Saudí Pro 20 Block (Arabia Saudí). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "955.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Arabia Saudí"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "20"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 74
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 63
+        },
+        {
+            "trait_type": "Hype",
+            "value": 91
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "955.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

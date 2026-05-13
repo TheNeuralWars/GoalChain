@@ -1,0 +1,56 @@
+{
+    "name": "Perú Pro 16 Token",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Perú Pro 16 Token (Perú). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "665.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Perú"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "16"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 93
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 49
+        },
+        {
+            "trait_type": "Hype",
+            "value": 52
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "665.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

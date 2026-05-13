@@ -1,0 +1,56 @@
+{
+    "name": "Gregor Ko-Wallet",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Gregor Ko-Wallet (Suiza). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "836.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Suiza"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "5"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 94
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 66
+        },
+        {
+            "trait_type": "Hype",
+            "value": 61
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "836.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

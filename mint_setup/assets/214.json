@@ -1,0 +1,56 @@
+{
+    "name": "EEUU Star 7 Mint",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - EEUU Star 7 Mint (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "214.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "EEUU"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "7"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 93
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 41
+        },
+        {
+            "trait_type": "Hype",
+            "value": 91
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "214.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

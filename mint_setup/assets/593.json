@@ -1,0 +1,56 @@
+{
+    "name": "Camerún Pro 22 Chain",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Camerún Pro 22 Chain (Camerún). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "593.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Camerún"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "22"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 47
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 91
+        },
+        {
+            "trait_type": "Hype",
+            "value": 96
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "593.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

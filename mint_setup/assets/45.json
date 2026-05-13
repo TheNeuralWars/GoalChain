@@ -1,0 +1,56 @@
+{
+    "name": "Brasil Player 20",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Brasil Player 20 (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "45.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Brasil"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "20"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 90
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 58
+        },
+        {
+            "trait_type": "Hype",
+            "value": 42
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "45.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

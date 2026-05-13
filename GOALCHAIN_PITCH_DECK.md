@@ -55,7 +55,38 @@ graph TD
     E -->|Premios Semanales| A
 ```
 
-## 🗺️ Roadmap Actualizado
+## 🌀 Economía Circular: El Flywheel de GoalChain
+
+El modelo económico de GoalChain está diseñado para ser autosustentable y generar valor constante al token $GCH.
+
+### Flujo de Fondos (NFT Sales & Fees)
+Todo ingreso generado por la venta de la **Genesis Squad** y las comisiones de apuestas se distribuye de forma sistémica:
+
+1.  **40% - Jackpot & Oráculo**: Financia los premios de las apuestas y asegura que el ecosistema siempre tenga liquidez para pagar a los ganadores.
+2.  **30% - Estrategia de Buy-back & Burn**: Compras automáticas de $GCH en el mercado para ser quemados permanentemente, reduciendo la oferta y presionando el precio al alza.
+3.  **30% - Ecosistema & Operaciones**: Desarrollo continuo, mantenimiento del oráculo y expansión del equipo.
+
+### El Motor Deflacionario Infinito (The Infinity Burn)
+A diferencia de otros proyectos, GoalChain no gasta su capital. El 30% destinado a recompras se deposita en protocolos de **Staking de Alto Rendimiento (SOL/BTC)**:
+*   **Principal Intocable**: El tesoro crece perpetuamente como una reserva de valor.
+*   **Yield-Powered Buy-back**: Solo los intereses generados se utilizan para la recompra y quema de $GCH, creando una presión de compra infinita.
+
+### La Meta Maestra: Tokenización Global
+Nuestra visión a largo plazo es la **digitalización de cada atleta del planeta**. GoalChain no se detendrá en la Genesis Squad; aspiramos a ser el registro oficial de rendimiento Web3 para todas las ligas del mundo, convirtiendo cada carrera deportiva en un activo financiero auditable.
+
+---
+
+### 🛡️ Seguridad y Descentralización Total: Un Protocolo Eterno
+GoalChain no es una empresa, es un **Protocolo Autónomo e Inmutable**. Hemos diseñado el sistema para que sea resistente a fallos humanos y garantice la seguridad del capital del usuario:
+
+1.  **Contratos Inmutables**: Una vez desplegado y auditado, la autoridad de administración será revocada. Nadie (ni los fundadores) podrá cambiar las reglas, stats o supply de los NFTs.
+2.  **Gestión de Fondos Trustless**: El 100% de los ingresos fluye a través de contratos inteligentes auditables. El reparto (40/30/30) es automático y programado en la blockchain, eliminando cualquier riesgo de "Rug-pull" o mala gestión manual.
+3.  **Tesorería Soberana**: El fondo de reserva está bloqueado en bóvedas de staking descentralizadas (SOL/BTC). Los fundadores no tienen acceso al capital principal; solo el protocolo puede utilizar el rendimiento para el crecimiento del ecosistema.
+4.  **Oráculo de Verdad Colectiva**: Evolucionaremos hacia un sistema de validación comunitaria, asegurando que los resultados deportivos sean inyectados de forma transparente y resistente a la manipulación.
+
+---
+
+## 🗺️ Roadmap: Camino a la Final
 - **Q1 2026:** Fundación, Smart Contracts (Anchor), Mini-juego Beta. (Completado)
 - **Q2 2026:** Oracle de Fixtures, Auditoría de Seguridad, Landing v2. (En Progreso)
 - **Q3 2026 (MAYO-JUNIO):** Token Generation Event (TGE), Mint de Genesis Squad, Apertura del Marketplace.

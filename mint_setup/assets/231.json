@@ -1,0 +1,56 @@
+{
+    "name": "EEUU Star 24 Coin",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - EEUU Star 24 Coin (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "231.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "EEUU"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "24"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 48
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 42
+        },
+        {
+            "trait_type": "Hype",
+            "value": 59
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "231.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

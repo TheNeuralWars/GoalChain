@@ -1,0 +1,56 @@
+{
+    "name": "Arabia Saudí Pro 24 Coin",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Arabia Saudí Pro 24 Coin (Arabia Saudí). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "959.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Arabia Saudí"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "24"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 68
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 44
+        },
+        {
+            "trait_type": "Hype",
+            "value": 33
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "959.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

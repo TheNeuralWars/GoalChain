@@ -1,0 +1,56 @@
+{
+    "name": "Mat Ryan-Wallet",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Mat Ryan-Wallet (Australia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "495.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Australia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "2"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 52
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 73
+        },
+        {
+            "trait_type": "Hype",
+            "value": 86
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "495.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

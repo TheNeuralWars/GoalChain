@@ -1,0 +1,56 @@
+{
+    "name": "Alemania Player 9",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Alemania Player 9 (Alemania). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "138.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Alemania"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "9"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 44
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 83
+        },
+        {
+            "trait_type": "Hype",
+            "value": 48
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "138.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

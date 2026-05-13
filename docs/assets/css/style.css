@@ -846,6 +846,42 @@ body {
 .layer-base { z-index: 1; }
 .layer-base img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Sistema de Placeholder Profesional para NFTs sin Arte Final */
+.layer-base.no-image {
+    background: radial-gradient(circle at center, #1a1a2e 0%, #06060a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.layer-base.no-image::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+    animation: holo-sweep 4s infinite linear;
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    filter: drop-shadow(0 0 15px var(--primary));
+    opacity: 0.2;
+    z-index: 2;
+    display: none;
+}
+
+.no-image .placeholder-icon {
+    display: block;
+}
+
+@keyframes holo-sweep {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 .layer-frame { 
     z-index: 2;
     border: 8px solid transparent;
@@ -1440,4 +1476,43 @@ body {
     padding: 2px 8px;
     border-radius: 4px;
     background: rgba(0,0,0,0.3);
+}
+
+/* --- Holographic Glimmer Effect (Wow Factor) --- */
+.nft-card-3d .card-front::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    background-size: 200% 200%;
+    z-index: 15;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    mix-blend-mode: overlay;
+    opacity: 0;
+}
+
+.nft-card-3d:hover .card-front::after {
+    opacity: 1;
+    animation: glimmer 2s infinite linear;
+}
+
+@keyframes glimmer {
+    0% { background-position: -200% -200%; }
+    100% { background-position: 200% 200%; }
+}
+
+/* Rarity-Specific Glows */
+.nft-card-3d[data-rarity="mythic"] { box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
+.nft-card-3d[data-rarity="legendary"] { box-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
+.nft-card-3d[data-rarity="epic"] { box-shadow: 0 0 30px rgba(153, 69, 255, 0.3); }
+
+/* Smooth Layer Transition */
+.layer-frame {
+    transition: filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }

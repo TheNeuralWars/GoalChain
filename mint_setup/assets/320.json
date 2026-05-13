@@ -1,0 +1,56 @@
+{
+    "name": "Marruecos Star 9 Ledger",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Marruecos Star 9 Ledger (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "320.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Marruecos"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "9"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 94
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 95
+        },
+        {
+            "trait_type": "Hype",
+            "value": 31
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "320.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

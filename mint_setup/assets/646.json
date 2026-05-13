@@ -1,0 +1,56 @@
+{
+    "name": "Chile Pro 23 Node",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Chile Pro 23 Node (Chile). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "646.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Chile"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "23"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 80
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 88
+        },
+        {
+            "trait_type": "Hype",
+            "value": 50
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "646.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

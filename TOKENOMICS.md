@@ -27,10 +27,18 @@ Los usuarios no compran jugadores directamente, compran **"GoalChain Packs"**:
 1. **Minting:** El usuario recibe un NFT con el `image_uri` apuntando a `assets/images/packs/closed_pack.png`.
 2. **Action:** En el portal de colaboradores/usuarios, aparece el botón **"OPEN PACK"**.
 3. **Smart Contract:** Al interactuar, se quema (burn) el "ticket" de sobre y se asignan los metadatos finales del jugador basados en la probabilidad del contrato.
-4. **Visual:** Animación de rotura de sobre y revelación del cromo con sonido de estadio.
+4. **Visual:**### Distribución de Ingresos (Flywheel)
+Todas las comisiones de la plataforma (5% de apuestas y ventas secundarias) se distribuyen mediante contrato inteligente:
 
-## 4. Utilidad del Cromo (Utility)
-- **Staking:** Tener el álbum de una selección completo genera dividendos diarios en $GCH.
+*   **40% - Fondo de Premios (Jackpot)**: Asegura la sostenibilidad de los pagos a ganadores.
+*   **30% - Buy-back & Burn**: Recompra mensual de $GCH para deflación controlada.
+*   **30% - Desarrollo y Marketing**: Expansión continua de GoalChain.
+
+---
+
+### Gobernanza y Utilidad
+El token $GCH no es solo para apostar...
+king:** Tener el álbum de una selección completo genera dividendos diarios en $GCH.
 - **Betting Boost:** Apostar por un equipo teniendo su NFT Legendary aumenta el payout en un 5%.
 
 ## 5. Mecanismos Deflacionarios (Burn & Blend)

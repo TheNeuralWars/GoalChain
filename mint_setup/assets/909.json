@@ -1,0 +1,56 @@
+{
+    "name": "Irán Pro 26 Token",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Irán Pro 26 Token (Irán). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "909.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Irán"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "26"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 52
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 95
+        },
+        {
+            "trait_type": "Hype",
+            "value": 73
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "909.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

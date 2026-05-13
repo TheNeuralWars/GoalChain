@@ -1,0 +1,56 @@
+{
+    "name": "Gales Pro 12 Chain",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Gales Pro 12 Chain (Gales). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "869.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Gales"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "12"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 76
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 67
+        },
+        {
+            "trait_type": "Hype",
+            "value": 96
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "869.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

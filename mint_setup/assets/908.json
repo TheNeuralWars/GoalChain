@@ -1,0 +1,56 @@
+{
+    "name": "Irán Pro 25 Wallet",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Irán Pro 25 Wallet (Irán). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "908.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Irán"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "25"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 42
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 94
+        },
+        {
+            "trait_type": "Hype",
+            "value": 32
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "908.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
