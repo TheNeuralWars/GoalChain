@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="assets/css/style.css?v=2.2">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/img/logo.png">
-    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
 </head>
 <body>
     <div class="vibrancy"></div>
@@ -490,13 +490,20 @@
             document.getElementById('cookieBanner').style.display = 'none';
         }
 
-        // Fix infinite loading: Force clear any potential blocks
+        // Safety Force Stop: Evita el círculo de carga infinito
         window.addEventListener('load', () => {
-            console.log("GoalChain: Page fully loaded.");
-            // Ensure vibrancy is working but not blocking
+            console.log("GoalChain: Finalizando carga forzada.");
             const vib = document.querySelector('.vibrancy');
             if(vib) vib.style.opacity = "1";
         });
+
+        // Si después de 8 segundos sigue "cargando", detenemos el spinner manualmente
+        setTimeout(() => {
+            if (document.readyState !== 'complete') {
+                console.warn("GoalChain: Carga lenta detectada, forzando detención del spinner.");
+                window.stop();
+            }
+        }, 8000);
     </script>
 
     <script src="assets/js/i18n.js?v=1.1"></script>
