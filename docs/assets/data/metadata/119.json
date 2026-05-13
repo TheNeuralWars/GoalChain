@@ -1,9 +1,9 @@
 {
     "name": "España Player 15",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #15 de España. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - España Player 15 (España). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/119_españa_player_15.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/119_espaa_player_15.png",
     "attributes": [
         {
             "trait_type": "País",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 36
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/119_españa_player_15.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/119_espaa_player_15.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

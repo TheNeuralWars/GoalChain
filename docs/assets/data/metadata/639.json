@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_25 Player 15",
+    "name": "Chile Pro 15 Wallet",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #15 de Nación TEAM_25. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Chile Pro 15 Wallet (Chile). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/639_nación_team_25_player_15.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/639_chile_pro_15_wallet.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_25"
+            "value": "Chile"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 95
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/639_nación_team_25_player_15.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/639_chile_pro_15_wallet.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

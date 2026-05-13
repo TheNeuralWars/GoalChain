@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_14 Player 9",
+    "name": "Japón Star 9 Ledger",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #9 de Nación TEAM_14. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Japón Star 9 Ledger (Japón). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/347_nación_team_14_player_9.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/347_japn_star_9_ledger.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_14"
+            "value": "Japón"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 94
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/347_nación_team_14_player_9.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/347_japn_star_9_ledger.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

@@ -1,9 +1,9 @@
 {
     "name": "Fede Val-Web3",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #15 de Uruguay. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Fede Val-Web3 (Uruguay). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/016_fede_val-web3.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/016_fede_valweb3.png",
     "attributes": [
         {
             "trait_type": "País",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 89
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/016_fede_val-web3.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/016_fede_valweb3.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

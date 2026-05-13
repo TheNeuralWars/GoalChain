@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_45 Player 24",
+    "name": "Escocia Pro 24 Coin",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #24 de Nación TEAM_45. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Escocia Pro 24 Coin (Escocia). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/1168_nación_team_45_player_24.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1168_escocia_pro_24_coin.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_45"
+            "value": "Escocia"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 46
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/1168_nación_team_45_player_24.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1168_escocia_pro_24_coin.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]
