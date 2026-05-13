@@ -436,8 +436,14 @@ body {
     background: var(--glass); border: 1px solid var(--border);
     padding: 1.5rem; border-radius: 14px; display: flex;
     align-items: center; gap: 1rem; transition: all 0.3s;
+    cursor: pointer;
 }
 .social-task:hover { border-color: var(--border-glow); transform: translateY(-2px); }
+.social-task.done {
+    opacity: 0.6;
+    border-color: var(--primary);
+    background: rgba(20, 241, 149, 0.05);
+}
 .social-icon {
     width: 48px; height: 48px; border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
