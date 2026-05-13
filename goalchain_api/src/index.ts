@@ -1,35 +1,42 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-// TODO: Import Anchor workspace and connection setup here
+import { Connection } from '@solana/web3.js';
+import { AnchorProvider, Program } from '@coral-xyz/anchor';
+import { idl, PROGRAM_ID, GoalchainProgram } from '../../goalchain-sdk/src';
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3001;
+const rpcUrl = process.env.RPC_URL || "https://api.devnet.solana.com";
 
 app.use(cors());
 app.use(express.json());
+
+const connection = new Connection(rpcUrl, 'confirmed');
+// Provider placeholder (readonly)
+const provider = new AnchorProvider(connection, {} as any, { commitment: 'confirmed' });
+const program = new Program(idl as any, provider) as any;
 
 // --- ROUTES ---
 
 // Healthcheck
 app.get('/health', (req, res) => {
-  res.json({ status: 'OK', message: 'GoalChain API is running' });
+  res.json({ status: 'OK', message: 'GoalChain API is running', programId: PROGRAM_ID.toBase58() });
 });
 
 // Get all fixtures
 app.get('/api/fixtures', async (req, res) => {
   try {
-    // TODO: Fetch from Solana via Anchor or local cache DB
-    // For now, return mock data to test the frontend integration
-    const mockFixtures = [
-      { id: 1, home: 'ARG', away: 'FRA', status: 'LIVE', start_time: Date.now() / 1000 },
-      { id: 2, home: 'ENG', away: 'ESP', status: 'SCHEDULED', start_time: (Date.now() / 1000) + 86400 }
-    ];
-    res.json(mockFixtures);
+    const fixtures = await program.account.fixture.all();
+    res.json(fixtures.map((f: any) => ({
+        pubkey: f.publicKey.toBase58(),
+        ...(f.account as object)
+    })));
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch fixtures' });
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch fixtures from Solana' });
   }
 });
 
@@ -37,12 +44,18 @@ app.get('/api/fixtures', async (req, res) => {
 app.get('/api/markets/:fixtureId', async (req, res) => {
   const { fixtureId } = req.params;
   try {
-    // TODO: Fetch from Solana where market.fixture == fixtureId
-    const mockMarkets = [
-      { market_id: 1, market_type: 'MatchResultLive', status: 'OPEN' },
-      { market_id: 2, market_type: 'NextGoal', status: 'RESOLVED' }
-    ];
-    res.json(mockMarkets);
+    const markets = await program.account.market.all([
+        {
+            memcmp: {
+                offset: 8, // fixture pubkey is first field after discriminator
+                bytes: fixtureId
+            }
+        }
+    ]);
+    res.json(markets.map((m: any) => ({
+        pubkey: m.publicKey.toBase58(),
+        ...(m.account as object)
+    })));
   } catch (err) {
     res.status(500).json({ error: `Failed to fetch markets for fixture ${fixtureId}` });
   }
