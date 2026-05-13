@@ -6,17 +6,16 @@ Este documento sirve como guía maestra para desarrolladores y agentes de IA. Aq
 
 ## 🚀 Aplicaciones Principales (Production)
 
-### [/goalchain_web](file:///Users/NicoPez/GoalChain/goalchain_web)
-**Estado:** Activo (Main Frontend)
-*   **Propósito:** Es el sitio web principal de GoalChain.
+### [/docs](file:///Users/NicoPez/GoalChain/docs)
+**Estado:** Activo (Production & Development)
+*   **Propósito:** Es el sitio web principal de GoalChain (goalchain.fun).
 *   **Tecnología:** HTML, Vanilla CSS, Javascript.
-*   **Características:** Galería 3D de NFTs, apertura de sobres, filtros avanzados, visor de Pitch Deck.
+*   **Características:** Galería 3D de NFTs, apertura de sobres, visor de Pitch Deck, juego de penaltis.
 *   **Archivo clave:** `assets/js/nft_registry.js` (Lógica de los cromos).
 
 ### [/goalchain_hub](file:///Users/NicoPez/GoalChain/goalchain_hub)
 **Estado:** Activo (Internal Tool)
-*   **Propósito:** Portal de desarrollo interno para el equipo (Nico, Lucas y hermanos).
-*   **Uso:** Seguimiento de hitos (Roadmap) y coordinación diaria.
+*   **Propósito:** Portal de desarrollo interno para el equipo.
 
 ---
 
@@ -25,7 +24,6 @@ Este documento sirve como guía maestra para desarrolladores y agentes de IA. Aq
 ### [/goalchain_api](file:///Users/NicoPez/GoalChain/goalchain_api)
 **Estado:** Activo (Backend Bridge)
 *   **Propósito:** API en Node.js que conecta la web con la blockchain de Solana.
-*   **Función:** Lee los partidos (fixtures) y mercados de apuestas directamente del Smart Contract usando Anchor IDL.
 
 ### [/goalchain_program](file:///Users/NicoPez/GoalChain/goalchain_program)
 **Estado:** Activo (Smart Contract)
@@ -44,10 +42,6 @@ Este documento sirve como guía maestra para desarrolladores y agentes de IA. Aq
 ---
 
 ## 🎨 Activos y Documentos
-
-### [/docs](file:///Users/NicoPez/GoalChain/docs)
-*   Contiene la documentación histórica y guías de estilo.
-*   **Subcarpeta `/archive`**: Documentos obsoletos o de brainstorming inicial.
 
 ### [/scratch](file:///Users/NicoPez/GoalChain/scratch)
 *   Scripts temporales y de prueba para generación de datos.
