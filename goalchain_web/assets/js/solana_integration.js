@@ -62,24 +62,40 @@ function copyReferralLink() {
     });
 }
 
-// Escuchar si el usuario cambia de cuenta en Phantom
-window.addEventListener('load', () => {
-    if (window.solana) {
-        window.solana.on("accountChanged", (publicKey) => {
-            if (publicKey) {
-                userWalletAddress = publicKey.toString();
-                updateWalletUI();
-            } else {
-                window.location.reload();
-            }
-        });
+// Escuchar clics en el documento para manejar botones dinámicos (Delegación de Eventos)
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('btn-wallet') || e.target.closest('.btn-wallet')) {
+        e.preventDefault();
+        console.log("Intentando conectar wallet...");
+        connectWallet();
     }
-
-    // Vincular botones con la clase .btn-wallet
-    document.querySelectorAll('.btn-wallet').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            connectWallet();
-        });
-    });
 });
+
+// Comprobar si ya estaba conectado (Auto-connect si el usuario ya dio permiso)
+window.addEventListener('load', async () => {
+    // Pequeña espera para asegurar que Phantom haya inyectado el objeto solana
+    setTimeout(async () => {
+        if (window.solana && window.solana.isPhantom) {
+            try {
+                // intentamos reconectar silenciosamente
+                const resp = await window.solana.connect({ onlyIfTrusted: true });
+                userWalletAddress = resp.publicKey.toString();
+                console.log("Auto-reconexión exitosa:", userWalletAddress);
+                updateWalletUI();
+            } catch (err) {
+                // El usuario no ha confiado en el sitio aún, está bien.
+                console.log("Esperando interacción del usuario para conectar wallet.");
+            }
+
+            window.solana.on("accountChanged", (publicKey) => {
+                if (publicKey) {
+                    userWalletAddress = publicKey.toString();
+                    updateWalletUI();
+                } else {
+                    window.location.reload();
+                }
+            });
+        }
+    }, 500);
+});
+

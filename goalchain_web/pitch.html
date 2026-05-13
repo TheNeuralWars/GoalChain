@@ -131,6 +131,35 @@
         table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
         th, td { padding: 1.5rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
         th { color: var(--primary); text-transform: uppercase; font-size: 0.9rem; }
+
+        /* Botón de Salida */
+        .exit-pitch {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: 300;
+            z-index: 9999;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        .exit-pitch:hover {
+            background: var(--primary);
+            color: #000;
+            transform: rotate(90deg) scale(1.1);
+            border-color: var(--primary);
+        }
     </style>
 </head>
 <body class="pitch-mode">
@@ -138,6 +167,11 @@
     <div class="lang-toggle">
         <button class="btn-control" onclick="toggleLanguage()">ES / EN</button>
     </div>
+
+    <!-- Botón de Salida -->
+    <a href="index.html" class="exit-pitch" title="Volver al Inicio (ESC)">
+        <span>&times;</span>
+    </a>
 
     <div class="pitch-container" id="pitchContainer">
         <!-- Las slides se cargan dinámicamente aquí -->
@@ -216,6 +250,7 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'Escape') window.location.href = 'index.html';
         });
 
         renderSlides();
