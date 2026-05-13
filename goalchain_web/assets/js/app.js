@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title_key: 'rm_q2_title', status: 'completed',
             items: [
                 { text: { es: 'Migración a Anchor 1.0 y token_interface', en: 'Migration to Anchor 1.0 and token_interface' }, done: true },
-                { text: { es: 'Sistema de apuestas con pools dinámicos (5-2-3 split)', en: 'Betting system with dynamic pools (5-2-3 split)' }, done: true },
+                { text: { es: 'Lanzamiento de Infraestructura Social (Discord Oficial)', en: 'Social Infrastructure Launch (Official Discord)' }, done: true },
                 { text: { es: 'Oracle de fixtures del Mundial integrado', en: 'World Cup fixture oracle integrated' }, done: true },
                 { text: { es: 'Web mejorada con multilenguaje y fixture', en: 'Enhanced web with multilanguage and fixture' }, done: true },
             ]
