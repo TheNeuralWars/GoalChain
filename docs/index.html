@@ -27,14 +27,25 @@
             <a href="#social" data-i18n="nav_social">Social</a>
             <a href="http://localhost:3000" target="_blank" style="color:var(--primary); font-weight:900; margin-left:15px; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px;" class="btn-glow">LAUNCH APP</a>
             <div class="nav-dropdown" style="position:relative; display:inline-block; margin-left:15px;">
-                <button class="btn-glow" style="background:transparent; border: 1px solid var(--secondary); color:var(--secondary); font-weight:900; padding: 5px 15px; border-radius: 20px; cursor:pointer; font-family:inherit;">COLABS ▼</button>
-                <div class="nav-dropdown-content" style="position:absolute; top:100%; right:0; background:rgba(6,6,10,0.95); backdrop-filter:blur(10px); min-width:240px; border:1px solid var(--secondary); border-radius:12px; padding:10px; z-index:100; opacity:0; visibility:hidden; transition:all 0.3s; transform:translateY(10px);">
-                    <a href="pitch.html" style="display:block; padding:10px; color:#fff; font-size:0.8rem; border-bottom:1px solid rgba(255,255,255,0.1); margin:0;">📖 Pitch & Motivación</a>
-                    <a href="colabs.html" style="display:block; padding:10px; color:var(--primary); font-size:0.8rem; margin:0;">🤝 Portal de Colaboradores</a>
+                <button class="btn-glow" style="background:transparent; border: 1px solid var(--secondary); color:var(--secondary); font-weight:900; padding: 5px 20px; border-radius: 20px; cursor:pointer; font-family:inherit; font-size: 0.8rem;">COLABS ▼</button>
+                <div class="nav-dropdown-content">
+                    <a href="pitch.html">📖 Pitch & Motivación</a>
+                    <a href="colabs.html" style="color:var(--primary);">🤝 Portal de Colaboradores</a>
                 </div>
             </div>
             <style>
-                .nav-dropdown:hover .nav-dropdown-content { opacity: 1; visibility: visible; transform: translateY(5px); }
+                .nav-dropdown-content { 
+                    position:absolute; top:100%; right:0; background:rgba(6,6,10,0.98); 
+                    backdrop-filter:blur(20px); min-width:240px; border:1px solid var(--secondary); 
+                    border-radius:12px; padding:8px; z-index:999; opacity:0; visibility:hidden; 
+                    transition:all 0.3s; transform:translateY(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                }
+                .nav-dropdown:hover .nav-dropdown-content { opacity: 1; visibility: visible; transform: translateY(8px); }
+                .nav-dropdown-content a { 
+                    display:block; padding:12px; color:#fff; font-size:0.8rem; 
+                    border-radius: 8px; transition: background 0.2s; text-decoration: none;
+                }
+                .nav-dropdown-content a:hover { background: rgba(255,255,255,0.05); }
             </style>
         </div>
         <div class="nav-right">
@@ -87,30 +98,30 @@
             <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('pitchCarousel', -1)">❮</button>
             <div class="carousel-container roadmap-carousel" id="pitchCarousel" style="padding: 20px 0;">
                 <div class="group-grid" style="padding-left: 20px;">
-                    <div class="glass-card feature-card" style="min-width: 300px;">
-                        <div class="feature-icon" style="font-size: 3rem; text-shadow: 0 0 20px rgba(20,241,149,0.5);">🎯</div>
-                        <h3>Mercados Predictivos</h3>
-                        <p>Apuestas parimutuel descentralizadas en cada partido del Mundial 2026. Cuotas orgánicas y pagos automatizados.</p>
+                    <div class="glass-card feature-card" style="min-width: 320px; text-align: left; display: flex; flex-direction: column; gap: 15px;">
+                        <div class="feature-icon" style="font-size: 2.5rem; margin: 0;">🎯</div>
+                        <h3 style="font-size: 1.4rem; margin: 0;">Mercados Predictivos</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4; color: var(--text-dim);">Apuestas parimutuel descentralizadas en cada partido del Mundial 2026. <br><br> <b>Cuotas orgánicas</b> y pagos automatizados por smart contracts.</p>
                     </div>
-                    <div class="glass-card feature-card" style="min-width: 300px; border-color: var(--secondary);">
-                        <div class="feature-icon" style="font-size: 3rem; text-shadow: 0 0 20px rgba(153,69,255,0.5);">💎</div>
-                        <h3>Economía Real</h3>
-                        <p>Modelo deflacionario con quema de tokens del 10% en cada apuesta para alimentar el Jackpot Comunitario.</p>
+                    <div class="glass-card feature-card" style="min-width: 320px; text-align: left; display: flex; flex-direction: column; gap: 15px; border-color: var(--secondary);">
+                        <div class="feature-icon" style="font-size: 2.5rem; margin: 0;">💎</div>
+                        <h3 style="font-size: 1.4rem; margin: 0;">Economía Real</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4; color: var(--text-dim);">Modelo deflacionario real. <br><br> El <b>10% de cada apuesta</b> se retira para alimentar el Jackpot Comunitario y el tesoro.</p>
                     </div>
-                    <div class="glass-card feature-card" style="min-width: 300px;">
-                        <div class="feature-icon" style="font-size: 3rem; text-shadow: 0 0 20px rgba(255,215,0,0.5);">🏆</div>
-                        <h3>Coleccionables 3D</h3>
-                        <p>100 leyendas (Genesis Squad). Cada NFT genera Yield diario y dividendos basados en el rendimiento real del jugador.</p>
+                    <div class="glass-card feature-card" style="min-width: 320px; text-align: left; display: flex; flex-direction: column; gap: 15px;">
+                        <div class="feature-icon" style="font-size: 2.5rem; margin: 0;">🏆</div>
+                        <h3 style="font-size: 1.4rem; margin: 0;">Cromos 3D</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4; color: var(--text-dim);">100 leyendas Genesis Squad. <br><br> Cada NFT genera <b>Yield diario</b> y dividendos basados en el rendimiento real del jugador.</p>
                     </div>
-                    <div class="glass-card feature-card" style="min-width: 300px; border-color: #00e0ff;">
-                        <div class="feature-icon" style="font-size: 3rem; text-shadow: 0 0 20px rgba(0,224,255,0.5);">🎮</div>
-                        <h3>Minijuegos PvP</h3>
-                        <p>No esperes a los partidos reales. Reta a la comunidad en el minijuego de penaltis o forma tu equipo 5v5.</p>
+                    <div class="glass-card feature-card" style="min-width: 320px; text-align: left; display: flex; flex-direction: column; gap: 15px; border-color: #00e0ff;">
+                        <div class="feature-icon" style="font-size: 2.5rem; margin: 0;">🎮</div>
+                        <h3 style="font-size: 1.4rem; margin: 0;">Minijuegos PvP</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4; color: var(--text-dim);">Acción inmediata. <br><br> Reta a la comunidad en el <b>Minijuego de Penaltis</b> o forma tu equipo 5v5 para torneos.</p>
                     </div>
-                    <div class="glass-card feature-card" style="min-width: 300px; border-color: #ff4d6a;">
-                        <div class="feature-icon" style="font-size: 3rem; text-shadow: 0 0 20px rgba(255,77,106,0.5);">⛓️</div>
-                        <h3>100% On-Chain</h3>
-                        <p>La lógica está en el smart contract (Rust/Anchor). Total transparencia, sin servidores ocultos manipulando resultados.</p>
+                    <div class="glass-card feature-card" style="min-width: 320px; text-align: left; display: flex; flex-direction: column; gap: 15px; border-color: #ff4d6a;">
+                        <div class="feature-icon" style="font-size: 2.5rem; margin: 0;">⛓️</div>
+                        <h3 style="font-size: 1.4rem; margin: 0;">100% On-Chain</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4; color: var(--text-dim);">Transparencia Total. <br><br> Lógica en <b>Rust/Anchor</b>. Sin servidores ocultos manipulando resultados ni cuotas.</p>
                     </div>
                 </div>
             </div>
@@ -500,9 +511,22 @@
                     const targetX = zone.getAttribute('data-x');
                     const targetY = zone.getAttribute('data-y');
 
-                    // Goalie AI (picks random X)
-                    const goaliePos = ['15', '50', '85'];
-                    const gX = goaliePos[Math.floor(Math.random() * goaliePos.length)];
+                    // Goalie AI
+                    // To make it fairer and more realistic: 
+                    // Goalie follows the row and column logic.
+                    const goalieXPuntos = ['15', '50', '85'];
+                    const goalieYPuntos = ['20', '60'];
+                    
+                    const isSave = Math.random() < 0.3; // 30% chance of save if the player is good
+                    let gX, gY;
+
+                    if (isSave) {
+                        gX = targetX;
+                        gY = targetY;
+                    } else {
+                        gX = goalieXPuntos[Math.floor(Math.random() * goalieXPuntos.length)];
+                        gY = goalieYPuntos[Math.floor(Math.random() * goalieYPuntos.length)];
+                    }
 
                     // Animate
                     ball.style.left = targetX + '%';
@@ -510,7 +534,7 @@
                     ball.style.transform = 'translate(-50%, 50%) scale(0.6)';
 
                     goalie.style.left = gX + '%';
-                    goalie.style.top = '25%';
+                    goalie.style.top = gY + '%';
 
                     setTimeout(() => {
                         if (targetX === gX) {
