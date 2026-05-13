@@ -151,21 +151,21 @@
                     <div class="game-container reveal" style="padding:0; border:none; background:transparent;">
                         <div id="domPenaltyGame" style="position: relative; width: 100%; aspect-ratio: 16/9; background: linear-gradient(#0a1a0a, #030305); border: 2px solid rgba(20,241,149,0.3); border-radius: 16px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
                             <!-- Goal -->
-                            <div style="position: absolute; top: 20%; width: 60%; height: 60%; border: 4px solid #fff; border-bottom: none; box-shadow: 0 0 15px rgba(255,255,255,0.4);">
-                                <div style="width: 100%; height: 100%; background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+                            <div style="position: absolute; top: 10%; left: 10%; width: 80%; height: 75%; border: 6px solid #fff; border-bottom: none; box-shadow: 0 0 25px rgba(255,255,255,0.5); z-index: 5;">
+                                <div style="width: 100%; height: 100%; background-image: linear-gradient(rgba(255,255,255,0.1) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.1) 2px, transparent 2px); background-size: 30px 30px;"></div>
                             </div>
                             <!-- Goalie -->
-                            <div id="domGoalie" style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, 0); width: 10%; height: 25%; background: #9945ff; border-radius: 25px 25px 5px 5px; box-shadow: 0 0 15px rgba(153,69,255,0.5); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);"></div>
+                            <div id="domGoalie" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, 0); width: 12%; height: 30%; background: #9945ff; border-radius: 30px 30px 10px 10px; box-shadow: 0 0 20px rgba(153,69,255,0.6); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 10;"></div>
                             <!-- Ball -->
-                            <div id="domBall" style="position: absolute; bottom: 10%; left: 50%; transform: translate(-50%, 0); width: 6%; aspect-ratio: 1; background: radial-gradient(circle at 30% 30%, #fff, #bbb); border-radius: 50%; box-shadow: 2px 5px 10px rgba(0,0,0,0.5); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); z-index: 10;"></div>
-                            <!-- Clickable Zones -->
-                            <div style="position: absolute; top: 15%; left: 15%; width: 70%; height: 70%; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; z-index: 20;">
-                                <button class="dom-zone" data-x="15" data-y="20"></button>
+                            <div id="domBall" style="position: absolute; bottom: 8%; left: 50%; transform: translate(-50%, 0); width: 7%; aspect-ratio: 1; background: radial-gradient(circle at 30% 30%, #fff, #bbb); border-radius: 50%; box-shadow: 2px 8px 15px rgba(0,0,0,0.6); transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1); z-index: 20;"></div>
+                            <!-- Clickable Zones (Adjusted to be inside the 10%-90% range) -->
+                            <div style="position: absolute; top: 10%; left: 10%; width: 80%; height: 75%; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; z-index: 25;">
+                                <button class="dom-zone" data-x="22" data-y="20"></button>
                                 <button class="dom-zone" data-x="50" data-y="20"></button>
-                                <button class="dom-zone" data-x="85" data-y="20"></button>
-                                <button class="dom-zone" data-x="15" data-y="60"></button>
-                                <button class="dom-zone" data-x="50" data-y="60"></button>
-                                <button class="dom-zone" data-x="85" data-y="60"></button>
+                                <button class="dom-zone" data-x="78" data-y="20"></button>
+                                <button class="dom-zone" data-x="22" data-y="65"></button>
+                                <button class="dom-zone" data-x="50" data-y="65"></button>
+                                <button class="dom-zone" data-x="78" data-y="65"></button>
                             </div>
                             <!-- Result Message -->
                             <div id="domResultMsg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2rem; font-weight: 900; opacity: 0; transition: opacity 0.3s; text-align: center; text-shadow: 0 0 20px rgba(0,0,0,0.8); z-index: 30; pointer-events: none;"></div>
@@ -543,8 +543,8 @@
                     // Goalie AI
                     // To make it fairer and more realistic: 
                     // Goalie follows the row and column logic.
-                    const goalieXPuntos = ['15', '50', '85'];
-                    const goalieYPuntos = ['20', '60'];
+                    const goalieXPuntos = ['22', '50', '78'];
+                    const goalieYPuntos = ['20', '65'];
                     
                     const isSave = Math.random() < 0.3; // 30% chance of save if the player is good
                     let gX, gY;
@@ -559,11 +559,11 @@
 
                     // Animate
                     ball.style.left = targetX + '%';
-                    ball.style.bottom = (100 - targetY) + '%';
-                    ball.style.transform = 'translate(-50%, 50%) scale(0.6)';
+                    ball.style.top = targetY + '%'; // Using top instead of bottom for more precision
+                    ball.style.transform = 'translate(-50%, -50%) scale(0.5)';
 
                     goalie.style.left = gX + '%';
-                    goalie.style.top = gY + '%';
+                    goalie.style.top = (parseInt(gY) + 5) + '%'; // Goalie centers on the zone slightly lower
 
                     setTimeout(() => {
                         if (targetX === gX) {
@@ -583,8 +583,8 @@
 
                         setTimeout(() => {
                             msg.style.opacity = "0";
-                            ball.style.left = "50%"; ball.style.bottom = "10%"; ball.style.transform = "translate(-50%, 0) scale(1)";
-                            goalie.style.left = "50%"; goalie.style.top = "35%";
+                            ball.style.left = "50%"; ball.style.top = "90%"; ball.style.transform = "translate(-50%, 0) scale(1)";
+                            goalie.style.left = "50%"; goalie.style.top = "40%";
                             isShooting = false;
                         }, 1500);
                     }, 400);
