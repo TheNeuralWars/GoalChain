@@ -73,8 +73,14 @@ function startOpeningSequence() {
     chargeSound.volume = 0.5;
     chargeSound.play();
 
+    // Shake progresivo (más intenso al final)
+    setTimeout(() => {
+        pack.style.animationDuration = "0.05s"; // Aumentar velocidad
+    }, 1500);
+
     setTimeout(() => {
         pack.classList.remove('shaking');
+        pack.style.animationDuration = "";
         pack.classList.add('burst');
         
         const burstSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3');
