@@ -1,0 +1,52 @@
+{
+    "name": "Mo Solana",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jugador #11 de Egipto. Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/014_mo_solana.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Egipto"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "11"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 91
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 40
+        },
+        {
+            "trait_type": "Hype",
+            "value": 95
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/014_mo_solana.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "share": 100
+            }
+        ]
+    }
+}

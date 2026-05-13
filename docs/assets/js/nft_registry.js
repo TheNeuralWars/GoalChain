@@ -54,40 +54,92 @@ function getPlayerImagePath(player) {
     return `assets/img/nfts/${String(player.id).padStart(3, '0')}_${safeName}.png`;
 }
 
+// Mapeo de banderas para reconocimiento rápido
+const FLAG_MAP = {
+    "Argentina": "🇦🇷",
+    "Brasil": "🇧🇷",
+    "Francia": "🇫🇷",
+    "España": "🇪🇸",
+    "Inglaterra": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Alemania": "🇩🇪",
+    "México": "🇲🇽",
+    "Uruguay": "🇺🇾",
+    "Egipto": "🇪🇬",
+    "Polonia": "🇵🇱",
+    "Croacia": "🇭🇷",
+    "Corea del Sur": "🇰🇷",
+    "Portugal": "🇵🇹",
+    "Italia": "🇮🇹",
+    "Países Bajos": "🇳🇱",
+    "Bélgica": "🇧🇪",
+    "EEUU": "🇺🇸"
+};
+
+function getCountryFlag(country) {
+    return FLAG_MAP[country] || "🏳️";
+}
+
+let currentCountry = 'all';
+let currentPosition = 'all';
+let currentSort = 'id-asc';
+let currentSearch = '';
+
 async function initNFTGallery() {
     try {
         // Cache busting con timestamp para asegurar datos frescos
         const response = await fetch(`assets/data/players.json?v=${new Date().getTime()}`);
         masterPlayers = await response.json();
         
-        renderPlayers('all');
+        renderPlayers();
         setupFilterListeners();
     } catch (error) {
         console.error("Error inicializando la galería:", error);
     }
 }
 
-function renderPlayers(filterCountry, searchQuery = '') {
+function renderPlayers() {
     const track = document.querySelector('.nft-track');
     if (!track) return;
 
     track.innerHTML = '';
     
     let filtered = masterPlayers.filter(p => {
-        const matchesCountry = filterCountry === 'all' || p.country === filterCountry;
-        const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                              (p.realName && p.realName.toLowerCase().includes(searchQuery.toLowerCase()));
+        const matchesCountry = currentCountry === 'all' || p.country === currentCountry;
+        const matchesPosition = currentPosition === 'all' || p.position === currentPosition;
+        const matchesSearch = p.name.toLowerCase().includes(currentSearch.toLowerCase()) || 
+                              (p.realName && p.realName.toLowerCase().includes(currentSearch.toLowerCase()));
         const matchesFav = !showOnlyFavorites || favorites.includes(p.id);
         
-        return matchesCountry && matchesSearch && matchesFav;
+        return matchesCountry && matchesPosition && matchesSearch && matchesFav;
+    });
+
+    // Lógica de Ordenamiento
+    filtered.sort((a, b) => {
+        if (currentSort === 'id-asc') return a.id - b.id;
+        if (currentSort === 'id-desc') return b.id - a.id;
+        if (currentSort === 'atk-desc') return b.stats.atk - a.stats.atk;
+        if (currentSort === 'def-desc') return b.stats.def - a.stats.def;
+        if (currentSort === 'rarity-desc') {
+            const rarityWeight = { "mythic": 4, "legendary": 3, "epic": 2, "rare": 1, "common": 0 };
+            return rarityWeight[b.rarity] - rarityWeight[a.rarity];
+        }
+        return 0;
     });
 
     if (filtered.length === 0) {
-        track.innerHTML = '<div style="color: var(--text-dim); padding: 40px; text-align: center; width: 100%;">No se encontraron cromos.</div>';
+        track.innerHTML = '<div style="color: var(--text-dim); padding: 40px; text-align: center; width: 100%;">No se encontraron cromos con estos filtros.</div>';
         return;
     }
 
-    const displayLimit = 50;
+    const displayLimit = 100;
+
+    // Observer para rendimiento
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('in-view');
+            else entry.target.classList.remove('in-view');
+        });
+    }, { threshold: 0.1 });
 
     filtered.slice(0, displayLimit).forEach(player => {
         const isFav = favorites.includes(player.id);
@@ -97,15 +149,17 @@ function renderPlayers(filterCountry, searchQuery = '') {
         
         const imgPath = getPlayerImagePath(player);
         const nftPrice = PRICE_MAP[player.rarity] || "100 $GCH";
+        const flag = getCountryFlag(player.country);
 
         card.innerHTML = `
             <div class="favorite-heart ${isFav ? 'is-fav' : ''}" data-id="${player.id}">❤️</div>
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/img/nfts/001_lionel_bitcoin.png'">
+                    <img src="${imgPath}" alt="${player.name}" loading="lazy" onerror="this.src='assets/img/nfts/001_lionel_bitcoin.png'">
                     <div class="nft-overlay">
                         <div class="player-info">
                             <span class="player-num">#${player.number}</span>
+                            <span class="player-flag">${flag}</span>
                             <span class="player-name">${player.name}</span>
                         </div>
                     </div>
@@ -113,7 +167,10 @@ function renderPlayers(filterCountry, searchQuery = '') {
                 
                 <div class="card-back">
                     <div class="ficha-header">
-                        <span class="ficha-title">CONTRATO PROFESIONAL</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span class="ficha-title">CONTRATO PROFESIONAL</span>
+                            <span style="font-size: 1.2rem;">${flag}</span>
+                        </div>
                         <h3 class="ficha-name">${player.name}</h3>
                     </div>
                     
@@ -122,34 +179,16 @@ function renderPlayers(filterCountry, searchQuery = '') {
                         <div class="stat-item"><span class="stat-label">PAÍS</span><span class="stat-value">${player.country}</span></div>
                     </div>
 
-                    <!-- Panel de Contrato -->
                     <div class="contract-panel">
-                        <div class="contract-header">
-                            <span>VÍNCULO ACTUAL</span>
-                            <span>VERIFICADO 🔒</span>
-                        </div>
-                        <div class="salary-row">
-                            <span class="salary-label">Sueldo Real (Ref):</span>
-                            <span class="salary-value">${player.contract.realSalary}</span>
-                        </div>
-                        <div class="salary-row">
-                            <span class="salary-label">Pago por Partido:</span>
-                            <span class="salary-value" style="color: #14f195;">${player.contract.matchSalary} $GCH</span>
-                        </div>
+                        <div class="salary-row"><span class="salary-label">Sueldo Ref:</span><span class="salary-value">${player.contract.realSalary}</span></div>
+                        <div class="salary-row"><span class="salary-label">Pago Partido:</span><span class="salary-value" style="color: #14f195;">${player.contract.matchSalary} $GCH</span></div>
                         <div class="clause-list">
                             ${player.contract.clauses.map(c => `<div class="clause-item">${c}</div>`).join('')}
                         </div>
                     </div>
 
-                    <!-- Oracle & Metadata Status -->
                     <div class="oracle-badge" style="margin-top: 10px; font-size: 0.7rem; background: rgba(20, 241, 149, 0.1); border: 1px solid #14f195; padding: 5px; border-radius: 4px; color: #14f195;">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>ORACLE SYNC: ACTIVE 🌐</span>
-                            <span>INDEX: ${player.oracle_sync.performance_index}x</span>
-                        </div>
-                        <div style="margin-top: 3px; font-family: monospace; color: var(--text-dim);">
-                            MINT: ${player.mint_address}
-                        </div>
+                        <span>ORACLE INDEX: ${player.oracle_sync.performance_index}x</span>
                     </div>
 
                     <div class="price-tag" style="margin-top: 10px;">
@@ -175,6 +214,7 @@ function renderPlayers(filterCountry, searchQuery = '') {
         });
         
         track.appendChild(card);
+        cardObserver.observe(card);
     });
 }
 
@@ -188,7 +228,7 @@ function toggleFavorite(id, element) {
         element.classList.add('is-fav');
     }
     localStorage.setItem('gch_favorites', JSON.stringify(favorites));
-    if (showOnlyFavorites) renderPlayers(document.querySelector('.filter-btn.active').getAttribute('data-country'));
+    if (showOnlyFavorites) renderPlayers();
 }
 
 function handleBuy(playerId) {
@@ -196,27 +236,51 @@ function handleBuy(playerId) {
 }
 
 function setupFilterListeners() {
+    // Países
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            renderPlayers(btn.getAttribute('data-country'));
+            currentCountry = btn.getAttribute('data-country');
+            renderPlayers();
         });
     });
 
-    const searchInput = document.getElementById('playerSearch');
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            renderPlayers(document.querySelector('.filter-btn.active').getAttribute('data-country'), e.target.value);
+    // Posiciones
+    document.querySelectorAll('.filter-btn-sm').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn-sm').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentPosition = btn.getAttribute('data-pos');
+            renderPlayers();
+        });
+    });
+
+    // Ordenamiento
+    const sortSelect = document.getElementById('nftSort');
+    if (sortSelect) {
+        sortSelect.addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            renderPlayers();
         });
     }
 
+    // Buscador
+    const searchInput = document.getElementById('playerSearch');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value;
+            renderPlayers();
+        });
+    }
+
+    // Favoritos
     const wishlistBtn = document.getElementById('wishlistBtn');
     if (wishlistBtn) {
         wishlistBtn.addEventListener('click', () => {
             showOnlyFavorites = !showOnlyFavorites;
             wishlistBtn.classList.toggle('active');
-            renderPlayers(document.querySelector('.filter-btn.active').getAttribute('data-country'));
+            renderPlayers();
         });
     }
 }
