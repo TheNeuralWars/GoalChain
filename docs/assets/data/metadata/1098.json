@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_43 Player 6",
+    "name": "Austria Pro 6 Token",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #6 de Nación TEAM_43. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Austria Pro 6 Token (Austria). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/1098_nación_team_43_player_6.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1098_austria_pro_6_token.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_43"
+            "value": "Austria"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 70
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/1098_nación_team_43_player_6.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1098_austria_pro_6_token.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

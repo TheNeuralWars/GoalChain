@@ -1,13 +1,13 @@
 {
     "name": "Capitán TEAM_12",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #1 de Nación TEAM_12. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Capitán TEAM_12 (Bélgica). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/287_capitán_team_12.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/287_capitn_team_12.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_12"
+            "value": "Bélgica"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 30
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/287_capitán_team_12.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/287_capitn_team_12.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

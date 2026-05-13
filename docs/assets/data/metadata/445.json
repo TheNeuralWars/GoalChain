@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_18 Player 3",
+    "name": "Samuel Chuku-Node",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #3 de Nación TEAM_18. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Samuel Chuku-Node (Nigeria). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/445_nación_team_18_player_3.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/445_samuel_chuku-node.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_18"
+            "value": "Nigeria"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 46
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/445_nación_team_18_player_3.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/445_samuel_chuku-node.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

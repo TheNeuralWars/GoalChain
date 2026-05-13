@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_12 Player 14",
+    "name": "Bélgica Star 14 Coin",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #14 de Nación TEAM_12. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Bélgica Star 14 Coin (Bélgica). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/300_nación_team_12_player_14.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/300_blgica_star_14_coin.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_12"
+            "value": "Bélgica"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 39
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/300_nación_team_12_player_14.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/300_blgica_star_14_coin.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

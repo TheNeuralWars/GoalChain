@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_42 Player 2",
+    "name": "Franck Kes-Node",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #2 de Nación TEAM_42. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Franck Kes-Node (Costa de Marfil). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/1068_nación_team_42_player_2.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1068_franck_kes-node.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_42"
+            "value": "Costa de Marfil"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 57
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/1068_nación_team_42_player_2.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1068_franck_kes-node.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

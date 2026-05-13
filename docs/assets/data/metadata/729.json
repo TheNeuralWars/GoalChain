@@ -1,13 +1,13 @@
 {
     "name": "Capitán TEAM_29",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #1 de Nación TEAM_29. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Capitán TEAM_29 (Noruega). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/729_capitán_team_29.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/729_capitn_team_29.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_29"
+            "value": "Noruega"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 83
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/729_capitán_team_29.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/729_capitn_team_29.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

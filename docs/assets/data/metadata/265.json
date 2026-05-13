@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_11 Player 5",
+    "name": "Ciro Im-Block-ile",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #5 de Nación TEAM_11. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Ciro Im-Block-ile (Italia). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/265_nación_team_11_player_5.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/265_ciro_im-block-ile.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_11"
+            "value": "Italia"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 97
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/265_nación_team_11_player_5.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/265_ciro_im-block-ile.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

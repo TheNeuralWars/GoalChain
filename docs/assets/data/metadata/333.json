@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_13 Player 21",
+    "name": "Marruecos Star 21 Swap",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #21 de Nación TEAM_13. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Marruecos Star 21 Swap (Marruecos). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/333_nación_team_13_player_21.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/333_marruecos_star_21_swap.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_13"
+            "value": "Marruecos"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 69
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/333_nación_team_13_player_21.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/333_marruecos_star_21_swap.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]
