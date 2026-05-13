@@ -6,8 +6,8 @@
     <title>GoalChain | The Future of Football on Solana</title>
     <meta name="description" content="GoalChain: Play-to-Earn football on Solana. Bet on FIFA World Cup 2026 fixtures, play penalty shootouts, and earn $GCH tokens.">
     <meta name="theme-color" content="#06060a">
-    <link rel="stylesheet" href="assets/css/style.css?v=2.1">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.2">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
@@ -23,9 +23,19 @@
         <div class="nav-links-desktop">
             <a href="#pitch" data-i18n="nav_about">Sobre</a>
             <a href="#gameplay" data-i18n="nav_game">Mini-Juego</a>
-            <a href="#fixture" data-i18n="nav_fixture">Fixture</a>
-            <a href="#roadmap" data-i18n="nav_roadmap">Roadmap</a>
-            <a href="#social" data-i18n="nav_social">Social</a><a href="colabs.html" style="color:var(--secondary); font-weight:bold; margin-left:15px;">COLABS</a>
+            <a href="#nfts" data-i18n="nav_nfts">Colección</a>
+            <a href="#social" data-i18n="nav_social">Social</a>
+            <a href="http://localhost:3000" target="_blank" style="color:var(--primary); font-weight:900; margin-left:15px; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px;" class="btn-glow">LAUNCH APP</a>
+            <div class="nav-dropdown" style="position:relative; display:inline-block; margin-left:15px;">
+                <button class="btn-glow" style="background:transparent; border: 1px solid var(--secondary); color:var(--secondary); font-weight:900; padding: 5px 15px; border-radius: 20px; cursor:pointer; font-family:inherit;">COLABS ▼</button>
+                <div class="nav-dropdown-content" style="position:absolute; top:100%; right:0; background:rgba(6,6,10,0.95); backdrop-filter:blur(10px); min-width:240px; border:1px solid var(--secondary); border-radius:12px; padding:10px; z-index:100; opacity:0; visibility:hidden; transition:all 0.3s; transform:translateY(10px);">
+                    <a href="pitch.html" style="display:block; padding:10px; color:#fff; font-size:0.8rem; border-bottom:1px solid rgba(255,255,255,0.1); margin:0;">📖 Pitch & Motivación</a>
+                    <a href="colabs.html" style="display:block; padding:10px; color:var(--primary); font-size:0.8rem; margin:0;">🤝 Portal de Colaboradores</a>
+                </div>
+            </div>
+            <style>
+                .nav-dropdown:hover .nav-dropdown-content { opacity: 1; visibility: visible; transform: translateY(5px); }
+            </style>
         </div>
         <div class="nav-right">
             <div class="lang-toggle">
@@ -61,31 +71,50 @@
             <div class="time-unit"><span id="seconds">00</span><p data-i18n="cd_sec">SEG</p></div>
         </div>
         <div class="hero-btns">
-            <a href="#" class="btn btn-primary btn-glow btn-wallet" data-i18n="nav_wallet">Conectar Wallet</a>
-            <a href="#gameplay" class="btn btn-secondary" data-i18n="hero_play">Jugar Ahora</a>
+            <a href="http://localhost:3000" target="_blank" class="btn btn-primary btn-glow" style="font-size: 1.2rem; padding: 1rem 3rem;">ABRIR DASHBOARD</a>
+            <a href="#gameplay" class="btn btn-secondary" data-i18n="hero_play">Jugar Penaltis</a>
         </div>
     </header>
 
     <!-- ABOUT / PITCH -->
     <section id="pitch" class="section">
         <h2 class="section-title reveal"><span data-i18n="pitch_title">El Fútbol ha Evolucionado</span></h2>
-        <p class="section-subtitle reveal" data-i18n="pitch_sub">GoalChain no es solo un juego. Es un ecosistema donde tu conocimiento futbolístico se convierte en activos reales en la blockchain de Solana.</p>
-        <div class="features-grid">
-            <div class="feature-card reveal">
-                <div class="feature-icon">🎯</div>
-                <h3 data-i18n="feat1_t">Apuestas en Vivo</h3>
-                <p data-i18n="feat1_d">Apuesta en tiempo real en los partidos del Mundial 2026. Cuotas dinámicas impulsadas por smart contracts en Solana.</p>
+        <p class="section-subtitle reveal" data-i18n="pitch_sub">No es solo un juego. Es un ecosistema completo donde tu conocimiento se convierte en recompensas reales en Solana.</p>
+        <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 1rem; font-size: 0.8rem;">
+            ← Desliza para explorar Pilares →
+        </div>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('pitchCarousel', -1)">❮</button>
+            <div class="carousel-container roadmap-carousel" id="pitchCarousel" style="padding: 20px 0;">
+                <div class="group-grid" style="padding-left: 20px;">
+                    <div class="glass-card feature-card" style="min-width: 300px;">
+                        <div class="feature-icon" style="font-size: 3rem; text-shadow: 0 0 20px rgba(20,241,149,0.5);">🎯</div>
+                        <h3>Mercados Predictivos</h3>
+                        <p>Apuestas parimutuel descentralizadas en cada partido del Mundial 2026. Cuotas orgánicas y pagos automatizados.</p>
+                    </div>
+                    <div class="glass-card feature-card" style="min-width: 300px; border-color: var(--secondary);">
+                        <div class="feature-icon" style="font-size: 3rem; text-shadow: 0 0 20px rgba(153,69,255,0.5);">💎</div>
+                        <h3>Economía Real</h3>
+                        <p>Modelo deflacionario con quema de tokens del 10% en cada apuesta para alimentar el Jackpot Comunitario.</p>
+                    </div>
+                    <div class="glass-card feature-card" style="min-width: 300px;">
+                        <div class="feature-icon" style="font-size: 3rem; text-shadow: 0 0 20px rgba(255,215,0,0.5);">🏆</div>
+                        <h3>Coleccionables 3D</h3>
+                        <p>100 leyendas (Genesis Squad). Cada NFT genera Yield diario y dividendos basados en el rendimiento real del jugador.</p>
+                    </div>
+                    <div class="glass-card feature-card" style="min-width: 300px; border-color: #00e0ff;">
+                        <div class="feature-icon" style="font-size: 3rem; text-shadow: 0 0 20px rgba(0,224,255,0.5);">🎮</div>
+                        <h3>Minijuegos PvP</h3>
+                        <p>No esperes a los partidos reales. Reta a la comunidad en el minijuego de penaltis o forma tu equipo 5v5.</p>
+                    </div>
+                    <div class="glass-card feature-card" style="min-width: 300px; border-color: #ff4d6a;">
+                        <div class="feature-icon" style="font-size: 3rem; text-shadow: 0 0 20px rgba(255,77,106,0.5);">⛓️</div>
+                        <h3>100% On-Chain</h3>
+                        <p>La lógica está en el smart contract (Rust/Anchor). Total transparencia, sin servidores ocultos manipulando resultados.</p>
+                    </div>
+                </div>
             </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon">🎮</div>
-                <h3 data-i18n="feat2_t">Play-to-Earn</h3>
-                <p data-i18n="feat2_d">Compite en mini-juegos de penaltis y torneos globales. Gana tokens $GCH y NFTs exclusivos.</p>
-            </div>
-            <div class="feature-card reveal">
-                <div class="feature-icon">⛓️</div>
-                <h3 data-i18n="feat3_t">100% On-Chain</h3>
-                <p data-i18n="feat3_d">Toda la lógica de apuestas y recompensas vive en la blockchain de Solana. Transparencia total, sin intermediarios.</p>
-            </div>
+            <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('pitchCarousel', 1)">❯</button>
         </div>
     </section>
 
@@ -107,9 +136,32 @@
                         <div style="font-weight: 900; color: #fff; font-size: 0.9rem;">TU BOLSA: <span id="userGCH" style="color: var(--primary);">1,000</span> $GCH</div>
                     </div>
 
-                    <div class="game-container reveal">
-                        <canvas id="gameCanvas" width="800" height="450"></canvas>
-                        <div class="game-hint" data-i18n="game_hint">TOCA UNA ZONA PARA PATEAR</div>
+                    <div class="game-container reveal" style="padding:0; border:none; background:transparent;">
+                        <div id="domPenaltyGame" style="position: relative; width: 100%; aspect-ratio: 16/9; background: linear-gradient(#0a1a0a, #030305); border: 2px solid rgba(20,241,149,0.3); border-radius: 16px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                            <!-- Goal -->
+                            <div style="position: absolute; top: 20%; width: 60%; height: 60%; border: 4px solid #fff; border-bottom: none; box-shadow: 0 0 15px rgba(255,255,255,0.4);">
+                                <div style="width: 100%; height: 100%; background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+                            </div>
+                            <!-- Goalie -->
+                            <div id="domGoalie" style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, 0); width: 10%; height: 25%; background: #9945ff; border-radius: 25px 25px 5px 5px; box-shadow: 0 0 15px rgba(153,69,255,0.5); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);"></div>
+                            <!-- Ball -->
+                            <div id="domBall" style="position: absolute; bottom: 10%; left: 50%; transform: translate(-50%, 0); width: 6%; aspect-ratio: 1; background: radial-gradient(circle at 30% 30%, #fff, #bbb); border-radius: 50%; box-shadow: 2px 5px 10px rgba(0,0,0,0.5); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); z-index: 10;"></div>
+                            <!-- Clickable Zones -->
+                            <div style="position: absolute; top: 15%; left: 15%; width: 70%; height: 70%; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; z-index: 20;">
+                                <button class="dom-zone" data-x="15" data-y="20"></button>
+                                <button class="dom-zone" data-x="50" data-y="20"></button>
+                                <button class="dom-zone" data-x="85" data-y="20"></button>
+                                <button class="dom-zone" data-x="15" data-y="60"></button>
+                                <button class="dom-zone" data-x="50" data-y="60"></button>
+                                <button class="dom-zone" data-x="85" data-y="60"></button>
+                            </div>
+                            <!-- Result Message -->
+                            <div id="domResultMsg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2rem; font-weight: 900; opacity: 0; transition: opacity 0.3s; text-align: center; text-shadow: 0 0 20px rgba(0,0,0,0.8); z-index: 30; pointer-events: none;"></div>
+                        </div>
+                        <style>
+                            .dom-zone { background: transparent; border: 1px solid rgba(20,241,149,0.05); cursor: pointer; transition: background 0.2s; }
+                            .dom-zone:hover { background: rgba(20,241,149,0.2); }
+                        </style>
                     </div>
                 </div>
                 <div class="game-stats">
@@ -149,14 +201,29 @@
         <h2 class="section-title reveal"><span data-i18n="fix_title">Fixture — Mundial 2026</span></h2>
         <p class="section-subtitle reveal" data-i18n="fix_sub">48 selecciones, 12 grupos. Toda la acción del torneo integrada en GoalChain para apuestas en tiempo real.</p>
         <div class="fixture-tabs" id="fixtureTabs"></div>
-        <div class="group-grid" id="groupGrid"></div>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('fixtureCarousel', -1)">❮</button>
+            <div class="carousel-container fixture-carousel" id="fixtureCarousel">
+                <div class="group-grid" id="groupGrid"></div>
+            </div>
+            <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('fixtureCarousel', 1)">❯</button>
+        </div>
     </section>
 
     <!-- ROADMAP -->
     <section id="roadmap" class="section section-dark">
         <h2 class="section-title reveal"><span data-i18n="rm_title">Hoja de Ruta</span></h2>
-        <p class="section-subtitle reveal" data-i18n="rm_sub">Nuestro plan de desarrollo con hitos reales y tiempos concretos.</p>
-        <div class="roadmap-timeline" id="roadmapTimeline"></div>
+        <p class="section-subtitle reveal" data-i18n="rm_sub">Desliza horizontalmente para ver nuestro plan de desarrollo.</p>
+        <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 1rem; font-size: 0.8rem;">
+            ← Desliza para explorar →
+        </div>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('roadmapCarousel', -1)">❮</button>
+            <div class="carousel-container roadmap-carousel" id="roadmapCarousel">
+                <div class="roadmap-timeline" id="roadmapTimeline"></div>
+            </div>
+            <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('roadmapCarousel', 1)">❯</button>
+        </div>
     </section>
 
     <!-- TOKENOMICS SECTION -->
@@ -168,25 +235,36 @@
                 <p class="section-subtitle">Un ecosistema diseñado para durar. Transparente, circular y rentable.</p>
             </div>
 
-            <div class="economics-grid">
-                <div class="glass-card econ-card">
-                    <div class="econ-icon">💰</div>
-                    <h3>Matchday Yield</h3>
-                    <p>Tus NFTs generan sueldos fijos y bonos por desempeño real en el Mundial.</p>
-                    <div class="econ-stat">+ $GCH Diario</div>
+            <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 1rem; font-size: 0.8rem;">
+                ← Desliza para entender el flujo económico →
+            </div>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('econCarousel', -1)">❮</button>
+                <div class="carousel-container roadmap-carousel" id="econCarousel" style="padding: 20px 0;">
+                    <div class="group-grid" style="padding-left: 20px;">
+                        <div class="glass-card feature-card" style="min-width: 320px; border-color: var(--primary);">
+                            <div class="feature-icon" style="font-size: 2.5rem;">📈</div>
+                            <h3>Emisión Controlada</h3>
+                            <p>Sí, el token es inflacionario para recompensar la participación (Yield de NFTs y premios). Esta emisión incentiva la entrada constante de nuevos usuarios al ecosistema.</p>
+                        </div>
+                        <div class="glass-card feature-card" style="min-width: 320px; border-color: #ff4d6a;">
+                            <div class="feature-icon" style="font-size: 2.5rem;">🔥</div>
+                            <h3>Quema Deflacionaria</h3>
+                            <p>El 10% de CADA APUESTA se quema o va al Jackpot. Mientras más juegue la comunidad, mayor es la reducción de liquidez circulante, contrarrestando la inflación.</p>
+                        </div>
+                        <div class="glass-card feature-card" style="min-width: 320px; border-color: var(--secondary);">
+                            <div class="feature-icon" style="font-size: 2.5rem;">⚙️</div>
+                            <h3>Sumideros de Mantenimiento</h3>
+                            <p>Los NFTs "Genesis" se cansan. Los usuarios DEBEN gastar tokens para recuperar la energía (stamina) de sus jugadores si quieren seguir cobrando recompensas.</p>
+                        </div>
+                        <div class="glass-card feature-card" style="min-width: 320px; border-color: #00e0ff;">
+                            <div class="feature-icon" style="font-size: 2.5rem;">⚖️</div>
+                            <h3>El Equilibrio Perfecto</h3>
+                            <p>La inflación atrae capital nuevo. El juego incentiva el gasto constante. El resultado es una economía circular donde el valor del token se sostiene por la utilidad real.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-card econ-card">
-                    <div class="econ-icon">🔥</div>
-                    <h3>Burn & Build</h3>
-                    <p>El 10% de cada apuesta se retira de la circulación para alimentar el Jackpot y evitar la inflación.</p>
-                    <div class="econ-stat">10% Tax Deflacionario</div>
-                </div>
-                <div class="glass-card econ-card">
-                    <div class="econ-icon">🛠️</div>
-                    <h3>Maintenance Sink</h3>
-                    <p>Reinvierta en la salud y stats de sus jugadores para maximizar su ROI.</p>
-                    <div class="econ-stat">Sostenibilidad Circular</div>
-                </div>
+                <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('econCarousel', 1)">❯</button>
             </div>
         </div>
     </section>
@@ -227,7 +305,7 @@
             <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
                 <span class="hero-badge" data-i18n="nft_badge">COLECCIÓN GENESIS</span>
                 <h2 data-i18n="nft_title" class="section-title">Genesis Squad NFT Collection</h2>
-                <p data-i18n="nft_desc" class="section-subtitle">Explora los 1,248 cracks del Mundial. Filtra por país y gira el cromo para ver su ADN.</p>
+                <p data-i18n="nft_desc" class="section-subtitle">Explora los 1,248 cracks del Mundial. Desliza horizontalmente la galería 3D.</p>
             </div>
 
             <!-- Filtro de Países -->
@@ -250,17 +328,36 @@
                 
                 <div class="nft-filters-row">
                     <input type="text" id="playerSearch" placeholder="Buscar jugador..." class="search-input">
-                    <button id="wishlistBtn" class="fav-toggle-btn">❤️ Mis Favoritos</button>
+                    <select id="nftSort" class="filter-select">
+                        <option value="id-asc">Número (Bajo-Alto)</option>
+                        <option value="id-desc">Número (Alto-Bajo)</option>
+                        <option value="rarity-desc">Más Raros Primero</option>
+                        <option value="atk-desc">Mejor Ataque</option>
+                        <option value="def-desc">Mejor Defensa</option>
+                    </select>
+                    <button id="wishlistBtn" class="fav-toggle-btn">❤️ Favoritos</button>
+                </div>
+
+                <div class="position-filters" id="positionFilters" style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;">
+                    <button class="filter-btn-sm active" data-pos="all">TODOS</button>
+                    <button class="filter-btn-sm" data-pos="GK">PORTEROS</button>
+                    <button class="filter-btn-sm" data-pos="DEF">DEFENSAS</button>
+                    <button class="filter-btn-sm" data-pos="MID">MEDIOS</button>
+                    <button class="filter-btn-sm" data-pos="FWD">DELANTEROS</button>
                 </div>
             </div>
             
-            <div class="nft-slider-container">
-                <div class="nft-track">
-                    <!-- Dinámicamente cargado por assets/js/nft_registry.js -->
-                    <div class="loading-state" style="color: var(--text-dim); text-align: center; width: 100%;">
-                        <p>Iniciando Sincronización con la Blockchain...</p>
+            <div class="carousel-wrapper" style="position: relative;">
+                <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('nftTrackContainer', -1)">❮</button>
+                <div class="carousel-container nft-carousel" id="nftTrackContainer">
+                    <div class="nft-track" id="nftTrackInner">
+                        <!-- Dinámicamente cargado por assets/js/nft_registry.js -->
+                        <div class="loading-state" style="color: var(--text-dim); text-align: center; width: 100%;">
+                            <p>Iniciando Sincronización con la Blockchain...</p>
+                        </div>
                     </div>
                 </div>
+                <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('nftTrackContainer', 1)">❯</button>
             </div>
             
             <div style="text-align:center; margin-top:3rem;">
@@ -364,10 +461,87 @@
 
     <script src="assets/js/i18n.js?v=1.1"></script>
     <script src="assets/js/app.js?v=1.1"></script>
-    <script src="assets/js/penalty_game.js?v=1.1"></script>
+    <script>
+        // DOM Based Penalty Game Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            let balance = parseInt(localStorage.getItem('gch_balance') || '1000');
+            let bet = 10, goals = 0, saves = 0, streak = 0;
+            let isShooting = false;
+
+            const updateUI = () => {
+                document.getElementById('userGCH').innerText = balance.toLocaleString();
+                document.getElementById('statGoals').innerText = goals;
+                document.getElementById('statSaves').innerText = saves;
+                document.getElementById('statStreak').innerText = streak;
+            };
+            updateUI();
+
+            document.querySelectorAll('.bet-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.bet-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    bet = parseInt(e.target.getAttribute('data-amount'));
+                });
+            });
+
+            document.querySelectorAll('.dom-zone').forEach(zone => {
+                zone.addEventListener('click', () => {
+                    if (isShooting) return;
+                    if (balance < bet) return alert("¡No tienes suficientes $GCH!");
+                    
+                    isShooting = true;
+                    balance -= bet; // Tax and bet
+                    updateUI();
+
+                    const ball = document.getElementById('domBall');
+                    const goalie = document.getElementById('domGoalie');
+                    const msg = document.getElementById('domResultMsg');
+
+                    const targetX = zone.getAttribute('data-x');
+                    const targetY = zone.getAttribute('data-y');
+
+                    // Goalie AI (picks random X)
+                    const goaliePos = ['15', '50', '85'];
+                    const gX = goaliePos[Math.floor(Math.random() * goaliePos.length)];
+
+                    // Animate
+                    ball.style.left = targetX + '%';
+                    ball.style.bottom = (100 - targetY) + '%';
+                    ball.style.transform = 'translate(-50%, 50%) scale(0.6)';
+
+                    goalie.style.left = gX + '%';
+                    goalie.style.top = '25%';
+
+                    setTimeout(() => {
+                        if (targetX === gX) {
+                            // Save
+                            saves++; streak = 0;
+                            msg.innerText = "¡ATAJADA! 🧤"; msg.style.color = "#ff4d6a";
+                        } else {
+                            // Goal
+                            goals++; streak++;
+                            const prize = Math.floor(bet * 1.9);
+                            balance += prize;
+                            msg.innerText = "¡GOOOOOL! ⚽"; msg.style.color = "#14f195";
+                            if (window.confetti) confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
+                        }
+                        updateUI();
+                        msg.style.opacity = "1";
+
+                        setTimeout(() => {
+                            msg.style.opacity = "0";
+                            ball.style.left = "50%"; ball.style.bottom = "10%"; ball.style.transform = "translate(-50%, 0) scale(1)";
+                            goalie.style.left = "50%"; goalie.style.top = "35%";
+                            isShooting = false;
+                        }, 1500);
+                    }, 400);
+                });
+            });
+        });
+    </script>
     <script src="assets/js/solana_integration.js?v=1.1"></script>
     <script src="assets/js/contract_data.js?v=1.1"></script>
-    <script src="assets/js/nft_registry.js?v=1.1"></script>
+    <script src="assets/js/nft_registry.js?v=1.2"></script>
     <script src="assets/js/pack_opener.js?v=1.1"></script>
 </body>
 </html>

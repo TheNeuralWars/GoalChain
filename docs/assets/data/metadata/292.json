@@ -1,0 +1,52 @@
+{
+    "name": "Nación TEAM_12 Player 6",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jugador #6 de Nación TEAM_12. Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/292_nación_team_12_player_6.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Nación TEAM_12"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "6"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 75
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 75
+        },
+        {
+            "trait_type": "Hype",
+            "value": 37
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/292_nación_team_12_player_6.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "share": 100
+            }
+        ]
+    }
+}
