@@ -12,6 +12,41 @@
 <body>
     <div class="vibrancy"></div>
 
+    <!-- Botón de Salida -->
+    <a href="index.html" class="exit-pitch" title="Volver al Inicio (ESC)">
+        <span>&times;</span>
+    </a>
+
+    <style>
+        .exit-pitch {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: 300;
+            z-index: 9999;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        .exit-pitch:hover {
+            background: var(--primary);
+            color: #000;
+            transform: rotate(90deg) scale(1.1);
+            border-color: var(--primary);
+        }
+    </style>
+
     <!-- Login Gateway -->
     <div id="loginGateway" class="gateway-overlay">
         <div class="glass-card gateway-card">
@@ -163,5 +198,13 @@
 
     <script src="assets/js/colab_auth.js"></script>
     <script src="assets/js/colab_app.js"></script>
+    <script>
+        // Soporte para tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
 </body>
 </html>

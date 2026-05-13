@@ -830,23 +830,74 @@ body {
     border-radius: 20px;
     overflow: hidden;
     border: 2px solid var(--border);
-    /* Forzamos GPU rendering */
     transform-style: preserve-3d;
+}
+
+/* Sistema de Capas (Layers) para el Front */
+.card-front .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.layer-base { z-index: 1; }
+.layer-base img { width: 100%; height: 100%; object-fit: cover; }
+
+.layer-frame { 
+    z-index: 2;
+    border: 8px solid transparent;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+/* Marcos por Rareza */
+.layer-frame.rarity-Mythic { border-color: #ff00ff; box-shadow: inset 0 0 30px rgba(255, 0, 255, 0.5); }
+.layer-frame.rarity-Legendary { border-color: #ffcc00; box-shadow: inset 0 0 30px rgba(255, 204, 0, 0.5); }
+.layer-frame.rarity-Epic { border-color: #9945ff; box-shadow: inset 0 0 30px rgba(153, 69, 255, 0.5); }
+.layer-frame.rarity-Rare { border-color: #00e0ff; box-shadow: inset 0 0 30px rgba(0, 224, 255, 0.5); }
+.layer-frame.rarity-Common { border-color: rgba(255, 255, 255, 0.2); }
+
+.layer-ui { 
+    z-index: 3; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: auto;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
 }
 
 .card-front {
     background: #000;
     position: relative;
-    transform: rotateY(0deg) translateZ(2px); /* Empujamos al frente */
+    transform: rotateY(0deg) translateZ(2px);
     z-index: 2;
 }
 
-/* Estilo de la bandera */
-.player-flag {
-    font-size: 1.3rem;
-    margin: 0 8px;
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+.top-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.bottom-info { margin-top: auto; text-align: left; width: 100%; }
+.player-name-text { font-size: 1.4rem; font-weight: 900; color: #fff; margin: 0; text-transform: uppercase; letter-spacing: -1px; }
+.mini-stats { display: flex; gap: 12px; font-size: 0.75rem; font-weight: 800; color: var(--primary); margin-top: 8px; }
+
+.card-back {
+    background: radial-gradient(circle at center, #1a1a2e 0%, #06060a 100%);
+    transform: rotateY(180deg) translateZ(2px);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
+
+.back-content { height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.back-header { font-weight: 900; color: var(--primary); font-size: 0.8rem; letter-spacing: 2px; }
+.back-body { text-align: left; }
+.back-id { font-size: 2rem; font-weight: 900; opacity: 0.2; }
+.back-salary { font-weight: 800; color: #fff; margin: 10px 0; }
+.back-mint { font-size: 0.6rem; color: var(--text-dim); overflow-wrap: break-word; font-family: monospace; }
+
 
 /* Efecto Holográfico (Wow Factor) */
 .card-front::after {
@@ -1284,3 +1335,109 @@ body {
     }
 }
 
+
+/* --- Layered NFT Card System (V9.0) --- */
+.nft-card-3d .card-front {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #000;
+}
+
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Layer 1: Player Photo */
+.layer-base {
+    z-index: 1;
+    pointer-events: auto;
+}
+.layer-base img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Layer 2: Master Frame Overlay */
+.layer-frame {
+    z-index: 5;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* Usaremos una imagen de marco genérica que se tiñe por CSS */
+    background-image: url('../img/templates/master_frame_v9.png'); 
+    mix-blend-mode: lighten;
+}
+
+/* Rarity Tinting System */
+.rarity-mythic .layer-frame { filter: drop-shadow(0 0 15px rgba(255,255,255,0.4)) saturate(0); }
+.rarity-legendary .layer-frame { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4)) sepia(1) saturate(5) hue-rotate(10deg); }
+.rarity-epic .layer-frame { filter: drop-shadow(0 0 15px rgba(153, 69, 255, 0.4)) sepia(1) saturate(5) hue-rotate(250deg); }
+.rarity-rare .layer-frame { filter: drop-shadow(0 0 15px rgba(20, 241, 149, 0.4)) sepia(1) saturate(5) hue-rotate(100deg); }
+
+/* Layer 3: Dynamic UI */
+.layer-ui {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.2rem;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player-num {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--primary);
+}
+
+.player-flag {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+}
+
+.bottom-info {
+    text-align: center;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    margin: -1.2rem;
+    padding: 1.5rem 1.2rem 1.2rem;
+}
+
+.player-name-text {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.mini-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-dim);
+}
+
+.mini-stats span {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.3);
+}
