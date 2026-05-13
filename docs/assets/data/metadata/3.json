@@ -1,0 +1,52 @@
+{
+    "name": "Julian Alva-Swap",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jugador #3 de Argentina. Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/003_julian_alva-swap.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Argentina"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "3"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 91
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 95
+        },
+        {
+            "trait_type": "Hype",
+            "value": 87
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/003_julian_alva-swap.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "share": 100
+            }
+        ]
+    }
+}

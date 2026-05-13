@@ -1,0 +1,52 @@
+{
+    "name": "Nación TEAM_45 Player 18",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jugador #18 de Nación TEAM_45. Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/1162_nación_team_45_player_18.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Nación TEAM_45"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "18"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 90
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 54
+        },
+        {
+            "trait_type": "Hype",
+            "value": 95
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/1162_nación_team_45_player_18.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "share": 100
+            }
+        ]
+    }
+}

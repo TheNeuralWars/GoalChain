@@ -1,0 +1,52 @@
+{
+    "name": "Luka Bit-modrich",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jugador #10 de Croacia. Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/038_luka_bit-modrich.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Croacia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Mythic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "10"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 88
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 75
+        },
+        {
+            "trait_type": "Hype",
+            "value": 95
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/038_luka_bit-modrich.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "share": 100
+            }
+        ]
+    }
+}
