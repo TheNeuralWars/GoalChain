@@ -1,0 +1,52 @@
+{
+    "name": "Vinicius Burner Jr",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jugador #7 de Brasil. Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/035_vinicius_burner_jr.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Brasil"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "7"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 94
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 35
+        },
+        {
+            "trait_type": "Hype",
+            "value": 98
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/035_vinicius_burner_jr.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "share": 100
+            }
+        ]
+    }
+}

@@ -318,3 +318,21 @@ if(wlForm) {
         }
     }
 }
+
+// --- Horizontal Carousel Scrolling ---
+window.scrollCarousel = function(containerId, direction) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    
+    // Calcula la cantidad de scroll basada en el ancho del primer hijo, o por defecto 320px
+    const firstChild = container.firstElementChild ? container.firstElementChild.firstElementChild || container.firstElementChild : null;
+    let scrollAmount = 320; 
+    if (firstChild && firstChild.offsetWidth) {
+        scrollAmount = firstChild.offsetWidth + 16; // ancho + gap aproximado
+    }
+    
+    container.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
+};
