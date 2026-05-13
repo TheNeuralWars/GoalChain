@@ -199,23 +199,68 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderSocialTasks() {
         const grid = document.getElementById('socialGrid');
         const tasks = [
-            { icon: '🐦', bg: '#1DA1F2', pts: 200, title: t('soc_t1_t'), desc: t('soc_t1_d'), action: 'follow' },
-            { icon: '🔁', bg: '#17bf63', pts: 300, title: t('soc_t2_t'), desc: t('soc_t2_d'), action: 'retweet' },
-            { icon: '💬', bg: '#5865F2', pts: 250, title: t('soc_t3_t'), desc: t('soc_t3_d'), action: 'discord' },
-            { icon: '✈️', bg: '#0088cc', pts: 200, title: t('soc_t4_t'), desc: t('soc_t4_d'), action: 'telegram' },
-            { icon: '🤝', bg: '#9945ff', pts: '100/ref', title: t('soc_t5_t'), desc: t('soc_t5_d'), action: 'referral' },
-            { icon: '⚽', bg: '#14f195', pts: 500, title: t('soc_t6_t'), desc: t('soc_t6_d'), action: 'game' },
+            { id: 't1', icon: '🐦', bg: '#1DA1F2', pts: 200, title: t('soc_t1_t'), desc: t('soc_t1_d'), link: 'https://x.com/GoalChainDotFun' },
+            { id: 't2', icon: '🔁', bg: '#17bf63', pts: 300, title: t('soc_t2_t'), desc: t('soc_t2_d'), link: 'https://x.com/GoalChainDotFun' },
+            { id: 't3', icon: '💬', bg: '#5865F2', pts: 250, title: t('soc_t3_t'), desc: t('soc_t3_d'), link: 'https://discord.gg/7TUgSfqtd' },
+            { id: 't4', icon: '✈️', bg: '#0088cc', pts: 200, title: t('soc_t4_t'), desc: t('soc_t4_d'), link: 'https://instagram.com/goalchain.fun' },
+            { id: 't5', icon: '🤝', bg: '#9945ff', pts: '100/ref', title: t('soc_t5_t'), desc: t('soc_t5_d'), link: '#' },
+            { id: 't6', icon: '⚽', bg: '#14f195', pts: 500, title: t('soc_t6_t'), desc: t('soc_t6_d'), link: '#game' },
         ];
+
+        const completed = JSON.parse(localStorage.getItem('completed_tasks') || '[]');
+        
         grid.innerHTML = tasks.map(task => `
-            <div class="social-task">
+            <div class="social-task ${completed.includes(task.id) ? 'done' : ''}" onclick="handleTask('${task.id}', '${task.link}', ${task.pts})">
                 <div class="social-icon" style="background:${task.bg}20;color:${task.bg};">${task.icon}</div>
                 <div class="social-task-info">
                     <h4>${task.title}</h4>
                     <p>${task.desc}</p>
                 </div>
-                <div class="social-points">+${task.pts}</div>
+                <div class="social-points">${completed.includes(task.id) ? '✅' : '+' + task.pts}</div>
             </div>
         `).join('');
+    }
+
+    window.handleTask = function(id, link, pts) {
+        if (id === 't5') {
+            const refLink = document.getElementById('referral-link-display').innerText;
+            if (refLink.includes('...')) return alert(t('soc_connect_info'));
+            navigator.clipboard.writeText(refLink);
+            alert(currentLang === 'en' ? 'Referral link copied!' : '¡Enlace de referido copiado!');
+            return;
+        }
+        
+        window.open(link, '_blank');
+        
+        const completed = JSON.parse(localStorage.getItem('completed_tasks') || '[]');
+        if (!completed.includes(id)) {
+            completed.push(id);
+            localStorage.setItem('completed_tasks', JSON.stringify(completed));
+            
+            if (typeof pts === 'number') {
+                let total = parseInt(localStorage.getItem('goalpoints') || '0');
+                total += pts;
+                localStorage.setItem('goalpoints', total);
+            }
+            
+            renderSocialTasks();
+            updateGoalPoints();
+        }
+    };
+
+    function updateGoalPoints() {
+        const pts = localStorage.getItem('goalpoints') || '0';
+        const el = document.getElementById('totalPoints');
+        if (el) el.innerText = parseInt(pts).toLocaleString();
+        
+        // Generate referral link if wallet exists
+        const wallet = localStorage.getItem('goalchain_wallet');
+        const refDisplay = document.getElementById('referral-link-display');
+        if (wallet && refDisplay) {
+            const shortWallet = wallet.substring(0, 6);
+            refDisplay.innerText = `https://goalchain.fun?ref=${shortWallet}`;
+            refDisplay.style.color = 'var(--primary)';
+        }
     }
 
     // ===== WHITELIST FORM =====
@@ -237,6 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFixtureTabs();
     renderGroups();
     renderSocialTasks();
+    updateGoalPoints();
 
     // Re-render on language change
     const origSetLang = window.setLang;
