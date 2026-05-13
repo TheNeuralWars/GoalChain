@@ -1,0 +1,56 @@
+{
+    "name": "Capitán TEAM_26",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Capitán TEAM_26 (Perú). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "650.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Perú"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "1"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 77
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 91
+        },
+        {
+            "trait_type": "Hype",
+            "value": 43
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "650.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

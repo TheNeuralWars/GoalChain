@@ -1,0 +1,56 @@
+{
+    "name": "Chile Pro 10 Block",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Chile Pro 10 Block (Chile). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "633.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Chile"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "10"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 48
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 67
+        },
+        {
+            "trait_type": "Hype",
+            "value": 67
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "633.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

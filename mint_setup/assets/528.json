@@ -1,0 +1,56 @@
+{
+    "name": "Ecuador Pro 9 Ledger",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Ecuador Pro 9 Ledger (Ecuador). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "528.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Ecuador"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "9"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 64
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 53
+        },
+        {
+            "trait_type": "Hype",
+            "value": 98
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "528.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

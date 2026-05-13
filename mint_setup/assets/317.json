@@ -1,0 +1,56 @@
+{
+    "name": "Marruecos Star 6 Token",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Marruecos Star 6 Token (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "317.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Marruecos"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "6"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 73
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 96
+        },
+        {
+            "trait_type": "Hype",
+            "value": 81
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "317.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

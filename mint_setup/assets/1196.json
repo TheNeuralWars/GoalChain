@@ -1,0 +1,56 @@
+{
+    "name": "Capitán TEAM_47",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Capitán TEAM_47 (Paraguay). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "1196.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Paraguay"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "1"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 83
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 73
+        },
+        {
+            "trait_type": "Hype",
+            "value": 74
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "1196.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

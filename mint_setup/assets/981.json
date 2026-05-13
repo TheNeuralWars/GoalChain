@@ -1,0 +1,56 @@
+{
+    "name": "Egipto Pro 20 Block",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Egipto Pro 20 Block (Egipto). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "981.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Egipto"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "20"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 75
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 63
+        },
+        {
+            "trait_type": "Hype",
+            "value": 77
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "981.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

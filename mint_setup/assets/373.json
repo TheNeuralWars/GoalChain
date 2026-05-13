@@ -1,0 +1,56 @@
+{
+    "name": "Senegal Star 10 Block",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Senegal Star 10 Block (Senegal). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "373.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Senegal"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "10"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 64
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 93
+        },
+        {
+            "trait_type": "Hype",
+            "value": 36
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "373.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

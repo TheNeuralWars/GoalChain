@@ -1,0 +1,56 @@
+{
+    "name": "Egipto Pro 26 Token",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Egipto Pro 26 Token (Egipto). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "987.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Egipto"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "26"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 40
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 68
+        },
+        {
+            "trait_type": "Hype",
+            "value": 67
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "987.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

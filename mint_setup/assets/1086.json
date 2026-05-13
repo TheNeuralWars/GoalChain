@@ -1,0 +1,56 @@
+{
+    "name": "Costa de Marfil Pro 21 Swap",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Costa de Marfil Pro 21 Swap (Costa de Marfil). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "1086.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Costa de Marfil"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "21"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 80
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 94
+        },
+        {
+            "trait_type": "Hype",
+            "value": 88
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "1086.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

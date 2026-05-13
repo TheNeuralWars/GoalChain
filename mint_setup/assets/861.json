@@ -1,0 +1,56 @@
+{
+    "name": "Aaron Ram-Block",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Aaron Ram-Block (Gales). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "861.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Gales"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "4"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 94
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 70
+        },
+        {
+            "trait_type": "Hype",
+            "value": 53
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "861.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

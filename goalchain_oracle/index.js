@@ -3,57 +3,105 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
+// Configuración de Red y Programa
 const PROGRAM_ID = new PublicKey("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
-const UPDATE_STATS_DISC = Buffer.from([61, 85, 73, 244, 51, 95, 21, 33]);
+const connection = new Connection("https://api.devnet.solana.com", "confirmed");
 
-async function updatePlayerOnChain(playerId, goals, assists) {
-    console.log(`\n--- ⚽ Actualizando estadísticas para: ${playerId} ---`);
+// Cargar Autoridad (Wallet del Oráculo)
+const secretKey = JSON.parse(fs.readFileSync(path.join(process.env.HOME, '.config/solana/id.json'), 'utf8'));
+const oracleKeypair = Keypair.fromSecretKey(new Uint8Array(secretKey));
 
-    const connection = new Connection("https://api.devnet.solana.com", "confirmed");
-    const secretKey = JSON.parse(fs.readFileSync(path.join(process.env.HOME, '.config/solana/id.json'), 'utf8'));
-    const oracleKeypair = Keypair.fromSecretKey(new Uint8Array(secretKey));
+// Discriminadores (Obtenidos del Smart Contract)
+const DISC = {
+    INIT_FIXTURE: Buffer.from([26, 99, 178, 9, 192, 14, 167, 207]),
+    UPDATE_LIVE: Buffer.from([48, 140, 191, 128, 222, 114, 219, 216]),
+    RESOLVE: Buffer.from([140, 91, 145, 57, 241, 197, 102, 172])
+};
 
-    const [playerPda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("player"), Buffer.from(playerId)],
-        PROGRAM_ID
-    );
+/**
+ * Registra un nuevo partido en la Blockchain
+ */
+async function registerFixture(matchId, teamA, teamB, startTime) {
+    console.log(`🏟️ Registrando: ${teamA} vs ${teamB}...`);
+    
+    const [fixturePda] = PublicKey.findProgramAddressSync([Buffer.from("fixture"), Buffer.from(matchId)], PROGRAM_ID);
+    
+    const data = Buffer.alloc(500);
+    let offset = 0;
+    DISC.INIT_FIXTURE.copy(data, offset); offset += 8;
+    
+    const writeString = (s) => {
+        const buf = Buffer.from(s, 'utf8');
+        data.writeUInt32LE(buf.length, offset); offset += 4;
+        buf.copy(data, offset); offset += buf.length;
+    };
 
-    // Codificación manual: discriminator (8) + goals (1) + assists (1)
-    const data = Buffer.alloc(10);
-    UPDATE_STATS_DISC.copy(data, 0);
-    data.writeUInt8(goals, 8);
-    data.writeUInt8(assists, 9);
+    writeString(matchId); writeString(teamA); writeString(teamB);
+    data.writeBigInt64LE(BigInt(startTime), offset); offset += 8;
 
-    const instruction = new TransactionInstruction({
+    const ix = new TransactionInstruction({
         keys: [
             { pubkey: oracleKeypair.publicKey, isSigner: true, isWritable: true },
-            { pubkey: playerPda, isSigner: false, isWritable: true },
+            { pubkey: fixturePda, isSigner: false, isWritable: true },
+            { pubkey: PublicKey.default, isSigner: false, isWritable: false }, // System Program placeholder
         ],
         programId: PROGRAM_ID,
-        data: data,
+        data: data.slice(0, offset),
     });
 
-    const tx = new Transaction().add(instruction);
-    try {
-        const signature = await connection.sendTransaction(tx, [oracleKeypair]);
-        await connection.confirmTransaction(signature);
-        console.log(`🚀 ¡Éxito! Stats actualizados. Signature: ${signature}`);
-    } catch (err) {
-        console.error("❌ Error:", err.message);
-    }
+    // Envío simplificado para esta demo
+    console.log(`✅ Instrucción lista para ${matchId}`);
+    return ix;
 }
 
-async function main() {
-    console.log("📡 GoalChain Oracle v2.1 (Manual) - Actualizando desde el Mundo Real...");
+/**
+ * Envía un gol o actualización de tiempo al contrato
+ */
+async function pushLiveUpdate(matchId, minute, scoreA, scoreB, isFT = false) {
+    const [fixturePda] = PublicKey.findProgramAddressSync([Buffer.from("fixture"), Buffer.from(matchId)], PROGRAM_ID);
+    const [livePda] = PublicKey.findProgramAddressSync([Buffer.from("live_state"), fixturePda.toBuffer()], PROGRAM_ID);
+    const [configPda] = PublicKey.findProgramAddressSync([Buffer.from("config")], PROGRAM_ID);
 
-    const playersToUpdate = [
-        { id: "lionel_bitcoin", goals: 3, assists: 2 },
-        { id: "cristiano_ethereum", goals: 2, assists: 1 }
-    ];
+    const data = Buffer.alloc(100);
+    let offset = 0;
+    DISC.UPDATE_LIVE.copy(data, offset); offset += 8;
+    data.writeUInt16LE(minute, offset); offset += 2;
+    data.writeUInt8(scoreA, offset); offset += 1;
+    data.writeUInt8(scoreB, offset); offset += 1;
+    data.writeUInt8(0, offset); offset += 1; // is_ht
+    data.writeUInt8(isFT ? 1 : 0, offset); offset += 1; // is_ft
 
-    for (const player of playersToUpdate) {
-        await updatePlayerOnChain(player.id, player.goals, player.assists);
-    }
+    const ix = new TransactionInstruction({
+        keys: [
+            { pubkey: oracleKeypair.publicKey, isSigner: true, isWritable: true },
+            { pubkey: configPda, isSigner: false, isWritable: false },
+            { pubkey: fixturePda, isSigner: false, isWritable: false },
+            { pubkey: livePda, isSigner: false, isWritable: true },
+            { pubkey: PublicKey.default, isSigner: false, isWritable: false },
+        ],
+        programId: PROGRAM_ID,
+        data: data.slice(0, offset),
+    });
+
+    console.log(`⚽ GOOOOL! ${matchId}: ${scoreA}-${scoreB} (Min ${minute})`);
+    return ix;
 }
 
-main().catch(console.error);
+// Lógica de simulación para pruebas
+async function runDemo() {
+    console.log("🚀 GoalChain Oracle System - Online");
+    const matchId = "FINAL_2026_ARG_POR";
+    
+    // 1. Crear el partido
+    await registerFixture(matchId, "Argentina", "Portugal", Math.floor(Date.now()/1000) + 3600);
+    
+    // 2. Simular un gol a los 3 segundos
+    setTimeout(() => pushLiveUpdate(matchId, 23, 1, 0), 3000);
+    
+    // 3. Simular empate a los 6 segundos
+    setTimeout(() => pushLiveUpdate(matchId, 44, 1, 1), 6000);
+}
+
+if (require.main === module) {
+    runDemo();
+}

@@ -1,0 +1,56 @@
+{
+    "name": "Venezuela Pro 11 Swap",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Venezuela Pro 11 Swap (Venezuela). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "1232.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Venezuela"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "11"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 91
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 72
+        },
+        {
+            "trait_type": "Hype",
+            "value": 64
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "1232.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

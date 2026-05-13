@@ -1,0 +1,56 @@
+{
+    "name": "Darwin Mach-Block",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Darwin Mach-Block (Venezuela). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "1225.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Venezuela"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "4"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 54
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 80
+        },
+        {
+            "trait_type": "Hype",
+            "value": 80
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "1225.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

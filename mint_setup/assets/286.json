@@ -1,0 +1,56 @@
+{
+    "name": "Capitán TEAM_12",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Capitán TEAM_12 (Bélgica). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "286.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Bélgica"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "1"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 97
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 82
+        },
+        {
+            "trait_type": "Hype",
+            "value": 30
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "286.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

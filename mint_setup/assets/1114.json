@@ -1,0 +1,56 @@
+{
+    "name": "Austria Pro 23 Node",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Austria Pro 23 Node (Austria). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "1114.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Austria"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "23"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 41
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 93
+        },
+        {
+            "trait_type": "Hype",
+            "value": 42
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "1114.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

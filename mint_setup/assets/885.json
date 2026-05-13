@@ -1,0 +1,56 @@
+{
+    "name": "Sardar Az-Node",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Sardar Az-Node (Irán). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "885.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Irán"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "2"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 93
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 84
+        },
+        {
+            "trait_type": "Hype",
+            "value": 63
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "885.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "name": "Grecia Pro 20 Block",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Grecia Pro 20 Block (Grecia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "1137.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Grecia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "20"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 68
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 44
+        },
+        {
+            "trait_type": "Hype",
+            "value": 93
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "1137.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

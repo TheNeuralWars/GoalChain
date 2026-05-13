@@ -1,0 +1,56 @@
+{
+    "name": "Italia Star 25 Wallet",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Italia Star 25 Wallet (Italia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "284.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Italia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "25"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 43
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 52
+        },
+        {
+            "trait_type": "Hype",
+            "value": 41
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "284.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "name": "Francia Player 25",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Francia Player 25 (Francia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "76.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Francia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "25"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 86
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 73
+        },
+        {
+            "trait_type": "Hype",
+            "value": 62
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "76.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
