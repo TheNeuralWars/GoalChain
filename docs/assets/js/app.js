@@ -202,7 +202,8 @@ document.addEventListener('DOMContentLoaded', () => {
             { id: 't1', icon: '🐦', bg: '#1DA1F2', pts: 200, title: t('soc_t1_t'), desc: t('soc_t1_d'), link: 'https://x.com/GoalChainDotFun' },
             { id: 't2', icon: '🔁', bg: '#17bf63', pts: 300, title: t('soc_t2_t'), desc: t('soc_t2_d'), link: 'https://x.com/GoalChainDotFun' },
             { id: 't3', icon: '💬', bg: '#5865F2', pts: 250, title: t('soc_t3_t'), desc: t('soc_t3_d'), link: 'https://discord.gg/7TUgSfqtd' },
-            { id: 't4', icon: '✈️', bg: '#0088cc', pts: 200, title: t('soc_t4_t'), desc: t('soc_t4_d'), link: 'https://instagram.com/goalchain.fun' },
+            { id: 't4', icon: '📸', bg: '#e4405f', pts: 200, title: 'Instagram', desc: 'Sigue nuestro Instagram oficial', link: 'https://instagram.com/goalchain.fun' },
+            { id: 't7', icon: '✈️', bg: '#0088cc', pts: 200, title: t('soc_t4_t'), desc: t('soc_t4_d'), link: '#' },
             { id: 't5', icon: '🤝', bg: '#9945ff', pts: '100/ref', title: t('soc_t5_t'), desc: t('soc_t5_d'), link: '#' },
             { id: 't6', icon: '⚽', bg: '#14f195', pts: 500, title: t('soc_t6_t'), desc: t('soc_t6_d'), link: '#game' },
         ];
