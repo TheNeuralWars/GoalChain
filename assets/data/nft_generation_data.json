@@ -33,5 +33,40 @@
         "physical": "Short dark hair, clean-shaven, tall and strategic stance, height 1.91m.",
         "pose": "Standing in a tactical defensive posture, arms spread slightly.",
         "colors": "Solid red jersey with yellow trim (no logos)."
+    },
+    {
+        "id": 6,
+        "name": "Kylian M-Bag-pé",
+        "physical": "Very short buzz cut hair, athletic and fast build, focused gaze, height 1.78m.",
+        "pose": "Sprinting forward with arms pumping, looking determined.",
+        "colors": "Deep navy blue jersey with red and white subtle details (no logos)."
+    },
+    {
+        "id": 7,
+        "name": "Cristiano Holdaldo",
+        "physical": "Short slicked hair, extremely muscular build, tall and commanding, height 1.87m.",
+        "pose": "Classic 'SIUUU' celebration pose, jumping in the air with arms wide.",
+        "colors": "Deep red jersey with green and yellow accents (no logos)."
+    },
+    {
+        "id": 14,
+        "name": "Mo Solana",
+        "physical": "Curly dark hair, full beard, lean and agile, height 1.75m.",
+        "pose": "Celebrating with a finger pointing to the logo on the chest.",
+        "colors": "Solid red jersey with white and black trim (no logos)."
+    },
+    {
+        "id": 15,
+        "name": "Lamine Ya-Hype",
+        "physical": "Very young face, short afro hair, slender and fast, height 1.78m.",
+        "pose": "Doing a '1904' sign with hands after scoring.",
+        "colors": "Bright red jersey with yellow details (no logos)."
+    },
+    {
+        "id": 35,
+        "name": "Vinicius Burner Jr",
+        "physical": "Short fade hair, very lean and explosive, height 1.76m.",
+        "pose": "Samba dance celebration with a wide smile.",
+        "colors": "Vibrant yellow jersey with green and blue trim (no logos)."
     }
 ]
