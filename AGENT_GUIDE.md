@@ -5,7 +5,12 @@ Este documento es la fuente de verdad para cualquier IA que trabaje en GoalChain
 ## 🎯 Visión Actual del Proyecto
 GoalChain es un ecosistema de fútbol Web3 en Solana. Estamos en fase de pre-lanzamiento, centrados en la galería de NFTs dinámicos y el Pitch Deck para inversores.
 
-## 📁 Reglas de Arquitectura (No romper)
+### 🚨 REGLA DE ORO DE DESPLIEGUE (OBLIGATORIA)
+- **Sincronización Total Inmediata**: CADA VEZ que se modifique cualquier archivo en `/docs` o documentos estratégicos, el AGENTE debe realizar un `git push` automáticamente.
+- **Propósito**: Garantizar que `goalchain.fun` sea siempre un reflejo exacto del trabajo realizado en tiempo real. **NO terminar una tarea web sin hacer push.**
+
+### 🌐 Frontend & Deployment (/docs)
+- **Source of Truth**: La carpeta `/docs` es la ÚNICA fuente para el frontend.
 1.  **Directorio de Trabajo:** El frontend principal es `/docs`. NO uses carpetas obsoletas o archivos fuera de esta ruta para la web.
 2.  **Tecnología:** Usamos HTML5, Vanilla CSS (Glassmorphism) y Javascript nativo para el frontend. No instalar frameworks pesados sin autorización.
 3.  **Fuentes de Datos:**
