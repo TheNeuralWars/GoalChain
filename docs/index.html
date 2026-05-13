@@ -8,6 +8,7 @@
     <meta name="theme-color" content="#06060a">
     <link rel="stylesheet" href="assets/css/style.css?v=2.2">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
@@ -25,7 +26,7 @@
             <a href="#gameplay" data-i18n="nav_game">Mini-Juego</a>
             <a href="#nfts" data-i18n="nav_nfts">Colección</a>
             <a href="#social" data-i18n="nav_social">Social</a>
-            <a href="http://localhost:3000" target="_blank" style="color:var(--primary); font-weight:900; margin-left:15px; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px;" class="btn-glow">LAUNCH APP</a>
+            <button onclick="alert('GoalChain App coming soon for World Cup 2026!')" style="color:var(--primary); background: transparent; font-weight:900; margin-left:15px; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer;" class="btn-glow">LAUNCH APP</button>
             <div class="nav-dropdown" style="position:relative; display:inline-block; margin-left:15px;">
                 <button class="btn-glow" style="background:transparent; border: 1px solid var(--secondary); color:var(--secondary); font-weight:900; padding: 5px 20px; border-radius: 20px; cursor:pointer; font-family:inherit; font-size: 0.8rem;">COLABS ▼</button>
                 <div class="nav-dropdown-content">
@@ -53,7 +54,7 @@
                 <button id="langEs" class="active" onclick="setLang('es')">ES</button>
                 <button id="langEn" onclick="setLang('en')">EN</button>
             </div>
-            <a href="#" class="btn btn-primary btn-sm btn-wallet" data-i18n="nav_wallet">Conectar Wallet</a>
+            <button class="btn btn-primary btn-sm btn-wallet" data-i18n="nav_wallet">Conectar Wallet</button>
             <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
@@ -67,7 +68,7 @@
         <a href="#fixture" data-i18n="nav_fixture" onclick="closeMobile()">Fixture</a>
         <a href="#roadmap" data-i18n="nav_roadmap" onclick="closeMobile()">Roadmap</a>
         <a href="#social" data-i18n="nav_social" onclick="closeMobile()">Social</a>
-        <a href="#" class="btn btn-primary btn-wallet" data-i18n="nav_wallet" onclick="closeMobile()">Conectar Wallet</a>
+        <button class="btn btn-primary btn-wallet" data-i18n="nav_wallet" onclick="closeMobile()">Conectar Wallet</button>
     </div>
 
     <!-- HERO -->
@@ -241,15 +242,14 @@
     <section id="economics" class="section reveal" style="background: var(--bg-surface);">
         <div class="container">
             <div class="section-header" style="text-align: center;">
-                <span class="hero-badge">ECONOMÍA SOSTENIBLE</span>
+                <span class="hero-badge" data-i18n="econ_badge">ECONOMÍA SOSTENIBLE</span>
                 <h2 class="section-title">Tokenomics 2.0</h2>
-                <p class="section-subtitle">Un ecosistema diseñado para durar. Transparente, circular y rentable.</p>
+                <p class="section-subtitle" data-i18n="econ_sub">Un ecosistema diseñado para durar. Transparente, circular y rentable.</p>
             </div>
 
             <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 2rem; font-size: 0.9rem; line-height:1.6;">
-                <b>FLUJO ECONÓMICO:</b> <br>
-                Apostadores → Pool Parimutuel (Solana) → 90% Ganadores / 10% Protocolo <br>
-                Protocolo → 5% Burn 🔥 / 3% Jackpot 🏆 / 2% Tesorería 🛠️
+                <b data-i18n="econ_flow_title">FLUJO ECONÓMICO:</b> <br>
+                <span data-i18n-html="econ_flow_desc">Apostadores → Pool Parimutuel (Solana) → 90% Ganadores / 10% Protocolo <br> Protocolo → 5% Burn 🔥 / 3% Jackpot 🏆 / 2% Tesorería 🛠️</span>
             </div>
             <div class="carousel-wrapper">
                 <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('econCarousel', -1)">❮</button>
@@ -285,9 +285,9 @@
     <section id="mint" class="reveal" style="background: radial-gradient(circle at center, #1a1a2e 0%, #0d0d15 100%); padding: 60px 0;">
         <div class="container" style="text-align: center;">
             <div class="section-header">
-                <span class="hero-badge">MARKETPLACE</span>
-                <h2 class="section-title">Abre tus Sobres Genesis</h2>
-                <p class="section-subtitle">Prueba tu suerte y consigue a los capitanes del Mundial 2026.</p>
+                <span class="hero-badge" data-i18n="pack_badge">MARKETPLACE</span>
+                <h2 class="section-title" data-i18n="pack_title">Abre tus Sobres Genesis</h2>
+                <p class="section-subtitle" data-i18n="pack_sub">Prueba tu suerte y consigue a los capitanes del Mundial 2026.</p>
             </div>
 
             <div class="pack-container">
@@ -297,7 +297,7 @@
                 </div>
                 
                 <div class="pack-controls">
-                    <button id="openPackBtn" class="btn btn-primary btn-glow" style="padding: 15px 40px; font-size: 1.1rem;">ABRIR SOBRE (100 $GCH)</button>
+                    <button id="openPackBtn" class="btn btn-primary btn-glow" style="padding: 15px 40px; font-size: 1.1rem;" data-i18n="pack_open_btn">ABRIR SOBRE (100 $GCH)</button>
                     <p class="pack-odds" style="margin-top: 15px; color: var(--text-dim); font-size: 0.8rem;">Probabilidad Mythic: 0.1% | Legendary: 0.9% | Epic: 9%</p>
                 </div>
             </div>
@@ -450,12 +450,14 @@
             </div>
 
             <div class="trust-badges reveal" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; margin-top: 20px;">
-                <p style="color: var(--text-dim); font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 25px; font-weight: 900;">AUDITORÍA Y PARTNERS ESTRATÉGICOS</p>
+                <p style="color: var(--text-dim); font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 25px; font-weight: 900;">AUDITORÍA Y COMUNIDAD</p>
                 <div style="display: flex; justify-content: center; gap: 40px; opacity: 0.7; flex-wrap: wrap; align-items: center;">
                     <span style="font-weight: 900; font-size: 1.1rem; color: #fff;">🛡️ CertiK</span>
                     <span style="font-weight: 900; font-size: 1.1rem; color: #14f195;">◎ Solana</span>
-                    <span style="font-weight: 900; font-size: 1.1rem; color: #7b3fe4;">💳 MoonPay</span>
-                    <span style="font-weight: 900; font-size: 1.1rem; color: #00e4ff;">🌊 Raydium</span>
+                </div>
+                <!-- Discord Widget -->
+                <div style="margin-top: 40px; display: flex; justify-content: center;">
+                    <iframe src="https://discord.com/widget?id=1503668119053406330&theme=dark" width="350" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                 </div>
             </div>
         </div>
@@ -472,6 +474,30 @@
             <a href="colabs.html" style="color:var(--primary); margin-left: 20px; text-decoration:none; font-size:0.8rem;">Portal Colaboradores</a>
         </div>
     </footer>
+
+    <!-- COOKIE CONSENT -->
+    <div id="cookieBanner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: rgba(13, 13, 20, 0.95); backdrop-filter: blur(20px); border: 1px solid var(--primary); border-radius: 16px; padding: 1.5rem; z-index: 9999; display: flex; justify-content: space-between; align-items: center; gap: 2rem; box-shadow: 0 10px 50px rgba(0,0,0,0.8); animation: fadeInUp 0.5s forwards;">
+        <p style="font-size: 0.85rem; color: #fff; margin: 0;">Utilizamos cookies para asegurar que GoalChain funcione correctamente y para analizar el tráfico. Al continuar, aceptas nuestra política de privacidad.</p>
+        <button onclick="acceptCookies()" class="btn btn-primary btn-sm" style="flex-shrink: 0;">Aceptar</button>
+    </div>
+
+    <script>
+        function acceptCookies() {
+            document.getElementById('cookieBanner').style.display = 'none';
+            localStorage.setItem('gc_cookies', 'accepted');
+        }
+        if(localStorage.getItem('gc_cookies') === 'accepted') {
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+
+        // Fix infinite loading: Force clear any potential blocks
+        window.addEventListener('load', () => {
+            console.log("GoalChain: Page fully loaded.");
+            // Ensure vibrancy is working but not blocking
+            const vib = document.querySelector('.vibrancy');
+            if(vib) vib.style.opacity = "1";
+        });
+    </script>
 
     <script src="assets/js/i18n.js?v=1.1"></script>
     <script src="assets/js/app.js?v=1.1"></script>

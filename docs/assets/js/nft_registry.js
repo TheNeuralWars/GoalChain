@@ -168,7 +168,7 @@ function renderPlayers() {
                 <div class="card-back">
                     <div class="ficha-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="ficha-title">CONTRATO PROFESIONAL</span>
+                            <span class="ficha-title">${t('nft_contract_title')}</span>
                             <span style="font-size: 1.2rem;">${flag}</span>
                         </div>
                         <h3 class="ficha-name">${player.name}</h3>
@@ -193,10 +193,10 @@ function renderPlayers() {
 
                     <div class="price-tag" style="margin-top: 10px;">
                         <div class="price-info">
-                            <span class="price-label">PRECIO NFT</span>
+                            <span class="price-label">${t('nft_price_label')}</span>
                             <div class="price-value">${nftPrice}</div>
                         </div>
-                        <button class="btn-buy" style="margin-top: 0; width: auto; padding: 5px 15px;" onclick="handleBuy(${player.id})">COMPRAR</button>
+                        <button class="btn-buy" style="margin-top: 0; width: auto; padding: 5px 15px;" onclick="handleBuy(${player.id})">${t('nft_buy_btn')}</button>
                     </div>
                 </div>
             </div>
