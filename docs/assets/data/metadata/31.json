@@ -1,9 +1,9 @@
 {
     "name": "Richarlison-NFT",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #9 de Brasil. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Richarlison-NFT (Brasil). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/031_richarlison-nft.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/031_richarlison-nft.png",
     "attributes": [
         {
             "trait_type": "País",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 87
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/031_richarlison-nft.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/031_richarlison-nft.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

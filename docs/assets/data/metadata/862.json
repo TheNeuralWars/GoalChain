@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_34 Player 4",
+    "name": "Aaron Ram-Block",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #4 de Nación TEAM_34. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Aaron Ram-Block (Gales). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/862_nación_team_34_player_4.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/862_aaron_ram-block.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_34"
+            "value": "Gales"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 53
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/862_nación_team_34_player_4.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/862_aaron_ram-block.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

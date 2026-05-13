@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_35 Player 24",
+    "name": "Irán Pro 24 Coin",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #24 de Nación TEAM_35. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Irán Pro 24 Coin (Irán). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/908_nación_team_35_player_24.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/908_irn_pro_24_coin.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_35"
+            "value": "Irán"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 35
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/908_nación_team_35_player_24.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/908_irn_pro_24_coin.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_39 Player 5",
+    "name": "Cho Gue-Wallet",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #5 de Nación TEAM_39. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Cho Gue-Wallet (Corea del Sur). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/993_nación_team_39_player_5.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/993_cho_gue-wallet.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_39"
+            "value": "Corea del Sur"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 78
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/993_nación_team_39_player_5.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/993_cho_gue-wallet.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

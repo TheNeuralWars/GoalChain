@@ -1,13 +1,13 @@
 {
-    "name": "Nación TEAM_9 Player 17",
+    "name": "EEUU Star 17 Mint",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #17 de Nación TEAM_9. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - EEUU Star 17 Mint (EEUU). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/225_nación_team_9_player_17.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/225_eeuu_star_17_mint.png",
     "attributes": [
         {
             "trait_type": "País",
-            "value": "Nación TEAM_9"
+            "value": "EEUU"
         },
         {
             "trait_type": "Posición",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 91
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/225_nación_team_9_player_17.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/225_eeuu_star_17_mint.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]

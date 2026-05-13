@@ -1,9 +1,9 @@
 {
     "name": "Inglaterra Player 16",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jugador #16 de Inglaterra. Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Inglaterra Player 16 (Inglaterra). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/094_inglaterra_player_16.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/094_inglaterra_player_16.png",
     "attributes": [
         {
             "trait_type": "País",
@@ -32,19 +32,23 @@
         {
             "trait_type": "Hype",
             "value": 58
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/img/nfts/094_inglaterra_player_16.png",
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/094_inglaterra_player_16.png",
                 "type": "image/png"
             }
         ],
         "category": "image",
         "creators": [
             {
-                "address": "TU_WALLET_OFICIAL_AQUÍ",
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                 "share": 100
             }
         ]
