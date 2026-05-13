@@ -155,34 +155,43 @@ function renderPlayers() {
             <div class="favorite-heart ${isFav ? 'is-fav' : ''}" data-id="${player.id}">❤️</div>
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="${imgPath}" alt="${player.name}" loading="lazy" onerror="this.src='assets/img/nfts/001_lionel_bitcoin.png'">
-                    <div class="nft-overlay">
-                        <div class="player-info">
-                            <span class="player-num">#${player.number}</span>
+                    <!-- Capa 1: Foto del Jugador (IA) -->
+                    <div class="layer layer-base">
+                        <img src="${imgPath}" alt="${player.name}" loading="lazy" onerror="this.src='assets/img/nfts/001_lionel_bitcoin.png'">
+                    </div>
+                    
+                    <!-- Capa 2: Marco Maestro (Fijo) -->
+                    <div class="layer layer-frame rarity-${player.rarity}"></div>
+
+                    <!-- Capa 3: UI y Metadata -->
+                    <div class="layer layer-ui">
+                        <div class="top-row">
+                            <span class="player-num">#${String(player.id).padStart(3, '0')}</span>
                             <span class="player-flag">${flag}</span>
-                            <span class="player-name">${player.name}</span>
+                        </div>
+                        <div class="bottom-info">
+                            <h3 class="player-name-text">${player.name}</h3>
+                            <div class="mini-stats">
+                                <span>ATK ${player.stats.atk}</span>
+                                <span>DEF ${player.stats.def}</span>
+                                <span>HYP ${player.stats.hype}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="card-back">
-                    <div class="ficha-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="ficha-title">${t('nft_contract_title')}</span>
-                            <span style="font-size: 1.2rem;">${flag}</span>
+                    <div class="back-content">
+                        <div class="back-header">${t('nft_contract_title')}</div>
+                        <div class="back-body">
+                            <div class="back-id">ID: ${player.id}</div>
+                            <div class="back-salary">MATCH PAY: ${player.contract.matchSalary} $GCH</div>
+                            <div class="back-mint"><code>${player.mint_address || 'SOL_PENDING...'}</code></div>
                         </div>
-                        <h3 class="ficha-name">${player.name}</h3>
                     </div>
-                    
-                    <div class="ficha-stats-grid">
-                        <div class="stat-item"><span class="stat-label">POSICIÓN</span><span class="stat-value">${player.position}</span></div>
-                        <div class="stat-item"><span class="stat-label">PAÍS</span><span class="stat-value">${player.country}</span></div>
-                    </div>
-
-                    <div class="contract-panel">
-                        <div class="salary-row"><span class="salary-label">Sueldo Ref:</span><span class="salary-value">${player.contract.realSalary}</span></div>
-                        <div class="salary-row"><span class="salary-label">Pago Partido:</span><span class="salary-value" style="color: #14f195;">${player.contract.matchSalary} $GCH</span></div>
-                        <div class="clause-list">
+                </div>
+            </div>
+        `;
                             ${player.contract.clauses.map(c => `<div class="clause-item">${c}</div>`).join('')}
                         </div>
                     </div>
