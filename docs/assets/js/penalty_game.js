@@ -193,14 +193,9 @@ class PenaltyGame {
         ctx.beginPath(); ctx.moveTo(gx+this.goalie.width-5, gy+35); ctx.lineTo(gx+this.goalie.width+10, gy+20); ctx.stroke();
         ctx.shadowBlur = 0;
 
-        // 6. Balón con Sombra y Deformación Física Sutil
-        const squashProgress = Math.sin(this.animationProgress * Math.PI);
-        const scaleX = 1 + (this.gameState === 'SHOOTING' ? squashProgress * 0.03 : 0);
-        const scaleY = 1 - (this.gameState === 'SHOOTING' ? squashProgress * 0.03 : 0);
-
+        // 6. Balón con Sombra y Gradiente (Esfera Perfecta)
         ctx.save();
         ctx.translate(this.ball.x, this.ball.y);
-        ctx.scale(scaleX, scaleY);
 
         // Sombra
         ctx.beginPath(); ctx.arc(4, 4, this.ball.radius, 0, Math.PI*2);
