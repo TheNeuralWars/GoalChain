@@ -78,25 +78,33 @@ class PenaltyGame {
 
     update() {
         if (this.gameState === 'SHOOTING') {
-            this.animationProgress += 0.04;
+            this.animationProgress += 0.035; // Slightly slower for better readability
             const ease = 1 - Math.pow(1 - Math.min(this.animationProgress, 1), 3);
             const startX = this.width / 2, startY = this.height - 55;
             this.ball.x = startX + (this.shotTarget.x - startX) * ease;
             this.ball.y = startY + (this.shotTarget.y - startY) * ease;
-            this.goalie.x = (this.width / 2) + (this.goalieTarget.x - this.width / 2) * ease;
-            if (this.animationProgress >= 1) this.resolveResult();
+            
+            // Goalie moves faster to be there before the ball
+            const goalieEase = 1 - Math.pow(1 - Math.min(this.animationProgress * 1.2, 1), 3);
+            this.goalie.x = (this.width / 2) + (this.goalieTarget.x - this.width / 2) * goalieEase;
+            
+            if (this.animationProgress >= 1) {
+                // Resolution happens exactly when ball is at target
+                this.resolveResult();
+            }
         }
         this.particles.forEach(p => { p.x += p.vx; p.y += p.vy; p.life -= 0.025; });
         this.particles = this.particles.filter(p => p.life > 0);
     }
 
     resolveResult() {
+        if (this.gameState !== 'SHOOTING') return; // Avoid double calls
+        
         const isGoal = this.shotTarget.id !== this.goalieTarget.id;
         if (isGoal) {
             this.result = '¡GOOOOOL! ⚽'; this.resultColor = '#14f195';
             this.goals++; this.streak++; this.spawnParticles(this.ball.x, this.ball.y, '#14f195');
             
-            // Recompensa: Apuesta + 90% de ganancia (10% tax queda en la casa)
             const prize = Math.floor(this.currentBet * 1.9);
             this.balance += prize;
             localStorage.setItem('gch_balance', this.balance);
@@ -106,6 +114,7 @@ class PenaltyGame {
         }
         this.updateStatsUI();
         this.gameState = 'RESULT';
+        // Delay before reset to enjoy the goal/save
         setTimeout(() => this.reset(), 1800);
     }
 

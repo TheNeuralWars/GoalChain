@@ -6,14 +6,21 @@ Este documento detalla la estructura financiera de GoalChain para garantizar su 
 
 ### A. Entradas (Sinks / Deflación)
 Para evitar la inflación, el sistema retira tokens de la siguiente manera:
-1. **Mantenimiento de Salud (Health):** Los jugadores pierden un 5% de salud por partido. Recuperarla cuesta $GCH. Salud baja = -50% de sueldo.
+1. **Mantenimiento de Salud (Stamina):** Los jugadores pierden stamina por partido jugado. Recuperarla cuesta $GCH. 
+   - *Stamina < 50%:* -25% de generación de rewards.
+   - *Stamina < 20%:* -75% de generación de rewards (Lesión).
 2. **Mejora de Stats (Training):** Subir +1 punto de estadística cuesta el equivalente a 10 sueldos base del jugador.
-3. **Comisión de Apuestas (The House Tax):** 10% fijo en todas las apuestas (5% Dev Team / 5% Jackpot & Liquidity).
+3. **Comisión de Apuestas (The House Tax):** Aplicamos el modelo **5-2-3 Split**:
+   - **50% (5):** Al Ganador/Pool de premios.
+   - **20% (2):** Al Tesoro del Proyecto (Desarrollo y Marketing).
+   - **30% (3):** Al Jackpot Comunitario (Quema indirecta y premios masivos).
 4. **Minting & Fusion:** El costo de abrir sobres y fusionar jugadores.
 
 ### B. Salidas (Emission / Sueldos)
 1. **Sueldos Fijos (Matchday):** Solo para los 11 jugadores configurados como "Starting XI".
-2. **Bonos por Desempeño:** Goles, asistencias y vallas invictas.
+2. **Bonos por Desempeño (Oracle Powered):** El rendimiento real en el Mundial afecta el multiplicador de $GCH:
+   - *MVP del partido:* +25% rewards.
+   - *Portería en cero:* +10% rewards para defensas/arqueros.
 
 ---
 
@@ -63,5 +70,10 @@ Coleccionar a los 26 jugadores de una selección desbloquea una recompensa legen
 - **The Surprise NFT:** Un activo único y oculto que será revelado post-mundial. Este NFT otorgará acceso prioritario (Whitelist) a futuros lanzamientos y multiplicadores de staking permanentes.
 - **Mecánica:** Se requiere tener los 26 NFTs en la misma wallet para activar el "Mint" del Mystery NFT.
 
-## 10. Conclusión de Sostenibilidad
+## 10. Integración con el Oráculo de Mundial 2026
+La economía de GoalChain no es estática. Depende del mundo real:
+- **Oracle Sync:** Cada 24h, nuestro smart contract recibe los datos oficiales de la FIFA.
+- **Dynamic Stats:** Si un jugador común anota un Hat-trick en el Mundial, su NFT recibe un "Boost" temporal de estadísticas y sueldo, incentivando el trading especulativo rápido.
+
+## 11. Conclusión de Sostenibilidad
 El sistema es sano porque el coste de mantenimiento y las comisiones de apuesta aseguran una quema constante de tokens, mientras que las Royalties y la Gobernanza incentivan el holding a largo plazo. GoalChain está diseñado para ser la plataforma líder de apuestas y coleccionismo en Solana.
