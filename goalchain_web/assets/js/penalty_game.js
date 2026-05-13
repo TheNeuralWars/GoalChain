@@ -13,7 +13,8 @@ class PenaltyGame {
         this.reset();
         this.setupBettingUI();
 
-        const gx = 155, gy = 85, gw = 490, gh = 250;
+        // Expand hitboxes to the whole canvas so it's easier to click
+        const gx = 0, gy = 0, gw = this.width, gh = this.height;
         const tw = gw / 3, th = gh / 3;
         this.targets = [];
         for (let r = 0; r < 3; r++) {
@@ -205,7 +206,7 @@ class PenaltyGame {
 
         // 8. Resultado Flotante
         if (this.gameState === 'RESULT') {
-            ctx.fillStyle = this.resultColor; ctx.font = 'bold 38px Inter';
+            ctx.fillStyle = this.resultColor; ctx.font = 'bold 38px Outfit';
             ctx.textAlign = 'center'; ctx.shadowColor = this.resultColor; ctx.shadowBlur = 15;
             ctx.fillText(this.result, this.width / 2, this.height / 2 + 60);
             ctx.shadowBlur = 0;
