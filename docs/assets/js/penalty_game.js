@@ -193,18 +193,30 @@ class PenaltyGame {
         ctx.beginPath(); ctx.moveTo(gx+this.goalie.width-5, gy+35); ctx.lineTo(gx+this.goalie.width+10, gy+20); ctx.stroke();
         ctx.shadowBlur = 0;
 
-        // 6. Balón con Sombra y Gradiente
+        // 6. Balón con Sombra y Deformación Física Sutil
+        const squashProgress = Math.sin(this.animationProgress * Math.PI);
+        const scaleX = 1 + (this.gameState === 'SHOOTING' ? squashProgress * 0.1 : 0);
+        const scaleY = 1 - (this.gameState === 'SHOOTING' ? squashProgress * 0.1 : 0);
+
+        ctx.save();
+        ctx.translate(this.ball.x, this.ball.y);
+        ctx.scale(scaleX, scaleY);
+
         // Sombra
-        ctx.beginPath(); ctx.arc(this.ball.x+4, this.ball.y+4, this.ball.radius, 0, Math.PI*2);
+        ctx.beginPath(); ctx.arc(4, 4, this.ball.radius, 0, Math.PI*2);
         ctx.fillStyle = 'rgba(0,0,0,0.4)'; ctx.fill();
-        // Esfera
-        const ballGrad = ctx.createRadialGradient(this.ball.x-4, this.ball.y-4, 2, this.ball.x, this.ball.y, this.ball.radius);
+
+        // Esfera con Gradiente
+        const ballGrad = ctx.createRadialGradient(-4, -4, 2, 0, 0, this.ball.radius);
         ballGrad.addColorStop(0, '#ffffff'); ballGrad.addColorStop(1, '#bbbbbb');
-        ctx.beginPath(); ctx.arc(this.ball.x, this.ball.y, this.ball.radius, 0, Math.PI*2);
+        ctx.beginPath(); ctx.arc(0, 0, this.ball.radius, 0, Math.PI*2);
         ctx.fillStyle = ballGrad; ctx.fill();
+
         // Costuras
         ctx.strokeStyle = 'rgba(0,0,0,0.1)'; ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(this.ball.x-6, this.ball.y-6); ctx.lineTo(this.ball.x+6, this.ball.y+6); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(-6, -6); ctx.lineTo(6, 6); ctx.stroke();
+        
+        ctx.restore();
 
         // 7. Partículas
         this.particles.forEach(p => {

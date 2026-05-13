@@ -157,7 +157,9 @@ function renderPlayers() {
                 <div class="card-front">
                     <!-- Capa 1: Foto del Jugador (IA) -->
                     <div class="layer layer-base">
-                        <img src="${imgPath}" alt="${player.name}" loading="lazy" onerror="this.src='assets/img/nfts/001_lionel_bitcoin.png'">
+                        <img src="${imgPath}" alt="${player.name}" loading="lazy" 
+                             onerror="this.parentElement.classList.add('no-image'); this.style.display='none';">
+                        <div class="placeholder-icon">⚽</div>
                     </div>
                     
                     <!-- Capa 2: Marco Maestro (Fijo) -->
