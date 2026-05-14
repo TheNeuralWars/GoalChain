@@ -3,9 +3,11 @@
 Este documento es la única fuente de verdad para el diseño y generación de la colección Genesis Squad.
 
 ## 🖼️ Master Assets (Files)
-- **Master Frame:** [master_frame_v9.png](file:///Users/NicoPez/GoalChain/goalchain_web/assets/img/templates/master_frame_v9.png)
-- **Master Logo:** [logo_master.png](file:///Users/NicoPez/GoalChain/goalchain_web/assets/img/logo_master.png)
-- **Physical Registry:** [nft_master_prompts_100.json](file:///Users/NicoPez/GoalChain/assets/data/nft_master_prompts_100.json)
+- **Frontend source folder:** [`/docs`](./docs)
+- **Player registry in use:** [`/docs/assets/data/players.json`](./docs/assets/data/players.json)
+- **NFT generation dataset:** [`/assets/data/nft_generation_data.json`](./assets/data/nft_generation_data.json)
+
+> Nota: Se removieron rutas locales `file:///Users/...` no portables para mantener compatibilidad en GitHub y CI.
 
 ## 🏗️ Architectural Standards
 - **System:** Layered Composition (Base Photo + Master Frame + CSS Tint + Dynamic Text).
