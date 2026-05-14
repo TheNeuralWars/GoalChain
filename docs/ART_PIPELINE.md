@@ -27,6 +27,8 @@ Para que el jugador (L2) encaje perfectamente bajo el Chassis (L3), se deben seg
 3. **Escala del Sujeto:** El jugador debe ocupar aproximadamente el 75% del ancho total para dejar aire en los bordes y evitar que el marco corte los hombros o brazos.
 4. **Perspectiva "Low-Angle":** La cámara debe estar situada a ras de suelo mirando hacia arriba, para que la base del jugador se alinee con la base del marco.
 
+5. **Alineación de Fondos (L1):** Los puntos de interés del estadio (arcos, marcadores, focos) deben situarse dentro de la "ventana de visualización" del Chassis. El punto de fuga central de la perspectiva debe coincidir con el pecho del jugador para crear un efecto de profundidad inmersivo.
+
 ## 🛠️ Herramientas de Ensamblaje
 - **Local:** Script de Python usando la librería `Pillow` para composición masiva.
 - **On-chain:** Renderizado dinámico vía servidor para actualizaciones de stats sin cambiar el NFT.
