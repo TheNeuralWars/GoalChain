@@ -19,6 +19,9 @@ const connection = new Connection(rpcUrl, 'confirmed');
 const provider = new AnchorProvider(connection, {} as any, { commitment: 'confirmed' });
 const program = new Program(idl as any, provider) as any;
 
+import fs from 'fs';
+import path from 'path';
+
 // --- ROUTES ---
 
 // Healthcheck
@@ -26,38 +29,45 @@ app.get('/health', (req, res) => {
   res.json({ status: 'OK', message: 'GoalChain API is running', programId: PROGRAM_ID.toBase58() });
 });
 
-// Get all fixtures
-app.get('/api/fixtures', async (req, res) => {
-  try {
-    const fixtures = await program.account.fixture.all();
-    res.json(fixtures.map((f: any) => ({
-        pubkey: f.publicKey.toBase58(),
-        ...(f.account as object)
-    })));
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'Failed to fetch fixtures from Solana' });
+// Whitelist: Save wallet and email
+app.post('/api/whitelist', (req, res) => {
+  const { wallet, email } = req.body;
+  if (!wallet) {
+    return res.status(400).json({ error: 'Wallet address is required' });
   }
-});
 
-// Get markets for a specific fixture
-app.get('/api/markets/:fixtureId', async (req, res) => {
-  const { fixtureId } = req.params;
+  const dataPath = path.join(__dirname, '../data/whitelist.json');
+  const dataDir = path.dirname(dataPath);
+
   try {
-    const markets = await program.account.market.all([
-        {
-            memcmp: {
-                offset: 8, // fixture pubkey is first field after discriminator
-                bytes: fixtureId
-            }
-        }
-    ]);
-    res.json(markets.map((m: any) => ({
-        pubkey: m.publicKey.toBase58(),
-        ...(m.account as object)
-    })));
+    // Asegurar que la carpeta data existe
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+
+    let whitelist = [];
+    if (fs.existsSync(dataPath)) {
+      const fileContent = fs.readFileSync(dataPath, 'utf-8');
+      whitelist = JSON.parse(fileContent);
+    }
+
+    // Evitar duplicados
+    const exists = whitelist.find((entry: any) => entry.wallet === wallet);
+    if (!exists) {
+      whitelist.push({
+        wallet,
+        email: email || '',
+        timestamp: new Date().toISOString()
+      });
+      fs.writeFileSync(dataPath, JSON.stringify(whitelist, null, 2));
+      console.log(`✅ Whitelist: Nueva wallet registrada -> ${wallet}`);
+      res.json({ success: true, message: 'Registrado con éxito' });
+    } else {
+      res.json({ success: true, message: 'Wallet ya estaba registrada' });
+    }
   } catch (err) {
-    res.status(500).json({ error: `Failed to fetch markets for fixture ${fixtureId}` });
+    console.error('Whitelist Error:', err);
+    res.status(500).json({ error: 'Failed to save to whitelist' });
   }
 });
 

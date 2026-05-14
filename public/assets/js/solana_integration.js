@@ -28,12 +28,11 @@ function updateWalletUI() {
             btn.style.background = 'var(--secondary)'; // Cambiar a púrpura de Solana
         });
 
-        // Ocultar campo de email en la whitelist si ya tenemos la wallet
-        const emailInput = document.querySelector('input[type="email"]');
+        // Indicar que la wallet está lista para la whitelist
+        const emailInput = document.getElementById('whitelistEmail');
         if (emailInput) {
-            emailInput.placeholder = "¡Wallet Conectada con éxito!";
-            emailInput.disabled = true;
-            emailInput.value = userWalletAddress;
+            emailInput.placeholder = "Escribe tu email para registrarte...";
+            emailInput.disabled = false;
         }
 
         // Mostrar sección de recompensas
@@ -71,6 +70,40 @@ window.addEventListener('load', () => {
                 updateWalletUI();
             } else {
                 window.location.reload();
+            }
+        });
+    }
+
+    // Gestión de Whitelist Form
+    const whitelistForm = document.getElementById('whitelistForm');
+    if (whitelistForm) {
+        whitelistForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('whitelistEmail').value;
+            const wallet = userWalletAddress || "Not Connected";
+
+            if (wallet === "Not Connected") {
+                alert("Por favor, conecta tu wallet primero para identificarte en la Whitelist.");
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3001/api/whitelist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ wallet, email })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert("¡Éxito! Te has unido a la Whitelist de GoalChain. ⚽🔥");
+                    whitelistForm.innerHTML = `<h3 style='color:var(--primary);'>✅ ¡Ya estás dentro!</h3><p style='font-size:0.8rem;'>Wallet: ${wallet}</p>`;
+                } else {
+                    alert("Hubo un problema al registrarte. Inténtalo de nuevo.");
+                }
+            } catch (err) {
+                console.error("Whitelist Fetch Error:", err);
+                alert("No pudimos conectar con el servidor. ¿Está la API encendida?");
             }
         });
     }
