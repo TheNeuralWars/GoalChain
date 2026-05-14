@@ -47,6 +47,8 @@ function switchTab(tabId) {
     if (tabId === 'dev') document.getElementById('devSection').classList.add('active');
     if (tabId === 'influencers') document.getElementById('influencerSection').classList.add('active');
     if (tabId === 'partners') document.getElementById('partnerSection').classList.add('active');
+    if (tabId === 'finance') document.getElementById('financeSection').classList.add('active');
+    if (tabId === 'academy') document.getElementById('academySection').classList.add('active');
 }
 
 // --- DEV TEAM LOGIC ---
