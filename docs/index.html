@@ -2,176 +2,652 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoalChain | El Futuro del Fútbol en Solana</title>
-    <meta name="description" content="Únete a GoalChain, la plataforma definitiva de apuestas de fútbol y gaming en Solana. Juega en PSG1 y Web.">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
-    <script src="https://unpkg.com/@coral-xyz/anchor@0.30.1/dist/browser.anchor.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GoalChain | The Future of Football on Solana</title>
+    <meta name="description" content="GoalChain: Play-to-Earn football on Solana. Bet on FIFA World Cup 2026 fixtures, play penalty shootouts, and earn $GCH tokens.">
+    <meta name="theme-color" content="#06060a">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.2">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg?v=1.0">
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
 </head>
 <body>
     <div class="vibrancy"></div>
 
-    <nav style="position: absolute; top: 0; width: 100%; padding: 2rem; display: flex; justify-content: space-between; align-items: center; z-index: 10;">
-        <div class="logo" style="font-weight: 900; font-size: 1.5rem; letter-spacing: -1px;">GOAL<span style="color: var(--primary);">CHAIN</span></div>
-        <div class="nav-links">
-            <a href="#" class="btn btn-primary btn-wallet" style="padding: 0.6rem 1.5rem; font-size: 0.8rem;">Conectar Wallet</a>
+    <!-- NAV -->
+    <nav class="main-nav" id="mainNav">
+        <div class="logo" onclick="location.href='#'" style="display: flex; align-items: center; gap: 10px;">
+            <img src="assets/img/logo.png" alt="GoalChain Logo" style="height: 32px; filter: drop-shadow(0 0 8px rgba(20, 241, 149, 0.3));">
+            GOAL<span>CHAIN</span>
+        </div>
+        <div class="nav-links-desktop">
+            <a href="#pitch" data-i18n="nav_about">Sobre</a>
+            <a href="#gameplay" data-i18n="nav_game">Mini-Juego</a>
+            <a href="#nfts" data-i18n="nav_nfts">Colección</a>
+            <a href="#social" data-i18n="nav_social">Social</a>
+            <button onclick="openAlphaModal()" style="color:var(--primary); background: transparent; font-weight:900; margin-left:15px; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer;" class="btn-glow">LAUNCH APP</button>
+            <div class="nav-dropdown" style="position:relative; display:inline-block; margin-left:15px;">
+                <button class="btn-glow" style="background:transparent; border: 1px solid var(--secondary); color:var(--secondary); font-weight:900; padding: 5px 20px; border-radius: 20px; cursor:pointer; font-family:inherit; font-size: 0.8rem;">COLABS ▼</button>
+                <div class="nav-dropdown-content">
+                    <a href="pitch.html">📖 Pitch & Motivación</a>
+                    <a href="colabs.html" style="color:var(--primary);">🤝 Portal de Colaboradores</a>
+                </div>
+            </div>
+            <style>
+                .nav-dropdown-content { 
+                    position:absolute; top:100%; right:0; background:rgba(6,6,10,0.98); 
+                    backdrop-filter:blur(20px); min-width:240px; border:1px solid var(--secondary); 
+                    border-radius:12px; padding:8px; z-index:999; opacity:0; visibility:hidden; 
+                    transition:all 0.3s; transform:translateY(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                }
+                .nav-dropdown:hover .nav-dropdown-content { opacity: 1; visibility: visible; transform: translateY(8px); }
+                .nav-dropdown-content a { 
+                    display:block; padding:12px; color:#fff; font-size:0.8rem; 
+                    border-radius: 8px; transition: background 0.2s; text-decoration: none;
+                }
+                .nav-dropdown-content a:hover { background: rgba(255,255,255,0.05); }
+            </style>
+        </div>
+        <div class="nav-right">
+            <!-- NOTIFICATION BELL -->
+            <div id="notifBell" class="notif-bell" style="position:relative; margin-right:20px; cursor:pointer; font-size:1.2rem; transition: transform 0.2s;">
+                <span class="bell-icon">🔔</span>
+                <span id="notifBadge" class="notif-badge" style="position:absolute; top:-5px; right:-8px; background:#ff4d6a; color:white; font-size:0.65rem; padding:2px 6px; border-radius:10px; font-weight:bold; display:none;">0</span>
+            </div>
+            <div class="lang-toggle">
+                <button id="langEs" class="active" onclick="setLang('es')">ES</button>
+                <button id="langEn" onclick="setLang('en')">EN</button>
+            </div>
+            <button class="btn btn-primary btn-sm btn-wallet" data-i18n="nav_wallet">Conectar Wallet</button>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#pitch" data-i18n="nav_about" onclick="closeMobile()">Sobre</a>
+        <a href="#gameplay" data-i18n="nav_game" onclick="closeMobile()">Mini-Juego</a>
+        <a href="#fixture" data-i18n="nav_fixture" onclick="closeMobile()">Fixture</a>
+        <a href="#roadmap" data-i18n="nav_roadmap" onclick="closeMobile()">Roadmap</a>
+        <a href="#social" data-i18n="nav_social" onclick="closeMobile()">Social</a>
+        <button class="btn btn-primary btn-wallet" data-i18n="nav_wallet" onclick="closeMobile()">Conectar Wallet</button>
+    </div>
+
+    <!-- HERO -->
     <header class="hero">
-        <div style="background: rgba(20, 241, 149, 0.1); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; border: 1px solid var(--primary);">
-            ⚽ PRÓXIMAMENTE EN PSG1 & WEB
+        <div class="hero-badge">⚽ <span data-i18n="hero_badge">FIFA WORLD CUP 2026 — PRÓXIMAMENTE</span></div>
+        <h1 data-i18n-html="hero_title">Domina el Campo.<br>Gana en Solana.</h1>
+        <p data-i18n="hero_sub">GoalChain es la primera plataforma de fútbol Play-to-Earn en Solana. Apuesta en vivo en el Mundial 2026, juega mini-juegos de penaltis y gana tokens $GCH.</p>
+        <div id="countdown" class="countdown-container">
+            <div class="time-unit"><span id="days">00</span><p data-i18n="cd_days">DÍAS</p></div>
+            <div class="time-unit"><span id="hours">00</span><p data-i18n="cd_hours">HORAS</p></div>
+            <div class="time-unit"><span id="minutes">00</span><p data-i18n="cd_min">MIN</p></div>
+            <div class="time-unit"><span id="seconds">00</span><p data-i18n="cd_sec">SEG</p></div>
         </div>
-        <h1>Domina el Campo.<br>Gana en Solana.</h1>
-        <p>GoalChain es la primera plataforma de fútbol "Play-to-Earn" diseñada para la consola PlaySolana y accesible para todo el mundo vía Web.</p>
         <div class="hero-btns">
-            <div id="countdown" style="display: flex; gap: 1.5rem; margin-bottom: 2rem; justify-content: center;">
-                <div class="time-unit"><span id="days">00</span><p style="font-size: 0.7rem; color: var(--primary);">DÍAS</p></div>
-                <div class="time-unit"><span id="hours">00</span><p style="font-size: 0.7rem; color: var(--primary);">HORAS</p></div>
-                <div class="time-unit"><span id="minutes">00</span><p style="font-size: 0.7rem; color: var(--primary);">MIN</p></div>
-            </div>
-            <a href="#" class="btn btn-primary btn-wallet">Conectar Wallet</a>
+            <a href="http://localhost:3000" target="_blank" class="btn btn-primary btn-glow" style="font-size: 1.2rem; padding: 1rem 3rem;">ABRIR DASHBOARD</a>
+            <a href="#gameplay" class="btn btn-secondary" data-i18n="hero_play">Jugar Penaltis</a>
         </div>
     </header>
 
-    <section id="pitch" style="padding: 100px 2rem; max-width: 1000px; margin: 0 auto; text-align: center;">
-        <h2 style="font-size: 3rem; margin-bottom: 2rem; background: linear-gradient(to right, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">El Fútbol ha Evolucionado</h2>
-        <p style="font-size: 1.2rem; color: var(--text-dim); line-height: 1.8;">
-            GoalChain no es solo un juego de penaltis. Es un ecosistema donde tu conocimiento futbolístico se convierte en activos reales en la red de Solana. 
-            Apuesta en vivo, compite en torneos globales y vive la adrenalina de los penaltis con la seguridad y rapidez de la blockchain.
-        </p>
+    <!-- ABOUT / PITCH -->
+    <section id="pitch" class="section">
+        <h2 class="section-title reveal"><span data-i18n="pitch_title">El Fútbol ha Evolucionado</span></h2>
+        <p class="section-subtitle reveal" data-i18n="pitch_sub">No es solo un juego. Es un ecosistema completo donde tu conocimiento se convierte en recompensas reales en Solana.</p>
+        <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 1rem; font-size: 0.8rem;">
+            ← Desliza para explorar Pilares →
+        </div>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('pitchCarousel', -1)">❮</button>
+            <div class="carousel-container roadmap-carousel" id="pitchCarousel" style="padding: 20px 0;">
+                <div class="group-grid" style="padding-left: 20px;">
+                    <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; text-align: left; display: flex; flex-direction: column; gap: 15px;">
+                        <div class="feature-icon" style="font-size: 2.5rem; margin: 0;">🎯</div>
+                        <h3 style="font-size: 1.4rem; margin: 0;" data-i18n="pitch_feat1_t">Mercados Predictivos</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4; color: var(--text-dim);" data-i18n-html="pitch_feat1_d">Apuestas parimutuel descentralizadas en cada partido del Mundial 2026. <br><br> <b>Cuotas orgánicas</b> y pagos automatizados por smart contracts.</p>
+                    </div>
+                    <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; text-align: left; display: flex; flex-direction: column; gap: 15px; border-color: var(--secondary);">
+                        <div class="feature-icon" style="font-size: 2.5rem; margin: 0;">💎</div>
+                        <h3 style="font-size: 1.4rem; margin: 0;" data-i18n="pitch_feat2_t">Economía Real</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4; color: var(--text-dim);" data-i18n-html="pitch_feat2_d">Modelo deflacionario real. <br><br> El <b>10% de cada apuesta</b> se retira para alimentar el Jackpot Comunitario y el tesoro.</p>
+                    </div>
+                    <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; text-align: left; display: flex; flex-direction: column; gap: 15px;">
+                        <div class="feature-icon" style="font-size: 2.5rem; margin: 0;">🏆</div>
+                        <h3 style="font-size: 1.4rem; margin: 0;" data-i18n="pitch_feat3_t">Cromos 3D</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4; color: var(--text-dim);" data-i18n-html="pitch_feat3_d">100 leyendas Genesis Squad. <br><br> Cada NFT genera <b>Yield diario</b> y dividendos basados en el rendimiento real del jugador.</p>
+                    </div>
+                    <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; text-align: left; display: flex; flex-direction: column; gap: 15px; border-color: #00e0ff;">
+                        <div class="feature-icon" style="font-size: 2.5rem; margin: 0;">🎮</div>
+                        <h3 style="font-size: 1.4rem; margin: 0;" data-i18n="pitch_feat4_t">Minijuegos PvP</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4; color: var(--text-dim);" data-i18n-html="pitch_feat4_d">Acción inmediata. <br><br> Reta a la comunidad en el <b>Minijuego de Penaltis</b> o forma tu equipo 5v5 para torneos.</p>
+                    </div>
+                    <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; text-align: left; display: flex; flex-direction: column; gap: 15px; border-color: #ff4d6a;">
+                        <div class="feature-icon" style="font-size: 2.5rem; margin: 0;">⛓️</div>
+                        <h3 style="font-size: 1.4rem; margin: 0;" data-i18n="pitch_feat5_t">100% On-Chain</h3>
+                        <p style="font-size: 0.9rem; line-height: 1.4; color: var(--text-dim);" data-i18n-html="pitch_feat5_d">Transparencia Total. <br><br> Lógica en <b>Rust/Anchor</b>. Sin servidores ocultos manipulando resultados ni cuotas.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('pitchCarousel', 1)">❯</button>
+        </div>
     </section>
 
-    <section id="gameplay" style="padding: 100px 2rem; background: rgba(255,255,255,0.02);">
-        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+    <!-- GAMEPLAY -->
+    <section id="gameplay" class="section section-dark">
+        <h2 class="section-title reveal"><span data-i18n="game_title">Mini-Juego de Penaltis</span> <span style="font-size:0.5em;vertical-align:middle;padding:4px 10px;background:var(--secondary);border-radius:6px;color:#fff;">BETA</span></h2>
+        <p class="section-subtitle reveal" data-i18n="game_sub">Prueba la mecánica de tiro diseñada para la PSG1 directamente desde tu navegador. Toca una zona del arco para patear.</p>
+        <div class="gameplay-grid container">
             <div>
-                <h2 style="margin-bottom: 1.5rem;">Mini-Juego de Penaltis <span style="font-size: 0.8rem; vertical-align: middle; padding: 4px 8px; background: var(--secondary); border-radius: 4px;">BETA</span></h2>
-                <p style="color: var(--text-dim); margin-bottom: 2rem;">Prueba la mecánica de tiro que estamos diseñando para la PSG1 directamente desde tu navegador. El fixture real de la Copa del Mundo se integrará para apuestas en tiempo real.</p>
-                <div style="aspect-ratio: 16/9; background: #050505; border: 2px solid var(--primary); border-radius: 12px; display: flex; justify-content: center; align-items: center; overflow: hidden; position: relative;">
-                    <canvas id="gameCanvas" width="800" height="450" style="max-width: 100%; height: auto;"></canvas>
-                    <div style="position: absolute; bottom: 10px; font-size: 0.7rem; color: var(--text-dim);">TOCA UNA ZONA PARA PATEAR</div>
+                <div class="game-wrapper">
+                    <!-- Panel de Apuestas -->
+                    <div class="betting-panel" style="margin-bottom: 12px; background: rgba(255,255,255,0.05); padding: 12px 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); flex-wrap: wrap; gap: 10px;">
+                        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                            <span style="font-size: 0.7rem; font-weight: 800; color: var(--primary); letter-spacing: 1px;">APUESTA POR TIRO:</span>
+                            <button class="bet-btn active" data-amount="10" style="background:none; border: 1px solid var(--primary); color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;">10 $GCH</button>
+                            <button class="bet-btn" data-amount="50" style="background:none; border: 1px solid rgba(255,255,255,0.2); color: var(--text-dim); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;">50 $GCH</button>
+                            <button class="bet-btn" data-amount="100" style="background:none; border: 1px solid rgba(255,255,255,0.2); color: var(--text-dim); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;">100 $GCH</button>
+                        </div>
+                        <div style="font-weight: 900; color: #fff; font-size: 0.9rem;">TU BOLSA: <span id="userGCH" style="color: var(--primary);">1,000</span> $GCH</div>
+                    </div>
+
+                    <div class="game-container reveal" style="padding:0; border:none; background:transparent;">
+                        <div id="domPenaltyGame" style="position: relative; width: 100%; aspect-ratio: 16/9; background: linear-gradient(#0a1a0a, #030305); border: 2px solid rgba(20,241,149,0.3); border-radius: 16px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                            <!-- Goal -->
+                            <div style="position: absolute; top: 10%; left: 10%; width: 80%; height: 75%; border: 6px solid #fff; border-bottom: none; box-shadow: 0 0 25px rgba(255,255,255,0.5); z-index: 5;">
+                                <div style="width: 100%; height: 100%; background-image: linear-gradient(rgba(255,255,255,0.1) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.1) 2px, transparent 2px); background-size: 30px 30px;"></div>
+                            </div>
+                            <!-- Goalie -->
+                            <div id="domGoalie" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, 0); width: 12%; height: 30%; background: #9945ff; border-radius: 30px 30px 10px 10px; box-shadow: 0 0 20px rgba(153,69,255,0.6); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 10;"></div>
+                            <!-- Ball -->
+                            <div id="domBall" style="position: absolute; top: 92%; left: 50%; transform: translate(-50%, -50%); width: 7%; aspect-ratio: 1; background: radial-gradient(circle at 30% 30%, #fff, #bbb); border-radius: 50%; box-shadow: 2px 8px 15px rgba(0,0,0,0.6); transition: left 0.4s cubic-bezier(0.2, 0, 0.2, 1), top 0.4s cubic-bezier(0.2, 0, 0.2, 1); z-index: 20;"></div>
+                            <!-- Clickable Zones (Adjusted to be inside the 10%-90% range) -->
+                            <div style="position: absolute; top: 10%; left: 10%; width: 80%; height: 75%; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; z-index: 25;">
+                                <button class="dom-zone" data-x="22" data-y="20"></button>
+                                <button class="dom-zone" data-x="50" data-y="20"></button>
+                                <button class="dom-zone" data-x="78" data-y="20"></button>
+                                <button class="dom-zone" data-x="22" data-y="65"></button>
+                                <button class="dom-zone" data-x="50" data-y="65"></button>
+                                <button class="dom-zone" data-x="78" data-y="65"></button>
+                            </div>
+                            <!-- Result Message -->
+                            <div id="domResultMsg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2rem; font-weight: 900; opacity: 0; transition: opacity 0.3s; text-align: center; text-shadow: 0 0 20px rgba(0,0,0,0.8); z-index: 30; pointer-events: none;"></div>
+                        </div>
+                        <style>
+                            .dom-zone { background: transparent; border: 1px solid rgba(20,241,149,0.05); cursor: pointer; transition: background 0.2s; }
+                            .dom-zone:hover { background: rgba(20,241,149,0.2); }
+                        </style>
+                    </div>
+                </div>
+                <div class="game-stats">
+                    <div class="game-stat"><div class="label" data-i18n="stat_goals">GOLES</div><div class="value" id="statGoals">0</div></div>
+                    <div class="game-stat"><div class="label" data-i18n="stat_saves">ATAJADAS</div><div class="value" id="statSaves">0</div></div>
+                    <div class="game-stat"><div class="label" data-i18n="stat_streak">RACHA</div><div class="value" id="statStreak">0</div></div>
                 </div>
             </div>
             <div>
-                <h2 style="margin-bottom: 1.5rem;">Visualización de Fixture</h2>
-                <p style="color: var(--text-dim); margin-bottom: 2rem;">Sigue cada partido, analiza las cuotas y prepárate para los momentos de máxima tensión.</p>
-                <div class="glass-card" style="padding: 1rem;">
-                    <div style="display: flex; justify-content: space-between; padding: 1rem; border-bottom: 1px solid var(--border);">
-                        <span>ARGENTINA</span>
-                        <span style="color: var(--primary); font-weight: bold;">VS</span>
-                        <span>FRANCIA</span>
-                    </div>
-                    <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
-                        <span style="font-size: 0.8rem; color: var(--text-dim);">PAGO: 2.5x</span>
-                        <span style="font-size: 0.8rem; color: var(--primary);">WAGERS: 1.2K SOL</span>
-                    </div>
+                <div class="glass-card reveal" style="text-align:left;">
+                    <h3 style="margin-bottom:1rem;" data-i18n="game_how_title">¿Cómo Funciona?</h3>
+                    <ul style="list-style:none;padding:0;">
+                        <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);color:var(--text-dim);font-size:0.9rem;">
+                            <span style="color:var(--primary);font-weight:700;">01.</span> <span data-i18n="game_step1">Elige una zona del arco para disparar</span>
+                        </li>
+                        <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);color:var(--text-dim);font-size:0.9rem;">
+                            <span style="color:var(--primary);font-weight:700;">02.</span> <span data-i18n="game_step2">El arquero se lanza a una posición aleatoria</span>
+                        </li>
+                        <li style="padding:0.5rem 0;border-bottom:1px solid var(--border);color:var(--text-dim);font-size:0.9rem;">
+                            <span style="color:var(--primary);font-weight:700;">03.</span> <span data-i18n="game_step3">Acumula goles y mejora tu racha</span>
+                        </li>
+                        <li style="padding:0.5rem 0;color:var(--text-dim);font-size:0.9rem;">
+                            <span style="color:var(--primary);font-weight:700;">04.</span> <span data-i18n="game_step4">En el lanzamiento, tus rachas valdrán puntos reales</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card reveal" style="margin-top:1.5rem;border-color:var(--secondary);text-align:left;">
+                    <h4 style="color:var(--secondary);margin-bottom:0.5rem;" data-i18n="game_soon_title">🎮 Próximamente</h4>
+                    <p style="font-size:0.85rem;color:var(--text-dim);" data-i18n="game_soon_desc">Modo multijugador 5v5, torneos con premios en SOL y apuestas integradas durante los partidos del Mundial.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="roadmap" style="padding: 100px 2rem; text-align: center;">
-        <h2 style="margin-bottom: 4rem;">Nuestra Hoja de Ruta</h2>
-        <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 800px; margin: 0 auto;">
-            <div class="roadmap-item" style="display: flex; gap: 2rem; align-items: center; text-align: left;">
-                <div style="font-size: 2rem; color: var(--primary); font-weight: 900;">Q2</div>
-                <div class="glass-card" style="flex: 1;">Lanzamiento de Landing Page y Whitelist oficial. Comienzo del hype con influencers.</div>
+    <!-- FIXTURE / GROUPS -->
+    <section id="fixture" class="section">
+        <h2 class="section-title reveal"><span data-i18n="fix_title">Fixture — Mundial 2026</span></h2>
+        <p class="section-subtitle reveal" data-i18n="fix_sub">48 selecciones, 12 grupos. Toda la acción del torneo integrada en GoalChain para apuestas en tiempo real.</p>
+        <div class="fixture-tabs" id="fixtureTabs"></div>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('fixtureCarousel', -1)">❮</button>
+            <div class="carousel-container fixture-carousel" id="fixtureCarousel">
+                <div class="group-grid" id="groupGrid"></div>
             </div>
-            <div class="roadmap-item" style="display: flex; gap: 2rem; align-items: center; text-align: left;">
-                <div style="font-size: 2rem; color: var(--secondary); font-weight: 900;">Q3</div>
-                <div class="glass-card" style="flex: 1;">Beta cerrada en PSG1 y Mini-juego Web abierto. Integración de Smart Contracts de Solana.</div>
+            <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('fixtureCarousel', 1)">❯</button>
+        </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap" class="section section-dark">
+        <h2 class="section-title reveal"><span data-i18n="rm_title">Hoja de Ruta</span></h2>
+        <p class="section-subtitle reveal" data-i18n="rm_sub">Desliza horizontalmente para ver nuestro plan de desarrollo.</p>
+        <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 1rem; font-size: 0.8rem;">
+            ← Desliza para explorar →
+        </div>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('roadmapCarousel', -1)">❮</button>
+            <div class="carousel-container roadmap-carousel" id="roadmapCarousel">
+                <div class="roadmap-timeline" id="roadmapTimeline"></div>
             </div>
-            <div class="roadmap-item" style="display: flex; gap: 2rem; align-items: center; text-align: left;">
-                <div style="font-size: 2rem; color: var(--primary); font-weight: 900;">Q4</div>
-                <div class="glass-card" style="flex: 1;">Lanzamiento Global. Torneos con premios en SOL y expansión a nuevos modos de juego.</div>
+            <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('roadmapCarousel', 1)">❯</button>
+        </div>
+    </section>
+
+    <!-- TOKENOMICS SECTION -->
+    <section id="economics" class="section reveal" style="background: var(--bg-surface);">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <span class="hero-badge" data-i18n="econ_badge">ECONOMÍA SOSTENIBLE</span>
+                <h2 class="section-title">Tokenomics 2.0</h2>
+                <p class="section-subtitle" data-i18n="econ_sub">Un ecosistema diseñado para durar. Transparente, circular y rentable.</p>
+            </div>
+
+            <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 2rem; font-size: 0.9rem; line-height:1.6;">
+                <b data-i18n="econ_flow_title">FLUJO ECONÓMICO:</b> <br>
+                <span data-i18n-html="econ_flow_desc">Apostadores → Pools Parimutuel (Solana) → 90% Ganadores / 10% Comisiones <br> Distribución → 40% Jackpot 🏆 / 30% Infinity Buy-back (Yield SOL/BTC) 🔥 / 30% Desarrollo 🛠️</span>
+            </div>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('econCarousel', -1)">❮</button>
+                <div class="carousel-container roadmap-carousel" id="econCarousel" style="padding: 20px 0;">
+                    <div class="group-grid" style="padding-left: 20px;">
+                        <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; border-color: var(--primary);">
+                            <div class="feature-icon" style="font-size: 2.5rem;">📈</div>
+                            <h3 data-i18n="econ_feat1_t">Emisión Controlada</h3>
+                            <p data-i18n-html="econ_feat1_d">Sí, el token es inflacionario para recompensar la participación (Yield de NFTs y premios). Esta emisión incentiva la entrada constante de nuevos usuarios al ecosistema.</p>
+                        </div>
+                        <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; border-color: #ff4d6a;">
+                            <div class="feature-icon" style="font-size: 2.5rem;">🔥</div>
+                            <h3 data-i18n="econ_feat2_t">Quema Deflacionaria</h3>
+                            <p data-i18n-html="econ_feat2_d">El 10% de CADA APUESTA se quema o va al Jackpot. Mientras más juegue la comunidad, mayor es la reducción de liquidez circulante, contrarrestando la inflación.</p>
+                        </div>
+                        <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; border-color: var(--secondary);">
+                            <div class="feature-icon" style="font-size: 2.5rem;">⚙️</div>
+                            <h3 data-i18n="econ_feat3_t">Sumideros de Mantenimiento</h3>
+                            <p data-i18n-html="econ_feat3_d">Los NFTs 'Genesis' se cansan. Los usuarios DEBEN gastar tokens para recuperar la energía (stamina) de sus jugadores si quieren seguir cobrando recompensas.</p>
+                        </div>
+                        <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; border-color: #00e0ff;">
+                            <div class="feature-icon" style="font-size: 2.5rem;">⚖️</div>
+                            <h3 data-i18n="econ_feat4_t">El Equilibrio Perfecto</h3>
+                            <p data-i18n-html="econ_feat4_d">La inflación atrae capital nuevo. El juego incentiva el gasto constante. El resultado es una economía circular donde el valor del token se sostiene por la utilidad real.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('econCarousel', 1)">❯</button>
+            </div>
+        </div>
+    </section>
+    <!-- PACK OPENING SECTION -->
+    <section id="mint" class="reveal" style="background: radial-gradient(circle at center, #1a1a2e 0%, #0d0d15 100%); padding: 60px 0;">
+        <div class="container" style="text-align: center;">
+            <div class="section-header">
+                <span class="hero-badge" data-i18n="pack_badge">MARKETPLACE</span>
+                <h2 class="section-title" data-i18n="pack_title">Abre tus Sobres Genesis</h2>
+                <p class="section-subtitle" data-i18n="pack_sub">Prueba tu suerte y consigue a los capitanes del Mundial 2026.</p>
+            </div>
+
+            <div class="pack-container">
+                <div id="mysteryPack" class="pack-sealed">
+                    <img src="assets/images/logo.svg" alt="Pack Logo" class="pack-logo-inner" onerror="this.src='https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/goalchain_web/assets/images/logo.svg'">
+                    <div class="pack-glow"></div>
+                </div>
+                
+                <div class="pack-controls">
+                    <button id="openPackBtn" class="btn btn-primary btn-glow" style="padding: 15px 40px; font-size: 1.1rem;" data-i18n="pack_open_btn">ABRIR SOBRE (100 $GCH)</button>
+                    <p class="pack-odds" style="margin-top: 15px; color: var(--text-dim); font-size: 0.8rem;">Probabilidad Mythic: 0.1% | Legendary: 0.9% | Epic: 9%</p>
+                </div>
+            </div>
+
+            <!-- Modal de Revelación -->
+            <div id="revealModal" class="reveal-modal">
+                <div class="reveal-content">
+                    <div id="revealedCardContainer"></div>
+                    <button id="closeRevealBtn" class="btn btn-secondary" style="margin-top: 2rem; display: none;">GUARDAR EN COLECCIÓN</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="community" style="padding: 100px 2rem; background: var(--primary); color: #000; text-align: center;">
-        <h2 style="margin-bottom: 1rem;">Gana Tokens por Compartir</h2>
-        <p style="margin-bottom: 2rem; font-weight: 600;">Haz crecer la comunidad y asegura tu puesto en el Airdrop de lanzamiento.</p>
-        <a href="https://twitter.com/intent/tweet?text=¡Acabo de unirme a la Whitelist de GoalChain! El futuro del fútbol en Solana está llegando. ⚽🚀 #GoalChain #Solana" target="_blank" class="btn" style="background: #000; color: #fff;">Compartir en X (Twitter)</a>
-    </section>
+    <!-- NFT GALLERY (Genesis Squad) -->
+    <section id="nfts" class="reveal">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 2rem;">
+                <span class="hero-badge" data-i18n="nft_badge">COLECCIÓN GENESIS</span>
+                <h2 data-i18n="nft_title" class="section-title">Genesis Squad NFT Collection</h2>
+                <p data-i18n="nft_desc" class="section-subtitle">Explora los 1,248 cracks del Mundial. Desliza horizontalmente la galería 3D.</p>
+            </div>
 
-    <section id="team" style="padding: 100px 2rem; text-align: center;">
-        <h2 style="margin-bottom: 3rem;">El Equipo</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
-            <div class="glass-card">
-                <div style="width: 80px; height: 80px; background: #333; border-radius: 50%; margin: 0 auto 1rem;"></div>
-                <h3>Fundador</h3>
-                <p style="font-size: 0.8rem; color: var(--text-dim);">Visionario & Dev</p>
+            <!-- Filtro de Países -->
+            <div class="nft-filters container">
+                <div class="country-scroll" id="countryFilters">
+                    <button class="filter-btn active" data-country="all">Todos</button>
+                    <button class="filter-btn" data-country="Argentina">🇦🇷 Argentina</button>
+                    <button class="filter-btn" data-country="Brasil">🇧🇷 Brasil</button>
+                    <button class="filter-btn" data-country="Francia">🇫🇷 Francia</button>
+                    <button class="filter-btn" data-country="España">🇪🇸 España</button>
+                    <button class="filter-btn" data-country="Inglaterra">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</button>
+                    <button class="filter-btn" data-country="Alemania">🇩🇪 Alemania</button>
+                    <button class="filter-btn" data-country="México">🇲🇽 México</button>
+                    <button class="filter-btn" data-country="Uruguay">🇺🇾 Uruguay</button>
+                    <button class="filter-btn" data-country="Egipto">🇪🇬 Egipto</button>
+                    <button class="filter-btn" data-country="Polonia">🇵🇱 Polonia</button>
+                    <button class="filter-btn" data-country="Croacia">🇭🇷 Croacia</button>
+                    <button class="filter-btn" data-country="Corea del Sur">🇰🇷 Corea</button>
+                </div>
+                
+                <div class="nft-filters-row">
+                    <input type="text" id="playerSearch" placeholder="Buscar jugador..." class="search-input">
+                    <select id="nftSort" class="filter-select">
+                        <option value="id-asc">Número (Bajo-Alto)</option>
+                        <option value="id-desc">Número (Alto-Bajo)</option>
+                        <option value="rarity-desc">Más Raros Primero</option>
+                        <option value="atk-desc">Mejor Ataque</option>
+                        <option value="def-desc">Mejor Defensa</option>
+                    </select>
+                    <button id="wishlistBtn" class="fav-toggle-btn">❤️ Favoritos</button>
+                </div>
+
+                <div class="position-filters" id="positionFilters" style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;">
+                    <button class="filter-btn-sm active" data-pos="all">TODOS</button>
+                    <button class="filter-btn-sm" data-pos="GK">PORTEROS</button>
+                    <button class="filter-btn-sm" data-pos="DEF">DEFENSAS</button>
+                    <button class="filter-btn-sm" data-pos="MID">MEDIOS</button>
+                    <button class="filter-btn-sm" data-pos="FWD">DELANTEROS</button>
+                </div>
             </div>
-            <div class="glass-card">
-                <div style="width: 80px; height: 80px; background: #333; border-radius: 50%; margin: 0 auto 1rem;"></div>
-                <h3>Hermano #1</h3>
-                <p style="font-size: 0.8rem; color: var(--text-dim);">Co-Founder / Estrategia</p>
+            
+            <div class="carousel-wrapper" style="position: relative;">
+                <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('nftTrackContainer', -1)">❮</button>
+                <div class="carousel-container nft-carousel" id="nftTrackContainer">
+                    <div class="nft-track" id="nftTrackInner">
+                        <!-- Dinámicamente cargado por assets/js/nft_registry.js -->
+                        <div class="loading-state" style="color: var(--text-dim); text-align: center; width: 100%;">
+                            <p>Iniciando Sincronización con la Blockchain...</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('nftTrackContainer', 1)">❯</button>
             </div>
-            <div class="glass-card">
-                <div style="width: 80px; height: 80px; background: #333; border-radius: 50%; margin: 0 auto 1rem;"></div>
-                <h3>Hermano #2</h3>
-                <p style="font-size: 0.8rem; color: var(--text-dim);">Co-Founder / Operaciones</p>
+            
+            <div style="text-align:center; margin-top:3rem;">
+                <button class="btn btn-primary btn-glow" data-i18n="nft_btn">UNIRSE A LA WHITELIST</button>
             </div>
         </div>
     </section>
 
+    <section id="social" class="section">
+        <h2 class="section-title reveal"><span data-i18n="soc_title">Gana GoalPoints</span></h2>
+        <p class="section-subtitle reveal" data-i18n="soc_sub">Completa tareas sociales para acumular puntos antes del lanzamiento. Los puntos se convertirán en tokens $GCH en el airdrop oficial.</p>
+        <div class="points-bar reveal">
+            <div class="points-label" data-i18n="soc_your_pts">TUS GOALPOINTS</div>
+            <div class="points-total" id="totalPoints">0</div>
+            <p style="font-size:0.75rem;color:var(--text-dim);margin-top:0.5rem;" data-i18n="soc_connect_info">Conecta tu wallet para comenzar</p>
+        </div>
+        <div class="social-grid" id="socialGrid"></div>
+        <div style="text-align:center;margin-top:2rem;">
+            <p style="font-size:0.8rem;color:var(--text-dim);" data-i18n="soc_ref_label">Tu enlace de referidos:</p>
+            <p id="referral-link-display" style="color:var(--primary);font-size:0.85rem;word-break:break-all;margin-top:0.3rem;" data-i18n="soc_ref_placeholder">Conecta tu wallet para generar...</p>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="section section-dark">
+        <h2 class="section-title reveal"><span data-i18n="team_title">El Equipo</span></h2>
+        <p class="section-subtitle reveal" data-i18n="team_sub">Tres hermanos, una pasión: el fútbol y la blockchain.</p>
+        <div class="team-grid">
+            <div class="glass-card team-card reveal">
+                <div class="team-avatar">🧠</div>
+                <h3 data-i18n="team1_name">Fundador</h3>
+                <p data-i18n="team1_role">Visionario & Lead Dev</p>
+            </div>
+            <div class="glass-card team-card reveal">
+                <div class="team-avatar">📊</div>
+                <h3 data-i18n="team2_name">Co-Founder</h3>
+                <p data-i18n="team2_role">Estrategia & Marketing</p>
+            </div>
+            <div class="glass-card team-card reveal">
+                <div class="team-avatar">⚙️</div>
+                <h3 data-i18n="team3_name">Co-Founder</h3>
+                <p data-i18n="team3_role">Operaciones & Comunidad</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHITELIST -->
     <section id="whitelist" class="whitelist-section">
-        <div class="glass-card">
-            <h2 style="margin-bottom: 1rem;">Únete a la Revolución</h2>
-            <p style="margin-bottom: 2rem; color: var(--text-dim);">Registra tu interés para recibir acceso anticipado y beneficios exclusivos en el lanzamiento.</p>
+        <div class="glass-card whitelist-card reveal">
+            <h2 style="margin-bottom:0.5rem;" data-i18n="wl_title">Únete a la Revolución</h2>
+            <p style="margin-bottom:1.5rem;color:var(--text-dim);font-size:0.9rem;" data-i18n="wl_sub">Regístrate para recibir acceso anticipado y beneficios exclusivos.</p>
             <form id="whitelistForm">
-                <input type="email" id="whitelistEmail" placeholder="Conecta tu wallet para unirte..." disabled required>
-                <button type="submit" class="btn btn-primary btn-wallet" style="width: 100%;">Anotarme en la Whitelist</button>
+                <input type="email" placeholder="Tu correo electrónico" data-i18n-ph="wl_email" required>
+                <button type="submit" class="btn btn-primary btn-glow" style="width:100%;" data-i18n="wl_btn">Anotarme en la Whitelist</button>
             </form>
-            <p style="font-size: 0.8rem; margin-top: 1.5rem; color: var(--text-dim);">🛡️ Tu wallet será tu identidad. Pronto integración con Phantom.</p>
+            <p style="font-size:0.75rem;margin-top:1rem;color:var(--text-dim);">🛡️ <span data-i18n="wl_note">Tu wallet será tu identidad. Integración con Phantom.</span></p>
         </div>
     </section>
 
-    <section id="rewards" style="padding: 100px 2rem; background: linear-gradient(135deg, rgba(20, 241, 149, 0.1), rgba(153, 69, 255, 0.1)); text-align: center; display: none;">
-        <div class="glass-card" style="max-width: 800px; margin: 0 auto; border: 2px solid var(--primary);">
-            <h2 style="margin-bottom: 0.5rem;">💎 Tus GoalPoints</h2>
-            <p style="color: var(--text-dim); margin-bottom: 2rem;">Acumula puntos para asegurar tu lugar en el Airdrop de $GCH</p>
+    <!-- CTA -->
+    <section class="cta-banner">
+        <h2 data-i18n="cta_title">¿Listo para el Kick-Off?</h2>
+        <p data-i18n="cta_sub">El Mundial 2026 se acerca. No te quedes fuera.</p>
+        <a href="https://twitter.com/intent/tweet?text=Acabo+de+unirme+a+GoalChain!+El+futuro+del+fútbol+en+Solana.+⚽🚀+%23GoalChain+%23Solana" target="_blank" class="btn" style="background:#000;color:#fff;" data-i18n="cta_share">Compartir en X (Twitter)</a>
+    </section>
+
+    <!-- COMMUNITY & TRUST SECTION -->
+    <section id="trust" class="section" style="background: var(--bg-surface); text-align: center; margin-top: 2rem;">
+        <div class="container">
+            <h2 class="section-title reveal">Respaldado por los Mejores</h2>
+            <p class="section-subtitle reveal">Seguridad institucional y liquidez global para el futuro del fútbol.</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
-                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 12px;">
-                    <div style="font-size: 0.8rem; color: var(--primary);">PUNTOS TOTALES</div>
-                    <div id="total-points" style="font-size: 2rem; font-weight: 900;">100</div>
-                </div>
-                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 12px;">
-                    <div style="font-size: 0.8rem; color: var(--secondary);">REFERIDOS</div>
-                    <div id="referral-count" style="font-size: 2rem; font-weight: 900;">0</div>
-                </div>
+            <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap;" class="reveal">
+                <a href="https://discord.gg/7TUgSfqtd" target="_blank" class="btn btn-primary" style="background: #5865F2; color: white; border: none; font-size: 0.85rem;"><i class="fab fa-discord"></i> Discord DAO</a>
+                <a href="https://x.com/GoalChainDotFun" target="_blank" class="btn" style="background: #000; color: white; border: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem;">𝕏 Twitter Oficial</a>
+                <a href="https://instagram.com/goalchain.fun" target="_blank" class="btn" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border: none; font-size: 0.85rem;">📸 Instagram</a>
             </div>
 
-            <div style="text-align: left; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
-                <h4 style="margin-bottom: 1rem;">Misiones Disponibles:</h4>
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border);">
-                    <span>🐦 Compartir en X (Twitter)</span>
-                    <a href="https://twitter.com/intent/tweet?text=¡Acabo de unirme a la Whitelist de GoalChain! ⚽🚀 Jugando para ganar en @Solana. Únete aquí: " id="share-x-task" target="_blank" class="btn" style="padding: 5px 15px; font-size: 0.7rem; background: #fff; color: #000;">+200 PTS</a>
+            <div class="trust-badges reveal" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; margin-top: 20px;">
+                <p style="color: var(--text-dim); font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 25px; font-weight: 900;">AUDITORÍA Y COMUNIDAD</p>
+                <div style="display: flex; justify-content: center; gap: 40px; opacity: 0.7; flex-wrap: wrap; align-items: center;">
+                    <span style="font-weight: 900; font-size: 1.1rem; color: #fff;">🛡️ CertiK</span>
+                    <span style="font-weight: 900; font-size: 1.1rem; color: #14f195;">◎ Solana</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
-                    <span>🤝 Invitar Amigos</span>
-                    <button onclick="copyReferralLink()" class="btn" style="padding: 5px 15px; font-size: 0.7rem; background: var(--primary); color: #000;">COPIAR LINK</button>
+                <!-- Discord Widget -->
+                <div style="margin-top: 40px; display: flex; justify-content: center;">
+                    <iframe src="https://discord.com/widget?id=1503668119053406330&theme=dark" width="350" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                 </div>
             </div>
-            
-            <p style="font-size: 0.8rem; color: var(--text-dim);">Tu enlace único: <br><span id="referral-link-display" style="color: var(--primary); word-break: break-all;">Conecta tu wallet para generar...</span></p>
         </div>
     </section>
 
-    <footer style="padding: 4rem 2rem; text-align: center; border-top: 1px solid var(--border);">
-        <p>&copy; 2026 GoalChain. Desarrollado para el ecosistema Solana.</p>
-        <div style="margin-top: 1rem;">
-            <a href="#" style="color: var(--text-dim); margin: 0 10px; text-decoration: none;">Twitter</a>
-            <a href="#" style="color: var(--text-dim); margin: 0 10px; text-decoration: none;">Discord</a>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="logo" style="margin-bottom:0.5rem;">GOAL<span>CHAIN</span></div>
+        <p style="font-size:0.8rem;color:var(--text-dim);">&copy; 2026 GoalChain — <span data-i18n="footer_built">Desarrollado en Solana</span></p>
+        <div class="footer-links">
+            <a href="https://x.com/GoalChainDotFun" target="_blank">Twitter / X</a>
+            <a href="https://discord.gg/7TUgSfqtd" target="_blank">Discord</a>
+            <a href="https://instagram.com/goalchain.fun" target="_blank">Instagram</a>
+            <a href="colabs.html" style="color:var(--primary); margin-left: 20px; text-decoration:none; font-size:0.8rem;">Portal Colaboradores</a>
+            <a href="legal.html#tos" style="color:var(--text-dim); margin-left: 20px; text-decoration:none; font-size:0.8rem;">ToS</a>
+            <a href="legal.html#privacy" style="color:var(--text-dim); margin-left: 10px; text-decoration:none; font-size:0.8rem;">Privacy Policy</a>
         </div>
     </footer>
 
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/penalty_game.js"></script>
-    <script src="assets/js/solana_integration.js"></script>
-    <script src="assets/js/contract_data.js"></script>
+    <!-- COOKIE CONSENT -->
+    <div id="cookieBanner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: rgba(13, 13, 20, 0.95); backdrop-filter: blur(20px); border: 1px solid var(--primary); border-radius: 16px; padding: 1.5rem; z-index: 9999; display: flex; justify-content: space-between; align-items: center; gap: 2rem; box-shadow: 0 10px 50px rgba(0,0,0,0.8); animation: fadeInUp 0.5s forwards;">
+        <p style="font-size: 0.85rem; color: #fff; margin: 0;">Utilizamos cookies para asegurar que GoalChain funcione correctamente y para analizar el tráfico. Al continuar, aceptas nuestra política de privacidad.</p>
+        <button onclick="acceptCookies()" class="btn btn-primary btn-sm" style="flex-shrink: 0;">Aceptar</button>
+    </div>
+
+    <script>
+        function acceptCookies() {
+            document.getElementById('cookieBanner').style.display = 'none';
+            localStorage.setItem('gc_cookies', 'accepted');
+        }
+        if(localStorage.getItem('gc_cookies') === 'accepted') {
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+
+        // Safety Force Stop: Evita el círculo de carga infinito
+        window.addEventListener('load', () => {
+            console.log("GoalChain: Finalizando carga forzada.");
+            const vib = document.querySelector('.vibrancy');
+            if(vib) vib.style.opacity = "1";
+        });
+
+        // Si después de 8 segundos sigue "cargando", detenemos el spinner manualmente
+        setTimeout(() => {
+            if (document.readyState !== 'complete') {
+                console.warn("GoalChain: Carga lenta detectada, forzando detención del spinner.");
+                window.stop();
+            }
+        }, 8000);
+    </script>
+
+    <script src="assets/js/i18n.js?v=1.1"></script>
+    <script src="assets/js/app.js?v=1.1"></script>
+    <script>
+        // DOM Based Penalty Game Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            let balance = parseInt(localStorage.getItem('gch_balance') || '1000');
+            let bet = 10, goals = 0, saves = 0, streak = 0;
+            let isShooting = false;
+
+            const updateUI = () => {
+                document.getElementById('userGCH').innerText = balance.toLocaleString();
+                document.getElementById('statGoals').innerText = goals;
+                document.getElementById('statSaves').innerText = saves;
+                document.getElementById('statStreak').innerText = streak;
+            };
+            updateUI();
+
+            document.querySelectorAll('.bet-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.bet-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    bet = parseInt(e.target.getAttribute('data-amount'));
+                });
+            });
+
+            document.querySelectorAll('.dom-zone').forEach(zone => {
+                zone.addEventListener('click', () => {
+                    if (isShooting) return;
+                    if (balance < bet) return alert("¡No tienes suficientes $GCH!");
+                    
+                    isShooting = true;
+                    balance -= bet; // Tax and bet
+                    updateUI();
+
+                    const ball = document.getElementById('domBall');
+                    const goalie = document.getElementById('domGoalie');
+                    const msg = document.getElementById('domResultMsg');
+
+                    const targetX = zone.getAttribute('data-x');
+                    const targetY = zone.getAttribute('data-y');
+
+                    // Goalie AI
+                    // To make it fairer and more realistic: 
+                    // Goalie follows the row and column logic.
+                    const goalieXPuntos = ['22', '50', '78'];
+                    const goalieYPuntos = ['20', '65'];
+                    
+                    const isSave = Math.random() < 0.3; // 30% chance of save if the player is good
+                    let gX, gY;
+
+                    if (isSave) {
+                        gX = targetX;
+                        gY = targetY;
+                    } else {
+                        gX = goalieXPuntos[Math.floor(Math.random() * goalieXPuntos.length)];
+                        gY = goalieYPuntos[Math.floor(Math.random() * goalieYPuntos.length)];
+                    }
+
+                    // Animate
+                    ball.style.left = targetX + '%';
+                    ball.style.top = targetY + '%'; // Using top instead of bottom for more precision
+                    ball.style.transform = 'translate(-50%, -50%)';
+
+                    goalie.style.left = gX + '%';
+                    goalie.style.top = (parseInt(gY) + 5) + '%'; // Goalie centers on the zone slightly lower
+
+                    setTimeout(() => {
+                        if (targetX === gX) {
+                            // Save
+                            saves++; streak = 0;
+                            msg.innerText = "¡ATAJADA! 🧤"; msg.style.color = "#ff4d6a";
+                        } else {
+                            // Goal
+                            goals++; streak++;
+                            const prize = Math.floor(bet * 1.9);
+                            balance += prize;
+                            msg.innerText = "¡GOOOOOL! ⚽"; msg.style.color = "#14f195";
+                            if (window.confetti) confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
+                        }
+                        updateUI();
+                        msg.style.opacity = "1";
+
+                        setTimeout(() => {
+                            msg.style.opacity = "0";
+                            ball.style.left = "50%";
+                            ball.style.top = "90%";
+                            ball.style.transform = "translate(-50%, -50%)";
+                            goalie.style.left = "50%"; goalie.style.top = "40%";
+                            isShooting = false;
+                        }, 1500);
+                    }, 400);
+                });
+            });
+        });
+    </script>
+    <script src="assets/js/solana_integration.js?v=1.1"></script>
+    <script src="assets/js/contract_data.js?v=1.1"></script>
+    <script src="assets/js/nft_registry.js?v=1.2"></script>
+    <script src="assets/js/pack_opener.js?v=1.1"></script>
+    <!-- DIALECT NOTIFICATION INBOX -->
+    <div id="notifInbox" class="notif-inbox" style="position:fixed; top:80px; right:20px; width:320px; background:rgba(6,6,10,0.95); backdrop-filter:blur(20px); border:1px solid var(--primary); border-radius:16px; transform:translateX(400px); transition:transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index:1000; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
+        <div class="notif-header" style="padding:15px; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
+            <h3 style="font-size:0.9rem; margin:0; color:var(--primary);">GoalChain Inbox</h3>
+            <button id="closeNotif" style="background:transparent; border:none; color:white; font-size:1.2rem; cursor:pointer;">&times;</button>
+        </div>
+        <div id="notifList" class="notif-list" style="max-height:400px; overflow-y:auto; padding:10px;">
+            <div id="optInContainer" style="padding:20px; text-align:center;">
+                <p style="font-size:0.8rem; color:var(--text-dim);">Recibe alertas de goles y apuestas directamente en tu wallet.</p>
+                <button id="optInBtn" class="btn btn-primary btn-sm" style="width:100%; margin-top:10px;">SUSCRIBIRSE</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ALPHA DEMO MODAL -->
+    <div id="alphaModal" class="modal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9); backdrop-filter:blur(10px);">
+        <div class="modal-content glass-card" style="position:relative; top:50%; left:50%; transform:translate(-50%, -50%); width:90%; max-width:500px; padding:40px; text-align:center; border: 2px solid var(--primary);">
+            <div style="font-size:3rem; margin-bottom:20px;">⚠️</div>
+            <h2 style="color:var(--primary); margin-bottom:15px;">ACCESO ALPHA - MODO DEMO</h2>
+            <p style="font-size:0.9rem; color:var(--text-dim); line-height:1.6; margin-bottom:30px;">
+                Estás entrando en una demostración técnica de <b>GoalChain Ecosystem</b>.<br><br>
+                Las funcionalidades de <b>Trading (Drift)</b>, <b>Finanzas (Lending)</b> y <b>Cantera (cNFTs)</b> están en modo SIMULACIÓN para pruebas de arquitectura.<br><br>
+                <span style="color:white; font-weight:bold;">No se requiere ni se utiliza capital real en esta fase.</span>
+            </p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
+                <button onclick="closeAlphaModal()" class="btn btn-secondary" style="width:100%;">VOLVER</button>
+                <button onclick="closeAlphaModal(); location.href='app.html';" class="btn btn-primary btn-glow" style="width:100%;">ENTRAR AL ECOSISTEMA</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openAlphaModal() { document.getElementById('alphaModal').style.display = 'block'; }
+        function closeAlphaModal() { document.getElementById('alphaModal').style.display = 'none'; }
+    </script>
+    
+    <script src="assets/js/dialect_app.js"></script>
 </body>
 </html>
