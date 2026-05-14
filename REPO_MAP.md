@@ -20,6 +20,10 @@ Para evitar drift, la versión canónica de documentos estratégicos vive en la 
 - Canónicos en raíz: `GOALCHAIN_PITCH_DECK.md`, `TOKENOMICS.md`, `ECONOMIC_BLUEPRINT.md`, `NFT_PROMPTS.md`, `NFT_STYLE_GUIDE.md`, `PLAYERS_LIST.md`
 - Copias en `/docs` se tratan como material de publicación web y deben sincronizarse explícitamente.
 
+### Política de versionado (tooling JS/TS)
+
+- Se alinea `@coral-xyz/anchor` en módulos JS/TS activos (`goalchain_api`, `goalchain-sdk`, `goalchain_oracle`) a la rama `0.30.x` para evitar incompatibilidades de tipos y runtime entre SDK/API/Oracle.
+
 ---
 
 ## 🚀 Aplicaciones Principales (Production)
