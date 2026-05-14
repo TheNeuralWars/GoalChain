@@ -49,6 +49,7 @@ function switchTab(tabId) {
     if (tabId === 'partners') document.getElementById('partnerSection').classList.add('active');
     if (tabId === 'finance') document.getElementById('financeSection').classList.add('active');
     if (tabId === 'academy') document.getElementById('academySection').classList.add('active');
+    if (tabId === 'markets') document.getElementById('marketsSection').classList.add('active');
 }
 
 // --- DEV TEAM LOGIC ---
