@@ -32,6 +32,7 @@
             <div class="nav-item" onclick="switchAppTab('markets')"><span>📈</span> Derivatives</div>
             <div class="nav-item" onclick="switchAppTab('academy')"><span>🌱</span> Youth Academy</div>
             <div class="nav-item" onclick="switchAppTab('lending')"><span>🏦</span> NFT Lending</div>
+            <div class="nav-item" onclick="location.href='index.html'" style="margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: #ff4d6a;"><span>🚪</span> Salir / Volver</div>
         </nav>
         <div style="margin-top: auto; padding: 15px; background: rgba(255,255,255,0.03); border-radius: 12px; font-size: 0.7rem; color: var(--text-dim);">
             <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
@@ -142,6 +143,11 @@
     <script src="assets/js/lending_app.js"></script>
     
     <script>
+        // Soporte para tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') location.href = 'index.html';
+        });
+
         function switchAppTab(tabId) {
             document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
