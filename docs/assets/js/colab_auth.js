@@ -38,7 +38,8 @@ async function connectWallet() {
         console.error("Error Auth:", error);
     }
 }
-
+function verifyAccess(pubKey) {
+    console.log("GoalChain Auth: Verificando wallet...", pubKey);
     // Normalizar la key para evitar errores de mayúsculas/minúsculas
     const normalizedKey = pubKey.trim();
     const role = AUTHORIZED_WALLETS[normalizedKey] || (pubKey.startsWith('A') || pubKey.startsWith('B') ? 'dev' : null);
