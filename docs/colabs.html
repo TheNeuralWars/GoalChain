@@ -83,8 +83,7 @@
                 <button class="tab-btn" data-tab="influencers" id="tabInfluencers">Influencers</button>
                 <button class="tab-btn" data-tab="partners" id="tabPartners">Partners</button>
                 <button class="tab-btn" data-tab="finance" id="tabFinance" style="color:var(--primary);">🏦 Finance</button>
-                <button class="tab-btn" data-tab="academy" id="tabAcademy" style="color:var(--secondary);">🌱 Academy</button>
-                <button class="tab-btn" data-tab="markets" id="tabMarkets" style="color:#ff9a33;">📈 Markets</button>
+                <button class="tab-btn" data-tab="academy" id="tabAcademy" style="color:var(--secondary);">🌱 Academy Admin</button>
             </div>
             <div id="userBadge" class="user-badge">
                 <span id="userRole">Dev</span>
@@ -263,11 +262,11 @@
                 </div>
             </section>
 
-            <!-- SECTION: ACADEMY (cNFTs) -->
+            <!-- SECTION: ACADEMY ADMIN (cNFTs) -->
             <section id="academySection" class="tab-content" style="display:none;">
                 <div class="colab-header">
-                    <h2>🌱 Youth Academy Scout (cNFTs)</h2>
-                    <p>Tecnología de State Compression para tokenización masiva de jugadores.</p>
+                    <h2>🌱 Academy Management (Admin)</h2>
+                    <p>Gestión de Merkle Trees, metadatos y despliegue de colecciones comprimidas.</p>
                 </div>
 
                 <div class="colab-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
@@ -308,69 +307,6 @@
                     <div style="display: flex; justify-content: space-between; font-family: monospace; font-size: 0.65rem; color: var(--text-dim);">
                         <span id="merkleStatus">Tree Capacity: 1,248 / 1M</span>
                         <span id="merkleRoot">Root: 0x7f...a3e2</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECTION: MARKETS (DRIFT) -->
-            <section id="marketsSection" class="tab-content" style="display:none;">
-                <div class="colab-header">
-                    <h2>📈 Mercados de Derivados (Drift Protocol)</h2>
-                    <p>Opera con apalancamiento sobre el rendimiento de equipos y jugadores.</p>
-                </div>
-
-                <div class="colab-grid" style="display:grid; grid-template-columns: 1fr 1.5fr; gap: 20px;">
-                    <!-- Trade Terminal -->
-                    <div class="glass-card">
-                        <h3>⚡ Ejecución de Orden</h3>
-                        <div style="margin: 20px 0;">
-                            <label style="font-size: 0.7rem; color: var(--text-dim);">SELECCIONAR MERCADO</label>
-                            <select id="marketSelector" style="width: 100%; background: #111; color: white; border: 1px solid var(--border); padding: 10px; border-radius: 8px; margin-top: 5px;">
-                                <option value="arg">🇦🇷 Argentina (Winner Index)</option>
-                                <option value="bra">🇧🇷 Brasil (Winner Index)</option>
-                                <option value="fra">🇫🇷 Francia (Winner Index)</option>
-                                <option value="messi">🐐 Messi Performance (Perp)</option>
-                            </select>
-                        </div>
-
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                            <button id="longBtn" class="btn" style="background: var(--primary); color: black; font-weight: 900;">LONG</button>
-                            <button id="shortBtn" class="btn" style="background: #ff4d6a; color: white; font-weight: 900;">SHORT</button>
-                        </div>
-
-                        <div style="margin-top: 20px;">
-                            <label style="font-size: 0.7rem; color: var(--text-dim); display: flex; justify-content: space-between;">
-                                <span>APALANCAMIENTO</span>
-                                <span id="leverageVal" style="color: var(--primary);">1x</span>
-                            </label>
-                            <input type="range" id="leverageRange" min="1" max="10" value="1" style="width: 100%; margin-top: 10px; accent-color: var(--primary);">
-                        </div>
-                    </div>
-
-                    <!-- Price Feed & Positions -->
-                    <div class="glass-card">
-                        <h3>📊 Feed de Precios & Posiciones</h3>
-                        <div id="priceChartSim" style="height: 120px; background: rgba(0,0,0,0.3); border-radius: 12px; display: flex; align-items: flex-end; gap: 4px; padding: 10px; margin-top: 15px;">
-                            <!-- Simulated bars injected via JS -->
-                        </div>
-                        
-                        <div style="margin-top: 20px;">
-                            <table style="width: 100%; font-size: 0.7rem; text-align: left; border-collapse: collapse;">
-                                <thead style="color: var(--text-dim);">
-                                    <tr>
-                                        <th style="padding-bottom: 10px;">POSICIÓN</th>
-                                        <th style="padding-bottom: 10px;">TAMAÑO</th>
-                                        <th style="padding-bottom: 10px;">PnL</th>
-                                        <th style="padding-bottom: 10px;">RIESGO</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="activePositions">
-                                    <tr>
-                                        <td colspan="4" style="text-align: center; padding: 20px; color: var(--text-dim);">No hay posiciones abiertas</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </section>
