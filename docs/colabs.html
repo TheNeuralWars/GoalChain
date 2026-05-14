@@ -82,6 +82,7 @@
                 <button class="tab-btn" data-tab="influencers" id="tabInfluencers">Influencers</button>
                 <button class="tab-btn" data-tab="partners" id="tabPartners">Partners</button>
                 <button class="tab-btn" data-tab="finance" id="tabFinance" style="color:var(--primary);">🏦 Finance</button>
+                <button class="tab-btn" data-tab="academy" id="tabAcademy" style="color:var(--secondary);">🌱 Academy</button>
             </div>
             <div id="userBadge" class="user-badge">
                 <span id="userRole">Dev</span>
@@ -260,12 +261,62 @@
                 </div>
             </section>
 
+            <!-- SECTION: ACADEMY (cNFTs) -->
+            <section id="academySection" class="tab-content" style="display:none;">
+                <div class="colab-header">
+                    <h2>🌱 Youth Academy Scout (cNFTs)</h2>
+                    <p>Tecnología de State Compression para tokenización masiva de jugadores.</p>
+                </div>
+
+                <div class="colab-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <!-- Scouting Toolkit -->
+                    <div class="glass-card">
+                        <h3>🔍 Scouting Toolkit</h3>
+                        <p style="font-size:0.8rem; color:var(--text-dim); margin: 15px 0;">Emite cNFTs en lotes masivos. Cada jugador scouteado se añade al Merkle Tree de GoalChain.</p>
+                        
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 5px;">
+                                <span>Costo Estimado (10 cNFTs):</span>
+                                <span style="color:var(--primary);">0.005 SOL</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; font-size:0.8rem;">
+                                <span>Límite de Tree:</span>
+                                <span>1,000,000 slots</span>
+                            </div>
+                        </div>
+
+                        <button id="scoutBtn" class="btn btn-secondary btn-glow" style="width:100%;">SCOUTEAR 10 PROSPECTOS</button>
+                    </div>
+
+                    <!-- My Prospects -->
+                    <div class="glass-card">
+                        <h3>🏃 Mis Prospectos (cNFTs)</h3>
+                        <div id="prospectsList" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; max-height: 250px; overflow-y: auto; margin-top: 15px; padding-right: 5px;">
+                            <p style="grid-column: 1/-1; text-align:center; color:var(--text-dim); font-size:0.75rem; padding: 40px;">No hay prospectos en la cantera...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Merkle Visualizer -->
+                <div class="glass-card" style="margin-top: 20px; border-style: dashed; border-width: 1px;">
+                    <h4 style="font-size: 0.8rem; color: var(--secondary); text-transform: uppercase;">Estado del Merkle Tree (Solana Bubblegum)</h4>
+                    <div id="merkleVisualizer" style="height:8px; background:rgba(0,0,0,0.5); border-radius:4px; margin: 15px 0; overflow:hidden;">
+                        <div id="merkleProgress" style="width:0%; height:100%; background:var(--secondary); transition: width 0.4s ease;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-family: monospace; font-size: 0.65rem; color: var(--text-dim);">
+                        <span id="merkleStatus">Tree Capacity: 1,248 / 1M</span>
+                        <span id="merkleRoot">Root: 0x7f...a3e2</span>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </main>
 
     <script src="assets/js/colab_auth.js"></script>
     <script src="assets/js/colab_app.js"></script>
     <script src="assets/js/lending_app.js"></script>
+    <script src="assets/js/cnft_scout.js"></script>
     <script>
         // Soporte para tecla ESC
         document.addEventListener('keydown', (e) => {
