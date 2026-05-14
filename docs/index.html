@@ -157,7 +157,7 @@
                             <!-- Goalie -->
                             <div id="domGoalie" style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, 0); width: 12%; height: 30%; background: #9945ff; border-radius: 30px 30px 10px 10px; box-shadow: 0 0 20px rgba(153,69,255,0.6); transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 10;"></div>
                             <!-- Ball -->
-                            <div id="domBall" style="position: absolute; bottom: 8%; left: 50%; transform: translate(-50%, 0); width: 7%; aspect-ratio: 1; background: radial-gradient(circle at 30% 30%, #fff, #bbb); border-radius: 50%; box-shadow: 2px 8px 15px rgba(0,0,0,0.6); transition: all 0.4s cubic-bezier(0.2, 0, 0.2, 1); z-index: 20;"></div>
+                            <div id="domBall" style="position: absolute; top: 92%; left: 50%; transform: translate(-50%, -50%); width: 7%; aspect-ratio: 1; background: radial-gradient(circle at 30% 30%, #fff, #bbb); border-radius: 50%; box-shadow: 2px 8px 15px rgba(0,0,0,0.6); transition: left 0.4s cubic-bezier(0.2, 0, 0.2, 1), top 0.4s cubic-bezier(0.2, 0, 0.2, 1); z-index: 20;"></div>
                             <!-- Clickable Zones (Adjusted to be inside the 10%-90% range) -->
                             <div style="position: absolute; top: 10%; left: 10%; width: 80%; height: 75%; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; z-index: 25;">
                                 <button class="dom-zone" data-x="22" data-y="20"></button>
@@ -569,7 +569,7 @@
                     // Animate
                     ball.style.left = targetX + '%';
                     ball.style.top = targetY + '%'; // Using top instead of bottom for more precision
-                    ball.style.transform = 'translate(-50%, -50%) scale(1)';
+                    ball.style.transform = 'translate(-50%, -50%)';
 
                     goalie.style.left = gX + '%';
                     goalie.style.top = (parseInt(gY) + 5) + '%'; // Goalie centers on the zone slightly lower
@@ -592,7 +592,9 @@
 
                         setTimeout(() => {
                             msg.style.opacity = "0";
-                            ball.style.left = "50%"; ball.style.top = "90%"; ball.style.transform = "translate(-50%, 0) scale(1)";
+                            ball.style.left = "50%";
+                            ball.style.top = "90%";
+                            ball.style.transform = "translate(-50%, -50%)";
                             goalie.style.left = "50%"; goalie.style.top = "40%";
                             isShooting = false;
                         }, 1500);
