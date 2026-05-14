@@ -108,6 +108,11 @@ class PenaltyGame {
             const prize = Math.floor(this.currentBet * 1.9);
             this.balance += prize;
             localStorage.setItem('gch_balance', this.balance);
+
+            // Dialect Notification Integration
+            if (window.gcDialect) {
+                window.gcDialect.notify("¡GOLAZO! ⚽", `Has ganado ${prize} $GCH. ¡Tu racha de ${this.streak} goles es asombrosa!`);
+            }
         } else {
             this.result = '¡ATAJADA! 🧤'; this.resultColor = '#ff4d6a';
             this.saves++; this.streak = 0; this.spawnParticles(this.ball.x, this.ball.y, '#ff4d6a');
