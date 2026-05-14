@@ -1,85 +1,83 @@
-# 🏆 GOALCHAIN: The Ultimate Web3 Sports Ecosystem
-**"The Bridge Between Football Passion and Blockchain Economy"**
+# 🏆 GOALCHAIN: The Ultimate Web3 SportsFi Ecosystem
+**"Where Football Passion Meets Institutional Blockchain Trading"**
 
 ---
 
 ## Slide 1: The Vision
-**GoalChain** is not just a game; it is a self-sustaining sports economy designed to capture the attention of 5 billion football fans during the 2026 World Cup.
+**GoalChain** is the world's first **SportsFi Protocol** designed to capture the 5 billion fan-base of the 2026 World Cup. 
 
-Leveraging **Solana's** speed, GoalChain empowers fans to act as professional player agents, earning dividends based on real-world on-field performance.
+We transform passive spectators into **Professional Player Agents** and **Sports Traders** using Solana's high-speed infrastructure.
 
 ---
 
 ## Slide 2: The Opportunity (World Cup 2026)
-*   **Global Audience:** +5 Billion fans.
-*   **Web3 Gaming Growth:** Projected at $65B by 2027.
-*   **The Momentum:** The 2026 World Cup will be the most digital and connected sports event in history. GoalChain is the ultimate "Second Screen" experience.
+*   **Global Audience:** +5 Billion fans ready for the "Second Screen" experience.
+*   **Market Gap:** Traditional betting lacks transparency; Web3 gaming lacks sustainable yield.
+*   **The Momentum:** GoalChain bridges this gap by merging real-world performance with decentralized finance (DeFi).
 
 ---
 
 ## Slide 3: The Problem vs. The Solution
-| The Problem | The GoalChain Solution |
+| The Problem | The GoalChain SportsFi Solution |
 | :--- | :--- |
-| **Ponzi Economies** | Real Yield: NFT salaries depend on real match data (Oracles). |
-| **Entry Barriers** | Fiat On-Ramp: Purchase NFT packs via Credit Card (Stripe/MoonPay). |
-| **Useless JPEGs** | Dynamic NFTs: Assets evolve and generate daily yield (True P2E). |
+| **Static Assets** | **Dynamic cNFTs:** Assets evolve via state compression & real-world data. |
+| **Lack of Liquidity** | **NFT Lending:** Use your players as collateral for instant $GCH loans. |
+| **Simple Betting** | **Perpetual Markets:** Long/Short team performance via Drift Protocol. |
 
 ---
 
-## Slide 4: The Product Ecosystem
-1.  **The Genesis Squad:** 1,248 parodied players with mutable metadata.
-2.  **Penalty Betting:** High-frequency mini-game for massive token burning.
-3.  **The Oracle Hub:** Real-time synchronization with World Cup results.
-4.  **The Marketplace:** Trading with a 5% royalty fee for the treasury.
+## Slide 4: The Institutional Tech Stack
+Our ecosystem is powered by industry-leading Solana protocols:
+1.  **Drift Protocol Integration:** Prediction markets and perpetual derivatives on team performance.
+2.  **Helius Real-Time Sync:** Webhook-driven synchronization between the field and the UI.
+3.  **Metaplex Bubblegum:** Mass-minting millions of "Youth Academy" prospects via **State Compression**.
+4.  **Dialect Social:** On-chain push notifications for goals, wins, and market liquidations.
 
 ---
 
-## Slide 5: The "Genesis Squad" Collection
-A strategic supply to ensure scarcity and long-term value:
-*   **Mythic (5 units):** Maximum value, VIP access.
-*   **Legendary (450 units):** Team captains, massive staking bonus.
-*   **Epic (20,000 units):** Betting reward multiplier.
-*   **Rare & Common:** The foundation for the "Fusion" system.
+## Slide 5: The "Genesis Squad" & "Youth Academy"
+A dual-tier asset strategy for maximum reach:
+*   **Genesis Squad (1,248 units):** The premium "Blue Chip" collection. Rare, high-yield, and governance-enabled.
+*   **Youth Academy (Millions of cNFTs):** Low-cost, mass-market players. Fans can "scout" and "level up" prospects into the pro league at near-zero cost.
 
 ---
 
-## Slide 6: Economy: The Professional Contract
-GoalChain introduces the **Web3 Player Agent** concept. By owning an NFT, you collect real premiums:
-*   **Base Salaries:** From 50 to 5,000 $GCH per match played.
-*   **Performance Bonuses:** Goals (+100 $GCH), Assists (+50 $GCH), Clean Sheets (+200 $GCH).
-*   **Live Oracles:** Data updates minutes after the final whistle.
+## Slide 6: Economy: Yield & DeFi Utility
+GoalChain introduces **Real Yield** backed by professional utility:
+*   **Match Premiums:** Salaries based on real-world goals, assists, and clean sheets.
+*   **Lending Protocol:** Instant liquidity for NFT holders without selling their assets.
+*   **Yield Aggregator:** Treasury-backed buy-backs funded by 5% trading fees.
 
 ---
 
-## Slide 7: Tokenomics & Deflationary Sinks
-To protect **$GCH** value, we implement aggressive burn mechanics:
-*   **The Fusion (Trade-Up):** Burn 5 common cards for a higher-tier pack.
-*   **National Emblems:** Burn a full national set (26 players) for a Golden Emblem (10% Revenue Share).
-*   **Maintenance Sink:** NFTs require token-based maintenance to stay at 100% performance.
+## Slide 7: Tokenomics: The $GCH Flywheel
+A hyper-deflationary model driven by engagement:
+*   **Burn-to-Upgrade:** Fusing lower-tier players burns $GCH.
+*   **Trading Fees:** Every long/short position on the Drift terminal feeds the **Infinity Buy-back** vault.
+*   **Maintenance Sinks:** Keeping pro players at 100% requires periodic $GCH "service" tokens.
 
 ---
 
-## Slide 8: Roadmap 2025-2026
-*   **Q3 2025:** Collaborator Portal Launch & Whitepaper Pre-sale.
-*   **Q4 2025:** Genesis Squad Minting & Marketplace Opening.
-*   **Q1 2026:** Penalty Game Beta Launch.
-*   **Q2 2026:** World Cup 2026 - Full Oracle Sync & Social Mega-Jackpot.
+## Slide 8: Roadmap: The Road to 2026
+*   **Q3 2025:** **Collaborator Portal Launch** - Admin & Tech Alpha access.
+*   **Q4 2025:** **Genesis Squad Minting** & Integrated Marketplace Opening.
+*   **Q1 2026:** **Trading Terminal Beta** - Launch of Drift-powered perpetual markets.
+*   **Q2 2026:** **World Cup 2026 Mega-Event** - Real-time Oracle sync & Global Jackpot.
 
 ---
 
 ## Slide 9: The Founders (The Trio)
-GoalChain is a family-led project with a global vision:
-*   **NicoPez:** Product Architect & Web3 Infrastructure.
-*   **Lucas:** Art Director & 3D Asset Generation.
-*   **Third Brother:** Growth Strategy & Operations.
-*   *A perfect blend of football passion and Solana technical expertise.*
+*   **NicoPez:** Product Architect & SportsFi Strategist.
+*   **Lucas:** Art Director & Generative Asset Lead.
+*   **Operations Lead:** Strategic Growth & Global Partnerships.
+*   *A synergistic team merging technical excellence with football culture.*
 
 ---
 
 ## Slide 10: Call to Action
-We are building the future of sports entertainment.
-*   **Visit:** [goalchain.fun](https://goalchain.fun)
-*   **Join:** Discord / X (Twitter)
-*   **Investment:** Seeking strategic partners for the Pre-Seed phase.
+Join the SportsFi Revolution. The game is no longer played only on the grass.
+*   **Web:** [goalchain.fun](https://goalchain.fun)
+*   **Twitter:** @GoalChain
+*   **Status:** Pre-Seed Round Open for Strategic Partners.
 
-**"In GoalChain, the match doesn't end at 90 minutes. It begins in your wallet."**
+**"In GoalChain, every goal on the field is a transaction in your favor."**
