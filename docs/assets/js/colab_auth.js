@@ -7,9 +7,7 @@
 const AUTHORIZED_WALLETS = {
     // DEV TEAM
     "D6AabfJnF6sxuAymDz7JMbB4r2i2FaQVzPb7G7nhMMxo": "dev", // Nico (Admin)
-    "9j89K...Nico": "dev",
-    "Gv7T...Hermano1": "dev",
-    "FbDh...Hermano2": "dev",
+    "GJFz3VmrQGTUqcapRkKZ9RHu11CYUCmRAfEBfxi5DED2": "dev", // Lucas (Team)
 
     // INFLUENCERS
     "HqXS...Influencer1": "influencer",
@@ -41,13 +39,23 @@ async function connectWallet() {
 function verifyAccess(pubKey) {
     if (!pubKey) return;
     const normalizedKey = pubKey.trim();
-    console.log("GoalChain Auth: Verificando...", normalizedKey);
+    console.log("GoalChain Auth: Intentando acceder con...", normalizedKey);
 
     // Búsqueda exacta en la lista
     let role = AUTHORIZED_WALLETS[normalizedKey];
 
+    // LOG PARA DEBUG (Lucas puede ver esto en la consola F12)
+    if (!role) {
+        console.warn("DEBUG: La wallet " + normalizedKey + " no está en la lista de autorizados.");
+    }
+
     // Fallback: Si no está en la lista pero es tu wallet (D6Aa...), forzar dev
-    if (!role && normalizedKey.startsWith("D6AabfJnF6sxuAymDz7JMbB4r2i2FaQVzPb7G7nhMMxo")) {
+    if (!role && normalizedKey === "D6AabfJnF6sxuAymDz7JMbB4r2i2FaQVzPb7G7nhMMxo") {
+        role = "dev";
+    }
+
+    // Doble verificación para Lucas (Hardcoded por si acaso)
+    if (!role && normalizedKey === "GJFz3VmrQGTUqcapRkKZ9RHu11CYUCmRAfEBfxi5DED2") {
         role = "dev";
     }
 
