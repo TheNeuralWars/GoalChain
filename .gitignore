@@ -60,3 +60,4 @@ yarn-error.log*
 *.sublime-project
 *.sublime-workspace
 test-ledger/
+goalchain_web/scratch/x_secrets.json
