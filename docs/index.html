@@ -228,6 +228,52 @@
     </section>
 
     <!-- ROADMAP -->
+    <!-- SECTION: YOUTH ACADEMY (cNFTs PROTOTYPE) -->
+    <section id="academy" class="section">
+        <div class="container">
+            <div class="section-header" style="text-align:center; margin-bottom:3rem;">
+                <span class="badge" style="background:var(--secondary); padding: 5px 15px; border-radius: 20px; font-size: 0.7rem; font-weight: 800;">CANTERA GLOBAL</span>
+                <h2 class="section-title" style="margin-top:10px;">Youth Academy Scout</h2>
+                <p class="section-subtitle">Descubre y tokeniza a las futuras estrellas. Tecnología <b>State Compression</b> para escala ilimitada.</p>
+            </div>
+
+            <div class="academy-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:30px;">
+                <!-- Scouting Tool -->
+                <div class="glass-card reveal" style="border-color: var(--secondary); background: rgba(153, 69, 255, 0.05); text-align: left;">
+                    <h3>🔍 Scouting Toolkit</h3>
+                    <p style="font-size:0.8rem; color:var(--text-dim); margin: 15px 0;">Mintea hasta 100 jugadores de una vez por una fracción del costo habitual. Ideal para academias y ligas regionales.</p>
+                    <div class="scout-actions" style="display:flex; flex-direction:column; gap:15px; margin-top: 20px;">
+                        <div class="scout-stat" style="display:flex; justify-content:space-between; font-size:0.8rem;">
+                            <span>Costo por 10 cNFTs:</span>
+                            <strong style="color:var(--primary);">0.005 SOL</strong>
+                        </div>
+                        <button id="scoutBtn" class="btn btn-secondary btn-glow" style="width:100%;">SCOUTEAR 10 PROSPECTOS</button>
+                    </div>
+                </div>
+
+                <!-- Academy List -->
+                <div class="glass-card reveal" style="text-align: left;">
+                    <h3>🏃 Mis Prospectos (cNFTs)</h3>
+                    <div id="prospectsList" class="prospects-grid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(80px, 1fr)); gap:10px; max-height:200px; overflow-y:auto; margin-top:15px; padding-right: 5px;">
+                        <p style="grid-column: 1/-1; text-align:center; color:var(--text-dim); font-size:0.7rem; padding:40px;">No hay prospectos en la cantera...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compression Visualizer -->
+            <div class="glass-card reveal" style="margin-top:2rem; text-align:center; border-style:dashed; border-width: 1px;">
+                <h4 style="font-size:0.8rem; color:var(--primary); text-transform: uppercase; letter-spacing: 1px;">Merkle Tree Status (State Compression)</h4>
+                <div id="merkleVisualizer" style="height:6px; background:#111; border-radius:3px; margin:15px 0; overflow:hidden; border: 1px solid rgba(255,255,255,0.05);">
+                    <div id="merkleProgress" style="width:0%; height:100%; background:var(--secondary); transition:width 0.4s ease;"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-family: monospace; font-size: 0.6rem; color: var(--text-dim);">
+                    <span id="merkleStatus">Merkle Tree: 1,248/1,000,000</span>
+                    <span id="merkleRoot">Root: 0x7f...a3e2</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="roadmap" class="section section-dark">
         <h2 class="section-title reveal"><span data-i18n="rm_title">Hoja de Ruta</span></h2>
         <p class="section-subtitle reveal" data-i18n="rm_sub">Desliza horizontalmente para ver nuestro plan de desarrollo.</p>
@@ -627,5 +673,6 @@
     </div>
     
     <script src="assets/js/dialect_app.js"></script>
+    <script src="assets/js/cnft_scout.js"></script>
 </body>
 </html>
