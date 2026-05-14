@@ -51,7 +51,7 @@ async function fetchFixtures() {
 }
 
 function updateFixtureUI(match) {
-    const fixtureSection = document.querySelector('#gameplay .glass-card');
+    const fixtureSection = document.getElementById('matchDisplay') || document.querySelector('#gameplay .glass-card');
     if (!fixtureSection) return;
 
     // Convertir lamports a SOL (asumiendo que los pools están en SOL o GCH)
