@@ -39,16 +39,25 @@ async function connectWallet() {
     }
 }
 function verifyAccess(pubKey) {
-    console.log("GoalChain Auth: Verificando wallet...", pubKey);
-    // Normalizar la key para evitar errores de mayúsculas/minúsculas
+    if (!pubKey) return;
     const normalizedKey = pubKey.trim();
-    const role = AUTHORIZED_WALLETS[normalizedKey] || (pubKey.startsWith('A') || pubKey.startsWith('B') ? 'dev' : null);
+    console.log("GoalChain Auth: Verificando...", normalizedKey);
+
+    // Búsqueda exacta en la lista
+    let role = AUTHORIZED_WALLETS[normalizedKey];
+
+    // Fallback: Si no está en la lista pero es tu wallet (D6Aa...), forzar dev
+    if (!role && normalizedKey.startsWith("D6AabfJnF6sxuAymDz7JMbB4r2i2FaQVzPb7G7nhMMxo")) {
+        role = "dev";
+    }
 
     if (role) {
-        currentWallet = pubKey;
+        console.log("Acceso concedido como:", role);
+        currentWallet = normalizedKey;
         currentRole = role;
         grantAccess();
     } else {
+        console.warn("Acceso denegado para:", normalizedKey);
         document.getElementById('accessDenied').style.display = 'block';
     }
 }
