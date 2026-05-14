@@ -7,7 +7,7 @@
     "fixture": "node fixture_oracle.js",
     "live": "node live_oracle.js",
     "init:players": "node initialize_players.js",
-    "lint": "node --check *.js",
+    "lint": "for f in *.js; do node --check \"$f\"; done",
     "test": "npm run lint"
   },
   "keywords": [],
