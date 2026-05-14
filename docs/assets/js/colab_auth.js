@@ -5,7 +5,8 @@
 
 // Lista de Wallets Autorizadas (Nivel de Acceso)
 const AUTHORIZED_WALLETS = {
-    // DEV TEAM (Vos y tus hermanos - Reemplaza con vuestras public keys reales)
+    // DEV TEAM
+    "D6AabfJnF6sxuAymDz7JMbB4r2i2FaQVzPb7G7nhMMxo": "dev", // Nico (Admin)
     "9j89K...Nico": "dev",
     "Gv7T...Hermano1": "dev",
     "FbDh...Hermano2": "dev",
