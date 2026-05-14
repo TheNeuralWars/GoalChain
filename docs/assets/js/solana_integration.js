@@ -28,12 +28,41 @@ function updateWalletUI() {
             btn.style.background = 'var(--secondary)'; // Cambiar a púrpura de Solana
         });
 
-        // Ocultar campo de email en la whitelist si ya tenemos la wallet
-        const emailInput = document.querySelector('input[type="email"]');
+        // Habilitar campo de email para la whitelist
+        const emailInput = document.getElementById('whitelistEmail');
         if (emailInput) {
-            emailInput.placeholder = "¡Wallet Conectada con éxito!";
-            emailInput.disabled = true;
-            emailInput.value = userWalletAddress;
+            emailInput.placeholder = "Escribe tu email para registrarte...";
+            emailInput.disabled = false;
+        }
+
+        // Gestión de Whitelist Form (Avanzado)
+        const whitelistForm = document.getElementById('whitelistForm');
+        if (whitelistForm && !whitelistForm.dataset.handled) {
+            whitelistForm.dataset.handled = "true";
+            whitelistForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('whitelistEmail').value;
+                const wallet = userWalletAddress;
+
+                try {
+                    const response = await fetch('http://localhost:3001/api/whitelist', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ wallet, email })
+                    });
+
+                    const result = await response.json();
+                    if (result.success) {
+                        alert("¡Éxito! Te has unido a la Whitelist de GoalChain. ⚽🔥");
+                        whitelistForm.innerHTML = `<h3 style='color:var(--primary); margin: 20px 0;'>✅ ¡Ya estás dentro!</h3><p style='font-size:0.8rem; color:var(--text-dim);'>Wallet: ${wallet.slice(0,6)}...${wallet.slice(-4)}</p>`;
+                    } else {
+                        alert("Hubo un problema al registrarte.");
+                    }
+                } catch (err) {
+                    console.error("Whitelist Error:", err);
+                    alert("Error de conexión con la API.");
+                }
+            });
         }
 
         // Mostrar sección de recompensas
