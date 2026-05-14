@@ -1,48 +1,70 @@
 # 🎨 GoalChain: NFT Master Prompt Dictionary (Phase 1)
 
-Este documento contiene los prompts optimizados para la generación de los primeros 50 cromos (Mythic + Legendary).
+Este documento contiene los prompts optimizados para la generación de los primeros cromos (Mythic + Legendary) de la colección. Las instrucciones han sido diseñadas con máxima precisión para garantizar una **consistencia absoluta** a través de miles de cromos generados en distintas tandas.
 
-## 🚀 Estructura Maestra V3.0 (Ultra-Technical)
-Para asegurar coherencia absoluta, cada prompt debe seguir este "Blueprint" de capas técnicas:
+## 📐 Especificaciones Técnicas Estrictas (Globales)
 
-### 1. El "Master Prompt" Frontal (Full Card Layout - V5.0)
-`"A premium rectangular digital trading card featuring [PLAYER_CONCEPT], known as '[PARODY_NAME]'. 
-[CARD_DESIGN]: Perfectly rectangular card shape, edge-to-edge design with NO image outside the frame. The frame is a high-tech [RARITY_MATERIAL] structure with glowing [RARITY_COLOR] Solana-inspired circuitry (#14f195, #9945ff). The top header says 'PREMIUM DIGITAL TRADING CARD'.
-[SUBJECT]: 3D hyper-realistic style player wearing his [NATIONAL_COUNTRY] national kit (light blue and white stripes for ARG) with subtle glowing futuristic neon fiber optics. Pose: [EPIC_POSE]. 
-[ENVIRONMENT]: Futuristic stadium background, high-luminosity, vibrant Solana green and purple ambient light. A blurred crowd is visible in the background along with [NATIONAL_COUNTRY] national flags. Deep depth of field (bokeh) focusing exclusively on the player. 
-[TECHNICAL]: 4k resolution, centered composition, edge-to-edge cropping, professional sports memorabilia, Unreal Engine 5 aesthetic."`
+Para garantizar la uniformidad en toda la colección, **TODOS** los cromos deben adherirse obligatoriamente a los siguientes parámetros:
+
+1. **Dimensiones y Relación de Aspecto:** Todos los cromos deben tener una relación de aspecto de **2:3** (Vertical). Si se usa Midjourney, añadir `--ar 2:3` al final de cada prompt.
+2. **Consistencia del Marco (Frame):** El marco debe tener siempre el mismo grosor y estilo geométrico en toda la colección. **Regla de oro:** Absolutamente NINGÚN elemento (ni brazos, ni efectos, ni luces) puede sobresalir o romper los límites del marco. El diseño es estrictamente "contenido" (contained within the frame).
+3. **Paleta de Colores Base (Estilo Solana / "Phil Fod-ether"):** El fondo y la iluminación ambiental de TODOS los cromos deben usar estrictamente la paleta de Solana para mantener coherencia visual:
+   - **Fondo / Espacio Negativo:** Tonos muy oscuros, negro mate (`#0a0a0a`) y violeta profundo espacial.
+   - **Iluminación Ambiental:** Mezcla de **Verde Solana Neón (`#14f195`)** y **Púrpura Solana Neón (`#9945ff`)**. Esta iluminación debe bañar sutilmente al jugador y al estadio de fondo.
+
+---
+
+## 🚀 Estructura Maestra V4.0 (Ultra-Technical & High Consistency)
+
+Cada prompt debe seguir este "Blueprint" de capas técnicas sin omitir ninguna sección:
+
+### 1. El "Master Prompt" Frontal (Full Card Layout)
+`"A premium digital trading card featuring [PLAYER_CONCEPT], known as '[PARODY_NAME]'. 
+[DIMENSIONS & LAYOUT]: Strictly 2:3 aspect ratio vertical card. Completely flat card surface, everything is 100% contained inside the card borders. NO pop-out effects, NO elements breaking the frame. 
+[CARD_DESIGN]: Uniform rectangular border of exact equal thickness on all sides. The frame is a high-tech [RARITY_MATERIAL] structure with subtle integrated circuitry. 
+[SUBJECT]: 3D hyper-realistic style player wearing his [NATIONAL_COUNTRY] national kit. Pose: [EPIC_POSE]. The subject is entirely inside the card frame.
+[ENVIRONMENT/COLOR PALETTE]: Deep dark background with strict Solana color palette lighting: vibrant neon green (#14f195) and neon purple (#9945ff) ambient lights. A futuristic blurred stadium crowd in the background matching the dark Solana aesthetic, exactly like the 'Phil Fod-ether' baseline card. Deep depth of field (bokeh) focusing exclusively on the player. 
+[TECHNICAL]: 8k resolution, centered composition, edge-to-edge cropping, symmetrical border, professional sports memorabilia, Unreal Engine 5 aesthetic, octane render."`
 
 ---
 
 ### 2. El "Master Prompt" Retro (Reverso)
 `"Professional sports card back-side technical interface. 
-[BACKGROUND]: Dark matte carbon fiber with a 0.5mm micro-hexagonal texture and recessed [RARITY_COLOR] neon circuitry lines using a 'tron-like' emission. 
-[CENTER]: A high-tech hexagonal radar spider-chart, cyan and [RARITY_COLOR] glow, representing 'SOLANA DNA' attributes. 
-[ELEMENTS]: Bottom right features a 3D holographic embossed seal of the GoalChain badge with a parallax depth effect. Bottom left contains a pixel-perfect digital LCD display showing 'TX_ID: 0x88...7z' in a futuristic mono-spaced font. 
-[RENDER]: Clean industrial design, hard-surface modeling, ray-traced ambient occlusion, macro photography style, 8k, sharp edges, metallic reflections."`
+[DIMENSIONS & LAYOUT]: Strictly 2:3 aspect ratio vertical card. Completely flat surface, 100% contained inside the borders. Uniform rectangular border of exact equal thickness.
+[BACKGROUND/COLOR PALETTE]: Dark matte carbon fiber (#0a0a0a) with a 0.5mm micro-hexagonal texture. Recessed neon circuitry lines strictly using Solana neon green (#14f195) and neon purple (#9945ff).
+[CENTER]: A high-tech hexagonal radar spider-chart, glowing in [RARITY_COLOR], representing 'SOLANA DNA' attributes. 
+[ELEMENTS]: Bottom right features a 2D flat holographic seal of the GoalChain badge. Bottom left contains a pixel-perfect digital LCD display showing 'TX_ID: 0x88...7z' in a futuristic mono-spaced font. 
+[RENDER]: Clean industrial design, hard-surface modeling, UI/UX dashboard style, 8k, sharp edges, metallic reflections."`
 
 ---
 
-## 🚫 Parámetros de Calidad y "Negative Prompts"
-Para evitar inconsistencias, añadir siempre al final (o en campo negativo):
-`"Negative: deformed hands, extra fingers, blurry logo, low resolution, flat colors, cartoony, 2D illustration, missing limbs, watermark, text overlays (except parody name), messy jersey patterns."`
+## 🚫 Parámetros de Calidad y "Negative Prompts" (CRÍTICO)
+
+Para evitar inconsistencias y elementos que rompan la uniformidad de la colección, **es obligatorio** añadir siempre lo siguiente al final del prompt (o en el campo negativo):
+
+`"Negative: out of frame, elements breaking the border, 3d pop-out, 3d effect breaking frame, asymmetrical border, uneven frame thickness, deformed hands, extra fingers, blurry logo, low resolution, flat colors, cartoony, 2D illustration, missing limbs, watermark, text overlays (except parody name), messy jersey patterns, non-Solana colors in background, warm background lighting (orange/yellow/red unless explicitly requested by rarity)."`
+
+---
 
 ## 🏆 Legendaries (Capitanes) & Epics Destacados
-- **Lionel Bitcoin (ARG):** Oro sobre Negro Diamante, señalando al cielo, partículas divinas.
-- **Dibu Block (ARG):** Kit verde neón, pose de vuelo horizontal atajando un balón digital con chispas, marco de carbono neón.
-- **Cristiano Holdaldo (POR):** Armadura de Cromo Negro y Oro Blanco, pose de salto "SIUUU" con una onda de choque sónica azul eléctrica que resquebraja el suelo digital.
-- **Kylian M-Bag-pé (FRA):** Azul profundo, marco de plata líquida holográfica.
-- **Vini Burner Jr (BRA):** Amarillo canario neón, pose de baile de samba con estela de "fuego digital" y chispas neón en los pies, marco de esmeralda con efectos de llama.
-- **Harry Chain (ENG):** Blanco perla y azul marino, pose de celebración con brazos abiertos y una corona digital flotante, marco de platino con grabados reales.
-- **Lamine Ya-Hype (ESP):** Rojo carmesí neón, pose de sprint a "velocidad de la luz" con estela de chispas eléctricas doradas, marco de rubí con grietas de luz.
-- **Jamal Moon-siala (GER):** Blanco minimalista, marco de cromo oscuro con luces blancas.
-- **Endrick Chain (BRA):** Verde selva futurista, marco de jade digital.
+*Nota: La iluminación de fondo siempre será Verde y Púrpura Solana, los colores de rareza aplican al marco y pequeños detalles del traje.*
+
+- **Lionel Bitcoin (ARG):** Marco de Oro sobre Negro Diamante, señalando al cielo, partículas divinas doradas contenidas en el marco.
+- **Dibu Block (ARG):** Kit verde neón, pose de vuelo horizontal atajando un balón digital con chispas. Marco de carbono con acentos verde neón.
+- **Cristiano Holdaldo (POR):** Armadura de Cromo Negro y Oro Blanco, pose de salto "SIUUU" con una onda de choque sónica azul eléctrica contenida en la carta.
+- **Kylian M-Bag-pé (FRA):** Marco de plata líquida holográfica, detalles en azul profundo.
+- **Vini Burner Jr (BRA):** Marco de esmeralda. Pose de baile de samba con estela de "fuego digital" verde/amarillo.
+- **Harry Chain (ENG):** Marco de platino con grabados reales. Pose de celebración con brazos abiertos.
+- **Lamine Ya-Hype (ESP):** Marco de rubí oscuro. Pose de sprint a "velocidad de la luz" con estela de chispas.
+- **Jamal Moon-siala (GER):** Marco de cromo oscuro con sutiles luces blancas.
+- **Endrick Chain (BRA):** Marco de jade digital oscuro.
+- **Phil Fod-ether (ENG):** [BASELINE] Marco de cristal oscuro. Iluminación perfecta de estadio en verde y púrpura Solana, pose de control de balón elegante.
 
 ## 📦 El Sobre (Mystery Pack)
-- **Closed Pack:** Sobre de aluminio negro mate, rayos púrpura y verde Solana escapando de las costuras, logo GoalChain centrado en 3D.
-## 🌀 The Retro (Back Side) Master Prompt
-`"A futuristic technical data panel for a sports card back side. Background: matte black carbon fiber with subtle glowing [RARITY_COLOR] circuitry. Center: a hexagonal radar chart with neon lines showing player attributes. Bottom right: a glowing holographic circular seal with the GoalChain logo and 'OFFICIAL BLOCKCHAIN CERTIFIED' text. Bottom left: a small digital display with 'TOKEN ID: #XXXXX' in monospace font. Frame: thin 5px lines of [RARITY_MATERIAL]. 8k resolution, cinematic lighting, tech-noir aesthetic."`
+- **Closed Pack:** Sobre de aluminio negro mate, aspecto 2:3, rayos púrpura (#9945ff) y verde Solana (#14f195) escapando sutilmente de las costuras selladas, logo GoalChain centrado en relieve suave.
 
-- **Mythic Back:** Black diamond frame, white energy pulses in the circuits.
+## 🌀 Tipos de Reverso por Rareza
+La base siempre es el fondo estilo Solana (Dark/Green/Purple). Lo que cambia por rareza es el brillo del radar central y el material del borde:
+- **Mythic Back:** Black diamond frame, white energy pulses in the center radar.
 - **Legendary Back:** Liquid gold frame, amber neon radar chart.
-- **Epic Back:** Purple neon accents, carbon fiber texture.
+- **Epic Back:** Purple neon accents in the frame, carbon fiber texture.
