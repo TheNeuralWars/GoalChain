@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="assets/css/style.css?v=2.2">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { --sidebar-w: 260px; }
+        :root { --sidebar-w: 260px; --feed-w: 300px; }
         body { background: #06060a; display: flex; height: 100vh; overflow: hidden; }
         .sidebar { width: var(--sidebar-w); background: rgba(13, 13, 20, 0.8); border-right: 1px solid rgba(255,255,255,0.05); padding: 30px 20px; display: flex; flex-direction: column; backdrop-filter: blur(20px); }
         .main-content { flex: 1; padding: 40px; overflow-y: auto; background: radial-gradient(circle at top right, rgba(20, 241, 149, 0.05), transparent); }
+        .activity-feed { width: var(--feed-w); background: rgba(0,0,0,0.2); border-left: 1px solid rgba(255,255,255,0.05); padding: 20px; display: flex; flex-direction: column; }
         
         .nav-item { padding: 15px; border-radius: 12px; color: var(--text-dim); text-decoration: none; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; transition: all 0.3s; cursor: pointer; border: 1px solid transparent; }
         .nav-item:hover { background: rgba(255,255,255,0.05); color: white; }
@@ -135,12 +136,21 @@
 
     </main>
 
+    <!-- RIGHT SIDEBAR: LIVE FEED -->
+    <aside class="activity-feed">
+        <h3 style="font-size: 0.8rem; letter-spacing: 1px; color: var(--primary); margin-bottom: 20px;">⚡ LIVE ON-CHAIN FEED</h3>
+        <div id="heliusEvents" style="display: flex; flex-direction: column; gap: 10px; overflow-y: auto;">
+            <p style="font-size: 0.7rem; color: var(--text-dim); text-align: center; padding: 20px;">Sincronizando con Helius Webhooks...</p>
+        </div>
+    </aside>
+
     <!-- Scripts -->
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
     <script src="assets/js/contract_data.js"></script>
     <script src="assets/js/drift_markets.js"></script>
     <script src="assets/js/cnft_scout.js"></script>
     <script src="assets/js/lending_app.js"></script>
+    <script src="assets/js/helius_sync.js"></script>
     
     <script>
         // Soporte para tecla ESC
