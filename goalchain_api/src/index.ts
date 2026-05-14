@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { Connection } from '@solana/web3.js';
 import { AnchorProvider, Program } from '@coral-xyz/anchor';
-import { idl, PROGRAM_ID, GoalchainProgram } from '../../goalchain-sdk/src';
+import { idl, PROGRAM_ID, GoalchainProgram } from '@goalchain/sdk';
 
 dotenv.config();
 
