@@ -50,6 +50,11 @@
             </style>
         </div>
         <div class="nav-right">
+            <!-- NOTIFICATION BELL -->
+            <div id="notifBell" class="notif-bell" style="position:relative; margin-right:20px; cursor:pointer; font-size:1.2rem; transition: transform 0.2s;">
+                <span class="bell-icon">🔔</span>
+                <span id="notifBadge" class="notif-badge" style="position:absolute; top:-5px; right:-8px; background:#ff4d6a; color:white; font-size:0.65rem; padding:2px 6px; border-radius:10px; font-weight:bold; display:none;">0</span>
+            </div>
             <div class="lang-toggle">
                 <button id="langEs" class="active" onclick="setLang('es')">ES</button>
                 <button id="langEn" onclick="setLang('en')">EN</button>
@@ -607,5 +612,20 @@
     <script src="assets/js/contract_data.js?v=1.1"></script>
     <script src="assets/js/nft_registry.js?v=1.2"></script>
     <script src="assets/js/pack_opener.js?v=1.1"></script>
+    <!-- DIALECT NOTIFICATION INBOX -->
+    <div id="notifInbox" class="notif-inbox" style="position:fixed; top:80px; right:20px; width:320px; background:rgba(6,6,10,0.95); backdrop-filter:blur(20px); border:1px solid var(--primary); border-radius:16px; transform:translateX(400px); transition:transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index:1000; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
+        <div class="notif-header" style="padding:15px; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
+            <h3 style="font-size:0.9rem; margin:0; color:var(--primary);">GoalChain Inbox</h3>
+            <button id="closeNotif" style="background:transparent; border:none; color:white; font-size:1.2rem; cursor:pointer;">&times;</button>
+        </div>
+        <div id="notifList" class="notif-list" style="max-height:400px; overflow-y:auto; padding:10px;">
+            <div id="optInContainer" style="padding:20px; text-align:center;">
+                <p style="font-size:0.8rem; color:var(--text-dim);">Recibe alertas de goles y apuestas directamente en tu wallet.</p>
+                <button id="optInBtn" class="btn btn-primary btn-sm" style="width:100%; margin-top:10px;">SUSCRIBIRSE</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/js/dialect_app.js"></script>
 </body>
 </html>
