@@ -27,7 +27,8 @@ describe("goalchain_program", () => {
 
   const payer = (provider.wallet as any).payer as Keypair;
 
-  const program = anchor.workspace.GoalchainProgram as Program<GoalchainProgram>;
+  const program = anchor.workspace
+    .GoalchainProgram as Program<GoalchainProgram>;
 
   const admin = Keypair.generate();
   const oracleAuthority = Keypair.generate();
@@ -103,7 +104,10 @@ describe("goalchain_program", () => {
       await airdropConfirmed(u.pk, 2);
     }
 
-    [configPda] = PublicKey.findProgramAddressSync([Buffer.from("config")], program.programId);
+    [configPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("config")],
+      program.programId
+    );
 
     [parodyPlayerPda] = PublicKey.findProgramAddressSync(
       [Buffer.from("player"), Buffer.from(playerId)],
@@ -117,7 +121,13 @@ describe("goalchain_program", () => {
 
     // ===== SPL mint + ATAs for fixtures tests =====
     console.log("[tests] create SPL mint for fixtures (test token)...");
-    betMint = await createMint(provider.connection, payer, provider.wallet.publicKey, null, 6);
+    betMint = await createMint(
+      provider.connection,
+      payer,
+      provider.wallet.publicKey,
+      null,
+      6
+    );
 
     const treasury = await getOrCreateAssociatedTokenAccount(
       provider.connection,
@@ -127,23 +137,55 @@ describe("goalchain_program", () => {
     );
     treasuryAta = treasury.address;
 
-    const u1 = await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, user1.publicKey);
+    const u1 = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      payer,
+      betMint,
+      user1.publicKey
+    );
     user1Ata = u1.address;
 
-    const u2 = await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, user2.publicKey);
+    const u2 = await getOrCreateAssociatedTokenAccount(
+      provider.connection,
+      payer,
+      betMint,
+      user2.publicKey
+    );
     user2Ata = u2.address;
 
     // Fund users with test tokens
     console.log("[tests] mint test tokens to user ATAs...");
-    await mintTo(provider.connection, payer, betMint, user1Ata, payer, 1_000_000_000);
-    await mintTo(provider.connection, payer, betMint, user2Ata, payer, 1_000_000_000);
+    await mintTo(
+      provider.connection,
+      payer,
+      betMint,
+      user1Ata,
+      payer,
+      1_000_000_000
+    );
+    await mintTo(
+      provider.connection,
+      payer,
+      betMint,
+      user2Ata,
+      payer,
+      1_000_000_000
+    );
 
     // ===== init/update GlobalConfig with real treasury ATA =====
     console.log("[tests] init/update GlobalConfig...");
-    const cfgInfo = await provider.connection.getAccountInfo(configPda, "confirmed");
+    const cfgInfo = await provider.connection.getAccountInfo(
+      configPda,
+      "confirmed"
+    );
     if (!cfgInfo) {
       await program.methods
-        .initializeConfig(oracleAuthority.publicKey, treasuryAta, 1_000, new anchor.BN(15 * 60))
+        .initializeConfig(
+          oracleAuthority.publicKey,
+          treasuryAta,
+          1_000,
+          new anchor.BN(15 * 60)
+        )
         .accounts({
           admin: admin.publicKey,
           config: configPda,
@@ -153,7 +195,12 @@ describe("goalchain_program", () => {
         .rpc();
     } else {
       await program.methods
-        .updateConfig(oracleAuthority.publicKey, treasuryAta, 1_000, new anchor.BN(15 * 60))
+        .updateConfig(
+          oracleAuthority.publicKey,
+          treasuryAta,
+          1_000,
+          new anchor.BN(15 * 60)
+        )
         .accounts({
           admin: admin.publicKey,
           config: configPda,
@@ -162,7 +209,10 @@ describe("goalchain_program", () => {
         .rpc();
     }
 
-    ;[fixturePda] = PublicKey.findProgramAddressSync([Buffer.from("fixture"), Buffer.from(matchId)], program.programId);
+    [fixturePda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("fixture"), Buffer.from(matchId)],
+      program.programId
+    );
 
     // Derive vault PDA now (needed for place_bet init_if_needed)
     const [vaultPda] = PublicKey.findProgramAddressSync(
@@ -187,7 +237,9 @@ describe("goalchain_program", () => {
       .signers([admin])
       .rpc();
 
-    const playerAccount = await program.account.parodyPlayer.fetch(parodyPlayerPda);
+    const playerAccount = await program.account.parodyPlayer.fetch(
+      parodyPlayerPda
+    );
     assert.equal(playerAccount.name, "Lionel Bitcoin");
     assert.equal(playerAccount.playerId, playerId);
     assert.equal(playerAccount.speed, 85);
@@ -210,7 +262,9 @@ describe("goalchain_program", () => {
       .signers([oracleAuthority])
       .rpc();
 
-    const playerAccount = await program.account.parodyPlayer.fetch(parodyPlayerPda);
+    const playerAccount = await program.account.parodyPlayer.fetch(
+      parodyPlayerPda
+    );
     assert.equal(playerAccount.realWorldGoals, 2);
     assert.equal(playerAccount.realWorldAssists, 1);
     assert.equal(playerAccount.shotPower, 92);
@@ -300,9 +354,15 @@ describe("goalchain_program", () => {
       .rpc();
 
     // Track balances before claim
-    const u1Before = Number((await getAccount(provider.connection, user1Ata)).amount);
-    const u2Before = Number((await getAccount(provider.connection, user2Ata)).amount);
-    const treasuryBefore = Number((await getAccount(provider.connection, treasuryAta)).amount);
+    const u1Before = Number(
+      (await getAccount(provider.connection, user1Ata)).amount
+    );
+    const u2Before = Number(
+      (await getAccount(provider.connection, user2Ata)).amount
+    );
+    const treasuryBefore = Number(
+      (await getAccount(provider.connection, treasuryAta)).amount
+    );
 
     // 3.4 Claim payouts
     // user1 (loser) should fail (NotAWinner)
@@ -345,9 +405,15 @@ describe("goalchain_program", () => {
       .signers([user2])
       .rpc();
 
-    const u1After = Number((await getAccount(provider.connection, user1Ata)).amount);
-    const u2After = Number((await getAccount(provider.connection, user2Ata)).amount);
-    const treasuryAfter = Number((await getAccount(provider.connection, treasuryAta)).amount);
+    const u1After = Number(
+      (await getAccount(provider.connection, user1Ata)).amount
+    );
+    const u2After = Number(
+      (await getAccount(provider.connection, user2Ata)).amount
+    );
+    const treasuryAfter = Number(
+      (await getAccount(provider.connection, treasuryAta)).amount
+    );
 
     // u1 unchanged
     assert.equal(u1After, u1Before);
@@ -422,7 +488,11 @@ describe("goalchain_program", () => {
 
     // 4.3 place bet by user1 on Draw
     const [posPda] = PublicKey.findProgramAddressSync(
-      [Buffer.from("position"), user1.publicKey.toBuffer(), marketPda.toBuffer()],
+      [
+        Buffer.from("position"),
+        user1.publicKey.toBuffer(),
+        marketPda.toBuffer(),
+      ],
       program.programId
     );
 
@@ -457,8 +527,12 @@ describe("goalchain_program", () => {
       .signers([oracleAuthority])
       .rpc();
 
-    const uBefore = Number((await getAccount(provider.connection, user1Ata)).amount);
-    const treBefore = Number((await getAccount(provider.connection, treasuryAta)).amount);
+    const uBefore = Number(
+      (await getAccount(provider.connection, user1Ata)).amount
+    );
+    const treBefore = Number(
+      (await getAccount(provider.connection, treasuryAta)).amount
+    );
 
     // 4.5 claim immediately should fail due to delay
     let tooEarlyFailed = false;
@@ -502,8 +576,12 @@ describe("goalchain_program", () => {
       .signers([user1])
       .rpc();
 
-    const uAfter = Number((await getAccount(provider.connection, user1Ata)).amount);
-    const treAfter = Number((await getAccount(provider.connection, treasuryAta)).amount);
+    const uAfter = Number(
+      (await getAccount(provider.connection, user1Ata)).amount
+    );
+    const treAfter = Number(
+      (await getAccount(provider.connection, treasuryAta)).amount
+    );
 
     // gross share = 100, fee 10% => 90
     assert.equal(uAfter - uBefore, 90_000_000);
