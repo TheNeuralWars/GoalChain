@@ -44,6 +44,15 @@ const NFT_IMAGE_MAP = {
     157: "157_cristiano_holdaldo.png"
 };
 
+// Background Image Map
+const BG_IMAGE_MAP = {
+    "BG-MYT": "bg_mythic_lunar.png",
+    "BG-LEG": "bg_legendary_hologram.png",
+    "BG-EPI": "bg_epic_aurora.png",
+    "BG-RAR": "bg_rare_sunset.png",
+    "BG-COM": "bg_common_grass.png"
+};
+
 function getPlayerImagePath(player) {
     // Check manual map first
     if (NFT_IMAGE_MAP[player.id]) {
@@ -167,6 +176,11 @@ function renderPlayers() {
             <div class="glare"></div>
             <div class="card-inner">
                 <div class="card-front">
+                    <!-- Layer 0: Background -->
+                    <div class="layer layer-bg">
+                        <img src="assets/img/nfts/bg/${BG_IMAGE_MAP[player.bg_type] || 'bg_common_grass.png'}" alt="Stadium Background" class="bg-img">
+                    </div>
+
                     <!-- Layer 1: Player Image -->
                     <div class="layer layer-base">
                         <img src="${imgPath}" alt="${player.name}" loading="lazy" 

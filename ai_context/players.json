@@ -2,541 +2,7393 @@
     {
         "id": 1,
         "name": "Lionel Satoshi",
-        "country": "Argentina",
+        "country": "ARGENTINA",
         "rarity": "mythic",
+        "bg_type": "BG-MYT",
         "position": "FWD",
         "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "atk": 95,
+            "def": 85,
+            "hype": 99
+        },
+        "real_name": "Lionel Messi"
     },
     {
         "id": 2,
         "name": "Dibu De-Fi",
-        "country": "Argentina",
+        "country": "ARGENTINA",
         "rarity": "legendary",
+        "bg_type": "BG-LEG",
         "position": "GK",
         "stats": {
             "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Emiliano Martínez"
     },
     {
         "id": 3,
         "name": "Julian Bull-varez",
-        "country": "Argentina",
+        "country": "ARGENTINA",
         "rarity": "epic",
+        "bg_type": "BG-EPI",
         "position": "FWD",
         "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Julián Álvarez"
     },
     {
         "id": 4,
         "name": "Enzo Ether",
-        "country": "Argentina",
+        "country": "ARGENTINA",
         "rarity": "epic",
+        "bg_type": "BG-EPI",
         "position": "MID",
         "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Enzo Fernández"
     },
     {
         "id": 5,
         "name": "Rodrigo De-Pool",
-        "country": "Argentina",
-        "rarity": "epic",
-        "position": "MID",
+        "country": "ARGENTINA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
         "stats": {
-            "atk": 88,
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Rodrigo De Paul"
     },
     {
         "id": 6,
         "name": "Angel Di Merkle",
-        "country": "Argentina",
-        "rarity": "legendary",
+        "country": "ARGENTINA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
         "position": "FWD",
         "stats": {
-            "atk": 88,
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Ángel Di María"
     },
     {
         "id": 7,
         "name": "Alexis Mac-Chain",
-        "country": "Argentina",
-        "rarity": "epic",
+        "country": "ARGENTINA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
         "position": "MID",
         "stats": {
-            "atk": 88,
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Alexis Mac Allister"
     },
     {
         "id": 8,
         "name": "Cuti Crypt",
-        "country": "Argentina",
-        "rarity": "epic",
+        "country": "ARGENTINA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
         "position": "DEF",
         "stats": {
-            "atk": 88,
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Cristian Romero"
     },
     {
         "id": 9,
-        "name": "Lautaro Bull-Run",
-        "country": "Argentina",
-        "rarity": "epic",
-        "position": "FWD",
+        "name": "Lisandro Butcher-DAO",
+        "country": "ARGENTINA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
         "stats": {
-            "atk": 88,
+            "atk": 70,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 70
+        },
+        "real_name": "Lisandro Martínez"
     },
     {
         "id": 10,
-        "name": "Lisandro The-Butcher-DAO",
-        "country": "Argentina",
-        "rarity": "epic",
+        "name": "Nahuel Mo-Wallet",
+        "country": "ARGENTINA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
         "position": "DEF",
         "stats": {
-            "atk": 88,
+            "atk": 70,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 70
+        },
+        "real_name": "Nahuel Molina"
     },
     {
         "id": 11,
-        "name": "Kylian M-Node-p\u00e9",
-        "country": "Francia",
-        "rarity": "legendary",
-        "position": "FWD",
+        "name": "Nico Taglia-Token",
+        "country": "ARGENTINA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
         "stats": {
-            "atk": 88,
+            "atk": 70,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 70
+        },
+        "real_name": "Nicolás Tagliafico"
     },
     {
         "id": 12,
-        "name": "Antoine G-ZkSync",
-        "country": "Francia",
-        "rarity": "epic",
+        "name": "Kylian M-Bypass-pé",
+        "country": "FRANCIA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
         "position": "FWD",
         "stats": {
             "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Kylian Mbappé"
     },
     {
         "id": 13,
-        "name": "Ousmane De-Shard",
-        "country": "Francia",
+        "name": "Antoine G-ZkSync",
+        "country": "FRANCIA",
         "rarity": "epic",
+        "bg_type": "BG-EPI",
         "position": "FWD",
         "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Antoine Griezmann"
     },
     {
         "id": 14,
-        "name": "Aur\u00e9lien Tchoua-Mining",
-        "country": "Francia",
+        "name": "Ousmane De-Shard",
+        "country": "FRANCIA",
         "rarity": "epic",
-        "position": "MID",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
         "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Ousmane Dembélé"
     },
     {
         "id": 15,
-        "name": "Eduardo Cama-Contract",
-        "country": "Francia",
+        "name": "Eduardo Cama-Logic",
+        "country": "FRANCIA",
         "rarity": "epic",
+        "bg_type": "BG-EPI",
         "position": "MID",
         "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Eduardo Cama"
     },
     {
         "id": 16,
         "name": "Theo Shiller",
-        "country": "Francia",
-        "rarity": "epic",
-        "position": "DEF",
+        "country": "FRANCIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
         "stats": {
-            "atk": 88,
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Theo Shiller"
     },
     {
         "id": 17,
-        "name": "Mike Maignan-Node",
-        "country": "Francia",
-        "rarity": "epic",
-        "position": "GK",
+        "name": "Mike Maignan-Admin",
+        "country": "FRANCIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
         "stats": {
-            "atk": 88,
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Mike Maignan"
+    },
+    {
+        "id": 18,
+        "name": "Aurélien Buffer-Tch",
+        "country": "FRANCIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Aurélien Tchouaméni"
+    },
+    {
+        "id": 19,
+        "name": "William Sali-Struct",
+        "country": "FRANCIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "William Saliba"
+    },
+    {
+        "id": 20,
+        "name": "Dayot Upame-Kernel",
+        "country": "FRANCIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Dayot Upamecano"
     },
     {
         "id": 21,
-        "name": "Harry Stake",
-        "country": "Inglaterra",
-        "rarity": "legendary",
+        "name": "Jules Koun-DEX",
+        "country": "FRANCIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
         "position": "FWD",
         "stats": {
-            "atk": 88,
+            "atk": 70,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 70
+        },
+        "real_name": "Jules Koundé"
     },
     {
         "id": 22,
-        "name": "Jude Belling-Swap",
-        "country": "Inglaterra",
-        "rarity": "legendary",
+        "name": "Adrien Rabi-Protocol",
+        "country": "FRANCIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
         "position": "MID",
         "stats": {
-            "atk": 88,
+            "atk": 70,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 70
+        },
+        "real_name": "Adrien Rabiot"
     },
     {
         "id": 23,
-        "name": "Phil Fod-Phantom",
-        "country": "Inglaterra",
-        "rarity": "epic",
-        "position": "MID",
+        "name": "Harry Stake",
+        "country": "INGLATERRA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
         "stats": {
             "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Harry Kane"
     },
     {
         "id": 24,
-        "name": "Bukayo Solana",
-        "country": "Inglaterra",
+        "name": "Jude Belling-Swap",
+        "country": "INGLATERRA",
         "rarity": "epic",
+        "bg_type": "BG-EPI",
         "position": "FWD",
         "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Jude Bellingham"
     },
     {
         "id": 25,
-        "name": "Declan Rice-Validator",
-        "country": "Inglaterra",
+        "name": "Phil Fod-Phantom",
+        "country": "INGLATERRA",
         "rarity": "epic",
+        "bg_type": "BG-EPI",
         "position": "MID",
         "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Phil Foden"
     },
     {
         "id": 26,
-        "name": "Kyle Gas-Walker",
-        "country": "Inglaterra",
+        "name": "Bukayo Solana",
+        "country": "INGLATERRA",
         "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Bukayo Saka"
+    },
+    {
+        "id": 27,
+        "name": "Declan Rice-Validator",
+        "country": "INGLATERRA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
         "position": "DEF",
         "stats": {
-            "atk": 88,
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Declan Rice"
     },
     {
-        "id": 41,
-        "name": "Vinicius Jpeg Jr",
-        "country": "Brasil",
-        "rarity": "legendary",
+        "id": 28,
+        "name": "Kyle Gas-Walker",
+        "country": "INGLATERRA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
         "position": "FWD",
         "stats": {
-            "atk": 88,
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Kyle Walker"
     },
     {
-        "id": 42,
-        "name": "Neymar-NFT",
-        "country": "Brasil",
-        "rarity": "legendary",
-        "position": "FWD",
-        "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
-    },
-    {
-        "id": 43,
-        "name": "Rodrygo-Yield",
-        "country": "Brasil",
-        "rarity": "epic",
-        "position": "FWD",
-        "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
-    },
-    {
-        "id": 49,
-        "name": "Alisson Vault-son",
-        "country": "Brasil",
-        "rarity": "epic",
+        "id": 29,
+        "name": "Jordan Pick-Safe",
+        "country": "INGLATERRA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
         "position": "GK",
         "stats": {
-            "atk": 88,
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Jordan Pickford"
     },
     {
-        "id": 61,
-        "name": "Pedri-Alpha",
-        "country": "Espa\u00f1a",
-        "rarity": "epic",
-        "position": "MID",
+        "id": 30,
+        "name": "John Stone-Base",
+        "country": "INGLATERRA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
         "stats": {
-            "atk": 88,
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
-    },
-    {
-        "id": 62,
-        "name": "Lamine Ya-Moon",
-        "country": "Espa\u00f1a",
-        "rarity": "epic",
-        "position": "FWD",
-        "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
-    },
-    {
-        "id": 63,
-        "name": "Rodri Proof-of-Stake",
-        "country": "Espa\u00f1a",
-        "rarity": "legendary",
-        "position": "MID",
-        "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
-    },
-    {
-        "id": 64,
-        "name": "Gavi-Gas",
-        "country": "Espa\u00f1a",
-        "rarity": "epic",
-        "position": "MID",
-        "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
-    },
-    {
-        "id": 65,
-        "name": "Nico Shard-Williams",
-        "country": "Espa\u00f1a",
-        "rarity": "epic",
-        "position": "FWD",
-        "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "John Stones"
     },
     {
         "id": 31,
-        "name": "Cristiano Siu-toshi",
-        "country": "Portugal",
-        "rarity": "mythic",
+        "name": "Trent Cross-Arnold",
+        "country": "INGLATERRA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Trent Alexander-Arnold"
+    },
+    {
+        "id": 32,
+        "name": "Luke Vector",
+        "country": "INGLATERRA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Luke Vector"
+    },
+    {
+        "id": 33,
+        "name": "Cole Cold-Coin",
+        "country": "INGLATERRA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Cole Palmer"
+    },
+    {
+        "id": 34,
+        "name": "Neymar-NFT",
+        "country": "BRASIL",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
         "position": "FWD",
         "stats": {
             "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Neymar Jr."
+    },
+    {
+        "id": 35,
+        "name": "Vinicius Jpeg Jr",
+        "country": "BRASIL",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Vinícius Júnior"
+    },
+    {
+        "id": 36,
+        "name": "Alisson Vault-son",
+        "country": "BRASIL",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Alisson Becker"
+    },
+    {
+        "id": 37,
+        "name": "Rodrygo-Yield",
+        "country": "BRASIL",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Rodrygo Goes"
+    },
+    {
+        "id": 38,
+        "name": "Bruno Guima-Liquid",
+        "country": "BRASIL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Bruno Guimarães"
+    },
+    {
+        "id": 39,
+        "name": "Casemiro-Mint",
+        "country": "BRASIL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Casemiro"
+    },
+    {
+        "id": 40,
+        "name": "Marquinhos-Server",
+        "country": "BRASIL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Marquinhos"
+    },
+    {
+        "id": 41,
+        "name": "Eder Mili-Pixel",
+        "country": "BRASIL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Éder Militão"
+    },
+    {
+        "id": 42,
+        "name": "Danilo-Legacy",
+        "country": "BRASIL",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Danilo"
+    },
+    {
+        "id": 43,
+        "name": "Lucas Paque-Frame",
+        "country": "BRASIL",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Lucas Paquetá"
+    },
+    {
+        "id": 44,
+        "name": "Endrick Moon",
+        "country": "BRASIL",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Endrick"
+    },
+    {
+        "id": 45,
+        "name": "Lamine Ya-Alpha",
+        "country": "ESPAÑA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Lamine Yamal"
+    },
+    {
+        "id": 46,
+        "name": "Pedri-Script",
+        "country": "ESPAÑA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Pedri"
+    },
+    {
+        "id": 47,
+        "name": "Rodri Proof-of-Stake",
+        "country": "ESPAÑA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Rodri"
+    },
+    {
+        "id": 48,
+        "name": "Gavi-Gas",
+        "country": "ESPAÑA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Gavi"
+    },
+    {
+        "id": 49,
+        "name": "Nico Shard-Williams",
+        "country": "ESPAÑA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Nico Williams"
+    },
+    {
+        "id": 50,
+        "name": "Unai Simon-Key",
+        "country": "ESPAÑA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Unai Simon"
     },
     {
         "id": 51,
-        "name": "Luka Mod-Oracle",
-        "country": "Croacia",
-        "rarity": "legendary",
-        "position": "MID",
+        "name": "Dani Carva-Hard",
+        "country": "ESPAÑA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
         "stats": {
-            "atk": 88,
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Dani Carvajal"
+    },
+    {
+        "id": 52,
+        "name": "Aymeric Lap-Object",
+        "country": "ESPAÑA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Aymeric Laporte"
+    },
+    {
+        "id": 53,
+        "name": "Robin Le-Normal-DEX",
+        "country": "ESPAÑA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Robin Le"
     },
     {
         "id": 54,
-        "name": "Robert Lewan-DEX-ski",
-        "country": "Polonia",
-        "rarity": "legendary",
-        "position": "FWD",
+        "name": "Alejandro Bal-Slide",
+        "country": "ESPAÑA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
         "stats": {
-            "atk": 88,
+            "atk": 70,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 70
+        },
+        "real_name": "Alejandro Balde"
     },
     {
         "id": 55,
-        "name": "Mo Satoshi-Salah",
-        "country": "Egipto",
-        "rarity": "legendary",
-        "position": "FWD",
+        "name": "Dani Olmo-View",
+        "country": "ESPAÑA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
         "stats": {
-            "atk": 88,
+            "atk": 70,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 70
+        },
+        "real_name": "Dani Olmo"
     },
     {
         "id": 56,
-        "name": "Son Heung-Web3",
-        "country": "Corea del Sur",
-        "rarity": "epic",
+        "name": "Joshua Kim-Chip",
+        "country": "ALEMANIA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
         "position": "FWD",
         "stats": {
             "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Joshua Kimmich"
+    },
+    {
+        "id": 57,
+        "name": "Florian Wirtz-Byte",
+        "country": "ALEMANIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Florian Wirtz"
     },
     {
         "id": 58,
-        "name": "Erling Haal-Link",
-        "country": "Noruega",
-        "rarity": "mythic",
+        "name": "Jamal Moon-siala",
+        "country": "ALEMANIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
         "position": "FWD",
         "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Jamal Musiala"
+    },
+    {
+        "id": 59,
+        "name": "Kai Havertz-Class",
+        "country": "ALEMANIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Kai Havertz"
     },
     {
         "id": 60,
-        "name": "Kevin De-Bridge",
-        "country": "B\u00e9lgica",
+        "name": "Ilkay Gundo-Main",
+        "country": "ALEMANIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ilkay Gundo"
+    },
+    {
+        "id": 61,
+        "name": "Antonio Rudi-Force",
+        "country": "ALEMANIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Antonio Rüdiger"
+    },
+    {
+        "id": 62,
+        "name": "Marc Ter-Save",
+        "country": "ALEMANIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Marc-André ter Stegen"
+    },
+    {
+        "id": 63,
+        "name": "Niclas Full-Heavy",
+        "country": "ALEMANIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Niclas Full"
+    },
+    {
+        "id": 64,
+        "name": "Leroy Shard-né",
+        "country": "ALEMANIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Leroy Shard"
+    },
+    {
+        "id": 65,
+        "name": "Jonathan Tah-Shield",
+        "country": "ALEMANIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Jonathan Tah"
+    },
+    {
+        "id": 66,
+        "name": "Maxim Mittel-Wing",
+        "country": "ALEMANIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Maxim Mittel"
+    },
+    {
+        "id": 67,
+        "name": "Cristiano Siu-toshi",
+        "country": "PORTUGAL",
         "rarity": "legendary",
-        "position": "MID",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
         "stats": {
             "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Cristiano Ronaldo"
+    },
+    {
+        "id": 68,
+        "name": "Bruno Bit-Fernandes",
+        "country": "PORTUGAL",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Bruno Fernandes"
+    },
+    {
+        "id": 69,
+        "name": "Bernardo Loop",
+        "country": "PORTUGAL",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Bernardo Silva"
+    },
+    {
+        "id": 70,
+        "name": "Rafael Leao-Dash",
+        "country": "PORTUGAL",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Rafael Leão"
+    },
+    {
+        "id": 71,
+        "name": "Ruben Dias-Base",
+        "country": "PORTUGAL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Rúben Dias"
+    },
+    {
+        "id": 72,
+        "name": "Joao Joao-Link",
+        "country": "PORTUGAL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Joao Joao"
+    },
+    {
+        "id": 73,
+        "name": "Diogo Costa-Gate",
+        "country": "PORTUGAL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Diogo Costa"
+    },
+    {
+        "id": 74,
+        "name": "Goncalo Inacio-Array",
+        "country": "PORTUGAL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Goncalo Inacio"
+    },
+    {
+        "id": 75,
+        "name": "Nuno Mendes-Flow",
+        "country": "PORTUGAL",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Nuno Mendes"
+    },
+    {
+        "id": 76,
+        "name": "Vitinha-Cycle",
+        "country": "PORTUGAL",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Vitinha"
+    },
+    {
+        "id": 77,
+        "name": "Joao Neves-Seed",
+        "country": "PORTUGAL",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Joao Neves"
+    },
+    {
+        "id": 78,
+        "name": "Virgil Van-Hash",
+        "country": "PAÍSES BAJOS",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Virgil van Dijk"
+    },
+    {
+        "id": 79,
+        "name": "Frenkie De-Stream",
+        "country": "PAÍSES BAJOS",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Frenkie de Jong"
     },
     {
         "id": 80,
-        "name": "Thibaut Wall-tois",
-        "country": "B\u00e9lgica",
-        "rarity": "legendary",
-        "position": "GK",
+        "name": "Xavi Simon-Web3",
+        "country": "PAÍSES BAJOS",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
         "stats": {
-            "atk": 88,
-            "def": 70,
-            "hype": 90
-        }
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Xavi Simons"
     },
     {
         "id": 81,
-        "name": "Victor Osi-Mask",
-        "country": "Nigeria",
+        "name": "Memphis Depay-Raw",
+        "country": "PAÍSES BAJOS",
         "rarity": "epic",
+        "bg_type": "BG-EPI",
         "position": "FWD",
         "stats": {
-            "atk": 88,
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Memphis Depay"
+    },
+    {
+        "id": 82,
+        "name": "Cody Gakpo-Scan",
+        "country": "PAÍSES BAJOS",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Cody Gakpo"
+    },
+    {
+        "id": 83,
+        "name": "Nathan Ake-Lock",
+        "country": "PAÍSES BAJOS",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Nathan Ake"
+    },
+    {
+        "id": 84,
+        "name": "Denzel Dum-Push",
+        "country": "PAÍSES BAJOS",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Denzel Dum"
     },
     {
         "id": 85,
-        "name": "Gigi Block-rumma",
-        "country": "Italia",
-        "rarity": "legendary",
+        "name": "Bart Verbru-Secure",
+        "country": "PAÍSES BAJOS",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
         "position": "GK",
         "stats": {
-            "atk": 88,
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Bart Verbru"
     },
     {
-        "id": 90,
-        "name": "Alphonso Shard-Davies",
-        "country": "Canad\u00e1",
-        "rarity": "epic",
+        "id": 86,
+        "name": "Matthijs De-Ligt-Root",
+        "country": "PAÍSES BAJOS",
+        "rarity": "common",
+        "bg_type": "BG-COM",
         "position": "DEF",
         "stats": {
-            "atk": 88,
+            "atk": 70,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 70
+        },
+        "real_name": "Matthijs de Ligt"
     },
     {
-        "id": 95,
-        "name": "Luis Byt-Suarez",
-        "country": "Uruguay",
+        "id": 87,
+        "name": "Jeremie Frim-Sprint",
+        "country": "PAÍSES BAJOS",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Jeremie Frim"
+    },
+    {
+        "id": 88,
+        "name": "Teun Koop-Core",
+        "country": "PAÍSES BAJOS",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Teun Koop"
+    },
+    {
+        "id": 89,
+        "name": "Christian Puli-Star",
+        "country": "EE.UU.",
         "rarity": "legendary",
+        "bg_type": "BG-LEG",
         "position": "FWD",
         "stats": {
             "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Christian Pulisic"
+    },
+    {
+        "id": 90,
+        "name": "Weston McK-Air",
+        "country": "EE.UU.",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Weston McK"
+    },
+    {
+        "id": 91,
+        "name": "Gio Reyna-Pass",
+        "country": "EE.UU.",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Gio Reyna"
+    },
+    {
+        "id": 92,
+        "name": "Folarin Balogun-Drive",
+        "country": "EE.UU.",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Folarin Balogun"
+    },
+    {
+        "id": 93,
+        "name": "Tyler Adams-Guard",
+        "country": "EE.UU.",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Tyler Adams"
+    },
+    {
+        "id": 94,
+        "name": "Matt Turner-Gloves",
+        "country": "EE.UU.",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Matt Turner"
+    },
+    {
+        "id": 95,
+        "name": "Sergiño Dest-Dribble",
+        "country": "EE.UU.",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Sergiño Dest"
+    },
+    {
+        "id": 96,
+        "name": "Antonee Robin-Turbo",
+        "country": "EE.UU.",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Antonee Robin"
+    },
+    {
+        "id": 97,
+        "name": "Chris Richards-Wall",
+        "country": "EE.UU.",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Chris Richards"
+    },
+    {
+        "id": 98,
+        "name": "Yunus Musah-Motor",
+        "country": "EE.UU.",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Yunus Musah"
+    },
+    {
+        "id": 99,
+        "name": "Tim Weah-Flash",
+        "country": "EE.UU.",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Tim Weah"
     },
     {
         "id": 100,
         "name": "Memo Vault-choa",
-        "country": "M\u00e9xico",
+        "country": "MÉXICO",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Guillermo Ochoa"
+    },
+    {
+        "id": 101,
+        "name": "Santiago Gim-Shot",
+        "country": "MÉXICO",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Santiago Giménez"
+    },
+    {
+        "id": 102,
+        "name": "Edson Alva-Mach",
+        "country": "MÉXICO",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Edson Álvarez"
+    },
+    {
+        "id": 103,
+        "name": "Chucky Lozan-Bolt",
+        "country": "MÉXICO",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Chucky Lozano"
+    },
+    {
+        "id": 104,
+        "name": "Luis Chavez-Bomb",
+        "country": "MÉXICO",
         "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Luis Chavez"
+    },
+    {
+        "id": 105,
+        "name": "Johan Vasquez-Rock",
+        "country": "MÉXICO",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Johan Vasquez"
+    },
+    {
+        "id": 106,
+        "name": "Cesar Montes-Tower",
+        "country": "MÉXICO",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Cesar Montes"
+    },
+    {
+        "id": 107,
+        "name": "Jorge Sanchez-Rail",
+        "country": "MÉXICO",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Jorge Sanchez"
+    },
+    {
+        "id": 108,
+        "name": "Gerardo Artea-Edge",
+        "country": "MÉXICO",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Gerardo Artea"
+    },
+    {
+        "id": 109,
+        "name": "Orbelin Pine-Mag",
+        "country": "MÉXICO",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Orbelin Pine"
+    },
+    {
+        "id": 110,
+        "name": "Luis Romo-Fix",
+        "country": "MÉXICO",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Luis Romo"
+    },
+    {
+        "id": 111,
+        "name": "Alphonso Shard-Davies",
+        "country": "CANADÁ",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Alphonso Davies"
+    },
+    {
+        "id": 112,
+        "name": "Jonathan David-Bit",
+        "country": "CANADÁ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Jonathan David"
+    },
+    {
+        "id": 113,
+        "name": "Cyle Larin-Tank",
+        "country": "CANADÁ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Cyle Larin"
+    },
+    {
+        "id": 114,
+        "name": "Stephen Esta-Hub",
+        "country": "CANADÁ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Stephen Esta"
+    },
+    {
+        "id": 115,
+        "name": "Tajon Bucha-Wing",
+        "country": "CANADÁ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Tajon Bucha"
+    },
+    {
+        "id": 116,
+        "name": "Maxime Crepeau-Grip",
+        "country": "CANADÁ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Maxime Crepeau"
+    },
+    {
+        "id": 117,
+        "name": "Alistair John-Grit",
+        "country": "CANADÁ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Alistair John"
+    },
+    {
+        "id": 118,
+        "name": "Kamal Miller-Slide",
+        "country": "CANADÁ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Kamal Miller"
+    },
+    {
+        "id": 119,
+        "name": "Ismael Kone-Rise",
+        "country": "CANADÁ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Ismael Kone"
+    },
+    {
+        "id": 120,
+        "name": "Liam Millar-Cross",
+        "country": "CANADÁ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Liam Millar"
+    },
+    {
+        "id": 121,
+        "name": "Dayne St-Clair-Net",
+        "country": "CANADÁ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "GK",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Dayne St"
+    },
+    {
+        "id": 122,
+        "name": "Achraf Hakimi-Rocket",
+        "country": "MARRUECOS",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "DEF",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Achraf Hakimi"
+    },
+    {
+        "id": 123,
+        "name": "Yassine Bounou-Safe",
+        "country": "MARRUECOS",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "GK",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Yassine Bounou"
+    },
+    {
+        "id": 124,
+        "name": "Hakim Ziyech-Magic",
+        "country": "MARRUECOS",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Hakim Ziyech"
+    },
+    {
+        "id": 125,
+        "name": "Sofyan Amra-Base",
+        "country": "MARRUECOS",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Sofyan Amra"
+    },
+    {
+        "id": 126,
+        "name": "Brahim Diaz-Silk",
+        "country": "MARRUECOS",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Brahim Diaz"
+    },
+    {
+        "id": 127,
+        "name": "Nayef Aguerd-Peak",
+        "country": "MARRUECOS",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Nayef Aguerd"
+    },
+    {
+        "id": 128,
+        "name": "Romain Saiss-Chief",
+        "country": "MARRUECOS",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Romain Saiss"
+    },
+    {
+        "id": 129,
+        "name": "Azzedine Ouna-Drift",
+        "country": "MARRUECOS",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Azzedine Ouna"
+    },
+    {
+        "id": 130,
+        "name": "Youssef En-Air",
+        "country": "MARRUECOS",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Youssef En"
+    },
+    {
+        "id": 131,
+        "name": "Noussair Mazra-Side",
+        "country": "MARRUECOS",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Noussair Mazra"
+    },
+    {
+        "id": 132,
+        "name": "Amine Adli-Fly",
+        "country": "MARRUECOS",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Amine Adli"
+    },
+    {
+        "id": 133,
+        "name": "Wataru En-Pivot",
+        "country": "JAPÓN",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "DEF",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Wataru En"
+    },
+    {
+        "id": 134,
+        "name": "Take Kubo-Jewel",
+        "country": "JAPÓN",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Takefusa Kubo"
+    },
+    {
+        "id": 135,
+        "name": "Kaoru Mitoma-Dribble",
+        "country": "JAPÓN",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Kaoru Mitoma"
+    },
+    {
+        "id": 136,
+        "name": "Junya Ito-Volt",
+        "country": "JAPÓN",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Junya Ito"
+    },
+    {
+        "id": 137,
+        "name": "Ko Itakura-Stone",
+        "country": "JAPÓN",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ko Itakura"
+    },
+    {
+        "id": 138,
+        "name": "Takehiro Tomi-Shield",
+        "country": "JAPÓN",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Takehiro Tomi"
+    },
+    {
+        "id": 139,
+        "name": "Zion Suzuki-Reflex",
+        "country": "JAPÓN",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Zion Suzuki"
+    },
+    {
+        "id": 140,
+        "name": "Hidemasa Mori-Brain",
+        "country": "JAPÓN",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Hidemasa Mori"
+    },
+    {
+        "id": 141,
+        "name": "Ritsu Doan-Bang",
+        "country": "JAPÓN",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Ritsu Doan"
+    },
+    {
+        "id": 142,
+        "name": "Kyogo Furu-Sprint",
+        "country": "JAPÓN",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Kyogo Furu"
+    },
+    {
+        "id": 143,
+        "name": "Ayase Ueda-Target",
+        "country": "JAPÓN",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Ayase Ueda"
+    },
+    {
+        "id": 144,
+        "name": "Kalidou Kouli-Rock",
+        "country": "SENEGAL",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "DEF",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Kalidou Kouli"
+    },
+    {
+        "id": 145,
+        "name": "Sadio Mane-Jet",
+        "country": "SENEGAL",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Sadio Mané"
+    },
+    {
+        "id": 146,
+        "name": "Edouard Mendy-Stop",
+        "country": "SENEGAL",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "GK",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Edouard Mendy"
+    },
+    {
+        "id": 147,
+        "name": "Idrissa Gueye-Sweep",
+        "country": "SENEGAL",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Idrissa Gueye"
+    },
+    {
+        "id": 148,
+        "name": "Ismaila Sarr-Zoom",
+        "country": "SENEGAL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ismaila Sarr"
+    },
+    {
+        "id": 149,
+        "name": "Nicolas Jack-Hit",
+        "country": "SENEGAL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Nicolas Jack"
+    },
+    {
+        "id": 150,
+        "name": "Pape Sarr-Flow",
+        "country": "SENEGAL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Pape Sarr"
+    },
+    {
+        "id": 151,
+        "name": "Niakhate-Wall",
+        "country": "SENEGAL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Niakhate"
+    },
+    {
+        "id": 152,
+        "name": "Abdou Diallo-Guard",
+        "country": "SENEGAL",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Abdou Diallo"
+    },
+    {
+        "id": 153,
+        "name": "Youssouf Sabaly-Rail",
+        "country": "SENEGAL",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Youssouf Sabaly"
+    },
+    {
+        "id": 154,
+        "name": "Boulaye Dia-Poach",
+        "country": "SENEGAL",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Boulaye Dia"
+    },
+    {
+        "id": 155,
+        "name": "Son Heung-Star",
+        "country": "COREA DEL SUR",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Son Heung-min"
+    },
+    {
+        "id": 156,
+        "name": "Kim Min-Tank",
+        "country": "COREA DEL SUR",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Kim Min"
+    },
+    {
+        "id": 157,
+        "name": "Lee Kang-Silk",
+        "country": "COREA DEL SUR",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Lee Kang"
+    },
+    {
+        "id": 158,
+        "name": "Hwang Hee-Bolt",
+        "country": "COREA DEL SUR",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Hwang Hee"
+    },
+    {
+        "id": 159,
+        "name": "Cho Gue-Air",
+        "country": "COREA DEL SUR",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Cho Gue"
+    },
+    {
+        "id": 160,
+        "name": "In-beom-Mind",
+        "country": "COREA DEL SUR",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "In"
+    },
+    {
+        "id": 161,
+        "name": "Woo-young-Core",
+        "country": "COREA DEL SUR",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Woo"
+    },
+    {
+        "id": 162,
+        "name": "Young-woo-Side",
+        "country": "COREA DEL SUR",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Young"
+    },
+    {
+        "id": 163,
+        "name": "Young-gwon-Stay",
+        "country": "COREA DEL SUR",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Young"
+    },
+    {
+        "id": 164,
+        "name": "Hyeon-woo-Save",
+        "country": "COREA DEL SUR",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "GK",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Hyeon"
+    },
+    {
+        "id": 165,
+        "name": "Jae-sung-Drive",
+        "country": "COREA DEL SUR",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Jae"
+    },
+    {
+        "id": 166,
+        "name": "Mat Ryan-Hands",
+        "country": "AUSTRALIA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
         "position": "GK",
         "stats": {
             "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Mat Ryan"
+    },
+    {
+        "id": 167,
+        "name": "Harry Souttar-Tall",
+        "country": "AUSTRALIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Harry Souttar"
+    },
+    {
+        "id": 168,
+        "name": "Jackson Irvine-Head",
+        "country": "AUSTRALIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Jackson Irvine"
+    },
+    {
+        "id": 169,
+        "name": "Craig Goodwin-Cross",
+        "country": "AUSTRALIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Craig Goodwin"
+    },
+    {
+        "id": 170,
+        "name": "Mitchell Duke-Strike",
+        "country": "AUSTRALIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
             "def": 70,
-            "hype": 90
-        }
+            "hype": 78
+        },
+        "real_name": "Mitchell Duke"
+    },
+    {
+        "id": 171,
+        "name": "Ajdin Hrustic-Art",
+        "country": "AUSTRALIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ajdin Hrustic"
+    },
+    {
+        "id": 172,
+        "name": "Riley McGree-Flash",
+        "country": "AUSTRALIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Riley McGree"
+    },
+    {
+        "id": 173,
+        "name": "Aziz Behich-Lane",
+        "country": "AUSTRALIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Aziz Behich"
+    },
+    {
+        "id": 174,
+        "name": "Kye Rowles-Solid",
+        "country": "AUSTRALIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Kye Rowles"
+    },
+    {
+        "id": 175,
+        "name": "Nath Atkinson-Power",
+        "country": "AUSTRALIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Nath Atkinson"
+    },
+    {
+        "id": 176,
+        "name": "Martin Boyle-Fast",
+        "country": "AUSTRALIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Martin Boyle"
+    },
+    {
+        "id": 177,
+        "name": "Salem Al-Icon",
+        "country": "ARABIA SAUDÍ",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Salem Al"
+    },
+    {
+        "id": 178,
+        "name": "Firas Al-Dash",
+        "country": "ARABIA SAUDÍ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Firas Al"
+    },
+    {
+        "id": 179,
+        "name": "Saleh Al-Gift",
+        "country": "ARABIA SAUDÍ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Saleh Al"
+    },
+    {
+        "id": 180,
+        "name": "Abdul Al-Stone",
+        "country": "ARABIA SAUDÍ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Abdul Al"
+    },
+    {
+        "id": 181,
+        "name": "Moh Al-Wall",
+        "country": "ARABIA SAUDÍ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Moh Al"
+    },
+    {
+        "id": 182,
+        "name": "Saud Abdul-Rail",
+        "country": "ARABIA SAUDÍ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Saud Abdul"
+    },
+    {
+        "id": 183,
+        "name": "Ali Al-Chief",
+        "country": "ARABIA SAUDÍ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ali Al"
+    },
+    {
+        "id": 184,
+        "name": "Sultan Al-Curve",
+        "country": "ARABIA SAUDÍ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Sultan Al"
+    },
+    {
+        "id": 185,
+        "name": "Hassan Al-High",
+        "country": "ARABIA SAUDÍ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Hassan Al"
+    },
+    {
+        "id": 186,
+        "name": "Abdu Al-Mind",
+        "country": "ARABIA SAUDÍ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Abdu Al"
+    },
+    {
+        "id": 187,
+        "name": "Moh Kanno-Pivot",
+        "country": "ARABIA SAUDÍ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Moh Kanno"
+    },
+    {
+        "id": 188,
+        "name": "Christian Erik-Seed",
+        "country": "DINAMARCA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Christian Erik"
+    },
+    {
+        "id": 189,
+        "name": "Kasper Vault-ichel",
+        "country": "DINAMARCA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Kasper Vault"
+    },
+    {
+        "id": 190,
+        "name": "Rasmus Hoj-Power",
+        "country": "DINAMARCA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Rasmus Hoj"
+    },
+    {
+        "id": 191,
+        "name": "Pierre Hoj-Hard",
+        "country": "DINAMARCA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Pierre Hoj"
+    },
+    {
+        "id": 192,
+        "name": "Joachim Ander-Bridge",
+        "country": "DINAMARCA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Joachim Ander"
+    },
+    {
+        "id": 193,
+        "name": "Andreas Chris-Safe",
+        "country": "DINAMARCA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Andreas Chris"
+    },
+    {
+        "id": 194,
+        "name": "Alexander Bah-Quick",
+        "country": "DINAMARCA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Alexander Bah"
+    },
+    {
+        "id": 195,
+        "name": "Victor Krist-Edge",
+        "country": "DINAMARCA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Victor Krist"
+    },
+    {
+        "id": 196,
+        "name": "Morten Hjul-Core",
+        "country": "DINAMARCA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Morten Hjul"
+    },
+    {
+        "id": 197,
+        "name": "Jonas Wind-Draft",
+        "country": "DINAMARCA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Jonas Wind"
+    },
+    {
+        "id": 198,
+        "name": "Eriksen-Oracle",
+        "country": "DINAMARCA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Eriksen"
+    },
+    {
+        "id": 199,
+        "name": "Granit Xha-Firm",
+        "country": "SUIZA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Granit Xha"
+    },
+    {
+        "id": 200,
+        "name": "Yann Sommer-Lock",
+        "country": "SUIZA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "GK",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Yann Sommer"
+    },
+    {
+        "id": 201,
+        "name": "Manuel Akanji-Hub",
+        "country": "SUIZA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Manuel Akanji"
+    },
+    {
+        "id": 202,
+        "name": "Xherdan Sha-Zoom",
+        "country": "SUIZA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Xherdan Sha"
+    },
+    {
+        "id": 203,
+        "name": "Breel Embolo-Rush",
+        "country": "SUIZA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Breel Embolo"
+    },
+    {
+        "id": 204,
+        "name": "Remo Freuler-Link",
+        "country": "SUIZA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Remo Freuler"
+    },
+    {
+        "id": 205,
+        "name": "Denis Zakaria-Range",
+        "country": "SUIZA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Denis Zakaria"
+    },
+    {
+        "id": 206,
+        "name": "Ricardo Rodri-Wrap",
+        "country": "SUIZA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ricardo Rodri"
+    },
+    {
+        "id": 207,
+        "name": "Fabian Schar-Guard",
+        "country": "SUIZA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Fabian Schar"
+    },
+    {
+        "id": 208,
+        "name": "Ruben Vargas-Slide",
+        "country": "SUIZA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Ruben Vargas"
+    },
+    {
+        "id": 209,
+        "name": "Silvan Widmer-Wing",
+        "country": "SUIZA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Silvan Widmer"
+    },
+    {
+        "id": 210,
+        "name": "Dusan Ta-Play",
+        "country": "SERBIA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Dusan Ta"
+    },
+    {
+        "id": 211,
+        "name": "Aleks Mitro-Hulk",
+        "country": "SERBIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Aleks Mitro"
+    },
+    {
+        "id": 212,
+        "name": "Dusan Vla-Storm",
+        "country": "SERBIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Dusan Vla"
+    },
+    {
+        "id": 213,
+        "name": "Sergej Milin-Ace",
+        "country": "SERBIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Sergej Milin"
+    },
+    {
+        "id": 214,
+        "name": "Filip Kostic-Lane",
+        "country": "SERBIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Filip Kostic"
+    },
+    {
+        "id": 215,
+        "name": "Vanja Milin-Post",
+        "country": "SERBIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Vanja Milin"
+    },
+    {
+        "id": 216,
+        "name": "Nikola Milen-Base",
+        "country": "SERBIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Nikola Milen"
+    },
+    {
+        "id": 217,
+        "name": "Strahinja Pav-Iron",
+        "country": "SERBIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Strahinja Pav"
+    },
+    {
+        "id": 218,
+        "name": "Sasa Lukic-Shift",
+        "country": "SERBIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Sasa Lukic"
+    },
+    {
+        "id": 219,
+        "name": "Nemanja Gudelj-Weld",
+        "country": "SERBIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Nemanja Gudelj"
+    },
+    {
+        "id": 220,
+        "name": "Andrija Zivko-Fast",
+        "country": "SERBIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Andrija Zivko"
+    },
+    {
+        "id": 221,
+        "name": "Robert Lewan-Goal-ski",
+        "country": "POLONIA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Robert Lewan"
+    },
+    {
+        "id": 222,
+        "name": "Wojciech Vault-sny",
+        "country": "POLONIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "GK",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Wojciech Vault"
+    },
+    {
+        "id": 223,
+        "name": "Piotr Zielin-Art",
+        "country": "POLONIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Piotr Zielin"
+    },
+    {
+        "id": 224,
+        "name": "Matty Cash-Coin",
+        "country": "POLONIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Matty Cash"
+    },
+    {
+        "id": 225,
+        "name": "Jakub Kiwior-Line",
+        "country": "POLONIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Jakub Kiwior"
+    },
+    {
+        "id": 226,
+        "name": "Seba Szyma-Left",
+        "country": "POLONIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Seba Szyma"
+    },
+    {
+        "id": 227,
+        "name": "Nicola Zalew-Skill",
+        "country": "POLONIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Nicola Zalew"
+    },
+    {
+        "id": 228,
+        "name": "Karol Swider-Tap",
+        "country": "POLONIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Karol Swider"
+    },
+    {
+        "id": 229,
+        "name": "Jan Bednarek-Hold",
+        "country": "POLONIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Jan Bednarek"
+    },
+    {
+        "id": 230,
+        "name": "Przem Franko-Rail",
+        "country": "POLONIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Przem Franko"
+    },
+    {
+        "id": 231,
+        "name": "Pawel Dawid-Fix",
+        "country": "POLONIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Pawel Dawid"
+    },
+    {
+        "id": 232,
+        "name": "Oleks Zinchen-Lead",
+        "country": "UCRANIA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Oleks Zinchen"
+    },
+    {
+        "id": 233,
+        "name": "Mykhailo Mu-Flash",
+        "country": "UCRANIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Mykhailo Mu"
+    },
+    {
+        "id": 234,
+        "name": "Artem Dov-Size",
+        "country": "UCRANIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Artem Dov"
+    },
+    {
+        "id": 235,
+        "name": "Viktor Tsyg-Cut",
+        "country": "UCRANIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Viktor Tsyg"
+    },
+    {
+        "id": 236,
+        "name": "Andriy Lunin-Hands",
+        "country": "UCRANIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Andriy Lunin"
+    },
+    {
+        "id": 237,
+        "name": "Vitaliy Myko-Back",
+        "country": "UCRANIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Vitaliy Myko"
+    },
+    {
+        "id": 238,
+        "name": "Illia Zabar-High",
+        "country": "UCRANIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Illia Zabar"
+    },
+    {
+        "id": 239,
+        "name": "Heorhiy Sudak-Play",
+        "country": "UCRANIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Heorhiy Sudak"
+    },
+    {
+        "id": 240,
+        "name": "Myko Shapa-Fine",
+        "country": "UCRANIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Myko Shapa"
+    },
+    {
+        "id": 241,
+        "name": "Taras Step-Hard",
+        "country": "UCRANIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Taras Step"
+    },
+    {
+        "id": 242,
+        "name": "Yukhym Kono-Side",
+        "country": "UCRANIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Yukhym Kono"
+    },
+    {
+        "id": 243,
+        "name": "Hakan Calha-Curve",
+        "country": "TURQUÍA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Hakan Calha"
+    },
+    {
+        "id": 244,
+        "name": "Arda Gu-Star",
+        "country": "TURQUÍA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Arda Gu"
+    },
+    {
+        "id": 245,
+        "name": "Kenan Yil-Gift",
+        "country": "TURQUÍA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Kenan Yil"
+    },
+    {
+        "id": 246,
+        "name": "Baris Al-Muscle",
+        "country": "TURQUÍA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Baris Al"
+    },
+    {
+        "id": 247,
+        "name": "Ferdi Kad-Engine",
+        "country": "TURQUÍA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ferdi Kad"
+    },
+    {
+        "id": 248,
+        "name": "Mert Gunok-Post",
+        "country": "TURQUÍA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Mert Gunok"
+    },
+    {
+        "id": 249,
+        "name": "Abdul Bardak-Stone",
+        "country": "TURQUÍA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Abdul Bardak"
+    },
+    {
+        "id": 250,
+        "name": "Samet Akay-Grip",
+        "country": "TURQUÍA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Samet Akay"
+    },
+    {
+        "id": 251,
+        "name": "Kaan Ayhan-Mind",
+        "country": "TURQUÍA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Kaan Ayhan"
+    },
+    {
+        "id": 252,
+        "name": "Orkun Kokcu-Vision",
+        "country": "TURQUÍA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Orkun Kokcu"
+    },
+    {
+        "id": 253,
+        "name": "Kerem Aktur-Sparks",
+        "country": "TURQUÍA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Kerem Aktur"
+    },
+    {
+        "id": 254,
+        "name": "Andrew Robert-Cap",
+        "country": "ESCOCIA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Andrew Robert"
+    },
+    {
+        "id": 255,
+        "name": "Scott McTo-Strong",
+        "country": "ESCOCIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Scott McTo"
+    },
+    {
+        "id": 256,
+        "name": "John McGi-Brave",
+        "country": "ESCOCIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "John McGi"
+    },
+    {
+        "id": 257,
+        "name": "Billy Gil-Clean",
+        "country": "ESCOCIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Billy Gil"
+    },
+    {
+        "id": 258,
+        "name": "Che Ad-Target",
+        "country": "ESCOCIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Che Ad"
+    },
+    {
+        "id": 259,
+        "name": "Angus Gunn-Stay",
+        "country": "ESCOCIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Angus Gunn"
+    },
+    {
+        "id": 260,
+        "name": "Ryan Port-Tough",
+        "country": "ESCOCIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ryan Port"
+    },
+    {
+        "id": 261,
+        "name": "Jack Hendry-Tall",
+        "country": "ESCOCIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Jack Hendry"
+    },
+    {
+        "id": 262,
+        "name": "Kieran Tier-Wrap",
+        "country": "ESCOCIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Kieran Tier"
+    },
+    {
+        "id": 263,
+        "name": "Callum McG-Heart",
+        "country": "ESCOCIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Callum McG"
+    },
+    {
+        "id": 264,
+        "name": "Lawrence Shank-Hit",
+        "country": "ESCOCIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Lawrence Shank"
+    },
+    {
+        "id": 265,
+        "name": "Dominik Szobo-Kick",
+        "country": "HUNGRÍA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Dominik Szobo"
+    },
+    {
+        "id": 266,
+        "name": "Barnabas Var-Header",
+        "country": "HUNGRÍA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Barnabas Var"
+    },
+    {
+        "id": 267,
+        "name": "Roland Sal-Quick",
+        "country": "HUNGRÍA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Roland Sal"
+    },
+    {
+        "id": 268,
+        "name": "Willi Or-Wall",
+        "country": "HUNGRÍA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Willi Or"
+    },
+    {
+        "id": 269,
+        "name": "Peter Gula-Stop",
+        "country": "HUNGRÍA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Peter Gula"
+    },
+    {
+        "id": 270,
+        "name": "Adam Nagy-Keep",
+        "country": "HUNGRÍA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Adam Nagy"
+    },
+    {
+        "id": 271,
+        "name": "Loic Nego-Race",
+        "country": "HUNGRÍA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Loic Nego"
+    },
+    {
+        "id": 272,
+        "name": "Milos Kerkez-Young",
+        "country": "HUNGRÍA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Milos Kerkez"
+    },
+    {
+        "id": 273,
+        "name": "Bendeguz Bol-Cross",
+        "country": "HUNGRÍA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Bendeguz Bol"
+    },
+    {
+        "id": 274,
+        "name": "Martin Adam-Beast",
+        "country": "HUNGRÍA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Martin Adam"
+    },
+    {
+        "id": 275,
+        "name": "Callum Styles-Smooth",
+        "country": "HUNGRÍA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Callum Styles"
+    },
+    {
+        "id": 276,
+        "name": "David Ala-Boss",
+        "country": "AUSTRIA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "David Ala"
+    },
+    {
+        "id": 277,
+        "name": "Marcel Sabi-Shoot",
+        "country": "AUSTRIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Marcel Sabi"
+    },
+    {
+        "id": 278,
+        "name": "Chris Baum-Luck",
+        "country": "AUSTRIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Chris Baum"
+    },
+    {
+        "id": 279,
+        "name": "Konrad Lai-Press",
+        "country": "AUSTRIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Konrad Lai"
+    },
+    {
+        "id": 280,
+        "name": "Marko Arnau-King",
+        "country": "AUSTRIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Marko Arnau"
+    },
+    {
+        "id": 281,
+        "name": "Alex Schlager-Hold",
+        "country": "AUSTRIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Alex Schlager"
+    },
+    {
+        "id": 282,
+        "name": "Kevin Danso-Bulk",
+        "country": "AUSTRIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Kevin Danso"
+    },
+    {
+        "id": 283,
+        "name": "Phil Lienhart-Solid",
+        "country": "AUSTRIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Phil Lienhart"
+    },
+    {
+        "id": 284,
+        "name": "Stefan Laim-Run",
+        "country": "AUSTRIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Stefan Laim"
+    },
+    {
+        "id": 285,
+        "name": "Nico Seiwald-Pass",
+        "country": "AUSTRIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Nico Seiwald"
+    },
+    {
+        "id": 286,
+        "name": "Mich Gregoritsch-Air",
+        "country": "AUSTRIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Mich Gregoritsch"
+    },
+    {
+        "id": 287,
+        "name": "James-Magic",
+        "country": "COLOMBIA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "James"
+    },
+    {
+        "id": 288,
+        "name": "Lucho Di-Dash",
+        "country": "COLOMBIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Lucho Di"
+    },
+    {
+        "id": 289,
+        "name": "Jefferson Shield-ma",
+        "country": "COLOMBIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Jefferson Shield"
+    },
+    {
+        "id": 290,
+        "name": "Richard Rios-Stream",
+        "country": "COLOMBIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Richard Rios"
+    },
+    {
+        "id": 291,
+        "name": "Daniel Munoz-Link",
+        "country": "COLOMBIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Daniel Munoz"
+    },
+    {
+        "id": 292,
+        "name": "Camilo Vargas-Cache",
+        "country": "COLOMBIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Camilo Vargas"
+    },
+    {
+        "id": 293,
+        "name": "Davinson San-Store",
+        "country": "COLOMBIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Davinson San"
+    },
+    {
+        "id": 294,
+        "name": "Carlos Cuest-Watch",
+        "country": "COLOMBIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Carlos Cuest"
+    },
+    {
+        "id": 295,
+        "name": "Jhon Arias-Flow",
+        "country": "COLOMBIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Jhon Arias"
+    },
+    {
+        "id": 296,
+        "name": "Jhon Cordoba-Load",
+        "country": "COLOMBIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Jhon Cordoba"
+    },
+    {
+        "id": 297,
+        "name": "Yaser Asprilla-Git",
+        "country": "COLOMBIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Yaser Asprilla"
+    },
+    {
+        "id": 298,
+        "name": "Moises Caice-DAO",
+        "country": "ECUADOR",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Moises Caice"
+    },
+    {
+        "id": 299,
+        "name": "Enner Valen-Goal",
+        "country": "ECUADOR",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Enner Valen"
+    },
+    {
+        "id": 300,
+        "name": "Piero Hinca-Block",
+        "country": "ECUADOR",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Piero Hinca"
+    },
+    {
+        "id": 301,
+        "name": "Pervis Estu-Turbo",
+        "country": "ECUADOR",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Pervis Estu"
+    },
+    {
+        "id": 302,
+        "name": "Kendry Paez-Gem",
+        "country": "ECUADOR",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Kendry Paez"
+    },
+    {
+        "id": 303,
+        "name": "Hernan Galin-Shield",
+        "country": "ECUADOR",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Hernan Galin"
+    },
+    {
+        "id": 304,
+        "name": "Willian Pacho-Wall",
+        "country": "ECUADOR",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Willian Pacho"
+    },
+    {
+        "id": 305,
+        "name": "Felix Torres-Rise",
+        "country": "ECUADOR",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Felix Torres"
+    },
+    {
+        "id": 306,
+        "name": "Angelo Precia-Rail",
+        "country": "ECUADOR",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Angelo Precia"
+    },
+    {
+        "id": 307,
+        "name": "Alan Franco-Hub",
+        "country": "ECUADOR",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Alan Franco"
+    },
+    {
+        "id": 308,
+        "name": "Jeremy Sarmien-Byte",
+        "country": "ECUADOR",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Jeremy Sarmien"
+    },
+    {
+        "id": 309,
+        "name": "Julio Enciso-Moon",
+        "country": "PARAGUAY",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Julio Enciso"
+    },
+    {
+        "id": 310,
+        "name": "Miguel Almi-Bolt",
+        "country": "PARAGUAY",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Miguel Almi"
+    },
+    {
+        "id": 311,
+        "name": "Gustavo Gomez-Cap",
+        "country": "PARAGUAY",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Gustavo Gomez"
+    },
+    {
+        "id": 312,
+        "name": "Omar Alder-Iron",
+        "country": "PARAGUAY",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Omar Alder"
+    },
+    {
+        "id": 313,
+        "name": "Gatito Fern-Save",
+        "country": "PARAGUAY",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Gatito Fern"
+    },
+    {
+        "id": 314,
+        "name": "Fabian Balbu-Base",
+        "country": "PARAGUAY",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Fabian Balbu"
+    },
+    {
+        "id": 315,
+        "name": "Mathias Villa-Core",
+        "country": "PARAGUAY",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Mathias Villa"
+    },
+    {
+        "id": 316,
+        "name": "Diego Gomez-Rise",
+        "country": "PARAGUAY",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Diego Gomez"
+    },
+    {
+        "id": 317,
+        "name": "Ramon Sosa-Wing",
+        "country": "PARAGUAY",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Ramon Sosa"
+    },
+    {
+        "id": 318,
+        "name": "Adam Bareiro-Tank",
+        "country": "PARAGUAY",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Adam Bareiro"
+    },
+    {
+        "id": 319,
+        "name": "Junior Alonso-Slide",
+        "country": "PARAGUAY",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Junior Alonso"
+    },
+    {
+        "id": 320,
+        "name": "Yeferson Sotel-DEX",
+        "country": "VENEZUELA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Yeferson Sotel"
+    },
+    {
+        "id": 321,
+        "name": "Salomon Ron-Gladi",
+        "country": "VENEZUELA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Salomon Ron"
+    },
+    {
+        "id": 322,
+        "name": "Yangel Herre-Root",
+        "country": "VENEZUELA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Yangel Herre"
+    },
+    {
+        "id": 323,
+        "name": "Eduard Bello-Fly",
+        "country": "VENEZUELA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Eduard Bello"
+    },
+    {
+        "id": 324,
+        "name": "Rafael Romo-Gate",
+        "country": "VENEZUELA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Rafael Romo"
+    },
+    {
+        "id": 325,
+        "name": "Jon Arambu-Side",
+        "country": "VENEZUELA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Jon Arambu"
+    },
+    {
+        "id": 326,
+        "name": "Nahuel Ferr-Wall",
+        "country": "VENEZUELA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Nahuel Ferr"
+    },
+    {
+        "id": 327,
+        "name": "Wilker Angel-Iron",
+        "country": "VENEZUELA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Wilker Angel"
+    },
+    {
+        "id": 328,
+        "name": "Jose Martin-Edge",
+        "country": "VENEZUELA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Jose Martin"
+    },
+    {
+        "id": 329,
+        "name": "Telasco Sego-Gem",
+        "country": "VENEZUELA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Telasco Sego"
+    },
+    {
+        "id": 330,
+        "name": "Darwin Mach-Rocket",
+        "country": "VENEZUELA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Darwin Mach"
+    },
+    {
+        "id": 331,
+        "name": "Alexis San-Legend",
+        "country": "CHILE",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Alexis San"
+    },
+    {
+        "id": 332,
+        "name": "Edu Vargas-Shot",
+        "country": "CHILE",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Edu Vargas"
+    },
+    {
+        "id": 333,
+        "name": "Ben Brere-Diaz",
+        "country": "CHILE",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Ben Brere"
+    },
+    {
+        "id": 334,
+        "name": "Dario Osorio-Byte",
+        "country": "CHILE",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Dario Osorio"
+    },
+    {
+        "id": 335,
+        "name": "Claudio Bravo-Vault",
+        "country": "CHILE",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Claudio Bravo"
+    },
+    {
+        "id": 336,
+        "name": "Paulo Diaz-Lock",
+        "country": "CHILE",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Paulo Diaz"
+    },
+    {
+        "id": 337,
+        "name": "Guillermo Mar-Wall",
+        "country": "CHILE",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Guillermo Mar"
+    },
+    {
+        "id": 338,
+        "name": "Gabriel Suazo-Rail",
+        "country": "CHILE",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Gabriel Suazo"
+    },
+    {
+        "id": 339,
+        "name": "Mauricio Isla-Loop",
+        "country": "CHILE",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Mauricio Isla"
+    },
+    {
+        "id": 340,
+        "name": "Erick Pulgar-Switch",
+        "country": "CHILE",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Erick Pulgar"
+    },
+    {
+        "id": 341,
+        "name": "Victor Davi-Flow",
+        "country": "CHILE",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Victor Davi"
+    },
+    {
+        "id": 342,
+        "name": "Paolo Gue-King",
+        "country": "PERÚ",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Paolo Gue"
+    },
+    {
+        "id": 343,
+        "name": "Piero Quispe-Gem",
+        "country": "PERÚ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Piero Quispe"
+    },
+    {
+        "id": 344,
+        "name": "Gianluca Lap-Goal",
+        "country": "PERÚ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Gianluca Lap"
+    },
+    {
+        "id": 345,
+        "name": "Pedro Gall-Save",
+        "country": "PERÚ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "GK",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Pedro Gall"
+    },
+    {
+        "id": 346,
+        "name": "Luis Advin-Bolt",
+        "country": "PERÚ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Luis Advin"
+    },
+    {
+        "id": 347,
+        "name": "Carlos Zam-Iron",
+        "country": "PERÚ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Carlos Zam"
+    },
+    {
+        "id": 348,
+        "name": "Renato Tapia-Cap",
+        "country": "PERÚ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Renato Tapia"
+    },
+    {
+        "id": 349,
+        "name": "Wilder Carta-Hard",
+        "country": "PERÚ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Wilder Carta"
+    },
+    {
+        "id": 350,
+        "name": "Alexander Cal-Wall",
+        "country": "PERÚ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Alexander Cal"
+    },
+    {
+        "id": 351,
+        "name": "Sergio Pena-View",
+        "country": "PERÚ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Sergio Pena"
+    },
+    {
+        "id": 352,
+        "name": "Joao Grimaldo-Byte",
+        "country": "PERÚ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Joao Grimaldo"
+    },
+    {
+        "id": 353,
+        "name": "Riyad Mahrez-Loop",
+        "country": "ARGELIA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Riyad Mahrez"
+    },
+    {
+        "id": 354,
+        "name": "Said Benrah-Silk",
+        "country": "ARGELIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Said Benrah"
+    },
+    {
+        "id": 355,
+        "name": "Amine Gouiri-Goal",
+        "country": "ARGELIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Amine Gouiri"
+    },
+    {
+        "id": 356,
+        "name": "Ismael Ben-Hub",
+        "country": "ARGELIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Ismael Ben"
+    },
+    {
+        "id": 357,
+        "name": "Ramy Bense-Block",
+        "country": "ARGELIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ramy Bense"
+    },
+    {
+        "id": 358,
+        "name": "Anthony Mand-Grip",
+        "country": "ARGELIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Anthony Mand"
+    },
+    {
+        "id": 359,
+        "name": "Aissa Mandi-Cap",
+        "country": "ARGELIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Aissa Mandi"
+    },
+    {
+        "id": 360,
+        "name": "Youcef Atal-Rail",
+        "country": "ARGELIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Youcef Atal"
+    },
+    {
+        "id": 361,
+        "name": "Rayan Ait-Nouri-Flow",
+        "country": "ARGELIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Rayan Ait"
+    },
+    {
+        "id": 362,
+        "name": "Houssem Aouar-Star",
+        "country": "ARGELIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Houssem Aouar"
+    },
+    {
+        "id": 363,
+        "name": "Baghdad Bou-Hit",
+        "country": "ARGELIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Baghdad Bou"
+    },
+    {
+        "id": 364,
+        "name": "Mohammed Kudu-Star",
+        "country": "GHANA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Mohammed Kudu"
+    },
+    {
+        "id": 365,
+        "name": "Inaki Willia-Flash",
+        "country": "GHANA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Inaki Willia"
+    },
+    {
+        "id": 366,
+        "name": "Thomas Partey-Root",
+        "country": "GHANA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Thomas Partey"
+    },
+    {
+        "id": 367,
+        "name": "Jordan Ayew-Hold",
+        "country": "GHANA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Jordan Ayew"
+    },
+    {
+        "id": 368,
+        "name": "Lawrence Ati-Save",
+        "country": "GHANA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Lawrence Ati"
+    },
+    {
+        "id": 369,
+        "name": "Mohammed Salis-Wall",
+        "country": "GHANA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Mohammed Salis"
+    },
+    {
+        "id": 370,
+        "name": "Tariq Lampte-Quick",
+        "country": "GHANA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Tariq Lampte"
+    },
+    {
+        "id": 371,
+        "name": "Alidu Seidu-Hard",
+        "country": "GHANA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Alidu Seidu"
+    },
+    {
+        "id": 372,
+        "name": "Ernest Nuamah-Byte",
+        "country": "GHANA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Ernest Nuamah"
+    },
+    {
+        "id": 373,
+        "name": "Antoine Sem-Drive",
+        "country": "GHANA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Antoine Sem"
+    },
+    {
+        "id": 374,
+        "name": "Gideon Mensah-Side",
+        "country": "GHANA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Gideon Mensah"
+    },
+    {
+        "id": 375,
+        "name": "Victor Osimh-Goal",
+        "country": "NIGERIA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Victor Osimhen"
+    },
+    {
+        "id": 376,
+        "name": "Ademola Look-Magic",
+        "country": "NIGERIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Ademola Look"
+    },
+    {
+        "id": 377,
+        "name": "Alex Iwobi-Link",
+        "country": "NIGERIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Alex Iwobi"
+    },
+    {
+        "id": 378,
+        "name": "Stanley Nwabali-Vault",
+        "country": "NIGERIA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Stanley Nwabali"
+    },
+    {
+        "id": 379,
+        "name": "William Troost-Cap",
+        "country": "NIGERIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "William Troost"
+    },
+    {
+        "id": 380,
+        "name": "Calvin Bassey-Tank",
+        "country": "NIGERIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Calvin Bassey"
+    },
+    {
+        "id": 381,
+        "name": "Ola Aina-Rail",
+        "country": "NIGERIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ola Aina"
+    },
+    {
+        "id": 382,
+        "name": "Wilfred Ndidi-Gate",
+        "country": "NIGERIA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Wilfred Ndidi"
+    },
+    {
+        "id": 383,
+        "name": "Samuel Chuku-Flash",
+        "country": "NIGERIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Samuel Chuku"
+    },
+    {
+        "id": 384,
+        "name": "Kelechi Ihea-View",
+        "country": "NIGERIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Kelechi Ihea"
+    },
+    {
+        "id": 385,
+        "name": "Victor Bonif-Hit",
+        "country": "NIGERIA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Victor Bonif"
+    },
+    {
+        "id": 386,
+        "name": "Andre Onana-Admin",
+        "country": "CAMERÚN",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Andre Onana"
+    },
+    {
+        "id": 387,
+        "name": "Vincent Abou-Goal",
+        "country": "CAMERÚN",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Vincent Abou"
+    },
+    {
+        "id": 388,
+        "name": "Frank Anguis-Hub",
+        "country": "CAMERÚN",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Frank Anguis"
+    },
+    {
+        "id": 389,
+        "name": "Bryan Mbeumo-Rocket",
+        "country": "CAMERÚN",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Bryan Mbeumo"
+    },
+    {
+        "id": 390,
+        "name": "Christopher Wooh-Wall",
+        "country": "CAMERÚN",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Christopher Wooh"
+    },
+    {
+        "id": 391,
+        "name": "Harold Mouko-Iron",
+        "country": "CAMERÚN",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Harold Mouko"
+    },
+    {
+        "id": 392,
+        "name": "Nouhou Tolo-Rail",
+        "country": "CAMERÚN",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Nouhou Tolo"
+    },
+    {
+        "id": 393,
+        "name": "Olivier Ntch-Link",
+        "country": "CAMERÚN",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Olivier Ntch"
+    },
+    {
+        "id": 394,
+        "name": "Karlos Baleba-Gem",
+        "country": "CAMERÚN",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Karlos Baleba"
+    },
+    {
+        "id": 395,
+        "name": "Nicolas Ngama-Wing",
+        "country": "CAMERÚN",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Nicolas Ngama"
+    },
+    {
+        "id": 396,
+        "name": "Faris Moumb-Tank",
+        "country": "CAMERÚN",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Faris Moumb"
+    },
+    {
+        "id": 397,
+        "name": "Seb Hall-Legend",
+        "country": "COSTA DE MARFIL",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Seb Hall"
+    },
+    {
+        "id": 398,
+        "name": "Franck Kessi-Main",
+        "country": "COSTA DE MARFIL",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Franck Kessi"
+    },
+    {
+        "id": 399,
+        "name": "Simon Adingra-Magic",
+        "country": "COSTA DE MARFIL",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Simon Adingra"
+    },
+    {
+        "id": 400,
+        "name": "Ousmane Dioman-Wall",
+        "country": "COSTA DE MARFIL",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Ousmane Dioman"
+    },
+    {
+        "id": 401,
+        "name": "Evan Ndicka-Iron",
+        "country": "COSTA DE MARFIL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Evan Ndicka"
+    },
+    {
+        "id": 402,
+        "name": "Wilfried Singo-Rail",
+        "country": "COSTA DE MARFIL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Wilfried Singo"
+    },
+    {
+        "id": 403,
+        "name": "Seko Fofana-Engine",
+        "country": "COSTA DE MARFIL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Seko Fofana"
+    },
+    {
+        "id": 404,
+        "name": "Ibrahim Sang-Pivot",
+        "country": "COSTA DE MARFIL",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ibrahim Sang"
+    },
+    {
+        "id": 405,
+        "name": "Yahia Fofana-Safe",
+        "country": "COSTA DE MARFIL",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "GK",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Yahia Fofana"
+    },
+    {
+        "id": 406,
+        "name": "Nicolas Pepe-Silk",
+        "country": "COSTA DE MARFIL",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Nicolas Pepe"
+    },
+    {
+        "id": 407,
+        "name": "Oumar Diaki-Flash",
+        "country": "COSTA DE MARFIL",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Oumar Diaki"
+    },
+    {
+        "id": 408,
+        "name": "Aissa Laid-Shield",
+        "country": "TÚNEZ",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "DEF",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Aissa Laid"
+    },
+    {
+        "id": 409,
+        "name": "Hannibal Mejb-Cloud",
+        "country": "TÚNEZ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Hannibal Mejb"
+    },
+    {
+        "id": 410,
+        "name": "Ellyes Skhiri-Core",
+        "country": "TÚNEZ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Ellyes Skhiri"
+    },
+    {
+        "id": 411,
+        "name": "Youssef Msak-Skill",
+        "country": "TÚNEZ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Youssef Msak"
+    },
+    {
+        "id": 412,
+        "name": "Montassar Tal-Wall",
+        "country": "TÚNEZ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Montassar Tal"
+    },
+    {
+        "id": 413,
+        "name": "Aymen Dahm-Save",
+        "country": "TÚNEZ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Aymen Dahm"
+    },
+    {
+        "id": 414,
+        "name": "Wajdi Kech-Rail",
+        "country": "TÚNEZ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Wajdi Kech"
+    },
+    {
+        "id": 415,
+        "name": "Ali Maaloul-Curve",
+        "country": "TÚNEZ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ali Maaloul"
+    },
+    {
+        "id": 416,
+        "name": "Moh Ali-Ben-Link",
+        "country": "TÚNEZ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Moh Ali"
+    },
+    {
+        "id": 417,
+        "name": "Elias Achou-Flash",
+        "country": "TÚNEZ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Elias Achou"
+    },
+    {
+        "id": 418,
+        "name": "Seif Jaziri-Hit",
+        "country": "TÚNEZ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Seif Jaziri"
+    },
+    {
+        "id": 419,
+        "name": "Keylor Vault-as",
+        "country": "COSTA RICA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Keylor Vault"
+    },
+    {
+        "id": 420,
+        "name": "Manfred Ugal-Goal",
+        "country": "COSTA RICA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Manfred Ugal"
+    },
+    {
+        "id": 421,
+        "name": "Joel Camp-Legend",
+        "country": "COSTA RICA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Joel Camp"
+    },
+    {
+        "id": 422,
+        "name": "Francisco Cal-Wall",
+        "country": "COSTA RICA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "DEF",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Francisco Cal"
+    },
+    {
+        "id": 423,
+        "name": "Juan Pablo-Safe",
+        "country": "COSTA RICA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Juan Pablo"
+    },
+    {
+        "id": 424,
+        "name": "Patrick Seque-Grip",
+        "country": "COSTA RICA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Patrick Seque"
+    },
+    {
+        "id": 425,
+        "name": "Jeyland Mit-Iron",
+        "country": "COSTA RICA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Jeyland Mit"
+    },
+    {
+        "id": 426,
+        "name": "Haxzel Quir-Rail",
+        "country": "COSTA RICA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Haxzel Quir"
+    },
+    {
+        "id": 427,
+        "name": "Brandon Agui-Flow",
+        "country": "COSTA RICA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Brandon Agui"
+    },
+    {
+        "id": 428,
+        "name": "Josimar Alco-Byte",
+        "country": "COSTA RICA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Josimar Alco"
+    },
+    {
+        "id": 429,
+        "name": "Alvaro Zamo-Flash",
+        "country": "COSTA RICA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Alvaro Zamo"
+    },
+    {
+        "id": 430,
+        "name": "Adal Carras-Wall",
+        "country": "PANAMÁ",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "DEF",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Adal Carras"
+    },
+    {
+        "id": 431,
+        "name": "Coco Carras-Link",
+        "country": "PANAMÁ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Coco Carras"
+    },
+    {
+        "id": 432,
+        "name": "Ismael Diaz-Goal",
+        "country": "PANAMÁ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Ismael Diaz"
+    },
+    {
+        "id": 433,
+        "name": "Orlando Mosq-Save",
+        "country": "PANAMÁ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "GK",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Orlando Mosq"
+    },
+    {
+        "id": 434,
+        "name": "Michael Am-Hit",
+        "country": "PANAMÁ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Michael Am"
+    },
+    {
+        "id": 435,
+        "name": "Jose Cordoba-Iron",
+        "country": "PANAMÁ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Jose Cordoba"
+    },
+    {
+        "id": 436,
+        "name": "Edgardo Far-Rail",
+        "country": "PANAMÁ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Edgardo Far"
+    },
+    {
+        "id": 437,
+        "name": "Eric Davis-Cross",
+        "country": "PANAMÁ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Eric Davis"
+    },
+    {
+        "id": 438,
+        "name": "Anibal God-Cap",
+        "country": "PANAMÁ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Anibal God"
+    },
+    {
+        "id": 439,
+        "name": "Jose Rodri-Silk",
+        "country": "PANAMÁ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Jose Rodri"
+    },
+    {
+        "id": 440,
+        "name": "Jose Fajardo-Tank",
+        "country": "PANAMÁ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Jose Fajardo"
+    },
+    {
+        "id": 441,
+        "name": "Mehdi Tare-Goal",
+        "country": "IRÁN",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Mehdi Tare"
+    },
+    {
+        "id": 442,
+        "name": "Sardar Azm-Air",
+        "country": "IRÁN",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Sardar Azm"
+    },
+    {
+        "id": 443,
+        "name": "Alireza Jahan-Flash",
+        "country": "IRÁN",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Alireza Jahan"
+    },
+    {
+        "id": 444,
+        "name": "Alireza Beir-Vault",
+        "country": "IRÁN",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Alireza Beir"
+    },
+    {
+        "id": 445,
+        "name": "Shoja Khalil-Wall",
+        "country": "IRÁN",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Shoja Khalil"
+    },
+    {
+        "id": 446,
+        "name": "Milad Mohamm-Rail",
+        "country": "IRÁN",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Milad Mohamm"
+    },
+    {
+        "id": 447,
+        "name": "Ramin Reza-Bolt",
+        "country": "IRÁN",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ramin Reza"
+    },
+    {
+        "id": 448,
+        "name": "Saeid Ezat-Base",
+        "country": "IRÁN",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Saeid Ezat"
+    },
+    {
+        "id": 449,
+        "name": "Saman Ghod-Art",
+        "country": "IRÁN",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Saman Ghod"
+    },
+    {
+        "id": 450,
+        "name": "Ali Gholi-Silk",
+        "country": "IRÁN",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Ali Gholi"
+    },
+    {
+        "id": 451,
+        "name": "Morteza Pour-Iron",
+        "country": "IRÁN",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "DEF",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Morteza Pour"
+    },
+    {
+        "id": 452,
+        "name": "Ayman Huss-Target",
+        "country": "IRAK",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Ayman Huss"
+    },
+    {
+        "id": 453,
+        "name": "Ali Jasim-Star",
+        "country": "IRAK",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Ali Jasim"
+    },
+    {
+        "id": 454,
+        "name": "Zidane Iqbal-Silk",
+        "country": "IRAK",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Zidane Iqbal"
+    },
+    {
+        "id": 455,
+        "name": "Jalal Hassan-Save",
+        "country": "IRAK",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "GK",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Jalal Hassan"
+    },
+    {
+        "id": 456,
+        "name": "Rebin Sulaka-Wall",
+        "country": "IRAK",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Rebin Sulaka"
+    },
+    {
+        "id": 457,
+        "name": "Moha Ali-Hit",
+        "country": "IRAK",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Moha Ali"
+    },
+    {
+        "id": 458,
+        "name": "Hussein Ali-Side",
+        "country": "IRAK",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Hussein Ali"
+    },
+    {
+        "id": 459,
+        "name": "Saad Natiq-Iron",
+        "country": "IRAK",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Saad Natiq"
+    },
+    {
+        "id": 460,
+        "name": "Amir Al-Ammari-Hub",
+        "country": "IRAK",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Amir Al"
+    },
+    {
+        "id": 461,
+        "name": "Ibrahim Bay-Drive",
+        "country": "IRAK",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Ibrahim Bay"
+    },
+    {
+        "id": 462,
+        "name": "Youssef Amyn-Flash",
+        "country": "IRAK",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Youssef Amyn"
+    },
+    {
+        "id": 463,
+        "name": "Akram Afif-Magic",
+        "country": "QATAR",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Akram Afif"
+    },
+    {
+        "id": 464,
+        "name": "Almoez Ali-Goal",
+        "country": "QATAR",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Almoez Ali"
+    },
+    {
+        "id": 465,
+        "name": "Meshaal Barsh-Save",
+        "country": "QATAR",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "GK",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Meshaal Barsh"
+    },
+    {
+        "id": 466,
+        "name": "Hassan Al-Hay-Chief",
+        "country": "QATAR",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Hassan Al"
+    },
+    {
+        "id": 467,
+        "name": "Lucas Mendes-Block",
+        "country": "QATAR",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Lucas Mendes"
+    },
+    {
+        "id": 468,
+        "name": "Pedro Miguel-Rail",
+        "country": "QATAR",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Pedro Miguel"
+    },
+    {
+        "id": 469,
+        "name": "Boualem Khou-Wall",
+        "country": "QATAR",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Boualem Khou"
+    },
+    {
+        "id": 470,
+        "name": "Jassem Gaber-Link",
+        "country": "QATAR",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Jassem Gaber"
+    },
+    {
+        "id": 471,
+        "name": "Ahmed Fathi-Base",
+        "country": "QATAR",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Ahmed Fathi"
+    },
+    {
+        "id": 472,
+        "name": "Yusuf Abdur-Flash",
+        "country": "QATAR",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Yusuf Abdur"
+    },
+    {
+        "id": 473,
+        "name": "Bassam Al-Rawi-Shot",
+        "country": "QATAR",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Bassam Al"
+    },
+    {
+        "id": 474,
+        "name": "Chris Wood-Tower",
+        "country": "NUEVA ZELANDA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Chris Wood"
+    },
+    {
+        "id": 475,
+        "name": "Liberato Cac-Flow",
+        "country": "NUEVA ZELANDA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Liberato Cac"
+    },
+    {
+        "id": 476,
+        "name": "Sarpreet Sin-Skill",
+        "country": "NUEVA ZELANDA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Sarpreet Sin"
+    },
+    {
+        "id": 477,
+        "name": "Joe Bell-Base",
+        "country": "NUEVA ZELANDA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Joe Bell"
+    },
+    {
+        "id": 478,
+        "name": "Alex Paulsen-Reflex",
+        "country": "NUEVA ZELANDA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Alex Paulsen"
+    },
+    {
+        "id": 479,
+        "name": "Michael Boxall-Iron",
+        "country": "NUEVA ZELANDA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Michael Boxall"
+    },
+    {
+        "id": 480,
+        "name": "Nando Pijnaker-Wall",
+        "country": "NUEVA ZELANDA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Nando Pijnaker"
+    },
+    {
+        "id": 481,
+        "name": "Matt Garbett-Drive",
+        "country": "NUEVA ZELANDA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Matt Garbett"
+    },
+    {
+        "id": 482,
+        "name": "Ben Waine-Flash",
+        "country": "NUEVA ZELANDA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Ben Waine"
+    },
+    {
+        "id": 483,
+        "name": "Kosta Barbar-Fast",
+        "country": "NUEVA ZELANDA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Kosta Barbar"
+    },
+    {
+        "id": 484,
+        "name": "Tyler Bindon-Rise",
+        "country": "NUEVA ZELANDA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Tyler Bindon"
+    },
+    {
+        "id": 485,
+        "name": "Mo Salah-King",
+        "country": "EGIPTO",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Mohamed Salah"
+    },
+    {
+        "id": 486,
+        "name": "Mostafa Moh-Goal",
+        "country": "EGIPTO",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Mostafa Moh"
+    },
+    {
+        "id": 487,
+        "name": "Omar Marm-Silk",
+        "country": "EGIPTO",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Omar Marm"
+    },
+    {
+        "id": 488,
+        "name": "Trézéguet-Flash",
+        "country": "EGIPTO",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Trézéguet"
+    },
+    {
+        "id": 489,
+        "name": "Moh Elneny-Core",
+        "country": "EGIPTO",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Moh Elneny"
+    },
+    {
+        "id": 490,
+        "name": "Ahmed Hegazi-Wall",
+        "country": "EGIPTO",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Ahmed Hegazi"
+    },
+    {
+        "id": 491,
+        "name": "Moh El-Shen-Safe",
+        "country": "EGIPTO",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Moh El"
+    },
+    {
+        "id": 492,
+        "name": "Moh Abdelm-Iron",
+        "country": "EGIPTO",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Moh Abdelm"
+    },
+    {
+        "id": 493,
+        "name": "Moh Hany-Side",
+        "country": "EGIPTO",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Moh Hany"
+    },
+    {
+        "id": 494,
+        "name": "Hamdi Fathi-Sweep",
+        "country": "EGIPTO",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Hamdi Fathi"
+    },
+    {
+        "id": 495,
+        "name": "Omar Kamal-Wing",
+        "country": "EGIPTO",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Omar Kamal"
+    },
+    {
+        "id": 496,
+        "name": "Percy Tau-Lion",
+        "country": "SUDÁFRICA",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Percy Tau"
+    },
+    {
+        "id": 497,
+        "name": "Ronwen Will-Safe",
+        "country": "SUDÁFRICA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "GK",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Ronwen Will"
+    },
+    {
+        "id": 498,
+        "name": "Teboho Mo-Pivot",
+        "country": "SUDÁFRICA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "MID",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Teboho Molina"
+    },
+    {
+        "id": 499,
+        "name": "Themba Zwane-Magic",
+        "country": "SUDÁFRICA",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Themba Zwane"
+    },
+    {
+        "id": 500,
+        "name": "Khuliso Mudau-Rail",
+        "country": "SUDÁFRICA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Khuliso Mudau"
+    },
+    {
+        "id": 501,
+        "name": "Mothobi Mva-Iron",
+        "country": "SUDÁFRICA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Mothobi Mva"
+    },
+    {
+        "id": 502,
+        "name": "Grant Kekana-Wall",
+        "country": "SUDÁFRICA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Grant Kekana"
+    },
+    {
+        "id": 503,
+        "name": "Aubrey Modiba-Flow",
+        "country": "SUDÁFRICA",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Aubrey Modiba"
+    },
+    {
+        "id": 504,
+        "name": "Evidence Mak-Hit",
+        "country": "SUDÁFRICA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Evidence Mak"
+    },
+    {
+        "id": 505,
+        "name": "Sphephelo Si-Motor",
+        "country": "SUDÁFRICA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Sphephelo Si"
+    },
+    {
+        "id": 506,
+        "name": "Thapelo More-Flash",
+        "country": "SUDÁFRICA",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Thapelo More"
+    },
+    {
+        "id": 507,
+        "name": "Yves Bissou-Hub",
+        "country": "MALÍ",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Yves Bissou"
+    },
+    {
+        "id": 508,
+        "name": "Amadou Haid-Root",
+        "country": "MALÍ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Amadou Haid"
+    },
+    {
+        "id": 509,
+        "name": "El Bilal Tou-Goal",
+        "country": "MALÍ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "El Bilal Tou"
+    },
+    {
+        "id": 510,
+        "name": "Kamory Doum-Silk",
+        "country": "MALÍ",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Kamory Doum"
+    },
+    {
+        "id": 511,
+        "name": "Hamari Trao-Cap",
+        "country": "MALÍ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Hamari Trao"
+    },
+    {
+        "id": 512,
+        "name": "Djigui Diar-Safe",
+        "country": "MALÍ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Djigui Diar"
+    },
+    {
+        "id": 513,
+        "name": "Falaye Sacc-Wall",
+        "country": "MALÍ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Falaye Sacc"
+    },
+    {
+        "id": 514,
+        "name": "Modibo Sagn-Iron",
+        "country": "MALÍ",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Modibo Sagn"
+    },
+    {
+        "id": 515,
+        "name": "Mohamed Cam-Pivot",
+        "country": "MALÍ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Mohamed Cam"
+    },
+    {
+        "id": 516,
+        "name": "Sekou Koita-Flash",
+        "country": "MALÍ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Sekou Koita"
+    },
+    {
+        "id": 517,
+        "name": "Lassine Sina-Hit",
+        "country": "MALÍ",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Lassine Sina"
+    },
+    {
+        "id": 518,
+        "name": "Edmond Tapso-Wall",
+        "country": "BURKINA FASO",
+        "rarity": "legendary",
+        "bg_type": "BG-LEG",
+        "position": "DEF",
+        "stats": {
+            "atk": 88,
+            "def": 80,
+            "hype": 92
+        },
+        "real_name": "Edmond Tapso"
+    },
+    {
+        "id": 519,
+        "name": "Bertrand Trao-Silk",
+        "country": "BURKINA FASO",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Bertrand Trao"
+    },
+    {
+        "id": 520,
+        "name": "Dango Ouat-Flash",
+        "country": "BURKINA FASO",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Dango Ouat"
+    },
+    {
+        "id": 521,
+        "name": "Issa Kabore-Rail",
+        "country": "BURKINA FASO",
+        "rarity": "epic",
+        "bg_type": "BG-EPI",
+        "position": "FWD",
+        "stats": {
+            "atk": 82,
+            "def": 75,
+            "hype": 85
+        },
+        "real_name": "Issa Kabore"
+    },
+    {
+        "id": 522,
+        "name": "Hervé Koffi-Safe",
+        "country": "BURKINA FASO",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "GK",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Hervé Koffi"
+    },
+    {
+        "id": 523,
+        "name": "Steeve Yago-Iron",
+        "country": "BURKINA FASO",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "DEF",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Steeve Yago"
+    },
+    {
+        "id": 524,
+        "name": "Issoufou Dayo-Chief",
+        "country": "BURKINA FASO",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "FWD",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Issoufou Dayo"
+    },
+    {
+        "id": 525,
+        "name": "Blati Toure-Link",
+        "country": "BURKINA FASO",
+        "rarity": "rare",
+        "bg_type": "BG-RAR",
+        "position": "MID",
+        "stats": {
+            "atk": 75,
+            "def": 70,
+            "hype": 78
+        },
+        "real_name": "Blati Toure"
+    },
+    {
+        "id": 526,
+        "name": "Gustavo Sang-Flow",
+        "country": "BURKINA FASO",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Gustavo Sang"
+    },
+    {
+        "id": 527,
+        "name": "Lassina Trao-Tank",
+        "country": "BURKINA FASO",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "FWD",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Lassina Trao"
+    },
+    {
+        "id": 528,
+        "name": "Cedric Badolo-View",
+        "country": "BURKINA FASO",
+        "rarity": "common",
+        "bg_type": "BG-COM",
+        "position": "MID",
+        "stats": {
+            "atk": 70,
+            "def": 70,
+            "hype": 70
+        },
+        "real_name": "Cedric Badolo"
     }
 ]
