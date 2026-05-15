@@ -16,7 +16,7 @@ const PRICE_MAP = {
 
 // Manual image map for generated NFTs (overrides auto-generated paths)
 const NFT_IMAGE_MAP = {
-    1: "001_lionel_bitcoin.png",
+    1: "001_lionel_satoshi.png",
     2: "002_dibu_block.png",
     3: "020_julian_alvaswap.png",
     14: "014_mo_solana.png",
@@ -127,7 +127,7 @@ function renderPlayers() {
     });
 
     if (filtered.length === 0) {
-        track.innerHTML = '<div style="color: var(--text-dim); padding: 40px; text-align: center; width: 100%;">No se encontraron cromos con estos filtros.</div>';
+        track.innerHTML = `<div style="color: var(--text-dim); padding: 40px; text-align: center; width: 100%;">${t('nft_not_found')}</div>`;
         return;
     }
 
@@ -155,17 +155,17 @@ function renderPlayers() {
             <div class="favorite-heart ${isFav ? 'is-fav' : ''}" data-id="${player.id}">❤️</div>
             <div class="card-inner">
                 <div class="card-front">
-                    <!-- Capa 1: Foto del Jugador (IA) -->
+                    <!-- Layer 1: Player Image -->
                     <div class="layer layer-base">
                         <img src="${imgPath}" alt="${player.name}" loading="lazy" 
                              onerror="this.parentElement.classList.add('no-image'); this.style.display='none';">
                         <div class="placeholder-icon">⚽</div>
                     </div>
                     
-                    <!-- Capa 2: Marco Maestro (Fijo) -->
+                    <!-- Layer 2: Frame -->
                     <div class="layer layer-frame rarity-${player.rarity}"></div>
 
-                    <!-- Capa 3: UI y Metadata -->
+                    <!-- Layer 3: UI -->
                     <div class="layer layer-ui">
                         <div class="top-row">
                             <span class="player-num">#${String(player.id).padStart(3, '0')}</span>
@@ -181,49 +181,36 @@ function renderPlayers() {
                         </div>
                     </div>
                 </div>
-                
                 <div class="card-back">
                     <div class="back-content">
-                        <div class="back-header">${t('nft_contract_title')}</div>
+                        <div class="back-header" data-i18n="nft_contract_title">PROFESSIONAL CONTRACT</div>
                         <div class="back-body">
                             <div class="back-id">ID: ${player.id}</div>
-                            <div class="back-salary">MATCH PAY: ${player.contract.matchSalary} $GCH</div>
+                            <div class="back-salary">MATCH PAY: ${player.contract ? player.contract.matchSalary : 0} $GCH</div>
+                            <div class="clauses-list">
+                                ${player.contract ? player.contract.clauses.map(c => `<div class="clause-item">${c}</div>`).join('') : ''}
+                            </div>
                             <div class="back-mint"><code>${player.mint_address || 'SOL_PENDING...'}</code></div>
+                            <button class="btn-buy" onclick="handleBuy(${player.id})">${t('nft_buy_btn')}: ${nftPrice}</button>
                         </div>
                     </div>
                 </div>
             </div>
         `;
-                            ${player.contract.clauses.map(c => `<div class="clause-item">${c}</div>`).join('')}
-                        </div>
-                    </div>
 
-                    <div class="oracle-badge" style="margin-top: 10px; font-size: 0.7rem; background: rgba(20, 241, 149, 0.1); border: 1px solid #14f195; padding: 5px; border-radius: 4px; color: #14f195;">
-                        <span>ORACLE INDEX: ${player.oracle_sync.performance_index}x</span>
-                    </div>
-
-                    <div class="price-tag" style="margin-top: 10px;">
-                        <div class="price-info">
-                            <span class="price-label">${t('nft_price_label')}</span>
-                            <div class="price-value">${nftPrice}</div>
-                        </div>
-                        <button class="btn-buy" style="margin-top: 0; width: auto; padding: 5px 15px;" onclick="handleBuy(${player.id})">${t('nft_buy_btn')}</button>
-                    </div>
-                </div>
-            </div>
-        `;
-        
+        // Flip event
         card.addEventListener('click', (e) => {
             if (e.target.closest('.favorite-heart') || e.target.closest('.btn-buy')) return;
             card.classList.toggle('is-flipped');
         });
 
+        // Favorite event
         const heart = card.querySelector('.favorite-heart');
         heart.addEventListener('click', (e) => {
             e.stopPropagation();
             toggleFavorite(player.id, heart);
         });
-        
+
         track.appendChild(card);
         cardObserver.observe(card);
     });
