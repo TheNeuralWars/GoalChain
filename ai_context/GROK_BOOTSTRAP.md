@@ -16,10 +16,10 @@ Grok, he actualizado los archivos de instrucciones del repositorio. A partir de 
 
 2. **Calidad de Imagen (L2 Layer - FULL BODY)**:
     - **Protocolo 🔍**: Antes de cada prompt, BUSCÁ en X/Web fotos actuales del jugador para clavar su parecido real (Likeness).
-    - **Objetivo 📸**: FOTOGRAFÍA DEPORTIVA PROFESIONAL, realismo absoluto, cero caricatura.
-    - **Composición 📏**: CUERPO COMPLETO (Full length shot, head to toe visible). El jugador debe ocupar el 85% de la altura.
-    - **Fondo ⚪**: DEBE ser blanco sólido (#FFFFFF) para permitir un recorte perfecto. Sin sombras en el piso ni pasto.
-    - **Pesos ⚖️**: Usá peso `::3` para la descripción física detallada del jugador.
+    - **Objetivo 📸**: FOTOGRAFÍA DEPORTIVA PROFESIONAL, realismo absoluto, cuerpo completo.
+    - **Fondo ⚪**: DEBE ser **BLANCO PURO SÓLIDO (#FFFFFF)**. Prohibido el gris, las sombras en el piso o degradados. Usá "High-key studio lighting".
+    - **Composición 📏**: Cabeza a pies visibles (Full length shot).
+    - **Pesos ⚖️**: Usá peso `::3` para la descripción física detallada.
 
 3. **Flujo de Trabajo**:
     - Jugador: Usá el ID que te pida del archivo `players.json`.
