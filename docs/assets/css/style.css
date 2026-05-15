@@ -1774,3 +1774,52 @@ body {
 .reveal-overlay.is-active .revealed-card-container {
     transform: scale(1.2);
 }
+
+/* --- Collection Dashboard --- */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--text-dim);
+    color: var(--text-dim);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    border-color: var(--solana-green);
+    color: var(--solana-green);
+    background: rgba(20, 241, 149, 0.1);
+    box-shadow: 0 0 15px rgba(20, 241, 149, 0.2);
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    min-height: 200px;
+}
+
+.empty-inventory {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 20px;
+    border: 1px dashed var(--text-dim);
+}
+
+.collection-grid .nft-card-3d {
+    transform: scale(0.8);
+    margin: -30px;
+}
