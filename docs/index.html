@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="assets/css/style.css?v=2.4">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg?v=1.0">
-    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js" defer></script>
+    <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg?v=1.0">
 </head>
 <body>
     <div class="vibrancy"></div>
@@ -95,9 +94,9 @@
 
     <!-- NAV -->
     <nav class="main-nav" id="mainNav">
-        <div class="logo" onclick="location.href='#'" style="display: flex; align-items: center; gap: 10px;">
+        <div class="logo" onclick="location.href='#'" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
             <img src="assets/img/logo.png" alt="GoalChain Logo" style="height: 32px; filter: drop-shadow(0 0 8px rgba(20, 241, 149, 0.3));">
-            Goal<span>Chain</span>
+            Goal<span style="color:var(--primary);">Chain</span>
         </div>
         <div class="nav-links-desktop">
             <a href="#pitch" data-i18n="nav_about">Sobre</a>
@@ -115,8 +114,12 @@
                 </div>
             </div>
             
-            <button id="connectWalletBtn" class="btn-glow" style="margin-left:20px; padding: 8px 20px; background: transparent; border: 1px solid var(--solana-green); color: var(--solana-green); font-weight: 900; border-radius: 20px; cursor: pointer; font-size: 0.8rem;">
-                CONECTAR WALLET
+            <button id="connectWalletBtn" class="btn-glow" style="margin-left:20px; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: rgba(20, 241, 149, 0.1); border: 1px solid var(--solana-green); color: var(--solana-green); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; padding: 0;" title="Connect Wallet">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
+                    <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path>
+                    <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path>
+                </svg>
             </button>
             <style>
                 .nav-dropdown-content { 
@@ -766,7 +769,7 @@
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <div class="logo" style="margin-bottom:0.5rem;">Goal<span>Chain</span></div>
+        <div class="logo" style="margin-bottom:0.5rem;">Goal<span style="color:var(--primary);">Chain</span></div>
         <p style="font-size:0.8rem;color:var(--text-dim);">&copy; 2026 GoalChain — <span data-i18n="footer_built">Desarrollado en Solana</span></p>
         <div class="footer-links">
             <a href="https://x.com/GoalChainDotFun" target="_blank">Twitter / X</a>
@@ -794,20 +797,19 @@
         }
 
         // Safety Force Stop: Asegura que el contenido sea visible incluso si la carga es lenta
-        window.addEventListener('load', () => {
-            console.log("GoalChain: Carga finalizada.");
-            const vib = document.querySelector('.vibrancy');
-            if(vib) vib.style.opacity = "1";
-            // Forzar visibilidad de elementos 'reveal' si aún no se han activado
-            document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        // Fast Reveal: No esperar a que TODO cargue
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+                const vib = document.querySelector('.vibrancy');
+                if(vib) vib.style.opacity = "1";
+            }, 500); // 500ms para asegurar el primer pintado
         });
 
-        // Fallback de seguridad: Si después de 3 segundos no ha cargado, forzamos visibilidad
+        // Failsafe 2s
         setTimeout(() => {
             document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
-            const vib = document.querySelector('.vibrancy');
-            if(vib) vib.style.opacity = "1";
-        }, 3000);
+        }, 2000);
     </script>
 
     <script src="assets/js/i18n.js?v=2.3"></script>

@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ===== FALLBACK: Emergency brake for infinite loading =====
+    setTimeout(() => {
+        const loader = document.getElementById('loader');
+        if (loader) loader.style.display = 'none';
+        document.body.classList.add('loaded');
+        console.log("⚠️ Page load finalized by safety timeout.");
+    }, 3500);
 
     // ===== MOBILE MENU =====
     const hamburger = document.getElementById('hamburgerBtn');
