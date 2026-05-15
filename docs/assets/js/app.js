@@ -25,21 +25,35 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCountdown() {
         const now = Date.now();
         const dist = WC_DATE - now;
+        const countdownContainer = document.getElementById('countdown');
+
         if (dist <= 0) {
-            document.getElementById('days').innerText = '🔥';
-            document.getElementById('hours').innerText = '00';
-            document.getElementById('minutes').innerText = '00';
-            document.getElementById('seconds').innerText = '00';
+            if (countdownContainer && !countdownContainer.dataset.kickoff) {
+                countdownContainer.dataset.kickoff = "true";
+                countdownContainer.style.animation = 'kickoffPulse 1.5s infinite';
+                countdownContainer.innerHTML = `
+                    <div style="grid-column: span 4; text-align:center; padding:15px; width: 100%;">
+                        <span style="font-size:2.2rem; font-weight:900; color:var(--primary); text-shadow:0 0 25px var(--primary);">¡KICK-OFF!</span>
+                        <p style="color:var(--secondary); margin-top:8px; font-size:1rem; font-weight: 800;">EL MUNDIAL 2026 YA EMPEZÓ ⚽🔥</p>
+                    </div>`;
+            }
             return;
         }
+
         const d = Math.floor(dist / 86400000);
         const h = Math.floor((dist % 86400000) / 3600000);
         const m = Math.floor((dist % 3600000) / 60000);
         const s = Math.floor((dist % 60000) / 1000);
-        document.getElementById('days').innerText = String(d).padStart(2, '0');
-        document.getElementById('hours').innerText = String(h).padStart(2, '0');
-        document.getElementById('minutes').innerText = String(m).padStart(2, '0');
-        document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minsEl = document.getElementById('minutes');
+        const secsEl = document.getElementById('seconds');
+
+        if (daysEl) daysEl.innerText = String(d).padStart(2, '0');
+        if (hoursEl) hoursEl.innerText = String(h).padStart(2, '0');
+        if (minsEl) minsEl.innerText = String(m).padStart(2, '0');
+        if (secsEl) secsEl.innerText = String(s).padStart(2, '0');
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();

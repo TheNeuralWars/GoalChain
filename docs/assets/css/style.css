@@ -194,6 +194,12 @@ body {
     letter-spacing: 1px; margin-top: 2px;
 }
 
+@keyframes kickoffPulse {
+    0% { text-shadow: 0 0 15px var(--primary); transform: scale(1); }
+    50% { text-shadow: 0 0 40px var(--secondary), 0 0 60px var(--primary); transform: scale(1.02); }
+    100% { text-shadow: 0 0 15px var(--primary); transform: scale(1); }
+}
+
 .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 
 /* --- Section Styling --- */
