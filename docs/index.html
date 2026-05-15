@@ -488,44 +488,34 @@
                 <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('nftTrackContainer', 1)">❯</button>
             </div>
             
-            <!-- Paso 3: Pack Opener Simulator -->
-            <div style="text-align:center; margin:3rem 0;" class="reveal">
-                <button onclick="openPackSimulator()" class="btn btn-primary btn-glow" style="font-size:1.4rem; padding:1.2rem 4rem; background:linear-gradient(90deg,#9945ff,#14f195); box-shadow:0 0 40px rgba(153, 69, 255, 0.5);" data-i18n="pack_open_btn">
-                    🔥 ABRIR SOBRE MYSTERY PACK
-                </button>
-                <p style="margin-top:12px; color:#14f195; font-size:0.9rem;" data-i18n="pack_sim">Simulador oficial • 100% gratis</p>
+            <!-- Paso 3: Mystery Pack Simulator (High Fidelity) -->
+            <div class="pack-container reveal">
+                <div id="mysteryPack" class="mystery-pack">
+                    <img src="assets/img/logo.png" alt="GoalChain Logo" class="pack-logo">
+                    <span class="pack-label">GENESIS PACK</span>
+                </div>
             </div>
 
-            <script>
-                function openPackSimulator() {
-                    const packHTML = `
-                    <div id="packModal" style="position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:99999; display:flex; align-items:center; justify-content:center;">
-                        <div class="glass-card" style="width:380px; padding:30px; text-align:center;">
-                            <h2 style="color:#14f195;">${t('pack_opening')}</h2>
-                            <div id="packAnimation" style="font-size:120px; margin:30px 0; animation:packShake 0.8s infinite;">📦</div>
-                            <button onclick="revealPack()" class="btn btn-primary" style="width:100%;">${t('pack_reveal_btn')}</button>
-                        </div>
-                    </div>
-                    <style>
-                        @keyframes packShake {
-                            0% { transform: rotate(0); }
-                            25% { transform: rotate(5deg); }
-                            50% { transform: rotate(0); }
-                            75% { transform: rotate(-5deg); }
-                            100% { transform: rotate(0); }
-                        }
-                    </style>`;
-                    document.body.insertAdjacentHTML('beforeend', packHTML);
-                }
-                function revealPack() {
-                    document.getElementById('packAnimation').innerHTML = '⚽';
-                    document.getElementById('packAnimation').style.animation = 'none';
-                    setTimeout(() => {
-                        alert(`${t('pack_congrats')} ${t('pack_obtained')} **Legendary Kylian M-Bag-pé** 🔥\n\n${t('pack_real_version')}`);
-                        document.getElementById('packModal').remove();
-                    }, 800);
-                }
-            </script>
+            <div style="text-align:center; margin-top:1rem;" class="reveal">
+                <button id="openPackBtn" class="btn btn-primary btn-glow" style="font-size:1.2rem; padding:1rem 3rem; background:linear-gradient(90deg,#9945ff,#14f195); box-shadow:0 0 30px rgba(20, 241, 149, 0.3);">
+                    🛒 COMPRAR SOBRE (1 SOL)
+                </button>
+                <p style="margin-top:12px; color:var(--solana-green); font-size:0.85rem; font-weight:700;" data-i18n="pack_sim">Simulador oficial • 100% On-chain</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Screen Reveal Overlay (Hidden by default) -->
+    <div id="revealModal" class="reveal-overlay">
+        <canvas id="revealParticles" class="particle-canvas"></canvas>
+        <div id="revealedCardContainer" class="revealed-card-container">
+            <!-- La carta aparecerá aquí inyectada por pack_opener.js -->
+        </div>
+        <button id="closeRevealBtn" class="btn-solana mt-5" style="display:none; padding: 12px 40px; font-weight: 900; letter-spacing: 2px;">
+            AGREGAR A MI COLECCIÓN
+        </button>
+    </div>
+
 
             <!-- MINTEO GENESIS SQUAD - SIMULACIÓN OFICIAL -->
             <div style="text-align:center; margin:3rem 0 4rem;" class="reveal">
