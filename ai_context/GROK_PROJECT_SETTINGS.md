@@ -8,6 +8,7 @@ Repositorio: `https://github.com/TheNeuralWars/GoalChain`
 4. `assets/data/nft_master_prompts_100.json` (Poses específicas por ID).
 
 **REGLAS INVIOLABLES:**
+- **Auto-Skill**: Usá automáticamente la Skill 'GoalChain Generator' para cualquier pedido de imágenes de jugadores o IDs de la lista.
 - No inventar nombres. Consultar siempre la URL de GitHub.
 - Antes de generar:
 2. **Protocolo de Búsqueda 🔍**: BUSCÁ fotos recientes en X/Web usando el `realName`. Presentá un resumen de rasgos físicos únicos antes de proponer el prompt.
