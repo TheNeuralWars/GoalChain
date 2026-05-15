@@ -98,6 +98,7 @@
             <img src="assets/img/logo.png" alt="GoalChain Logo" style="height: 32px; filter: drop-shadow(0 0 8px rgba(20, 241, 149, 0.3));">
             Goal<span style="color:var(--primary);">Chain</span>
         </div>
+        
         <div class="nav-links-desktop">
             <a href="#pitch" data-i18n="nav_about">Sobre</a>
             <a href="#gameplay" data-i18n="nav_game">Mini-Juego</a>
@@ -105,7 +106,9 @@
             <a href="#roadmap">Roadmap</a>
             <a href="#marketplace">Market</a>
             <a href="#social" data-i18n="nav_social">Social</a>
-            <button onclick="openAlphaModal()" style="color:var(--primary); background: transparent; font-weight:900; margin-left:15px; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer;" class="btn-glow">LAUNCH APP</button>
+            
+            <button onclick="openAlphaModal()" class="btn-glow" style="color:var(--primary); background: transparent; font-weight:900; margin-left:15px; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer;">LAUNCH APP</button>
+            
             <div class="nav-dropdown" style="position:relative; display:inline-block; margin-left:15px;">
                 <button class="btn-glow" style="background:transparent; border: 1px solid var(--secondary); color:var(--secondary); font-weight:900; padding: 5px 20px; border-radius: 20px; cursor:pointer; font-family:inherit; font-size: 0.8rem;" data-i18n="nav_colabs">COLABS ▼</button>
                 <div class="nav-dropdown-content">
@@ -113,7 +116,7 @@
                     <a href="colabs.html" style="color:var(--primary);" data-i18n="nav_colabs_link">🤝 Portal de Colaboradores</a>
                 </div>
             </div>
-            
+
             <button id="connectWalletBtn" class="btn-glow" style="margin-left:20px; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: rgba(20, 241, 149, 0.1); border: 1px solid var(--solana-green); color: var(--solana-green); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; padding: 0;" title="Connect Wallet">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
@@ -121,24 +124,10 @@
                     <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path>
                 </svg>
             </button>
-            <style>
-                .nav-dropdown-content { 
-                    position:absolute; top:100%; right:0; background:rgba(6,6,10,0.98); 
-                    backdrop-filter:blur(20px); min-width:240px; border:1px solid var(--secondary); 
-                    border-radius:12px; padding:8px; z-index:999; opacity:0; visibility:hidden; 
-                    transition:all 0.3s; transform:translateY(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-                }
-                .nav-dropdown:hover .nav-dropdown-content { opacity: 1; visibility: visible; transform: translateY(8px); }
-                .nav-dropdown-content a { 
-                    display:block; padding:12px; color:#fff; font-size:0.8rem; 
-                    border-radius: 8px; transition: background 0.2s; text-decoration: none;
-                }
-                .nav-dropdown-content a:hover { background: rgba(255,255,255,0.05); }
-            </style>
         </div>
+
         <div class="nav-right">
-            <!-- NOTIFICATION BELL -->
-            <div id="notifBell" class="notif-bell" style="position:relative; margin-right:20px; cursor:pointer; font-size:1.2rem; transition: transform 0.2s;">
+            <div id="notifBell" class="notif-bell" style="position:relative; margin-right:20px; cursor:pointer; font-size:1.2rem;">
                 <span class="bell-icon">🔔</span>
                 <span id="notifBadge" class="notif-badge" style="position:absolute; top:-5px; right:-8px; background:#ff4d6a; color:white; font-size:0.65rem; padding:2px 6px; border-radius:10px; font-weight:bold; display:none;">0</span>
             </div>
