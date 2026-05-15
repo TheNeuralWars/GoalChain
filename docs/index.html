@@ -106,10 +106,10 @@
             <a href="#social" data-i18n="nav_social">Social</a>
             <button onclick="openAlphaModal()" style="color:var(--primary); background: transparent; font-weight:900; margin-left:15px; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer;" class="btn-glow">LAUNCH APP</button>
             <div class="nav-dropdown" style="position:relative; display:inline-block; margin-left:15px;">
-                <button class="btn-glow" style="background:transparent; border: 1px solid var(--secondary); color:var(--secondary); font-weight:900; padding: 5px 20px; border-radius: 20px; cursor:pointer; font-family:inherit; font-size: 0.8rem;">COLABS ▼</button>
+                <button class="btn-glow" style="background:transparent; border: 1px solid var(--secondary); color:var(--secondary); font-weight:900; padding: 5px 20px; border-radius: 20px; cursor:pointer; font-family:inherit; font-size: 0.8rem;" data-i18n="nav_colabs">COLABS ▼</button>
                 <div class="nav-dropdown-content">
-                    <a href="pitch.html">📖 Pitch & Motivación</a>
-                    <a href="colabs.html" style="color:var(--primary);">🤝 Portal de Colaboradores</a>
+                    <a href="pitch.html" data-i18n="nav_pitch_link">📖 Pitch & Motivación</a>
+                    <a href="colabs.html" style="color:var(--primary);" data-i18n="nav_colabs_link">🤝 Portal de Colaboradores</a>
                 </div>
             </div>
             <style>
@@ -909,7 +909,7 @@
             // Botón Reiniciar Stats (nuevo)
             const resetBtnHTML = `
                 <button id="resetPenaltyStats" style="margin-top:12px; background:rgba(255,77,106,0.15); color:#ff4d6a; border:1px solid #ff4d6a; padding:6px 14px; border-radius:8px; font-size:0.75rem; cursor:pointer;">
-                    🔄 Reiniciar Stats
+                    ${t('game_reset_btn')}
                 </button>`;
             
             // Insertar botón después de las stats
