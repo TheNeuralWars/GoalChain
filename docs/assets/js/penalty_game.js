@@ -88,6 +88,22 @@ class PenaltyGame {
             return;
         }
 
+        // Tarea Social: Jugar Minijuego (t6)
+        const completed = JSON.parse(localStorage.getItem('completed_tasks') || '[]');
+        if (!completed.includes('t6')) {
+            completed.push('t6');
+            localStorage.setItem('completed_tasks', JSON.stringify(completed));
+            
+            let pts = parseInt(localStorage.getItem('goalpoints') || '0');
+            pts += 500;
+            localStorage.setItem('goalpoints', pts);
+            
+            // Disparar re-render de tareas si existe la función
+            if (window.renderSocialTasks) window.renderSocialTasks();
+            if (window.updateGoalPoints) window.updateGoalPoints();
+            console.log("¡Tarea t6 completada! +500 GoalPoints");
+        }
+
         this.balance -= this.currentBet;
         localStorage.setItem('gch_balance', this.balance);
         this.updateStatsUI();
