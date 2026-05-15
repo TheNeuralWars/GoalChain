@@ -14,10 +14,12 @@ Grok, he actualizado los archivos de instrucciones del repositorio. A partir de 
     - Tu **Fuente de Verdad** para nombres y stats es `ai_context/players.json` (Ej: Lionel Satoshi, NO Bitcoin).
     - Tu **Guía de Estilo** para imágenes es `ai_context/PROMPT_MASTER_GUIDE.md`.
 
-2. **Calidad de Imagen (L2 Layer)**:
-    - Objetivo: **FOTOGRAFÍA DEPORTIVA PROFESIONAL** (85mm, f/1.8, realismo absoluto, cero caricatura).
-    - Likeness: Los personajes deben ser copias casi idénticas (lookalikes). Buscá sus rasgos faciales únicos y añádelos al prompt con peso `::2`.
-    - Encuadre: Escalado para el rectángulo central de `references/chassis_v13_clean.png`.
+2. **Calidad de Imagen (L2 Layer - FULL BODY)**:
+    - **Protocolo 🔍**: Antes de cada prompt, BUSCÁ en X/Web fotos actuales del jugador para clavar su parecido real (Likeness).
+    - **Objetivo 📸**: FOTOGRAFÍA DEPORTIVA PROFESIONAL, realismo absoluto, cero caricatura.
+    - **Composición 📏**: CUERPO COMPLETO (Full length shot, head to toe visible). El jugador debe ocupar el 85% de la altura.
+    - **Fondo ⚪**: DEBE ser blanco sólido (#FFFFFF) para permitir un recorte perfecto. Sin sombras en el piso ni pasto.
+    - **Pesos ⚖️**: Usá peso `::3` para la descripción física detallada del jugador.
 
 3. **Flujo de Trabajo**:
     - Jugador: Usá el ID que te pida del archivo `players.json`.
