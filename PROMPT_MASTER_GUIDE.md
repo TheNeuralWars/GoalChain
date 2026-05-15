@@ -23,6 +23,10 @@ Buscamos un estilo de **Fotografía Deportiva Profesional**, no de videojuego o 
 1. **Nombres de Jugadores:** `docs/assets/data/players.json` (Ej: Lionel Satoshi).
 2. **Prompts Base:** `assets/data/nft_master_prompts_100.json`.
 3. **Estilo General:** `NFT_STYLE_GUIDE.md`.
+4. **Referencias Visuales:** Carpeta `ai_context/references/`.
+    *   **Estadios:** Ver `GCH_STADIUM_DIAMOND_render.png` y `GCH_STADIUM_GOLD_render.png`.
+    *   **Marco Maestro:** Ver `chassis_v13_clean.png`.
+    *   **Logo Oficial:** Ver `logo.png`.
 
 ---
 
