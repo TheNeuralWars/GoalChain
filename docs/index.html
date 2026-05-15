@@ -140,6 +140,21 @@
             </button>
         </div>
     </nav>
+
+    <style>
+        .nav-dropdown-content { 
+            position:absolute; top:100%; right:0; background:rgba(6,6,10,0.98); 
+            backdrop-filter:blur(20px); min-width:240px; border:1px solid var(--secondary); 
+            border-radius:12px; padding:8px; z-index:999; opacity:0; visibility:hidden; 
+            transition:all 0.3s; transform:translateY(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .nav-dropdown:hover .nav-dropdown-content { opacity: 1; visibility: visible; transform: translateY(8px); }
+        .nav-dropdown-content a { 
+            display:block; padding:12px; color:#fff; font-size:0.8rem; 
+            border-radius: 8px; transition: background 0.2s; text-decoration: none;
+        }
+        .nav-dropdown-content a:hover { background: rgba(255,255,255,0.05); }
+    </style>
     
     <!-- Paso 7: Live Match Ticker -->
     <div style="background:#111; padding:8px 0; text-align:center; font-size:0.85rem; color:#14f195; display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; position: relative; z-index: 50; margin-top: 65px; border-bottom: 1px solid rgba(20,241,149,0.2);">
