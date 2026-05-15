@@ -88,7 +88,7 @@
             <div class="time-unit"><span id="seconds">00</span><p data-i18n="cd_sec">SEG</p></div>
         </div>
         <div class="hero-btns">
-            <a href="http://localhost:3000" target="_blank" class="btn btn-primary btn-glow" style="font-size: 1.2rem; padding: 1rem 3rem;">ABRIR DASHBOARD</a>
+            <a href="app.html" class="btn btn-primary btn-glow" style="font-size: 1.2rem; padding: 1rem 3rem;">ABRIR DASHBOARD</a>
             <a href="#gameplay" class="btn btn-secondary" data-i18n="hero_play">Jugar Penaltis</a>
         </div>
     </header>
@@ -497,20 +497,21 @@
             document.getElementById('cookieBanner').style.display = 'none';
         }
 
-        // Safety Force Stop: Evita el círculo de carga infinito
+        // Safety Force Stop: Asegura que el contenido sea visible incluso si la carga es lenta
         window.addEventListener('load', () => {
-            console.log("GoalChain: Finalizando carga forzada.");
+            console.log("GoalChain: Carga finalizada.");
             const vib = document.querySelector('.vibrancy');
             if(vib) vib.style.opacity = "1";
+            // Forzar visibilidad de elementos 'reveal' si aún no se han activado
+            document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
         });
 
-        // Si después de 8 segundos sigue "cargando", detenemos el spinner manualmente
+        // Fallback de seguridad: Si después de 3 segundos no ha cargado, forzamos visibilidad
         setTimeout(() => {
-            if (document.readyState !== 'complete') {
-                console.warn("GoalChain: Carga lenta detectada, forzando detención del spinner.");
-                window.stop();
-            }
-        }, 8000);
+            document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+            const vib = document.querySelector('.vibrancy');
+            if(vib) vib.style.opacity = "1";
+        }, 3000);
     </script>
 
     <script src="assets/js/i18n.js?v=1.1"></script>
