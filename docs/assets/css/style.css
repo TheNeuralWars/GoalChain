@@ -867,6 +867,13 @@ body {
     transform-style: preserve-3d;
 }
 
+.card-back {
+    transform: rotateY(180deg);
+    background: var(--glass-strong);
+    display: flex;
+    flex-direction: column;
+}
+
 /* Sistema de Capas (Layers) para el Front */
 .card-front .layer {
     position: absolute;
@@ -1549,4 +1556,78 @@ body {
 /* Smooth Layer Transition */
 .layer-frame {
     transition: filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* NFT Card Back Styling */
+.back-content {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    color: #fff;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    border-radius: 20px;
+}
+
+.back-header {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 900;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(20, 241, 149, 0.2);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.back-body {
+    flex-grow: 1;
+}
+
+.back-id {
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.back-salary {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 15px;
+}
+
+.clauses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+.clause-item {
+    font-size: 0.7rem;
+    background: rgba(20, 241, 149, 0.05);
+    padding: 6px 10px;
+    border-radius: 6px;
+    border-left: 3px solid var(--primary);
+    color: rgba(255,255,255,0.8);
+}
+
+.back-mint {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.55rem;
+    color: var(--primary);
+    word-break: break-all;
+    background: rgba(0,0,0,0.5);
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(20, 241, 149, 0.1);
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+.back-content .btn-buy {
+    margin-top: 15px;
 }
