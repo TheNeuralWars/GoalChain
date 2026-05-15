@@ -38,6 +38,13 @@ class PenaltyGame {
         }, { passive: false });
 
         this.loop();
+
+        // Escuchar cambios de wallet
+        window.addEventListener('walletChanged', (e) => {
+            const pk = e.detail.publicKey;
+            this.activePlayer.name = `PLAYER (${pk.substring(pk.length - 4)})`;
+            this.updateStatsUI();
+        });
     }
 
     loadActivePlayer() {
