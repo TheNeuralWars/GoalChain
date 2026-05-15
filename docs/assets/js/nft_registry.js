@@ -242,8 +242,47 @@ function toggleFavorite(id, element) {
     if (showOnlyFavorites) renderPlayers();
 }
 
-function handleBuy(playerId) {
-    alert(`Iniciando compra Web3 del jugador #${playerId}. Se requiere firma en Phantom Wallet.`);
+async function handleBuy(playerId) {
+    const player = masterPlayers.find(p => p.id === playerId);
+    if (!player) return;
+
+    if (!window.MintEngine) {
+        alert("El motor de minteo no está listo.");
+        return;
+    }
+
+    const btn = event.target;
+    const originalText = btn.innerText;
+    
+    // UI Feedback: Cargando
+    btn.innerText = "MINTING...";
+    btn.disabled = true;
+    btn.style.opacity = "0.6";
+
+    const signature = await window.MintEngine.processMint(player);
+
+    if (signature) {
+        // ÉXITO: Actualizar la carta en vivo
+        const shortSig = `${signature.slice(0, 6)}...${signature.slice(-6)}`;
+        if (window.notifier) window.notifier.show('🚀 ¡ÉXITO!', `${player.name} ya es tuyo en la Devnet.`, 'success');
+        
+        // Simular actualización de la metadata on-chain en la UI
+        const card = btn.closest('.nft-card-3d');
+        if (card) {
+            const mintAddrEl = card.querySelector('.back-mint code');
+            if (mintAddrEl) {
+                mintAddrEl.innerHTML = `<a href="https://explorer.solana.com/tx/${signature}?cluster=devnet" target="_blank" style="color:var(--solana-green); text-decoration:none;">TX: ${shortSig} ✅</a>`;
+            }
+            btn.innerText = "OWNED";
+            btn.style.background = "var(--solana-green)";
+            btn.style.color = "#000";
+        }
+    } else {
+        // Fallo o Cancelación
+        btn.innerText = originalText;
+        btn.disabled = false;
+        btn.style.opacity = "1";
+    }
 }
 
 function setupFilterListeners() {
