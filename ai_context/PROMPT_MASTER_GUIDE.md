@@ -28,20 +28,19 @@ Antes de generar cualquier prompt, Grok DEBE:
 3.  **Sintetizar**: Incluir esos hallazgos en la descripción física del prompt.
 
 ## 🛠️ Estructura del Prompt para L2 (Jugador Aislado - FULL BODY)
-Usa esta estructura para garantizar cuerpo completo, fondo limpio y **CERO LOGOS**:
+Usa esta estructura para garantizar cuerpo completo, fondo **INEXISTENTE** y cero logos:
 
 ```text
-[Ultra-detailed physical description from real-life search results]::3 Full length action shot, head to toe visible, [PLAYER_NAME] standing in epic football pose. [KIT]: Wearing a minimalist unbranded [COUNTRY] national team kit, plain colors, NO logos, NO brands, NO sponsors, NO team shields. Hyper-realistic skin textures, sweat, natural hair. [BACKGROUND]: High-key studio photography, shot on pure solid #FFFFFF white background, no floor, no shadows. [TECHNICAL]: 85mm lens, f/2.8, extreme realism, zero caricature, professionally isolated, logo-free --ar 2:3 --v 6
+[Ultra-detailed physical description from real-life search results]::3 Full length action shot, head to toe visible, [PLAYER_NAME] standing in epic football pose. [KIT]: Minimalist unbranded [COUNTRY] kit, plain colors, NO logos. [BACKGROUND]: High-key studio photography, shot on PURE SOLID #FFFFFF WHITE BACKGROUND, NO shadows, NO floor, NO gradients, NO grey. The background must be a perfect flat white canvas. [TECHNICAL]: 85mm lens, f/2.8, extreme realism, zero caricature, professionally isolated, 8k resolution --ar 2:3 --v 6
 ```
 
 ## 🎯 Técnica de Parecido (Likeness) y Pesos
 1.  **Pesos Pro**: Usa `::3` para la descripción física del jugador.
-2.  **Cuerpo Completo**: "Full length shot, head to toe visible".
+2.  **Cuerpo Completo**: "Full length shot, head to toe visible". El calzado debe ser visible.
 
 ## 📏 Composición para el Marco v13
-*   **Zoom**: El jugador debe ocupar el 85% de la altura.
-*   **Fondo**: Blanco sólido (#FFFFFF).
-*   **Logos**: PROHIBIDO cualquier tipo de branding. El jersey debe ser liso, solo con los colores de la bandera.
+*   **Fondo**: DEBE ser **Blanco Puro (#FFFFFF)**. Si sale gris o con sombras, el prompt ha fallado.
+*   **Contraste**: El jugador debe estar perfectamente recortado visualmente contra el blanco.
 
-## 🚫 Negative Prompt (Refuerzo Anti-Logos)
-`Negative: logos, brands, sponsors, Nike, Adidas, Puma, Reebok, team crest, federation shield, text, letters, watermark, headshot, portrait, cropped legs, colored background, stadium, grass, ball, shadows, 3D render, cartoon.`
+## 🚫 Negative Prompt (Refuerzo Blanco Puro)
+`Negative: grey background, gray background, shadows, floor, grass, stadium, gradients, vignette, dark corners, logos, brands, sponsors, headshot, portrait, 3D render, cartoon.`
