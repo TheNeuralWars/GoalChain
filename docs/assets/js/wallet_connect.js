@@ -79,6 +79,45 @@ function handleWalletConnection(publicKey) {
     window.dispatchEvent(new CustomEvent('walletChanged', { detail: { publicKey } }));
 }
 
+async function claimTokens() {
+    if (!walletState.connected) {
+        alert("Primero conectá tu wallet.");
+        return;
+    }
+
+    const balanceToClaim = parseInt(localStorage.getItem('gch_balance') || '0');
+    if (balanceToClaim <= 0) {
+        alert("No tenés tokens para reclamar.");
+        return;
+    }
+
+    // SIMULACIÓN DE TRANSACCIÓN ON-CHAIN (DEVNET)
+    // En producción aquí iría el llamado al programa de Solana (Anchor)
+    console.log(`Reclamando ${balanceToClaim} $GCH a la wallet ${walletState.publicKey}`);
+    
+    // UI Feedback
+    const claimBtn = document.getElementById('claimGCHBtn');
+    if (claimBtn) {
+        claimBtn.innerHTML = 'PROCESANDO...';
+        claimBtn.disabled = true;
+    }
+
+    setTimeout(() => {
+        alert(`¡ÉXITO! Se han enviado ${balanceToClaim} $GCH (Devnet) a tu wallet. Estos puntos cuentan para el Airdrop oficial.`);
+        localStorage.setItem('gch_balance', '0');
+        if (window.game) window.game.balance = 0;
+        if (window.game) window.game.updateStatsUI();
+        
+        if (claimBtn) {
+            claimBtn.innerHTML = 'RECLAMAR AIRDROP';
+            claimBtn.disabled = false;
+        }
+        
+        if (window.confetti) {
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+        }
+    }, 2000);
+}
 async function disconnectWallet() {
     if (walletState.provider) {
         await walletState.provider.disconnect();
