@@ -133,13 +133,24 @@ function renderPlayers() {
 
     const displayLimit = 100;
 
-    // Observer para rendimiento
+    // Observer para rendimiento y visibilidad básica
     const cardObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) entry.target.classList.add('in-view');
             else entry.target.classList.remove('in-view');
         });
     }, { threshold: 0.1 });
+
+    // Observer para resaltar la carta central (Active)
+    const activeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('is-active');
+            else entry.target.classList.remove('is-active');
+        });
+    }, { 
+        threshold: 0.8,
+        root: track.parentElement // El contenedor del scroll
+    });
 
     filtered.slice(0, displayLimit).forEach(player => {
         const isFav = favorites.includes(player.id);
@@ -153,6 +164,7 @@ function renderPlayers() {
 
         card.innerHTML = `
             <div class="favorite-heart ${isFav ? 'is-fav' : ''}" data-id="${player.id}">❤️</div>
+            <div class="glare"></div>
             <div class="card-inner">
                 <div class="card-front">
                     <!-- Layer 1: Player Image -->
@@ -213,6 +225,7 @@ function renderPlayers() {
 
         track.appendChild(card);
         cardObserver.observe(card);
+        activeObserver.observe(card);
     });
 }
 
