@@ -4,7 +4,8 @@
 
 const packState = {
     isOpening: false,
-    players: []
+    players: [],
+    inventory: JSON.parse(localStorage.getItem('goalchain_inventory')) || []
 };
 
 async function initPackOpener() {
@@ -12,6 +13,7 @@ async function initPackOpener() {
         const response = await fetch(`assets/data/players.json?v=${new Date().getTime()}`);
         packState.players = await response.json();
         setupPackEvents();
+        renderInventory();
     } catch (error) {
         console.error("Error al cargar jugadores:", error);
     }
@@ -43,6 +45,7 @@ function setupPackEvents() {
             document.getElementById('revealedCardContainer').innerHTML = '';
             closeBtn.style.display = 'none';
             packState.isOpening = false;
+            renderInventory(); // Actualizar la vista tras cerrar
         });
     }
 }
@@ -55,7 +58,6 @@ function triggerPackOpening() {
     if (openBtn) openBtn.disabled = true;
     if (pack) pack.classList.add('is-shaking');
 
-    // Efecto de carga (Shake progresivo)
     setTimeout(() => {
         if (pack) pack.style.animationDuration = "0.05s";
     }, 1500);
@@ -71,7 +73,6 @@ function executeReveal() {
     const container = document.getElementById('revealedCardContainer');
     const closeBtn = document.getElementById('closeRevealBtn');
 
-    // Seleccionar jugador aleatorio con pesos de rareza
     const rand = Math.random() * 100;
     let rarity = "common";
     if (rand < 1) rarity = "mythic";
@@ -82,10 +83,12 @@ function executeReveal() {
     const pool = packState.players.filter(p => p.rarity === rarity);
     const player = pool[Math.floor(Math.random() * pool.length)];
 
-    // Mostrar Modal
+    // GUARDAR EN INVENTARIO
+    packState.inventory.push(player);
+    localStorage.setItem('goalchain_inventory', JSON.stringify(packState.inventory));
+
     modal.classList.add('is-active');
     
-    // Inyectar HTML de la carta (Sincronizado con nft_registry.js)
     const imgPath = `assets/img/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
     const flag = FLAG_MAP[player.country] || "🏳️";
 
@@ -115,34 +118,69 @@ function executeReveal() {
                         <div class="contract-label">SMART CONTRACT DATA</div>
                         <div class="contract-value">ID: ${player.id}</div>
                         <div class="contract-value">RARITY: ${player.rarity.toUpperCase()}</div>
-                        <div class="contract-value">POS: ${player.position}</div>
-                    </div>
-                    <div class="contract-qr">
-                        <span style="font-size: 0.6rem; color: var(--solana-green);">VERIFICADO EN SOLANA</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="reveal-text">
-            <h2 style="color: #fff; margin-top: 20px;">¡${player.rarity.toUpperCase()}!</h2>
-        </div>
     `;
 
-    // Activar interacción 3D en la carta revelada
     const card = document.getElementById('revealedCard');
-    card.addEventListener('click', () => card.classList.toggle('is-flipped'));
+    if (card) {
+        card.addEventListener('click', () => card.classList.toggle('is-flipped'));
+    }
 
-    // Explosión de Partículas
     triggerExplosion();
 
-    // Mostrar botón de cierre tras delay
     setTimeout(() => {
-        closeBtn.style.display = 'block';
+        if (closeBtn) closeBtn.style.display = 'block';
         if (document.getElementById('openPackBtn')) {
             document.getElementById('openPackBtn').disabled = false;
         }
-    }, 2000);
+    }, 1500);
 }
+
+function renderInventory(filter = 'all') {
+    const grid = document.getElementById('collectionGrid');
+    if (!grid) return;
+
+    const filteredItems = filter === 'all' 
+        ? packState.inventory 
+        : packState.inventory.filter(p => p.rarity === filter);
+
+    if (filteredItems.length === 0) {
+        grid.innerHTML = `<div class="empty-inventory"><p>No tenés jugadores en esta categoría.</p></div>`;
+        return;
+    }
+
+    grid.innerHTML = filteredItems.map(player => {
+        const imgPath = `assets/img/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
+        const flag = FLAG_MAP[player.country] || "🏳️";
+        return `
+            <div class="nft-card-3d in-view" data-rarity="${player.rarity}" style="transform: scale(0.7); margin: -40px;">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/img/nfts/001_lionel_satoshi.png'">
+                        <div class="nft-overlay">
+                            <div class="player-info">
+                                <span class="player-name">${player.name}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+window.filterCollection = (rarity) => {
+    // UI Update
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.innerText.toLowerCase() === rarity) btn.classList.add('active');
+        if (rarity === 'all' && btn.innerText.toLowerCase() === 'todos') btn.classList.add('active');
+    });
+    renderInventory(rarity);
+};
 
 function triggerExplosion() {
     const canvas = document.getElementById('revealParticles');
@@ -156,9 +194,9 @@ function triggerExplosion() {
         particles.push({
             x: canvas.width / 2,
             y: canvas.height / 2,
-            vx: (Math.random() - 0.5) * 20,
-            vy: (Math.random() - 0.5) * 20,
-            size: Math.random() * 5 + 2,
+            vx: (Math.random() - 0.5) * 15,
+            vy: (Math.random() - 0.5) * 15,
+            size: Math.random() * 4 + 1,
             color: Math.random() > 0.5 ? '#14f195' : '#9945ff',
             life: 1
         });
@@ -167,11 +205,8 @@ function triggerExplosion() {
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach((p, i) => {
-            p.x += p.vx;
-            p.y += p.vy;
-            p.life -= 0.02;
+            p.x += p.vx; p.y += p.vy; p.life -= 0.02;
             if (p.life <= 0) particles.splice(i, 1);
-            
             ctx.fillStyle = p.color;
             ctx.globalAlpha = p.life;
             ctx.beginPath();
