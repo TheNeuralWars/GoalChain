@@ -6,7 +6,7 @@
     <title>GoalChain | The Future of Football on Solana</title>
     <meta name="description" content="GoalChain: Play-to-Earn football on Solana. Bet on FIFA World Cup 2026 fixtures, play penalty shootouts, and earn $GCH tokens.">
     <meta name="theme-color" content="#06060a">
-    <link rel="stylesheet" href="assets/css/style.css?v=2.2">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.3">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg?v=1.0">
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js" defer></script>
@@ -78,9 +78,9 @@
 
     <!-- HERO -->
     <header class="hero">
-        <div class="hero-badge">⚽ <span data-i18n="hero_badge">FIFA WORLD CUP 2026 — PRÓXIMAMENTE</span></div>
-        <h1 data-i18n-html="hero_title">Domina el Campo.<br>Gana en Solana.</h1>
-        <p data-i18n="hero_sub">GoalChain es la primera plataforma de fútbol Play-to-Earn en Solana. Apuesta en vivo en el Mundial 2026, juega mini-juegos de penaltis y gana tokens $GCH.</p>
+        <div class="hero-badge">⚽ <span data-i18n="hero_badge">FIFA WORLD CUP 2026 — YA CASI AQUÍ</span></div>
+        <h1 data-i18n-html="hero_title">Domina el Campo.<br><span style="background: linear-gradient(90deg, #14f195, #9945ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Gana en Solana.</span></h1>
+        <p data-i18n="hero_sub" style="font-size:1.15rem; line-height:1.4;">Eres el agente de las leyendas. Apuesta en vivo, juega penaltis con recompensas reales y cobra sueldos del Mundial 2026. El fútbol ya nunca será igual.</p>
         <div id="countdown" class="countdown-container">
             <div class="time-unit"><span id="days">00</span><p data-i18n="cd_days">DÍAS</p></div>
             <div class="time-unit"><span id="hours">00</span><p data-i18n="cd_hours">HORAS</p></div>
@@ -89,7 +89,7 @@
         </div>
         <div class="hero-btns">
             <a href="app.html" class="btn btn-primary btn-glow" style="font-size: 1.2rem; padding: 1rem 3rem;">ABRIR DASHBOARD</a>
-            <a href="#gameplay" class="btn btn-secondary" data-i18n="hero_play">Jugar Penaltis</a>
+            <a href="#gameplay" class="btn btn-secondary" data-i18n="hero_play">Jugar Penaltis YA</a>
         </div>
     </header>
 
@@ -137,7 +137,10 @@
 
     <!-- GAMEPLAY -->
     <section id="gameplay" class="section section-dark">
-        <h2 class="section-title reveal"><span data-i18n="game_title">Mini-Juego de Penaltis</span> <span style="font-size:0.5em;vertical-align:middle;padding:4px 10px;background:var(--secondary);border-radius:6px;color:#fff;">BETA</span></h2>
+        <h2 class="section-title reveal" style="display:flex; align-items:center; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <span data-i18n="game_title">Mini-Juego de Penaltis</span> 
+            <span style="font-size:0.55em; vertical-align:middle; padding:6px 14px; background:linear-gradient(90deg,#14f195,#9945ff); border-radius:9999px; color:#000; font-weight:900; box-shadow:0 0 20px rgba(20,241,149,0.5);">BETA v2</span>
+        </h2>
         <p class="section-subtitle reveal" data-i18n="game_sub">Prueba la mecánica de tiro diseñada para la PSG1 directamente desde tu navegador. Toca una zona del arco para patear.</p>
         <div class="gameplay-grid container">
             <div>
@@ -514,8 +517,8 @@
         }, 3000);
     </script>
 
-    <script src="assets/js/i18n.js?v=1.1"></script>
-    <script src="assets/js/app.js?v=1.1"></script>
+    <script src="assets/js/i18n.js?v=2.3"></script>
+    <script src="assets/js/app.js?v=2.3"></script>
     <script>
         // DOM Based Penalty Game Logic
         // MINI-JUEGO DE PENALTIS V2 - Brutal Upgrade
@@ -681,10 +684,10 @@
             document.head.appendChild(style);
         });
     </script>
-    <script src="assets/js/solana_integration.js?v=1.1"></script>
-    <script src="assets/js/contract_data.js?v=1.1"></script>
-    <script src="assets/js/nft_registry.js?v=1.2"></script>
-    <script src="assets/js/pack_opener.js?v=1.1"></script>
+    <script src="assets/js/solana_integration.js?v=2.3"></script>
+    <script src="assets/js/contract_data.js?v=2.3"></script>
+    <script src="assets/js/nft_registry.js?v=2.3"></script>
+    <script src="assets/js/pack_opener.js?v=2.3"></script>
     <!-- DIALECT NOTIFICATION INBOX -->
     <div id="notifInbox" class="notif-inbox" style="position:fixed; top:80px; right:20px; width:320px; background:rgba(6,6,10,0.95); backdrop-filter:blur(20px); border:1px solid var(--primary); border-radius:16px; transform:translateX(400px); transition:transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index:1000; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
         <div class="notif-header" style="padding:15px; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
@@ -721,6 +724,43 @@
         function closeAlphaModal() { document.getElementById('alphaModal').style.display = 'none'; }
     </script>
     
-    <script src="assets/js/dialect_app.js"></script>
+    <script src="assets/js/dialect_app.js?v=2.3"></script>
+
+    <!-- MEJORAS UX v2.3 - Feedback visual global -->
+    <style>
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px #14f195, 0 0 50px #9945ff;
+        }
+        .glass-card {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(20, 241, 149, 0.25);
+        }
+        .dom-zone:hover {
+            background: rgba(20,241,149,0.35) !important;
+            transform: scale(1.05);
+        }
+        #domPenaltyGame {
+            transition: box-shadow 0.4s ease;
+        }
+        .section-title {
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #14f195, #9945ff);
+            border-radius: 9999px;
+            opacity: 0.6;
+        }
+    </style>
 </body>
 </html>
