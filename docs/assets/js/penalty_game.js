@@ -1,3 +1,7 @@
+/**
+ * penalty_game.js - Versión Sincronizada con NFT Collection
+ */
+
 class PenaltyGame {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
@@ -6,15 +10,20 @@ class PenaltyGame {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
 
-        this.goals = 0; this.saves = 0; this.streak = 0;
+        this.goals = 0; 
+        this.saves = 0; 
+        this.streak = 0;
         this.currentBet = 10;
         this.balance = parseInt(localStorage.getItem('gch_balance') || '1000');
+        
+        // Cargar jugador activo de la colección
+        this.loadActivePlayer();
         
         this.reset();
         this.setupBettingUI();
 
-        // Expand hitboxes to the whole canvas so it's easier to click
-        const gx = 0, gy = 0, gw = this.width, gh = this.height;
+        // Hitboxes (9 zonas: 3x3)
+        const gx = 150, gy = 80, gw = 500, gh = 260;
         const tw = gw / 3, th = gh / 3;
         this.targets = [];
         for (let r = 0; r < 3; r++) {
@@ -31,15 +40,22 @@ class PenaltyGame {
         this.loop();
     }
 
+    loadActivePlayer() {
+        const inventory = JSON.parse(localStorage.getItem('goalchain_inventory') || '[]');
+        this.activePlayer = inventory.length > 0 ? inventory[inventory.length - 1] : { name: 'Rookie', rarity: 'common' };
+        console.log("Jugador activo en el campo:", this.activePlayer.name);
+    }
+
     reset() {
         this.gameState = 'READY';
-        this.ball = { x: this.width / 2, y: this.height - 55, radius: 14 };
+        this.ball = { x: this.width / 2, y: this.height - 55, radius: 14, angle: 0 };
         this.goalie = { x: this.width / 2, y: 115, width: 55, height: 75 };
         this.animationProgress = 0;
         this.shotTarget = null;
         this.goalieTarget = null;
         this.result = '';
         this.particles = [];
+        this.screenShake = 0;
     }
 
     handleInput(e) {
@@ -60,11 +76,10 @@ class PenaltyGame {
 
     startShot(target) {
         if (this.balance < this.currentBet) {
-            alert("¡No tienes suficientes $GCH para esta apuesta!");
+            this.showToast("Saldo insuficiente");
             return;
         }
 
-        // Cobrar apuesta y aplicar 10% tax
         this.balance -= this.currentBet;
         localStorage.setItem('gch_balance', this.balance);
         this.updateStatsUI();
@@ -72,70 +87,100 @@ class PenaltyGame {
         this.gameState = 'SHOOTING';
         this.animationProgress = 0;
         this.shotTarget = { x: target.x + target.w / 2, y: target.y + target.h / 2, id: target.id };
-        const gT = this.targets[Math.floor(Math.random() * this.targets.length)];
+        
+        // IA del Arquero (Mejora con la racha del usuario)
+        const difficulty = Math.min(0.2 + (this.streak * 0.05), 0.5);
+        const gT = Math.random() < difficulty ? target : this.targets[Math.floor(Math.random() * this.targets.length)];
         this.goalieTarget = { x: gT.x + gT.w / 2, id: gT.id };
     }
 
     update() {
         if (this.gameState === 'SHOOTING') {
-            this.animationProgress += 0.035; // Slightly slower for better readability
+            // Buff de velocidad por rareza
+            let speed = 0.035;
+            if (this.activePlayer.rarity === 'mythic') speed = 0.05;
+            if (this.activePlayer.rarity === 'legendary') speed = 0.045;
+
+            this.animationProgress += speed;
             const ease = 1 - Math.pow(1 - Math.min(this.animationProgress, 1), 3);
             const startX = this.width / 2, startY = this.height - 55;
-            this.ball.x = startX + (this.shotTarget.x - startX) * ease;
-            this.ball.y = startY + (this.shotTarget.y - startY) * ease;
             
-            // Goalie moves faster to be there before the ball
-            const goalieEase = 1 - Math.pow(1 - Math.min(this.animationProgress * 1.2, 1), 3);
+            // Curva del balón
+            const curve = Math.sin(this.animationProgress * Math.PI) * 40;
+            this.ball.x = startX + (this.shotTarget.x - startX) * ease + curve;
+            this.ball.y = startY + (this.shotTarget.y - startY) * ease;
+            this.ball.angle += 0.2;
+            
+            // Arquero reacciona
+            const goalieEase = 1 - Math.pow(1 - Math.min(this.animationProgress * 1.3, 1), 3);
             this.goalie.x = (this.width / 2) + (this.goalieTarget.x - this.width / 2) * goalieEase;
             
             if (this.animationProgress >= 1) {
-                // Resolution happens exactly when ball is at target
                 this.resolveResult();
             }
         }
+
+        if (this.screenShake > 0) this.screenShake -= 1;
         this.particles.forEach(p => { p.x += p.vx; p.y += p.vy; p.life -= 0.025; });
         this.particles = this.particles.filter(p => p.life > 0);
     }
 
     resolveResult() {
-        if (this.gameState !== 'SHOOTING') return; // Avoid double calls
+        if (this.gameState !== 'SHOOTING') return;
         
         const isGoal = this.shotTarget.id !== this.goalieTarget.id;
         if (isGoal) {
-            this.result = '¡GOOOOOL! ⚽'; this.resultColor = '#14f195';
-            this.goals++; this.streak++; this.spawnParticles(this.ball.x, this.ball.y, '#14f195');
+            this.result = '¡GOOOL! ⚽'; 
+            this.resultColor = '#14f195';
+            this.goals++; 
+            this.streak++;
+            this.screenShake = 15;
+            this.spawnParticles(this.ball.x, this.ball.y, '#14f195');
             
-            const prize = Math.floor(this.currentBet * 1.9);
+            // Multiplicador por rareza
+            let multiplier = 1.9;
+            if (this.activePlayer.rarity === 'mythic') multiplier = 2.5;
+            if (this.activePlayer.rarity === 'legendary') multiplier = 2.2;
+            
+            const prize = Math.floor(this.currentBet * multiplier);
             this.balance += prize;
             localStorage.setItem('gch_balance', this.balance);
-
-            // Dialect Notification Integration
-            if (window.gcDialect) {
-                window.gcDialect.notify("¡GOLAZO! ⚽", `Has ganado ${prize} $GCH. ¡Tu racha de ${this.streak} goles es asombrosa!`);
-            }
         } else {
-            this.result = '¡ATAJADA! 🧤'; this.resultColor = '#ff4d6a';
-            this.saves++; this.streak = 0; this.spawnParticles(this.ball.x, this.ball.y, '#ff4d6a');
+            this.result = '¡ATAJADA! 🧤'; 
+            this.resultColor = '#ff4d6a';
+            this.saves++; 
+            this.streak = 0;
+            this.spawnParticles(this.ball.x, this.ball.y, '#ff4d6a');
         }
+
         this.updateStatsUI();
         this.gameState = 'RESULT';
-        // Delay before reset to enjoy the goal/save
-        setTimeout(() => this.reset(), 1800);
+        setTimeout(() => this.reset(), 2000);
     }
 
     spawnParticles(x, y, color) {
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 30; i++) {
             this.particles.push({
-                x, y, color, life: 1, vx: (Math.random() - 0.5) * 8, vy: (Math.random() - 0.5) * 8, size: Math.random() * 3 + 2
+                x, y, color, life: 1, vx: (Math.random() - 0.5) * 10, vy: (Math.random() - 0.5) * 10, size: Math.random() * 4 + 2
             });
         }
     }
 
     updateStatsUI() {
-        const g = document.getElementById('statGoals'), s = document.getElementById('statSaves'), st = document.getElementById('statStreak');
         const bal = document.getElementById('userGCH');
-        if (g) g.innerText = this.goals; if (s) s.innerText = this.saves; if (st) st.innerText = this.streak;
         if (bal) bal.innerText = this.balance.toLocaleString();
+        
+        // Nombre del jugador en la UI
+        const playerNameUI = document.getElementById('activePlayerName');
+        if (playerNameUI) {
+            playerNameUI.innerText = this.activePlayer.name;
+            playerNameUI.style.color = this.getRarityColor(this.activePlayer.rarity);
+        }
+    }
+
+    getRarityColor(rarity) {
+        const colors = { mythic: '#ffd700', legendary: '#9945ff', epic: '#00e5ff', rare: '#14f195' };
+        return colors[rarity] || '#fff';
     }
 
     setupBettingUI() {
@@ -151,87 +196,52 @@ class PenaltyGame {
 
     draw() {
         const ctx = this.ctx;
-        ctx.clearRect(0, 0, this.width, this.height);
-
-        // 1. Césped con Gradiente
-        const groundGrad = ctx.createLinearGradient(0, 0, 0, this.height);
-        groundGrad.addColorStop(0, '#0a1a0a');
-        groundGrad.addColorStop(1, '#030305');
-        ctx.fillStyle = groundGrad;
-        ctx.fillRect(0, 0, this.width, this.height);
-
-        // 2. Líneas de cancha sutiles
-        ctx.strokeStyle = 'rgba(20, 241, 149, 0.15)';
-        ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.moveTo(0, this.height/2); ctx.lineTo(this.width, this.height/2); ctx.stroke();
-
-        // 3. Portería con Brillo Neón
-        ctx.shadowColor = 'rgba(255, 255, 255, 0.4)';
-        ctx.shadowBlur = 15;
-        ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 5;
-        ctx.strokeRect(150, 80, 500, 260);
-        ctx.shadowBlur = 0;
-
-        ctx.strokeStyle = 'rgba(255,255,255,0.05)'; ctx.lineWidth = 1;
-        for(let x=150; x<=650; x+=25) { ctx.beginPath(); ctx.moveTo(x,80); ctx.lineTo(x,340); ctx.stroke(); }
-        for(let y=80; y<=340; y+=25) { ctx.beginPath(); ctx.moveTo(150,y); ctx.lineTo(650,y); ctx.stroke(); }
-
-        if (this.gameState === 'READY') {
-            this.targets.forEach(t => {
-                ctx.fillStyle = 'rgba(20, 241, 149, 0.08)';
-                ctx.fillRect(t.x, t.y, t.w, t.h);
-                ctx.strokeStyle = 'rgba(20, 241, 149, 0.2)'; ctx.strokeRect(t.x, t.y, t.w, t.h);
-            });
+        ctx.save();
+        
+        // Screen Shake
+        if (this.screenShake > 0) {
+            ctx.translate((Math.random() - 0.5) * this.screenShake, (Math.random() - 0.5) * this.screenShake);
         }
 
+        ctx.clearRect(0, 0, this.width, this.height);
+
+        // Fondo y Portería (Estilo Neon)
+        ctx.fillStyle = '#030305'; ctx.fillRect(0, 0, this.width, this.height);
+        
+        ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 4;
+        ctx.strokeRect(150, 80, 500, 260); // Arco
+
+        // Dibujar Portero (Un poco más detallado)
         const gx = this.goalie.x - this.goalie.width/2;
         const gy = this.goalie.y;
         ctx.fillStyle = '#9945ff';
-        ctx.shadowColor = 'rgba(153, 69, 255, 0.5)'; ctx.shadowBlur = 10;
-        // Cuerpo
-        ctx.beginPath(); ctx.roundRect(gx+10, gy+20, this.goalie.width-20, this.goalie.height-20, 6); ctx.fill();
-        // Cabeza
-        ctx.beginPath(); ctx.arc(this.goalie.x, gy+12, 12, 0, Math.PI*2); ctx.fill();
-        // Brazos
-        ctx.strokeStyle = '#9945ff'; ctx.lineWidth = 6; ctx.lineCap = 'round';
-        ctx.beginPath(); ctx.moveTo(gx+5, gy+35); ctx.lineTo(gx-10, gy+20); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(gx+this.goalie.width-5, gy+35); ctx.lineTo(gx+this.goalie.width+10, gy+20); ctx.stroke();
-        ctx.shadowBlur = 0;
+        ctx.beginPath(); ctx.roundRect(gx, gy, this.goalie.width, this.goalie.height, 10); ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(this.goalie.x, gy - 5, 12, 0, Math.PI*2); ctx.fill();
 
-        // 6. Balón con Sombra y Gradiente (Esfera Perfecta)
+        // Dibujar Balón con rotación
         ctx.save();
         ctx.translate(this.ball.x, this.ball.y);
-
-        // Sombra
-        ctx.beginPath(); ctx.arc(4, 4, this.ball.radius, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba(0,0,0,0.4)'; ctx.fill();
-
-        // Esfera con Gradiente
-        const ballGrad = ctx.createRadialGradient(-4, -4, 2, 0, 0, this.ball.radius);
-        ballGrad.addColorStop(0, '#ffffff'); ballGrad.addColorStop(1, '#bbbbbb');
-        ctx.beginPath(); ctx.arc(0, 0, this.ball.radius, 0, Math.PI*2);
-        ctx.fillStyle = ballGrad; ctx.fill();
-
-        // Costuras
-        ctx.strokeStyle = 'rgba(0,0,0,0.1)'; ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.moveTo(-6, -6); ctx.lineTo(6, 6); ctx.stroke();
-        
+        ctx.rotate(this.ball.angle);
+        ctx.fillStyle = '#fff';
+        ctx.beginPath(); ctx.arc(0, 0, this.ball.radius, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#000'; ctx.lineWidth = 1; ctx.stroke();
         ctx.restore();
 
-        // 7. Partículas
+        // Efectos de partículas
         this.particles.forEach(p => {
             ctx.globalAlpha = p.life; ctx.fillStyle = p.color;
-            ctx.beginPath(); ctx.arc(p.x, p.y, p.size*p.life, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
         });
-        ctx.globalAlpha = 1;
 
-        // 8. Resultado Flotante
+        // UI de Resultado
         if (this.gameState === 'RESULT') {
-            ctx.fillStyle = this.resultColor; ctx.font = 'bold 38px Outfit';
-            ctx.textAlign = 'center'; ctx.shadowColor = this.resultColor; ctx.shadowBlur = 15;
-            ctx.fillText(this.result, this.width / 2, this.height / 2 + 60);
-            ctx.shadowBlur = 0;
+            ctx.fillStyle = this.resultColor;
+            ctx.font = '900 48px Outfit';
+            ctx.textAlign = 'center';
+            ctx.fillText(this.result, this.width / 2, this.height / 2);
         }
+
+        ctx.restore();
     }
 
     loop() {
@@ -239,4 +249,7 @@ class PenaltyGame {
         requestAnimationFrame(() => this.loop());
     }
 }
-window.addEventListener('load', () => { new PenaltyGame('gameCanvas'); });
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.game = new PenaltyGame('gameCanvas');
+});
