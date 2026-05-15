@@ -182,8 +182,15 @@ window.addEventListener('load', async () => {
 
 // Delegación de eventos para botones de wallet
 document.addEventListener('click', (e) => {
-    if (e.target.classList.contains('btn-wallet') || e.target.closest('.btn-wallet')) {
+    const btn = e.target.closest('.btn-wallet') || e.target.closest('#connectWalletBtn');
+    if (btn) {
         e.preventDefault();
-        connectWallet();
+        if (userWalletAddress) {
+            if (confirm("¿Quieres desconectar tu wallet?")) {
+                disconnectWallet();
+            }
+        } else {
+            connectWallet();
+        }
     }
 });
