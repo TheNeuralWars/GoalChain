@@ -15,6 +15,84 @@
 <body>
     <div class="vibrancy"></div>
 
+    <!-- Paso 1: Partículas Solana + Balones Neón -->
+    <canvas id="solanaParticles" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; opacity:0.75;"></canvas>
+
+    <script>
+    // Partículas Solana + Balones Neón
+    const canvasP = document.getElementById('solanaParticles');
+    const ctxP = canvasP.getContext('2d');
+    let particles = [];
+    let balls = [];
+
+    function resizeCanvas() {
+        canvasP.width = window.innerWidth;
+        canvasP.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvasP.width;
+            this.y = Math.random() * canvasP.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = Math.random() * 1.5 - 0.75;
+            this.speedY = Math.random() * 1.5 - 0.75;
+            this.color = Math.random() > 0.5 ? '#14f195' : '#9945ff';
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x < 0 || this.x > canvasP.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > canvasP.height) this.speedY *= -1;
+        }
+        draw() {
+            ctxP.fillStyle = this.color;
+            ctxP.globalAlpha = 0.6;
+            ctxP.fillRect(this.x, this.y, this.size, this.size);
+        }
+    }
+
+    class Ball {
+        constructor() {
+            this.x = Math.random() * canvasP.width;
+            this.y = Math.random() * canvasP.height;
+            this.size = 18;
+            this.speedX = (Math.random() * 3) + 1;
+            this.speedY = (Math.random() * 3) - 1.5;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x < 0 || this.x > canvasP.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > canvasP.height) this.speedY *= -1;
+        }
+        draw() {
+            ctxP.save();
+            ctxP.font = '22px Arial';
+            ctxP.textAlign = 'center';
+            ctxP.textBaseline = 'middle';
+            ctxP.shadowColor = '#14f195';
+            ctxP.shadowBlur = 15;
+            ctxP.fillText('⚽', this.x, this.y);
+            ctxP.restore();
+        }
+    }
+
+    function animateP() {
+        ctxP.clearRect(0, 0, canvasP.width, canvasP.height);
+        if (particles.length < 80) particles.push(new Particle());
+        particles.forEach((p, i) => { p.update(); p.draw(); if (Math.random() < 0.01) particles.splice(i, 1); });
+        
+        if (balls.length < 6) balls.push(new Ball());
+        balls.forEach(b => { b.update(); b.draw(); });
+        
+        requestAnimationFrame(animateP);
+    }
+    animateP();
+    </script>
+
     <!-- NAV -->
     <nav class="main-nav" id="mainNav">
         <div class="logo" onclick="location.href='#'" style="display: flex; align-items: center; gap: 10px;">
@@ -65,6 +143,19 @@
             </button>
         </div>
     </nav>
+    
+    <!-- Paso 7: Live Match Ticker -->
+    <div style="background:#111; padding:8px 0; text-align:center; font-size:0.85rem; color:#14f195; display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; position: relative; z-index: 101; margin-top: 65px; border-bottom: 1px solid rgba(20,241,149,0.2);">
+        <span><span data-i18n="ticker_match">⚽ ARG 2-1 FRA • </span><span data-i18n="ticker_live" style="animation: tickerPulse 2s infinite;">EN VIVO</span></span>
+        <span data-i18n="ticker_next_match">Próximo: BRA vs POR • 18:00</span>
+    </div>
+
+    <style>
+        @keyframes tickerPulse {
+            0%, 100% { opacity: 1; color: var(--primary); }
+            50% { opacity: 0.5; color: #fff; }
+        }
+    </style>
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
@@ -77,8 +168,18 @@
     </div>
 
     <!-- HERO -->
-    <header class="hero">
+    <header class="hero" style="padding-top: 2rem;">
         <div class="hero-badge">⚽ <span data-i18n="hero_badge">FIFA WORLD CUP 2026 — YA CASI AQUÍ</span></div>
+        
+        <!-- Paso 4: Hype Meter del Mundial -->
+        <div style="margin:20px auto; max-width:420px; background:rgba(255,255,255,0.08); border-radius:9999px; padding:8px 20px; display:flex; align-items:center; gap:15px; backdrop-filter:blur(10px);" class="reveal">
+            <span style="color:#14f195; font-weight:900; font-size: 0.8rem;" data-i18n="hero_hype_label">HYPE GLOBAL</span>
+            <div style="flex:1; height:12px; background:#222; border-radius:9999px; overflow:hidden;">
+                <div id="hypeBar" style="width:87%; height:100%; background:linear-gradient(90deg,#14f195,#9945ff); transition:width 2s;"></div>
+            </div>
+            <span id="hypePercent" style="color:#9945ff; font-weight:900;">87%</span>
+            <span style="color:#fff; font-size:0.8rem;" data-i18n-html="hero_hype_agents_count">87% • 14,892 <span data-i18n="hero_hype_agents">Agentes conectados</span></span>
+        </div>
         <h1 data-i18n-html="hero_title">Domina el Campo.<br><span style="background: linear-gradient(90deg, #14f195, #9945ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Gana en Solana.</span></h1>
         <p data-i18n="hero_sub" style="font-size:1.15rem; line-height:1.4;">Eres el agente de las leyendas. Apuesta en vivo, juega penaltis con recompensas reales y cobra sueldos del Mundial 2026. El fútbol ya nunca será igual.</p>
         <div id="countdown" class="countdown-container">
@@ -154,6 +255,12 @@
                             <button class="bet-btn" data-amount="100" style="background:none; border: 1px solid rgba(255,255,255,0.2); color: var(--text-dim); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;">100 $GCH</button>
                         </div>
                         <div style="font-weight: 900; color: #fff; font-size: 0.9rem;"><span data-i18n="game_bag_label">TU BOLSA:</span> <span id="userGCH" style="color: var(--primary);">1,000</span> $GCH</div>
+                    </div>
+
+                    <!-- Paso 6: Daily Challenge + Streak Rewards -->
+                    <div style="background:rgba(20,241,149,0.15); border:1px solid #14f195; border-radius:12px; padding:12px; margin:12px 0; text-align:center;" class="reveal">
+                        <strong data-i18n="game_daily_title">🔥 DESAFÍO DIARIO:</strong> <span data-i18n="game_daily_desc">5 goles seguidos hoy</span><br>
+                        <span style="color:#14f195;"><span data-i18n="game_daily_reward">Recompensa extra:</span> +250 $GCH</span>
                     </div>
 
                     <div class="game-container reveal" style="padding:0; border:none; background:transparent;">
@@ -381,8 +488,54 @@
                 <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('nftTrackContainer', 1)">❯</button>
             </div>
             
-            <div style="text-align:center; margin-top:3rem;">
-                <button class="btn btn-primary btn-glow" data-i18n="nft_btn">UNIRSE A LA WHITELIST</button>
+            <!-- Paso 3: Pack Opener Simulator -->
+            <div style="text-align:center; margin:3rem 0;" class="reveal">
+                <button onclick="openPackSimulator()" class="btn btn-primary btn-glow" style="font-size:1.4rem; padding:1.2rem 4rem; background:linear-gradient(90deg,#9945ff,#14f195); box-shadow:0 0 40px rgba(153, 69, 255, 0.5);" data-i18n="pack_open_btn">
+                    🔥 ABRIR SOBRE MYSTERY PACK
+                </button>
+                <p style="margin-top:12px; color:#14f195; font-size:0.9rem;" data-i18n="pack_sim">Simulador oficial • 100% gratis</p>
+            </div>
+
+            <script>
+                function openPackSimulator() {
+                    const packHTML = `
+                    <div id="packModal" style="position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:99999; display:flex; align-items:center; justify-content:center;">
+                        <div class="glass-card" style="width:380px; padding:30px; text-align:center;">
+                            <h2 style="color:#14f195;">${t('pack_opening')}</h2>
+                            <div id="packAnimation" style="font-size:120px; margin:30px 0; animation:packShake 0.8s infinite;">📦</div>
+                            <button onclick="revealPack()" class="btn btn-primary" style="width:100%;">${t('pack_reveal_btn')}</button>
+                        </div>
+                    </div>
+                    <style>
+                        @keyframes packShake {
+                            0% { transform: rotate(0); }
+                            25% { transform: rotate(5deg); }
+                            50% { transform: rotate(0); }
+                            75% { transform: rotate(-5deg); }
+                            100% { transform: rotate(0); }
+                        }
+                    </style>`;
+                    document.body.insertAdjacentHTML('beforeend', packHTML);
+                }
+                function revealPack() {
+                    document.getElementById('packAnimation').innerHTML = '⚽';
+                    document.getElementById('packAnimation').style.animation = 'none';
+                    setTimeout(() => {
+                        alert(`${t('pack_congrats')} ${t('pack_obtained')} **Legendary Kylian M-Bag-pé** 🔥\n\n${t('pack_real_version')}`);
+                        document.getElementById('packModal').remove();
+                    }, 800);
+                }
+            </script>
+
+            <!-- Paso 5: Mi Dream XI Preview -->
+            <div class="glass-card reveal" style="margin-top:3rem; padding:20px;">
+                <h3 style="text-align:center; margin-bottom:15px;" data-i18n="nft_dream_title">Arma tu Dream XI</h3>
+                <div id="dreamXI" style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap; min-height:180px; border:2px dashed var(--primary); border-radius:16px; padding:15px;">
+                    <!-- Arrastra aquí tus cartas simuladas -->
+                </div>
+                <p style="text-align:center; margin-top:15px; color:var(--primary);">
+                    <span data-i18n="nft_dream_yield">Yield estimado:</span> <strong>+4,820 $GCH / partido</strong>
+                </p>
             </div>
         </div>
     </section>
@@ -616,6 +769,10 @@
                             msg.innerHTML = `¡GOOOOOL!<br><span style="font-size:0.75em">+${prize} $GCH • Racha x${streak}</span>`;
                             msg.style.color = "#14f195";
 
+                            // Paso 8: Shareable Player Card (después de cada gol)
+                            const shareBtn = `<button onclick="shareGoal(${streak})" style="margin-top:10px; padding:8px 20px; background:#000; color:#14f195; border:2px solid #14f195; border-radius:8px; cursor:pointer; font-family:inherit; font-weight:900; font-size:0.8rem; display:block; width:100%;">${t('game_share_btn')}</button>`;
+                            msg.innerHTML += shareBtn;
+
                             // Confetti Solana brutal
                             if (window.confetti) {
                                 confetti({
@@ -762,5 +919,11 @@
             opacity: 0.6;
         }
     </style>
+    <script>
+        function shareGoal(streakCount) {
+            const text = encodeURIComponent("¡Acabo de meter un GOOOOOL en GoalChain! ⚽🔥 Racha x" + streakCount + " → " + window.location.href);
+            window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
+        }
+    </script>
 </body>
 </html>
