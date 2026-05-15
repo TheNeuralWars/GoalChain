@@ -265,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let total = parseInt(localStorage.getItem('goalpoints') || '0');
                 total += pts;
                 localStorage.setItem('goalpoints', total);
+                if (window.notifier) window.notifier.show('¡TAREA COMPLETADA!', `Has ganado ${pts} GoalPoints.`);
             }
             
             renderSocialTasks();
