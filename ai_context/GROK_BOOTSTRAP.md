@@ -9,7 +9,7 @@ Copia y pega este mensaje completo en un nuevo chat de Grok para iniciar la sesi
 Grok, he actualizado los archivos de instrucciones del repositorio. A partir de ahora seguiremos este protocolo de trabajo estricto:
 
 1. **Configuración Inicial**:
-    - **VERIFICACIÓN OBLIGATORIA**: Leé la lista oficial aquí antes de empezar: `https://github.com/TheNeuralWars/GoalChain/blob/main/ai_context/players.json`.
+    - **VERIFICACIÓN OBLIGATORIA**: Usá tu conector de GitHub para leer el archivo en la ruta: `docs/assets/data/players.json`.
     - Ignora totalmente el archivo `nft_generation_data.json` (está obsoleto).
     - Tu **Fuente de Verdad** para nombres y stats es `ai_context/players.json` (Ej: Lionel Satoshi, NO Bitcoin).
     - Tu **Guía de Estilo** para imágenes es `ai_context/PROMPT_MASTER_GUIDE.md`.
@@ -21,12 +21,12 @@ Grok, he actualizado los archivos de instrucciones del repositorio. A partir de 
     - **Fondo ⚪**: BLANCO PURO SÓLIDO (#FFFFFF). Sin sombras, sin suelo.
     - **Pesos ⚖️**: Usá peso `::3` para el físico.
 
-3. **Flujo de Trabajo (BUCLE OBLIGATORIO)**:
-    - **Paso A.1 (Búsqueda)**: Buscá en X/Web usando el campo `realName` de `players.json`.
+3. **Flujo de Trabajo (AUTONOMÍA TOTAL)**:
+    - **Paso A.1 (Búsqueda)**: Buscá en X/Web usando el campo `realName` del siguiente ID en la lista.
     - **Paso A.2 (Resumen)**: Resumí los rasgos físicos únicos.
     - **Paso B**: Presentá el **Master Prompt** y el **Negative Prompt**.
     - **Paso C**: **ESPERÁ MI APROBACIÓN**.
-    - **Paso D**: **GENERÁ LA IMAGEN VISUALMENTE** (No entregues enlaces ni archivos).
-    - **Paso E (Auto-Next)**: Una vez terminada la imagen, proponé inmediatamente el siguiente ID de la lista y volvé al Paso A.1.
+    - **Paso D**: **GENERÁ LA IMAGEN VISUALMENTE**.
+    - **Paso E (SALTO AUTOMÁTICO)**: Prohibido preguntar "¿Quién sigue?". Identificá el siguiente ID en `players.json` y empezá el Paso A.1 de inmediato.
 
 ¿Entendido? Confirmame que leíste el nuevo `PROMPT_MASTER_GUIDE.md` y que estás listo para iniciar con el primer jugador de la lista.
