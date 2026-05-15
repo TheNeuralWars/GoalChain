@@ -21,12 +21,27 @@ async function connectWallet() {
         }
 
         const response = await solana.connect();
-        userWalletAddress = response.publicKey.toString();
+        const publicKey = response.publicKey.toString();
 
-        // Persistencia en localStorage
-        localStorage.setItem('goalchain_wallet', userWalletAddress);
-
-        console.log("✅ Wallet conectada:", userWalletAddress);
+        // NUEVO: Verificación por Firma de Mensaje
+        const message = `Welcome to GoalChain! ⚽\n\nBy signing this message, you verify your ownership of this wallet to start earning GoalPoints and claiming NFTs.\n\nWallet: ${publicKey}\nTimestamp: ${Date.now()}`;
+        const encodedMessage = new TextEncoder().encode(message);
+        
+        try {
+            const signedMessage = await solana.signMessage(encodedMessage, "utf8");
+            console.log("✅ Firma verificada con éxito:", signedMessage);
+            
+            userWalletAddress = publicKey;
+            // Persistencia en localStorage
+            localStorage.setItem('goalchain_wallet', userWalletAddress);
+            console.log("✅ Wallet conectada y verificada:", userWalletAddress);
+            
+            if (window.notifier) window.notifier.show('¡CONECTADO!', 'Wallet verificada con éxito.', 'success');
+        } catch (signError) {
+            console.error("Firma rechazada:", signError);
+            alert("⚠️ Debes firmar el mensaje para verificar tu identidad y acceder a la dApp.");
+            return;
+        }
 
         // Confetti de bienvenida Solana
         if (window.confetti) {
