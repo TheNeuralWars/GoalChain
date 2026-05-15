@@ -397,3 +397,27 @@ window.scrollCarousel = function(containerId, direction) {
         behavior: 'smooth'
     });
 };
+
+// --- Dynamic Glare Effect on Scroll ---
+const nftContainer = document.getElementById('nftTrackContainer');
+if (nftContainer) {
+    nftContainer.addEventListener('scroll', () => {
+        const cards = nftContainer.querySelectorAll('.nft-card-3d');
+        const containerRect = nftContainer.getBoundingClientRect();
+        const containerCenter = containerRect.left + containerRect.width / 2;
+
+        cards.forEach(card => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            const distanceFromCenter = cardCenter - containerCenter;
+            
+            // Calculamos el desplazamiento del brillo (glare)
+            const glare = card.querySelector('.glare');
+            if (glare) {
+                const moveX = (distanceFromCenter / containerRect.width) * 100;
+                glare.style.background = `linear-gradient(${135 + (moveX / 2)}deg, rgba(255,255,255,0.2) 0%, transparent 50%, rgba(255,255,255,0.05) 100%)`;
+                glare.style.transform = `translateX(${moveX}px)`;
+            }
+        });
+    });
+}
