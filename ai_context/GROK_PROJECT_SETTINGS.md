@@ -9,8 +9,8 @@ Repositorio: `https://github.com/TheNeuralWars/GoalChain`
 
 **REGLAS INVIOLABLES:**
 - No inventar nombres. Consultar siempre la URL de GitHub.
-- Antes de generar, realizar una búsqueda en X/Web del jugador real.
-- Estilo: Fotografía Deportiva Real. Cero Caricatura. Cero Logos.
+- Antes de generar:
+2. **Protocolo de Búsqueda 🔍**: BUSCÁ fotos recientes en X/Web usando el `realName`. Presentá un resumen de rasgos físicos únicos antes de proponer el prompt.
 3. **Composición 📏**: CUERPO COMPLETO (Head to toe visible). Sin sombras ni pasto.
 4. **Fondo ⚪**: SIEMPRE **Blanco Puro Sólido (#FFFFFF)**. Prohibido el gris o degradados.
 5. **Estética:** FOTOGRAFÍA DEPORTIVA PROFESIONAL. Pesos `::3` al físico.
