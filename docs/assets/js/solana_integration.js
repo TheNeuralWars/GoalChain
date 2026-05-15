@@ -2,9 +2,18 @@
 let userWalletAddress = localStorage.getItem('goalchain_wallet') || null;
 
 async function connectWallet() {
-    try {
-        const { solana } = window;
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const { solana } = window;
 
+    // Lógica para Móvil (Deep Linking)
+    if (isMobile && !solana) {
+        const currentUrl = encodeURIComponent(window.location.href);
+        const phantomDeepLink = `https://phantom.app/ul/browse/${currentUrl}?ref=${window.location.origin}`;
+        window.open(phantomDeepLink, "_blank");
+        return;
+    }
+
+    try {
         if (!solana || !solana.isPhantom) {
             alert("🛡️ Phantom Wallet no detectada.\n\nTe llevamos a descargarla...");
             window.open("https://phantom.app/", "_blank");
@@ -46,14 +55,12 @@ function updateWalletUI() {
 
     const shortAddress = `${userWalletAddress.slice(0, 4)}...${userWalletAddress.slice(-4)}`;
 
-    // 1. Actualizar TODOS los botones .btn-wallet con estilo Solana Gradient
-    document.querySelectorAll('.btn-wallet').forEach(btn => {
-        btn.innerHTML = `👛 ${shortAddress}`;
-        btn.style.background = 'linear-gradient(90deg, #14f195, #9945ff)';
-        btn.style.color = '#000';
-        btn.style.fontWeight = '900';
+    // 1. Actualizar botones de wallet (Estilo Circular)
+    document.querySelectorAll('.btn-wallet, #connectWalletBtn').forEach(btn => {
+        btn.style.background = 'linear-gradient(135deg, #14f195, #9945ff)';
         btn.style.boxShadow = '0 0 20px rgba(20, 241, 149, 0.6)';
         btn.style.border = 'none';
+        btn.title = `Connected: ${shortAddress}`;
     });
 
     // 2. Habilitar y configurar Whitelist
