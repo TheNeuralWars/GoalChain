@@ -88,7 +88,7 @@
             <div class="time-unit"><span id="seconds">00</span><p data-i18n="cd_sec">SEG</p></div>
         </div>
         <div class="hero-btns">
-            <a href="app.html" class="btn btn-primary btn-glow" style="font-size: 1.2rem; padding: 1rem 3rem;">ABRIR DASHBOARD</a>
+            <a href="app.html" class="btn btn-primary btn-glow" style="font-size: 1.2rem; padding: 1rem 3rem;" data-i18n="hero_btn_app">ABRIR DASHBOARD</a>
             <a href="#gameplay" class="btn btn-secondary" data-i18n="hero_play">Jugar Penaltis YA</a>
         </div>
     </header>
@@ -97,7 +97,7 @@
     <section id="pitch" class="section">
         <h2 class="section-title reveal"><span data-i18n="pitch_title">El Fútbol ha Evolucionado</span></h2>
         <p class="section-subtitle reveal" data-i18n="pitch_sub">No es solo un juego. Es un ecosistema completo donde tu conocimiento se convierte en recompensas reales en Solana.</p>
-        <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 1rem; font-size: 0.8rem;">
+        <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 1rem; font-size: 0.8rem;" data-i18n="carousel_hint_pillars">
             ← Desliza para explorar Pilares →
         </div>
         <div class="carousel-wrapper">
@@ -148,12 +148,12 @@
                     <!-- Panel de Apuestas -->
                     <div class="betting-panel" style="margin-bottom: 12px; background: rgba(255,255,255,0.05); padding: 12px 15px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); flex-wrap: wrap; gap: 10px;">
                         <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-                            <span style="font-size: 0.7rem; font-weight: 800; color: var(--primary); letter-spacing: 1px;">APUESTA POR TIRO:</span>
+                            <span style="font-size: 0.7rem; font-weight: 800; color: var(--primary); letter-spacing: 1px;" data-i18n="game_bet_label">APUESTA POR TIRO:</span>
                             <button class="bet-btn active" data-amount="10" style="background:none; border: 1px solid var(--primary); color: #fff; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;">10 $GCH</button>
                             <button class="bet-btn" data-amount="50" style="background:none; border: 1px solid rgba(255,255,255,0.2); color: var(--text-dim); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;">50 $GCH</button>
                             <button class="bet-btn" data-amount="100" style="background:none; border: 1px solid rgba(255,255,255,0.2); color: var(--text-dim); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-family: inherit; font-size: 0.8rem;">100 $GCH</button>
                         </div>
-                        <div style="font-weight: 900; color: #fff; font-size: 0.9rem;">TU BOLSA: <span id="userGCH" style="color: var(--primary);">1,000</span> $GCH</div>
+                        <div style="font-weight: 900; color: #fff; font-size: 0.9rem;"><span data-i18n="game_bag_label">TU BOLSA:</span> <span id="userGCH" style="color: var(--primary);">1,000</span> $GCH</div>
                     </div>
 
                     <div class="game-container reveal" style="padding:0; border:none; background:transparent;">
@@ -234,7 +234,7 @@
     <section id="roadmap" class="section section-dark">
         <h2 class="section-title reveal"><span data-i18n="rm_title">Hoja de Ruta</span></h2>
         <p class="section-subtitle reveal" data-i18n="rm_sub">Desliza horizontalmente para ver nuestro plan de desarrollo.</p>
-        <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 1rem; font-size: 0.8rem;">
+        <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 1rem; font-size: 0.8rem;" data-i18n="carousel_hint_generic">
             ← Desliza para explorar →
         </div>
         <div class="carousel-wrapper">
@@ -251,7 +251,7 @@
         <div class="container">
             <div class="section-header" style="text-align: center;">
                 <span class="hero-badge" data-i18n="econ_badge">ECONOMÍA SOSTENIBLE</span>
-                <h2 class="section-title">Tokenomics 2.0</h2>
+                <h2 class="section-title" data-i18n="econ_title">Tokenomics 2.0</h2>
                 <p class="section-subtitle" data-i18n="econ_sub">Un ecosistema diseñado para durar. Transparente, circular y rentable.</p>
             </div>
 
@@ -332,7 +332,7 @@
             <!-- Filtro de Países -->
             <div class="nft-filters container">
                 <div class="country-scroll" id="countryFilters">
-                    <button class="filter-btn active" data-country="all">Todos</button>
+                    <button class="filter-btn active" data-country="all" data-i18n="nft_filter_all">Todos</button>
                     <button class="filter-btn" data-country="Argentina">🇦🇷 Argentina</button>
                     <button class="filter-btn" data-country="Brasil">🇧🇷 Brasil</button>
                     <button class="filter-btn" data-country="Francia">🇫🇷 Francia</button>
@@ -348,23 +348,23 @@
                 </div>
                 
                 <div class="nft-filters-row">
-                    <input type="text" id="playerSearch" placeholder="Buscar jugador..." class="search-input">
+                    <input type="text" id="playerSearch" placeholder="Buscar jugador..." class="search-input" data-i18n-ph="nft_search_ph">
                     <select id="nftSort" class="filter-select">
-                        <option value="id-asc">Número (Bajo-Alto)</option>
-                        <option value="id-desc">Número (Alto-Bajo)</option>
-                        <option value="rarity-desc">Más Raros Primero</option>
-                        <option value="atk-desc">Mejor Ataque</option>
-                        <option value="def-desc">Mejor Defensa</option>
+                        <option value="id-asc" data-i18n="nft_sort_id_asc">Número (Bajo-Alto)</option>
+                        <option value="id-desc" data-i18n="nft_sort_id_desc">Número (Alto-Bajo)</option>
+                        <option value="rarity-desc" data-i18n="nft_sort_rarity">Más Raros Primero</option>
+                        <option value="atk-desc" data-i18n="nft_sort_atk">Mejor Ataque</option>
+                        <option value="def-desc" data-i18n="nft_sort_def">Mejor Defensa</option>
                     </select>
-                    <button id="wishlistBtn" class="fav-toggle-btn">❤️ Favoritos</button>
+                    <button id="wishlistBtn" class="fav-toggle-btn" data-i18n="nft_favs">❤️ Favoritos</button>
                 </div>
 
                 <div class="position-filters" id="positionFilters" style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;">
-                    <button class="filter-btn-sm active" data-pos="all">TODOS</button>
-                    <button class="filter-btn-sm" data-pos="GK">PORTEROS</button>
-                    <button class="filter-btn-sm" data-pos="DEF">DEFENSAS</button>
-                    <button class="filter-btn-sm" data-pos="MID">MEDIOS</button>
-                    <button class="filter-btn-sm" data-pos="FWD">DELANTEROS</button>
+                    <button class="filter-btn-sm active" data-pos="all" data-i18n="nft_pos_all">TODOS</button>
+                    <button class="filter-btn-sm" data-pos="GK" data-i18n="nft_pos_gk">PORTEROS</button>
+                    <button class="filter-btn-sm" data-pos="DEF" data-i18n="nft_pos_def">DEFENSAS</button>
+                    <button class="filter-btn-sm" data-pos="MID" data-i18n="nft_pos_mid">MEDIOS</button>
+                    <button class="filter-btn-sm" data-pos="FWD" data-i18n="nft_pos_fwd">DELANTEROS</button>
                 </div>
             </div>
             
@@ -374,7 +374,7 @@
                     <div class="nft-track" id="nftTrackInner">
                         <!-- Dinámicamente cargado por assets/js/nft_registry.js -->
                         <div class="loading-state" style="color: var(--text-dim); text-align: center; width: 100%;">
-                            <p>Iniciando Sincronización con la Blockchain...</p>
+                            <p data-i18n="nft_sync">Iniciando Sincronización con la Blockchain...</p>
                         </div>
                     </div>
                 </div>
@@ -448,17 +448,17 @@
     <!-- COMMUNITY & TRUST SECTION -->
     <section id="trust" class="section" style="background: var(--bg-surface); text-align: center; margin-top: 2rem;">
         <div class="container">
-            <h2 class="section-title reveal">Respaldado por los Mejores</h2>
-            <p class="section-subtitle reveal">Seguridad institucional y liquidez global para el futuro del fútbol.</p>
+            <h2 class="section-title reveal" data-i18n="trust_title">Respaldado por los Mejores</h2>
+            <p class="section-subtitle reveal" data-i18n="trust_sub">Seguridad institucional y liquidez global para el futuro del fútbol.</p>
             
             <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap;" class="reveal">
-                <a href="https://discord.gg/7TUgSfqtd" target="_blank" class="btn btn-primary" style="background: #5865F2; color: white; border: none; font-size: 0.85rem;"><i class="fab fa-discord"></i> Discord DAO</a>
-                <a href="https://x.com/GoalChainDotFun" target="_blank" class="btn" style="background: #000; color: white; border: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem;">𝕏 Twitter Oficial</a>
-                <a href="https://instagram.com/goalchain.fun" target="_blank" class="btn" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border: none; font-size: 0.85rem;">📸 Instagram</a>
+                <a href="https://discord.gg/7TUgSfqtd" target="_blank" class="btn btn-primary" style="background: #5865F2; color: white; border: none; font-size: 0.85rem;" data-i18n="trust_discord"><i class="fab fa-discord"></i> Discord DAO</a>
+                <a href="https://x.com/GoalChainDotFun" target="_blank" class="btn" style="background: #000; color: white; border: 1px solid rgba(255,255,255,0.2); font-size: 0.85rem;" data-i18n="trust_twitter">𝕏 Twitter Oficial</a>
+                <a href="https://instagram.com/goalchain.fun" target="_blank" class="btn" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; border: none; font-size: 0.85rem;" data-i18n="trust_instagram">📸 Instagram</a>
             </div>
 
             <div class="trust-badges reveal" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; margin-top: 20px;">
-                <p style="color: var(--text-dim); font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 25px; font-weight: 900;">AUDITORÍA Y COMUNIDAD</p>
+                <p style="color: var(--text-dim); font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 25px; font-weight: 900;" data-i18n="trust_audit">AUDITORÍA Y COMUNIDAD</p>
                 <div style="display: flex; justify-content: center; gap: 40px; opacity: 0.7; flex-wrap: wrap; align-items: center;">
                     <span style="font-weight: 900; font-size: 1.1rem; color: #fff;">🛡️ CertiK</span>
                     <span style="font-weight: 900; font-size: 1.1rem; color: #14f195;">◎ Solana</span>
@@ -479,7 +479,7 @@
             <a href="https://x.com/GoalChainDotFun" target="_blank">Twitter / X</a>
             <a href="https://discord.gg/7TUgSfqtd" target="_blank">Discord</a>
             <a href="https://instagram.com/goalchain.fun" target="_blank">Instagram</a>
-            <a href="colabs.html" style="color:var(--primary); margin-left: 20px; text-decoration:none; font-size:0.8rem;">Portal Colaboradores</a>
+            <a href="colabs.html" style="color:var(--primary); margin-left: 20px; text-decoration:none; font-size:0.8rem;" data-i18n="footer_colabs">Portal Colaboradores</a>
             <a href="legal.html#tos" style="color:var(--text-dim); margin-left: 20px; text-decoration:none; font-size:0.8rem;">ToS</a>
             <a href="legal.html#privacy" style="color:var(--text-dim); margin-left: 10px; text-decoration:none; font-size:0.8rem;">Privacy Policy</a>
         </div>
@@ -487,8 +487,8 @@
 
     <!-- COOKIE CONSENT -->
     <div id="cookieBanner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: rgba(13, 13, 20, 0.95); backdrop-filter: blur(20px); border: 1px solid var(--primary); border-radius: 16px; padding: 1.5rem; z-index: 9999; display: flex; justify-content: space-between; align-items: center; gap: 2rem; box-shadow: 0 10px 50px rgba(0,0,0,0.8); animation: fadeInUp 0.5s forwards;">
-        <p style="font-size: 0.85rem; color: #fff; margin: 0;">Utilizamos cookies para asegurar que GoalChain funcione correctamente y para analizar el tráfico. Al continuar, aceptas nuestra política de privacidad.</p>
-        <button onclick="acceptCookies()" class="btn btn-primary btn-sm" style="flex-shrink: 0;">Aceptar</button>
+        <p style="font-size: 0.85rem; color: #fff; margin: 0;" data-i18n="cookies_text">Utilizamos cookies para asegurar que GoalChain funcione correctamente y para analizar el tráfico. Al continuar, aceptas nuestra política de privacidad.</p>
+        <button onclick="acceptCookies()" class="btn btn-primary btn-sm" style="flex-shrink: 0;" data-i18n="cookies_btn">Aceptar</button>
     </div>
 
     <script>
@@ -706,15 +706,15 @@
     <div id="alphaModal" class="modal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9); backdrop-filter:blur(10px);">
         <div class="modal-content glass-card" style="position:relative; top:50%; left:50%; transform:translate(-50%, -50%); width:90%; max-width:500px; padding:40px; text-align:center; border: 2px solid var(--primary);">
             <div style="font-size:3rem; margin-bottom:20px;">⚠️</div>
-            <h2 style="color:var(--primary); margin-bottom:15px;">ACCESO ALPHA - MODO DEMO</h2>
-            <p style="font-size:0.9rem; color:var(--text-dim); line-height:1.6; margin-bottom:30px;">
+            <h2 style="color:var(--primary); margin-bottom:15px;" data-i18n="alpha_title">ACCESO ALPHA - MODO DEMO</h2>
+            <p style="font-size:0.9rem; color:var(--text-dim); line-height:1.6; margin-bottom:30px;" data-i18n-html="alpha_sub">
                 Estás entrando en una demostración técnica de <b>GoalChain Ecosystem</b>.<br><br>
                 Las funcionalidades de <b>Trading (Drift)</b>, <b>Finanzas (Lending)</b> y <b>Cantera (cNFTs)</b> están en modo SIMULACIÓN para pruebas de arquitectura.<br><br>
                 <span style="color:white; font-weight:bold;">No se requiere ni se utiliza capital real en esta fase.</span>
             </p>
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
-                <button onclick="closeAlphaModal()" class="btn btn-secondary" style="width:100%;">VOLVER</button>
-                <button onclick="closeAlphaModal(); location.href='app.html';" class="btn btn-primary btn-glow" style="width:100%;">ENTRAR AL ECOSISTEMA</button>
+                <button onclick="closeAlphaModal()" class="btn btn-secondary" style="width:100%;" data-i18n="alpha_back">VOLVER</button>
+                <button onclick="closeAlphaModal(); location.href='app.html';" class="btn btn-primary btn-glow" style="width:100%;" data-i18n="alpha_enter">ENTRAR AL ECOSISTEMA</button>
             </div>
         </div>
     </div>
