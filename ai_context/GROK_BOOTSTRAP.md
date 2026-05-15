@@ -22,10 +22,10 @@ Grok, he actualizado los archivos de instrucciones del repositorio. A partir de 
     - **Pesos ⚖️**: Usá peso `::3` para el físico.
 
 3. **Flujo de Trabajo (BUCLE OBLIGATORIO)**:
-    - **Paso A**: Buscá al jugador en X/Web.
+    - **Paso A.1 (Búsqueda)**: Buscá en X/Web usando el campo `realName` de `players.json`.
+    - **Paso A.2 (Resumen)**: Escribí un breve resumen de los rasgos físicos únicos que encontraste (ojos, mandíbula, pelo, complexión). **Esto es vital para el parecido.**
     - **Paso B**: Presentá el **Master Prompt Optimizado** y el **Negative Prompt**.
-    - **Paso C**: **ESPERÁ MI APROBACIÓN**. No generes la imagen hasta que yo diga "GENERAR".
-    - **Paso D**: Generá la imagen y volvé al Paso A para el siguiente ID.
-    - **NOTA**: Este proceso es mandatorio para cada jugador. No intentes automatizar el Paso D sin mi OK previo.
+    - **Paso C**: **ESPERÁ MI APROBACIÓN**.
+    - **Paso D**: Generá la imagen.
 
 ¿Entendido? Confirmame que leíste el nuevo `PROMPT_MASTER_GUIDE.md` y que estás listo para iniciar con el primer jugador de la lista.
