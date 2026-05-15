@@ -517,106 +517,28 @@
     </div>
 
 
-            <!-- MINTEO GENESIS SQUAD - SIMULACIÓN OFICIAL -->
-            <div style="text-align:center; margin:3rem 0 4rem;" class="reveal">
-                <button onclick="simulateGenesisMint()" 
-                        class="btn btn-primary btn-glow" 
-                        style="font-size:1.5rem; padding:1.3rem 4.5rem; 
-                               background:linear-gradient(90deg, #9945ff, #14f195); 
-                               color:#000; font-weight:900; 
-                               box-shadow:0 0 40px #14f195, 0 0 70px #9945ff;"
-                        data-i18n="nft_mint_btn">
-                    ⚡ MINT GENESIS SQUAD NFT
-                </button>
-                <p style="margin-top:12px; color:#14f195; font-size:0.95rem; font-weight:700;" data-i18n="nft_mint_drop">
-                    1/1 • Mythic Drop • Prueba técnica
-                </p>
-            </div>
+            <!-- DASHBOARD DE COLECCIÓN -->
+            <div id="userCollection" style="text-align:center; margin:4rem 0;" class="reveal">
+                <h2 class="section-title">Tu Galería Genesis Squad</h2>
+                <p class="section-subtitle">Gestioná tus jugadores y prepará tu alineación para el World Cup 2026.</p>
+                
+                <!-- Filtros -->
+                <div class="filter-bar mt-4">
+                    <button class="filter-btn active" onclick="filterCollection('all')">TODOS</button>
+                    <button class="filter-btn" onclick="filterCollection('mythic')">MYTHIC</button>
+                    <button class="filter-btn" onclick="filterCollection('legendary')">LEGENDARY</button>
+                    <button class="filter-btn" onclick="filterCollection('epic')">EPIC</button>
+                    <button class="filter-btn" onclick="filterCollection('rare')">RARE</button>
+                </div>
 
-            <script>
-            // SIMULADOR DE MINTEO GENESIS SQUAD
-            function simulateGenesisMint() {
-                const modalHTML = `
-                <div id="genesisMintModal" style="position:fixed; inset:0; background:rgba(6,6,10,0.97); z-index:99999; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(20px);">
-                    <div class="glass-card" style="width:380px; max-height:90vh; overflow-y:auto; padding:25px; border:3px solid #14f195; box-shadow:0 0 60px #14f195;">
-                        
-                        <div style="text-align:center; margin-bottom:20px;">
-                            <h2 style="background:linear-gradient(90deg,#14f195,#9945ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-size:1.8rem;">
-                                ${t('mint_title')}
-                            </h2>
-                            <p style="color:#9945ff; font-weight:900;">${t('mint_progress')}</p>
-                        </div>
-
-                        <!-- NFT CARD PREVIEW (estilo ART_PIPELINE V13) -->
-                        <div style="aspect-ratio:2/3; background:#0a0a0a; border:12px solid #9945ff; border-radius:16px; position:relative; overflow:hidden; box-shadow:0 0 50px #9945ff; margin-bottom:25px;">
-                            <!-- Fondo -->
-                            <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 20%, #14f19522, #9945ff22, transparent);"></div>
-                            
-                            <!-- Jugador ejemplo (Lionel Bitcoin) -->
-                            <div style="position:absolute; bottom:18%; left:50%; transform:translateX(-50%); font-size:140px; filter:drop-shadow(0 0 30px #14f195);">🇦🇷</div>
-                            <div style="position:absolute; top:12%; left:50%; transform:translateX(-50%); width:78%; text-align:center;">
-                                <div style="background:rgba(0,0,0,0.7); color:#fff; padding:6px 18px; border-radius:9999px; font-size:1.1rem; font-weight:900; display:inline-block;">
-                                    Lionel Bitcoin
-                                </div>
-                            </div>
-                            
-                            <!-- Stats barra inferior -->
-                            <div style="position:absolute; bottom:8%; left:8%; right:8%; height:58px; background:rgba(0,0,0,0.85); border-radius:12px; display:flex; align-items:center; justify-content:space-around; color:#14f195; font-size:0.9rem; font-weight:700;">
-                                <div>ATK <span style="color:#fff;">98</span></div>
-                                <div>DEF <span style="color:#fff;">94</span></div>
-                                <div>HYPE <span style="color:#fff;">99</span></div>
-                            </div>
-                            
-                            <!-- Rarity badge -->
-                            <div style="position:absolute; top:12px; right:12px; background:#9945ff; color:#fff; padding:4px 14px; border-radius:9999px; font-size:0.75rem; font-weight:900; box-shadow:0 0 20px #9945ff;">
-                                MYTHIC 1/1
-                            </div>
-                        </div>
-
-                        <button onclick="finishGenesisMint()" 
-                                style="width:100%; padding:16px; font-size:1.2rem; background:#14f195; color:#000; font-weight:900; border:none; border-radius:12px; cursor:pointer;">
-                            ${t('mint_confirm')}
-                        </button>
-                        
-                        <p style="text-align:center; margin-top:15px; font-size:0.8rem; color:#666;">
-                            ${t('mint_note')}
-                        </p>
-                        
-                        <button onclick="document.getElementById('genesisMintModal').remove()" 
-                                style="position:absolute; top:15px; right:15px; background:none; border:none; color:#ff4d6a; font-size:1.8rem; cursor:pointer;">
-                            ✕
-                        </button>
+                <!-- Grid Dinámico -->
+                <div id="collectionGrid" class="collection-grid mt-5">
+                    <div class="empty-inventory">
+                        <p>Tu inventario está vacío.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-dim);">Los jugadores que obtengas en el Mystery Pack aparecerán aquí.</p>
                     </div>
-                </div>`;
-                
-                document.body.insertAdjacentHTML('beforeend', modalHTML);
-                
-                // Confetti inicial al abrir
-                if (window.confetti) {
-                    confetti({ particleCount: 80, spread: 60, colors: ['#14f195', '#9945ff'] });
-                }
-            }
-
-            function finishGenesisMint() {
-                const modal = document.getElementById('genesisMintModal');
-                if (modal) {
-                    modal.querySelector('button').innerHTML = t('mint_success');
-                    modal.querySelector('button').style.background = '#14f195';
-                    
-                    confetti({
-                        particleCount: 200,
-                        spread: 100,
-                        origin: { y: 0.6 },
-                        colors: ['#14f195', '#9945ff', '#fff']
-                    });
-                    
-                    setTimeout(() => {
-                        alert(t('mint_alert_success'));
-                        modal.remove();
-                    }, 1200);
-                }
-            }
-            </script>
+                </div>
+            </div>
 
             <!-- Paso 5: Mi Dream XI Preview -->
             <div class="glass-card reveal" style="margin-top:3rem; padding:20px;">
