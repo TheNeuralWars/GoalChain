@@ -28,19 +28,15 @@ Antes de generar cualquier prompt, Grok DEBE:
 3.  **Sintetizar**: Incluir esos hallazgos en la descripción física del prompt.
 
 ## 🛠️ Estructura del Prompt para L2 (Jugador Aislado - FULL BODY)
-Usa esta estructura para forzar el **CUERPO COMPLETO** (Si no se ven los pies, es un fallo):
+Usa esta estructura para forzar el blanco **PLANO** e inexistente:
 
 ```text
-[Ultra-detailed physical description from real-life search results]::3 Full length action shot, standing from a distance, HEAD TO TOE VISIBLE, BOTH FEET AND FOOTWEAR MUST BE IN THE FRAME, [PLAYER_NAME] in epic pose. [KIT]: Minimalist unbranded [COUNTRY] kit, NO logos. [BACKGROUND]: High-key studio photography, pure solid #FFFFFF white, NO floor, NO shadows. [TECHNICAL]: 85mm lens, f/4 (deep focus), 8k resolution, extreme realism, zero caricature, professionally isolated --ar 2:3 --v 6
+[Ultra-detailed physical description from real-life search results]::3 Full length action shot, head to toe visible, [PLAYER_NAME] standing in epic football pose. [KIT]: Minimalist unbranded [COUNTRY] kit. [BACKGROUND]: High-key studio photography, shot on FLAT SOLID #FFFFFF WHITE BACKGROUND, NO shadows, NO floor. [TECHNICAL]: 85mm lens, f/4, extreme realism, zero caricature, professionally isolated, 8k resolution --no shadows, ground, floor, grey, gradients, vignette, textures --ar 2:3 --v 6
 ```
 
-## 🎯 Técnica de Parecido (Likeness) y Pesos
-1.  **Pesos Pro**: Usa `::3` para el físico.
-2.  **Cuerpo Completo**: Obligatorio. "Full length shot, shoes and feet must be visible". Si el calzado está cortado, el prompt ha fallado.
+## 📏 Composición y Fondo
+*   **Fondo**: DEBE ser **Blanco Plano (#FFFFFF)**. La ausencia de sombras es mandatoria para el recorte posterior.
+*   **Regla**: El calzado no debe proyectar ninguna sombra en el "suelo" blanco.
 
-## 📏 Composición para el Marco v13
-*   **Zoom**: El jugador debe estar centrado y verse de cuerpo entero, dejando aire por arriba y por abajo.
-*   **Fondo**: Blanco Puro (#FFFFFF).
-
-## 🚫 Negative Prompt (Extremo)
-`Negative: portrait, headshot, close-up, half-body shot, cropped feet, cut off shoes, waist-up shot, blurred legs, grey background, shadows, floor, grass, stadium, logos, brands, sponsors, 3D render, cartoon.`
+## 🚫 Negative Prompt (Refuerzo Extremo)
+`Negative: shadows, floor, grass, grey, gray, gradients, vignette, dark corners, headshot, portrait, 3D render, cartoon, logos, brands.`
