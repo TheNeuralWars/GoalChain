@@ -44,4 +44,16 @@ GoalChain es un ecosistema de fútbol Web3 en Solana. Estamos en fase de pre-lan
 
 
 ---
-**Última actualización:** 13 de Mayo, 2026
+
+## 📂 Estructura de Contexto Crítico (`ai_context/`)
+Este directorio contiene copias de seguridad de la "Fuente de Verdad" para ser leídas por Grok:
+*   `players.json`: Base de datos maestra de jugadores.
+*   `PROMPT_MASTER_GUIDE.md`: Instrucciones estéticas definitivas.
+*   `GROK_BOOTSTRAP.md`: Mensaje de activación de sesión para el usuario.
+*   `GROK_PROJECT_SETTINGS.md`: Instrucciones del sistema para el proyecto Grok.
+*   `references/`: Imágenes de referencia (estadios, marcos, logos).
+
+## 🛠️ Protocolo de Sincronización
+Cualquier cambio en la lógica de nombres, stats o estilo visual debe ser replicado en `ai_context/` antes de finalizar la sesión. El agente debe verificar que `players.json` coincida con `docs/assets/data/players.json`.
+
+**Última actualización:** 15 de Mayo, 2026 (Refuerzo de Parecido Físico y Contexto Grok)
