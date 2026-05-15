@@ -23,9 +23,10 @@ Grok, he actualizado los archivos de instrucciones del repositorio. A partir de 
 
 3. **Flujo de Trabajo (BUCLE OBLIGATORIO)**:
     - **Paso A.1 (Búsqueda)**: Buscá en X/Web usando el campo `realName` de `players.json`.
-    - **Paso A.2 (Resumen)**: Escribí un breve resumen de los rasgos físicos únicos que encontraste (ojos, mandíbula, pelo, complexión). **Esto es vital para el parecido.**
-    - **Paso B**: Presentá el **Master Prompt Optimizado** y el **Negative Prompt**.
+    - **Paso A.2 (Resumen)**: Resumí los rasgos físicos únicos.
+    - **Paso B**: Presentá el **Master Prompt** y el **Negative Prompt**.
     - **Paso C**: **ESPERÁ MI APROBACIÓN**.
-    - **Paso D**: Generá la imagen.
+    - **Paso D**: **GENERÁ LA IMAGEN VISUALMENTE** (No entregues enlaces ni archivos).
+    - **Paso E (Auto-Next)**: Una vez terminada la imagen, proponé inmediatamente el siguiente ID de la lista y volvé al Paso A.1.
 
 ¿Entendido? Confirmame que leíste el nuevo `PROMPT_MASTER_GUIDE.md` y que estás listo para iniciar con el primer jugador de la lista.
