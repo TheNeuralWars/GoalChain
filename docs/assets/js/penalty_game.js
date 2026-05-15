@@ -116,7 +116,7 @@ class PenaltyGame {
         // IA del Arquero (Mejora con la racha del usuario)
         const difficulty = Math.min(0.2 + (this.streak * 0.05), 0.5);
         const gT = Math.random() < difficulty ? target : this.targets[Math.floor(Math.random() * this.targets.length)];
-        this.goalieTarget = { x: gT.x + gT.w / 2, id: gT.id };
+        this.goalieTarget = { x: gT.x + gT.w / 2, y: gT.y + gT.h / 2, id: gT.id };
     }
 
     update() {
@@ -136,9 +136,11 @@ class PenaltyGame {
             this.ball.y = startY + (this.shotTarget.y - startY) * ease;
             this.ball.angle += 0.2;
             
-            // Arquero reacciona
+            // Arquero reacciona (Salto)
             const goalieEase = 1 - Math.pow(1 - Math.min(this.animationProgress * 1.3, 1), 3);
+            const goalieStartY = 265; // Base original
             this.goalie.x = (this.width / 2) + (this.goalieTarget.x - this.width / 2) * goalieEase;
+            this.goalie.y = goalieStartY + (this.goalieTarget.y - goalieStartY) * goalieEase;
             
             if (this.animationProgress >= 1) {
                 this.resolveResult();
