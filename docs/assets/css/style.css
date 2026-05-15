@@ -400,6 +400,34 @@ body {
     box-shadow: 0 20px 40px rgba(20, 241, 149, 0.15);
 }
 
+/* --- Mini-Game Betting Buttons --- */
+.bet-btn {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-dim);
+    padding: 6px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bet-btn:hover {
+    border-color: var(--primary);
+    color: #fff;
+    background: rgba(20, 241, 149, 0.05);
+}
+
+.bet-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #000;
+    font-weight: 900;
+    box-shadow: 0 0 20px var(--primary-dim);
+}
+
 .nft-card img {
     width: 100%;
     height: auto;
