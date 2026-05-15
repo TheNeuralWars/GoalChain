@@ -421,11 +421,11 @@ body {
 }
 
 .bet-btn.active {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: #000;
-    font-weight: 900;
-    box-shadow: 0 0 20px var(--primary-dim);
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #000 !important;
+    font-weight: 900 !important;
+    box-shadow: 0 0 25px var(--primary-dim) !important;
 }
 
 .nft-card img {
