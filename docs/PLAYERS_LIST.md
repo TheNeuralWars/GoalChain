@@ -5,7 +5,7 @@ Este documento contiene la estructura oficial de los 1,248 jugadores del Mundial
 ## 1. Atributos por Jugador
 Cada cromo contiene los siguientes metadatos:
 - **ID:** Único correlativo (1-1248).
-- **Parody Name:** Nombre Web3 (ej: Lionel Bitcoin).
+- **Parody Name:** Nombre Web3 (ej: Lionel Satoshi).
 - **País:** Una de las 48 naciones clasificadas.
 - **Rareza:** Mythic, Legendary, Epic, Rare, Common.
 - **Stats:** Atk, Def, Hype (0-99).
@@ -21,7 +21,7 @@ Hemos integrado datos salariales reales para dar profundidad al ecosistema:
 ```json
 {
     "id": 1,
-    "name": "Lionel Bitcoin",
+    "name": "Lionel Satoshi",
     "country": "Argentina",
     "rarity": "mythic",
     "contract": {

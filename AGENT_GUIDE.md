@@ -24,6 +24,15 @@ GoalChain es un ecosistema de fútbol Web3 en Solana. Estamos en fase de pre-lan
 *   **Banderas:** Cada jugador debe mostrar su bandera usando el `FLAG_MAP` definido en `nft_registry.js`.
 *   **Jugadores:** Usar nombres parodiados (Crypto-parody) para evitar problemas legales.
 
+## 🖼️ Generación de Imágenes (Master Guidelines)
+*   **Single Source of Truth (Nombres):** Usa exclusivamente `docs/assets/data/players.json`. El nombre oficial de Messi es **Lionel Satoshi** (NO Lionel Bitcoin).
+*   **Single Source of Truth (Prompts):** Usa `assets/data/nft_master_prompts_100.json`.
+*   **Estilo Visual Obligatorio:** "Professional Sports Photography Style". 
+    *   **NO** usar términos que induzcan a look de videojuego (ej: "3D", "Unreal Engine", "Octane Render") a menos que sea para iluminación.
+    *   **SÍ** usar términos de fotografía real: "85mm lens", "f/1.8", "high speed sync", "8k resolution", "ultra-detailed skin texture", "hyper-realistic sports photography".
+    *   **Zero Caricature:** Prohibido cualquier rasgo de caricatura o deformación. Los rostros deben ser 100% realistas y fotográficos.
+*   **Capa L2 (Player Layer):** Solo la figura del jugador, fondo eliminado (alpha channel), pose épica según el prompt maestro.
+
 ## 📈 Lógica Económica (Knowledge)
 *   Lee [TOKENOMICS.md](./TOKENOMICS.md) antes de proponer cambios en rarezas o recompensas.
 *   GoalChain usa un sistema de **Contrato Profesional**: Los dueños de NFTs ganan sueldos según el desempeño real.

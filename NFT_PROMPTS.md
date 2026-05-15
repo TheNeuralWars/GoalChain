@@ -24,7 +24,7 @@ Cada prompt debe seguir este "Blueprint" de capas técnicas sin omitir ninguna s
 [CARD_DESIGN]: Uniform rectangular border of exact equal thickness on all sides. The frame is a high-tech [RARITY_MATERIAL] structure with subtle integrated circuitry. 
 [SUBJECT]: 3D hyper-realistic style player wearing his [NATIONAL_COUNTRY] national kit. Pose: [EPIC_POSE]. The subject is entirely inside the card frame.
 [ENVIRONMENT/COLOR PALETTE]: Deep dark background with strict Solana color palette lighting: vibrant neon green (#14f195) and neon purple (#9945ff) ambient lights. A futuristic blurred stadium crowd in the background matching the dark Solana aesthetic, exactly like the 'Phil Fod-ether' baseline card. Deep depth of field (bokeh) focusing exclusively on the player. 
-[TECHNICAL]: 8k resolution, centered composition, edge-to-edge cropping, symmetrical border, professional sports memorabilia, Unreal Engine 5 aesthetic, octane render."`
+[TECHNICAL]: 8k resolution, centered composition, edge-to-edge cropping, symmetrical border, professional sports memorabilia, professional sports photography style, 85mm lens, f/1.8, high speed sync, realistic textures, zero caricature."`
 
 ---
 
@@ -42,16 +42,16 @@ Cada prompt debe seguir este "Blueprint" de capas técnicas sin omitir ninguna s
 
 Para evitar inconsistencias y elementos que rompan la uniformidad de la colección, **es obligatorio** añadir siempre lo siguiente al final del prompt (o en el campo negativo):
 
-`"Negative: out of frame, elements breaking the border, 3d pop-out, 3d effect breaking frame, asymmetrical border, uneven frame thickness, deformed hands, extra fingers, blurry logo, low resolution, flat colors, cartoony, 2D illustration, missing limbs, watermark, text overlays (except parody name), messy jersey patterns, non-Solana colors in background, warm background lighting (orange/yellow/red unless explicitly requested by rarity)."`
+`"Negative: out of frame, elements breaking the border, 3d pop-out, 3d effect breaking frame, asymmetrical border, uneven frame thickness, deformed hands, extra fingers, blurry logo, low resolution, flat colors, cartoony, 2D illustration, caricature, artistic interpretation, missing limbs, watermark, text overlays (except parody name), messy jersey patterns, non-Solana colors in background, warm background lighting (orange/yellow/red unless explicitly requested by rarity)."`
 
 ---
 
 ## 🏆 Legendaries (Capitanes) & Epics Destacados
 *Nota: La iluminación de fondo siempre será Verde y Púrpura Solana, los colores de rareza aplican al marco y pequeños detalles del traje.*
 
-- **Lionel Bitcoin (ARG):** Marco de Oro sobre Negro Diamante, señalando al cielo, partículas divinas doradas contenidas en el marco.
-- **Dibu Block (ARG):** Kit verde neón, pose de vuelo horizontal atajando un balón digital con chispas. Marco de carbono con acentos verde neón.
-- **Cristiano Holdaldo (POR):** Armadura de Cromo Negro y Oro Blanco, pose de salto "SIUUU" con una onda de choque sónica azul eléctrica contenida en la carta.
+- **Lionel Satoshi (ARG):** Marco de Oro sobre Negro Diamante, señalando al cielo, partículas divinas doradas contenidas en el marco.
+- **Dibu De-Fi (ARG):** Kit verde neón, pose de vuelo horizontal atajando un balón digital con chispas. Marco de carbono con acentos verde neón.
+- **Cristiano Siu-toshi (POR):** Armadura de Cromo Negro y Oro Blanco, pose de salto "SIUUU" con una onda de choque sónica azul eléctrica contenida en la carta.
 - **Kylian M-Bag-pé (FRA):** Marco de plata líquida holográfica, detalles en azul profundo.
 - **Vini Burner Jr (BRA):** Marco de esmeralda. Pose de baile de samba con estela de "fuego digital" verde/amarillo.
 - **Harry Chain (ENG):** Marco de platino con grabados reales. Pose de celebración con brazos abiertos.
