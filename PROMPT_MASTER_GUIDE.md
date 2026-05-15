@@ -28,19 +28,19 @@ Antes de generar cualquier prompt, Grok DEBE:
 3.  **Sintetizar**: Incluir esos hallazgos en la descripción física del prompt.
 
 ## 🛠️ Estructura del Prompt para L2 (Jugador Aislado - FULL BODY)
-Usa esta estructura para garantizar cuerpo completo, fondo **INEXISTENTE** y cero logos:
+Usa esta estructura para forzar el **CUERPO COMPLETO** (Si no se ven los pies, es un fallo):
 
 ```text
-[Ultra-detailed physical description from real-life search results]::3 Full length action shot, head to toe visible, [PLAYER_NAME] standing in epic football pose. [KIT]: Minimalist unbranded [COUNTRY] kit, plain colors, NO logos. [BACKGROUND]: High-key studio photography, shot on PURE SOLID #FFFFFF WHITE BACKGROUND, NO shadows, NO floor, NO gradients, NO grey. The background must be a perfect flat white canvas. [TECHNICAL]: 85mm lens, f/2.8, extreme realism, zero caricature, professionally isolated, 8k resolution --ar 2:3 --v 6
+[Ultra-detailed physical description from real-life search results]::3 Full length action shot, standing from a distance, HEAD TO TOE VISIBLE, BOTH FEET AND FOOTWEAR MUST BE IN THE FRAME, [PLAYER_NAME] in epic pose. [KIT]: Minimalist unbranded [COUNTRY] kit, NO logos. [BACKGROUND]: High-key studio photography, pure solid #FFFFFF white, NO floor, NO shadows. [TECHNICAL]: 85mm lens, f/4 (deep focus), 8k resolution, extreme realism, zero caricature, professionally isolated --ar 2:3 --v 6
 ```
 
 ## 🎯 Técnica de Parecido (Likeness) y Pesos
-1.  **Pesos Pro**: Usa `::3` para la descripción física del jugador.
-2.  **Cuerpo Completo**: "Full length shot, head to toe visible". El calzado debe ser visible.
+1.  **Pesos Pro**: Usa `::3` para el físico.
+2.  **Cuerpo Completo**: Obligatorio. "Full length shot, shoes and feet must be visible". Si el calzado está cortado, el prompt ha fallado.
 
 ## 📏 Composición para el Marco v13
-*   **Fondo**: DEBE ser **Blanco Puro (#FFFFFF)**. Si sale gris o con sombras, el prompt ha fallado.
-*   **Contraste**: El jugador debe estar perfectamente recortado visualmente contra el blanco.
+*   **Zoom**: El jugador debe estar centrado y verse de cuerpo entero, dejando aire por arriba y por abajo.
+*   **Fondo**: Blanco Puro (#FFFFFF).
 
-## 🚫 Negative Prompt (Refuerzo Blanco Puro)
-`Negative: grey background, gray background, shadows, floor, grass, stadium, gradients, vignette, dark corners, logos, brands, sponsors, headshot, portrait, 3D render, cartoon.`
+## 🚫 Negative Prompt (Extremo)
+`Negative: portrait, headshot, close-up, half-body shot, cropped feet, cut off shoes, waist-up shot, blurred legs, grey background, shadows, floor, grass, stadium, logos, brands, sponsors, 3D render, cartoon.`
