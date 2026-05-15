@@ -14,3 +14,4 @@ Repositorio: `https://github.com/TheNeuralWars/GoalChain`
 3. **Composición 📏**: CUERPO COMPLETO (Head to toe visible). Sin sombras ni pasto.
 4. **Fondo ⚪**: SIEMPRE **Blanco Puro Sólido (#FFFFFF)**. Prohibido el gris o degradados.
 5. **Estética:** FOTOGRAFÍA DEPORTIVA PROFESIONAL. Pesos `::3` al físico.
+6. **BUCLE DE APROBACIÓN:** Prohibido generar sin presentar el prompt y esperar el "OK" para cada jugador.
