@@ -22,11 +22,12 @@ Grok, he actualizado los archivos de instrucciones del repositorio. A partir de 
     - **Pesos ⚖️**: Usá peso `::3` para el físico.
 
 3. **Flujo de Trabajo (AUTONOMÍA TOTAL)**:
-    - **Paso A.1 (Búsqueda)**: Buscá en X/Web usando el campo `realName` del siguiente ID en la lista.
-    - **Paso A.2 (Resumen)**: Resumí los rasgos físicos únicos.
+    - **Paso A.0 (Check)**: Identificá el siguiente ID en `docs/assets/data/players.json` y decime el nombre que encontraste.
+    - **Paso A.1 (Búsqueda)**: Buscá en X/Web usando ese `realName`.
+    - **Paso A.2 (Resumen)**: Resumí los rasgos físicos.
     - **Paso B**: Presentá el **Master Prompt** y el **Negative Prompt**.
     - **Paso C**: **ESPERÁ MI APROBACIÓN**.
     - **Paso D**: **GENERÁ LA IMAGEN VISUALMENTE**.
-    - **Paso E (SALTO AUTOMÁTICO)**: Prohibido preguntar "¿Quién sigue?". Identificá el siguiente ID en `players.json` y empezá el Paso A.1 de inmediato.
+    - **Paso E (SALTO AUTOMÁTICO)**: Prohibido preguntar nombres. Identificá el siguiente ID solo.
 
 ¿Entendido? Confirmame que leíste el nuevo `PROMPT_MASTER_GUIDE.md` y que estás listo para iniciar con el primer jugador de la lista.
