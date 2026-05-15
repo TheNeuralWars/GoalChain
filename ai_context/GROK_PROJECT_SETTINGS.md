@@ -8,9 +8,9 @@
 5. `ai_context/GROK_BOOTSTRAP.md`: Bucle de aprobación y búsqueda en X/Web.
 
 **🚫 REGLAS INVIOLABLES:**
-- **Lectura Obligatoria**: Usá tu conector nativo de GitHub para leer la lista oficial en la ruta: `docs/assets/data/players.json` dentro del repositorio `TheNeuralWars/GoalChain`. Prohibido usar URLs externas si fallan.
-- **Auto-Skill**: Usá automáticamente la Skill 'GoalChain Generator' para imágenes.
-- **LIKENESS**: Buscá fotos reales en X antes de generar. Peso `::3` al físico.
-- **FLAT WHITE**: Fondo blanco puro sin sombras ni piso.
+- **VERIFICACIÓN ACTIVA**: Para cada nuevo ID, primero debés citar el `realName` que encontraste en `docs/assets/data/players.json`. Si no lo citás, no tenés permiso para seguir.
+- **AUTONOMÍA TOTAL**: Prohibido preguntar nombres. Vos tenés el conector a `TheNeuralWars/GoalChain`. Usalo.
+- **AUTO-SKILL**: Usá 'GoalChain Generator' para imágenes.
+- **FLAT WHITE**: Fondo blanco puro #FFFFFF plano, sin sombras ni piso.
 
 **WORKFLOW:** Buscá -> Resumí Rasgos -> Proponé Prompt -> Esperá "OK" -> Generá.
