@@ -518,19 +518,32 @@
     <script src="assets/js/app.js?v=1.1"></script>
     <script>
         // DOM Based Penalty Game Logic
+        // MINI-JUEGO DE PENALTIS V2 - Brutal Upgrade
         document.addEventListener('DOMContentLoaded', () => {
+            // Persistencia total
             let balance = parseInt(localStorage.getItem('gch_balance') || '1000');
-            let bet = 10, goals = 0, saves = 0, streak = 0;
-            let isShooting = false;
+            let goals = parseInt(localStorage.getItem('penalty_goals') || '0');
+            let saves = parseInt(localStorage.getItem('penalty_saves') || '0');
+            let streak = parseInt(localStorage.getItem('penalty_streak') || '0');
+
+            const saveStats = () => {
+                localStorage.setItem('gch_balance', balance);
+                localStorage.setItem('penalty_goals', goals);
+                localStorage.setItem('penalty_saves', saves);
+                localStorage.setItem('penalty_streak', streak);
+            };
 
             const updateUI = () => {
                 document.getElementById('userGCH').innerText = balance.toLocaleString();
                 document.getElementById('statGoals').innerText = goals;
                 document.getElementById('statSaves').innerText = saves;
                 document.getElementById('statStreak').innerText = streak;
+                saveStats();
             };
             updateUI();
 
+            // Betting buttons
+            let bet = 10;
             document.querySelectorAll('.bet-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     document.querySelectorAll('.bet-btn').forEach(b => b.classList.remove('active'));
@@ -539,74 +552,133 @@
                 });
             });
 
+            const gameContainer = document.getElementById('domPenaltyGame');
+            const ball = document.getElementById('domBall');
+            const goalie = document.getElementById('domGoalie');
+            const msg = document.getElementById('domResultMsg');
+            let isShooting = false;
+
             document.querySelectorAll('.dom-zone').forEach(zone => {
                 zone.addEventListener('click', () => {
                     if (isShooting) return;
-                    if (balance < bet) return alert("¡No tienes suficientes $GCH!");
-                    
-                    isShooting = true;
-                    balance -= bet; // Tax and bet
-                    updateUI();
-
-                    const ball = document.getElementById('domBall');
-                    const goalie = document.getElementById('domGoalie');
-                    const msg = document.getElementById('domResultMsg');
-
-                    const targetX = zone.getAttribute('data-x');
-                    const targetY = zone.getAttribute('data-y');
-
-                    // Goalie AI
-                    // To make it fairer and more realistic: 
-                    // Goalie follows the row and column logic.
-                    const goalieXPuntos = ['22', '50', '78'];
-                    const goalieYPuntos = ['20', '65'];
-                    
-                    const isSave = Math.random() < 0.3; // 30% chance of save if the player is good
-                    let gX, gY;
-
-                    if (isSave) {
-                        gX = targetX;
-                        gY = targetY;
-                    } else {
-                        gX = goalieXPuntos[Math.floor(Math.random() * goalieXPuntos.length)];
-                        gY = goalieYPuntos[Math.floor(Math.random() * goalieYPuntos.length)];
+                    if (balance < bet) {
+                        msg.innerText = "¡SIN FONDOS!";
+                        msg.style.color = "#ff4d6a";
+                        msg.style.opacity = "1";
+                        setTimeout(() => msg.style.opacity = "0", 1200);
+                        return;
                     }
 
-                    // Animate
-                    ball.style.left = targetX + '%';
-                    ball.style.top = targetY + '%'; // Using top instead of bottom for more precision
-                    ball.style.transform = 'translate(-50%, -50%)';
+                    isShooting = true;
+                    balance -= bet;
+                    updateUI();
 
+                    const targetX = parseFloat(zone.getAttribute('data-x'));
+                    const targetY = parseFloat(zone.getAttribute('data-y'));
+
+                    // 35% save rate
+                    const isSave = Math.random() < 0.35;
+
+                    // Goalie AI más inteligente
+                    const goalieXPuntos = [22, 50, 78];
+                    const goalieYPuntos = [20, 65];
+                    let gX = isSave ? targetX : goalieXPuntos[Math.floor(Math.random() * goalieXPuntos.length)];
+                    let gY = isSave ? targetY : goalieYPuntos[Math.floor(Math.random() * goalieYPuntos.length)];
+
+                    // Animación fluida
+                    ball.style.transition = 'left 0.45s cubic-bezier(0.25, 0.1, 0.25, 1), top 0.45s cubic-bezier(0.25, 0.1, 0.25, 1)';
+                    ball.style.left = targetX + '%';
+                    ball.style.top = targetY + '%';
+
+                    goalie.style.transition = 'left 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), top 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
                     goalie.style.left = gX + '%';
-                    goalie.style.top = (parseInt(gY) + 5) + '%'; // Goalie centers on the zone slightly lower
+                    goalie.style.top = (gY + 5) + '%';
 
                     setTimeout(() => {
-                        if (targetX === gX) {
-                            // Save
-                            saves++; streak = 0;
-                            msg.innerText = "¡ATAJADA! 🧤"; msg.style.color = "#ff4d6a";
+                        if (isSave) {
+                            // ATAJADA
+                            saves++;
+                            streak = 0;
+                            msg.innerHTML = `¡ATAJADA!<br><span style="font-size:0.7em">El arquero voló 🔥</span>`;
+                            msg.style.color = "#ff4d6a";
+                            goalie.style.transform = 'scale(1.15)';
                         } else {
-                            // Goal
-                            goals++; streak++;
-                            const prize = Math.floor(bet * 1.9);
+                            // GOOOOOL
+                            goals++;
+                            streak++;
+                            const multiplier = 1.9 + (streak * 0.3);
+                            const prize = Math.floor(bet * multiplier);
                             balance += prize;
-                            msg.innerText = "¡GOOOOOL! ⚽"; msg.style.color = "#14f195";
-                            if (window.confetti) confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
+
+                            msg.innerHTML = `¡GOOOOOL!<br><span style="font-size:0.75em">+${prize} $GCH • Racha x${streak}</span>`;
+                            msg.style.color = "#14f195";
+
+                            // Confetti Solana brutal
+                            if (window.confetti) {
+                                confetti({
+                                    particleCount: 120,
+                                    spread: 80,
+                                    origin: { y: 0.6 },
+                                    colors: ['#14f195', '#9945ff', '#ffffff']
+                                });
+                            }
+                            gameContainer.style.animation = 'goalFlash 0.6s ease';
                         }
+
                         updateUI();
                         msg.style.opacity = "1";
 
+                        // Reset después de 1.6s
                         setTimeout(() => {
                             msg.style.opacity = "0";
+                            ball.style.transition = 'all 0.4s cubic-bezier(0.2, 0, 0.2, 1)';
                             ball.style.left = "50%";
                             ball.style.top = "90%";
-                            ball.style.transform = "translate(-50%, -50%)";
-                            goalie.style.left = "50%"; goalie.style.top = "40%";
+                            goalie.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                            goalie.style.left = "50%";
+                            goalie.style.top = "40%";
+                            goalie.style.transform = 'scale(1)';
+                            gameContainer.style.animation = '';
                             isShooting = false;
-                        }, 1500);
-                    }, 400);
+                        }, 1600);
+                    }, 420);
                 });
             });
+
+            // Botón Reiniciar Stats (nuevo)
+            const resetBtnHTML = `
+                <button id="resetPenaltyStats" style="margin-top:12px; background:rgba(255,77,106,0.15); color:#ff4d6a; border:1px solid #ff4d6a; padding:6px 14px; border-radius:8px; font-size:0.75rem; cursor:pointer;">
+                    🔄 Reiniciar Stats
+                </button>`;
+            
+            // Insertar botón después de las stats
+            const statsContainer = document.querySelector('.game-stats');
+            if (statsContainer) {
+                const div = document.createElement('div');
+                div.innerHTML = resetBtnHTML;
+                statsContainer.appendChild(div);
+                
+                document.getElementById('resetPenaltyStats').addEventListener('click', () => {
+                    if (confirm('¿Seguro que quieres reiniciar TODAS las estadísticas del minijuego?')) {
+                        localStorage.removeItem('gch_balance');
+                        localStorage.removeItem('penalty_goals');
+                        localStorage.removeItem('penalty_saves');
+                        localStorage.removeItem('penalty_streak');
+                        location.reload();
+                    }
+                });
+            }
+
+            // CSS extra para flash de gol
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes goalFlash {
+                    0% { box-shadow: 0 0 30px #14f195; }
+                    50% { box-shadow: 0 0 60px #9945ff; }
+                    100% { box-shadow: 0 0 30px #14f195; }
+                }
+            `;
+            document.head.appendChild(style);
         });
     </script>
     <script src="assets/js/solana_integration.js?v=1.1"></script>
