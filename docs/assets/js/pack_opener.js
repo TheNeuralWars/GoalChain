@@ -57,6 +57,7 @@ function triggerPackOpening() {
 
     if (openBtn) openBtn.disabled = true;
     if (pack) pack.classList.add('is-shaking');
+    if (window.notifier) window.notifier.play('click');
 
     setTimeout(() => {
         if (pack) pack.style.animationDuration = "0.05s";
@@ -72,6 +73,10 @@ function executeReveal() {
     const modal = document.getElementById('revealModal');
     const container = document.getElementById('revealedCardContainer');
     const closeBtn = document.getElementById('closeRevealBtn');
+
+    if (window.notifier) {
+        window.notifier.play('success');
+    }
 
     const rand = Math.random() * 100;
     let rarity = "common";
@@ -89,6 +94,10 @@ function executeReveal() {
 
     modal.classList.add('is-active');
     
+    if (window.notifier) {
+        const type = (player.rarity === 'mythic' || player.rarity === 'legendary') ? 'info' : 'success';
+        window.notifier.show('¡NUEVA LEYENDA!', `Has obtenido a ${player.name} (${player.rarity.toUpperCase()})`, type);
+    }
     const imgPath = `assets/img/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
     const flag = FLAG_MAP[player.country] || "🏳️";
 
