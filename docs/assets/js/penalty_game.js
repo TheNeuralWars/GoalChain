@@ -49,7 +49,8 @@ class PenaltyGame {
     reset() {
         this.gameState = 'READY';
         this.ball = { x: this.width / 2, y: this.height - 55, radius: 14, angle: 0 };
-        this.goalie = { x: this.width / 2, y: 115, width: 55, height: 75 };
+        // Arquero ahora empieza en la base (340 - altura)
+        this.goalie = { x: this.width / 2, y: 265, width: 55, height: 75 };
         this.animationProgress = 0;
         this.shotTarget = null;
         this.goalieTarget = null;
