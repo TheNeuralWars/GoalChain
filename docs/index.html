@@ -258,7 +258,10 @@
                             <button class="bet-btn" data-amount="50">50 $GCH</button>
                             <button class="bet-btn" data-amount="100">100 $GCH</button>
                         </div>
-                        <div style="font-weight: 900; color: #fff; font-size: 0.9rem;"><span data-i18n="game_bag_label">TU BOLSA:</span> <span id="userGCH" style="color: var(--primary);">1,000</span> $GCH</div>
+                        <div style="font-weight: 900; color: #fff; font-size: 0.9rem; display: flex; align-items: center; gap: 15px;">
+                            <div><span data-i18n="game_bag_label">TU BOLSA:</span> <span id="userGCH" style="color: var(--primary);">1,000</span> $GCH</div>
+                            <button id="claimGCHBtn" onclick="claimTokens()" class="btn-glow" style="background: rgba(153, 69, 255, 0.2); border: 1px solid #9945ff; color: #fff; padding: 5px 12px; border-radius: 8px; font-size: 0.65rem; cursor: pointer; font-weight: 900;">RECLAMAR AIRDROP</button>
+                        </div>
                     </div>
 
                     <!-- Paso 6: Daily Challenge + Streak Rewards -->
@@ -549,6 +552,44 @@
             <div class="points-label" data-i18n="soc_your_pts">TUS GOALPOINTS</div>
             <div class="points-total" id="totalPoints">0</div>
             <p style="font-size:0.75rem;color:var(--text-dim);margin-top:0.5rem;" data-i18n="soc_connect_info">Conecta tu wallet para comenzar</p>
+        </div>
+
+        <!-- AIRDROP LEADERBOARD -->
+        <div class="glass-card reveal" style="margin-top:3rem; padding:30px;">
+            <h3 style="text-align:center; color:var(--primary); margin-bottom:20px;">🏆 AIRDROP LEADERBOARD (LIVE)</h3>
+            <div style="overflow-x:auto;">
+                <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+                    <thead>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.1); color:var(--text-dim); font-size:0.7rem; text-align:left;">
+                            <th style="padding:10px;">RANGO</th>
+                            <th style="padding:10px;">USUARIO</th>
+                            <th style="padding:10px;">GOLES</th>
+                            <th style="padding:10px;">TIER AIRDROP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                            <td style="padding:15px; font-weight:900; color:#ffd700;">#1</td>
+                            <td style="padding:15px;">SolanaWhale.sol</td>
+                            <td style="padding:15px; color:var(--primary);">4,820</td>
+                            <td style="padding:15px;"><span class="badge" style="background:#ffd700; color:black;">MYTHIC</span></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                            <td style="padding:15px; font-weight:900; color:#c0c0c0;">#2</td>
+                            <td style="padding:15px;">DegenKing.sol</td>
+                            <td style="padding:15px; color:var(--primary);">3,550</td>
+                            <td style="padding:15px;"><span class="badge" style="background:#c0c0c0; color:black;">LEGENDARY</span></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                            <td style="padding:15px; font-weight:900; color:#cd7f32;">#3</td>
+                            <td style="padding:15px;">NicoPez.sol</td>
+                            <td style="padding:15px; color:var(--primary);">2,890</td>
+                            <td style="padding:15px;"><span class="badge" style="background:#cd7f32; color:black;">EPIC</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align:center; margin-top:20px; font-size:0.75rem; color:var(--text-dim);">Actualizado cada 60 segundos • Snapshot Final: 30 de Mayo</p>
         </div>
         <div class="social-grid" id="socialGrid"></div>
         <div style="text-align:center;margin-top:2rem;">
