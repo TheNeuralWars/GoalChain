@@ -655,6 +655,32 @@ body {
     cursor: pointer;
     overflow: hidden;
     scroll-snap-align: center;
+    flex-shrink: 0;
+}
+
+.nft-card-3d.is-active {
+    transform: scale(1.05) translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 15px 35px rgba(20, 241, 149, 0.2);
+    z-index: 10;
+}
+
+.nft-card-3d.is-flipped.is-active {
+    transform: scale(1.05) translateY(-10px) rotateY(180deg);
+}
+
+.nft-card-3d .glare {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%, rgba(255,255,255,0.05) 100%);
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.nft-card-3d.in-view .glare {
+    opacity: 1;
 }
 
 .nft-card-3d img {
