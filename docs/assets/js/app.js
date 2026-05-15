@@ -278,6 +278,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const el = document.getElementById('totalPoints');
         if (el) el.innerText = parseInt(pts).toLocaleString();
         
+        // Sincronizar Leaderboard
+        if (window.updateLiveLeaderboard) window.updateLiveLeaderboard();
+        
         // Generate referral link if wallet exists
         const wallet = localStorage.getItem('goalchain_wallet');
         const refDisplay = document.getElementById('referral-link-display');
