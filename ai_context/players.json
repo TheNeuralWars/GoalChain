@@ -1,0 +1,542 @@
+[
+    {
+        "id": 1,
+        "name": "Lionel Satoshi",
+        "country": "Argentina",
+        "rarity": "mythic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 2,
+        "name": "Dibu De-Fi",
+        "country": "Argentina",
+        "rarity": "legendary",
+        "position": "GK",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 3,
+        "name": "Julian Bull-varez",
+        "country": "Argentina",
+        "rarity": "epic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 4,
+        "name": "Enzo Ether",
+        "country": "Argentina",
+        "rarity": "epic",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 5,
+        "name": "Rodrigo De-Pool",
+        "country": "Argentina",
+        "rarity": "epic",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 6,
+        "name": "Angel Di Merkle",
+        "country": "Argentina",
+        "rarity": "legendary",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 7,
+        "name": "Alexis Mac-Chain",
+        "country": "Argentina",
+        "rarity": "epic",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 8,
+        "name": "Cuti Crypt",
+        "country": "Argentina",
+        "rarity": "epic",
+        "position": "DEF",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 9,
+        "name": "Lautaro Bull-Run",
+        "country": "Argentina",
+        "rarity": "epic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 10,
+        "name": "Lisandro The-Butcher-DAO",
+        "country": "Argentina",
+        "rarity": "epic",
+        "position": "DEF",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 11,
+        "name": "Kylian M-Node-p\u00e9",
+        "country": "Francia",
+        "rarity": "legendary",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 12,
+        "name": "Antoine G-ZkSync",
+        "country": "Francia",
+        "rarity": "epic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 13,
+        "name": "Ousmane De-Shard",
+        "country": "Francia",
+        "rarity": "epic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 14,
+        "name": "Aur\u00e9lien Tchoua-Mining",
+        "country": "Francia",
+        "rarity": "epic",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 15,
+        "name": "Eduardo Cama-Contract",
+        "country": "Francia",
+        "rarity": "epic",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 16,
+        "name": "Theo Shiller",
+        "country": "Francia",
+        "rarity": "epic",
+        "position": "DEF",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 17,
+        "name": "Mike Maignan-Node",
+        "country": "Francia",
+        "rarity": "epic",
+        "position": "GK",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 21,
+        "name": "Harry Stake",
+        "country": "Inglaterra",
+        "rarity": "legendary",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 22,
+        "name": "Jude Belling-Swap",
+        "country": "Inglaterra",
+        "rarity": "legendary",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 23,
+        "name": "Phil Fod-Phantom",
+        "country": "Inglaterra",
+        "rarity": "epic",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 24,
+        "name": "Bukayo Solana",
+        "country": "Inglaterra",
+        "rarity": "epic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 25,
+        "name": "Declan Rice-Validator",
+        "country": "Inglaterra",
+        "rarity": "epic",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 26,
+        "name": "Kyle Gas-Walker",
+        "country": "Inglaterra",
+        "rarity": "epic",
+        "position": "DEF",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 41,
+        "name": "Vinicius Jpeg Jr",
+        "country": "Brasil",
+        "rarity": "legendary",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 42,
+        "name": "Neymar-NFT",
+        "country": "Brasil",
+        "rarity": "legendary",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 43,
+        "name": "Rodrygo-Yield",
+        "country": "Brasil",
+        "rarity": "epic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 49,
+        "name": "Alisson Vault-son",
+        "country": "Brasil",
+        "rarity": "epic",
+        "position": "GK",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 61,
+        "name": "Pedri-Alpha",
+        "country": "Espa\u00f1a",
+        "rarity": "epic",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 62,
+        "name": "Lamine Ya-Moon",
+        "country": "Espa\u00f1a",
+        "rarity": "epic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 63,
+        "name": "Rodri Proof-of-Stake",
+        "country": "Espa\u00f1a",
+        "rarity": "legendary",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 64,
+        "name": "Gavi-Gas",
+        "country": "Espa\u00f1a",
+        "rarity": "epic",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 65,
+        "name": "Nico Shard-Williams",
+        "country": "Espa\u00f1a",
+        "rarity": "epic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 31,
+        "name": "Cristiano Siu-toshi",
+        "country": "Portugal",
+        "rarity": "mythic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 51,
+        "name": "Luka Mod-Oracle",
+        "country": "Croacia",
+        "rarity": "legendary",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 54,
+        "name": "Robert Lewan-DEX-ski",
+        "country": "Polonia",
+        "rarity": "legendary",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 55,
+        "name": "Mo Satoshi-Salah",
+        "country": "Egipto",
+        "rarity": "legendary",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 56,
+        "name": "Son Heung-Web3",
+        "country": "Corea del Sur",
+        "rarity": "epic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 58,
+        "name": "Erling Haal-Link",
+        "country": "Noruega",
+        "rarity": "mythic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 60,
+        "name": "Kevin De-Bridge",
+        "country": "B\u00e9lgica",
+        "rarity": "legendary",
+        "position": "MID",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 80,
+        "name": "Thibaut Wall-tois",
+        "country": "B\u00e9lgica",
+        "rarity": "legendary",
+        "position": "GK",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 81,
+        "name": "Victor Osi-Mask",
+        "country": "Nigeria",
+        "rarity": "epic",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 85,
+        "name": "Gigi Block-rumma",
+        "country": "Italia",
+        "rarity": "legendary",
+        "position": "GK",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 90,
+        "name": "Alphonso Shard-Davies",
+        "country": "Canad\u00e1",
+        "rarity": "epic",
+        "position": "DEF",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 95,
+        "name": "Luis Byt-Suarez",
+        "country": "Uruguay",
+        "rarity": "legendary",
+        "position": "FWD",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    },
+    {
+        "id": 100,
+        "name": "Memo Vault-choa",
+        "country": "M\u00e9xico",
+        "rarity": "rare",
+        "position": "GK",
+        "stats": {
+            "atk": 88,
+            "def": 70,
+            "hype": 90
+        }
+    }
+]
