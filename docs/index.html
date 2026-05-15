@@ -6,7 +6,7 @@
     <title>GoalChain | The Future of Football on Solana</title>
     <meta name="description" content="GoalChain: Play-to-Earn football on Solana. Bet on FIFA World Cup 2026 fixtures, play penalty shootouts, and earn $GCH tokens.">
     <meta name="theme-color" content="#06060a">
-    <link rel="stylesheet" href="assets/css/style.css?v=2.3">
+    <link rel="stylesheet" href="assets/css/style.css?v=2.4">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg?v=1.0">
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js" defer></script>
@@ -799,13 +799,18 @@
             };
             updateUI();
 
-            // Betting buttons
+            // Betting buttons logic improved
             let bet = 10;
-            document.querySelectorAll('.bet-btn').forEach(btn => {
+            const betBtns = document.querySelectorAll('.bet-btn');
+            betBtns.forEach(btn => {
                 btn.addEventListener('click', (e) => {
-                    document.querySelectorAll('.bet-btn').forEach(b => b.classList.remove('active'));
-                    e.target.classList.add('active');
-                    bet = parseInt(e.target.getAttribute('data-amount'));
+                    const current = e.currentTarget;
+                    // Remove active from all
+                    betBtns.forEach(b => b.classList.remove('active'));
+                    // Add to clicked
+                    current.classList.add('active');
+                    // Update value
+                    bet = parseInt(current.getAttribute('data-amount'));
                 });
             });
 
