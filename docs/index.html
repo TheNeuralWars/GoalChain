@@ -104,6 +104,7 @@
             <a href="#gameplay" data-i18n="nav_game">Mini-Juego</a>
             <a href="#nfts" data-i18n="nav_nfts">Colección</a>
             <a href="#roadmap">Roadmap</a>
+            <a href="#marketplace">Market</a>
             <a href="#social" data-i18n="nav_social">Social</a>
             <button onclick="openAlphaModal()" style="color:var(--primary); background: transparent; font-weight:900; margin-left:15px; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer;" class="btn-glow">LAUNCH APP</button>
             <div class="nav-dropdown" style="position:relative; display:inline-block; margin-left:15px;">
@@ -544,6 +545,32 @@
                 </p>
             </div>
         </div>
+    <!-- TRANSFER MARKET (MARKETPLACE) -->
+    <section id="marketplace" class="section container" style="margin-top: 80px;">
+        <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+            <h2 class="section-title reveal">
+                <span style="color: var(--primary);">TRANSFER</span> MARKET
+            </h2>
+            <p class="section-subtitle reveal">
+                Buy and sell Genesis Squad players. Build your ultimate team for the World Cup 2026.
+            </p>
+        </div>
+
+        <div class="filter-bar reveal" style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
+            <button class="filter-btn active" onclick="filterMarket('all')">ALL</button>
+            <button class="filter-btn" onclick="filterMarket('mythic')" style="border-color: #ffd700; color: #ffd700;">MYTHIC</button>
+            <button class="filter-btn" onclick="filterMarket('legendary')" style="border-color: #9945ff; color: #9945ff;">LEGENDARY</button>
+            <button class="filter-btn" onclick="filterMarket('epic')" style="border-color: #00e5ff; color: #00e5ff;">EPIC</button>
+            <button class="filter-btn" onclick="filterMarket('rare')" style="border-color: #14f195; color: #14f195;">RARE</button>
+        </div>
+
+        <div id="marketGrid" class="market-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; min-height: 400px;">
+            <!-- Offers will be loaded via JS -->
+            <div class="loading-spinner" style="grid-column: 1/-1; text-align: center; padding: 100px;">
+                <div class="spinner" style="border: 4px solid rgba(255,255,255,0.1); border-top: 4px solid var(--primary); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+                <p style="margin-top: 15px; color: var(--text-dim);">Scanning the network for listings...</p>
+            </div>
+        </div>
     </section>
 
     <section id="social" class="section">
@@ -785,6 +812,7 @@
 
     <script src="assets/js/i18n.js?v=2.3"></script>
     <script src="assets/js/app.js?v=2.3"></script>
+    <script src="assets/js/marketplace.js"></script>
     <script src="assets/js/penalty_game.js?v=3.0"></script>
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
     <script src="assets/js/notification_manager.js"></script>
