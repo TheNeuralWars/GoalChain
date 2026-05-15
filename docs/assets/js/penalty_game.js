@@ -101,6 +101,7 @@ class PenaltyGame {
             // Disparar re-render de tareas si existe la función
             if (window.renderSocialTasks) window.renderSocialTasks();
             if (window.updateGoalPoints) window.updateGoalPoints();
+            if (window.notifier) window.notifier.show('⚽ ¡PRIMER TIRO!', 'Has ganado 500 GoalPoints por probar el juego.');
             console.log("¡Tarea t6 completada! +500 GoalPoints");
         }
 
@@ -169,6 +170,11 @@ class PenaltyGame {
             const prize = Math.floor(this.currentBet * multiplier);
             this.balance += prize;
             localStorage.setItem('gch_balance', this.balance);
+            
+            if (window.notifier) {
+                window.notifier.play('goal');
+                window.notifier.show('¡GOOOOL! ⚽', `Has ganado ${prize} $GCH.`);
+            }
         } else {
             this.result = '¡ATAJADA! 🧤'; 
             this.resultColor = '#ff4d6a';
