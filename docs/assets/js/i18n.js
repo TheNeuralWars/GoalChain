@@ -70,6 +70,15 @@ const TRANSLATIONS = {
         pack_obtained: "Obtuviste:",
         pack_real_version: "(En la versión real esto mintaría en Solana)",
         
+        nft_mint_btn: "⚡ MINT GENESIS SQUAD NFT",
+        nft_mint_drop: "1/1 • Mythic Drop • Prueba técnica",
+        mint_title: "GENESIS SQUAD",
+        mint_progress: "MINTANDO...",
+        mint_confirm: "✅ CONFIRMAR MINTEO (SIMULADO)",
+        mint_note: "Esto es una prueba técnica • En producción mintaría en Solana",
+        mint_success: "🔥 MINTEADO CON ÉXITO!",
+        mint_alert_success: "¡Felicidades! Has minteado tu primer Genesis NFT (simulado).\n\nEn la versión real esto sería un cNFT en Solana.",
+        
         nft_badge: "COLECCIÓN GENESIS",
         nft_title: "Genesis Squad NFT Collection",
         nft_desc: "Explora los 1,248 cracks del Mundial. Desliza horizontalmente la galería 3D.",
@@ -214,6 +223,15 @@ const TRANSLATIONS = {
         pack_congrats: "CONGRATULATIONS!",
         pack_obtained: "You got:",
         pack_real_version: "(In the real version this would mint on Solana)",
+        
+        nft_mint_btn: "⚡ MINT GENESIS SQUAD NFT",
+        nft_mint_drop: "1/1 • Mythic Drop • Technical test",
+        mint_title: "GENESIS SQUAD",
+        mint_progress: "MINTING...",
+        mint_confirm: "✅ CONFIRM MINT (SIMULATED)",
+        mint_note: "This is a technical test • In production it would mint on Solana",
+        mint_success: "🔥 MINTED SUCCESSFULLY!",
+        mint_alert_success: "Congratulations! You've minted your first Genesis NFT (simulated).\n\nIn the real version this would be a cNFT on Solana.",
         
         nft_badge: "GENESIS COLLECTION",
         nft_title: "Genesis Squad NFT Collection",
