@@ -1031,6 +1031,45 @@
         function closeAlphaModal() { document.getElementById('alphaModal').style.display = 'none'; }
     </script>
     
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script src="https://unpkg.com/@coral-xyz/anchor@0.29.0/dist/browser/index.js"></script>
+    <script src="assets/js/solana_connector.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('connectWalletBtn');
+            if(btn) {
+                btn.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    if (!window.solana) {
+                        alert("Por favor, instala Phantom Wallet para continuar.");
+                        window.open("https://phantom.app/", "_blank");
+                        return;
+                    }
+                    
+                    btn.style.opacity = '0.5';
+                    btn.title = "Conectando...";
+                    
+                    const success = await window.GoalChain.init();
+                    
+                    if (success) {
+                        btn.style.opacity = '1';
+                        btn.style.background = 'rgba(153, 69, 255, 0.2)'; // purple glow
+                        btn.style.borderColor = '#9945ff';
+                        btn.style.color = '#9945ff';
+                        btn.innerHTML = `<span style="font-size:0.6rem; font-weight:900;">${window.GoalChain.getShortWallet()}</span>`;
+                        btn.title = "Wallet Conectada";
+                        
+                        // Guardar en localStorage para app.html
+                        localStorage.setItem('gc_wallet_connected', 'true');
+                        localStorage.setItem('gc_wallet_address', window.GoalChain.wallet.toString());
+                    } else {
+                        btn.style.opacity = '1';
+                        alert("Error al conectar la wallet.");
+                    }
+                });
+            }
+        });
+    </script>
     <script src="assets/js/dialect_app.js?v=2.3"></script>
 
     <!-- MEJORAS UX v2.3 - Feedback visual global -->
