@@ -1,6 +1,7 @@
 /**
- * ⚡ GOALCHAIN LIVE ENGINE
+ * ⚡ GOALCHAIN LIVE ENGINE v2
  * Simulates real-time economic activity and visual effects.
+ * Handles DAO proposals and interactive discovery.
  */
 
 class LiveEngine {
@@ -8,7 +9,10 @@ class LiveEngine {
         this.burnVal = 148920;
         this.tickerElement = document.getElementById('globalTicker');
         this.burnElement = document.getElementById('liveBurnVal');
+        this.detailText = document.getElementById('gameDetailText');
         this.detailBox = document.getElementById('gameDetailBox');
+        
+        this.defaultDAOText = "SÉ PARTE DE LA DAO Y PROPONE UN NUEVO JUEGO 🏛️";
         
         this.init();
     }
@@ -27,19 +31,21 @@ class LiveEngine {
      */
     initGameHover() {
         const items = document.querySelectorAll('.future-game-item');
-        if (!items.length || !this.detailBox) return;
+        if (!items.length || !this.detailText) return;
 
         items.forEach(item => {
             item.addEventListener('mouseenter', () => {
                 const desc = item.getAttribute('data-desc');
                 const color = window.getComputedStyle(item).color;
                 
-                this.detailBox.innerText = desc;
+                this.detailText.innerText = desc;
                 this.detailBox.style.borderColor = color;
                 this.detailBox.classList.add('active');
             });
 
             item.addEventListener('mouseleave', () => {
+                this.detailText.innerText = this.defaultDAOText;
+                this.detailBox.style.borderColor = "var(--secondary)";
                 this.detailBox.classList.remove('active');
             });
         });
@@ -54,7 +60,6 @@ class LiveEngine {
             this.burnVal += increment;
             if(this.burnElement) {
                 this.burnElement.innerText = this.burnVal.toLocaleString();
-                // Brief glow effect on update
                 this.burnElement.style.textShadow = "0 0 30px rgba(255, 77, 106, 0.8)";
                 setTimeout(() => {
                     this.burnElement.style.textShadow = "0 0 15px rgba(255, 77, 106, 0.4)";
@@ -74,7 +79,6 @@ class LiveEngine {
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 
-                // Only if mouse is over or near
                 if (x > -50 && x < rect.width + 50 && y > -50 && y < rect.height + 50) {
                     const xPct = (x / rect.width) * 100;
                     const yPct = (y / rect.height) * 100;
@@ -86,7 +90,39 @@ class LiveEngine {
     }
 }
 
+// DAO Global Functions
+function toggleDAOForm() {
+    const form = document.getElementById('daoProposalForm');
+    const box = document.getElementById('gameDetailBox');
+    if (form.style.display === 'none') {
+        form.style.display = 'block';
+        box.style.display = 'none';
+    } else {
+        form.style.display = 'none';
+        box.style.display = 'flex';
+    }
+}
+
+function submitDAOProposal() {
+    const name = document.getElementById('daoGameName').value;
+    const desc = document.getElementById('daoGameDesc').value;
+    
+    if (!name || !desc) {
+        alert("Por favor completa los campos de la propuesta.");
+        return;
+    }
+
+    alert(`✅ Propuesta enviada a la DAO: ${name}\nGracias por contribuir al ecosistema GoalChain.`);
+    
+    // Clear and close
+    document.getElementById('daoGameName').value = "";
+    document.getElementById('daoGameDesc').value = "";
+    toggleDAOForm();
+}
+
 // Start Engine
-window.addEventListener('load', () => {
-    window.gcLiveEngine = new LiveEngine();
-});
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => new LiveEngine());
+} else {
+    new LiveEngine();
+}
