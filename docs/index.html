@@ -346,9 +346,19 @@
                         </li>
                     </ul>
 
-                    <!-- Dynamic Detail Box -->
-                    <div id="gameDetailBox" class="game-detail-box">
-                        Pasa el mouse sobre un juego para ver detalles...
+                    <!-- Dynamic Detail Box / DAO Portal -->
+                    <div id="gameDetailBox" class="game-detail-box" style="display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; border: 1px dashed var(--secondary);" onclick="toggleDAOForm()">
+                        <span id="gameDetailText">SÉ PARTE DE LA DAO Y PROPONE UN NUEVO JUEGO 🏛️</span>
+                        <button class="btn btn-secondary btn-sm" style="margin-top: 10px; font-size: 0.6rem;">ENVIAR PROPUESTA</button>
+                    </div>
+
+                    <!-- DAO Proposal Form (Hidden) -->
+                    <div id="daoProposalForm" style="display:none; margin-top: 20px; padding: 20px; background: rgba(0,0,0,0.4); border-radius: 12px; border: 1px solid var(--secondary); animation: fadeIn 0.3s ease;">
+                        <h5 style="color: var(--secondary); margin-bottom: 15px; font-size: 0.8rem;">📝 PROPUESTA DE JUEGO DAO</h5>
+                        <input type="text" id="daoGameName" placeholder="Nombre del Juego..." style="width: 100%; background: #111; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: #fff; margin-bottom: 10px; font-size: 0.75rem;">
+                        <textarea id="daoGameDesc" placeholder="Descripción de la mecánica..." style="width: 100%; background: #111; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: #fff; margin-bottom: 10px; font-size: 0.75rem; height: 80px;"></textarea>
+                        <button class="btn btn-primary btn-sm" style="width: 100%;" onclick="submitDAOProposal()">SUBMIT TO DAO</button>
+                        <button class="btn btn-link" style="width: 100%; font-size: 0.6rem; color: var(--text-dim); margin-top: 5px;" onclick="toggleDAOForm()">Cancelar</button>
                     </div>
                 </div>
             </div>
