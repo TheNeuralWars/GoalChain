@@ -1885,7 +1885,7 @@
             "dob": "1998-08-28",
             "h": "1.85m",
             "w": "84kg",
-            "t": "Short dark hair, clean shaven, strong box-to-box midfield build, energetic expression of Weston McKennie."
+            "t": "Short dark hair (often with a streak), clean shaven, strong box-to-box midfield build, energetic expression, dark skin tone."
         },
         "match_salary_gch": 50
     },
@@ -1906,7 +1906,7 @@
             "dob": "2002-11-13",
             "h": "1.85m",
             "w": "73kg",
-            "t": "Short dark hair, clean shaven, creative attacking build, youthful expression of Gio Reyna."
+            "t": "Short dark hair, clean shaven, creative attacking build, youthful expression, fair skin tone."
         },
         "match_salary_gch": 250
     },
@@ -1927,7 +1927,7 @@
             "dob": "2001-07-03",
             "h": "1.78m",
             "w": "66kg",
-            "t": "Short dark hair, clean shaven, clinical forward build, sharp expression of Folarin Balogun."
+            "t": "Short dark hair, clean shaven, clinical forward build, sharp expression, dark skin tone."
         },
         "match_salary_gch": 250
     },
@@ -1948,7 +1948,7 @@
             "dob": "1999-02-14",
             "h": "1.75m",
             "w": "72kg",
-            "t": "Short dark hair, clean shaven, tenacious defensive midfield build, intense look of Tyler Adams."
+            "t": "Short dark hair, clean shaven, tenacious defensive midfield build, intense look, dark skin tone."
         },
         "match_salary_gch": 50
     },
@@ -2116,7 +2116,7 @@
             "dob": "2001-04-18",
             "h": "1.82m",
             "w": "80kg",
-            "t": "Short dark hair, clean shaven, clinical forward build, focused expression of Santiago Giménez."
+            "t": "Short dark hair, clean shaven, clinical forward build, focused expression, fair-tanned skin."
         },
         "match_salary_gch": 250
     },
@@ -2137,7 +2137,7 @@
             "dob": "1997-10-24",
             "h": "1.87m",
             "w": "73kg",
-            "t": "Short dark hair, clean shaven, strong defensive midfield build, intense look of Edson Álvarez."
+            "t": "Short dark hair, clean shaven, strong defensive midfield build, intense look, tanned skin."
         },
         "match_salary_gch": 50
     },
@@ -2158,7 +2158,7 @@
             "dob": "1995-07-30",
             "h": "1.75m",
             "w": "70kg",
-            "t": "Short dark hair with fade, clean shaven, explosive winger build, dynamic expression of Hirving Lozano."
+            "t": "Short dark hair with fade, clean shaven, explosive winger build, dynamic expression, tanned skin."
         },
         "match_salary_gch": 250
     },
@@ -2599,7 +2599,7 @@
             "dob": "1993-03-19",
             "h": "1.80m",
             "w": "70kg",
-            "t": "Short dark hair, light beard, creative right winger build, magical expression of Hakim Ziyech."
+            "t": "Short dark hair, light beard, creative right winger build, magical expression, olive skin tone."
         },
         "match_salary_gch": 250
     },
@@ -2620,7 +2620,7 @@
             "dob": "1996-08-21",
             "h": "1.85m",
             "w": "80kg",
-            "t": "Short dark hair, clean shaven, strong defensive midfield build, intense look of Sofyan Amrabat."
+            "t": "Short dark hair or shaved head, clean shaven, strong defensive midfield build, intense look, olive skin tone."
         },
         "match_salary_gch": 50
     },
@@ -2788,7 +2788,7 @@
             "dob": "1993-02-09",
             "h": "1.78m",
             "w": "77kg",
-            "t": "Short dark hair, clean shaven, strong defensive midfield build, composed look of Wataru Endō."
+            "t": "Short dark hair, clean shaven, strong defensive midfield build, composed look, light-tanned skin."
         },
         "match_salary_gch": 50
     },
@@ -2809,7 +2809,7 @@
             "dob": "2001-06-04",
             "h": "1.73m",
             "w": "67kg",
-            "t": "Short dark hair, clean shaven, technical right winger build, creative expression of Takefusa Kubo."
+            "t": "Short dark hair, clean shaven, technical right winger build, creative expression, light-tanned skin."
         },
         "match_salary_gch": 250
     },
@@ -2830,7 +2830,7 @@
             "dob": "1997-05-20",
             "h": "1.78m",
             "w": "73kg",
-            "t": "Short dark hair, clean shaven, explosive left winger build, dynamic expression of Kaoru Mitoma."
+            "t": "Short dark hair, clean shaven, explosive left winger build, dynamic expression, light skin tone."
         },
         "match_salary_gch": 250
     },
@@ -3019,7 +3019,7 @@
             "dob": "1991-06-20",
             "h": "1.86m",
             "w": "89kg",
-            "t": "Short dark hair, clean shaven, commanding centre-back build, leadership expression of Kalidou Koulibaly."
+            "t": "Short dark hair, clean shaven, commanding centre-back build, leadership expression, deep dark skin tone."
         },
         "match_salary_gch": 50
     },
@@ -3040,7 +3040,7 @@
             "dob": "1992-04-10",
             "h": "1.75m",
             "w": "69kg",
-            "t": "Short dark hair, clean shaven, explosive forward build, dynamic expression of Sadio Mané."
+            "t": "Short dark hair, clean shaven, explosive forward build, dynamic expression, deep dark skin tone."
         },
         "match_salary_gch": 1000
     },
@@ -3061,7 +3061,7 @@
             "dob": "1992-03-01",
             "h": "1.97m",
             "w": "86kg",
-            "t": "Short dark hair, clean shaven, tall commanding goalkeeper build, focused look of Edouard Mendy."
+            "t": "Short dark hair, clean shaven, tall commanding goalkeeper build, focused look, deep dark skin tone."
         },
         "match_salary_gch": 50
     },
@@ -3082,7 +3082,7 @@
             "dob": "1989-09-26",
             "h": "1.74m",
             "w": "66kg",
-            "t": "Short dark hair, clean shaven, tenacious defensive midfield build, intense expression of Idrissa Gueye."
+            "t": "Short dark hair, clean shaven, tenacious defensive midfield build, intense expression, dark skin tone."
         },
         "match_salary_gch": 50
     },
@@ -3124,7 +3124,7 @@
             "dob": "2001-06-20",
             "h": "1.87m",
             "w": "79kg",
-            "t": "Short dark hair, clean shaven, powerful forward build, clinical expression of Nicolas Jackson."
+            "t": "Short dark hair, clean shaven, powerful forward build, clinical expression, dark skin tone."
         },
         "match_salary_gch": 250
     },
@@ -3145,7 +3145,7 @@
             "dob": "2002-09-14",
             "h": "1.85m",
             "w": "72kg",
-            "t": "Short dark hair, clean shaven, box-to-box midfield build, energetic expression of Pape Sarr."
+            "t": "Short dark hair, clean shaven, box-to-box midfield build, energetic expression, dark skin tone."
         },
         "match_salary_gch": 50
     },
@@ -3271,7 +3271,7 @@
             "dob": "1996-11-15",
             "h": "1.90m",
             "w": "88kg",
-            "t": "Short dark hair, clean shaven, commanding centre-back build, intense leadership look of Kim Min-jae."
+            "t": "Short dark hair, clean shaven, commanding centre-back build, intense leadership look, light skin tone."
         },
         "match_salary_gch": 50
     },
@@ -3292,7 +3292,7 @@
             "dob": "2001-02-19",
             "h": "1.73m",
             "w": "68kg",
-            "t": "Short dark hair, clean shaven, creative attacking midfield build, magical expression of Lee Kang-in."
+            "t": "Short dark hair, clean shaven, creative attacking midfield build, magical expression, light skin tone."
         },
         "match_salary_gch": 250
     },
@@ -3481,7 +3481,7 @@
             "dob": "1992-04-08",
             "h": "1.84m",
             "w": "82kg",
-            "t": "Short dark hair, clean shaven, athletic goalkeeper build, focused look of Mathew Ryan."
+            "t": "Short dark hair, clean shaven, athletic goalkeeper build, focused look, fair skin tone."
         },
         "match_salary_gch": 50
     },
@@ -3502,7 +3502,7 @@
             "dob": "1998-10-22",
             "h": "1.98m",
             "w": "80kg",
-            "t": "Short dark hair, clean shaven, towering centre-back build, composed expression of Harry Souttar."
+            "t": "Short dark hair, clean shaven, towering centre-back build, composed expression, fair skin tone."
         },
         "match_salary_gch": 50
     },
@@ -3523,7 +3523,7 @@
             "dob": "1993-03-07",
             "h": "1.89m",
             "w": "77kg",
-            "t": "Short dark hair, clean shaven, strong box-to-box midfield build, leadership expression of Jackson Irvine."
+            "t": "Short dark hair, clean shaven, strong box-to-box midfield build, leadership expression, fair skin tone."
         },
         "match_salary_gch": 50
     },
@@ -3544,7 +3544,7 @@
             "dob": "1991-12-16",
             "h": "1.80m",
             "w": "72kg",
-            "t": "Short dark hair, clean shaven, versatile winger build, energetic expression of Craig Goodwin."
+            "t": "Short dark hair, clean shaven, versatile winger build, energetic expression, fair skin tone."
         },
         "match_salary_gch": 250
     },
@@ -3565,7 +3565,7 @@
             "dob": "1991-01-18",
             "h": "1.86m",
             "w": "84kg",
-            "t": "Short dark hair, clean shaven, powerful target forward build, clinical expression of Mitchell Duke."
+            "t": "Short dark hair, clean shaven, powerful target forward build, clinical expression, fair skin tone."
         },
         "match_salary_gch": 250
     },
@@ -3712,7 +3712,7 @@
             "dob": "1991-08-19",
             "h": "1.71m",
             "w": "68kg",
-            "t": "Short dark hair, clean shaven, creative left winger build, magical expression of Salem Al-Dawsari."
+            "t": "Short dark hair, clean shaven, creative left winger build, magical expression, olive skin tone."
         },
         "match_salary_gch": 250
     },
@@ -3733,7 +3733,7 @@
             "dob": "2000-05-14",
             "h": "1.81m",
             "w": "77kg",
-            "t": "Short dark hair, clean shaven, clinical forward build, focused expression of Firas Al-Buraikan."
+            "t": "Short dark hair, clean shaven, clinical forward build, focused expression, olive skin tone."
         },
         "match_salary_gch": 250
     },
@@ -3754,7 +3754,7 @@
             "dob": "1993-11-01",
             "h": "1.82m",
             "w": "73kg",
-            "t": "Short dark hair, clean shaven, versatile forward build, energetic expression of Saleh Al-Shehri."
+            "t": "Short dark hair, clean shaven, versatile forward build, energetic expression, olive skin tone."
         },
         "match_salary_gch": 250
     },
@@ -3943,7 +3943,7 @@
             "dob": "1992-02-14",
             "h": "1.82m",
             "w": "76kg",
-            "t": "Short dark hair, clean shaven, elegant attacking midfield build, masterful expression of Christian Eriksen."
+            "t": "Short dark hair, clean shaven, elegant attacking midfield build, masterful expression, fair skin tone."
         },
         "match_salary_gch": 50
     },
@@ -3964,7 +3964,7 @@
             "dob": "1986-11-05",
             "h": "1.89m",
             "w": "84kg",
-            "t": "Short dark hair, clean shaven, experienced goalkeeper build, commanding look of Kasper Schmeichel."
+            "t": "Short dark hair, clean shaven, experienced goalkeeper build, commanding look, fair skin tone."
         },
         "match_salary_gch": 50
     },
@@ -3985,7 +3985,7 @@
             "dob": "2003-02-04",
             "h": "1.91m",
             "w": "79kg",
-            "t": "Short dark hair, clean shaven, powerful forward build, clinical expression of Rasmus Højlund."
+            "t": "Short dark hair, clean shaven, powerful forward build, clinical expression, fair skin tone."
         },
         "match_salary_gch": 250
     },
@@ -4006,7 +4006,7 @@
             "dob": "1995-08-05",
             "h": "1.85m",
             "w": "84kg",
-            "t": "Short dark hair, clean shaven, strong defensive midfield build, tactical expression of Pierre-Emile Højbjerg."
+            "t": "Short dark hair, clean shaven, strong defensive midfield build, tactical expression, fair skin tone."
         },
         "match_salary_gch": 50
     },
@@ -4027,7 +4027,7 @@
             "dob": "1996-05-31",
             "h": "1.92m",
             "w": "85kg",
-            "t": "Short dark hair, clean shaven, towering centre-back build, composed leadership look of Joachim Andersen."
+            "t": "Short dark hair, clean shaven, towering centre-back build, composed leadership look, fair skin tone."
         },
         "match_salary_gch": 50
     },
@@ -4153,7 +4153,7 @@
             "dob": "1992-02-14",
             "h": "1.82m",
             "w": "76kg",
-            "t": "Short dark hair, clean shaven, elegant attacking midfield build, masterful expression of Christian Eriksen."
+            "t": "Short dark hair, clean shaven, elegant attacking midfield build, masterful expression, fair skin tone."
         },
         "match_salary_gch": 50
     },
@@ -4174,7 +4174,7 @@
             "dob": "1992-09-27",
             "h": "1.86m",
             "w": "82kg",
-            "t": "Short dark hair, clean shaven, commanding central midfield build, leadership expression of Granit Xhaka."
+            "t": "Short dark hair, clean shaven, commanding central midfield build, leadership expression, fair skin tone."
         },
         "match_salary_gch": 50
     },
@@ -4195,7 +4195,7 @@
             "dob": "1988-12-17",
             "h": "1.83m",
             "w": "79kg",
-            "t": "Short dark hair, clean shaven, experienced goalkeeper build, focused look of Yann Sommer."
+            "t": "Short dark hair, clean shaven, experienced goalkeeper build, focused look, fair skin tone."
         },
         "match_salary_gch": 50
     },
@@ -4216,7 +4216,7 @@
             "dob": "1995-07-19",
             "h": "1.88m",
             "w": "91kg",
-            "t": "Short dark hair, clean shaven, strong centre-back build, composed leadership look of Manuel Akanji."
+            "t": "Short dark hair, clean shaven, strong centre-back build, composed leadership look, mixed skin tone."
         },
         "match_salary_gch": 50
     },
@@ -4237,7 +4237,7 @@
             "dob": "1991-10-10",
             "h": "1.69m",
             "w": "72kg",
-            "t": "Short dark hair, clean shaven, creative attacking midfield build, magical expression of Xherdan Shaqiri."
+            "t": "Short dark hair, clean shaven, creative attacking midfield build, magical expression, fair skin tone."
         },
         "match_salary_gch": 250
     },
@@ -4363,7 +4363,7 @@
             "dob": "1988-12-17",
             "h": "1.83m",
             "w": "79kg",
-            "t": "Short dark hair, clean shaven, experienced goalkeeper build, focused look of Yann Sommer."
+            "t": "Short dark hair, clean shaven, experienced goalkeeper build, focused look, fair skin tone."
         },
         "match_salary_gch": 50
     },
