@@ -2014,3 +2014,123 @@ body {
     .manager-dashboard { grid-template-columns: 1fr; }
     .manager-profile { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 2rem; }
 }
+
+/* ============================================================
+   💎 PRECEDENCE UI - HOLOGRAPHIC & LIVE EFFECTS
+   ============================================================ */
+
+/* --- Holographic Glint --- */
+.nft-card-3d::after {
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.05) 45%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.05) 55%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    transition: all 0.1s;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0;
+}
+
+.nft-card-3d:hover::after {
+    opacity: 1;
+    animation: glintShift 1.5s ease-out;
+}
+
+@keyframes glintShift {
+    0% { transform: rotate(45deg) translate(-20%, -20%); }
+    100% { transform: rotate(45deg) translate(20%, 20%); }
+}
+
+/* --- Global Activity Ticker --- */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(20, 241, 149, 0.1);
+    padding: 6px 0;
+    white-space: nowrap;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 0 40px;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    font-weight: 600;
+}
+
+.ticker-item b { color: var(--primary); }
+
+.animate-ticker {
+    display: inline-block;
+    animation: tickerLoop 30s linear infinite;
+}
+
+@keyframes tickerLoop {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- Live Burn Counter --- */
+.burn-counter-widget {
+    background: linear-gradient(135deg, rgba(255, 77, 106, 0.1), rgba(255, 154, 51, 0.05));
+    border: 1px solid rgba(255, 77, 106, 0.3);
+    padding: 15px;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.burn-counter-widget::before {
+    content: '🔥';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 3rem;
+    opacity: 0.1;
+    filter: blur(2px);
+}
+
+.burn-val {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #ff4d6a;
+    text-shadow: 0 0 15px rgba(255, 77, 106, 0.4);
+    font-family: 'Courier New', monospace;
+}
+
+/* --- Manager License Card --- */
+.manager-license {
+    background: url('../img/bg/license_pattern.png'), linear-gradient(135deg, #1a1a2e, #0d0d15);
+    border: 2px solid var(--secondary);
+    border-radius: 12px;
+    padding: 15px;
+    width: 100%;
+    max-width: 320px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(153, 69, 255, 0.3);
+}
+
+.license-header {
+    border-bottom: 1px solid rgba(153, 69, 255, 0.3);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    color: var(--secondary);
+    font-weight: 900;
+    text-transform: uppercase;
+}
+

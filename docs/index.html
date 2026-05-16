@@ -160,7 +160,13 @@
     <!-- Paso 7: Live Match Ticker -->
     <div style="background:#111; padding:8px 0; text-align:center; font-size:0.85rem; color:#14f195; display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; position: relative; z-index: 50; margin-top: 65px; border-bottom: 1px solid rgba(20,241,149,0.2);">
         <span><span data-i18n="ticker_match">⚽ ARG 2-1 FRA • </span><span data-i18n="ticker_live" style="animation: tickerPulse 2s infinite;">EN VIVO</span></span>
-        <span data-i18n="ticker_next_match">Próximo: BRA vs POR • 18:00</span>
+        <div class="ticker-wrap" style="background: transparent; border: none; flex: 1;">
+            <div class="animate-ticker" style="animation-duration: 40s;">
+                <span class="ticker-item">🏟️ <b>Lusail Arena</b> reporta +45k asistentes digitales...</span>
+                <span class="ticker-item">🔥 <b>The Vault</b> ejecutando recompra masiva de $GCH...</span>
+                <span class="ticker-item">💎 <b>Legendary Vini Jr</b> minteado en el Pack #882...</span>
+            </div>
+        </div>
     </div>
 
     <style>
@@ -908,6 +914,7 @@
     <script src="assets/js/contract_data.js?v=3.0"></script>
     <script src="assets/js/nft_registry.js?v=3.0"></script>
     <script src="assets/js/pack_opener.js?v=3.0"></script>
+    <script src="assets/js/live_engine.js?v=1.0"></script>
     <!-- DIALECT NOTIFICATION INBOX -->
     <div id="notifInbox" class="notif-inbox" style="position:fixed; top:80px; right:20px; width:320px; background:rgba(6,6,10,0.95); backdrop-filter:blur(20px); border:1px solid var(--primary); border-radius:16px; transform:translateX(400px); transition:transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index:1000; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
         <div class="notif-header" style="padding:15px; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
