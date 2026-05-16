@@ -348,17 +348,17 @@
 
                     <!-- Dynamic Detail Box / DAO Portal -->
                     <div id="gameDetailBox" class="game-detail-box" style="display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; border: 1px dashed var(--secondary);" onclick="toggleDAOForm()">
-                        <span id="gameDetailText">SÉ PARTE DE LA DAO Y PROPONE UN NUEVO JUEGO 🏛️</span>
-                        <button class="btn btn-secondary btn-sm" style="margin-top: 10px; font-size: 0.6rem;">ENVIAR PROPUESTA</button>
+                        <span id="gameDetailText" data-i18n="dao_title">SÉ PARTE DE LA DAO Y PROPONE UN NUEVO JUEGO 🏛️</span>
+                        <button class="btn btn-secondary btn-sm" style="margin-top: 10px; font-size: 0.6rem;" data-i18n="dao_btn">ENVIAR PROPUESTA</button>
                     </div>
 
                     <!-- DAO Proposal Form (Hidden) -->
                     <div id="daoProposalForm" style="display:none; margin-top: 20px; padding: 20px; background: rgba(0,0,0,0.4); border-radius: 12px; border: 1px solid var(--secondary); animation: fadeIn 0.3s ease;">
-                        <h5 style="color: var(--secondary); margin-bottom: 15px; font-size: 0.8rem;">📝 PROPUESTA DE JUEGO DAO</h5>
-                        <input type="text" id="daoGameName" placeholder="Nombre del Juego..." style="width: 100%; background: #111; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: #fff; margin-bottom: 10px; font-size: 0.75rem;">
-                        <textarea id="daoGameDesc" placeholder="Descripción de la mecánica..." style="width: 100%; background: #111; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: #fff; margin-bottom: 10px; font-size: 0.75rem; height: 80px;"></textarea>
-                        <button class="btn btn-primary btn-sm" style="width: 100%;" onclick="submitDAOProposal()">SUBMIT TO DAO</button>
-                        <button class="btn btn-link" style="width: 100%; font-size: 0.6rem; color: var(--text-dim); margin-top: 5px;" onclick="toggleDAOForm()">Cancelar</button>
+                        <h5 style="color: var(--secondary); margin-bottom: 15px; font-size: 0.8rem;" data-i18n="dao_form_t">📝 PROPUESTA DE JUEGO DAO</h5>
+                        <input type="text" id="daoGameName" data-i18n-ph="dao_form_name" placeholder="Nombre del Juego..." style="width: 100%; background: #111; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: #fff; margin-bottom: 10px; font-size: 0.75rem;">
+                        <textarea id="daoGameDesc" data-i18n-ph="dao_form_desc" placeholder="Descripción de la mecánica..." style="width: 100%; background: #111; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: #fff; margin-bottom: 10px; font-size: 0.75rem; height: 80px;"></textarea>
+                        <button class="btn btn-primary btn-sm" style="width: 100%;" data-i18n="dao_form_submit" onclick="submitDAOProposal()">SUBMIT TO DAO</button>
+                        <button class="btn btn-link" style="width: 100%; font-size: 0.6rem; color: var(--text-dim); margin-top: 5px;" data-i18n="dao_cancel" onclick="toggleDAOForm()">Cancelar</button>
                     </div>
                 </div>
             </div>
@@ -800,26 +800,26 @@
                         <!-- Box 1: The Vault -->
                         <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid rgba(20,241,149,0.2);">
                             <div style="font-size: 1.5rem; margin-bottom: 10px;">🏦</div>
-                            <h4 style="color: var(--primary); font-size: 0.9rem; margin-bottom: 8px;">THE VAULT</h4>
-                            <p style="font-size: 0.75rem; color: var(--text-dim);">El 100% de los ingresos por ventas de NFTs se depositan en Liquid Staking (Jito/Marinade). Tu capital respalda la red.</p>
+                            <h4 style="color: var(--primary); font-size: 0.9rem; margin-bottom: 8px;" data-i18n="econ_vault_t">THE VAULT</h4>
+                            <p style="font-size: 0.75rem; color: var(--text-dim);" data-i18n="econ_vault_d">El 100% de los ingresos por ventas de NFTs se depositan en Liquid Staking (Jito/Marinade). Tu capital respalda la red.</p>
                         </div>
                         <!-- Box 2: Real Yield -->
                         <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid rgba(153, 69, 255, 0.2);">
                             <div style="font-size: 1.5rem; margin-bottom: 10px;">🔥</div>
-                            <h4 style="color: var(--secondary); font-size: 0.9rem; margin-bottom: 8px;">INFINITY BURN</h4>
-                            <p style="font-size: 0.75rem; color: var(--text-dim);">El rendimiento (yield) del Staking se utiliza automáticamente para recomprar $GCH y quemarlo. Presión de compra infinita.</p>
+                            <h4 style="color: var(--secondary); font-size: 0.9rem; margin-bottom: 8px;" data-i18n="econ_burn_t">INFINITY BURN</h4>
+                            <p style="font-size: 0.75rem; color: var(--text-dim);" data-i18n="econ_burn_d">El rendimiento (yield) del Staking se utiliza automáticamente para recomprar $GCH y quemarlo. Presión de compra infinita.</p>
                         </div>
                         <!-- Box 3: LP Boost -->
                         <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 215, 0, 0.2);">
                             <div style="font-size: 1.5rem; margin-bottom: 10px;">🚀</div>
-                            <h4 style="color: var(--gold); font-size: 0.9rem; margin-bottom: 8px;">MANAGER BOOST</h4>
-                            <p style="font-size: 0.75rem; color: var(--text-dim);">Aportar liquidez (LP) desbloquea multiplicadores de salario para tus jugadores. A mayor liquidez, mayor rendimiento.</p>
+                            <h4 style="color: var(--gold); font-size: 0.9rem; margin-bottom: 8px;" data-i18n="econ_boost_t">MANAGER BOOST</h4>
+                            <p style="font-size: 0.75rem; color: var(--text-dim);" data-i18n="econ_boost_d">Aportar liquidez (LP) desbloquea multiplicadores de salario para tus jugadores. A mayor liquidez, mayor rendimiento.</p>
                         </div>
                         <!-- Box 4: Revenue Share -->
                         <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);">
                             <div style="font-size: 1.5rem; margin-bottom: 10px;">🤝</div>
-                            <h4 style="color: #fff; font-size: 0.9rem; margin-bottom: 8px;">5-2-3 SPLIT</h4>
-                            <p style="font-size: 0.75rem; color: var(--text-dim);">El revenue de los estadios se reparte: 50% Dueños, 20% Jugadores, 30% Tesoro Comunitario.</p>
+                            <h4 style="color: #fff; font-size: 0.9rem; margin-bottom: 8px;" data-i18n="econ_split_t">5-2-3 SPLIT</h4>
+                            <p style="font-size: 0.75rem; color: var(--text-dim);" data-i18n="econ_split_d">El revenue de los estadios se reparte: 50% Dueños, 20% Jugadores, 30% Tesoro Comunitario.</p>
                         </div>
                     </div>
 
@@ -845,6 +845,25 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- LIVE ECOSYSTEM STATS BAR -->
+            <div class="reveal" style="margin-top: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div class="glass-card" style="text-align: center; border-color: rgba(20,241,149,0.3); padding: 25px;">
+                    <div style="font-size: 0.7rem; color: var(--text-dim); letter-spacing: 2px; margin-bottom: 10px;" data-i18n="stat_staked">TOTAL SOL STAKED</div>
+                    <div style="font-size: 1.8rem; font-weight: 900; color: var(--primary);" id="statStaked">◎ 48,290.4</div>
+                    <div style="font-size: 0.6rem; color: var(--primary); margin-top: 5px;" data-i18n="stat_apy">↑ Generating 8.2% APY</div>
+                </div>
+                <div class="glass-card" style="text-align: center; border-color: rgba(153, 69, 255, 0.3); padding: 25px;">
+                    <div style="font-size: 0.7rem; color: var(--text-dim); letter-spacing: 2px; margin-bottom: 10px;" data-i18n="stat_mcap">$GCH MARKET CAP</div>
+                    <div style="font-size: 1.8rem; font-weight: 900; color: var(--secondary);" id="statMarketCap">$14.8M</div>
+                    <div style="font-size: 0.6rem; color: var(--secondary); margin-top: 5px;" data-i18n="stat_backed">Backed by The Vault</div>
+                </div>
+                <div class="glass-card" style="text-align: center; border-color: rgba(255, 215, 0, 0.3); padding: 25px;">
+                    <div style="font-size: 0.7rem; color: var(--text-dim); letter-spacing: 2px; margin-bottom: 10px;" data-i18n="stat_managers">ACTIVE MANAGERS</div>
+                    <div style="font-size: 1.8rem; font-weight: 900; color: var(--gold);" id="statHolders">18,294</div>
+                    <div style="font-size: 0.6rem; color: var(--gold); margin-top: 5px;" data-i18n="stat_growth">+14% this week</div>
                 </div>
             </div>
         </div>

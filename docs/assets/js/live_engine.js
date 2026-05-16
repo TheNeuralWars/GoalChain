@@ -12,6 +12,15 @@ class LiveEngine {
         this.detailText = document.getElementById('gameDetailText');
         this.detailBox = document.getElementById('gameDetailBox');
         
+        // Stats Elements
+        this.statStaked = document.getElementById('statStaked');
+        this.statMarketCap = document.getElementById('statMarketCap');
+        this.statHolders = document.getElementById('statHolders');
+        
+        this.stakedVal = 48290.4;
+        this.marketCapVal = 14.8;
+        this.holdersVal = 18294;
+        
         this.defaultDAOText = "SÉ PARTE DE LA DAO Y PROPONE UN NUEVO JUEGO 🏛️";
         
         this.init();
@@ -22,6 +31,7 @@ class LiveEngine {
         this.startBurnSimulation();
         this.applyHolographicEffects();
         this.initGameHover();
+        this.startStatsSimulation();
         
         console.log("🚀 GoalChain Live Engine Initialized");
     }
@@ -87,6 +97,27 @@ class LiveEngine {
                 }
             });
         });
+    }
+
+    /**
+     * 📊 Simulates real-time growth for ecosystem metrics
+     */
+    startStatsSimulation() {
+        setInterval(() => {
+            // Staked SOL growth
+            this.stakedVal += (Math.random() * 0.5);
+            if (this.statStaked) this.statStaked.innerText = `◎ ${this.stakedVal.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}`;
+
+            // Market Cap growth
+            this.marketCapVal += (Math.random() * 0.01);
+            if (this.statMarketCap) this.statMarketCap.innerText = `$${this.marketCapVal.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1})}M`;
+
+            // Active Managers growth
+            if (Math.random() > 0.7) {
+                this.holdersVal += Math.floor(Math.random() * 2) + 1;
+                if (this.statHolders) this.statHolders.innerText = this.holdersVal.toLocaleString();
+            }
+        }, 5000);
     }
 }
 
