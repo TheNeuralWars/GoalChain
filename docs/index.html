@@ -321,26 +321,35 @@
                         </li>
                     </ul>
                 </div>
-                <div class="glass-card reveal" style="margin-top:1.5rem; border-color:var(--secondary); text-align:left;">
+                <div class="glass-card reveal" style="margin-top:1.5rem; border-color:var(--secondary); text-align:left; position: relative;">
                     <h4 style="color:var(--secondary); margin-bottom:1rem;" data-i18n="game_soon_title">🎮 Próximamente (Roadmap 2026/27)</h4>
-                    <ul style="list-style: none; padding: 0; font-size: 0.8rem; display: flex; flex-direction: column; gap: 10px;">
-                        <li style="display: flex; align-items: center; gap: 8px;">
+                    <ul class="future-games-list" style="list-style: none; padding: 0; font-size: 0.8rem; display: flex; flex-direction: column; gap: 12px;">
+                        <li class="future-game-item" style="color: var(--secondary);" 
+                            data-desc="Apuestas ultrarrápidas durante partidos reales. Predice penales, córners y goles en vivo con liquidación instantánea.">
                             <span class="badge-dot" style="background: var(--secondary);"></span>
-                            <span><b>The Oracle Live:</b> Apuestas en vivo.</span>
+                            <b>The Oracle Live</b>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 8px;">
+                        <li class="future-game-item" style="color: #00e0ff;" 
+                            data-desc="Simulador táctico 11v11. Construye tu formación ideal con tus NFTs y compite en ligas globales por el ranking de Managers.">
                             <span class="badge-dot" style="background: #00e0ff;"></span>
-                            <span><b>Tactical Mastermind:</b> Auto-Battler 11v11.</span>
+                            <b>Tactical Mastermind</b>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 8px;">
+                        <li class="future-game-item" style="color: #ff4d6a;" 
+                            data-desc="Fútbol callejero arcade 3v3. Partidos de alta intensidad en favelas digitales donde las habilidades especiales marcan la diferencia.">
                             <span class="badge-dot" style="background: #ff4d6a;"></span>
-                            <span><b>Favela Streets:</b> PvP Arcade 3v3.</span>
+                            <b>Favela Streets</b>
                         </li>
-                        <li style="display: flex; align-items: center; gap: 8px;">
+                        <li class="future-game-item" style="color: #ffd700;" 
+                            data-desc="Gestiona y personaliza tu propio estadio RWA. Alquila vallas publicitarias virtuales y genera ingresos pasivos reales.">
                             <span class="badge-dot" style="background: #ffd700;"></span>
-                            <span><b>Stadium Tycoon:</b> RWA Customization.</span>
+                            <b>Stadium Tycoon</b>
                         </li>
                     </ul>
+
+                    <!-- Dynamic Detail Box -->
+                    <div id="gameDetailBox" class="game-detail-box">
+                        Pasa el mouse sobre un juego para ver detalles...
+                    </div>
                 </div>
             </div>
         </div>

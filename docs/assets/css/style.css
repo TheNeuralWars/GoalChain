@@ -2143,3 +2143,40 @@ body {
     display: inline-block;
     box-shadow: 0 0 10px currentColor;
 }
+
+/* --- Interactive Future Games List --- */
+.future-game-item {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 5px 0;
+}
+
+.future-game-item:hover {
+    opacity: 1;
+    transform: translateX(10px);
+    text-shadow: 0 0 15px currentColor;
+}
+
+.game-detail-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border-left: 3px solid var(--secondary);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    min-height: 70px;
+    transition: all 0.4s ease;
+    animation: fadeIn 0.5s ease;
+}
+
+.game-detail-box.active {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    transform: scale(1.02);
+}
