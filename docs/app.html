@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoalChain App | Dashboard Alpha</title>
+    <meta name="description" content="Gestiona tu equipo de GoalChain, apuesta en el Mundial 2026 y explora el mercado de derivados sobre Solana.">
     <link rel="stylesheet" href="assets/css/style.css?v=2.2">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <style>
@@ -22,12 +23,34 @@
         .tab-section.active { display: block; animation: fadeIn 0.4s ease; }
         
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body { flex-direction: column; overflow-y: auto; height: auto; }
+            .sidebar { 
+                width: 100%; height: auto; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); 
+                padding: 15px; flex-direction: row; align-items: center; justify-content: space-between;
+                position: sticky; top: 0; z-index: 1000;
+            }
+            .sidebar .logo { margin-bottom: 0 !important; font-size: 1.1rem; }
+            .sidebar nav { display: none; } /* Oculto por defecto en móvil */
+            .sidebar nav.active { 
+                display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; 
+                width: 100%; background: rgba(13, 13, 20, 0.98); padding: 20px; border-bottom: 1px solid var(--primary);
+            }
+            .main-content { padding: 20px; }
+            .activity-feed { width: 100%; border-left: none; border-top: 1px solid rgba(255,255,255,0.05); }
+            .mobile-nav-toggle { display: block !important; cursor: pointer; font-size: 1.5rem; }
+        }
     </style>
 </head>
 <body>
     <!-- SIDEBAR -->
     <aside class="sidebar">
-        <div class="logo" style="margin-bottom: 40px; font-size: 1.5rem;">Goal<span>Chain</span></div>
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div class="logo" style="margin-bottom: 40px; font-size: 1.5rem;">Goal<span>Chain</span></div>
+            <div class="mobile-nav-toggle" style="display: none;" onclick="document.querySelector('.sidebar nav').classList.toggle('active')">☰</div>
+        </div>
         <nav>
             <div class="nav-item active" onclick="switchAppTab('betting')"><span>🏆</span> Betting MVP</div>
             <div class="nav-item" onclick="switchAppTab('markets')"><span>📈</span> Derivatives</div>
@@ -164,6 +187,11 @@
             
             document.getElementById(tabId + 'Tab').classList.add('active');
             event.currentTarget.classList.add('active');
+
+            // Cerrar menú móvil si está abierto
+            if (window.innerWidth <= 768) {
+                document.querySelector('.sidebar nav').classList.remove('active');
+            }
             
             // Re-inicializar componentes si es necesario
             if (tabId === 'markets') initMarketsView();

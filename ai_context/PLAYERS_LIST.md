@@ -1,4 +1,4 @@
-# ⚽ Registro Maestro de Jugadores: GoalChain Genesis Squad
+	# ⚽ Registro Maestro de Jugadores: GoalChain Genesis Squad
 
 Este documento contiene la estructura oficial de los 1,248 jugadores del Mundial 2026. La base de datos completa reside en `assets/data/players.json`.
 

@@ -168,30 +168,28 @@ function renderPlayers() {
         card.setAttribute('data-rarity', player.rarity);
         
         const imgPath = getPlayerImagePath(player);
-        const nftPrice = PRICE_MAP[player.rarity] || "100 $GCH";
-        const flag = getCountryFlag(player.country);
+        const yieldMap = { "mythic": "25.4 SOL/mo", "legendary": "12.1 SOL/mo", "epic": "5.8 SOL/mo", "rare": "2.1 SOL/mo", "common": "0.5 SOL/mo" };
+        const estimatedYield = yieldMap[player.rarity] || "0.1 SOL/mo";
 
         card.innerHTML = `
             <div class="favorite-heart ${isFav ? 'is-fav' : ''}" data-id="${player.id}">❤️</div>
             <div class="glare"></div>
+            
+            <div class="yield-badge-card">
+                <span class="y-icon">💎</span>
+                <span class="y-val">${estimatedYield}</span>
+            </div>
+
             <div class="card-inner">
                 <div class="card-front">
-                    <!-- Layer 0: Background -->
                     <div class="layer layer-bg">
                         <img src="assets/img/nfts/bg/${BG_IMAGE_MAP[player.bg_type] || 'bg_common_grass.png'}" alt="Stadium Background" class="bg-img">
                     </div>
-
-                    <!-- Layer 1: Player Image -->
                     <div class="layer layer-base">
-                        <img src="${imgPath}" alt="${player.name}" loading="lazy" 
-                             onerror="this.parentElement.classList.add('no-image'); this.style.display='none';">
+                        <img src="${imgPath}" alt="${player.name}" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.style.display='none';">
                         <div class="placeholder-icon">⚽</div>
                     </div>
-                    
-                    <!-- Layer 2: Frame -->
                     <div class="layer layer-frame rarity-${player.rarity}"></div>
-
-                    <!-- Layer 3: UI -->
                     <div class="layer layer-ui">
                         <div class="top-row">
                             <span class="player-num">#${String(player.id).padStart(3, '0')}</span>
@@ -199,6 +197,11 @@ function renderPlayers() {
                         </div>
                         <div class="bottom-info">
                             <h3 class="player-name-text">${player.name}</h3>
+                            <div class="player-real-identity">${player.real_name || 'Verified Athlete'}</div>
+                            <div class="biometric-strip">
+                                <span>📏 ${player.physical?.h || '1.80m'}</span>
+                                <span>⚖️ ${player.physical?.w || '75kg'}</span>
+                            </div>
                             <div class="mini-stats">
                                 <span>ATK ${player.stats.atk}</span>
                                 <span>DEF ${player.stats.def}</span>
@@ -209,12 +212,17 @@ function renderPlayers() {
                 </div>
                 <div class="card-back">
                     <div class="back-content">
-                        <div class="back-header" data-i18n="nft_contract_title">PROFESSIONAL CONTRACT</div>
+                        <div class="back-header">GOALCHAIN MASTER CONTRACT</div>
                         <div class="back-body">
-                            <div class="back-id">ID: ${player.id}</div>
-                            <div class="back-salary">MATCH PAY: ${player.contract ? player.contract.matchSalary : 0} $GCH</div>
+                            <div class="back-id">COLLECTION ID: GC-${String(player.id).padStart(4, '0')}</div>
+                            <div class="back-salary">
+                                <span class="label">ESTIMATED YIELD</span>
+                                <span class="value">${estimatedYield}</span>
+                            </div>
                             <div class="clauses-list">
-                                ${player.contract ? player.contract.clauses.map(c => `<div class="clause-item">${c}</div>`).join('') : ''}
+                                <div class="clause-item">✓ Real Salary Linked Yield</div>
+                                <div class="clause-item">✓ Stadium Attendance Multiplier</div>
+                                <div class="clause-item">✓ Transfer Fee Revenue Sharing</div>
                             </div>
                             <div class="back-mint"><code>${player.mint_address || 'SOL_PENDING...'}</code></div>
                             <button class="btn-buy" onclick="handleBuy(${player.id})">${t('nft_buy_btn')}: ${nftPrice}</button>
