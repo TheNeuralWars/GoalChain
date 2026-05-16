@@ -14,15 +14,47 @@
     <div class="vibrancy"></div>
 
     <!-- Botón de Salida -->
-    <a href="index.html" class="exit-pitch" title="Volver al Inicio (ESC)">
+    <a href="index.html" class="exit-pitch top-exit" title="Volver al Inicio (ESC)">
         <span>&times;</span>
     </a>
 
+    <!-- Botón de Salida Flotante Inferior -->
+    <a href="index.html" class="exit-portal-btn" title="Salir del Portal">
+        <span>🚪</span> Salir
+    </a>
+
     <style>
-        .exit-pitch {
+        .exit-portal-btn {
             position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: rgba(255, 77, 106, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 77, 106, 0.3);
+            border-radius: 50px;
+            padding: 10px 25px;
+            color: #ff4d6a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 800;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .exit-portal-btn:hover {
+            background: #ff4d6a;
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 77, 106, 0.4);
+        }
+        .top-exit {
             top: 2rem;
             right: 2rem;
+        }
+        .exit-pitch {
+            position: fixed;
             width: 50px;
             height: 50px;
             background: rgba(255, 255, 255, 0.05);
