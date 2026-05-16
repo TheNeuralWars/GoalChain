@@ -1,0 +1,56 @@
+{
+    "name": "Marruecos Star 22 Chain",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Marruecos Star 22 Chain (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/334_marruecos_star_22_chain.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Marruecos"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "22"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 51
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 98
+        },
+        {
+            "trait_type": "Hype",
+            "value": 50
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/334_marruecos_star_22_chain.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

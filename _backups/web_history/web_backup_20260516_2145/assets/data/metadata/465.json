@@ -1,0 +1,56 @@
+{
+    "name": "Nigeria Pro 23 Node",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Nigeria Pro 23 Node (Nigeria). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/465_nigeria_pro_23_node.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Nigeria"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "23"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 72
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 84
+        },
+        {
+            "trait_type": "Hype",
+            "value": 88
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/465_nigeria_pro_23_node.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
