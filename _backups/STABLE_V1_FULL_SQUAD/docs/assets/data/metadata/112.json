@@ -1,0 +1,56 @@
+{
+    "name": "España Player 8",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - España Player 8 (España). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/112_espaa_player_8.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "España"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "8"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 43
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 51
+        },
+        {
+            "trait_type": "Hype",
+            "value": 80
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/112_espaa_player_8.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
