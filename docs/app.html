@@ -62,6 +62,7 @@
             <div class="nav-item" onclick="switchAppTab('markets')"><span>📈</span> Predictions</div>
             <div class="nav-item" onclick="switchAppTab('academy')"><span>🌱</span> Academy</div>
             <div class="nav-item" onclick="switchAppTab('lending')"><span>🏦</span> Lending</div>
+            <div class="nav-item" onclick="switchAppTab('gallery')"><span>🖼️</span> 3D Gallery</div>
             
             <div class="manager-license" style="margin-top: 20px; scale: 0.85; transform-origin: left top;">
                 <div class="license-header">Official Manager License</div>
@@ -289,6 +290,22 @@
             <div id="lendingInject"></div>
         </section>
 
+        <!-- SECTION: 3D GALLERY -->
+        <section id="galleryTab" class="tab-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+                <h2>🖼️ Genesis Squad 3D Gallery</h2>
+                <div style="display: flex; gap: 10px;">
+                    <span class="badge" style="background:var(--primary); color:black;">LORE-INFUSED</span>
+                    <span class="badge" style="background:#ffcc00; color:black;">AAA HIGH-FIDELITY</span>
+                </div>
+            </div>
+            <p style="color:var(--text-dim); margin-bottom: 30px;">Explora los 528 cromos interactivos. Cada NFT contiene Lore de Élite y una estética visual única ("Oportunidad de Oro") diseñada por Gemini 3.1 (High).</p>
+            
+            <div id="galleryContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 40px; margin-top: 20px;">
+                <!-- Cartas cargadas via JS -->
+            </div>
+        </section>
+
     </main>
 
     <!-- RIGHT SIDEBAR: LIVE FEED -->
@@ -315,6 +332,7 @@
     <script src="assets/js/cnft_scout.js"></script>
     <script src="assets/js/lending_app.js"></script>
     <script src="assets/js/helius_sync.js"></script>
+    <script src="assets/js/3d_gallery.js"></script>
     <script src="assets/js/live_engine.js?v=1.0"></script>
     
     <script>
@@ -339,6 +357,7 @@
             if (tabId === 'markets') initMarketsView();
             if (tabId === 'academy') initAcademyView();
             if (tabId === 'lending') initLendingView();
+            if (tabId === 'gallery') initGalleryView();
         }
 
         // Logic to move existing UI components into the dashboard
