@@ -2134,3 +2134,12 @@ body {
     text-transform: uppercase;
 }
 
+
+/* --- Badge Dot Utility --- */
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px currentColor;
+}
