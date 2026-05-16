@@ -57,7 +57,18 @@
             <div class="nav-item" onclick="switchAppTab('markets')"><span>📈</span> Predictions</div>
             <div class="nav-item" onclick="switchAppTab('academy')"><span>🌱</span> Academy</div>
             <div class="nav-item" onclick="switchAppTab('lending')"><span>🏦</span> Lending</div>
-            <div class="nav-item" onclick="location.href='index.html'" style="margin-top: 10px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: #ff4d6a;"><span>🚪</span> Salir / Volver</div>
+            
+            <div class="manager-license" style="margin-top: 20px; scale: 0.85; transform-origin: left top;">
+                <div class="license-header">Official Manager License</div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <div style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">👤</div>
+                    <div style="font-family: monospace; font-size: 0.6rem; color: #fff;">
+                        ID: GCH-8821-X<br>
+                        ISSUE: 2026-MAY<br>
+                        RANK: INFINITY ELITE
+                    </div>
+                </div>
+            </div>
         </nav>
         <div style="margin-top: auto; padding: 20px; background: rgba(153, 69, 255, 0.08); border: 1px solid rgba(153, 69, 255, 0.2); border-radius: 16px; font-size: 0.75rem;">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
@@ -77,10 +88,26 @@
     </aside>
 
     <!-- MAIN APP AREA -->
-    <main class="main-content">
+    <main class="main-content" style="padding: 0;">
         
-        <!-- SECTION: MANAGER OFFICE (NEW V3) -->
-        <section id="managerTab" class="tab-section active">
+        <!-- GLOBAL ACTIVITY TICKER -->
+        <div class="ticker-wrap">
+            <div class="animate-ticker" id="globalTicker">
+                <span class="ticker-item">🏟️ <b>Lusail Arena</b> reporta +45k asistentes digitales...</span>
+                <span class="ticker-item">🔥 <b>Manager @NicoPez</b> acaba de quemar 500 $GCH para un upgrade...</span>
+                <span class="ticker-item">💎 <b>Pack Abierto:</b> Cromo Legendary 'Vinicius' obtenido por @DegenSol...</span>
+                <span class="ticker-item">🏦 <b>The Vault:</b> Inyectando yield de Marinade a la Liquidity Pool...</span>
+                <!-- Repeat for loop -->
+                <span class="ticker-item">🏟️ <b>Lusail Arena</b> reporta +45k asistentes digitales...</span>
+                <span class="ticker-item">🔥 <b>Manager @NicoPez</b> acaba de quemar 500 $GCH para un upgrade...</span>
+                <span class="ticker-item">💎 <b>Pack Abierto:</b> Cromo Legendary 'Vinicius' obtenido por @DegenSol...</span>
+                <span class="ticker-item">🏦 <b>The Vault:</b> Inyectando yield de Marinade a la Liquidity Pool...</span>
+            </div>
+        </div>
+
+        <div style="padding: 40px;">
+            <!-- SECTION: MANAGER OFFICE (NEW V3) -->
+            <section id="managerTab" class="tab-section active">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
                 <h2>🤵 Manager Office</h2>
                 <div style="display: flex; gap: 10px;">
@@ -226,6 +253,13 @@
 
     <!-- RIGHT SIDEBAR: LIVE FEED -->
     <aside class="activity-feed">
+        <!-- LIVE BURN COUNTER -->
+        <div class="burn-counter-widget" style="margin-bottom: 30px;">
+            <div style="font-size: 0.65rem; color: #ff4d6a; font-weight: 900; margin-bottom: 5px;">TOTAL $GCH BURNED (24H)</div>
+            <div class="burn-val" id="liveBurnVal">148,920</div>
+            <div style="font-size: 0.6rem; color: var(--text-dim); margin-top: 8px;">Buy-back executed by The Vault</div>
+        </div>
+
         <h3 style="font-size: 0.8rem; letter-spacing: 1px; color: var(--primary); margin-bottom: 20px;">⚡ LIVE ON-CHAIN FEED</h3>
         <div id="heliusEvents" style="display: flex; flex-direction: column; gap: 10px; overflow-y: auto;">
             <p style="font-size: 0.7rem; color: var(--text-dim); text-align: center; padding: 20px;">Sincronizando con Helius Webhooks...</p>
@@ -239,6 +273,7 @@
     <script src="assets/js/cnft_scout.js"></script>
     <script src="assets/js/lending_app.js"></script>
     <script src="assets/js/helius_sync.js"></script>
+    <script src="assets/js/live_engine.js?v=1.0"></script>
     
     <script>
         // Soporte para tecla ESC
