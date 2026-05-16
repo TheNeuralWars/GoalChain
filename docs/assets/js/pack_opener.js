@@ -1,5 +1,5 @@
 /**
- * pack_opener.js - Lógica de Apertura de Sobres GoalChain (v3.0)
+ * pack_opener.js - Lógica de Apertura de Sobres GoalChain (v3.1 - Epic Reveal)
  */
 
 const packState = {
@@ -45,7 +45,7 @@ function setupPackEvents() {
             document.getElementById('revealedCardContainer').innerHTML = '';
             closeBtn.style.display = 'none';
             packState.isOpening = false;
-            renderInventory(); // Actualizar la vista tras cerrar
+            renderInventory(); 
         });
     }
 }
@@ -55,17 +55,38 @@ function triggerPackOpening() {
     const pack = document.getElementById('mysteryPack');
     const openBtn = document.getElementById('openPackBtn');
 
-    if (openBtn) openBtn.disabled = true;
-    if (pack) pack.classList.add('is-shaking');
+    if (openBtn) {
+        openBtn.disabled = true;
+        const messages = ["CONNECTING TO VAULT...", "FETCHING BIOMETRICS...", "SYNCING SOLANA...", "MINTING NFT...", "REVEALING..."];
+        let msgIdx = 0;
+        const msgInterval = setInterval(() => {
+            openBtn.innerText = messages[msgIdx++];
+            if(msgIdx >= messages.length) clearInterval(msgInterval);
+        }, 400);
+    }
+    
+    if (pack) {
+        pack.classList.add('is-shaking');
+        pack.style.filter = "brightness(1.5) drop-shadow(0 0 30px var(--primary))";
+    }
+
     if (window.notifier) window.notifier.play('click');
 
     setTimeout(() => {
-        if (pack) pack.style.animationDuration = "0.05s";
+        if (pack) {
+            pack.style.animationDuration = "0.05s";
+            pack.style.transform = "scale(1.2)";
+        }
     }, 1500);
 
     setTimeout(() => {
-        if (pack) pack.classList.remove('is-shaking');
+        if (pack) {
+            pack.classList.remove('is-shaking');
+            pack.style.filter = "";
+            pack.style.transform = "";
+        }
         executeReveal();
+        if (openBtn) openBtn.innerText = "ABRIR SOBRE MYSTERY PACK";
     }, 2500);
 }
 
@@ -73,6 +94,18 @@ function executeReveal() {
     const modal = document.getElementById('revealModal');
     const container = document.getElementById('revealedCardContainer');
     const closeBtn = document.getElementById('closeRevealBtn');
+
+    // Create a Flash Effect
+    const flash = document.createElement('div');
+    flash.style.position = 'fixed';
+    flash.style.top = '0'; flash.style.left = '0';
+    flash.style.width = '100vw'; flash.style.height = '100vh';
+    flash.style.background = 'white';
+    flash.style.zIndex = '9999';
+    flash.style.opacity = '1';
+    flash.style.transition = 'opacity 0.8s ease-out';
+    document.body.appendChild(flash);
+    setTimeout(() => { flash.style.opacity = '0'; setTimeout(() => flash.remove(), 800); }, 50);
 
     if (window.notifier) {
         window.notifier.play('success');
@@ -88,48 +121,31 @@ function executeReveal() {
     const pool = packState.players.filter(p => p.rarity === rarity);
     const player = pool[Math.floor(Math.random() * pool.length)];
 
-    // GUARDAR EN INVENTARIO
     packState.inventory.push(player);
     localStorage.setItem('goalchain_inventory', JSON.stringify(packState.inventory));
 
     modal.classList.add('is-active');
     
-    if (window.notifier) {
-        const type = (player.rarity === 'mythic' || player.rarity === 'legendary') ? 'info' : 'success';
-        window.notifier.show('¡NUEVA LEYENDA!', `Has obtenido a ${player.name} (${player.rarity.toUpperCase()})`, type);
-    }
     const imgPath = `assets/img/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
     const flag = FLAG_MAP[player.country] || "🏳️";
 
     container.innerHTML = `
-        <div class="nft-card-3d in-view" data-rarity="${player.rarity}" id="revealedCard">
+        <div class="nft-card-3d in-view active reveal-animation" data-rarity="${player.rarity}" id="revealedCard">
             <div class="card-inner">
                 <div class="card-front">
                     <div class="glare"></div>
                     <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/img/nfts/001_lionel_satoshi.png'">
                     <div class="nft-overlay">
                         <div class="player-info">
-                            <span class="player-num">#${player.number}</span>
-                            <span class="player-flag">${flag}</span>
                             <span class="player-name">${player.name}</span>
                         </div>
                     </div>
                 </div>
-                <div class="card-back">
-                    <div class="ficha-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span class="ficha-title">GENESIS SQUAD</span>
-                            <span style="font-size: 1.2rem;">${flag}</span>
-                        </div>
-                        <h3 class="ficha-name">${player.name}</h3>
-                    </div>
-                    <div class="contract-panel">
-                        <div class="contract-label">SMART CONTRACT DATA</div>
-                        <div class="contract-value">ID: ${player.id}</div>
-                        <div class="contract-value">RARITY: ${player.rarity.toUpperCase()}</div>
-                    </div>
-                </div>
             </div>
+        </div>
+        <div style="text-align:center; margin-top:20px; animation: fadeIn 1s ease 1s both;">
+            <h2 style="color:var(--gold); font-size: 1.5rem; text-shadow: 0 0 20px var(--gold);">${player.rarity.toUpperCase()} FOUND!</h2>
+            <p style="color:white; opacity: 0.8;">${player.name} has joined your squad.</p>
         </div>
     `;
 
@@ -138,14 +154,14 @@ function executeReveal() {
         card.addEventListener('click', () => card.classList.toggle('is-flipped'));
     }
 
-    triggerExplosion();
+    triggerExplosion(player.rarity);
 
     setTimeout(() => {
         if (closeBtn) closeBtn.style.display = 'block';
         if (document.getElementById('openPackBtn')) {
             document.getElementById('openPackBtn').disabled = false;
         }
-    }, 1500);
+    }, 2000);
 }
 
 function renderInventory(filter = 'all') {
@@ -157,23 +173,17 @@ function renderInventory(filter = 'all') {
         : packState.inventory.filter(p => p.rarity === filter);
 
     if (filteredItems.length === 0) {
-        grid.innerHTML = `<div class="empty-inventory"><p>No tenés jugadores en esta categoría.</p></div>`;
+        grid.innerHTML = `<div class="empty-inventory" style="grid-column: 1/-1; text-align: center; padding: 40px;"><p>No tenés jugadores en esta categoría.</p></div>`;
         return;
     }
 
     grid.innerHTML = filteredItems.map(player => {
         const imgPath = `assets/img/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
-        const flag = FLAG_MAP[player.country] || "🏳️";
         return `
-            <div class="nft-card-3d in-view" data-rarity="${player.rarity}" style="transform: scale(0.7); margin: -40px;">
+            <div class="nft-card-3d in-view" data-rarity="${player.rarity}" style="transform: scale(0.6); margin: -50px;">
                 <div class="card-inner">
                     <div class="card-front">
                         <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/img/nfts/001_lionel_satoshi.png'">
-                        <div class="nft-overlay">
-                            <div class="player-info">
-                                <span class="player-name">${player.name}</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -181,42 +191,42 @@ function renderInventory(filter = 'all') {
     }).join('');
 }
 
-window.filterCollection = (rarity) => {
-    // UI Update
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.innerText.toLowerCase() === rarity) btn.classList.add('active');
-        if (rarity === 'all' && btn.innerText.toLowerCase() === 'todos') btn.classList.add('active');
-    });
-    renderInventory(rarity);
-};
-
-function triggerExplosion() {
+function triggerExplosion(rarity) {
     const canvas = document.getElementById('revealParticles');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    let particleColor = '#14f195';
+    if(rarity === 'mythic') particleColor = '#ffffff';
+    if(rarity === 'legendary') particleColor = '#ffd700';
+    if(rarity === 'epic') particleColor = '#9945ff';
+
     const particles = [];
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 200; i++) {
         particles.push({
             x: canvas.width / 2,
             y: canvas.height / 2,
-            vx: (Math.random() - 0.5) * 15,
-            vy: (Math.random() - 0.5) * 15,
-            size: Math.random() * 4 + 1,
-            color: Math.random() > 0.5 ? '#14f195' : '#9945ff',
-            life: 1
+            vx: (Math.random() - 0.5) * 20,
+            vy: (Math.random() - 0.5) * 20,
+            size: Math.random() * 5 + 2,
+            color: Math.random() > 0.2 ? particleColor : '#fff',
+            life: 1,
+            gravity: 0.15
         });
     }
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach((p, i) => {
-            p.x += p.vx; p.y += p.vy; p.life -= 0.02;
+            p.vx *= 0.98;
+            p.vy += p.gravity;
+            p.x += p.vx; p.y += p.vy; p.life -= 0.015;
             if (p.life <= 0) particles.splice(i, 1);
             ctx.fillStyle = p.color;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = p.color;
             ctx.globalAlpha = p.life;
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);

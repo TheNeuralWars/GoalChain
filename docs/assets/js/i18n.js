@@ -157,6 +157,36 @@ const TRANSLATIONS = {
         rm_q4_title: "Q4 - Lanzamiento",
         rm_q5_title: "Mundial 2026",
         rm_q6_title: "Post-Mundial",
+
+        // NEW: Infinity Engine & DAO
+        econ_vault_t: "LA BÓVEDA", econ_vault_d: "El 100% de los ingresos se depositan en Liquid Staking (Jito/mSOL). Tu capital respalda la red.",
+        econ_burn_t: "INFINITY BURN", econ_burn_d: "El rendimiento del staking recompra y quema $GCH. Presión de compra infinita.",
+        econ_boost_t: "MANAGER BOOST", econ_boost_d: "Aportar liquidez (LP) multiplica el salario de tus jugadores.",
+        econ_split_t: "5-2-3 SPLIT", econ_split_d: "Reparto justo: 50% Jackpot, 20% Jugadores, 30% Tesoro DAO.",
+        
+        dao_title: "SÉ PARTE DE LA DAO Y PROPONE UN NUEVO JUEGO 🏛️",
+        dao_btn: "ENVIAR PROPUESTA",
+        dao_form_t: "📝 PROPUESTA DE JUEGO DAO",
+        dao_form_name: "Nombre del Juego...",
+        dao_form_desc: "Descripción de la mecánica...",
+        dao_form_submit: "SUBMIT TO DAO",
+        dao_cancel: "Cancelar",
+        
+        stat_staked: "TOTAL SOL STAKED",
+        stat_mcap: "$GCH MARKET CAP",
+        stat_managers: "MANAGERS ACTIVOS",
+        stat_apy: "↑ Generando 8.2% APY",
+        stat_backed: "Respaldado por la Bóveda",
+        stat_growth: "+14% esta semana",
+
+        manager_title: "MANAGER OFFICE",
+        manager_level: "Nivel de Manager:",
+        manager_exp: "EXP para Nivel",
+        manager_slots: "Slots de Plantel:",
+        manager_boost: "Salary Boost:",
+        manager_vault_health: "Salud de la Bóveda:",
+        manager_license: "Official Manager License",
+        manager_architect: "Architect Signature"
     },
     en: {
         nav_about: "About", nav_game: "Mini-Game", nav_fixture: "Fixture", nav_roadmap: "Roadmap", nav_social: "Social",
@@ -315,6 +345,36 @@ const TRANSLATIONS = {
         rm_q4_title: "Q4 - Launch",
         rm_q5_title: "World Cup 2026",
         rm_q6_title: "Post-World Cup",
+
+        // NEW: Infinity Engine & DAO
+        econ_vault_t: "THE VAULT", econ_vault_d: "100% of revenue is deposited into Liquid Staking (Jito/mSOL). Your capital backs the network.",
+        econ_burn_t: "INFINITY BURN", econ_burn_d: "Staking yield buys back and burns $GCH. Perpetual buying pressure.",
+        econ_boost_t: "MANAGER BOOST", econ_boost_d: "Providing liquidity (LP) multiplies your players' salaries.",
+        econ_split_t: "5-2-3 SPLIT", econ_split_d: "Fair split: 50% Jackpot, 20% Players, 30% DAO Treasury.",
+        
+        dao_title: "BE PART OF THE DAO AND PROPOSE A NEW GAME 🏛️",
+        dao_btn: "SUBMIT PROPOSAL",
+        dao_form_t: "📝 DAO GAME PROPOSAL",
+        dao_form_name: "Game Name...",
+        dao_form_desc: "Mechanics description...",
+        dao_form_submit: "SUBMIT TO DAO",
+        dao_cancel: "Cancel",
+        
+        stat_staked: "TOTAL SOL STAKED",
+        stat_mcap: "$GCH MARKET CAP",
+        stat_managers: "ACTIVE MANAGERS",
+        stat_apy: "↑ Generating 8.2% APY",
+        stat_backed: "Backed by The Vault",
+        stat_growth: "+14% this week",
+
+        manager_title: "MANAGER OFFICE",
+        manager_level: "Manager Level:",
+        manager_exp: "EXP to Level",
+        manager_slots: "Roster Slots:",
+        manager_boost: "Salary Boost:",
+        manager_vault_health: "Vault Health:",
+        manager_license: "Official Manager License",
+        manager_architect: "Architect Signature"
     }
 };
 
