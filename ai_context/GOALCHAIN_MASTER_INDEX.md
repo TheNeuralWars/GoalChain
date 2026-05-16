@@ -1,27 +1,30 @@
-# 🏛️ GOALCHAIN MASTER INDEX (V9.0)
+# 🏛️ GOALCHAIN MASTER INDEX (V10.0 - INFINITY ENGINE)
 
-Este documento es la única fuente de verdad para el diseño y generación de la colección Genesis Squad.
+This document is the absolute **Source of Truth** for the GoalChain ecosystem architecture, visual standards, and economic mechanics.
 
-## 🖼️ Master Assets (Files)
-- **Frontend source folder:** [`/docs`](./docs)
-- **Player registry in use:** [`/docs/assets/data/players.json`](./docs/assets/data/players.json)
-- **NFT generation dataset:** [`/assets/data/nft_generation_data.json`](./assets/data/nft_generation_data.json)
-
-> Nota: Se removieron rutas locales `file:///Users/...` no portables para mantener compatibilidad en GitHub y CI.
+## 🖼️ Master Assets & Data
+- **Production Frontend:** [`/docs`](./docs) (Live at goalchain.fun)
+- **Primary Database:** [`/ai_context/players.json`](./ai_context/players.json) (528 Real Players)
+- **Visual Engine:** [`/docs/assets/js/live_engine.js`](./docs/assets/js/live_engine.js) (Holograms, Burn Counter, Tickers)
+- **Economic Specs:** [`/ai_context/TOKENOMICS.md`](./ai_context/TOKENOMICS.md) (Infinity Engine 5-2-3 Split)
 
 ## 🏗️ Architectural Standards
-- **System:** Layered Composition (Base Photo + Master Frame + CSS Tint + Dynamic Text).
-- **Aspect Ratio:** 2:3 Vertical.
+- **NFT Composition:** Layered DOM rendering (Base Photo + Holographic Overlay + CSS rarity shader).
+- **Economic Model:** Zero Value Loss (LST Staking via Jito/Marinade).
 - **Rarity Colors (CSS):**
-  - `Mythic`: Silver/White Glow.
-  - `Legendary`: Gold Liquid Glow.
-  - `Epic`: Purple Electric Neon.
-  - `Rare`: Solana Green Glow.
-  - `Common`: Matte Steel.
+  - `Mythic`: Silver/White Glow + 10x Yield.
+  - `Legendary`: Gold Liquid Glow + 5x Yield.
+  - `Epic`: Purple Electric Neon + 2.5x Yield.
+  - `Rare`: Solana Green Glow + 1.2x Yield.
 
-## 📝 Generation Guidelines
-- **Prompt V9 (Realistic):** "Hyper-realistic 8k sports photography of [PHYSICAL_TRAITS]. 85mm lens, f/1.8, stadium background, deep bokeh, professional lighting. NO caricature, NO borders, NO logos."
-- **Parody Names:** Always used in UI, never in IA prompt to avoid filters.
+## 📝 Design Guidelines
+- **Realistic Photography:** "Hyper-realistic 8k sports photography, 85mm lens, f/1.8, bokeh, professional stadium lighting."
+- **Visual Effects:** All cards must use the `nft-card-3d` class for holographic glint interaction.
 
-## 🔄 Dynamic Evolution
-- Players can upgrade rarity via code. The `layer-frame` class `rarity-[LEVEL]` handles all visual shifts.
+## 🔄 Dynamic Systems
+- **The Vault:** Automated buy-back & burn executed via Helius cranks and staking yield.
+- **Manager Office:** XP-based progression (Rookie -> Pro -> Architect).
+- **DAO Portal:** Community-driven game proposal system in the index gameplay section.
+
+---
+*Last Updated: May 2026. Version: 10.0. Status: Production Ready.* 🏟️✨🚀

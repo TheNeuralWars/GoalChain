@@ -1,85 +1,56 @@
-# 🗺️ GoalChain Repository Map
+# 🗺️ GoalChain Repository Map (v2.0 - Infinity Era)
 
-Este documento sirve como guía maestra para desarrolladores y agentes de IA. Aquí se detalla la utilidad de cada carpeta y archivo vital del proyecto.
-
----
-
-## 🧭 Política de Organización (Source of Truth)
-
-- **Frontend de producción:** [`/docs`](./docs)
-- **Smart contract:** [`/goalchain_program`](./goalchain_program)
-- **SDK:** [`/goalchain-sdk`](./goalchain-sdk)
-- **Backend API:** [`/goalchain_api`](./goalchain_api)
-- **Oracle / sincronización:** [`/goalchain_oracle`](./goalchain_oracle)
-- **Histórico / legado:** [`/_archive`](./_archive)
-
-### Canonicalidad de documentación estratégica
-
-Para evitar drift, la versión canónica de documentos estratégicos vive en la **raíz** del repositorio.
-
-- Canónicos en raíz: `GOALCHAIN_PITCH_DECK.md`, `TOKENOMICS.md`, `ECONOMIC_BLUEPRINT.md`, `NFT_PROMPTS.md`, `NFT_STYLE_GUIDE.md`, `PLAYERS_LIST.md`
-- Copias en `/docs` se tratan como material de publicación web y deben sincronizarse explícitamente.
-
-### Política de versionado (tooling JS/TS)
-
-- Se alinea `@coral-xyz/anchor` en módulos JS/TS activos (`goalchain_api`, `goalchain-sdk`, `goalchain_oracle`) a la rama `0.30.x` para evitar incompatibilidades de tipos y runtime entre SDK/API/Oracle.
+This document serves as the master guide for developers and AI agents. It details the purpose of each vital directory and file within the GoalChain project.
 
 ---
 
-## 🚀 Aplicaciones Principales (Production)
+## 🧭 Source of Truth Policy
+
+To ensure consistency across the ecosystem, we follow a strictly layered documentation approach:
+
+- **Strategic Brain:** [`/ai_context`](./ai_context) - Contains the master versions of all economic blueprints, technical specifications, and AI skills.
+- **Production Frontend:** [`/docs`](./docs) - Live application at [goalchain.fun](https://goalchain.fun).
+- **Core Protocol:** [`/goalchain_program`](./goalchain_program) (Smart Contracts), [`/goalchain-sdk`](./goalchain-sdk) (Connectors), [`/goalchain_api`](./goalchain_api) (Backend), [`/goalchain_oracle`](./goalchain_oracle) (Data).
+
+---
+
+## 🚀 Key Directories
 
 ### [`/docs`](./docs)
-**Estado:** Activo (Production & Development)
-*   **Propósito:** Es el sitio web principal de GoalChain (goalchain.fun).
-*   **Tecnología:** HTML, Vanilla CSS, Javascript.
-*   **Características:** Galería 3D de NFTs, apertura de sobres, visor de Pitch Deck, juego de penaltis.
-*   **Archivo clave:** `assets/js/nft_registry.js` (Lógica de los cromos).
+**Status:** Active Production
+*   **Purpose:** The main GoalChain web platform.
+*   **Core Scripts:** 
+    *   `assets/js/live_engine.js`: The real-time visual and economic simulator.
+    *   `assets/js/contract_data.js`: Blockchain interaction logic.
+*   **Data:** `assets/data/players.json` (528 authenticated player records).
 
-### [`/goalchain_hub`](./goalchain_hub)
-**Estado:** Activo (Internal Tool)
-*   **Propósito:** Portal de desarrollo interno para el equipo.
+### [`/ai_context`](./ai_context)
+**Status:** Strategic Core
+*   **MASTER_INDEX.md:** The definitive project guide and version tracker.
+*   **TOKENOMICS.md:** The Infinity Engine economic model.
+*   **PLAYERS_LIST.md:** The roster and supply registry.
+*   **ECONOMIC_BLUEPRINT_V3.md:** The detailed business and staking logic.
 
 ---
 
-## ⚙️ Infraestructura y Backend
-
-### [`/goalchain_api`](./goalchain_api)
-**Estado:** Activo (Backend Bridge)
-*   **Propósito:** API en Node.js que conecta la web con la blockchain de Solana.
+## ⚙️ Backend & Infrastructure
 
 ### [`/goalchain_program`](./goalchain_program)
-**Estado:** Activo (Smart Contract)
-*   **Propósito:** El corazón de GoalChain en la blockchain.
-*   **Tecnología:** Rust / Anchor Framework.
-*   **Función:** Lógica de apuestas, minteo de NFTs y distribución de premios.
+*   **Tech:** Rust / Anchor.
+*   **Role:** Handles NFT minting, betting logic, and the Vault interaction.
 
 ### [`/goalchain_oracle`](./goalchain_oracle)
-**Estado:** Activo (Data Sync)
-*   **Propósito:** Scripts para sincronizar datos reales del Mundial con la blockchain y los metadatos de los NFTs.
+*   **Role:** Synchronizes real-world match data with the on-chain metadata.
 
 ### [`/goalchain-sdk`](./goalchain-sdk)
-**Estado:** Vital (SDK)
-*   **Propósito:** Contiene las definiciones (IDL) y conectores necesarios para que las apps hablen con el Smart Contract.
+*   **Role:** Provides the IDLs and Typescript interfaces for the frontend and API.
 
 ---
 
-## 🎨 Activos y Documentos
-
-### [`/scratch`](./scratch)
-*   Scripts temporales y de prueba para generación de datos.
-
----
-
-## 📁 Archivos de Raíz (Clave)
-*   [GOALCHAIN_PITCH_DECK.md](./GOALCHAIN_PITCH_DECK.md): Presentación oficial para inversores (Bilingüe).
-*   [TOKENOMICS.md](./TOKENOMICS.md): Definición económica del token $GCH y rarezas de NFTs.
-*   [ECONOMIC_BLUEPRINT.md](./ECONOMIC_BLUEPRINT.md): Detalles del modelo de negocio.
-*   [REPO_MAP.md](./REPO_MAP.md): Este archivo.
+## 📂 Root Files (GitHub Presence)
+- [README.md](./README.md): High-level project manifest.
+- [TOKENOMICS.md](./TOKENOMICS.md): Simplified economic overview.
+- [REPO_MAP.md](./REPO_MAP.md): This architectural guide.
 
 ---
-
-## 📦 Archivo Histórico
-*   **[`/_archive`](./_archive)**: Contiene experimentos antiguos con React, Tailwind y versiones obsoletas del backend. No tocar a menos que se quiera migrar la arquitectura.
-
----
-**Actualizado:** 14 de mayo, 2026
+**Last Updated:** May 16, 2026. **Era:** Infinity Engine v3.0. 🏟️✨🚀
