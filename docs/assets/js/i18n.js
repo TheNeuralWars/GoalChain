@@ -1,7 +1,7 @@
 // ===== GoalChain i18n - Spanish / English =====
 const TRANSLATIONS = {
     es: {
-        nav_about: "Sobre", nav_game: "Mini-Juego", nav_fixture: "Fixture", nav_roadmap: "Roadmap", nav_social: "Social",
+        nav_about: "Sobre", nav_game: "Mini-Juego", nav_fixture: "Fixture", nav_roadmap: "Roadmap", nav_economy: "Economía", nav_social: "Social",
         nav_wallet: "Conectar Wallet",
         nav_colabs: "COLABS ▼",
         nav_pitch_link: "📖 Pitch & Motivación",
@@ -189,7 +189,7 @@ const TRANSLATIONS = {
         manager_architect: "Architect Signature"
     },
     en: {
-        nav_about: "About", nav_game: "Mini-Game", nav_fixture: "Fixture", nav_roadmap: "Roadmap", nav_social: "Social",
+        nav_about: "About", nav_game: "Mini-Game", nav_fixture: "Fixture", nav_roadmap: "Roadmap", nav_economy: "Economy", nav_social: "Social",
         nav_wallet: "Connect Wallet",
         nav_colabs: "COLLABS ▼",
         nav_pitch_link: "📖 Pitch & Motivation",
