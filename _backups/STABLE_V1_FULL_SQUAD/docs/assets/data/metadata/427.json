@@ -1,0 +1,56 @@
+{
+    "name": "Suiza Star 11 Swap",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Suiza Star 11 Swap (Suiza). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/427_suiza_star_11_swap.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Suiza"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "11"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 58
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 53
+        },
+        {
+            "trait_type": "Hype",
+            "value": 55
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/427_suiza_star_11_swap.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

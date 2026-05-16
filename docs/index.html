@@ -6,7 +6,7 @@
     <title>GoalChain | The Future of Football on Solana</title>
     <meta name="description" content="GoalChain: Play-to-Earn football on Solana. Bet on FIFA World Cup 2026 fixtures, play penalty shootouts, and earn $GCH tokens.">
     <meta name="theme-color" content="#06060a">
-    <link rel="stylesheet" href="assets/css/style.css?v=2.4">
+    <link rel="stylesheet" href="assets/css/style.css?v=3.1">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="assets/img/logo.svg?v=1.0">
     <link rel="shortcut icon" href="assets/img/logo.png">
@@ -103,8 +103,9 @@
             <a href="#pitch" data-i18n="nav_about">Sobre</a>
             <a href="#gameplay" data-i18n="nav_game">Mini-Juego</a>
             <a href="#nfts" data-i18n="nav_nfts">Colección</a>
+            <a href="#manager">Manager</a>
+            <a href="#stadiums">Estadios</a>
             <a href="#roadmap">Roadmap</a>
-            <a href="#marketplace">Market</a>
             <a href="#social" data-i18n="nav_social">Social</a>
             
             <button onclick="openAlphaModal()" class="btn-glow" style="color:var(--primary); background: transparent; font-weight:900; margin-left:15px; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer;">LAUNCH APP</button>
@@ -504,6 +505,84 @@
         </div>
     </section>
 
+    <!-- MANAGER DASHBOARD (ECONOMY V2) -->
+    <section id="manager" class="section container reveal">
+        <h2 class="section-title">Manager <span>Dashboard</span></h2>
+        <p class="section-subtitle">Gestiona tu equipo, controla tu Yield y domina el mercado de transferencias.</p>
+        
+        <div class="manager-dashboard">
+            <div class="manager-profile">
+                <div class="manager-avatar">🤵</div>
+                <h3>GCH Manager</h3>
+                <div class="manager-level-tag">LEVEL 12</div>
+                <div style="margin-top: 20px; text-align: left;">
+                    <p style="font-size: 0.8rem; color: var(--text-dim);">Progreso de Nivel:</p>
+                    <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-top: 5px;">
+                        <div style="width: 65%; height: 100%; background: var(--secondary); border-radius: 3px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="manager-stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem;">
+                <div class="glass-card" style="text-align: left; padding: 1.5rem;">
+                    <span style="font-size: 0.7rem; color: var(--primary);">TOTAL YIELD</span>
+                    <h4 style="font-size: 1.5rem; margin-top: 5px;">452.8 $GCH</h4>
+                    <p style="font-size: 0.7rem; color: var(--text-dim);">+12.5% vs ayer</p>
+                </div>
+                <div class="glass-card" style="text-align: left; padding: 1.5rem;">
+                    <span style="font-size: 0.7rem; color: var(--gold);">ASSETS VALUATION</span>
+                    <h4 style="font-size: 1.5rem; margin-top: 5px;">124.5 SOL</h4>
+                    <p style="font-size: 0.7rem; color: var(--text-dim);">Equipos + Jugadores</p>
+                </div>
+                <div class="glass-card" style="text-align: left; padding: 1.5rem;">
+                    <span style="font-size: 0.7rem; color: var(--secondary);">SPONSORSHIPS</span>
+                    <h4 style="font-size: 1.5rem; margin-top: 5px;">3 ACTIVOS</h4>
+                    <p style="font-size: 0.7rem; color: var(--text-dim);">Cobra de promesas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RWA STADIUMS (ECONOMY V2) -->
+    <section id="stadiums" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">RWA <span>Stadiums</span></h2>
+            <p class="section-subtitle">Sé el dueño de la sede del Mundial. Genera ingresos por cada entrada digital vendida.</p>
+            
+            <div class="stadium-grid">
+                <div class="stadium-card reveal">
+                    <div class="stadium-img" style="background-image: url('assets/img/stadiums/lusail_hologram.png'); background-color: #111;">
+                        <div class="stadium-yield-info">Est. Yield: 15% APY</div>
+                    </div>
+                    <div class="stadium-details">
+                        <h4>Lusail Digital Arena</h4>
+                        <p>Sede de la Gran Final. Máximo tráfico de usuarios y multiplicador de apuestas.</p>
+                        <button class="btn btn-secondary btn-sm" style="width: 100%;">EXPLORAR ACCIONES</button>
+                    </div>
+                </div>
+                <div class="stadium-card reveal">
+                    <div class="stadium-img" style="background-image: url('assets/img/stadiums/azteca_cyber.png'); background-color: #111;">
+                        <div class="stadium-yield-info">Est. Yield: 12% APY</div>
+                    </div>
+                    <div class="stadium-details">
+                        <h4>Estadio Azteca 3.0</h4>
+                        <p>Histórica sede renovada con oráculos de asistencia en tiempo real.</p>
+                        <button class="btn btn-secondary btn-sm" style="width: 100%;">EXPLORAR ACCIONES</button>
+                    </div>
+                </div>
+                <div class="stadium-card reveal">
+                    <div class="stadium-img" style="background-image: url('assets/img/stadiums/metlife_neon.png'); background-color: #111;">
+                        <div class="stadium-yield-info">Est. Yield: 10% APY</div>
+                    </div>
+                    <div class="stadium-details">
+                        <h4>MetLife Tech Center</h4>
+                        <p>Sede principal de los partidos de la costa este. Alta estabilidad de rentas.</p>
+                        <button class="btn btn-secondary btn-sm" style="width: 100%;">EXPLORAR ACCIONES</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Full Screen Reveal Overlay (Hidden by default) -->
     <div id="revealModal" class="reveal-overlay">
         <canvas id="revealParticles" class="particle-canvas"></canvas>
@@ -814,18 +893,18 @@
         }, 2000);
     </script>
 
-    <script src="assets/js/i18n.js?v=2.3"></script>
-    <script src="assets/js/app.js?v=2.3"></script>
-    <script src="assets/js/marketplace.js"></script>
-    <script src="assets/js/leaderboard.js"></script>
-    <script src="assets/js/mint_engine.js"></script>
-    <script src="assets/js/penalty_game.js?v=3.0"></script>
+    <script src="assets/js/i18n.js?v=3.0"></script>
+    <script src="assets/js/app.js?v=3.0"></script>
+    <script src="assets/js/marketplace.js?v=3.0"></script>
+    <script src="assets/js/leaderboard.js?v=3.0"></script>
+    <script src="assets/js/mint_engine.js?v=3.0"></script>
+    <script src="assets/js/penalty_game.js?v=4.0"></script>
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
-    <script src="assets/js/notification_manager.js"></script>
-    <script src="assets/js/solana_integration.js?v=2.3"></script>
-    <script src="assets/js/contract_data.js?v=2.3"></script>
-    <script src="assets/js/nft_registry.js?v=2.3"></script>
-    <script src="assets/js/pack_opener.js?v=2.3"></script>
+    <script src="assets/js/notification_manager.js?v=3.0"></script>
+    <script src="assets/js/solana_integration.js?v=3.0"></script>
+    <script src="assets/js/contract_data.js?v=3.0"></script>
+    <script src="assets/js/nft_registry.js?v=3.0"></script>
+    <script src="assets/js/pack_opener.js?v=3.0"></script>
     <!-- DIALECT NOTIFICATION INBOX -->
     <div id="notifInbox" class="notif-inbox" style="position:fixed; top:80px; right:20px; width:320px; background:rgba(6,6,10,0.95); backdrop-filter:blur(20px); border:1px solid var(--primary); border-radius:16px; transform:translateX(400px); transition:transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index:1000; box-shadow: 0 10px 40px rgba(0,0,0,0.8);">
         <div class="notif-header" style="padding:15px; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
