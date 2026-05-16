@@ -1,0 +1,56 @@
+{
+    "name": "Joshua Bit-mmi",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Joshua Bit-mmi (Alemania). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/026_joshua_bit_mmi.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Alemania"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "6"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 82
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 85
+        },
+        {
+            "trait_type": "Hype",
+            "value": 90
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/026_joshua_bit_mmi.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
