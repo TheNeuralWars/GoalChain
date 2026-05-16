@@ -187,7 +187,7 @@ class PenaltyGame {
 
         this.updateStatsUI();
         this.gameState = 'RESULT';
-        setTimeout(() => this.reset(), 2000);
+        setTimeout(() => this.reset(), 1000);
     }
 
     spawnParticles(x, y, color) {
