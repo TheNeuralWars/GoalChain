@@ -2180,3 +2180,72 @@ body {
     color: #fff;
     transform: scale(1.02);
 }
+
+/* ==========================================================================
+   📱 MOBILE OPTIMIZATIONS (Infinity Era v3.1)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Live Stats Bar */
+    .reveal[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        margin-top: 30px !important;
+    }
+    
+    .reveal .glass-card {
+        padding: 20px !important;
+    }
+
+    /* Manager Office Dashboard */
+    #managerTab .app-card:first-child div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    #managerTab > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    .sidebar-info {
+        order: -1; /* Mover la licencia y el Vault arriba en móviles */
+        margin-bottom: 30px;
+    }
+
+    /* Manager License Card */
+    .manager-license-card {
+        padding: 15px !important;
+    }
+
+    /* DAO Proposal Form */
+    #daoProposalForm {
+        padding: 15px !important;
+    }
+    
+    #daoProposalForm h5 {
+        font-size: 0.75rem !important;
+    }
+
+    /* Future Games Hover Detail Box */
+    .game-detail-box {
+        font-size: 0.7rem !important;
+        padding: 20px !important;
+    }
+
+    /* Roadmap Carousel Adjustment */
+    .roadmap-carousel .group-grid {
+        gap: 15px !important;
+        padding-left: 10px !important;
+    }
+}
+
+/* Specific Fix for very small screens (iPhone SE, etc) */
+@media (max-width: 380px) {
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+    
+    #statStaked, #statMarketCap, #statHolders {
+        font-size: 1.4rem !important;
+    }
+}
