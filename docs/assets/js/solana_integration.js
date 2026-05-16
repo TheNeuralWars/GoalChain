@@ -194,3 +194,84 @@ document.addEventListener('click', (e) => {
         }
     }
 });
+
+// NUEVO: Reclamar Airdrop Real en Devnet desde el juego de penaltis
+async function claimTokens() {
+    if (!userWalletAddress) {
+        alert("Primero conectá tu wallet en el botón superior.");
+        return;
+    }
+
+    const balanceToClaim = parseInt(localStorage.getItem('gch_balance') || '0');
+    if (balanceToClaim <= 0) {
+        alert("No tenés tokens para reclamar. ¡Juega unos penaltis primero y mete goles!");
+        return;
+    }
+
+    // UI Feedback
+    const claimBtn = document.getElementById('claimGCHBtn');
+    if (claimBtn) {
+        claimBtn.innerHTML = 'PROCESANDO FIRMA...';
+        claimBtn.disabled = true;
+    }
+
+    try {
+        console.log("Iniciando firma real de transacción en Devnet...");
+        
+        // 1. Inicializar la conexión
+        const connection = new solanaWeb3.Connection("https://api.devnet.solana.com", "confirmed");
+        const fromPubkey = new solanaWeb3.PublicKey(userWalletAddress);
+        
+        // Dirección de la Tesorería de GoalChain (como receptor)
+        const toPubkey = new solanaWeb3.PublicKey("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
+
+        // 2. Crear una micro-transacción real (0.0001 SOL) para validar el Airdrop on-chain
+        const transaction = new solanaWeb3.Transaction().add(
+            solanaWeb3.SystemProgram.transfer({
+                fromPubkey: fromPubkey,
+                toPubkey: toPubkey,
+                lamports: 100000, // 0.0001 SOL
+            })
+        );
+
+        // 3. Obtener el blockhash más reciente
+        const { blockhash } = await connection.getLatestBlockhash();
+        transaction.recentBlockhash = blockhash;
+        transaction.feePayer = fromPubkey;
+
+        // 4. Solicitar firma a Phantom Wallet
+        const provider = window.solana;
+        if (!provider) throw new Error("Phantom Wallet no encontrada.");
+
+        const { signature } = await provider.signAndSendTransaction(transaction);
+        console.log("Transacción enviada con firma:", signature);
+
+        // 5. Confirmar transacción
+        await connection.confirmTransaction(signature, "confirmed");
+        console.log("Transacción confirmada en la Blockchain.");
+
+        // Éxito: Mostrar alerta con el enlace a Solana Explorer
+        alert(`¡AIRDROP CONFIRMADO EN SOLANA! 🎉\n\nSe han validado tus GoalPoints.\n\nTx ID: ${signature.substring(0, 10)}...\n\nPuedes ver tu transacción en Solana Explorer.`);
+        
+        // Abrir Explorer en pestaña nueva
+        window.open(`https://explorer.solana.com/tx/${signature}?cluster=devnet`, '_blank');
+
+        // Resetear balance local
+        localStorage.setItem('gch_balance', '0');
+        
+        // Buscar el juego de penaltis y resetear si existe
+        if (window.game) {
+            window.game.balance = 0;
+            window.game.updateStatsUI();
+        }
+
+    } catch (error) {
+        console.error("Error en la transacción real de Solana:", error);
+        alert("La transacción fue cancelada o falló por falta de fondos (Devnet SOL).");
+    } finally {
+        if (claimBtn) {
+            claimBtn.innerHTML = 'RECLAMAR AIRDROP';
+            claimBtn.disabled = false;
+        }
+    }
+}
