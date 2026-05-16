@@ -183,6 +183,7 @@
         <a href="#gameplay" data-i18n="nav_game" onclick="closeMobile()">Mini-Juego</a>
         <a href="#fixture" data-i18n="nav_fixture" onclick="closeMobile()">Fixture</a>
         <a href="#roadmap" data-i18n="nav_roadmap" onclick="closeMobile()">Roadmap</a>
+        <a href="#economics" data-i18n="nav_economy" onclick="closeMobile()">Economía</a>
         <a href="#social" data-i18n="nav_social" onclick="closeMobile()">Social</a>
     </div>
 
@@ -254,6 +255,48 @@
             <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('pitchCarousel', 1)">❯</button>
         </div>
     </section>
+
+    <!-- TOKENOMICS SECTION -->
+    <section id="economics" class="section reveal" style="background: linear-gradient(rgba(6, 6, 10, 0.8), rgba(6, 6, 10, 0.9)), url('assets/img/bg/vault_bg.png'); background-size: cover; background-position: center; background-attachment: fixed; border-top: 1px solid rgba(153, 69, 255, 0.2); border-bottom: 1px solid rgba(153, 69, 255, 0.2);">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <span class="hero-badge" data-i18n="econ_badge">ECONOMÍA SOSTENIBLE</span>
+                <h2 class="section-title" data-i18n="econ_title">Tokenomics 2.0</h2>
+                <p class="section-subtitle" data-i18n="econ_sub">Un ecosistema diseñado para durar. Transparente, circular y rentable.</p>
+            </div>
+
+            <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 2rem; font-size: 0.9rem; line-height:1.6;">
+                <b data-i18n="econ_flow_title">FLUJO ECONÓMICO:</b> <br>
+                <span data-i18n-html="econ_flow_desc">Apostadores → Pools Parimutuel (Solana) → 90% Ganadores / 10% Comisiones <br> Distribución → 40% Jackpot 🏆 / 30% Infinity Buy-back (Yield SOL/BTC) 🔥 / 30% Desarrollo 🛠️</span>
+            </div>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('econCarousel', -1)">❮</button>
+                <div class="carousel-container roadmap-carousel" id="econCarousel" style="padding: 20px 0;">
+                    <div class="group-grid" style="padding-left: 20px;">
+                        <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; border-color: var(--primary);">
+                            <div class="feature-icon" style="font-size: 2.5rem;">📈</div>
+                            <h3 data-i18n="econ_feat1_t">Emisión Controlada</h3>
+                            <p data-i18n-html="econ_feat1_d">Sí, el token es inflacionario para recompensar la participación (Yield de NFTs y premios). Esta emisión incentiva la entrada constante de nuevos usuarios al ecosistema.</p>
+                        </div>
+                        <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; border-color: #ff4d6a;">
+                            <div class="feature-icon" style="font-size: 2.5rem;">🔥</div>
+                            <h3 data-i18n="econ_feat2_t">Quema Deflacionaria</h3>
+                            <p data-i18n-html="econ_feat2_d">El 10% de CADA APUESTA se quema o va al Jackpot. Mientras más juegue la comunidad, mayor es la reducción de liquidez circulante, contrarrestando la inflación.</p>
+                        </div>
+                        <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; border-color: var(--secondary);">
+                            <div class="feature-icon" style="font-size: 2.5rem;">⚙️</div>
+                            <h3 data-i18n="econ_feat3_t">Sumideros de Mantenimiento</h3>
+                            <p data-i18n-html="econ_feat3_d">Los NFTs 'Genesis' se cansan. Los usuarios DEBEN gastar tokens para recuperar la energía (stamina) de sus jugadores si quieren seguir cobrando recompensas.</p>
+                        </div>
+                        <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; border-color: #00e0ff;">
+                            <div class="feature-icon" style="font-size: 2.5rem;">⚖️</div>
+                            <h3 data-i18n="econ_feat4_t">El Equilibrio Perfecto</h3>
+                            <p data-i18n-html="econ_feat4_d">La inflación atrae capital nuevo. El juego incentiva el gasto constante. El resultado es una economía circular donde el valor del token se sostiene por la utilidad real.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('econCarousel', 1)">❯</button>
+            </div>
 
     <!-- GAMEPLAY -->
     <section id="gameplay" class="section section-dark">
@@ -395,48 +438,6 @@
             <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('roadmapCarousel', 1)">❯</button>
         </div>
     </section>
-
-    <!-- TOKENOMICS SECTION -->
-    <section id="economics" class="section reveal" style="background: linear-gradient(rgba(6, 6, 10, 0.8), rgba(6, 6, 10, 0.9)), url('assets/img/bg/vault_bg.png'); background-size: cover; background-position: center; background-attachment: fixed; border-top: 1px solid rgba(153, 69, 255, 0.2); border-bottom: 1px solid rgba(153, 69, 255, 0.2);">
-        <div class="container">
-            <div class="section-header" style="text-align: center;">
-                <span class="hero-badge" data-i18n="econ_badge">ECONOMÍA SOSTENIBLE</span>
-                <h2 class="section-title" data-i18n="econ_title">Tokenomics 2.0</h2>
-                <p class="section-subtitle" data-i18n="econ_sub">Un ecosistema diseñado para durar. Transparente, circular y rentable.</p>
-            </div>
-
-            <div class="carousel-hint reveal" style="text-align:center; color:var(--text-dim); margin-bottom: 2rem; font-size: 0.9rem; line-height:1.6;">
-                <b data-i18n="econ_flow_title">FLUJO ECONÓMICO:</b> <br>
-                <span data-i18n-html="econ_flow_desc">Apostadores → Pools Parimutuel (Solana) → 90% Ganadores / 10% Comisiones <br> Distribución → 40% Jackpot 🏆 / 30% Infinity Buy-back (Yield SOL/BTC) 🔥 / 30% Desarrollo 🛠️</span>
-            </div>
-            <div class="carousel-wrapper">
-                <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('econCarousel', -1)">❮</button>
-                <div class="carousel-container roadmap-carousel" id="econCarousel" style="padding: 20px 0;">
-                    <div class="group-grid" style="padding-left: 20px;">
-                        <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; border-color: var(--primary);">
-                            <div class="feature-icon" style="font-size: 2.5rem;">📈</div>
-                            <h3 data-i18n="econ_feat1_t">Emisión Controlada</h3>
-                            <p data-i18n-html="econ_feat1_d">Sí, el token es inflacionario para recompensar la participación (Yield de NFTs y premios). Esta emisión incentiva la entrada constante de nuevos usuarios al ecosistema.</p>
-                        </div>
-                        <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; border-color: #ff4d6a;">
-                            <div class="feature-icon" style="font-size: 2.5rem;">🔥</div>
-                            <h3 data-i18n="econ_feat2_t">Quema Deflacionaria</h3>
-                            <p data-i18n-html="econ_feat2_d">El 10% de CADA APUESTA se quema o va al Jackpot. Mientras más juegue la comunidad, mayor es la reducción de liquidez circulante, contrarrestando la inflación.</p>
-                        </div>
-                        <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; border-color: var(--secondary);">
-                            <div class="feature-icon" style="font-size: 2.5rem;">⚙️</div>
-                            <h3 data-i18n="econ_feat3_t">Sumideros de Mantenimiento</h3>
-                            <p data-i18n-html="econ_feat3_d">Los NFTs 'Genesis' se cansan. Los usuarios DEBEN gastar tokens para recuperar la energía (stamina) de sus jugadores si quieren seguir cobrando recompensas.</p>
-                        </div>
-                        <div class="glass-card feature-card" style="width: 260px; max-width: 260px; flex-shrink: 0; border-color: #00e0ff;">
-                            <div class="feature-icon" style="font-size: 2.5rem;">⚖️</div>
-                            <h3 data-i18n="econ_feat4_t">El Equilibrio Perfecto</h3>
-                            <p data-i18n-html="econ_feat4_d">La inflación atrae capital nuevo. El juego incentiva el gasto constante. El resultado es una economía circular donde el valor del token se sostiene por la utilidad real.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('econCarousel', 1)">❯</button>
-            </div>
         </div>
     </section>
     <!-- PACK OPENING SECTION -->
