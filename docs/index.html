@@ -690,42 +690,61 @@
     </section>
 
     <section id="social" class="section">
-        <h2 class="section-title reveal"><span data-i18n="soc_title">Gana GoalPoints</span></h2>
-        <p class="section-subtitle reveal" data-i18n="soc_sub">Completa tareas sociales para acumular puntos antes del lanzamiento. Los puntos se convertirán en tokens $GCH en el airdrop oficial.</p>
-        <div class="points-bar reveal">
-            <div class="points-label" data-i18n="soc_your_pts">TUS GOALPOINTS</div>
-            <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
-                <div class="points-total" id="totalPoints">0</div>
-                <span id="userTierBadge" style="font-size:0.65rem;font-weight:900;letter-spacing:1px;border:1px solid #8a8a9a;color:#8a8a9a;padding:3px 10px;border-radius:4px;">COMMON</span>
+        <h2 class="section-title reveal"><span data-i18n="soc_title">Únete a Zealy Quests</span></h2>
+        <p class="section-subtitle reveal" data-i18n="soc_sub">Completa tareas y misiones en nuestro espacio oficial de Zealy para ganar XP. ¡El XP acumulado se convertirá en tokens $GCH en el airdrop oficial!</p>
+        
+        <div class="container" style="max-width: 1000px; margin-top: 3rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+                
+                <!-- Columna 1: Zealy Questboard CTA -->
+                <div class="glass-card reveal" style="text-align: left; padding: 40px; border-color: var(--primary); display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(20,241,149,0.05) 0%, rgba(13,13,21,0.95) 100%);">
+                    <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(20,241,149,0.15) 0%, transparent 70%); pointer-events: none;"></div>
+                    
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <span class="badge" style="background: rgba(20,241,149,0.2); color: #14f195; border: 1px solid #14f195; font-size: 0.7rem; font-weight: 900; letter-spacing: 1px; padding: 4px 10px; border-radius: 6px;">CAMPAÑA ACTIVA</span>
+                            <span style="font-size: 0.75rem; color: var(--text-dim); font-weight: 700;">TEMPORADA 1</span>
+                        </div>
+                        <h3 style="font-size: 1.8rem; font-weight: 900; color: #fff; margin-bottom: 15px; line-height: 1.2;">GoalChain <span style="color: var(--primary);">Questroom</span></h3>
+                        <p style="font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 25px;">
+                            Entra a nuestra plataforma oficial de Zealy, completa misiones diarias y semanales, interactúa en redes sociales y sube de nivel para multiplicar tu asignación del Airdrop de $GCH.
+                        </p>
+                        
+                        <div style="margin-bottom: 30px;">
+                            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 12px; font-size: 0.85rem; color: #fff;">
+                                <span style="color: var(--primary);">✔</span> <b>Social Quests:</b> Follow, Like, Repost en 𝕏
+                            </div>
+                            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 12px; font-size: 0.85rem; color: #fff;">
+                                <span style="color: var(--primary);">✔</span> <b>Discord Quests:</b> Consigue roles exclusivos de Degen
+                            </div>
+                            <div style="display: flex; gap: 10px; align-items: center; font-size: 0.85rem; color: #fff;">
+                                <span style="color: var(--primary);">✔</span> <b>Game Quests:</b> Comparte tus rachas de Penaltis
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://zealy.io/c/goalchain" target="_blank" class="btn btn-primary btn-glow" style="width: 100%; text-align: center; padding: 16px 20px; font-size: 1rem; font-weight: 900; letter-spacing: 1px; display: inline-block; text-decoration: none; border-radius: 12px;">
+                        🔗 IR A ZEALY QUESTROOM
+                    </a>
+                </div>
+                
+                <!-- Columna 2: Discord & Social Proof -->
+                <div class="glass-card reveal" style="text-align: left; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; border-color: rgba(255,255,255,0.05); background: rgba(13, 13, 21, 0.8);">
+                    <div>
+                        <h4 style="color: var(--secondary); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 10px; font-weight: 900;">COMUNIDAD REAL-TIME</h4>
+                        <h3 style="font-size: 1.4rem; font-weight: 900; color: #fff; margin-bottom: 15px;">Únete al Servidor de Discord</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 25px;">
+                            La trinchera de los degens. Debate fixture, recibe alertas en tiempo real, participa en trivias y reclama tu rol de Genesis Manager.
+                        </p>
+                    </div>
+                    
+                    <!-- Discord Widget Integration -->
+                    <div style="margin-top: 10px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+                        <iframe src="https://discord.com/widget?id=1503668119053406330&theme=dark" width="100%" height="240" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                    </div>
+                </div>
+                
             </div>
-            <p style="font-size:0.75rem;color:var(--text-dim);margin-top:0.5rem;" data-i18n="soc_connect_info">Conecta tu wallet para guardar tus puntos en el ranking global</p>
-            <p id="userPosition" style="display:none;font-size:0.8rem;color:var(--text-dim);margin-top:0.5rem;"></p>
-        </div>
-
-        <!-- AIRDROP LEADERBOARD -->
-        <div class="glass-card reveal" style="margin-top:3rem; padding:30px;">
-            <h3 style="text-align:center; color:var(--primary); margin-bottom:20px;">🏆 AIRDROP LEADERBOARD (LIVE)</h3>
-            <div style="overflow-x:auto;">
-                <table id="leaderboardTable" style="width:100%; border-collapse:collapse; font-size:0.9rem;">
-                    <thead>
-                        <tr style="border-bottom:1px solid rgba(255,255,255,0.1); color:var(--text-dim); font-size:0.7rem; text-align:left;">
-                            <th style="padding:10px;">RANGO</th>
-                            <th style="padding:10px;">USUARIO</th>
-                            <th style="padding:10px;">GOLES</th>
-                            <th style="padding:10px;">TIER AIRDROP</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Cargado dinámicamente por leaderboard.js desde Google Sheets -->
-                    </tbody>
-                </table>
-            </div>
-            <p style="text-align:center; margin-top:20px; font-size:0.75rem; color:var(--text-dim);">☁️ Datos guardados en servidor real • Snapshot Final: 10 de Junio 2026</p>
-        </div>
-        <div class="social-grid" id="socialGrid"></div>
-        <div style="text-align:center;margin-top:2rem;">
-            <p style="font-size:0.8rem;color:var(--text-dim);" data-i18n="soc_ref_label">Tu enlace de referidos:</p>
-            <p id="referral-link-display" style="color:var(--primary);font-size:0.85rem;word-break:break-all;margin-top:0.3rem;" data-i18n="soc_ref_placeholder">Conecta tu wallet para generar...</p>
         </div>
     </section>
 
