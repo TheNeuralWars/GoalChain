@@ -37,26 +37,52 @@ class LiveEngine {
     }
 
     /**
-     * 🎮 Handles hover effects for future games list
+     * 🎮 Handles hover effects for future games list with full bilingual support
      */
     initGameHover() {
         const items = document.querySelectorAll('.future-game-item');
         if (!items.length || !this.detailText) return;
 
+        const detailBtn = this.detailBox ? this.detailBox.querySelector('.btn') : null;
+
         items.forEach(item => {
+            item.style.transition = 'all 0.25s ease';
+            item.style.cursor = 'pointer';
+
             item.addEventListener('mouseenter', () => {
-                const desc = item.getAttribute('data-desc');
+                item.style.transform = 'translateX(8px)';
+                
+                // Detect active language
+                const isEn = (typeof currentLang !== 'undefined' && currentLang === 'en');
+                const desc = isEn ? item.getAttribute('data-desc-en') : item.getAttribute('data-desc-es');
                 const color = window.getComputedStyle(item).color;
                 
-                this.detailText.innerText = desc;
-                this.detailBox.style.borderColor = color;
-                this.detailBox.classList.add('active');
+                this.detailText.innerHTML = desc || '';
+                this.detailBox.style.borderStyle = 'solid';
+                this.detailBox.style.borderColor = color || 'var(--secondary)';
+                this.detailBox.style.boxShadow = '0 10px 25px rgba(255, 255, 255, 0.05)';
+                
+                if (detailBtn) detailBtn.style.display = 'none';
             });
 
             item.addEventListener('mouseleave', () => {
-                this.detailText.innerText = this.defaultDAOText;
-                this.detailBox.style.borderColor = "var(--secondary)";
-                this.detailBox.classList.remove('active');
+                item.style.transform = 'translateX(0)';
+                
+                // Restore localized default DAO text
+                if (typeof t === 'function') {
+                    this.detailText.textContent = t('dao_title');
+                    if (detailBtn) {
+                        detailBtn.textContent = t('dao_btn');
+                        detailBtn.style.display = 'inline-block';
+                    }
+                } else {
+                    this.detailText.textContent = this.defaultDAOText;
+                    if (detailBtn) detailBtn.style.display = 'inline-block';
+                }
+                
+                this.detailBox.style.borderStyle = 'dashed';
+                this.detailBox.style.borderColor = 'var(--secondary)';
+                this.detailBox.style.boxShadow = 'none';
             });
         });
     }

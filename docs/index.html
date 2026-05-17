@@ -1204,57 +1204,6 @@
             window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
         }
 
-        // Manejador interactivo para las descripciones de los juegos futuros (Roadmap)
-        document.addEventListener('DOMContentLoaded', () => {
-            const gameItems = document.querySelectorAll('.future-game-item');
-            const detailBox = document.getElementById('gameDetailBox');
-            const detailText = document.getElementById('gameDetailText');
-            const detailBtn = detailBox ? detailBox.querySelector('.btn') : null;
-
-            if (detailBox && detailText) {
-                gameItems.forEach(item => {
-                    // Animación suave de hover en los list items
-                    item.style.transition = 'all 0.25s ease';
-                    item.style.cursor = 'pointer';
-                    
-                    item.addEventListener('mouseenter', () => {
-                        item.style.transform = 'translateX(8px)';
-                        
-                        // Detectar idioma activo del i18n
-                        const isEn = (typeof currentLang !== 'undefined' && currentLang === 'en');
-                        const desc = isEn ? item.getAttribute('data-desc-en') : item.getAttribute('data-desc-es');
-                        
-                        // Actualizar detalles y estilo dinámico
-                        detailText.innerHTML = desc;
-                        detailBox.style.borderStyle = 'solid';
-                        detailBox.style.borderColor = item.style.color || 'var(--secondary)';
-                        detailBox.style.boxShadow = `0 10px 25px rgba(255, 255, 255, 0.05)`;
-                        
-                        if (detailBtn) detailBtn.style.display = 'none';
-                    });
-                    
-                    item.addEventListener('mouseleave', () => {
-                        item.style.transform = 'translateX(0)';
-                        
-                        // Restaurar texto localizado
-                        if (typeof t === 'function') {
-                            detailText.textContent = t('dao_title');
-                            if (detailBtn) {
-                                detailBtn.textContent = t('dao_btn');
-                                detailBtn.style.display = 'inline-block';
-                            }
-                        } else {
-                            detailText.textContent = "SÉ PARTE DE LA DAO Y PROPONE UN NUEVO JUEGO 🏛️";
-                            if (detailBtn) detailBtn.style.display = 'inline-block';
-                        }
-                        
-                        detailBox.style.borderStyle = 'dashed';
-                        detailBox.style.borderColor = 'var(--secondary)';
-                        detailBox.style.boxShadow = 'none';
-                    });
-                });
-            }
-        });
         // Lógica Interactiva para la Preventa (IDO)
         function calculatePresaleTokens() {
             const solInput = document.getElementById('presaleSolInput');
