@@ -26,8 +26,17 @@ Backgrounds must immediately signal rarity using specific architectural lighting
 
 ---
 
-## 🚫 3. CRITICAL EXECUTIVE RESTRICTIONS (THE "DON'Ts")
+## 📐 3. ASPECT RATIO & FRAMING PROTOCOL (MANDATORY 3:2 VERTICAL)
+To fit the "Crypto-Panini" trading card template without any stretching or cropping:
+1. **Vertical Composition**: The camera framing must be strictly vertical, capturing the colossal height of the stadium tiers extending upwards.
+2. **Aspect Ratio**: Always specify a **3:2 vertical portrait format** (`aspect ratio 2:3` or parameter `--ar 2:3`).
+3. **Turf Anchor**: The lower third of the vertical frame must remain a textured grass field, keeping the card design grounded.
+
+---
+
+## 🚫 4. CRITICAL EXECUTIVE RESTRICTIONS (THE "DON'Ts")
 To prevent Grok/FLUX from creating bright, messy, or cluttered stadium images:
+* **NO WIDESCREEN OR HORIZONTAL FORMATS**: Never generate horizontal or square formats. All prompts must explicitly request vertical portrait orientation.
 * **NO CLASSIC FLOODLIGHTS**: Never generate giant white stadium floodlights pointing at the camera. All lights must be recessed, indirect, or sutil accent LEDs of the rarity color.
 * **NO CROWDS**: The stadiums must be empty and silent. Do not generate crowds, spectators, or active games on the field.
 * **NO OVERLY SATURATED BEAMS**: No bright laser beams or light spikes cutting through the sky. The light must be low-intensity and elegant.
