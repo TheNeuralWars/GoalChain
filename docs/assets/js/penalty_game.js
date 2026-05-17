@@ -74,17 +74,35 @@ class PenaltyGame {
         const x = (e.clientX - rect.left) * scaleX;
         const y = (e.clientY - rect.top) * scaleY;
 
+        // Calcular la zona de portería más cercana al click para asegurar respuesta al 100%
+        let closestTarget = null;
+        let minDist = Infinity;
+
         for (const target of this.targets) {
-            if (x >= target.x && x <= target.x + target.w && y >= target.y && y <= target.y + target.h) {
-                this.startShot(target);
-                break;
+            const targetCenterX = target.x + target.w / 2;
+            const targetCenterY = target.y + target.h / 2;
+            const dist = Math.hypot(x - targetCenterX, y - targetCenterY);
+            if (dist < minDist) {
+                minDist = dist;
+                closestTarget = target;
             }
+        }
+
+        if (closestTarget) {
+            this.startShot(closestTarget);
         }
     }
 
     startShot(target) {
         if (this.balance < this.currentBet) {
-            this.showToast("Saldo insuficiente");
+            if (window.notifier) {
+                window.notifier.show(
+                    typeof currentLang !== 'undefined' && currentLang === 'en' ? "Insufficient Balance ❌" : "Saldo Insuficiente ❌",
+                    typeof currentLang !== 'undefined' && currentLang === 'en' ? "Claim more $GCH to keep shooting!" : "¡Reclama tu airdrop de prueba para seguir pateando!"
+                );
+            } else {
+                alert(typeof currentLang !== 'undefined' && currentLang === 'en' ? "Insufficient Balance!" : "¡Saldo Insuficiente!");
+            }
             return;
         }
 
@@ -207,6 +225,26 @@ class PenaltyGame {
         if (playerNameUI) {
             playerNameUI.innerText = this.activePlayer.name;
             playerNameUI.style.color = this.getRarityColor(this.activePlayer.rarity);
+        }
+
+        // Marcador e historial (Goles, Atajadas y Racha)
+        const goalsUI = document.getElementById('statGoals');
+        if (goalsUI) goalsUI.innerText = this.goals.toLocaleString();
+
+        const savesUI = document.getElementById('statSaves');
+        if (savesUI) savesUI.innerText = this.saves.toLocaleString();
+
+        const streakUI = document.getElementById('statStreak');
+        if (streakUI) {
+            streakUI.innerText = this.streak.toLocaleString();
+            // Si la racha es alta, agregar una pequeña clase o estilo de fuego neón
+            if (this.streak >= 3) {
+                streakUI.style.textShadow = "0 0 10px #14f195, 0 0 20px #14f195";
+                streakUI.style.color = "#14f195";
+            } else {
+                streakUI.style.textShadow = "none";
+                streakUI.style.color = "";
+            }
         }
     }
 
