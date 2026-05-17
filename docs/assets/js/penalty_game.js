@@ -246,6 +246,21 @@ class PenaltyGame {
                 streakUI.style.color = "";
             }
         }
+
+        // Actualizar botón de reclamar según el saldo
+        const claimBtn = document.getElementById('claimGCHBtn');
+        if (claimBtn) {
+            const isEn = (typeof currentLang !== 'undefined' && currentLang === 'en');
+            if (this.balance <= 0) {
+                claimBtn.innerText = isEn ? "REFUEL BAG (+1K)" : "RECARGAR BOLSA (+1K)";
+                claimBtn.style.background = "linear-gradient(90deg, #ff4d6a, #ff9a33)";
+                claimBtn.style.borderColor = "#ff4d6a";
+            } else {
+                claimBtn.innerText = isEn ? "CLAIM AIRDROP" : "RECLAMAR AIRDROP";
+                claimBtn.style.background = "rgba(153, 69, 255, 0.2)";
+                claimBtn.style.borderColor = "#9945ff";
+            }
+        }
     }
 
     getRarityColor(rarity) {

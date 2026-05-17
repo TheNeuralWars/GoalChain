@@ -5,6 +5,31 @@ async function connectWallet() {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const { solana } = window;
 
+    // Si estamos en un archivo local (file://), la extensión de Phantom no se comunica por seguridad del Sandbox de Chrome.
+    // Ofrecemos un fallback automático en "Modo Desarrollo/Simulación" para no bloquear tus pruebas locales.
+    if (window.location.protocol === 'file:') {
+        console.warn("⚠️ Entorno 'file://' detectado. Conectando en 'Modo Dev/Simulado' para omitir restricciones del Sandbox de Chrome.");
+        const mockAddress = "DevGoaL888888888888888888888888888888888888";
+        userWalletAddress = mockAddress;
+        localStorage.setItem('goalchain_wallet', userWalletAddress);
+        
+        if (window.notifier) {
+            window.notifier.show(
+                typeof currentLang !== 'undefined' && currentLang === 'en' ? "DEV MODE CONNECTED" : "MODO DEV CONECTADO",
+                typeof currentLang !== 'undefined' && currentLang === 'en' ? "Simulating Solana Wallet on local environment." : "Simulando Wallet Solana en entorno local.",
+                'success'
+            );
+        } else {
+            alert("✅ Modo Desarrollador: Conectado con Wallet Simulada.");
+        }
+        
+        updateWalletUI();
+        
+        // Disparar evento para que el juego de penaltis se actualice
+        window.dispatchEvent(new CustomEvent('walletChanged', { detail: { publicKey: mockAddress } }));
+        return;
+    }
+
     // Lógica para Móvil (Deep Linking)
     if (isMobile && !solana) {
         const currentUrl = encodeURIComponent(window.location.href);
@@ -198,13 +223,35 @@ document.addEventListener('click', (e) => {
 // NUEVO: Reclamar Airdrop Real en Devnet desde el juego de penaltis
 async function claimTokens() {
     if (!userWalletAddress) {
-        alert("Primero conectá tu wallet en el botón superior.");
+        if (window.notifier) {
+            window.notifier.show(
+                typeof currentLang !== 'undefined' && currentLang === 'en' ? "CONNECT WALLET" : "CONECTAR WALLET",
+                typeof currentLang !== 'undefined' && currentLang === 'en' ? "Connect your wallet at the top right first." : "Primero conectá tu wallet en el botón superior."
+            );
+        } else {
+            alert("Primero conectá tu wallet en el botón superior.");
+        }
         return;
     }
 
     const balanceToClaim = parseInt(localStorage.getItem('gch_balance') || '0');
+    
+    // CASO 1: Si el saldo es 0 o negativo, hacemos una recarga gratis de 1000 tokens para que no se tranque el juego!
     if (balanceToClaim <= 0) {
-        alert("No tenés tokens para reclamar. ¡Juega unos penaltis primero y mete goles!");
+        localStorage.setItem('gch_balance', '1000');
+        if (window.game) {
+            window.game.balance = 1000;
+            window.game.updateStatsUI();
+        }
+        
+        if (window.notifier) {
+            window.notifier.show(
+                typeof currentLang !== 'undefined' && currentLang === 'en' ? "REFUEL SUCCESSFUL ⚡" : "RECARGA EXITOSA ⚡",
+                typeof currentLang !== 'undefined' && currentLang === 'en' ? "Received 1,000 $GCH to keep playing!" : "¡Recibiste 1,000 $GCH gratis para seguir jugando!"
+            );
+        } else {
+            alert("⚡ ¡Recarga exitosa! Recibiste 1,000 $GCH.");
+        }
         return;
     }
 
@@ -213,6 +260,39 @@ async function claimTokens() {
     if (claimBtn) {
         claimBtn.innerHTML = 'PROCESANDO FIRMA...';
         claimBtn.disabled = true;
+    }
+
+    // CASO 2: Si estamos en Modo Dev/Simulado con la wallet mock, simulamos la transacción blockchain
+    if (userWalletAddress.startsWith("DevGoaL")) {
+        console.log("Simulando firma de transacción en Devnet para entorno local...");
+        if (claimBtn) {
+            claimBtn.innerHTML = 'PROCESANDO FIRMA (MOCK)...';
+        }
+        
+        setTimeout(() => {
+            if (window.notifier) {
+                window.notifier.show(
+                    typeof currentLang !== 'undefined' && currentLang === 'en' ? "AIRDROP CLAIMED 🎉" : "AIRDROP COMPLETADO 🎉",
+                    typeof currentLang !== 'undefined' && currentLang === 'en' ? `Validated ${balanceToClaim} $GCH in dev mode.` : `Se validaron tus ${balanceToClaim} $GCH en modo desarrollo.`,
+                    'success'
+                );
+            } else {
+                alert(`¡AIRDROP SIMULADO! 🎉\n\nSe han validado tus ${balanceToClaim} $GCH en modo desarrollo.`);
+            }
+            
+            // Resetear balance local
+            localStorage.setItem('gch_balance', '0');
+            if (window.game) {
+                window.game.balance = 0;
+                window.game.updateStatsUI();
+            }
+            
+            if (claimBtn) {
+                claimBtn.innerHTML = typeof currentLang !== 'undefined' && currentLang === 'en' ? "CLAIM AIRDROP" : "RECLAMAR AIRDROP";
+                claimBtn.disabled = false;
+            }
+        }, 1500);
+        return;
     }
 
     try {
