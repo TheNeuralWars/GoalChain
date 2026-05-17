@@ -709,8 +709,12 @@
         <p class="section-subtitle reveal" data-i18n="soc_sub">Completa tareas sociales para acumular puntos antes del lanzamiento. Los puntos se convertirán en tokens $GCH en el airdrop oficial.</p>
         <div class="points-bar reveal">
             <div class="points-label" data-i18n="soc_your_pts">TUS GOALPOINTS</div>
-            <div class="points-total" id="totalPoints">0</div>
-            <p style="font-size:0.75rem;color:var(--text-dim);margin-top:0.5rem;" data-i18n="soc_connect_info">Conecta tu wallet para comenzar</p>
+            <div style="display:flex;align-items:center;justify-content:center;gap:12px;">
+                <div class="points-total" id="totalPoints">0</div>
+                <span id="userTierBadge" style="font-size:0.65rem;font-weight:900;letter-spacing:1px;border:1px solid #8a8a9a;color:#8a8a9a;padding:3px 10px;border-radius:4px;">COMMON</span>
+            </div>
+            <p style="font-size:0.75rem;color:var(--text-dim);margin-top:0.5rem;" data-i18n="soc_connect_info">Conecta tu wallet para guardar tus puntos en el ranking global</p>
+            <p id="userPosition" style="display:none;font-size:0.8rem;color:var(--text-dim);margin-top:0.5rem;"></p>
         </div>
 
         <!-- AIRDROP LEADERBOARD -->
@@ -727,28 +731,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                            <td style="padding:15px; font-weight:900; color:#ffd700;">#1</td>
-                            <td style="padding:15px;">SolanaWhale.sol</td>
-                            <td style="padding:15px; color:var(--primary);">4,820</td>
-                            <td style="padding:15px;"><span class="badge" style="background:#ffd700; color:black;">MYTHIC</span></td>
-                        </tr>
-                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                            <td style="padding:15px; font-weight:900; color:#c0c0c0;">#2</td>
-                            <td style="padding:15px;">DegenKing.sol</td>
-                            <td style="padding:15px; color:var(--primary);">3,550</td>
-                            <td style="padding:15px;"><span class="badge" style="background:#c0c0c0; color:black;">LEGENDARY</span></td>
-                        </tr>
-                        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                            <td style="padding:15px; font-weight:900; color:#cd7f32;">#3</td>
-                            <td style="padding:15px;">NicoPez.sol</td>
-                            <td style="padding:15px; color:var(--primary);">2,890</td>
-                            <td style="padding:15px;"><span class="badge" style="background:#cd7f32; color:black;">EPIC</span></td>
-                        </tr>
+                        <!-- Cargado dinámicamente por leaderboard.js desde Google Sheets -->
                     </tbody>
                 </table>
             </div>
-            <p style="text-align:center; margin-top:20px; font-size:0.75rem; color:var(--text-dim);">Actualizado cada 60 segundos • Snapshot Final: 30 de Mayo</p>
+            <p style="text-align:center; margin-top:20px; font-size:0.75rem; color:var(--text-dim);">☁️ Datos guardados en servidor real • Snapshot Final: 10 de Junio 2026</p>
         </div>
         <div class="social-grid" id="socialGrid"></div>
         <div style="text-align:center;margin-top:2rem;">
@@ -873,10 +860,11 @@
         <h2 class="section-title reveal"><span data-i18n="team_title">El Equipo</span></h2>
         <p class="section-subtitle reveal" data-i18n="team_sub">Tres hermanos, una pasión: el fútbol y la blockchain.</p>
         <div class="team-grid">
-            <div class="glass-card team-card reveal">
+            <div class="glass-card team-card reveal" onclick="openFounderModal()" style="cursor: pointer; border-color: var(--primary); box-shadow: 0 0 15px rgba(20,241,149,0.1);">
                 <div class="team-avatar">🧠</div>
                 <h3 data-i18n="team1_name">Fundador</h3>
                 <p data-i18n="team1_role">Visionario & Lead Dev</p>
+                <div style="font-size: 0.65rem; color: var(--primary); margin-top: 10px; letter-spacing: 1px; font-weight: 900;">LEER MANIFIESTO ➔</div>
             </div>
             <div class="glass-card team-card reveal">
                 <div class="team-avatar">📊</div>
@@ -985,7 +973,8 @@
     <script src="assets/js/i18n.js?v=3.0"></script>
     <script src="assets/js/app.js?v=3.0"></script>
     <script src="assets/js/marketplace.js?v=3.0"></script>
-    <script src="assets/js/leaderboard.js?v=3.0"></script>
+    <script src="assets/js/goalpoints_api.js?v=1.0"></script>
+    <script src="assets/js/leaderboard.js?v=4.0"></script>
     <script src="assets/js/mint_engine.js?v=3.0"></script>
     <script src="assets/js/penalty_game.js?v=4.0"></script>
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
@@ -1029,6 +1018,53 @@
     <script>
         function openAlphaModal() { document.getElementById('alphaModal').style.display = 'block'; }
         function closeAlphaModal() { document.getElementById('alphaModal').style.display = 'none'; }
+    </script>
+    
+    <!-- FOUNDER MANIFESTO MODAL -->
+    <div id="founderModal" class="modal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9); backdrop-filter:blur(15px); overflow-y:auto;">
+        <div class="modal-content glass-card" style="position:relative; margin: 40px auto; width:90%; max-width:700px; padding:40px; text-align:left; border: 1px solid var(--primary); background: rgba(10, 10, 15, 0.95);">
+            <button onclick="closeFounderModal()" style="position: absolute; right: 20px; top: 20px; background:transparent; border:none; color:var(--text-dim); font-size:1.5rem; cursor:pointer;">&times;</button>
+            <div style="font-size:2rem; margin-bottom:10px;">🧠</div>
+            <h2 style="color:#fff; margin-bottom:5px; font-weight: 900; letter-spacing: 1px;">De las Cuerdas al Smart Contract</h2>
+            <h3 style="color:var(--primary); margin-bottom:25px; font-size: 1rem; letter-spacing: 2px;">LA GÉNESIS DE GOALCHAIN</h3>
+            
+            <div style="font-size:0.95rem; color:var(--text-dim); line-height:1.8; margin-bottom:30px;">
+                <p style="margin-bottom: 15px;">Mi nombre es Diego. Si miras hacia arriba en los edificios más altos de Italia, es probable que me veas colgado de una cuerda a decenas de metros del vacío. Soy operador vertical senior. Me gano la vida con un arnés, fuerza bruta y precisión absoluta para sostener a mi familia. He pasado por el sudor de las cocinas en bares y el ruido ensordecedor de la industria metalúrgica. Conozco el trabajo duro.</p>
+                <p style="margin-bottom: 15px;">Pero mientras mis manos están en las cuerdas, mi cabeza lleva años procesando la red: soy un maximalista de la descentralización desde 2017. Para mí, Web3 no es un casino; es el futuro de la economía y la salvación de la libertad financiera.</p>
+                <p style="margin-bottom: 15px;">La epifanía de GoalChain no nació en un laboratorio de Silicon Valley financiado por capital de riesgo. Nació en las trincheras de Discord.</p>
+                
+                <div style="background: rgba(0,0,0,0.5); border-left: 3px solid var(--primary); padding: 15px; margin-bottom: 15px; font-family: monospace; font-size: 0.85rem; color: #ccc;">
+                    <span style="color: #9945ff; font-weight: bold;">[13:34] NicoPez [PLAY]:</span> Estaba debatiendo con un amigo, moderador de Play Solana. Empezamos a hablar del Mundial. Me miró (digitalmente hablando) y soltó una herejía: "Portugal va a eliminar a Argentina en cuartos de final". La sangre me hirvió. Mi respuesta fue inmediata y sin titubeos: "Argentina se lleva la Copa. Apostaría mi NFT más valioso aquí y ahora a que eso pasa".
+                </div>
+                
+                <p style="margin-bottom: 15px;">Y entonces, el silencio. Me di cuenta de un vacío masivo en el ecosistema. No existía una infraestructura trustless, un oráculo deportivo descentralizado y gamificado en Solana que permitiera a los usuarios respaldar su pasión p2p usando sus crypto assets. Las piezas estaban ahí, pero nadie había construido el puente.</p>
+                <p style="margin-bottom: 15px; color: #fff; font-weight: bold;">En ese exacto milisegundo, mi mentalidad cambió. Dije: "Voy a construirlo yo".</p>
+                
+                <p style="margin-bottom: 15px;">No soy un programador de cuna. Vengo de la lógica matemática de la ingeniería y de la expresión del teatro en Córdoba. Soy un non-programmer dev impulsado por pura fuerza de voluntad. Muchos se asustarían ante el desafío de estructurar la arquitectura de un juego P2E, gestionar Compute Units y prevenir ataques de reentrancy. Yo no. El vértigo de desplegar un contrato inteligente en la red principal no es nada comparado con colgarse de un rascacielos.</p>
+                <p style="margin-bottom: 15px;">GoalChain no es solo un juego. Es la respuesta a una necesidad del mercado impulsada por el evento más pasional del planeta. Tengo el coraje, la determinación y la urgencia de un padre de dos hijos que sabe que el tiempo es el activo más escaso.</p>
+                
+                <p style="color: var(--primary); font-weight: bold; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; margin-top: 20px;">Estamos a 30 días de lanzar el MVP en Devnet. El reloj ya está corriendo. Bienvenidos a la revolución de los oráculos deportivos en Solana. Bienvenidos a GoalChain.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openFounderModal() { 
+            document.getElementById('founderModal').style.display = 'block'; 
+            document.body.style.overflow = 'hidden'; // Evita scroll de fondo
+        }
+        function closeFounderModal() { 
+            document.getElementById('founderModal').style.display = 'none'; 
+            document.body.style.overflow = ''; 
+        }
+        
+        // Cerrar modal al clickear afuera
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('founderModal');
+            if (event.target == modal) {
+                closeFounderModal();
+            }
+        });
     </script>
     
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
