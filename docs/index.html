@@ -118,18 +118,17 @@
                     <a href="colabs.html" style="color:var(--primary);" data-i18n="nav_colabs_link">🤝 Portal de Colaboradores</a>
                 </div>
             </div>
+        </div>
 
-            <button id="connectWalletBtn" class="btn-glow" style="margin-left:20px; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: rgba(20, 241, 149, 0.1); border: 1px solid var(--solana-green); color: var(--solana-green); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; padding: 0;" title="Connect Wallet">
+        <div class="nav-right">
+            <button id="connectWalletBtn" class="btn-wallet btn-glow" style="width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: rgba(20, 241, 149, 0.1); border: 1px solid var(--primary); color: var(--primary); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; padding: 0;" title="Connect Wallet">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
                     <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path>
                     <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path>
                 </svg>
             </button>
-        </div>
-
-        <div class="nav-right">
-            <div id="notifBell" class="notif-bell" style="position:relative; margin-right:20px; cursor:pointer; font-size:1.2rem;">
+            <div id="notifBell" class="notif-bell" style="position:relative; cursor:pointer; font-size:1.2rem;">
                 <span class="bell-icon">🔔</span>
                 <span id="notifBadge" class="notif-badge" style="position:absolute; top:-5px; right:-8px; background:#ff4d6a; color:white; font-size:0.65rem; padding:2px 6px; border-radius:10px; font-weight:bold; display:none;">0</span>
             </div>
@@ -1075,45 +1074,8 @@
         });
     </script>
     
-    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
-    <script src="https://unpkg.com/@coral-xyz/anchor@0.29.0/dist/browser/index.js"></script>
-    <script src="assets/js/solana_connector.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const btn = document.getElementById('connectWalletBtn');
-            if(btn) {
-                btn.addEventListener('click', async (e) => {
-                    e.preventDefault();
-                    if (!window.solana) {
-                        alert("Por favor, instala Phantom Wallet para continuar.");
-                        window.open("https://phantom.app/", "_blank");
-                        return;
-                    }
-                    
-                    btn.style.opacity = '0.5';
-                    btn.title = "Conectando...";
-                    
-                    const success = await window.GoalChain.init();
-                    
-                    if (success) {
-                        btn.style.opacity = '1';
-                        btn.style.background = 'rgba(153, 69, 255, 0.2)'; // purple glow
-                        btn.style.borderColor = '#9945ff';
-                        btn.style.color = '#9945ff';
-                        btn.innerHTML = `<span style="font-size:0.6rem; font-weight:900;">${window.GoalChain.getShortWallet()}</span>`;
-                        btn.title = "Wallet Conectada";
-                        
-                        // Guardar en localStorage para app.html
-                        localStorage.setItem('gc_wallet_connected', 'true');
-                        localStorage.setItem('gc_wallet_address', window.GoalChain.wallet.toString());
-                    } else {
-                        btn.style.opacity = '1';
-                        alert("Error al conectar la wallet.");
-                    }
-                });
-            }
-        });
-    </script>
+    <!-- Wallet connection is handled by solana_integration.js (loaded above) -->
+    <!-- solana_connector.js + Anchor removed to avoid duplicate connection conflicts -->
     <script src="assets/js/dialect_app.js?v=2.3"></script>
 
     <!-- MEJORAS UX v2.3 - Feedback visual global -->
