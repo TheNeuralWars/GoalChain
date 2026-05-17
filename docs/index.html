@@ -552,6 +552,118 @@
         <h2 class="section-title reveal"><span data-i18n="fix_title">Fixture — Mundial 2026</span></h2>
         <p class="section-subtitle reveal" data-i18n="fix_sub">48 selecciones, 12 grupos. Toda la acción del torneo integrada en GoalChain para apuestas en tiempo real.</p>
         <div class="fixture-tabs" id="fixtureTabs"></div>
+
+        <!-- STYLE FOR LIVE BETTING ARENA -->
+        <style>
+            .btn-live-select:hover {
+                border-color: var(--primary) !important;
+                background: rgba(20, 241, 149, 0.05) !important;
+                transform: translateY(-2px);
+            }
+            .btn-live-select.selected {
+                border-color: var(--primary) !important;
+                background: linear-gradient(135deg, rgba(20, 241, 149, 0.15), rgba(153, 69, 255, 0.15)) !important;
+                box-shadow: 0 0 15px rgba(20, 241, 149, 0.3) !important;
+            }
+            @media (max-width: 768px) {
+                .live-arena-grid {
+                    grid-template-columns: 1fr !important;
+                    gap: 1.5rem !important;
+                }
+            }
+        </style>
+
+        <!-- LIVE MATCH ARENA (ORACLE PLAYGROUND) -->
+        <div class="live-arena-container reveal" style="max-width: 900px; margin: 0 auto 3rem auto; background: rgba(0,0,0,0.6); border: 2px solid var(--primary); border-radius: 16px; padding: 2rem; box-shadow: 0 0 30px rgba(20, 241, 149, 0.15); position: relative; overflow: hidden; text-align: left;">
+            <!-- Subtle Cyber Grid Background -->
+            <div class="cyber-grid-overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(20, 241, 149, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 241, 149, 0.03) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none;"></div>
+            
+            <div style="position: relative; z-index: 10;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span class="pulse-red" style="width: 10px; height: 10px; background-color: #ff4d6a; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #ff4d6a; animation: pulse 1.5s infinite;"></span>
+                        <strong style="color: #ff4d6a; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;">LIVE ORACLE TRANSMISSION</strong>
+                    </div>
+                    <span id="oracleConnectionStatus" style="font-size: 0.75rem; color: var(--primary); background: rgba(20, 241, 149, 0.1); border: 1px solid var(--primary); padding: 4px 10px; border-radius: 20px; font-weight: bold; letter-spacing: 1px;">📡 ORACLE LINK ACTIVE</span>
+                </div>
+
+                <!-- Match Scoreboard -->
+                <div class="scoreboard-grid" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; text-align: center; margin-bottom: 2rem; background: rgba(255,255,255,0.02); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.05);">
+                    <!-- Team A -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <span style="font-size: 3rem; filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));">🇦🇷</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 900; color: #fff; margin: 0;">ARGENTINA</h3>
+                        <span style="font-size: 0.75rem; color: var(--text-dim);">TEAM A</span>
+                    </div>
+
+                    <!-- Score and Time -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                        <div id="liveMatchTime" style="font-size: 0.9rem; font-weight: 800; color: var(--primary); background: rgba(20,241,149,0.1); padding: 4px 12px; border-radius: 8px; border: 1px solid rgba(20,241,149,0.2);">Min 1'</div>
+                        <div id="liveMatchScore" style="font-size: 3rem; font-weight: 900; color: #fff; font-family: monospace; letter-spacing: 4px; text-shadow: 0 0 15px rgba(255,255,255,0.2);">0 - 0</div>
+                        <span id="liveMatchPhase" style="font-size: 0.75rem; color: var(--secondary); letter-spacing: 1px; font-weight: bold; text-transform: uppercase;">First Half</span>
+                    </div>
+
+                    <!-- Team B -->
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                        <span style="font-size: 3rem; filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));">🇫🇷</span>
+                        <h3 style="font-size: 1.25rem; font-weight: 900; color: #fff; margin: 0;">FRANCIA</h3>
+                        <span style="font-size: 0.75rem; color: var(--text-dim);">TEAM B</span>
+                    </div>
+                </div>
+
+                <!-- Two-Column Interactive Row -->
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; text-align: left;" class="live-arena-grid">
+                    <!-- Column 1: Live Market & Betting Slip -->
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h4 style="color: #fff; font-size: 1.1rem; font-weight: 800; margin: 0;">🔥 Mercado de Goles en Vivo</h4>
+                                <span id="liveMarketStatus" style="font-size: 0.7rem; color: #14f195; background: rgba(20,241,149,0.1); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(20,241,149,0.2); font-weight: bold;">ABIERTO</span>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 1.2rem;">Predice qué selección anotará el próximo gol de este emocionante encuentro para multiplicar tus tokens.</p>
+                            
+                            <!-- Selection Buttons -->
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.5rem;">
+                                <button class="btn-live-select" onclick="selectLiveBet('teamA')" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; color: #fff; font-weight: bold; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: all 0.2s;">
+                                    <span style="font-size: 0.8rem; color: var(--text-dim);">Argentina</span>
+                                    <span style="font-size: 1.1rem; color: var(--primary);">2.15x</span>
+                                </button>
+                                <button class="btn-live-select" onclick="selectLiveBet('teamB')" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; color: #fff; font-weight: bold; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; transition: all 0.2s;">
+                                    <span style="font-size: 0.8rem; color: var(--text-dim);">Francia</span>
+                                    <span style="font-size: 1.1rem; color: var(--primary);">1.85x</span>
+                                </button>
+                            </div>
+
+                            <!-- Input Amount -->
+                            <div style="margin-bottom: 1.5rem;">
+                                <label style="display: block; font-size: 0.75rem; color: var(--text-dim); margin-bottom: 6px; font-weight: bold;">Monto de Apuesta ($GCH):</label>
+                                <div style="display: flex; gap: 8px;">
+                                    <input type="number" id="liveBetAmount" value="100" style="flex: 1; background: #111; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px; color: #fff; font-weight: bold; font-size: 0.9rem;">
+                                    <button class="btn btn-secondary btn-sm" onclick="setLiveBetMax()" style="padding: 0 15px;">MAX</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Button -->
+                        <button id="btnPlaceLiveBet" onclick="placeLiveBet()" class="btn btn-primary" style="width: 100%; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; background: linear-gradient(90deg, #14f195, #9945ff); border: none; color: #000; padding: 12px; font-size: 0.9rem;">APOSTAR EN VIVO</button>
+                    </div>
+
+                    <!-- Column 2: Oracle Feed & Event Log -->
+                    <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column;">
+                        <h4 style="color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px;">
+                            <span>📊 Feed de Datos del Oráculo</span>
+                            <span style="width: 6px; height: 6px; background-color: #14f195; border-radius: 50%; display: inline-block;"></span>
+                        </h4>
+                        
+                        <!-- Event Logs Container -->
+                        <div id="oracleLiveLogs" style="flex: 1; background: #080808; border-radius: 8px; padding: 12px; font-family: monospace; font-size: 0.75rem; color: #a0aec0; overflow-y: auto; height: 180px; border: 1px solid rgba(255,255,255,0.02); display: flex; flex-direction: column; gap: 6px;">
+                            <!-- Will be populated by JS -->
+                            <div style="color: var(--primary);">[Oracle] 🏟️ Conexión inicializada. Esperando actualizaciones...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="carousel-wrapper">
             <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('fixtureCarousel', -1)">❮</button>
             <div class="carousel-container fixture-carousel" id="fixtureCarousel">
@@ -721,7 +833,7 @@
             <div class="stadium-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
                 <!-- STADIUM 1: NEO-OLYMPUS (MYTHIC) -->
                 <div class="stadium-card reveal" style="border: 2px solid #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);">
-                    <div class="stadium-img" style="background-image: url('https://grok.com/imagine/post/aee02b11-8099-4e1f-bb17-73f838ee1ae2'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center;">
+                    <div class="stadium-img" style="background-image: url('assets/img/stadiums/neo_olympus.jpg'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center;">
                         <span class="badge" style="position: absolute; top: 10px; left: 10px; background: linear-gradient(90deg, #ffd700, #ff9a33); color: #000; font-weight: 900; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px;">MYTHIC RWA</span>
                         <div class="stadium-yield-info" style="background: rgba(0, 0, 0, 0.85); border: 1px solid #ffd700; color: #ffd700; font-weight: bold;">Est. Yield: 25% APY</div>
                     </div>
@@ -742,7 +854,7 @@
 
                 <!-- STADIUM 2: DOME KRONOS (MYTHIC) -->
                 <div class="stadium-card reveal" style="border: 2px solid #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);">
-                    <div class="stadium-img" style="background-image: url('https://grok.com/imagine/post/182c1134-2447-43b6-b082-f2cacc9af750'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center;">
+                    <div class="stadium-img" style="background-image: url('assets/img/stadiums/dome_kronos.jpg'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center;">
                         <span class="badge" style="position: absolute; top: 10px; left: 10px; background: linear-gradient(90deg, #ffd700, #ff9a33); color: #000; font-weight: 900; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px;">MYTHIC RWA</span>
                         <div class="stadium-yield-info" style="background: rgba(0, 0, 0, 0.85); border: 1px solid #ffd700; color: #ffd700; font-weight: bold;">Est. Yield: 20% APY</div>
                     </div>
