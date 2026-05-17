@@ -649,6 +649,118 @@ pub mod goalchain_program {
 
         Ok(())
     }
+
+    // ====================================================================
+    // V2 DYNAMIC YIELD & THE ARCHITECT LOGIC
+    // ====================================================================
+
+    /// El Oráculo (Pyth/Helius) reporta acciones del Mundial en tiempo real.
+    pub fn oracle_update_player_yield(
+        ctx: Context<OracleUpdatePlayerYield>,
+        action_type: u8, // 1: Gol, 2: Asistencia, 3: Roja, 4: Eliminación
+    ) -> Result<()> {
+        let player = &mut ctx.accounts.parody_player;
+        require!(!player.is_eliminated, GoalChainError::PlayerIsEliminated);
+
+        match action_type {
+            1 => { // Gol Real
+                player.base_yield_rate = player.base_yield_rate.checked_add(10).unwrap();
+            },
+            2 => { // Asistencia Real
+                player.base_yield_rate = player.base_yield_rate.checked_add(5).unwrap();
+            },
+            3 => { // Tarjeta Roja
+                player.base_yield_rate = player.base_yield_rate.saturating_sub(20);
+                player.current_stamina = 0;
+            },
+            4 => { // Eliminación de su País
+                player.base_yield_rate = 0;
+                player.is_eliminated = true;
+            },
+            _ => return err!(GoalChainError::InvalidActionType),
+        }
+        Ok(())
+    }
+
+    /// Cuando comienza un nuevo torneo (Copa América, Euro, etc.), el Oráculo
+    /// "revive" a los jugadores eliminados y reinicia su Yield Base inicial.
+    pub fn oracle_reset_season(
+        ctx: Context<OracleUpdatePlayerYield>,
+        new_base_yield: u64
+    ) -> Result<()> {
+        let player = &mut ctx.accounts.parody_player;
+        player.is_eliminated = false;
+        player.base_yield_rate = new_base_yield;
+        player.current_stamina = 100; // Vuelven descansados al nuevo torneo
+        
+        Ok(())
+    }
+
+    /// El usuario reclama su sueldo, calculado dinámicamente.
+    /// El "Impuesto del Protocolo" del 10% se desvía a las "Architect Licenses".
+    pub fn claim_daily_salary(ctx: Context<ClaimDailySalary>) -> Result<()> {
+        let player = &mut ctx.accounts.parody_player;
+        let manager = &ctx.accounts.manager_state;
+        let stadium = &ctx.accounts.stadium_state;
+
+        let mut base_salary = player.base_yield_rate as f64;
+        if player.current_stamina < 30 {
+            base_salary = base_salary * 0.5; // Penalidad de fatiga (-50%)
+        }
+
+        let final_daily_salary = (base_salary * manager.salary_multiplier * stadium.revenue_multiplier) as u64;
+
+        // MATEMÁTICA DE LA LICENCIA DE ARQUITECTO
+        let architect_tax = final_daily_salary.checked_div(10).unwrap(); // 10% Fijo
+        let user_net_salary = final_daily_salary.checked_sub(architect_tax).unwrap();
+
+        player.current_stamina = player.current_stamina.saturating_sub(5);
+
+        let seeds = &[b"config".as_ref(), &[ctx.accounts.config.bump]];
+        let signer = &[&seeds[..]];
+
+        // 1. Pagar el 90% al Usuario
+        let cpi_user = CpiContext::new_with_signer(
+            ctx.accounts.token_program.key(),
+            TransferChecked {
+                from: ctx.accounts.vault_token_account.to_account_info(),
+                to: ctx.accounts.user_token_account.to_account_info(),
+                authority: ctx.accounts.config.to_account_info(),
+                mint: ctx.accounts.token_mint.to_account_info(),
+            },
+            signer,
+        );
+        token_interface::transfer_checked(cpi_user, user_net_salary, ctx.accounts.token_mint.decimals)?;
+
+        // 2. Pagar el 10% al "Architect Pool"
+        let cpi_architect = CpiContext::new_with_signer(
+            ctx.accounts.token_program.key(),
+            TransferChecked {
+                from: ctx.accounts.vault_token_account.to_account_info(),
+                to: ctx.accounts.architect_pool_account.to_account_info(),
+                authority: ctx.accounts.config.to_account_info(),
+                mint: ctx.accounts.token_mint.to_account_info(),
+            },
+            signer,
+        );
+        token_interface::transfer_checked(cpi_architect, architect_tax, ctx.accounts.token_mint.decimals)?;
+
+        Ok(())
+    }
+
+    // ====================================================================
+    // V2 HOOKS PARA EXPANSIÓN FUTURA (Evitando Feature Creep)
+    // ====================================================================
+    
+    /// [HOOK] La Forja: Permitirá fusionar NFTs en el futuro
+    pub fn forge_nft(_ctx: Context<FutureHook>) -> Result<()> {
+        Ok(())
+    }
+
+    /// [HOOK] Préstamos de NFTs (Delegation)
+    pub fn delegate_nft_for_rent(_ctx: Context<FutureHook>) -> Result<()> {
+        Ok(())
+    }
 }
 
 // ---------------- CONFIG ACCOUNTS ----------------
@@ -740,6 +852,12 @@ pub struct ParodyPlayer {
     #[max_len(32)] pub name: String,
     #[max_len(32)] pub player_id: String,
     pub real_world_goals: u8, pub real_world_assists: u8, pub matches_played: u8, pub speed: u8, pub shot_power: u8,
+    
+    // --- V2 Dynamic Yield Fields ---
+    pub base_yield_rate: u64,
+    pub current_stamina: u8,
+    pub is_eliminated: bool,
+    pub equipped_stadium_id: Option<Pubkey>,
 }
 
 #[derive(Accounts)]
@@ -1177,6 +1295,55 @@ pub struct MarketPosition {
     pub bump: u8,
 }
 
+// ====================================================================
+// V2 ACCOUNTS & CONTEXTS
+// ====================================================================
+
+#[derive(Accounts)]
+pub struct OracleUpdatePlayerYield<'info> {
+    #[account(mut)]
+    pub parody_player: Account<'info, ParodyPlayer>,
+    pub oracle_authority: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct ClaimDailySalary<'info> {
+    #[account(mut)]
+    pub parody_player: Account<'info, ParodyPlayer>,
+    pub manager_state: Account<'info, ManagerState>,
+    pub stadium_state: Account<'info, StadiumState>,
+    #[account(mut)]
+    pub config: Account<'info, GlobalConfig>,
+    #[account(mut)]
+    pub user_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut)]
+    pub architect_pool_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut)]
+    pub vault_token_account: InterfaceAccount<'info, TokenAccount>,
+    pub token_mint: InterfaceAccount<'info, Mint>,
+    pub token_program: Interface<'info, TokenInterface>,
+    pub user: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct FutureHook<'info> {
+    pub user: Signer<'info>,
+}
+
+#[account]
+#[derive(InitSpace)]
+pub struct ManagerState {
+    pub level: u8,
+    pub salary_multiplier: f64,
+}
+
+#[account]
+#[derive(InitSpace)]
+pub struct StadiumState {
+    pub stadium_id: u16,
+    pub revenue_multiplier: f64,
+}
+
 // ---------------- ERRORS ----------------
 
 #[error_code]
@@ -1227,4 +1394,8 @@ pub enum GoalChainError {
     InvalidLiveState,
     #[msg("Claim too early")]
     ClaimTooEarly,
+    #[msg("Player is eliminated")]
+    PlayerIsEliminated,
+    #[msg("Invalid action type from oracle")]
+    InvalidActionType,
 }
