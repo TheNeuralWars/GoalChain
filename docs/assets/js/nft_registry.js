@@ -33,7 +33,6 @@ const NFT_IMAGE_MAP = {
     27: "027_vini_burner_jr.png",
     28: "028_endrick_chain.png",
     30: "030_kai_havests.png",
-    32: "032_casemiro_chain.png",
     33: "033_allison_block.png",
     53: "053_kylian_m-bag-pé.png",
     79: "079_jude_whale-ingham.png",

@@ -272,7 +272,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 let total = parseInt(localStorage.getItem('goalpoints') || '0');
                 total += pts;
                 localStorage.setItem('goalpoints', total);
-                if (window.notifier) window.notifier.show('¡TAREA COMPLETADA!', `Has ganado ${pts} GoalPoints.`);
+                if (window.notifier) window.notifier.show('¡TAREA COMPLETADA!', `Has ganado ${pts} GoalPoints. ¡Registrado en el ranking global!`);
+                
+                // ☁️ Sincronizar puntos con el servidor de Google Sheets
+                if (window.GoalPointsAPI) window.GoalPointsAPI.sync();
             }
             
             renderSocialTasks();
@@ -285,16 +288,36 @@ document.addEventListener('DOMContentLoaded', () => {
         const el = document.getElementById('totalPoints');
         if (el) el.innerText = parseInt(pts).toLocaleString();
         
+        // Actualizar tier badge según puntos
+        const tierEl = document.getElementById('userTierBadge');
+        if (tierEl) {
+            const p = parseInt(pts);
+            let tier = 'COMMON', color = '#8a8a9a';
+            if (p >= 10000) { tier = 'MYTHIC';    color = '#ffd700'; }
+            else if (p >= 5000)  { tier = 'LEGENDARY'; color = '#a855f7'; }
+            else if (p >= 2000)  { tier = 'EPIC';      color = '#00e5ff'; }
+            else if (p >= 500)   { tier = 'RARE';      color = '#14f195'; }
+            tierEl.innerText = tier;
+            tierEl.style.color = color;
+            tierEl.style.borderColor = color;
+        }
+
         // Sincronizar Leaderboard
         if (window.updateLiveLeaderboard) window.updateLiveLeaderboard();
         
-        // Generate referral link if wallet exists
+        // Generar link de referido si hay wallet conectada
         const wallet = localStorage.getItem('goalchain_wallet');
         const refDisplay = document.getElementById('referral-link-display');
         if (wallet && refDisplay) {
             const shortWallet = wallet.substring(0, 6);
             refDisplay.innerText = `https://goalchain.fun?ref=${shortWallet}`;
             refDisplay.style.color = 'var(--primary)';
+        }
+        
+        // ☁️ Si hay wallet, cargar/restaurar puntos desde el servidor (una vez al iniciar)
+        if (wallet && window.GoalPointsAPI && !window._gpLoaded) {
+            window._gpLoaded = true;
+            window.GoalPointsAPI.load(wallet);
         }
     }
 
