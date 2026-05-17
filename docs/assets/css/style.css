@@ -60,7 +60,7 @@ body {
 .nav-scrolled { background: rgba(6, 6, 10, 0.95); }
 .logo { font-weight: 900; font-size: 1.3rem; letter-spacing: -1px; cursor: pointer; }
 .logo span { color: var(--primary); }
-.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+.nav-right { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
 
 .lang-toggle {
     display: flex; background: var(--glass-strong); border-radius: 20px;
@@ -586,6 +586,12 @@ body {
     .roadmap-timeline { padding-left: 1.5rem; }
     .roadmap-item { padding-left: 2rem; }
     .btn { padding: 0.7rem 1.5rem; font-size: 0.8rem; }
+    /* Wallet button: smaller on mobile */
+    #connectWalletBtn { width: 36px !important; height: 36px !important; }
+    #connectWalletBtn svg { width: 16px; height: 16px; }
+    .nav-right { gap: 0.4rem; }
+    .lang-toggle button { padding: 0.3rem 0.5rem; font-size: 0.6rem; }
+    .notif-bell { font-size: 1rem !important; }
 }
 
 /* --- Whitelist Modal --- */
