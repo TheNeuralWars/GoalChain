@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const tasks = [
             { id: 't1', icon: '🐦', bg: '#1DA1F2', pts: 200, title: 'Sigue a GoalChain', desc: 'Únete a nuestra comunidad en X', link: 'https://twitter.com/intent/follow?screen_name=GoalChainDotFun' },
             { id: 't2', icon: '🔁', bg: '#17bf63', pts: 300, title: 'Difunde la Palabra', desc: 'Retuitea nuestro post fijado', link: 'https://twitter.com/intent/retweet?tweet_id=2055329044292411708' },
-            { id: 't3', icon: '💬', bg: '#5865F2', pts: 250, title: 'Discord Oficial', desc: 'Entra a nuestro vestuario VIP', link: 'https://discord.gg/7TUgSfqtd' },
+            { id: 't3', icon: '💬', bg: '#5865F2', pts: 250, title: 'Discord Oficial', desc: 'Entra a nuestro vestuario VIP', link: 'https://discord.gg/nzjHNBfSh' },
             { id: 't4', icon: '📸', bg: '#e4405f', pts: 200, title: 'Instagram', desc: 'Mira el arte de la Genesis Squad', link: 'https://instagram.com/goalchain.fun' },
             { id: 't5', icon: '🤝', bg: '#9945ff', pts: '100/ref', title: 'Invita Amigos', desc: 'Copia tu link de referido único', link: 'COPY_REF' },
             { id: 't6', icon: '⚽', bg: '#14f195', pts: 500, title: 'Juega Penaltis', desc: 'Haz tu primer tiro en el estadio', link: '#gameplay' },
