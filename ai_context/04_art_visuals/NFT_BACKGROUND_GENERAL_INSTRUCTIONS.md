@@ -20,7 +20,7 @@ Backgrounds must immediately signal rarity using specific architectural lighting
 | Rarity | Brand Color | HSL / Hex Code | Stadium Concept | Lighting Style |
 | :--- | :--- | :--- | :--- | :--- |
 | **RARE** | Solana Green | `#14f195` (Muted) | Obsidian Arena | Thin green LED outlines on the main arch, soft green mist rising from the pitch. |
-| **EPIC** | Electric Cyan | `#00e5ff` (Muted) | Titanium Coliseum | Sleek cyan architectural light strips along grandstand tiers, soft cyan bokeh haze. |
+| **EPIC** | Electric Cyan | `#00e5ff` (Muted) | Aether Cyber-Dome | Soaring geodesic glass frame outlined with soft cyan LED contours, soft cyan volumetric haze. |
 | **LEGENDARY** | Phantom Purple | `#9945ff` (Deep) | Carbon Monolith Dome | Muted purple atmospheric lighting under the stadium roof, subtle violet stadium aura. |
 | **MYTHIC** | Gold | `#ffd700` (Antique) | Golden Olympus Arena | A single thin accent line of brushed gold running along the upper stadium structure, warm gold mist. |
 
