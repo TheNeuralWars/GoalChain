@@ -1269,7 +1269,6 @@
             }
         }
 
-        async def = null; // compatibility stub
         async function contributeToPresale() {
             const solInput = document.getElementById('presaleSolInput');
             if (!solInput) return;
@@ -1299,7 +1298,7 @@
             const btn = document.getElementById('presaleSubmitBtn');
             const originalText = btn.textContent;
             
-            btn.disabled = True;
+            btn.disabled = true;
             btn.textContent = typeof currentLang !== 'undefined' && currentLang === 'en' ? "⏳ SIGNING TRANSACTION..." : "⏳ FIRMANDO TRANSACCIÓN...";
             
             try {
