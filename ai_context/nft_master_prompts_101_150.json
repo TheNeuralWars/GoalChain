@@ -1,252 +1,302 @@
 [
     {
         "id": 101,
-        "name": "Kylian Mbappé",
-        "prompt": "Full-body AAA cyber-sport portrait of a world-class forward, short dark hair, powerful and fast athletic build, medium-tanned skin. He is wearing the 'Madrid Galactica' neon-white jersey. Dramatic volumetric lighting, cinematic stadium background with blue and gold neon trails. Floating holographic turtle-shell pattern (Donatello nickname). High-fidelity 8k rendering, Unreal Engine 5 aesthetic, photorealistic textures."
+        "name": "Santiago Gim-Shot",
+        "real_name": "Santiago Giménez",
+        "prompt": "Subject: Santiago Giménez. Short dark hair, clean shaven, clinical forward build, tanned skin, focused expression. ::3 Full length action shot, head to toe visible, Santiago Giménez standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 102,
-        "name": "Harry Kane",
-        "prompt": "Full-body AAA cyber-sport portrait of a tall clinical striker, short blonde hair, strong athletic build, fair skin. Wearing the 'Munich Alpine' red and silver futuristic kit. Cinematic low-angle shot, snowy Bavarian stadium atmosphere with red neon pulses. He is holding a holographic 'Golden Boot'. Dramatic shadows, extreme detail, professional sport photography style."
+        "name": "Edson Alva-Mach",
+        "real_name": "Edson Álvarez",
+        "prompt": "Subject: Edson Álvarez. Short dark taper fade with textured top, clean shaven, tattoos on left arm and ribs (lion/warrior), strong and tall defensive midfield build, tanned skin, leadership expression. ::3 Full length action shot, head to toe visible, Edson Álvarez standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 103,
-        "name": "Robert Lewandowski",
-        "prompt": "Full-body AAA cyber-sport portrait of a fit clinical striker, short styled dark hair, lean muscular build, light skin tone. Wearing the 'Barcelona Garnet' cyber-kit. Posed in a signature goal celebration. Background is a vibrant Mediterranean cyber-stadium with blue and red holographic waves. Intricate jersey textures, hyper-realistic sweat and lighting, 8k resolution."
+        "name": "Chucky Lozan-Bolt",
+        "real_name": "Hirving Lozano",
+        "prompt": "Subject: Hirving Lozano. Short dark hair with a sharp fade, clean shaven, explosive winger build, tanned skin, dynamic expression. ::3 Full length action shot, head to toe visible, Hirving Lozano standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 104,
-        "name": "Antoine Griezmann",
-        "prompt": "Full-body AAA cyber-sport portrait of a creative forward, short blonde hair with subtle pink highlights, agile build, fair skin. Wearing the 'Madrid Crimson' neon-striped jersey. Posed performing a 'Little Prince' holographic dance. Background is a night stadium with pink and blue laser lights. Vibrant colors, ultra-high fidelity, cinematic lens flare."
+        "name": "Luis Chavez-Bomb",
+        "real_name": "Luis Chávez",
+        "prompt": "Subject: Luis Chávez. Short dark hair peinado naturally, clean shaven, technical and elegant midfield build, tanned skin, masterful expression. ::3 Full length action shot, head to toe visible, Luis Chávez standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 105,
-        "name": "Lamine Yamal",
-        "prompt": "Full-body AAA cyber-sport portrait of a very young technical winger, short dark hair with textured crop, lean agile build, light-tanned skin. Wearing the 'Barcelona Young-Star' blue and red kit. He is making the '304' finger gesture. Floating digital stars and golden nodes. Hyper-realistic youth features, cinematic depth of field, 8k professional render."
+        "name": "Johan Vasquez-Rock",
+        "real_name": "Johan Vásquez",
+        "prompt": "Subject: Johan Vásquez. Short dark hair with a clean fade, clean shaven, strong and solid centre-back build, tanned skin, focused look. ::3 Full length action shot, head to toe visible, Johan Vásquez standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 106,
-        "name": "Hakan Çalhanoğlu",
-        "prompt": "Full-body AAA cyber-sport portrait of a technical playmaker, short dark hair with sharp fade, athletic build, light skin tone. Wearing the 'Milan Black & Blue' cyber-knit. Posed as 'The Architect' with floating digital set-piece trajectories. Cinematic evening stadium atmosphere with cyan neon lights. 8k resolution, ray-traced reflections."
+        "name": "Cesar Montes-Tower",
+        "real_name": "César Montes",
+        "prompt": "Subject: César Montes. Short dark hair, clean shaven, towering and powerful centre-back build, tanned skin, composed leadership look. ::3 Full length action shot, head to toe visible, César Montes standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 107,
-        "name": "Kenan Yıldız",
-        "prompt": "Full-body AAA cyber-sport portrait of a technical forward, short dark hair with textured styling, lean agile build, light-tanned skin. Wearing the 'Turin Zebra' black and white neon kit. Posed as 'The Next Del Piero' with a holographic tongue-out celebration. Background is a futuristic stadium with white and gold lightning effects. 8k high-fidelity."
+        "name": "Jorge Sanchez-Rail",
+        "real_name": "Jorge Sánchez",
+        "prompt": "Subject: Jorge Sánchez. Short dark hair with a clean fade, clean shaven, extensive tattoos on left arm, back (eagle/elephant), and neck, strong and fast right-back build, tanned skin, focused look. ::3 Full length action shot, head to toe visible, Jorge Sánchez standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 108,
-        "name": "Arda Güler",
-        "prompt": "Full-body AAA cyber-sport portrait of a young creative playmaker, short dark hair with clean sides, slim technical build, light skin tone. Wearing the 'Madrid Royal' gold and white kit. Surrounded by floating Turkish geometric patterns and golden digital nodes. High-fidelity cinematic rendering, soft volumetric lighting, 8k detail."
+        "name": "Gerardo Artea-Edge",
+        "real_name": "Gerardo Arteaga",
+        "prompt": "Subject: Gerardo Arteaga. Short dark hair with a clean fade, clean shaven, black panther tattoo on right hand and '1998' on neck, energetic and fast left-back build, tanned skin, focused look. ::3 Full length action shot, head to toe visible, Gerardo Arteaga standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 109,
-        "name": "Scott McTominay",
-        "prompt": "Full-body AAA cyber-sport portrait of a tall powerful midfielder, short blonde hair, strong athletic build, fair skin. Wearing the 'Napoli Azure' neon-blue kit. Posed as 'The Tartan Warrior' with a digital Scottish flag aura. Cinematic night stadium with blue and silver sparks. Intense expression, hyper-realistic textures."
+        "name": "Orbelin Pine-Mag",
+        "real_name": "Orbelín Pineda",
+        "prompt": "Subject: Orbelín Pineda. Short dark hair with texture, clean shaven, creative and agile attacking build, tanned skin, energetic expression. ::3 Full length action shot, head to toe visible, Orbelín Pineda standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 110,
-        "name": "John McGinn",
-        "prompt": "Full-body AAA cyber-sport portrait of a hardworking midfielder, short dark hair (the 'Meatball' cut), strong athletic build, fair skin. Wearing the 'Birmingham Claret' cyber-kit. Cinematic stadium with 'Meatball-style' golden spherical particles floating around. Intense focused expression, 8k resolution, photorealistic."
+        "name": "Luis Romo-Fix",
+        "real_name": "Luis Romo",
+        "prompt": "Subject: Luis Romo. Short dark hair, clean shaven, strong and versatile midfield build, tanned skin, focused look. ::3 Full length action shot, head to toe visible, Luis Romo standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 111,
-        "name": "Billy Gilmour",
-        "prompt": "Full-body AAA cyber-sport portrait of a technical playmaker, short blonde hair, slim agile build, fair skin. Wearing the 'Napoli Blue-Grid' kit. Surrounded by floating digital goat-head outlines and blue nodes. Cinematic stadium with soft morning lighting. Hyper-detailed textures, professional render."
+        "name": "Alphonso Shard-Davies",
+        "real_name": "Alphonso Davies",
+        "prompt": "Subject: Alphonso Davies. Short dark hair with a clean fade, clean shaven, lean and explosive winger build, dark skin tone, energetic expression. ::3 Full length action shot, head to toe visible, Alphonso Davies standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 112,
-        "name": "Kieran Tierney",
-        "prompt": "Full-body AAA cyber-sport portrait of a disciplined left-back, short dark hair, athletic build, fair skin. Wearing the 'Glasgow Green' cyber-striped kit. Posed in a rainy stadium with silver raindrops reflecting neon lights. A subtle 'Legend of the Highlands' aura. Cinematic and dramatic atmosphere, 8k."
+        "name": "Jonathan David-Bit",
+        "real_name": "Jonathan David",
+        "prompt": "Subject: Jonathan David. Short dark hair with a well-defined fade, clean shaven, clinical forward build, dark skin tone, focused goal-oriented gaze. ::3 Full length action shot, head to toe visible, Jonathan David standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 113,
-        "name": "Angus Gunn",
-        "prompt": "Full-body AAA cyber-sport portrait of a tall goalkeeper, short blonde hair, powerful 1.96m build, fair skin. Wearing a 'Highland Guard' gold-mesh goalkeeper kit. Surrounded by digital target-locking grids and Scottish symbols. Cinematic lens flare, 8k high-fidelity textures."
+        "name": "Cyle Larin-Tank",
+        "real_name": "Cyle Larin",
+        "prompt": "Subject: Cyle Larin. Short clean-cut dark hair, clean shaven, powerful forward build, dark skin tone, focused look. ::3 Full length action shot, head to toe visible, Cyle Larin standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 114,
-        "name": "Ayman Hussein",
-        "prompt": "Full-body AAA cyber-sport portrait of a powerful centre-forward, short dark hair with clean fade, tall muscular build, tanned skin. Wearing the 'Baghdad Lion' gold and green kit. Posed as 'The Lion of Mesopotamia' with a digital lion head aura. Cinematic desert-sunset stadium lighting. 8k resolution."
+        "name": "Stephen Esta-Hub",
+        "real_name": "Stephen Eustáquio",
+        "prompt": "Subject: Stephen Eustáquio. Short neat dark hair, clean shaven or light stubble, technical central midfield build, fair-tanned skin, composed look. ::3 Full length action shot, head to toe visible, Stephen Eustáquio standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 115,
-        "name": "Ali Jasim",
-        "prompt": "Full-body AAA cyber-sport portrait of a young creative winger, short dark hair with textured crop, lean agile build, tanned skin. Wearing the 'Iraq Future-Star' neon kit. Surrounded by floating digital nodes and Arabic geometric patterns. Dynamic action pose, cinematic high-fidelity rendering."
+        "name": "Tajon Bucha-Wing",
+        "real_name": "Tajon Buchanan",
+        "prompt": "Subject: Tajon Buchanan. Short dark hair with a clean fade, clean shaven, prominent tattoo sleeves on both arms and chest, explosive winger build, dark skin tone, dynamic expression. ::3 Full length action shot, head to toe visible, Tajon Buchanan standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 116,
-        "name": "Zidane Iqbal",
-        "prompt": "Full-body AAA cyber-sport portrait of a technical playmaker, short dark hair with sharp fade, slim technical build, tanned skin. Wearing the 'Utrecht Cyber-Red' kit. A subtle holographic 'Prince of Iraq' crown. Background is a Dutch-style futuristic stadium with red neon trails. 8k photorealistic."
+        "name": "Maxime Crepeau-Grip",
+        "real_name": "Maxime Crépeau",
+        "prompt": "Subject: Maxime Crépeau. Short dark hair, clean shaven, agile goalkeeper build, fair skin tone, focused look. ::3 Full length action shot, head to toe visible, Maxime Crépeau standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 117,
-        "name": "Jalal Hassan",
-        "prompt": "Full-body AAA cyber-sport portrait of a veteran goalkeeper, short dark hair with beard, tall athletic build, tanned skin. Wearing the 'Iraqi Guardian' silver-mesh kit. Posed as 'The Wall of Iraq' with digital shield effects. Cinematic blue-hour lighting, 8k high-fidelity."
+        "name": "Alistair John-Grit",
+        "real_name": "Alistair Johnston",
+        "prompt": "Subject: Alistair Johnston. Short practical dark haircut, clean shaven, strong and tenacious defender build, fair skin tone, focused look. ::3 Full length action shot, head to toe visible, Alistair Johnston standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 118,
-        "name": "Rebin Sulaka",
-        "prompt": "Full-body AAA cyber-sport portrait of a towering defender, short dark hair, strong 1.93m build, tanned skin. Wearing a multi-colored cyber-kit representing his world travels. A subtle 'World Traveler' globe aura. Cinematic global stadium background. Hyper-realistic details."
+        "name": "Kamal Miller-Slide",
+        "real_name": "Kamal Miller",
+        "prompt": "Subject: Kamal Miller. Short dark hair with a clean fade, clean shaven, strong and mobile defender build, dark skin tone, focused look. ::3 Full length action shot, head to toe visible, Kamal Miller standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 119,
-        "name": "Mohanad Ali",
-        "prompt": "Full-body AAA cyber-sport portrait of a clinical striker, short dark hair, athletic build, tanned skin. Wearing the 'Mimi-Star' Iraqi kit. Surrounded by floating numbers '13' (his debut age). Cinematic golden-hour lighting, goal-oriented focused gaze. 8k resolution."
+        "name": "Ismael Kone-Rise",
+        "real_name": "Ismaël Koné",
+        "prompt": "Subject: Ismaël Koné. Short dark hair with a clean fade, clean shaven, dynamic and strong midfield build, dark skin tone, athletic focused look. ::3 Full length action shot, head to toe visible, Ismaël Koné standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 120,
-        "name": "Hussein Ali",
-        "prompt": "Full-body AAA cyber-sport portrait of a fast wing-back, short dark hair, lean fast build, tanned skin. Wearing the 'Iraqi Wing' neon kit. Intense motion blur on the legs, trailing light effects. Background is a high-speed cyber-stadium. Cinematic rendering."
+        "name": "Liam Millar-Cross",
+        "real_name": "Liam Millar",
+        "prompt": "Subject: Liam Millar. Short dark hair peinado with texture, clean shaven, fast and creative winger build, fair skin tone, dynamic expression. ::3 Full length action shot, head to toe visible, Liam Millar standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 121,
-        "name": "Saad Natiq",
-        "prompt": "Full-body AAA cyber-sport portrait of a powerful defender, short dark hair, strong athletic build, tanned skin. Wearing the 'Reliable Guard' Iraqi kit. Posed as a 'Sentinel' with digital firewall patterns in the air. Dramatic lighting, 8k hyper-realistic textures."
+        "name": "Dayne St-Clair-Net",
+        "real_name": "Dayne St. Clair",
+        "prompt": "Subject: Dayne St. Clair. Short dark hair, clean shaven, tall and agile goalkeeper build, dark skin tone, focused look. ::3 Full length action shot, head to toe visible, Dayne St. Clair standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 122,
-        "name": "Amir Al-Ammari",
-        "prompt": "Full-body AAA cyber-sport portrait of a technical playmaker, short dark hair, slim agile build, tanned skin. Wearing the 'Iraqi-Swedish' dual-neon kit. Posed as 'The Orchestrator' with floating music-like data streams. Cinematic studio-style lighting, 8k resolution."
+        "name": "Achraf Hakimi-Rocket",
+        "real_name": "Achraf Hakimi",
+        "prompt": "Subject: Achraf Hakimi. Very short dark buzzed hair with sharp fade, clean shaven, explosive right-back build, olive skin tone, dynamic expression. ::3 Full length action shot, head to toe visible, Achraf Hakimi standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 123,
-        "name": "Ibrahim Bayesh",
-        "prompt": "Full-body AAA cyber-sport portrait of a versatile winger, short dark hair, lean fast build, tanned skin. Wearing the 'Gulf Cup MVP' golden kit. A subtle digital trophy aura. Background is a vibrant Arabian night stadium with gold sparks. High-fidelity AAA aesthetic."
+        "name": "Yassine Bounou-Safe",
+        "real_name": "Yassine Bounou",
+        "prompt": "Subject: Yassine Bounou. Short dark hair with a clean fade, clean shaven or light stubble, agile and tall goalkeeper build, olive skin tone, focused leadership look. ::3 Full length action shot, head to toe visible, Yassine Bounou standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 124,
-        "name": "Youssef Ayman",
-        "prompt": "Full-body AAA cyber-sport portrait of a technical defender, short dark hair, tall athletic build, tanned skin. Wearing the 'Iraqi Hope' neon-blue kit. Surrounded by floating blueprints of stadium defenses. Cinematic depth of field, 8k photorealistic."
+        "name": "Hakim Ziyech-Magic",
+        "real_name": "Hakim Ziyech",
+        "prompt": "Subject: Hakim Ziyech. Short dark hair with a precision fade, well-groomed light beard, creative right winger build, olive skin tone, magical expression. ::3 Full length action shot, head to toe visible, Hakim Ziyech standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 125,
-        "name": "Akram Afif",
-        "prompt": "Full-body AAA cyber-sport portrait of a creative playmaker, short dark hair with textured crop, slim technical build, light-tanned skin. Wearing the 'Qatari Maroon' cyber-kit. Posed as 'The Magician' with holographic playing cards floating around. Cinematic Doha night stadium background. 8k resolution."
+        "name": "Sofyan Amra-Base",
+        "real_name": "Sofyan Amrabat",
+        "prompt": "Subject: Sofyan Amrabat. Short dark hair or shaved head, clean shaven, strong defensive midfield build, intense look, olive skin tone. ::3 Full length action shot, head to toe visible, Sofyan Amrabat standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 126,
-        "name": "Almoez Ali",
-        "prompt": "Full-body AAA cyber-sport portrait of a clinical striker, short dark hair, lean fast build, light-tanned skin. Wearing the 'Asian-Cup Record' maroon and gold kit. Posed in a dynamic bicycle-kick preparation. Surrounded by floating digital goal-counters. 8k high-fidelity render."
+        "name": "Brahim Diaz-Silk",
+        "real_name": "Brahim Díaz",
+        "prompt": "Subject: Brahim Díaz. Short dark hair peinado upward with texture, clean shaven, agile and technical attacking build, light-tanned skin, creative expression. ::3 Full length action shot, head to toe visible, Brahim Díaz standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 127,
-        "name": "Meshaal Barsham",
-        "prompt": "Full-body AAA cyber-sport portrait of a penalty-saving hero goalkeeper, short dark hair, athletic build, light-tanned skin. Wearing the 'Qatari Fail-Safe' silver kit. Posed in a diving save with 3 holographic penalty-lock icons. Cinematic stadium with maroon neon trails. 8k resolution."
+        "name": "Nayef Aguerd-Peak",
+        "real_name": "Nayef Aguerd",
+        "prompt": "Subject: Nayef Aguerd. Short dark hair with a clean fade, clean shaven, tall and strong centre-back build, olive skin tone, focused look. ::3 Full length action shot, head to toe visible, Nayef Aguerd standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 128,
-        "name": "Hassan Al-Haydos",
-        "prompt": "Full-body AAA cyber-sport portrait of a legendary captain, short dark hair with beard, agile athletic build, light-tanned skin. Wearing the 'Qatari Eternal' maroon kit. Posed holding a digital captain's armband of light. Cinematic sunset lighting, 8k high-fidelity."
+        "name": "Romain Saiss-Chief",
+        "real_name": "Romain Saïss",
+        "prompt": "Subject: Romain Saïss. Short dark hair peinado classically, well-groomed beard, experienced and solid defender build, olive skin tone, leadership look. ::3 Full length action shot, head to toe visible, Romain Saïss standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 129,
-        "name": "Lucas Mendes",
-        "prompt": "Full-body AAA cyber-sport portrait of a veteran leader defender, short dark hair, strong 1.84m build, tanned skin. Wearing the 'Qatari-French' hybrid cyber-kit. Surrounded by digital nodes of leadership and tactical grids. Cinematic stadium lighting, 8k resolution."
+        "name": "Azzedine Ouna-Drift",
+        "real_name": "Azzedine Ounahi",
+        "prompt": "Subject: Azzedine Ounahi. Short dark hair with natural texture, clean shaven, lean and very agile midfield build, olive skin tone, creative expression. ::3 Full length action shot, head to toe visible, Azzedine Ounahi standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 130,
-        "name": "Pedro Miguel",
-        "prompt": "Full-body AAA cyber-sport portrait of a powerful wing-back, short dark hair, strong athletic build, tanned skin. Wearing the 'Ró-Ró' Qatari kit. Posed with a dual-Asian Cup holographic aura. Background is a vibrant Doha stadium with red and gold lights. 8k AAA aesthetic."
+        "name": "Youssef En-Air",
+        "real_name": "Youssef En-Nesyri",
+        "prompt": "Subject: Youssef En-Nesyri. Short dark hair, clean shaven, towering and powerful target forward build, olive skin tone, determined gaze. ::3 Full length action shot, head to toe visible, Youssef En-Nesyri standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 131,
-        "name": "Boualem Khoukhi",
-        "prompt": "Full-body AAA cyber-sport portrait of a versatile general defender, short dark hair, strong athletic build, light-tanned skin. Wearing the 'Qatari General' maroon kit. Posed with floating tactical holographic maps. Cinematic volumetric lighting, 8k hyper-realistic textures."
+        "name": "Noussair Mazra-Side",
+        "real_name": "Noussair Mazraoui",
+        "prompt": "Subject: Noussair Mazraoui. Short dark hair with a sharp fade, clean shaven, technical and fast full-back build, olive skin tone, focused look. ::3 Full length action shot, head to toe visible, Noussair Mazraoui standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 132,
-        "name": "Jassem Gaber",
-        "prompt": "Full-body AAA cyber-sport portrait of a technical defender, short dark hair, slim athletic build, light-tanned skin. Wearing the 'Qatari Hope' neon kit. Surrounded by digital shields and young-star node effects. Cinematic night stadium background, 8k resolution."
+        "name": "Amine Adli-Fly",
+        "real_name": "Amine Adli",
+        "prompt": "Subject: Amine Adli. Short dark hair with texture or small braids, clean shaven, fast and creative winger build, olive skin tone, dynamic expression. ::3 Full length action shot, head to toe visible, Amine Adli standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 133,
-        "name": "Ahmed Fathi",
-        "prompt": "Full-body AAA cyber-sport portrait of a veteran anchor midfielder, short dark hair, strong athletic build, light-tanned skin. Wearing the 'Qatari Legend' maroon and silver kit. Surrounded by floating digital chains (The Anchor). Cinematic stadium with soft golden lighting."
+        "name": "Wataru En-Pivot",
+        "real_name": "Wataru Endō",
+        "prompt": "Subject: Wataru Endō. Short dark hair peinado in a disciplined manner, clean shaven, hardworking and tenacious midfield build, tanned skin, focused tactical expression. ::3 Full length action shot, head to toe visible, Wataru Endō standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 134,
-        "name": "Yusuf Abdurisag",
-        "prompt": "Full-body AAA cyber-sport portrait of an explosive winger, short dark hair, lean fast build, light-tanned skin. Wearing the 'Qatari Speed' maroon kit. Intense motion blur and trailing red light effects. Background is a high-speed cyber-stadium. Cinematic high-fidelity."
+        "name": "Take Kubo-Jewel",
+        "real_name": "Takefusa Kubo",
+        "prompt": "Subject: Takefusa Kubo. Textured dark hair with clean sides, clean shaven, technical right winger build, light-tanned skin, creative expression. ::3 Full length action shot, head to toe visible, Takefusa Kubo standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 135,
-        "name": "Kaoru Mitoma",
-        "prompt": "Full-body AAA cyber-sport portrait of 'The Dribbling Professor', short dark hair, lean and exceptionally agile build, tanned skin. Wearing the 'Brighton Seagull' blue and white neon kit. He is surrounded by floating holographic math formulas and dribbling trajectory diagrams. Cinematic stadium background, 8k resolution."
+        "name": "Kaoru Mitoma-Dribble",
+        "real_name": "Kaoru Mitoma",
+        "prompt": "Subject: Kaoru Mitoma. Short dark hair peinado naturally, clean shaven, lean and exceptionally agile winger build, tanned skin, focused look. ::3 Full length action shot, head to toe visible, Kaoru Mitoma standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 136,
-        "name": "Junya Itō",
-        "prompt": "Full-body AAA cyber-sport portrait of 'The Speed King', short dark hair with blonde highlights, exceptionally fast and lean build, tanned skin. Emphasis on his signature sharp eyebrow. Wearing the 'Reims Red-Speed' kit. Motion blur trailing yellow light. Futuristic Japanese stadium background, 8k."
+        "name": "Junya Ito-Volt",
+        "real_name": "Junya Itō",
+        "prompt": "Subject: Junya Itō. Short dark hair often with blonde or light highlights, clean shaven, exceptionally fast and lean winger build, tanned skin, dynamic expression. ::3 Full length action shot, head to toe visible, Junya Itō standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 137,
-        "name": "Kō Itakura",
-        "prompt": "Full-body AAA cyber-sport portrait of 'The Defensive Wall', short dark hair with a clean fade, tall and strong build, tanned skin. Wearing the 'German-Japanese' hybrid cyber-kit. Posed as a sentinel with digital shield effects. Cinematic volumetric lighting, 8k hyper-realistic."
+        "name": "Ko Itakura-Stone",
+        "real_name": "Kō Itakura",
+        "prompt": "Subject: Kō Itakura. Short dark hair with a clean fade, clean shaven, tall and strong centre-back build, tanned skin, focused leadership look. ::3 Full length action shot, head to toe visible, Kō Itakura standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 138,
-        "name": "Takehiro Tomiyasu",
-        "prompt": "Full-body AAA cyber-sport portrait of 'The Iron Curtain', short dark hair with a clean-cut fade, strong and disciplined build, light skin tone. Wearing the 'London Red' cyber-kit. Background is a high-tech digital grid reflecting his tactical intelligence. Cinematic stadium, 8k photorealistic."
+        "name": "Takehiro Tomi-Shield",
+        "real_name": "Takehiro Tomiyasu",
+        "prompt": "Subject: Takehiro Tomiyasu. Short dark hair with a clean-cut fade, clean shaven, strong and disciplined centre-back build, light skin tone, focused tactical look. ::3 Full length action shot, head to toe visible, Takehiro Tomiyasu standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 139,
-        "name": "Zion Suzuki",
-        "prompt": "Full-body AAA cyber-sport portrait of 'The Young Guardian', short dark hair with sharp fade, tall athletic build, mixed skin tone. Wearing the 'Parma-Japan' gold-mesh goalkeeper kit. Posed in a high-speed reaction dive. Cinematic stadium lighting with golden sparks. 8k high-fidelity."
+        "name": "Zion Suzuki-Reflex",
+        "real_name": "Zion Suzuki",
+        "prompt": "Subject: Zion Suzuki. Short dark hair with a sharp fade, clean shaven, tall and athletic goalkeeper build, mixed skin tone, focused look. ::3 Full length action shot, head to toe visible, Zion Suzuki standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 140,
-        "name": "Hidemasa Morita",
-        "prompt": "Full-body AAA cyber-sport portrait of 'The Sporting Maestro', short dark hair, technical midfield build, tanned skin. Wearing the 'Lisbon Green' cyber-striped kit. Surrounded by floating music-note data streams and 150-game milestone digital nodes. Cinematic night stadium, 8k."
+        "name": "Hidemasa Mori-Brain",
+        "real_name": "Hidemasa Morita",
+        "prompt": "Subject: Hidemasa Morita. Short dark hair peinado with texture, clean shaven, hardworking and technical midfield build, tanned skin, professional look. ::3 Full length action shot, head to toe visible, Hidemasa Morita standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 141,
-        "name": "Ritsu Dōan",
-        "prompt": "Full-body AAA cyber-sport portrait of a 'World Cup Hero', short dark hair with sharp fade, agile winger build, light skin tone. Wearing the 'Freiburg Sun' red and white kit. Posed shooting with a trail of solar-fire. Futuristic Japanese stadium background with cherry blossom neon petals."
+        "name": "Ritsu Doan-Bang",
+        "real_name": "Ritsu Dōan",
+        "prompt": "Subject: Ritsu Dōan. Short dark hair with a sharp fade, clean shaven, agile and technical winger build, light skin tone, focused expression. ::3 Full length action shot, head to toe visible, Ritsu Dōan standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 142,
-        "name": "Kyogo Furuhashi",
-        "prompt": "Full-body AAA cyber-sport portrait of 'Kyogo', short dark hair, small but exceptionally agile build, tanned skin. Wearing the 'Glasgow Celtic' green-mesh kit. Posed as a 'Ninja' with a digital smoke effect. Surrounded by 7 holographic trophies. Cinematic stadium, 8k resolution."
+        "name": "Kyogo Furu-Sprint",
+        "real_name": "Kyogo Furuhashi",
+        "prompt": "Subject: Kyogo Furuhashi. Short dark hair with textured styling, clean shaven, small but exceptionally agile and fast forward build, tanned skin, focused goal-oriented gaze. ::3 Full length action shot, head to toe visible, Kyogo Furuhashi standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 143,
-        "name": "Ayase Ueda",
-        "prompt": "Full-body AAA cyber-sport portrait of a 'Clinical Finisher', short dark hair with clean fade, clinical forward build, tanned skin. Wearing the 'Rotterdam-Feyenoord' cyber-kit. Surrounded by floating digital code (crushing defensive encryption). Cinematic depth of field, 8k photorealistic."
+        "name": "Ayase Ueda-Target",
+        "real_name": "Ayase Ueda",
+        "prompt": "Subject: Ayase Ueda. Short dark hair with a clean fade, clean shaven, clinical forward build, tanned skin, determined gaze. ::3 Full length action shot, head to toe visible, Ayase Ueda standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 144,
-        "name": "Kalidou Koulibaly",
-        "prompt": "Full-body AAA cyber-sport portrait of 'K2', short natural dark hair, commanding and powerful build, deep dark skin tone. Wearing the 'Senegal King' gold and green kit. Posed as a 'Colossus' against a majestic mountain-cyber background. Dramatic volumetric lighting, 8k."
+        "name": "Kalidou Kouli-Rock",
+        "real_name": "Kalidou Koulibaly",
+        "prompt": "Subject: Kalidou Koulibaly. Short natural dark hair, clean shaven, no tattoos, commanding and powerful centre-back build, deep dark skin tone, leadership expression. ::3 Full length action shot, head to toe visible, Kalidou Koulibaly standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 145,
-        "name": "Sadio Mané",
-        "prompt": "Full-body AAA cyber-sport portrait of the 'King of Senegal', short dark hair, explosive forward build, deep dark skin tone. Wearing the 'AFCON Champion' golden kit. A subtle digital neon crown of light. Background is a vibrant African stadium with celebratory fireworks. 8k high-fidelity."
+        "name": "Sadio Mane-Jet",
+        "real_name": "Sadio Mané",
+        "prompt": "Subject: Sadio Mané. Short dark hair, clean shaven, explosive and strong forward build, deep dark skin tone, dynamic expression. ::3 Full length action shot, head to toe visible, Sadio Mané standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 146,
-        "name": "Edouard Mendy",
-        "prompt": "Full-body AAA cyber-sport portrait of 'Edou', short dark hair, towering 1.94m goalkeeper build, dark skin tone. Wearing the 'The Best' silver-mesh kit. Posed in a heroic stance with a subtle Champions League trophy holographic aura. Cinematic blue-hour stadium lighting. 8k."
+        "name": "Edouard Mendy-Stop",
+        "real_name": "Edouard Mendy",
+        "prompt": "Subject: Edouard Mendy. Short dark hair, clean shaven, towering and powerful goalkeeper build (1.94m), dark skin tone, focused leadership look. ::3 Full length action shot, head to toe visible, Edouard Mendy standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 147,
-        "name": "Idrissa Gueye",
-        "prompt": "Full-body AAA cyber-sport portrait of 'Gana', short dark hair, tenacious midfield build, dark skin tone. Wearing the 'Senegal Captain' gold and green kit. Surrounded by floating digital nodes of 100 caps. Background is a night stadium with teal neon pulses. 8k resolution."
+        "name": "Idrissa Gueye-Sweep",
+        "real_name": "Idrissa Gueye",
+        "prompt": "Subject: Idrissa Gueye. Short dark hair, clean shaven, experienced and tenacious defensive midfield build, dark skin tone, focused look. ::3 Full length action shot, head to toe visible, Idrissa Gueye standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 148,
-        "name": "Ismaila Sarr",
-        "prompt": "Full-body AAA cyber-sport portrait of the 'Tailor of the Wing', short dark hair with precision fade, fast winger build, dark skin tone. Wearing the 'Senegal-London' neon kit. Digital sewing-line light patterns trailing behind his run. Cinematic high-speed stadium background. 8k."
+        "name": "Ismaila Sarr-Zoom",
+        "real_name": "Ismaila Sarr",
+        "prompt": "Subject: Ismaila Sarr. Short dark hair with a precision fade, clean shaven, exceptionally fast and lean winger build, dark skin tone, dynamic expression. ::3 Full length action shot, head to toe visible, Ismaila Sarr standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 149,
-        "name": "Nicolas Jackson",
-        "prompt": "Full-body AAA cyber-sport portrait of 'CR7-Junior', short dark textured crop, agile agile build, dark skin tone. He is wearing high-tech 'Street-to-Stadium' boots with subtle barefoot skin patterns. Background is a mix of a cyber-stadium and Dakar streets. Cinematic rendering, 8k."
+        "name": "Nicolas Jack-Hit",
+        "real_name": "Nicolas Jackson",
+        "prompt": "Subject: Nicolas Jackson. Short dark textured crop with a sharp side fade, clean shaven or light stubble, agile and lean forward build, dark skin tone, dynamic expression. ::3 Full length action shot, head to toe visible, Nicolas Jackson standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     },
     {
         "id": 150,
-        "name": "Pape Sarr",
-        "prompt": "Full-body AAA cyber-sport portrait of the 'Computer Science Midfielder', short dark natural curls, tall slim build, dark skin tone. Wearing the 'London-Senegal' tech-kit. Surrounded by floating digital code, binary data streams, and holographic nodes. Cinematic studio-style lighting, 8k."
+        "name": "Pape Sarr-Flow",
+        "real_name": "Pape Sarr",
+        "prompt": "Subject: Pape Sarr. Short dark natural curls with a clean high fade, clean shaven, tall and very slim athletic build, dark skin tone, focused look. ::3 Full length action shot, head to toe visible, Pape Sarr standing in an epic football pose. KIT: Wearing a completely blank, plain solid-colored athletic jersey. The chest of the jersey is smooth, solid, and completely plain, showing only pure solid clean fabric with zero logos, zero graphics, and zero markings. BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
     }
 ]
