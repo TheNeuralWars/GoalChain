@@ -1,159 +1,240 @@
 /**
- * GoalChain Genesis Squad 3D Gallery
- * Maneja la visualización y renderizado holográfico 3D de los NFTs
+ * GoalChain Genesis Squad 3D Gallery (Parallax Engine)
+ * Renderiza los NFTs mutables utilizando capas HTML separadas con profundidad Z.
  */
 
-const GALLERY_DATA = [
-    {
-        id: 1,
-        name: "Lionel Messi",
-        trait: "GOAT Aura",
-        rarity: "mythic",
-        image: "assets/img/mock/card_messi.jpg", // Placeholder
-        lore: "The undisputed GOAT of the GoalChain ledger. 46 trophies encoded."
-    },
-    {
-        id: 2,
-        name: "Emiliano Martínez",
-        trait: "Penalty Specialist",
-        rarity: "legendary",
-        image: "assets/img/mock/card_dibu.jpg", 
-        lore: "Hero of Lusail. Master of mind games and penalty shootouts."
-    },
-    {
-        id: 12,
-        name: "Jude Bellingham",
-        trait: "Golden Boy",
-        rarity: "epic",
-        image: "assets/img/mock/card_jude.jpg", 
-        lore: "The Golden Boy. Madrid's dynamic midfield general."
-    },
-    {
-        id: 344,
-        name: "Gianluca Lapadula",
-        trait: "The Masked Gladiator",
-        rarity: "rare",
-        image: "assets/img/mock/card_lapa.jpg",
-        lore: "Wearing his iconic black mask, an unstoppable force for Peru."
-    },
-    {
-        id: 485,
-        name: "Mohamed Salah",
-        trait: "Egyptian King",
-        rarity: "epic",
-        image: "assets/img/mock/card_salah.jpg",
-        lore: "The Pharaoh of Liverpool. Golden hieroglyphic speed trails."
-    },
-    {
-        id: 522,
-        name: "Hervé Koffi",
-        trait: "The Black Cat",
-        rarity: "rare",
-        image: "assets/img/mock/card_koffi.jpg",
-        lore: "Agile feline reflexes with a neon black cat aura."
-    }
-];
+const RARITY_COLORS = {
+    "mythic": "#ffcc00",
+    "legendary": "#14f195",
+    "epic": "#9945ff",
+    "rare": "#00c8ff",
+    "common": "#c8c8c8"
+};
 
-function initGalleryView() {
+const BG_IMAGE_MAP = {
+    "BG-MYT": "bg_mythic_lunar.mp4",
+    "BG-LEG": "bg_legendary_hologram.mp4",
+    "BG-EPI": "bg_epic_aurora.mp4",
+    "BG-RAR": "bg_rare_sunset.mp4",
+    "BG-COM": "bg_common_grass.png"
+};
+
+async function initGalleryView() {
     const container = document.getElementById('galleryContainer');
     if (!container || container.children.length > 0) return; // Evitar re-renderizado
+    container.innerHTML = '<div style="color: var(--text-dim); width: 100%; text-align: center; padding: 40px;">Conectando con el Oráculo 3D...</div>';
 
-    // Limpiar contenedor (por si acaso)
-    container.innerHTML = '';
+    try {
+        const response = await fetch(`assets/data/players.json?v=${new Date().getTime()}`);
+        const players = await response.json();
+        
+        container.innerHTML = ''; // Limpiar loader
 
-    GALLERY_DATA.forEach(player => {
-        // Determinar colores según rareza
-        let rarityColor = "#fff";
-        let glowColor = "rgba(255,255,255,0.2)";
-        if (player.rarity === 'mythic') { rarityColor = "#ffcc00"; glowColor = "rgba(255, 204, 0, 0.4)"; }
-        if (player.rarity === 'legendary') { rarityColor = "#14f195"; glowColor = "rgba(20, 241, 149, 0.4)"; }
-        if (player.rarity === 'epic') { rarityColor = "#9945ff"; glowColor = "rgba(153, 69, 255, 0.4)"; }
+        // Renderizar los primeros 24 jugadores para rendimiento de la galería 3D
+        players.slice(0, 24).forEach(player => {
+            renderParallaxCard(container, player);
+        });
 
-        const cardHTML = `
-            <div class="nft-card-container" style="perspective: 1000px;">
-                <div class="nft-card-3d" style="
-                    position: relative;
-                    width: 100%;
-                    aspect-ratio: 2/3;
-                    border-radius: 15px;
-                    transition: transform 0.1s;
-                    transform-style: preserve-3d;
-                    background: linear-gradient(145deg, #1a1a24, #0d0d14);
-                    border: 2px solid ${rarityColor};
-                    box-shadow: 0 10px 30px ${glowColor};
-                    overflow: hidden;
-                    cursor: pointer;
-                " onmousemove="handleCardMove(event, this)" onmouseleave="handleCardLeave(this)">
-                    
-                    <!-- Holographic Overlay -->
-                    <div class="holo-glare" style="
-                        position: absolute;
-                        top: 0; left: 0; right: 0; bottom: 0;
-                        background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.3) 25%, transparent 30%);
-                        z-index: 10;
-                        pointer-events: none;
-                        opacity: 0.5;
-                        mix-blend-mode: overlay;
-                    "></div>
+    } catch (err) {
+        console.error("Error cargando jugadores para la Galería 3D:", err);
+        container.innerHTML = '<div style="color: #ff3366;">Error cargando la base de datos de jugadores.</div>';
+    }
+}
 
-                    <!-- Card Content -->
-                    <div style="padding: 15px; display: flex; flex-direction: column; height: 100%; justify-content: space-between; z-index: 2; position: relative;">
-                        <!-- Header -->
-                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                            <div style="font-size: 1.2rem; font-weight: 900; color: #fff;">${player.id}</div>
-                            <div style="font-size: 0.6rem; padding: 3px 8px; border-radius: 4px; background: ${rarityColor}; color: #000; font-weight: 800; text-transform: uppercase;">
+function sanitizeFilename(name) {
+    return name.toLowerCase().replace(/ /g, '_').replace(/[^a-z0-9_\-]/g, '');
+}
+
+function renderParallaxCard(container, player) {
+    const rarityColor = RARITY_COLORS[player.rarity] || "#ffffff";
+    const bgFilename = BG_IMAGE_MAP[player.bg_type || "BG-COM"];
+    const paddedId = String(player.id).padStart(3, '0');
+    const safeName = sanitizeFilename(player.name);
+    
+    // Corregido: Las siluetas recortadas están en la raíz de nfts/
+    const playerImgUrl = `assets/img/nfts/${paddedId}_${safeName}.png`;
+    const bgImgUrl = `assets/img/nfts/bg/${bgFilename}`;
+
+    // --- On-Chain Mock Data (Simulando lo que llega del Smart Contract) ---
+    const stamina = player.current_stamina !== undefined ? player.current_stamina : Math.floor(Math.random() * 100);
+    const isEliminated = player.is_eliminated || false;
+    const baseYield = player.base_yield_rate || (player.stats.hype * 10);
+    
+    const isLowBattery = stamina < 30 && !isEliminated;
+
+    // Efectos visuales de estado
+    const filterStyle = isEliminated ? "grayscale(100%) opacity(0.6)" : (isLowBattery ? "hue-rotate(320deg) saturate(150%)" : "drop-shadow(0 15px 15px rgba(0,0,0,0.6))");
+    const warningLayer = isLowBattery ? `<div style="position: absolute; inset: 0; background: rgba(255,0,0,0.1); border: 2px solid red; border-radius: 16px; animation: pulseRed 1.5s infinite; transform: translateZ(50px); pointer-events: none; z-index: 5;"></div>` : '';
+    const eliminatedOverlay = isEliminated ? `<div style="position: absolute; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; transform: translateZ(70px); pointer-events: none; z-index: 6;"><h2 style="color: red; border: 4px solid red; padding: 10px; transform: rotate(-15deg); text-shadow: 0 0 10px black; font-weight: 900; letter-spacing: 2px;">ELIMINATED</h2></div>` : '';
+
+    const cardHTML = `
+        <style>
+            @keyframes pulseRed { 0% { opacity: 0.2; } 50% { opacity: 0.8; box-shadow: inset 0 0 30px red; } 100% { opacity: 0.2; } }
+            .stamina-bar-container { width: 100%; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; margin-top: 4px; overflow: hidden; }
+            .stamina-bar { height: 100%; background: ${isLowBattery ? 'red' : '#14f195'}; width: ${stamina}%; transition: width 0.3s; }
+        </style>
+        <div class="nft-card-container" style="perspective: 1000px; margin-bottom: 20px;">
+            <div class="nft-card-3d parallax-card" style="
+                position: relative;
+                width: 100%;
+                aspect-ratio: 2/3;
+                border-radius: 16px;
+                transition: transform 0.1s ease-out;
+                transform-style: preserve-3d;
+                cursor: pointer;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                ${isEliminated ? 'pointer-events: none;' : ''}
+            " onmousemove="handleParallaxMove(event, this)" onmouseleave="handleParallaxLeave(this)">
+                
+                <!-- CAPA 0: Estadio de Fondo (Profundidad: -30px) -->
+                ${bgFilename.endsWith('.mp4') || bgFilename.endsWith('.webm') ? `
+                <video class="layer layer-bg" autoplay loop muted playsinline style="
+                    position: absolute; inset: -10px; border-radius: 16px;
+                    width: calc(100% + 20px); height: calc(100% + 20px); object-fit: cover;
+                    transform: translateZ(-30px);
+                    box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+                    pointer-events: none;
+                    z-index: 1;
+                    ${isEliminated ? 'filter: grayscale(100%);' : ''}
+                ">
+                    <source src="${bgImgUrl}" type="video/${bgFilename.endsWith('.webm') ? 'webm' : 'mp4'}">
+                </video>
+                ` : `
+                <div class="layer layer-bg" style="
+                    position: absolute; inset: -10px; border-radius: 16px;
+                    background: url('${bgImgUrl}') center/cover;
+                    transform: translateZ(-30px);
+                    box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+                    z-index: 1;
+                    ${isEliminated ? 'filter: grayscale(100%);' : ''}
+                "></div>
+                `}
+
+                <!-- CAPA 1: Jugador Transparente (Profundidad: +30px) -->
+                <div class="layer layer-player" style="
+                    position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center;
+                    transform: translateZ(30px);
+                    z-index: 3;
+                ">
+                    <img src="${playerImgUrl}" style="
+                        width: 95%; height: 95%; object-fit: contain; pointer-events: none;
+                        filter: ${filterStyle};
+                    " onerror="this.src='assets/img/mock/player_placeholder.png'; this.style.opacity='0.2';">
+                </div>
+
+                <!-- CAPA FX: Low Battery Warning -->
+                ${warningLayer}
+
+                <!-- CAPA 2: Marco de Rareza (Profundidad: +10px) -->
+                <div class="layer layer-frame" style="
+                    position: absolute; inset: 0; border-radius: 16px; pointer-events: none;
+                    border: 3px solid ${isEliminated ? '#333' : rarityColor};
+                    box-shadow: inset 0 0 20px ${isEliminated ? '#000' : rarityColor + '40'}, 0 0 20px ${isEliminated ? '#000' : rarityColor + '40'};
+                    transform: translateZ(10px);
+                    z-index: 2;
+                "></div>
+
+                <!-- CAPA 3: Interfaz y Textos (Profundidad: +60px) -->
+                <div class="layer layer-ui" style="
+                    position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between;
+                    padding: 15px; transform: translateZ(60px); pointer-events: none;
+                    z-index: 4;
+                ">
+                    <!-- Top Panel -->
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                        <span style="font-weight: 900; color: white; font-size: 1.2rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8); background: rgba(0,0,0,0.5); padding: 2px 6px; border-radius: 4px;">#${paddedId}</span>
+                        <div style="text-align: right;">
+                            <div style="background: ${isEliminated ? '#555' : rarityColor}; color: black; padding: 3px 8px; border-radius: 4px; font-weight: 900; font-size: 0.6rem; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.5); margin-bottom: 5px;">
                                 ${player.rarity}
                             </div>
+                            <!-- Yield Pill -->
+                            <div style="background: rgba(0,0,0,0.8); border: 1px solid #14f195; color: #14f195; padding: 2px 6px; border-radius: 4px; font-weight: 900; font-size: 0.6rem;">
+                                💸 ${isEliminated ? '0' : baseYield} GCH/d
+                            </div>
                         </div>
-
-                        <!-- Image Placeholder (Until actual renders are done) -->
-                        <div style="flex: 1; display: flex; align-items: center; justify-content: center; margin: 10px 0;">
-                            <div style="width: 100%; height: 100%; background: rgba(0,0,0,0.5); border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px dashed rgba(255,255,255,0.1);">
-                                <span style="color: var(--text-dim); font-size: 0.7rem; text-align:center; padding:10px;">AAA Asset<br>Pending Render</span>
+                    </div>
+                    
+                    <!-- Bottom Panel: Ultra-sleek, compact and glassmorphic (reduces height by 55%) -->
+                    <div style="
+                        background: rgba(6, 6, 10, 0.45); backdrop-filter: blur(4px);
+                        padding: 8px 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);
+                        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+                    ">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                            <div>
+                                <h3 style="margin: 0; color: white; font-size: 0.95rem; text-shadow: 0 1px 3px rgba(0,0,0,0.9); font-weight: 900; line-height: 1.1;">${player.name}</h3>
+                                <div style="color: ${isEliminated ? '#777' : rarityColor}; font-size: 0.55rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">${player.real_name || 'Verified Athlete'}</div>
+                            </div>
+                            
+                            <!-- Mini Stats Inline Badge -->
+                            <div style="display: flex; gap: 8px; background: rgba(0,0,0,0.4); padding: 3px 6px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05);">
+                                <div style="text-align: center; line-height: 1;"><span style="color: #aaa; font-size: 0.45rem; font-weight: 700;">ATK</span><br><span style="color: white; font-weight: 900; font-size: 0.75rem;">${player.stats.atk}</span></div>
+                                <div style="text-align: center; line-height: 1;"><span style="color: #aaa; font-size: 0.45rem; font-weight: 700;">DEF</span><br><span style="color: white; font-weight: 900; font-size: 0.75rem;">${player.stats.def}</span></div>
+                                <div style="text-align: center; line-height: 1;"><span style="color: ${isEliminated ? '#555' : rarityColor}; font-size: 0.45rem; font-weight: 700;">HYP</span><br><span style="color: ${isEliminated ? '#555' : rarityColor}; font-weight: 900; font-size: 0.75rem; text-shadow: 0 0 5px ${rarityColor}80;">${player.stats.hype}</span></div>
                             </div>
                         </div>
 
-                        <!-- Footer / Lore -->
-                        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
-                            <h3 style="margin: 0; font-size: 1rem; color: #fff;">${player.name}</h3>
-                            <div style="font-size: 0.65rem; color: ${rarityColor}; margin: 5px 0; font-weight: 800;">${player.trait}</div>
-                            <p style="margin: 0; font-size: 0.6rem; color: var(--text-dim); line-height: 1.4;">${player.lore}</p>
+                        <!-- Sleek energy laser bar -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
+                            <span style="color: #888; font-size: 0.45rem; font-weight: 900; letter-spacing: 0.5px;">⚡ ENERGY</span>
+                            <span style="color: ${isLowBattery ? 'red' : 'white'}; font-size: 0.45rem; font-weight: 900;">${stamina}%</span>
+                        </div>
+                        <div class="stamina-bar-container" style="margin-top: 2px; height: 2px; background: rgba(255,255,255,0.1);">
+                            <div class="stamina-bar" style="height: 100%; background: ${isLowBattery ? 'red' : '#14f195'}; width: ${stamina}%;"></div>
                         </div>
                     </div>
                 </div>
+
+                <!-- CAPA FX: Eliminado -->
+                ${eliminatedOverlay}
+
+                <!-- CAPA 4: Brillo Holográfico -->
+                <div class="holo-glare" style="
+                    position: absolute; inset: 0; z-index: 10; pointer-events: none; opacity: 0; mix-blend-mode: overlay;
+                    border-radius: 16px; transition: opacity 0.3s;
+                "></div>
             </div>
-        `;
-        container.innerHTML += cardHTML;
-    });
+        </div>
+    `;
+    container.innerHTML += cardHTML;
 }
 
-// Interacción 3D
-function handleCardMove(e, card) {
+// Lógica Matemática del Efecto Parallax
+function handleParallaxMove(e, card) {
     const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left; // Posición X dentro de la carta
-    const y = e.clientY - rect.top;  // Posición Y dentro de la carta
+    const x = e.clientX - rect.left; // Posición X del ratón
+    const y = e.clientY - rect.top;  // Posición Y del ratón
 
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotateX = ((y - centerY) / centerY) * -15; // Invertido para rotar hacia el cursor
+    // Calcular inclinación (max 15 grados)
+    const rotateX = ((y - centerY) / centerY) * -15; 
     const rotateY = ((x - centerX) / centerX) * 15;
 
+    // Aplicar rotación a la carta entera
     card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
 
-    // Mover el glare holográfico
+    // Aplicar brillo dinámico
     const glare = card.querySelector('.holo-glare');
     if (glare) {
+        glare.style.opacity = '0.6';
         const percentageX = (x / rect.width) * 100;
         const percentageY = (y / rect.height) * 100;
-        glare.style.background = `radial-gradient(circle at ${percentageX}% ${percentageY}%, rgba(255,255,255,0.4) 0%, transparent 50%)`;
+        glare.style.background = `radial-gradient(circle at ${percentageX}% ${percentageY}%, rgba(255,255,255,0.8) 0%, transparent 60%)`;
     }
 }
 
-function handleCardLeave(card) {
+function handleParallaxLeave(card) {
+    // Resetear rotación con rebote suave
+    card.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
     card.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    
+    // Remover transición después para que no afecte el mousemove rápido
+    setTimeout(() => { card.style.transition = 'transform 0.1s ease-out'; }, 500);
+
     const glare = card.querySelector('.holo-glare');
     if (glare) {
-        glare.style.background = `linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.3) 25%, transparent 30%)`;
+        glare.style.opacity = '0';
     }
 }
