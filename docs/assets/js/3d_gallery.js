@@ -3,6 +3,64 @@
  * Renderiza los NFTs mutables utilizando capas HTML separadas con profundidad Z.
  */
 
+window.activeYoyoVideos = window.activeYoyoVideos || new Map();
+
+window.makeVideoYoyo = window.makeVideoYoyo || function(videoElement) {
+    if (window.activeYoyoVideos.has(videoElement)) return;
+    
+    let reversing = false;
+    let rafId = null;
+
+    function step() {
+        if (!videoElement || videoElement.paused) {
+            cancelAnimationFrame(rafId);
+            window.activeYoyoVideos.delete(videoElement);
+            return;
+        }
+
+        if (reversing) {
+            videoElement.currentTime -= 0.033; // ~30fps reverse
+            if (videoElement.currentTime <= 0.1) {
+                videoElement.currentTime = 0;
+                reversing = false;
+                videoElement.play().catch(() => {});
+            }
+        } else {
+            if (videoElement.currentTime >= videoElement.duration - 0.1) {
+                reversing = true;
+            }
+        }
+        rafId = requestAnimationFrame(step);
+    }
+
+    const playHandler = () => {
+        cancelAnimationFrame(rafId);
+        reversing = false;
+        rafId = requestAnimationFrame(step);
+    };
+
+    const pauseHandler = () => {
+        cancelAnimationFrame(rafId);
+    };
+
+    videoElement.loop = false; // Disable native loop
+    videoElement.addEventListener('play', playHandler);
+    videoElement.addEventListener('pause', pauseHandler);
+    
+    videoElement.cleanupYoyo = () => {
+        cancelAnimationFrame(rafId);
+        videoElement.removeEventListener('play', playHandler);
+        videoElement.removeEventListener('pause', pauseHandler);
+        window.activeYoyoVideos.delete(videoElement);
+    };
+
+    window.activeYoyoVideos.set(videoElement, step);
+    
+    if (!videoElement.paused) {
+        rafId = requestAnimationFrame(step);
+    }
+};
+
 const RARITY_COLORS = {
     "mythic": "#ffcc00",
     "legendary": "#14f195",
@@ -198,11 +256,14 @@ function renderParallaxCard(container, player) {
     `;
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = cardHTML;
-    const cardElement = tempDiv.firstElementChild;
-    container.appendChild(cardElement);
+    const cardElement = tempDiv.querySelector('.nft-card-container');
+    
+    while (tempDiv.firstChild) {
+        container.appendChild(tempDiv.firstChild);
+    }
 
     // Apply Yoyo loop to the background video of this 3D card
-    const video = cardElement.querySelector('.layer-bg');
+    const video = cardElement ? cardElement.querySelector('.layer-bg') : null;
     if (video && video.tagName === 'VIDEO') {
         if (window.makeVideoYoyo) {
             window.makeVideoYoyo(video);
