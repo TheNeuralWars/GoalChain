@@ -832,109 +832,132 @@
             
             <div class="stadium-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
                 <!-- STADIUM 1: NEO-OLYMPUS (MYTHIC) -->
-                <div class="stadium-card reveal" style="border: 2px solid #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);">
-                    <div class="stadium-img" style="background-image: url('assets/img/stadiums/neo_olympus.jpg'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center;">
-                        <span class="badge" style="position: absolute; top: 10px; left: 10px; background: linear-gradient(90deg, #ffd700, #ff9a33); color: #000; font-weight: 900; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px;">MYTHIC RWA</span>
-                        <div class="stadium-yield-info" style="background: rgba(0, 0, 0, 0.85); border: 1px solid #ffd700; color: #ffd700; font-weight: bold;">Est. Yield: 25% APY</div>
+                <div class="stadium-card reveal" style="border: 2px solid #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); overflow: hidden; position: relative;">
+                    <div class="stadium-img" data-video="assets/video/stadiums/neo_olympus.mp4" style="background-image: url('assets/img/stadiums/neo_olympus.jpg'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center; transition: z-index 0.3s;">
+                        <span class="badge" style="position: absolute; top: 10px; left: 10px; background: linear-gradient(90deg, #ffd700, #ff9a33); color: #000; font-weight: 900; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px; z-index: 2;">MYTHIC RWA</span>
+                        <div class="stadium-yield-info" style="background: rgba(0, 0, 0, 0.85); border: 1px solid #ffd700; color: #ffd700; font-weight: bold; z-index: 2;">Est. Yield: 25% APY</div>
                     </div>
-                    <div class="stadium-details" style="padding: 1.5rem; text-align: left;">
+                    <div class="stadium-details" style="padding: 1.5rem; text-align: left; background: #0b0b12; position: relative; z-index: 2;">
                         <h4 style="color: #ffd700; font-size: 1.25rem; font-weight: 900; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
                             <span>Neo-Olympus Cyber-Arena</span>
                             <span style="font-size: 1rem; color: #ffd700;">🏟️</span>
                         </h4>
                         <p data-i18n="stad_olympus_desc" style="font-size: 0.9rem; color: #a0aec0; margin-bottom: 1.2rem; min-height: 48px;">Sede Mítica. Arquitectura colosal con anillos de luz dorada en la cima y césped inteligente. Máximo tráfico de apuestas.</p>
                         <div style="display: flex; gap: 8px;">
-                            <a href="https://grok.com/imagine/post/2840a222-8360-4ea3-b7fb-9972e24678b6?source=post-page&platform=web" target="_blank" class="btn btn-secondary btn-sm" style="flex: 1; text-align: center; text-transform: uppercase; font-weight: bold; border-color: #ffd700; color: #ffd700; display: flex; align-items: center; justify-content: center; gap: 4px; text-decoration: none; padding: 8px; font-size: 0.75rem;">
+                            <button onclick="openStadiumVideo('Neo-Olympus Cyber-Arena', 'assets/video/stadiums/neo_olympus.mp4', 'stad_olympus_desc', '#ffd700')" class="btn btn-secondary btn-sm" style="flex: 1; text-align: center; text-transform: uppercase; font-weight: bold; border-color: #ffd700; color: #ffd700; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 8px; font-size: 0.75rem;">
                                 <span>VER VIDEO</span> 🎥
-                            </a>
+                            </button>
                             <button class="btn btn-primary btn-sm" style="flex: 1.2; font-weight: bold; background: linear-gradient(90deg, #14f195, #9945ff); border: none; color: #000; padding: 8px; font-size: 0.75rem;" data-i18n="stad_explore_btn">EXPLORAR ACCIONES</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- STADIUM 2: DOME KRONOS (MYTHIC) -->
-                <div class="stadium-card reveal" style="border: 2px solid #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);">
-                    <div class="stadium-img" style="background-image: url('assets/img/stadiums/dome_kronos.jpg'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center;">
-                        <span class="badge" style="position: absolute; top: 10px; left: 10px; background: linear-gradient(90deg, #ffd700, #ff9a33); color: #000; font-weight: 900; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px;">MYTHIC RWA</span>
-                        <div class="stadium-yield-info" style="background: rgba(0, 0, 0, 0.85); border: 1px solid #ffd700; color: #ffd700; font-weight: bold;">Est. Yield: 20% APY</div>
+                <div class="stadium-card reveal" style="border: 2px solid #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); overflow: hidden; position: relative;">
+                    <div class="stadium-img" data-video="assets/video/stadiums/dome_kronos.mp4" style="background-image: url('assets/img/stadiums/dome_kronos.jpg'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center; transition: z-index 0.3s;">
+                        <span class="badge" style="position: absolute; top: 10px; left: 10px; background: linear-gradient(90deg, #ffd700, #ff9a33); color: #000; font-weight: 900; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px; z-index: 2;">MYTHIC RWA</span>
+                        <div class="stadium-yield-info" style="background: rgba(0, 0, 0, 0.85); border: 1px solid #ffd700; color: #ffd700; font-weight: bold; z-index: 2;">Est. Yield: 20% APY</div>
                     </div>
-                    <div class="stadium-details" style="padding: 1.5rem; text-align: left;">
+                    <div class="stadium-details" style="padding: 1.5rem; text-align: left; background: #0b0b12; position: relative; z-index: 2;">
                         <h4 style="color: #ffd700; font-size: 1.25rem; font-weight: 900; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
                             <span>Carbon Dome Kronos</span>
                             <span style="font-size: 1rem; color: #ffd700;">🏟️</span>
                         </h4>
                         <p data-i18n="stad_kronos_desc" style="font-size: 0.9rem; color: #a0aec0; margin-bottom: 1.2rem; min-height: 48px;">Cúpula Mítica de carbono integrada con oráculos cuánticos. Distribución instantánea de dividendos a holders.</p>
                         <div style="display: flex; gap: 8px;">
-                            <a href="https://grok.com/imagine/post/c5f355bd-f8dd-4a21-8a43-bb33a933e357?source=post-page&platform=web" target="_blank" class="btn btn-secondary btn-sm" style="flex: 1; text-align: center; text-transform: uppercase; font-weight: bold; border-color: #ffd700; color: #ffd700; display: flex; align-items: center; justify-content: center; gap: 4px; text-decoration: none; padding: 8px; font-size: 0.75rem;">
+                            <button onclick="openStadiumVideo('Carbon Dome Kronos', 'assets/video/stadiums/dome_kronos.mp4', 'stad_kronos_desc', '#ffd700')" class="btn btn-secondary btn-sm" style="flex: 1; text-align: center; text-transform: uppercase; font-weight: bold; border-color: #ffd700; color: #ffd700; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 8px; font-size: 0.75rem;">
                                 <span>VER VIDEO</span> 🎥
-                            </a>
+                            </button>
                             <button class="btn btn-primary btn-sm" style="flex: 1.2; font-weight: bold; background: linear-gradient(90deg, #14f195, #9945ff); border: none; color: #000; padding: 8px; font-size: 0.75rem;" data-i18n="stad_explore_btn">EXPLORAR ACCIONES</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- STADIUM 3: TITANIUM COLISEUM (LEGENDARY) -->
-                <div class="stadium-card reveal" style="border: 2px solid #9945ff; box-shadow: 0 0 20px rgba(153, 69, 255, 0.2);">
-                    <div class="stadium-img" style="background-image: url('assets/img/stadiums/titanium_coliseum.jpg'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center;">
-                        <span class="badge" style="position: absolute; top: 10px; left: 10px; background: linear-gradient(90deg, #9945ff, #8000ff); color: #fff; font-weight: 900; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px;">LEGENDARY RWA</span>
-                        <div class="stadium-yield-info" style="background: rgba(0, 0, 0, 0.85); border: 1px solid #9945ff; color: #9945ff; font-weight: bold;">Est. Yield: 15% APY</div>
+                <div class="stadium-card reveal" style="border: 2px solid #9945ff; box-shadow: 0 0 20px rgba(153, 69, 255, 0.2); overflow: hidden; position: relative;">
+                    <div class="stadium-img" data-video="assets/video/stadiums/titanium_coliseum.mp4" style="background-image: url('assets/img/stadiums/titanium_coliseum.jpg'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center; transition: z-index 0.3s;">
+                        <span class="badge" style="position: absolute; top: 10px; left: 10px; background: linear-gradient(90deg, #9945ff, #8000ff); color: #fff; font-weight: 900; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px; z-index: 2;">LEGENDARY RWA</span>
+                        <div class="stadium-yield-info" style="background: rgba(0, 0, 0, 0.85); border: 1px solid #9945ff; color: #9945ff; font-weight: bold; z-index: 2;">Est. Yield: 15% APY</div>
                     </div>
-                    <div class="stadium-details" style="padding: 1.5rem; text-align: left;">
+                    <div class="stadium-details" style="padding: 1.5rem; text-align: left; background: #0b0b12; position: relative; z-index: 2;">
                         <h4 style="color: #9945ff; font-size: 1.25rem; font-weight: 900; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
                             <span>Titanium Cyber-Coliseum</span>
                             <span style="font-size: 1rem; color: #9945ff;">🏟️</span>
                         </h4>
                         <p data-i18n="stad_titanium_desc" style="font-size: 0.9rem; color: #a0aec0; margin-bottom: 1.2rem; min-height: 48px;">Sede Legendaria. Coliseo cibernético con paneles de titanio y luces cyan. Optimizado para alto flujo de transferencias y mints.</p>
                         <div style="display: flex; gap: 8px;">
-                            <a href="https://grok.com/imagine/post/91d5bd2a-fa1e-4f0e-870e-13e442f893af?source=post-page&platform=web" target="_blank" class="btn btn-secondary btn-sm" style="flex: 1; text-align: center; text-transform: uppercase; font-weight: bold; border-color: #9945ff; color: #9945ff; display: flex; align-items: center; justify-content: center; gap: 4px; text-decoration: none; padding: 8px; font-size: 0.75rem;">
+                            <button onclick="openStadiumVideo('Titanium Cyber-Coliseum', 'assets/video/stadiums/titanium_coliseum.mp4', 'stad_titanium_desc', '#9945ff')" class="btn btn-secondary btn-sm" style="flex: 1; text-align: center; text-transform: uppercase; font-weight: bold; border-color: #9945ff; color: #9945ff; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 8px; font-size: 0.75rem;">
                                 <span>VER VIDEO</span> 🎥
-                            </a>
+                            </button>
                             <button class="btn btn-primary btn-sm" style="flex: 1.2; font-weight: bold; background: linear-gradient(90deg, #14f195, #9945ff); border: none; color: #000; padding: 8px; font-size: 0.75rem;" data-i18n="stad_explore_btn">EXPLORAR ACCIONES</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- STADIUM 4: OBSIDIAN ARENA (LEGENDARY) -->
-                <div class="stadium-card reveal" style="border: 2px solid #9945ff; box-shadow: 0 0 20px rgba(153, 69, 255, 0.2);">
-                    <div class="stadium-img" style="background-image: url('assets/img/stadiums/obsidian_arena.jpg'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center;">
-                        <span class="badge" style="position: absolute; top: 10px; left: 10px; background: linear-gradient(90deg, #9945ff, #8000ff); color: #fff; font-weight: 900; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px;">LEGENDARY RWA</span>
-                        <div class="stadium-yield-info" style="background: rgba(0, 0, 0, 0.85); border: 1px solid #9945ff; color: #9945ff; font-weight: bold;">Est. Yield: 12% APY</div>
+                <div class="stadium-card reveal" style="border: 2px solid #9945ff; box-shadow: 0 0 20px rgba(153, 69, 255, 0.2); overflow: hidden; position: relative;">
+                    <div class="stadium-img" data-video="assets/video/stadiums/obsidian_arena.mp4" style="background-image: url('assets/img/stadiums/obsidian_arena.jpg'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center; transition: z-index 0.3s;">
+                        <span class="badge" style="position: absolute; top: 10px; left: 10px; background: linear-gradient(90deg, #9945ff, #8000ff); color: #fff; font-weight: 900; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px; z-index: 2;">LEGENDARY RWA</span>
+                        <div class="stadium-yield-info" style="background: rgba(0, 0, 0, 0.85); border: 1px solid #9945ff; color: #9945ff; font-weight: bold; z-index: 2;">Est. Yield: 12% APY</div>
                     </div>
-                    <div class="stadium-details" style="padding: 1.5rem; text-align: left;">
+                    <div class="stadium-details" style="padding: 1.5rem; text-align: left; background: #0b0b12; position: relative; z-index: 2;">
                         <h4 style="color: #9945ff; font-size: 1.25rem; font-weight: 900; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
                             <span>Obsidian Arena</span>
                             <span style="font-size: 1rem; color: #9945ff;">🏟️</span>
                         </h4>
                         <p data-i18n="stad_obsidian_desc" style="font-size: 0.9rem; color: #a0aec0; margin-bottom: 1.2rem; min-height: 48px;">Sede Legendaria. Arena de obsidiana con contornos LED Solana Green y césped de carbono. Excelente rentabilidad pasiva.</p>
                         <div style="display: flex; gap: 8px;">
-                            <a href="https://grok.com/imagine/post/15b32875-a5c0-4c9a-a285-58549bb64ed9?source=post-page&platform=web" target="_blank" class="btn btn-secondary btn-sm" style="flex: 1; text-align: center; text-transform: uppercase; font-weight: bold; border-color: #9945ff; color: #9945ff; display: flex; align-items: center; justify-content: center; gap: 4px; text-decoration: none; padding: 8px; font-size: 0.75rem;">
+                            <button onclick="openStadiumVideo('Obsidian Arena', 'assets/video/stadiums/obsidian_arena.mp4', 'stad_obsidian_desc', '#9945ff')" class="btn btn-secondary btn-sm" style="flex: 1; text-align: center; text-transform: uppercase; font-weight: bold; border-color: #9945ff; color: #9945ff; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 8px; font-size: 0.75rem;">
                                 <span>VER VIDEO</span> 🎥
-                            </a>
+                            </button>
                             <button class="btn btn-primary btn-sm" style="flex: 1.2; font-weight: bold; background: linear-gradient(90deg, #14f195, #9945ff); border: none; color: #000; padding: 8px; font-size: 0.75rem;" data-i18n="stad_explore_btn">EXPLORAR ACCIONES</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- STADIUM 5: AETHER CYBER-DOME (EPIC) -->
-                <div class="stadium-card reveal" style="border: 2px solid #00e5ff; box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);">
-                    <div class="stadium-img" style="background-image: url('assets/img/stadiums/aether_dome.jpg'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center;">
-                        <span class="badge" style="position: absolute; top: 10px; left: 10px; background: linear-gradient(90deg, #00e5ff, #0099ff); color: #000; font-weight: 900; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px;">EPIC RWA</span>
-                        <div class="stadium-yield-info" style="background: rgba(0, 0, 0, 0.85); border: 1px solid #00e5ff; color: #00e5ff; font-weight: bold;">Est. Yield: 8% APY</div>
+                <div class="stadium-card reveal" style="border: 2px solid #00e5ff; box-shadow: 0 0 20px rgba(0, 229, 255, 0.2); overflow: hidden; position: relative;">
+                    <div class="stadium-img" data-video="assets/video/stadiums/aether_dome.mp4" style="background-image: url('assets/img/stadiums/aether_dome.jpg'); background-color: #111; position: relative; height: 200px; background-size: cover; background-position: center; transition: z-index 0.3s;">
+                        <span class="badge" style="position: absolute; top: 10px; left: 10px; background: linear-gradient(90deg, #00e5ff, #0099ff); color: #000; font-weight: 900; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; letter-spacing: 1px; z-index: 2;">EPIC RWA</span>
+                        <div class="stadium-yield-info" style="background: rgba(0, 0, 0, 0.85); border: 1px solid #00e5ff; color: #00e5ff; font-weight: bold; z-index: 2;">Est. Yield: 8% APY</div>
                     </div>
-                    <div class="stadium-details" style="padding: 1.5rem; text-align: left;">
+                    <div class="stadium-details" style="padding: 1.5rem; text-align: left; background: #0b0b12; position: relative; z-index: 2;">
                         <h4 style="color: #00e5ff; font-size: 1.25rem; font-weight: 900; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;">
                             <span>Aether Cyber-Dome</span>
                             <span style="font-size: 1rem; color: #00e5ff;">🏟️</span>
                         </h4>
                         <p data-i18n="stad_aether_desc" style="font-size: 0.9rem; color: #a0aec0; margin-bottom: 1.2rem; min-height: 48px;">Sede Épica. Cúpula geodésica iluminada con luces de neón Electric Cyan. Rápida conectividad de oráculos y volumen estable.</p>
                         <div style="display: flex; gap: 8px;">
-                            <a href="https://grok.com/imagine/post/a9c6d1ab-dde3-4410-add4-4be165813801?source=post-page&platform=web" target="_blank" class="btn btn-secondary btn-sm" style="flex: 1; text-align: center; text-transform: uppercase; font-weight: bold; border-color: #00e5ff; color: #00e5ff; display: flex; align-items: center; justify-content: center; gap: 4px; text-decoration: none; padding: 8px; font-size: 0.75rem;">
+                            <button onclick="openStadiumVideo('Aether Cyber-Dome', 'assets/video/stadiums/aether_dome.mp4', 'stad_aether_desc', '#00e5ff')" class="btn btn-secondary btn-sm" style="flex: 1; text-align: center; text-transform: uppercase; font-weight: bold; border-color: #00e5ff; color: #00e5ff; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 8px; font-size: 0.75rem;">
                                 <span>VER VIDEO</span> 🎥
-                            </a>
+                            </button>
                             <button class="btn btn-primary btn-sm" style="flex: 1.2; font-weight: bold; background: linear-gradient(90deg, #14f195, #9945ff); border: none; color: #000; padding: 8px; font-size: 0.75rem;" data-i18n="stad_explore_btn">EXPLORAR ACCIONES</button>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STADIUM VIDEO MODAL -->
+    <div id="stadiumVideoModal" style="display: none; position: fixed; inset: 0; background: rgba(5, 5, 8, 0.92); backdrop-filter: blur(12px); z-index: 10000; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease;">
+        <div style="position: relative; width: 90%; max-width: 420px; aspect-ratio: 2/3; background: #08080f; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.95); display: flex; flex-direction: column;">
+            <!-- Floating close button -->
+            <button id="closeVideoModal" style="position: absolute; top: 15px; right: 15px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; width: 38px; height: 38px; color: white; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; transition: background 0.3s, transform 0.2s;">&times;</button>
+            
+            <div style="position: relative; flex: 1; width: 100%; overflow: hidden;">
+                <video id="modalVideoPlayer" playsinline muted style="width: 100%; height: 100%; object-fit: cover;"></video>
+                <!-- Shadow gradient overlay -->
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background: linear-gradient(to top, #08080f 0%, transparent 100%); pointer-events: none;"></div>
+            </div>
+
+            <!-- Modal Info Footer -->
+            <div style="padding: 1.5rem; background: #08080f; text-align: left; position: relative;">
+                <h3 id="modalVideoTitle" style="color: white; font-size: 1.4rem; font-weight: 900; margin: 0 0 8px 0; letter-spacing: 0.5px;">Stadium Name</h3>
+                <p id="modalVideoDesc" style="color: #a0aec0; font-size: 0.85rem; line-height: 1.4; margin: 0;">Description...</p>
+            </div>
+        </div>
+    </div>
             </div>
         </div>
     </section>
@@ -1465,6 +1488,174 @@
                 btn.textContent = originalText;
             }
         }
+
+        // ==========================================
+        // 🏟️ RWA STADIUM VIDEO CONTROLLER (YOYO LOOP)
+        // ==========================================
+        
+        window.activeYoyoVideos = new Map();
+
+        function makeVideoYoyo(videoElement) {
+            if (window.activeYoyoVideos.has(videoElement)) return;
+            
+            let reversing = false;
+            let rafId = null;
+
+            function step() {
+                if (!videoElement || videoElement.paused) {
+                    cancelAnimationFrame(rafId);
+                    window.activeYoyoVideos.delete(videoElement);
+                    return;
+                }
+
+                if (reversing) {
+                    videoElement.currentTime -= 0.033; // ~30fps reverse
+                    if (videoElement.currentTime <= 0.1) {
+                        videoElement.currentTime = 0;
+                        reversing = false;
+                        videoElement.play().catch(() => {});
+                    }
+                } else {
+                    if (videoElement.currentTime >= videoElement.duration - 0.1) {
+                        reversing = true;
+                    }
+                }
+                rafId = requestAnimationFrame(step);
+            }
+
+            const playHandler = () => {
+                cancelAnimationFrame(rafId);
+                reversing = false;
+                rafId = requestAnimationFrame(step);
+            };
+
+            const pauseHandler = () => {
+                cancelAnimationFrame(rafId);
+            };
+
+            videoElement.loop = false; // Disable native loop
+            videoElement.addEventListener('play', playHandler);
+            videoElement.addEventListener('pause', pauseHandler);
+            
+            videoElement.cleanupYoyo = () => {
+                cancelAnimationFrame(rafId);
+                videoElement.removeEventListener('play', playHandler);
+                videoElement.removeEventListener('pause', pauseHandler);
+                window.activeYoyoVideos.delete(videoElement);
+            };
+
+            window.activeYoyoVideos.set(videoElement, step);
+            
+            if (!videoElement.paused) {
+                rafId = requestAnimationFrame(step);
+            }
+        }
+
+        // Initialize Stadium card hover video integrations
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.stadium-card').forEach(card => {
+                const imgDiv = card.querySelector('.stadium-img');
+                if (!imgDiv) return;
+                
+                const videoSrc = imgDiv.getAttribute('data-video');
+                if (!videoSrc) return;
+
+                // Create video element
+                const video = document.createElement('video');
+                video.src = videoSrc;
+                video.muted = true;
+                video.playsInline = true;
+                video.style.position = 'absolute';
+                video.style.top = '0';
+                video.style.left = '0';
+                video.style.width = '100%';
+                video.style.height = '100%';
+                video.style.objectFit = 'cover';
+                video.style.opacity = '0';
+                video.style.transition = 'opacity 0.4s ease';
+                video.style.zIndex = '1';
+                video.style.pointerEvents = 'none';
+
+                imgDiv.appendChild(video);
+
+                // Initialize yoyo loop
+                makeVideoYoyo(video);
+
+                // Hover listeners
+                card.addEventListener('mouseenter', () => {
+                    video.style.opacity = '1';
+                    video.play().catch(() => {});
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    video.style.opacity = '0';
+                    video.pause();
+                    video.currentTime = 0; // Reset to start
+                });
+            });
+        });
+
+        // Modal Video Player control
+        function openStadiumVideo(title, videoSrc, descKey, rarityColor) {
+            const modal = document.getElementById('stadiumVideoModal');
+            const video = document.getElementById('modalVideoPlayer');
+            const modalTitle = document.getElementById('modalVideoTitle');
+            const modalDesc = document.getElementById('modalVideoDesc');
+            
+            if (!modal || !video) return;
+
+            // Set Title & Description
+            modalTitle.innerText = title;
+            modalTitle.style.color = rarityColor || 'white';
+            
+            if (typeof t === 'function') {
+                modalDesc.innerText = t(descKey);
+            } else {
+                const descEl = document.querySelector(`[data-i18n="${descKey}"]`);
+                modalDesc.innerText = descEl ? descEl.innerText : 'Stadium Arena...';
+            }
+
+            // Set video source
+            video.src = videoSrc;
+            
+            // Open modal animation
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.style.opacity = '1';
+            }, 50);
+
+            // Register yoyo loop on modal player
+            makeVideoYoyo(video);
+            
+            video.play().catch(e => console.log("Auto-play modal blocked: ", e));
+        }
+
+        // Close Modal handler
+        function closeStadiumVideoModal() {
+            const modal = document.getElementById('stadiumVideoModal');
+            const video = document.getElementById('modalVideoPlayer');
+            if (!modal || !video) return;
+
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+                video.pause();
+                video.src = ''; // Clear source to stop buffer
+                if (video.cleanupYoyo) video.cleanupYoyo();
+            }, 400);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const closeBtn = document.getElementById('closeVideoModal');
+            const modal = document.getElementById('stadiumVideoModal');
+            
+            if (closeBtn) closeBtn.addEventListener('click', closeStadiumVideoModal);
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeStadiumVideoModal();
+                });
+            }
+        });
     </script>
 </body>
 </html>

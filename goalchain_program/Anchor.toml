@@ -9,7 +9,7 @@ skip-lint = false
 goalchain_program = "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg"
 
 [programs.localnet]
-goalchain_program = "6rH3zntnxBgvCWfrUDwU5pVjKuaJh1HgX2AAh2HMVBib"
+goalchain_program = "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg"
 
 [provider]
 cluster = "devnet"

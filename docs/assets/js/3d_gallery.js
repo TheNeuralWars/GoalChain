@@ -12,11 +12,11 @@ const RARITY_COLORS = {
 };
 
 const BG_IMAGE_MAP = {
-    "BG-MYT": "bg_mythic_lunar.mp4",
-    "BG-LEG": "bg_legendary_hologram.mp4",
-    "BG-EPI": "bg_epic_aurora.mp4",
-    "BG-RAR": "bg_rare_sunset.mp4",
-    "BG-COM": "bg_common_grass.png"
+    "BG-MYT": "neo_olympus_vertical.mp4",
+    "BG-LEG": "titanium_coliseum.mp4",
+    "BG-EPI": "aether_dome.mp4",
+    "BG-RAR": "obsidian_arena.mp4",
+    "BG-COM": "dome_kronos_vertical.mp4"
 };
 
 async function initGalleryView() {
@@ -53,7 +53,7 @@ function renderParallaxCard(container, player) {
     
     // Corregido: Las siluetas recortadas están en la raíz de nfts/
     const playerImgUrl = `assets/img/nfts/${paddedId}_${safeName}.png`;
-    const bgImgUrl = `assets/img/nfts/bg/${bgFilename}`;
+    const bgImgUrl = `assets/video/stadiums/${bgFilename}`;
 
     // --- On-Chain Mock Data (Simulando lo que llega del Smart Contract) ---
     const stamina = player.current_stamina !== undefined ? player.current_stamina : Math.floor(Math.random() * 100);
@@ -196,7 +196,18 @@ function renderParallaxCard(container, player) {
             </div>
         </div>
     `;
-    container.innerHTML += cardHTML;
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = cardHTML;
+    const cardElement = tempDiv.firstElementChild;
+    container.appendChild(cardElement);
+
+    // Apply Yoyo loop to the background video of this 3D card
+    const video = cardElement.querySelector('.layer-bg');
+    if (video && video.tagName === 'VIDEO') {
+        if (window.makeVideoYoyo) {
+            window.makeVideoYoyo(video);
+        }
+    }
 }
 
 // Lógica Matemática del Efecto Parallax
