@@ -1,0 +1,58 @@
+    Finished `release` profile [optimized] target(s) in 0.21s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.16s
+     Running unittests src/lib.rs (/Users/NicoPez/GoalChain/goalchain_program/target/debug/deps/goalchain_program-a43901e351fce15a)
+Deploying cluster: http://127.0.0.1:8899
+Upgrade authority: /Users/NicoPez/.config/solana/id.json
+Deploying program "goalchain_program"...
+Program path: /Users/NicoPez/GoalChain/goalchain_program/target/deploy/goalchain_program.so...
+Program already exists, upgrading...
+Sending upgrade transaction...
+Signature: 4Gd3e2Mz58EeSewegSiwKLCjuQN6RQRqZXx6TQars4zhsT79khYd7uhJgsSm8dNNjpQc82RJg83xH8xgxDsEWahx
+Program ID: FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg
+Deploy success
+
+Found a 'test' script in the Anchor.toml. Running it as a test suite!
+
+Running test suite: "/Users/NicoPez/GoalChain/goalchain_program/Anchor.toml"
+
+⚽ [GoalChain Tests] Booting integration test suite...
+
+
+  goalchain_program
+⚙️ [GoalChain Tests] Preparing environment & minting test tokens...
+✅ [GoalChain Tests] Environment initialized!
+    🏛️ 1. GLOBAL CONFIG & ADMIN OPERATIONS
+      ✔ Inicializa o actualiza la configuración global del protocolo de forma segura (453ms)
+      ✔ Falla al inicializar con un fee por encima del límite duro (20%)
+    🔒 2. STAKING & UNSTAKING ECONOMY ($GCH VAULT)
+      ✔ Permite a un usuario stakear tokens $GCH (515ms)
+      ✔ Permite al usuario retirar (unstake) una parte de sus tokens stakeados (509ms)
+      ✔ Falla si el usuario intenta retirar más tokens de los que tiene stakeados (Hostile flow)
+    ⚽ 3. PARODY PLAYER REGISTRY & ORACLE STATS UPDATES
+      ✔ Inicializa un Parody Player (Lamine Ya-Hype) (423ms)
+      ✔ Permite al Oráculo oficial actualizar las métricas y fisonomía de fuerza (518ms)
+      ✔ Rechaza actualizaciones de estadísticas de entidades no autorizadas (Hostile flow)
+    🛒 4. PARODY PLAYER NFT RENTAL MARKETPLACE
+      ✔ Permite a un poseedor listar su NFT en alquiler para partidos (545ms)
+      ✔ Permite a otro usuario rentar el NFT listado mediante pago SPL (411ms)
+      ✔ Impide rentar un NFT que ya está alquilado por otra persona (Hostile flow) (1027ms)
+    🎯 5. PvP ARENA WAGERS (DESAFÍOS ENTRE JUGADORES)
+      ✔ Permite a PlayerA crear un desafío PvP depositando su apuesta (515ms)
+      ✔ Permite a PlayerB aceptar el desafío igualando la apuesta (417ms)
+      ✔ Permite al Oráculo oficial resolver la apuesta PvP a favor del ganador (513ms)
+    🏆 6. PRE-MATCH SPORT BETTING POOLS (PARIMUTUEL ENGINE)
+      ✔ Inicializa un partido para apuestas deportivas oficiales del Oráculo (509ms)
+      ✔ Permite a los usuarios colocar apuestas pre-match (921ms)
+      ✔ El oráculo actualiza el partido como Completed declarando un ganador (521ms)
+      ✔ Permite reclamar recompensas de pozo parimutuel aplicando el fee (424ms)
+      ✔ Rechaza reclamos redundantes o dobles reclamos del ganador (Hostile flow)
+    ⚡ 7. LIVE IN-PLAY SPORTS MARKETS
+      ✔ El oráculo actualiza la transmisión del partido en tiempo real (513ms)
+      ✔ El oráculo crea un mercado de apuestas en vivo para el siguiente gol (513ms)
+      ✔ Permite a un usuario apostar en vivo sobre un mercado abierto (522ms)
+      ✔ El oráculo resuelve el mercado en vivo declarando un ganador (418ms)
+      ✔ Permite al usuario reclamar ganancias del mercado en vivo aplicando el fee (3413ms)
+
+
+  24 passing (25s)
+
