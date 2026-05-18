@@ -1,0 +1,87 @@
+name: GoalChain CI/CD
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'docs/assets/images/nfts/**'
+      - 'players.json'
+      - '.github/workflows/**'
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:   # Permite ejecución manual desde la pestaña "Actions"
+
+jobs:
+  validate-nfts:
+    name: 🔍 Validar imágenes NFT y naming
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validar convención de nombres de imágenes
+        run: |
+          python3 << 'EOF'
+          import os
+          import re
+          import sys
+
+          nft_dir = "docs/assets/images/nfts"
+          if not os.path.exists(nft_dir):
+              print("❌ Carpeta docs/assets/images/nfts no encontrada")
+              sys.exit(1)
+
+          invalid_files = []
+          pattern = re.compile(r'^\d{3}_[a-z0-9_]+\.(jpg|png)$')
+
+          for filename in os.listdir(nft_dir):
+              if filename.startswith('.'):
+                  continue
+              if not pattern.match(filename.lower()):
+                  invalid_files.append(filename)
+
+          if invalid_files:
+              print("❌ Archivos con nombre inválido:")
+              for f in invalid_files:
+                  print(f"   - {f}")
+              print("\nFormato esperado: 071_mats_hummels.jpg (3 dígitos + guión bajo + minúsculas)")
+              sys.exit(1)
+          else:
+              print("✅ Todas las imágenes cumplen la convención de nombres")
+          EOF
+
+      - name: Verificar integridad de imágenes (tamaño mínimo)
+        run: |
+          find docs/assets/images/nfts -type f \( -name "*.jpg" -o -name "*.png" \) -exec sh -c '
+            for f; do
+              size=$(stat -c%s "$f")
+              if [ "$size" -lt 50000 ]; then
+                echo "⚠️  Imagen muy pequeña (posible error): $f ($size bytes)"
+              fi
+            done
+          ' sh {} +
+
+  deploy:
+    name: 🚀 Desplegar a GitHub Pages
+    needs: validate-nfts
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Subir artefacto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+
+      - name: Desplegar a GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
