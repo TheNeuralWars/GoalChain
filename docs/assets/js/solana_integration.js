@@ -90,8 +90,47 @@ async function connectWallet() {
     }
 }
 
+async function fetchRealGCHBalance(walletAddress) {
+    if (!walletAddress || walletAddress.startsWith("DevGoaL")) return;
+    
+    try {
+        console.log("🔍 Fetching real $GCH balance from Solana Devnet for:", walletAddress);
+        const connection = new solanaWeb3.Connection("https://api.devnet.solana.com", "confirmed");
+        const mintPublicKey = new solanaWeb3.PublicKey("D7cuCtBcsuXWftNV6EsThUwnvm33Cs9oPtQn9v41ZWNh");
+        const ownerPublicKey = new solanaWeb3.PublicKey(walletAddress);
+
+        const accounts = await connection.getParsedTokenAccountsByOwner(ownerPublicKey, { mint: mintPublicKey });
+        
+        if (accounts.value.length > 0) {
+            const uiAmount = accounts.value[0].account.data.parsed.info.tokenAmount.uiAmount;
+            console.log("💰 Real $GCH Balance loaded:", uiAmount);
+            
+            // Sync to local storage
+            localStorage.setItem('gch_balance', Math.floor(uiAmount).toString());
+            
+            // Update UI elements in active game
+            if (window.game) {
+                window.game.balance = Math.floor(uiAmount);
+                window.game.updateStatsUI();
+            }
+        } else {
+            console.log("⚠️ No $GCH token account found on Devnet. Balance: 0");
+            localStorage.setItem('gch_balance', '0');
+            if (window.game) {
+                window.game.balance = 0;
+                window.game.updateStatsUI();
+            }
+        }
+    } catch (err) {
+        console.error("❌ Error loading $GCH balance:", err);
+    }
+}
+
 function updateWalletUI() {
     if (!userWalletAddress) return;
+
+    // Fetch and sync the real $GCH balance from Solana Devnet
+    fetchRealGCHBalance(userWalletAddress);
 
     const shortAddress = `${userWalletAddress.slice(0, 4)}...${userWalletAddress.slice(-4)}`;
 

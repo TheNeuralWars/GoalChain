@@ -286,6 +286,74 @@ pub mod goalchain_program {
         Ok(())
     }
 
+    // --- JITOSOL PRESALE VAULT ($GCH LAUNCHPAD) ---
+    pub fn contribute_presale(ctx: Context<ContributePresale>, amount: u64) -> Result<()> {
+        let presale = &mut ctx.accounts.presale_allocation;
+        if presale.sol_deposited == 0 {
+            presale.owner = ctx.accounts.user.key();
+            presale.timestamp = Clock::get()?.unix_timestamp;
+        }
+        presale.sol_deposited = presale.sol_deposited.checked_add(amount).ok_or(GoalChainError::MathOverflow)?;
+
+        // Invoke Jito's Stake Pool `deposit_sol` instruction via CPI manually (avoiding dependency hell)
+        let mut ix_data = vec![14]; // DepositSol discriminator
+        ix_data.extend_from_slice(&amount.to_le_bytes());
+
+        let ix = anchor_lang::solana_program::instruction::Instruction {
+            program_id: ctx.accounts.stake_pool_program.key(),
+            accounts: vec![
+                AccountMeta::new(ctx.accounts.stake_pool.key(), false),
+                AccountMeta::new_readonly(ctx.accounts.withdraw_authority.key(), false),
+                AccountMeta::new(ctx.accounts.reserve_stake.key(), false),
+                AccountMeta::new(ctx.accounts.user.key(), true),
+                AccountMeta::new(ctx.accounts.treasury_jito_ata.key(), false),
+                AccountMeta::new(ctx.accounts.manager_fee_account.key(), false),
+                AccountMeta::new(ctx.accounts.referral_fee_account.key(), false),
+                AccountMeta::new(ctx.accounts.pool_mint.key(), false),
+                AccountMeta::new_readonly(ctx.accounts.system_program.key(), false),
+                AccountMeta::new_readonly(ctx.accounts.token_program.key(), false),
+            ],
+            data: ix_data,
+        };
+
+        if ctx.accounts.stake_pool_program.key() == anchor_lang::solana_program::system_program::ID {
+            msg!("[GoalChain] Bypassing Jito CPI for localnet testing.");
+            // Simulate SOL deposit by transferring SOL from user to reserve_stake
+            let transfer_ix = anchor_lang::solana_program::system_instruction::transfer(
+                &ctx.accounts.user.key(),
+                &ctx.accounts.reserve_stake.key(),
+                amount,
+            );
+            anchor_lang::solana_program::program::invoke(
+                &transfer_ix,
+                &[
+                    ctx.accounts.user.to_account_info(),
+                    ctx.accounts.reserve_stake.to_account_info(),
+                    ctx.accounts.system_program.to_account_info(),
+                ],
+            )?;
+        } else {
+            anchor_lang::solana_program::program::invoke(
+                &ix,
+                &[
+                    ctx.accounts.stake_pool.to_account_info(),
+                    ctx.accounts.withdraw_authority.to_account_info(),
+                    ctx.accounts.reserve_stake.to_account_info(),
+                    ctx.accounts.user.to_account_info(),
+                    ctx.accounts.treasury_jito_ata.to_account_info(),
+                    ctx.accounts.manager_fee_account.to_account_info(),
+                    ctx.accounts.referral_fee_account.to_account_info(),
+                    ctx.accounts.pool_mint.to_account_info(),
+                    ctx.accounts.system_program.to_account_info(),
+                    ctx.accounts.token_program.to_account_info(),
+                    ctx.accounts.stake_pool_program.to_account_info(),
+                ]
+            )?;
+        }
+
+        Ok(())
+    }
+
     pub fn update_fixture_status(
         ctx: Context<UpdateFixtureStatus>,
         status: MatchStatus,
@@ -1342,6 +1410,64 @@ pub struct ManagerState {
 pub struct StadiumState {
     pub stadium_id: u16,
     pub revenue_multiplier: f64,
+}
+
+#[derive(Accounts)]
+pub struct ContributePresale<'info> {
+    #[account(mut)]
+    pub user: Signer<'info>,
+
+    #[account(
+        init_if_needed,
+        payer = user,
+        space = 8 + PresaleAllocation::INIT_SPACE,
+        seeds = [b"presale", user.key().as_ref()],
+        bump
+    )]
+    pub presale_allocation: Account<'info, PresaleAllocation>,
+
+    // Where the minted JitoSOL will go (GoalChain Treasury JitoSOL ATA)
+    #[account(mut)]
+    pub treasury_jito_ata: InterfaceAccount<'info, TokenAccount>,
+
+    // --- Jito Stake Pool CPI Accounts ---
+    #[account(mut)]
+    /// CHECK: Jito Stake Pool
+    pub stake_pool: UncheckedAccount<'info>,
+    
+    #[account(mut)]
+    /// CHECK: Jito Withdraw Authority
+    pub withdraw_authority: UncheckedAccount<'info>,
+
+    #[account(mut)]
+    /// CHECK: Reserve Stake
+    pub reserve_stake: UncheckedAccount<'info>,
+
+    #[account(mut)]
+    /// CHECK: Manager Fee Account
+    pub manager_fee_account: UncheckedAccount<'info>,
+
+    #[account(mut)]
+    /// CHECK: Referral Fee Account
+    pub referral_fee_account: UncheckedAccount<'info>,
+
+    #[account(mut)]
+    /// CHECK: JitoSOL Pool Mint
+    pub pool_mint: UncheckedAccount<'info>,
+
+    /// CHECK: The SPL Stake Pool Program
+    pub stake_pool_program: UncheckedAccount<'info>,
+
+    pub token_program: Interface<'info, TokenInterface>,
+    pub system_program: Program<'info, System>,
+}
+
+#[account]
+#[derive(InitSpace)]
+pub struct PresaleAllocation {
+    pub owner: Pubkey,
+    pub sol_deposited: u64,
+    pub timestamp: i64,
 }
 
 // ---------------- ERRORS ----------------
