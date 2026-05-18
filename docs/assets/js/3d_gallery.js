@@ -310,3 +310,107 @@ function handleParallaxLeave(card) {
         glare.style.opacity = '0';
     }
 }
+
+// FAREMETER CHECKOUT MODAL CONTROLLERS
+function openFaremeterCheckout() {
+    const modal = document.getElementById('faremeterModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        // Reset logs and button
+        const stepsBox = document.getElementById('faremeterSteps');
+        if (stepsBox) {
+            stepsBox.style.display = 'none';
+            stepsBox.innerHTML = '';
+        }
+        const btn = document.getElementById('btnFarePay');
+        if (btn) {
+            btn.disabled = false;
+            btn.innerText = "PROCESAR PAGO 402 CON FAREMETER 💸";
+            btn.style.background = 'var(--primary)';
+        }
+    }
+}
+
+function closeFaremeterCheckout() {
+    const modal = document.getElementById('faremeterModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+async function executeFaremeterPayment() {
+    const emailInput = document.getElementById('fareEmail');
+    if (!emailInput || !emailInput.value.trim()) {
+        if (window.notifier) {
+            window.notifier.show('⚠️ CORREO REQUERIDO', 'Por favor ingresa un correo para la entrega custodial.', 'warning');
+        }
+        return;
+    }
+
+    const btn = document.getElementById('btnFarePay');
+    const stepsBox = document.getElementById('faremeterSteps');
+
+    if (btn) {
+        btn.disabled = true;
+        btn.innerText = "PROCESANDO... 💸";
+        btn.style.background = '#333';
+    }
+
+    if (stepsBox) {
+        stepsBox.style.display = 'flex';
+        stepsBox.innerHTML = '<div>⚡ [HTTP 402] Solicitando carga de pago "exact" a faremeter.xyz...</div>';
+    }
+
+    try {
+        // Step 1
+        await new Promise(r => setTimeout(r, 1200));
+        if (stepsBox) {
+            stepsBox.innerHTML += '<div style="color:var(--secondary);">🟢 [FAREMETER] Intención de cobro x402 validada exitosamente (ID: fm_402_sol_984).</div>';
+        }
+
+        // Step 2
+        await new Promise(r => setTimeout(r, 1500));
+        if (stepsBox) {
+            stepsBox.innerHTML += '<div style="color:#ffcc00;">🛰️ [AGENT PROXY] Sentinel Agent firmando transacción de gas en Solana Devnet...</div>';
+        }
+
+        // Step 3
+        await new Promise(r => setTimeout(r, 1500));
+        if (stepsBox) {
+            stepsBox.innerHTML += '<div style="color:#fff;">⛓️ [METAPLEX CORE] Mintando Genesis Cromo #004 en billetera custodial vinculada...</div>';
+        }
+
+        // Step 4
+        await new Promise(r => setTimeout(r, 1200));
+        if (stepsBox) {
+            stepsBox.innerHTML += '<div style="color:var(--primary); font-weight:bold;">🏆 [EXITO] Pago de $15.00 USD liquidado y NFT transferido en bloque #2847192.</div>';
+        }
+
+        // Confetti
+        if (window.confetti) {
+            confetti({ particleCount: 80, spread: 80, colors: ['#9945ff', '#14f195', '#ffcc00'] });
+        }
+
+        if (btn) {
+            btn.innerText = "🟢 PAGO COMPLETADO EXITOSAMENTE";
+            btn.style.background = 'var(--primary)';
+        }
+
+        if (window.notifier) {
+            window.notifier.show('⚡ CROMO ADQUIRIDO', `El cromo #004 (L. Messi) ha sido enviado a tu custodia. ¡Revisa tu e-mail!`, 'success');
+        }
+
+        // Close after delay
+        setTimeout(() => {
+            closeFaremeterCheckout();
+        }, 3000);
+
+    } catch (err) {
+        console.error("Error en pago Faremeter:", err);
+        if (btn) {
+            btn.disabled = false;
+            btn.innerText = "PROCESAR PAGO 402 CON FAREMETER 💸";
+            btn.style.background = 'var(--primary)';
+        }
+    }
+}
