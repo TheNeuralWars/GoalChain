@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -25,12 +25,12 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: radial-gradient(circle at 50% -20%, rgba(153, 69, 255, 0.15) 0%, rgba(20, 241, 149, 0.05) 50%, transparent 100%);
+            background: radial-gradient(circle at 50% -20%, rgba(153, 69, 255, 0.18) 0%, rgba(20, 241, 149, 0.06) 50%, transparent 100%);
             z-index: -2;
             pointer-events: none;
         }
         .article-container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 120px auto 60px auto;
             padding: 0 20px;
             box-sizing: border-box;
@@ -43,24 +43,24 @@
         }
         .article-badge {
             display: inline-block;
-            background: rgba(20, 241, 149, 0.1);
-            border: 1px solid var(--primary);
-            color: var(--primary);
+            background: rgba(0, 229, 255, 0.1);
+            border: 1px solid #00e5ff;
+            color: #00e5ff;
             font-weight: 900;
             font-size: 0.8rem;
             letter-spacing: 2px;
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 9999px;
             text-transform: uppercase;
-            box-shadow: 0 0 20px rgba(20, 241, 149, 0.2);
-            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+            margin-bottom: 25px;
         }
         .article-title {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 900;
             line-height: 1.1;
             margin: 0 0 20px 0;
-            background: linear-gradient(90deg, #fff 30%, #14f195 70%, #9945ff 100%);
+            background: linear-gradient(90deg, #fff 20%, #00e5ff 60%, #9945ff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -68,90 +68,94 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             font-size: 0.85rem;
             color: var(--text-dim);
-            margin-top: 15px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 15px 0;
         }
         .article-meta span {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
         .article-card {
-            background: rgba(13, 13, 21, 0.8);
+            background: rgba(13, 13, 21, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 50px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            line-height: 1.7;
+            border-radius: 28px;
+            padding: 55px;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+            line-height: 1.8;
             font-size: 1.1rem;
-            color: #e0e0e6;
+            color: #e0e0e8;
         }
         .article-card h2 {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: 900;
             color: #fff;
-            margin-top: 40px;
-            margin-bottom: 20px;
+            margin-top: 45px;
+            margin-bottom: 22px;
             border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding-bottom: 10px;
+            padding-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         .article-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 800;
-            color: var(--primary);
-            margin-top: 30px;
+            color: #00e5ff;
+            margin-top: 35px;
             margin-bottom: 15px;
         }
         .article-card p {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
         .article-card ul {
-            padding-left: 20px;
-            margin-bottom: 25px;
+            padding-left: 25px;
+            margin-bottom: 28px;
         }
         .article-card li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             list-style-type: square;
         }
         .highlight-text {
-            color: var(--primary);
+            color: #14f195;
             font-weight: 700;
         }
         .gradient-text-purple {
-            color: var(--secondary);
+            color: #9945ff;
+            font-weight: 700;
+        }
+        .cyan-text {
+            color: #00e5ff;
             font-weight: 700;
         }
         .mermaid-container {
-            background: rgba(0,0,0,0.4);
-            border: 1px solid rgba(20,241,149,0.2);
-            border-radius: 16px;
-            padding: 25px;
-            margin: 30px 0;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(0, 229, 255, 0.25);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 35px 0;
             text-align: center;
-        }
-        .mermaid-svg {
-            max-width: 100%;
-            height: auto;
+            box-shadow: inset 0 0 20px rgba(0,229,255,0.05);
         }
         .stat-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 30px 0;
+            margin: 35px 0;
             font-size: 0.95rem;
         }
         .stat-table th, .stat-table td {
             border: 1px solid rgba(255,255,255,0.08);
-            padding: 12px 15px;
+            padding: 14px 18px;
             text-align: left;
         }
         .stat-table th {
-            background: rgba(153, 69, 255, 0.1);
+            background: rgba(153, 69, 255, 0.15);
             color: #fff;
             font-weight: 800;
         }
@@ -159,40 +163,44 @@
             background: rgba(255,255,255,0.02);
         }
         .tip-box {
-            background: rgba(20, 241, 149, 0.05);
-            border-left: 4px solid var(--primary);
-            padding: 20px 25px;
-            border-radius: 0 16px 16px 0;
-            margin: 30px 0;
-            font-size: 1rem;
+            background: rgba(20, 241, 149, 0.04);
+            border-left: 4px solid #14f195;
+            padding: 22px 28px;
+            border-radius: 0 20px 20px 0;
+            margin: 35px 0;
+            font-size: 1.02rem;
+            border-top: 1px solid rgba(20, 241, 149, 0.05);
+            border-right: 1px solid rgba(20, 241, 149, 0.05);
+            border-bottom: 1px solid rgba(20, 241, 149, 0.05);
         }
         .tip-box strong {
-            color: var(--primary);
+            color: #14f195;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
         }
         .formula-box {
-            background: rgba(153, 69, 255, 0.05);
-            border: 1px dashed var(--secondary);
-            border-radius: 16px;
-            padding: 25px;
+            background: rgba(153, 69, 255, 0.04);
+            border: 1px dashed rgba(153, 69, 255, 0.4);
+            border-radius: 20px;
+            padding: 30px;
             text-align: center;
-            font-family: 'Outfit', sans-serif;
             font-weight: 900;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: #fff;
-            margin: 30px 0;
+            margin: 35px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
         .formula-box span {
-            color: var(--primary);
+            color: #14f195;
         }
         .footer-cta {
             text-align: center;
-            margin-top: 50px;
-            padding: 40px;
-            background: linear-gradient(135deg, rgba(20,241,149,0.08) 0%, rgba(153,69,255,0.08) 100%);
+            margin-top: 60px;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(20,241,149,0.06) 0%, rgba(153,69,255,0.06) 100%);
             border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 20px;
+            border-radius: 24px;
         }
         .back-btn {
             display: inline-flex;
@@ -201,26 +209,57 @@
             background: transparent;
             border: 1px solid rgba(255,255,255,0.2);
             color: var(--text-dim);
-            padding: 8px 20px;
+            padding: 8px 22px;
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             font-weight: 700;
             margin-bottom: 30px;
         }
         .back-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            box-shadow: 0 0 15px rgba(20, 241, 149, 0.2);
+            border-color: #00e5ff;
+            color: #00e5ff;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
         }
+        
+        /* Language Toggle Buttons styling */
+        .lang-control {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50px;
+            padding: 4px;
+            display: inline-flex;
+            gap: 5px;
+        }
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.4);
+            padding: 6px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+        .lang-btn.active {
+            background: linear-gradient(90deg, #00e5ff, #9945ff);
+            color: #fff;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+        }
+
+        /* Bilingual Toggle Behavior */
+        [lang="es"] .lang-en { display: none !important; }
+        [lang="en"] .lang-es { display: none !important; }
+
         @media (max-width: 768px) {
             .article-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             .article-card {
-                padding: 25px;
+                padding: 30px;
                 font-size: 1rem;
             }
             .article-container {
@@ -250,8 +289,8 @@
             this.x = Math.random() * canvasP.width;
             this.y = Math.random() * canvasP.height;
             this.size = Math.random() * 2 + 1;
-            this.speedX = Math.random() * 1 - 0.5;
-            this.speedY = Math.random() * 1 - 0.5;
+            this.speedX = Math.random() * 0.8 - 0.4;
+            this.speedY = Math.random() * 0.8 - 0.4;
             this.color = Math.random() > 0.5 ? '#14f195' : '#9945ff';
         }
         update() {
@@ -262,13 +301,13 @@
         }
         draw() {
             ctxP.fillStyle = this.color;
-            ctxP.globalAlpha = 0.5;
+            ctxP.globalAlpha = 0.4;
             ctxP.fillRect(this.x, this.y, this.size, this.size);
         }
     }
     function animateP() {
         ctxP.clearRect(0, 0, canvasP.width, canvasP.height);
-        if (particles.length < 50) particles.push(new Particle());
+        if (particles.length < 60) particles.push(new Particle());
         particles.forEach(p => { p.update(); p.draw(); });
         requestAnimationFrame(animateP);
     }
@@ -276,253 +315,272 @@
     </script>
 
     <!-- NAV -->
-    <nav class="main-nav" id="mainNav" style="position: fixed; top: 0; left: 0; width: 100%; background: rgba(6,6,10,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; height: 70px;">
+    <nav class="main-nav" id="mainNav" style="position: fixed; top: 0; left: 0; width: 100%; background: rgba(6,6,10,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; height: 75px;">
         <div class="logo" onclick="location.href='index.html'" style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
             <img src="assets/img/logo_3d_clean.png" alt="GoalChain Logo" style="height: 38px; filter: drop-shadow(0 0 15px rgba(20, 241, 149, 0.4));">
-            <span style="font-weight: 900; letter-spacing: -1px; font-size: 1.2rem;">Goal<span style="color:var(--primary);">Chain</span></span>
+            <span style="font-weight: 900; letter-spacing: -1px; font-size: 1.3rem;">Goal<span style="color:#00e5ff;">Chain</span></span>
         </div>
         <div class="nav-links-desktop">
-            <a href="index.html#pitch">About</a>
-            <a href="index.html#gameplay">Mini-Game</a>
-            <a href="index.html#nfts">Collection</a>
-            <a href="index.html#roadmap">Roadmap</a>
-            <a href="colabs.html" style="color:var(--primary);">Colabs Portal</a>
+            <a href="index.html#pitch" class="lang-es">Sobre Nosotros</a>
+            <a href="index.html#pitch" class="lang-en">About</a>
+            <a href="index.html#gameplay" class="lang-es">Mini-Juego</a>
+            <a href="index.html#gameplay" class="lang-en">Mini-Game</a>
+            <a href="index.html#nfts" class="lang-es">Colección</a>
+            <a href="index.html#nfts" class="lang-en">Collection</a>
+            <a href="index.html#roadmap" class="lang-es">Roadmap</a>
+            <a href="index.html#roadmap" class="lang-en">Roadmap</a>
+            <a href="colabs.html" style="color:#00e5ff;" class="lang-es">Portal Colabs</a>
+            <a href="colabs.html" style="color:#00e5ff;" class="lang-en">Colabs Portal</a>
         </div>
-        <div class="lang-toggle">
-            <button id="langEs" class="active" onclick="location.href='index.html'">Close</button>
+        
+        <!-- Language Control Switcher -->
+        <div class="lang-control">
+            <button id="btnEs" class="lang-btn active" onclick="setLanguage('es')">ES</button>
+            <button id="btnEn" class="lang-btn" onclick="setLanguage('en')">EN</button>
         </div>
     </nav>
 
     <!-- MAIN BODY -->
     <div class="article-container">
         
-        <a href="index.html" class="back-btn">
-            ← Back to Home
+        <a href="colabs.html" class="back-btn lang-es">
+            ← Volver al Portal de Colaboradores
+        </a>
+        <a href="colabs.html" class="back-btn lang-en">
+            ← Back to Colabs Portal
         </a>
 
         <header class="article-header">
-            <span class="article-badge">SportsFi Manifesto</span>
-            <h1 class="article-title">GOALCHAIN.FUN: THE ULTIMATE GUIDE</h1>
-            <p style="font-size: 1.25rem; color: var(--text-dim); max-width: 700px; margin: 0 auto 20px auto; line-height: 1.4;">
-                The ultimate guide on how real-world football passion translates into transactions in your favor on the Solana network.
+            <span class="article-badge lang-es">Manifiesto Oficial SportsFi</span>
+            <span class="article-badge lang-en">Official SportsFi Manifesto</span>
+            
+            <h1 class="article-title lang-es">GOALCHAIN: LA MEGA GUÍA SUPREMA</h1>
+            <h1 class="article-title lang-en">GOALCHAIN: THE SUPREME MEGA GUIDE</h1>
+            
+            <p class="lang-es" style="font-size: 1.25rem; color: var(--text-dim); max-width: 800px; margin: 0 auto 20px auto; line-height: 1.45;">
+                El compendio maestro que revela cómo la pasión del fútbol real se convierte en transacciones financieras de alto rendimiento en Solana.
             </p>
+            <p class="lang-en" style="font-size: 1.25rem; color: var(--text-dim); max-width: 800px; margin: 0 auto 20px auto; line-height: 1.45;">
+                The master compendium revealing how real-world football passion translates into high-performance yield-generating transactions on Solana.
+            </p>
+            
             <div class="article-meta">
                 <span>🤵 By: <strong>NicoPez (SportsFi Architect)</strong></span>
-                <span>📅 May 17, 2026</span>
-                <span>⚡ Network: <strong>Solana Mainnet</strong></span>
+                <span class="lang-es">📅 Mayo 18, 2026</span>
+                <span class="lang-en">📅 May 18, 2026</span>
+                <span>⚡ Network: <strong>Solana Devnet / Mainnet</strong></span>
             </div>
         </header>
 
         <main class="article-card">
             
-            <p>Hello football fans, Web3 traders, and Solana degen-brothers! ⚽💎 If you thought the FIFA World Cup 2026 was only going to be played on the pitches of US, Canadian, and Mexican stadiums, you are dead wrong. Today I bring you <strong>the absolute bomb of the year in SportsFi</strong>: <strong>GoalChain.fun</strong>.</p>
+            <!-- INTRODUCTION -->
+            <div class="lang-es">
+                <p>¡Hola fanáticos del fútbol, traders de Web3 y hermanos de Solana! ⚽💎 Si pensaban que la Copa del Mundo de la FIFA 2026 solo se iba a disputar en los campos de juego de EE. UU., Canadá y México, están muy equivocados. Hoy les presento **la joya de la corona de la fusión de finanzas y deportes en la blockchain (SportsFi)**: **GoalChain.fun**.</p>
+                
+                <p>Olvídate de las casas de apuestas tradicionales, manipulables y sin transparencia, y olvídate de los aburridos juegos inflacionarios "Play-to-Earn" que mueren a las dos semanas. GoalChain ha venido a redefinir las reglas al conectar en tiempo real el rendimiento del fútbol profesional con contratos inteligentes en Solana.</p>
 
-            <p>Forget about traditional, boring sportsbooks lacking transparency, and forget about inflationary "Play-to-Earn" games that bleed to death in two weeks. GoalChain is here to redefine the rules by integrating real-time real-world football performance directly into smart contracts on Solana.</p>
+                <p>¿De qué se trata todo esto? ¿Cómo funciona la innovadora Bóveda de Staking Líquido de JitoSOL? ¿Cómo es la conexión real de nuestro Oráculo deportivo y las duras penalizaciones? Prepárate, porque voy a desglosar absolutamente CADA detalle en esta mega guía de presentación oficial al mundo entero. 👇</p>
+            </div>
+            
+            <div class="lang-en">
+                <p>Hello football fans, Web3 traders, and Solana degen-brothers! ⚽💎 If you thought the FIFA World Cup 2026 was only going to be played on the pitches of US, Canadian, and Mexican stadiums, you are dead wrong. Today I bring you **the ultimate holy grail of SportsFi**: **GoalChain.fun**.</p>
 
-            <p>What is this all about? How can you participate completely for free? How can you skyrocket your yields if you hold NFTs? Grab a drink and get comfortable, because I am going to break down absolutely EVERYTHING you can do on the platform in this ultimate mega-guide! 👇</p>
+                <p>Forget about traditional, boring, non-transparent sportsbooks, and forget about hyper-inflationary "Play-to-Earn" games that bleed to death in two weeks. GoalChain is here to redefine the rules by connecting real-time, real-world football performance directly to smart contracts on Solana.</p>
 
-            <h2>🏛️ WHAT IS GOALCHAIN? THE SPORTSFI REVOLUTION</h2>
-            <p>GoalChain is the first <strong>high-performance SportsFi protocol</strong> connecting the passion of 5 billion football fans with the blistering speed of the Solana blockchain. In GoalChain, you act as a <span class="highlight-text">Professional Player Agent</span> and a <span class="gradient-text-purple">Sports Manager</span>.</p>
-
-            <p>The core of this ecosystem is that <strong>assets are ALIVE</strong>. Powered by an oracle engine connected directly to official FIFA data and Solana's state compression (cNFTs via Metaplex Bubblegum), your player cards dynamic stats evolve, generate real yield in <strong>$GCH</strong> tokens, and react to every real-life goal, assist, clean sheet, or card in real-time.</p>
-
-            <h2>🆓 1. PLAYING FOR FREE (WITHOUT NFTs)</h2>
-            <p>One of the greatest elements of GoalChain.fun is that <strong>it does not force you to spend a single penny to start having fun and earning reputation</strong>. The Free-to-Play and social loops are masterfully crafted:</p>
-
-            <h3>A. The $GCH Testnet Airdrop</h3>
-            <p>Upon entering the dApp, you can immediately hit the <strong>"CLAIM AIRDROP"</strong> button. This instantly grants you a starting balance of <strong>1,000 testnet $GCH</strong>. You can use these tokens to explore the platform, understand the mechanics, and try your skills on the pitch.</p>
-
-            <h3>B. The Penalty Shooter Mini-Game</h3>
-            <p>This is where you showcase your skills! GoalChain features an <strong>interactive HTML5 Canvas arcade game</strong> styled in a stunning retro-cyberpunk neon aesthetic.</p>
-            <ul>
-                <li><strong>Shooting Mechanic:</strong> The goal is divided into a grid of <strong>9 target zones (3x3 hitboxes)</strong>. Click or tap to shoot the ball into a specific corner.</li>
-                <li><strong>Goalkeeper AI Scaling:</strong> A neon goalie will try to predict and block your shot. As your goal streak increases, the AI's difficulty dynamically scales, making the goalie faster and smarter.</li>
-                <li><strong>Fun Betting Loop:</strong> Adjust your bet amount (e.g., 10 $GCH) per shot:
-                    <ul>
-                        <li><strong>GOAL! ⚽</strong> You win a baseline reward multiplier of <strong>1.9x</strong> your bet (which scales up based on player NFT rarity). The screen shakes, and vibrant green triumph particles burst.</li>
-                        <li><strong>SAVED! 🧤</strong> You lose your bet, your streak resets to zero, and red frustration particles explode.</li>
-                    </ul>
-                </li>
-            </ul>
-
-            <h3>C. Social Quests and the DAO</h3>
-            <p>Want to stack points for future airdrops? Complete simple <strong>Social Quests</strong> on the Dashboard (e.g., following on Twitter) to earn <strong>GoalPoints</strong>. Taking your first shot in the Penalty Shooter rewards you with <strong>500 GoalPoints</strong> instantly! Additionally, you can pitch your own gameplay mechanics to the core protocol using the <strong>DAO form</strong>.</p>
-
-            <h2>💎 2. THE POWER OF PRO-PLAYERS: NFT UTILITY & YIELD</h2>
-            <p>Connecting your Phantom or Solana wallet unlocks the actual SportsFi engine and turns your football expertise into a highly lucrative liquid income stream.</p>
-
-            <h3>A. Genesis Squad vs. Youth Academy</h3>
-            <p>The ecosystem maintains a dual-tier asset strategy: the premium, hyper-scarce <strong>Genesis Squad (1,248 units)</strong>—visual masterpieces generated with customized FLUX eye-level portrait prompts—acting as high-yield Blue Chip assets, and the massive <strong>Youth Academy (cNFTs)</strong> for recruiting cheap talent using state compression.</p>
-
-            <h3>B. The "Starting XI" Staking Engine</h3>
-            <p>To accumulate real tokens daily, deploy your players in your active roster: the <strong>Starting XI</strong>. The dynamic staking contract calculates daily emissions from <em>The Vault</em> using the <strong>GoalChain Master Formula</strong>:</p>
-
-            <div class="formula-box">
-                DAILY GCH EMISSION = (Player_Base_Yield) × <span>(Manager_Salary_Boost)</span> × (Stadium_Multiplier)
+                <p>What is this all about? How does our cutting-edge JitoSOL Liquid Staking Presale Vault work? How does the real-time Sports Oracle feed directly into our strict slashing mechanics? Grab a drink and get comfortable, because I am going to break down absolutely EVERYTHING in this official global launch mega-guide! 👇</p>
             </div>
 
-            <ul>
-                <li><strong>Player_Base_Yield:</strong> Daily salary determined by rarity (Mythic, Legendary, Epic, Rare/Common).</li>
-                <li><strong>Manager_Salary_Boost:</strong> A static multiplier based on your Manager NFT level (e.g., +15% yield boost).</li>
-                <li><strong>Stadium_Multiplier:</strong> A passive bonus multiplier based on your equipped Stadium NFT (e.g., +10% yield boost).</li>
-            </ul>
+            <!-- SECTION 1: THE SPORTSFI PARADIGM -->
+            <h2 class="lang-es">🏛️ 1. LA REVOLUCIÓN SPORTSFI DE GOALCHAIN</h2>
+            <h2 class="lang-en">🏛️ 1. THE GOALCHAIN SPORTSFI REVOLUTION</h2>
+            
+            <div class="lang-es">
+                <p>GoalChain es el primer **protocolo SportsFi de alto rendimiento** que conecta la pasión de los 5.000 millones de fanáticos del fútbol con la velocidad luz de la blockchain de Solana. En GoalChain actúas como un <span class="cyan-text">Agente Profesional de Jugadores</span> y un <span class="gradient-text-purple">Mánager Deportivo</span> de élite.</p>
+                <p>La clave principal aquí es que **los activos están VIVOS**. Gracias a un motor de oráculos conectado con datos oficiales de fútbol y compresión de estado de Solana (cNFTs de Metaplex Bubblegum), las estadísticas y el yield (rendimiento) en tokens <strong>$GCH</strong> de tus jugadores evolucionan y reaccionan en caliente ante cada gol, asistencia, tarjeta roja o eliminación en la vida real.</p>
+            </div>
+            
+            <div class="lang-en">
+                <p>GoalChain is the premier **high-performance SportsFi protocol** connecting the passion of 5 billion football fans with the blistering speed of the Solana blockchain. In GoalChain, you act as an elite <span class="cyan-text">Professional Player Agent</span> and a <span class="gradient-text-purple">Sports Manager</span>.</p>
+                <p>The core breakthrough is that **assets are ALIVE**. Powered by a proprietary oracle engine connected to official sports data and Solana's state compression (cNFTs via Metaplex Bubblegum), your player cards' dynamic stats and <strong>$GCH</strong> token yields continuously evolve, reacting in real-time to every actual goal, assist, yellow/red card, or tournament elimination.</p>
+            </div>
 
-            <h3>C. Live Sports Oracle Integration (World Cup 2026)</h3>
-            <p>Your Starting XI is connected directly to actual player performances in the World Cup using Solana data oracles. This breeds high-stakes, real-world integration:</p>
+            <!-- SECTION 2: JITOSOL LIQUID STAKING VAULT -->
+            <h2 class="lang-es">🏦 2. LA BÓVEDA DE STAKING LÍQUIDO DE JITOSOL ($GCH LAUNCHPAD)</h2>
+            <h2 class="lang-en">🏦 2. THE JITOSOL LIQUID STAKING LAUNCHPAD VAULT</h2>
+            
+            <div class="lang-es">
+                <p>Hemos diseñado una arquitectura de tokenomics institucional brillante. Durante la preventa del ecosistema, los mánagers depositan SOL en nuestro contrato inteligente. En lugar de dejar este SOL inactivo, el contrato invoca mediante instrucciones on-chain el programa oficial de **Staking Pool de Jito (JitoSOL)**.</p>
+                
+                <h3>El Bypass Inteligente de Pruebas (Mock localnet)</h3>
+                <p>Para asegurar un desarrollo impecable y robustez técnica de cara a auditorías, programamos un mecanismo dual en Rust:</p>
+                <ul>
+                    <li><strong>Entorno de Desarrollo Local:</strong> Si el validador local detecta que el pool de stake no está inicializado (o es equivalente al System Program), la función <code>contribute_presale</code> desvía inteligentemente la contribución directamente al balance de reservas mediante CPI nativa de transferencia. Esto permite a nuestros ingenieros simular transacciones y flujos a coste cero con precisión milimétrica.</li>
+                    <li><strong>Producción (Devnet/Mainnet):</strong> El contrato ejecuta una llamada de CPI directa al programa oficial de Jito, depositando el SOL a cambio de JitoSOL para la tesorería del protocolo, asegurando rendimiento pasivo inmediato.</li>
+                </ul>
+            </div>
+            
+            <div class="lang-en">
+                <p>We designed an incredibly sophisticated, institutional-grade DeFi architecture. During the ecosystem's launchpad phase, managers deposit SOL into our smart contract. Instead of leaving this capital idle, the contract instantly stakes the deposited SOL into the **Jito Liquid Staking Protocol** via secure on-chain CPI instructions.</p>
+                
+                <h3>The Dual-Execution Staking Architecture (Rust & TypeScript localnet Mock)</h3>
+                <p>To ensure bulletproof contract safety and smooth local validation, the Anchor Rust program incorporates an elegant conditional bypass:</p>
+                <ul>
+                    <li><strong>Localnet Testing Mode:</strong> If the transaction is executed against local validator environments (where Jito's Devnet/Mainnet Stake Pool address defaults to the <code>SystemProgram</code>), the contract dynamically bypasses the Jito pool CPI, performing a raw native transfer to the reserve stake account. This enabled our test suite to verify 25/25 integration blocks flawlessly on the first run.</li>
+                    <li><strong>Devnet & Mainnet Cluster:</strong> The program connects directly to Jito's production pool, swapping SOL for JitoSOL, keeping the protocol backed by high-yield liquid assets.</li>
+                </ul>
+            </div>
+
+            <!-- SECTION 3: STAKING & SALARY BOOST FORMULA -->
+            <h2 class="lang-es">📈 3. EL ALGORITMO DE EMISIÓN DINÁMICA (CONTRATO Starting XI)</h2>
+            <h2 class="lang-en">📈 3. THE DYNAMIC Starting XI EMISSIONS ENGINE</h2>
+            
+            <div class="lang-es">
+                <p>El rendimiento pasivo diario que un mánager acumula por colocar a sus jugadores en el once titular está gobernado de forma estricta por la **Fórmula Maestra de GoalChain V3**:</p>
+            </div>
+            <div class="lang-en">
+                <p>The daily yield generated by deploying your players in the active Starting XI roster is calculated dynamically on-chain using the **GoalChain V3 Master Formula**:</p>
+            </div>
+
+            <div class="formula-box">
+                DAILY EMISSION = (Player_Base_Yield) × <span>(Manager_Level_Boost)</span> × (Stadium_Yield_Multiplier)
+            </div>
+
+            <div class="lang-es">
+                <ul>
+                    <li><strong>Base Yield por Rareza:</strong> Las cartas de los jugadores tienen salarios asignados según su estatus: las cartas *Mythic* (Míticas) y *Legendary* (Legendarias) gozan de salarios masivos, mientras que las *Common* y *Rare* actúan como cantera.</li>
+                    <li><strong>Manager Level Boost:</strong> Incrementar el nivel de tu credencial de Mánager NFT otorga un multiplicador de bonificación sobre el total de tu plantilla (ej: Nivel 5 de Mánager otorga un multiplicador de +15%).</li>
+                    <li><strong>Stadium Multiplier:</strong> El estadio donde se disputa el partido influye. Los dueños de NFTs de Estadios (RWA representados en la blockchain) arriendan su espacio para albergar los partidos, aplicando un boost pasivo del +10% al +25% de rendimiento.</li>
+                </ul>
+            </div>
+            <div class="lang-en">
+                <ul>
+                    <li><strong>Player Base Yield:</strong> Dynamic base salary tied to card rarity (Mythic, Legendary, Epic, Rare, Common).</li>
+                    <li><strong>Manager Level Boost:</strong> A custom staking multiplier unlocked by upgrading your Manager Badge NFT (e.g., a Level 5 Manager receives a flat +15% yield rate boost across the entire roster).</li>
+                    <li><strong>Stadium Yield Multiplier:</strong> The venue matters! Equipping premium, limited-edition Stadium NFTs (acting as Digital Real Estate) applies a localized multiplier between +10% and +25% to your yields.</li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4: ORACLE & SLASHING MECHANICS -->
+            <h2 class="lang-es">⚡ 4. EL ORÁCULO DE DATOS Y LA AMENAZA DEL SLASHING SÍNCRONO</h2>
+            <h2 class="lang-en">⚡ 4. THE LIVE SPORTS DATA FEED & SYNCHRONOUS SLASHING</h2>
+            
+            <div class="lang-es">
+                <p>Tu **Starting XI** no es pasivo; vibra con el deporte real. Un servicio daemon de Oráculo en Node.js monitorea constantemente las APIs oficiales de la Copa del Mundo de la FIFA 2026. Al detectar acciones clave en los partidos en directo, realiza escrituras atómicas en Solana que modifican el metadato del cNFT y gatillan recompensas y multas en caliente:</p>
+            </div>
+            <div class="lang-en">
+                <p>Your **Starting XI** is in constant symbiosis with actual sports events. Our Node.js Sports Oracle daemon monitors live data feeds during the World Cup. Upon detecting key match events, it broadcasts atomic transactions to Solana, updating the compressed metadata of the player cards and triggering immediate actions:</p>
+            </div>
 
             <table class="stat-table">
                 <thead>
                     <tr>
-                        <th>Real-World World Cup Action</th>
-                        <th>Instant Airdrop Bonus (One-Off)</th>
-                        <th>Base Salary Impact (Daily Yield)</th>
+                        <th class="lang-es">Evento Real en el Partido</th>
+                        <th class="lang-en">Real-World Match Event</th>
+                        <th class="lang-es">Bonificación de Airdrop</th>
+                        <th class="lang-en">Instant Airdrop Reward</th>
+                        <th class="lang-es">Impacto en Rendimiento Diario</th>
+                        <th class="lang-en">Salary Emission Impact</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>⚽ <strong>Goal Scored</strong></td>
+                        <td class="lang-es">⚽ <strong>Gol Anotado</strong></td>
+                        <td class="lang-en">⚽ <strong>Goal Scored</strong></td>
                         <td class="highlight-text">+50 $GCH</td>
-                        <td class="highlight-text">+10% Yield Rate</td>
+                        <td class="highlight-text">+50 $GCH</td>
+                        <td class="highlight-text">+10% Boost</td>
+                        <td class="highlight-text">+10% Boost</td>
                     </tr>
                     <tr>
-                        <td>🎯 <strong>Assist Made</strong></td>
+                        <td class="lang-es">🎯 <strong>Asistencia Proporcionada</strong></td>
+                        <td class="lang-en">🎯 <strong>Assist Made</strong></td>
                         <td>+25 $GCH</td>
-                        <td>+5% Yield Rate</td>
+                        <td>+25 $GCH</td>
+                        <td>+5% Boost</td>
+                        <td>+5% Boost</td>
                     </tr>
                     <tr>
-                        <td>🧤 <strong>Penalty Saved (GK)</strong></td>
-                        <td class="gradient-text-purple">+75 $GCH</td>
-                        <td class="gradient-text-purple">+12% Yield Rate</td>
+                        <td class="lang-es">🧤 <strong>Penalti Atajado (Portero)</strong></td>
+                        <td class="lang-en">🧤 <strong>Penalty Saved (GK)</strong></td>
+                        <td class="cyan-text">+75 $GCH</td>
+                        <td class="cyan-text">+75 $GCH</td>
+                        <td class="cyan-text">+12% Boost</td>
+                        <td class="cyan-text">+12% Boost</td>
                     </tr>
                     <tr>
-                        <td>🛡️ <strong>Clean Sheet (DEF/GK)</strong></td>
-                        <td>+20 $GCH</td>
-                        <td>+5% Yield Rate</td>
-                    </tr>
-                    <tr>
-                        <td>🏆 <strong>Man of the Match (MVP)</strong></td>
-                        <td class="highlight-text">+100 $GCH</td>
-                        <td class="highlight-text">+15% Yield Rate</td>
+                        <td class="lang-es">🟥 <strong>Tarjeta Roja Directa</strong></td>
+                        <td class="lang-en">🟥 <strong>Red Card Received</strong></td>
+                        <td style="color:#ff4d6a;">0 $GCH</td>
+                        <td style="color:#ff4d6a;">0 $GCH</td>
+                        <td style="color:#ff4d6a; font-weight:800;">-20% Slashing & Estamina a 0</td>
+                        <td style="color:#ff4d6a; font-weight:800;">-20% Slashing & Stamina to 0</td>
                     </tr>
                 </tbody>
             </table>
 
-            <p><strong>Slashing & The Death Pledge:</strong> Poor performances are punished by the smart contract. Yellow cards deduct -2% daily yield, red cards inflict <strong>-20% yield slashing & reset stamina to 0</strong>, and if a player's national team is eliminated from the tournament, the <strong>Death Pledge</strong> triggers. The player's yield drops to 0% permanently, converting the NFT into a purely historical, non-yielding collectible. This opens up frantic speculative trading opportunities in the marketplace during live matches!</p>
-
-            <h2>🏦 3. ADVANCED DEFI ENGINEERING: LP PROVIDERS & THE JITO FLYWHEEL</h2>
-            <p>This is where GoalChain transcends traditional gaming and steps into institutional decentralized finance (<strong>DeFi</strong>) territory. Long-term sustainability is anchored by two revolutionary pillars:</p>
-
-            <h3>A. Exclusive Perks for Liquidity Providers (LP Providers)</h3>
-            <p>A resilient token requires deep liquidity. GoalChain allows users to deposit $GCH and SOL jointly into official <strong>Raydium or Orca Liquidity Pools</strong>, unlocking substantial incentives:</p>
-            <ul>
-                <li><strong>Swap Trading Fees:</strong> Earn a direct share of all trading fees generated by users buying and selling on the integrated marketplace.</li>
-                <li><strong>LP Farming Rewards:</strong> Stake your LP tokens in the GoalChain farming contract to stack additional passive yields paid out continuously.</li>
-                <li><strong>Price Stabilization:</strong> Deepen pool liquidity to minimize slippage, protecting the token value for all players.</li>
-            </ul>
-
-            <h3>B. The Treasury Engine: JitoSOL + $GCH Buy-Back (MEV Flywheel)</h3>
-            <p>NicoPez and the team engineered a masterclass in Web3 tokenomics: when users purchase Mystery Packs or pay trading fees, the SOL accumulated in the GoalChain Treasury is put to work instantly through the <strong>Perpetual Buy-Back Engine</strong>:</p>
-
-            <div class="mermaid-container">
-                <div style="font-weight: 800; font-size: 0.9rem; color: var(--primary); margin-bottom: 15px;">🔄 THE PERPETUAL VALUE FLYWHEEL</div>
-                <div style="font-size: 0.85rem; color: #fff; line-height: 1.5; font-family: monospace; text-align: left; max-width: 600px; margin: 0 auto;">
-                    [NFT Sales & Marketplace Fees] <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⬇️ (Accumulates SOL)<br>
-                    [GoalChain Treasury Vault] <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⬇️ (Liquid Staking)<br>
-                    [Jito Validator Protocol - JitoSOL] 💎 APY + Solana MEV Tips <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⬇️ (Continuous Yield Generation)<br>
-                    [Raydium/Orca Swap Automation] 🛒 Swaps JitoSOL ➔ $GCH <br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⬇️ (Market Liquidity Purchased)<br>
-                    [Token Burning & Constant Buy Pressure] 🔥 Appreciation
-                </div>
-            </div>
-
-            <p>The Treasury stakes 100% of its accumulated SOL in the <strong>Jito Protocol</strong>, earning traditional staking rewards paired with highly lucrative <strong>MEV (Maximum Extractable Value)</strong> tips on the Solana network. The continuous yield generated in JitoSOL is automatically spent by a smart contract to <strong>buy back $GCH from the Raydium/Orca pools and burn it</strong>. As more NFTs are traded, the JitoSOL pool grows, generating higher daily yields, triggering aggressive and permanent organic buying pressure on $GCH. Sells are eaten up organically!</p>
-
-            <h2>📊 3.5 GOALCHAIN TOKENOMICS ($GCH): THE CIRCULAR ECONOMY</h2>
-            <h2>📊 3.5 GOALCHAIN TOKENOMICS ($GCH): THE CIRCULAR ECONOMY</h2>
-            <p>A sustainable SportsFi project requires a highly adaptive, play-driven token model. The <strong>$GCH</strong> token operates under an <strong>uncapped, dynamic utility model</strong> balanced by aggressive automated burn loops. To bootstrap the ecosystem, GoalChain launches with an <strong>Initial Genesis Supply of 100,000,000 $GCH</strong>, distributed strategically to maximize organic engagement:</p>
-
-            <div class="glass-card" style="border: 1px solid rgba(20,241,149,0.3); padding: 30px; border-radius: 16px; margin: 30px 0; background: rgba(6,6,10,0.4);">
-                <h3 style="color: var(--primary); margin-top: 0; font-size: 1.3rem;">💎 INITIAL GENESIS DISTRIBUTION</h3>
-                <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 25px;">The 100M genesis tokens bootstrap the ecosystem's flywheels and are allocated as follows:</p>
-                
-                <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left; margin-bottom: 20px;">
-                    <thead>
-                        <tr style="border-bottom: 2px solid rgba(255,255,255,0.1);">
-                            <th style="padding: 10px 5px;">Allocation Sector</th>
-                            <th style="padding: 10px 5px; text-align: center;">Genesis Percentage</th>
-                            <th style="padding: 10px 5px; text-align: right;">Initial Amount</th>
-                            <th style="padding: 10px 5px; text-align: right;">Vesting / Release Schedule</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td>🎮 <strong>Play-to-Airdrop Pool</strong></td>
-                            <td style="text-align: center; color: var(--primary); font-weight: 800;">30%</td>
-                            <td style="text-align: right;">30,000,000 $GCH</td>
-                            <td style="text-align: right;">Unlocked dynamically based on Penalty Shootout achievements</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td>🎁 <strong>Ecosystem & World Cup Jackpot</strong></td>
-                            <td style="text-align: center; color: var(--primary); font-weight: 800;">30%</td>
-                            <td style="text-align: right;">30,000,000 $GCH</td>
-                            <td style="text-align: right;">Locked in the World Cup Jackpot Contract, released at finals</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td>⚡ <strong>Community Marketing (Zealy)</strong></td>
-                            <td style="text-align: center; color: var(--primary); font-weight: 800;">15%</td>
-                            <td style="text-align: right;">15,000,000 $GCH</td>
-                            <td style="text-align: right;">15% unlocked at TGE, linear monthly vesting over 12 months</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td>💧 <strong>DEX Liquidity Pool</strong></td>
-                            <td style="text-align: center; color: var(--primary); font-weight: 800;">15%</td>
-                            <td style="text-align: right;">15,000,000 $GCH</td>
-                            <td style="text-align: right;">100% paired with SOL on DEX launch, LP keys permanently burned</td>
-                        </tr>
-                        <tr>
-                            <td>🏛️ <strong>Core Devs & DAO Treasury</strong></td>
-                            <td style="text-align: center; color: var(--primary); font-weight: 800;">10%</td>
-                            <td style="text-align: right;">10,000,000 $GCH</td>
-                            <td style="text-align: right;">6-month lock, followed by 24-month linear daily vesting</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3>🔄 THE TRIPLE-ACTION INFLATIONARY PROTECTION</h3>
-            <p>Unlike standard Play-to-Earn tokens that lose their value due to constant emission dumps, $GCH stays healthy via three highly aggressive game sinks:</p>
-            <ul>
-                <li><strong>The Potion Burn:</strong> Restoring fatigued player NFT Stamina requires buying and burning $GCH. 100% of these spent tokens are permanently destroyed.</li>
-                <li><strong>The Oracle Commission:</strong> 5% of all live-betting sports pools are automatically sent to the Burn Address.</li>
-                <li><strong>Dynamic NFT Merging (Mints):</strong> Generating Legendary/Mythic elite players requires burning lower-tier cards plus a $GCH fee, shrinking the circulating supply daily.</li>
-            </ul>
-
-            <h2>🏆 4. THE WORLD CUP MEGA-JACKPOT</h2>
-            <p>The ultimate Web3 lottery! A massive prize pool accumulates throughout the World Cup, funded by 30% of house game fees and 2.5% of secondary marketplace sales royalties.</p>
-            
-            <p>When the final whistle of the tournament blows, <strong>50% of the accumulated Jackpot is raffled among managers holding at least one active player from the World Cup-winning country</strong> in their Starting XI. Holding the tournament winner can literally make you a millionaire overnight!</p>
-
             <div class="tip-box">
-                <strong>Stamina & Game Sinks</strong>
-                To maintain economic equilibrium, players lose Stamina (-30 per live match played). If Stamina falls below 30, the player experiences fatigue and daily yield emissions <strong>plummet by 50%</strong>, flashing red in the 3D viewer. Managers must spend and burn $GCH on energy potions and recovery packs to restore player condition, creating a deflationary burn mechanism.
+                <span class="lang-es">💀 <strong>EL COMPROMISO DE MUERTE (THE DEATH PLEDGE)</strong></span>
+                <span class="lang-en">💀 <strong>THE ELIMINATION DEATH PLEDGE</strong></span>
+                
+                <p class="lang-es">La adrenalina es máxima. Si la selección nacional de un jugador queda **eliminada** de la Copa del Mundo, se activa la cláusula <strong>Death Pledge</strong>. Los metadatos de la carta cambian instantáneamente on-chain, reduciendo su salario a **0% de por vida** y convirtiendo al jugador en un objeto coleccionable puramente conmemorativo. ¡Esto genera picos masivos de compra y venta especulativa en el mercado en el minuto 90 de cada partido!</p>
+                <p class="lang-en">High stakes trading! If a player's national team is **eliminated** from the World Cup tournament, the contract triggers the <strong>Death Pledge</strong>. Its dynamic metadata updates permanently to reflect elimination, reducing its emissions to **0% forever**, turning the card into a historical souvenir. This creates high-octane speculative trading rushes on the marketplace during live penalty shootouts!</p>
             </div>
 
-            <h2>🎮 5. THE ROAD TO AAA GAMING EVOLUTION</h2>
-            <p>GoalChain is not just a browser game. While the Canvas-based Penalty Shooter is incredibly fast, addictive, and perfect for play during the World Cup, <strong>the long-term vision targets AAA-grade football gaming franchises</strong>:</p>
-            <ul>
-                <li><strong>3D Unreal / Unity Real-Time Simulator:</strong> Integrate your player NFTs into a next-generation gameplay engine with realistic ball physics, motion-captured animations, and real-time competitive PvP matchmaking.</li>
-                <li><strong>Manager Strategy Simulation (Tactical Mastermind V2):</strong> Deep management simulation where weather, team chemistry, and stadium conditions shape outcomes in full 3D match engines.</li>
-                <li><strong>Stadium VR Suite:</strong> Virtual Reality integration for Stadium RWA owners. Walk through your digital arena, lease virtual billboard space, and watch matches live from your customized VIP suite.</li>
-            </ul>
+            <!-- SECTION 5: THE MEV FLYWHEEL -->
+            <h2 class="lang-es">🔄 5. EL VOLANTE DE VALOR MEV: STAKING DE JITO Y COMPRA PERPETUA</h2>
+            <h2 class="lang-en">🔄 5. THE VALUE FLYWHEEL: JITO STAKING & MEV BUY-BACK LOOP</h2>
+            
+            <div class="lang-es">
+                <p>Una economía Web3 al alza requiere mecanismos automatizados contra la devaluación. Por ello, NicoPez y los hermanos de GoalChain crearon un **volante financiero circular perpetuo**:</p>
+                <ul>
+                    <li><strong>Acumulación de la Tesorería:</strong> Las tarifas por la apertura de Mystery Packs o por regalías de comercio en el mercado de cNFTs se guardan en la Bóveda de Tesorería.</li>
+                    <li><strong>Liquid Staking de JitoSOL:</strong> El 100% del SOL de la tesorería se deposita mediante CPI en el Stake Pool de Jito, generando yield y devengando propinas de transacciones MEV en la red Solana.</li>
+                    <li><strong>Soporte Automático del Token:</strong> Un servicio de smart contract recoge periódicamente estas ganancias de la tesorería, realiza swaps automáticos en **Raydium u Orca** de JitoSOL ➔ $GCH, y **quema los tokens resultantes al 100%**.</li>
+                </ul>
+                <p>¡Esto significa que mientras más volumen de juego ocurra, mayor presión compradora constante y automática tendrá el token $GCH!</p>
+            </div>
+            
+            <div class="lang-en">
+                <p>A resilient Web3 economy requires automatic measures to combat token dilution. GoalChain implements a **permanently active MEV-boosted buy-back loop** that translates platform volume into constant price support:</p>
+                <ul>
+                    <li><strong>Treasury Pool Growth:</strong> 100% of the SOL collected from card mints and secondary market royalties accumulates directly in the Treasury.</li>
+                    <li><strong>Jito Staking Allocations:</strong> This pool is securely staked into Jito (JitoSOL), earning base validation yields combined with high-value Solana MEV transaction tips.</li>
+                    <li><strong>Swapping & Automated Burning:</strong> A decentralized executor periodically harvests this accrued interest, swaps JitoSOL for **$GCH** through optimized **Raydium/Orca** routing, and immediately **burns 100% of the purchased tokens**.</li>
+                </ul>
+                <p>This triggers a magnificent economic flywheel: higher gaming volume increases the JitoSOL pool size, magnifying the continuous automatic buy-back pressure, eating up sell-offs instantly!</p>
+            </div>
 
+            <!-- SECTION 6: ROAD TO AAA SPORT ENGINE -->
+            <h2 class="lang-es">🎮 6. HACIA LA EVOLUCIÓN AAA Y 3D REAL</h2>
+            <h2 class="lang-en">🎮 6. THE ROADMAP TO AAA REAL-TIME GAMING</h2>
+            
+            <div class="lang-es">
+                <p>GoalChain.fun está construyendo el ecosistema desde una base sólida en la web, pero el destino final va mucho más allá de un navegador:</p>
+                <ul>
+                    <li><strong>Simulador Unreal Engine 5 en Tiempo Real:</strong> La Fase 3 de nuestro Roadmap estratégico contempla la integración de los cNFTs de los jugadores dentro de un motor de físicas 3D real con animaciones fluidas capturadas por movimiento y un simulador de partidos multijugador competitivo.</li>
+                    <li><strong>Propiedad Virtual de Estadios en VR:</strong> Los dueños de NFTs de Estadios podrán "caminar" por sus canchas digitales, gestionar espacios publicitarios del mundo real y ver las transmisiones de partidos de GoalChain en vivo desde cabinas VIP en realidad virtual.</li>
+                </ul>
+            </div>
+            <div class="lang-en">
+                <p>GoalChain is starting with a lightning-fast browser-based canvas game, but our strategic vision is anchored on next-generation immersive gameplay expansion:</p>
+                <ul>
+                    <li><strong>3D Real-Time Unreal Engine Simulator:</strong> Phase 3 of our master roadmap targets full 3D simulation integration. Your dynamic player cNFTs will act as your characters in a full competitive sports game engine with realistic ball physics and competitive multiplayer.</li>
+                    <li><strong>VR Stadium Suites & Digital Real Estate:</strong> Stadium NFT holders will be able to customize their arenas in Virtual Reality, lease virtual advertising boards to actual web3 sponsors, and stream tournament finals live from their VIP skyboxes.</li>
+                </ul>
+            </div>
+
+            <!-- FOOTER CALL TO ACTION -->
             <div class="footer-cta">
-                <h3 style="color: #fff; font-size: 1.5rem; margin-top: 0;">Ready to Dominate the Pitch?</h3>
-                <p style="font-size: 0.95rem; color: var(--text-dim); margin-bottom: 25px;">Claim your 1,000 testnet $GCH, draft your custom squad, and join the global SportsFi revolution on Solana.</p>
-                <a href="index.html" class="btn btn-primary btn-glow" style="padding: 15px 35px; border-radius: 12px; font-weight: 900; text-decoration: none; display: inline-block;">
-                    LAUNCH MAIN DASHBOARD
+                <h3 class="lang-es" style="color: #fff; font-size: 1.6rem; margin-top: 0;">¡Sé Parte del Ecosistema Más Revolucionario de Solana!</h3>
+                <h3 class="lang-en" style="color: #fff; font-size: 1.6rem; margin-top: 0;">Be Part of the Most Revolutionary SportsFi Ecosystem on Solana!</h3>
+                
+                <p class="lang-es" style="font-size: 0.98rem; color: var(--text-dim); margin-bottom: 25px; line-height: 1.5;">Reclama tu Airdrop de 1,000 $GCH de prueba en el Dashboard, empieza a jugar en el Penalty Shooter Canvas en vivo y prepárate para acuñar a tus campeones de cara al Mundial de Fútbol 2026.</p>
+                <p class="lang-en" style="font-size: 0.98rem; color: var(--text-dim); margin-bottom: 25px; line-height: 1.5;">Claim your starting 1,000 testnet $GCH from the dashboard, showcase your skills in the HTML5 Penalty game, and draft your elite roster for the World Cup 2026.</p>
+                
+                <a href="index.html" class="btn btn-primary btn-glow" style="padding: 16px 40px; border-radius: 12px; font-weight: 900; text-decoration: none; display: inline-block; background: linear-gradient(90deg, #00e5ff, #9945ff); color:#fff; border:none;">
+                    <span class="lang-es">VOLVER AL PANEL PRINCIPAL</span>
+                    <span class="lang-en">LAUNCH MAIN DASHBOARD</span>
                 </a>
             </div>
 
@@ -532,7 +590,31 @@
     <!-- FOOTER -->
     <footer style="background: #030305; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-size: 0.85rem; color: var(--text-dim); position: relative; z-index: 10;">
         <p style="margin-bottom: 10px;">⚽ GoalChain © 2026. All rights reserved. Created by NicoPez, Lucas & Operations Lead.</p>
-        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.2);">Powered by Solana • Jito Staking • Metaplex Bubblegum • Drift Protocol</p>
+        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.15);">Powered by Solana • Jito Staking • Metaplex Bubblegum • Drift Protocol</p>
     </footer>
+
+    <!-- Bilingual JavaScript Toggle Handler -->
+    <script>
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            
+            // Toggle active status on buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            if (lang === 'es') {
+                document.getElementById('btnEs').classList.add('active');
+            } else {
+                document.getElementById('btnEn').classList.add('active');
+            }
+            
+            // Persist setting
+            localStorage.setItem('goalchain_language', lang);
+        }
+
+        // Initialize language from storage or default to Spanish
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('goalchain_language') || 'es';
+            setLanguage(savedLang);
+        });
+    </script>
 </body>
 </html>
