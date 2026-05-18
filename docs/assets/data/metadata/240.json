@@ -1,56 +1,85 @@
 {
-    "name": "Países Bajos Star 6 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Países Bajos Star 6 Token (Países Bajos). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/240_pases_bajos_star_6_token.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Países Bajos"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Rare"
-        },
-        {
-            "trait_type": "Número",
-            "value": "6"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 49
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 58
-        },
-        {
-            "trait_type": "Hype",
-            "value": 89
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/240_pases_bajos_star_6_token.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #240 — Myko Shapa-Fine",
+  "symbol": "GCG",
+  "description": "Nicknamed 'Little Mozart'. The creative diamond of the Ukrainian Grid, known for his technical flair and vision that ensure a smooth tactical flow in the Eastern Node.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/240_myko_shapa-fine.png",
+  "external_url": "https://goalchain.fun/nft/240",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "MID"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Ucrania"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Mykola Shaparenko"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 70
+    },
+    {
+      "trait_type": "DEF",
+      "value": 66
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 73
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Munich Cyber-Bayer"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Technical Maestro"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/240_myko_shapa-fine.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

@@ -1,56 +1,93 @@
 {
-    "name": "Rodri Protocol",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Rodri Protocol (España). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/024_rodri_protocol.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "España"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Legendary"
-        },
-        {
-            "trait_type": "Número",
-            "value": "16"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 80
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 92
-        },
-        {
-            "trait_type": "Hype",
-            "value": 96
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/024_rodri_protocol.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #024 — Jude Belling-Swap",
+  "symbol": "GCG",
+  "description": "The 'Hey Jude' of the Madrid Ledger. Birmingham retired his #22 to inspire future generations. A generational talent who conquered La Liga and Europe in his debut campaign, proving he is the engine of the new era.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/024_jude_belling-swap.png",
+  "external_url": "https://goalchain.fun/nft/24",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Mythic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "MID"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Inglaterra"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Jude Bellingham"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 76
+    },
+    {
+      "trait_type": "DEF",
+      "value": 72
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 92
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 1168
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 97
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "London Blue Node"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Cosmic Aura & Golden Supernova"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "The Engine"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Box-to-Box King"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Generational Talent"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/024_jude_belling-swap.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

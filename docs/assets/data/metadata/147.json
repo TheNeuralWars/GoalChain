@@ -1,56 +1,85 @@
 {
-    "name": "Alemania Player 17",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alemania Player 17 (Alemania). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/147_alemania_player_17.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Alemania"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Rare"
-        },
-        {
-            "trait_type": "Número",
-            "value": "17"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 95
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 78
-        },
-        {
-            "trait_type": "Hype",
-            "value": 93
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/147_alemania_player_17.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #147 — Idrissa Gueye-Sweep",
+  "symbol": "GCG",
+  "description": "Known as 'Gana'. The 2026 AFCON winning captain and first Senegalese player to reach 100 international caps, serving as the tireless defensive engine of the African Node.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/147_idrissa_gueye-sweep.png",
+  "external_url": "https://goalchain.fun/nft/147",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "MID"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Senegal"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Idrissa Gueye"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 70
+    },
+    {
+      "trait_type": "DEF",
+      "value": 66
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 46
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Buenos Aires Pampa FC"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Box-to-Box"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/147_idrissa_gueye-sweep.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

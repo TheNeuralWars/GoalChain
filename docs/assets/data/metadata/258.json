@@ -1,56 +1,89 @@
 {
-    "name": "Países Bajos Star 24 Coin",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Países Bajos Star 24 Coin (Países Bajos). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/258_pases_bajos_star_24_coin.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Países Bajos"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Rare"
-        },
-        {
-            "trait_type": "Número",
-            "value": "24"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 89
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 85
-        },
-        {
-            "trait_type": "Hype",
-            "value": 87
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/258_pases_bajos_star_24_coin.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #258 — Che Ad-Target",
+  "symbol": "GCG",
+  "description": "Verified as 'The Clinical Striker'. A powerful offensive asset whose goal-scoring packets have been developed in the English and Italian-Torino circuits for the Scottish Ledger.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/258_che_ad-target.png",
+  "external_url": "https://goalchain.fun/nft/258",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Escocia"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Che Adams"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 89
+    },
+    {
+      "trait_type": "DEF",
+      "value": 25
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 82
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 178
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 62
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Rio Samba Digital"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Electric Neon Pulse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Speedster"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/258_che_ad-target.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

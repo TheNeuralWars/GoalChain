@@ -1,56 +1,85 @@
 {
-    "name": "Suiza Star 22 Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Suiza Star 22 Chain (Suiza). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/438_suiza_star_22_chain.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Suiza"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "22"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 71
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 57
-        },
-        {
-            "trait_type": "Hype",
-            "value": 48
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/438_suiza_star_22_chain.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #438 — Anibal God-Cap",
+  "symbol": "GCG",
+  "description": "Known as 'The Captain'. The tactical heartbeat of the Panamanian midfield whose leadership and defensive algorithms ensure the security of the national circuit.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/438_anibal_god-cap.png",
+  "external_url": "https://goalchain.fun/nft/438",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "MID"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Panamá"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Aníbal Godoy"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 70
+    },
+    {
+      "trait_type": "DEF",
+      "value": 66
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 35
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Madrid White Ledger"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Box-to-Box"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/438_anibal_god-cap.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

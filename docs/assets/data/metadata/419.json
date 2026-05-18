@@ -1,56 +1,89 @@
 {
-    "name": "Manuel Akan-Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Manuel Akan-Chain (Suiza). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/419_manuel_akan-chain.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Suiza"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "3"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 84
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 42
-        },
-        {
-            "trait_type": "Hype",
-            "value": 51
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/419_manuel_akan-chain.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #419 — Keylor Vault-as",
+  "symbol": "GCG",
+  "description": "The 'Halcón' of the Costa Rican Node. A triple Champions League winner whose legendary career continues in the Mexican-Pumas Grid in 2026, serving as a global icon of reflexes and success.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/419_keylor_vault-as.png",
+  "external_url": "https://goalchain.fun/nft/419",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "GK"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Costa rica"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Keylor Navas"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 19
+    },
+    {
+      "trait_type": "DEF",
+      "value": 90
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 74
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Amsterdam Ajax Logic"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Iron Wall"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Quick Reflexes"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/419_keylor_vault-as.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

@@ -1,56 +1,89 @@
 {
-    "name": "Allison-Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Allison-Block (Brasil). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/033_allison_block.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Brasil"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Epic"
-        },
-        {
-            "trait_type": "Número",
-            "value": "1"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 40
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 93
-        },
-        {
-            "trait_type": "Hype",
-            "value": 89
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/033_allison_block.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #033 — Cole Cold-Coin",
+  "symbol": "GCG",
+  "description": "Known globally as 'Cold Palmer'. The 'Iceman' of the London Node whose clinical finishing and calm under pressure have made him the most efficient penalty protocol on the entire ledger.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/033_cole_cold-coin.png",
+  "external_url": "https://goalchain.fun/nft/33",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Inglaterra"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Cole Palmer"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 93
+    },
+    {
+      "trait_type": "DEF",
+      "value": 26
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 92
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 480
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 83
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Milan Devil Core"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Holographic Glitch & Silver Spark"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Dribbling Wizard"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/033_cole_cold-coin.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

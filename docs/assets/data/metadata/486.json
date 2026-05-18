@@ -1,56 +1,85 @@
 {
-    "name": "Ghana Pro 18 Gas",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ghana Pro 18 Gas (Ghana). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/486_ghana_pro_18_gas.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Ghana"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Rare"
-        },
-        {
-            "trait_type": "Número",
-            "value": "18"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 71
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 74
-        },
-        {
-            "trait_type": "Hype",
-            "value": 38
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/486_ghana_pro_18_gas.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #486 — Mostafa Moh-Goal",
+  "symbol": "GCG",
+  "description": "Commonly called the 'Egyptian Sphinx' or 'Anakin'. A powerful and stoic centre-forward whose physical dominance and aerial masterclasses make him the primary offensive node for the Pharaohs.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/486_mostafa_moh-goal.png",
+  "external_url": "https://goalchain.fun/nft/486",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Egipto"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Mostafa Mohamed"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 93
+    },
+    {
+      "trait_type": "DEF",
+      "value": 26
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 88
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 470
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 91
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "London Blue Node"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Holographic Glitch & Silver Spark"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/486_mostafa_moh-goal.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

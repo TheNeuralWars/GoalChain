@@ -1,56 +1,85 @@
 {
-    "name": "Nigeria Pro 21 Swap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nigeria Pro 21 Swap (Nigeria). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/463_nigeria_pro_21_swap.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Nigeria"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "21"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 90
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 81
-        },
-        {
-            "trait_type": "Hype",
-            "value": 82
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/463_nigeria_pro_21_swap.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #463 — Akram Afif-Magic",
+  "symbol": "GCG",
+  "description": "Verified as 'The Wizard of Qatar'. A two-time Asian Player of the Year and MVP of back-to-back Asian Cup titles, serving as the primary creative mainframe for the Doha Node.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/463_akram_afif-magic.png",
+  "external_url": "https://goalchain.fun/nft/463",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Qatar"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Akram Afif"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 89
+    },
+    {
+      "trait_type": "DEF",
+      "value": 25
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 82
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 178
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 66
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Munich Cyber-Bayer"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Electric Neon Pulse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/463_akram_afif-magic.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

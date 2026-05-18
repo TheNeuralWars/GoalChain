@@ -1,56 +1,85 @@
 {
-    "name": "España Player 8",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - España Player 8 (España). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/112_espaa_player_8.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "España"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "8"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 43
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 51
-        },
-        {
-            "trait_type": "Hype",
-            "value": 80
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/112_espaa_player_8.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #112 — Jonathan David-Bit",
+  "symbol": "GCG",
+  "description": "Verified as 'The Iceman'. A high-IQ striker whose calm under pressure led to a historic 2025 move to the Juventus Node. He is one of the most successful and efficient Canadian exports on the entire chain.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/112_jonathan_david-bit.png",
+  "external_url": "https://goalchain.fun/nft/112",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Canadá"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Jonathan David"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 89
+    },
+    {
+      "trait_type": "DEF",
+      "value": 25
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 82
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 178
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 75
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Amsterdam Ajax Logic"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Electric Neon Pulse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/112_jonathan_david-bit.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

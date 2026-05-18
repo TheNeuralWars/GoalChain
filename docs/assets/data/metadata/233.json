@@ -1,56 +1,89 @@
 {
-    "name": "EEUU Star 25 Wallet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - EEUU Star 25 Wallet (EEUU). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/233_eeuu_star_25_wallet.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "EEUU"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "25"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 51
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 41
-        },
-        {
-            "trait_type": "Hype",
-            "value": 89
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/233_eeuu_star_25_wallet.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #233 — Mykhailo Mu-Flash",
+  "symbol": "GCG",
+  "description": "Commonly known as 'Misha'. An explosive and fast winger whose career in the London Node is a narrative of speed and resilience. Despite the 2026 challenges, his 'Bolt-like' pace remains a threat to any defensive system.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/233_mykhailo_mu-flash.png",
+  "external_url": "https://goalchain.fun/nft/233",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Ucrania"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Mykhailo Mudryk"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 89
+    },
+    {
+      "trait_type": "DEF",
+      "value": 25
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 82
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 178
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 83
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Amsterdam Ajax Logic"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Electric Neon Pulse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Speedster"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/233_mykhailo_mu-flash.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

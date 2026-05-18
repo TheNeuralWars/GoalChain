@@ -1,56 +1,93 @@
 {
-    "name": "Brasil Player 26",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Brasil Player 26 (Brasil). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/052_brasil_player_26.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Brasil"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Rare"
-        },
-        {
-            "trait_type": "Número",
-            "value": "26"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 75
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 74
-        },
-        {
-            "trait_type": "Hype",
-            "value": 37
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/052_brasil_player_26.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #052 — Aymeric Lap-Object",
+  "symbol": "GCG",
+  "description": "The 'Defensive Architect'. After a legendary stint in Manchester, he returned to his roots at the Athletic Node in 2025, bringing his masterful ball-playing algorithms to stabilize the Spanish backline.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/052_aymeric_lap-object.png",
+  "external_url": "https://goalchain.fun/nft/52",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "DEF"
+    },
+    {
+      "trait_type": "Country",
+      "value": "España"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Aymeric Laporte"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 34
+    },
+    {
+      "trait_type": "DEF",
+      "value": 86
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 67
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Dortmund Yellow Hive"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "The Rock"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Aerial Master"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Physical Powerhouse"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/052_aymeric_lap-object.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

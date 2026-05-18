@@ -1,56 +1,85 @@
 {
-    "name": "España Player 9",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - España Player 9 (España). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/113_espaa_player_9.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "España"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "9"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 67
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 71
-        },
-        {
-            "trait_type": "Hype",
-            "value": 79
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/113_espaa_player_9.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #113 — Cyle Larin-Tank",
+  "symbol": "GCG",
+  "description": "The 'Silent Giant' and Canada's all-time leading goal scorer. A powerful and clinical forward whose physical presence and goal-scoring reliability have made him a legendary asset in the North American and European circuits.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/113_cyle_larin-tank.png",
+  "external_url": "https://goalchain.fun/nft/113",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Canadá"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Cyle Larin"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 89
+    },
+    {
+      "trait_type": "DEF",
+      "value": 25
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 82
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 178
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 67
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Paris Sapphire PSG"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Electric Neon Pulse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/113_cyle_larin-tank.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

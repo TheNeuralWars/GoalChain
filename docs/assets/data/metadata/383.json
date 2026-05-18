@@ -1,56 +1,89 @@
 {
-    "name": "Senegal Star 19 Ledger",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Senegal Star 19 Ledger (Senegal). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/383_senegal_star_19_ledger.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Senegal"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Rare"
-        },
-        {
-            "trait_type": "Número",
-            "value": "19"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 83
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 61
-        },
-        {
-            "trait_type": "Hype",
-            "value": 91
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/383_senegal_star_19_ledger.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #383 — Samuel Chuku-Flash",
+  "symbol": "GCG",
+  "description": "Verified as 'The Nigerian Robben'. An explosive winger whose technical dribbling once matched Messi's records at the Bernabéu, serving as a high-frequency offensive node for the Milan and Nigerian circuits.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/383_samuel_chuku-flash.png",
+  "external_url": "https://goalchain.fun/nft/383",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Nigeria"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Samuel Chukwueze"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 89
+    },
+    {
+      "trait_type": "DEF",
+      "value": 25
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 82
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 178
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 64
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "London Blue Node"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Electric Neon Pulse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Speedster"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/383_samuel_chuku-flash.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

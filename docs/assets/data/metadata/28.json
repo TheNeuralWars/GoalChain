@@ -1,56 +1,93 @@
 {
-    "name": "Endrick Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Endrick Chain (Brasil). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/028_endrick_chain.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Brasil"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Epic"
-        },
-        {
-            "trait_type": "Número",
-            "value": "2"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 61
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 63
-        },
-        {
-            "trait_type": "Hype",
-            "value": 71
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/028_endrick_chain.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #028 — Kyle Gas-Walker",
+  "symbol": "GCG",
+  "description": "Known as 'The Road Runner'. Despite his veteran status, he remains one of the fastest firewalls in the English Grid, holding a legendary speed record of 37.31 km/h that continues to terrorize offensive nodes.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/028_kyle_gas-walker.png",
+  "external_url": "https://goalchain.fun/nft/28",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "DEF"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Inglaterra"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Kyle Walker"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 37
+    },
+    {
+      "trait_type": "DEF",
+      "value": 93
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 92
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 480
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 77
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Milan Devil Core"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Holographic Glitch & Silver Spark"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "The Rock"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Physical Powerhouse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Recovery Pace"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/028_kyle_gas-walker.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

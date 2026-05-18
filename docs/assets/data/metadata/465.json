@@ -1,56 +1,93 @@
 {
-    "name": "Nigeria Pro 23 Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nigeria Pro 23 Node (Nigeria). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/465_nigeria_pro_23_node.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Nigeria"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "23"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 72
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 84
-        },
-        {
-            "trait_type": "Hype",
-            "value": 88
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/465_nigeria_pro_23_node.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #465 — Meshaal Barsh-Save",
+  "symbol": "GCG",
+  "description": "Verified as 'The Penalty Hero'. A legendary goalkeeper whose historic 3-save performance in the 2023 Asian Cup quarter-final secured Qatar's path to the title.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/465_meshaal_barsh-save.png",
+  "external_url": "https://goalchain.fun/nft/465",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "GK"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Qatar"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Meshaal Barsham"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 19
+    },
+    {
+      "trait_type": "DEF",
+      "value": 90
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 33
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Milan Devil Core"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Iron Wall"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Quick Reflexes"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Aerial Commander"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/465_meshaal_barsh-save.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }
