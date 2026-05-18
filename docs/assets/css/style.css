@@ -58,7 +58,7 @@ body {
     transition: all 0.3s ease;
 }
 .nav-scrolled { background: rgba(6, 6, 10, 0.95); }
-.logo { font-weight: 900; font-size: 1.3rem; letter-spacing: -1px; cursor: pointer; }
+.logo { font-weight: 900; font-size: 1.3rem; letter-spacing: -1px; cursor: pointer; flex-shrink: 0; }
 .logo span { color: var(--primary); }
 .nav-right { display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
 
@@ -95,6 +95,10 @@ body {
     white-space: nowrap;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
+    flex: 1;
+    min-width: 0;
+    margin: 0 2rem;
+    justify-content: flex-start;
 }
 .nav-links-desktop::-webkit-scrollbar {
     display: none;
@@ -102,7 +106,8 @@ body {
 .nav-links-desktop a,
 .nav-links-desktop button,
 .nav-links-desktop .nav-dropdown {
-    flex-shrink: 0;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
 }
 .nav-links-desktop a {
     color: var(--text-dim); text-decoration: none; font-size: 0.8rem;
