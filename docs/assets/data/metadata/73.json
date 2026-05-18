@@ -1,56 +1,93 @@
 {
-    "name": "Francia Player 21",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Francia Player 21 (Francia). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/073_francia_player_21.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Francia"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "21"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 90
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 52
-        },
-        {
-            "trait_type": "Hype",
-            "value": 60
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/073_francia_player_21.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #073 — Diogo Costa-Gate",
+  "symbol": "GCG",
+  "description": "The 'Penalty King' and heir to the legendary #99. After saving a record 3 penalties in a single Euro 2024 shootout, he is verified as the most clinical shot-stopping algorithm in the Portuguese Node.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/073_diogo_costa-gate.png",
+  "external_url": "https://goalchain.fun/nft/73",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "GK"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Portugal"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Diogo Costa"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 19
+    },
+    {
+      "trait_type": "DEF",
+      "value": 90
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 39
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Madrid White Ledger"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Iron Wall"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Quick Reflexes"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Aerial Commander"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/073_diogo_costa-gate.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

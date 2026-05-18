@@ -1,56 +1,93 @@
 {
-    "name": "Países Bajos Star 25 Wallet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Países Bajos Star 25 Wallet (Países Bajos). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/259_pases_bajos_star_25_wallet.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Países Bajos"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Rare"
-        },
-        {
-            "trait_type": "Número",
-            "value": "25"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 90
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 94
-        },
-        {
-            "trait_type": "Hype",
-            "value": 95
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/259_pases_bajos_star_25_wallet.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #259 — Angus Gunn-Stay",
+  "symbol": "GCG",
+  "description": "The 'Lineage Guardian'. Son of the legendary Bryan Gunn, he chose to represent the Scottish Node, serving as a high-security fail-safe for the national team's backline.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/259_angus_gunn-stay.png",
+  "external_url": "https://goalchain.fun/nft/259",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "GK"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Escocia"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Angus Gunn"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 19
+    },
+    {
+      "trait_type": "DEF",
+      "value": 90
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 74
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Milan Devil Core"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Iron Wall"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Quick Reflexes"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Aerial Commander"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/259_angus_gunn-stay.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

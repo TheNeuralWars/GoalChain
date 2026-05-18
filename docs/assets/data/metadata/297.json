@@ -1,56 +1,89 @@
 {
-    "name": "Bélgica Star 11 Swap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Bélgica Star 11 Swap (Bélgica). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/297_blgica_star_11_swap.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Bélgica"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "11"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 98
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 52
-        },
-        {
-            "trait_type": "Hype",
-            "value": 88
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/297_blgica_star_11_swap.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #297 — Yaser Asprilla-Git",
+  "symbol": "GCG",
+  "description": "The 'New Diamond' of Colombian football. A technical prodigy whose creativity and technical flair have made him the primary offensive architect for the next generation of the South American Node.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/297_yaser_asprilla-git.png",
+  "external_url": "https://goalchain.fun/nft/297",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Colombia"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Yáser Asprilla"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 89
+    },
+    {
+      "trait_type": "DEF",
+      "value": 25
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 82
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 178
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 67
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Amsterdam Ajax Logic"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Electric Neon Pulse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Dribbling Wizard"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/297_yaser_asprilla-git.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

@@ -1,56 +1,85 @@
 {
-    "name": "Marco Ver-Swap-ti",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Marco Ver-Swap-ti (Italia). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/264_marco_ver-swap-ti.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Italia"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "4"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 52
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 93
-        },
-        {
-            "trait_type": "Hype",
-            "value": 60
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/264_marco_ver-swap-ti.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #264 — Lawrence Shank-Hit",
+  "symbol": "GCG",
+  "description": "Verified as 'The Clinical Scorer'. A lethal offensive node whose goal-scoring algorithms and movement make him a constant threat in the Scottish and national circuits.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/264_lawrence_shank-hit.png",
+  "external_url": "https://goalchain.fun/nft/264",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Escocia"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Lawrence Shankland"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 89
+    },
+    {
+      "trait_type": "DEF",
+      "value": 25
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 82
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 178
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 85
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Dortmund Yellow Hive"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Electric Neon Pulse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/264_lawrence_shank-hit.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

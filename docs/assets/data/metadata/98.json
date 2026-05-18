@@ -1,56 +1,85 @@
 {
-    "name": "Inglaterra Player 20",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Inglaterra Player 20 (Inglaterra). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/098_inglaterra_player_20.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Inglaterra"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "20"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 80
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 74
-        },
-        {
-            "trait_type": "Hype",
-            "value": 80
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/098_inglaterra_player_20.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #098 — Yunus Musah-Motor",
+  "symbol": "GCG",
+  "description": "The 'Midfield Dynamo'. A tactical and high-energy anchor whose career across the Spanish, Italian-Milan, and Atalanta grids has made him a versatile and reliable asset for the US Node.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/098_yunus_musah-motor.png",
+  "external_url": "https://goalchain.fun/nft/98",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "MID"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Ee.uu."
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Yunus Musah"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 70
+    },
+    {
+      "trait_type": "DEF",
+      "value": 66
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 30
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Madrid White Ledger"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Box-to-Box"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/098_yunus_musah-motor.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

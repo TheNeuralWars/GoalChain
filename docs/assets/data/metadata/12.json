@@ -1,56 +1,93 @@
 {
-    "name": "Robert Lewan-DAO-ski",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Robert Lewan-DAO-ski (Polonia). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/012_robert_lewan-dao-ski.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Polonia"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Legendary"
-        },
-        {
-            "trait_type": "Número",
-            "value": "9"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 92
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 40
-        },
-        {
-            "trait_type": "Hype",
-            "value": 90
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/012_robert_lewan-dao-ski.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #012 — Kylian M-Bypass-pé",
+  "symbol": "GCG",
+  "description": "The '37' speedster of the French Node. A World Cup winner and Real Madrid icon who holds the record for the most goals in World Cup finals. His blistering pace is a glitch in the defensive systems of the world.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/012_kylian_m-bypass-pé.png",
+  "external_url": "https://goalchain.fun/nft/12",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Mythic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Francia"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Kylian Mbappé"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 98
+    },
+    {
+      "trait_type": "DEF",
+      "value": 28
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 98
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 1192
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 97
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Barcelona Garnet Block"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Cosmic Aura & Golden Supernova"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Sonic Speed"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Elite Striker"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Golden Boy"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/012_kylian_m-bypass-pé.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

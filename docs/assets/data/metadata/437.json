@@ -1,56 +1,85 @@
 {
-    "name": "Suiza Star 21 Swap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Suiza Star 21 Swap (Suiza). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/437_suiza_star_21_swap.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Suiza"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "21"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 80
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 84
-        },
-        {
-            "trait_type": "Hype",
-            "value": 49
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/437_suiza_star_21_swap.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #437 — Eric Davis-Cross",
+  "symbol": "GCG",
+  "description": "The 'Left-Back Specialist'. A veteran leader with over 100 caps, he is a cornerstone of the Panamanian 'Golden Generation' whose experience stabilizes the national football ledger.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/437_eric_davis-cross.png",
+  "external_url": "https://goalchain.fun/nft/437",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "DEF"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Panamá"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Eric Davis"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 34
+    },
+    {
+      "trait_type": "DEF",
+      "value": 86
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 68
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Barcelona Garnet Block"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "The Rock"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/437_eric_davis-cross.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

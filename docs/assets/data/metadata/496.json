@@ -1,56 +1,89 @@
 {
-    "name": "Mat Ryan-Wallet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Mat Ryan-Wallet (Australia). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/496_mat_ryan-wallet.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Australia"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "2"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 52
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 73
-        },
-        {
-            "trait_type": "Hype",
-            "value": 86
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/496_mat_ryan-wallet.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #496 — Percy Tau-Lion",
+  "symbol": "GCG",
+  "description": "Known as 'The Lion of Judah'. A creative icon whose technical flair and playmaking packets have made him one of the most successful South African exports on the entire chain.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/496_percy_tau-lion.png",
+  "external_url": "https://goalchain.fun/nft/496",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Sudáfrica"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Percy Tau"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 93
+    },
+    {
+      "trait_type": "DEF",
+      "value": 26
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 88
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 470
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 87
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Buenos Aires Pampa FC"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Holographic Glitch & Silver Spark"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Speedster"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/496_percy_tau-lion.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

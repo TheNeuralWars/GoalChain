@@ -1,56 +1,93 @@
 {
-    "name": "Japón Star 7 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Japón Star 7 Mint (Japón). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/345_japn_star_7_mint.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Japón"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "7"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 86
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 52
-        },
-        {
-            "trait_type": "Hype",
-            "value": 92
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/345_japn_star_7_mint.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #345 — Pedro Gall-Save",
+  "symbol": "GCG",
+  "description": "Verified as 'The Octopus' (El Pulpo) of Peru. A world-class goalkeeper whose reflexes and leadership in the Florida and Peruvian nodes have made him a nearly unbreakable fail-safe.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/345_pedro_gall-save.png",
+  "external_url": "https://goalchain.fun/nft/345",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "GK"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Perú"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Pedro Gallese"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 19
+    },
+    {
+      "trait_type": "DEF",
+      "value": 90
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 71
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Rio Samba Digital"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Iron Wall"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Quick Reflexes"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Aerial Commander"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/345_pedro_gall-save.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

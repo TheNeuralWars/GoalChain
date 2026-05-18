@@ -1,56 +1,89 @@
 {
-    "name": "Inglaterra Player 17",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Inglaterra Player 17 (Inglaterra). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/095_inglaterra_player_17.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Inglaterra"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "17"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 59
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 43
-        },
-        {
-            "trait_type": "Hype",
-            "value": 40
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/095_inglaterra_player_17.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #095 — Sergiño Dest-Dribble",
+  "symbol": "GCG",
+  "description": "Verified as 'The Resilient Wing-back'. Despite a major 2024 injury, he secured a permanent move to the Eindhoven Node in 2025, serving as a high-output technical asset for the US national ledger.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/095_sergiño_dest-dribble.png",
+  "external_url": "https://goalchain.fun/nft/95",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "DEF"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Ee.uu."
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Sergiño Dest"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 34
+    },
+    {
+      "trait_type": "DEF",
+      "value": 86
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 44
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Paris Sapphire PSG"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "The Rock"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Recovery Pace"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/095_sergiño_dest-dribble.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

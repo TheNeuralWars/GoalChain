@@ -1,56 +1,85 @@
 {
-    "name": "Jude Whale-ingham",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jude Whale-ingham (Inglaterra). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/079_jude_whale-ingham.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Inglaterra"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Legendary"
-        },
-        {
-            "trait_type": "Número",
-            "value": "1"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 96
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 76
-        },
-        {
-            "trait_type": "Hype",
-            "value": 43
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/079_jude_whale-ingham.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #079 — Frenkie De-Stream",
+  "symbol": "GCG",
+  "description": "The 'Conductor' of the Barcelona Node. A master of the tactical transition whose technical elegance and Dutch footballing IQ ensure the smoothest packet transfer in the midfield.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/079_frenkie_de-stream.png",
+  "external_url": "https://goalchain.fun/nft/79",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "MID"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Países bajos"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Frenkie de Jong"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 76
+    },
+    {
+      "trait_type": "DEF",
+      "value": 72
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 92
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 480
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 84
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Madrid White Ledger"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Holographic Glitch & Silver Spark"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Technical Maestro"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/079_frenkie_de-stream.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

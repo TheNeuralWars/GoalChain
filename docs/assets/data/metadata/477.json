@@ -1,56 +1,85 @@
 {
-    "name": "Ghana Pro 9 Ledger",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ghana Pro 9 Ledger (Ghana). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/477_ghana_pro_9_ledger.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Ghana"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "9"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 47
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 92
-        },
-        {
-            "trait_type": "Hype",
-            "value": 97
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/477_ghana_pro_9_ledger.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #477 — Joe Bell-Base",
+  "symbol": "GCG",
+  "description": "The 'Anchor of the All Whites'. A tactical stability node whose vision and defensive algorithms ensure a smooth flow in the New Zealand and European football networks.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/477_joe_bell-base.png",
+  "external_url": "https://goalchain.fun/nft/477",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "MID"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Nueva zelanda"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Joe Bell"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 70
+    },
+    {
+      "trait_type": "DEF",
+      "value": 66
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 75
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Barcelona Garnet Block"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Box-to-Box"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/477_joe_bell-base.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

@@ -1,56 +1,85 @@
 {
-    "name": "Ghana Pro 20 Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ghana Pro 20 Block (Ghana). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/488_ghana_pro_20_block.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Ghana"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "20"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 56
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 41
-        },
-        {
-            "trait_type": "Hype",
-            "value": 51
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/488_ghana_pro_20_block.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #488 — Trézéguet-Flash",
+  "symbol": "GCG",
+  "description": "Nicknamed after the French icon David Trezeguet. A relentless fighter whose energy and goal-scoring instincts have made him a national hero in the Egyptian and global circuits.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/488_trézéguet-flash.png",
+  "external_url": "https://goalchain.fun/nft/488",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Egipto"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Trézéguet"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 93
+    },
+    {
+      "trait_type": "DEF",
+      "value": 26
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 88
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 470
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 84
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Turin Zebra Grid"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Holographic Glitch & Silver Spark"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/488_trézéguet-flash.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }
