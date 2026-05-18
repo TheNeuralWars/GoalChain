@@ -95,7 +95,7 @@
         </div>
 
         <!-- EXIT BUTTON -->
-        <a href="index.html" class="nav-item" style="margin-top: 0; color: #ff4d6a; border-color: rgba(255, 77, 106, 0.1); background: rgba(255, 77, 106, 0.05);">
+        <a href="index.html" onclick="goalchainLogout()" class="nav-item" style="margin-top: 0; color: #ff4d6a; border-color: rgba(255, 77, 106, 0.1); background: rgba(255, 77, 106, 0.05);">
             <span>🚪</span> <span style="font-weight: 800;">LOGOUT / SALIR</span>
         </a>
     </aside>
@@ -345,8 +345,40 @@
         <!-- SECTION: LENDING -->
         <section id="lendingTab" class="tab-section">
             <h2>🏦 NFT Collateralized Lending</h2>
-            <p style="color:var(--text-dim); margin-bottom: 20px;">Liquidez instantánea usando tus cromos de la Genesis Squad.</p>
-            <div id="lendingInject"></div>
+            <p style="color:var(--text-dim); margin-bottom: 20px;">Liquidez instantánea usando tus cromos de la Genesis Squad como colateral (protocolo Sharky.fi / Banx).</p>
+            <div class="app-card" style="display:grid; grid-template-columns: 1fr 1.2fr; gap:30px;">
+                <!-- Left: NFT Selector -->
+                <div>
+                    <h3 style="font-size:0.9rem; margin-bottom:15px;">🎴 Selecciona tu Colateral</h3>
+                    <div id="lendingInventory" style="display:flex; flex-direction:column; gap:8px;"></div>
+                </div>
+                <!-- Right: Loan Calculator & Action -->
+                <div style="display:flex; flex-direction:column; gap:15px;">
+                    <h3 style="font-size:0.9rem; margin-bottom:5px;">💸 Detalles del Préstamo</h3>
+                    <div style="background:rgba(0,0,0,0.3); padding:15px; border-radius:10px; font-size:0.75rem; display:flex; flex-direction:column; gap:10px;">
+                        <div style="display:flex; justify-content:space-between;">
+                            <span style="color:var(--text-dim);">SOL Disponible (LTV 75%)</span>
+                            <strong id="solAvailable" style="color:var(--primary);">— SOL</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span style="color:var(--text-dim);">APR Estimado</span>
+                            <strong style="color:#ffcc00;">14.5%</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span style="color:var(--text-dim);">Duración</span>
+                            <strong style="color:#fff;">7 días</strong>
+                        </div>
+                        <div style="display:flex; justify-content:space-between;">
+                            <span style="color:var(--text-dim);">Préstamos Activos</span>
+                            <strong id="activeLoans" style="color:#fff;">0</strong>
+                        </div>
+                    </div>
+                    <button id="requestLoanBtn" class="btn btn-primary" disabled style="opacity:0.5; cursor:not-allowed; font-weight:bold; padding:12px;">
+                        SELECCIONA UN NFT PRIMERO
+                    </button>
+                    <p style="font-size:0.6rem; color:var(--text-dim); text-align:center; line-height:1.4;">Tu NFT se transfiere a un escrow en cadena. Al repagar el préstamo + interés, el NFT se libera automáticamente.</p>
+                </div>
+            </div>
         </section>
 
         <!-- SECTION: 3D GALLERY -->
@@ -930,10 +962,23 @@
     <script src="assets/js/minigames_hub.js"></script>
     
     <script>
-        // Soporte para tecla ESC
+        // Soporte para tecla ESC — cierra modales abiertos en lugar de navegar
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') location.href = 'index.html';
+            if (e.key === 'Escape') {
+                const fareModal = document.getElementById('faremeterModal');
+                if (fareModal && fareModal.style.display !== 'none') {
+                    fareModal.style.display = 'none';
+                    return;
+                }
+                // Si no hay modal abierto, volver al home
+                location.href = 'index.html';
+            }
         });
+
+        // Logout: limpia localStorage antes de navegar
+        function goalchainLogout() {
+            ['goalchain_wallet', 'gch_balance', 'gch_burned_total', 'gc_wallet_pubkey', 'gch_wallet_balance'].forEach(k => localStorage.removeItem(k));
+        }
 
         function switchAppTab(tabId) {
             document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
@@ -944,7 +989,17 @@
 
             // Cerrar menú móvil si está abierto
             if (window.innerWidth <= 768) {
-                document.querySelector('.sidebar nav').classList.remove('active');
+                document.querySelector('.sidebar nav')?.classList.remove('active');
+            }
+
+            // Cleanup: detener intervalos del AI tab si salimos de él
+            if (tabId !== 'ai') {
+                if (typeof moltbookInterval !== 'undefined' && moltbookInterval) {
+                    clearInterval(moltbookInterval); moltbookInterval = null;
+                }
+                if (typeof switchboardInterval !== 'undefined' && switchboardInterval) {
+                    clearInterval(switchboardInterval); switchboardInterval = null;
+                }
             }
             
             // Re-inicializar componentes si es necesario
@@ -956,12 +1011,41 @@
             if (tabId === 'games') initGamesView();
         }
 
-        // Logic to move existing UI components into the dashboard
+        // Inicializar mercados Drift — re-instanciar clase si el DOM ya tiene los elementos
         function initMarketsView() {
-            const inject = document.getElementById('marketsInject');
-            if (inject.children.length > 0) return;
-            // Move Drift UI logic here if needed or re-render
-            inject.innerHTML = `<div class="glass-card">Interface Drift Simulator Cargando...</div>`;
+            // Los elementos del markets tab ya están en el HTML estático; solo (re)arrancar la lógica
+            if (window.gcMarkets && window.gcMarkets.selector) return; // Ya activo
+            if (window.DriftMarkets) {
+                window.gcMarkets = new window.DriftMarkets();
+            } else {
+                // DriftMarkets se auto-instancia en DOMContentLoaded, forzar init
+                const chart = document.getElementById('priceChartSim');
+                if (chart && !chart.dataset.started) {
+                    chart.dataset.started = '1';
+                    // Fallback: mini price ticker inline
+                    let price = 100, prices = Array(30).fill(100);
+                    setInterval(() => {
+                        price = Math.max(10, price + (Math.random() - 0.48) * 2);
+                        prices.push(price); prices.shift();
+                        const mn = Math.min(...prices), mx = Math.max(...prices), r = mx - mn || 1;
+                        chart.innerHTML = prices.map(p => `<div style="flex:1;height:${((p-mn)/r*80+10)}%;background:var(--primary);opacity:0.6;border-radius:2px;"></div>`).join('');
+                    }, 1000);
+                }
+            }
+        }
+
+        // Inicializar Lending — re-hidratar la clase LendingApp en el nuevo HTML
+        function initLendingView() {
+            if (document.getElementById('lendingInventory') && !document.getElementById('lendingInventory').children.length) {
+                if (window.goalchainFinance) {
+                    window.goalchainFinance.inventoryContainer = document.getElementById('lendingInventory');
+                    window.goalchainFinance.solAvailableEl = document.getElementById('solAvailable');
+                    window.goalchainFinance.activeLoansEl = document.getElementById('activeLoans');
+                    window.goalchainFinance.loanBtn = document.getElementById('requestLoanBtn');
+                    window.goalchainFinance.renderInventory();
+                    window.goalchainFinance.setupListeners();
+                }
+            }
         }
 
         // Simulación de carga de balance
