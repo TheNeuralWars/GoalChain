@@ -108,10 +108,12 @@
             <a href="#roadmap">Roadmap</a>
             <a href="#economics" data-i18n="nav_economy">Economía</a>
             <a href="#social" data-i18n="nav_social">Social</a>
+        </div>
+
+        <div class="nav-right">
+            <button onclick="openAlphaModal()" class="btn-glow" style="color:var(--primary); background: transparent; font-weight:900; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; font-family: inherit; flex-shrink: 0;">LAUNCH APP</button>
             
-            <button onclick="openAlphaModal()" class="btn-glow" style="color:var(--primary); background: transparent; font-weight:900; margin-left:15px; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer;">LAUNCH APP</button>
-            
-            <div class="nav-dropdown" style="position:relative; display:inline-block; margin-left:15px;">
+            <div class="nav-dropdown" style="position:relative; display:inline-block; flex-shrink: 0;">
                 <button class="btn-glow" style="background:transparent; border: 1px solid var(--secondary); color:var(--secondary); font-weight:900; padding: 5px 20px; border-radius: 20px; cursor:pointer; font-family:inherit; font-size: 0.8rem;" data-i18n="nav_colabs">COLABS ▼</button>
                 <div class="nav-dropdown-content">
                     <a href="pitch.html" data-i18n="nav_pitch_link">📖 Pitch & Motivación</a>
@@ -120,9 +122,6 @@
                     <a href="colabs.html" data-i18n="nav_colabs_link">🤝 Portal de Colaboradores</a>
                 </div>
             </div>
-        </div>
-
-        <div class="nav-right">
             <button id="connectWalletBtn" class="btn-wallet btn-glow" style="width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: rgba(20, 241, 149, 0.1); border: 1px solid var(--primary); color: var(--primary); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; padding: 0;" title="Connect Wallet">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>

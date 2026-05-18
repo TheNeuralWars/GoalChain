@@ -97,9 +97,9 @@ body {
     -webkit-overflow-scrolling: touch;
     flex: 1;
     min-width: 0;
-    max-width: calc(100% - 380px); /* Strictly constrain center width to leave exactly 380px for logo and nav-right */
+    max-width: calc(100% - 640px); /* Strictly constrain center width to leave space for logo and the expanded nav-right */
     margin: 0 auto;
-    justify-content: flex-start;
+    justify-content: center; /* Symmetrically centered inside the header! */
 }
 .nav-links-desktop::-webkit-scrollbar {
     display: none;
