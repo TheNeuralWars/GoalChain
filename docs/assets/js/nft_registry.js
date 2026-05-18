@@ -43,13 +43,22 @@ const NFT_IMAGE_MAP = {
     157: "157_cristiano_holdaldo.png"
 };
 
-// Background Image Map
+// Background Image Map (Updated to use premium vertical RWA stadiums)
 const BG_IMAGE_MAP = {
-    "BG-MYT": "bg_mythic_lunar.png",
-    "BG-LEG": "bg_legendary_hologram.png",
-    "BG-EPI": "bg_epic_aurora.png",
-    "BG-RAR": "bg_rare_sunset.png",
-    "BG-COM": "bg_common_grass.png"
+    "BG-MYT": "neo_olympus_vertical.jpg",
+    "BG-LEG": "titanium_coliseum.jpg",
+    "BG-EPI": "aether_dome.jpg",
+    "BG-RAR": "obsidian_arena.jpg",
+    "BG-COM": "dome_kronos_vertical.jpg"
+};
+
+// Background Video Map
+const BG_VIDEO_MAP = {
+    "BG-MYT": "neo_olympus_vertical.mp4",
+    "BG-LEG": "titanium_coliseum.mp4",
+    "BG-EPI": "aether_dome.mp4",
+    "BG-RAR": "obsidian_arena.mp4",
+    "BG-COM": "dome_kronos_vertical.mp4"
 };
 
 function getPlayerImagePath(player) {
@@ -169,6 +178,8 @@ function renderPlayers() {
         const imgPath = getPlayerImagePath(player);
         const yieldMap = { "mythic": "25.4 SOL/mo", "legendary": "12.1 SOL/mo", "epic": "5.8 SOL/mo", "rare": "2.1 SOL/mo", "common": "0.5 SOL/mo" };
         const estimatedYield = yieldMap[player.rarity] || "0.1 SOL/mo";
+        const nftPrice = PRICE_MAP[player.rarity] || "100 $GCH";
+        const flag = getCountryFlag(player.country);
 
         card.innerHTML = `
             <div class="favorite-heart ${isFav ? 'is-fav' : ''}" data-id="${player.id}">❤️</div>
@@ -180,9 +191,9 @@ function renderPlayers() {
             </div>
 
             <div class="card-inner">
-                <div class="card-front">
-                    <div class="layer layer-bg">
-                        <img src="assets/img/nfts/bg/${BG_IMAGE_MAP[player.bg_type] || 'bg_common_grass.png'}" alt="Stadium Background" class="bg-img">
+                    <div class="layer layer-bg" style="position: relative; overflow: hidden; width: 100%; height: 100%;">
+                        <img src="assets/img/stadiums/${BG_IMAGE_MAP[player.bg_type] || 'dome_kronos.jpg'}" alt="Stadium Background" class="bg-img" style="width: 100%; height: 100%; object-fit: cover;">
+                        <video class="bg-video-hover" src="assets/video/stadiums/${BG_VIDEO_MAP[player.bg_type] || 'dome_kronos.mp4'}" muted playsinline style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.4s ease; z-index: 1; pointer-events: none;"></video>
                     </div>
                     <div class="layer layer-base">
                         <img src="${imgPath}" alt="${player.name}" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.style.display='none';">
@@ -243,6 +254,23 @@ function renderPlayers() {
             e.stopPropagation();
             toggleFavorite(player.id, heart);
         });
+
+        // Hover video player logic for FUT style card backgrounds
+        const video = card.querySelector('.bg-video-hover');
+        if (video) {
+            if (window.makeVideoYoyo) {
+                window.makeVideoYoyo(video);
+            }
+            card.addEventListener('mouseenter', () => {
+                video.style.opacity = '1';
+                video.play().catch(() => {});
+            });
+            card.addEventListener('mouseleave', () => {
+                video.style.opacity = '0';
+                video.pause();
+                video.currentTime = 0;
+            });
+        }
 
         track.appendChild(card);
         cardObserver.observe(card);
