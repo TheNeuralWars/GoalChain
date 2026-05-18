@@ -1,56 +1,85 @@
 {
-    "name": "Pedri Protocol",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Pedri Protocol (España). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/015_pedri_protocol.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "España"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Epic"
-        },
-        {
-            "trait_type": "Número",
-            "value": "8"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 82
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 70
-        },
-        {
-            "trait_type": "Hype",
-            "value": 92
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/015_pedri_protocol.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #015 — Eduardo Cama-Logic",
+  "symbol": "GCG",
+  "description": "Nicknamed 'Tacklevinga' and the 'Iceman'. A master of the Real Madrid Node known for his 100% defensive efficiency. Teammates jokingly call him 'Jon Jones' due to his boxing-like intensity and physical dominance on the pitch.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/015_eduardo_cama-logic.png",
+  "external_url": "https://goalchain.fun/nft/15",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "MID"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Francia"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Eduardo Camavinga"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 76
+    },
+    {
+      "trait_type": "DEF",
+      "value": 72
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 88
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 470
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 88
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Manchester Red Chain"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Holographic Glitch & Silver Spark"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Box-to-Box"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/015_eduardo_cama-logic.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

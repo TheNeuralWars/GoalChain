@@ -1,56 +1,85 @@
 {
-    "name": "Bukayo Stock",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Bukayo Stock (Inglaterra). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/043_bukayo_stock.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Inglaterra"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Epic"
-        },
-        {
-            "trait_type": "Número",
-            "value": "7"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 87
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 50
-        },
-        {
-            "trait_type": "Hype",
-            "value": 93
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/043_bukayo_stock.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #043 — Lucas Paque-Frame",
+  "symbol": "GCG",
+  "description": "Named after 'Paquetá Island' in Rio. A creative maestro known for his 'Joy of the Midfield' and technical flair, serving as the rhythmic heartbeat of the Brazilian Node.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/043_lucas_paque-frame.png",
+  "external_url": "https://goalchain.fun/nft/43",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "MID"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Brasil"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Lucas Paquetá"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 76
+    },
+    {
+      "trait_type": "DEF",
+      "value": 72
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 88
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 470
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 87
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Munich Cyber-Bayer"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Holographic Glitch & Silver Spark"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Technical Maestro"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/043_lucas_paque-frame.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

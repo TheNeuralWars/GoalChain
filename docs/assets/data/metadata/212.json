@@ -1,56 +1,85 @@
 {
-    "name": "Sergiño Decentralized",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Sergiño Decentralized (EEUU). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/212_sergio_decentralized.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "EEUU"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "4"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 48
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 88
-        },
-        {
-            "trait_type": "Hype",
-            "value": 33
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/212_sergio_decentralized.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #212 — Dusan Vla-Storm",
+  "symbol": "GCG",
+  "description": "The 'Serbian Beast'. A powerful and clinical striker whose physical dominance and goal-scoring output have made him a high-value asset in the Italian and Serbian ledgers, consistently crushing defensive encryption.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/212_dusan_vla-storm.png",
+  "external_url": "https://goalchain.fun/nft/212",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Serbia"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Dušan Vlahović"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 89
+    },
+    {
+      "trait_type": "DEF",
+      "value": 25
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 82
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 178
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 83
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Rio Samba Digital"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Electric Neon Pulse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/212_dusan_vla-storm.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }
