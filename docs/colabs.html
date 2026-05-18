@@ -122,6 +122,7 @@
                 <button class="tab-btn" data-tab="partners" id="tabPartners">Partners</button>
                 <button class="tab-btn" data-tab="finance" id="tabFinance" style="color:var(--primary);">🏦 Finance</button>
                 <button class="tab-btn" data-tab="academy" id="tabAcademy" style="color:var(--secondary);">🌱 Academy Admin</button>
+                <button class="tab-btn" data-tab="guide" id="tabGuide" style="color:#00e5ff; font-weight: 800;">📖 Mega Guides</button>
             </div>
             <div id="userBadge" class="user-badge">
                 <span id="userRole">Dev</span>
@@ -345,6 +346,51 @@
                     <div style="display: flex; justify-content: space-between; font-family: monospace; font-size: 0.65rem; color: var(--text-dim);">
                         <span id="merkleStatus">Tree Capacity: 1,248 / 1M</span>
                         <span id="merkleRoot">Root: 0x7f...a3e2</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: MEGA GUIDE PORTAL (SIDE-BY-SIDE v1.0 & v2.0) -->
+            <section id="guideSection" class="tab-content" style="display:none;">
+                <div class="colab-header">
+                    <h2>📖 Biblioteca de Guías del Ecosistema GoalChain</h2>
+                    <p>Accede a las especificaciones oficiales y la evolución de nuestra arquitectura SportsFi.</p>
+                </div>
+                
+                <div class="guide-selection-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 20px;">
+                    <!-- v1.0 Guide Card -->
+                    <div class="glass-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(255,255,255,0.05); background: rgba(13, 13, 21, 0.6); position: relative; overflow: hidden; border-radius: 20px;">
+                        <div>
+                            <div style="background: rgba(153, 69, 255, 0.1); border: 1px solid #9945ff; color: #9945ff; font-weight: 900; font-size: 0.7rem; padding: 4px 12px; border-radius: 50px; display: inline-block; margin-bottom: 15px;">
+                                MANIFIESTO ORIGINAL v1.0
+                            </div>
+                            <h3 style="color: #fff; font-size: 1.3rem; margin: 0 0 10px 0; font-weight: 800;">⚽ Guía Inicial SportsFi</h3>
+                            <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 20px;">
+                                El documento fundacional de GoalChain. Explica las bases de la preventa de staking de JitoSOL, la fórmula del Starting XI, las penalizaciones iniciales del oráculo deportivo y la visión a largo plazo del protocolo.
+                            </p>
+                        </div>
+                        <a href="mega-guide-v1.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none; padding: 12px; font-weight: 800; border-radius: 10px; display: block; border: 1px solid rgba(255,255,255,0.1); color:#fff; background:transparent; transition: all 0.3s;">
+                            📖 ABRIR GUÍA ORIGINAL (v1.0)
+                        </a>
+                    </div>
+
+                    <!-- v2.0 Guide Card -->
+                    <div class="glass-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(0, 229, 255, 0.3); background: rgba(13, 13, 21, 0.9); position: relative; overflow: hidden; border-radius: 20px; box-shadow: 0 0 25px rgba(0,229,255,0.1);">
+                        <div style="position: absolute; top: 0; right: 0; background: linear-gradient(90deg, #00e5ff, #9945ff); color: #000; font-size: 0.65rem; font-weight: 900; padding: 4px 15px; border-radius: 0 0 0 10px; text-transform: uppercase; letter-spacing: 1px;">
+                            ACTUALIZADA
+                        </div>
+                        <div>
+                            <div style="background: rgba(0, 229, 255, 0.1); border: 1px solid #00e5ff; color: #00e5ff; font-weight: 900; font-size: 0.7rem; padding: 4px 12px; border-radius: 50px; display: inline-block; margin-bottom: 15px;">
+                                FASE 1 & FASE 2 NUEVA v2.0
+                            </div>
+                            <h3 style="color: #fff; font-size: 1.3rem; margin: 0 0 10px 0; font-weight: 800;">⚡ Mega Guía Suprema SportsFi</h3>
+                            <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 20px;">
+                                El manifiesto técnico definitivo. Incluye las actualizaciones móviles del Dashboard, la calibración de yield y stamina de los 528 cNFTs reales, el predictor Rainmaker AI v2.0 en vivo, el Betbot Autónomo y la economía circular MEV.
+                            </p>
+                        </div>
+                        <a href="mega-guide.html" class="btn btn-primary btn-glow" style="width: 100%; text-align: center; text-decoration: none; padding: 12px; font-weight: 900; border-radius: 10px; display: block; border:none; background: linear-gradient(90deg, #00e5ff, #9945ff); color:#fff; box-shadow: 0 0 15px rgba(0,229,255,0.3); transition: all 0.3s;">
+                            🔥 LEER GUÍA SUPREMA (v2.0)
+                        </a>
                     </div>
                 </div>
             </section>
