@@ -77,27 +77,64 @@ const BG_IMAGE_MAP = {
     "BG-COM": "dome_kronos_vertical.mp4"
 };
 
+const BATCH_SIZE = 8; // Cards loaded per batch
+
 async function initGalleryView() {
     const container = document.getElementById('galleryContainer');
-    if (!container || container.children.length > 0) return; // Evitar re-renderizado
+    if (!container || container.children.length > 0) return;
     container.innerHTML = '<div style="color: var(--text-dim); width: 100%; text-align: center; padding: 40px;">Conectando con el Oráculo 3D...</div>';
 
     try {
         const response = await fetch(`assets/data/players.json?v=${new Date().getTime()}`);
         const players = await response.json();
         
-        container.innerHTML = ''; // Limpiar loader
+        container.innerHTML = '';
+        container._players = players.slice(0, 48); // Cap at 48 for performance
+        container._loaded = 0;
 
-        // Renderizar los primeros 24 jugadores para rendimiento de la galería 3D
-        players.slice(0, 24).forEach(player => {
-            renderParallaxCard(container, player);
-        });
+        // Load first batch immediately
+        loadNextBatch(container);
+
+        // Sentinel element at the bottom triggers more loads
+        const sentinel = document.createElement('div');
+        sentinel.id = 'gallerySentinel';
+        sentinel.style.height = '40px';
+        container.parentElement.appendChild(sentinel);
+
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && container._loaded < container._players.length) {
+                loadNextBatch(container);
+            }
+        }, { rootMargin: '200px' });
+        observer.observe(sentinel);
 
     } catch (err) {
         console.error("Error cargando jugadores para la Galería 3D:", err);
         container.innerHTML = '<div style="color: #ff3366;">Error cargando la base de datos de jugadores.</div>';
     }
 }
+
+function loadNextBatch(container) {
+    const players = container._players;
+    const start = container._loaded;
+    const end = Math.min(start + BATCH_SIZE, players.length);
+    for (let i = start; i < end; i++) {
+        renderParallaxCard(container, players[i]);
+    }
+    container._loaded = end;
+}
+
+// Open Faremeter modal with player-specific data
+function openFaremeterForPlayer(playerName, rarity, price, yieldPerDay) {
+    // Update card preview inside modal
+    const previewArea = document.querySelector('#faremeterModal [style*="width:70px"]');
+    const infoArea = document.querySelector('#faremeterModal [style*="flex-direction:column;justify-content:center"]');
+    if (previewArea) previewArea.innerHTML = `<div style="font-size:0.55rem;color:#fff;">${playerName.substring(0,8)}</div><div style="font-size:0.5rem;color:var(--primary);font-weight:bold;text-align:center;">${rarity.toUpperCase()}</div>`;
+    if (infoArea) infoArea.innerHTML = `<span style="color:#fff;font-size:0.8rem;font-weight:bold;">${playerName} (Genesis NFT)</span><span style="color:var(--primary);font-size:0.75rem;font-weight:bold;margin-top:3px;">Precio: ${price} USDC / SOL (o $${price} USD Cash)</span><span style="color:var(--text-dim);font-size:0.6rem;margin-top:2px;">Rendimiento estimado: <b>+${yieldPerDay} GCH/d</b> en Vault</span>`;
+    openFaremeterCheckout();
+}
+
+
 
 function sanitizeFilename(name) {
     return name.toLowerCase().replace(/ /g, '_').replace(/[^a-z0-9_\-]/g, '');
@@ -125,6 +162,8 @@ function renderParallaxCard(container, player) {
     const warningLayer = isLowBattery ? `<div style="position: absolute; inset: 0; background: rgba(255,0,0,0.1); border: 2px solid red; border-radius: 16px; animation: pulseRed 1.5s infinite; transform: translateZ(50px); pointer-events: none; z-index: 5;"></div>` : '';
     const eliminatedOverlay = isEliminated ? `<div style="position: absolute; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; transform: translateZ(70px); pointer-events: none; z-index: 6;"><h2 style="color: red; border: 4px solid red; padding: 10px; transform: rotate(-15deg); text-shadow: 0 0 10px black; font-weight: 900; letter-spacing: 2px;">ELIMINATED</h2></div>` : '';
 
+    const cardPrice = Math.max(5, Math.round(baseYield / 10));
+
     const cardHTML = `
         <style>
             @keyframes pulseRed { 0% { opacity: 0.2; } 50% { opacity: 0.8; box-shadow: inset 0 0 30px red; } 100% { opacity: 0.2; } }
@@ -142,7 +181,8 @@ function renderParallaxCard(container, player) {
                 cursor: pointer;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.5);
                 ${isEliminated ? 'pointer-events: none;' : ''}
-            " onmousemove="handleParallaxMove(event, this)" onmouseleave="handleParallaxLeave(this)">
+            " onmousemove="handleParallaxMove(event, this)" onmouseleave="handleParallaxLeave(this)"
+               onclick="if(!window._dragging) openFaremeterForPlayer('${player.name}', '${player.rarity}', ${cardPrice}, ${baseYield})">
                 
                 <!-- CAPA 0: Estadio de Fondo (Profundidad: -30px) -->
                 ${bgFilename.endsWith('.mp4') || bgFilename.endsWith('.webm') ? `
@@ -154,7 +194,7 @@ function renderParallaxCard(container, player) {
                     pointer-events: none;
                     z-index: 1;
                     ${isEliminated ? 'filter: grayscale(100%);' : ''}
-                ">
+                " onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'position:absolute;inset:-10px;border-radius:16px;background:linear-gradient(135deg,#1a1a2e,#06060a);z-index:1;\'></div>')">
                     <source src="${bgImgUrl}" type="video/${bgFilename.endsWith('.webm') ? 'webm' : 'mp4'}">
                 </video>
                 ` : `
