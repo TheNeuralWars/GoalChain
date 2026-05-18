@@ -90,7 +90,7 @@ body {
 .nav-links-desktop {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     overflow-x: auto;
     white-space: nowrap;
     scrollbar-width: none;
