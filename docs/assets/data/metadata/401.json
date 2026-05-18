@@ -1,56 +1,93 @@
 {
-    "name": "Colombia Star 11 Swap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Colombia Star 11 Swap (Colombia). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/401_colombia_star_11_swap.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Colombia"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "11"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 97
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 74
-        },
-        {
-            "trait_type": "Hype",
-            "value": 98
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/401_colombia_star_11_swap.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #401 — Evan Ndicka-Iron",
+  "symbol": "GCG",
+  "description": "The 'Iron Pillar' of the Ivorian Node. A powerful and tactical defender whose aerial dominance and defensive algorithms provide a high-security firewall for the Italian-Roma Grid.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/401_evan_ndicka-iron.png",
+  "external_url": "https://goalchain.fun/nft/401",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "DEF"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Costa de marfil"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Evan Ndicka"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 34
+    },
+    {
+      "trait_type": "DEF",
+      "value": 86
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 35
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "London Blue Node"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "The Rock"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Aerial Master"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Physical Powerhouse"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/401_evan_ndicka-iron.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

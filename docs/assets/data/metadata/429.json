@@ -1,56 +1,89 @@
 {
-    "name": "Suiza Star 13 Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Suiza Star 13 Node (Suiza). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/429_suiza_star_13_node.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Suiza"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "13"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 42
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 59
-        },
-        {
-            "trait_type": "Hype",
-            "value": 87
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/429_suiza_star_13_node.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #429 — Alvaro Zamo-Flash",
+  "symbol": "GCG",
+  "description": "The 'Creative Node' of the Tico Node. A technical playmaker whose vision and ball-carrying packets were perfected in the Greek and European circuits, representing the next generation of Costa Rica.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/429_alvaro_zamo-flash.png",
+  "external_url": "https://goalchain.fun/nft/429",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Costa rica"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Álvaro Zamora"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 89
+    },
+    {
+      "trait_type": "DEF",
+      "value": 25
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 82
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 178
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 81
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Paris Sapphire PSG"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Electric Neon Pulse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Dribbling Wizard"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/429_alvaro_zamo-flash.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

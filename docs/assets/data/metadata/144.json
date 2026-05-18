@@ -1,56 +1,89 @@
 {
-    "name": "Alemania Player 14",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alemania Player 14 (Alemania). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/144_alemania_player_14.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Alemania"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "14"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 78
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 55
-        },
-        {
-            "trait_type": "Hype",
-            "value": 93
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/144_alemania_player_14.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #144 — Kalidou Kouli-Rock",
+  "symbol": "GCG",
+  "description": "Verified as 'K2' and 'The Wall'. A legendary defender whose physical presence and tactical leadership secured Senegal's historic titles, making him one of the most respected centre-backs in the global football ledger.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/144_kalidou_kouli-rock.png",
+  "external_url": "https://goalchain.fun/nft/144",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "DEF"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Senegal"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Kalidou Koulibaly"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 34
+    },
+    {
+      "trait_type": "DEF",
+      "value": 86
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 32
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Rio Samba Digital"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "The Rock"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Physical Powerhouse"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/144_kalidou_kouli-rock.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

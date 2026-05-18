@@ -1,56 +1,89 @@
 {
-    "name": "Francia Player 7",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Francia Player 7 (Francia). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/059_francia_player_7.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Francia"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "7"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 54
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 43
-        },
-        {
-            "trait_type": "Hype",
-            "value": 91
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/059_francia_player_7.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #059 — Kai Havertz-Class",
+  "symbol": "GCG",
+  "description": "Known as 'Alleskonner' and 'King Kai'. The master of the critical strike, he remains a unique asset for the Arsenal Node, famous for scoring against any opponent whose name matches his own code.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/059_kai_havertz-class.png",
+  "external_url": "https://goalchain.fun/nft/59",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Alemania"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Kai Havertz"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 89
+    },
+    {
+      "trait_type": "DEF",
+      "value": 25
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 82
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 178
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 67
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "London Blue Node"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Electric Neon Pulse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Aerial Threat"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/059_kai_havertz-class.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

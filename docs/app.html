@@ -422,7 +422,6 @@
                 <div style="display: flex; gap: 10px;">
                     <span class="badge" style="background:rgba(20, 241, 149, 0.1); color:var(--primary); border: 1px solid var(--primary);">RAINMAKER AI V1.0</span>
                     <span class="badge" style="background:rgba(153, 69, 255, 0.1); color:var(--secondary); border: 1px solid var(--secondary);">ELIZAOS AGENT KIT</span>
-                </div>
             </div>
             
             <p style="color:var(--text-dim); margin-bottom: 30px;">Optimiza tu Starting XI de forma 100% autónoma y obtén una ventaja estadística institucional utilizando Oráculos en tiempo real y predictivos para apuestas. La fusión de DeFi y SportsFi en Solana.</p>
@@ -432,21 +431,22 @@
                 <div style="display: flex; flex-direction: column; gap: 30px;">
                     <!-- Rainmaker Predictor -->
                     <div class="app-card" style="border-color: rgba(20, 241, 149, 0.25);">
-                        <h3 style="display:flex; align-items:center; gap:8px;">🔮 Rainmaker AI Sports Predictor</h3>
-                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px;">Predicciones de partidos en tiempo real basadas en telemetría de Oráculos y rendimiento deportivo biométrico (Pyth Network Feed).</p>
+                        <h3 style="display:flex; align-items:center; gap:8px;">🔮 Rainmaker AI Sports Predictor <span style="font-size:0.5rem; background:rgba(20,241,149,0.1); color:var(--primary); padding:2px 6px; border-radius:4px; border:1px solid var(--primary);">WC2026 LIVE</span></h3>
+                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px;">Predicciones de partidos en tiempo real basadas en el índice de poder por país (ATK, DEF, HYPE) calculado desde los 528 cromos de la Genesis Squad.</p>
                         
                         <!-- Prediction Display -->
-                        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.03);">
-                            <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 0.9rem; margin-bottom: 15px;">
-                                <span>Argentina 🇦🇷</span>
+                        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.03);">
+                            <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px;">
+                                <span id="predTeam1Name">Argentina 🇦🇷</span>
                                 <span style="color: var(--primary);">VS</span>
-                                <span>Francia 🇫🇷</span>
+                                <span id="predTeam2Name">Francia 🇫🇷</span>
                             </div>
+                            <p id="predVenue" style="font-size:0.6rem; color:var(--text-dim); text-align:center; margin-bottom:15px;">📍 MetLife Stadium, Nueva York · 2026-06-11</p>
                             
                             <!-- Win probabilities -->
                             <div style="margin-bottom: 12px;">
                                 <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-dim); margin-bottom: 4px;">
-                                    <span>Argentina gana (1)</span>
+                                    <span>Victoria local (1)</span>
                                     <strong id="txtTeam1" style="color: var(--primary);">74%</strong>
                                 </div>
                                 <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
@@ -466,21 +466,24 @@
                             
                             <div style="margin-bottom: 12px;">
                                 <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-dim); margin-bottom: 4px;">
-                                    <span>Francia gana (2)</span>
-                                    <strong id="txtTeam2" style="color: var(--danger);">14%</strong>
+                                    <span>Victoria visitante (2)</span>
+                                    <strong id="txtTeam2" style="color: #ff4d6a;">14%</strong>
                                 </div>
                                 <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
-                                    <div id="barTeam2" style="width: 14%; height: 100%; background: var(--danger); transition: width 0.8s ease;"></div>
+                                    <div id="barTeam2" style="width: 14%; height: 100%; background: #ff4d6a; transition: width 0.8s ease;"></div>
                                 </div>
                             </div>
 
-                            <p id="predictReasoning" style="font-size: 0.65rem; color: var(--text-dim); line-height: 1.4; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; margin-top: 12px; font-style: italic;">
-                                "El Oráculo de GoalChain reporta un boost de rendimiento del +12% para Argentina derivado del desempeño biométrico en tiempo real en la liga local. El clima en el MetLife Stadium es favorable para fútbol de posesión."
+                            <p id="predictReasoning" style="font-size: 0.6rem; color: var(--text-dim); line-height: 1.4; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px; margin-top: 10px; font-style: italic;">
+                                Cargando análisis de Rainmaker AI v2.0...
                             </p>
                         </div>
 
-                        <!-- Deploy Betbot -->
-                        <button id="betbotToggleBtn" onclick="toggleBetbot()" class="btn btn-secondary btn-glow" style="width: 100%;">ACTIVAR AUTONOMOUS BETBOT</button>
+                        <!-- Cycle match + Betbot -->
+                        <div style="display:flex; gap:10px; margin-bottom:10px;">
+                            <button onclick="cycleNextMatch()" class="btn btn-secondary" style="flex:1; font-size:0.7rem;">⏭ Siguiente Partido</button>
+                            <button id="betbotToggleBtn" onclick="toggleBetbot()" class="btn btn-secondary btn-glow" style="flex:1; font-size:0.7rem;">ACTIVAR BETBOT</button>
+                        </div>
                         <p id="betbotIndicator" style="font-size: 0.7rem; color: var(--text-dim); text-align: center; margin-top: 10px;">🔴 <span style="color: var(--danger);">INACTIVO</span></p>
                     </div>
 

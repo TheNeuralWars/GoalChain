@@ -1,56 +1,89 @@
 {
-    "name": "Capitán TEAM_8",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Capitán TEAM_8 (México). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/183_capitn_team_8.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "México"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Legendary"
-        },
-        {
-            "trait_type": "Número",
-            "value": "1"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 77
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 72
-        },
-        {
-            "trait_type": "Hype",
-            "value": 46
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/183_capitn_team_8.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #183 — Ali Al-Chief",
+  "symbol": "GCG",
+  "description": "Verified as 'The Provoker'. The fearless defender of the Riyadh Node famously known for confronting both the Argentine and Portuguese legends face-to-face on the world stage.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/183_ali_al-chief.png",
+  "external_url": "https://goalchain.fun/nft/183",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "DEF"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Arabia saudí"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Ali Al-Bulaihi"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 34
+    },
+    {
+      "trait_type": "DEF",
+      "value": 86
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 53
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Buenos Aires Pampa FC"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "The Rock"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Physical Powerhouse"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/183_ali_al-chief.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

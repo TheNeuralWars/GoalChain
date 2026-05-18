@@ -1,56 +1,93 @@
 {
-    "name": "Italia Star 22 Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Italia Star 22 Chain (Italia). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/282_italia_star_22_chain.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Italia"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "22"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 72
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 43
-        },
-        {
-            "trait_type": "Hype",
-            "value": 48
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/282_italia_star_22_chain.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #282 — Kevin Danso-Bulk",
+  "symbol": "GCG",
+  "description": "The 'Iron Wall'. A world-class defender whose physical dominance and tactical intelligence led him to win the 2025 Europa League with the London-Spurs Node.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/282_kevin_danso-bulk.png",
+  "external_url": "https://goalchain.fun/nft/282",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "DEF"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Austria"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Kevin Danso"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 34
+    },
+    {
+      "trait_type": "DEF",
+      "value": 86
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 51
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Buenos Aires Pampa FC"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "The Rock"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Aerial Master"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Physical Powerhouse"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/282_kevin_danso-bulk.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

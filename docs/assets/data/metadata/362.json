@@ -1,56 +1,85 @@
 {
-    "name": "Japón Star 24 Coin",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Japón Star 24 Coin (Japón). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/362_japn_star_24_coin.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Japón"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Rare"
-        },
-        {
-            "trait_type": "Número",
-            "value": "24"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 77
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 67
-        },
-        {
-            "trait_type": "Hype",
-            "value": 45
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/362_japn_star_24_coin.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #362 — Houssem Aouar-Star",
+  "symbol": "GCG",
+  "description": "The 'Orchestrator'. A technical playmaker whose creative vision and passing accuracy ensure a smooth tactical flow in the Algerian and Italian football networks.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/362_houssem_aouar-star.png",
+  "external_url": "https://goalchain.fun/nft/362",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "MID"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Argelia"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Houssem Aouar"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 70
+    },
+    {
+      "trait_type": "DEF",
+      "value": 66
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 56
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Munich Cyber-Bayer"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Box-to-Box"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/362_houssem_aouar-star.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

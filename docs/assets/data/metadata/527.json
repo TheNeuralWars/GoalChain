@@ -1,56 +1,85 @@
 {
-    "name": "Ecuador Pro 7 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ecuador Pro 7 Mint (Ecuador). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/527_ecuador_pro_7_mint.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Ecuador"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Rare"
-        },
-        {
-            "trait_type": "Número",
-            "value": "7"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 47
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 86
-        },
-        {
-            "trait_type": "Hype",
-            "value": 40
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/527_ecuador_pro_7_mint.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #527 — Lassina Trao-Tank",
+  "symbol": "GCG",
+  "description": "The 'Powerful Striker'. A physically dominant and clinical forward whose goal-scoring packets provide a constant threat in the Eastern European and African circuits.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/527_lassina_trao-tank.png",
+  "external_url": "https://goalchain.fun/nft/527",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Burkina faso"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Lassina Traoré"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 93
+    },
+    {
+      "trait_type": "DEF",
+      "value": 26
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 88
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 470
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 76
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Buenos Aires Pampa FC"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Holographic Glitch & Silver Spark"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/527_lassina_trao-tank.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

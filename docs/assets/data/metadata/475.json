@@ -1,56 +1,89 @@
 {
-    "name": "Ghana Pro 7 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ghana Pro 7 Mint (Ghana). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/475_ghana_pro_7_mint.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Ghana"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "7"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 44
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 79
-        },
-        {
-            "trait_type": "Hype",
-            "value": 80
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/475_ghana_pro_7_mint.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #475 — Liberato Cac-Flow",
+  "symbol": "GCG",
+  "description": "The 'Flying Kiwi' and Wrexham hero. Captain of the All Whites' 2024 glory, his move to the Wrexham Node in 2025 made him a global media and footballing icon for the New Zealand Ledger.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/475_liberato_cac-flow.png",
+  "external_url": "https://goalchain.fun/nft/475",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "DEF"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Nueva zelanda"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Liberato Cacace"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 34
+    },
+    {
+      "trait_type": "DEF",
+      "value": 86
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 37
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Madrid White Ledger"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "The Rock"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Recovery Pace"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/475_liberato_cac-flow.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

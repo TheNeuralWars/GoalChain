@@ -1,56 +1,89 @@
 {
-    "name": "Fede Val-Web3",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Fede Val-Web3 (Uruguay). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/016_fede_valweb3.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Uruguay"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Epic"
-        },
-        {
-            "trait_type": "Número",
-            "value": "15"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 88
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 82
-        },
-        {
-            "trait_type": "Hype",
-            "value": 89
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/016_fede_valweb3.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #016 — Theo Shiller",
+  "symbol": "GCG",
+  "description": "The 'Train' of the Milan and French nodes. The fastest left-back on the chain, whose explosive overlapping runs and physical power can override any defensive firewall.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/016_theo_shiller.png",
+  "external_url": "https://goalchain.fun/nft/16",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Legendary"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "DEF"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Francia"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Theo Hernández"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 37
+    },
+    {
+      "trait_type": "DEF",
+      "value": 93
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 92
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 480
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 79
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Buenos Aires Pampa FC"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Holographic Glitch & Silver Spark"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "The Rock"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Physical Powerhouse"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/016_theo_shiller.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

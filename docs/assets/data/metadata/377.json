@@ -1,56 +1,85 @@
 {
-    "name": "Senegal Star 13 Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Senegal Star 13 Node (Senegal). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/377_senegal_star_13_node.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Senegal"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "13"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 72
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 74
-        },
-        {
-            "trait_type": "Hype",
-            "value": 85
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/377_senegal_star_13_node.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #377 — Alex Iwobi-Link",
+  "symbol": "GCG",
+  "description": "The most experienced Nigerian in Premier League history with over 300 appearances. Known as the 'Nutmeg Prince', his tactical evolution into a versatile midfielder has made him a cornerstone of the Super Eagles.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/377_alex_iwobi-link.png",
+  "external_url": "https://goalchain.fun/nft/377",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "MID"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Nigeria"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Alex Iwobi"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 70
+    },
+    {
+      "trait_type": "DEF",
+      "value": 66
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 64
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "London Blue Node"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Box-to-Box"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/377_alex_iwobi-link.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

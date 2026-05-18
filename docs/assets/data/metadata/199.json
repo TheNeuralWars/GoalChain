@@ -1,56 +1,85 @@
 {
-    "name": "México Star 17 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - México Star 17 Mint (México). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/199_mxico_star_17_mint.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "México"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "17"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 58
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 83
-        },
-        {
-            "trait_type": "Hype",
-            "value": 69
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/199_mxico_star_17_mint.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #199 — Granit Xha-Firm",
+  "symbol": "GCG",
+  "description": "Known as 'Little Einstein' for his tactical intelligence and 'Xhakaboom' for his lethal long-range shooting. A masterful captain whose science-based approach to the game stabilizes the Leverkusen and Swiss nodes.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/199_granit_xha-firm.png",
+  "external_url": "https://goalchain.fun/nft/199",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "MID"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Suiza"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Granit Xhaka"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 70
+    },
+    {
+      "trait_type": "DEF",
+      "value": 66
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 75
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 50
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 74
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Buenos Aires Pampa FC"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Subtle Cyber Outline"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Box-to-Box"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/199_granit_xha-firm.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }

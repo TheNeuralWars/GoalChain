@@ -1,56 +1,85 @@
 {
-    "name": "Portugal Player 5",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 5 (Portugal). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/161_portugal_player_5.png",
-    "attributes": [
-        {
-            "trait_type": "País",
-            "value": "Portugal"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
-            "value": "Common"
-        },
-        {
-            "trait_type": "Número",
-            "value": "5"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 42
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 68
-        },
-        {
-            "trait_type": "Hype",
-            "value": 44
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
-        }
-    ],
-    "properties": {
-        "files": [
-            {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/161_portugal_player_5.png",
-                "type": "image/png"
-            }
-        ],
-        "category": "image",
-        "creators": [
-            {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
-            }
-        ]
+  "name": "GoalChain Genesis #161 — Woo-young-Core",
+  "symbol": "GCG",
+  "description": "The 'Creative Mainframe' of the Seoul and German circuits. A versatile playmaker whose tactical intelligence and technical precision were developed in the heart of the Munich Node.",
+  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/161_woo-young-core.png",
+  "external_url": "https://goalchain.fun/nft/161",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    {
+      "trait_type": "Rarity",
+      "value": "Epic"
+    },
+    {
+      "trait_type": "Rarity Stars",
+      "value": "⭐⭐⭐"
+    },
+    {
+      "trait_type": "Position",
+      "value": "FWD"
+    },
+    {
+      "trait_type": "Country",
+      "value": "Corea del sur"
+    },
+    {
+      "trait_type": "Real Name",
+      "value": "Woo-yeong Jeong"
+    },
+    {
+      "trait_type": "ATK",
+      "value": 89
+    },
+    {
+      "trait_type": "DEF",
+      "value": 25
+    },
+    {
+      "trait_type": "HYPE",
+      "value": 82
+    },
+    {
+      "trait_type": "Base Yield (GCH/day)",
+      "value": 178
+    },
+    {
+      "trait_type": "Stamina",
+      "value": 74
+    },
+    {
+      "trait_type": "Is Eliminated",
+      "value": "False"
+    },
+    {
+      "trait_type": "Parody Club",
+      "value": "Amsterdam Ajax Logic"
+    },
+    {
+      "trait_type": "Visual Effect",
+      "value": "Electric Neon Pulse"
+    },
+    {
+      "trait_type": "Trait",
+      "value": "Clinical Finisher"
     }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/161_woo-young-core.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "creators": [
+      {
+        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
+        "share": 100
+      }
+    ]
+  },
+  "collection": {
+    "name": "GoalChain Genesis Squad",
+    "family": "GoalChain"
+  }
 }
