@@ -45,11 +45,11 @@ const NFT_IMAGE_MAP = {
 
 // Background Image Map (Updated to use premium vertical RWA stadiums)
 const BG_IMAGE_MAP = {
-    "BG-MYT": "neo_olympus_vertical.jpg",
-    "BG-LEG": "titanium_coliseum.jpg",
-    "BG-EPI": "aether_dome.jpg",
-    "BG-RAR": "obsidian_arena.jpg",
-    "BG-COM": "dome_kronos_vertical.jpg"
+    "BG-MYT": "bg_mythic_golden.png",
+    "BG-LEG": "bg_legendary_purple.png",
+    "BG-EPI": "bg_epic_cyber.png",
+    "BG-RAR": "bg_rare_solana.png",
+    "BG-COM": "bg_common_street.png"
 };
 
 // Background Video Map
