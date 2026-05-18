@@ -63,6 +63,8 @@
             <div class="nav-item" onclick="switchAppTab('academy')"><span>🌱</span> Academy</div>
             <div class="nav-item" onclick="switchAppTab('lending')"><span>🏦</span> Lending</div>
             <div class="nav-item" onclick="switchAppTab('gallery')"><span>🖼️</span> 3D Gallery</div>
+            <div class="nav-item" onclick="switchAppTab('ai')"><span>🤖</span> AI Agent Hub</div>
+            <div class="nav-item" onclick="switchAppTab('games')"><span>🎮</span> Minigames Hub</div>
             
             <div class="manager-license" style="margin-top: 20px; scale: 0.85; transform-origin: left top;">
                 <div class="license-header">Official Manager License</div>
@@ -196,16 +198,64 @@
                         </p>
                     </div>
 
-                    <div class="app-card" style="border-color: var(--primary);">
-                        <h4 style="color: var(--primary); margin-bottom: 15px;">💎 Infinity Vault Status</h4>
-                        <p style="font-size: 0.75rem; line-height: 1.5; color: var(--text-dim);">Tu capital está trabajando en <b>The Vault</b>. El rendimiento actual de la red está ejecutando recompras de $GCH cada 24hs.</p>
-                        <div style="margin-top: 15px; padding: 10px; background: rgba(20, 241, 149, 0.05); border-radius: 8px;">
-                            <div style="display: flex; justify-content: space-between; font-size: 0.65rem;">
-                                <span>Network Burn:</span>
-                                <span style="color: var(--primary);">4,820 $GCH</span>
+                    <div class="app-card" style="border-color: var(--primary); background: rgba(13, 13, 20, 0.85); backdrop-filter: blur(10px);">
+                        <h4 style="color: var(--primary); margin-bottom: 15px; display:flex; align-items:center; gap:8px;">
+                            🤖 AI Infinity Vault v4
+                        </h4>
+                        <p style="font-size: 0.7rem; line-height: 1.4; color: var(--text-dim); margin-bottom:12px;">
+                            Tu capital de tesorería y LP está gestionado 100% de forma autónoma por agentes de <b>Phi Protocol AI</b> y <b>Hyre Agent</b>.
+                        </p>
+                        
+                        <!-- Allocation Split Bar -->
+                        <div style="margin-bottom: 15px;">
+                            <div style="display:flex; justify-content:space-between; font-size:0.6rem; color:var(--text-dim); margin-bottom:5px;">
+                                <span>Phi Yield Split: <strong style="color:var(--primary);">50%</strong></span>
+                                <span>Hyre Signal Split: <strong style="color:var(--secondary);">50%</strong></span>
+                            </div>
+                            <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; display:flex; overflow:hidden; border:1px solid rgba(255,255,255,0.02);">
+                                <div style="width: 50%; height: 100%; background: var(--primary);"></div>
+                                <div style="width: 50%; height: 100%; background: var(--secondary);"></div>
                             </div>
                         </div>
-                        <button class="btn btn-primary btn-sm" style="width: 100%; margin-top: 15px;">ADD LIQUIDITY (LP)</button>
+
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; font-size:0.65rem; background:rgba(0,0,0,0.3); padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); margin-bottom:15px;">
+                            <div>
+                                <span style="color:var(--text-dim); font-size:0.55rem; display:block;">ESTIMATED APY</span>
+                                <strong style="color:var(--primary); font-size:0.9rem;">📈 ~58.4% APY</strong>
+                            </div>
+                            <div>
+                                <span style="color:var(--text-dim); font-size:0.55rem; display:block;">TREASURY VALUE</span>
+                                <strong style="color:#fff; font-size:0.9rem;" id="vaultSolValue">12,452 SOL</strong>
+                            </div>
+                        </div>
+
+                        <!-- Deposit Form -->
+                        <div style="display:flex; gap:10px; margin-bottom:15px;">
+                            <input type="number" id="vaultDepositAmount" value="5" min="1" max="1000" style="width:65px; background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:6px; border-radius:6px; font-size:0.7rem; text-align:center;">
+                            <button id="btnVaultDeposit" onclick="depositToInfinityVault()" class="btn btn-primary btn-sm" style="flex:1; font-size:0.65rem; padding:6px; font-weight:bold; background:var(--primary); color:#000; border-radius:6px;">
+                                DEPOSIT SOL VIA PHANTOM
+                            </button>
+                        </div>
+
+                        <!-- Reflexive Loop Selector -->
+                        <div style="background: rgba(153, 69, 255, 0.05); padding:10px; border-radius:8px; border:1px solid rgba(153, 69, 255, 0.15); font-size:0.65rem; margin-bottom:15px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; font-weight:bold; color:#fff; margin-bottom:4px;">
+                                <span>Bucle Reflexivo Drift Perps</span>
+                                <span style="color: var(--primary);">[ACTIVO]</span>
+                            </div>
+                            <span style="color:var(--text-dim); font-size:0.55rem; line-height:1.2; display:block;">
+                                Abre largos apalancados automáticamente en GCH ante shocks de oferta crítica (burn acelerado).
+                            </span>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; font-size: 0.65rem; padding: 8px 10px; background:rgba(0,0,0,0.2); border-radius:6px; border:1px solid rgba(255,255,255,0.03); margin-bottom:15px;">
+                            <span style="color:var(--text-dim);">Network Burn:</span>
+                            <strong style="color: var(--primary);" id="vaultBurnVal">4,820 $GCH</strong>
+                        </div>
+
+                        <button id="btnTreasuryShock" onclick="simulateTreasuryShock()" class="btn btn-secondary btn-glow" style="width: 100%; font-size:0.7rem; font-weight:bold;">
+                            SIMULAR SHOCK DE OFERTA 🚀
+                        </button>
                     </div>
                 </div>
             </div>
@@ -310,8 +360,538 @@
             </div>
             <p style="color:var(--text-dim); margin-bottom: 30px;">Explora los 528 cromos interactivos. Cada NFT contiene Lore de Élite y una estética visual única ("Oportunidad de Oro") diseñada por Gemini 3.1 (High).</p>
             
+            <!-- BANNER INFORMATIVO DE FAREMETER.XYZ -->
+            <div style="background: linear-gradient(135deg, rgba(153, 69, 255, 0.15) 0%, rgba(20, 241, 149, 0.1) 100%); border: 1px solid rgba(20, 241, 149, 0.25); border-radius: 12px; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-color: rgba(20, 241, 149, 0.25);">
+                <div style="display:flex; align-items:center; gap:15px; text-align:left;">
+                    <div style="font-size: 1.5rem; background: rgba(0,0,0,0.3); width:45px; height:45px; border-radius:50%; display:flex; align-items:center; justify-content:center; border: 1px solid rgba(153, 69, 255, 0.3);">
+                        ⚡
+                    </div>
+                    <div>
+                        <h4 style="margin:0 0 5px 0; color:#fff; font-size:0.85rem; font-weight:bold;">Adquisición sin fricciones vía Faremeter.xyz (Cash & HTTP 402)</h4>
+                        <p style="margin:0; color:var(--text-dim); font-size:0.7rem; line-height:1.4;">
+                            ¿Sin Solana ni Wallet? Compra tus Genesis NFTs directamente con dinero fiat o USDC mediante nuestro proxy de pago <b>Faremeter</b>. Nuestra IA asume la firma y el gas por ti.
+                        </p>
+                    </div>
+                </div>
+                <button onclick="openFaremeterCheckout()" class="btn btn-secondary" style="font-size: 0.65rem; font-weight: bold; background: var(--primary); color: #000; border-radius: 8px; border:none; padding: 10px 18px; cursor: pointer; transition: transform 0.2s;">
+                    ABRIR CHECKOUT FAREMETER
+                </button>
+            </div>
+            
             <div id="galleryContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 40px; margin-top: 20px;">
                 <!-- Cartas cargadas via JS -->
+            </div>
+        </section>
+
+        <!-- SECTION: AI AGENT HUB -->
+        <section id="aiTab" class="tab-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+                <h2>🤖 AI Agent & SportsFi Predictor Hub</h2>
+                <div style="display: flex; gap: 10px;">
+                    <span class="badge" style="background:rgba(20, 241, 149, 0.1); color:var(--primary); border: 1px solid var(--primary);">RAINMAKER AI V1.0</span>
+                    <span class="badge" style="background:rgba(153, 69, 255, 0.1); color:var(--secondary); border: 1px solid var(--secondary);">ELIZAOS AGENT KIT</span>
+                </div>
+            </div>
+            
+            <p style="color:var(--text-dim); margin-bottom: 30px;">Optimiza tu Starting XI de forma 100% autónoma y obtén una ventaja estadística institucional utilizando Oráculos en tiempo real y predictivos para apuestas. La fusión de DeFi y SportsFi en Solana.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                <!-- Left Column: Rainmaker Predictor & Emblem Vault -->
+                <div style="display: flex; flex-direction: column; gap: 30px;">
+                    <!-- Rainmaker Predictor -->
+                    <div class="app-card" style="border-color: rgba(20, 241, 149, 0.25);">
+                        <h3 style="display:flex; align-items:center; gap:8px;">🔮 Rainmaker AI Sports Predictor</h3>
+                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px;">Predicciones de partidos en tiempo real basadas en telemetría de Oráculos y rendimiento deportivo biométrico (Pyth Network Feed).</p>
+                        
+                        <!-- Prediction Display -->
+                        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.03);">
+                            <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 0.9rem; margin-bottom: 15px;">
+                                <span>Argentina 🇦🇷</span>
+                                <span style="color: var(--primary);">VS</span>
+                                <span>Francia 🇫🇷</span>
+                            </div>
+                            
+                            <!-- Win probabilities -->
+                            <div style="margin-bottom: 12px;">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-dim); margin-bottom: 4px;">
+                                    <span>Argentina gana (1)</span>
+                                    <strong id="txtTeam1" style="color: var(--primary);">74%</strong>
+                                </div>
+                                <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                                    <div id="barTeam1" style="width: 74%; height: 100%; background: var(--primary); transition: width 0.8s ease;"></div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 12px;">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-dim); margin-bottom: 4px;">
+                                    <span>Empate (X)</span>
+                                    <strong id="txtDraw" style="color: var(--gold);">12%</strong>
+                                </div>
+                                <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                                    <div id="barDraw" style="width: 12%; height: 100%; background: var(--gold); transition: width 0.8s ease;"></div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 12px;">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-dim); margin-bottom: 4px;">
+                                    <span>Francia gana (2)</span>
+                                    <strong id="txtTeam2" style="color: var(--danger);">14%</strong>
+                                </div>
+                                <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                                    <div id="barTeam2" style="width: 14%; height: 100%; background: var(--danger); transition: width 0.8s ease;"></div>
+                                </div>
+                            </div>
+
+                            <p id="predictReasoning" style="font-size: 0.65rem; color: var(--text-dim); line-height: 1.4; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; margin-top: 12px; font-style: italic;">
+                                "El Oráculo de GoalChain reporta un boost de rendimiento del +12% para Argentina derivado del desempeño biométrico en tiempo real en la liga local. El clima en el MetLife Stadium es favorable para fútbol de posesión."
+                            </p>
+                        </div>
+
+                        <!-- Deploy Betbot -->
+                        <button id="betbotToggleBtn" onclick="toggleBetbot()" class="btn btn-secondary btn-glow" style="width: 100%;">ACTIVAR AUTONOMOUS BETBOT</button>
+                        <p id="betbotIndicator" style="font-size: 0.7rem; color: var(--text-dim); text-align: center; margin-top: 10px;">🔴 <span style="color: var(--danger);">INACTIVO</span></p>
+                    </div>
+
+                    <!-- AI Scout Agency Card -->
+                    <div class="app-card" style="border-color: rgba(153, 69, 255, 0.25); background: rgba(13, 13, 20, 0.85); backdrop-filter: blur(10px);">
+                        <h3 style="display:flex; align-items:center; gap:8px; margin-bottom:15px; margin-top:0;">
+                            🕵️‍♂️ AI Scout Agency <span style="font-size:0.55rem; background:rgba(20, 241, 149, 0.1); color:var(--primary); padding:3px 6px; border-radius:4px; border:1px solid var(--primary);">WURK.FUN & x402</span>
+                        </h3>
+                        <p style="font-size: 0.7rem; line-height: 1.4; color: var(--text-dim); margin-bottom:15px; margin-top:0;">
+                            Nuestros agentes autónomos no pueden estar en el campo de juego. Por eso, contratan humanos de la comunidad a través de <b>Wurk.fun</b> mediante micropagos <b>x402</b> de USDC para recopilar reportes tácticos exclusivos del mundial.
+                        </p>
+
+                        <!-- Active Job Posted by Agent -->
+                        <div style="background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); padding: 12px; margin-bottom: 15px; font-size:0.65rem;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; font-weight:bold; margin-bottom:5px; color:#fff;">
+                                <span>📋 GIG ACTIVO [WURK-982]</span>
+                                <span style="color:var(--primary);">ABIERTO</span>
+                            </div>
+                            <span style="color:#aaa; font-size:0.6rem; display:block; margin-bottom:8px;">
+                                "Inspeccionar estado del césped y humedad en el MetLife Stadium de New Jersey para el partido contra Francia."
+                            </span>
+                            <div style="display:flex; justify-content:space-between; font-size:0.55rem; color:var(--text-dim); border-top: 1px solid rgba(255,255,255,0.05); padding-top:6px;">
+                                <span>Pago del Contrato: <strong>0.50 USDC (x402 SOL)</strong></span>
+                                <span>Emisor: <strong>Rainmaker AI</strong></span>
+                            </div>
+                        </div>
+
+                        <!-- Mini report form -->
+                        <div id="scoutFormBlock" style="margin-bottom:0; display:flex; flex-direction:column; gap:8px;">
+                            <textarea id="scoutReportInput" placeholder="Escribe tu reporte táctico... Ej: 'Césped húmedo, favorece desmarques rápidos por las bandas de Argentina.'" style="width:100%; height:50px; background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:8px; border-radius:6px; font-size:0.65rem; resize:none; outline:none; font-family:inherit;"></textarea>
+                            <button id="btnSubmitScoutReport" onclick="submitScoutReport()" class="btn btn-primary btn-sm" style="width:100%; font-size:0.65rem; font-weight:bold; background:var(--primary); color:#000; border:none; border-radius:6px; padding:8px; cursor:pointer;">
+                                ENVIAR REPORTE & COBRAR MICROPAGO 🕵️‍♂️
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Emblem Vault Bundler -->
+                    <div class="app-card" style="border-color: rgba(153, 69, 255, 0.25); border-width: 1px; border-style: solid;">
+                        <h3 style="display:flex; align-items:center; gap:8px;">📦 Emblem Vault Portfolio Bundler</h3>
+                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px;">Agrupa varios cromos NFT de tu plantilla en un solo "NFT de Portafolio" transferible y vendible de alto rendimiento. ¡Atractivo total para inversores!</p>
+                        
+                        <!-- Roster Select -->
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); margin-bottom: 20px;">
+                            <h4 style="font-size: 0.75rem; color: #fff; margin-bottom: 12px;">Selecciona hasta 3 cromos colaterales:</h4>
+                            <div id="vaultPlayerSelection" style="max-height: 180px; overflow-y: auto; padding-right: 5px;">
+                                <!-- Dynamic options injected by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Summary of Vault -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: rgba(153,69,255,0.05); padding: 12px 20px; border-radius: 10px;">
+                            <div>
+                                <div style="font-size: 0.6rem; color: var(--text-dim);">EMISIONES ESTIMADAS DEL VAULT</div>
+                                <strong id="vaultEstimatedEmissions" style="font-size: 1.1rem; color: var(--primary);">+0 $GCH/día</strong>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 0.6rem; color: var(--text-dim);">ELEMENTOS AGRUPADOS</div>
+                                <strong id="vaultSelectedCount" style="font-size: 1rem; color: #fff;">0 / 3 cromos</strong>
+                            </div>
+                        </div>
+
+                        <button id="mintVaultBtn" onclick="mintVaultPortfolio()" class="btn btn-secondary btn-glow" style="width: 100%;" disabled>MINTEAR PORTAFOLIO VAULT NFT</button>
+                        <p style="font-size: 0.6rem; color: var(--text-dim); text-align: center; margin-top: 8px;">Costo de creación: 200 $GCH (100% de la tarifa es quemada en el Circular Feed).</p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Auto-Optimizer Log & Settings -->
+                <div style="display: flex; flex-direction: column; gap: 30px;">
+                    <!-- Auto-Optimizer Dashboard -->
+                    <div class="app-card" style="border-color: rgba(0, 255, 189, 0.25); height: 100%; display: flex; flex-direction: column;">
+                        <h3 style="display:flex; align-items:center; gap:8px;">🤖 GoalChain Auto-Optimizer AI Agent</h3>
+                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px;">Permite que un agente inteligente autónomo gestione tu equipo, reemplace jugadores cansados, compre pociones y reinvierta las ganancias automáticamente.</p>
+                        
+                        <!-- Toggle Controls -->
+                        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); margin-bottom: 20px; font-size: 0.75rem;">
+                            <h4 style="color: #fff; margin-bottom: 15px; font-size: 0.8rem;">Parámetros del Agente:</h4>
+                            
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                <span>Reemplazo automático de jugadores fatigados</span>
+                                <input type="checkbox" checked style="accent-color: var(--primary);">
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                                <span>Compra automática de Pociones de Energía con $GCH</span>
+                                <input type="checkbox" checked style="accent-color: var(--primary);">
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <span>Re-inversión y Staking automático en JitoSOL (+12% APR)</span>
+                                <input type="checkbox" checked style="accent-color: var(--primary);">
+                            </div>
+                        </div>
+
+                        <!-- Live Agent Log -->
+                        <div style="flex: 1; min-height: 250px; background: rgba(0,0,0,0.5); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; margin-bottom: 20px;">
+                            <h4 style="font-size: 0.75rem; color: var(--primary); letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase;">⚡ Bitácora de Acciones Autónomas</h4>
+                            <div id="agentLogContainer" style="flex: 1; overflow-y: auto;">
+                                <!-- Dynamic Logs injected by JS -->
+                            </div>
+                        </div>
+
+                        <button id="optimizerToggleBtn" onclick="toggleOptimizer()" class="btn btn-secondary btn-glow" style="width: 100%;">ACTIVAR AUTO-OPTIMIZER AGENT</button>
+                        <p id="optimizerIndicator" style="font-size: 0.7rem; color: var(--text-dim); text-align: center; margin-top: 10px;">🔴 <span style="color: var(--danger);">INACTIVO</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Terminal Command Prompt (Full Width) -->
+            <div class="app-card" style="border-color: rgba(255, 255, 255, 0.1);">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ff5f56;"></span>
+                        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e;"></span>
+                        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #27c93f;"></span>
+                        <span style="font-family: monospace; font-size: 0.7rem; color: var(--text-dim); margin-left: 10px;">goalchain-agent-terminal -- bash</span>
+                    </div>
+                    <span style="font-size: 0.65rem; color: var(--primary); font-family: monospace;">SOLANA AGENT KIT V3.0</span>
+                </div>
+                
+                <style>
+                    .term-system { color: #8a8a9a; margin-bottom: 6px; font-family: monospace; line-height: 1.4; }
+                    .term-user { color: var(--primary); margin-bottom: 6px; font-family: monospace; line-height: 1.4; }
+                    .term-agent { color: var(--accent); margin-bottom: 6px; font-family: monospace; line-height: 1.4; }
+                    .terminal-output-box::-webkit-scrollbar { width: 4px; }
+                    .terminal-output-box::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+                </style>
+
+                <div id="terminalOutput" class="terminal-output-box" style="height: 180px; overflow-y: auto; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 15px; text-align: left;">
+                    <!-- Terminal logs injected by JS -->
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 10px 15px; font-family: monospace; font-size: 0.8rem;">
+                    <span style="color: var(--secondary); font-weight: bold;">[manager@solana ~]$</span>
+                    <input type="text" id="terminalInput" placeholder="Escribe un comando... Ej: /optimize, /predict, /status, /vault" onkeydown="if(event.key === 'Enter') submitTerminalCommand()" style="background: none; border: none; outline: none; color: #fff; font-family: monospace; font-size: 0.8rem; flex: 1;">
+                    <button onclick="submitTerminalCommand()" class="btn-sm btn-primary" style="padding: 4px 10px; border-radius: 4px; font-size: 0.65rem;">ENVIAR</button>
+                </div>
+            </div>
+
+            <!-- SECTION: FLASHTRADE HEDGING & PERPS MODULE (NEW) -->
+            <div class="app-card" style="border-color: rgba(20, 241, 149, 0.2); margin-top: 30px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                    <h3 style="display:flex; align-items:center; gap:8px; margin:0;">📈 Módulo de Derivados & Cobertura FlashTrade</h3>
+                    <span class="badge" style="background:rgba(20, 241, 149, 0.1); color:var(--primary); border: 1px solid var(--primary); font-size:0.6rem;">INTEGRACIÓN DE COBERTURA</span>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px;">Protege el valor de tu plantilla Genesis Squad de la volatilidad del mercado en tiempo real. Abre posiciones cortas de cobertura (*hedging*) en SOL/GCH perpetuos usando FlashTrade directamente desde esta interfaz, o desvíate a operar en Mainnet.</p>
+
+                <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap:30px;">
+                    <!-- Left: Interactive Hedging Calculator -->
+                    <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); display:flex; flex-direction:column; gap:15px;">
+                        <h4 style="font-size:0.8rem; margin:0; color:#fff;">Calculadora de Cobertura Inteligente</h4>
+                        
+                        <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap:15px;">
+                            <div>
+                                <label style="font-size: 0.65rem; color: var(--text-dim); display:block; margin-bottom:5px;">RENDIMIENTO DIARIO ESTIMADO ($GCH)</label>
+                                <input type="number" id="hedgeYieldInput" value="452" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem;">
+                            </div>
+                            <div>
+                                <label style="font-size: 0.65rem; color: var(--text-dim); display:block; margin-bottom:5px;">VOLATILIDAD (24H)</label>
+                                <div style="background: #111; color: #ff4d6a; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem; font-weight:bold;">⚡ 8.4% ALTA</div>
+                            </div>
+                        </div>
+
+                        <div style="background: rgba(153, 69, 255, 0.05); padding: 12px 15px; border-radius: 8px; border: 1px solid rgba(153, 69, 255, 0.15); font-size:0.7rem; line-height:1.4;">
+                            <span style="color:#aaa;">Recomendación del Agente de Cobertura:</span><br>
+                            <span style="color:#fff; font-weight:800;">Abrir SHORT SOL Perpetuo de 1.2 SOL con apalancamiento 5x en FlashTrade.</span><br>
+                            <span style="color:var(--primary);">Resultado: Si el mercado cae un 10%, tu posición de cobertura compensará exactamente el 100% de la depreciación de tu rendimiento diario de cromos.</span>
+                        </div>
+
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:5px;">
+                            <button id="btnSimulateHedge" onclick="simulateHedgeTrade()" class="btn btn-secondary btn-glow" style="width: 100%; font-size:0.75rem;">SIMULAR COBERTURA EN VIVO</button>
+                            <a href="https://flash.trade?ref=goalchain" target="_blank" class="btn btn-primary" style="width: 100%; font-size:0.75rem; display:flex; align-items:center; justify-content:center; gap:5px; text-decoration:none; color:#000; font-weight:bold; background:var(--primary);">
+                                OPERAR EN MAINNET 🚀
+                            </a>
+                        </div>
+                        <p style="font-size:0.6rem; color:var(--text-dim); text-align:center; margin:0;">
+                            *El trading en Mainnet requiere que el token $GCH esté listado con liquidez en pools oficiales y Pyth Oracle feeds.
+                        </p>
+                    </div>
+
+                    <!-- Right: Live Hedge Chart Simulation -->
+                    <div style="background: rgba(0,0,0,0.4); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); padding: 20px; display:flex; flex-direction:column; justify-content:space-between;">
+                        <div>
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+                                <h4 style="font-size:0.8rem; margin:0; color:#fff; font-family:monospace;">FLASHTRADE LIQUID LP PAIR</h4>
+                                <span id="hedgeStatusLabel" style="font-size: 0.6rem; color: var(--text-dim); font-family:monospace;">🔴 SIN COBERTURA</span>
+                            </div>
+                            <!-- Simulated Chart -->
+                            <div id="hedgeChart" style="height: 120px; background: rgba(0,0,0,0.5); border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); display: flex; align-items: flex-end; gap: 4px; padding: 10px; position:relative; overflow:hidden;">
+                                <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.15); font-size:0.65rem; font-family:monospace; pointer-events:none;">
+                                    ESPERANDO EJECUCIÓN...
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Statistics Positions Row -->
+                        <div id="hedgeStatsRow" style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; margin-top:15px; opacity:0.4; transition: opacity 0.5s ease;">
+                            <div style="background: rgba(255,255,255,0.02); padding:8px; border-radius:6px; text-align:center;">
+                                <div style="font-size: 0.55rem; color: var(--text-dim);">P&L REAL-TIME</div>
+                                <strong id="hedgePnL" style="font-size: 0.8rem; color:#fff;">+0.00%</strong>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.02); padding:8px; border-radius:6px; text-align:center;">
+                                <div style="font-size: 0.55rem; color: var(--text-dim);">LIQ. PRICE</div>
+                                <strong style="font-size: 0.8rem; color:#fff;">$238.45</strong>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.02); padding:8px; border-radius:6px; text-align:center;">
+                                <div style="font-size: 0.55rem; color: var(--text-dim);">PYTH PRICE</div>
+                                <strong id="hedgePythPrice" style="font-size: 0.8rem; color:var(--primary);">$182.10</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: SENTINEL AI INFRASTRUCTURE CONTROLLER (NEW) -->
+            <div class="app-card" style="border-color: rgba(153, 69, 255, 0.35); margin-top: 30px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                    <h3 style="display:flex; align-items:center; gap:8px; margin:0;">🛡️ Sentinel AI Infrastructure Controller</h3>
+                    <span class="badge" style="background:rgba(153, 69, 255, 0.1); color:var(--secondary); border: 1px solid var(--secondary); font-size:0.6rem;">SEGURIDAD & AUTONOMÍA ACTIVADAS</span>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px;">Monitorea en tiempo real el estado de los RPC, buffers de gas del relayer, balances de pools de Raydium y previene el colapso del sistema mediante Sentinel Circuit Breakers autónomos alimentados por backend seguro.</p>
+
+                <div style="display:grid; grid-template-columns: 1fr 1.2fr; gap:30px;">
+                    <!-- Left: Control Settings & APY Config -->
+                    <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); display:flex; flex-direction:column; gap:15px;">
+                        <h4 style="font-size:0.8rem; margin:0; color:#fff;">Configuración del Sentinel Guardián</h4>
+                        
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px; font-size:0.7rem;">
+                            <div>
+                                <label style="font-size: 0.6rem; color: var(--text-dim); display:block; margin-bottom:5px;">NIVEL DE AUTONOMÍA</label>
+                                <select style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 6px; font-size:0.7rem;">
+                                    <option>Alta (Auto-Parches & Paradas)</option>
+                                    <option>Media (Solo Alertas y Recomendaciones)</option>
+                                    <option>Lectura (Pasiva)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style="font-size: 0.6rem; color: var(--text-dim); display:block; margin-bottom:5px;">RPC NODE PRINCIPAL</label>
+                                <select style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 6px; font-size:0.7rem;">
+                                    <option>Helius Devnet Core</option>
+                                    <option>QuickNode Backup</option>
+                                    <option>Triton Devnet Endpoint</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Circuit Breaker Toggle & Gateway info -->
+                        <div style="background: rgba(255, 77, 106, 0.05); padding: 12px 15px; border-radius: 8px; border: 1px solid rgba(255, 77, 106, 0.15); font-size:0.7rem; line-height:1.4;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px; font-weight:bold; color:#fff;">
+                                <span>Emergency Circuit Breaker</span>
+                                <input type="checkbox" checked style="accent-color: #ff4d6a;">
+                            </div>
+                            <span style="color:#ffb3bf;">
+                                Si la liquidez del pool CLMM cae por debajo de 50 SOL de forma anómala, el Sentinel congela temporalmente los retiros del Vault para mitigar ataques sándwich.
+                            </span>
+                        </div>
+
+                        <!-- Safety warning on API keys -->
+                        <div style="background: rgba(20, 241, 149, 0.05); padding: 12px 15px; border-radius: 8px; border: 1px solid rgba(20, 241, 149, 0.15); font-size:0.7rem; line-height:1.4;">
+                            <span style="color:#14f195; font-weight:bold; display:block; margin-bottom:2px;">🛡️ Pasarela de API Gemini Segura</span>
+                            <span style="color:#aaa;">
+                                Las API Keys del Agente Gemini están resguardadas en las variables de entorno del servidor Backend (`process.env.GEMINI_API_KEY`). Ningún cliente o hacker puede inspeccionar o extraer el código secreto de la web.
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Dynamic Sentinel Real-Time Logs Console -->
+                    <div style="background: rgba(0,0,0,0.4); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); padding: 20px; display:flex; flex-direction:column; justify-content:space-between; height: 260px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:8px;">
+                            <h4 style="font-size:0.75rem; margin:0; color:#fff; font-family:monospace; display:flex; align-items:center; gap:5px;">
+                                <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#14f195; animation: blink 1.2s infinite;"></span>
+                                SENTINEL DIAGNOSTICS DEPLOYMENT
+                            </h4>
+                            <span style="font-size: 0.6rem; color: var(--secondary); font-family:monospace; font-weight:bold;">SECURE ROUTING</span>
+                        </div>
+                        
+                        <!-- Sentinel dynamic logs box -->
+                        <div id="sentinelLogsBox" style="flex:1; overflow-y:auto; font-family:monospace; font-size:0.65rem; color:#8a8a9a; display:flex; flex-direction:column; gap:5px; text-align:left; padding-right:5px;">
+                            <div>[SYSTEM] Esperando conexión de Sentinel...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION: SOLANA AI ECOSYSTEM INTEROPERABILITY PORTAL (MOLT.ID, SWITCHBOARD & MOLTBOOK) -->
+                <div class="app-card" style="border-color: rgba(20, 241, 149, 0.25); margin-top: 30px; background: rgba(13, 13, 20, 0.85); backdrop-filter: blur(10px);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                        <h3 style="display:flex; align-items:center; gap:8px; margin:0; font-size:1.1rem;">🌐 Solana AI Ecosystem Portal</h3>
+                        <span class="badge" style="background:rgba(20, 241, 149, 0.1); color:var(--primary); border: 1px solid var(--primary); font-size:0.6rem; padding: 4px 8px; border-radius: 4px; font-weight: bold;">INTEGRACIÓN MULTI-PROTOCOLO</span>
+                    </div>
+                    <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px; line-height: 1.4; margin-top:0;">
+                        GoalChain se interconecta con los protocolos líderes del ecosistema de Solana AI HQ. Registra tu dominio de agente autónomo en <b>Molt.id</b>, visualiza telemetría táctica certificada mediante enclaves de <b>Switchboard</b> y sigue el chat social entre los agentes de IA más famosos en <b>Moltbook</b>.
+                    </p>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:30px;">
+                        <!-- Left: Molt.id Domain Registry & Switchboard Feeds -->
+                        <div style="display:flex; flex-direction:column; gap:20px;">
+                            <!-- Molt.id Domain card -->
+                            <div style="background: rgba(153, 69, 255, 0.05); padding: 15px; border-radius: 12px; border: 1px solid rgba(153, 69, 255, 0.15);">
+                                <h4 style="font-size:0.8rem; margin:0 0 10px 0; color:#fff; display:flex; justify-content:space-between; align-items:center; font-weight:bold;">
+                                    <span>🪪 Registro Molt.id (.molt)</span>
+                                    <span style="font-size:0.6rem; color:var(--primary); font-family:monospace;" id="moltDomainStatus">NO REGISTRADO</span>
+                                </h4>
+                                <p style="font-size:0.65rem; color:var(--text-dim); margin-bottom:12px; line-height:1.3; margin-top:0;">
+                                    Registra un dominio de agente en Solana (Metaplex Core NFT). Esto le otorga a tu agente scout una identidad oficial de Moltbook y una billetera inmutable sin claves privadas.
+                                </p>
+                                <div style="display:flex; gap:10px;">
+                                    <input type="text" id="moltDomainName" value="nicopez" style="width: 120px; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 6px; font-size: 0.75rem; text-align:right; font-family:inherit; outline:none;">
+                                    <span style="align-self:center; font-size:0.75rem; font-family:monospace; color:var(--text-dim); font-weight:bold;">.molt</span>
+                                    <button onclick="mintMoltDomain()" id="btnMintMolt" class="btn btn-primary btn-sm" style="flex:1; font-size:0.65rem; font-weight:bold; background:var(--primary); color:#000; border-radius:6px; border:none; padding:8px; cursor:pointer;">
+                                        REGISTRAR AGENTE
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Switchboard Feed card -->
+                            <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); display:flex; flex-direction:column; gap:10px;">
+                                <h4 style="font-size:0.8rem; margin:0; color:#fff; display:flex; justify-content:space-between; align-items:center; font-weight:bold;">
+                                    <span>📡 Switchboard Oracle Feeds ($SWTCH)</span>
+                                    <span style="font-size:0.6rem; color:#ffbd2e;">🟢 CONECTADO</span>
+                                </h4>
+                                <p style="font-size:0.65rem; color:var(--text-dim); margin-bottom:5px; line-height:1.3; margin-top:0;">
+                                    Telemetría táctica y meteorológica en tiempo real del MetLife Stadium capturada y verificada en enclaves seguros (SGX) de Switchboard.
+                                </p>
+                                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; font-size:0.65rem; font-family:monospace;">
+                                    <div style="background:rgba(255,255,255,0.02); padding:8px; border-radius:6px; border:1px solid rgba(255,255,255,0.02);">
+                                        <span style="color:var(--text-dim); display:block; font-size:0.5rem; margin-bottom:3px; font-weight:bold;">WEATHER TEMP</span>
+                                        <strong style="color:#fff;" id="sbTemp">22.4°C</strong>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.02); padding:8px; border-radius:6px; border:1px solid rgba(255,255,255,0.02);">
+                                        <span style="color:var(--text-dim); display:block; font-size:0.5rem; margin-bottom:3px; font-weight:bold;">PITCH GRASS FRICTION</span>
+                                        <strong style="color:var(--primary);" id="sbFriction">0.82 OPTIMAL</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Moltbook Social Chat Feed of AI Agents -->
+                        <div style="background: rgba(0,0,0,0.4); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); padding: 20px; display:flex; flex-direction:column; justify-content:space-between; height: 320px;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:8px;">
+                                <h4 style="font-size:0.75rem; margin:0; color:#fff; font-family:monospace; display:flex; align-items:center; gap:5px;">
+                                    💬 Moltbook Social Feed (@moltbook)
+                                </h4>
+                                <span style="font-size: 0.6rem; color: var(--secondary); font-family:monospace; font-weight:bold;">LIVE AGENTS</span>
+                            </div>
+                            
+                            <!-- Moltbook social chat feed box -->
+                            <div id="moltbookLogsBox" style="flex:1; overflow-y:auto; font-size:0.65rem; color:#aaa; display:flex; flex-direction:column; gap:12px; text-align:left; padding-right:5px;">
+                                <div style="color:var(--text-dim); font-size:0.6rem;">[SYSTEM] Sincronizando logs de Moltbook...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: MINIGAMES HUB (NEW) -->
+        <section id="gamesTab" class="tab-section">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+                <h2>🎮 Community Minigames & Kamino Launchpad</h2>
+                <div style="display: flex; gap: 10px;">
+                    <span class="badge" style="background:rgba(20, 241, 149, 0.1); color:var(--primary); border: 1px solid var(--primary);">KAMINO VAULTS ACTIVE</span>
+                    <span class="badge" style="background:rgba(255, 77, 106, 0.1); color:#ff4d6a; border: 1px solid #ff4d6a;">10% BURN FOR $GCH</span>
+                </div>
+            </div>
+            <p style="color:var(--text-dim); margin-bottom: 30px;">Crea tus propios minijuegos interactivos de fútbol y lanza automáticamente un token de juego registrado en Kamino. El volumen y las tarifas del juego compran y queman $GCH, beneficiando a todo el ecosistema de GoalChain.</p>
+
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px;">
+                <!-- Left Column: Active Minigames Catalog -->
+                <div class="app-card" style="border-color: rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; gap: 20px;">
+                    <h3>🏟️ Catálogo de Minijuegos en Vivo</h3>
+                    <div id="minigamesList" style="display: flex; flex-direction: column; gap: 15px; max-height: 520px; overflow-y: auto; padding-right: 5px;">
+                        <!-- Injected dynamically by JS -->
+                    </div>
+                </div>
+
+                <!-- Right Column: Minigame Deployer Panel -->
+                <div style="display: flex; flex-direction: column; gap: 30px;">
+                    <div class="app-card" style="border-color: rgba(20, 241, 149, 0.25);">
+                        <h3 style="display:flex; align-items:center; gap:8px; margin:0;">🚀 Lanzador Autónomo de Minijuegos</h3>
+                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px; margin-top:5px;">Elige una plantilla deportiva, configura el token de tu juego y colateralízalo en un Kamino Liquidity Vault en un solo clic.</p>
+                        
+                        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); margin-bottom: 20px; font-size: 0.75rem; display: flex; flex-direction: column; gap: 15px;">
+                            <div>
+                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px;">1. SELECCIONA PLANTILLA DE JUEGO</label>
+                                <select id="gameTemplate" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem;">
+                                    <option value="penalty">Penalty Shootout (2D Canvas)</option>
+                                    <option value="trivia">Solana Football Trivia (AI-Powered)</option>
+                                    <option value="scout">Prospect Training (Arcade Tap)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px;">2. NOMBRE DEL JUEGO / CROMO ASOCIADO</label>
+                                <input type="text" id="gameName" value="Lionel Satoshi Strike" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                <div>
+                                    <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px;">TOKEN SYMBOL</label>
+                                    <input type="text" id="gameToken" value="$SATSTRIKE" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px;">COSTO ENTRADA ($GCH)</label>
+                                    <input type="number" id="gameFee" value="10" min="1" max="100" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem;">
+                                </div>
+                            </div>
+
+                            <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; display: flex; flex-direction: column; gap: 8px;">
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <span>Lanzar Token del Minijuego en Kamino CLMM</span>
+                                    <span style="color: var(--primary); font-weight: bold;">[AUTO-LOCKED]</span>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <span>5% de Swap Fees compra y quema $GCH</span>
+                                    <span style="color: var(--primary); font-weight: bold;">[AUTO-LOCKED]</span>
+                                </div>
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <span>70% de ganancias va directo al Creador</span>
+                                    <span style="color: var(--primary); font-weight: bold;">[AUTO-LOCKED]</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Deploy Cost -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: rgba(20,241,149,0.05); padding: 12px 20px; border-radius: 10px; border: 1px solid rgba(20,241,149,0.1);">
+                            <div>
+                                <div style="font-size: 0.6rem; color: var(--text-dim);">COSTO DE DESPLIEGUE</div>
+                                <strong style="font-size: 1.1rem; color: var(--primary);">500 $GCH</strong>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-size: 0.6rem; color: var(--text-dim);">TARIFA DE REGISTRO EN RED</div>
+                                <strong style="font-size: 0.95rem; color: #fff;">0.05 SOL</strong>
+                            </div>
+                        </div>
+
+                        <button id="deployGameBtn" onclick="deployMinigameOnKamino()" class="btn btn-secondary btn-glow" style="width: 100%;">CREAR MINIJUEGO & LANZAR TOKEN</button>
+                    </div>
+
+                    <!-- Minigame Terminal Output Log -->
+                    <div class="app-card" style="border-color: rgba(255, 255, 255, 0.1); padding: 20px;">
+                        <h4 style="font-size: 0.75rem; color: var(--primary); letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; font-family: monospace;">⚡ KAMINO ORACLE DEPLOYER LOG</h4>
+                        <div id="gameDeployerLog" style="height: 120px; overflow-y: auto; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); font-family: monospace; font-size: 0.7rem; color: #8a8a9a; line-height: 1.4; text-align: left;">
+                            <div>[SYSTEM] Esperando parámetros de despliegue...</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -333,8 +913,11 @@
     </aside>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
     <script src="https://unpkg.com/@coral-xyz/anchor@0.29.0/dist/browser/index.js"></script>
+    <script src="assets/js/notification_manager.js?v=3.0"></script>
+    <script src="assets/js/wallet_connect.js?v=3.0"></script>
     <script src="assets/js/solana_connector.js"></script>
     <script src="assets/js/contract_data.js"></script>
     <script src="assets/js/drift_markets.js"></script>
@@ -343,6 +926,8 @@
     <script src="assets/js/helius_sync.js"></script>
     <script src="assets/js/3d_gallery.js"></script>
     <script src="assets/js/live_engine.js?v=1.0"></script>
+    <script src="assets/js/ai_agent.js"></script>
+    <script src="assets/js/minigames_hub.js"></script>
     
     <script>
         // Soporte para tecla ESC
@@ -367,6 +952,8 @@
             if (tabId === 'academy') initAcademyView();
             if (tabId === 'lending') initLendingView();
             if (tabId === 'gallery') initGalleryView();
+            if (tabId === 'ai') { initAIView(); initSentinelDiagnostics(); initMoltbookAndSwitchboard(); }
+            if (tabId === 'games') initGamesView();
         }
 
         // Logic to move existing UI components into the dashboard
@@ -383,5 +970,71 @@
             document.getElementById('userBalanceApp').innerText = `Balance: ${balance} $GCH`;
         });
     </script>
+
+    <!-- FAREMETER AGENTIC CHECKOUT MODAL -->
+    <div id="faremeterModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:10000; align-items:center; justify-content:center; backdrop-filter:blur(8px);">
+        <div style="background: rgba(13, 13, 20, 0.95); border: 2px solid rgba(153, 69, 255, 0.3); border-radius: 20px; width: 550px; max-width:90%; padding: 30px; box-shadow: 0 15px 50px rgba(0,0,0,0.8); text-align:left; position:relative;">
+            
+            <!-- Close button -->
+            <button onclick="closeFaremeterCheckout()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:var(--text-dim); font-size:1.5rem; cursor:pointer;">&times;</button>
+            
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.05); padding-bottom:12px;">
+                <span style="font-size:1.5rem;">⚡</span>
+                <h3 style="margin:0; color:#fff; font-size:1.1rem; font-weight:900;">Faremeter.xyz Agentic Checkout</h3>
+                <span class="badge" style="background:rgba(153, 69, 255, 0.1); color:var(--secondary); border: 1px solid var(--secondary); font-size:0.55rem; padding:2px 6px; border-radius:4px; font-weight:bold;">HTTP 402 PROTOCOL</span>
+            </div>
+
+            <p style="font-size:0.7rem; color:var(--text-dim); margin-bottom:20px; line-height:1.4; margin-top:0;">
+                Faremeter es un framework open-source de <b>ABK Labs</b> que permite transaccionar APIs y activos digitales (NFTs) usando el estándar <b>HTTP 402 (Payment Required)</b>. Facilita la adquisición a usuarios tradicionales abstrayendo el gas de Solana y la firma criptográfica en nuestro Sentinel Agent.
+            </p>
+
+            <!-- Card Preview & Selector -->
+            <div style="background:rgba(255,255,255,0.02); padding:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.05); display:flex; gap:15px; margin-bottom:20px;">
+                <div style="width:70px; height:105px; border-radius:8px; border:1px solid var(--primary); background:linear-gradient(135deg, #111, #222); display:flex; flex-direction:column; justify-content:space-between; padding:5px; font-family:monospace; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+                    <div style="font-size:0.5rem; color:#fff;">#004</div>
+                    <div style="font-size:0.55rem; color:var(--primary); font-weight:bold; text-align:center;">L. MESSI</div>
+                    <div style="font-size:0.4rem; color:var(--text-dim); text-align:right;">GOLD</div>
+                </div>
+                <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+                    <span style="color:#fff; font-size:0.8rem; font-weight:bold;">Lionel Parody (Genesis Cromo #004)</span>
+                    <span style="color:var(--primary); font-size:0.75rem; font-weight:bold; margin-top:3px;">Precio: 15.00 USDC / SOL (o $15 USD Cash)</span>
+                    <span style="color:var(--text-dim); font-size:0.6rem; margin-top:2px;">Rendimiento estimado: <b>+150 GCH/d</b> en Vault</span>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div style="display:flex; flex-direction:column; gap:15px; margin-bottom:20px;">
+                <div>
+                    <label style="display:block; font-size:0.6rem; color:var(--text-dim); margin-bottom:5px; font-weight:bold; text-transform:uppercase;">1. Método de Pago (Faremeter Route)</label>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                        <label style="background:rgba(20, 241, 149, 0.05); border:1px solid var(--primary); border-radius:8px; padding:10px; display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.65rem; color:#fff;">
+                            <input type="radio" name="farePay" checked style="accent-color:var(--primary);">
+                            <span>💳 Tarjeta / Cash Rampa</span>
+                        </label>
+                        <label style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.05); border-radius:8px; padding:10px; display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.65rem; color:var(--text-dim);">
+                            <input type="radio" name="farePay" style="accent-color:var(--primary);">
+                            <span>🪙 USDC (Gas-less Proxy)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label style="display:block; font-size:0.6rem; color:var(--text-dim); margin-bottom:5px; font-weight:bold; text-transform:uppercase;">2. Correo de Entrega (Custody Wallet Delivery)</label>
+                    <input type="email" id="fareEmail" value="nicopez@example.com" style="width:100%; box-sizing:border-box; background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:10px; border-radius:6px; font-size:0.75rem; outline:none;">
+                    <span style="font-size:0.55rem; color:var(--text-dim); display:block; margin-top:4px;">Asociaremos este e-mail a una Custodial Wallet instantánea para que no requieras manejar claves privadas.</span>
+                </div>
+            </div>
+
+            <!-- Execution log steps box (hidden by default, shown during charge) -->
+            <div id="faremeterSteps" style="display:none; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.03); padding:15px; border-radius:10px; margin-bottom:20px; font-family:monospace; font-size:0.6rem; color:#aaa; flex-direction:column; gap:5px; text-align:left;">
+                <!-- Logs injected dynamically -->
+            </div>
+
+            <!-- Action Button -->
+            <button onclick="executeFaremeterPayment()" id="btnFarePay" class="btn btn-primary" style="width:100%; background:var(--primary); color:#000; font-size:0.8rem; font-weight:bold; padding:12px; border-radius:8px; border:none; cursor:pointer; transition:background 0.2s;">
+                PROCESAR PAGO 402 CON FAREMETER 💸
+            </button>
+        </div>
+    </div>
 </body>
 </html>

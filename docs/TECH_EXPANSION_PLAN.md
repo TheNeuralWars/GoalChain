@@ -26,3 +26,18 @@ Para dominar el ecosistema de Solana, GoalChain integrará los siguientes protoc
 - **Protocolo**: Helius Webhooks.
 - **Mecánica**: Real-time Blockchain Monitoring.
 - **Objetivo**: Sincronización milimétrica entre las transacciones on-chain y los efectos visuales en Unity/Web.
+
+## 6. Inteligencia Artificial en SportsFi (Rainmaker AI)
+- **Protocolo**: Pyth Network + Modelos Propios de Machine Learning.
+- **Mecánica**: Análisis masivo de datos deportivos y oráculos en tiempo real para generar predicciones con alto porcentaje de acierto.
+- **Objetivo**: Integrar un "Autonomous Betbot" que permita a los inversores delegar sus fondos y apostar con base matemática y estadística avanzada en lugar de corazonadas, maximizando su rentabilidad en el Mundial 2026.
+
+## 7. Agentes Inteligentes Autónomos (ElizaOS & Solana Agent Kit)
+- **Protocolo**: Solana Agent Kit + ElizaOS.
+- **Mecánica**: Agentes managers autónomos controlados por lenguaje natural o parámetros preestablecidos.
+- **Objetivo**: Permitir a inversores de gran capital delegar la gestión completa de su Starting XI (reemplazo automático por fatiga, compra de pociones energéticas con $GCH y auto-staking del rendimiento diario en JitoSOL para compounding de retornos).
+
+## 8. Portafolios Empaquetados (Emblem Vault)
+- **Protocolo**: Emblem Vault Cross-Chain.
+- **Mecánica**: Multi-asset vaulting en un solo NFT transferible.
+- **Objetivo**: Facilitar que inversores institucionales compren o vendan "Championship Portfolios" completos (Starting XI + Stadium NFT + Reservas de $GCH) en una sola transacción sin necesidad de puentes complejos, garantizando transferibilidad y liquidez masiva.
