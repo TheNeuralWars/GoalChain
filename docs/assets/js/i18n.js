@@ -502,7 +502,7 @@ const TRANSLATIONS = {
     }
 };
 
-let currentLang = localStorage.getItem('gc_lang') || 'es';
+let currentLang = localStorage.getItem('gc_lang') || 'en';
 
 function setLang(lang) {
     currentLang = lang;

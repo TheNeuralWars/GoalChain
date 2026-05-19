@@ -170,13 +170,13 @@ function renderParallaxCard(container, player) {
             .stamina-bar-container { width: 100%; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; margin-top: 4px; overflow: hidden; }
             .stamina-bar { height: 100%; background: ${isLowBattery ? 'red' : '#14f195'}; width: ${stamina}%; transition: width 0.3s; }
         </style>
-        <div class="nft-card-container" style="perspective: 1000px; margin-bottom: 20px;">
+        <div class="nft-card-container" data-card-player-id="${player.id}" style="perspective: 1000px; margin-bottom: 20px;">
             <div class="nft-card-3d parallax-card" style="
                 position: relative;
                 width: 100%;
                 aspect-ratio: 2/3;
                 border-radius: 16px;
-                transition: transform 0.1s ease-out;
+                transition: transform 0.1s ease-out, border-color 0.5s ease, box-shadow 0.5s ease;
                 transform-style: preserve-3d;
                 cursor: pointer;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -207,7 +207,7 @@ function renderParallaxCard(container, player) {
                     ${isEliminated ? 'filter: grayscale(100%);' : ''}
                 "></div>
                 `}
-
+                
                 <!-- CAPA 1: Jugador Transparente (Profundidad: +30px) -->
                 <div class="layer layer-player" style="
                     position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center;
@@ -219,10 +219,10 @@ function renderParallaxCard(container, player) {
                         filter: ${filterStyle};
                     " onerror="this.src='assets/img/mock/player_placeholder.webp'; this.style.opacity='0.2';">
                 </div>
-
+                
                 <!-- CAPA FX: Low Battery Warning -->
                 ${warningLayer}
-
+                
                 <!-- CAPA 2: Marco de Rareza (Profundidad: +10px) -->
                 <div class="layer layer-frame" style="
                     position: absolute; inset: 0; border-radius: 16px; pointer-events: none;
@@ -231,7 +231,7 @@ function renderParallaxCard(container, player) {
                     transform: translateZ(10px);
                     z-index: 2;
                 "></div>
-
+                
                 <!-- CAPA 3: Interfaz y Textos (Profundidad: +60px) -->
                 <div class="layer layer-ui" style="
                     position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between;
@@ -246,8 +246,8 @@ function renderParallaxCard(container, player) {
                                 ${player.rarity}
                             </div>
                             <!-- Yield Pill -->
-                            <div style="background: rgba(0,0,0,0.8); border: 1px solid #14f195; color: #14f195; padding: 2px 6px; border-radius: 4px; font-weight: 900; font-size: 0.6rem;">
-                                💸 ${isEliminated ? '0' : baseYield} GCH/d
+                            <div class="yield-pill-badge" style="background: rgba(0,0,0,0.8); border: 1px solid #14f195; color: #14f195; padding: 2px 6px; border-radius: 4px; font-weight: 900; font-size: 0.6rem;">
+                                💸 <span class="yield-val">${isEliminated ? '0' : baseYield}</span> GCH/d
                             </div>
                         </div>
                     </div>
@@ -266,9 +266,9 @@ function renderParallaxCard(container, player) {
                             
                             <!-- Mini Stats Inline Badge -->
                             <div style="display: flex; gap: 8px; background: rgba(0,0,0,0.4); padding: 3px 6px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05);">
-                                <div style="text-align: center; line-height: 1;"><span style="color: #aaa; font-size: 0.45rem; font-weight: 700;">ATK</span><br><span style="color: white; font-weight: 900; font-size: 0.75rem;">${player.stats.atk}</span></div>
-                                <div style="text-align: center; line-height: 1;"><span style="color: #aaa; font-size: 0.45rem; font-weight: 700;">DEF</span><br><span style="color: white; font-weight: 900; font-size: 0.75rem;">${player.stats.def}</span></div>
-                                <div style="text-align: center; line-height: 1;"><span style="color: ${isEliminated ? '#555' : rarityColor}; font-size: 0.45rem; font-weight: 700;">HYP</span><br><span style="color: ${isEliminated ? '#555' : rarityColor}; font-weight: 900; font-size: 0.75rem; text-shadow: 0 0 5px ${rarityColor}80;">${player.stats.hype}</span></div>
+                                <div style="text-align: center; line-height: 1;"><span style="color: #aaa; font-size: 0.45rem; font-weight: 700;">ATK</span><br><span class="stat-atk-val" style="color: white; font-weight: 900; font-size: 0.75rem;">${player.stats.atk}</span></div>
+                                <div style="text-align: center; line-height: 1;"><span style="color: #aaa; font-size: 0.45rem; font-weight: 700;">DEF</span><br><span class="stat-def-val" style="color: white; font-weight: 900; font-size: 0.75rem;">${player.stats.def}</span></div>
+                                <div style="text-align: center; line-height: 1;"><span style="color: ${isEliminated ? '#555' : rarityColor}; font-size: 0.45rem; font-weight: 700;">HYP</span><br><span class="stat-hype-val" style="color: ${isEliminated ? '#555' : rarityColor}; font-weight: 900; font-size: 0.75rem; text-shadow: 0 0 5px ${rarityColor}80;">${player.stats.hype}</span></div>
                             </div>
                         </div>
 
