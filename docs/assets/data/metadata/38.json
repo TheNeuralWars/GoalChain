@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #038 — Bruno Guima-Liquid",
-  "symbol": "GCG",
-  "description": "Known as 'The Orchestrator' and the 'Anchor of Hope'. A world-class midfielder whose passing accuracy and tactical vision have transformed the Manchester and Brazilian circuits.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/038_bruno_guima-liquid.png",
-  "external_url": "https://goalchain.fun/nft/38",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Legendary"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "MID"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Brasil"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Bruno Guimarães"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 76
-    },
-    {
-      "trait_type": "DEF",
-      "value": 72
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 88
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 470
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 83
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Manchester Red Chain"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Holographic Glitch & Silver Spark"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Box-to-Box"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/038_bruno_guima-liquid.png",
-        "type": "image/png"
-      }
+    "name": "Bruno Guima-Liquid",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Bruno Guima-Liquid (Brasil). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/zfItP.jpg",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Brasil"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 76
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 72
+        },
+        {
+            "trait_type": "Hype",
+            "value": 88
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/zfItP.jpg",
+                "type": "image/jpeg"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

@@ -1,89 +1,56 @@
 {
-  "name": "GoalChain Genesis #254 — Andrew Robert-Cap",
-  "symbol": "GCG",
-  "description": "Commonly known as 'Robbo'. From the amateur Queen's Park Node to Champions League glory, his journey is a legendary narrative of hard work, becoming the spiritual leader of the Scotland and Liverpool grids.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/254_andrew_robert-cap.png",
-  "external_url": "https://goalchain.fun/nft/254",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Legendary"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "DEF"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Escocia"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Andrew Robertson"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 37
-    },
-    {
-      "trait_type": "DEF",
-      "value": 93
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 92
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 480
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 90
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Dortmund Yellow Hive"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Holographic Glitch & Silver Spark"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "The Rock"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Recovery Pace"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/254_andrew_robert-cap.png",
-        "type": "image/png"
-      }
+    "name": "Andrew Robert-Cap",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Andrew Robert-Cap (Escocia). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/254_andrew_robert-cap.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Escocia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 37
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 93
+        },
+        {
+            "trait_type": "Hype",
+            "value": 92
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/254_andrew_robert-cap.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

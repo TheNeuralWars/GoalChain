@@ -1,89 +1,56 @@
 {
-  "name": "GoalChain Genesis #017 — Mike Maignan-Admin",
-  "symbol": "GCG",
-  "description": "The 'Magic Eagle'. A world-class goalkeeper and clean-sheet specialist whose presence in the Milan Node has redefined the modern shot-stopping protocol with his reflexes and leadership.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/017_mike_maignan-admin.png",
-  "external_url": "https://goalchain.fun/nft/17",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "GK"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Francia"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Mike Maignan"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 19
-    },
-    {
-      "trait_type": "DEF",
-      "value": 90
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 51
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Dortmund Yellow Hive"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Iron Wall"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Aerial Commander"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/017_mike_maignan-admin.png",
-        "type": "image/png"
-      }
+    "name": "Mike Maignan-Admin",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Mike Maignan-Admin (Francia). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/tRJVF.jpg",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Francia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 19
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 90
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/tRJVF.jpg",
+                "type": "image/jpeg"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

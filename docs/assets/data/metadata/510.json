@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #510 — Kamory Doum-Silk",
-  "symbol": "GCG",
-  "description": "Verified as 'The Magic of Mali'. A legendary playmaker who made history by scoring 4 goals in just 26 minutes in the French circuit, serving as the primary creative mainframe for the Malian Node.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/510_kamory_doum-silk.png",
-  "external_url": "https://goalchain.fun/nft/510",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "MID"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Malí"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Kamory Doumbia"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 70
-    },
-    {
-      "trait_type": "DEF",
-      "value": 66
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 34
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "London Blue Node"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Box-to-Box"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/510_kamory_doum-silk.png",
-        "type": "image/png"
-      }
+    "name": "Kamory Doum-Silk",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Kamory Doum-Silk (Malí). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/510_kamory_doum-silk.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Malí"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 70
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 66
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/510_kamory_doum-silk.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

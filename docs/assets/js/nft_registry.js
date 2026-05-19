@@ -62,6 +62,10 @@ const BG_VIDEO_MAP = {
 };
 
 function getPlayerImagePath(player) {
+    // Check player object for direct filename first
+    if (player.filename) {
+        return `assets/img/nfts/${player.filename}`;
+    }
     // Check manual map first
     if (NFT_IMAGE_MAP[player.id]) {
         return `assets/img/nfts/${NFT_IMAGE_MAP[player.id]}`;

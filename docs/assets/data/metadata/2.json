@@ -1,93 +1,56 @@
 {
-  "name": "GoalChain Genesis #002 — Dibu De-Fi",
-  "symbol": "GCG",
-  "description": "The 'Hero of Lusail' and master of mind games. A Golden Glove winner whose saves secured the 2022 World Cup for Argentina, making him the most feared goalkeeper in any penalty shootout protocol.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/002_dibu_de-fi.png",
-  "external_url": "https://goalchain.fun/nft/2",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Epic"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "GK"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Argentina"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Emiliano Martínez"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 20
-    },
-    {
-      "trait_type": "DEF",
-      "value": 93
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 92
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 190
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 78
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Turin Zebra Grid"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Electric Neon Pulse"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Penalty Specialist"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Iron Wall"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Mind Games Master"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/002_dibu_de-fi.png",
-        "type": "image/png"
-      }
+    "name": "Dibu De-Fi",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Dibu De-Fi (Argentina). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/eK3bc.jpg",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Argentina"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 20
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 93
+        },
+        {
+            "trait_type": "Hype",
+            "value": 92
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/eK3bc.jpg",
+                "type": "image/jpeg"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

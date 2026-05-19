@@ -1,93 +1,56 @@
 {
-  "name": "GoalChain Genesis #045 — Lamine Ya-Alpha",
-  "symbol": "GCG",
-  "description": "The 'Young Wizard' who redefines history. The youngest Ballon d’Or winner ever (2024) and heir to the legendary 'baby photo' legacy with Messi. At 18, he already holds 7 career titles in the Catalan Grid.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/045_lamine_ya-alpha.png",
-  "external_url": "https://goalchain.fun/nft/45",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Legendary"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "FWD"
-    },
-    {
-      "trait_type": "Country",
-      "value": "España"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Lamine Yamal"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 93
-    },
-    {
-      "trait_type": "DEF",
-      "value": 26
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 92
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 480
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 93
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Munich Cyber-Bayer"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Holographic Glitch & Silver Spark"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Future Star"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Dribbling Prodigy"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Technical Wizard"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/045_lamine_ya-alpha.png",
-        "type": "image/png"
-      }
+    "name": "Lamine Ya-Alpha",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Lamine Ya-Alpha (España). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/3FFHd.jpg",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "España"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 93
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 26
+        },
+        {
+            "trait_type": "Hype",
+            "value": 92
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/3FFHd.jpg",
+                "type": "image/jpeg"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }
