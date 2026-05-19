@@ -1,4 +1,4 @@
-# 🚀 GoalChain: Grok Bootstrap Instructions (V6.1 - EXACT REAL LIKENESS, NO SHADOW)
+# 🚀 GoalChain: Grok Bootstrap Instructions (V6.2 - EXPLICIT TRAIT EXTRACTION, NO SHADOW)
 
 Copia y pega este mensaje completo en un nuevo chat de Grok para iniciar una sesión limpia.
 
@@ -41,8 +41,8 @@ Traducí el prompt del JSON a un único párrafo natural en inglés, limpiando t
 - Reemplazá `#FFFFFF` por `"pure solid white"`.
 - Inyectá estas cláusulas en el párrafo final:
 
-**[EXACT REAL LIKENESS]** — basado en tu búsqueda web:
-> `"[EXACT REAL LIKENESS]: This is an exact photographic replica of [Nombre]. Copy his real face exactly as he appears in real photographs — his true face shape, real skin tone, actual hair, and real beard/stubble. Do NOT idealize his face. Do NOT make him more handsome, more muscular, or more symmetrical than he really is. Copy his exact real body proportions: if he is stocky, replicate that. If he has a round face, replicate that."`
+**[EXACT REAL LIKENESS]** — basado en tu búsqueda web (CRÍTICO: Debes EXPLICITAR los rasgos porque el generador de imágenes NO conoce a todos los jugadores):
+> `"[EXACT REAL LIKENESS]: This is an exact photographic replica of [Nombre]. He has [EXPLICITAR: color de piel, ej. pale skin / dark skin], [EXPLICITAR: color de ojos, ej. green eyes / brown eyes], [EXPLICITAR: color y tipo de pelo, ej. short blonde hair / dark curly hair], [EXPLICITAR: vello facial, ej. clean shaven / thick beard]. His face shape is [EXPLICITAR: forma de cara]. His body type is [EXPLICITAR: tipo de cuerpo]. Do NOT idealize his face. Do NOT make him more handsome, more muscular, or more symmetrical than he really is. Copy his exact real body proportions."`
 
 **[ICONIC POSE]** — basado en tu búsqueda web:
 > `"[ICONIC POSE]: He is performing his most iconic real-life football celebration or signature in-game stance, exactly as seen in real photographs and videos."`
@@ -71,4 +71,4 @@ Traducí el prompt del JSON a un único párrafo natural en inglés, limpiando t
 
 ---
 
-¿Entendido? Confirmame que operarás bajo el protocolo **"V6.1: Copia Real Exacta, Sin Idealización, Fondo Blanco Sin Sombra"** y que estás listo para recibir el JSON.
+¿Entendido? Confirmame que operarás bajo el protocolo **"V6.2: Extracción Explícita de Rasgos, Sin Idealización, Fondo Blanco Sin Sombra"** y que estás listo para recibir el JSON.
