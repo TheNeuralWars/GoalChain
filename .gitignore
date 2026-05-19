@@ -61,3 +61,7 @@ yarn-error.log*
 *.sublime-workspace
 test-ledger/
 goalchain_web/scratch/x_secrets.json
+
+# --- Security Backups ---
+scratch/secrets_backup.md
+

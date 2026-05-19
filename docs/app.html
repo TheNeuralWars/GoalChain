@@ -264,11 +264,269 @@
         <!-- SECTION: BETTING MVP (1X2) -->
         <section id="bettingTab" class="tab-section">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
-                <h2>🏆 FIFA World Cup 2026 Betting</h2>
+                <h2>🏆 FIFA World Cup 2026 Bracket & Live Oracles</h2>
                 <span class="badge" style="background:var(--primary); color:black;">LIVE ON-CHAIN</span>
             </div>
             
-            <div id="matchDisplay" class="app-card" style="text-align: center;">
+            <style>
+                .bracket-wrapper {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 30px;
+                    margin-bottom: 40px;
+                    overflow-x: auto;
+                    padding: 20px 0;
+                }
+                .bracket-round {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    gap: 20px;
+                    min-width: 250px;
+                }
+                .bracket-match {
+                    background: rgba(13, 13, 20, 0.8);
+                    border: 1px solid rgba(255, 255, 255, 0.05);
+                    border-radius: 16px;
+                    padding: 15px;
+                    position: relative;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    cursor: pointer;
+                    backdrop-filter: blur(10px);
+                }
+                .bracket-match:hover {
+                    border-color: rgba(20, 241, 149, 0.4);
+                    transform: translateY(-2px);
+                }
+                .bracket-match.live {
+                    border-color: var(--primary);
+                    box-shadow: 0 0 20px rgba(20, 241, 149, 0.15);
+                }
+                .bracket-match-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 0.65rem;
+                    color: var(--text-dim);
+                    margin-bottom: 10px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+                .bracket-match-team {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 6px 0;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    color: var(--text-main);
+                }
+                .bracket-match-team.winner {
+                    color: var(--primary);
+                }
+                .bracket-score {
+                    font-family: monospace;
+                    font-weight: 800;
+                    background: rgba(255, 255, 255, 0.05);
+                    padding: 3px 10px;
+                    border-radius: 6px;
+                    font-size: 0.85rem;
+                }
+                .pda-debugger {
+                    background: rgba(0,0,0,0.4);
+                    border: 1px solid rgba(255,255,255,0.05);
+                    border-radius: 16px;
+                    padding: 20px;
+                    margin-top: 30px;
+                }
+                .pda-field {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 0.75rem;
+                    padding: 8px 0;
+                    border-bottom: 1px solid rgba(255,255,255,0.02);
+                }
+                .pda-field:last-child {
+                    border-bottom: none;
+                }
+                .pda-label {
+                    color: var(--text-dim);
+                    font-weight: 600;
+                }
+                .pda-value {
+                    font-family: monospace;
+                    color: var(--primary);
+                    font-weight: bold;
+                    word-break: break-all;
+                }
+                @keyframes gold-flash-anim {
+                    0%, 100% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.2); border-color: rgba(255, 215, 0, 0.2); }
+                    50% { box-shadow: 0 0 35px rgba(255, 215, 0, 1), 0 0 55px rgba(255, 215, 0, 0.5); border-color: #ffd700; }
+                }
+                .gold-neon-flash {
+                    animation: gold-flash-anim 0.8s ease-in-out 3;
+                }
+            </style>
+
+            <!-- TOURNAMENT BRACKET WRAPPER -->
+            <div class="bracket-wrapper">
+                <!-- Quarterfinals -->
+                <div class="bracket-round">
+                    <h3 style="font-size: 0.8rem; color: var(--text-dim); text-align: center; margin-bottom: 10px; text-transform: uppercase;">Quarterfinals</h3>
+                    
+                    <div class="bracket-match" id="match-BRA_ENG_QTR" onclick="selectBracketMatch('BRA_ENG_QTR')">
+                        <div class="bracket-match-header">
+                            <span>Fixture ID: BRA_ENG_QTR</span>
+                            <span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-dim);">Upcoming</span>
+                        </div>
+                        <div class="bracket-match-team">
+                            <span>🇧🇷 Brasil</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                        <div class="bracket-match-team">
+                            <span>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                    </div>
+
+                    <div class="bracket-match" id="match-FRA_GER_QTR" onclick="selectBracketMatch('FRA_GER_QTR')">
+                        <div class="bracket-match-header">
+                            <span>Fixture ID: FRA_GER_QTR</span>
+                            <span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-dim);">Upcoming</span>
+                        </div>
+                        <div class="bracket-match-team">
+                            <span>🇫🇷 Francia</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                        <div class="bracket-match-team">
+                            <span>🇩🇪 Alemania</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                    </div>
+
+                    <div class="bracket-match" id="match-SPA_ITA_QTR" onclick="selectBracketMatch('SPA_ITA_QTR')">
+                        <div class="bracket-match-header">
+                            <span>Fixture ID: SPA_ITA_QTR</span>
+                            <span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-dim);">Upcoming</span>
+                        </div>
+                        <div class="bracket-match-team">
+                            <span>🇪🇸 España</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                        <div class="bracket-match-team">
+                            <span>🇮🇹 Italia</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                    </div>
+
+                    <div class="bracket-match live" id="match-ARG_FRA_FINAL" onclick="selectBracketMatch('ARG_FRA_FINAL')">
+                        <div class="bracket-match-header">
+                            <span>Fixture ID: ARG_FRA_FINAL</span>
+                            <span class="badge" style="background: rgba(20,241,149,0.1); color: var(--primary); animation: pulse 2s infinite;">LIVE MATCH</span>
+                        </div>
+                        <div class="bracket-match-team" id="bracket-teamA">
+                            <span>🇦🇷 Argentina</span>
+                            <span class="bracket-score" id="score-teamA">0</span>
+                        </div>
+                        <div class="bracket-match-team" id="bracket-teamB">
+                            <span>🇫🇷 Francia</span>
+                            <span class="bracket-score" id="score-teamB">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Semifinals -->
+                <div class="bracket-round">
+                    <h3 style="font-size: 0.8rem; color: var(--text-dim); text-align: center; margin-bottom: 10px; text-transform: uppercase;">Semifinals</h3>
+                    
+                    <div class="bracket-match">
+                        <div class="bracket-match-header">
+                            <span>Semifinal 1</span>
+                        </div>
+                        <div class="bracket-match-team">
+                            <span>Winner QTR 1</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                        <div class="bracket-match-team">
+                            <span>Winner QTR 2</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                    </div>
+
+                    <div class="bracket-match">
+                        <div class="bracket-match-header">
+                            <span>Semifinal 2</span>
+                        </div>
+                        <div class="bracket-match-team">
+                            <span>Winner QTR 3</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                        <div class="bracket-match-team">
+                            <span>Winner QTR 4</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Final -->
+                <div class="bracket-round">
+                    <h3 style="font-size: 0.8rem; color: var(--text-dim); text-align: center; margin-bottom: 10px; text-transform: uppercase;">Final</h3>
+                    
+                    <div class="bracket-match" style="border-color: var(--gold);">
+                        <div class="bracket-match-header">
+                            <span style="color: var(--gold);">🏆 Trophy Match</span>
+                        </div>
+                        <div class="bracket-match-team">
+                            <span>Winner SF 1</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                        <div class="bracket-match-team">
+                            <span>Winner SF 2</span>
+                            <span class="bracket-score">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LIVE ORACLE PDA DEBUGGER -->
+            <div class="pda-debugger">
+                <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+                    <span>🛡️ Solana Oracle & PDA Resolver</span>
+                    <span style="width: 8px; height: 8px; background-color: var(--primary); border-radius: 50%; display: inline-block;"></span>
+                </h3>
+                <div class="pda-field">
+                    <span class="pda-label">Active Match ID:</span>
+                    <span class="pda-value" id="debugMatchId" style="color: #fff;">ARG_FRA_FINAL</span>
+                </div>
+                <div class="pda-field">
+                    <span class="pda-label">Solana Program ID:</span>
+                    <span class="pda-value" id="debugProgramId">FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg</span>
+                </div>
+                <div class="pda-field">
+                    <span class="pda-label">Derived fixturePda (Seeds: ["fixture", matchId]):</span>
+                    <span class="pda-value" id="debugFixturePda">Loading...</span>
+                </div>
+                <div class="pda-field">
+                    <span class="pda-label">Derived livePda (Seeds: ["live_state", fixturePda]):</span>
+                    <span class="pda-value" id="debugLivePda">Loading...</span>
+                </div>
+                <div class="pda-field">
+                    <span class="pda-label">Match State (Oracle push):</span>
+                    <span class="pda-value" id="debugMatchState" style="color: var(--gold);">LIVE MATCH ARENA ACTIVE</span>
+                </div>
+            </div>
+
+            <!-- LIVE STREAM EVENT FEED -->
+            <div class="app-card" style="margin-top: 30px; background: rgba(0,0,0,0.5);">
+                <h4 style="color: #fff; font-size: 0.9rem; margin-bottom: 12px;">📣 Oracle Stream & Status Events</h4>
+                <div id="bracketLiveLogs" style="background: #080808; border-radius: 8px; padding: 12px; font-family: monospace; font-size: 0.75rem; color: #a0aec0; overflow-y: auto; height: 120px; border: 1px solid rgba(255,255,255,0.02); display: flex; flex-direction: column; gap: 6px;">
+                    <div style="color: var(--primary);">[Oracle] Conectado al stream de Solana Devnet. Derivando PDAs...</div>
+                </div>
+            </div>
+
+            <div id="matchDisplay" class="app-card" style="text-align: center; margin-top: 30px; display: none;">
                 <!-- Loaded from contract_data.js -->
                 <p style="color:var(--text-dim);">Cargando fixtures desde Solana...</p>
             </div>
