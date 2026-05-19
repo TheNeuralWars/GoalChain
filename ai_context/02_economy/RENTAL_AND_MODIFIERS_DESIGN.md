@@ -78,31 +78,35 @@ $$\text{Mint\_Price} = \text{Base\_Price} \times (1.15)^{\text{Wins}} \times (0.
 
 ---
 
-## 4. Vestuarios (Locker Room) & Personalización Permanente
+## 4. Vestuarios (Locker Room) & Sistema de Ranuras Intercambiables (Composability)
 
-Los jugadores del Genesis Squad se mintean inicialmente con un "kit básico negro" (ropa interior). Para completarlos, los mánagers compran equipamiento y vestuario de su respectiva selección.
+Los jugadores del Genesis Squad se mintean inicialmente con un "kit básico negro" (ropa interior). Para maximizar su rendimiento y adaptar su participación a diferentes ligas activas, los mánagers equipan y desequipan diferentes camisetas (Jerseys) y accesorios de forma reversible.
 
 ```
-+-------------------------------------------------------------+
-|                     VESTUARIOS (SKINS)                      |
-|                                                             |
-|   [ Camiseta Oficial ]  --> Modificación de Metadata        |
-|   [ Botines de Élite ]  --> Fusión y Quema Permanente (Burn) |
-|   [ Brazalete Capitán]  --> Incremento Eterno de Stats      |
-+-------------------------------------------------------------+
++-------------------------------------------------------------------+
+|               LOCKER ROOM: RANURAS INTERCAMBIABLES                |
+|                                                                   |
+|   [ Camiseta Selección (Arg) ] <--> [ RANURA JERSEYS ]            |
+|   [ Camiseta Club (Miami Pink) ]     (Transfer a PDA Escrow)      |
+|                                                                   |
+|   [ Botines de Élite ]         <--> [ RANURA ACCESSORIES ]        |
++-------------------------------------------------------------------+
 ```
 
-### A. Mecánica de Integración y Fusión Permanente
-*   Los vestuarios (Camisetas, Pantalones, Botines) son NFTs consumibles.
-*   Al equipar un vestuario a un jugador, **el NFT del vestuario se QUEMA (Burn)** y sus propiedades se fusionan permanentemente con el NFT del jugador.
-*   Esta fusión actualiza de forma irreversible la metadata on-chain del jugador:
-    *   **Atributo Visual:** El campo `visual_skin` cambia de `"undergarment_black"` a `"argentina_home_2026"`. La interfaz web/3D renderizará la camiseta sobre el modelo del jugador.
-    *   **Atributo Estadístico:** Otorga un boost plano y permanente a los stats (ej. Camiseta Oficial: $+5$ de Stamina Máxima; Botines de Oro: $+5$ de Potencia de Tiro).
-    *   **Atributo Económico:** Incrementa de forma fija el multiplicador de sueldo base en un $+3\%$.
+### A. Mecánica de Equipamiento y Escrow On-Chain
+*   Las camisetas y botines son NFTs independientes. 
+*   En lugar de quemarse (burn) de forma destructiva, al equipar un vestuario, **el NFT del vestuario se transfiere a un PDA (Program Derived Address) en depósito de garantía (escrow)** administrado por el smart contract del juego.
+*   Esta acción actualiza dinámicamente la metadata del jugador NFT:
+    *   **Atributo Visual:** El campo `visual_skin` se modifica dinámicamente (ej. de `"undergarment_black"` a `"argentina_home_2026"` o `"inter_miami_pink"`). El visualizador 3D renderiza la skin equipada en tiempo real.
+    *   **Atributo Estadístico:** Aplica el boost del vestuario (ej. Camiseta Selección: $+5$ Stamina Máxima; Camiseta MLS: $+8$ Agilidad).
+    *   **Atributo Económico:** Activa el multiplicador de sueldo base ($+3\%$ a $+10\%$ según rareza de la skin).
+*   **Desequipar / Intercambiar:** El dueño del cromo puede llamar en cualquier momento a la instrucción `unequip_item` o `swap_item`. El smart contract retira el NFT del PDA escrow, lo transfiere de vuelta a la wallet del usuario, y libera la ranura del cromo para equipar otra skin.
 
-### B. Utilidad Defensiva (La Camiseta de la Suerte)
-*   Podemos agregar un tipo de Vestuario Legendario: **"La Camiseta Histórica"**.
-*   **Efecto Escudo (Shield):** Si la selección del jugador es eliminada del Mundial, en lugar de que su sueldo caiga a $0$ de forma permanente (Death Pledge), tener equipada la Camiseta Histórica protege al NFT, permitiéndole mantener un **$15\%$ de su sueldo base** como "Leyenda Retirada". Esto añade un valor de cobertura financiero altísimo a los cosméticos.
+### B. Gestión Dinámica de Torneos y Salvación del "Death Pledge"
+La muerte deportiva o "Death Pledge" (caída de yield a $0$ por eliminación) **no es permanente**. Está ligada únicamente al torneo activo para el cual la camiseta equipada tiene validez:
+*   **Contexto Mundial:** Si *Argentina* es eliminada en octavos de final, Messi vistiendo la camiseta de la selección argentina sufre un decaimiento de yield a $0\%$ por el resto de la copa del mundo (salvo si tiene el Brazalete de Capitán que actúa como **Escudo Leyenda** protegiendo un $15\%$).
+*   **Transición a Liga Doméstica (MLS / Champions):** Cuando inicia el campeonato de clubes, el mánager puede desequipar la camiseta albiceleste de Messi y equiparle la **Camiseta Rosa del Inter Miami**. Al cambiar de jersey, el cromo califica automáticamente para la **MLS League** y recupera el $100\%$ de su capacidad de yield diario.
+*   Esta composabilidad modular evita la obsolescencia de los cromos y estimula un mercado secundario hiperactivo de camisetas de temporada para cada liga y torneo.
 
 ---
 
@@ -230,27 +234,27 @@ pub fn feed_potion(ctx: Context<FeedPotion>) -> Result<()> {
     Ok(())
 }
 
-// 2. Fusión de Ítem del Vestuario (Burns cosmetic NFT)
-pub fn fuse_locker_room_item(ctx: Context<FuseLockerRoomItem>, item_type: u8) -> Result<()> {
+// 2. Equipar Ítem del Vestuario (Transfiere NFT al PDA Escrow)
+pub fn equip_locker_room_item(ctx: Context<EquipLockerRoomItem>, item_type: u8) -> Result<()> {
     let player = &mut ctx.accounts.player;
     
-    // Validar y quemar el NFT del ítem cosmético (Camiseta, Botines, etc.)
+    // Transferir el NFT del cosmético de la wallet del usuario al Escrow PDA del Programa
     let cpi_program = ctx.accounts.token_program.to_account_info();
-    let cpi_accounts = token::Burn {
-        mint: ctx.accounts.item_mint.to_account_info(),
+    let cpi_accounts = token::Transfer {
         from: ctx.accounts.user_item_wallet.to_account_info(),
+        to: ctx.accounts.escrow_pda_wallet.to_account_info(),
         authority: ctx.accounts.user.to_account_info(),
     };
     let cpi_ctx = CpiContext::new(cpi_program, cpi_accounts);
-    token::burn(cpi_ctx, 1)?; // Quemar el NFT único del ítem (1 unidad)
+    token::transfer(cpi_ctx, 1)?; // Custodia del NFT único (1 unidad)
 
     match item_type {
-        1 => { // Camiseta Argentina
+        1 => { // Camiseta Argentina / Club (Ranura Jerseys)
             player.equipped_jersey = Some(ctx.accounts.item_mint.key());
             player.max_stamina = player.max_stamina.saturating_add(5);
-            player.stamina = player.max_stamina; // Restauración
+            player.stamina = player.max_stamina; // Recarga estamina instantánea por estreno
         },
-        2 => { // Botines de Oro
+        2 => { // Botines de Oro (Ranura Accesorios)
             player.equipped_boots = Some(ctx.accounts.item_mint.key());
             player.speed = player.speed.saturating_add(8);
         },
@@ -260,8 +264,51 @@ pub fn fuse_locker_room_item(ctx: Context<FuseLockerRoomItem>, item_type: u8) ->
         _ => {}
     }
     
-    // Aumentar tasa base en 3% permanentemente
+    // Incremento del 3% en rendimiento mientras esté equipado
     player.base_yield_rate = player.base_yield_rate.saturating_add(player.base_yield_rate * 3 / 100);
+    
+    Ok(())
+}
+
+// 3. Desequipar Ítem del Vestuario (Retorna NFT del PDA Escrow a la wallet)
+pub fn unequip_locker_room_item(ctx: Context<UnequipLockerRoomItem>, item_type: u8) -> Result<()> {
+    let player = &mut ctx.accounts.player;
+    
+    // Firmar con semillas del Escrow PDA del programa para devolver el NFT
+    let seeds = &[
+        b"escrow",
+        player.key().as_ref(),
+        &[ctx.bumps.escrow_pda],
+    ];
+    let signer = &[&seeds[..]];
+
+    let cpi_program = ctx.accounts.token_program.to_account_info();
+    let cpi_accounts = token::Transfer {
+        from: ctx.accounts.escrow_pda_wallet.to_account_info(),
+        to: ctx.accounts.user_item_wallet.to_account_info(),
+        authority: ctx.accounts.escrow_pda_authority.to_account_info(),
+    };
+    let cpi_ctx = CpiContext::new_with_signer(cpi_program, cpi_accounts, signer);
+    token::transfer(cpi_ctx, 1)?; // Retornar el NFT a la wallet del usuario
+
+    match item_type {
+        1 => { // Camiseta Argentina / Club
+            player.equipped_jersey = None;
+            player.max_stamina = player.max_stamina.saturating_sub(5);
+            player.stamina = player.stamina.min(player.max_stamina);
+        },
+        2 => { // Botines de Oro
+            player.equipped_boots = None;
+            player.speed = player.speed.saturating_sub(8);
+        },
+        3 => { // Brazalete Capitán (Shield Effect)
+            player.has_shield_jersey = false;
+        },
+        _ => {}
+    }
+    
+    // Revertir incremento del 3%
+    player.base_yield_rate = player.base_yield_rate.saturating_sub(player.base_yield_rate * 3 / 103);
     
     Ok(())
 }
