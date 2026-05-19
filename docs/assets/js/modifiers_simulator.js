@@ -252,6 +252,20 @@ class ModifiersSimulator {
 
         // Actualizar estadísticas iniciales en el cromo
         this.updateStatsUI();
+        
+        // Actualizar dinámicamente las etiquetas del selector del Locker Room (Panel 2)
+        if (this.fuseItemSelect) {
+            const optSelection = this.fuseItemSelect.querySelector('option[value="jersey_arg"]');
+            if (optSelection) {
+                optSelection.innerText = `👕 Camiseta Selección ${this.selectedPlayer.country} (+5 Max Stamina, +3% Yield en Copa del Mundo)`;
+            }
+            const optClub = this.fuseItemSelect.querySelector('option[value="jersey_club"]');
+            if (optClub) {
+                const clubName = (this.selectedPlayer.meta && this.selectedPlayer.meta.parody_club) ? this.selectedPlayer.meta.parody_club : "Club Oficial";
+                optClub.innerText = `💗 Camiseta Club ${clubName} (+5 Max Stamina, +5% Yield en MLS)`;
+            }
+        }
+        
         this.updateYieldAndUI();
     }
 
@@ -308,7 +322,7 @@ class ModifiersSimulator {
         // 3. Locker Room boosts permanentes
         let lockerRoomBoost = 0;
         if (this.equippedJersey) {
-            if (this.equippedJersey === 'miami_pink_2026') lockerRoomBoost += 0.05; // Camiseta Club da +5%
+            if (this.equippedJersey.startsWith('club_jersey')) lockerRoomBoost += 0.05; // Camiseta Club da +5%
             else lockerRoomBoost += 0.03; // Camiseta Selección da +3%
         }
         if (this.equippedBoots) lockerRoomBoost += 0.05; // +5%
@@ -353,13 +367,13 @@ class ModifiersSimulator {
         // 8. Validación de Liga y Camiseta Activa
         let leagueMatchMultiplier = 1.0;
         if (this.activeLeague === 'world_cup') {
-            if (this.equippedJersey === 'argentina_home_2026') {
+            if (this.equippedJersey && this.equippedJersey.startsWith('selection_jersey')) {
                 leagueMatchMultiplier = 1.0;
             } else {
                 leagueMatchMultiplier = 0.0; // No califica para Copa del Mundo sin camiseta de selección
             }
         } else if (this.activeLeague === 'mls') {
-            if (this.equippedJersey === 'miami_pink_2026') {
+            if (this.equippedJersey && this.equippedJersey.startsWith('club_jersey')) {
                 leagueMatchMultiplier = 1.0;
             } else {
                 leagueMatchMultiplier = 0.0; // No califica para MLS sin camiseta de club
@@ -529,7 +543,8 @@ class ModifiersSimulator {
         
         setTimeout(() => {
             if (selectedItem === 'jersey_arg') {
-                this.equippedJersey = 'argentina_home_2026';
+                const jerseyCode = 'selection_jersey_' + this.selectedPlayer.country.toLowerCase().replace(/ /g, '_');
+                this.equippedJersey = jerseyCode;
                 this.maxStamina = 105; // Boost temporal de stamina
                 this.stamina = 105;
                 if (this.staminaSlider) {
@@ -539,15 +554,17 @@ class ModifiersSimulator {
                 if (this.staminaVal) this.staminaVal.innerText = '105%';
                 if (this.jerseyBadge) {
                     this.jerseyBadge.style.display = 'inline-block';
-                    this.jerseyBadge.innerText = '👕 Arg 2026';
+                    this.jerseyBadge.innerText = `👕 ${this.selectedPlayer.country} '26`;
                     this.jerseyBadge.style.background = 'rgba(20, 241, 149, 0.2)';
                     this.jerseyBadge.style.color = 'var(--primary)';
                     this.jerseyBadge.style.border = '1px solid var(--primary)';
                 }
-                this.logToConsole(`🌟 [Locker Room] ¡Camiseta Equipada! Camiseta Argentina depositada en Escrow PDA y acoplada a ${this.selectedPlayer.name}.`);
-                this.logToConsole(`[Metadata on-chain] visual_skin = "argentina_home_2026", max_stamina = 105, yield +3% activo.`);
+                this.logToConsole(`🌟 [Locker Room] ¡Camiseta Equipada! Camiseta de Selección (${this.selectedPlayer.country}) depositada en Escrow PDA y acoplada a ${this.selectedPlayer.name}.`);
+                this.logToConsole(`[Metadata on-chain] visual_skin = "${jerseyCode}", max_stamina = 105, yield +3% activo.`);
             } else if (selectedItem === 'jersey_club') {
-                this.equippedJersey = 'miami_pink_2026';
+                const clubName = (this.selectedPlayer.meta && this.selectedPlayer.meta.parody_club) ? this.selectedPlayer.meta.parody_club : "Club Oficial";
+                const jerseyCode = 'club_jersey_' + clubName.toLowerCase().replace(/ /g, '_');
+                this.equippedJersey = jerseyCode;
                 this.maxStamina = 105; 
                 this.stamina = 105;
                 if (this.staminaSlider) {
@@ -557,13 +574,13 @@ class ModifiersSimulator {
                 if (this.staminaVal) this.staminaVal.innerText = '105%';
                 if (this.jerseyBadge) {
                     this.jerseyBadge.style.display = 'inline-block';
-                    this.jerseyBadge.innerText = '💗 Miami Pink';
+                    this.jerseyBadge.innerText = `💗 ${clubName}`;
                     this.jerseyBadge.style.background = 'rgba(255, 77, 106, 0.2)';
                     this.jerseyBadge.style.color = '#ff4d6a';
                     this.jerseyBadge.style.border = '1px solid #ff4d6a';
                 }
-                this.logToConsole(`🌟 [Locker Room] ¡Camiseta Equipada! Camiseta Rosa Inter Miami depositada en Escrow PDA y acoplada a ${this.selectedPlayer.name}.`);
-                this.logToConsole(`[Metadata on-chain] visual_skin = "miami_pink_2026", max_stamina = 105, yield +5% activo.`);
+                this.logToConsole(`🌟 [Locker Room] ¡Camiseta Equipada! Camiseta de Club (${clubName}) depositada en Escrow PDA y acoplada a ${this.selectedPlayer.name}.`);
+                this.logToConsole(`[Metadata on-chain] visual_skin = "${jerseyCode}", max_stamina = 105, yield +5% activo.`);
             } else if (selectedItem === 'boots_gold') {
                 this.equippedBoots = 'golden_boots';
                 if (this.bootsBadge) {
@@ -625,7 +642,16 @@ class ModifiersSimulator {
                 if (this.jerseyBadge) {
                     this.jerseyBadge.style.display = 'none';
                 }
-                this.logToConsole(`🔄 [Locker Room] ¡Desequipamiento Exitoso! Camiseta (${oldJersey === 'argentina_home_2026' ? 'Argentina 2026' : 'Miami Pink'}) devuelta desde Escrow PDA a tu wallet.`);
+                
+                let jerseyName = "Camiseta Oficial";
+                if (oldJersey.startsWith('selection_jersey')) {
+                    jerseyName = `Selección ${this.selectedPlayer.country}`;
+                } else if (oldJersey.startsWith('club_jersey')) {
+                    const clubName = (this.selectedPlayer.meta && this.selectedPlayer.meta.parody_club) ? this.selectedPlayer.meta.parody_club : "Club Oficial";
+                    jerseyName = `Club ${clubName}`;
+                }
+                
+                this.logToConsole(`🔄 [Locker Room] ¡Desequipamiento Exitoso! Camiseta (${jerseyName}) devuelta desde Escrow PDA a tu wallet.`);
                 this.logToConsole(`[Metadata on-chain] visual_skin = "undergarment_black", max_stamina = 100, stamina corregida.`);
             } else if (selectedItem === 'boots_gold') {
                 if (!this.equippedBoots) {
