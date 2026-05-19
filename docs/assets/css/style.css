@@ -714,7 +714,7 @@ body {
 }
 
 .nft-card-3d.is-flipped.is-active {
-    transform: scale(1.05) translateY(-10px) rotateY(180deg);
+    transform: scale(1.05) translateY(-10px);
 }
 
 .nft-card-3d .glare {
