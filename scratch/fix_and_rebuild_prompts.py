@@ -28,19 +28,24 @@ def rebuild_all():
         json.dump(players, f, indent=4, ensure_ascii=False)
     print(f"✅ Anomalías biométricas corregidas en players.json: {fixes_applied}")
         
-    # 2. REBUILD STRICT PROMPTS (V6.0 - DYNAMIC BAREFOOT & COMPRESSION)
+    # 2. REBUILD STRICT PROMPTS (V6.1 - EXACT LIKENESS COPY, NO IDEALIZATION, NO SHADOW)
     prompts = []
     for p in players:
         name = p.get('real_name', p.get('name', 'Player'))
         
-        # Fórmula Maestra de Copia y Búsqueda Dinámica (V6.0)
+        # Fórmula Maestra V6.1 — Copia Exacta Real, Sin Idealización, Sin Sombra
         prompt_str = (
-            f"Subject: {name}. Dynamic Pose: Research and replicate their iconic real-life football celebration, signature action pose, or dynamic in-game stance. "
-            "KIT: Wearing a premium tight-fitting solid black athletic compression short-sleeve shirt and tight black athletic shorts. "
-            "FEET: Strictly barefoot, bare feet, toes and heels fully visible standing on the white floor. "
-            "BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. "
-            "The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. "
-            "TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
+            f"Subject: {name}. "
+            f"LIKENESS: Search the web for real photographs of {name} and replicate their EXACT real-world appearance — "
+            f"copy their true face shape, skin tone, hair, beard/stubble exactly as they look in real life. "
+            f"Do NOT idealize, do NOT make them more muscular, do NOT make them more handsome or perfect than they really are. "
+            f"Copy their exact real body proportions including if they are stocky, lean, tall or short. "
+            f"POSE: Replicate their most iconic real-life football celebration or signature in-game stance, exactly as seen in real photographs. "
+            "KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. "
+            "FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. "
+            "BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette. "
+            "The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. "
+            "TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3"
         )
         
         prompts.append({
