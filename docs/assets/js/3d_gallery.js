@@ -147,7 +147,7 @@ function renderParallaxCard(container, player) {
     const safeName = sanitizeFilename(player.name);
     
     // Corregido: Las siluetas recortadas están en la raíz de nfts/
-    const playerImgUrl = `assets/img/nfts/${paddedId}_${safeName}.png`;
+    const playerImgUrl = `assets/img/nfts/${paddedId}_${safeName}.webp`;
     const bgImgUrl = `assets/video/stadiums/${bgFilename}`;
 
     // --- On-Chain Mock Data (Simulando lo que llega del Smart Contract) ---
@@ -186,7 +186,7 @@ function renderParallaxCard(container, player) {
                 
                 <!-- CAPA 0: Estadio de Fondo (Profundidad: -30px) -->
                 ${bgFilename.endsWith('.mp4') || bgFilename.endsWith('.webm') ? `
-                <video class="layer layer-bg" autoplay loop muted playsinline style="
+                <video class="layer layer-bg" autoplay loop muted playsinline preload="none" style="
                     position: absolute; inset: -10px; border-radius: 16px;
                     width: calc(100% + 20px); height: calc(100% + 20px); object-fit: cover;
                     transform: translateZ(-30px);
@@ -214,10 +214,10 @@ function renderParallaxCard(container, player) {
                     transform: translateZ(30px);
                     z-index: 3;
                 ">
-                    <img src="${playerImgUrl}" style="
+                    <img src="${playerImgUrl}" loading="lazy" style="
                         width: 95%; height: 95%; object-fit: contain; pointer-events: none;
                         filter: ${filterStyle};
-                    " onerror="this.src='assets/img/mock/player_placeholder.png'; this.style.opacity='0.2';">
+                    " onerror="this.src='assets/img/mock/player_placeholder.webp'; this.style.opacity='0.2';">
                 </div>
 
                 <!-- CAPA FX: Low Battery Warning -->
