@@ -1213,7 +1213,7 @@
                             <span>👤</span> Configuración de Jugador del Genesis Squad
                         </h3>
                         
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 20px;">
                             <div>
                                 <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 6px; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Selecciona Jugador Parodia</label>
                                 <select id="simPlayerSelect" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.8rem; cursor:pointer;">
@@ -1225,6 +1225,14 @@
                                     <option value="15">Pedri Protocol 🇪🇸 (Epic)</option>
                                     <option value="27">Vini Burner Jr 🇧🇷 (Legendary)</option>
                                     <option value="105">Lamine Ya-hype 🇪🇸 (Legendary)</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 6px; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Torneo Activo Oráculo</label>
+                                <select id="simActiveLeague" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.8rem; cursor:pointer;">
+                                    <option value="world_cup">Copa del Mundo 🌍 (Selección)</option>
+                                    <option value="mls">MLS Club Cup ⚽ (Inter Miami)</option>
                                 </select>
                             </div>
                             
@@ -1247,18 +1255,19 @@
                         </div>
                     </div>
 
-                    <!-- Panel 2: Locker Room & Permanent Fusion -->
+                    <!-- Panel 2: Locker Room & Reversible Escrow Slots -->
                     <div class="app-card" style="border-color: rgba(153, 69, 255, 0.15); padding: 25px;">
                         <h3 style="margin-top:0; margin-bottom:10px; display:flex; align-items:center; gap:8px;">
-                            <span>👕</span> Vestuario (Locker Room Fusión & Burn)
+                            <span>👕</span> Vestuario (Locker Room Escrow & Slots)
                         </h3>
-                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px; margin-top:5px;">Simula la quema (burn) de NFTs de equipamiento deportivo para fusionarlos irreversiblemente con la metadata on-chain de tu cromo.</p>
+                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px; margin-top:5px;">Simula el depósito en garantía (Escrow PDA) de tus camisetas y accesorios NFT para equiparlos/desequiparlos de forma dinámica sin quemarlos de forma destructiva.</p>
 
                         <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); margin-bottom: 20px; font-size: 0.75rem; display: flex; flex-direction: column; gap: 15px;">
                             <div>
-                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px; font-weight:bold;">1. SELECCIONA EL COSMÉTICO NFT A FUSIONAR</label>
+                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px; font-weight:bold;">1. SELECCIONA EL COSMÉTICO NFT A EQUIPAR / DESEQUIPAR</label>
                                 <select id="simFuseItem" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem; cursor:pointer;">
-                                    <option value="jersey_arg">👕 Camiseta Oficial Selección (+5 Max Stamina, +3% Yield permanent)</option>
+                                    <option value="jersey_arg">👕 Camiseta Argentina Selección (+5 Max Stamina, +3% Yield en Copa del Mundo)</option>
+                                    <option value="jersey_club">💗 Camiseta Inter Miami MLS Pink (+5 Max Stamina, +5% Yield en MLS)</option>
                                     <option value="boots_gold">🪙 Botines de Oro (+8 speed/atk, +5% Yield permanent)</option>
                                     <option value="armband_cap">🎖️ Brazalete Capitán (Shield Effect: Protege 15% Yield ante eliminación, +10% Yield)</option>
                                 </select>
@@ -1266,17 +1275,20 @@
 
                             <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; font-size:0.7rem; color:var(--text-dim); display:flex; flex-direction:column; gap:6px;">
                                 <div style="display:flex; justify-content:space-between;">
-                                    <span>Transacción en Solana:</span>
-                                    <span style="color:#fff; font-weight:bold;">burn_nft (Token-2022 program)</span>
+                                    <span>Instrucción Solana:</span>
+                                    <span style="color:#fff; font-weight:bold;">equip_locker_room_item / unequip_locker_room_item</span>
                                 </div>
                                 <div style="display:flex; justify-content:space-between;">
-                                    <span>Modificación de Metadata:</span>
-                                    <span style="color:var(--primary); font-weight:bold;">IRREVERSIBLE ON-CHAIN WRITE</span>
+                                    <span>Custodia de Activo:</span>
+                                    <span style="color:var(--primary); font-weight:bold;">PDA ESCROW DEPÓSITO REVERSIBLE</span>
                                 </div>
                             </div>
                         </div>
 
-                        <button onclick="fuseSimItem()" class="btn btn-secondary btn-glow" style="width:100%; background:var(--secondary); border-color:var(--secondary);">FUSIONAR & QUEMAR NFT EN LOCKER ROOM</button>
+                        <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 10px;">
+                            <button onclick="fuseSimItem()" class="btn btn-secondary btn-glow" style="background:var(--secondary); border-color:var(--secondary); font-size:0.7rem; padding: 12px 10px;">EQUIPAR ACCESORIO</button>
+                            <button onclick="unequipSimItem()" class="btn btn-glow" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.1); color:#fff; font-size:0.7rem; padding: 12px 10px;">DESEQUIPAR ACCESORIO</button>
+                        </div>
                     </div>
 
                     <!-- Panel 3: Rental Escrow & Golden Recall -->
