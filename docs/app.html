@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -792,7 +792,7 @@
                     bottom: 0;
                     left: var(--sidebar-w);
                     width: calc(100vw - var(--sidebar-w) - var(--feed-w));
-                    height: 80px;
+                    height: 65px;
                     z-index: 1000;
                     cursor: default;
                     border-top: 1px solid rgba(255,255,255,0.1);
@@ -879,7 +879,7 @@
                 .ai-node::-webkit-scrollbar { width: 4px; }
                 .ai-node::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
             .node-details p, .node-details div, .node-details span, .node-details strong, .node-details label, .node-details li {
-                    font-size: 0.75rem !important;
+                    font-size: 0.8rem !important;
                     line-height: 1.4 !important;
                 }
             </style>
@@ -1073,12 +1073,12 @@
                 <!-- NODE 5: Agent Terminal -->
                 <div class="ai-node-wrapper terminal-bar-wrapper" draggable="false" style="order: 99;">
                     <div class="ai-node" style="border-color: rgba(255, 255, 255, 0.2);">
-                        <div class="node-summary">
-                            <h4 style="color:#fff;">🖥️ Agent Terminal</h4>
-                            <span class="badge" style="background:rgba(255, 255, 255, 0.1); color:#fff; border:1px solid #fff;">SOLANA AGENT KIT V3.0</span>
+                        <div class="node-summary" style="flex-direction: row; align-items: center; justify-content: flex-start; gap: 15px;">
+                            <h4 style="color:#fff; margin:0;">🖥️ Agent Terminal</h4>
+                            <span class="badge" style="background:rgba(255, 255, 255, 0.1); color:#fff; border:1px solid #fff; margin:0;">SOLANA AGENT KIT V3.0</span>
                         </div>
                         <div class="node-details">
-                            <div id="terminalOutput" class="terminal-output-box" style="height: 250px; overflow-y: auto; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 15px; text-align: left;">
+                            <div id="terminalOutput" class="terminal-output-box" style="height: 80px; overflow-y: auto; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 15px; text-align: left;">
                                 <!-- Terminal logs injected by JS -->
                             </div>
 
