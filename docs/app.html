@@ -791,7 +791,7 @@
                     position: fixed;
                     bottom: 0;
                     left: var(--sidebar-w);
-                    width: calc(100% - var(--sidebar-w));
+                    width: calc(100vw - var(--sidebar-w) - var(--feed-w));
                     height: 80px;
                     z-index: 1000;
                     cursor: default;
@@ -879,7 +879,8 @@
                 .ai-node::-webkit-scrollbar { width: 4px; }
                 .ai-node::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
             .node-details p, .node-details div, .node-details span, .node-details strong, .node-details label, .node-details li {
-                    font-size: calc(100% + 0.15rem) !important;
+                    font-size: 0.75rem !important;
+                    line-height: 1.4 !important;
                 }
             </style>
 
@@ -1287,14 +1288,18 @@
                                     node.style.right = 'auto';
                                 }
 
-                                const windowHeightCenter = window.innerHeight / 2;
-                                if (rect.top > windowHeightCenter) {
-                                    node.style.bottom = '0';
-                                    node.style.top = 'auto';
-                                } else {
-                                    node.style.top = '0';
-                                    node.style.bottom = 'auto';
-                                }
+                                const viewportCenterY = window.innerHeight / 2;
+                                const offsetTop = viewportCenterY - rect.top;
+                                node.style.top = offsetTop + 'px';
+                                node.style.transform = 'translateY(-50%)';
+                            }
+                        });
+
+                        item.addEventListener('mouseleave', () => {
+                            if (!item.classList.contains('terminal-bar-wrapper')) {
+                                const node = item.querySelector('.ai-node');
+                                node.style.top = '0';
+                                node.style.transform = 'none';
                             }
                         });
 
@@ -1973,6 +1978,7 @@
     </div>
 </body>
 </html>
+
 
 
 
