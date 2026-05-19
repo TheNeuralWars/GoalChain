@@ -603,6 +603,8 @@ body {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
+    .desktop-only-btn { display: none !important; }
+
     .gameplay-grid { grid-template-columns: 1fr; }
     .nav-links-desktop { display: none; }
     .hamburger { display: flex; }
@@ -2062,6 +2064,8 @@ body {
 .stadium-details p { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 1rem; }
 
 @media (max-width: 900px) {
+    .desktop-only-btn { display: none !important; }
+
     .manager-dashboard { grid-template-columns: 1fr; }
     .manager-profile { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 2rem; }
 }
@@ -2306,6 +2310,8 @@ body {
    ========================================================================== */
 
 @media (max-width: 900px) {
+    .desktop-only-btn { display: none !important; }
+
     /* App layout: hide right feed panel, full-width sidebar */
     .activity-feed { display: none !important; }
     .main-content { padding: 20px !important; }
