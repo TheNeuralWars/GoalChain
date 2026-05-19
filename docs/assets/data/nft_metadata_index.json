@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "filename": "DxjaQ.jpg",
+    "filename": "OYRRU.png",
     "metadata": {
       "name": "GoalChain Genesis #001 — Lionel Satoshi",
       "symbol": "GCG",
       "description": "The undisputed GOAT of the GoalChain ledger. With 46 trophies and 900+ senior goals, 'La Pulga' cemented his legacy leading the Miami Node to the 2025 MLS Cup. His journey from Rosario to eternal glory is encoded in every block.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/DxjaQ.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/OYRRU.png",
       "external_url": "https://goalchain.fun/nft/1",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -78,8 +78,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/DxjaQ.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/OYRRU.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -98,12 +98,12 @@
   },
   {
     "id": 2,
-    "filename": "eK3bc.jpg",
+    "filename": "suDeW.png",
     "metadata": {
       "name": "GoalChain Genesis #002 — Dibu De-Fi",
       "symbol": "GCG",
       "description": "The 'Hero of Lusail' and master of mind games. A Golden Glove winner whose saves secured the 2022 World Cup for Argentina, making him the most feared goalkeeper in any penalty shootout protocol.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/eK3bc.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/suDeW.png",
       "external_url": "https://goalchain.fun/nft/2",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -175,8 +175,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/eK3bc.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/suDeW.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -195,12 +195,12 @@
   },
   {
     "id": 3,
-    "filename": "DncFG.jpg",
+    "filename": "xbQ7X.png",
     "metadata": {
       "name": "GoalChain Genesis #003 — Julian Bull-varez",
       "symbol": "GCG",
       "description": "The 'Spider' who has won every major international title before the age of 25. A serial trophy winner who moved to the Madrid-Atletico Node in 2024 to lead their new offensive protocol.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/DncFG.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/xbQ7X.png",
       "external_url": "https://goalchain.fun/nft/3",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -264,8 +264,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/DncFG.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/xbQ7X.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -284,12 +284,12 @@
   },
   {
     "id": 4,
-    "filename": "BhTBc.jpg",
+    "filename": "vIqWX.png",
     "metadata": {
       "name": "GoalChain Genesis #004 — Enzo Ether",
       "symbol": "GCG",
       "description": "The 'Musico' of the Chelsea Node. A 2022 World Cup Young Player winner who moved for a record fee to master the London midfield, winning the FIFA Club World Cup in the process.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/BhTBc.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/vIqWX.png",
       "external_url": "https://goalchain.fun/nft/4",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -353,8 +353,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/BhTBc.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/vIqWX.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -373,12 +373,12 @@
   },
   {
     "id": 5,
-    "filename": "5C8GN.jpg",
+    "filename": "tAyKc.png",
     "metadata": {
       "name": "GoalChain Genesis #005 — Rodrigo De-Pool",
       "symbol": "GCG",
       "description": "Known as 'The Motor' and the 'Bodyguard' of the Argentine Node. A tireless midfielder whose tactical discipline and emotional leadership ensure the stability of any high-pressure football protocol.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/5C8GN.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/tAyKc.png",
       "external_url": "https://goalchain.fun/nft/5",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -442,8 +442,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/5C8GN.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/tAyKc.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -462,12 +462,12 @@
   },
   {
     "id": 6,
-    "filename": "ZkyHt.jpg",
+    "filename": "YFhoE.png",
     "metadata": {
       "name": "GoalChain Genesis #006 — Angel Di Merkle",
       "symbol": "GCG",
       "description": "Nicknamed 'El Fideo' (The Noodle). A 'Triple Crown' winner who retired from the Argentine Node in 2024 as a living legend. Known for scoring in every major final, his left foot is a verified masterpiece in football history.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/ZkyHt.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/YFhoE.png",
       "external_url": "https://goalchain.fun/nft/6",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -531,8 +531,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/ZkyHt.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/YFhoE.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -551,12 +551,12 @@
   },
   {
     "id": 7,
-    "filename": "QqMAA.jpg",
+    "filename": "KPnuU.png",
     "metadata": {
       "name": "GoalChain Genesis #007 — Alexis Mac-Chain",
       "symbol": "GCG",
       "description": "The 'Midfield Professor'. A World Cup winner whose footballing IQ and technical elegance have transformed the Liverpool midfield into a high-efficiency tactical machine.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/QqMAA.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/KPnuU.png",
       "external_url": "https://goalchain.fun/nft/7",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -620,8 +620,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/QqMAA.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/KPnuU.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -640,12 +640,12 @@
   },
   {
     "id": 8,
-    "filename": "qEwxs.jpg",
+    "filename": "mspm6.png",
     "metadata": {
       "name": "GoalChain Genesis #008 — Cuti Crypt",
       "symbol": "GCG",
       "description": "Verified as 'Cuti' or 'The Gladiator'. An aggressive and fearless defender whose tactical intelligence and timing make him the primary firewall of the London-Spurs and Argentine nodes.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/qEwxs.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/mspm6.png",
       "external_url": "https://goalchain.fun/nft/8",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -713,8 +713,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/qEwxs.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/mspm6.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -733,12 +733,12 @@
   },
   {
     "id": 9,
-    "filename": "UP3Bf.jpg",
+    "filename": "TY3Ck.png",
     "metadata": {
       "name": "GoalChain Genesis #009 — Lisandro Butcher-DAO",
       "symbol": "GCG",
       "description": "The legendary 'El Carnicero' (The Butcher). A tenacious defender whose aggressive style and ball-playing abilities have made him an icon of the Manchester Node, proving that size is no barrier to dominance.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/UP3Bf.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/TY3Ck.png",
       "external_url": "https://goalchain.fun/nft/9",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -806,8 +806,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/UP3Bf.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/TY3Ck.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -826,12 +826,12 @@
   },
   {
     "id": 10,
-    "filename": "5VJOb.jpg",
+    "filename": "ZWtiS.png",
     "metadata": {
       "name": "GoalChain Genesis #010 — Nahuel Mo-Wallet",
       "symbol": "GCG",
       "description": "Verified as 'The Silent Engine'. A high-output wing-back whose tactical intelligence and overlap protocols make him a primary offensive node for the Argentine Ledger.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/5VJOb.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/ZWtiS.png",
       "external_url": "https://goalchain.fun/nft/10",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -899,8 +899,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/5VJOb.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/ZWtiS.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -919,12 +919,12 @@
   },
   {
     "id": 11,
-    "filename": "UQLef.jpg",
+    "filename": "UQLef.png",
     "metadata": {
       "name": "GoalChain Genesis #011 — Nico Taglia-Token",
       "symbol": "GCG",
       "description": "Known for his 'Grinta' and mental toughness. A relentless left-back whose discipline and defensive packets secured the Argentine Node's historic dominance in the 20s.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/UQLef.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/UQLef.png",
       "external_url": "https://goalchain.fun/nft/11",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -992,8 +992,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/UQLef.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/UQLef.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -1012,12 +1012,12 @@
   },
   {
     "id": 12,
-    "filename": "OBw9D.jpg",
+    "filename": "OBw9D.png",
     "metadata": {
       "name": "GoalChain Genesis #012 — Kylian M-Bypass-pé",
       "symbol": "GCG",
       "description": "The '37' speedster of the French Node. A World Cup winner and Real Madrid icon who holds the record for the most goals in World Cup finals. His blistering pace is a glitch in the defensive systems of the world.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/OBw9D.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/OBw9D.png",
       "external_url": "https://goalchain.fun/nft/12",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -1089,8 +1089,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/OBw9D.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/OBw9D.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -1109,12 +1109,12 @@
   },
   {
     "id": 13,
-    "filename": "t50Ye.jpg",
+    "filename": "t50Ye.png",
     "metadata": {
       "name": "GoalChain Genesis #013 — Antoine G-ZkSync",
       "symbol": "GCG",
       "description": "The 'Petit Prince' and tireless creator. A world-class strategist whose versatility and intelligence have made him the tactical heart of both the French and Madrid-Atletico nodes.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/t50Ye.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/t50Ye.png",
       "external_url": "https://goalchain.fun/nft/13",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -1178,8 +1178,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/t50Ye.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/t50Ye.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -1198,12 +1198,12 @@
   },
   {
     "id": 14,
-    "filename": "t4uPK.jpg",
+    "filename": "t4uPK.png",
     "metadata": {
       "name": "GoalChain Genesis #014 — Ousmane De-Shard",
       "symbol": "GCG",
       "description": "Known globally as 'Dembouz'. The sensational winner of the 2025 Ballon d'Or after leading the Paris Node to a historic Champions League treble. An ambidextrous wizard whose creative flair has redefined the modern winger protocol.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/t4uPK.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/t4uPK.png",
       "external_url": "https://goalchain.fun/nft/14",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -1267,8 +1267,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/t4uPK.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/t4uPK.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -1287,12 +1287,12 @@
   },
   {
     "id": 15,
-    "filename": "Xe7eB.jpg",
+    "filename": "Xe7eB.png",
     "metadata": {
       "name": "GoalChain Genesis #015 — Eduardo Cama-Logic",
       "symbol": "GCG",
       "description": "Nicknamed 'Tacklevinga' and the 'Iceman'. A master of the Real Madrid Node known for his 100% defensive efficiency. Teammates jokingly call him 'Jon Jones' due to his boxing-like intensity and physical dominance on the pitch.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/Xe7eB.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/Xe7eB.png",
       "external_url": "https://goalchain.fun/nft/15",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -1356,8 +1356,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/Xe7eB.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/Xe7eB.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -1376,12 +1376,12 @@
   },
   {
     "id": 16,
-    "filename": "v7dSE.jpg",
+    "filename": "v7dSE.png",
     "metadata": {
       "name": "GoalChain Genesis #016 — Theo Shiller",
       "symbol": "GCG",
       "description": "The 'Train' of the Milan and French nodes. The fastest left-back on the chain, whose explosive overlapping runs and physical power can override any defensive firewall.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/v7dSE.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/v7dSE.png",
       "external_url": "https://goalchain.fun/nft/16",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -1449,8 +1449,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/v7dSE.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/v7dSE.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -1469,12 +1469,12 @@
   },
   {
     "id": 17,
-    "filename": "tRJVF.jpg",
+    "filename": "tRJVF.png",
     "metadata": {
       "name": "GoalChain Genesis #017 — Mike Maignan-Admin",
       "symbol": "GCG",
       "description": "The 'Magic Eagle'. A world-class goalkeeper and clean-sheet specialist whose presence in the Milan Node has redefined the modern shot-stopping protocol with his reflexes and leadership.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/tRJVF.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/tRJVF.png",
       "external_url": "https://goalchain.fun/nft/17",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -1542,8 +1542,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/tRJVF.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/tRJVF.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -1562,12 +1562,12 @@
   },
   {
     "id": 18,
-    "filename": null,
+    "filename": "Fq5bx.png",
     "metadata": {
       "name": "GoalChain Genesis #018 — Aurélien Buffer-Tch",
       "symbol": "GCG",
       "description": "Commonly known as 'Chumino'. The defensive shield of the Madrid Node whose physical power and tactical awareness have made him the most reliable firewall in Europe, proving his worth after rising above the 'scapegoat' era.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/018_aurélien_buffer-tch.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/Fq5bx.png",
       "external_url": "https://goalchain.fun/nft/18",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -1631,8 +1631,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/018_aurélien_buffer-tch.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/Fq5bx.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -1651,12 +1651,12 @@
   },
   {
     "id": 19,
-    "filename": null,
+    "filename": "hpyIm.png",
     "metadata": {
       "name": "GoalChain Genesis #019 — William Sali-Struct",
       "symbol": "GCG",
       "description": "The 'Rolls-Royce' of defenders. A technical and elegant centre-back whose defensive algorithms are nearly flawless, stabilizing the Arsenal Node with his composure and strength.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/019_william_sali-struct.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/hpyIm.png",
       "external_url": "https://goalchain.fun/nft/19",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -1724,8 +1724,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/019_william_sali-struct.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/hpyIm.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -1744,12 +1744,12 @@
   },
   {
     "id": 20,
-    "filename": null,
+    "filename": "QDJSS.png",
     "metadata": {
       "name": "GoalChain Genesis #020 — Dayot Upame-Kernel",
       "symbol": "GCG",
       "description": "The 'Beast' of the French Node. A powerful and fast centre-back whose defensive algorithms are optimized for high-stakes recovery, stabilizing the Munich and French ledgers with his physical strength.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/020_dayot_upame-kernel.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/QDJSS.png",
       "external_url": "https://goalchain.fun/nft/20",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -1817,8 +1817,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/020_dayot_upame-kernel.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/QDJSS.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -1837,12 +1837,12 @@
   },
   {
     "id": 21,
-    "filename": null,
+    "filename": "mgWOC.png",
     "metadata": {
       "name": "GoalChain Genesis #021 — Jules Koun-DEX",
       "symbol": "GCG",
       "description": "The 'Fashionista Defender' and versatile wall of the Barcelona Node. Known for his unique style off the pitch and his tactical intelligence on it, he is a master of the modern hybrid defensive protocol.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/021_jules_koun-dex.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/mgWOC.png",
       "external_url": "https://goalchain.fun/nft/21",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -1906,8 +1906,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/021_jules_koun-dex.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/mgWOC.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -1926,12 +1926,12 @@
   },
   {
     "id": 22,
-    "filename": null,
+    "filename": "RLqjT.png",
     "metadata": {
       "name": "GoalChain Genesis #022 — Adrien Rabi-Protocol",
       "symbol": "GCG",
       "description": "Verified as 'The Duke' (Le Duc). Now a cornerstone of the Milan Node, he is an elegant engine whose experience and tactical maturity have made him one of the most respected midfielders in the Italian and French circuits.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/022_adrien_rabi-protocol.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/RLqjT.png",
       "external_url": "https://goalchain.fun/nft/22",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -1995,8 +1995,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/022_adrien_rabi-protocol.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/RLqjT.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -2015,12 +2015,12 @@
   },
   {
     "id": 23,
-    "filename": null,
+    "filename": "NjE3G.png",
     "metadata": {
       "name": "GoalChain Genesis #023 — Harry Stake",
       "symbol": "GCG",
       "description": "The 'Hurri-Kane'. A clinical striker whose pursuit of goal-scoring records has led him to the Munich Grid, where he continues to be the most reliable finisher in the European ecosystem.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/023_harry_stake.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/NjE3G.png",
       "external_url": "https://goalchain.fun/nft/23",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -2092,8 +2092,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/023_harry_stake.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/NjE3G.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -2112,12 +2112,12 @@
   },
   {
     "id": 24,
-    "filename": null,
+    "filename": "n2J38.png",
     "metadata": {
       "name": "GoalChain Genesis #024 — Jude Belling-Swap",
       "symbol": "GCG",
       "description": "The 'Hey Jude' of the Madrid Ledger. Birmingham retired his #22 to inspire future generations. A generational talent who conquered La Liga and Europe in his debut campaign, proving he is the engine of the new era.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/024_jude_belling-swap.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/n2J38.png",
       "external_url": "https://goalchain.fun/nft/24",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -2189,8 +2189,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/024_jude_belling-swap.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/n2J38.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -2209,12 +2209,12 @@
   },
   {
     "id": 25,
-    "filename": null,
+    "filename": "NvnBu.png",
     "metadata": {
       "name": "GoalChain Genesis #025 — Phil Fod-Phantom",
       "symbol": "GCG",
       "description": "Nicknamed 'Ronnie' or 'Baby Shark', he is the youngest legend to win 6 Premier League titles. A creative mainframe of the City Node, his 100th goal in 2025 solidified his status as an eternal elite asset.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/025_phil_fod-phantom.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/NvnBu.png",
       "external_url": "https://goalchain.fun/nft/25",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -2282,8 +2282,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/025_phil_fod-phantom.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/NvnBu.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -2302,12 +2302,12 @@
   },
   {
     "id": 26,
-    "filename": null,
+    "filename": "K6Fd8.png",
     "metadata": {
       "name": "GoalChain Genesis #026 — Bukayo Solana",
       "symbol": "GCG",
       "description": "The 'Starboy' and heartbeat of the London-Arsenal Node. A world-class winger whose consistency and character have made him a global icon. Known for his technical brilliance and the legendary resilience of his code.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/026_bukayo_solana.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/K6Fd8.png",
       "external_url": "https://goalchain.fun/nft/26",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -2375,8 +2375,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/026_bukayo_solana.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/K6Fd8.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -2395,12 +2395,12 @@
   },
   {
     "id": 27,
-    "filename": null,
+    "filename": "LROxo.png",
     "metadata": {
       "name": "GoalChain Genesis #027 — Declan Rice-Validator",
       "symbol": "GCG",
       "description": "Nicknamed 'The Horse' by his peers for his tireless running and 100% availability. The defensive engine of the Arsenal Node, he is the most reliable anchor in the London-based football network.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/027_declan_rice-validator.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/LROxo.png",
       "external_url": "https://goalchain.fun/nft/27",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -2464,8 +2464,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/027_declan_rice-validator.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/LROxo.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -2484,12 +2484,12 @@
   },
   {
     "id": 28,
-    "filename": null,
+    "filename": "JPaQf.png",
     "metadata": {
       "name": "GoalChain Genesis #028 — Kyle Gas-Walker",
       "symbol": "GCG",
       "description": "Known as 'The Road Runner'. Despite his veteran status, he remains one of the fastest firewalls in the English Grid, holding a legendary speed record of 37.31 km/h that continues to terrorize offensive nodes.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/028_kyle_gas-walker.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/JPaQf.png",
       "external_url": "https://goalchain.fun/nft/28",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -2561,8 +2561,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/028_kyle_gas-walker.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/JPaQf.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -2581,12 +2581,12 @@
   },
   {
     "id": 29,
-    "filename": null,
+    "filename": "l8CRI.png",
     "metadata": {
       "name": "GoalChain Genesis #029 — Jordan Pick-Safe",
       "symbol": "GCG",
       "description": "The 'Vocal Leader' of the Everton and English nodes. A high-security fail-safe known for his elite reflexes and his commanding presence that stabilizes the national football ledger.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/029_jordan_pick-safe.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/l8CRI.png",
       "external_url": "https://goalchain.fun/nft/29",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -2654,8 +2654,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/029_jordan_pick-safe.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/l8CRI.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -2674,12 +2674,12 @@
   },
   {
     "id": 30,
-    "filename": null,
+    "filename": "lmLFx.png",
     "metadata": {
       "name": "GoalChain Genesis #030 — John Stone-Base",
       "symbol": "GCG",
       "description": "Verified as 'The Defensive Architect'. Leaving the Manchester City Node in 2026 after a legendary 10-year spell, his ball-playing algorithms and tactical composure have defined a generation of elite defenders.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/030_john_stone-base.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/lmLFx.png",
       "external_url": "https://goalchain.fun/nft/30",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -2743,8 +2743,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/030_john_stone-base.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/lmLFx.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -2763,12 +2763,12 @@
   },
   {
     "id": 31,
-    "filename": null,
+    "filename": "VJLYi.png",
     "metadata": {
       "name": "GoalChain Genesis #031 — Trent Cross-Arnold",
       "symbol": "GCG",
       "description": "The 'Architect' of the Liverpool and English nodes. A technical maestro whose 40-meter passing packets and creative vision remain the gold standard for long-range offensive deployment.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/031_trent_cross-arnold.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/VJLYi.png",
       "external_url": "https://goalchain.fun/nft/31",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -2832,8 +2832,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/031_trent_cross-arnold.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/VJLYi.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -2852,12 +2852,12 @@
   },
   {
     "id": 32,
-    "filename": null,
+    "filename": "SM6kf.png",
     "metadata": {
       "name": "GoalChain Genesis #032 — Luke Vector",
       "symbol": "GCG",
       "description": "Known as 'The Resilient Guard'. A powerful left-back whose career is a testament to persistence and recovery, serving as a foundational defensive asset for the Manchester and English circuits.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/032_luke_vector.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/SM6kf.png",
       "external_url": "https://goalchain.fun/nft/32",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -2925,8 +2925,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/032_luke_vector.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/SM6kf.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -2945,12 +2945,12 @@
   },
   {
     "id": 33,
-    "filename": null,
+    "filename": "goB4I.png",
     "metadata": {
       "name": "GoalChain Genesis #033 — Cole Cold-Coin",
       "symbol": "GCG",
       "description": "Known globally as 'Cold Palmer'. The 'Iceman' of the London Node whose clinical finishing and calm under pressure have made him the most efficient penalty protocol on the entire ledger.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/033_cole_cold-coin.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/goB4I.png",
       "external_url": "https://goalchain.fun/nft/33",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -3018,8 +3018,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/033_cole_cold-coin.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/goB4I.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -3038,12 +3038,12 @@
   },
   {
     "id": 34,
-    "filename": null,
+    "filename": "fPrj9.png",
     "metadata": {
       "name": "GoalChain Genesis #034 — Neymar-NFT",
       "symbol": "GCG",
       "description": "Verified as the 'Legend of Santos'. After his tenure in the Al-Hilal Node, he made a historic return to his boyhood club in January 2025, reclaiming his status as the primary offensive mainframe for the Brazilian Node under Carlo Ancelotti's guidance.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/034_neymar-nft.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/fPrj9.png",
       "external_url": "https://goalchain.fun/nft/34",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -3107,8 +3107,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/034_neymar-nft.png",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/fPrj9.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -3127,12 +3127,12 @@
   },
   {
     "id": 35,
-    "filename": "SJTt2.jpg",
+    "filename": "SJTt2.png",
     "metadata": {
       "name": "GoalChain Genesis #035 — Vinicius Jpeg Jr",
       "symbol": "GCG",
       "description": "The unstoppable winger of the Madrid Node. A master of the 'Electric Dribble', he has transitioned from a rising star to a cornerstone of the world's most successful football ledger.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/SJTt2.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/SJTt2.png",
       "external_url": "https://goalchain.fun/nft/35",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -3204,8 +3204,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/SJTt2.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/SJTt2.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -3224,12 +3224,12 @@
   },
   {
     "id": 36,
-    "filename": "ryzG4.jpg",
+    "filename": "ryzG4.png",
     "metadata": {
       "name": "GoalChain Genesis #036 — Alisson Vault-son",
       "symbol": "GCG",
       "description": "The 'Wall of Brazil'. A world-class goalkeeper known for his incredible positioning and distribution, serving as the ultimate fail-safe for the Liverpool Node.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/ryzG4.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/ryzG4.png",
       "external_url": "https://goalchain.fun/nft/36",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -3297,8 +3297,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/ryzG4.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/ryzG4.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -3317,12 +3317,12 @@
   },
   {
     "id": 37,
-    "filename": "yZzgF.jpg",
+    "filename": "yZzgF.png",
     "metadata": {
       "name": "GoalChain Genesis #037 — Rodrygo-Yield",
       "symbol": "GCG",
       "description": "The 'Champions League Specialist'. A master of the Real Madrid Node who has secured two historic doubles (2022 and 2024), known for his ability to score in the most critical minutes of the code.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/yZzgF.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/yZzgF.png",
       "external_url": "https://goalchain.fun/nft/37",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -3386,8 +3386,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/yZzgF.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/yZzgF.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -3406,12 +3406,12 @@
   },
   {
     "id": 38,
-    "filename": "zfItP.jpg",
+    "filename": "zfItP.png",
     "metadata": {
       "name": "GoalChain Genesis #038 — Bruno Guima-Liquid",
       "symbol": "GCG",
       "description": "Known as 'The Orchestrator' and the 'Anchor of Hope'. A world-class midfielder whose passing accuracy and tactical vision have transformed the Manchester and Brazilian circuits.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/zfItP.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/zfItP.png",
       "external_url": "https://goalchain.fun/nft/38",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -3475,8 +3475,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/zfItP.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/zfItP.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -3495,12 +3495,12 @@
   },
   {
     "id": 39,
-    "filename": "zqyKm.jpg",
+    "filename": "zqyKm.png",
     "metadata": {
       "name": "GoalChain Genesis #039 — Casemiro-Mint",
       "symbol": "GCG",
       "description": "Known as 'The Tank'. A legendary 5-time Champions League winner who experienced a tactical resurgence in 2026, setting a record of 11 tackles and 16 duels won in a single match. The undisputed anchor of the Brazilian and Manchester nodes.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/zqyKm.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/zqyKm.png",
       "external_url": "https://goalchain.fun/nft/39",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -3568,8 +3568,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/zqyKm.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/zqyKm.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -3588,12 +3588,12 @@
   },
   {
     "id": 40,
-    "filename": "KOXrZ.jpg",
+    "filename": "KOXrZ.png",
     "metadata": {
       "name": "GoalChain Genesis #040 — Marquinhos-Server",
       "symbol": "GCG",
       "description": "The legendary captain of the Paris Node. In 2026, he led his squad to their historic first-ever Champions League title, becoming the Brazilian with the most appearances in Europe's elite ledger.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/KOXrZ.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/KOXrZ.png",
       "external_url": "https://goalchain.fun/nft/40",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -3657,8 +3657,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/KOXrZ.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/KOXrZ.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -3677,12 +3677,12 @@
   },
   {
     "id": 41,
-    "filename": "Y6efy.jpg",
+    "filename": "Y6efy.png",
     "metadata": {
       "name": "GoalChain Genesis #041 — Eder Mili-Pixel",
       "symbol": "GCG",
       "description": "A defensive titan of the Madrid Node. A cornerstone defender known for his physical prowess and recovery pace, his data packets are optimized for neutralizing the world's fastest attackers.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/Y6efy.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/Y6efy.png",
       "external_url": "https://goalchain.fun/nft/41",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -3750,8 +3750,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/Y6efy.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/Y6efy.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -3770,12 +3770,12 @@
   },
   {
     "id": 42,
-    "filename": "WQ9lT.jpg",
+    "filename": "WQ9lT.png",
     "metadata": {
       "name": "GoalChain Genesis #042 — Danilo-Legacy",
       "symbol": "GCG",
       "description": "The 'Versatile Captain' and leader of the Brazilian Ledger. A disciplined defender who has conquered nodes in Madrid, Turin, and Manchester, bringing 100% reliability to any tactical structure.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/WQ9lT.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/WQ9lT.png",
       "external_url": "https://goalchain.fun/nft/42",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -3843,8 +3843,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/WQ9lT.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/WQ9lT.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -3863,12 +3863,12 @@
   },
   {
     "id": 43,
-    "filename": "kNPyw.jpg",
+    "filename": "kNPyw.png",
     "metadata": {
       "name": "GoalChain Genesis #043 — Lucas Paque-Frame",
       "symbol": "GCG",
       "description": "Named after 'Paquetá Island' in Rio. A creative maestro known for his 'Joy of the Midfield' and technical flair, serving as the rhythmic heartbeat of the Brazilian Node.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/kNPyw.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/kNPyw.png",
       "external_url": "https://goalchain.fun/nft/43",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -3932,8 +3932,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/kNPyw.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/kNPyw.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -3952,12 +3952,12 @@
   },
   {
     "id": 44,
-    "filename": "i5Gho.jpg",
+    "filename": "i5Gho.png",
     "metadata": {
       "name": "GoalChain Genesis #044 — Endrick Moon",
       "symbol": "GCG",
       "description": "The 'Prodigy' and heir to the legendary number 9. After a revitalizing 2026 loan spell where he scored a historic hat-trick in Europe, he returns to the Madrid Node as the most explosive young striker on the chain.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/i5Gho.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/i5Gho.png",
       "external_url": "https://goalchain.fun/nft/44",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -4021,8 +4021,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/i5Gho.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/i5Gho.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -4041,12 +4041,12 @@
   },
   {
     "id": 45,
-    "filename": "3FFHd.jpg",
+    "filename": "3FFHd.png",
     "metadata": {
       "name": "GoalChain Genesis #045 — Lamine Ya-Alpha",
       "symbol": "GCG",
       "description": "The 'Young Wizard' who redefines history. The youngest Ballon d’Or winner ever (2024) and heir to the legendary 'baby photo' legacy with Messi. At 18, he already holds 7 career titles in the Catalan Grid.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/3FFHd.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/3FFHd.png",
       "external_url": "https://goalchain.fun/nft/45",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -4118,8 +4118,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/3FFHd.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/3FFHd.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -4138,12 +4138,12 @@
   },
   {
     "id": 46,
-    "filename": "hI2aD.jpg",
+    "filename": "hI2aD.png",
     "metadata": {
       "name": "GoalChain Genesis #046 — Pedri-Script",
       "symbol": "GCG",
       "description": "The 'Midfield Magician' of the Barcelona Node. A master of the Golden Boy legacy who played a record number of matches as a teenager, becoming the tactical mainframe of the Spanish Node.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/hI2aD.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/hI2aD.png",
       "external_url": "https://goalchain.fun/nft/46",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -4207,8 +4207,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/hI2aD.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/hI2aD.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -4227,12 +4227,12 @@
   },
   {
     "id": 47,
-    "filename": "ciznR.jpg",
+    "filename": "ciznR.png",
     "metadata": {
       "name": "GoalChain Genesis #047 — Rodri Proof-of-Stake",
       "symbol": "GCG",
       "description": "The 'Tactical Mastermind' and anchor of the global game. The most reliable node in the City midfield, his presence ensures a 100% success rate in defensive and offensive transitions.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/ciznR.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/ciznR.png",
       "external_url": "https://goalchain.fun/nft/47",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -4304,8 +4304,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/ciznR.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/ciznR.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -4324,12 +4324,12 @@
   },
   {
     "id": 48,
-    "filename": "eBNfT.jpg",
+    "filename": "eBNfT.png",
     "metadata": {
       "name": "GoalChain Genesis #048 — Gavi-Gas",
       "symbol": "GCG",
       "description": "The 'Pitbull' who plays without fear. The youngest debutant and scorer for the Spanish Node in World Cup history. A Kopa Trophy winner whose tenacity is a legendary variable in the Catalan Grid.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/eBNfT.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/eBNfT.png",
       "external_url": "https://goalchain.fun/nft/48",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -4393,8 +4393,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/eBNfT.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/eBNfT.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -4413,12 +4413,12 @@
   },
   {
     "id": 49,
-    "filename": "hBGll.jpg",
+    "filename": "hBGll.png",
     "metadata": {
       "name": "GoalChain Genesis #049 — Nico Shard-Williams",
       "symbol": "GCG",
       "description": "The 'Basque Rocket' and Euro 2024 Final MVP. His story of hope—the son of refugees who crossed the Sahara—is a legendary narrative of resilience that fuels his explosive pace in the Athletic and Spanish nodes.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/hBGll.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/hBGll.png",
       "external_url": "https://goalchain.fun/nft/49",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -4482,8 +4482,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/hBGll.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/hBGll.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -4502,12 +4502,12 @@
   },
   {
     "id": 50,
-    "filename": "aoFsV.jpg",
+    "filename": "aoFsV.png",
     "metadata": {
       "name": "GoalChain Genesis #050 — Unai Simon-Key",
       "symbol": "GCG",
       "description": "The 'Calm in the Storm'. A world-class goalkeeper whose nerves of steel secured the Euro 2024 title for Spain. He is the undisputed failsafe of the Athletic and Spanish football ledgers.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/aoFsV.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/aoFsV.png",
       "external_url": "https://goalchain.fun/nft/50",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -4575,8 +4575,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/aoFsV.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/aoFsV.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
@@ -8166,12 +8166,12 @@
   },
   {
     "id": 90,
-    "filename": "qc1gX.jpg",
+    "filename": "qc1gX.png",
     "metadata": {
       "name": "GoalChain Genesis #090 — Weston McK-Air",
       "symbol": "GCG",
       "description": "Verified as 'The Engine'. A versatile and high-energy midfielder whose presence in the Italian-Juventus Grid has made him a primary offensive and defensive node for the US Ledger.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/qc1gX.jpg",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/qc1gX.png",
       "external_url": "https://goalchain.fun/nft/90",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -8235,8 +8235,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/qc1gX.jpg",
-            "type": "image/jpeg"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/qc1gX.png",
+            "type": "image/png"
           }
         ],
         "category": "image",
