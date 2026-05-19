@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #316 — Diego Gomez-Rise",
-  "symbol": "GCG",
-  "description": "Verified as 'The Student of Messi'. Mentored by the GOAT at Inter Miami, his advice to 'always play forward' led him to the English-Brighton circuit as a top-tier creative mainframe.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/316_diego_gomez-rise.png",
-  "external_url": "https://goalchain.fun/nft/316",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "MID"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Paraguay"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Diego Gómez"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 70
-    },
-    {
-      "trait_type": "DEF",
-      "value": 66
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 42
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Madrid White Ledger"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Technical Maestro"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/316_diego_gomez-rise.png",
-        "type": "image/png"
-      }
+    "name": "Diego Gomez-Rise",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Diego Gomez-Rise (Paraguay). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/316_diego_gomez-rise.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Paraguay"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 70
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 66
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/316_diego_gomez-rise.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

@@ -21,6 +21,7 @@ const NFT_IMAGE_MAP = {
 };
 
 function getPlayerImageName(player) {
+    if (player.filename) return player.filename;
     if (NFT_IMAGE_MAP[player.id]) return NFT_IMAGE_MAP[player.id];
     const safeName = player.name.toLowerCase().replace(/ /g, '_').replace(/[^a-z0-9_\-]/g, '');
     return `${String(player.id).padStart(3, '0')}_${safeName}.png`;
@@ -32,10 +33,11 @@ async function generateMetadata() {
     try {
         const players = JSON.parse(fs.readFileSync(PLAYERS_DATA_PATH, 'utf8'));
         console.log(`📦 Procesando ${players.length} jugadores...`);
-
+ 
         players.forEach(player => {
             const imageName = getPlayerImageName(player);
             const imageUrl = `${REPO_URL}/assets/img/nfts/${imageName}`;
+            const fileType = imageName.endsWith('.jpg') || imageName.endsWith('.jpeg') ? 'image/jpeg' : 'image/png';
 
             const metadata = {
                 name: player.name,
@@ -44,17 +46,17 @@ async function generateMetadata() {
                 seller_fee_basis_points: 500, // 5% de Royalties
                 image: imageUrl,
                 attributes: [
-                    { "trait_type": "País", "value": player.country },
-                    { "trait_type": "Posición", "value": player.position },
-                    { "trait_type": "Rareza", "value": player.rarity.charAt(0).toUpperCase() + player.rarity.slice(1) },
-                    { "trait_type": "Número", "value": player.number.toString() },
-                    { "trait_type": "Ataque", "value": player.stats.atk },
-                    { "trait_type": "Defensa", "value": player.stats.def },
-                    { "trait_type": "Hype", "value": player.stats.hype },
-                    { "trait_type": "Oracle Sync", "value": player.oracle_sync.status }
+                    { "trait_type": "País", "value": player.country || "Unknown" },
+                    { "trait_type": "Posición", "value": player.position || "N/A" },
+                    { "trait_type": "Rareza", "value": player.rarity ? player.rarity.charAt(0).toUpperCase() + player.rarity.slice(1) : "Common" },
+                    { "trait_type": "Número", "value": player.number ? player.number.toString() : "0" },
+                    { "trait_type": "Ataque", "value": player.stats && player.stats.atk !== undefined ? player.stats.atk : 50 },
+                    { "trait_type": "Defensa", "value": player.stats && player.stats.def !== undefined ? player.stats.def : 50 },
+                    { "trait_type": "Hype", "value": player.stats && player.stats.hype !== undefined ? player.stats.hype : 50 },
+                    { "trait_type": "Oracle Sync", "value": player.oracle_sync && player.oracle_sync.status ? player.oracle_sync.status : "Pending" }
                 ],
                 properties: {
-                    files: [{ "uri": imageUrl, "type": "image/png" }],
+                    files: [{ "uri": imageUrl, "type": fileType }],
                     category: "image",
                     creators: [{ "address": WALLET_OFICIAL, "share": 100 }]
                 }
@@ -63,7 +65,7 @@ async function generateMetadata() {
             fs.writeFileSync(path.join(OUTPUT_DIR, `${player.id}.json`), JSON.stringify(metadata, null, 4));
         });
 
-        console.log("✅ ¡Éxito! 1,248 archivos de metadatos regenerados y sincronizados.");
+        console.log(`✅ ¡Éxito! ${players.length} archivos de metadatos regenerados y sincronizados.`);
     } catch (error) {
         console.error("❌ Error fatal en el Oráculo:", error);
     }

@@ -1,0 +1,244 @@
+{
+  "lote": "1-50",
+  "total_imagenes_si_parecidas": 34,
+  "mappings": {
+    "DxjaQ.jpg": {
+      "id": 1,
+      "nft_name": "Lionel Satoshi",
+      "real_name": "Lionel Messi",
+      "confianza": 82,
+      "observaciones": "Barba espesa, mirada intensa"
+    },
+    "eK3bc.jpg": {
+      "id": 2,
+      "nft_name": "Dibu De-Fi",
+      "real_name": "Emiliano Martínez",
+      "confianza": 87,
+      "observaciones": "Tatuaje visible pierna izq."
+    },
+    "DncFG.jpg": {
+      "id": 3,
+      "nft_name": "Julian Bull-varez",
+      "real_name": "Julián Álvarez",
+      "confianza": 90,
+      "observaciones": "Fade clásico, complexión compacta"
+    },
+    "BhTBc.jpg": {
+      "id": 4,
+      "nft_name": "Enzo Ether",
+      "real_name": "Enzo Fernández",
+      "confianza": 88,
+      "observaciones": "Tatuajes visibles, fade burst"
+    },
+    "5C8GN.jpg": {
+      "id": 5,
+      "nft_name": "Rodrigo De-Pool",
+      "real_name": "Rodrigo De Paul",
+      "confianza": 85,
+      "observaciones": "Expresión apasionada, tatuajes"
+    },
+    "ZkyHt.jpg": {
+      "id": 6,
+      "nft_name": "Angel Di Merkle",
+      "real_name": "Ángel Di María",
+      "confianza": 83,
+      "observaciones": "Cabello clásico, piel oliva"
+    },
+    "QqMAA.jpg": {
+      "id": 7,
+      "nft_name": "Alexis Mac-Chain",
+      "real_name": "Alexis Mac Allister",
+      "confianza": 91,
+      "observaciones": "Buzz cut + barba rojiza"
+    },
+    "qEwxs.jpg": {
+      "id": 8,
+      "nft_name": "Cuti Crypt",
+      "real_name": "Cristian Romero",
+      "confianza": 92,
+      "observaciones": "Barba corta, mirada intimidante"
+    },
+    "UP3Bf.jpg": {
+      "id": 9,
+      "nft_name": "Lisandro Butcher-DAO",
+      "real_name": "Lisandro Martínez",
+      "confianza": 88,
+      "observaciones": "Cabello shaggy, expresión agresiva"
+    },
+    "5VJOb.jpg": {
+      "id": 10,
+      "nft_name": "Nahuel Mo-Wallet",
+      "real_name": "Nahuel Molina",
+      "confianza": 90,
+      "observaciones": "Fade limpio, complexión ágil"
+    },
+    "UQLef.jpg": {
+      "id": 11,
+      "nft_name": "Nico Taglia-Token",
+      "real_name": "Nicolás Tagliafico",
+      "confianza": 87,
+      "observaciones": "Defensor con fade y mirada decidida"
+    },
+    "OBw9D.jpg": {
+      "id": 12,
+      "nft_name": "Kylian M-Bypass-pé",
+      "real_name": "Kylian Mbappé",
+      "confianza": 95,
+      "observaciones": "Superestrella con fade corto y mirada seria"
+    },
+    "t50Ye.jpg": {
+      "id": 13,
+      "nft_name": "Antoine G-ZkSync",
+      "real_name": "Antoine Griezmann",
+      "confianza": 94,
+      "observaciones": "Delantero rubio con fade peinado lateral"
+    },
+    "t4uPK.jpg": {
+      "id": 14,
+      "nft_name": "Ousmane De-Shard",
+      "real_name": "Ousmane Dembélé",
+      "confianza": 90,
+      "observaciones": "Extremo ágil con fade y expresión seria"
+    },
+    "Xe7eB.jpg": {
+      "id": 15,
+      "nft_name": "Eduardo Cama-Logic",
+      "real_name": "Eduardo Camavinga",
+      "confianza": 91,
+      "observaciones": "Centrocampista con trenzas/fade característico"
+    },
+    "v7dSE.jpg": {
+      "id": 16,
+      "nft_name": "Theo Shiller",
+      "real_name": "Theo Hernández",
+      "confianza": 93,
+      "observaciones": "Lateral con fade burst y mirada agresiva"
+    },
+    "tRJVF.jpg": {
+      "id": 17,
+      "nft_name": "Mike Maignan-Admin",
+      "real_name": "Mike Maignan",
+      "confianza": 93,
+      "observaciones": "Portero alto con fade limpio y guantes"
+    },
+    "SJTt2.jpg": {
+      "id": 35,
+      "nft_name": "Vinicius Jpeg Jr",
+      "real_name": "Vinícius Júnior",
+      "confianza": 97,
+      "observaciones": "Extremo con fade elegante y sonrisa de confianza"
+    },
+    "ryzG4.jpg": {
+      "id": 36,
+      "nft_name": "Alisson Vault-son",
+      "real_name": "Alisson Becker",
+      "confianza": 92,
+      "observaciones": "Portero imponente con barba espesa y mirada decidida"
+    },
+    "yZzgF.jpg": {
+      "id": 37,
+      "nft_name": "Rodrygo-Yield",
+      "real_name": "Rodrygo Goes",
+      "confianza": 91,
+      "observaciones": "Delantero joven con fade limpio y complexión atlética"
+    },
+    "zfItP.jpg": {
+      "id": 38,
+      "nft_name": "Bruno Guima-Liquid",
+      "real_name": "Bruno Guimarães",
+      "confianza": 89,
+      "observaciones": "Centrocampista con fade burst y mirada intensa"
+    },
+    "zqyKm.jpg": {
+      "id": 39,
+      "nft_name": "Casemiro-Mint",
+      "real_name": "Casemiro",
+      "confianza": 93,
+      "observaciones": "Centrocampista defensivo robusto con fade clásico"
+    },
+    "KOXrZ.jpg": {
+      "id": 40,
+      "nft_name": "Marquinhos-Server",
+      "real_name": "Marquinhos",
+      "confianza": 90,
+      "observaciones": "Defensor con fade y expresión de liderazgo"
+    },
+    "Y6efy.jpg": {
+      "id": 41,
+      "nft_name": "Eder Mili-Pixel",
+      "real_name": "Éder Militão",
+      "confianza": 88,
+      "observaciones": "Defensor atlético con fade e intensa mirada competitiva"
+    },
+    "WQ9lT.jpg": {
+      "id": 42,
+      "nft_name": "Danilo-Legacy",
+      "real_name": "Danilo",
+      "confianza": 89,
+      "observaciones": "Lateral experimentado con fade y mirada seria"
+    },
+    "kNPyw.jpg": {
+      "id": 43,
+      "nft_name": "Lucas Paque-Frame",
+      "real_name": "Lucas Paquetá",
+      "confianza": 91,
+      "observaciones": "Centrocampista ofensivo con fade y tatuajes"
+    },
+    "i5Gho.jpg": {
+      "id": 44,
+      "nft_name": "Endrick Moon",
+      "real_name": "Endrick",
+      "confianza": 91,
+      "observaciones": "Delantero adolescente con fade e inmensa proyección"
+    },
+    "3FFHd.jpg": {
+      "id": 45,
+      "nft_name": "Lamine Ya-Alpha",
+      "real_name": "Lamine Yamal",
+      "confianza": 91,
+      "observaciones": "Joven maravilla con fade texturizado y mirada enfocada"
+    },
+    "hI2aD.jpg": {
+      "id": 46,
+      "nft_name": "Pedri-Script",
+      "real_name": "Pedri",
+      "confianza": 88,
+      "observaciones": "Centrocampista creativo con fade limpio y expresión inteligente"
+    },
+    "ciznR.jpg": {
+      "id": 47,
+      "nft_name": "Rodri Proof-of-Stake",
+      "real_name": "Rodri",
+      "confianza": 90,
+      "observaciones": "Centrocampista defensivo alto con peinado clásico"
+    },
+    "eBNfT.jpg": {
+      "id": 48,
+      "nft_name": "Gavi-Gas",
+      "real_name": "Gavi",
+      "confianza": 86,
+      "observaciones": "Centrocampista dinámico con fade y expresión apasionada"
+    },
+    "hBGll.jpg": {
+      "id": 49,
+      "nft_name": "Nico Shard-Williams",
+      "real_name": "Nico Williams",
+      "confianza": 95,
+      "observaciones": "Extremo veloz con fade texturizado y mirada athletic"
+    },
+    "aoFsV.jpg": {
+      "id": 50,
+      "nft_name": "Unai Simon-Key",
+      "real_name": "Unai Simón",
+      "confianza": 84,
+      "observaciones": "Portero vasco alto con fade y mirada concentrada"
+    },
+    "qc1gX.jpg": {
+      "id": 90,
+      "nft_name": "Weston McK-Air",
+      "real_name": "Weston McKennie",
+      "confianza": 90,
+      "observaciones": "Centrocampista norteamericano con fade burst teñido y enérgica mirada"
+    }
+  }
+}

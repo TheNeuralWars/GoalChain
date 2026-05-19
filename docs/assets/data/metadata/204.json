@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #204 — Remo Freuler-Link",
-  "symbol": "GCG",
-  "description": "The 'Tactical Anchor' of the Swiss Node. A disciplined and reliable midfielder whose positioning and energy ensure a smooth tactical flow in the Italian and national grids.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/204_remo_freuler-link.png",
-  "external_url": "https://goalchain.fun/nft/204",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "MID"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Suiza"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Remo Freuler"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 70
-    },
-    {
-      "trait_type": "DEF",
-      "value": 66
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 44
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Barcelona Garnet Block"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Box-to-Box"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/204_remo_freuler-link.png",
-        "type": "image/png"
-      }
+    "name": "Remo Freuler-Link",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Remo Freuler-Link (Suiza). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/204_remo_freuler-link.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Suiza"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 70
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 66
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/204_remo_freuler-link.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

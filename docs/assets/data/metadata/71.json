@@ -1,89 +1,56 @@
 {
-  "name": "GoalChain Genesis #071 — Ruben Dias-Base",
-  "symbol": "GCG",
-  "description": "Nicknamed 'Ruby' and known as the leader of men. The defensive mainframe of the City Node, his tactical intelligence and commanding presence are inspired by his deep bond with his grandfather and his Lisbon roots.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/071_ruben_dias-base.png",
-  "external_url": "https://goalchain.fun/nft/71",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Legendary"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "DEF"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Portugal"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Rúben Dias"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 37
-    },
-    {
-      "trait_type": "DEF",
-      "value": 93
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 92
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 480
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 84
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Dortmund Yellow Hive"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Holographic Glitch & Silver Spark"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "The Rock"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Physical Powerhouse"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/071_ruben_dias-base.png",
-        "type": "image/png"
-      }
+    "name": "Ruben Dias-Base",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Ruben Dias-Base (Portugal). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/071_ruben_dias-base.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Portugal"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 37
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 93
+        },
+        {
+            "trait_type": "Hype",
+            "value": 92
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/071_ruben_dias-base.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }
