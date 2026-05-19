@@ -1,0 +1,321 @@
+[
+    {
+        "id": 262,
+        "padded_id": "262",
+        "name": "Kieran Tier-Wrap",
+        "real_name": "Kieran Tierney",
+        "prompt": "Subject: Kieran Tierney. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '262_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '262_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "262_portrait.jpg",
+            "262_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 263,
+        "padded_id": "263",
+        "name": "Callum McG-Heart",
+        "real_name": "Callum McGregor",
+        "prompt": "Subject: Callum McGregor. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '263_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '263_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "263_portrait.jpg",
+            "263_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 264,
+        "padded_id": "264",
+        "name": "Lawrence Shank-Hit",
+        "real_name": "Lawrence Shankland",
+        "prompt": "Subject: Lawrence Shankland. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '264_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '264_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "264_portrait.jpg",
+            "264_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 265,
+        "padded_id": "265",
+        "name": "Dominik Szobo-Kick",
+        "real_name": "Dominik Szoboszlai",
+        "prompt": "Subject: Dominik Szoboszlai. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '265_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '265_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "265_portrait.jpg",
+            "265_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 266,
+        "padded_id": "266",
+        "name": "Barnabas Var-Header",
+        "real_name": "Barnabás Varga",
+        "prompt": "Subject: Barnabás Varga. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '266_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '266_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "266_portrait.jpg",
+            "266_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 267,
+        "padded_id": "267",
+        "name": "Roland Sal-Quick",
+        "real_name": "Roland Sallai",
+        "prompt": "Subject: Roland Sallai. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '267_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '267_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "267_portrait.jpg",
+            "267_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 268,
+        "padded_id": "268",
+        "name": "Willi Or-Wall",
+        "real_name": "Willi Orbán",
+        "prompt": "Subject: Willi Orbán. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '268_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '268_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "268_portrait.jpg",
+            "268_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 269,
+        "padded_id": "269",
+        "name": "Peter Gula-Stop",
+        "real_name": "Péter Gulácsi",
+        "prompt": "Subject: Péter Gulácsi. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '269_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '269_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "269_portrait.jpg",
+            "269_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 270,
+        "padded_id": "270",
+        "name": "Adam Nagy-Keep",
+        "real_name": "Ádám Nagy",
+        "prompt": "Subject: Ádám Nagy. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '270_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '270_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "270_portrait.jpg",
+            "270_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 271,
+        "padded_id": "271",
+        "name": "Loic Nego-Race",
+        "real_name": "Loïc Négo",
+        "prompt": "Subject: Loïc Négo. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '271_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '271_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "271_portrait.jpg",
+            "271_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 272,
+        "padded_id": "272",
+        "name": "Milos Kerkez-Young",
+        "real_name": "Milos Kerkez",
+        "prompt": "Subject: Milos Kerkez. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '272_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '272_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "272_portrait.jpg",
+            "272_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 273,
+        "padded_id": "273",
+        "name": "Bendeguz Bol-Cross",
+        "real_name": "Bendegúz Bóla",
+        "prompt": "Subject: Bendegúz Bóla. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '273_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '273_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "273_portrait.jpg",
+            "273_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 274,
+        "padded_id": "274",
+        "name": "Martin Adam-Beast",
+        "real_name": "Martin Ádám",
+        "prompt": "Subject: Martin Ádám. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '274_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '274_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "274_portrait.jpg",
+            "274_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 275,
+        "padded_id": "275",
+        "name": "Callum Styles-Smooth",
+        "real_name": "Callum Styles",
+        "prompt": "Subject: Callum Styles. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '275_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '275_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "275_portrait.jpg",
+            "275_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 276,
+        "padded_id": "276",
+        "name": "David Ala-Boss",
+        "real_name": "David Alaba",
+        "prompt": "Subject: David Alaba. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '276_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '276_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "276_portrait.jpg",
+            "276_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 277,
+        "padded_id": "277",
+        "name": "Marcel Sabi-Shoot",
+        "real_name": "Marcel Sabitzer",
+        "prompt": "Subject: Marcel Sabitzer. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '277_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '277_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "277_portrait.jpg",
+            "277_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 278,
+        "padded_id": "278",
+        "name": "Chris Baum-Luck",
+        "real_name": "Christoph Baumgartner",
+        "prompt": "Subject: Christoph Baumgartner. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '278_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '278_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "278_portrait.jpg",
+            "278_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 279,
+        "padded_id": "279",
+        "name": "Konrad Lai-Press",
+        "real_name": "Konrad Laimer",
+        "prompt": "Subject: Konrad Laimer. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '279_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '279_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "279_portrait.jpg",
+            "279_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 280,
+        "padded_id": "280",
+        "name": "Marko Arnau-King",
+        "real_name": "Marko Arnautović",
+        "prompt": "Subject: Marko Arnautović. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '280_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '280_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "280_portrait.jpg",
+            "280_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 281,
+        "padded_id": "281",
+        "name": "Alex Schlager-Hold",
+        "real_name": "Alexander Schlager",
+        "prompt": "Subject: Alexander Schlager. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '281_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '281_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "281_portrait.jpg",
+            "281_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 282,
+        "padded_id": "282",
+        "name": "Kevin Danso-Bulk",
+        "real_name": "Kevin Danso",
+        "prompt": "Subject: Kevin Danso. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '282_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '282_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "282_portrait.jpg",
+            "282_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 283,
+        "padded_id": "283",
+        "name": "Phil Lienhart-Solid",
+        "real_name": "Philipp Lienhart",
+        "prompt": "Subject: Philipp Lienhart. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '283_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '283_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "283_portrait.jpg",
+            "283_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 284,
+        "padded_id": "284",
+        "name": "Stefan Laim-Run",
+        "real_name": "Stefan Lainer",
+        "prompt": "Subject: Stefan Lainer. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '284_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '284_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "284_portrait.jpg",
+            "284_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 285,
+        "padded_id": "285",
+        "name": "Nico Seiwald-Pass",
+        "real_name": "Nicolas Seiwald",
+        "prompt": "Subject: Nicolas Seiwald. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '285_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '285_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "285_portrait.jpg",
+            "285_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 286,
+        "padded_id": "286",
+        "name": "Mich Gregoritsch-Air",
+        "real_name": "Michael Gregoritsch",
+        "prompt": "Subject: Michael Gregoritsch. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '286_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '286_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "286_portrait.jpg",
+            "286_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 287,
+        "padded_id": "287",
+        "name": "James-Magic",
+        "real_name": "James Rodríguez",
+        "prompt": "Subject: James Rodríguez. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '287_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '287_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "287_portrait.jpg",
+            "287_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 288,
+        "padded_id": "288",
+        "name": "Lucho Di-Dash",
+        "real_name": "Luis Díaz",
+        "prompt": "Subject: Luis Díaz. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '288_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '288_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "288_portrait.jpg",
+            "288_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 289,
+        "padded_id": "289",
+        "name": "Jefferson Shield-ma",
+        "real_name": "Jefferson Lerma",
+        "prompt": "Subject: Jefferson Lerma. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '289_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '289_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "289_portrait.jpg",
+            "289_fullbody.jpg"
+        ]
+    },
+    {
+        "id": 290,
+        "padded_id": "290",
+        "name": "Richard Rios-Stream",
+        "real_name": "Richard Ríos",
+        "prompt": "Subject: Richard Ríos. STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. REFERENCIA_IMAGEN: You must analyze the attached images '290_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '290_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3",
+        "required_files": [
+            "290_portrait.jpg",
+            "290_fullbody.jpg"
+        ]
+    }
+]
