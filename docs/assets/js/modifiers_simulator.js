@@ -10,7 +10,7 @@ class ModifiersSimulator {
         // Estado de simulación del jugador
         this.stamina = 100;
         this.maxStamina = 100;
-        this.equippedJersey = null;
+        this.equippedJersey = null; // null, 'argentina_home_2026' or 'miami_pink_2026'
         this.equippedBoots = null;
         this.hasShield = false;
         
@@ -22,6 +22,9 @@ class ModifiersSimulator {
         this.hasCountryLicense = false;
         this.sameCountryCount = 1;
         this.stadiumTheme = 'desert'; // matches player visualbg for home advantage
+        
+        // Liga / Torneo Activo
+        this.activeLeague = 'world_cup'; // 'world_cup' or 'mls'
         
         // Alquileres
         this.rentalStatus = 'none'; // 'none', 'listed', 'rented'
@@ -37,12 +40,12 @@ class ModifiersSimulator {
     }
 
     init() {
-        console.log("GoalChain Simulator: Cargando simulador de modificadores V2.0...");
+        console.log("GoalChain Simulator: Cargando simulador de modificadores V2.1 (Multi-League)...");
         this.setupSelectors();
         this.setupListeners();
         this.resetSimState();
-        this.logToConsole("⚡ [Sistema] Modifiers Sim V2.0 cargado. Conectado a Solana Devnet (Simulado).");
-        this.logToConsole("ℹ️ Selecciona un jugador del Genesis Squad para comenzar.");
+        this.logToConsole("⚡ [Sistema] Modifiers Sim V2.1 (Multi-League) cargado. Conectado a Solana Devnet (Simulado).");
+        this.logToConsole("ℹ️ Selecciona un jugador y cambia su camiseta en el Locker Room según el torneo activo.");
     }
 
     setupSelectors() {
@@ -51,6 +54,7 @@ class ModifiersSimulator {
         this.staminaSlider = document.getElementById('simStaminaSlider');
         this.staminaVal = document.getElementById('simStaminaVal');
         
+        this.activeLeagueSelect = document.getElementById('simActiveLeague');
         this.fuseItemSelect = document.getElementById('simFuseItem');
         
         this.licenseCheck = document.getElementById('simLicenseCheck');
@@ -103,6 +107,15 @@ class ModifiersSimulator {
             this.staminaSlider.addEventListener('input', (e) => {
                 this.stamina = parseInt(e.target.value);
                 if (this.staminaVal) this.staminaVal.innerText = `${this.stamina}%`;
+                this.updateYieldAndUI();
+            });
+        }
+
+        // Liga / Torneo Activo Switcher
+        if (this.activeLeagueSelect) {
+            this.activeLeagueSelect.addEventListener('change', (e) => {
+                this.activeLeague = e.target.value;
+                this.logToConsole(`🏆 [Torneo] Torneo activo cambiado a: ${this.activeLeague === 'world_cup' ? 'Copa del Mundo 🌍' : 'MLS Club Cup ⚽'}.`);
                 this.updateYieldAndUI();
             });
         }
@@ -294,7 +307,10 @@ class ModifiersSimulator {
 
         // 3. Locker Room boosts permanentes
         let lockerRoomBoost = 0;
-        if (this.equippedJersey) lockerRoomBoost += 0.03; // +3%
+        if (this.equippedJersey) {
+            if (this.equippedJersey === 'miami_pink_2026') lockerRoomBoost += 0.05; // Camiseta Club da +5%
+            else lockerRoomBoost += 0.03; // Camiseta Selección da +3%
+        }
         if (this.equippedBoots) lockerRoomBoost += 0.05; // +5%
         if (this.hasShield) lockerRoomBoost += 0.10; // +10%
 
@@ -307,9 +323,7 @@ class ModifiersSimulator {
         if (this.hasCountryLicense) licenseMultiplier = 1.05; // +5% de sueldo
 
         // 6. Estadio (Home Field Advantage)
-        // Comparación del tipo de fondo
         let stadiumMultiplier = 1.05; // Boost base
-        // Mapear temas de estadio
         const stadiumThemeMap = {
             "BG-MYT": "cyber",
             "BG-LEG": "snow",
@@ -336,22 +350,34 @@ class ModifiersSimulator {
         else if (this.stamina >= 1) staminaModifier = 0.4;
         else staminaModifier = 0.0; // 0 Stamina = 0 sueldo
 
-        // 8. Death Pledge (Eliminación)
+        // 8. Validación de Liga y Camiseta Activa
+        let leagueMatchMultiplier = 1.0;
+        if (this.activeLeague === 'world_cup') {
+            if (this.equippedJersey === 'argentina_home_2026') {
+                leagueMatchMultiplier = 1.0;
+            } else {
+                leagueMatchMultiplier = 0.0; // No califica para Copa del Mundo sin camiseta de selección
+            }
+        } else if (this.activeLeague === 'mls') {
+            if (this.equippedJersey === 'miami_pink_2026') {
+                leagueMatchMultiplier = 1.0;
+            } else {
+                leagueMatchMultiplier = 0.0; // No califica para MLS sin camiseta de club
+            }
+        }
+
+        // 9. Death Pledge (Eliminación) - SOLO aplica en la Copa del Mundo si es derrotado y no tiene escudo
         let deathPledgeMultiplier = 1.0;
-        let isEliminatedAndNoShield = false;
-        // Si simulamos derrota y racha reseteada, o forzamos eliminación
-        // Dejemos que la UI lo decida si el resultado es pérdida terminal
-        if (this.lastMatchResult === 'loss' && this.winStreak === 0 && !this.hasShield) {
-            // Simular caída definitiva ante pérdida en knockouts
-            deathPledgeMultiplier = 0.0;
-            isEliminatedAndNoShield = true;
-        } else if (this.lastMatchResult === 'loss' && this.winStreak === 0 && this.hasShield) {
-            // Escudo activo protege el 15%
-            deathPledgeMultiplier = 0.15;
+        if (this.activeLeague === 'world_cup' && leagueMatchMultiplier > 0.0) {
+            if (this.lastMatchResult === 'loss' && this.winStreak === 0 && !this.hasShield) {
+                deathPledgeMultiplier = 0.0;
+            } else if (this.lastMatchResult === 'loss' && this.winStreak === 0 && this.hasShield) {
+                deathPledgeMultiplier = 0.15; // Escudo activo protege el 15%
+            }
         }
 
         // CÁLCULO FINAL DE YIELD DIARIO
-        let dailyGchYield = baseYield * sportsCoef * (1 + lockerRoomBoost) * synergyMultiplier * licenseMultiplier * stadiumMultiplier * staminaModifier * deathPledgeMultiplier;
+        let dailyGchYield = baseYield * sportsCoef * (1 + lockerRoomBoost) * synergyMultiplier * licenseMultiplier * stadiumMultiplier * staminaModifier * leagueMatchMultiplier * deathPledgeMultiplier;
         dailyGchYield = Math.max(0, Math.round(dailyGchYield));
 
         // Actualizar balance diario mostrado en la UI lateral y en la carta
@@ -363,10 +389,10 @@ class ModifiersSimulator {
         this.updateStatsUI();
 
         // Mostrar desglose en los indicadores de rendimiento
-        this.updateBreakdownUI(baseYield, sportsCoef, lockerRoomBoost, synergyMultiplier, licenseMultiplier, stadiumMultiplier, staminaModifier, deathPledgeMultiplier);
+        this.updateBreakdownUI(baseYield, sportsCoef, lockerRoomBoost, synergyMultiplier, licenseMultiplier, stadiumMultiplier, staminaModifier, deathPledgeMultiplier, leagueMatchMultiplier);
     }
 
-    updateBreakdownUI(base, sports, locker, synergy, license, stadium, stamina, death) {
+    updateBreakdownUI(base, sports, locker, synergy, license, stadium, stamina, death, leagueMatch) {
         // Actualizar indicadores HTML para que el usuario entienda la matemática completa
         const setVal = (id, val) => {
             const el = document.getElementById(id);
@@ -380,15 +406,36 @@ class ModifiersSimulator {
         setVal('breakdownLicense', `${Math.round((license - 1) * 100)}%`);
         setVal('breakdownStadium', `+${Math.round((stadium - 1) * 100)}%`);
         setVal('breakdownStamina', `x${stamina}`);
-        setVal('breakdownDeath', death === 1.0 ? 'Activo (100%)' : (death === 0.15 ? 'Escudo (15%)' : 'ELIMINADO (0%)'));
+        
+        // Estado del mundial y liga en el desglose
+        if (leagueMatch === 0.0) {
+            setVal('breakdownDeath', 'Camiseta Incorrecta (0%)');
+        } else if (this.activeLeague === 'mls') {
+            setVal('breakdownDeath', 'MLS Club Activo (100%)');
+        } else {
+            setVal('breakdownDeath', death === 1.0 ? 'Activo (100%)' : (death === 0.15 ? 'Escudo (15%)' : 'ELIMINADO (0%)'));
+        }
 
         const deathBadge = document.getElementById('deathPledgeBadge');
         if (deathBadge) {
-            if (death < 1.0) {
+            if (leagueMatch === 0.0) {
+                deathBadge.style.display = 'inline-block';
+                deathBadge.innerText = 'CONFL. CAMISETA/TORNEO (-100%)';
+                deathBadge.style.background = 'rgba(255, 77, 106, 0.2)';
+                deathBadge.style.color = '#ff4d6a';
+                deathBadge.style.border = '1px solid #ff4d6a';
+            } else if (this.activeLeague === 'world_cup' && death < 1.0) {
                 deathBadge.style.display = 'inline-block';
                 deathBadge.innerText = death === 0.15 ? 'ESCUDO LEYENDA ACTIVO' : 'DEATH PLEDGE ACTIVE (-100%)';
                 deathBadge.style.background = death === 0.15 ? 'rgba(153, 69, 255, 0.2)' : 'rgba(255, 77, 106, 0.2)';
                 deathBadge.style.color = death === 0.15 ? 'var(--secondary)' : '#ff4d6a';
+                deathBadge.style.border = death === 0.15 ? '1px solid var(--secondary)' : '1px solid #ff4d6a';
+            } else if (this.activeLeague === 'mls') {
+                deathBadge.style.display = 'inline-block';
+                deathBadge.innerText = 'MLS CUP LEAGUE ACTIVO';
+                deathBadge.style.background = 'rgba(20, 241, 149, 0.15)';
+                deathBadge.style.color = 'var(--primary)';
+                deathBadge.style.border = '1px solid var(--primary)';
             } else {
                 deathBadge.style.display = 'none';
             }
@@ -454,7 +501,7 @@ class ModifiersSimulator {
         this.updateYieldAndUI();
     }
 
-    // OPERACIÓN: Fusión de Vestuario (Locker Room Fusión)
+    // OPERACIÓN: Equipar Accesorio/Camiseta en Vestuario (Locker Room Equip)
     fuseSimItem() {
         if (!this.selectedPlayer) {
             alert("Selecciona un jugador primero.");
@@ -464,26 +511,26 @@ class ModifiersSimulator {
         const selectedItem = this.fuseItemSelect.value;
         
         // Validar si ya lo tiene equipado
-        if (selectedItem === 'jersey_arg' && this.equippedJersey) {
-            this.logToConsole("⚠️ [Locker Room] Este jugador ya tiene fusionada la Camiseta Oficial.");
+        if ((selectedItem === 'jersey_arg' || selectedItem === 'jersey_club') && this.equippedJersey) {
+            this.logToConsole("⚠️ [Locker Room] Este jugador ya tiene equipada una camiseta. Desequípala antes de equipar una nueva.");
             return;
         }
         if (selectedItem === 'boots_gold' && this.equippedBoots) {
-            this.logToConsole("⚠️ [Locker Room] Este jugador ya tiene fusionados los Botines de Oro.");
+            this.logToConsole("⚠️ [Locker Room] Este jugador ya tiene equipados los Botines de Oro.");
             return;
         }
         if (selectedItem === 'armband_cap' && this.hasShield) {
-            this.logToConsole("⚠️ [Locker Room] Este jugador ya tiene fusionado el Brazalete de Capitán.");
+            this.logToConsole("⚠️ [Locker Room] Este jugador ya tiene equipado el Brazalete de Capitán.");
             return;
         }
 
         // Simular firma de transacción en Solana
-        this.logToConsole(`✍️ [Solana Devnet] Solicitando firma para quemar Ítem NFT y fusionarlo permanentemente...`);
+        this.logToConsole(`✍️ [Solana Devnet] Solicitando firma para transferir NFT de equipamiento deportivo al Escrow PDA del programa...`);
         
         setTimeout(() => {
             if (selectedItem === 'jersey_arg') {
                 this.equippedJersey = 'argentina_home_2026';
-                this.maxStamina = 105; // Modificador permanente de stats
+                this.maxStamina = 105; // Boost temporal de stamina
                 this.stamina = 105;
                 if (this.staminaSlider) {
                     this.staminaSlider.max = 105;
@@ -493,22 +540,46 @@ class ModifiersSimulator {
                 if (this.jerseyBadge) {
                     this.jerseyBadge.style.display = 'inline-block';
                     this.jerseyBadge.innerText = '👕 Arg 2026';
+                    this.jerseyBadge.style.background = 'rgba(20, 241, 149, 0.2)';
+                    this.jerseyBadge.style.color = 'var(--primary)';
+                    this.jerseyBadge.style.border = '1px solid var(--primary)';
                 }
-                this.logToConsole(`🌟 [Locker Room] ¡Fusión Exitosa! Camiseta Argentina quemada y acoplada a ${this.selectedPlayer.name}.`);
-                this.logToConsole(`[Metadata on-chain] visual_skin = "argentina_home_2026", max_stamina = 105, yield +3% permanent.`);
+                this.logToConsole(`🌟 [Locker Room] ¡Camiseta Equipada! Camiseta Argentina depositada en Escrow PDA y acoplada a ${this.selectedPlayer.name}.`);
+                this.logToConsole(`[Metadata on-chain] visual_skin = "argentina_home_2026", max_stamina = 105, yield +3% activo.`);
+            } else if (selectedItem === 'jersey_club') {
+                this.equippedJersey = 'miami_pink_2026';
+                this.maxStamina = 105; 
+                this.stamina = 105;
+                if (this.staminaSlider) {
+                    this.staminaSlider.max = 105;
+                    this.staminaSlider.value = 105;
+                }
+                if (this.staminaVal) this.staminaVal.innerText = '105%';
+                if (this.jerseyBadge) {
+                    this.jerseyBadge.style.display = 'inline-block';
+                    this.jerseyBadge.innerText = '💗 Miami Pink';
+                    this.jerseyBadge.style.background = 'rgba(255, 77, 106, 0.2)';
+                    this.jerseyBadge.style.color = '#ff4d6a';
+                    this.jerseyBadge.style.border = '1px solid #ff4d6a';
+                }
+                this.logToConsole(`🌟 [Locker Room] ¡Camiseta Equipada! Camiseta Rosa Inter Miami depositada en Escrow PDA y acoplada a ${this.selectedPlayer.name}.`);
+                this.logToConsole(`[Metadata on-chain] visual_skin = "miami_pink_2026", max_stamina = 105, yield +5% activo.`);
             } else if (selectedItem === 'boots_gold') {
                 this.equippedBoots = 'golden_boots';
                 if (this.bootsBadge) {
                     this.bootsBadge.style.display = 'inline-block';
                     this.bootsBadge.innerText = '🪙 Botines Oro';
+                    this.bootsBadge.style.background = 'rgba(255, 183, 3, 0.2)';
+                    this.bootsBadge.style.color = '#ffb703';
+                    this.bootsBadge.style.border = '1px solid #ffb703';
                 }
-                this.logToConsole(`🌟 [Locker Room] ¡Fusión Exitosa! Botines de Oro quemados. Estadísticas ajustadas: velocidad +8, tiro +8, yield +5% permanent.`);
+                this.logToConsole(`🌟 [Locker Room] ¡Botines Equipados! Botines de Oro transferidos al Escrow PDA. Stats: velocidad +8, tiro +8, yield +5% activo.`);
             } else if (selectedItem === 'armband_cap') {
                 this.hasShield = true;
                 if (this.shieldIcon) {
                     this.shieldIcon.style.display = 'inline-block';
                 }
-                this.logToConsole(`🌟 [Locker Room] ¡Fusión Exitosa! Brazalete de Capitán fusionado. Escudo de Leyenda Activo (Protección contra eliminación del Mundial: retiene 15% del yield base).`);
+                this.logToConsole(`🌟 [Locker Room] ¡Brazalete Equipado! Brazalete de Capitán transferido al Escrow PDA. Escudo de Leyenda Activo (Protección del 15% del yield ante eliminación mundialista, +10% Yield).`);
             }
 
             // Burst de confeti de victoria
@@ -521,9 +592,66 @@ class ModifiersSimulator {
                 });
             }
 
-            this.logToConsole(`[Solana Devnet] Instruction processed: fuse_locker_room_item. Item Burned: 1 NFT. TX: 8fKt...${Math.random().toString(36).substring(7).toUpperCase()}`);
+            this.logToConsole(`[Solana Devnet] Instruction processed: equip_locker_room_item. NFT en custodia de PDA. TX: 8fKt...${Math.random().toString(36).substring(7).toUpperCase()}`);
             this.updateYieldAndUI();
-        }, 1000);
+        }, 800);
+    }
+
+    // OPERACIÓN: Desequipar Ítem del Vestuario (Locker Room Unequip)
+    unequipSimItem() {
+        if (!this.selectedPlayer) {
+            alert("Selecciona un jugador primero.");
+            return;
+        }
+
+        const selectedItem = this.fuseItemSelect.value;
+        this.logToConsole(`✍️ [Solana Devnet] Solicitando firma para retirar NFT desde el Escrow PDA de vuelta a tu wallet...`);
+
+        setTimeout(() => {
+            if (selectedItem === 'jersey_arg' || selectedItem === 'jersey_club') {
+                if (!this.equippedJersey) {
+                    this.logToConsole("⚠️ [Locker Room] Este jugador no tiene ninguna camiseta equipada.");
+                    return;
+                }
+                const oldJersey = this.equippedJersey;
+                this.equippedJersey = null;
+                this.maxStamina = 100;
+                this.stamina = Math.min(this.stamina, 100);
+                if (this.staminaSlider) {
+                    this.staminaSlider.max = 100;
+                    this.staminaSlider.value = this.stamina;
+                }
+                if (this.staminaVal) this.staminaVal.innerText = `${this.stamina}%`;
+                if (this.jerseyBadge) {
+                    this.jerseyBadge.style.display = 'none';
+                }
+                this.logToConsole(`🔄 [Locker Room] ¡Desequipamiento Exitoso! Camiseta (${oldJersey === 'argentina_home_2026' ? 'Argentina 2026' : 'Miami Pink'}) devuelta desde Escrow PDA a tu wallet.`);
+                this.logToConsole(`[Metadata on-chain] visual_skin = "undergarment_black", max_stamina = 100, stamina corregida.`);
+            } else if (selectedItem === 'boots_gold') {
+                if (!this.equippedBoots) {
+                    this.logToConsole("⚠️ [Locker Room] Este jugador no tiene botines equipados.");
+                    return;
+                }
+                this.equippedBoots = null;
+                if (this.bootsBadge) {
+                    this.bootsBadge.style.display = 'none';
+                }
+                this.logToConsole(`🔄 [Locker Room] ¡Desequipamiento Exitoso! Botines de Oro devueltos a tu wallet. Stats revertidos.`);
+            } else if (selectedItem === 'armband_cap') {
+                if (!this.hasShield) {
+                    this.logToConsole("⚠️ [Locker Room] Este jugador no tiene el Brazalete de Capitán equipado.");
+                    return;
+                }
+                this.hasShield = false;
+                if (this.shieldIcon) {
+                    this.shieldIcon.style.display = 'none';
+                }
+                this.logToConsole(`🔄 [Locker Room] ¡Desequipamiento Exitoso! Brazalete de Capitán devuelto a tu wallet. Escudo de protección desactivado.`);
+            }
+
+            this.logToConsole(`[Solana Devnet] Instruction processed: unequip_locker_room_item. NFT liberado de PDA. TX: 4nRw...${Math.random().toString(36).substring(7).toUpperCase()}`);
+            this.updateYieldAndUI();
+        }, 800);
     }
 
     // OPERACIÓN: Alquiler (Listar / Rentar)
@@ -689,6 +817,7 @@ function initSimulatorView() {
 window.initSimulatorView = initSimulatorView;
 window.feedSimPotion = () => simulatorAppInstance && simulatorAppInstance.feedSimPotion();
 window.fuseSimItem = () => simulatorAppInstance && simulatorAppInstance.fuseSimItem();
+window.unequipSimItem = () => simulatorAppInstance && simulatorAppInstance.unequipSimItem();
 window.toggleRentalListing = () => simulatorAppInstance && simulatorAppInstance.toggleRentalListing();
 window.simulateBorrowerRent = () => simulatorAppInstance && simulatorAppInstance.simulateBorrowerRent();
 window.triggerGoldenRecall = () => simulatorAppInstance && simulatorAppInstance.triggerGoldenRecall();
