@@ -1073,19 +1073,19 @@
                 <!-- NODE 5: Agent Terminal -->
                 <div class="ai-node-wrapper terminal-bar-wrapper" draggable="false" style="order: 99;">
                     <div class="ai-node" style="border-color: rgba(255, 255, 255, 0.2);">
-                        <div class="node-summary" style="flex-direction: row; align-items: center; justify-content: flex-start; gap: 15px;">
-                            <h4 style="color:#fff; margin:0;">🖥️ Agent Terminal</h4>
-                            <span class="badge" style="background:rgba(255, 255, 255, 0.1); color:#fff; border:1px solid #fff; margin:0;">SOLANA AGENT KIT V3.0</span>
+                        <div class="node-summary" style="display: flex !important; flex-direction: row !important; align-items: center !important; justify-content: flex-start !important; gap: 10px !important; margin: 0 !important; padding: 0 !important;">
+                            <h4 style="color:#fff; margin:0; line-height: 1;">🖥️ Agent Terminal</h4>
+                            <span class="badge" style="background: rgba(255, 255, 255, 0.08); color: rgba(255, 255, 255, 0.9); border: 1px solid rgba(255, 255, 255, 0.25); font-size: 0.65rem !important; padding: 2px 6px; border-radius: 4px; font-weight: bold; letter-spacing: 0.5px; line-height: 1; text-transform: uppercase; align-self: center !important; margin: 0 !important;">SOLANA AGENT KIT V3.0</span>
                         </div>
-                        <div class="node-details">
-                            <div id="terminalOutput" class="terminal-output-box" style="height: 80px; overflow-y: auto; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 15px; text-align: left;">
+                        <div class="node-details" style="margin-top: 8px !important;">
+                            <div id="terminalOutput" class="terminal-output-box" style="height: 52px; overflow-y: auto; background: rgba(0,0,0,0.5); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 8px; text-align: left;">
                                 <!-- Terminal logs injected by JS -->
                             </div>
 
-                            <div style="display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 10px 15px; font-family: monospace; font-size: 0.95rem;">
-                                <span style="color: var(--secondary); font-weight: bold;">[manager@solana ~]$</span>
-                                <input type="text" id="terminalInput" placeholder="Escribe un comando... Ej: /optimize" onkeydown="if(event.key === 'Enter') submitTerminalCommand()" style="background: none; border: none; outline: none; color: #fff; font-family: monospace; font-size: 0.95rem; flex: 1;">
-                                <button onclick="submitTerminalCommand()" class="btn-sm btn-primary" style="padding: 4px 10px; border-radius: 4px; font-size: 0.95rem;">ENVIAR</button>
+                            <div style="display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 6px; padding: 6px 12px; font-family: monospace; font-size: 0.8rem !important;">
+                                <span style="color: var(--secondary); font-weight: bold; font-size: 0.8rem !important;">[manager@solana ~]$</span>
+                                <input type="text" id="terminalInput" placeholder="Escribe un comando... Ej: /optimize" onkeydown="if(event.key === 'Enter') submitTerminalCommand()" style="background: none; border: none; outline: none; color: #fff; font-family: monospace; font-size: 0.8rem !important; flex: 1;">
+                                <button onclick="submitTerminalCommand()" class="btn-sm btn-primary" style="padding: 3px 8px; border-radius: 4px; font-size: 0.8rem !important; font-weight: bold;">ENVIAR</button>
                             </div>
                         </div>
                     </div>
