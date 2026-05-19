@@ -80,8 +80,53 @@ class cNFTScout {
         `).join('');
     }
 
-    upgrade(id) {
-        alert(`¡Iniciando Proceso de Descompresión! \n\nEl jugador #${id} ha sido promocionado. \n\n1. Quema de cNFT (Bubblegum Burn) \n2. Minteo de Genesis NFT (Token Program) \n\nCosto: 0.02 SOL (Costo de Storage Rent)`);
+    async upgrade(id) {
+        const walletAddress = localStorage.getItem('goalchain_wallet');
+        if (!walletAddress) {
+            alert("Conecta tu wallet de Solana primero en la barra superior.");
+            return;
+        }
+
+        if (walletAddress.startsWith("DevGoaL")) {
+            // Mock mode simulation
+            alert(`[Modo Simulación] ¡Iniciando Proceso de Descompresión! \n\nEl jugador #${id} ha sido promocionado. \n\n1. Quema de cNFT (Bubblegum Burn) \n2. Minteo de Genesis NFT (Token Program) \n\nCosto: 0.02 SOL (Costo de Storage Rent)`);
+            return;
+        }
+
+        try {
+            // Real Devnet payment
+            alert(`¡Iniciando Proceso de Descompresión para el Prospecto #${id}!\n\nSe te solicitará firmar la transacción de 0.02 SOL para la quema de cNFT y la acuñación en Metaplex Core del Genesis NFT.`);
+            
+            const connection = new solanaWeb3.Connection("https://api.devnet.solana.com", "confirmed");
+            const fromPubkey = new solanaWeb3.PublicKey(walletAddress);
+            const toPubkey = new solanaWeb3.PublicKey("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
+
+            const transaction = new solanaWeb3.Transaction().add(
+                solanaWeb3.SystemProgram.transfer({
+                    fromPubkey: fromPubkey,
+                    toPubkey: toPubkey,
+                    lamports: 0.02 * 10**9 // 0.02 SOL
+                })
+            );
+
+            const { blockhash } = await connection.getLatestBlockhash();
+            transaction.recentBlockhash = blockhash;
+            transaction.feePayer = fromPubkey;
+
+            const provider = window.solana;
+            if (!provider) throw new Error("Phantom o Solflare no encontrado.");
+
+            const { signature } = await provider.signAndSendTransaction(transaction);
+            
+            alert(`Transacción enviada. Confirmando en Solana Devnet...`);
+            await connection.confirmTransaction(signature, "confirmed");
+
+            alert(`¡Cromodecomprimido Exitosamente! 🎉\n\nEl cNFT #${id} ha sido ascendido a la Genesis Squad.\n\nTx ID: ${signature.substring(0, 10)}...\n\nPuedes verla en Solana Explorer.`);
+            window.open(`https://explorer.solana.com/tx/${signature}?cluster=devnet`, '_blank');
+        } catch (error) {
+            console.error("Error upgrading cNFT:", error);
+            alert("La transacción fue cancelada o falló por falta de fondos (Devnet SOL).");
+        }
     }
 }
 

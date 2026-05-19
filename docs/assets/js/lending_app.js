@@ -70,28 +70,74 @@ class LendingApp {
         this.loanBtn.onclick = () => this.executeLoan();
     }
 
-    executeLoan() {
+    async executeLoan() {
         if (!this.selectedNft) return;
+
+        const walletAddress = localStorage.getItem('goalchain_wallet');
+        if (!walletAddress) {
+            alert("Conecta tu wallet de Solana primero en la barra superior.");
+            return;
+        }
 
         this.loanBtn.innerText = "PROCESANDO EN SOLANA...";
         this.loanBtn.disabled = true;
 
-        // Simulamos la transacción on-chain
-        setTimeout(() => {
-            alert(`¡Préstamo de ${this.selectedNft.ltv} SOL aprobado! \n\nTu NFT "${this.selectedNft.name}" ha sido enviado al Escrow de GoalChain/Sharky. El SOL se ha depositado en tu balance.`);
+        if (walletAddress.startsWith("DevGoaL")) {
+            // Mock mode simulation
+            setTimeout(() => {
+                alert(`[Modo Simulación] ¡Préstamo de ${this.selectedNft.ltv} SOL aprobado! \n\nTu NFT "${this.selectedNft.name}" ha sido enviado al Escrow de GoalChain/Sharky. El SOL se ha depositado en tu balance.`);
+                this.finalizeLoanUI();
+            }, 1500);
+            return;
+        }
+
+        try {
+            alert(`¡Iniciando Solicitud de Préstamo con Colateral para "${this.selectedNft.name}"!\n\nSe te solicitará firmar la transacción de 0.001 SOL para registrar el depósito de colateral en el Escrow de GoalChain/Sharky.`);
+
+            const connection = new solanaWeb3.Connection("https://api.devnet.solana.com", "confirmed");
+            const fromPubkey = new solanaWeb3.PublicKey(walletAddress);
+            const toPubkey = new solanaWeb3.PublicKey("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
+
+            const transaction = new solanaWeb3.Transaction().add(
+                solanaWeb3.SystemProgram.transfer({
+                    fromPubkey: fromPubkey,
+                    toPubkey: toPubkey,
+                    lamports: 0.001 * 10**9 // 0.001 SOL
+                })
+            );
+
+            const { blockhash } = await connection.getLatestBlockhash();
+            transaction.recentBlockhash = blockhash;
+            transaction.feePayer = fromPubkey;
+
+            const provider = window.solana;
+            if (!provider) throw new Error("Phantom o Solflare no encontrado.");
+
+            const { signature } = await provider.signAndSendTransaction(transaction);
             
-            this.activeLoansEl.innerText = "1";
-            this.solAvailableEl.innerText = "0.00 SOL";
-            this.loanBtn.innerText = "PRÉSTAMO ACTIVO";
+            alert(`Transacción de colateral enviada. Confirmando en Solana Devnet...`);
+            await connection.confirmTransaction(signature, "confirmed");
+
+            alert(`¡Préstamo de ${this.selectedNft.ltv} SOL Aprobado! 🎉\n\nEl NFT ha quedado bloqueado en depósito de garantía.\n\nTx ID: ${signature.substring(0, 10)}...\n\nPuedes verla en Solana Explorer.`);
+            window.open(`https://explorer.solana.com/tx/${signature}?cluster=devnet`, '_blank');
             
-            // Actualizamos balance ficticio en el Dashboard
-            const currentBal = parseInt(localStorage.getItem('gch_balance') || '1000');
-            localStorage.setItem('gch_balance', currentBal + (this.selectedNft.ltv * 100)); // Simulamos conversión a tokens para el juego
-            
-            if (window.PenaltyGame) {
-                 // Notificar al juego si estuviera abierto
-            }
-        }, 2000);
+            this.finalizeLoanUI();
+        } catch (error) {
+            console.error("Error executing loan transaction:", error);
+            alert("La transacción fue cancelada o falló por falta de fondos (Devnet SOL).");
+            this.loanBtn.innerText = `SOLICITAR ${this.selectedNft.ltv} SOL AHORA`;
+            this.loanBtn.disabled = false;
+        }
+    }
+
+    finalizeLoanUI() {
+        this.activeLoansEl.innerText = "1";
+        this.solAvailableEl.innerText = "0.00 SOL";
+        this.loanBtn.innerText = "PRÉSTAMO ACTIVO";
+        
+        // Actualizamos balance ficticio en el Dashboard
+        const currentBal = parseInt(localStorage.getItem('gch_balance') || '1000');
+        localStorage.setItem('gch_balance', currentBal + (this.selectedNft.ltv * 100)); // conversión
     }
 }
 

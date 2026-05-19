@@ -50,13 +50,67 @@ function setupPackEvents() {
     }
 }
 
-function triggerPackOpening() {
+async function triggerPackOpening() {
+    const walletAddress = localStorage.getItem('goalchain_wallet');
+    if (!walletAddress) {
+        if (window.notifier) window.notifier.show('ERROR', 'Debes conectar tu wallet para abrir un sobre.', 'error');
+        return;
+    }
+
     packState.isOpening = true;
     const pack = document.getElementById('mysteryPack');
     const openBtn = document.getElementById('openPackBtn');
 
     if (openBtn) {
         openBtn.disabled = true;
+        openBtn.innerText = "WAITING FOR SIGNATURE...";
+    }
+
+    // Si es una wallet real, hacemos una transacción en Devnet
+    if (!walletAddress.startsWith("DevGoaL")) {
+        try {
+            const connection = new solanaWeb3.Connection("https://api.devnet.solana.com", "confirmed");
+            const fromPubkey = new solanaWeb3.PublicKey(walletAddress);
+            const toPubkey = new solanaWeb3.PublicKey("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg"); // Tesorería
+
+            // Cobramos un micro-fee de 0.0005 SOL para simular la acuñación de cNFT/Asset
+            const transaction = new solanaWeb3.Transaction().add(
+                solanaWeb3.SystemProgram.transfer({
+                    fromPubkey: fromPubkey,
+                    toPubkey: toPubkey,
+                    lamports: 500000, // 0.0005 SOL
+                })
+            );
+
+            const { blockhash } = await connection.getLatestBlockhash();
+            transaction.recentBlockhash = blockhash;
+            transaction.feePayer = fromPubkey;
+
+            const provider = window.solana;
+            if (!provider) throw new Error("Phantom Wallet no encontrada.");
+
+            const { signature } = await provider.signAndSendTransaction(transaction);
+            console.log("Transacción de sobre enviada:", signature);
+
+            if (openBtn) openBtn.innerText = "CONFIRMING ON DEVNET...";
+            await connection.confirmTransaction(signature, "confirmed");
+            console.log("Transacción de sobre confirmada!");
+
+            if (window.notifier) window.notifier.show('ÉXITO', 'Transacción de sobre confirmada en Devnet!', 'success');
+
+        } catch (error) {
+            console.error("Error en la transacción real de Solana:", error);
+            if (window.notifier) window.notifier.show('ERROR', 'La transacción fue cancelada o falló.', 'error');
+            if (openBtn) {
+                openBtn.disabled = false;
+                openBtn.innerText = "ABRIR SOBRE (100 $GCH)";
+            }
+            packState.isOpening = false;
+            return;
+        }
+    }
+
+    if (openBtn) {
         const messages = ["CONNECTING TO VAULT...", "FETCHING BIOMETRICS...", "SYNCING SOLANA...", "MINTING NFT...", "REVEALING..."];
         let msgIdx = 0;
         const msgInterval = setInterval(() => {
@@ -86,7 +140,7 @@ function triggerPackOpening() {
             pack.style.transform = "";
         }
         executeReveal();
-        if (openBtn) openBtn.innerText = "ABRIR SOBRE MYSTERY PACK";
+        if (openBtn) openBtn.innerText = "ABRIR SOBRE (100 $GCH)";
     }, 2500);
 }
 
