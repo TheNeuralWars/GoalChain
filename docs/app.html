@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -782,10 +782,15 @@
                     min-height: 600px;
                 }
                 .ai-node-wrapper {
-                    width: 280px;
-                    height: 90px;
+                    width: 340px;
+                    height: 110px;
                     position: relative;
                     cursor: grab;
+                }
+                .ai-node-wrapper.terminal-bar-wrapper {
+                    width: 100%;
+                    height: 80px;
+                    cursor: default;
                 }
                 .ai-node-wrapper.dragging {
                     opacity: 0.4;
@@ -810,8 +815,12 @@
                     display: flex;
                     flex-direction: column;
                 }
+                .terminal-bar-wrapper .ai-node {
+                    top: auto;
+                    bottom: 0;
+                }
                 .ai-node:hover {
-                    width: 480px;
+                    width: 520px;
                     height: auto;
                     max-height: 600px;
                     overflow-y: auto;
@@ -819,14 +828,17 @@
                     border-color: var(--primary);
                     box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 15px rgba(20,241,149,0.2);
                 }
+                .terminal-bar-wrapper .ai-node:hover {
+                    width: 100%;
+                }
                 .node-summary {
                     display: flex;
                     flex-direction: column;
-                    gap: 8px;
+                    gap: 12px;
                 }
                 .node-summary h4 {
                     margin: 0;
-                    font-size: 0.9rem;
+                    font-size: 1.1rem;
                     display: flex;
                     align-items: center;
                     gap: 8px;
@@ -836,8 +848,8 @@
                 }
                 .node-summary .badge {
                     align-self: flex-start;
-                    font-size: 0.55rem;
-                    padding: 3px 6px;
+                    font-size: 0.65rem;
+                    padding: 4px 8px;
                 }
                 .node-details {
                     opacity: 0;
@@ -1043,7 +1055,7 @@
                 </div>
 
                 <!-- NODE 5: Agent Terminal -->
-                <div class="ai-node-wrapper" draggable="true">
+                <div class="ai-node-wrapper terminal-bar-wrapper" draggable="false" style="order: 99;">
                     <div class="ai-node" style="border-color: rgba(255, 255, 255, 0.2);">
                         <div class="node-summary">
                             <h4 style="color:#fff;">🖥️ Agent Terminal</h4>
@@ -1246,6 +1258,22 @@
                     const items = canvas.querySelectorAll('.ai-node-wrapper');
                     
                     items.forEach(item => {
+                        // Expansion direction logic
+                        item.addEventListener('mouseenter', () => {
+                            if (!item.classList.contains('terminal-bar-wrapper')) {
+                                const rect = item.getBoundingClientRect();
+                                const node = item.querySelector('.ai-node');
+                                const windowCenter = window.innerWidth / 2;
+                                if (rect.left > windowCenter) {
+                                    node.style.right = '0';
+                                    node.style.left = 'auto';
+                                } else {
+                                    node.style.left = '0';
+                                    node.style.right = 'auto';
+                                }
+                            }
+                        });
+
                         item.addEventListener('dragstart', (e) => {
                             draggedItem = item;
                             setTimeout(() => item.classList.add('dragging'), 0);
