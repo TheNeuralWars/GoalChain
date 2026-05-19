@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "filename": "OYRRU.png",
+    "filename": "001_lionel_satoshi.png",
     "metadata": {
       "name": "GoalChain Genesis #001 — Lionel Satoshi",
       "symbol": "GCG",
       "description": "The undisputed GOAT of the GoalChain ledger. With 46 trophies and 900+ senior goals, 'La Pulga' cemented his legacy leading the Miami Node to the 2025 MLS Cup. His journey from Rosario to eternal glory is encoded in every block.",
-      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/OYRRU.png",
+      "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/001_lionel_satoshi.webp",
       "external_url": "https://goalchain.fun/nft/1",
       "seller_fee_basis_points": 500,
       "attributes": [
@@ -78,8 +78,8 @@
       "properties": {
         "files": [
           {
-            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/OYRRU.png",
-            "type": "image/png"
+            "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/001_lionel_satoshi.webp",
+            "type": "image/webp"
           }
         ],
         "category": "image",
