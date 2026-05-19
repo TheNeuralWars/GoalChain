@@ -1,89 +1,56 @@
 {
-  "name": "GoalChain Genesis #251 — Kaan Ayhan-Mind",
-  "symbol": "GCG",
-  "description": "The 'Versatile Shield'. A tactical defensive node capable of mastering multiple positions, serving as a high-security fail-safe for the Istanbul-Galatasaray and Turkish grids.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/251_kaan_ayhan-mind.png",
-  "external_url": "https://goalchain.fun/nft/251",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "DEF"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Turquía"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Kaan Ayhan"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 34
-    },
-    {
-      "trait_type": "DEF",
-      "value": 86
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 34
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Barcelona Garnet Block"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "The Rock"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Physical Powerhouse"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/251_kaan_ayhan-mind.png",
-        "type": "image/png"
-      }
+    "name": "Kaan Ayhan-Mind",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Kaan Ayhan-Mind (Turquía). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/251_kaan_ayhan-mind.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Turquía"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 34
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 86
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/251_kaan_ayhan-mind.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

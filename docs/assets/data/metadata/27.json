@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #027 — Declan Rice-Validator",
-  "symbol": "GCG",
-  "description": "Nicknamed 'The Horse' by his peers for his tireless running and 100% availability. The defensive engine of the Arsenal Node, he is the most reliable anchor in the London-based football network.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/027_declan_rice-validator.png",
-  "external_url": "https://goalchain.fun/nft/27",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Legendary"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "MID"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Inglaterra"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Declan Rice"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 76
-    },
-    {
-      "trait_type": "DEF",
-      "value": 72
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 92
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 480
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 82
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Turin Zebra Grid"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Holographic Glitch & Silver Spark"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Box-to-Box"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/027_declan_rice-validator.png",
-        "type": "image/png"
-      }
+    "name": "Declan Rice-Validator",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Declan Rice-Validator (Inglaterra). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/027_vini_burner_jr.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Inglaterra"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 76
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 72
+        },
+        {
+            "trait_type": "Hype",
+            "value": 92
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/027_vini_burner_jr.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #069 — Bernardo Loop",
-  "symbol": "GCG",
-  "description": "The 'Bubblegum Player' whose ball retention is legendary. A master tactician with over 200 goal contributions, he is the most versatile and technically gifted node in the City ecosystem.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/069_bernardo_loop.png",
-  "external_url": "https://goalchain.fun/nft/69",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Legendary"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "MID"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Portugal"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Bernardo Silva"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 76
-    },
-    {
-      "trait_type": "DEF",
-      "value": 72
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 92
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 480
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 80
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Munich Cyber-Bayer"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Holographic Glitch & Silver Spark"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Technical Maestro"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/069_bernardo_loop.png",
-        "type": "image/png"
-      }
+    "name": "Bernardo Loop",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Bernardo Loop (Portugal). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/069_bernardo_loop.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Portugal"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 76
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 72
+        },
+        {
+            "trait_type": "Hype",
+            "value": 92
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/069_bernardo_loop.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

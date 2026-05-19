@@ -1,89 +1,56 @@
 {
-  "name": "GoalChain Genesis #384 — Kelechi Ihea-View",
-  "symbol": "GCG",
-  "description": "Known globally as 'Senior Man Kelz'. A clinical striker with a lethal instinct for goal-scoring, whose experience in Europe's elite ledgers makes him a high-impact asset for the Nigerian Node.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/384_kelechi_ihea-view.png",
-  "external_url": "https://goalchain.fun/nft/384",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Epic"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "FWD"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Nigeria"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Kelechi Iheanacho"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 89
-    },
-    {
-      "trait_type": "DEF",
-      "value": 25
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 82
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 178
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 60
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Buenos Aires Pampa FC"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Electric Neon Pulse"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Clinical Finisher"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Dribbling Wizard"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/384_kelechi_ihea-view.png",
-        "type": "image/png"
-      }
+    "name": "Kelechi Ihea-View",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Kelechi Ihea-View (Nigeria). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/384_kelechi_ihea-view.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Nigeria"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 89
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 25
+        },
+        {
+            "trait_type": "Hype",
+            "value": 82
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/384_kelechi_ihea-view.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

@@ -1,93 +1,56 @@
 {
-  "name": "GoalChain Genesis #085 — Bart Verbru-Secure",
-  "symbol": "GCG",
-  "description": "The 'Future Guardian'. Established as the #1 fail-safe for the Netherlands Node in 2026, known for his composure and elite reflexes that have secured the Dutch backline.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/085_bart_verbru-secure.png",
-  "external_url": "https://goalchain.fun/nft/85",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "GK"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Países bajos"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Bart Verbruggen"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 19
-    },
-    {
-      "trait_type": "DEF",
-      "value": 90
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 38
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Amsterdam Ajax Logic"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Iron Wall"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Quick Reflexes"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Aerial Commander"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/085_bart_verbru-secure.png",
-        "type": "image/png"
-      }
+    "name": "Bart Verbru-Secure",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Bart Verbru-Secure (Países bajos). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/085_bart_verbru-secure.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Países bajos"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 19
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 90
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/085_bart_verbru-secure.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

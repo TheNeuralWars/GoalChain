@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #111 — Alphonso Shard-Davies",
-  "symbol": "GCG",
-  "description": "Known as 'The Roadrunner' and 'Phonzie'. The fastest unit of the Canadian Node, he extended his Munich contract until 2030 to continue his reign as the world's most explosive full-back.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/111_alphonso_shard-davies.png",
-  "external_url": "https://goalchain.fun/nft/111",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "DEF"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Canadá"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Alphonso Davies"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 34
-    },
-    {
-      "trait_type": "DEF",
-      "value": 86
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 33
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Manchester Red Chain"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "The Rock"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/111_alphonso_shard-davies.png",
-        "type": "image/png"
-      }
+    "name": "Alphonso Shard-Davies",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Alphonso Shard-Davies (Canadá). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/111_alphonso_shard-davies.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Canadá"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 34
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 86
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/111_alphonso_shard-davies.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

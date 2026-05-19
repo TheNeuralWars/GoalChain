@@ -1,89 +1,56 @@
 {
-  "name": "GoalChain Genesis #164 — Hyeon-woo-Save",
-  "symbol": "GCG",
-  "description": "The 'Korean Spider'. A world-class goalkeeper whose reflexes and legendary World Cup performances have made him a high-security fail-safe for the Seoul Node.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/164_hyeon-woo-save.png",
-  "external_url": "https://goalchain.fun/nft/164",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "GK"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Corea del sur"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Hyeon-woo Jo"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 19
-    },
-    {
-      "trait_type": "DEF",
-      "value": 90
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 49
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Rio Samba Digital"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Iron Wall"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Quick Reflexes"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/164_hyeon-woo-save.png",
-        "type": "image/png"
-      }
+    "name": "Hyeon-woo-Save",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Hyeon-woo-Save (Corea del sur). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/164_hyeon-woo-save.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Corea del sur"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 19
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 90
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/164_hyeon-woo-save.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

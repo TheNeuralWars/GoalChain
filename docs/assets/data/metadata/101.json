@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #101 — Santiago Gim-Shot",
-  "symbol": "GCG",
-  "description": "Nicknamed 'Bebote' and 'Chaquito'. In 2025, he made history as the first Mexican to join the Milan Node. A clinical serial scorer whose lethal algorithms dominated the Dutch Grid before conquering Italy.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/101_santiago_gim-shot.png",
-  "external_url": "https://goalchain.fun/nft/101",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Epic"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "FWD"
-    },
-    {
-      "trait_type": "Country",
-      "value": "México"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Santiago Giménez"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 89
-    },
-    {
-      "trait_type": "DEF",
-      "value": 25
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 82
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 178
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 82
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Buenos Aires Pampa FC"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Electric Neon Pulse"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Clinical Finisher"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/101_santiago_gim-shot.png",
-        "type": "image/png"
-      }
+    "name": "Santiago Gim-Shot",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Santiago Gim-Shot (México). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/101_santiago_gim-shot.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "México"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 89
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 25
+        },
+        {
+            "trait_type": "Hype",
+            "value": 82
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/101_santiago_gim-shot.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

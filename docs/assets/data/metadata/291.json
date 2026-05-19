@@ -1,89 +1,56 @@
 {
-  "name": "GoalChain Genesis #291 — Daniel Munoz-Link",
-  "symbol": "GCG",
-  "description": "Known as 'El hincha en la cancha'. A former terrace fan turned captain, he became the 2025 FA Cup Final MVP, establishing himself as the primary attacking full-back of the Colombian Node.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/291_daniel_munoz-link.png",
-  "external_url": "https://goalchain.fun/nft/291",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "DEF"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Colombia"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Daniel Muñoz"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 34
-    },
-    {
-      "trait_type": "DEF",
-      "value": 86
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 56
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Dortmund Yellow Hive"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "The Rock"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Physical Powerhouse"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/291_daniel_munoz-link.png",
-        "type": "image/png"
-      }
+    "name": "Daniel Munoz-Link",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Daniel Munoz-Link (Colombia). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/291_daniel_munoz-link.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Colombia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 34
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 86
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/291_daniel_munoz-link.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

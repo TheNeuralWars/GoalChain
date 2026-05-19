@@ -1,89 +1,56 @@
 {
-  "name": "GoalChain Genesis #472 — Yusuf Abdur-Flash",
-  "symbol": "GCG",
-  "description": "Verified as 'The Explosive Winger'. A high-speed offensive node whose acceleration and dribbling make him a constant threat in the Qatari and Asian circuits.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/472_yusuf_abdur-flash.png",
-  "external_url": "https://goalchain.fun/nft/472",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "FWD"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Qatar"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Yusuf Abdurisag"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 98
-    },
-    {
-      "trait_type": "DEF",
-      "value": 28
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 95
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 58
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 0
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "True"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Buenos Aires Pampa FC"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Clinical Finisher"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Speedster"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/472_yusuf_abdur-flash.png",
-        "type": "image/png"
-      }
+    "name": "Yusuf Abdur-Flash",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Yusuf Abdur-Flash (Qatar). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/472_yusuf_abdur-flash.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Qatar"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 98
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 28
+        },
+        {
+            "trait_type": "Hype",
+            "value": 95
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/472_yusuf_abdur-flash.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

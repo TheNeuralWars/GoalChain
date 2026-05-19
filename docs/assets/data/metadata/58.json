@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #058 — Jamal Moon-siala",
-  "symbol": "GCG",
-  "description": "The 'Bambi' of the Munich Grid. A joint-winner of the Euro 2024 Golden Boot who inherited the iconic No. 10. His spindly, magical dribbling style is a unique algorithm in the German football ecosystem.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/058_jamal_moon-siala.png",
-  "external_url": "https://goalchain.fun/nft/58",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Legendary"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "MID"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Alemania"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Jamal Musiala"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 76
-    },
-    {
-      "trait_type": "DEF",
-      "value": 72
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 92
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 480
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 88
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "London Blue Node"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Holographic Glitch & Silver Spark"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Box-to-Box"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/058_jamal_moon-siala.png",
-        "type": "image/png"
-      }
+    "name": "Jamal Moon-siala",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jamal Moon-siala (Alemania). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/058_jamal_moon-siala.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Alemania"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 76
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 72
+        },
+        {
+            "trait_type": "Hype",
+            "value": 92
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/058_jamal_moon-siala.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #030 — John Stone-Base",
-  "symbol": "GCG",
-  "description": "Verified as 'The Defensive Architect'. Leaving the Manchester City Node in 2026 after a legendary 10-year spell, his ball-playing algorithms and tactical composure have defined a generation of elite defenders.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/030_john_stone-base.png",
-  "external_url": "https://goalchain.fun/nft/30",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "DEF"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Inglaterra"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "John Stones"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 34
-    },
-    {
-      "trait_type": "DEF",
-      "value": 86
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 59
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Turin Zebra Grid"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "The Rock"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/030_john_stone-base.png",
-        "type": "image/png"
-      }
+    "name": "John Stone-Base",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - John Stone-Base (Inglaterra). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/030_kai_havests.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Inglaterra"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 34
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 86
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/030_kai_havests.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

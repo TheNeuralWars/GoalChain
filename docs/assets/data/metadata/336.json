@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #336 — Paulo Diaz-Lock",
-  "symbol": "GCG",
-  "description": "The 'Multi-Node Guard'. A versatile and powerful defender whose leadership at the River Plate Node has made him a legendary asset for the Chilean Ledger.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/336_paulo_diaz-lock.png",
-  "external_url": "https://goalchain.fun/nft/336",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "DEF"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Chile"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Paulo Díaz"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 34
-    },
-    {
-      "trait_type": "DEF",
-      "value": 86
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 52
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Manchester Red Chain"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "The Rock"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/336_paulo_diaz-lock.png",
-        "type": "image/png"
-      }
+    "name": "Paulo Diaz-Lock",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Paulo Diaz-Lock (Chile). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/336_paulo_diaz-lock.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Chile"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 34
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 86
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/336_paulo_diaz-lock.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

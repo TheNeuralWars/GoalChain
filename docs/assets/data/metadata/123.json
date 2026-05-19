@@ -1,93 +1,56 @@
 {
-  "name": "GoalChain Genesis #123 — Yassine Bounou-Safe",
-  "symbol": "GCG",
-  "description": "Commonly known as 'Bono'. The hero of Morocco's historic rise and a world-class goalkeeper whose calm under pressure and penalty-saving protocols have made him a global icon.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/123_yassine_bounou-safe.png",
-  "external_url": "https://goalchain.fun/nft/123",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "GK"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Marruecos"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Yassine Bounou"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 19
-    },
-    {
-      "trait_type": "DEF",
-      "value": 90
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 61
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "London Blue Node"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Iron Wall"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Quick Reflexes"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Aerial Commander"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/123_yassine_bounou-safe.png",
-        "type": "image/png"
-      }
+    "name": "Yassine Bounou-Safe",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Yassine Bounou-Safe (Marruecos). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/123_yassine_bounou-safe.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Marruecos"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 19
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 90
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/123_yassine_bounou-safe.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }
