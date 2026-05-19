@@ -44,7 +44,38 @@
             .activity-feed { width: 100%; border-left: none; border-top: 1px solid rgba(255,255,255,0.05); }
             .mobile-nav-toggle { display: block !important; cursor: pointer; font-size: 1.5rem; }
         }
-    </style>
+    
+        /* Advanced Mobile Responsiveness */
+        @media (max-width: 768px) {
+            /* Force grids to stack on mobile */
+            div[style*="grid-template-columns: 1fr 1fr"],
+            div[style*="grid-template-columns: 2fr 1fr"],
+            div[style*="grid-template-columns: 1.2fr 1fr"],
+            div[style*="grid-template-columns: 1fr 1.2fr"],
+            div[style*="grid-template-columns: 1fr 1.5fr"],
+            div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Typography scaling */
+            h2 { font-size: 1.5rem !important; }
+            h3 { font-size: 1.2rem !important; }
+            
+            /* Card spacing */
+            .app-card { padding: 20px !important; margin-bottom: 20px; }
+            
+            /* Specific fix for the simulator layout */
+            #simulatorLayout {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* 3D Card fixes */
+            .nft-card-3d { margin: 0 auto !important; max-width: 250px; }
+            
+            /* Adjust padding on main */
+            .main-content { padding: 15px !important; }
+        }
+</style>
 </head>
 <body>
     <!-- SIDEBAR -->
@@ -369,7 +400,38 @@
                 .gold-neon-flash {
                     animation: gold-flash-anim 0.8s ease-in-out 3;
                 }
-            </style>
+            
+        /* Advanced Mobile Responsiveness */
+        @media (max-width: 768px) {
+            /* Force grids to stack on mobile */
+            div[style*="grid-template-columns: 1fr 1fr"],
+            div[style*="grid-template-columns: 2fr 1fr"],
+            div[style*="grid-template-columns: 1.2fr 1fr"],
+            div[style*="grid-template-columns: 1fr 1.2fr"],
+            div[style*="grid-template-columns: 1fr 1.5fr"],
+            div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Typography scaling */
+            h2 { font-size: 1.5rem !important; }
+            h3 { font-size: 1.2rem !important; }
+            
+            /* Card spacing */
+            .app-card { padding: 20px !important; margin-bottom: 20px; }
+            
+            /* Specific fix for the simulator layout */
+            #simulatorLayout {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* 3D Card fixes */
+            .nft-card-3d { margin: 0 auto !important; max-width: 250px; }
+            
+            /* Adjust padding on main */
+            .main-content { padding: 15px !important; }
+        }
+</style>
 
             <!-- TOURNAMENT BRACKET WRAPPER -->
             <div class="bracket-wrapper">
@@ -866,7 +928,38 @@
                     .term-agent { color: var(--accent); margin-bottom: 6px; font-family: monospace; line-height: 1.4; }
                     .terminal-output-box::-webkit-scrollbar { width: 4px; }
                     .terminal-output-box::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
-                </style>
+                
+        /* Advanced Mobile Responsiveness */
+        @media (max-width: 768px) {
+            /* Force grids to stack on mobile */
+            div[style*="grid-template-columns: 1fr 1fr"],
+            div[style*="grid-template-columns: 2fr 1fr"],
+            div[style*="grid-template-columns: 1.2fr 1fr"],
+            div[style*="grid-template-columns: 1fr 1.2fr"],
+            div[style*="grid-template-columns: 1fr 1.5fr"],
+            div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Typography scaling */
+            h2 { font-size: 1.5rem !important; }
+            h3 { font-size: 1.2rem !important; }
+            
+            /* Card spacing */
+            .app-card { padding: 20px !important; margin-bottom: 20px; }
+            
+            /* Specific fix for the simulator layout */
+            #simulatorLayout {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* 3D Card fixes */
+            .nft-card-3d { margin: 0 auto !important; max-width: 250px; }
+            
+            /* Adjust padding on main */
+            .main-content { padding: 15px !important; }
+        }
+</style>
 
                 <div id="terminalOutput" class="terminal-output-box" style="height: 180px; overflow-y: auto; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 15px; text-align: left;">
                     <!-- Terminal logs injected by JS -->
