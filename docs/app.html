@@ -771,15 +771,15 @@
                     line-height: 1.5;
                 }
                 #ai-nodes-canvas {
-                    display: flex;
-                    flex-wrap: wrap;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    justify-items: center;
                     gap: 30px;
-                    justify-content: center;
-                    align-items: flex-start;
                     padding: 20px;
                     background: radial-gradient(circle at center, rgba(20,241,149,0.05) 0%, transparent 70%);
                     border-radius: 20px;
                     min-height: 600px;
+                    padding-bottom: 120px;
                 }
                 .ai-node-wrapper {
                     width: 340px;
@@ -788,12 +788,21 @@
                     cursor: grab;
                 }
                 .ai-node-wrapper.terminal-bar-wrapper {
-                    position: sticky;
+                    position: fixed;
                     bottom: 0;
-                    z-index: 1000;
-                    width: 100%;
+                    left: var(--sidebar-w);
+                    width: calc(100% - var(--sidebar-w));
                     height: 80px;
+                    z-index: 1000;
                     cursor: default;
+                    border-top: 1px solid rgba(255,255,255,0.1);
+                    backdrop-filter: blur(20px);
+                }
+                @media (max-width: 768px) {
+                    .ai-node-wrapper.terminal-bar-wrapper {
+                        left: 0;
+                        width: 100%;
+                    }
                 }
                 .ai-node-wrapper.dragging {
                     opacity: 0.4;
@@ -869,6 +878,9 @@
                 }
                 .ai-node::-webkit-scrollbar { width: 4px; }
                 .ai-node::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+            .node-details p, .node-details div, .node-details span, .node-details strong, .node-details label, .node-details li {
+                    font-size: calc(100% + 0.15rem) !important;
+                }
             </style>
 
             <div class="ai-header">
@@ -1961,5 +1973,6 @@
     </div>
 </body>
 </html>
+
 
 
