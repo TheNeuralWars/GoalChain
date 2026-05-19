@@ -126,7 +126,7 @@ function executeReveal() {
 
     modal.classList.add('is-active');
     
-    const imgPath = `assets/img/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
+    const imgPath = `assets/img/nfts/${player.filename}`;
     const flag = FLAG_MAP[player.country] || "🏳️";
 
     container.innerHTML = `
@@ -178,7 +178,7 @@ function renderInventory(filter = 'all') {
     }
 
     grid.innerHTML = filteredItems.map(player => {
-        const imgPath = `assets/img/nfts/${String(player.id).padStart(3, '0')}_${player.name.toLowerCase().replace(/ /g, '_')}.png`;
+        const imgPath = `assets/img/nfts/${player.filename}`;
         return `
             <div class="nft-card-3d in-view" data-rarity="${player.rarity}" style="transform: scale(0.6); margin: -50px;">
                 <div class="card-inner">
