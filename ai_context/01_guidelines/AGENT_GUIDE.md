@@ -7,8 +7,8 @@ GoalChain es un ecosistema de fútbol Web3 en Solana. Hemos completado la base v
 Nuestra prioridad actual es dotar a la dApp de interactividad real mediante firmas de transacciones en Solana Devnet y paneles de torneos impulsados por oráculos on-chain.
 
 ### 🚨 REGLA DE ORO DE DESPLIEGUE (OBLIGATORIA)
-- **Sincronización Total Inmediata**: CADA VEZ que se modifique cualquier archivo en `/docs` o documentos estratégicos, el AGENTE debe realizar un `git push` automáticamente.
-- **Propósito**: Garantizar que `goalchain.fun` sea siempre un reflejo exacto del trabajo realizado en tiempo real. **NO terminar una tarea web sin hacer push.**
+- **Sincronización y Purga Total Inmediata**: CADA VEZ que se modifique cualquier archivo en `/docs` o documentos estratégicos, el AGENTE debe realizar un `git push` automáticamente y seguidamente ejecutar la purga de caché de Cloudflare corriendo `python3 scratch/cloudflare_manager.py`.
+- **Propósito**: Garantizar que `goalchain.fun` sea siempre un reflejo exacto y en tiempo real del trabajo realizado, sin demoras de caché. **NO terminar una tarea web sin hacer push y purgar la caché.**
 
 ### 🌐 Frontend & Deployment (/docs)
 - **Source of Truth**: La carpeta `/docs` es la ÚNICA fuente para el frontend.
@@ -32,6 +32,13 @@ Hemos integrado en la configuración global de la IA (`/Users/NicoPez/.gemini/co
 
 ---
 
+## 🔑 APIs, Tokens y Credenciales Integradas
+Para cualquier tarea que involucre integraciones externas, el Agente debe saber que todas las APIs y tokens están pre-configurados localmente y listos para usar. **Prohibido volver a solicitar credenciales al usuario.**
+*   **Discord, X (Twitter), y x.AI (Grok):** Todos los tokens están configurados en el archivo `.env` del directorio raíz del proyecto (`/Users/NicoPez/GoalChain/.env`).
+*   **Cloudflare (goalchain.fun):** Configurado directamente en `/Users/NicoPez/GoalChain/scratch/cloudflare_manager.py` (ACCOUNT_ID, ZONE_ID, API_TOKEN). Para purgar la caché, ejecutar `python3 scratch/cloudflare_manager.py`.
+
+---
+
 ## 💎 Identidad Visual y Assets
 *   **Estética:** Dark Mode, Glassmorphism premium, Colores Solana (#14f195, #9945ff), destellos dorados y de neón.
 *   **Cromos:** Siempre deben ser 3D e interactivos (clic para girar).
@@ -49,9 +56,9 @@ Hemos integrado en la configuración global de la IA (`/Users/NicoPez/.gemini/co
 
 ## 🛠️ Flujo de Desarrollo
 1.  Antes de codificar, revisa el [REPO_MAP.md](./REPO_MAP.md) para entender dónde va cada pieza.
-2.  **Sincronización Continua (Mandatorio):** Realizar `git push` al finalizar cualquier cambio en archivos de la página web.
+2.  **Sincronización Continua (Mandatorio):** Realizar `git push` al finalizar cualquier cambio en archivos de la página web, seguido de la purga de caché con `python3 scratch/cloudflare_manager.py`.
 3.  Si realizas cambios en la estructura de datos (`players.json`), replica los cambios tanto en `docs/assets/data/players.json` como en `ai_context/03_data/players.json`.
 
 ---
 
-**Última actualización:** 19 de Mayo, 2026 (Transición a Fase 4, Integración de Skills de Antigravity y Despliegue en Devnet)
+**Última actualización:** 19 de Mayo, 2026 (Transición a Fase 4, Integración de Skills de Antigravity, Despliegue en Devnet, y Purga de Caché Automatizada con Cloudflare)
