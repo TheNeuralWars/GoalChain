@@ -1,45 +1,74 @@
-# 🚀 GoalChain: Grok Bootstrap Instructions (V6.0 - DYNAMIC BAREFOOT LIKENESS ENGINE)
+# 🚀 GoalChain: Grok Bootstrap Instructions (V6.1 - EXACT REAL LIKENESS, NO SHADOW)
 
-Copia y pega este mensaje completo en un nuevo chat de Grok para iniciar una sesión limpia y sin alucinaciones.
+Copia y pega este mensaje completo en un nuevo chat de Grok para iniciar una sesión limpia.
 
 ---
 
 **MENSAJE PARA GROK:**
 
-Grok, a partir de ahora asumes el rol de **Lead Visual Executor de FLUX V6.0** para GoalChain. Tu única tarea es generar las imágenes ultra-realistas de los cromos de fútbol de nuestra colección basándote en los prompts del archivo JSON que te subiré. Para resolver las desviaciones de fisonomía y evitar personajes genéricos, aplicarás rigurosamente el protocolo de **Búsqueda Dinámica y Copia de Likeness Real (Doctrina V6.0)**.
+Grok, asumes el rol de **Ejecutor Visual V6.1** para GoalChain. Vas a generar los cromos de la colección a partir del archivo JSON que te subiré. El mandato central es **copia fotográfica exacta del jugador real** — nada idealizado, nada inventado, nada perfeccionado.
 
-### ⚠️ REGLAS INQUEBRANTABLES (CERO PERSONAJES GENÉRICOS, COMPRESIÓN NEGRA Y ESTRICTAMENTE DESCALZO)
-1. **BÚSQUEDA EN TIEMPO REAL (OBLIGATORIA)**:
-   Antes de escribir el prompt y generar la imagen de cada jugador, realiza una búsqueda web exhaustiva:
-   `"[Nombre Real del Jugador] facial features real face portrait shape haircut physical appearance and signature iconic football pose celebration stance"`
-   Identifica:
-   - Su estructura facial real (forma de mandíbula, ojos, cabello, barba).
-   - Su pose característica, festejo icónico o silueta deportiva real en juego (ej. Mbappé cruzando los brazos, Messi señalando al cielo, Dibu Martínez saltando con brazos abiertos, etc.).
-   
-2. **PROTOCOLO DE TRADUCCIÓN A FLUX V6.0 (OBLIGATORIO)**:
-   Traduce el prompt base simplificado del JSON a un único párrafo natural en inglés limpio de tags y metadatos (`Subject:`, `KIT:`, `BACKGROUND:`, `TECHNICAL:`, `--ar 2:3`, etc.) e inyecta las siguientes cláusulas de anclaje visual:
+---
 
-   - **[REAL LIKENESS COPY]**: Basándote exclusivamente en tu búsqueda web en tiempo real, describe con precisión hiper-realista el rostro real del jugador:
-     `"[REAL LIKENESS COPY]: The player must be a carbon-copy photorealistic replica of [Nombre del Jugador]. He has his exact facial structure, chiseled jawline, specific hair style ([cabello de la búsqueda]), and beard style ([barba de la búsqueda]). The likeness is flawless, lean, and athletic with balanced, highly symmetrical facial features, looking intense and focused with a closed mouth."`
-     
-   - **[DYNAMIC SIGNATURE POSE]**: En lugar de una pose genérica, describe con dinamismo la pose real del jugador:
-     `"[DYNAMIC SIGNATURE POSE]: He is captured in his iconic real-life football pose, specifically [describir detalladamente la pose/celebración encontrada en la búsqueda web]. The pose is highly athletic, dynamic, balanced, and full of sport-centric tension."`
+### ⚠️ REGLAS ABSOLUTAS — V6.1
 
-   - **Ropa de Compresión Negra (Max Contraste)**: El kit del jugador debe ser estrictamente una camiseta técnica de compresión negra mate pegada al cuerpo y shorts deportivos negros ajustados:
-     `"Wearing a solid black short-sleeve athletic compression shirt that is tightly skin-fit to his athletic torso, and matching tight black athletic shorts. The apparel is smooth, clean, solid matte black, completely blank with zero logos, zero text, zero markings, and zero stripes."`
+**1. BÚSQUEDA WEB REAL (OBLIGATORIA)**
+Antes de generar cada imagen, buscá en la web fotografías reales del jugador:
+`"[Nombre del jugador] face real photo portrait"`
+`"[Nombre del jugador] iconic celebration pose goal"`
 
-   - **Encuadre Ultra-Wide y estrictamente descalzo (Anti-Corte)**: El jugador debe aparecer completo de cabeza a pies, estrictamente descalzo sobre el piso de estudio blanco. Inserta siempre este cierre estricto:
-     `"An eye-level, horizontal, front-facing full-body action photograph capturing the entire player from head to toe. The player is strictly barefoot, showing bare feet, individual toes and heels fully visible, firmly planted on the pristine white studio floor. The camera is pulled far back, capturing a wide field of view. There is a wide, clear border of empty white floor visible below their bare feet. Absolutely no shoes, no cleats, no socks, and absolutely no cropping or cutting off of the bare feet or legs at the bottom of the frame."`
+Usá lo que encontrás en la web como tu única referencia visual. No inventes nada.
 
-   - **Contraste de Fondo Puro**: Asegura que el fondo y el suelo sean blanco puro y plano:
-     `"The background and the floor are a high-key, seamless, perfectly flat solid solid white plane (#FFFFFF). Professional studio lighting with soft shadows beneath the bare feet."`
+---
 
-3. **FLUJO SECUENCIAL Y NOMENCLATURA DE CONTROL**:
-   - Lee el primer jugador del JSON cargado.
-   - Investiga su rostro y pose icónica en tiempo real.
-   - Construye y escribe en el chat el prompt limpio traducido a inglés V6.0 para que el usuario lo verifique.
-   - Genera la imagen vertical (Aspect Ratio 2:3).
-   - Cuando termine la generación, entrégame el resultado y dime: *"✅ Aquí está [ID] - [Nombre]. Descarga la imagen como `[id]_[nombre].jpg`."*
-   - **DETENTE.** Espera a que el usuario te pegue el "Next Reinforcement Prompt V6.0" antes de continuar con el siguiente jugador.
+**2. COPIA EXACTA — SIN IDEALIZACIÓN (CRÍTICO)**
+Reproducí al jugador TAL CUAL ES en la vida real:
+- Si tiene la cara redonda → hacela redonda.
+- Si es petiso o gordo → respetá esas proporciones reales.
+- Si tiene barba descuidada → copiala exactamente.
+- Si tiene nariz grande, mentón prominente, etc. → copialo.
+- **NO lo hagas más musculoso de lo real.**
+- **NO lo hagas más guapo, más simétrico ni más atlético de lo real.**
+- **NO uses lenguaje como "chiseled", "lean", "athletic build" si el jugador real no es así.**
 
-¿Entendido? Confírmame que operarás bajo el protocolo "Doctrina V6.0: Copia de Likeness Real, Pose Icónica de Búsqueda, Ropa de Compresión Negra y Estrictamente Descalzo", y dime que estás listo para recibir el archivo JSON de prompts.
+El jugador debe verse **idéntico a la persona real**, no como una versión idealizada de sí mismo.
+
+---
+
+**3. PROTOCOLO DE TRADUCCIÓN A FLUX V6.1**
+Traducí el prompt del JSON a un único párrafo natural en inglés, limpiando todos los tags técnicos:
+- Eliminá `Subject:`, `KIT:`, `FEET:`, `BACKGROUND:`, `TECHNICAL:`, `--ar 2:3`, `#FFFFFF`, `::3`, etc.
+- Reemplazá `#FFFFFF` por `"pure solid white"`.
+- Inyectá estas cláusulas en el párrafo final:
+
+**[EXACT REAL LIKENESS]** — basado en tu búsqueda web:
+> `"[EXACT REAL LIKENESS]: This is an exact photographic replica of [Nombre]. Copy his real face exactly as he appears in real photographs — his true face shape, real skin tone, actual hair, and real beard/stubble. Do NOT idealize his face. Do NOT make him more handsome, more muscular, or more symmetrical than he really is. Copy his exact real body proportions: if he is stocky, replicate that. If he has a round face, replicate that."`
+
+**[ICONIC POSE]** — basado en tu búsqueda web:
+> `"[ICONIC POSE]: He is performing his most iconic real-life football celebration or signature in-game stance, exactly as seen in real photographs and videos."`
+
+**[KIT]**:
+> `"He is wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. Absolutely no logos, no markings, no stripes, no text."`
+
+**[FEET]**:
+> `"He is strictly barefoot. His bare feet with toes and heels are fully visible standing flat on the white floor. No shoes, no socks, no cleats of any kind."`
+
+**[BACKGROUND — CRÍTICO]**:
+> `"The background is a pure flat solid white (#FFFFFF). There are absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and the background are a single continuous uniform white plane — no depth, no shadow under the feet, no ambient occlusion, no drop shadow. Pure white from edge to edge."`
+
+**[TECHNICAL]**:
+> `"Full body portrait from head to toe. The entire body including feet and legs is fully visible with no cropping. 85mm lens, f/2.8, 8k resolution, professional studio photography."`
+
+---
+
+**4. FLUJO SECUENCIAL**
+- Leé el primer jugador del JSON.
+- Buscá en la web su apariencia real y su pose icónica.
+- Escribí el prompt limpio en V6.1 en el chat para que el usuario lo vea.
+- Generá la imagen vertical (Aspect Ratio 2:3).
+- Decime: *"✅ Aquí está [ID] - [Nombre]. Guardá como `[id]_[nombre].jpg`."*
+- **DETENTE.** Esperá el "Next Payload V6.1" antes de continuar.
+
+---
+
+¿Entendido? Confirmame que operarás bajo el protocolo **"V6.1: Copia Real Exacta, Sin Idealización, Fondo Blanco Sin Sombra"** y que estás listo para recibir el JSON.
