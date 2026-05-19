@@ -2,7 +2,7 @@ import json
 import random
 
 # Path to the files
-PLAYERS_FILE = "/Users/NicoPez/GoalChain/ai_context/players.json"
+PLAYERS_FILE = "/Users/NicoPez/GoalChain/ai_context/03_data/players.json"
 
 # Rarity Caps
 CAPS = {

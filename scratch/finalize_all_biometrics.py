@@ -1,6 +1,6 @@
 import json
 
-PLAYERS_FILE = "/Users/NicoPez/GoalChain/ai_context/players.json"
+PLAYERS_FILE = "/Users/NicoPez/GoalChain/ai_context/03_data/players.json"
 
 def finalize_biometrics():
     with open(PLAYERS_FILE, 'r') as f:
