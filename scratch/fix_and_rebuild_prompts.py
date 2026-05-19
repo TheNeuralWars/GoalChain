@@ -28,22 +28,16 @@ def rebuild_all():
         json.dump(players, f, indent=4, ensure_ascii=False)
     print(f"✅ Anomalías biométricas corregidas en players.json: {fixes_applied}")
         
-    # 2. REBUILD STRICT PROMPTS (V4.0 - ANTI-CROP & BLACK JERSEY CONTRAST)
+    # 2. REBUILD STRICT PROMPTS (V6.0 - DYNAMIC BAREFOOT & COMPRESSION)
     prompts = []
     for p in players:
-        phys = p.get('physical', {}).get('t', '')
         name = p.get('real_name', p.get('name', 'Player'))
         
-        # Fórmula Maestra de Ejecución Estricta (V4.0)
+        # Fórmula Maestra de Copia y Búsqueda Dinámica (V6.0)
         prompt_str = (
-            f"Subject: {name}. {phys} ::3 "
-            f"An ultra-wide, ground-level full-body action photograph of {name}, head to toe fully visible. "
-            f"The camera is pulled far back, capturing a wide field of view. The player is standing in an epic football pose. "
-            f"Both of their legs, knees, shins, socks, and athletic cleats (soccer shoes) are completely visible inside the frame. "
-            f"There is a wide, clear border of empty white floor visible below their shoes. "
-            f"Absolutely no cropping or cutting off of the legs, shoes, or feet at the bottom of the frame. "
-            "KIT: Wearing a completely blank, plain solid pitch-black athletic jersey. "
-            "The chest of the jersey is smooth, solid, and completely plain pitch-black, showing only pure solid clean black fabric with zero logos, zero graphics, and zero markings. "
+            f"Subject: {name}. Dynamic Pose: Research and replicate their iconic real-life football celebration, signature action pose, or dynamic in-game stance. "
+            "KIT: Wearing a premium tight-fitting solid black athletic compression short-sleeve shirt and tight black athletic shorts. "
+            "FEET: Strictly barefoot, bare feet, toes and heels fully visible standing on the white floor. "
             "BACKGROUND: High-key studio photography, shot on a seamless, FLAT SOLID #FFFFFF WHITE BACKGROUND. "
             "The floor is a purely blank, solid white plane, perfectly uniform, seamless and flat. "
             "TECHNICAL: 85mm lens, f/2.8, extreme realism, highly detailed face, professional photography, professionally isolated, 8k resolution --ar 2:3"
