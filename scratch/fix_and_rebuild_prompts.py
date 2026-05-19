@@ -40,7 +40,7 @@ def rebuild_all():
             f"copy their true face shape, skin tone, hair, beard/stubble exactly as they look in real life. "
             f"Do NOT idealize, do NOT make them more muscular, do NOT make them more handsome or perfect than they really are. "
             f"Copy their exact real body proportions including if they are stocky, lean, tall or short. "
-            f"POSE: Replicate their most iconic real-life football celebration or signature in-game stance, exactly as seen in real photographs. "
+            f"POSE: Simple, natural standing posture, facing front, hands relaxed at sides. "
             "KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. "
             "FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. "
             "BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette. "
