@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #431 — Coco Carras-Link",
-  "symbol": "GCG",
-  "description": "The 'Engine' of the Panamanian midfield. A tireless and tactical anchor whose presence and ball-recovery packets ensure the stability of the national and club circuits.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/431_coco_carras-link.png",
-  "external_url": "https://goalchain.fun/nft/431",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "MID"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Panamá"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Cristian Carrasquilla"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 70
-    },
-    {
-      "trait_type": "DEF",
-      "value": 66
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 59
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Paris Sapphire PSG"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Box-to-Box"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/431_coco_carras-link.png",
-        "type": "image/png"
-      }
+    "name": "Coco Carras-Link",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Coco Carras-Link (Panamá). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/431_coco_carras-link.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Panamá"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 70
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 66
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/431_coco_carras-link.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

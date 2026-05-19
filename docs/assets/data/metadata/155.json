@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #155 — Son Heung-Star",
-  "symbol": "GCG",
-  "description": "Nicknamed 'Sonaldo Nazario', he is the soul of the Korean and Spurs nodes. After leading London to a 2025 Europa League title, 'Sonny' took his talents to the LAFC Node to expand his global influence.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/155_son_heung-star.png",
-  "external_url": "https://goalchain.fun/nft/155",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Legendary"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "FWD"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Corea del sur"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Son Heung-min"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 93
-    },
-    {
-      "trait_type": "DEF",
-      "value": 26
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 92
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 480
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 81
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Barcelona Garnet Block"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Holographic Glitch & Silver Spark"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Clinical Finisher"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/155_son_heung-star.png",
-        "type": "image/png"
-      }
+    "name": "Son Heung-Star",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Son Heung-Star (Corea del sur). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/155_son_heung-star.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Corea del sur"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 93
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 26
+        },
+        {
+            "trait_type": "Hype",
+            "value": 92
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/155_son_heung-star.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

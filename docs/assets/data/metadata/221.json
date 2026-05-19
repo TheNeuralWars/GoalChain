@@ -1,93 +1,56 @@
 {
-  "name": "GoalChain Genesis #221 — Robert Lewan-Goal-ski",
-  "symbol": "GCG",
-  "description": "The veteran 'Goal Poacher' who consistently delivers. A master of the clinical strike who remains a high-value asset in the Barcelona Node, defying the aging curve of his code.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/221_robert_lewan-goal-ski.png",
-  "external_url": "https://goalchain.fun/nft/221",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Mythic"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "FWD"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Polonia"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Robert Lewandowski"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 98
-    },
-    {
-      "trait_type": "DEF",
-      "value": 28
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 98
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 1192
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 100
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Amsterdam Ajax Logic"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Cosmic Aura & Golden Supernova"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Goal Poacher"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Clinical Finisher"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Strong Target"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/221_robert_lewan-goal-ski.png",
-        "type": "image/png"
-      }
+    "name": "Robert Lewan-Goal-ski",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Robert Lewan-Goal-ski (Polonia). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/221_robert_lewan-goal-ski.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Polonia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Mythic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 98
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 28
+        },
+        {
+            "trait_type": "Hype",
+            "value": 98
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/221_robert_lewan-goal-ski.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #115 — Tajon Bucha-Wing",
-  "symbol": "GCG",
-  "description": "The 'Trailblazer'. The first Canadian in the Milan Node and a historic hat-trick hero in the Spanish Grid, known for his explosive pace and clinical finishing packets.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/115_tajon_bucha-wing.png",
-  "external_url": "https://goalchain.fun/nft/115",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Epic"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "FWD"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Canadá"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Tajon Buchanan"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 89
-    },
-    {
-      "trait_type": "DEF",
-      "value": 25
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 82
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 178
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 61
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Milan Devil Core"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Electric Neon Pulse"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Clinical Finisher"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/115_tajon_bucha-wing.png",
-        "type": "image/png"
-      }
+    "name": "Tajon Bucha-Wing",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Tajon Bucha-Wing (Canadá). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/115_tajon_bucha-wing.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Canadá"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 89
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 25
+        },
+        {
+            "trait_type": "Hype",
+            "value": 82
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/115_tajon_bucha-wing.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

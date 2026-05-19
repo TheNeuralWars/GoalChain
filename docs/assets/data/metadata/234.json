@@ -1,89 +1,56 @@
 {
-  "name": "GoalChain Genesis #234 — Artem Dov-Size",
-  "symbol": "GCG",
-  "description": "The 'Golden Boot' of La Liga (2024). A towering Ukrainian striker whose clinical finishing and physical strength have made him the most lethal offensive asset for the Girona and Ukrainian ledgers.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/234_artem_dov-size.png",
-  "external_url": "https://goalchain.fun/nft/234",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Epic"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "FWD"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Ucrania"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Artem Dovbyk"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 89
-    },
-    {
-      "trait_type": "DEF",
-      "value": 25
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 82
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 178
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 73
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "London Blue Node"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Electric Neon Pulse"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Clinical Finisher"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Aerial Threat"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/234_artem_dov-size.png",
-        "type": "image/png"
-      }
+    "name": "Artem Dov-Size",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Artem Dov-Size (Ucrania). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/234_artem_dov-size.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Ucrania"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 89
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 25
+        },
+        {
+            "trait_type": "Hype",
+            "value": 82
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/234_artem_dov-size.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

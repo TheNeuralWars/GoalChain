@@ -1,89 +1,56 @@
 {
-  "name": "GoalChain Genesis #426 — Haxzel Quir-Rail",
-  "symbol": "GCG",
-  "description": "Known as 'The Fast Wing-back'. A high-energy defensive and offensive node whose pace and tactical intelligence ensure the stability of the Costa Rican and national circuits.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/426_haxzel_quir-rail.png",
-  "external_url": "https://goalchain.fun/nft/426",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Epic"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "FWD"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Costa rica"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Haxzel Quirós"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 89
-    },
-    {
-      "trait_type": "DEF",
-      "value": 25
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 82
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 178
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 81
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Munich Cyber-Bayer"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Electric Neon Pulse"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Clinical Finisher"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Speedster"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/426_haxzel_quir-rail.png",
-        "type": "image/png"
-      }
+    "name": "Haxzel Quir-Rail",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Haxzel Quir-Rail (Costa rica). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/426_haxzel_quir-rail.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Costa rica"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 89
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 25
+        },
+        {
+            "trait_type": "Hype",
+            "value": 82
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/426_haxzel_quir-rail.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

@@ -1,89 +1,56 @@
 {
-  "name": "GoalChain Genesis #509 — El Bilal Tou-Goal",
-  "symbol": "GCG",
-  "description": "The 'Giant Killer'. A powerful striker whose historic 2024 Champions League winning goal against Juventus and move to the Besiktas Node in 2026 have cemented his status as an elite offensive node.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/509_el_bilal_tou-goal.png",
-  "external_url": "https://goalchain.fun/nft/509",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Legendary"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "FWD"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Malí"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "El Bilal Touré"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 93
-    },
-    {
-      "trait_type": "DEF",
-      "value": 26
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 88
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 470
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 95
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Madrid White Ledger"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Holographic Glitch & Silver Spark"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Clinical Finisher"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Speedster"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/509_el_bilal_tou-goal.png",
-        "type": "image/png"
-      }
+    "name": "El Bilal Tou-Goal",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - El Bilal Tou-Goal (Malí). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/509_el_bilal_tou-goal.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Malí"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 93
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 26
+        },
+        {
+            "trait_type": "Hype",
+            "value": 88
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/509_el_bilal_tou-goal.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

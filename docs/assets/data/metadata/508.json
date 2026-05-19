@@ -1,85 +1,56 @@
 {
-  "name": "GoalChain Genesis #508 — Amadou Haid-Root",
-  "symbol": "GCG",
-  "description": "Known as 'Doudou'. A street-to-Bundesliga hero whose technical training at the Bamako Academy has made him a foundational creative asset for the Mali and Leipzig nodes.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/508_amadou_haid-root.png",
-  "external_url": "https://goalchain.fun/nft/508",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "MID"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Malí"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Amadou Haidara"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 70
-    },
-    {
-      "trait_type": "DEF",
-      "value": 66
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 39
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Manchester Red Chain"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Box-to-Box"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/508_amadou_haid-root.png",
-        "type": "image/png"
-      }
+    "name": "Amadou Haid-Root",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Amadou Haid-Root (Malí). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/508_amadou_haid-root.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Malí"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 70
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 66
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/508_amadou_haid-root.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

@@ -1,89 +1,56 @@
 {
-  "name": "GoalChain Genesis #200 — Yann Sommer-Lock",
-  "symbol": "GCG",
-  "description": "Verified as 'The Wall'. A world-class goalkeeper whose reflexes and leadership have stabilized the Milan and Swiss ledgers for over a decade, serving as the primary fail-safe for his nation.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/200_yann_sommer-lock.png",
-  "external_url": "https://goalchain.fun/nft/200",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "GK"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Suiza"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Yann Sommer"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 19
-    },
-    {
-      "trait_type": "DEF",
-      "value": 90
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 32
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Madrid White Ledger"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Iron Wall"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Quick Reflexes"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/200_yann_sommer-lock.png",
-        "type": "image/png"
-      }
+    "name": "Yann Sommer-Lock",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Yann Sommer-Lock (Suiza). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/200_yann_sommer-lock.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Suiza"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 19
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 90
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/200_yann_sommer-lock.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

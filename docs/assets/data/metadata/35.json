@@ -1,93 +1,56 @@
 {
-  "name": "GoalChain Genesis #035 — Vinicius Jpeg Jr",
-  "symbol": "GCG",
-  "description": "The unstoppable winger of the Madrid Node. A master of the 'Electric Dribble', he has transitioned from a rising star to a cornerstone of the world's most successful football ledger.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/035_vinicius_jpeg_jr.png",
-  "external_url": "https://goalchain.fun/nft/35",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Mythic"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐⭐⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "FWD"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Brasil"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Vinícius Júnior"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 89
-    },
-    {
-      "trait_type": "DEF",
-      "value": 25
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 82
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 1128
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 97
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "Paris Sapphire PSG"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Cosmic Aura & Golden Supernova"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Dribbling Wizard"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Speedster"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Electric Winger"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/035_vinicius_jpeg_jr.png",
-        "type": "image/png"
-      }
+    "name": "Vinicius Jpeg Jr",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Vinicius Jpeg Jr (Brasil). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/SJTt2.jpg",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Brasil"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Mythic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 89
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 25
+        },
+        {
+            "trait_type": "Hype",
+            "value": 82
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/SJTt2.jpg",
+                "type": "image/jpeg"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }

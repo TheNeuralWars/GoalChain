@@ -1,93 +1,56 @@
 {
-  "name": "GoalChain Genesis #392 — Nouhou Tolo-Rail",
-  "symbol": "GCG",
-  "description": "Verified as 'The Unbreakable Guard'. A legendary left-back known for his defensive intensity and his status as a foundational asset for the Seattle and Cameroonian nodes.",
-  "image": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/392_nouhou_tolo-rail.png",
-  "external_url": "https://goalchain.fun/nft/392",
-  "seller_fee_basis_points": 500,
-  "attributes": [
-    {
-      "trait_type": "Rarity",
-      "value": "Rare"
-    },
-    {
-      "trait_type": "Rarity Stars",
-      "value": "⭐⭐"
-    },
-    {
-      "trait_type": "Position",
-      "value": "DEF"
-    },
-    {
-      "trait_type": "Country",
-      "value": "Camerún"
-    },
-    {
-      "trait_type": "Real Name",
-      "value": "Nouhou Tolo"
-    },
-    {
-      "trait_type": "ATK",
-      "value": 34
-    },
-    {
-      "trait_type": "DEF",
-      "value": 86
-    },
-    {
-      "trait_type": "HYPE",
-      "value": 75
-    },
-    {
-      "trait_type": "Base Yield (GCH/day)",
-      "value": 50
-    },
-    {
-      "trait_type": "Stamina",
-      "value": 60
-    },
-    {
-      "trait_type": "Is Eliminated",
-      "value": "False"
-    },
-    {
-      "trait_type": "Parody Club",
-      "value": "London Blue Node"
-    },
-    {
-      "trait_type": "Visual Effect",
-      "value": "Subtle Cyber Outline"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "The Rock"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Physical Powerhouse"
-    },
-    {
-      "trait_type": "Trait",
-      "value": "Recovery Pace"
-    }
-  ],
-  "properties": {
-    "files": [
-      {
-        "uri": "https://arweave.net/PLACEHOLDER_ARWEAVE_TX/392_nouhou_tolo-rail.png",
-        "type": "image/png"
-      }
+    "name": "Nouhou Tolo-Rail",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Nouhou Tolo-Rail (Camerún). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/392_nouhou_tolo-rail.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Camerún"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 34
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 86
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
     ],
-    "category": "image",
-    "creators": [
-      {
-        "address": "GOALCHAIN_WALLET_ADDRESS_PLACEHOLDER",
-        "share": 100
-      }
-    ]
-  },
-  "collection": {
-    "name": "GoalChain Genesis Squad",
-    "family": "GoalChain"
-  }
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/392_nouhou_tolo-rail.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
 }
