@@ -147,7 +147,7 @@ function renderParallaxCard(container, player) {
     const safeName = sanitizeFilename(player.name);
     
     // Corregido: Las siluetas recortadas están en la raíz de nfts/
-    const playerImgUrl = `assets/img/nfts/${paddedId}_${safeName}.webp`;
+    const playerImgUrl = player.filename ? `assets/img/nfts/${player.filename}` : `assets/img/nfts/${paddedId}_${safeName}.webp`;
     const bgImgUrl = `assets/video/stadiums/${bgFilename}`;
 
     // --- On-Chain Mock Data (Simulando lo que llega del Smart Contract) ---
