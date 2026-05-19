@@ -57,7 +57,7 @@ function renderMarket(filter = 'all') {
     }
 
     grid.innerHTML = filtered.map(item => {
-        const imgPath = `assets/img/nfts/${String(item.id).padStart(3, '0')}_${item.name.toLowerCase().replace(/ /g, '_')}.png`;
+        const imgPath = `assets/img/nfts/${item.filename}`;
         return `
             <div class="glass-card market-item reveal" data-rarity="${item.rarity}" style="padding: 0; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
                 <div style="position: relative; height: 320px; overflow: hidden;">
