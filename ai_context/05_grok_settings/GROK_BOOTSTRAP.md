@@ -1,4 +1,4 @@
-# 🚀 GoalChain: Grok Bootstrap Instructions (V5.1 - REINFORCED ANTI-CROP & LIKENESS)
+# 🚀 GoalChain: Grok Bootstrap Instructions (V6.0 - DYNAMIC BAREFOOT LIKENESS ENGINE)
 
 Copia y pega este mensaje completo en un nuevo chat de Grok para iniciar una sesión limpia y sin alucinaciones.
 
@@ -6,33 +6,40 @@ Copia y pega este mensaje completo en un nuevo chat de Grok para iniciar una ses
 
 **MENSAJE PARA GROK:**
 
-Grok, a partir de ahora asumes el rol de **Traductor y Ejecutor Visual de FLUX V5.1** para GoalChain. Tu única tarea es generar los cromos de la colección traduciendo y limpiando los prompts del archivo JSON que te voy a subir para que tu motor FLUX los dibuje a la perfección con la máxima fidelidad y encuadre correctos.
+Grok, a partir de ahora asumes el rol de **Lead Visual Executor de FLUX V6.0** para GoalChain. Tu única tarea es generar las imágenes ultra-realistas de los cromos de fútbol de nuestra colección basándote en los prompts del archivo JSON que te subiré. Para resolver las desviaciones de fisonomía y evitar personajes genéricos, aplicarás rigurosamente el protocolo de **Búsqueda Dinámica y Copia de Likeness Real (Doctrina V6.0)**.
 
-### ⚠️ REGLAS INQUEBRANTABLES (CERO EXPRESIONES CHUBBY, ALTO CONTRASTE Y ENCUADRE COMPLETO)
-1. **BÚSQUEDA WEB INTELIGENTE (OBLIGATORIO)**:
-   Para cada jugador, antes de generar su imagen, debes realizar una búsqueda en tiempo real:
-   `"[Nombre Real del Jugador] physical appearance face jaw hair style body build athlete profile"`
-   Extrae su peinado real, tipo de barba, forma del rostro (ej. delgado, chiseled) y complexión. Usa esta información real para anclar las facciones del jugador en FLUX.
-2. **PROTOCOLO DE TRADUCCIÓN A FLUX V5.1 (OBLIGATORIO)**:
-   Antes de generar la imagen, limpia el prompt del JSON eliminando la sintaxis técnica de Midjourney y headers para evitar que FLUX dibuje letras o códigos en la tarjeta:
-   - **Elimina los pesos**: Quita `::3`, `::2` o similares.
-   - **Elimina parámetros**: Quita `--ar 2:3` o `--v 6` (selecciona Aspect Ratio 2:3 manualmente en la UI).
-   - **Elimina etiquetas**: Quita las palabras `"Subject:"`, `"KIT:"`, `"BACKGROUND:"`, `"TECHNICAL:"`. Si no las quitas, tu motor FLUX las escribirá de forma literal sobre la camiseta o el fondo del jugador.
-   - **Traduce códigos a texto**: Reemplaza `#FFFFFF` por `"pure solid white"`.
-   - **Fidelidad y Rostro Afilado (Anti-Puffiness)**: Inserta SIEMPRE una cláusula `[FACE & PHYSIQUE DETAIL]` que ancle las facciones reales obtenidas de tu búsqueda web y obligue a FLUX a evitar caras hinchadas, redondas o caricaturescas:
-     `"[FACE & PHYSIQUE DETAIL]: He must have an highly accurate likeness to [Nombre del Jugador]. His face is lean, sharp, and chiseled with a defined jawline, sharp cheekbones, and zero puffiness, zero bloat, and zero roundness. He has [Detalle del pelo] and [Detalle de la barba]. His body shape is slender, lean, tall, and highly athletic, avoiding any bulky, stocky, or wide proportions. His facial expression is intense but focused, keeping the mouth closed with balanced, symmetrical facial features."`
-   - **Contraste Extremo (Camiseta Negra)**: Asegura que la camiseta o kit del jugador se traduzca como una camiseta negra lisa de entrenamiento (`plain solid pitch-black athletic jersey, smooth solid plain black fabric with zero markings`). Esto es crucial para generar un contraste máximo de silueta contra el fondo blanco y poder recortar la imagen de forma limpia en producción. Nunca generes camisetas blancas sobre fondos blancos.
-   - **Ángulo de Cámara Horizontal a la Altura de Ojos**: La cámara debe estar estrictamente a nivel de los ojos (eye-level), mirando al frente en un plano puramente horizontal. Evita cualquier ángulo desde arriba (high-angle o top-down) que deforme o recorte las proporciones.
-   - **Garantía Anti-Corte de Piernas y Botines Negros (Encuadre Ultra-Wide)**: Agrega SIEMPRE esta frase exacta al final del prompt limpio para forzar a tu motor a pintar al jugador completo vistiendo zapatos deportivos de fútbol:
-     `"An ultra-wide, ground-level full-body action photograph showing the player's entire body from head to toe. The camera is strictly at eye-level, front-facing, horizontal, and pulled far back, capturing a wide field of view. The player is wearing solid black soccer cleats (soccer shoes) and athletic socks. Both of their legs, shins, socks, and soccer shoes are completely visible standing on the white floor, with a wide, clear border of empty white floor visible below their shoes. Absolutely no cropping or cutting off of the feet, shoes, or legs at the bottom of the frame."`
-   - Genera la imagen usando un **único párrafo fluido y natural** de inglés.
-3. **UNA ÚNICA FUENTE DE VERDAD**: Solo vas a leer el archivo JSON de prompts (`nft_master_prompts_...json`) que te voy a cargar. Ignora cualquier otra base de datos.
-4. **FLUJO SECUENCIAL Y NOMENCLATURA DE CONTROL**:
+### ⚠️ REGLAS INQUEBRANTABLES (CERO PERSONAJES GENÉRICOS, COMPRESIÓN NEGRA Y ESTRICTAMENTE DESCALZO)
+1. **BÚSQUEDA EN TIEMPO REAL (OBLIGATORIA)**:
+   Antes de escribir el prompt y generar la imagen de cada jugador, realiza una búsqueda web exhaustiva:
+   `"[Nombre Real del Jugador] facial features real face portrait shape haircut physical appearance and signature iconic football pose celebration stance"`
+   Identifica:
+   - Su estructura facial real (forma de mandíbula, ojos, cabello, barba).
+   - Su pose característica, festejo icónico o silueta deportiva real en juego (ej. Mbappé cruzando los brazos, Messi señalando al cielo, Dibu Martínez saltando con brazos abiertos, etc.).
+   
+2. **PROTOCOLO DE TRADUCCIÓN A FLUX V6.0 (OBLIGATORIO)**:
+   Traduce el prompt base simplificado del JSON a un único párrafo natural en inglés limpio de tags y metadatos (`Subject:`, `KIT:`, `BACKGROUND:`, `TECHNICAL:`, `--ar 2:3`, etc.) e inyecta las siguientes cláusulas de anclaje visual:
+
+   - **[REAL LIKENESS COPY]**: Basándote exclusivamente en tu búsqueda web en tiempo real, describe con precisión hiper-realista el rostro real del jugador:
+     `"[REAL LIKENESS COPY]: The player must be a carbon-copy photorealistic replica of [Nombre del Jugador]. He has his exact facial structure, chiseled jawline, specific hair style ([cabello de la búsqueda]), and beard style ([barba de la búsqueda]). The likeness is flawless, lean, and athletic with balanced, highly symmetrical facial features, looking intense and focused with a closed mouth."`
+     
+   - **[DYNAMIC SIGNATURE POSE]**: En lugar de una pose genérica, describe con dinamismo la pose real del jugador:
+     `"[DYNAMIC SIGNATURE POSE]: He is captured in his iconic real-life football pose, specifically [describir detalladamente la pose/celebración encontrada en la búsqueda web]. The pose is highly athletic, dynamic, balanced, and full of sport-centric tension."`
+
+   - **Ropa de Compresión Negra (Max Contraste)**: El kit del jugador debe ser estrictamente una camiseta técnica de compresión negra mate pegada al cuerpo y shorts deportivos negros ajustados:
+     `"Wearing a solid black short-sleeve athletic compression shirt that is tightly skin-fit to his athletic torso, and matching tight black athletic shorts. The apparel is smooth, clean, solid matte black, completely blank with zero logos, zero text, zero markings, and zero stripes."`
+
+   - **Encuadre Ultra-Wide y estrictamente descalzo (Anti-Corte)**: El jugador debe aparecer completo de cabeza a pies, estrictamente descalzo sobre el piso de estudio blanco. Inserta siempre este cierre estricto:
+     `"An eye-level, horizontal, front-facing full-body action photograph capturing the entire player from head to toe. The player is strictly barefoot, showing bare feet, individual toes and heels fully visible, firmly planted on the pristine white studio floor. The camera is pulled far back, capturing a wide field of view. There is a wide, clear border of empty white floor visible below their bare feet. Absolutely no shoes, no cleats, no socks, and absolutely no cropping or cutting off of the bare feet or legs at the bottom of the frame."`
+
+   - **Contraste de Fondo Puro**: Asegura que el fondo y el suelo sean blanco puro y plano:
+     `"The background and the floor are a high-key, seamless, perfectly flat solid solid white plane (#FFFFFF). Professional studio lighting with soft shadows beneath the bare feet."`
+
+3. **FLUJO SECUENCIAL Y NOMENCLATURA DE CONTROL**:
    - Lee el primer jugador del JSON cargado.
-   - Investiga y limpia su `prompt` bajo el protocolo de traducción V5.1.
-   - Escribe el prompt limpio en el chat para que el usuario lo vea.
-   - Genera la imagen en formato vertical (Aspect Ratio 2:3).
-   - Cuando termines, entrégame la imagen y dime: *"✅ Aquí está [ID] - [Nombre]. Descarga la imagen como `[id]_[nombre].jpg`."*
-   - **DETENTE.** Espera a que el usuario te pegue el "Next Reinforcement Prompt V5.1" antes de generar el siguiente.
+   - Investiga su rostro y pose icónica en tiempo real.
+   - Construye y escribe en el chat el prompt limpio traducido a inglés V6.0 para que el usuario lo verifique.
+   - Genera la imagen vertical (Aspect Ratio 2:3).
+   - Cuando termine la generación, entrégame el resultado y dime: *"✅ Aquí está [ID] - [Nombre]. Descarga la imagen como `[id]_[nombre].jpg`."*
+   - **DETENTE.** Espera a que el usuario te pegue el "Next Reinforcement Prompt V6.0" antes de continuar con el siguiente jugador.
 
-¿Entendido? Confírmame que operarás bajo el protocolo de "Traducción FLUX V5.1 (Búsqueda Fisionómica Inteligente, Cámara Horizontal y Botines Negros)", y dime que estás listo para recibir el archivo JSON de prompts.
+¿Entendido? Confírmame que operarás bajo el protocolo "Doctrina V6.0: Copia de Likeness Real, Pose Icónica de Búsqueda, Ropa de Compresión Negra y Estrictamente Descalzo", y dime que estás listo para recibir el archivo JSON de prompts.
