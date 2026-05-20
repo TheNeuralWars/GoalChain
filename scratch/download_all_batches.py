@@ -30,8 +30,7 @@ def main():
             print("Moving on to the next batch...")
             
         if batch_num < 19:
-            # Sleep between batches to allow connection/cool down
-            sleep_time = random.uniform(45.0, 90.0)
+            sleep_time = random.uniform(3.0, 5.0)
             print(f"\n⏳ Cool-down sleep of {sleep_time:.1f} seconds before next batch...")
             time.sleep(sleep_time)
             
