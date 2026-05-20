@@ -1778,5 +1778,20 @@
             }
         });
     </script>
+
+    <!-- Force enable scrolling on landing page as a failsafe against aggressive CSS cache -->
+    <script>
+        (function() {
+            function forceScroll() {
+                document.documentElement.style.setProperty('overflow', 'auto', 'important');
+                document.documentElement.style.setProperty('height', 'auto', 'important');
+                document.body.style.setProperty('overflow', 'auto', 'important');
+                document.body.style.setProperty('height', 'auto', 'important');
+            }
+            forceScroll();
+            window.addEventListener('DOMContentLoaded', forceScroll);
+            window.addEventListener('load', forceScroll);
+        })();
+    </script>
 </body>
 </html>
