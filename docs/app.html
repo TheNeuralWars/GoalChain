@@ -1069,6 +1069,59 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- NODE 6: Eliza AI Coach & Advisor -->
+                <div class="ai-node-static-wrapper" style="grid-column: span 2; width: 100%; max-width: 710px; background: rgba(13, 13, 20, 0.95); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 20px; backdrop-filter: blur(10px); transition: border-color 0.3s; margin-top: 10px;">
+                    <div style="display:flex; flex-direction:row; justify-content:space-between; align-items:center; width: 100%; margin-bottom: 12px;">
+                        <h4 style="color:#a855f7; margin:0; font-size: 1.1rem; display:flex; align-items:center; gap:8px;">🧠 Eliza AI Coach & Advisor</h4>
+                        <span class="badge" style="background:rgba(168, 85, 247, 0.1); color:#a855f7; border:1px solid #a855f7; font-size:0.75rem; padding:3px 8px; border-radius:6px; font-weight:bold; letter-spacing:0.5px;">ACTIVE ADVISORY</span>
+                    </div>
+                    
+                    <p style="font-size: 0.85rem; color: var(--text-dim); margin-top:0; margin-bottom: 18px;">
+                        Monitoreo táctico de tu plantilla en tiempo real. Analiza estamina, alineaciones, sinergias y equipamientos para darte recomendaciones de máxima rentabilidad.
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <!-- Column 1: Active Advisory Feed -->
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.03); border-radius: 12px; padding: 15px; display: flex; flex-direction: column;">
+                            <h5 style="color: #fff; margin-top:0; margin-bottom: 12px; font-size: 0.85rem; display:flex; align-items:center; gap:6px;">
+                                🔍 Vigilancia de Rentabilidad (Live Feed)
+                            </h5>
+                            <div id="coachAdvisoriesContainer" style="flex:1; min-height: 180px; max-height: 220px; overflow-y:auto; display:flex; flex-direction:column; gap:8px;">
+                                <!-- Injected via JS -->
+                            </div>
+                        </div>
+
+                        <!-- Column 2: Interactive AI Chat -->
+                        <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.03); border-radius: 12px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <h5 style="color: #fff; margin-top:0; margin-bottom: 12px; font-size: 0.85rem; display:flex; align-items:center; justify-content:space-between; gap:6px;">
+                                <span>💬 Consultar al Coach IA</span>
+                                <button onclick="toggleCoachSettings()" class="btn-sm btn-secondary" style="font-size: 0.65rem !important; padding: 2px 6px; border-radius:4px; background:rgba(255,255,255,0.05); color:#fff; border:1px solid rgba(255,255,255,0.1); cursor:pointer;">Configurar API</button>
+                            </h5>
+                            
+                            <!-- API Key Settings Section (Hidden by default) -->
+                            <div id="coachSettingsSection" style="display:none; background:rgba(0,0,0,0.4); padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.05); margin-bottom:10px;">
+                                <label style="font-size:0.65rem; color:var(--text-dim); display:block; margin-bottom:4px;">Google Gemini API Key (Pro):</label>
+                                <div style="display:flex; gap:6px;">
+                                    <input type="password" id="coachApiKeyInput" placeholder="AIzaSy..." style="flex:1; background:#111; border:1px solid rgba(255,255,255,0.1); padding:4px 8px; border-radius:4px; color:#fff; font-size:0.75rem; outline:none;">
+                                    <button onclick="saveCoachApiKey()" class="btn btn-primary btn-sm" style="font-size:0.7rem !important; padding:4px 8px; border-radius:4px; font-weight:bold; background:var(--primary); border:none; cursor:pointer; color:#000;">Guardar</button>
+                                </div>
+                                <span style="font-size:0.6rem; color:#888; display:block; margin-top:4px; line-height:1.2;">Guardada localmente en tu navegador. Si no se provee, se usará window.ai (Gemini Nano) o simulación heurística local.</span>
+                            </div>
+
+                            <div id="coachChatContainer" style="flex:1; min-height: 130px; max-height: 160px; overflow-y:auto; background:rgba(0,0,0,0.5); padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); margin-bottom:10px; text-align:left; display:flex; flex-direction:column; gap:8px;">
+                                <div style="font-size:0.7rem; color:var(--text-dim); line-height:1.4;">
+                                    <span style="color:#a855f7; font-weight:bold;">[ELIZA]</span> ¡Hola Manager! Soy tu Coach de Sinergia y Rentabilidad. Hazme cualquier pregunta sobre tu alineación actual o cómo ganar más $GCH/día. 🏟️📈
+                                </div>
+                            </div>
+
+                            <div style="display:flex; gap:8px;">
+                                <input type="text" id="coachChatInput" placeholder="Pregunta algo... Ej: ¿Cómo subo el yield?" onkeydown="if(event.key === 'Enter') submitCoachMessage()" style="flex:1; background:#111; border:1px solid rgba(255,255,255,0.1); padding:6px 10px; border-radius:6px; color:#fff; font-size:0.75rem; outline:none; font-family:inherit;">
+                                <button onclick="submitCoachMessage()" class="btn btn-primary btn-sm" style="padding:6px 12px; border-radius:6px; font-size:0.75rem !important; font-weight:bold; background:var(--primary); border:none; color:#000; cursor:pointer;">PREGUNTAR</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- NODE 5: Agent Terminal -->
                 <div class="ai-node-wrapper terminal-bar-wrapper" draggable="false" style="order: 99;">
@@ -1606,6 +1659,18 @@
                                 </div>
                                 
                                 <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <span style="font-size:0.7rem; color:var(--text-dim);">Jugadores del mismo Club alineados:</span>
+                                    <select id="simClubSynergyCount" style="background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:4px 8px; border-radius:6px; font-size:0.7rem; cursor:pointer;">
+                                        <option value="1">1 Jugador (x1.00)</option>
+                                        <option value="2">2 Jugadores (+5% Stats Pareja)</option>
+                                        <option value="4">4 Jugadores (+10% Stats)</option>
+                                        <option value="6">6 Jugadores (+15% Stats)</option>
+                                        <option value="8">8 Jugadores (+20% Stats)</option>
+                                        <option value="11">11 Jugadores (+25% Stats, +15% Yield 🔥)</option>
+                                    </select>
+                                </div>
+                                
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
                                     <span style="font-size:0.7rem; color:var(--text-dim);">Fondo de Estadio de la localía:</span>
                                     <select id="simStadiumSelect" style="background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:4px 8px; border-radius:6px; font-size:0.7rem; cursor:pointer;">
                                         <option value="cyber">Cyber Dome (Cyber Background)</option>
@@ -1749,6 +1814,9 @@
                                 </div>
                                 <div style="display:flex; justify-content:space-between;">
                                     <span>Country Synergy Coef:</span> <span id="breakdownSynergy" style="color:#fff;">+0%</span>
+                                </div>
+                                <div style="display:flex; justify-content:space-between;">
+                                    <span>Club Synergy Coef:</span> <span id="breakdownClubSynergy" style="color:#fff;">+0%</span>
                                 </div>
                                 <div style="display:flex; justify-content:space-between;">
                                     <span>Country License Multiplier:</span> <span id="breakdownLicense" style="color:#fff;">x1.00</span>

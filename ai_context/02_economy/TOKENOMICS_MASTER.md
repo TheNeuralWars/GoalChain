@@ -30,9 +30,15 @@ Para que el $GCH tenga un valor real en dólares (USDC/SOL) y los jugadores pued
 
 ---
 
-## PILAR 4: EL TESORO INTELIGENTE (JITO / MARINADE YIELD)
-¿Qué hacemos con el otro 50% del SOL recaudado en la venta de NFTs? No se queda inactivo en una billetera.
-1.  **Staking Líquido:** El 100% de ese tesoro se pondrá en Staking en Jito (JitoSOL) o Marinade (mSOL), generando un interés "libre de riesgo" del ~7.5% APY en Solana.
-2.  **Buyback & Burn (Recompra Automática):** El interés generado por ese Staking se usará semanalmente para comprar $GCH del mercado abierto (Raydium) y quemarlo. 
-    *   *Efecto:* Crea velas verdes constantes en la gráfica del token, demostrando que el protocolo es rentable incluso si no entran nuevos jugadores.
-3.  **El Mega-Jackpot del Mundial:** Un pequeño porcentaje de este Yield se enviará a la bóveda del "Pozo Acumulado", el cual se lo llevará el Manager que acierte al ganador absoluto del Mundial 2026.
+## PILAR 4: EL TESORO INTELIGENTE (PHI PROTOCOL & HYRE AGENT SPLIT)
+¿Qué hacemos con el otro 50% del SOL recaudado en la venta de NFTs y preventa? No se queda inactivo. Está gestionado de forma 100% autónoma por agentes de Inteligencia Artificial con un split de 50/50:
+
+1.  **Hyre Agent (50%):**
+    *   **Función:** Monitorea y optimiza la liquidez en pools CLMM de Raydium y Orca en tiempo real.
+    *   **Estrategia:** Detecta shocks de oferta inminentes (causados por las quemas masivas de pociones a 250 $GCH y compra de Jerseys) y reposiciona dinámicamente los rangos de precios de liquidez para maximizar las comisiones recolectadas y minimizar el impermanent loss.
+2.  **Phi Protocol AI (50%):**
+    *   **Función:** Ejecución de estrategias de bucles reflexivos y cobertura de derivados apalancados (Perpetuos).
+    *   **Estrategia Alcista (Drift Protocol):** Utiliza el yield generado para abrir posiciones largas apalancadas (long GCH/SOL) en Drift Protocol en momentos donde Hyre detecta un shock de oferta inminente por quemas de estamina, maximizando el rally del token.
+    *   **Estrategia de Cobertura Bajista (FlashTrade):** En fases de alta volatilidad macro o caídas de SOL, abre posiciones cortas (short SOL/USD a 5x) en FlashTrade para proteger el valor en dólares de la tesorería (delta-hedging), asegurando que el colateral del vault no se devalúe. Las ganancias netas de ambas estrategias se destinan a la recompra y quema circular de $GCH.
+3.  **Mecánica de Recompra (Buyback & Burn):** Las ganancias generadas tanto por comisiones CLMM de Hyre como por perps de Phi Protocol se convierten a SOL/USDC y se usan para comprar $GCH del pool de liquidez abierto de Raydium, quemando de forma destructiva el 100% de los tokens adquiridos para reducir el circulante.
+4.  **El Mega-Jackpot del Mundial:** Un pequeño porcentaje del yield acumulado por ambos agentes se deriva al "Pozo Acumulado" para los usuarios de la selección campeona.

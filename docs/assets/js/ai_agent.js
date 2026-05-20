@@ -49,6 +49,15 @@ async function initAIView() {
     renderVaultSelection();
     renderFixturePredictor();
     simulatePythFeed();
+    
+    // AI Coach Advisor Initialization
+    updateAICoachAdvisories();
+    setInterval(updateAICoachAdvisories, 3000);
+    const savedKey = localStorage.getItem('goalchain_gemini_api_key');
+    const keyInput = document.getElementById('coachApiKeyInput');
+    if (savedKey && keyInput) {
+        keyInput.value = savedKey;
+    }
 }
 
 // Build country power index from player stats
@@ -371,3 +380,328 @@ window.toggleOptimizer = toggleOptimizer;
 window.toggleVaultPlayer = toggleVaultPlayer;
 window.mintVaultPortfolio = mintVaultPortfolio;
 window.cycleNextMatch = cycleNextMatch;
+
+// --- ELIZA AI COACH & ADVISOR LOGIC ---
+function toggleCoachSettings() {
+    const sec = document.getElementById('coachSettingsSection');
+    if (sec) {
+        sec.style.display = sec.style.display === 'none' ? 'block' : 'none';
+    }
+}
+
+function saveCoachApiKey() {
+    const input = document.getElementById('coachApiKeyInput');
+    if (!input) return;
+    const key = input.value.trim();
+    if (key) {
+        localStorage.setItem('goalchain_gemini_api_key', key);
+        if (window.notifier) window.notifier.show('🔑 API KEY GUARDADA', 'Tu clave de Google Gemini Pro ha sido guardada localmente.', 'success');
+        else alert('API Key guardada localmente.');
+    } else {
+        localStorage.removeItem('goalchain_gemini_api_key');
+        if (window.notifier) window.notifier.show('🔑 API KEY ELIMINADA', 'Se ha eliminado la clave guardada.', 'info');
+    }
+    const sec = document.getElementById('coachSettingsSection');
+    if (sec) sec.style.display = 'none';
+}
+
+function updateAICoachAdvisories() {
+    const container = document.getElementById('coachAdvisoriesContainer');
+    if (!container) return;
+
+    const sim = window.simulatorAppInstance;
+    if (!sim) {
+        container.innerHTML = '<div style="color:var(--text-dim);font-size:0.7rem;padding:10px;">Cargando estado del simulador...</div>';
+        return;
+    }
+
+    const advisories = [];
+
+    // 1. Stamina Penalty
+    if (sim.stamina < 80) {
+        advisories.push({
+            type: 'warning',
+            icon: '⚡',
+            title: 'Penalización por fatiga',
+            desc: `Estamina al ${sim.stamina}%. Tu yield diario sufre una penalización del ${Math.round((1 - (sim.stamina / 100)) * 100)}%. Te sugiero usar una poción de stamina por 10 $GCH.`
+        });
+    } else {
+        advisories.push({
+            type: 'success',
+            icon: '🔋',
+            title: 'Estamina excelente',
+            desc: `Estamina al ${sim.stamina}%. Coeficiente de rendimiento al 100% de efectividad.`
+        });
+    }
+
+    // 2. Tournament & Jersey Synergy
+    if (sim.activeLeague === 'world_cup') {
+        if (sim.equippedJersey !== 'jersey_arg') {
+            advisories.push({
+                type: 'info',
+                icon: '👕',
+                title: 'Camiseta de Selección Inactiva',
+                desc: 'Torneo actual: Copa del Mundo. Equipa la Camiseta de Selección en el vestuario para obtener +3% de Yield y +5 Max Stamina.'
+            });
+        } else {
+            advisories.push({
+                type: 'success',
+                icon: '👕',
+                title: 'Camiseta de Selección Activa',
+                desc: 'Bono activo: +3% de sueldo y +5 Max Stamina por vestir los colores nacionales.'
+            });
+        }
+    } else if (sim.activeLeague === 'mls') {
+        if (sim.equippedJersey !== 'jersey_club') {
+            advisories.push({
+                type: 'info',
+                icon: '👕',
+                title: 'Camiseta de Club Inactiva',
+                desc: 'Torneo actual: MLS. Equipa la Camiseta Inter Miami Pink para activar el multiplicador de sueldo +5%.'
+            });
+        } else {
+            advisories.push({
+                type: 'success',
+                icon: '👕',
+                title: 'Camiseta de Club Activa',
+                desc: 'Bono activo: +5% de sueldo en partidos de MLS.'
+            });
+        }
+    }
+
+    // 3. Country / Club Chemistry
+    if (sim.sameCountryCount < 11) {
+        advisories.push({
+            type: 'info',
+            icon: '🇺🇳',
+            title: 'Sinergia de País Incompleta',
+            desc: `Tienes ${sim.sameCountryCount}/11 jugadores de la misma nacionalidad. Alinea más para escalar el multiplicador de estadísticas hasta +25%.`
+        });
+    } else {
+        advisories.push({
+            type: 'success',
+            icon: '🏆',
+            title: 'Sinergia de País al Máximo',
+            desc: 'Starting XI del mismo país activo. +25% de bonus en todas las estadísticas de tu cromo Genesis.'
+        });
+    }
+
+    if (sim.sameClubCount < 11) {
+        advisories.push({
+            type: 'info',
+            icon: '🛡️',
+            title: 'Sinergia de Club Incompleta',
+            desc: `Tienes ${sim.sameClubCount}/11 jugadores del mismo club. Añade 11 del mismo club para desbloquear el +15% de yield diario.`
+        });
+    } else {
+        advisories.push({
+            type: 'success',
+            icon: '⭐',
+            title: 'Sinergia de Club Completa',
+            desc: 'Starting XI del mismo club. Bono del +15% en tu sueldo diario de $GCH desbloqueado.'
+        });
+    }
+
+    // 4. Stadium Home Advantage
+    const p = sim.selectedPlayer;
+    if (p) {
+        const pBg = p.visualbg || 'desert';
+        if (sim.stadiumTheme !== pBg) {
+            advisories.push({
+                type: 'info',
+                icon: '🏟️',
+                title: 'Desventaja de Local',
+                desc: `El tema del estadio (${sim.stadiumTheme}) no coincide con la preferencia de tu jugador (${pBg}). Cambia el estadio para activar el Home Advantage.`
+            });
+        } else {
+            advisories.push({
+                type: 'success',
+                icon: '🏟️',
+                title: 'Ventaja de Local Activa',
+                desc: 'El tema del estadio y el jugador coinciden. Bono activo en rendimiento estadístico.'
+            });
+        }
+    }
+
+    container.innerHTML = advisories.map(adv => {
+        const borderCol = adv.type === 'success' ? 'rgba(20,241,149,0.3)' : adv.type === 'warning' ? 'rgba(255,77,106,0.3)' : 'rgba(153,69,255,0.3)';
+        const badgeBg = adv.type === 'success' ? 'rgba(20,241,149,0.05)' : adv.type === 'warning' ? 'rgba(255,77,106,0.05)' : 'rgba(153,69,255,0.05)';
+        const titleCol = adv.type === 'success' ? 'var(--primary)' : adv.type === 'warning' ? '#ff4d6a' : 'var(--secondary)';
+        
+        return `<div style="background:${badgeBg}; border:1px solid ${borderCol}; border-radius:10px; padding:10px; font-size:0.7rem; line-height:1.3; text-align:left;">
+            <div style="display:flex; align-items:center; gap:6px; font-weight:bold; color:${titleCol}; margin-bottom:4px;">
+                <span>${adv.icon}</span>
+                <span>${adv.title}</span>
+            </div>
+            <div style="color:var(--text-dim); font-size:0.65rem;">${adv.desc}</div>
+        </div>`;
+    }).join('');
+}
+
+async function submitCoachMessage() {
+    const input = document.getElementById('coachChatInput');
+    const container = document.getElementById('coachChatContainer');
+    if (!input || !input.value.trim() || !container) return;
+
+    const userText = input.value.trim();
+    input.value = '';
+
+    // Append user message
+    container.innerHTML += `<div style="font-size:0.7rem; color:#fff; line-height:1.4; align-self:flex-end; background:rgba(255,255,255,0.05); padding:6px 10px; border-radius:6px; max-width:85%; margin-left: auto;">
+        <span style="color:#ffcc00; font-weight:bold;">[TÚ]</span> ${userText}
+    </div>`;
+    container.scrollTop = container.scrollHeight;
+
+    // Loading indicator
+    const loadingId = 'coach_load_' + Date.now();
+    container.innerHTML += `<div id="${loadingId}" style="font-size:0.7rem; color:var(--text-dim); line-height:1.4;">
+        <span style="color:#a855f7; font-weight:bold;">[ELIZA]</span> Pensando... 💡
+    </div>`;
+    container.scrollTop = container.scrollHeight;
+
+    // Get context from simulator
+    const sim = window.simulatorAppInstance;
+    const pName = sim?.selectedPlayer?.name || 'Lionel Satoshi';
+    const pStats = sim?.selectedPlayer?.stats ? `ATK:${sim.selectedPlayer.stats.atk} DEF:${sim.selectedPlayer.stats.def} SPD:${sim.selectedPlayer.stats.spd} HYP:${sim.selectedPlayer.stats.hype}` : 'ATK:95 DEF:48 SPD:92 HYP:99';
+    const activeLeague = sim?.activeLeague || 'world_cup';
+    const stamina = sim?.stamina ?? 100;
+    const jersey = sim?.equippedJersey || 'Ninguna';
+    const sameCountry = sim?.sameCountryCount ?? 1;
+    const sameClub = sim?.sameClubCount ?? 1;
+    const stadium = sim?.stadiumTheme || 'desert';
+    const balance = sim?.userBalance ?? 1240;
+
+    const systemPrompt = `Eres Eliza, la Coach Táctica de Inteligencia Artificial de GoalChain. Analizas la alineación y das consejos para maximizar yield y stats.
+Datos actuales:
+- Jugador: ${pName} (${pStats})
+- Stamina: ${stamina}%
+- Liga activa: ${activeLeague}
+- Camiseta: ${jersey}
+- Sinergia País: ${sameCountry}/11, Sinergia Club: ${sameClub}/11
+- Estadio: ${stadium}
+- Balance: ${balance} $GCH
+Responde en español de forma extremadamente concisa (1-3 oraciones), con emojis de fútbol, motivadora y ofreciendo soluciones numéricas claras de mejora táctica.`;
+
+    const apiKey = localStorage.getItem('goalchain_gemini_api_key');
+    let aiResponseText = '';
+
+    if (apiKey) {
+        try {
+            const apiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${apiKey}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    contents: [
+                        {
+                            parts: [
+                                { text: systemPrompt + `\nPregunta del manager: "${userText}"` }
+                            ]
+                        }
+                    ],
+                    generationConfig: {
+                        temperature: 0.7,
+                        maxOutputTokens: 150
+                    }
+                })
+            });
+            const data = await apiRes.json();
+            if (data.candidates && data.candidates[0].content.parts[0].text) {
+                aiResponseText = data.candidates[0].content.parts[0].text.trim();
+            } else {
+                throw new Error("Respuesta inválida de Gemini Pro.");
+            }
+        } catch (e) {
+            console.error("Gemini Pro API error, falling back to backend/local:", e);
+        }
+    }
+
+    // Si no se usó API Key local, intentamos llamar al servidor backend proxy para usar la del desarrollador
+    if (!aiResponseText) {
+        try {
+            const context = {
+                pName,
+                pStats,
+                activeLeague,
+                stamina,
+                jersey,
+                sameCountry,
+                sameClub,
+                stadium,
+                balance
+            };
+            const backendRes = await fetch('http://localhost:3001/api/coach/chat', {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ context, userText })
+            });
+            if (backendRes.ok) {
+                const data = await backendRes.json();
+                if (data.reply) {
+                    aiResponseText = data.reply;
+                }
+            } else {
+                console.warn("Backend chat proxy status error:", backendRes.status);
+            }
+        } catch (e) {
+            console.error("Backend chat proxy fetch error:", e);
+        }
+    }
+
+    // Fallback local a window.ai o consejos heurísticos offline
+    if (!aiResponseText) {
+        if (window.ai && window.ai.createTextSession) {
+            try {
+                const session = await window.ai.createTextSession();
+                aiResponseText = await session.prompt(systemPrompt + `\nPregunta del manager: "${userText}"`);
+            } catch (e) {
+                console.error("window.ai error:", e);
+                aiResponseText = getLocalCoachAdvice(userText, sim);
+            }
+        } else {
+            aiResponseText = getLocalCoachAdvice(userText, sim);
+        }
+    }
+
+    // Remove loading and append response
+    const loadEl = document.getElementById(loadingId);
+    if (loadEl) loadEl.remove();
+    container.innerHTML += `<div style="font-size:0.7rem; color:var(--text-dim); line-height:1.4;">
+        <span style="color:#a855f7; font-weight:bold;">[ELIZA]</span> ${aiResponseText}
+    </div>`;
+    container.scrollTop = container.scrollHeight;
+}
+
+function getLocalCoachAdvice(query, sim) {
+    const q = query.toLowerCase();
+    const pName = sim?.selectedPlayer?.name || 'Lionel Satoshi';
+    const stamina = sim?.stamina ?? 100;
+    
+    if (q.includes('stamina') || q.includes('energia') || q.includes('cansado') || q.includes('fatiga')) {
+        if (stamina < 80) {
+            return `🏃‍♂️ ¡Tu jugador ${pName} está fatigado al ${stamina}%! Compra una poción restauradora en el Locker Room por 10 $GCH para eliminar la penalización del yield.`;
+        } else {
+            return `🔋 Tu estamina está al ${stamina}%. ¡Excelente rendimiento! Continúa jugando partidos para mantener alta la tasa de rentabilidad.`;
+        }
+    }
+    if (q.includes('jersey') || q.includes('camiseta') || q.includes('vestuario') || q.includes('ropa')) {
+        return `👕 Equipar la camiseta del torneo activo (Copa del Mundo o MLS) te da un bono directo del +3% al +5% en tu yield de $GCH diario. ¡Cámbiate en el vestuario!`;
+    }
+    if (q.includes('sinergia') || q.includes('club') || q.includes('pais') || q.includes('quimica')) {
+        return `🏆 Noto Sinergia de Club al ${sim?.sameClubCount}/11 y País al ${sim?.sameCountryCount}/11. Alinea 11 del mismo club para conseguir +15% de yield y 11 del mismo país para +25% de stats.`;
+    }
+    if (q.includes('yield') || q.includes('sueldo') || q.includes('rentabilidad') || q.includes('ganar') || q.includes('gch')) {
+        let advice = `📈 Para maximizar tu yield diario: 1) Mantén estamina > 90%, 2) Equipa camiseta de selección/club, 3) Busca Sinergia de Club completa (11 del mismo club para +15%).`;
+        if (stamina < 80) advice += ` ¡Atención! Tu estamina actual de ${stamina}% te está costando ganancias.`;
+        return advice;
+    }
+    if (q.includes('estadio') || q.includes('local')) {
+        return `🏟️ Configura el Stadium Theme para que coincida con la preferencia de tu cromo Genesis. Eso desbloquea el Home Advantage, potenciando tus stats en simulaciones.`;
+    }
+    return `🏟️ Analizando tu plantilla de GoalChain... Te sugiero mantener la estamina al máximo y alinear jugadores del mismo Club para activar los multiplicadores de sueldo (+15% $GCH/día). ¿Tienes alguna pregunta específica?`;
+}
+
+window.toggleCoachSettings = toggleCoachSettings;
+window.saveCoachApiKey = saveCoachApiKey;
+window.submitCoachMessage = submitCoachMessage;
+window.updateAICoachAdvisories = updateAICoachAdvisories;
+
