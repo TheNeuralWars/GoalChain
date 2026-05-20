@@ -132,10 +132,9 @@ const TRANSLATIONS = {
         soc_t6_t: "Jugar Mini-Juego", soc_t6_d: "Pon a prueba tu puntería",
         
         team_title: "El Equipo",
-        team_sub: "Tres hermanos, una pasión: el fútbol y la blockchain.",
+        team_sub: "Dos hermanos, una pasión: el fútbol y la blockchain.",
         team1_name: "Nico Pez", team1_role: "The Mastermind - Visionario & Fundador. Recorrido blockchain desde 2016. Artista, matemático y padre.",
         team2_name: "Lucas Bello", team2_role: "The Artist - Incansable geek, control de estética y pruebas de estrés para un sistema indestructible.",
-        team3_name: "Lara Lo Beluzzo", team3_role: "Senior Dev - El ojo agudo. Experta técnica que asegura la perfección en cada línea de código.",
         
         wl_title: "Únete a la Revolución",
         wl_sub: "Regístrate para recibir acceso anticipado y beneficios exclusivos.",
@@ -382,10 +381,9 @@ const TRANSLATIONS = {
         soc_t6_t: "Play Mini-Game", soc_t6_d: "Test your aim",
         
         team_title: "The Team",
-        team_sub: "Three brothers, one passion: football and blockchain.",
+        team_sub: "Two brothers, one passion: football and blockchain.",
         team1_name: "Nico Pez", team1_role: "The Mastermind - Visionary & Founder. Blockchain journey since 2016. Artist, mathematician, and father.",
         team2_name: "Lucas Bello", team2_role: "The Artist - Tireless geek, aesthetic control and stress testing for an indestructible system.",
-        team3_name: "Lara Lo Beluzzo", team3_role: "Senior Dev - The sharp eye. Technical expert ensuring perfection in every line of code.",
         
         wl_title: "Join the Revolution",
         wl_sub: "Register for early access and exclusive benefits.",
