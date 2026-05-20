@@ -1,6 +1,7 @@
 use anchor_lang::prelude::*;
-use anchor_spl::token_interface::{self, TokenInterface, TokenAccount, Mint, TransferChecked};
+use anchor_spl::token_interface::{self, TokenInterface, TokenAccount, Mint, TransferChecked, Burn};
 use anchor_spl::token::TokenAccount as SplTokenAccount;
+use anchor_spl::associated_token::AssociatedToken;
 
 declare_id!("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
 
@@ -100,6 +101,18 @@ pub mod goalchain_program {
         player.matches_played = 0;
         player.speed = initial_speed;
         player.shot_power = initial_shot_power;
+        player.base_yield_rate = 100_000_000;
+        player.current_stamina = 100;
+        player.is_eliminated = false;
+        player.equipped_stadium_id = None;
+        player.nation_id = 0;
+        player.visual_background = 0;
+        player.equipped_jersey = None;
+        player.equipped_boots = None;
+        player.win_streak = 0;
+        player.last_match_result = 0;
+        player.has_shield_jersey = false;
+        player.bump = ctx.bumps.parody_player;
         Ok(())
     }
 
@@ -829,6 +842,124 @@ pub mod goalchain_program {
     pub fn delegate_nft_for_rent(_ctx: Context<FutureHook>) -> Result<()> {
         Ok(())
     }
+
+    pub fn feed_potion(ctx: Context<FeedPotion>) -> Result<()> {
+        let player = &mut ctx.accounts.parody_player;
+        require!(player.current_stamina < 100, GoalChainError::StaminaAlreadyFull);
+
+        // Burn 250 GCH (250_000_000 lamports / decimals 6)
+        let cpi_program = ctx.accounts.token_program.key();
+        let cpi_accounts = Burn {
+            from: ctx.accounts.user_token_account.to_account_info(),
+            mint: ctx.accounts.token_mint.to_account_info(),
+            authority: ctx.accounts.user.to_account_info(),
+        };
+        let cpi_ctx = CpiContext::new(cpi_program, cpi_accounts);
+        token_interface::burn(cpi_ctx, 250_000_000)?;
+
+        player.current_stamina = 100;
+        Ok(())
+    }
+
+    pub fn equip_locker_room_item(ctx: Context<EquipLockerRoomItem>, item_type: u8) -> Result<()> {
+        let player = &mut ctx.accounts.parody_player;
+        
+        let cpi_program = ctx.accounts.token_program.key();
+        let cpi_accounts = TransferChecked {
+            from: ctx.accounts.user_item_wallet.to_account_info(),
+            to: ctx.accounts.escrow_pda_wallet.to_account_info(),
+            authority: ctx.accounts.user.to_account_info(),
+            mint: ctx.accounts.item_mint.to_account_info(),
+        };
+        let cpi_ctx = CpiContext::new(cpi_program, cpi_accounts);
+        token_interface::transfer_checked(cpi_ctx, 1, 0)?;
+
+        match item_type {
+            1 => {
+                player.equipped_jersey = Some(ctx.accounts.item_mint.key());
+                player.base_yield_rate = player.base_yield_rate.checked_add(player.base_yield_rate / 10).ok_or(GoalChainError::MathOverflow)?;
+            },
+            2 => {
+                player.equipped_boots = Some(ctx.accounts.item_mint.key());
+                player.speed = player.speed.saturating_add(5);
+            },
+            3 => {
+                player.has_shield_jersey = true;
+            },
+            _ => return err!(GoalChainError::InvalidItemType),
+        }
+
+        Ok(())
+    }
+
+    pub fn unequip_locker_room_item(ctx: Context<UnequipLockerRoomItem>, item_type: u8) -> Result<()> {
+        let player = &mut ctx.accounts.parody_player;
+        
+        let player_id_bytes = player.player_id.as_bytes();
+        let seeds = &[
+            b"player",
+            player_id_bytes,
+            &[player.bump],
+        ];
+        let signer_seeds = &[&seeds[..]];
+
+        let cpi_program = ctx.accounts.token_program.key();
+        let cpi_accounts = TransferChecked {
+            from: ctx.accounts.escrow_pda_wallet.to_account_info(),
+            to: ctx.accounts.user_item_wallet.to_account_info(),
+            authority: player.to_account_info(),
+            mint: ctx.accounts.item_mint.to_account_info(),
+        };
+        let cpi_ctx = CpiContext::new_with_signer(cpi_program, cpi_accounts, signer_seeds);
+        token_interface::transfer_checked(cpi_ctx, 1, 0)?;
+
+        match item_type {
+            1 => {
+                require!(player.equipped_jersey == Some(ctx.accounts.item_mint.key()), GoalChainError::InvalidItemType);
+                player.equipped_jersey = None;
+                player.base_yield_rate = (player.base_yield_rate as f64 / 1.1) as u64;
+            },
+            2 => {
+                require!(player.equipped_boots == Some(ctx.accounts.item_mint.key()), GoalChainError::InvalidItemType);
+                player.equipped_boots = None;
+                player.speed = player.speed.saturating_sub(5);
+            },
+            3 => {
+                require!(player.has_shield_jersey, GoalChainError::InvalidItemType);
+                player.has_shield_jersey = false;
+            },
+            _ => return err!(GoalChainError::InvalidItemType),
+        }
+
+        Ok(())
+    }
+
+    pub fn golden_recall(ctx: Context<GoldenRecall>) -> Result<()> {
+        let listing = &mut ctx.accounts.rental_listing;
+        require!(listing.is_active, GoalChainError::ListingNotActive);
+        
+        let borrower = listing.current_borrower.ok_or(GoalChainError::ListingNotActive)?;
+        require_keys_eq!(ctx.accounts.borrower_token_account.owner, borrower, GoalChainError::Unauthorized);
+
+        let penalty = listing.price_per_match.checked_div(2).ok_or(GoalChainError::MathOverflow)?;
+
+        if penalty > 0 {
+            let cpi_ctx = CpiContext::new(
+                ctx.accounts.token_program.key(),
+                TransferChecked {
+                    from: ctx.accounts.owner_token_account.to_account_info(),
+                    to: ctx.accounts.borrower_token_account.to_account_info(),
+                    authority: ctx.accounts.owner.to_account_info(),
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                }
+            );
+            token_interface::transfer_checked(cpi_ctx, penalty, ctx.accounts.token_mint.decimals)?;
+        }
+
+        listing.current_borrower = None;
+        listing.is_active = false;
+        Ok(())
+    }
 }
 
 // ---------------- CONFIG ACCOUNTS ----------------
@@ -926,6 +1057,14 @@ pub struct ParodyPlayer {
     pub current_stamina: u8,
     pub is_eliminated: bool,
     pub equipped_stadium_id: Option<Pubkey>,
+    pub nation_id: u8,
+    pub visual_background: u8,
+    pub equipped_jersey: Option<Pubkey>,
+    pub equipped_boots: Option<Pubkey>,
+    pub win_streak: u8,
+    pub last_match_result: u8,
+    pub has_shield_jersey: bool,
+    pub bump: u8,
 }
 
 #[derive(Accounts)]
@@ -1398,6 +1537,84 @@ pub struct FutureHook<'info> {
     pub user: Signer<'info>,
 }
 
+#[derive(Accounts)]
+pub struct FeedPotion<'info> {
+    #[account(mut)]
+    pub parody_player: Account<'info, ParodyPlayer>,
+    #[account(mut)]
+    pub user_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut)]
+    pub token_mint: InterfaceAccount<'info, Mint>,
+    pub token_program: Interface<'info, TokenInterface>,
+    pub user: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct EquipLockerRoomItem<'info> {
+    #[account(mut)]
+    pub parody_player: Account<'info, ParodyPlayer>,
+    pub item_mint: InterfaceAccount<'info, Mint>,
+    #[account(mut)]
+    pub user_item_wallet: InterfaceAccount<'info, TokenAccount>,
+    
+    #[account(
+        init_if_needed,
+        payer = user,
+        associated_token::mint = item_mint,
+        associated_token::authority = parody_player,
+    )]
+    pub escrow_pda_wallet: InterfaceAccount<'info, TokenAccount>,
+    
+    pub token_program: Interface<'info, TokenInterface>,
+    pub associated_token_program: Program<'info, AssociatedToken>,
+    pub system_program: Program<'info, System>,
+    #[account(mut)]
+    pub user: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct UnequipLockerRoomItem<'info> {
+    #[account(
+        mut,
+        seeds = [b"player", parody_player.player_id.as_bytes()],
+        bump = parody_player.bump,
+    )]
+    pub parody_player: Account<'info, ParodyPlayer>,
+    pub item_mint: InterfaceAccount<'info, Mint>,
+    #[account(mut)]
+    pub user_item_wallet: InterfaceAccount<'info, TokenAccount>,
+    
+    #[account(
+        mut,
+        associated_token::mint = item_mint,
+        associated_token::authority = parody_player,
+    )]
+    pub escrow_pda_wallet: InterfaceAccount<'info, TokenAccount>,
+    
+    pub token_program: Interface<'info, TokenInterface>,
+    pub associated_token_program: Program<'info, AssociatedToken>,
+    pub system_program: Program<'info, System>,
+    #[account(mut)]
+    pub user: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct GoldenRecall<'info> {
+    #[account(
+        mut,
+        constraint = rental_listing.owner == owner.key() @ GoalChainError::Unauthorized,
+    )]
+    pub rental_listing: Account<'info, RentalListing>,
+    #[account(mut)]
+    pub owner_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut)]
+    pub borrower_token_account: InterfaceAccount<'info, TokenAccount>,
+    pub token_mint: InterfaceAccount<'info, Mint>,
+    pub token_program: Interface<'info, TokenInterface>,
+    #[account(mut)]
+    pub owner: Signer<'info>,
+}
+
 #[account]
 #[derive(InitSpace)]
 pub struct ManagerState {
@@ -1524,4 +1741,10 @@ pub enum GoalChainError {
     PlayerIsEliminated,
     #[msg("Invalid action type from oracle")]
     InvalidActionType,
+    #[msg("Stamina already full")]
+    StaminaAlreadyFull,
+    #[msg("Golden Recall penalty required")]
+    GoldenRecallPenaltyRequired,
+    #[msg("Invalid item type")]
+    InvalidItemType,
 }
