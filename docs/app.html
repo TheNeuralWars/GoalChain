@@ -65,11 +65,16 @@
         <!-- Fix mobile sticky clipping -->
 
         <div class="sidebar-header sidebar-logo-block" style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 30px;">
-            <div class="logo" style="display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 900;">
-                <img src="assets/img/logo_3d_clean.png" alt="Logo" style="height: 35px; filter: drop-shadow(0 0 10px rgba(20, 241, 149, 0.3));">
-                Goal<span style="color:var(--primary);">Chain</span>
+            <a href="index.html" class="logo-link" style="display:flex; align-items:center; text-decoration:none; color:inherit;">
+                <div class="logo" style="display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 900;">
+                    <img src="assets/img/logo_3d_clean.png" alt="Logo" style="height: 35px; filter: drop-shadow(0 0 10px rgba(20, 241, 149, 0.3));">
+                    Goal<span style="color:var(--primary);">Chain</span>
+                </div>
+            </a>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <a href="index.html" onclick="goalchainLogout()" class="mobile-logout-btn" style="display: none; font-size: 1.2rem; text-decoration: none; color: #ff4d6a;" title="Salir / Logout">🚪</a>
+                <div class="mobile-nav-toggle" style="display: none;" onclick="document.querySelector('.sidebar nav').classList.toggle('active')">☰</div>
             </div>
-            <div class="mobile-nav-toggle" style="display: none;" onclick="document.querySelector('.sidebar nav').classList.toggle('active')">☰</div>
         </div>
         <nav>
             <!-- Mobile Header with Close Button -->
@@ -2026,7 +2031,95 @@
                 PROCESAR PAGO 402 CON FAREMETER 💸
             </button>
         </div>
-    </div>
+    <!-- Pull to Refresh initialization script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainContent = document.querySelector('.main-content');
+            if (!mainContent) return;
+
+            // Create the pull-to-refresh element
+            const ptr = document.createElement('div');
+            ptr.id = 'ptrIndicator';
+            ptr.className = 'ptr-container';
+            ptr.innerHTML = `
+                <span class="ptr-arrow">⬇️</span>
+                <span class="ptr-spinner"></span>
+                <span class="ptr-text">Desliza para recargar</span>
+            `;
+            
+            // Ensure relative position on parent
+            mainContent.style.position = 'relative';
+            // Insert ptr container as first element of mainContent
+            mainContent.insertBefore(ptr, mainContent.firstChild);
+
+            const arrow = ptr.querySelector('.ptr-arrow');
+            const spinner = ptr.querySelector('.ptr-spinner');
+            const text = ptr.querySelector('.ptr-text');
+
+            let startY = 0;
+            let currentY = 0;
+            let isPulling = false;
+            const threshold = 70; // px
+
+            mainContent.addEventListener('touchstart', (e) => {
+                // Only trigger if we are at the top of the scroll container
+                if (mainContent.scrollTop === 0) {
+                    startY = e.touches[0].clientY;
+                    isPulling = true;
+                    ptr.style.transition = 'none'; // disable transitions while dragging
+                }
+            }, { passive: true });
+
+            mainContent.addEventListener('touchmove', (e) => {
+                if (!isPulling) return;
+                currentY = e.touches[0].clientY;
+                const diff = currentY - startY;
+
+                if (diff > 0) {
+                    // Add some resistance to the drag
+                    const pullDistance = Math.min(diff * 0.4, threshold + 20);
+                    
+                    ptr.style.transform = `translateY(${pullDistance - 60}px)`;
+                    ptr.style.opacity = Math.min(pullDistance / threshold, 1);
+
+                    if (pullDistance >= threshold) {
+                        arrow.style.transform = 'rotate(180deg)';
+                        text.innerText = 'Suelta para recargar';
+                    } else {
+                        arrow.style.transform = 'rotate(0deg)';
+                        text.innerText = 'Desliza para recargar';
+                    }
+                }
+            }, { passive: true });
+
+            mainContent.addEventListener('touchend', (e) => {
+                if (!isPulling) return;
+                isPulling = false;
+                const diff = currentY - startY;
+
+                ptr.style.transition = 'transform 0.2s ease, opacity 0.2s ease';
+
+                if (diff * 0.4 >= threshold) {
+                    // Trigger refresh
+                    ptr.style.transform = 'translateY(0px)';
+                    ptr.style.opacity = '1';
+                    arrow.style.display = 'none';
+                    spinner.style.display = 'inline-block';
+                    text.innerText = 'Recargando...';
+                    
+                    setTimeout(() => {
+                        location.reload();
+                    }, 800);
+                } else {
+                    // Return to hidden
+                    ptr.style.transform = 'translateY(-100%)';
+                    ptr.style.opacity = '0';
+                }
+                startY = 0;
+                currentY = 0;
+            });
+        });
+    </script>
 </body>
 </html>
 
