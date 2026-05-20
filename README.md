@@ -1,4 +1,4 @@
-# 🏆 GoalChain: Infinity Engine & Genesis Squad
+# 🏆 GoalChain: Infinity Engine & Genesis Squad.
 
 GoalChain is a premier Web3 ecosystem built on **Solana**, designed to merge the passion of global football with a robust, sustainable, and circular economy. Powered by the **Infinity Engine**, GoalChain introduces a "Zero Value Loss" model where user capital fuels real-time token utility.
 
