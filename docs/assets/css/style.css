@@ -2342,6 +2342,7 @@ body {
     /* Constrain body height only on the dashboard app page to prevent double scrollbars */
     body.dashboard-body {
         height: 100vh !important;
+        height: 100dvh !important;
         overflow: hidden !important;
         flex-direction: column !important;
     }
@@ -2517,7 +2518,8 @@ body {
     /* Main content: acts as the primary scroll container on mobile */
     .main-content { 
         width: 100% !important; 
-        height: calc(100vh - 65px) !important;
+        flex: 1 !important;
+        height: auto !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
         padding: 15px !important;
