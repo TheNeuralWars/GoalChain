@@ -49,7 +49,7 @@ Traduce el prompt del JSON a un único párrafo en inglés para enviarle al gene
 > `"Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera."`
 
 **[KIT]**:
-> `"He is wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. Absolutely no logos, no markings, no stripes, no text."`
+> `"He is wearing a plain solid black form-fitting compression short-sleeve athletic shirt and plain black form-fitting athletic shorts. Absolutely no logos, no markings, no stripes, no text."`
 
 **[FEET]**:
 > `"He is strictly barefoot. His bare feet with toes and heels are fully visible standing flat on the white floor. No shoes, no socks, no cleats of any kind."`

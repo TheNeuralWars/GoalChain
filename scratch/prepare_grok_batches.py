@@ -45,7 +45,7 @@ def prepare_batches():
                 f"STYLE: Premium 3D digital sculpture caricature, high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head, but preserving highly detailed facial features. "
                 f"REFERENCIA_IMAGEN: You must analyze the attached images '{padded_id}_portrait.jpg' (for exact facial structure, hair, eye color, stubble) and '{padded_id}_fullbody.jpg' (for body shape and proportions). Replicate these features into the caricature. Do NOT use generic faces. "
                 f"POSE: Simple, natural standing posture, facing front, hands relaxed at sides, looking directly at the camera. "
-                f"KIT: Wearing a plain solid black short-sleeve athletic shirt and plain black athletic shorts. No logos, no markings. "
+                f"KIT: Wearing a plain solid black form-fitting compression short-sleeve athletic shirt and plain black form-fitting athletic shorts. No logos, no markings. "
                 f"FEET: Strictly barefoot. Bare feet with toes and heels fully visible, standing flat on the white floor. No shoes, no socks. "
                 f"BACKGROUND: Pure flat solid white background (#FFFFFF). Absolutely zero shadows, zero gradients, zero reflections, zero vignette, and zero shading of any kind. The floor and background are one single uniform white plane with no depth, no shadow, no shading of any kind. "
                 f"TECHNICAL: 85mm lens, f/2.8, full body head to toe, no cropping of feet or legs, professional studio isolation, 8k --ar 2:3"

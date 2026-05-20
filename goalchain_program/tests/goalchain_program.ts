@@ -10,6 +10,7 @@ import {
   mintTo,
   getAccount,
   TOKEN_PROGRAM_ID,
+  ASSOCIATED_TOKEN_PROGRAM_ID,
 } from "@solana/spl-token";
 
 describe("goalchain_program", () => {
@@ -830,6 +831,220 @@ describe("goalchain_program", () => {
       // Verify SOL was transferred from user to reserveStake account
       const reserveBalanceAfter = await provider.connection.getBalance(reserveStake.publicKey);
       assert.equal(reserveBalanceAfter - reserveBalanceBefore, depositAmount.toNumber());
+    });
+  });
+
+  describe("👕 9. LOCKER ROOM & CUSTOMIZATION SYSTEMS (GEAR, POTIONS & RECALL)", () => {
+    let itemMint: PublicKey;
+    let userItemWallet: PublicKey;
+    let escrowPdaWallet: PublicKey;
+
+    before(async () => {
+      // Create a mock Item NFT (decimals = 0)
+      itemMint = await createMint(provider.connection, payer, provider.wallet.publicKey, null, 0);
+      
+      // Get/Create user's ATA for this item
+      userItemWallet = (await getOrCreateAssociatedTokenAccount(
+        provider.connection,
+        payer,
+        itemMint,
+        user1.publicKey
+      )).address;
+
+      // Mint 1 NFT to user
+      await mintTo(provider.connection, payer, itemMint, userItemWallet, payer, 1);
+
+      // Derive Escrow PDA wallet for parodyPlayerPda
+      // seeds: [parodyPlayerPda, TOKEN_PROGRAM_ID, itemMint]
+      [escrowPdaWallet] = PublicKey.findProgramAddressSync(
+        [
+          parodyPlayerPda.toBuffer(),
+          TOKEN_PROGRAM_ID.toBuffer(),
+          itemMint.toBuffer(),
+        ],
+        ASSOCIATED_TOKEN_PROGRAM_ID
+      );
+    });
+
+    it("Falla al alimentar poción si la estamina ya está llena (100)", async () => {
+      let failed = false;
+      try {
+        await program.methods
+          .feedPotion()
+          .accounts({
+            parodyPlayer: parodyPlayerPda,
+            userTokenAccount: user1Ata,
+            tokenMint: betMint,
+            tokenProgram: TOKEN_PROGRAM_ID,
+            user: user1.publicKey,
+          } as any)
+          .signers([user1])
+          .rpc();
+      } catch (e) {
+        failed = true;
+      }
+      assert.isTrue(failed, "Debería fallar porque la estamina está al 100%");
+    });
+
+    it("Reduce la estamina del jugador aplicando una tarjeta roja y luego la restaura con una poción", async () => {
+      // 1. Aplicar Tarjeta Roja mediante el Oráculo para forzar stamina = 0
+      await program.methods
+        .oracleUpdatePlayerYield(3) // Red Card
+        .accounts({
+          oracleAuthority: oracleAuthority.publicKey,
+          config: configPda,
+          parodyPlayer: parodyPlayerPda,
+        } as any)
+        .signers([oracleAuthority])
+        .rpc();
+
+      let player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
+      assert.equal(player.currentStamina, 0);
+
+      const userBalanceBefore = (await getAccount(provider.connection, user1Ata)).amount;
+
+      // 2. Usar poción (Quema 250 $GCH y restaura stamina a 100)
+      await program.methods
+        .feedPotion()
+        .accounts({
+          parodyPlayer: parodyPlayerPda,
+          userTokenAccount: user1Ata,
+          tokenMint: betMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+          user: user1.publicKey,
+        } as any)
+        .signers([user1])
+        .rpc();
+
+      player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
+      assert.equal(player.currentStamina, 100);
+
+      const userBalanceAfter = (await getAccount(provider.connection, user1Ata)).amount;
+      // 250 $GCH quemados = 250_000_000
+      assert.equal(Number(userBalanceBefore) - Number(userBalanceAfter), 250_000_000);
+    });
+
+    it("Equipa una camiseta (Jersey) en el Vestuario aplicando el boost y custodiando el NFT", async () => {
+      let player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
+      const yieldBefore = player.baseYieldRate;
+
+      await program.methods
+        .equipLockerRoomItem(1) // 1: Jersey
+        .accounts({
+          parodyPlayer: parodyPlayerPda,
+          itemMint: itemMint,
+          userItemWallet: userItemWallet,
+          escrowPdaWallet: escrowPdaWallet,
+          tokenProgram: TOKEN_PROGRAM_ID,
+          associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
+          systemProgram: SystemProgram.programId,
+          user: user1.publicKey,
+        } as any)
+        .signers([user1])
+        .rpc();
+
+      player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
+      assert.equal(player.equippedJersey!.toBase58(), itemMint.toBase58());
+      
+      // Boost del 10%
+      const expectedYield = yieldBefore.add(yieldBefore.divn(10));
+      assert.equal(player.baseYieldRate.toString(), expectedYield.toString());
+
+      // Verificar que el NFT está en custodia
+      const escrowBalance = (await getAccount(provider.connection, escrowPdaWallet)).amount;
+      assert.equal(escrowBalance.toString(), "1");
+    });
+
+    it("Desequipa la camiseta devolviendo el NFT y revirtiendo el boost de yield", async () => {
+      await program.methods
+        .unequipLockerRoomItem(1) // 1: Jersey
+        .accounts({
+          parodyPlayer: parodyPlayerPda,
+          itemMint: itemMint,
+          userItemWallet: userItemWallet,
+          escrowPdaWallet: escrowPdaWallet,
+          tokenProgram: TOKEN_PROGRAM_ID,
+          associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
+          systemProgram: SystemProgram.programId,
+          user: user1.publicKey,
+        } as any)
+        .signers([user1])
+        .rpc();
+
+      const player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
+      assert.isNull(player.equippedJersey);
+
+      // Verificar que el NFT regresó a la wallet del usuario
+      const userBalance = (await getAccount(provider.connection, userItemWallet)).amount;
+      assert.equal(userBalance.toString(), "1");
+    });
+
+    it("Ejecuta Golden Recall para terminar un alquiler pagando la penalización del 50%", async () => {
+      // 1. Listar para renta
+      const rentPrice = new anchor.BN(400_000_000); // 400 tokens
+      const rentalNftMint = Keypair.generate();
+      
+      const [localRentalPda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("rental"), rentalNftMint.publicKey.toBuffer()],
+        program.programId
+      );
+
+      await program.methods
+        .listForRent(rentPrice)
+        .accounts({
+          owner: user1.publicKey,
+          rentalListing: localRentalPda,
+          parodyPlayerMint: rentalNftMint.publicKey,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([user1])
+        .rpc();
+
+      // 2. Rentar el NFT (user2 renta a user1)
+      await program.methods
+        .rentNft()
+        .accounts({
+          borrower: user2.publicKey,
+          rentalListing: localRentalPda,
+          borrowerTokenAccount: user2Ata,
+          ownerTokenAccount: user1Ata,
+          tokenMint: betMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+        } as any)
+        .signers([user2])
+        .rpc();
+
+      let listing = await program.account.rentalListing.fetch(localRentalPda);
+      assert.equal(listing.currentBorrower!.toBase58(), user2.publicKey.toBase58());
+      assert.isTrue(listing.isActive);
+
+      const borrowerBalanceBefore = (await getAccount(provider.connection, user2Ata)).amount;
+      const ownerBalanceBefore = (await getAccount(provider.connection, user1Ata)).amount;
+
+      // 3. Golden Recall (user1 reclama anticipadamente pagando el 50% = 200 tokens de multa a user2)
+      await program.methods
+        .goldenRecall()
+        .accounts({
+          rentalListing: localRentalPda,
+          ownerTokenAccount: user1Ata,
+          borrowerTokenAccount: user2Ata,
+          tokenMint: betMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+          owner: user1.publicKey,
+        } as any)
+        .signers([user1])
+        .rpc();
+
+      listing = await program.account.rentalListing.fetch(localRentalPda);
+      assert.isNull(listing.currentBorrower);
+      assert.isFalse(listing.isActive);
+
+      const borrowerBalanceAfter = (await getAccount(provider.connection, user2Ata)).amount;
+      const ownerBalanceAfter = (await getAccount(provider.connection, user1Ata)).amount;
+
+      // Multa pagada de 200 tokens
+      assert.equal(Number(borrowerBalanceAfter) - Number(borrowerBalanceBefore), 200_000_000);
+      assert.equal(Number(ownerBalanceBefore) - Number(ownerBalanceAfter), 200_000_000);
     });
   });
 });
