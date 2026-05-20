@@ -26,8 +26,116 @@
         
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+        /* Global Badge & Tab Header Styles to match AI Agent Hub premium style */
+        .tab-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+        .tab-header-badges {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .mobile-logout-btn {
+            display: none !important;
+        }
 
-        /* Advanced Mobile Responsiveness */
+        .badge {
+            white-space: nowrap !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 6px 14px !important;
+            font-size: 0.7rem !important;
+            border-radius: 20px !important; /* Premium rounded pill shape */
+            font-weight: 700 !important;
+            letter-spacing: 0.5px !important;
+            line-height: 1.2 !important;
+            height: auto !important;
+            min-height: 24px !important;
+            text-transform: uppercase !important;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+            transition: all 0.2s ease !important;
+        }
+
+        /* Dynamically convert solid backgrounds into glowy transparent borders like AI Agent Hub */
+        .badge[style*="var(--primary)"],
+        .badge[style*="#14f195"] {
+            background: rgba(20, 241, 149, 0.1) !important;
+            color: var(--primary) !important;
+            border: 1px solid var(--primary) !important;
+        }
+        .badge[style*="var(--secondary)"],
+        .badge[style*="#9945ff"] {
+            background: rgba(153, 69, 255, 0.1) !important;
+            color: var(--secondary) !important;
+            border: 1px solid var(--secondary) !important;
+        }
+        .badge[style*="#ff9a33"],
+        .badge[style*="orange"] {
+            background: rgba(255, 154, 51, 0.1) !important;
+            color: #ff9a33 !important;
+            border: 1px solid #ff9a33 !important;
+        }
+        .badge[style*="#ffcc00"],
+        .badge[style*="yellow"] {
+            background: rgba(255, 204, 0, 0.1) !important;
+            color: #ffcc00 !important;
+            border: 1px solid #ffcc00 !important;
+        }
+        .badge[style*="#ff4d6a"],
+        .badge[style*="red"],
+        .badge[style*="rgba(255, 77, 106"] {
+            background: rgba(255, 77, 106, 0.1) !important;
+            color: #ff4d6a !important;
+            border: 1px solid #ff4d6a !important;
+        }
+
+        /* Pull-to-refresh styles */
+        .ptr-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            transform: translateY(-100%);
+            transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+            opacity: 0;
+            z-index: 9999;
+            color: var(--primary);
+            font-weight: 600;
+            gap: 10px;
+            font-size: 0.85rem;
+            background: rgba(13, 13, 20, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(20, 241, 149, 0.15);
+        }
+        .ptr-spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(20, 241, 149, 0.2);
+            border-top: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: ptr-spin 0.8s linear infinite;
+            display: none;
+        }
+        .ptr-arrow {
+            font-size: 1.1rem;
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+        @keyframes ptr-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Advanced Mobile Responsiveness (Defined at the end to guarantee it overrides defaults) */
         @media (max-width: 768px) {
             /* Force grids to stack on mobile */
             div[style*="grid-template-columns: 1fr 1fr"],
@@ -56,6 +164,38 @@
             
             /* Adjust padding on main */
             .main-content { padding: 15px !important; }
+
+            /* Tab Header Mobile centering & spacing */
+            .tab-header {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                gap: 12px !important;
+                margin-bottom: 25px !important;
+            }
+            .tab-header h2 {
+                text-align: center !important;
+                margin: 0 !important;
+                font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
+            }
+            .tab-header-badges {
+                justify-content: center !important;
+                flex-wrap: wrap !important;
+                gap: 8px !important;
+                margin-top: 5px !important;
+            }
+
+            /* Mobile logout button visibility override */
+            .mobile-logout-btn {
+                display: inline-block !important;
+                font-size: 1.3rem !important;
+                cursor: pointer;
+                padding: 5px;
+                transition: transform 0.2s ease;
+            }
+            .mobile-logout-btn:active {
+                transform: scale(0.85);
+            }
         }
 </style>
 </head>
@@ -147,9 +287,9 @@
         <div style="padding: 40px;">
             <!-- SECTION: MANAGER OFFICE (NEW V3) -->
             <section id="managerTab" class="tab-section active">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+            <div class="tab-header">
                 <h2>🤵 Manager Office</h2>
-                <div style="display: flex; gap: 10px;">
+                <div class="tab-header-badges">
                     <span class="badge" style="background:rgba(20, 241, 149, 0.1); color:var(--primary); border: 1px solid var(--primary);">GOV ACTIVE</span>
                     <span class="badge" style="background:rgba(153, 69, 255, 0.1); color:var(--secondary); border: 1px solid var(--secondary);">INFINITY ENGINE v3</span>
                 </div>
@@ -290,9 +430,11 @@
 
         <!-- SECTION: BETTING MVP (1X2) -->
         <section id="bettingTab" class="tab-section">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+            <div class="tab-header">
                 <h2>🏆 FIFA World Cup 2026 Bracket & Live Oracles</h2>
-                <span class="badge" style="background:var(--primary); color:black;">LIVE ON-CHAIN</span>
+                <div class="tab-header-badges">
+                    <span class="badge" style="background:var(--primary); color:black;">LIVE ON-CHAIN</span>
+                </div>
             </div>
             
             <style>
@@ -592,9 +734,11 @@
 
         <!-- SECTION: MARKETS (DRIFT) -->
         <section id="marketsTab" class="tab-section">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <div class="tab-header" style="margin-bottom:20px;">
                 <h2>📈 Derivatives & Prediction Markets</h2>
-                <span class="badge" style="background:#ff9a33; color:black;">DRIFT PROTOCOL v2</span>
+                <div class="tab-header-badges">
+                    <span class="badge" style="background:#ff9a33; color:black;">DRIFT PROTOCOL v2</span>
+                </div>
             </div>
             
             <div class="app-card" style="display:grid; grid-template-columns: 1fr 1.5fr; gap: 20px;">
@@ -699,9 +843,9 @@
 
         <!-- SECTION: 3D GALLERY -->
         <section id="galleryTab" class="tab-section">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+            <div class="tab-header">
                 <h2>🖼️ Genesis Squad 3D Gallery</h2>
-                <div style="display: flex; gap: 10px;">
+                <div class="tab-header-badges">
                     <span class="badge" style="background:var(--primary); color:black;">LORE-INFUSED</span>
                     <span class="badge" style="background:#ffcc00; color:black;">AAA HIGH-FIDELITY</span>
                 </div>
@@ -1389,9 +1533,9 @@
         <!-- SECTION: MINIGAMES HUB (NEW) -->
 
         <section id="gamesTab" class="tab-section">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+            <div class="tab-header">
                 <h2>🎮 Community Minigames & Kamino Launchpad</h2>
-                <div style="display: flex; gap: 10px;">
+                <div class="tab-header-badges">
                     <span class="badge" style="background:rgba(20, 241, 149, 0.1); color:var(--primary); border: 1px solid var(--primary);">KAMINO VAULTS ACTIVE</span>
                     <span class="badge" style="background:rgba(255, 77, 106, 0.1); color:#ff4d6a; border: 1px solid #ff4d6a;">10% BURN FOR $GCH</span>
                 </div>
@@ -1483,12 +1627,12 @@
 
         <!-- SECTION: MODIFIERS & ECONOMY SIMULATOR (NEW) -->
         <section id="simulatorTab" class="tab-section">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;">
+            <div class="tab-header">
                 <div>
                     <h2 style="margin:0;">🧪 Dynamic Economy & Modifiers Simulator</h2>
                     <p style="color:var(--text-dim); margin-top:5px; font-size:0.85rem;">Prueba, visualiza y experimenta las fórmulas de la economía del token $GCH y modificadores de Solana en vivo.</p>
                 </div>
-                <div style="display: flex; gap: 10px;">
+                <div class="tab-header-badges">
                     <span class="badge" style="background:rgba(153, 69, 255, 0.1); color:var(--secondary); border: 1px solid var(--secondary);">DEVNET SIMULATOR ACTIVE</span>
                     <span class="badge" style="background:rgba(20, 241, 149, 0.1); color:var(--primary); border: 1px solid var(--primary); display:none;" id="stadiumAdvantageBadge">🏟️ HOME-FIELD ADVANTAGE ACTIVE (+15%)</span>
                     <span class="badge" style="background:rgba(255, 77, 106, 0.1); color:#ff4d6a; border: 1px solid #ff4d6a; display:none;" id="deathPledgeBadge">DEATH PLEDGE ACTIVE</span>
