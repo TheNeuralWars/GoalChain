@@ -2337,13 +2337,13 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Enable body-level scrolling on mobile and prevent horizontal overflow */
+    /* Prevent double-scrollbar by keeping html & body constrained, matching desktop viewport behavior */
     html, body {
+        height: 100vh !important;
+        overflow: hidden !important;
+    }
+    body {
         flex-direction: column !important;
-        height: auto !important;
-        overflow-y: auto !important;
-        overflow-x: hidden !important;
-        -webkit-overflow-scrolling: touch;
     }
     
     /* Stack major layout grids on mobile */
@@ -2514,11 +2514,18 @@ body {
     /* User balance block — hidden on mobile for space if directly inside sidebar */
     .sidebar > div:not(nav):not(.sidebar-logo-block) { display: none !important; }
 
-    /* Main content full-width */
+    /* Main content: acts as the primary scroll container on mobile */
     .main-content { 
         width: 100% !important; 
-        height: auto !important;
-        overflow-y: visible !important;
+        height: calc(100vh - 65px) !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 15px !important;
+    }
+
+    /* Reduce excessive padding inside the main content wrapper div on mobile */
+    .main-content > div[style*="padding: 40px"],
+    .main-content > div[style*="padding:40px"] {
         padding: 15px !important;
     }
 
