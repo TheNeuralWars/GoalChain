@@ -26,30 +26,7 @@
         
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            body { flex-direction: column; overflow-y: auto; height: auto; }
-            .sidebar { 
-                width: 100%; height: auto; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); 
-                padding: 15px; flex-direction: row; align-items: center; justify-content: space-between;
-                position: sticky; top: 0; z-index: 1000;
-            }
-            .sidebar .logo { margin-bottom: 0 !important; font-size: 1.1rem; }
 
-            .sidebar-header { margin-bottom: 0 !important; }
-            .sidebar { padding: 10px 15px !important; }
-            .sidebar .logo img { height: 28px !important; }
-
-            .sidebar nav { display: none; } /* Oculto por defecto en móvil */
-            .sidebar nav.active { 
-                display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; 
-                width: 100%; background: rgba(13, 13, 20, 0.98); padding: 20px; border-bottom: 1px solid var(--primary);
-            }
-            .main-content { padding: 20px; }
-            .activity-feed { width: 100%; border-left: none; border-top: 1px solid rgba(255,255,255,0.05); }
-            .mobile-nav-toggle { display: block !important; cursor: pointer; font-size: 1.5rem; }
-        }
-    
         /* Advanced Mobile Responsiveness */
         @media (max-width: 768px) {
             /* Force grids to stack on mobile */
@@ -87,7 +64,7 @@
     <aside class="sidebar">
         <!-- Fix mobile sticky clipping -->
 
-        <div class="sidebar-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 30px;">
+        <div class="sidebar-header sidebar-logo-block" style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 30px;">
             <div class="logo" style="display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 900;">
                 <img src="assets/img/logo_3d_clean.png" alt="Logo" style="height: 35px; filter: drop-shadow(0 0 10px rgba(20, 241, 149, 0.3));">
                 Goal<span style="color:var(--primary);">Chain</span>
@@ -95,6 +72,12 @@
             <div class="mobile-nav-toggle" style="display: none;" onclick="document.querySelector('.sidebar nav').classList.toggle('active')">☰</div>
         </div>
         <nav>
+            <!-- Mobile Header with Close Button -->
+            <div class="mobile-nav-header" style="display: none; justify-content: space-between; align-items: center; margin-bottom: 20px; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px;">
+                <h4 style="color:#fff; font-weight:800; font-size:1rem; margin:0;">GOALCHAIN TAB MENU</h4>
+                <div class="nav-close-btn" style="font-size:1.8rem; cursor:pointer; color:var(--text-dim); line-height:1;" onclick="document.querySelector('.sidebar nav').classList.remove('active')">&times;</div>
+            </div>
+            
             <div class="nav-item active" onclick="switchAppTab('manager')"><span>🤵</span> The Office</div>
             <div class="nav-item" onclick="switchAppTab('betting')"><span>🏆</span> Betting MVP</div>
             <div class="nav-item" onclick="switchAppTab('markets')"><span>📈</span> Predictions</div>
