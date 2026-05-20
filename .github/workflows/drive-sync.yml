@@ -1,0 +1,34 @@
+name: Drive sync
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install rclone
+        run: |
+          curl https://rclone.org/install.sh | sudo bash
+
+      - name: Configure rclone remote
+        env:
+          RCLONE_CONF: |
+            [gdrive]
+            type = drive
+            client_id = ${{ secrets.RCLONE_CLIENT_ID }}
+            client_secret = ${{ secrets.RCLONE_CLIENT_SECRET }}
+            token = ${{ secrets.RCLONE_GDRIVE_TOKEN }}
+        run: |
+          mkdir -p ~/.config/rclone
+          echo "$RCLONE_CONF" > ~/.config/rclone/rclone.conf
+
+      - name: Sync to Google Drive
+        run: |
+          rclone sync . gdrive:GoalChain-Mirror \
+            --exclude ".git/**" \
+            --delete-excluded
