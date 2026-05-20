@@ -2337,8 +2337,42 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Sidebar: show as top bar on mobile */
-    body { flex-direction: column; height: auto; overflow: auto; }
+    /* Enable body-level scrolling on mobile and prevent horizontal overflow */
+    html, body {
+        flex-direction: column !important;
+        height: auto !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Stack major layout grids on mobile */
+    .main-content div[style*="grid-template-columns: 2fr 1fr"],
+    .main-content div[style*="grid-template-columns: 1.2fr 1fr"],
+    .main-content div[style*="grid-template-columns: 1fr 1.2fr"],
+    .main-content div[style*="grid-template-columns: 1fr 1.5fr"],
+    .main-content div[style*="grid-template-columns: 1fr 1fr 1fr"],
+    .main-content div[style*="grid-template-columns:1fr 1fr 1fr"],
+    .main-content div[style*="grid-template-columns: 1.2fr 1fr"],
+    .main-content div[style*="grid-template-columns: 1fr 1fr"]:not([style*="font-size"]),
+    .main-content div[style*="grid-template-columns:1fr 1fr"]:not([style*="font-size"]) {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    /* Prevent overflow on any long strings/keys inside the main content */
+    .main-content {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+    }
+    
+    /* Ensure log boxes wrap and break addresses nicely */
+    #moltbookLogsBox,
+    #coachChatContainer,
+    #coachAdvisoriesContainer {
+        word-break: break-all !important;
+        white-space: pre-wrap !important;
+    }
     
     .sidebar {
         width: 100% !important;
