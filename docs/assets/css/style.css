@@ -2337,12 +2337,10 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* Prevent double-scrollbar by keeping html & body constrained, matching desktop viewport behavior */
-    html, body {
+    /* Constrain body height only on the dashboard app page to prevent double scrollbars */
+    body.dashboard-body {
         height: 100vh !important;
         overflow: hidden !important;
-    }
-    body {
         flex-direction: column !important;
     }
     
