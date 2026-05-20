@@ -18,7 +18,7 @@ jobs:
 
       - name: Run Backup to Google Drive
         env:
-          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+          RCLONE_CONF: ${{ secrets.RCLONE_GDRIVE_TOKEN }}
         run: |
           # Creamos el archivo de configuracion de rclone con tu secreto
           mkdir -p ~/.config/rclone
