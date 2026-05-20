@@ -1,0 +1,34 @@
+name: Backup to Google Drive
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Setup Rclone
+        uses: svenstaro/setup-rclone@v2004
+        with:
+          rclone_version: 'latest'
+
+      - name: Run Backup to Google Drive
+        env:
+          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+        run: |
+          # Creamos el archivo de configuracion de rclone con tu secreto
+          mkdir -p ~/.config/rclone
+          echo "$RCLONE_CONF" > ~/.config/rclone/rclone.conf
+          
+          # Hacemos la sincronizacion excluyendo carpetas pesadas/innecesarias
+          rclone sync ./ gdrive:GoalChain_Backup \
+            --progress \
+            --exclude ".git/**" \
+            --exclude "node_modules/**" \
+            --exclude "scratch/**"
