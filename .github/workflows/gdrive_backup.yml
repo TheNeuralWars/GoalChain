@@ -13,10 +13,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
       
-      - name: Setup Rclone
-        uses: svenstaro/setup-rclone@v2004
-        with:
-          rclone_version: 'latest'
+      - name: Install Rclone
+        run: sudo -v ; curl https://rclone.org/install.sh | sudo bash
 
       - name: Run Backup to Google Drive
         env:
