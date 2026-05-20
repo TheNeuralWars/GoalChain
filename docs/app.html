@@ -831,16 +831,15 @@
                     top: auto;
                     bottom: 0;
                 }
-                .ai-node:hover {
+                .ai-node-wrapper:hover .ai-node {
                     width: 520px;
                     height: auto;
                     max-height: 600px;
-                    overflow-y: auto;
                     z-index: 100;
                     border-color: var(--primary);
                     box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 15px rgba(20,241,149,0.2);
                 }
-                .terminal-bar-wrapper .ai-node:hover {
+                .terminal-bar-wrapper:hover .ai-node {
                     width: 100%;
                 }
                 .node-summary {
@@ -870,14 +869,15 @@
                     margin-top: 0;
                     max-height: 0;
                 }
-                .ai-node:hover .node-details {
+                .ai-node-wrapper:hover .ai-node .node-details {
                     opacity: 1;
                     visibility: visible;
                     margin-top: 15px;
-                    max-height: 1000px;
+                    max-height: 440px;
+                    overflow-y: auto;
                 }
-                .ai-node::-webkit-scrollbar { width: 4px; }
-                .ai-node::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+                .node-details::-webkit-scrollbar { width: 4px; }
+                .node-details::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
             .node-details p, .node-details div, .node-details span, .node-details strong, .node-details label, .node-details li {
                     font-size: 0.8rem !important;
                     line-height: 1.4 !important;
