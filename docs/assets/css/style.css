@@ -2339,34 +2339,145 @@ body {
 @media (max-width: 768px) {
     /* Sidebar: show as top bar on mobile */
     body { flex-direction: column; height: auto; overflow: auto; }
+    
     .sidebar {
         width: 100% !important;
+        height: 65px !important;
         flex-direction: row !important;
         align-items: center !important;
-        padding: 10px 15px !important;
-        flex-wrap: nowrap;
-        overflow-x: auto;
+        justify-content: space-between !important;
+        padding: 10px 20px !important;
+        background: rgba(13, 13, 20, 0.95) !important;
+        backdrop-filter: blur(20px) !important;
         border-right: none !important;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
+        border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
+        box-sizing: border-box !important;
     }
+
+    .sidebar-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Keep the logo block visible */
+    .sidebar .logo {
+        margin-bottom: 0 !important;
+        font-size: 1.1rem !important;
+    }
+
+    .sidebar .logo img {
+        height: 28px !important;
+    }
+
+    /* Show the hamburger menu toggle */
+    .mobile-nav-toggle {
+        display: block !important;
+        font-size: 1.8rem !important;
+        color: #fff !important;
+        cursor: pointer !important;
+        padding: 5px !important;
+        user-select: none !important;
+        line-height: 1 !important;
+    }
+
+    /* Hide the navbar by default as a drawer off-screen */
     .sidebar nav {
         display: flex !important;
-        flex-direction: row !important;
-        gap: 5px !important;
-        overflow-x: auto !important;
-        flex: 1;
+        flex-direction: column !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 280px !important;
+        height: 100vh !important;
+        background: rgba(8, 8, 12, 0.98) !important;
+        backdrop-filter: blur(25px) !important;
+        padding: 30px 20px !important;
+        border-right: 1px solid rgba(20, 241, 149, 0.2) !important;
+        z-index: 99999 !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        overflow-y: auto !important;
+        box-sizing: border-box !important;
+        gap: 8px !important;
     }
-    .sidebar nav .nav-item { 
-        padding: 8px 10px !important; 
-        margin-bottom: 0 !important;
-        font-size: 0.6rem !important;
-        white-space: nowrap;
-        flex-shrink: 0;
-    }
-    .sidebar nav .nav-item span:last-child { display: none; } /* Hide label text */
-    .sidebar nav .nav-item span:first-child { font-size: 1.1rem; } /* Show only emoji */
 
-    /* User balance block — hidden on mobile for space */
+    /* Slide in the navbar drawer when active */
+    .sidebar nav.active {
+        transform: translateX(0) !important;
+    }
+
+    /* Nav Drawer Header */
+    .mobile-nav-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 20px !important;
+        width: 100% !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+        padding-bottom: 12px !important;
+    }
+
+    /* Nav items inside drawer */
+    .sidebar nav .nav-item { 
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 12px !important;
+        padding: 12px 15px !important; 
+        margin-bottom: 5px !important;
+        font-size: 0.9rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        border-radius: 12px !important;
+        color: var(--text-dim) !important;
+        background: transparent !important;
+        border: 1px solid transparent !important;
+        white-space: normal !important;
+        text-align: left !important;
+    }
+
+    .sidebar nav .nav-item:hover {
+        background: rgba(255,255,255,0.05) !important;
+        color: #fff !important;
+    }
+
+    .sidebar nav .nav-item.active {
+        background: rgba(20, 241, 149, 0.1) !important;
+        border-color: rgba(20, 241, 149, 0.2) !important;
+        color: var(--primary) !important;
+        font-weight: 800 !important;
+    }
+
+    /* Force text and emojis to show up correctly */
+    .sidebar nav .nav-item span {
+        display: inline-block !important;
+    }
+
+    .sidebar nav .nav-item span:first-child { 
+        font-size: 1.2rem !important; 
+    }
+
+    /* Hide individual spans that act as labels in other sidebar formats, if any */
+    .sidebar nav .nav-item span:last-child {
+        display: inline-block !important;
+    }
+
+    /* Manager license and stats display in the drawer */
+    .sidebar nav .manager-license,
+    .sidebar nav > div[style*="background: rgba(153, 69, 255, 0.08)"] {
+        display: block !important;
+        margin-top: 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* User balance block — hidden on mobile for space if directly inside sidebar */
     .sidebar > div:not(nav):not(.sidebar-logo-block) { display: none !important; }
 
     /* Main content full-width */
