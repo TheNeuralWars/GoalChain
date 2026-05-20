@@ -1,11 +1,37 @@
+import os
 import requests
 import json
 import sys
+def load_env_file(dotenv_path):
+    if not os.path.exists(dotenv_path):
+        return
+    try:
+        from dotenv import load_dotenv
+        load_dotenv(dotenv_path)
+    except ImportError:
+        # Fallback simple parser if python-dotenv is not installed
+        with open(dotenv_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                if "=" in line:
+                    key, val = line.split("=", 1)
+                    key = key.strip()
+                    val = val.strip()
+                    if val.startswith(('"', "'")) and val.endswith(val[0]):
+                        val = val[1:-1]
+                    os.environ[key] = val
 
-# Cloudflare Credentials
-ACCOUNT_ID = "ef46a2b8d3d46b785a0ecc30c4b994cf"
-ZONE_ID = "152a1124f5fb2d3568129ff4df774e75"
-API_TOKEN = "cfat_e8UVuFLV2MoZ7IVRuvv4NrDzClmTpWG0yfVUNaLB0742ac87"
+# Load environment variables from .env in the workspace root
+load_env_file(os.path.join(os.path.dirname(__file__), '..', '.env'))
+
+# Cloudflare Credentials with environment fallback
+ACCOUNT_ID = os.getenv("CLOUDFLARE_ACCOUNT_ID", "ef46a2b8d3d46b785a0ecc30c4b994cf")
+ZONE_ID = os.getenv("CLOUDFLARE_ZONE_ID", "152a1124f5fb2d3568129ff4df774e75")
+API_TOKEN = os.getenv("CLOUDFLARE_API_TOKEN", "cfat_e8UVuFLV2MoZ7IVRuvv4NrDzClmTpWG0yfVUNaLB0742ac87")
+
+
 
 HEADERS = {
     "Authorization": f"Bearer {API_TOKEN}",
@@ -16,6 +42,7 @@ def verify_token():
     """Verify that the API token has correct permissions and is active."""
     url = f"https://api.twitter.com/2/users/me" # Dummy API template check, but we call the cloudflare verification url instead
     url = "https://api.cloudflare.com/client/v4/user/tokens/verify"
+
     
     try:
         response = requests.get(url, headers=HEADERS)

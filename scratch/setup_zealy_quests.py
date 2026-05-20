@@ -1,6 +1,31 @@
+import os
 import requests
 import json
 import sys
+def load_env_file(dotenv_path):
+    if not os.path.exists(dotenv_path):
+        return
+    try:
+        from dotenv import load_dotenv
+        load_dotenv(dotenv_path)
+    except ImportError:
+        # Fallback simple parser if python-dotenv is not installed
+        with open(dotenv_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                if "=" in line:
+                    key, val = line.split("=", 1)
+                    key = key.strip()
+                    val = val.strip()
+                    if val.startswith(('"', "'")) and val.endswith(val[0]):
+                        val = val[1:-1]
+                    os.environ[key] = val
+
+# Load environment variables from .env in the workspace root
+load_env_file(os.path.join(os.path.dirname(__file__), '..', '.env'))
+
 
 # Script para automatizar la creación de misiones en Zealy (Crew3)
 # Documentación API Zealy V2: https://api-v2.zealy.io/
@@ -53,9 +78,9 @@ def create_quest(subdomain, api_key, quest_data):
 if __name__ == "__main__":
     print("🚀 GOALCHAIN ZEALY AUTOMATIC CONFIGURATOR 🚀")
     
-    # Datos provistos por el usuario
-    subdomain = "goalchain"
-    api_key = "3cee00W2S2Nt1j7Xnl1FjlFS6j3"
+    # Datos provistos por el usuario with environment fallback
+    subdomain = os.getenv("ZEALY_SUBDOMAIN", "goalchain")
+    api_key = os.getenv("ZEALY_API_KEY", "3cee00W2S2Nt1j7Xnl1FjlFS6j3")
     
     if not subdomain or not api_key:
         print("❌ Error: Subdominio y API Key son obligatorios.")
