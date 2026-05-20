@@ -21,6 +21,7 @@ class ModifiersSimulator {
         // Licencias y Química
         this.hasCountryLicense = false;
         this.sameCountryCount = 1;
+        this.sameClubCount = 1;
         this.stadiumTheme = 'desert'; // matches player visualbg for home advantage
         
         // Liga / Torneo Activo
@@ -59,6 +60,7 @@ class ModifiersSimulator {
         
         this.licenseCheck = document.getElementById('simLicenseCheck');
         this.synergyCountSelect = document.getElementById('simSynergyCount');
+        this.clubSynergyCountSelect = document.getElementById('simClubSynergyCount');
         this.stadiumSelect = document.getElementById('simStadiumSelect');
         
         this.rentalStatusText = document.getElementById('simRentalStatusText');
@@ -141,6 +143,18 @@ class ModifiersSimulator {
             });
         }
 
+        if (this.clubSynergyCountSelect) {
+            this.clubSynergyCountSelect.addEventListener('change', (e) => {
+                this.sameClubCount = parseInt(e.target.value);
+                const pairs = Math.floor(this.sameClubCount / 2);
+                let msg = `🛡️ [Química Club] Alineados ${this.sameClubCount} jugadores del mismo Club (${pairs} parejas). `;
+                if (this.sameClubCount >= 11) msg += "Sinergia de Club Completo (+25% Stats, +15% Yield 🔥) activa!";
+                else if (this.sameClubCount >= 2) msg += `Bono por parejas: +${pairs * 5}% en ATK y DEF.`;
+                this.logToConsole(msg);
+                this.updateYieldAndUI();
+            });
+        }
+
         if (this.stadiumSelect) {
             this.stadiumSelect.addEventListener('change', (e) => {
                 this.stadiumTheme = e.target.value;
@@ -191,6 +205,9 @@ class ModifiersSimulator {
         
         if (this.synergyCountSelect) this.synergyCountSelect.value = "1";
         this.sameCountryCount = 1;
+        
+        if (this.clubSynergyCountSelect) this.clubSynergyCountSelect.value = "1";
+        this.sameClubCount = 1;
         
         // Reset inputs de renta
         if (this.rentalPriceInput) this.rentalPriceInput.value = "200";
@@ -273,7 +290,14 @@ class ModifiersSimulator {
         if (!this.selectedPlayer) return;
         
         // Multiplicadores de Sinergia y Licencia a Stats
-        let statMultiplier = 1.0;
+        let clubStatBonus = 0.0;
+        if (this.sameClubCount >= 11) {
+            clubStatBonus = 0.25; // +25%
+        } else {
+            clubStatBonus = Math.floor(this.sameClubCount / 2) * 0.05; // +5% por pareja
+        }
+
+        let statMultiplier = 1.0 + clubStatBonus;
         if (this.hasCountryLicense) statMultiplier += 0.10; // +10%
         if (this.sameCountryCount >= 11) statMultiplier += 0.25; // +25%
         else if (this.sameCountryCount >= 5) statMultiplier += 0.12; // +12%
@@ -331,6 +355,10 @@ class ModifiersSimulator {
         // 4. Química de Selección (Synergy Boost)
         let synergyMultiplier = 1.0;
         if (this.sameCountryCount >= 11) synergyMultiplier = 1.15; // +15% de sueldo
+
+        // 4.5 Química de Club (Club Synergy Boost)
+        let clubSynergyMultiplier = 1.0;
+        if (this.sameClubCount >= 11) clubSynergyMultiplier = 1.15; // +15% de sueldo
 
         // 5. Licencia de País (Nation License)
         let licenseMultiplier = 1.0;
@@ -391,7 +419,7 @@ class ModifiersSimulator {
         }
 
         // CÁLCULO FINAL DE YIELD DIARIO
-        let dailyGchYield = baseYield * sportsCoef * (1 + lockerRoomBoost) * synergyMultiplier * licenseMultiplier * stadiumMultiplier * staminaModifier * leagueMatchMultiplier * deathPledgeMultiplier;
+        let dailyGchYield = baseYield * sportsCoef * (1 + lockerRoomBoost) * synergyMultiplier * clubSynergyMultiplier * licenseMultiplier * stadiumMultiplier * staminaModifier * leagueMatchMultiplier * deathPledgeMultiplier;
         dailyGchYield = Math.max(0, Math.round(dailyGchYield));
 
         // Actualizar balance diario mostrado en la UI lateral y en la carta
@@ -403,10 +431,10 @@ class ModifiersSimulator {
         this.updateStatsUI();
 
         // Mostrar desglose en los indicadores de rendimiento
-        this.updateBreakdownUI(baseYield, sportsCoef, lockerRoomBoost, synergyMultiplier, licenseMultiplier, stadiumMultiplier, staminaModifier, deathPledgeMultiplier, leagueMatchMultiplier);
+        this.updateBreakdownUI(baseYield, sportsCoef, lockerRoomBoost, synergyMultiplier, clubSynergyMultiplier, licenseMultiplier, stadiumMultiplier, staminaModifier, deathPledgeMultiplier, leagueMatchMultiplier);
     }
 
-    updateBreakdownUI(base, sports, locker, synergy, license, stadium, stamina, death, leagueMatch) {
+    updateBreakdownUI(base, sports, locker, synergy, clubSynergy, license, stadium, stamina, death, leagueMatch) {
         // Actualizar indicadores HTML para que el usuario entienda la matemática completa
         const setVal = (id, val) => {
             const el = document.getElementById(id);
@@ -417,6 +445,7 @@ class ModifiersSimulator {
         setVal('breakdownSports', `${Math.round((sports - 1) * 100)}%`);
         setVal('breakdownLocker', `+${Math.round(locker * 100)}%`);
         setVal('breakdownSynergy', `${Math.round((synergy - 1) * 100)}%`);
+        setVal('breakdownClubSynergy', `${Math.round((clubSynergy - 1) * 100)}%`);
         setVal('breakdownLicense', `${Math.round((license - 1) * 100)}%`);
         setVal('breakdownStadium', `+${Math.round((stadium - 1) * 100)}%`);
         setVal('breakdownStamina', `x${stamina}`);
@@ -832,6 +861,7 @@ let simulatorAppInstance = null;
 function initSimulatorView() {
     if (!simulatorAppInstance) {
         simulatorAppInstance = new ModifiersSimulator();
+        window.simulatorAppInstance = simulatorAppInstance;
     }
     
     // Cargar por defecto al primer jugador
