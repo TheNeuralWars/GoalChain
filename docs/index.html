@@ -571,6 +571,18 @@
 
         <!-- STYLE FOR LIVE BETTING ARENA -->
         <style>
+            .live-arena-container {
+                max-width: 900px;
+                margin: 0 auto 3rem auto;
+                background: rgba(0,0,0,0.6);
+                border: 2px solid var(--primary);
+                border-radius: 16px;
+                padding: 2rem;
+                box-shadow: 0 0 30px rgba(20, 241, 149, 0.15);
+                position: relative;
+                overflow: hidden;
+                text-align: left;
+            }
             .btn-live-select:hover {
                 border-color: var(--primary) !important;
                 background: rgba(20, 241, 149, 0.05) !important;
@@ -581,16 +593,111 @@
                 background: linear-gradient(135deg, rgba(20, 241, 149, 0.15), rgba(153, 69, 255, 0.15)) !important;
                 box-shadow: 0 0 15px rgba(20, 241, 149, 0.3) !important;
             }
+            .scoreboard-grid {
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                align-items: center;
+                text-align: center;
+                margin-bottom: 2rem;
+                background: rgba(255,255,255,0.02);
+                border-radius: 12px;
+                padding: 1.5rem;
+                border: 1px solid rgba(255,255,255,0.05);
+            }
+            .scoreboard-team {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            .scoreboard-flag {
+                font-size: 3rem;
+                filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));
+            }
+            .scoreboard-team-name {
+                font-size: 1.25rem;
+                font-weight: 900;
+                color: #fff;
+                margin: 0;
+            }
+            .scoreboard-label {
+                font-size: 0.75rem;
+                color: var(--text-dim);
+            }
+            .scoreboard-score-wrap {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            #liveMatchTime {
+                font-size: 0.9rem;
+                font-weight: 800;
+                color: var(--primary);
+                background: rgba(20,241,149,0.1);
+                padding: 4px 12px;
+                border-radius: 8px;
+                border: 1px solid rgba(20,241,149,0.2);
+            }
+            #liveMatchScore {
+                font-size: 3rem;
+                font-weight: 900;
+                color: #fff;
+                font-family: monospace;
+                letter-spacing: 4px;
+                text-shadow: 0 0 15px rgba(255,255,255,0.2);
+            }
+            #liveMatchPhase {
+                font-size: 0.75rem;
+                color: var(--secondary);
+                letter-spacing: 1px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            #oracleLiveLogs {
+                word-break: break-all !important;
+                white-space: pre-wrap !important;
+            }
             @media (max-width: 768px) {
+                .live-arena-container {
+                    padding: 1.2rem !important;
+                    margin: 0 10px 2rem 10px !important;
+                    border-radius: 12px !important;
+                }
                 .live-arena-grid {
                     grid-template-columns: 1fr !important;
                     gap: 1.5rem !important;
+                }
+                .scoreboard-grid {
+                    padding: 0.8rem 0.5rem !important;
+                    margin-bottom: 1.5rem !important;
+                    gap: 5px !important;
+                }
+                .scoreboard-flag {
+                    font-size: 2.2rem !important;
+                }
+                .scoreboard-team-name {
+                    font-size: 0.9rem !important;
+                }
+                .scoreboard-label {
+                    font-size: 0.65rem !important;
+                }
+                #liveMatchScore {
+                    font-size: 2rem !important;
+                    letter-spacing: 2px !important;
+                }
+                #liveMatchTime {
+                    font-size: 0.75rem !important;
+                    padding: 2px 8px !important;
+                }
+                #liveMatchPhase {
+                    font-size: 0.65rem !important;
                 }
             }
         </style>
 
         <!-- LIVE MATCH ARENA (ORACLE PLAYGROUND) -->
-        <div class="live-arena-container reveal" style="max-width: 900px; margin: 0 auto 3rem auto; background: rgba(0,0,0,0.6); border: 2px solid var(--primary); border-radius: 16px; padding: 2rem; box-shadow: 0 0 30px rgba(20, 241, 149, 0.15); position: relative; overflow: hidden; text-align: left;">
+        <div class="live-arena-container reveal">
             <!-- Subtle Cyber Grid Background -->
             <div class="cyber-grid-overlay" style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(rgba(20, 241, 149, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 241, 149, 0.03) 1px, transparent 1px); background-size: 20px 20px; pointer-events: none;"></div>
             
@@ -604,26 +711,26 @@
                 </div>
 
                 <!-- Match Scoreboard -->
-                <div class="scoreboard-grid" style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; text-align: center; margin-bottom: 2rem; background: rgba(255,255,255,0.02); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(255,255,255,0.05);">
+                <div class="scoreboard-grid">
                     <!-- Team A -->
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                        <span style="font-size: 3rem; filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));">🇦🇷</span>
-                        <h3 style="font-size: 1.25rem; font-weight: 900; color: #fff; margin: 0;">ARGENTINA</h3>
-                        <span style="font-size: 0.75rem; color: var(--text-dim);">TEAM A</span>
+                    <div class="scoreboard-team">
+                        <span class="scoreboard-flag">🇦🇷</span>
+                        <h3 class="scoreboard-team-name">ARGENTINA</h3>
+                        <span class="scoreboard-label">TEAM A</span>
                     </div>
 
                     <!-- Score and Time -->
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-                        <div id="liveMatchTime" style="font-size: 0.9rem; font-weight: 800; color: var(--primary); background: rgba(20,241,149,0.1); padding: 4px 12px; border-radius: 8px; border: 1px solid rgba(20,241,149,0.2);">Min 1'</div>
-                        <div id="liveMatchScore" style="font-size: 3rem; font-weight: 900; color: #fff; font-family: monospace; letter-spacing: 4px; text-shadow: 0 0 15px rgba(255,255,255,0.2);">0 - 0</div>
-                        <span id="liveMatchPhase" style="font-size: 0.75rem; color: var(--secondary); letter-spacing: 1px; font-weight: bold; text-transform: uppercase;">First Half</span>
+                    <div class="scoreboard-score-wrap">
+                        <div id="liveMatchTime">Min 1'</div>
+                        <div id="liveMatchScore">0 - 0</div>
+                        <span id="liveMatchPhase">First Half</span>
                     </div>
 
                     <!-- Team B -->
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                        <span style="font-size: 3rem; filter: drop-shadow(0 0 10px rgba(255,255,255,0.1));">🇫🇷</span>
-                        <h3 style="font-size: 1.25rem; font-weight: 900; color: #fff; margin: 0;">FRANCIA</h3>
-                        <span style="font-size: 0.75rem; color: var(--text-dim);">TEAM B</span>
+                    <div class="scoreboard-team">
+                        <span class="scoreboard-flag">🇫🇷</span>
+                        <h3 class="scoreboard-team-name">FRANCIA</h3>
+                        <span class="scoreboard-label">TEAM B</span>
                     </div>
                 </div>
 
