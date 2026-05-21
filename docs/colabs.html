@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoalChain | Colabs Portal</title>
+    <link rel="icon" type="image/png" href="assets/img/logo_3d_clean.png?v=2.0">
+    <link rel="stylesheet" href="assets/css/style.css?v=4.2">
+    <link rel="stylesheet" href="assets/css/colabs.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+</head>
+<body>
+    <div class="vibrancy"></div>
+
+    <!-- Botón de Salida -->
+    <a href="index.html" class="exit-pitch top-exit" title="Volver al Inicio (ESC)">
+        <span>&times;</span>
+    </a>
+
+    <!-- Botón de Salida Flotante Inferior -->
+    <a href="index.html" class="exit-portal-btn" title="Salir del Portal">
+        <span>🚪</span> Salir
+    </a>
+
+    <style>
+        .exit-portal-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: rgba(255, 77, 106, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 77, 106, 0.3);
+            border-radius: 50px;
+            padding: 10px 25px;
+            color: #ff4d6a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 800;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .exit-portal-btn:hover {
+            background: #ff4d6a;
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 77, 106, 0.4);
+        }
+        .top-exit {
+            top: 2rem;
+            right: 2rem;
+        }
+        .exit-pitch {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 2rem;
+            font-weight: 300;
+            z-index: 9999;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+        .exit-pitch:hover {
+            background: var(--primary);
+            color: #000;
+            transform: rotate(90deg) scale(1.1);
+            border-color: var(--primary);
+        }
+    </style>
+
+    <!-- Login Gateway -->
+    <div id="loginGateway" class="gateway-overlay">
+        <div class="glass-card gateway-card">
+            <div class="logo" style="display: flex; align-items: center; gap: 10px; justify-content: center;">
+                <img src="assets/img/logo_3d_clean.png" alt="Logo" style="height: 40px; filter: drop-shadow(0 0 10px rgba(20, 241, 149, 0.3));">
+                Goal<span style="font-weight: 900;">Chain</span>
+            </div>
+            <h2 style="margin: 1.5rem 0 0.5rem;">Portal de Colaboradores</h2>
+            <div class="login-box">
+                <h1>🔐 Acceso Restringido</h1>
+                <p>Este portal es exclusivo para desarrolladores, partners e influencers autorizados de GoalChain.</p>
+                <button id="connectBtn" class="btn btn-primary btn-glow" style="width: 100%; margin-top: 20px;">CONECTAR PHANTOM</button>
+                
+                <div id="accessDenied" style="display:none; margin-top: 20px; color: #ff4d4d; font-size: 0.8rem; border: 1px solid #ff4d4d; padding: 10px; border-radius: 8px;">
+                    🚫 Wallet no autorizada.
+                </div>
+
+                <div class="how-to-join" style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: left;">
+                    <h4 style="font-size: 0.9rem; color: var(--primary);">🚀 ¿Quieres colaborar?</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 5px;">Las colaboraciones están abiertas. Para ser añadido a la whitelist:</p>
+                    <ul style="font-size: 0.75rem; color: var(--text-dim); margin-top: 10px; padding-left: 15px;">
+                        <li>Abre un ticket en nuestro <b>Discord</b>.</li>
+                        <li>Envíanos un DM directo a <b>@NicoPez</b>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Colab App (Hidden until Auth) -->
+    <main id="colabApp" style="display: none;">
+        <nav class="colab-nav">
+            <div class="logo" style="display: flex; align-items: center; gap: 8px;">
+                <img src="assets/img/logo_3d_clean.png" alt="Logo" style="height: 25px;">
+                Goal<span>Chain</span> <small>PARTNERS</small>
+            </div>
+            <div class="colab-tabs">
+                <button class="tab-btn active" data-tab="dev" id="tabDev">Dev Team</button>
+                <button class="tab-btn" data-tab="influencers" id="tabInfluencers">Influencers</button>
+                <button class="tab-btn" data-tab="partners" id="tabPartners">Partners</button>
+                <button class="tab-btn" data-tab="finance" id="tabFinance" style="color:var(--primary);">🏦 Finance</button>
+                <button class="tab-btn" data-tab="academy" id="tabAcademy" style="color:var(--secondary);">🌱 Academy Admin</button>
+                <button class="tab-btn" data-tab="guide" id="tabGuide" style="color:#00e5ff; font-weight: 800;">📖 Mega Guides</button>
+            </div>
+            <div id="userBadge" class="user-badge">
+                <span id="userRole">Dev</span>
+                <span id="userAddress">0x...</span>
+            </div>
+        </nav>
+
+        <div class="container" style="padding-top: 100px;">
+            
+            <!-- SECTION: DEV TEAM -->
+            <section id="devSection" class="tab-content active">
+                <div class="colab-header">
+                    <h2>🧠 Dashboard de Desarrollo</h2>
+                    <p>Información estratégica y gestión de equity.</p>
+                </div>
+                
+                <div class="dev-grid">
+                    <!-- Equity Tracker (Integrado de lo anterior) -->
+                    <div class="glass-card">
+                        <h3>📈 Equity & Points</h3>
+                        <div id="equityList" class="equity-list">
+                            <!-- Inyectado por JS -->
+                        </div>
+                    </div>
+
+                    <!-- Shared Board / Pizarrón -->
+                    <div class="glass-card">
+                        <h3>📌 Pizarrón Compartido</h3>
+                        <div id="sharedBoard" class="notes-container">
+                            <!-- Notas inyectadas -->
+                        </div>
+                        <div class="note-input">
+                            <input type="text" id="noteText" placeholder="Escribe una nota interna...">
+                            <button onclick="addNote()" class="btn-sm btn-primary">Postear</button>
+                        </div>
+                    </div>
+
+                    <!-- Economic Oracle -->
+                    <div class="glass-card">
+                        <h3>🔮 Oráculo Económico</h3>
+                        <div class="oracle-stats">
+                            <div class="o-stat"><span>JACKPOT (40%)</span><strong id="jackpotTotal">125,400 $GCH</strong></div>
+                            <div class="o-stat"><span>WORLD RESERVE / BUY-BACK (30%)</span><strong id="burnedTotal">84,200 $GCH</strong></div>
+                            <div class="o-stat"><span>ECOSISTEMA / DEV (30%)</span><strong id="salariesTotal">450,000 $GCH</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card" style="margin-top: 2rem;">
+                    <h3>🛠️ Tareas Críticas de Marketing</h3>
+                    <div id="devTasks" class="task-grid">
+                        <!-- Tareas diarias inyectadas -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: INFLUENCERS -->
+            <section id="influencerSection" class="tab-content">
+                <div class="colab-header">
+                    <h2>🚀 Portal de Influencers</h2>
+                    <p>Seguimiento de impacto y recompensas por views.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="leaderboard-header">
+                        <h3>🏆 Leaderboard de Artistas</h3>
+                        <div class="stats-badge">1M+ Total Views</div>
+                    </div>
+                    <div class="influencer-table-container">
+                        <table class="colab-table">
+                            <thead>
+                                <tr>
+                                    <th>Artista</th>
+                                    <th>Contenido / Red</th>
+                                    <th>Impacto (Views)</th>
+                                    <th>Tokens Ganados</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="influencerTable">
+                                <!-- Datos inyectados -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: PARTNERS -->
+            <section id="partnerSection" class="tab-content">
+                <div class="colab-header">
+                    <h2>🤝 Alianzas Estratégicas</h2>
+                    <p>Propuestas de colaboración y expansión del ecosistema.</p>
+                </div>
+
+                <div class="main-grid">
+                    <div class="glass-card">
+                        <h3>Proponer Colaboración</h3>
+                        <form id="partnerForm" class="colab-form">
+                            <input type="text" placeholder="Nombre del Proyecto / Partner" required>
+                            <select>
+                                <option>Modo de Juego</option>
+                                <option>Ecosistema Solana</option>
+                                <option>Patrocinio Mundial</option>
+                                <option>Otro</option>
+                            </select>
+                            <textarea placeholder="Describe la propuesta técnica o estratégica..."></textarea>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Propuesta</button>
+                        </form>
+                    </div>
+                    <div class="glass-card">
+                        <h3>Ecosistemas Activos</h3>
+                        <div class="active-colabs">
+                            <div class="colab-mini-card">
+                                <strong>PlaySolana PSG1</strong>
+                                <p>Integración de hardware nativo.</p>
+                                <span class="badge-status">En Desarrollo</span>
+                            </div>
+                            <div class="colab-mini-card">
+                                <strong>Solana Foundation</strong>
+                                <p>Soporte de infraestructura.</p>
+                                <span class="badge-status">Partner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION: FINANCE (LENDING PROTOTYPE) -->
+            <section id="financeSection" class="tab-content">
+                <div class="colab-header">
+                    <h2>🏦 GoalChain Finance (Beta)</h2>
+                    <p>Obtén liquidez inmediata sobre tus NFTs sin venderlos. Conectado con Sharky.fi / Banx.</p>
+                </div>
+
+                <div class="finance-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <!-- NFT Inventory for Lending -->
+                    <div class="glass-card">
+                        <h3>📋 Tu Inventario Colateral</h3>
+                        <div id="lendingInventory" class="lending-list" style="max-height: 400px; overflow-y: auto;">
+                            <p style="color:var(--text-dim); font-size:0.8rem; padding: 20px;">Conecta tu wallet para escanear tus NFTs elegibles...</p>
+                        </div>
+                    </div>
+
+                    <!-- Loan Dashboard -->
+                    <div class="glass-card">
+                        <h3>📊 Estado de Préstamos</h3>
+                        <div class="oracle-stats" style="margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px;">
+                            <div class="o-stat" style="display: flex; justify-content: space-between;"><span>SOL DISPONIBLE (LTV)</span><strong id="solAvailable" style="color:var(--primary);">0.00 SOL</strong></div>
+                            <div class="o-stat" style="display: flex; justify-content: space-between;"><span>PRÉSTAMOS ACTIVOS</span><strong id="activeLoans">0</strong></div>
+                            <div class="o-stat" style="display: flex; justify-content: space-between;"><span>INTERÉS PROMEDIO (APR)</span><strong style="color:var(--secondary);">12%</strong></div>
+                        </div>
+                        <div class="lending-actions">
+                            <button id="requestLoanBtn" class="btn btn-primary btn-glow" style="width: 100%;" disabled>SOLICITAR PRÉSTAMO RÁPIDO</button>
+                            <p style="font-size: 0.65rem; color: var(--text-dim); margin-top: 10px; text-align: center;">Basado en el precio de mercado de la colección GoalChain Genesis Squad.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strategic Stats -->
+                <div class="glass-card" style="margin-top: 2rem; border-color: var(--secondary);">
+                    <h3>💡 Por qué usar GoalChain Finance?</h3>
+                    <div class="feature-grid-mini" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 15px;">
+                        <div class="f-mini">
+                            <strong style="color:var(--primary);">Sin Ventas</strong>
+                            <p style="font-size:0.75rem; color:var(--text-dim);">Mantén la propiedad y los beneficios de yield de tu NFT.</p>
+                        </div>
+                        <div class="f-mini">
+                            <strong style="color:var(--primary);">Aprobación Instantánea</strong>
+                            <p style="font-size:0.75rem; color:var(--text-dim);">Sin burocracia. Basado 100% en el valor del activo on-chain.</p>
+                        </div>
+                        <div class="f-mini">
+                            <strong style="color:var(--primary);">Liquidez para el Juego</strong>
+                            <p style="font-size:0.75rem; color:var(--text-dim);">Usa el SOL para apostar en el mundial mientras tu NFT está bloqueado.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: ACADEMY ADMIN (cNFTs) -->
+            <section id="academySection" class="tab-content" style="display:none;">
+                <div class="colab-header">
+                    <h2>🌱 Academy Management (Admin)</h2>
+                    <p>Gestión de Merkle Trees, metadatos y despliegue de colecciones comprimidas.</p>
+                </div>
+
+                <div class="colab-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <!-- Scouting Toolkit -->
+                    <div class="glass-card">
+                        <h3>🔍 Scouting Toolkit</h3>
+                        <p style="font-size:0.8rem; color:var(--text-dim); margin: 15px 0;">Emite cNFTs en lotes masivos. Cada jugador scouteado se añade al Merkle Tree de GoalChain.</p>
+                        
+                        <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+                            <div style="display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom: 5px;">
+                                <span>Costo Estimado (10 cNFTs):</span>
+                                <span style="color:var(--primary);">0.005 SOL</span>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; font-size:0.8rem;">
+                                <span>Límite de Tree:</span>
+                                <span>1,000,000 slots</span>
+                            </div>
+                        </div>
+
+                        <button id="scoutBtn" class="btn btn-secondary btn-glow" style="width:100%;">SCOUTEAR 10 PROSPECTOS</button>
+                    </div>
+
+                    <!-- My Prospects -->
+                    <div class="glass-card">
+                        <h3>🏃 Mis Prospectos (cNFTs)</h3>
+                        <div id="prospectsList" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; max-height: 250px; overflow-y: auto; margin-top: 15px; padding-right: 5px;">
+                            <p style="grid-column: 1/-1; text-align:center; color:var(--text-dim); font-size:0.75rem; padding: 40px;">No hay prospectos en la cantera...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Merkle Visualizer -->
+                <div class="glass-card" style="margin-top: 20px; border-style: dashed; border-width: 1px;">
+                    <h4 style="font-size: 0.8rem; color: var(--secondary); text-transform: uppercase;">Estado del Merkle Tree (Solana Bubblegum)</h4>
+                    <div id="merkleVisualizer" style="height:8px; background:rgba(0,0,0,0.5); border-radius:4px; margin: 15px 0; overflow:hidden;">
+                        <div id="merkleProgress" style="width:0%; height:100%; background:var(--secondary); transition: width 0.4s ease;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-family: monospace; font-size: 0.65rem; color: var(--text-dim);">
+                        <span id="merkleStatus">Tree Capacity: 1,248 / 1M</span>
+                        <span id="merkleRoot">Root: 0x7f...a3e2</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: MEGA GUIDE PORTAL (SIDE-BY-SIDE v1.0 & v2.0) -->
+            <section id="guideSection" class="tab-content" style="display:none;">
+                <div class="colab-header">
+                    <h2>📖 Biblioteca de Guías del Ecosistema GoalChain</h2>
+                    <p>Accede a las especificaciones oficiales y la evolución de nuestra arquitectura SportsFi.</p>
+                </div>
+                
+                <div class="guide-selection-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 20px;">
+                    <!-- v1.0 Guide Card -->
+                    <div class="glass-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(255,255,255,0.05); background: rgba(13, 13, 21, 0.6); position: relative; overflow: hidden; border-radius: 20px;">
+                        <div>
+                            <div style="background: rgba(153, 69, 255, 0.1); border: 1px solid #9945ff; color: #9945ff; font-weight: 900; font-size: 0.7rem; padding: 4px 12px; border-radius: 50px; display: inline-block; margin-bottom: 15px;">
+                                MANIFIESTO ORIGINAL v1.0
+                            </div>
+                            <h3 style="color: #fff; font-size: 1.3rem; margin: 0 0 10px 0; font-weight: 800;">⚽ Guía Inicial SportsFi</h3>
+                            <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 20px;">
+                                El documento fundacional de GoalChain. Explica las bases de la preventa de staking de JitoSOL, la fórmula del Starting XI, las penalizaciones iniciales del oráculo deportivo y la visión a largo plazo del protocolo.
+                            </p>
+                        </div>
+                        <a href="mega-guide-v1.html" class="btn btn-secondary" style="width: 100%; text-align: center; text-decoration: none; padding: 12px; font-weight: 800; border-radius: 10px; display: block; border: 1px solid rgba(255,255,255,0.1); color:#fff; background:transparent; transition: all 0.3s;">
+                            📖 ABRIR GUÍA ORIGINAL (v1.0)
+                        </a>
+                    </div>
+
+                    <!-- v2.0 Guide Card -->
+                    <div class="glass-card" style="padding: 30px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(0, 229, 255, 0.3); background: rgba(13, 13, 21, 0.9); position: relative; overflow: hidden; border-radius: 20px; box-shadow: 0 0 25px rgba(0,229,255,0.1);">
+                        <div style="position: absolute; top: 0; right: 0; background: linear-gradient(90deg, #00e5ff, #9945ff); color: #000; font-size: 0.65rem; font-weight: 900; padding: 4px 15px; border-radius: 0 0 0 10px; text-transform: uppercase; letter-spacing: 1px;">
+                            ACTUALIZADA
+                        </div>
+                        <div>
+                            <div style="background: rgba(0, 229, 255, 0.1); border: 1px solid #00e5ff; color: #00e5ff; font-weight: 900; font-size: 0.7rem; padding: 4px 12px; border-radius: 50px; display: inline-block; margin-bottom: 15px;">
+                                FASE 1 & FASE 2 NUEVA v2.0
+                            </div>
+                            <h3 style="color: #fff; font-size: 1.3rem; margin: 0 0 10px 0; font-weight: 800;">⚡ Mega Guía Suprema SportsFi</h3>
+                            <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-dim); margin-bottom: 20px;">
+                                El manifiesto técnico definitivo. Incluye las actualizaciones móviles del Dashboard, la calibración de yield y stamina de los 528 cNFTs reales, el predictor Rainmaker AI v2.0 en vivo, el Betbot Autónomo y la economía circular MEV.
+                            </p>
+                        </div>
+                        <a href="mega-guide.html" class="btn btn-primary btn-glow" style="width: 100%; text-align: center; text-decoration: none; padding: 12px; font-weight: 900; border-radius: 10px; display: block; border:none; background: linear-gradient(90deg, #00e5ff, #9945ff); color:#fff; box-shadow: 0 0 15px rgba(0,229,255,0.3); transition: all 0.3s;">
+                            🔥 LEER GUÍA SUPREMA (v2.0)
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="assets/js/colab_auth.js"></script>
+    <script src="assets/js/colab_app.js"></script>
+    <script src="assets/js/lending_app.js"></script>
+    <script src="assets/js/cnft_scout.js"></script>
+    <script src="assets/js/drift_markets.js"></script>
+    <script>
+        // Soporte para tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

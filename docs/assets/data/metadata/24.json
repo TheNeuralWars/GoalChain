@@ -1,0 +1,56 @@
+{
+    "name": "Jude Belling-Swap",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Jude Belling-Swap (Inglaterra). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/024_rodri_protocol.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Inglaterra"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Mythic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 76
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 72
+        },
+        {
+            "trait_type": "Hype",
+            "value": 92
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/024_rodri_protocol.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

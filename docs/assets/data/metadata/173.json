@@ -1,0 +1,56 @@
+{
+    "name": "Aziz Behich-Lane",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Aziz Behich-Lane (Australia). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/173_aziz_behich-lane.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Australia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 34
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 86
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/173_aziz_behich-lane.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
