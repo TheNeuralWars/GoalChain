@@ -8,57 +8,45 @@ Thumbs.db
 
 .vscode/
 .idea/
-
 # --- Logs ---
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-
 # --- Node / JS ---
 node_modules/
 **/node_modules/
-
 # Vite / Next / general build artifacts (keep oracle dist committed)
 dist/
 build/
 coverage/
 .tmp/
 .temp/
-
 # Do NOT ignore goalchain_oracle/dist (we commit it)
 !goalchain_oracle/dist/
 !goalchain_oracle/dist/**
-
 # --- Anchor / Solana ---
 .target/
 **/.anchor/
 **/target/
 **/.vscode-test/
 **/.cache/
-
 # Keypairs / secrets
 **/*.keypair.json
 **/*id.json
 .env
 .env.*
 !.env.example
-
 # Solana local ledger
 test-ledger/
 **/test-ledger/
 solana-test-ledger/
 **/solana-test-ledger/
 .tmp-solana/
-
 # --- Local sync/drive artifacts ---
 .tmp.driveupload/
 google_sync/
 scripts/sync_to_drive.sh
-
-# --- Scratch / local experiments ---
-scratch/
-
 # --- Scratch / local experiments ---
 scratch/
