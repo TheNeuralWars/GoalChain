@@ -5,6 +5,7 @@ import path from 'path';
 import { Connection } from '@solana/web3.js';
 import { AnchorProvider, Program } from '@coral-xyz/anchor';
 import { idl, PROGRAM_ID, GoalchainProgram } from '@goalchain/sdk';
+import fs from 'fs';
 
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
@@ -20,7 +21,110 @@ const connection = new Connection(rpcUrl, 'confirmed');
 const provider = new AnchorProvider(connection, {} as any, { commitment: 'confirmed' });
 const program = new Program(idl as any, provider) as any;
 
-import fs from 'fs';
+// --- IN-MEMORY SESSION STORE FOR GEMINI CONTEXT CACHING ---
+interface CacheSession {
+  cachedContentId: string | null;
+  expireTime: Date | null;
+}
+
+const cacheSession: CacheSession = {
+  cachedContentId: null,
+  expireTime: null
+};
+
+/**
+ * Gets the active Gemini Context Cache ID or uploads a new one if expired/missing.
+ * Caches the 528 players database and GoalChain tactical guidelines.
+ */
+async function getOrUpdateContextCache(apiKey: string): Promise<string> {
+  const now = new Date();
+  
+  // Cache Hit
+  if (cacheSession.cachedContentId && cacheSession.expireTime && cacheSession.expireTime > now) {
+    console.log(`ℹ️ [AI Orchestrator] Context Cache HIT: Usando cache existente -> ${cacheSession.cachedContentId}`);
+    return cacheSession.cachedContentId;
+  }
+  
+  console.log("⚠️ [AI Orchestrator] Context Cache MISS: Generando nuevo cache de contexto en Google Gemini...");
+  
+  // Load player database
+  let playersJson = "";
+  try {
+    const playersPath = path.resolve(__dirname, '../../docs/assets/data/players.json');
+    if (fs.existsSync(playersPath)) {
+      playersJson = fs.readFileSync(playersPath, 'utf-8');
+      console.log(`📊 [AI Orchestrator] Base de datos de jugadores cargada correctamente (${Math.round(playersJson.length / 1024)} KB)`);
+    } else {
+      console.warn("⚠️ [AI Orchestrator] No se encontró players.json en docs/assets/data/players.json");
+    }
+  } catch (err) {
+    console.error("❌ [AI Orchestrator] Error al leer players.json:", err);
+  }
+  
+  // Compile massive reference context
+  const masterContext = `Eres Eliza, la Coach Táctica de Inteligencia Artificial de GoalChain. Analizas la alineación y das consejos para maximizar yield de $GCH y estadísticas de juego.
+  
+=== GOALCHAIN DATABASE (528 JUGADORES REALES REBALANCEADOS Y LORE DE ÉLITE) ===
+${playersJson}
+
+=== DIRECTRICES TÁCTICAS Y REGLAS DE RENDIMIENTO DE GOALCHAIN ===
+1. **Regla de Estamina y Cansancio (Fatiga):**
+   - Estamina inicial: 100%. Disminuye al jugar.
+   - Si la estamina cae por debajo de 80%, se aplica una penalización directa al Yield diario de $GCH igual a \`1 - (stamina / 100)\`. Por ejemplo, con 75% de estamina, el mánager tiene una penalización del 25% en ganancias diarias.
+   - Solución: Comprar una poción de estamina en el vestuario por 10 $GCH.
+2. **Sinergias de Plantilla (Starting XI Chemistry):**
+   - **Sinergia de País:** 11 jugadores de la misma nacionalidad en el Starting XI otorgan +25% de bonus en todas las estadísticas de tu cromo Genesis.
+   - **Sinergia de Club:** 11 jugadores del mismo club en el Starting XI otorgan +15% de bonus de Yield de sueldo diario de $GCH.
+3. **Camisetas Equipadas (Jerseys):**
+   - En la Copa del Mundo ('world_cup'), equipar la Camiseta de Selección ('jersey_arg') da +3% de Yield y +5 Max Stamina.
+   - En la MLS ('mls'), equipar la Camiseta de Club ('jersey_club' o Inter Miami Pink) activa un multiplicador del +5% de Yield.
+4. **Estadios (Stadium Theme / Home Advantage):**
+   - Si el tema del estadio coincide con el visualbg preferido de tu jugador Genesis, se activa el "Home Advantage" (Ventaja de Local), potenciando estadísticas en simulación.
+5. **Estrategia Económica (Contrato Profesional):**
+   - Los mánagers ganan sueldos diarios en $GCH según desempeño, sinergias y estamina.
+   - Los ingresos por ventas/minting de NFTs se depositan en Liquid Staking (JitoSOL/mSOL) en Solana para la recompra mecánica de $GCH y quema, lo que aumenta la APR de liquidez.
+
+=== REGLAS CRÍTICAS DE SEGURIDAD Y COMPORTAMIENTO ===
+1. Responde en español de forma extremadamente concisa (1-3 oraciones), motivadora y con emojis.
+2. Si la consulta del usuario NO TIENE NADA QUE VER con fútbol, GoalChain, estamina, tácticas o $GCH, debes rechazar responder diciendo textualmente: "⚠️ Solo puedo resolver dudas tácticas sobre GoalChain y tu plantilla."
+`;
+
+  // Standard API Endpoint for Caching (v1beta is required)
+  const url = `https://generativelanguage.googleapis.com/v1beta/cachedContents?key=${apiKey}`;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: "models/gemini-2.5-flash", // Flash Model optimized for Context Caching
+      displayName: "goalchain_players_tactics",
+      ttl: "86400s", // 24 Hours duration
+      contents: [
+        {
+          role: "user",
+          parts: [
+            { text: masterContext }
+          ]
+        }
+      ]
+    })
+  });
+  
+  if (!response.ok) {
+    const errText = await response.text();
+    throw new Error(`Gemini Context Cache API returned status ${response.status}: ${errText}`);
+  }
+  
+  const data: any = await response.json();
+  if (data.name) {
+    cacheSession.cachedContentId = data.name;
+    // Set expiration time from API response or fallback to 24 hours
+    cacheSession.expireTime = data.expireTime ? new Date(data.expireTime) : new Date(Date.now() + 24 * 60 * 60 * 1000);
+    console.log(`✅ [AI Orchestrator] Nuevo Context Cache registrado: ${data.name} (Expira: ${cacheSession.expireTime.toISOString()})`);
+    return data.name;
+  } else {
+    throw new Error("Invalid response format from Gemini Context Caching API.");
+  }
+}
 
 // --- ROUTES ---
 
@@ -105,7 +209,7 @@ app.post('/api/coach/chat', async (req, res) => {
     return res.status(500).json({ error: 'Gemini API Key is not configured on the server.' });
   }
 
-  // Guardrail 3: Construcción rígida del Prompt en el Servidor (el cliente no puede alterarlo)
+  // Fallback System Prompt in case Cache creation fails
   const ctx = context || {};
   const serverSystemPrompt = `Eres Eliza, la Coach Táctica de Inteligencia Artificial de GoalChain. Analizas la alineación y das consejos para maximizar yield de $GCH y estadísticas de juego.
 Datos del manager:
@@ -122,32 +226,72 @@ REGLAS CRÍTICAS DE SEGURIDAD Y COMPORTAMIENTO:
 2. Si la consulta del usuario NO TIENE NADA QUE VER con fútbol, GoalChain, estamina, tácticas o $GCH, debes rechazar responder diciendo textualmente: "⚠️ Solo puedo resolver dudas tácticas sobre GoalChain y tu plantilla."
 `;
 
+  // Step 1: Try to retrieve or create Context Cache
+  let cachedContentId: string | null = null;
   try {
-    const fetchResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${apiKey}`, {
+    cachedContentId = await getOrUpdateContextCache(apiKey);
+  } catch (err: any) {
+    console.warn(`⚠️ [AI Orchestrator] No se pudo crear o recuperar el Context Cache (Fallback a modo Legacy):`, err.message);
+  }
+
+  // Step 2: Build the prompt query
+  const queryText = `Datos actuales del manager:
+- Jugador actual: ${ctx.pName || 'Lionel Satoshi'} (${ctx.pStats || 'ATK:95 DEF:48 SPD:92 HYP:99'})
+- Stamina: ${ctx.stamina ?? 100}%
+- Liga activa: ${ctx.activeLeague || 'world_cup'}
+- Camiseta: ${ctx.jersey || 'Ninguna'}
+- Sinergia País: ${ctx.sameCountry ?? 1}/11, Sinergia Club: ${ctx.sameClub ?? 1}/11
+- Tema Estadio: ${ctx.stadium || 'desert'}
+- Balance: ${ctx.balance ?? 1240} $GCH
+
+Pregunta del manager: "${userText}"`;
+
+  try {
+    const requestBody: any = {
+      contents: [
+        {
+          role: "user",
+          parts: [
+            { text: cachedContentId ? queryText : serverSystemPrompt + `\nPregunta del manager: "${userText}"` }
+          ]
+        }
+      ],
+      generationConfig: {
+        temperature: 0.6,
+        maxOutputTokens: 800
+      }
+    };
+
+    // If cache hit, link cachedContent handle
+    if (cachedContentId) {
+      requestBody.cachedContent = cachedContentId;
+      console.log(`🚀 [AI Orchestrator] Enviando consulta con Cache Hit [${cachedContentId}]`);
+    } else {
+      console.log(`🚀 [AI Orchestrator] Enviando consulta en Modo Legacy (Sin Caché)`);
+    }
+
+    // Call the Flash Model generateContent API (v1beta required for context caching)
+    const modelEndpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+    const fetchResponse = await fetch(modelEndpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [
-          {
-            parts: [
-              { text: serverSystemPrompt + `\nPregunta del manager: "${userText}"` }
-            ]
-          }
-        ],
-        generationConfig: {
-          temperature: 0.5,
-          maxOutputTokens: 120
-        }
-      })
+      body: JSON.stringify(requestBody)
     });
 
+    if (!fetchResponse.ok) {
+      const errorData = await fetchResponse.text();
+      throw new Error(`Gemini API returned status ${fetchResponse.status}: ${errorData}`);
+    }
+
     const data: any = await fetchResponse.json();
-    if (data.candidates && data.candidates[0].content.parts[0].text) {
-      const reply = data.candidates[0].content.parts[0].text.trim();
+    const candidate = data.candidates?.[0];
+    const part = candidate?.content?.parts?.[0];
+    if (part && part.text) {
+      const reply = part.text.trim();
       res.json({ reply });
     } else {
-      console.error("Gemini API structure error:", data);
-      res.status(500).json({ error: 'Invalid response structure from Gemini API' });
+      console.error("Gemini API structure error:", JSON.stringify(data, null, 2));
+      res.status(500).json({ error: 'Invalid response structure from Gemini API: ' + JSON.stringify(data) });
     }
   } catch (error: any) {
     console.error("Error connecting to Gemini API:", error);
