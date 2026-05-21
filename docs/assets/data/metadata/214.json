@@ -1,0 +1,56 @@
+{
+    "name": "Filip Kostic-Lane",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Filip Kostic-Lane (Serbia). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/214_filip_kostic-lane.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Serbia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 89
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 25
+        },
+        {
+            "trait_type": "Hype",
+            "value": 82
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/214_filip_kostic-lane.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

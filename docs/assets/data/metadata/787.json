@@ -1,0 +1,56 @@
+{
+    "name": "Argelia Pro 7 Mint",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Argelia Pro 7 Mint (Argelia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/787_argelia_pro_7_mint.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Argelia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "7"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 44
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 53
+        },
+        {
+            "trait_type": "Hype",
+            "value": 98
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/787_argelia_pro_7_mint.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
