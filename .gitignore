@@ -1,68 +1,58 @@
-# --- Rust / Anchor ---
-target/
-**/*.rs.bk
-.anchor/
-solana-release/
-*.tar.bz2
-*.tar.gz
-*.zip
+# --- Local OS / editor ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
 
-# --- Unity ---
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
-[Mm]emoryCaptures/
-AssetStoreTools*
-/Assets/AssetStoreTools*
-/ProjectSettings/ProjectVersion.txt
-*.csproj
-*.unitypackage
-*.sln
-*.suo
-*.tmp
-*.user
-*.userprefs
-*.pidb
-*.booproj
-*.svd
-*.pdb
-*.opendb
-*.IDB
-*.VC.db
-DerivedData/
-.vs/
-.gradle/
-ExportedObj/
-.consulo/
+.vscode/
 .idea/
-*.swp
-*.swo
-*.DS_Store
-.AppleDouble
-.LSOverride
-Icon
 
-# --- Javascript / Oracle ---
-node_modules/
-.env
-.env.local
-.env.*.local
+# --- Logs ---
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# --- IDEs ---
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
+# --- Node / JS ---
+node_modules/
+**/node_modules/
+
+# Vite / Next / general build artifacts (keep oracle dist committed)
+dist/
+build/
+coverage/
+.tmp/
+.temp/
+
+# Do NOT ignore goalchain_oracle/dist (we commit it)
+!goalchain_oracle/dist/
+!goalchain_oracle/dist/**
+
+# --- Anchor / Solana ---
+.target/
+**/.anchor/
+**/target/
+**/.vscode-test/
+**/.cache/
+
+# Keypairs / secrets
+**/*.keypair.json
+**/*id.json
+.env
+.env.*
+!.env.example
+
+# Solana local ledger
 test-ledger/
-goalchain_web/scratch/x_secrets.json
+**/test-ledger/
+solana-test-ledger/
+**/solana-test-ledger/
+.tmp-solana/
 
-# --- Security Backups ---
-scratch/secrets_backup.md
-
-scratch/
+# --- Local sync/drive artifacts ---
+.tmp.driveupload/
+google_sync/
+scripts/sync_to_drive.sh
