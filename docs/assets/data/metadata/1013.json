@@ -1,0 +1,56 @@
+{
+    "name": "Corea del Sur Pro 25 Wallet",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Corea del Sur Pro 25 Wallet (Corea del Sur). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1013_corea_del_sur_pro_25_wallet.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Corea del Sur"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "25"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 65
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 52
+        },
+        {
+            "trait_type": "Hype",
+            "value": 61
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1013_corea_del_sur_pro_25_wallet.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

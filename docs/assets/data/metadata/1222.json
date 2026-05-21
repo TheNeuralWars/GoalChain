@@ -1,0 +1,56 @@
+{
+    "name": "Paraguay Pro 26 Token",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Paraguay Pro 26 Token (Paraguay). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1222_paraguay_pro_26_token.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Paraguay"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "26"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 57
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 46
+        },
+        {
+            "trait_type": "Hype",
+            "value": 39
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1222_paraguay_pro_26_token.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

@@ -1,0 +1,56 @@
+{
+    "name": "Suecia Pro 22 Chain",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Suecia Pro 22 Chain (Suecia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/724_suecia_pro_22_chain.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Suecia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "22"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 86
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 45
+        },
+        {
+            "trait_type": "Hype",
+            "value": 62
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/724_suecia_pro_22_chain.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

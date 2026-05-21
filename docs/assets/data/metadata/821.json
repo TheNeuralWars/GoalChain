@@ -1,0 +1,56 @@
+{
+    "name": "Marruecos Pro 15 Wallet",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Marruecos Pro 15 Wallet (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/821_marruecos_pro_15_wallet.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Marruecos"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "15"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 54
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 59
+        },
+        {
+            "trait_type": "Hype",
+            "value": 92
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/821_marruecos_pro_15_wallet.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

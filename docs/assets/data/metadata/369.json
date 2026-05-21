@@ -1,0 +1,56 @@
+{
+    "name": "Pape Ma-Token",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Pape Ma-Token (Senegal). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/369_pape_ma-token.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Senegal"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "5"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 79
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 65
+        },
+        {
+            "trait_type": "Hype",
+            "value": 44
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/369_pape_ma-token.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
