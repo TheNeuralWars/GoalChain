@@ -1,0 +1,56 @@
+{
+    "name": "Marruecos Pro 9 Ledger",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Marruecos Pro 9 Ledger (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/815_marruecos_pro_9_ledger.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Marruecos"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "9"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 74
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 97
+        },
+        {
+            "trait_type": "Hype",
+            "value": 95
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/815_marruecos_pro_9_ledger.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
