@@ -7,6 +7,7 @@
     "build": "tsc",
     "start": "tsc && node dist/index.js",
     "init-tokens": "tsc && node dist/initialize_tokens.js",
+    "init-config": "tsc && node dist/initialize_mainnet.js",
     "mint-to": "tsc && node dist/mint_to_user.js",
     "lint": "tsc --noEmit",
     "test": "npm run lint"

@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ===== REFERRAL CAPTURING =====
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref');
+    if (ref) {
+        localStorage.setItem('goalchain_referrer', ref);
+        console.log('Referrer captured:', ref);
+    }
+
     // ===== FALLBACK: Emergency brake for infinite loading =====
     setTimeout(() => {
         const loader = document.getElementById('loader');
@@ -217,21 +225,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ===== SOCIAL TASKS =====
+    // ===== SOCIAL TASKS =====
     window.renderSocialTasks = function() {
         const grid = document.getElementById('socialGrid');
+        if (!grid) return;
+
         const tasks = [
-            { id: 't1', icon: '🐦', bg: '#1DA1F2', pts: 200, title: 'Sigue a GoalChain', desc: 'Únete a nuestra comunidad en X', link: 'https://twitter.com/intent/follow?screen_name=GoalChainDotFun' },
-            { id: 't2', icon: '🔁', bg: '#17bf63', pts: 300, title: 'Difunde la Palabra', desc: 'Retuitea nuestro post fijado', link: 'https://twitter.com/intent/retweet?tweet_id=2055329044292411708' },
-            { id: 't3', icon: '💬', bg: '#5865F2', pts: 250, title: 'Discord Oficial', desc: 'Entra a nuestro vestuario VIP', link: 'https://discord.gg/nzjHNBfSh' },
-            { id: 't4', icon: '📸', bg: '#e4405f', pts: 200, title: 'Instagram', desc: 'Mira el arte de la Genesis Squad', link: 'https://instagram.com/goalchain.fun' },
-            { id: 't5', icon: '🤝', bg: '#9945ff', pts: '100/ref', title: 'Invita Amigos', desc: 'Copia tu link de referido único', link: 'COPY_REF' },
-            { id: 't6', icon: '⚽', bg: '#14f195', pts: 500, title: 'Juega Penaltis', desc: 'Haz tu primer tiro en el estadio', link: '#gameplay' },
+            { id: 't1', icon: '🐦', bg: '#1DA1F2', pts: 200, title: t('soc_t1_t') || 'Sigue a GoalChain', desc: t('soc_t1_d') || 'Únete a nuestra comunidad en X', link: 'https://twitter.com/intent/follow?screen_name=GoalChainDotFun' },
+            { id: 't2', icon: '🔁', bg: '#17bf63', pts: 300, title: t('soc_t2_t') || 'Difunde la Palabra', desc: t('soc_t2_d') || 'Retuitea nuestro post fijado', link: 'https://twitter.com/intent/retweet?tweet_id=2055329044292411708' },
+            { id: 't3', icon: '💬', bg: '#5865F2', pts: 250, title: t('soc_t3_t') || 'Discord Oficial', desc: t('soc_t3_d') || 'Entra a nuestro vestuario VIP', link: 'https://discord.gg/nzjHNBfSh' },
+            { id: 't4', icon: '📸', bg: '#e4405f', pts: 200, title: t('soc_t4_t') || 'Instagram', desc: t('soc_t4_d') || 'Mira el arte de la Genesis Squad', link: 'https://instagram.com/goalchain.fun' },
+            { id: 't5', icon: '🤝', bg: '#9945ff', pts: '100/ref', title: t('soc_t5_t') || 'Invita Amigos', desc: t('soc_t5_d') || 'Copia tu link de referido único', link: 'COPY_REF' },
+            { id: 't6', icon: '⚽', bg: '#14f195', pts: 500, title: t('soc_t6_t') || 'Juega Penaltis', desc: t('soc_t6_d') || 'Haz tu primer tiro en el estadio', link: '#gameplay' },
         ];
 
         const completed = JSON.parse(localStorage.getItem('completed_tasks') || '[]');
         
         grid.innerHTML = tasks.map(task => `
-            <div class="social-task ${completed.includes(task.id) ? 'done' : ''}" onclick="handleTask('${task.id}', '${task.link}', ${task.pts})">
+            <div class="social-task ${completed.includes(task.id) ? 'done' : ''}" onclick="handleTask('${task.id}', '${task.link}', '${task.pts}')">
                 <div class="social-icon" style="background:${task.bg}20;color:${task.bg};">${task.icon}</div>
                 <div class="social-task-info">
                     <h4>${task.title}</h4>
@@ -245,14 +256,16 @@ document.addEventListener('DOMContentLoaded', () => {
     window.handleTask = function(id, link, pts) {
         const wallet = localStorage.getItem('goalchain_wallet');
         if (!wallet && id !== 't6') {
-            alert('Por favor, conecta tu wallet antes de realizar tareas sociales para asegurar tus puntos.');
+            const isEn = typeof currentLang !== 'undefined' && currentLang === 'en';
+            alert(isEn ? 'Please connect your wallet before completing tasks to secure your points.' : 'Por favor, conecta tu wallet antes de realizar tareas sociales para asegurar tus puntos.');
             return;
         }
 
         if (link === 'COPY_REF') {
-            const refLink = `https://goalchain.fun?ref=${wallet.substring(wallet.length - 6)}`;
+            const refLink = `${window.location.origin}/?ref=${wallet}`;
             navigator.clipboard.writeText(refLink);
-            alert('¡Enlace de referido copiado! Compártelo para ganar 100 $GCH por cada amigo.');
+            const isEn = typeof currentLang !== 'undefined' && currentLang === 'en';
+            alert(isEn ? 'Referral link copied! Share it to earn 100 GoalPoints per friend.' : '¡Enlace de referido copiado! Compártelo para ganar 100 GoalPoints por cada amigo.');
             return;
         }
 
@@ -268,11 +281,18 @@ document.addEventListener('DOMContentLoaded', () => {
             completed.push(id);
             localStorage.setItem('completed_tasks', JSON.stringify(completed));
             
-            if (typeof pts === 'number') {
+            const pointsNum = parseInt(pts);
+            if (!isNaN(pointsNum)) {
                 let total = parseInt(localStorage.getItem('goalpoints') || '0');
-                total += pts;
+                total += pointsNum;
                 localStorage.setItem('goalpoints', total);
-                if (window.notifier) window.notifier.show('¡TAREA COMPLETADA!', `Has ganado ${pts} GoalPoints. ¡Registrado en el ranking global!`);
+                if (window.notifier) {
+                    const isEn = typeof currentLang !== 'undefined' && currentLang === 'en';
+                    window.notifier.show(
+                        isEn ? 'TASK COMPLETED!' : '¡TAREA COMPLETADA!', 
+                        isEn ? `You have earned ${pointsNum} GoalPoints. Registered in global leaderboard!` : `Has ganado ${pointsNum} GoalPoints. ¡Registrado en el ranking global!`
+                    );
+                }
                 
                 // ☁️ Sincronizar puntos con el servidor de Google Sheets
                 if (window.GoalPointsAPI) window.GoalPointsAPI.sync();
@@ -309,8 +329,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const wallet = localStorage.getItem('goalchain_wallet');
         const refDisplay = document.getElementById('referral-link-display');
         if (wallet && refDisplay) {
-            const shortWallet = wallet.substring(0, 6);
-            refDisplay.innerText = `https://goalchain.fun?ref=${shortWallet}`;
+            const refLink = `${window.location.origin}/?ref=${wallet}`;
+            refDisplay.innerText = refLink;
             refDisplay.style.color = 'var(--primary)';
         }
         
@@ -356,40 +376,26 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- Whitelist Logic ---
 const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxYeoWdEQl-zksyL71U2ksAGWNfphWYzvs7Hyd8jx7I_rYjS-CZwL06iE0jsKVqmnVmCQ/exec';
 
-const modal = document.getElementById('whitelistModal');
-const wlBtn = document.querySelector('#nfts .btn-glow');
-const closeBtn = document.querySelector('.close-modal');
-
-if(wlBtn) {
-    wlBtn.onclick = (e) => {
-        e.preventDefault();
-        modal.style.display = 'flex';
-        // Auto-completar wallet si está conectada
-        const connectedWallet = localStorage.getItem('goalchain_wallet');
-        if(connectedWallet) document.getElementById('wlWallet').value = connectedWallet;
-    }
-}
-
-if(closeBtn) {
-    closeBtn.onclick = () => modal.style.display = 'none';
-}
-
-window.onclick = (event) => {
-    if (event.target == modal) modal.style.display = 'none';
-}
-
 const wlForm = document.getElementById('whitelistForm');
 if(wlForm) {
     wlForm.onsubmit = async (e) => {
         e.preventDefault();
         const submitBtn = wlForm.querySelector('button');
-        submitBtn.innerText = 'ENVIANDO...';
+        
+        // Use translate keys or generic text
+        const isEn = typeof currentLang !== 'undefined' && currentLang === 'en';
+        submitBtn.innerText = isEn ? 'SENDING...' : 'ENVIANDO...';
         submitBtn.disabled = true;
 
+        const emailInput = wlForm.querySelector('input[type="email"]');
+        const email = emailInput ? emailInput.value : '';
+        const wallet = localStorage.getItem('goalchain_wallet') || '';
+
         const data = {
-            email: document.getElementById('wlEmail').value,
-            wallet: document.getElementById('wlWallet').value,
-            interest: document.getElementById('wlInterest').value
+            email: email,
+            wallet: wallet,
+            interest: 'Web Whitelist',
+            referrer: localStorage.getItem('goalchain_referrer') || ''
         };
 
         try {
@@ -401,24 +407,16 @@ if(wlForm) {
                 body: JSON.stringify(data)
             });
 
-            document.getElementById('whitelistForm').style.display = 'none';
-            document.getElementById('wlSuccess').style.display = 'block';
-            
-            setTimeout(() => {
-                modal.style.display = 'none';
-                // Reset form
-                document.getElementById('whitelistForm').style.display = 'block';
-                document.getElementById('wlSuccess').style.display = 'none';
-                wlForm.reset();
-                submitBtn.innerText = '¡QUIERO ENTRAR!';
-                submitBtn.disabled = false;
-            }, 3000);
+            // Show success message
+            wlForm.innerHTML = `<div style="text-align:center;color:var(--primary);padding:20px;font-weight:bold;">
+                ${isEn ? '🎉 Registration Successful!' : '🎉 ¡Registro Exitoso!'}
+            </div>`;
 
         } catch (error) {
             console.error('Error:', error);
-            alert('Hubo un problema. Inténtalo de nuevo.');
+            alert(isEn ? 'There was a problem. Please try again.' : 'Hubo un problema. Inténtalo de nuevo.');
             submitBtn.disabled = false;
-            submitBtn.innerText = '¡QUIERO ENTRAR!';
+            submitBtn.innerText = isEn ? 'Join the Whitelist' : 'Anotarme en la Whitelist';
         }
     }
 }

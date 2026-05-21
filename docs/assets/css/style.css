@@ -2576,11 +2576,14 @@ body {
 
     /* Mobile logout button style */
     .mobile-logout-btn {
-        display: inline-block !important;
+        display: none !important;
         font-size: 1.3rem !important;
         cursor: pointer;
         padding: 5px;
         transition: transform 0.2s ease;
+    }
+    body.wallet-connected .mobile-logout-btn {
+        display: inline-block !important;
     }
     .mobile-logout-btn:active {
         transform: scale(0.85);
@@ -2593,15 +2596,19 @@ body {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 5px 12px !important;
-    font-size: 0.75rem !important;
-    border-radius: 20px !important; /* Premium rounded pill shape */
-    font-weight: 700 !important;
-    letter-spacing: 0.5px !important;
+    padding: 6px 14px !important;
+    font-size: 0.7rem !important;
+    border-radius: 6px !important; /* Sleek rectangular badge with slightly rounded corners */
+    font-weight: 800 !important;
+    letter-spacing: 1px !important;
     line-height: 1.2 !important;
     height: auto !important;
     min-height: 24px !important;
     transition: all 0.2s ease !important;
+    width: auto !important;
+    max-width: max-content !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Pull-to-refresh indicator container */

@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
-const PROGRAM_ID = new PublicKey("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
+const PROGRAM_ID = new PublicKey(process.env.PROGRAM_ID || "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
 
 // Discriminadores exactos del IDL
 const INIT_FIXTURE_DISC = Buffer.from([26, 99, 178, 9, 192, 14, 167, 207]);
@@ -11,8 +11,9 @@ const INIT_FIXTURE_DISC = Buffer.from([26, 99, 178, 9, 192, 14, 167, 207]);
 async function initFixture(matchId, teamA, teamB, startTime) {
     console.log(`\n🏟️ Creando Fixture: ${teamA} vs ${teamB} (${matchId})...`);
 
-    const connection = new Connection("https://api.devnet.solana.com", "confirmed");
-    const secretKey = JSON.parse(fs.readFileSync(path.join(process.env.HOME, '.config/solana/id.json'), 'utf8'));
+    const connection = new Connection(process.env.RPC_URL || "https://api.devnet.solana.com", "confirmed");
+    const keypath = process.env.ORACLE_KEYPAIR_PATH || path.join(process.env.HOME, '.config/solana/id.json');
+    const secretKey = JSON.parse(fs.readFileSync(keypath.startsWith("~") ? keypath.replace("~", process.env.HOME) : keypath, 'utf8'));
     const adminKeypair = Keypair.fromSecretKey(new Uint8Array(secretKey));
 
     const [fixturePda] = PublicKey.findProgramAddressSync(

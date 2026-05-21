@@ -247,7 +247,9 @@ const TRANSLATIONS = {
         team_manifesto_link: "LEER MANIFIESTO ➔",
         notif_optin_desc: "Recibe alertas de goles y apuestas directamente en tu wallet.",
         notif_optin_btn: "SUSCRIBIRSE",
-        manager_architect: "Architect Signature"
+        manager_architect: "Architect Signature",
+        copy_ref_btn: "Copiar Enlace",
+        leaderboard_footer: "☁️ Datos guardados en servidor real • Snapshot Final: 10 de Junio 2026"
     },
     en: {
         nav_about: "About", nav_game: "Mini-Game", nav_fixture: "Fixture", nav_roadmap: "Roadmap", nav_economy: "Economy", nav_social: "Social",
@@ -496,7 +498,9 @@ const TRANSLATIONS = {
         team_manifesto_link: "READ MANIFESTO ➔",
         notif_optin_desc: "Receive goal and bet alerts directly in your wallet.",
         notif_optin_btn: "SUBSCRIBE",
-        manager_architect: "Architect Signature"
+        manager_architect: "Architect Signature",
+        copy_ref_btn: "Copy Link",
+        leaderboard_footer: "☁️ Data saved on real server • Final Snapshot: June 10, 2026"
     }
 };
 
