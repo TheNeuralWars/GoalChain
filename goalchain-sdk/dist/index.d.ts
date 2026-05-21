@@ -1,0 +1,19 @@
+import { PublicKey } from '@solana/web3.js';
+import idl from './goalchain_program.json';
+export declare const PROGRAM_ID: PublicKey;
+export { idl };
+export type { GoalchainProgram } from './goalchain_program';
+export declare const SEEDS: {
+    CONFIG: string;
+    STAKE: string;
+    PLAYER: string;
+    RENTAL: string;
+    WAGER: string;
+    WAGER_VAULT: string;
+    FIXTURE: string;
+    FIXTURE_VAULT: string;
+    LIVE_STATE: string;
+    MARKET: string;
+    MARKET_VAULT: string;
+    POSITION: string;
+};
