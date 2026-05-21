@@ -100,7 +100,14 @@ export class OracleService {
 
         if (!configInfo) {
             method = this.program.methods
-                .initializeConfig(this.wallet.publicKey, treasuryAta, 1000, new BN(15 * 60))
+                .initializeConfig(
+                    this.wallet.publicKey,
+                    treasuryAta,
+                    100, // 1% max founder-capture aligned
+                    new BN(15 * 60),
+                    new BN(2 * anchor.web3.LAMPORTS_PER_SOL),
+                    true
+                )
                 .accounts({
                     admin: this.wallet.publicKey,
                     config: this.configPda,
@@ -108,7 +115,14 @@ export class OracleService {
                 } as any);
         } else {
             method = this.program.methods
-                .updateConfig(this.wallet.publicKey, treasuryAta, 1000, new BN(15 * 60))
+                .updateConfig(
+                    this.wallet.publicKey,
+                    treasuryAta,
+                    100, // 1% max founder-capture aligned
+                    new BN(15 * 60),
+                    new BN(2 * anchor.web3.LAMPORTS_PER_SOL),
+                    true
+                )
                 .accounts({
                     admin: this.wallet.publicKey,
                     config: this.configPda,

@@ -506,7 +506,7 @@ class ModifiersSimulator {
         this.consoleLog.scrollTop = this.consoleLog.scrollHeight;
     }
 
-    // OPERACIÓN: Restaurar Estamina (Burns 10 $GCH)
+    // OPERACIÓN: Restaurar Estamina (Burns 100 $GCH — alineado con on-chain feed_potion)
     feedSimPotion() {
         if (!this.selectedPlayer) {
             alert("Primero selecciona un jugador.");
@@ -518,14 +518,15 @@ class ModifiersSimulator {
             return;
         }
 
-        if (this.userBalance < 10) {
-            alert("No tienes suficiente $GCH simulado (Costo: 10 $GCH).");
+        const potionCost = 100;
+        if (this.userBalance < potionCost) {
+            alert(`No tienes suficiente $GCH simulado (Costo: ${potionCost} $GCH).`);
             return;
         }
 
         // Ejecutar quema
-        this.userBalance -= 10;
-        this.totalGchBurned += 10;
+        this.userBalance -= potionCost;
+        this.totalGchBurned += potionCost;
         this.stamina = this.maxStamina;
         
         // Actualizar UI
@@ -533,7 +534,7 @@ class ModifiersSimulator {
         if (this.staminaVal) this.staminaVal.innerText = `${this.maxStamina}%`;
         
         this.updateLiveBalanceWidget();
-        this.logToConsole(`🔥 [Burn Protocol] Quemados 10 $GCH para Poción de Estamina. Jugador restaurado al ${this.maxStamina}%!`);
+        this.logToConsole(`🔥 [Burn Protocol] Quemados ${potionCost} $GCH para Poción de Estamina. Jugador restaurado al ${this.maxStamina}%!`);
         this.logToConsole(`[Solana Devnet] Instruction called: feed_potion. TX: 5xBt...${Math.random().toString(36).substring(7).toUpperCase()}`);
         
         // Sonido/Partícula de confeti pequeña verde

@@ -1,2224 +1,3668 @@
 {
-    "address": "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg",
-    "metadata": {
-        "name": "goalchain_program",
-        "version": "0.1.0",
-        "spec": "0.1.0",
-        "description": "Created with Anchor"
+  "address": "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg",
+  "metadata": {
+    "name": "goalchain_program",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "accept_wager",
+      "discriminator": [
+        214,
+        18,
+        178,
+        214,
+        203,
+        22,
+        50,
+        119
+      ],
+      "accounts": [
+        {
+          "name": "player_b",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "wager",
+          "writable": true
+        },
+        {
+          "name": "player_b_token",
+          "writable": true
+        },
+        {
+          "name": "wager_vault",
+          "writable": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
     },
-    "instructions": [
+    {
+      "name": "claim_bet_payout",
+      "discriminator": [
+        120,
+        6,
+        59,
+        217,
+        73,
+        0,
+        29,
+        129
+      ],
+      "accounts": [
         {
-            "name": "accept_wager",
-            "discriminator": [
-                214,
-                18,
-                178,
-                214,
-                203,
-                22,
-                50,
-                119
-            ],
-            "accounts": [
-                {
-                    "name": "player_b",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "wager",
-                    "writable": true
-                },
-                {
-                    "name": "player_b_token",
-                    "writable": true
-                },
-                {
-                    "name": "wager_vault",
-                    "writable": true
-                },
-                {
-                    "name": "token_mint"
-                },
-                {
-                    "name": "token_program"
-                }
-            ],
-            "args": []
+          "name": "user",
+          "writable": true,
+          "signer": true
         },
         {
-            "name": "claim_bet_payout",
-            "discriminator": [
-                120,
-                6,
-                59,
-                217,
-                73,
-                0,
-                29,
-                129
-            ],
-            "accounts": [
-                {
-                    "name": "user",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "fixture",
-                    "writable": true
-                },
-                {
-                    "name": "user_bet",
-                    "writable": true
-                },
-                {
-                    "name": "user_token_account",
-                    "writable": true
-                },
-                {
-                    "name": "fixture_vault",
-                    "writable": true
-                },
-                {
-                    "name": "treasury_token_account",
-                    "writable": true
-                },
-                {
-                    "name": "token_mint"
-                },
-                {
-                    "name": "token_program"
-                }
-            ],
-            "args": []
-        },
-        {
-            "name": "claim_market_payout",
-            "discriminator": [
-                146,
-                250,
-                99,
-                132,
-                215,
-                35,
-                106,
-                125
-            ],
-            "accounts": [
-                {
-                    "name": "user",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "market",
-                    "writable": true
-                },
-                {
-                    "name": "position",
-                    "writable": true
-                },
-                {
-                    "name": "user_token_account",
-                    "writable": true
-                },
-                {
-                    "name": "market_vault",
-                    "writable": true
-                },
-                {
-                    "name": "treasury_token_account",
-                    "writable": true
-                },
-                {
-                    "name": "token_mint"
-                },
-                {
-                    "name": "token_program"
-                }
-            ],
-            "args": []
-        },
-        {
-            "name": "create_wager",
-            "discriminator": [
-                210,
-                82,
-                178,
-                75,
-                253,
-                34,
-                84,
-                120
-            ],
-            "accounts": [
-                {
-                    "name": "player_a",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "wager",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    119,
-                                    97,
-                                    103,
-                                    101,
-                                    114
-                                ]
-                            },
-                            {
-                                "kind": "account",
-                                "path": "player_a"
-                            },
-                            {
-                                "kind": "arg",
-                                "path": "timestamp"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "player_a_token",
-                    "writable": true
-                },
-                {
-                    "name": "wager_vault",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    119,
-                                    97,
-                                    103,
-                                    101,
-                                    114,
-                                    95,
-                                    118,
-                                    97,
-                                    117,
-                                    108,
-                                    116
-                                ]
-                            },
-                            {
-                                "kind": "account",
-                                "path": "wager"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "token_mint"
-                },
-                {
-                    "name": "token_program"
-                },
-                {
-                    "name": "system_program",
-                    "address": "11111111111111111111111111111111"
-                }
-            ],
-            "args": [
-                {
-                    "name": "timestamp",
-                    "type": "i64"
-                },
-                {
-                    "name": "amount",
-                    "type": "u64"
-                }
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
             ]
+          }
         },
         {
-            "name": "init_parody_player",
-            "discriminator": [
-                47,
-                202,
-                43,
-                87,
-                50,
-                56,
-                115,
-                94
-            ],
-            "accounts": [
-                {
-                    "name": "admin",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "parody_player",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    112,
-                                    108,
-                                    97,
-                                    121,
-                                    101,
-                                    114
-                                ]
-                            },
-                            {
-                                "kind": "arg",
-                                "path": "player_id"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "system_program",
-                    "address": "11111111111111111111111111111111"
-                }
-            ],
-            "args": [
-                {
-                    "name": "player_id",
-                    "type": "string"
-                },
-                {
-                    "name": "name",
-                    "type": "string"
-                },
-                {
-                    "name": "initial_speed",
-                    "type": "u8"
-                },
-                {
-                    "name": "initial_shot_power",
-                    "type": "u8"
-                }
-            ]
+          "name": "fixture",
+          "writable": true
         },
         {
-            "name": "initialize_config",
-            "discriminator": [
-                208,
-                127,
-                21,
-                1,
-                194,
-                190,
-                196,
-                70
-            ],
-            "accounts": [
-                {
-                    "name": "admin",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "system_program",
-                    "address": "11111111111111111111111111111111"
-                }
-            ],
-            "args": [
-                {
-                    "name": "oracle_authority",
-                    "type": "pubkey"
-                },
-                {
-                    "name": "treasury_token_account",
-                    "type": "pubkey"
-                },
-                {
-                    "name": "fee_bps",
-                    "type": "u16"
-                },
-                {
-                    "name": "cutoff_buffer_seconds",
-                    "type": "i64"
-                }
-            ]
+          "name": "user_bet",
+          "writable": true
         },
         {
-            "name": "initialize_fixture",
-            "discriminator": [
-                26,
-                99,
-                178,
-                9,
-                192,
-                14,
-                167,
-                207
-            ],
-            "accounts": [
-                {
-                    "name": "oracle_authority",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "fixture",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    102,
-                                    105,
-                                    120,
-                                    116,
-                                    117,
-                                    114,
-                                    101
-                                ]
-                            },
-                            {
-                                "kind": "arg",
-                                "path": "match_id"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "system_program",
-                    "address": "11111111111111111111111111111111"
-                }
-            ],
-            "args": [
-                {
-                    "name": "match_id",
-                    "type": "string"
-                },
-                {
-                    "name": "team_a",
-                    "type": "string"
-                },
-                {
-                    "name": "team_b",
-                    "type": "string"
-                },
-                {
-                    "name": "start_time",
-                    "type": "i64"
-                }
-            ]
+          "name": "user_token_account",
+          "writable": true
         },
         {
-            "name": "list_for_rent",
-            "discriminator": [
-                176,
-                162,
-                46,
-                173,
-                170,
-                231,
-                95,
-                48
-            ],
-            "accounts": [
-                {
-                    "name": "owner",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "rental_listing",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    114,
-                                    101,
-                                    110,
-                                    116,
-                                    97,
-                                    108
-                                ]
-                            },
-                            {
-                                "kind": "account",
-                                "path": "parody_player_mint"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "parody_player_mint"
-                },
-                {
-                    "name": "system_program",
-                    "address": "11111111111111111111111111111111"
-                }
-            ],
-            "args": [
-                {
-                    "name": "price_per_match",
-                    "type": "u64"
-                }
-            ]
+          "name": "fixture_vault",
+          "writable": true
         },
         {
-            "name": "oracle_create_market",
-            "discriminator": [
-                19,
-                161,
-                123,
-                176,
-                174,
-                166,
-                133,
-                105
-            ],
-            "accounts": [
-                {
-                    "name": "oracle_authority",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "market",
-                    "writable": true
-                },
-                {
-                    "name": "fixture"
-                },
-                {
-                    "name": "token_mint"
-                },
-                {
-                    "name": "token_program"
-                },
-                {
-                    "name": "system_program",
-                    "address": "11111111111111111111111111111111"
-                }
-            ],
-            "args": [
-                {
-                    "name": "market_id",
-                    "type": "u8"
-                },
-                {
-                    "name": "market_type",
-                    "type": {
-                        "defined": {
-                            "name": "MarketType"
-                        }
-                    }
-                },
-                {
-                    "name": "delay_seconds",
-                    "type": "i64"
-                },
-                {
-                    "name": "cooldown_seconds",
-                    "type": "i64"
-                },
-                {
-                    "name": "close_minute",
-                    "type": "u16"
-                },
-                {
-                    "name": "max_goal_diff",
-                    "type": "u8"
-                },
-                {
-                    "name": "require_tied",
-                    "type": "bool"
-                },
-                {
-                    "name": "token_mint",
-                    "type": "pubkey"
-                }
-            ]
+          "name": "treasury_token_account",
+          "writable": true
         },
         {
-            "name": "oracle_update_market_status",
-            "discriminator": [
-                7,
-                222,
-                32,
-                186,
-                51,
-                166,
-                155,
-                177
-            ],
-            "accounts": [
-                {
-                    "name": "oracle_authority",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "market",
-                    "writable": true
-                }
-            ],
-            "args": [
-                {
-                    "name": "status",
-                    "type": {
-                        "defined": {
-                            "name": "MarketStatus"
-                        }
-                    }
-                },
-                {
-                    "name": "winner",
-                    "type": {
-                        "option": {
-                            "defined": {
-                                "name": "MatchResult"
-                            }
-                        }
-                    }
-                }
-            ]
+          "name": "token_mint"
         },
         {
-            "name": "oracle_upsert_live_state",
-            "discriminator": [
-                205,
-                199,
-                16,
-                177,
-                247,
-                142,
-                124,
-                105
-            ],
-            "accounts": [
-                {
-                    "name": "oracle_authority",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "fixture"
-                },
-                {
-                    "name": "live_state",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    108,
-                                    105,
-                                    118,
-                                    101,
-                                    95,
-                                    115,
-                                    116,
-                                    97,
-                                    116,
-                                    101
-                                ]
-                            },
-                            {
-                                "kind": "account",
-                                "path": "fixture"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "system_program",
-                    "address": "11111111111111111111111111111111"
-                }
-            ],
-            "args": [
-                {
-                    "name": "minute",
-                    "type": "u16"
-                },
-                {
-                    "name": "score_a",
-                    "type": "u8"
-                },
-                {
-                    "name": "score_b",
-                    "type": "u8"
-                },
-                {
-                    "name": "is_ht",
-                    "type": "bool"
-                },
-                {
-                    "name": "is_ft",
-                    "type": "bool"
-                }
-            ]
-        },
-        {
-            "name": "place_bet",
-            "discriminator": [
-                222,
-                62,
-                67,
-                220,
-                63,
-                166,
-                126,
-                33
-            ],
-            "accounts": [
-                {
-                    "name": "user",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "fixture",
-                    "writable": true
-                },
-                {
-                    "name": "user_bet",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    98,
-                                    101,
-                                    116
-                                ]
-                            },
-                            {
-                                "kind": "account",
-                                "path": "user"
-                            },
-                            {
-                                "kind": "account",
-                                "path": "fixture"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "user_token_account",
-                    "writable": true
-                },
-                {
-                    "name": "fixture_vault",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    102,
-                                    105,
-                                    120,
-                                    116,
-                                    117,
-                                    114,
-                                    101,
-                                    95,
-                                    118,
-                                    97,
-                                    117,
-                                    108,
-                                    116
-                                ]
-                            },
-                            {
-                                "kind": "account",
-                                "path": "fixture"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "token_mint"
-                },
-                {
-                    "name": "token_program"
-                },
-                {
-                    "name": "system_program",
-                    "address": "11111111111111111111111111111111"
-                }
-            ],
-            "args": [
-                {
-                    "name": "prediction",
-                    "type": {
-                        "defined": {
-                            "name": "MatchResult"
-                        }
-                    }
-                },
-                {
-                    "name": "amount",
-                    "type": "u64"
-                }
-            ]
-        },
-        {
-            "name": "place_market_bet",
-            "discriminator": [
-                66,
-                187,
-                235,
-                255,
-                123,
-                0,
-                7,
-                85
-            ],
-            "accounts": [
-                {
-                    "name": "user",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "market",
-                    "writable": true
-                },
-                {
-                    "name": "fixture"
-                },
-                {
-                    "name": "live_state",
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    108,
-                                    105,
-                                    118,
-                                    101,
-                                    95,
-                                    115,
-                                    116,
-                                    97,
-                                    116,
-                                    101
-                                ]
-                            },
-                            {
-                                "kind": "account",
-                                "path": "fixture"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "position",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    112,
-                                    111,
-                                    115,
-                                    105,
-                                    116,
-                                    105,
-                                    111,
-                                    110
-                                ]
-                            },
-                            {
-                                "kind": "account",
-                                "path": "user"
-                            },
-                            {
-                                "kind": "account",
-                                "path": "market"
-                            },
-                            {
-                                "kind": "arg",
-                                "path": "ticket_id"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "user_token_account",
-                    "writable": true
-                },
-                {
-                    "name": "market_vault",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    109,
-                                    97,
-                                    114,
-                                    107,
-                                    101,
-                                    116,
-                                    95,
-                                    118,
-                                    97,
-                                    117,
-                                    108,
-                                    116
-                                ]
-                            },
-                            {
-                                "kind": "account",
-                                "path": "market"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "token_mint"
-                },
-                {
-                    "name": "token_program"
-                },
-                {
-                    "name": "system_program",
-                    "address": "11111111111111111111111111111111"
-                }
-            ],
-            "args": [
-                {
-                    "name": "ticket_id",
-                    "type": "u64"
-                },
-                {
-                    "name": "prediction",
-                    "type": {
-                        "defined": {
-                            "name": "MatchResult"
-                        }
-                    }
-                },
-                {
-                    "name": "amount",
-                    "type": "u64"
-                }
-            ]
-        },
-        {
-            "name": "rent_nft",
-            "discriminator": [
-                171,
-                71,
-                244,
-                6,
-                182,
-                65,
-                239,
-                94
-            ],
-            "accounts": [
-                {
-                    "name": "borrower",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "rental_listing",
-                    "writable": true
-                },
-                {
-                    "name": "borrower_token_account",
-                    "writable": true
-                },
-                {
-                    "name": "owner_token_account",
-                    "writable": true
-                },
-                {
-                    "name": "token_mint"
-                },
-                {
-                    "name": "token_program"
-                }
-            ],
-            "args": []
-        },
-        {
-            "name": "resolve_wager",
-            "discriminator": [
-                31,
-                179,
-                1,
-                228,
-                83,
-                224,
-                1,
-                123
-            ],
-            "accounts": [
-                {
-                    "name": "oracle_authority",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "wager",
-                    "writable": true
-                },
-                {
-                    "name": "wager_vault",
-                    "writable": true
-                },
-                {
-                    "name": "winner_token",
-                    "writable": true
-                },
-                {
-                    "name": "token_mint"
-                },
-                {
-                    "name": "token_program"
-                }
-            ],
-            "args": [
-                {
-                    "name": "_winner_is_a",
-                    "type": "bool"
-                }
-            ]
-        },
-        {
-            "name": "stake",
-            "discriminator": [
-                206,
-                176,
-                202,
-                18,
-                200,
-                209,
-                179,
-                108
-            ],
-            "accounts": [
-                {
-                    "name": "user",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "user_stake",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    115,
-                                    116,
-                                    97,
-                                    107,
-                                    101
-                                ]
-                            },
-                            {
-                                "kind": "account",
-                                "path": "user"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "user_token_account",
-                    "writable": true
-                },
-                {
-                    "name": "vault_token_account",
-                    "writable": true
-                },
-                {
-                    "name": "token_mint"
-                },
-                {
-                    "name": "token_program"
-                },
-                {
-                    "name": "system_program",
-                    "address": "11111111111111111111111111111111"
-                }
-            ],
-            "args": [
-                {
-                    "name": "amount",
-                    "type": "u64"
-                }
-            ]
-        },
-        {
-            "name": "unstake",
-            "discriminator": [
-                90,
-                95,
-                107,
-                42,
-                205,
-                124,
-                50,
-                225
-            ],
-            "accounts": [
-                {
-                    "name": "user",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "user_stake",
-                    "writable": true
-                }
-            ],
-            "args": [
-                {
-                    "name": "amount",
-                    "type": "u64"
-                }
-            ]
-        },
-        {
-            "name": "update_config",
-            "discriminator": [
-                29,
-                158,
-                252,
-                191,
-                10,
-                83,
-                219,
-                99
-            ],
-            "accounts": [
-                {
-                    "name": "admin",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "writable": true,
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                }
-            ],
-            "args": [
-                {
-                    "name": "oracle_authority",
-                    "type": "pubkey"
-                },
-                {
-                    "name": "treasury_token_account",
-                    "type": "pubkey"
-                },
-                {
-                    "name": "fee_bps",
-                    "type": "u16"
-                },
-                {
-                    "name": "cutoff_buffer_seconds",
-                    "type": "i64"
-                }
-            ]
-        },
-        {
-            "name": "update_fixture_status",
-            "discriminator": [
-                14,
-                200,
-                167,
-                94,
-                61,
-                130,
-                67,
-                213
-            ],
-            "accounts": [
-                {
-                    "name": "oracle_authority",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "fixture",
-                    "writable": true
-                }
-            ],
-            "args": [
-                {
-                    "name": "status",
-                    "type": {
-                        "defined": {
-                            "name": "MatchStatus"
-                        }
-                    }
-                },
-                {
-                    "name": "winner",
-                    "type": {
-                        "option": {
-                            "defined": {
-                                "name": "MatchResult"
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "update_player_stats",
-            "discriminator": [
-                61,
-                85,
-                73,
-                244,
-                51,
-                95,
-                21,
-                33
-            ],
-            "accounts": [
-                {
-                    "name": "oracle_authority",
-                    "writable": true,
-                    "signer": true
-                },
-                {
-                    "name": "config",
-                    "pda": {
-                        "seeds": [
-                            {
-                                "kind": "const",
-                                "value": [
-                                    99,
-                                    111,
-                                    110,
-                                    102,
-                                    105,
-                                    103
-                                ]
-                            }
-                        ]
-                    }
-                },
-                {
-                    "name": "parody_player",
-                    "writable": true
-                }
-            ],
-            "args": [
-                {
-                    "name": "new_goals",
-                    "type": "u8"
-                },
-                {
-                    "name": "new_assists",
-                    "type": "u8"
-                }
-            ]
+          "name": "token_program"
         }
-    ],
-    "accounts": [
+      ],
+      "args": []
+    },
+    {
+      "name": "claim_daily_salary",
+      "docs": [
+        "El usuario reclama su sueldo, calculado dinámicamente.",
+        "El \"Impuesto del Protocolo\" del 10% se desvía a las \"Architect Licenses\"."
+      ],
+      "discriminator": [
+        35,
+        142,
+        141,
+        167,
+        55,
+        69,
+        30,
+        92
+      ],
+      "accounts": [
         {
-            "name": "Fixture",
-            "discriminator": [
-                46,
-                254,
-                24,
-                43,
-                40,
-                44,
-                141,
-                197
-            ]
+          "name": "parody_player",
+          "writable": true
         },
         {
-            "name": "GlobalConfig",
-            "discriminator": [
-                149,
-                8,
-                156,
-                202,
-                160,
-                252,
-                176,
-                217
+          "name": "manager_state",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  110,
+                  97,
+                  103,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
             ]
+          }
         },
         {
-            "name": "LiveMatchState",
-            "discriminator": [
-                113,
-                204,
-                18,
-                231,
-                20,
-                74,
-                161,
-                111
+          "name": "stadium_state",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  100,
+                  105,
+                  117,
+                  109
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "stadium_id"
+              }
             ]
+          }
         },
         {
-            "name": "Market",
-            "discriminator": [
-                219,
-                190,
-                213,
-                55,
-                0,
-                227,
-                198,
-                154
-            ]
+          "name": "config",
+          "writable": true
         },
         {
-            "name": "MarketPosition",
-            "discriminator": [
-                136,
-                12,
-                225,
-                19,
-                231,
-                148,
-                194,
-                134
-            ]
+          "name": "user_token_account",
+          "writable": true
         },
         {
-            "name": "ParodyPlayer",
-            "discriminator": [
-                103,
-                52,
-                6,
-                27,
-                226,
-                55,
-                131,
-                214
-            ]
+          "name": "architect_pool_account",
+          "writable": true
         },
         {
-            "name": "RentalListing",
-            "discriminator": [
-                76,
-                239,
-                227,
+          "name": "vault_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "config"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "token_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
                 36,
-                98,
                 137,
-                187,
-                158
-            ]
-        },
-        {
-            "name": "UserBet",
-            "discriminator": [
-                180,
-                131,
-                8,
                 241,
-                60,
-                243,
-                46,
-                63
-            ]
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
         },
         {
-            "name": "UserStake",
-            "discriminator": [
-                102,
-                53,
-                163,
-                107,
-                9,
-                138,
-                87,
-                153
-            ]
+          "name": "token_mint"
         },
         {
-            "name": "Wager",
-            "discriminator": [
-                3,
-                110,
-                53,
-                190,
-                113,
-                31,
-                230,
-                40
-            ]
+          "name": "token_program"
+        },
+        {
+          "name": "user",
+          "signer": true
         }
-    ],
-    "errors": [
+      ],
+      "args": [
         {
-            "code": 6000,
-            "name": "Unauthorized",
-            "msg": "Unauthorized"
-        },
-        {
-            "code": 6001,
-            "name": "UnauthorizedOracle",
-            "msg": "Unauthorized oracle"
-        },
-        {
-            "code": 6002,
-            "name": "InvalidConfig",
-            "msg": "Invalid config"
-        },
-        {
-            "code": 6003,
-            "name": "MustClaimFirst",
-            "msg": "Must claim first"
-        },
-        {
-            "code": 6004,
-            "name": "MathOverflow",
-            "msg": "Math overflow"
-        },
-        {
-            "code": 6005,
-            "name": "InsufficientFunds",
-            "msg": "Insufficient funds"
-        },
-        {
-            "code": 6006,
-            "name": "ListingNotActive",
-            "msg": "Listing not active"
-        },
-        {
-            "code": 6007,
-            "name": "AlreadyRented",
-            "msg": "Already rented"
-        },
-        {
-            "code": 6008,
-            "name": "WagerNotAvailable",
-            "msg": "Wager not available"
-        },
-        {
-            "code": 6009,
-            "name": "WagerNotReady",
-            "msg": "Wager not ready"
-        },
-        {
-            "code": 6010,
-            "name": "BettingClosed",
-            "msg": "Betting closed"
-        },
-        {
-            "code": 6011,
-            "name": "MatchNotFinished",
-            "msg": "Match not finished"
-        },
-        {
-            "code": 6012,
-            "name": "NoWinnerDeclared",
-            "msg": "No winner declared"
-        },
-        {
-            "code": 6013,
-            "name": "NotAWinner",
-            "msg": "Not a winner"
-        },
-        {
-            "code": 6014,
-            "name": "AlreadyClaimed",
-            "msg": "Already claimed"
-        },
-        {
-            "code": 6015,
-            "name": "InvalidPool",
-            "msg": "Invalid pool"
-        },
-        {
-            "code": 6016,
-            "name": "InvalidVault",
-            "msg": "Invalid vault"
-        },
-        {
-            "code": 6017,
-            "name": "InvalidMint",
-            "msg": "Invalid mint"
-        },
-        {
-            "code": 6018,
-            "name": "InvalidTreasury",
-            "msg": "Invalid treasury"
-        },
-        {
-            "code": 6019,
-            "name": "InvalidMarketConfig",
-            "msg": "Invalid market config"
-        },
-        {
-            "code": 6020,
-            "name": "InvalidMarket",
-            "msg": "Invalid market"
-        },
-        {
-            "code": 6021,
-            "name": "InvalidLiveState",
-            "msg": "Invalid live state"
-        },
-        {
-            "code": 6022,
-            "name": "ClaimTooEarly",
-            "msg": "Claim too early"
+          "name": "_stadium_id",
+          "type": "u16"
         }
-    ],
-    "types": [
+      ]
+    },
+    {
+      "name": "claim_market_payout",
+      "discriminator": [
+        146,
+        250,
+        99,
+        132,
+        215,
+        35,
+        106,
+        125
+      ],
+      "accounts": [
         {
-            "name": "Fixture",
-            "type": {
-                "kind": "struct",
-                "fields": [
-                    {
-                        "name": "match_id",
-                        "type": "string"
-                    },
-                    {
-                        "name": "team_a",
-                        "type": "string"
-                    },
-                    {
-                        "name": "team_b",
-                        "type": "string"
-                    },
-                    {
-                        "name": "start_timestamp",
-                        "type": "i64"
-                    },
-                    {
-                        "name": "pool_a",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "pool_b",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "pool_draw",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "status",
-                        "type": {
-                            "defined": {
-                                "name": "MatchStatus"
-                            }
-                        }
-                    },
-                    {
-                        "name": "winner",
-                        "type": {
-                            "option": {
-                                "defined": {
-                                    "name": "MatchResult"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "name": "bump",
-                        "type": "u8"
-                    }
-                ]
-            }
+          "name": "user",
+          "writable": true,
+          "signer": true
         },
         {
-            "name": "GlobalConfig",
-            "type": {
-                "kind": "struct",
-                "fields": [
-                    {
-                        "name": "admin",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "oracle_authority",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "treasury_token_account",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "fee_bps",
-                        "type": "u16"
-                    },
-                    {
-                        "name": "cutoff_buffer_seconds",
-                        "type": "i64"
-                    },
-                    {
-                        "name": "bump",
-                        "type": "u8"
-                    }
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
                 ]
-            }
+              }
+            ]
+          }
         },
         {
-            "name": "LiveMatchState",
-            "type": {
-                "kind": "struct",
-                "fields": [
-                    {
-                        "name": "fixture",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "minute",
-                        "type": "u16"
-                    },
-                    {
-                        "name": "score_a",
-                        "type": "u8"
-                    },
-                    {
-                        "name": "score_b",
-                        "type": "u8"
-                    },
-                    {
-                        "name": "is_ht",
-                        "type": "bool"
-                    },
-                    {
-                        "name": "is_ft",
-                        "type": "bool"
-                    },
-                    {
-                        "name": "last_update_ts",
-                        "type": "i64"
-                    },
-                    {
-                        "name": "bump",
-                        "type": "u8"
-                    }
-                ]
-            }
+          "name": "market",
+          "writable": true
         },
         {
-            "name": "Market",
-            "type": {
-                "kind": "struct",
-                "fields": [
-                    {
-                        "name": "fixture",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "market_id",
-                        "docs": [
-                            "Stable market identifier used for PDA derivation (0-255)."
-                        ],
-                        "type": "u8"
-                    },
-                    {
-                        "name": "market_type",
-                        "type": {
-                            "defined": {
-                                "name": "MarketType"
-                            }
-                        }
-                    },
-                    {
-                        "name": "status",
-                        "type": {
-                            "defined": {
-                                "name": "MarketStatus"
-                            }
-                        }
-                    },
-                    {
-                        "name": "token_mint",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "delay_seconds",
-                        "type": "i64"
-                    },
-                    {
-                        "name": "cooldown_seconds",
-                        "type": "i64"
-                    },
-                    {
-                        "name": "close_minute",
-                        "type": "u16"
-                    },
-                    {
-                        "name": "max_goal_diff",
-                        "type": "u8"
-                    },
-                    {
-                        "name": "require_tied",
-                        "type": "bool"
-                    },
-                    {
-                        "name": "pool_a",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "pool_b",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "pool_draw",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "winner",
-                        "type": {
-                            "option": {
-                                "defined": {
-                                    "name": "MatchResult"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "name": "last_bet_ts",
-                        "type": "i64"
-                    },
-                    {
-                        "name": "resolved_ts",
-                        "type": {
-                            "option": "i64"
-                        }
-                    },
-                    {
-                        "name": "bump",
-                        "type": "u8"
-                    }
-                ]
-            }
+          "name": "position",
+          "writable": true
         },
         {
-            "name": "MarketPosition",
-            "type": {
-                "kind": "struct",
-                "fields": [
-                    {
-                        "name": "owner",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "market",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "ticket_id",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "amount",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "prediction",
-                        "type": {
-                            "defined": {
-                                "name": "MatchResult"
-                            }
-                        }
-                    },
-                    {
-                        "name": "bet_ts",
-                        "type": "i64"
-                    },
-                    {
-                        "name": "claimed",
-                        "type": "bool"
-                    },
-                    {
-                        "name": "bump",
-                        "type": "u8"
-                    }
-                ]
-            }
+          "name": "user_token_account",
+          "writable": true
         },
         {
-            "name": "MarketStatus",
-            "type": {
-                "kind": "enum",
-                "variants": [
-                    {
-                        "name": "Open"
-                    },
-                    {
-                        "name": "Closed"
-                    },
-                    {
-                        "name": "Resolved"
-                    },
-                    {
-                        "name": "Cancelled"
-                    }
-                ]
-            }
+          "name": "market_vault",
+          "writable": true
         },
         {
-            "name": "MarketType",
-            "type": {
-                "kind": "enum",
-                "variants": [
-                    {
-                        "name": "MatchResultLive"
-                    },
-                    {
-                        "name": "NextGoal"
-                    },
-                    {
-                        "name": "Custom"
-                    }
-                ]
-            }
+          "name": "treasury_token_account",
+          "writable": true
         },
         {
-            "name": "MatchResult",
-            "type": {
-                "kind": "enum",
-                "variants": [
-                    {
-                        "name": "TeamA"
-                    },
-                    {
-                        "name": "TeamB"
-                    },
-                    {
-                        "name": "Draw"
-                    }
-                ]
-            }
+          "name": "token_mint"
         },
         {
-            "name": "MatchStatus",
-            "type": {
-                "kind": "enum",
-                "variants": [
-                    {
-                        "name": "Upcoming"
-                    },
-                    {
-                        "name": "Live"
-                    },
-                    {
-                        "name": "Completed"
-                    },
-                    {
-                        "name": "Cancelled"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "ParodyPlayer",
-            "type": {
-                "kind": "struct",
-                "fields": [
-                    {
-                        "name": "name",
-                        "type": "string"
-                    },
-                    {
-                        "name": "player_id",
-                        "type": "string"
-                    },
-                    {
-                        "name": "real_world_goals",
-                        "type": "u8"
-                    },
-                    {
-                        "name": "real_world_assists",
-                        "type": "u8"
-                    },
-                    {
-                        "name": "matches_played",
-                        "type": "u8"
-                    },
-                    {
-                        "name": "speed",
-                        "type": "u8"
-                    },
-                    {
-                        "name": "shot_power",
-                        "type": "u8"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "RentalListing",
-            "type": {
-                "kind": "struct",
-                "fields": [
-                    {
-                        "name": "owner",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "price_per_match",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "current_borrower",
-                        "type": {
-                            "option": "pubkey"
-                        }
-                    },
-                    {
-                        "name": "is_active",
-                        "type": "bool"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "UserBet",
-            "type": {
-                "kind": "struct",
-                "fields": [
-                    {
-                        "name": "owner",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "fixture",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "amount",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "prediction",
-                        "type": {
-                            "defined": {
-                                "name": "MatchResult"
-                            }
-                        }
-                    },
-                    {
-                        "name": "bet_timestamp",
-                        "type": "i64"
-                    },
-                    {
-                        "name": "claimed",
-                        "type": "bool"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "UserStake",
-            "type": {
-                "kind": "struct",
-                "fields": [
-                    {
-                        "name": "owner",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "amount",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "start_timestamp",
-                        "type": "i64"
-                    },
-                    {
-                        "name": "unclaimed_rewards",
-                        "type": "u64"
-                    }
-                ]
-            }
-        },
-        {
-            "name": "Wager",
-            "type": {
-                "kind": "struct",
-                "fields": [
-                    {
-                        "name": "player_a",
-                        "type": "pubkey"
-                    },
-                    {
-                        "name": "player_b",
-                        "type": {
-                            "option": "pubkey"
-                        }
-                    },
-                    {
-                        "name": "amount",
-                        "type": "u64"
-                    },
-                    {
-                        "name": "timestamp",
-                        "type": "i64"
-                    },
-                    {
-                        "name": "bump",
-                        "type": "u8"
-                    },
-                    {
-                        "name": "state",
-                        "type": {
-                            "defined": {
-                                "name": "WagerState"
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "WagerState",
-            "type": {
-                "kind": "enum",
-                "variants": [
-                    {
-                        "name": "Created"
-                    },
-                    {
-                        "name": "Accepted"
-                    },
-                    {
-                        "name": "Resolved"
-                    }
-                ]
-            }
+          "name": "token_program"
         }
-    ]
+      ],
+      "args": []
+    },
+    {
+      "name": "contribute_presale",
+      "discriminator": [
+        248,
+        72,
+        28,
+        96,
+        70,
+        166,
+        8,
+        117
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "presale_allocation",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  114,
+                  101,
+                  115,
+                  97,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "treasury_jito_ata",
+          "writable": true
+        },
+        {
+          "name": "stake_pool",
+          "writable": true
+        },
+        {
+          "name": "withdraw_authority",
+          "writable": true
+        },
+        {
+          "name": "reserve_stake",
+          "writable": true
+        },
+        {
+          "name": "manager_fee_account",
+          "writable": true
+        },
+        {
+          "name": "referral_fee_account",
+          "writable": true
+        },
+        {
+          "name": "pool_mint",
+          "writable": true
+        },
+        {
+          "name": "stake_pool_program"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "create_wager",
+      "discriminator": [
+        210,
+        82,
+        178,
+        75,
+        253,
+        34,
+        84,
+        120
+      ],
+      "accounts": [
+        {
+          "name": "player_a",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "wager",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  97,
+                  103,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "player_a"
+              },
+              {
+                "kind": "arg",
+                "path": "timestamp"
+              }
+            ]
+          }
+        },
+        {
+          "name": "player_a_token",
+          "writable": true
+        },
+        {
+          "name": "wager_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  119,
+                  97,
+                  103,
+                  101,
+                  114,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "wager"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "timestamp",
+          "type": "i64"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "delegate_nft_for_rent",
+      "docs": [
+        "[HOOK] Préstamos de NFTs (Delegation)"
+      ],
+      "discriminator": [
+        73,
+        153,
+        27,
+        134,
+        67,
+        92,
+        17,
+        142
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "equip_locker_room_item",
+      "discriminator": [
+        181,
+        30,
+        17,
+        80,
+        226,
+        114,
+        135,
+        151
+      ],
+      "accounts": [
+        {
+          "name": "parody_player",
+          "writable": true
+        },
+        {
+          "name": "item_mint"
+        },
+        {
+          "name": "user_item_wallet",
+          "writable": true
+        },
+        {
+          "name": "escrow_pda_wallet",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "parody_player"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "item_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "item_type",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "feed_potion",
+      "discriminator": [
+        98,
+        198,
+        19,
+        113,
+        212,
+        145,
+        126,
+        211
+      ],
+      "accounts": [
+        {
+          "name": "parody_player",
+          "writable": true
+        },
+        {
+          "name": "user_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_mint",
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "user",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "forge_nft",
+      "docs": [
+        "[HOOK] La Forja: Permitirá fusionar NFTs en el futuro"
+      ],
+      "discriminator": [
+        88,
+        210,
+        176,
+        28,
+        244,
+        186,
+        251,
+        243
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "golden_recall",
+      "discriminator": [
+        179,
+        251,
+        195,
+        144,
+        179,
+        40,
+        167,
+        143
+      ],
+      "accounts": [
+        {
+          "name": "rental_listing",
+          "writable": true
+        },
+        {
+          "name": "owner_token_account",
+          "writable": true
+        },
+        {
+          "name": "borrower_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "init_parody_player",
+      "discriminator": [
+        47,
+        202,
+        43,
+        87,
+        50,
+        56,
+        115,
+        94
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "parody_player",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  108,
+                  97,
+                  121,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "player_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "player_id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "initial_speed",
+          "type": "u8"
+        },
+        {
+          "name": "initial_shot_power",
+          "type": "u8"
+        },
+        {
+          "name": "owner",
+          "type": "pubkey"
+        },
+        {
+          "name": "initial_base_yield",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_config",
+      "discriminator": [
+        208,
+        127,
+        21,
+        1,
+        194,
+        190,
+        196,
+        70
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "oracle_authority",
+          "type": "pubkey"
+        },
+        {
+          "name": "treasury_token_account",
+          "type": "pubkey"
+        },
+        {
+          "name": "fee_bps",
+          "type": "u16"
+        },
+        {
+          "name": "cutoff_buffer_seconds",
+          "type": "i64"
+        },
+        {
+          "name": "max_sol_per_user",
+          "type": "u64"
+        },
+        {
+          "name": "presale_active",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "initialize_fixture",
+      "discriminator": [
+        26,
+        99,
+        178,
+        9,
+        192,
+        14,
+        167,
+        207
+      ],
+      "accounts": [
+        {
+          "name": "oracle_authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fixture",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  105,
+                  120,
+                  116,
+                  117,
+                  114,
+                  101
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "match_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "match_id",
+          "type": "string"
+        },
+        {
+          "name": "team_a",
+          "type": "string"
+        },
+        {
+          "name": "team_b",
+          "type": "string"
+        },
+        {
+          "name": "start_time",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_manager_state",
+      "discriminator": [
+        123,
+        105,
+        18,
+        201,
+        202,
+        93,
+        97,
+        223
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "manager_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  110,
+                  97,
+                  103,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "level",
+          "type": "u8"
+        },
+        {
+          "name": "salary_multiplier",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_stadium_state",
+      "discriminator": [
+        108,
+        246,
+        87,
+        130,
+        242,
+        88,
+        111,
+        181
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "stadium_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  100,
+                  105,
+                  117,
+                  109
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "stadium_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "stadium_id",
+          "type": "u16"
+        },
+        {
+          "name": "revenue_multiplier",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "list_for_rent",
+      "discriminator": [
+        176,
+        162,
+        46,
+        173,
+        170,
+        231,
+        95,
+        48
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "rental_listing",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  110,
+                  116,
+                  97,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "parody_player_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "parody_player_mint"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "price_per_match",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "oracle_create_market",
+      "discriminator": [
+        19,
+        161,
+        123,
+        176,
+        174,
+        166,
+        133,
+        105
+      ],
+      "accounts": [
+        {
+          "name": "oracle_authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true
+        },
+        {
+          "name": "fixture"
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "market_id",
+          "type": "u8"
+        },
+        {
+          "name": "market_type",
+          "type": {
+            "defined": {
+              "name": "MarketType"
+            }
+          }
+        },
+        {
+          "name": "delay_seconds",
+          "type": "i64"
+        },
+        {
+          "name": "cooldown_seconds",
+          "type": "i64"
+        },
+        {
+          "name": "close_minute",
+          "type": "u16"
+        },
+        {
+          "name": "max_goal_diff",
+          "type": "u8"
+        },
+        {
+          "name": "require_tied",
+          "type": "bool"
+        },
+        {
+          "name": "token_mint",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "oracle_reset_season",
+      "docs": [
+        "Cuando comienza un nuevo torneo (Copa América, Euro, etc.), el Oráculo",
+        "\"revive\" a los jugadores eliminados y reinicia su Yield Base inicial."
+      ],
+      "discriminator": [
+        248,
+        2,
+        201,
+        88,
+        149,
+        178,
+        222,
+        54
+      ],
+      "accounts": [
+        {
+          "name": "oracle_authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "parody_player",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "new_base_yield",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "oracle_update_market_status",
+      "discriminator": [
+        7,
+        222,
+        32,
+        186,
+        51,
+        166,
+        155,
+        177
+      ],
+      "accounts": [
+        {
+          "name": "oracle_authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "status",
+          "type": {
+            "defined": {
+              "name": "MarketStatus"
+            }
+          }
+        },
+        {
+          "name": "winner",
+          "type": {
+            "option": {
+              "defined": {
+                "name": "MatchResult"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "oracle_update_player_yield",
+      "docs": [
+        "El Oráculo (Pyth/Helius) reporta acciones del Mundial en tiempo real."
+      ],
+      "discriminator": [
+        127,
+        51,
+        167,
+        24,
+        213,
+        16,
+        48,
+        68
+      ],
+      "accounts": [
+        {
+          "name": "oracle_authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "parody_player",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "action_type",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "oracle_upsert_live_state",
+      "discriminator": [
+        205,
+        199,
+        16,
+        177,
+        247,
+        142,
+        124,
+        105
+      ],
+      "accounts": [
+        {
+          "name": "oracle_authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fixture"
+        },
+        {
+          "name": "live_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  108,
+                  105,
+                  118,
+                  101,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "fixture"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "minute",
+          "type": "u16"
+        },
+        {
+          "name": "score_a",
+          "type": "u8"
+        },
+        {
+          "name": "score_b",
+          "type": "u8"
+        },
+        {
+          "name": "is_ht",
+          "type": "bool"
+        },
+        {
+          "name": "is_ft",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "place_bet",
+      "discriminator": [
+        222,
+        62,
+        67,
+        220,
+        63,
+        166,
+        126,
+        33
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fixture",
+          "writable": true
+        },
+        {
+          "name": "user_bet",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  101,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              },
+              {
+                "kind": "account",
+                "path": "fixture"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_token_account",
+          "writable": true
+        },
+        {
+          "name": "fixture_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  102,
+                  105,
+                  120,
+                  116,
+                  117,
+                  114,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "fixture"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "prediction",
+          "type": {
+            "defined": {
+              "name": "MatchResult"
+            }
+          }
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "place_market_bet",
+      "discriminator": [
+        66,
+        187,
+        235,
+        255,
+        123,
+        0,
+        7,
+        85
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "market",
+          "writable": true
+        },
+        {
+          "name": "fixture"
+        },
+        {
+          "name": "live_state",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  108,
+                  105,
+                  118,
+                  101,
+                  95,
+                  115,
+                  116,
+                  97,
+                  116,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "fixture"
+              }
+            ]
+          }
+        },
+        {
+          "name": "position",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  115,
+                  105,
+                  116,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              },
+              {
+                "kind": "arg",
+                "path": "ticket_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_token_account",
+          "writable": true
+        },
+        {
+          "name": "market_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "market"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "ticket_id",
+          "type": "u64"
+        },
+        {
+          "name": "prediction",
+          "type": {
+            "defined": {
+              "name": "MatchResult"
+            }
+          }
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "refund_bet",
+      "discriminator": [
+        209,
+        182,
+        226,
+        96,
+        55,
+        121,
+        83,
+        183
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "fixture",
+          "writable": true
+        },
+        {
+          "name": "user_bet",
+          "writable": true
+        },
+        {
+          "name": "user_token_account",
+          "writable": true
+        },
+        {
+          "name": "fixture_vault",
+          "writable": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "rent_nft",
+      "discriminator": [
+        171,
+        71,
+        244,
+        6,
+        182,
+        65,
+        239,
+        94
+      ],
+      "accounts": [
+        {
+          "name": "borrower",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "rental_listing",
+          "writable": true
+        },
+        {
+          "name": "borrower_token_account",
+          "writable": true
+        },
+        {
+          "name": "owner_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "resolve_wager",
+      "discriminator": [
+        31,
+        179,
+        1,
+        228,
+        83,
+        224,
+        1,
+        123
+      ],
+      "accounts": [
+        {
+          "name": "oracle_authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "wager",
+          "writable": true
+        },
+        {
+          "name": "wager_vault",
+          "writable": true
+        },
+        {
+          "name": "winner_token",
+          "writable": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "winner_is_a",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "stake",
+      "discriminator": [
+        206,
+        176,
+        202,
+        18,
+        200,
+        209,
+        179,
+        108
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_stake",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  107,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_token_account",
+          "writable": true
+        },
+        {
+          "name": "stake_vault_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  107,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "token_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "sweep_fixture_dust",
+      "discriminator": [
+        160,
+        202,
+        60,
+        103,
+        150,
+        189,
+        207,
+        180
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fixture",
+          "writable": true
+        },
+        {
+          "name": "fixture_vault",
+          "writable": true
+        },
+        {
+          "name": "treasury_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "unequip_locker_room_item",
+      "discriminator": [
+        190,
+        22,
+        164,
+        41,
+        58,
+        13,
+        166,
+        112
+      ],
+      "accounts": [
+        {
+          "name": "parody_player",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  108,
+                  97,
+                  121,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "parody_player.player_id",
+                "account": "ParodyPlayer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "item_mint"
+        },
+        {
+          "name": "user_item_wallet",
+          "writable": true
+        },
+        {
+          "name": "escrow_pda_wallet",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "parody_player"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "item_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "item_type",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "unstake",
+      "discriminator": [
+        90,
+        95,
+        107,
+        42,
+        205,
+        124,
+        50,
+        225
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_stake",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  107,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_token_account",
+          "writable": true
+        },
+        {
+          "name": "stake_vault_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  107,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "token_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "update_config",
+      "discriminator": [
+        29,
+        158,
+        252,
+        191,
+        10,
+        83,
+        219,
+        99
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "oracle_authority",
+          "type": "pubkey"
+        },
+        {
+          "name": "treasury_token_account",
+          "type": "pubkey"
+        },
+        {
+          "name": "fee_bps",
+          "type": "u16"
+        },
+        {
+          "name": "cutoff_buffer_seconds",
+          "type": "i64"
+        },
+        {
+          "name": "max_sol_per_user",
+          "type": "u64"
+        },
+        {
+          "name": "presale_active",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "update_fixture_status",
+      "discriminator": [
+        14,
+        200,
+        167,
+        94,
+        61,
+        130,
+        67,
+        213
+      ],
+      "accounts": [
+        {
+          "name": "oracle_authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fixture",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "status",
+          "type": {
+            "defined": {
+              "name": "MatchStatus"
+            }
+          }
+        },
+        {
+          "name": "winner",
+          "type": {
+            "option": {
+              "defined": {
+                "name": "MatchResult"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "update_player_stats",
+      "discriminator": [
+        61,
+        85,
+        73,
+        244,
+        51,
+        95,
+        21,
+        33
+      ],
+      "accounts": [
+        {
+          "name": "oracle_authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "parody_player",
+          "writable": true
+        }
+      ],
+      "args": [
+        {
+          "name": "new_goals",
+          "type": "u8"
+        },
+        {
+          "name": "new_assists",
+          "type": "u8"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Fixture",
+      "discriminator": [
+        46,
+        254,
+        24,
+        43,
+        40,
+        44,
+        141,
+        197
+      ]
+    },
+    {
+      "name": "GlobalConfig",
+      "discriminator": [
+        149,
+        8,
+        156,
+        202,
+        160,
+        252,
+        176,
+        217
+      ]
+    },
+    {
+      "name": "LiveMatchState",
+      "discriminator": [
+        113,
+        204,
+        18,
+        231,
+        20,
+        74,
+        161,
+        111
+      ]
+    },
+    {
+      "name": "ManagerState",
+      "discriminator": [
+        222,
+        42,
+        42,
+        254,
+        109,
+        39,
+        91,
+        188
+      ]
+    },
+    {
+      "name": "Market",
+      "discriminator": [
+        219,
+        190,
+        213,
+        55,
+        0,
+        227,
+        198,
+        154
+      ]
+    },
+    {
+      "name": "MarketPosition",
+      "discriminator": [
+        136,
+        12,
+        225,
+        19,
+        231,
+        148,
+        194,
+        134
+      ]
+    },
+    {
+      "name": "ParodyPlayer",
+      "discriminator": [
+        103,
+        52,
+        6,
+        27,
+        226,
+        55,
+        131,
+        214
+      ]
+    },
+    {
+      "name": "PresaleAllocation",
+      "discriminator": [
+        202,
+        26,
+        199,
+        26,
+        125,
+        244,
+        253,
+        18
+      ]
+    },
+    {
+      "name": "RentalListing",
+      "discriminator": [
+        76,
+        239,
+        227,
+        36,
+        98,
+        137,
+        187,
+        158
+      ]
+    },
+    {
+      "name": "StadiumState",
+      "discriminator": [
+        237,
+        151,
+        208,
+        191,
+        88,
+        15,
+        104,
+        74
+      ]
+    },
+    {
+      "name": "UserBet",
+      "discriminator": [
+        180,
+        131,
+        8,
+        241,
+        60,
+        243,
+        46,
+        63
+      ]
+    },
+    {
+      "name": "UserStake",
+      "discriminator": [
+        102,
+        53,
+        163,
+        107,
+        9,
+        138,
+        87,
+        153
+      ]
+    },
+    {
+      "name": "Wager",
+      "discriminator": [
+        3,
+        110,
+        53,
+        190,
+        113,
+        31,
+        230,
+        40
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Unauthorized",
+      "msg": "Unauthorized"
+    },
+    {
+      "code": 6001,
+      "name": "UnauthorizedOracle",
+      "msg": "Unauthorized oracle"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidConfig",
+      "msg": "Invalid config"
+    },
+    {
+      "code": 6003,
+      "name": "MustClaimFirst",
+      "msg": "Must claim first"
+    },
+    {
+      "code": 6004,
+      "name": "MathOverflow",
+      "msg": "Math overflow"
+    },
+    {
+      "code": 6005,
+      "name": "InsufficientFunds",
+      "msg": "Insufficient funds"
+    },
+    {
+      "code": 6006,
+      "name": "ListingNotActive",
+      "msg": "Listing not active"
+    },
+    {
+      "code": 6007,
+      "name": "AlreadyRented",
+      "msg": "Already rented"
+    },
+    {
+      "code": 6008,
+      "name": "WagerNotAvailable",
+      "msg": "Wager not available"
+    },
+    {
+      "code": 6009,
+      "name": "WagerNotReady",
+      "msg": "Wager not ready"
+    },
+    {
+      "code": 6010,
+      "name": "InvalidWagerWinner",
+      "msg": "Winner token account does not match the declared wager winner"
+    },
+    {
+      "code": 6011,
+      "name": "BettingClosed",
+      "msg": "Betting closed"
+    },
+    {
+      "code": 6012,
+      "name": "MatchNotFinished",
+      "msg": "Match not finished"
+    },
+    {
+      "code": 6013,
+      "name": "NoWinnerDeclared",
+      "msg": "No winner declared"
+    },
+    {
+      "code": 6014,
+      "name": "NotAWinner",
+      "msg": "Not a winner"
+    },
+    {
+      "code": 6015,
+      "name": "AlreadyClaimed",
+      "msg": "Already claimed"
+    },
+    {
+      "code": 6016,
+      "name": "InvalidPool",
+      "msg": "Invalid pool"
+    },
+    {
+      "code": 6017,
+      "name": "InvalidVault",
+      "msg": "Invalid vault"
+    },
+    {
+      "code": 6018,
+      "name": "InvalidMint",
+      "msg": "Invalid mint"
+    },
+    {
+      "code": 6019,
+      "name": "InvalidTreasury",
+      "msg": "Invalid treasury"
+    },
+    {
+      "code": 6020,
+      "name": "InvalidMarketConfig",
+      "msg": "Invalid market config"
+    },
+    {
+      "code": 6021,
+      "name": "InvalidMarket",
+      "msg": "Invalid market"
+    },
+    {
+      "code": 6022,
+      "name": "InvalidLiveState",
+      "msg": "Invalid live state"
+    },
+    {
+      "code": 6023,
+      "name": "PresaleInactive",
+      "msg": "Presale is not active"
+    },
+    {
+      "code": 6024,
+      "name": "PresaleLimitExceeded",
+      "msg": "Presale contribution exceeds max per user"
+    },
+    {
+      "code": 6025,
+      "name": "InvalidStakePoolProgram",
+      "msg": "Invalid stake pool program"
+    },
+    {
+      "code": 6026,
+      "name": "FixtureNotCancelled",
+      "msg": "Fixture is not cancelled"
+    },
+    {
+      "code": 6027,
+      "name": "UseRefundForCancelledFixture",
+      "msg": "Cancelled fixtures must be refunded, not claimed"
+    },
+    {
+      "code": 6028,
+      "name": "InsufficientVaultBalance",
+      "msg": "Insufficient vault balance"
+    },
+    {
+      "code": 6029,
+      "name": "ClaimTooEarly",
+      "msg": "Claim too early"
+    },
+    {
+      "code": 6030,
+      "name": "PlayerIsEliminated",
+      "msg": "Player is eliminated"
+    },
+    {
+      "code": 6031,
+      "name": "InvalidActionType",
+      "msg": "Invalid action type from oracle"
+    },
+    {
+      "code": 6032,
+      "name": "StaminaAlreadyFull",
+      "msg": "Stamina already full"
+    },
+    {
+      "code": 6033,
+      "name": "GoldenRecallPenaltyRequired",
+      "msg": "Golden Recall penalty required"
+    },
+    {
+      "code": 6034,
+      "name": "InvalidItemType",
+      "msg": "Invalid item type"
+    },
+    {
+      "code": 6035,
+      "name": "AlreadyEquipped",
+      "msg": "Item already equipped"
+    },
+    {
+      "code": 6036,
+      "name": "InsufficientStamina",
+      "msg": "Insufficient stamina"
+    }
+  ],
+  "types": [
+    {
+      "name": "Fixture",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "match_id",
+            "type": "string"
+          },
+          {
+            "name": "team_a",
+            "type": "string"
+          },
+          {
+            "name": "team_b",
+            "type": "string"
+          },
+          {
+            "name": "start_timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "pool_a",
+            "type": "u64"
+          },
+          {
+            "name": "pool_b",
+            "type": "u64"
+          },
+          {
+            "name": "pool_draw",
+            "type": "u64"
+          },
+          {
+            "name": "total_claimed",
+            "type": "u64"
+          },
+          {
+            "name": "total_refunded",
+            "type": "u64"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "MatchStatus"
+              }
+            }
+          },
+          {
+            "name": "winner",
+            "type": {
+              "option": {
+                "defined": {
+                  "name": "MatchResult"
+                }
+              }
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GlobalConfig",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "oracle_authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "treasury_token_account",
+            "type": "pubkey"
+          },
+          {
+            "name": "fee_bps",
+            "type": "u16"
+          },
+          {
+            "name": "cutoff_buffer_seconds",
+            "type": "i64"
+          },
+          {
+            "name": "max_sol_per_user",
+            "type": "u64"
+          },
+          {
+            "name": "presale_active",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "LiveMatchState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "fixture",
+            "type": "pubkey"
+          },
+          {
+            "name": "minute",
+            "type": "u16"
+          },
+          {
+            "name": "score_a",
+            "type": "u8"
+          },
+          {
+            "name": "score_b",
+            "type": "u8"
+          },
+          {
+            "name": "is_ht",
+            "type": "bool"
+          },
+          {
+            "name": "is_ft",
+            "type": "bool"
+          },
+          {
+            "name": "last_update_ts",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ManagerState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "level",
+            "type": "u8"
+          },
+          {
+            "name": "salary_multiplier",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Market",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "fixture",
+            "type": "pubkey"
+          },
+          {
+            "name": "market_id",
+            "docs": [
+              "Stable market identifier used for PDA derivation (0-255)."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "market_type",
+            "type": {
+              "defined": {
+                "name": "MarketType"
+              }
+            }
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "MarketStatus"
+              }
+            }
+          },
+          {
+            "name": "token_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "delay_seconds",
+            "type": "i64"
+          },
+          {
+            "name": "cooldown_seconds",
+            "type": "i64"
+          },
+          {
+            "name": "close_minute",
+            "type": "u16"
+          },
+          {
+            "name": "max_goal_diff",
+            "type": "u8"
+          },
+          {
+            "name": "require_tied",
+            "type": "bool"
+          },
+          {
+            "name": "pool_a",
+            "type": "u64"
+          },
+          {
+            "name": "pool_b",
+            "type": "u64"
+          },
+          {
+            "name": "pool_draw",
+            "type": "u64"
+          },
+          {
+            "name": "winner",
+            "type": {
+              "option": {
+                "defined": {
+                  "name": "MatchResult"
+                }
+              }
+            }
+          },
+          {
+            "name": "last_bet_ts",
+            "type": "i64"
+          },
+          {
+            "name": "resolved_ts",
+            "type": {
+              "option": "i64"
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MarketPosition",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "market",
+            "type": "pubkey"
+          },
+          {
+            "name": "ticket_id",
+            "type": "u64"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "prediction",
+            "type": {
+              "defined": {
+                "name": "MatchResult"
+              }
+            }
+          },
+          {
+            "name": "bet_ts",
+            "type": "i64"
+          },
+          {
+            "name": "claimed",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MarketStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Open"
+          },
+          {
+            "name": "Closed"
+          },
+          {
+            "name": "Resolved"
+          },
+          {
+            "name": "Cancelled"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MarketType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "MatchResultLive"
+          },
+          {
+            "name": "NextGoal"
+          },
+          {
+            "name": "Custom"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MatchResult",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "TeamA"
+          },
+          {
+            "name": "TeamB"
+          },
+          {
+            "name": "Draw"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MatchStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Upcoming"
+          },
+          {
+            "name": "Live"
+          },
+          {
+            "name": "Completed"
+          },
+          {
+            "name": "Cancelled"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ParodyPlayer",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "last_claim_timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "player_id",
+            "type": "string"
+          },
+          {
+            "name": "real_world_goals",
+            "type": "u8"
+          },
+          {
+            "name": "real_world_assists",
+            "type": "u8"
+          },
+          {
+            "name": "matches_played",
+            "type": "u8"
+          },
+          {
+            "name": "speed",
+            "type": "u8"
+          },
+          {
+            "name": "shot_power",
+            "type": "u8"
+          },
+          {
+            "name": "base_yield_rate",
+            "type": "u64"
+          },
+          {
+            "name": "current_stamina",
+            "type": "u8"
+          },
+          {
+            "name": "is_eliminated",
+            "type": "bool"
+          },
+          {
+            "name": "equipped_stadium_id",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "nation_id",
+            "type": "u8"
+          },
+          {
+            "name": "visual_background",
+            "type": "u8"
+          },
+          {
+            "name": "equipped_jersey",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "equipped_boots",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "win_streak",
+            "type": "u8"
+          },
+          {
+            "name": "last_match_result",
+            "type": "u8"
+          },
+          {
+            "name": "has_shield_jersey",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PresaleAllocation",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "sol_deposited",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RentalListing",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "price_per_match",
+            "type": "u64"
+          },
+          {
+            "name": "current_borrower",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "is_active",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "StadiumState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "stadium_id",
+            "type": "u16"
+          },
+          {
+            "name": "revenue_multiplier",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserBet",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "fixture",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "prediction",
+            "type": {
+              "defined": {
+                "name": "MatchResult"
+              }
+            }
+          },
+          {
+            "name": "bet_timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "claimed",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserStake",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "start_timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "unclaimed_rewards",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Wager",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "player_a",
+            "type": "pubkey"
+          },
+          {
+            "name": "player_b",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "state",
+            "type": {
+              "defined": {
+                "name": "WagerState"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "WagerState",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Created"
+          },
+          {
+            "name": "Accepted"
+          },
+          {
+            "name": "Resolved"
+          }
+        ]
+      }
+    }
+  ]
 }

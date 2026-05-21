@@ -342,6 +342,14 @@ export type GoalchainProgram = {
         {
           "name": "initialShotPower",
           "type": "u8"
+        },
+        {
+          "name": "owner",
+          "type": "pubkey"
+        },
+        {
+          "name": "initialBaseYield",
+          "type": "u64"
         }
       ]
     },

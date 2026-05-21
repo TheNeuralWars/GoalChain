@@ -2,7 +2,7 @@
     "name": "Noruega Pro 8 Gas",
     "symbol": "GCH",
     "description": "GoalChain Genesis Squad - Noruega Pro 8 Gas (Noruega). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
+    "seller_fee_basis_points": 100,
     "image": "735.png",
     "attributes": [
         {
@@ -48,8 +48,16 @@
         "category": "image",
         "creators": [
             {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
+                "address": "Fndrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 1
+            },
+            {
+                "address": "BldrFundxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 10
+            },
+            {
+                "address": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 89
             }
         ]
     }

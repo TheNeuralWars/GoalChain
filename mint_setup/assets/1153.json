@@ -2,7 +2,7 @@
     "name": "Escocia Pro 10 Block",
     "symbol": "GCH",
     "description": "GoalChain Genesis Squad - Escocia Pro 10 Block (Escocia). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
+    "seller_fee_basis_points": 100,
     "image": "1153.png",
     "attributes": [
         {
@@ -48,8 +48,16 @@
         "category": "image",
         "creators": [
             {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
+                "address": "Fndrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 1
+            },
+            {
+                "address": "BldrFundxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 10
+            },
+            {
+                "address": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 89
             }
         ]
     }
