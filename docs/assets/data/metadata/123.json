@@ -2,7 +2,7 @@
     "name": "Yassine Bounou-Safe",
     "symbol": "GCH",
     "description": "GoalChain Genesis Squad - Yassine Bounou-Safe (Marruecos). undefined",
-    "seller_fee_basis_points": 500,
+    "seller_fee_basis_points": 100,
     "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/123_yassine_bounou-safe.png",
     "attributes": [
         {
@@ -48,8 +48,16 @@
         "category": "image",
         "creators": [
             {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
+                "address": "Fndrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 1
+            },
+            {
+                "address": "BldrFundxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 10
+            },
+            {
+                "address": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 89
             }
         ]
     }

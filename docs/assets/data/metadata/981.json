@@ -2,7 +2,7 @@
     "name": "Egipto Pro 19 Ledger",
     "symbol": "GCH",
     "description": "GoalChain Genesis Squad - Egipto Pro 19 Ledger (Egipto). Contrato profesional activo para el Mundial 2026.",
-    "seller_fee_basis_points": 500,
+    "seller_fee_basis_points": 100,
     "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/981_egipto_pro_19_ledger.png",
     "attributes": [
         {
@@ -48,8 +48,16 @@
         "category": "image",
         "creators": [
             {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
+                "address": "Fndrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 1
+            },
+            {
+                "address": "BldrFundxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 10
+            },
+            {
+                "address": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 89
             }
         ]
     }

@@ -6,6 +6,29 @@ use anchor_spl::associated_token::AssociatedToken;
 declare_id!("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
 const SPL_STAKE_POOL_PROGRAM_ID: Pubkey = pubkey!("SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy");
 
+/// $GCH uses 6 decimals: 1 GCH = 1_000_000 base units.
+pub const GCH_LAMPORTS: u64 = 1_000_000;
+pub const DEFAULT_BASE_YIELD_LAMPORTS: u64 = 100 * GCH_LAMPORTS;
+pub const POTION_BURN_LAMPORTS: u64 = 100 * GCH_LAMPORTS;
+pub const MAX_BASE_YIELD_LAMPORTS: u64 = 10_000 * GCH_LAMPORTS;
+pub const MAX_FEE_BPS: u16 = 100; // 1% hard cap
+pub const ARCHITECT_TAX_BPS: u64 = 100; // 1%
+pub const BPS_DENOMINATOR: u64 = 10_000;
+pub const DEFAULT_SCORE_UPDATE_COOLDOWN_SECONDS: i64 = 0;
+pub const DEFAULT_MIN_EPOCH_SCORE: u64 = 1;
+pub const DEFAULT_MAX_CONTRIBUTORS_PER_EPOCH: u32 = 500;
+
+/// Maps Genesis Squad rarity tier (metadata) → daily base yield in lamports.
+pub fn base_yield_for_rarity_tier(tier: u8) -> u64 {
+    match tier {
+        4 => 5_000 * GCH_LAMPORTS,  // mythic
+        3 => 1_000 * GCH_LAMPORTS,  // legendary
+        2 => 250 * GCH_LAMPORTS,    // epic
+        1 => 50 * GCH_LAMPORTS,     // rare
+        _ => DEFAULT_BASE_YIELD_LAMPORTS,
+    }
+}
+
 #[program]
 pub mod goalchain_program {
     use super::*;
@@ -21,7 +44,7 @@ pub mod goalchain_program {
         presale_active: bool,
     ) -> Result<()> {
         // límite duro para evitar configs absurdas
-        require!(fee_bps <= 2_000, GoalChainError::InvalidConfig); // max 20%
+        require!(fee_bps <= MAX_FEE_BPS, GoalChainError::InvalidConfig); // max 1%
         require!(cutoff_buffer_seconds >= 0, GoalChainError::InvalidConfig);
         require!(cutoff_buffer_seconds <= 24 * 60 * 60, GoalChainError::InvalidConfig); // max 24h
         require!(max_sol_per_user > 0, GoalChainError::InvalidConfig);
@@ -47,7 +70,7 @@ pub mod goalchain_program {
         max_sol_per_user: u64,
         presale_active: bool,
     ) -> Result<()> {
-        require!(fee_bps <= 2_000, GoalChainError::InvalidConfig);
+        require!(fee_bps <= MAX_FEE_BPS, GoalChainError::InvalidConfig);
         require!(cutoff_buffer_seconds >= 0, GoalChainError::InvalidConfig);
         require!(cutoff_buffer_seconds <= 24 * 60 * 60, GoalChainError::InvalidConfig);
         require!(max_sol_per_user > 0, GoalChainError::InvalidConfig);
@@ -59,6 +82,564 @@ pub mod goalchain_program {
         cfg.cutoff_buffer_seconds = cutoff_buffer_seconds;
         cfg.max_sol_per_user = max_sol_per_user;
         cfg.presale_active = presale_active;
+        Ok(())
+    }
+
+    pub fn initialize_builder_fund(
+        ctx: Context<InitializeBuilderFund>,
+        contributor_bps: u16,
+        api_infra_bps: u16,
+        marketing_bps: u16,
+    ) -> Result<()> {
+        let total_bps = (contributor_bps as u32)
+            .checked_add(api_infra_bps as u32)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_add(marketing_bps as u32)
+            .ok_or(GoalChainError::MathOverflow)?;
+        require!(total_bps == BPS_DENOMINATOR as u32, GoalChainError::InvalidBuilderFundWeights);
+
+        let builder_fund = &mut ctx.accounts.builder_fund;
+        builder_fund.admin = ctx.accounts.admin.key();
+        builder_fund.config = ctx.accounts.config.key();
+        builder_fund.token_mint = ctx.accounts.token_mint.key();
+        builder_fund.contributor_vault = ctx.accounts.contributor_vault.key();
+        builder_fund.api_infra_vault = ctx.accounts.api_infra_vault.key();
+        builder_fund.marketing_vault = ctx.accounts.marketing_vault.key();
+        builder_fund.contributor_bps = contributor_bps;
+        builder_fund.api_infra_bps = api_infra_bps;
+        builder_fund.marketing_bps = marketing_bps;
+        builder_fund.total_inflow = 0;
+        builder_fund.contributor_allocated = 0;
+        builder_fund.api_infra_allocated = 0;
+        builder_fund.marketing_allocated = 0;
+        builder_fund.total_contributor_score = 0;
+        builder_fund.contributor_claimed_total = 0;
+        builder_fund.contributor_spent = 0;
+        builder_fund.api_infra_spent = 0;
+        builder_fund.marketing_spent = 0;
+        builder_fund.current_epoch = 0;
+        builder_fund.score_update_cooldown_seconds = DEFAULT_SCORE_UPDATE_COOLDOWN_SECONDS;
+        builder_fund.min_epoch_score = DEFAULT_MIN_EPOCH_SCORE;
+        builder_fund.max_contributors_per_epoch = DEFAULT_MAX_CONTRIBUTORS_PER_EPOCH;
+        builder_fund.bump = ctx.bumps.builder_fund;
+
+        emit!(BuilderFundInitialized {
+            builder_fund: builder_fund.key(),
+            token_mint: builder_fund.token_mint,
+            contributor_bps,
+            api_infra_bps,
+            marketing_bps,
+        });
+        Ok(())
+    }
+
+    pub fn update_builder_fund_guardrails(
+        ctx: Context<UpdateBuilderFundWeights>,
+        score_update_cooldown_seconds: i64,
+        min_epoch_score: u64,
+        max_contributors_per_epoch: u32,
+    ) -> Result<()> {
+        require!(score_update_cooldown_seconds >= 0, GoalChainError::InvalidConfig);
+        require!(min_epoch_score > 0, GoalChainError::InvalidConfig);
+        require!(max_contributors_per_epoch > 0, GoalChainError::InvalidConfig);
+
+        let builder_fund = &mut ctx.accounts.builder_fund;
+        builder_fund.score_update_cooldown_seconds = score_update_cooldown_seconds;
+        builder_fund.min_epoch_score = min_epoch_score;
+        builder_fund.max_contributors_per_epoch = max_contributors_per_epoch;
+
+        emit!(BuilderFundGuardrailsUpdated {
+            builder_fund: builder_fund.key(),
+            score_update_cooldown_seconds,
+            min_epoch_score,
+            max_contributors_per_epoch,
+        });
+        Ok(())
+    }
+
+    pub fn update_builder_fund_weights(
+        ctx: Context<UpdateBuilderFundWeights>,
+        contributor_bps: u16,
+        api_infra_bps: u16,
+        marketing_bps: u16,
+    ) -> Result<()> {
+        let total_bps = (contributor_bps as u32)
+            .checked_add(api_infra_bps as u32)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_add(marketing_bps as u32)
+            .ok_or(GoalChainError::MathOverflow)?;
+        require!(total_bps == BPS_DENOMINATOR as u32, GoalChainError::InvalidBuilderFundWeights);
+
+        let builder_fund = &mut ctx.accounts.builder_fund;
+        builder_fund.contributor_bps = contributor_bps;
+        builder_fund.api_infra_bps = api_infra_bps;
+        builder_fund.marketing_bps = marketing_bps;
+
+        emit!(BuilderFundWeightsUpdated {
+            builder_fund: builder_fund.key(),
+            contributor_bps,
+            api_infra_bps,
+            marketing_bps,
+        });
+        Ok(())
+    }
+
+    pub fn fund_builder_fund(ctx: Context<FundBuilderFund>, amount: u64) -> Result<()> {
+        require!(amount > 0, GoalChainError::InvalidConfig);
+        let builder_fund = &mut ctx.accounts.builder_fund;
+
+        let contributor_amount = ((amount as u128)
+            .checked_mul(builder_fund.contributor_bps as u128)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(BPS_DENOMINATOR as u128)
+            .ok_or(GoalChainError::MathOverflow)?) as u64;
+        let api_infra_amount = ((amount as u128)
+            .checked_mul(builder_fund.api_infra_bps as u128)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(BPS_DENOMINATOR as u128)
+            .ok_or(GoalChainError::MathOverflow)?) as u64;
+        let marketing_amount = amount
+            .checked_sub(contributor_amount)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_sub(api_infra_amount)
+            .ok_or(GoalChainError::MathOverflow)?;
+
+        if contributor_amount > 0 {
+            let cpi_ctx = CpiContext::new(
+                ctx.accounts.token_program.key(),
+                TransferChecked {
+                    from: ctx.accounts.payer_token_account.to_account_info(),
+                    to: ctx.accounts.contributor_vault.to_account_info(),
+                    authority: ctx.accounts.payer.to_account_info(),
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                },
+            );
+            token_interface::transfer_checked(cpi_ctx, contributor_amount, ctx.accounts.token_mint.decimals)?;
+        }
+
+        if api_infra_amount > 0 {
+            let cpi_ctx = CpiContext::new(
+                ctx.accounts.token_program.key(),
+                TransferChecked {
+                    from: ctx.accounts.payer_token_account.to_account_info(),
+                    to: ctx.accounts.api_infra_vault.to_account_info(),
+                    authority: ctx.accounts.payer.to_account_info(),
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                },
+            );
+            token_interface::transfer_checked(cpi_ctx, api_infra_amount, ctx.accounts.token_mint.decimals)?;
+        }
+
+        if marketing_amount > 0 {
+            let cpi_ctx = CpiContext::new(
+                ctx.accounts.token_program.key(),
+                TransferChecked {
+                    from: ctx.accounts.payer_token_account.to_account_info(),
+                    to: ctx.accounts.marketing_vault.to_account_info(),
+                    authority: ctx.accounts.payer.to_account_info(),
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                },
+            );
+            token_interface::transfer_checked(cpi_ctx, marketing_amount, ctx.accounts.token_mint.decimals)?;
+        }
+
+        builder_fund.total_inflow = builder_fund
+            .total_inflow
+            .checked_add(amount)
+            .ok_or(GoalChainError::MathOverflow)?;
+        builder_fund.contributor_allocated = builder_fund
+            .contributor_allocated
+            .checked_add(contributor_amount)
+            .ok_or(GoalChainError::MathOverflow)?;
+        builder_fund.api_infra_allocated = builder_fund
+            .api_infra_allocated
+            .checked_add(api_infra_amount)
+            .ok_or(GoalChainError::MathOverflow)?;
+        builder_fund.marketing_allocated = builder_fund
+            .marketing_allocated
+            .checked_add(marketing_amount)
+            .ok_or(GoalChainError::MathOverflow)?;
+
+        emit!(BuilderFundFunded {
+            builder_fund: builder_fund.key(),
+            payer: ctx.accounts.payer.key(),
+            total_amount: amount,
+            contributor_amount,
+            api_infra_amount,
+            marketing_amount,
+        });
+        Ok(())
+    }
+
+    pub fn spend_builder_fund(
+        ctx: Context<SpendBuilderFund>,
+        bucket: BuilderFundBucket,
+        amount: u64,
+    ) -> Result<()> {
+        require!(amount > 0, GoalChainError::InvalidConfig);
+        let builder_fund_info = ctx.accounts.builder_fund.to_account_info();
+        let builder_fund = &mut ctx.accounts.builder_fund;
+
+        let expected_source = match bucket {
+            BuilderFundBucket::Contributors => builder_fund.contributor_vault,
+            BuilderFundBucket::ApiInfra => builder_fund.api_infra_vault,
+            BuilderFundBucket::Marketing => builder_fund.marketing_vault,
+        };
+        require_keys_eq!(ctx.accounts.source_vault.key(), expected_source, GoalChainError::InvalidBuilderFundBucket);
+
+        let config_key = ctx.accounts.config.key();
+        let seeds = &[
+            b"builder_fund".as_ref(),
+            config_key.as_ref(),
+            &[builder_fund.bump],
+        ];
+        let signer = &[&seeds[..]];
+
+        let cpi_ctx = CpiContext::new_with_signer(
+            ctx.accounts.token_program.key(),
+            TransferChecked {
+                from: ctx.accounts.source_vault.to_account_info(),
+                to: ctx.accounts.destination_token_account.to_account_info(),
+                authority: builder_fund_info,
+                mint: ctx.accounts.token_mint.to_account_info(),
+            },
+            signer,
+        );
+        token_interface::transfer_checked(cpi_ctx, amount, ctx.accounts.token_mint.decimals)?;
+
+        match bucket {
+            BuilderFundBucket::Contributors => {
+                builder_fund.contributor_spent = builder_fund
+                    .contributor_spent
+                    .checked_add(amount)
+                    .ok_or(GoalChainError::MathOverflow)?;
+            }
+            BuilderFundBucket::ApiInfra => {
+                builder_fund.api_infra_spent = builder_fund
+                    .api_infra_spent
+                    .checked_add(amount)
+                    .ok_or(GoalChainError::MathOverflow)?;
+            }
+            BuilderFundBucket::Marketing => {
+                builder_fund.marketing_spent = builder_fund
+                    .marketing_spent
+                    .checked_add(amount)
+                    .ok_or(GoalChainError::MathOverflow)?;
+            }
+        }
+
+        emit!(BuilderFundSpent {
+            builder_fund: builder_fund.key(),
+            bucket,
+            amount,
+            recipient: ctx.accounts.destination_token_account.key(),
+        });
+        Ok(())
+    }
+
+    pub fn upsert_contributor_score(
+        ctx: Context<UpsertContributorScore>,
+        score: u64,
+    ) -> Result<()> {
+        let clock = Clock::get()?;
+        let builder_fund = &mut ctx.accounts.builder_fund;
+        let contributor_score = &mut ctx.accounts.contributor_score;
+
+        let previous_score = contributor_score.score;
+        if contributor_score.builder_fund == Pubkey::default() {
+            contributor_score.builder_fund = builder_fund.key();
+            contributor_score.contributor = ctx.accounts.contributor.key();
+            contributor_score.claimed_amount = 0;
+            contributor_score.bump = ctx.bumps.contributor_score;
+        } else {
+            require_keys_eq!(
+                contributor_score.builder_fund,
+                builder_fund.key(),
+                GoalChainError::InvalidContributorScore
+            );
+            require_keys_eq!(
+                contributor_score.contributor,
+                ctx.accounts.contributor.key(),
+                GoalChainError::InvalidContributorScore
+            );
+            if builder_fund.score_update_cooldown_seconds > 0 {
+                let next_allowed = contributor_score
+                    .last_update_timestamp
+                    .checked_add(builder_fund.score_update_cooldown_seconds)
+                    .ok_or(GoalChainError::MathOverflow)?;
+                require!(clock.unix_timestamp >= next_allowed, GoalChainError::ScoreUpdateCooldown);
+            }
+        }
+
+        if score >= previous_score {
+            let delta = score.checked_sub(previous_score).ok_or(GoalChainError::MathOverflow)?;
+            builder_fund.total_contributor_score = builder_fund
+                .total_contributor_score
+                .checked_add(delta)
+                .ok_or(GoalChainError::MathOverflow)?;
+        } else {
+            let delta = previous_score.checked_sub(score).ok_or(GoalChainError::MathOverflow)?;
+            builder_fund.total_contributor_score = builder_fund
+                .total_contributor_score
+                .checked_sub(delta)
+                .ok_or(GoalChainError::MathOverflow)?;
+        }
+
+        contributor_score.score = score;
+        contributor_score.last_update_timestamp = clock.unix_timestamp;
+
+        emit!(ContributorScoreUpdated {
+            builder_fund: builder_fund.key(),
+            contributor: contributor_score.contributor,
+            score,
+            total_contributor_score: builder_fund.total_contributor_score,
+        });
+        Ok(())
+    }
+
+    pub fn claim_contributor_rewards(ctx: Context<ClaimContributorRewards>) -> Result<()> {
+        let builder_fund_info = ctx.accounts.builder_fund.to_account_info();
+        let builder_fund = &mut ctx.accounts.builder_fund;
+        let contributor_score = &mut ctx.accounts.contributor_score;
+
+        require!(builder_fund.total_contributor_score > 0, GoalChainError::NoContributorScore);
+        require!(contributor_score.score > 0, GoalChainError::NoContributorScore);
+
+        let entitlement = ((builder_fund.contributor_allocated as u128)
+            .checked_mul(contributor_score.score as u128)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(builder_fund.total_contributor_score as u128)
+            .ok_or(GoalChainError::MathOverflow)?) as u64;
+        let claimable = entitlement
+            .checked_sub(contributor_score.claimed_amount)
+            .ok_or(GoalChainError::MathOverflow)?;
+        require!(claimable > 0, GoalChainError::NoClaimableRewards);
+
+        let config_key = ctx.accounts.config.key();
+        let seeds = &[
+            b"builder_fund".as_ref(),
+            config_key.as_ref(),
+            &[builder_fund.bump],
+        ];
+        let signer = &[&seeds[..]];
+
+        let cpi_ctx = CpiContext::new_with_signer(
+            ctx.accounts.token_program.key(),
+            TransferChecked {
+                from: ctx.accounts.contributor_vault.to_account_info(),
+                to: ctx.accounts.contributor_token_account.to_account_info(),
+                authority: builder_fund_info,
+                mint: ctx.accounts.token_mint.to_account_info(),
+            },
+            signer,
+        );
+        token_interface::transfer_checked(cpi_ctx, claimable, ctx.accounts.token_mint.decimals)?;
+
+        contributor_score.claimed_amount = contributor_score
+            .claimed_amount
+            .checked_add(claimable)
+            .ok_or(GoalChainError::MathOverflow)?;
+        builder_fund.contributor_claimed_total = builder_fund
+            .contributor_claimed_total
+            .checked_add(claimable)
+            .ok_or(GoalChainError::MathOverflow)?;
+        builder_fund.contributor_spent = builder_fund
+            .contributor_spent
+            .checked_add(claimable)
+            .ok_or(GoalChainError::MathOverflow)?;
+
+        emit!(ContributorRewardsClaimed {
+            builder_fund: builder_fund.key(),
+            contributor: ctx.accounts.contributor.key(),
+            amount: claimable,
+            claimed_total: contributor_score.claimed_amount,
+        });
+        Ok(())
+    }
+
+    pub fn start_contributor_epoch(
+        ctx: Context<StartContributorEpoch>,
+        epoch_id: u64,
+        contributor_pool: u64,
+    ) -> Result<()> {
+        require!(contributor_pool > 0, GoalChainError::InvalidConfig);
+        let clock = Clock::get()?;
+        let builder_fund = &mut ctx.accounts.builder_fund;
+        let epoch = &mut ctx.accounts.builder_epoch;
+
+        let expected_epoch_id = builder_fund
+            .current_epoch
+            .checked_add(1)
+            .ok_or(GoalChainError::MathOverflow)?;
+        require!(epoch_id == expected_epoch_id, GoalChainError::InvalidEpochId);
+        require!(
+            ctx.accounts.contributor_vault.amount >= contributor_pool,
+            GoalChainError::InsufficientVaultBalance
+        );
+
+        epoch.builder_fund = builder_fund.key();
+        epoch.epoch_id = epoch_id;
+        epoch.contributor_pool = contributor_pool;
+        epoch.total_score_snapshot = 0;
+        epoch.contributor_count = 0;
+        epoch.finalized = false;
+        epoch.created_at = clock.unix_timestamp;
+        epoch.finalized_at = 0;
+        epoch.bump = ctx.bumps.builder_epoch;
+
+        builder_fund.current_epoch = epoch_id;
+
+        emit!(ContributorEpochStarted {
+            builder_fund: builder_fund.key(),
+            epoch_id,
+            contributor_pool,
+        });
+        Ok(())
+    }
+
+    pub fn register_contributor_epoch_snapshot(
+        ctx: Context<RegisterContributorEpochSnapshot>,
+    ) -> Result<()> {
+        let epoch = &mut ctx.accounts.builder_epoch;
+        let snapshot = &mut ctx.accounts.epoch_contributor_snapshot;
+        let contributor_score = &ctx.accounts.contributor_score;
+        let builder_fund = &ctx.accounts.builder_fund;
+
+        require!(!epoch.finalized, GoalChainError::EpochAlreadyFinalized);
+        require!(contributor_score.score > 0, GoalChainError::NoEpochSnapshotScore);
+        require!(
+            contributor_score.score >= builder_fund.min_epoch_score,
+            GoalChainError::ContributorScoreTooLow
+        );
+        require!(
+            epoch.contributor_count < builder_fund.max_contributors_per_epoch,
+            GoalChainError::EpochContributorLimitReached
+        );
+
+        snapshot.epoch = epoch.key();
+        snapshot.contributor = ctx.accounts.contributor.key();
+        snapshot.score = contributor_score.score;
+        snapshot.bump = ctx.bumps.epoch_contributor_snapshot;
+
+        epoch.total_score_snapshot = epoch
+            .total_score_snapshot
+            .checked_add(snapshot.score)
+            .ok_or(GoalChainError::MathOverflow)?;
+        epoch.contributor_count = epoch
+            .contributor_count
+            .checked_add(1)
+            .ok_or(GoalChainError::MathOverflow)?;
+
+        emit!(ContributorEpochSnapshotRegistered {
+            epoch: epoch.key(),
+            contributor: snapshot.contributor,
+            score: snapshot.score,
+        });
+        Ok(())
+    }
+
+    pub fn finalize_contributor_epoch(ctx: Context<FinalizeContributorEpoch>) -> Result<()> {
+        let clock = Clock::get()?;
+        let epoch = &mut ctx.accounts.builder_epoch;
+        require!(!epoch.finalized, GoalChainError::EpochAlreadyFinalized);
+        require!(epoch.total_score_snapshot > 0, GoalChainError::NoEpochSnapshotScore);
+        epoch.finalized = true;
+        epoch.finalized_at = clock.unix_timestamp;
+
+        emit!(ContributorEpochFinalized {
+            epoch: epoch.key(),
+            epoch_id: epoch.epoch_id,
+            total_score_snapshot: epoch.total_score_snapshot,
+            contributor_count: epoch.contributor_count,
+        });
+        Ok(())
+    }
+
+    pub fn claim_contributor_epoch(ctx: Context<ClaimContributorEpoch>) -> Result<()> {
+        let clock = Clock::get()?;
+        let builder_fund_info = ctx.accounts.builder_fund.to_account_info();
+        let builder_fund = &mut ctx.accounts.builder_fund;
+        let epoch = &ctx.accounts.builder_epoch;
+        let snapshot = &ctx.accounts.epoch_contributor_snapshot;
+        let claim = &mut ctx.accounts.epoch_contributor_claim;
+
+        require!(epoch.finalized, GoalChainError::EpochNotFinalized);
+        require!(snapshot.score > 0, GoalChainError::NoEpochSnapshotScore);
+        require_keys_eq!(
+            ctx.accounts.contributor_vault.key(),
+            builder_fund.contributor_vault,
+            GoalChainError::InvalidBuilderFundBucket
+        );
+
+        let contributor_vault_ta = SplTokenAccount::try_deserialize(
+            &mut &ctx.accounts.contributor_vault.data.borrow()[..]
+        )?;
+        let contributor_token_ta = SplTokenAccount::try_deserialize(
+            &mut &ctx.accounts.contributor_token_account.data.borrow()[..]
+        )?;
+        require_keys_eq!(
+            contributor_vault_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
+        require_keys_eq!(
+            contributor_token_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
+        require_keys_eq!(
+            contributor_token_ta.owner,
+            ctx.accounts.contributor.key(),
+            GoalChainError::Unauthorized
+        );
+
+        let claim_amount = ((epoch.contributor_pool as u128)
+            .checked_mul(snapshot.score as u128)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(epoch.total_score_snapshot as u128)
+            .ok_or(GoalChainError::MathOverflow)?) as u64;
+        require!(claim_amount > 0, GoalChainError::NoClaimableRewards);
+
+        let config_key = ctx.accounts.config.key();
+        let seeds = &[
+            b"builder_fund".as_ref(),
+            config_key.as_ref(),
+            &[builder_fund.bump],
+        ];
+        let signer = &[&seeds[..]];
+
+        let cpi_ctx = CpiContext::new_with_signer(
+            ctx.accounts.token_program.key(),
+            TransferChecked {
+                from: ctx.accounts.contributor_vault.to_account_info(),
+                to: ctx.accounts.contributor_token_account.to_account_info(),
+                authority: builder_fund_info,
+                mint: ctx.accounts.token_mint.to_account_info(),
+            },
+            signer,
+        );
+        token_interface::transfer_checked(cpi_ctx, claim_amount, ctx.accounts.token_mint.decimals)?;
+
+        claim.epoch = epoch.key();
+        claim.contributor = ctx.accounts.contributor.key();
+        claim.amount = claim_amount;
+        claim.claimed_at = clock.unix_timestamp;
+        claim.bump = ctx.bumps.epoch_contributor_claim;
+
+        builder_fund.contributor_claimed_total = builder_fund
+            .contributor_claimed_total
+            .checked_add(claim_amount)
+            .ok_or(GoalChainError::MathOverflow)?;
+        builder_fund.contributor_spent = builder_fund
+            .contributor_spent
+            .checked_add(claim_amount)
+            .ok_or(GoalChainError::MathOverflow)?;
+
+        emit!(ContributorEpochClaimed {
+            epoch: epoch.key(),
+            contributor: claim.contributor,
+            amount: claim.amount,
+        });
         Ok(())
     }
 
@@ -120,7 +701,11 @@ pub mod goalchain_program {
         initial_speed: u8,
         initial_shot_power: u8,
         owner: Pubkey,
+        initial_base_yield: u64,
     ) -> Result<()> {
+        require!(initial_base_yield > 0, GoalChainError::InvalidConfig);
+        require!(initial_base_yield <= MAX_BASE_YIELD_LAMPORTS, GoalChainError::InvalidConfig);
+
         let player = &mut ctx.accounts.parody_player;
         player.owner = owner;
         player.last_claim_timestamp = 0;
@@ -131,7 +716,7 @@ pub mod goalchain_program {
         player.matches_played = 0;
         player.speed = initial_speed;
         player.shot_power = initial_shot_power;
-        player.base_yield_rate = 100_000_000;
+        player.base_yield_rate = initial_base_yield;
         player.current_stamina = 100;
         player.is_eliminated = false;
         player.equipped_stadium_id = None;
@@ -923,20 +1508,32 @@ pub mod goalchain_program {
         require!(!player.is_eliminated, GoalChainError::PlayerIsEliminated);
 
         match action_type {
-            1 => { // Gol Real
+            1 => { // Gol Real: +10% yield
+                let bonus = player
+                    .base_yield_rate
+                    .checked_div(10)
+                    .ok_or(GoalChainError::MathOverflow)?;
                 player.base_yield_rate = player
                     .base_yield_rate
-                    .checked_add(10)
+                    .checked_add(bonus)
                     .ok_or(GoalChainError::MathOverflow)?;
             },
-            2 => { // Asistencia Real
+            2 => { // Asistencia Real: +5% yield
+                let bonus = player
+                    .base_yield_rate
+                    .checked_div(20)
+                    .ok_or(GoalChainError::MathOverflow)?;
                 player.base_yield_rate = player
                     .base_yield_rate
-                    .checked_add(5)
+                    .checked_add(bonus)
                     .ok_or(GoalChainError::MathOverflow)?;
             },
-            3 => { // Tarjeta Roja
-                player.base_yield_rate = player.base_yield_rate.saturating_sub(20);
+            3 => { // Tarjeta Roja: -20% yield
+                player.base_yield_rate = (player.base_yield_rate as u128)
+                    .checked_mul(80)
+                    .ok_or(GoalChainError::MathOverflow)?
+                    .checked_div(100)
+                    .ok_or(GoalChainError::MathOverflow)? as u64;
                 player.current_stamina = 0;
             },
             4 => { // Eliminación de su País
@@ -963,7 +1560,7 @@ pub mod goalchain_program {
     }
 
     /// El usuario reclama su sueldo, calculado dinámicamente.
-    /// El "Impuesto del Protocolo" del 10% se desvía a las "Architect Licenses".
+    /// El impuesto de protocolo está hard-capped al 1% para limitar capture.
     pub fn claim_daily_salary(ctx: Context<ClaimDailySalary>, _stadium_id: u16) -> Result<()> {
         let player = &mut ctx.accounts.parody_player;
         let manager = &ctx.accounts.manager_state;
@@ -996,8 +1593,10 @@ pub mod goalchain_program {
             .checked_mul(stadium.revenue_multiplier as u128).ok_or(GoalChainError::MathOverflow)?
             .checked_div(10_000).ok_or(GoalChainError::MathOverflow)? as u64;
 
-        // MATEMÁTICA DE LA LICENCIA DE ARQUITECTO
-        let architect_tax = final_daily_salary.checked_div(10).ok_or(GoalChainError::MathOverflow)?; // 10% Fijo
+        // Founder capture hard-cap: 1% max protocol tax on salaries.
+        let architect_tax = (final_daily_salary as u128)
+            .checked_mul(ARCHITECT_TAX_BPS as u128).ok_or(GoalChainError::MathOverflow)?
+            .checked_div(10_000).ok_or(GoalChainError::MathOverflow)? as u64;
         let user_net_salary = final_daily_salary.checked_sub(architect_tax).ok_or(GoalChainError::MathOverflow)?;
 
         player.current_stamina = player.current_stamina.saturating_sub(5);
@@ -1018,7 +1617,7 @@ pub mod goalchain_program {
         );
         token_interface::transfer_checked(cpi_user, user_net_salary, ctx.accounts.token_mint.decimals)?;
 
-        // 2. Pagar el 10% al "Architect Pool"
+        // 2. Pagar el impuesto (1%) al destino de tesorería comunitaria
         let cpi_architect = CpiContext::new_with_signer(
             ctx.accounts.token_program.key(),
             TransferChecked {
@@ -1074,7 +1673,7 @@ pub mod goalchain_program {
         let player = &mut ctx.accounts.parody_player;
         require!(player.current_stamina < 100, GoalChainError::StaminaAlreadyFull);
 
-        // Burn 250 GCH (250_000_000 lamports / decimals 6)
+        // Burn 100 GCH (POTION_BURN_LAMPORTS; 6 decimals)
         let cpi_program = ctx.accounts.token_program.key();
         let cpi_accounts = Burn {
             from: ctx.accounts.user_token_account.to_account_info(),
@@ -1082,7 +1681,7 @@ pub mod goalchain_program {
             authority: ctx.accounts.user.to_account_info(),
         };
         let cpi_ctx = CpiContext::new(cpi_program, cpi_accounts);
-        token_interface::burn(cpi_ctx, 250_000_000)?;
+        token_interface::burn(cpi_ctx, POTION_BURN_LAMPORTS)?;
 
         player.current_stamina = 100;
         Ok(())
@@ -1236,6 +1835,540 @@ pub struct UpdateConfig<'info> {
         constraint = config.admin == admin.key() @ GoalChainError::Unauthorized,
     )]
     pub config: Account<'info, GlobalConfig>,
+}
+
+#[account]
+#[derive(InitSpace)]
+pub struct BuilderFund {
+    pub admin: Pubkey,
+    pub config: Pubkey,
+    pub token_mint: Pubkey,
+    pub contributor_vault: Pubkey,
+    pub api_infra_vault: Pubkey,
+    pub marketing_vault: Pubkey,
+    pub contributor_bps: u16,
+    pub api_infra_bps: u16,
+    pub marketing_bps: u16,
+    pub total_inflow: u64,
+    pub contributor_allocated: u64,
+    pub api_infra_allocated: u64,
+    pub marketing_allocated: u64,
+    pub total_contributor_score: u64,
+    pub contributor_claimed_total: u64,
+    pub contributor_spent: u64,
+    pub api_infra_spent: u64,
+    pub marketing_spent: u64,
+    pub current_epoch: u64,
+    pub score_update_cooldown_seconds: i64,
+    pub min_epoch_score: u64,
+    pub max_contributors_per_epoch: u32,
+    pub bump: u8,
+}
+
+#[account]
+#[derive(InitSpace)]
+pub struct ContributorScore {
+    pub builder_fund: Pubkey,
+    pub contributor: Pubkey,
+    pub score: u64,
+    pub claimed_amount: u64,
+    pub last_update_timestamp: i64,
+    pub bump: u8,
+}
+
+#[account]
+#[derive(InitSpace)]
+pub struct BuilderContributorEpoch {
+    pub builder_fund: Pubkey,
+    pub epoch_id: u64,
+    pub contributor_pool: u64,
+    pub total_score_snapshot: u64,
+    pub contributor_count: u32,
+    pub finalized: bool,
+    pub created_at: i64,
+    pub finalized_at: i64,
+    pub bump: u8,
+}
+
+#[account]
+#[derive(InitSpace)]
+pub struct EpochContributorSnapshot {
+    pub epoch: Pubkey,
+    pub contributor: Pubkey,
+    pub score: u64,
+    pub bump: u8,
+}
+
+#[account]
+#[derive(InitSpace)]
+pub struct EpochContributorClaim {
+    pub epoch: Pubkey,
+    pub contributor: Pubkey,
+    pub amount: u64,
+    pub claimed_at: i64,
+    pub bump: u8,
+}
+
+#[derive(AnchorSerialize, AnchorDeserialize, Clone, Copy, PartialEq, Eq, InitSpace)]
+pub enum BuilderFundBucket {
+    Contributors,
+    ApiInfra,
+    Marketing,
+}
+
+#[event]
+pub struct BuilderFundInitialized {
+    pub builder_fund: Pubkey,
+    pub token_mint: Pubkey,
+    pub contributor_bps: u16,
+    pub api_infra_bps: u16,
+    pub marketing_bps: u16,
+}
+
+#[event]
+pub struct BuilderFundWeightsUpdated {
+    pub builder_fund: Pubkey,
+    pub contributor_bps: u16,
+    pub api_infra_bps: u16,
+    pub marketing_bps: u16,
+}
+
+#[event]
+pub struct BuilderFundGuardrailsUpdated {
+    pub builder_fund: Pubkey,
+    pub score_update_cooldown_seconds: i64,
+    pub min_epoch_score: u64,
+    pub max_contributors_per_epoch: u32,
+}
+
+#[event]
+pub struct BuilderFundFunded {
+    pub builder_fund: Pubkey,
+    pub payer: Pubkey,
+    pub total_amount: u64,
+    pub contributor_amount: u64,
+    pub api_infra_amount: u64,
+    pub marketing_amount: u64,
+}
+
+#[event]
+pub struct BuilderFundSpent {
+    pub builder_fund: Pubkey,
+    pub bucket: BuilderFundBucket,
+    pub amount: u64,
+    pub recipient: Pubkey,
+}
+
+#[event]
+pub struct ContributorScoreUpdated {
+    pub builder_fund: Pubkey,
+    pub contributor: Pubkey,
+    pub score: u64,
+    pub total_contributor_score: u64,
+}
+
+#[event]
+pub struct ContributorRewardsClaimed {
+    pub builder_fund: Pubkey,
+    pub contributor: Pubkey,
+    pub amount: u64,
+    pub claimed_total: u64,
+}
+
+#[event]
+pub struct ContributorEpochStarted {
+    pub builder_fund: Pubkey,
+    pub epoch_id: u64,
+    pub contributor_pool: u64,
+}
+
+#[event]
+pub struct ContributorEpochSnapshotRegistered {
+    pub epoch: Pubkey,
+    pub contributor: Pubkey,
+    pub score: u64,
+}
+
+#[event]
+pub struct ContributorEpochFinalized {
+    pub epoch: Pubkey,
+    pub epoch_id: u64,
+    pub total_score_snapshot: u64,
+    pub contributor_count: u32,
+}
+
+#[event]
+pub struct ContributorEpochClaimed {
+    pub epoch: Pubkey,
+    pub contributor: Pubkey,
+    pub amount: u64,
+}
+
+#[derive(Accounts)]
+pub struct InitializeBuilderFund<'info> {
+    #[account(mut)]
+    pub admin: Signer<'info>,
+    #[account(
+        seeds = [b"config"],
+        bump = config.bump,
+        constraint = config.admin == admin.key() @ GoalChainError::Unauthorized
+    )]
+    pub config: Account<'info, GlobalConfig>,
+    #[account(
+        init,
+        payer = admin,
+        space = 8 + BuilderFund::INIT_SPACE,
+        seeds = [b"builder_fund", config.key().as_ref()],
+        bump
+    )]
+    pub builder_fund: Account<'info, BuilderFund>,
+    #[account(
+        init,
+        payer = admin,
+        seeds = [b"builder_vault", builder_fund.key().as_ref(), b"contributors"],
+        bump,
+        token::mint = token_mint,
+        token::authority = builder_fund
+    )]
+    pub contributor_vault: InterfaceAccount<'info, TokenAccount>,
+    #[account(
+        init,
+        payer = admin,
+        seeds = [b"builder_vault", builder_fund.key().as_ref(), b"api_infra"],
+        bump,
+        token::mint = token_mint,
+        token::authority = builder_fund
+    )]
+    pub api_infra_vault: InterfaceAccount<'info, TokenAccount>,
+    #[account(
+        init,
+        payer = admin,
+        seeds = [b"builder_vault", builder_fund.key().as_ref(), b"marketing"],
+        bump,
+        token::mint = token_mint,
+        token::authority = builder_fund
+    )]
+    pub marketing_vault: InterfaceAccount<'info, TokenAccount>,
+    pub token_mint: InterfaceAccount<'info, Mint>,
+    pub token_program: Interface<'info, TokenInterface>,
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct UpdateBuilderFundWeights<'info> {
+    #[account(mut)]
+    pub admin: Signer<'info>,
+    #[account(
+        seeds = [b"config"],
+        bump = config.bump,
+        constraint = config.admin == admin.key() @ GoalChainError::Unauthorized
+    )]
+    pub config: Account<'info, GlobalConfig>,
+    #[account(
+        mut,
+        seeds = [b"builder_fund", config.key().as_ref()],
+        bump = builder_fund.bump,
+        constraint = builder_fund.admin == admin.key() @ GoalChainError::Unauthorized,
+        constraint = builder_fund.config == config.key() @ GoalChainError::InvalidConfig
+    )]
+    pub builder_fund: Account<'info, BuilderFund>,
+}
+
+#[derive(Accounts)]
+pub struct FundBuilderFund<'info> {
+    #[account(mut)]
+    pub payer: Signer<'info>,
+    #[account(
+        seeds = [b"config"],
+        bump = config.bump,
+    )]
+    pub config: Account<'info, GlobalConfig>,
+    #[account(
+        mut,
+        seeds = [b"builder_fund", config.key().as_ref()],
+        bump = builder_fund.bump,
+        constraint = builder_fund.config == config.key() @ GoalChainError::InvalidConfig
+    )]
+    pub builder_fund: Account<'info, BuilderFund>,
+    #[account(
+        mut,
+        constraint = payer_token_account.owner == payer.key() @ GoalChainError::Unauthorized,
+        constraint = payer_token_account.mint == token_mint.key() @ GoalChainError::InvalidMint,
+    )]
+    pub payer_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(
+        mut,
+        constraint = contributor_vault.key() == builder_fund.contributor_vault @ GoalChainError::InvalidBuilderFundBucket
+    )]
+    pub contributor_vault: InterfaceAccount<'info, TokenAccount>,
+    #[account(
+        mut,
+        constraint = api_infra_vault.key() == builder_fund.api_infra_vault @ GoalChainError::InvalidBuilderFundBucket
+    )]
+    pub api_infra_vault: InterfaceAccount<'info, TokenAccount>,
+    #[account(
+        mut,
+        constraint = marketing_vault.key() == builder_fund.marketing_vault @ GoalChainError::InvalidBuilderFundBucket
+    )]
+    pub marketing_vault: InterfaceAccount<'info, TokenAccount>,
+    #[account(constraint = token_mint.key() == builder_fund.token_mint @ GoalChainError::InvalidMint)]
+    pub token_mint: InterfaceAccount<'info, Mint>,
+    pub token_program: Interface<'info, TokenInterface>,
+}
+
+#[derive(Accounts)]
+pub struct SpendBuilderFund<'info> {
+    #[account(mut)]
+    pub admin: Signer<'info>,
+    #[account(
+        seeds = [b"config"],
+        bump = config.bump,
+        constraint = config.admin == admin.key() @ GoalChainError::Unauthorized
+    )]
+    pub config: Account<'info, GlobalConfig>,
+    #[account(
+        mut,
+        seeds = [b"builder_fund", config.key().as_ref()],
+        bump = builder_fund.bump,
+        constraint = builder_fund.admin == admin.key() @ GoalChainError::Unauthorized,
+        constraint = builder_fund.config == config.key() @ GoalChainError::InvalidConfig
+    )]
+    pub builder_fund: Account<'info, BuilderFund>,
+    #[account(
+        mut,
+        constraint = source_vault.mint == token_mint.key() @ GoalChainError::InvalidMint
+    )]
+    pub source_vault: InterfaceAccount<'info, TokenAccount>,
+    #[account(
+        mut,
+        constraint = destination_token_account.mint == token_mint.key() @ GoalChainError::InvalidMint
+    )]
+    pub destination_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(constraint = token_mint.key() == builder_fund.token_mint @ GoalChainError::InvalidMint)]
+    pub token_mint: InterfaceAccount<'info, Mint>,
+    pub token_program: Interface<'info, TokenInterface>,
+}
+
+#[derive(Accounts)]
+pub struct UpsertContributorScore<'info> {
+    #[account(mut)]
+    pub admin: Signer<'info>,
+    #[account(
+        seeds = [b"config"],
+        bump = config.bump,
+        constraint = config.admin == admin.key() @ GoalChainError::Unauthorized
+    )]
+    pub config: Account<'info, GlobalConfig>,
+    #[account(
+        mut,
+        seeds = [b"builder_fund", config.key().as_ref()],
+        bump = builder_fund.bump,
+        constraint = builder_fund.admin == admin.key() @ GoalChainError::Unauthorized,
+        constraint = builder_fund.config == config.key() @ GoalChainError::InvalidConfig
+    )]
+    pub builder_fund: Account<'info, BuilderFund>,
+    /// CHECK: contributor identity target for score assignment
+    pub contributor: UncheckedAccount<'info>,
+    #[account(
+        init_if_needed,
+        payer = admin,
+        space = 8 + ContributorScore::INIT_SPACE,
+        seeds = [b"contributor_score", builder_fund.key().as_ref(), contributor.key().as_ref()],
+        bump
+    )]
+    pub contributor_score: Account<'info, ContributorScore>,
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct ClaimContributorRewards<'info> {
+    #[account(mut)]
+    pub contributor: Signer<'info>,
+    #[account(
+        seeds = [b"config"],
+        bump = config.bump,
+    )]
+    pub config: Account<'info, GlobalConfig>,
+    #[account(
+        mut,
+        seeds = [b"builder_fund", config.key().as_ref()],
+        bump = builder_fund.bump,
+        constraint = builder_fund.config == config.key() @ GoalChainError::InvalidConfig
+    )]
+    pub builder_fund: Account<'info, BuilderFund>,
+    #[account(
+        mut,
+        seeds = [b"contributor_score", builder_fund.key().as_ref(), contributor.key().as_ref()],
+        bump = contributor_score.bump,
+        constraint = contributor_score.builder_fund == builder_fund.key() @ GoalChainError::InvalidContributorScore,
+        constraint = contributor_score.contributor == contributor.key() @ GoalChainError::InvalidContributorScore
+    )]
+    pub contributor_score: Account<'info, ContributorScore>,
+    #[account(
+        mut,
+        constraint = contributor_vault.key() == builder_fund.contributor_vault @ GoalChainError::InvalidBuilderFundBucket,
+        constraint = contributor_vault.mint == token_mint.key() @ GoalChainError::InvalidMint
+    )]
+    pub contributor_vault: InterfaceAccount<'info, TokenAccount>,
+    #[account(
+        mut,
+        constraint = contributor_token_account.owner == contributor.key() @ GoalChainError::Unauthorized,
+        constraint = contributor_token_account.mint == token_mint.key() @ GoalChainError::InvalidMint
+    )]
+    pub contributor_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(constraint = token_mint.key() == builder_fund.token_mint @ GoalChainError::InvalidMint)]
+    pub token_mint: InterfaceAccount<'info, Mint>,
+    pub token_program: Interface<'info, TokenInterface>,
+}
+
+#[derive(Accounts)]
+#[instruction(epoch_id: u64)]
+pub struct StartContributorEpoch<'info> {
+    #[account(mut)]
+    pub admin: Signer<'info>,
+    #[account(
+        seeds = [b"config"],
+        bump = config.bump,
+        constraint = config.admin == admin.key() @ GoalChainError::Unauthorized
+    )]
+    pub config: Account<'info, GlobalConfig>,
+    #[account(
+        mut,
+        seeds = [b"builder_fund", config.key().as_ref()],
+        bump = builder_fund.bump,
+        constraint = builder_fund.admin == admin.key() @ GoalChainError::Unauthorized,
+        constraint = builder_fund.config == config.key() @ GoalChainError::InvalidConfig
+    )]
+    pub builder_fund: Account<'info, BuilderFund>,
+    #[account(
+        init,
+        payer = admin,
+        space = 8 + BuilderContributorEpoch::INIT_SPACE,
+        seeds = [b"builder_epoch", builder_fund.key().as_ref(), epoch_id.to_le_bytes().as_ref()],
+        bump
+    )]
+    pub builder_epoch: Account<'info, BuilderContributorEpoch>,
+    #[account(
+        mut,
+        constraint = contributor_vault.key() == builder_fund.contributor_vault @ GoalChainError::InvalidBuilderFundBucket
+    )]
+    pub contributor_vault: InterfaceAccount<'info, TokenAccount>,
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct RegisterContributorEpochSnapshot<'info> {
+    #[account(mut)]
+    pub admin: Signer<'info>,
+    #[account(
+        seeds = [b"config"],
+        bump = config.bump,
+        constraint = config.admin == admin.key() @ GoalChainError::Unauthorized
+    )]
+    pub config: Account<'info, GlobalConfig>,
+    #[account(
+        mut,
+        seeds = [b"builder_fund", config.key().as_ref()],
+        bump = builder_fund.bump,
+        constraint = builder_fund.admin == admin.key() @ GoalChainError::Unauthorized,
+        constraint = builder_fund.config == config.key() @ GoalChainError::InvalidConfig
+    )]
+    pub builder_fund: Account<'info, BuilderFund>,
+    #[account(
+        mut,
+        constraint = builder_epoch.builder_fund == builder_fund.key() @ GoalChainError::InvalidEpochId
+    )]
+    pub builder_epoch: Account<'info, BuilderContributorEpoch>,
+    /// CHECK: contributor identity target for snapshot
+    pub contributor: UncheckedAccount<'info>,
+    #[account(
+        mut,
+        seeds = [b"contributor_score", builder_fund.key().as_ref(), contributor.key().as_ref()],
+        bump = contributor_score.bump,
+        constraint = contributor_score.builder_fund == builder_fund.key() @ GoalChainError::InvalidContributorScore,
+        constraint = contributor_score.contributor == contributor.key() @ GoalChainError::InvalidContributorScore
+    )]
+    pub contributor_score: Account<'info, ContributorScore>,
+    #[account(
+        init,
+        payer = admin,
+        space = 8 + EpochContributorSnapshot::INIT_SPACE,
+        seeds = [b"epoch_contributor", builder_epoch.key().as_ref(), contributor.key().as_ref()],
+        bump
+    )]
+    pub epoch_contributor_snapshot: Account<'info, EpochContributorSnapshot>,
+    pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct FinalizeContributorEpoch<'info> {
+    #[account(mut)]
+    pub admin: Signer<'info>,
+    #[account(
+        seeds = [b"config"],
+        bump = config.bump,
+        constraint = config.admin == admin.key() @ GoalChainError::Unauthorized
+    )]
+    pub config: Account<'info, GlobalConfig>,
+    #[account(
+        seeds = [b"builder_fund", config.key().as_ref()],
+        bump = builder_fund.bump,
+        constraint = builder_fund.admin == admin.key() @ GoalChainError::Unauthorized,
+        constraint = builder_fund.config == config.key() @ GoalChainError::InvalidConfig
+    )]
+    pub builder_fund: Account<'info, BuilderFund>,
+    #[account(
+        mut,
+        constraint = builder_epoch.builder_fund == builder_fund.key() @ GoalChainError::InvalidEpochId
+    )]
+    pub builder_epoch: Account<'info, BuilderContributorEpoch>,
+}
+
+#[derive(Accounts)]
+pub struct ClaimContributorEpoch<'info> {
+    #[account(mut)]
+    pub contributor: Signer<'info>,
+    #[account(
+        seeds = [b"config"],
+        bump = config.bump,
+    )]
+    pub config: Account<'info, GlobalConfig>,
+    #[account(
+        mut,
+        seeds = [b"builder_fund", config.key().as_ref()],
+        bump = builder_fund.bump,
+        constraint = builder_fund.config == config.key() @ GoalChainError::InvalidConfig
+    )]
+    pub builder_fund: Account<'info, BuilderFund>,
+    #[account(
+        constraint = builder_epoch.builder_fund == builder_fund.key() @ GoalChainError::InvalidEpochId
+    )]
+    pub builder_epoch: Account<'info, BuilderContributorEpoch>,
+    #[account(
+        seeds = [b"epoch_contributor", builder_epoch.key().as_ref(), contributor.key().as_ref()],
+        bump = epoch_contributor_snapshot.bump,
+        constraint = epoch_contributor_snapshot.epoch == builder_epoch.key() @ GoalChainError::InvalidEpochSnapshot,
+        constraint = epoch_contributor_snapshot.contributor == contributor.key() @ GoalChainError::InvalidEpochSnapshot
+    )]
+    pub epoch_contributor_snapshot: Account<'info, EpochContributorSnapshot>,
+    #[account(
+        init,
+        payer = contributor,
+        space = 8 + EpochContributorClaim::INIT_SPACE,
+        seeds = [b"epoch_claim", builder_epoch.key().as_ref(), contributor.key().as_ref()],
+        bump
+    )]
+    pub epoch_contributor_claim: Account<'info, EpochContributorClaim>,
+    /// CHECK: validated manually against mint and builder fund vault key in handler
+    #[account(mut)]
+    pub contributor_vault: UncheckedAccount<'info>,
+    /// CHECK: validated manually against contributor owner + mint in handler
+    #[account(mut)]
+    pub contributor_token_account: UncheckedAccount<'info>,
+    #[account(constraint = token_mint.key() == builder_fund.token_mint @ GoalChainError::InvalidMint)]
+    pub token_mint: InterfaceAccount<'info, Mint>,
+    pub token_program: Interface<'info, TokenInterface>,
+    pub system_program: Program<'info, System>,
 }
 
 // ---------------- EXISTING ACCOUNTS ----------------
@@ -1827,7 +2960,10 @@ pub struct ClaimDailySalary<'info> {
     pub config: Account<'info, GlobalConfig>,
     #[account(mut)]
     pub user_token_account: InterfaceAccount<'info, TokenAccount>,
-    #[account(mut)]
+    #[account(
+        mut,
+        constraint = architect_pool_account.key() == config.treasury_token_account @ GoalChainError::InvalidTreasury
+    )]
     pub architect_pool_account: InterfaceAccount<'info, TokenAccount>,
     #[account(
         mut,
@@ -2155,4 +3291,30 @@ pub enum GoalChainError {
     AlreadyEquipped,
     #[msg("Insufficient stamina")]
     InsufficientStamina,
+    #[msg("Invalid builder fund weights")]
+    InvalidBuilderFundWeights,
+    #[msg("Invalid builder fund bucket")]
+    InvalidBuilderFundBucket,
+    #[msg("Invalid contributor score account")]
+    InvalidContributorScore,
+    #[msg("No contributor score available")]
+    NoContributorScore,
+    #[msg("No claimable rewards")]
+    NoClaimableRewards,
+    #[msg("Invalid epoch id")]
+    InvalidEpochId,
+    #[msg("Epoch already finalized")]
+    EpochAlreadyFinalized,
+    #[msg("Epoch not finalized")]
+    EpochNotFinalized,
+    #[msg("Missing epoch snapshot score")]
+    NoEpochSnapshotScore,
+    #[msg("Invalid epoch snapshot")]
+    InvalidEpochSnapshot,
+    #[msg("Contributor score update is in cooldown")]
+    ScoreUpdateCooldown,
+    #[msg("Contributor score below minimum threshold")]
+    ContributorScoreTooLow,
+    #[msg("Epoch contributor limit reached")]
+    EpochContributorLimitReached,
 }

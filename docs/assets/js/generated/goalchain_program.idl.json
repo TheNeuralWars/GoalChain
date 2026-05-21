@@ -115,7 +115,7 @@
       "name": "claim_daily_salary",
       "docs": [
         "El usuario reclama su sueldo, calculado dinámicamente.",
-        "El \"Impuesto del Protocolo\" del 10% se desvía a las \"Architect Licenses\"."
+        "El impuesto de protocolo está hard-capped al 1% y se dirige a tesorería comunitaria."
       ],
       "discriminator": [
         35,
@@ -909,6 +909,10 @@
         {
           "name": "owner",
           "type": "pubkey"
+        },
+        {
+          "name": "initial_base_yield",
+          "type": "u64"
         }
       ]
     },

@@ -2,7 +2,7 @@
     "name": "Keylor Vault-as",
     "symbol": "GCH",
     "description": "GoalChain Genesis Squad - Keylor Vault-as (Costa rica). undefined",
-    "seller_fee_basis_points": 500,
+    "seller_fee_basis_points": 100,
     "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/419_keylor_vault-as.png",
     "attributes": [
         {
@@ -48,8 +48,16 @@
         "category": "image",
         "creators": [
             {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
+                "address": "Fndrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 1
+            },
+            {
+                "address": "BldrFundxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 10
+            },
+            {
+                "address": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 89
             }
         ]
     }
