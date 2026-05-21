@@ -1,0 +1,56 @@
+{
+    "name": "Irán Pro 15 Wallet",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Irán Pro 15 Wallet (Irán). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/899_irn_pro_15_wallet.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Irán"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "15"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 52
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 70
+        },
+        {
+            "trait_type": "Hype",
+            "value": 43
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/899_irn_pro_15_wallet.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

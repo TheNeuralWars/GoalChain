@@ -1,0 +1,25 @@
+{
+  "name": "@goalchain/sdk",
+  "version": "1.0.0",
+  "description": "GoalChain Solana SDK for Betting and NFT Marketplace",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "lint": "tsc --noEmit",
+    "test": "echo \"No automated tests configured\"",
+    "check": "npm run lint && npm run build"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.30.1",
+    "@solana/web3.js": "^1.98.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

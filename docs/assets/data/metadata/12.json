@@ -1,0 +1,56 @@
+{
+    "name": "Kylian M-Bypass-pé",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Kylian M-Bypass-pé (Francia). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/OBw9D.jpg",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Francia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Mythic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 98
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 28
+        },
+        {
+            "trait_type": "Hype",
+            "value": 98
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/OBw9D.jpg",
+                "type": "image/jpeg"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

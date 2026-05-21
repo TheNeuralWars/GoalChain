@@ -1,0 +1,56 @@
+{
+    "name": "Seb Hall-Legend",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Seb Hall-Legend (Costa de marfil). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/397_seb_hall-legend.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Costa de marfil"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 89
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 25
+        },
+        {
+            "trait_type": "Hype",
+            "value": 82
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/397_seb_hall-legend.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
