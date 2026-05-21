@@ -1,0 +1,56 @@
+{
+    "name": "Suecia Pro 7 Mint",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Suecia Pro 7 Mint (Suecia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/709_suecia_pro_7_mint.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Suecia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "7"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 97
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 77
+        },
+        {
+            "trait_type": "Hype",
+            "value": 62
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/709_suecia_pro_7_mint.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

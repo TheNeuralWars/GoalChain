@@ -1,0 +1,56 @@
+{
+    "name": "Patrick Seque-Grip",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Patrick Seque-Grip (Costa rica). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/424_patrick_seque-grip.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Costa rica"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 19
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 90
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/424_patrick_seque-grip.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

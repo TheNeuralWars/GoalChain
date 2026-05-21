@@ -1,0 +1,56 @@
+{
+    "name": "Eduardo Cama-Logic",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Eduardo Cama-Logic (Francia). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/Xe7eB.jpg",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Francia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 76
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 72
+        },
+        {
+            "trait_type": "Hype",
+            "value": 88
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/Xe7eB.jpg",
+                "type": "image/jpeg"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

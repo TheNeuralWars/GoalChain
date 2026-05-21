@@ -1,0 +1,56 @@
+{
+    "name": "Moh El-Shen-Safe",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Moh El-Shen-Safe (Egipto). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/491_moh_el-shen-safe.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Egipto"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 19
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 90
+        },
+        {
+            "trait_type": "Hype",
+            "value": 75
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/491_moh_el-shen-safe.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

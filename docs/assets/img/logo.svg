@@ -1,0 +1,8 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="48" fill="black" stroke="#14F195" stroke-width="2"/>
+  <path d="M50 10L61.7557 26.1803L80.7764 22.3607L75.4508 41.1803L90 55L73.541 64.1803L75.4508 83.1803L57.045 78.1803L42.955 88.1803L31.2443 73.1803L12.2236 77.1803L17.5492 58.1803L5 45L21.459 35.8197L19.5492 16.8197L37.955 21.8197L50 10Z" stroke="#14F195" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M50 35L62.9904 42.5V57.5L50 65L37.0096 57.5V42.5L50 35Z" fill="#14F195" fill-opacity="0.2" stroke="#14F195" stroke-width="2"/>
+  <circle cx="50" cy="50" r="5" fill="#14F195">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+  </circle>
+</svg>
