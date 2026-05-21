@@ -29,15 +29,25 @@
         /* Global Badge & Tab Header Styles to match AI Agent Hub premium style */
         .tab-header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            width: 100%;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            margin-bottom: 35px !important;
+            width: 100% !important;
+            gap: 12px !important;
+        }
+        .tab-header h2 {
+            font-size: 2rem !important;
+            margin: 0 0 5px 0 !important;
+            text-align: center !important;
         }
         .tab-header-badges {
-            display: flex;
-            gap: 10px;
-            align-items: center;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+            gap: 12px !important;
+            width: 100% !important;
         }
         .mobile-logout-btn {
             display: none !important;
@@ -50,15 +60,18 @@
             justify-content: center !important;
             padding: 6px 14px !important;
             font-size: 0.7rem !important;
-            border-radius: 20px !important; /* Premium rounded pill shape */
-            font-weight: 700 !important;
-            letter-spacing: 0.5px !important;
+            border-radius: 6px !important; /* Sleek rectangular badge with slightly rounded corners */
+            font-weight: 800 !important;
+            letter-spacing: 1px !important;
             line-height: 1.2 !important;
             height: auto !important;
             min-height: 24px !important;
             text-transform: uppercase !important;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
             transition: all 0.2s ease !important;
+            width: auto !important;
+            max-width: max-content !important;
+            box-sizing: border-box !important;
         }
 
         /* Dynamically convert solid backgrounds into glowy transparent borders like AI Agent Hub */
@@ -187,11 +200,14 @@
 
             /* Mobile logout button visibility override */
             .mobile-logout-btn {
-                display: inline-block !important;
+                display: none !important;
                 font-size: 1.3rem !important;
                 cursor: pointer;
                 padding: 5px;
                 transition: transform 0.2s ease;
+            }
+            body.wallet-connected .mobile-logout-btn {
+                display: inline-block !important;
             }
             .mobile-logout-btn:active {
                 transform: scale(0.85);

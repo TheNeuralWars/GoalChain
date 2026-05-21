@@ -96,7 +96,7 @@ async function fetchRealGCHBalance(walletAddress) {
     try {
         console.log("🔍 Fetching real $GCH balance from Solana Devnet for:", walletAddress);
         const connection = new solanaWeb3.Connection("https://api.devnet.solana.com", "confirmed");
-        const mintPublicKey = new solanaWeb3.PublicKey("D7cuCtBcsuXWftNV6EsThUwnvm33Cs9oPtQn9v41ZWNh");
+        const mintPublicKey = new solanaWeb3.PublicKey("49zjYVf8GYSWWyfxruM9eSVoXzUmbevxUzXn8TTYqbAA");
         const ownerPublicKey = new solanaWeb3.PublicKey(walletAddress);
 
         const accounts = await connection.getParsedTokenAccountsByOwner(ownerPublicKey, { mint: mintPublicKey });
@@ -129,6 +129,8 @@ async function fetchRealGCHBalance(walletAddress) {
 function updateWalletUI() {
     if (!userWalletAddress) return;
 
+    document.body.classList.add('wallet-connected');
+
     // Fetch and sync the real $GCH balance from Solana Devnet
     fetchRealGCHBalance(userWalletAddress);
 
@@ -142,43 +144,7 @@ function updateWalletUI() {
         btn.title = `Connected: ${shortAddress}`;
     });
 
-    // 2. Habilitar y configurar Whitelist
-    const emailInput = document.getElementById('whitelistEmail');
-    if (emailInput) {
-        emailInput.placeholder = "Escribe tu email para registrarte...";
-        emailInput.disabled = false;
-    }
-
-    const whitelistForm = document.getElementById('whitelistForm');
-    if (whitelistForm && !whitelistForm.dataset.handled) {
-        whitelistForm.dataset.handled = "true";
-        whitelistForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('whitelistEmail').value;
-            const wallet = userWalletAddress;
-
-            try {
-                const response = await fetch('http://localhost:3001/api/whitelist', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ wallet, email })
-                });
-
-                const result = await response.json();
-                if (result.success) {
-                    alert("¡Éxito! Te has unido a la Whitelist de GoalChain. ⚽🔥");
-                    whitelistForm.innerHTML = `<h3 style='color:var(--primary); margin: 20px 0;'>✅ ¡Ya estás dentro!</h3><p style='font-size:0.8rem; color:var(--text-dim);'>Wallet: ${wallet.slice(0,6)}...${wallet.slice(-4)}</p>`;
-                } else {
-                    alert("Hubo un problema al registrarte.");
-                }
-            } catch (err) {
-                console.error("Whitelist Error:", err);
-                alert("Error de conexión con la API (Asegúrate de que el servidor esté corriendo).");
-            }
-        });
-    }
-
-    // 3. Generar Link de Referidos y actualizar UI Social
+    // 2. Generar Link de Referidos y actualizar UI Social
     const refLink = `${window.location.origin}/?ref=${userWalletAddress}`;
     const referralDisplay = document.getElementById('referral-link-display');
     if (referralDisplay) {
@@ -196,6 +162,9 @@ function updateWalletUI() {
     // Mostrar sección de recompensas si estaba oculta
     const rewardsSection = document.getElementById('rewards');
     if (rewardsSection) rewardsSection.style.display = 'block';
+
+    // Disparar actualización de puntos global si existe
+    if (window.updateGoalPoints) window.updateGoalPoints();
 }
 
 function disconnectWallet() {
@@ -206,15 +175,28 @@ function disconnectWallet() {
 
 function copyReferralLink() {
     const referralDisplay = document.getElementById('referral-link-display');
-    if (referralDisplay && referralDisplay.innerText !== "Conecta tu wallet para generar...") {
+    if (referralDisplay && referralDisplay.innerText && referralDisplay.innerText.includes('?ref=')) {
         navigator.clipboard.writeText(referralDisplay.innerText).then(() => {
-            alert("¡Enlace de referidos copiado! 🚀");
+            const isEn = typeof currentLang !== 'undefined' && currentLang === 'en';
+            alert(isEn ? "Referral link copied! 🚀" : "¡Enlace de referidos copiado! 🚀");
         });
+    } else {
+        const isEn = typeof currentLang !== 'undefined' && currentLang === 'en';
+        alert(isEn ? "Please connect your wallet first!" : "¡Por favor, conecta tu wallet primero!");
     }
 }
 
+// Export functions to global scope
+window.connectWallet = connectWallet;
+window.disconnectWallet = disconnectWallet;
+window.copyReferralLink = copyReferralLink;
+
 // Inicialización y Listeners de Solana
 window.addEventListener('load', async () => {
+    if (localStorage.getItem('goalchain_wallet')) {
+        document.body.classList.add('wallet-connected');
+    }
+
     // Espera a que Phantom inyecte el objeto
     setTimeout(async () => {
         if (window.solana && window.solana.isPhantom) {

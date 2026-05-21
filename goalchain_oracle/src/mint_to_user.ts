@@ -28,7 +28,7 @@ async function main() {
 
     const rpcUrl = "https://api.devnet.solana.com";
     const keypairPath = "~/.config/solana/id.json";
-    const mintStr = "D7cuCtBcsuXWftNV6EsThUwnvm33Cs9oPtQn9v41ZWNh"; // Official $GCH Mint
+    const mintStr = "49zjYVf8GYSWWyfxruM9eSVoXzUmbevxUzXn8TTYqbAA"; // Official $GCH Mint
 
     const resolvedPath = keypairPath.startsWith("~") 
         ? keypairPath.replace("~", process.env.HOME || "") 
