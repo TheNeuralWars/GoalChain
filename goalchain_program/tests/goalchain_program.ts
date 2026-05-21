@@ -54,6 +54,10 @@ describe("goalchain_program", () => {
   let marketVaultPda: PublicKey;
   let userStakePda: PublicKey;
   let stakeVaultPda: PublicKey;
+  let builderFundPda: PublicKey;
+  let builderContributorVaultAta: PublicKey;
+  let builderApiInfraVaultAta: PublicKey;
+  let builderMarketingVaultAta: PublicKey;
 
   // SPL token addresses
   let betMint: PublicKey;
@@ -109,6 +113,10 @@ describe("goalchain_program", () => {
     [marketPda] = PublicKey.findProgramAddressSync([Buffer.from("market"), fixturePda.toBuffer(), Buffer.from([1])], program.programId);
     [marketVaultPda] = PublicKey.findProgramAddressSync([Buffer.from("market_vault"), marketPda.toBuffer()], program.programId);
     [userStakePda] = PublicKey.findProgramAddressSync([Buffer.from("stake"), user1.publicKey.toBuffer()], program.programId);
+    [builderFundPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("builder_fund"), configPda.toBuffer()],
+      program.programId
+    );
 
     // Deploy spl token mint
     betMint = await createMint(provider.connection, payer, provider.wallet.publicKey, null, 6);
@@ -124,6 +132,18 @@ describe("goalchain_program", () => {
     playerAAta = (await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, playerA.publicKey)).address;
     playerBAta = (await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, playerB.publicKey)).address;
     salaryVaultAta = (await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, configPda, true)).address;
+    [builderContributorVaultAta] = PublicKey.findProgramAddressSync(
+      [Buffer.from("builder_vault"), builderFundPda.toBuffer(), Buffer.from("contributors")],
+      program.programId
+    );
+    [builderApiInfraVaultAta] = PublicKey.findProgramAddressSync(
+      [Buffer.from("builder_vault"), builderFundPda.toBuffer(), Buffer.from("api_infra")],
+      program.programId
+    );
+    [builderMarketingVaultAta] = PublicKey.findProgramAddressSync(
+      [Buffer.from("builder_vault"), builderFundPda.toBuffer(), Buffer.from("marketing")],
+      program.programId
+    );
 
     // Mint supply to users
     await mintTo(provider.connection, payer, betMint, user1Ata, payer, 10_000_000_000);
@@ -143,7 +163,7 @@ describe("goalchain_program", () => {
           .initializeConfig(
             oracleAuthority.publicKey,
             treasuryAta,
-            1000,
+            100,
             new anchor.BN(15 * 60),
             new anchor.BN(2 * anchor.web3.LAMPORTS_PER_SOL),
             true
@@ -160,7 +180,7 @@ describe("goalchain_program", () => {
           .updateConfig(
             oracleAuthority.publicKey,
             treasuryAta,
-            1000,
+            100,
             new anchor.BN(15 * 60),
             new anchor.BN(2 * anchor.web3.LAMPORTS_PER_SOL),
             true
@@ -177,10 +197,10 @@ describe("goalchain_program", () => {
       assert.equal(config.admin.toBase58(), payer.publicKey.toBase58());
       assert.equal(config.oracleAuthority.toBase58(), oracleAuthority.publicKey.toBase58());
       assert.equal(config.treasuryTokenAccount.toBase58(), treasuryAta.toBase58());
-      assert.equal(config.feeBps, 1000);
+      assert.equal(config.feeBps, 100);
     });
 
-    it("Falla al inicializar con un fee por encima del límite duro (20%)", async () => {
+    it("Falla al inicializar con un fee por encima del límite duro (1%)", async () => {
       const wrongConfigPda = Keypair.generate();
       let failed = false;
       try {
@@ -188,7 +208,7 @@ describe("goalchain_program", () => {
           .initializeConfig(
             oracleAuthority.publicKey,
             treasuryAta,
-            2500,
+            101,
             new anchor.BN(15 * 60),
             new anchor.BN(2 * anchor.web3.LAMPORTS_PER_SOL),
             true
@@ -204,6 +224,473 @@ describe("goalchain_program", () => {
         failed = true;
       }
       assert.isTrue(failed, "Debería haber fallado debido al fee excesivo");
+    });
+  });
+
+  describe("🧰 1.5 BUILDER FUND (10%: CONTRIBUTORS + APIs + MARKETING)", () => {
+    it("Inicializa BuilderFund con sub-buckets auditables", async () => {
+      await program.methods
+        .initializeBuilderFund(7000, 2000, 1000)
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          contributorVault: builderContributorVaultAta,
+          apiInfraVault: builderApiInfraVaultAta,
+          marketingVault: builderMarketingVaultAta,
+          tokenMint: betMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      const builderFund = await program.account.builderFund.fetch(builderFundPda);
+      assert.equal(builderFund.contributorBps, 7000);
+      assert.equal(builderFund.apiInfraBps, 2000);
+      assert.equal(builderFund.marketingBps, 1000);
+      assert.equal(builderFund.contributorVault.toBase58(), builderContributorVaultAta.toBase58());
+      assert.equal(builderFund.apiInfraVault.toBase58(), builderApiInfraVaultAta.toBase58());
+      assert.equal(builderFund.marketingVault.toBase58(), builderMarketingVaultAta.toBase58());
+    });
+
+    it("Fondea y divide en sub-ledgers desde una única fuente", async () => {
+      const totalAmount = new anchor.BN(1_000_000_000); // 1000 GCH
+      await program.methods
+        .fundBuilderFund(totalAmount)
+        .accounts({
+          payer: user1.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          payerTokenAccount: user1Ata,
+          contributorVault: builderContributorVaultAta,
+          apiInfraVault: builderApiInfraVaultAta,
+          marketingVault: builderMarketingVaultAta,
+          tokenMint: betMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+        } as any)
+        .signers([user1])
+        .rpc();
+
+      const contributorBal = (await getAccount(provider.connection, builderContributorVaultAta)).amount;
+      const apiBal = (await getAccount(provider.connection, builderApiInfraVaultAta)).amount;
+      const marketingBal = (await getAccount(provider.connection, builderMarketingVaultAta)).amount;
+      assert.equal(contributorBal.toString(), "700000000");
+      assert.equal(apiBal.toString(), "200000000");
+      assert.equal(marketingBal.toString(), "100000000");
+
+      const builderFund = await program.account.builderFund.fetch(builderFundPda);
+      assert.equal(builderFund.totalInflow.toString(), totalAmount.toString());
+      assert.equal(builderFund.apiInfraAllocated.toString(), "200000000");
+    });
+
+    it("Registra score de contributors y permite claim proporcional desde bucket contributors", async () => {
+      const [user1ScorePda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user1.publicKey.toBuffer()],
+        program.programId
+      );
+      const [user2ScorePda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user2.publicKey.toBuffer()],
+        program.programId
+      );
+
+      await program.methods
+        .upsertContributorScore(new anchor.BN(80))
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          contributor: user1.publicKey,
+          contributorScore: user1ScorePda,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      await program.methods
+        .upsertContributorScore(new anchor.BN(20))
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          contributor: user2.publicKey,
+          contributorScore: user2ScorePda,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      const user2Before = (await getAccount(provider.connection, user2Ata)).amount;
+      await program.methods
+        .claimContributorRewards()
+        .accounts({
+          contributor: user2.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          contributorScore: user2ScorePda,
+          contributorVault: builderContributorVaultAta,
+          contributorTokenAccount: user2Ata,
+          tokenMint: betMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+        } as any)
+        .signers([user2])
+        .rpc();
+      const user2After = (await getAccount(provider.connection, user2Ata)).amount;
+
+      // Contributor bucket = 700 GCH, user2 has 20% score => 140 GCH claim
+      assert.equal((Number(user2After) - Number(user2Before)).toString(), "140000000");
+
+      const builderFund = await program.account.builderFund.fetch(builderFundPda);
+      assert.equal(builderFund.totalContributorScore.toString(), "100");
+      assert.equal(builderFund.contributorClaimedTotal.toString(), "140000000");
+    });
+
+    it("Bloquea doble claim del contributor cuando no hay rewards nuevas", async () => {
+      const [user2ScorePda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user2.publicKey.toBuffer()],
+        program.programId
+      );
+
+      let failed = false;
+      try {
+        await program.methods
+          .claimContributorRewards()
+          .accounts({
+            contributor: user2.publicKey,
+            config: configPda,
+            builderFund: builderFundPda,
+            contributorScore: user2ScorePda,
+            contributorVault: builderContributorVaultAta,
+            contributorTokenAccount: user2Ata,
+            tokenMint: betMint,
+            tokenProgram: TOKEN_PROGRAM_ID,
+          } as any)
+          .signers([user2])
+          .rpc();
+      } catch (e) {
+        failed = true;
+      }
+      assert.isTrue(failed, "Debería fallar por no tener rewards claimables");
+    });
+
+    it("Ejecuta distribución por epoch con snapshot congelado y claims separados", async () => {
+      await program.methods
+        .upsertContributorScore(new anchor.BN(60))
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          contributor: user1.publicKey,
+          contributorScore: PublicKey.findProgramAddressSync(
+            [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user1.publicKey.toBuffer()],
+            program.programId
+          )[0],
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      await program.methods
+        .upsertContributorScore(new anchor.BN(40))
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          contributor: user2.publicKey,
+          contributorScore: PublicKey.findProgramAddressSync(
+            [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user2.publicKey.toBuffer()],
+            program.programId
+          )[0],
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      // Add fresh capital for epoch distribution (700 GCH into contributor vault)
+      await program.methods
+        .fundBuilderFund(new anchor.BN(1_000_000_000))
+        .accounts({
+          payer: user1.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          payerTokenAccount: user1Ata,
+          contributorVault: builderContributorVaultAta,
+          apiInfraVault: builderApiInfraVaultAta,
+          marketingVault: builderMarketingVaultAta,
+          tokenMint: betMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+        } as any)
+        .signers([user1])
+        .rpc();
+
+      const epochId = new anchor.BN(1);
+      const epochIdBuf = Buffer.alloc(8);
+      epochIdBuf.writeBigUInt64LE(BigInt(1));
+      const [epochPda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("builder_epoch"), builderFundPda.toBuffer(), epochIdBuf],
+        program.programId
+      );
+      const [epochUser1SnapshotPda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("epoch_contributor"), epochPda.toBuffer(), user1.publicKey.toBuffer()],
+        program.programId
+      );
+      const [epochUser2SnapshotPda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("epoch_contributor"), epochPda.toBuffer(), user2.publicKey.toBuffer()],
+        program.programId
+      );
+      const [epochUser1ClaimPda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("epoch_claim"), epochPda.toBuffer(), user1.publicKey.toBuffer()],
+        program.programId
+      );
+      const [epochUser2ClaimPda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("epoch_claim"), epochPda.toBuffer(), user2.publicKey.toBuffer()],
+        program.programId
+      );
+
+      await program.methods
+        .startContributorEpoch(epochId, new anchor.BN(700_000_000))
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          builderEpoch: epochPda,
+          contributorVault: builderContributorVaultAta,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      await program.methods
+        .registerContributorEpochSnapshot()
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          builderEpoch: epochPda,
+          contributor: user1.publicKey,
+          contributorScore: PublicKey.findProgramAddressSync(
+            [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user1.publicKey.toBuffer()],
+            program.programId
+          )[0],
+          epochContributorSnapshot: epochUser1SnapshotPda,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      await program.methods
+        .registerContributorEpochSnapshot()
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          builderEpoch: epochPda,
+          contributor: user2.publicKey,
+          contributorScore: PublicKey.findProgramAddressSync(
+            [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user2.publicKey.toBuffer()],
+            program.programId
+          )[0],
+          epochContributorSnapshot: epochUser2SnapshotPda,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      await program.methods
+        .finalizeContributorEpoch()
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          builderEpoch: epochPda,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      const user1Before = (await getAccount(provider.connection, user1Ata)).amount;
+      const user2Before = (await getAccount(provider.connection, user2Ata)).amount;
+
+      await program.methods
+        .claimContributorEpoch()
+        .accounts({
+          contributor: user1.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          builderEpoch: epochPda,
+          epochContributorSnapshot: epochUser1SnapshotPda,
+          epochContributorClaim: epochUser1ClaimPda,
+          contributorVault: builderContributorVaultAta,
+          contributorTokenAccount: user1Ata,
+          tokenMint: betMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([user1])
+        .rpc();
+
+      await program.methods
+        .claimContributorEpoch()
+        .accounts({
+          contributor: user2.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          builderEpoch: epochPda,
+          epochContributorSnapshot: epochUser2SnapshotPda,
+          epochContributorClaim: epochUser2ClaimPda,
+          contributorVault: builderContributorVaultAta,
+          contributorTokenAccount: user2Ata,
+          tokenMint: betMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([user2])
+        .rpc();
+
+      const user1After = (await getAccount(provider.connection, user1Ata)).amount;
+      const user2After = (await getAccount(provider.connection, user2Ata)).amount;
+
+      // 700 GCH pool split by snapshot 60/40
+      assert.equal((Number(user1After) - Number(user1Before)).toString(), "420000000");
+      assert.equal((Number(user2After) - Number(user2Before)).toString(), "280000000");
+    });
+
+    it("Permite gasto de API/infra desde el bucket correspondiente", async () => {
+      const spendAmount = new anchor.BN(50_000_000); // 50 GCH
+      const receiverBefore = (await getAccount(provider.connection, user2Ata)).amount;
+
+      await program.methods
+        .spendBuilderFund({ apiInfra: {} }, spendAmount)
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          sourceVault: builderApiInfraVaultAta,
+          destinationTokenAccount: user2Ata,
+          tokenMint: betMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      const receiverAfter = (await getAccount(provider.connection, user2Ata)).amount;
+      assert.equal((Number(receiverAfter) - Number(receiverBefore)).toString(), spendAmount.toString());
+
+      const builderFund = await program.account.builderFund.fetch(builderFundPda);
+      assert.equal(builderFund.apiInfraSpent.toString(), spendAmount.toString());
+    });
+
+    it("Rechaza pesos inválidos que no suman 100%", async () => {
+      let failed = false;
+      try {
+        await program.methods
+          .updateBuilderFundWeights(5000, 3000, 1000)
+          .accounts({
+            admin: payer.publicKey,
+            config: configPda,
+            builderFund: builderFundPda,
+          } as any)
+          .signers([payer])
+          .rpc();
+      } catch (e) {
+        failed = true;
+      }
+      assert.isTrue(failed, "Debería fallar cuando la suma de bps no es 10000");
+    });
+
+    it("Aplica guardrails anti-sybil (cooldown + score mínimo por epoch)", async () => {
+      await program.methods
+        .updateBuilderFundGuardrails(new anchor.BN(60), new anchor.BN(50), 10)
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      const [user1ScorePda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user1.publicKey.toBuffer()],
+        program.programId
+      );
+      let cooldownFailed = false;
+      try {
+        await program.methods
+          .upsertContributorScore(new anchor.BN(61))
+          .accounts({
+            admin: payer.publicKey,
+            config: configPda,
+            builderFund: builderFundPda,
+            contributor: user1.publicKey,
+            contributorScore: user1ScorePda,
+            systemProgram: SystemProgram.programId,
+          } as any)
+          .signers([payer])
+          .rpc();
+      } catch (_e) {
+        cooldownFailed = true;
+      }
+      assert.isTrue(cooldownFailed, "Debería fallar por cooldown de actualización de score");
+
+      // Disable cooldown, keep min score guardrail
+      await program.methods
+        .updateBuilderFundGuardrails(new anchor.BN(0), new anchor.BN(50), 10)
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      const epoch2 = new anchor.BN(2);
+      const epoch2Buf = Buffer.alloc(8);
+      epoch2Buf.writeBigUInt64LE(BigInt(2));
+      const [epoch2Pda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("builder_epoch"), builderFundPda.toBuffer(), epoch2Buf],
+        program.programId
+      );
+      const [epoch2User2SnapshotPda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("epoch_contributor"), epoch2Pda.toBuffer(), user2.publicKey.toBuffer()],
+        program.programId
+      );
+      const [user2ScorePda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user2.publicKey.toBuffer()],
+        program.programId
+      );
+
+      await program.methods
+        .startContributorEpoch(epoch2, new anchor.BN(100_000_000))
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          builderFund: builderFundPda,
+          builderEpoch: epoch2Pda,
+          contributorVault: builderContributorVaultAta,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      let minScoreFailed = false;
+      try {
+        await program.methods
+          .registerContributorEpochSnapshot()
+          .accounts({
+            admin: payer.publicKey,
+            config: configPda,
+            builderFund: builderFundPda,
+            builderEpoch: epoch2Pda,
+            contributor: user2.publicKey,
+            contributorScore: user2ScorePda,
+            epochContributorSnapshot: epoch2User2SnapshotPda,
+            systemProgram: SystemProgram.programId,
+          } as any)
+          .signers([payer])
+          .rpc();
+      } catch (_e) {
+        minScoreFailed = true;
+      }
+      assert.isTrue(minScoreFailed, "Debería fallar porque user2 no alcanza min_epoch_score=50");
     });
   });
 
@@ -280,7 +767,7 @@ describe("goalchain_program", () => {
   describe("⚽ 3. PARODY PLAYER REGISTRY & ORACLE STATS UPDATES", () => {
     it("Inicializa un Parody Player (Lamine Ya-Hype)", async () => {
       await program.methods
-        .initParodyPlayer(playerId, "Lamine Ya-Hype", 92, 88, user1.publicKey)
+        .initParodyPlayer(playerId, "Lamine Ya-Hype", 92, 88, user1.publicKey, new anchor.BN(100_000_000))
         .accounts({
           admin: payer.publicKey,
           config: configPda,
@@ -641,10 +1128,10 @@ describe("goalchain_program", () => {
       // Pozo total = 400 + 600 = 1000 tokens
       // User1 aportó el 100% de la cuota ganadora (400 de 400).
       // Ganancia bruta = 1000 tokens.
-      // Fee = 1000 * 10% = 100 tokens.
-      // Pago neto = 1000 - 100 = 900 tokens.
-      assert.equal(Number(u1After) - Number(u1Before), 900_000_000);
-      assert.equal(Number(treasuryAfter) - Number(treasuryBefore), 100_000_000);
+      // Fee = 1000 * 1% = 10 tokens.
+      // Pago neto = 1000 - 10 = 990 tokens.
+      assert.equal(Number(u1After) - Number(u1Before), 990_000_000);
+      assert.equal(Number(treasuryAfter) - Number(treasuryBefore), 10_000_000);
     });
 
     it("Rechaza reclamos redundantes o dobles reclamos del ganador (Hostile flow)", async () => {
@@ -803,7 +1290,7 @@ describe("goalchain_program", () => {
         .oracleCreateMarket(
           1, // market_id
           { nextGoal: {} },
-          new anchor.BN(2), // Delay de desbloqueo de 2 segundos
+          new anchor.BN(0), // Sin delay (localnet clock no avanza con setTimeout)
           new anchor.BN(0), // Sin cooldown
           90, // Cierra en el minuto 90
           1,  // Diferencia máxima de 1 gol
@@ -879,9 +1366,6 @@ describe("goalchain_program", () => {
       const u1Before = (await getAccount(provider.connection, user1Ata)).amount;
       const treasuryBefore = (await getAccount(provider.connection, treasuryAta)).amount;
 
-      // Esperar 3 segundos para satisfacer el delay del mercado
-      await new Promise((r) => setTimeout(r, 3000));
-
       const ticketId = new anchor.BN(Date.now()); // No se usa en claim, pero necesitamos position PDA
       // Buscaremos la posición que creamos en el test anterior. Para eso, recuperamos los IDs de la cuenta
       // de la posición actual del usuario filtrando por el owner en Anchor.
@@ -916,9 +1400,9 @@ describe("goalchain_program", () => {
       const treasuryAfter = (await getAccount(provider.connection, treasuryAta)).amount;
 
       // Apostado: 150 tokens.
-      // Ganancia neta = 150 - (150 * 10% fee) = 135 tokens devueltos.
-      assert.equal(Number(u1After) - Number(u1Before), 135_000_000);
-      assert.equal(Number(treasuryAfter) - Number(treasuryBefore), 15_000_000);
+      // Ganancia neta = 150 - (150 * 1% fee) = 148.5 tokens devueltos.
+      assert.equal(Number(u1After) - Number(u1Before), 148_500_000);
+      assert.equal(Number(treasuryAfter) - Number(treasuryBefore), 1_500_000);
     });
   });
 
@@ -1166,7 +1650,7 @@ describe("goalchain_program", () => {
 
       const userBalanceBefore = (await getAccount(provider.connection, user1Ata)).amount;
 
-      // 2. Usar poción (Quema 250 $GCH y restaura stamina a 100)
+      // 2. Usar poción (Quema 100 $GCH y restaura stamina a 100)
       await program.methods
         .feedPotion()
         .accounts({
@@ -1183,8 +1667,33 @@ describe("goalchain_program", () => {
       assert.equal(player.currentStamina, 100);
 
       const userBalanceAfter = (await getAccount(provider.connection, user1Ata)).amount;
-      // 250 $GCH quemados = 250_000_000
-      assert.equal(Number(userBalanceBefore) - Number(userBalanceAfter), 250_000_000);
+      // 100 $GCH quemados = 100_000_000
+      assert.equal(Number(userBalanceBefore) - Number(userBalanceAfter), 100_000_000);
+    });
+
+    it("El oráculo incrementa el yield un 10% tras un gol", async () => {
+      await program.methods
+        .oracleResetSeason(new anchor.BN(100_000_000))
+        .accounts({
+          oracleAuthority: oracleAuthority.publicKey,
+          config: configPda,
+          parodyPlayer: parodyPlayerPda,
+        } as any)
+        .signers([oracleAuthority])
+        .rpc();
+
+      await program.methods
+        .oracleUpdatePlayerYield(1)
+        .accounts({
+          oracleAuthority: oracleAuthority.publicKey,
+          config: configPda,
+          parodyPlayer: parodyPlayerPda,
+        } as any)
+        .signers([oracleAuthority])
+        .rpc();
+
+      const player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
+      assert.equal(player.baseYieldRate.toString(), "110000000");
     });
 
     it("Equipa una camiseta (Jersey) en el Vestuario aplicando el boost y custodiando el NFT", async () => {
@@ -1401,7 +1910,17 @@ describe("goalchain_program", () => {
 
     it("Permite cobrar el salario diario con éxito, y luego bloquea reclamos sucesivos por cooldown y stamina", async () => {
       const stadiumId = 99;
-      
+
+      await program.methods
+        .oracleResetSeason(new anchor.BN(100_000_000))
+        .accounts({
+          oracleAuthority: oracleAuthority.publicKey,
+          config: configPda,
+          parodyPlayer: parodyPlayerPda,
+        } as any)
+        .signers([oracleAuthority])
+        .rpc();
+
       const [managerStatePda] = PublicKey.findProgramAddressSync(
         [Buffer.from("manager"), user1.publicKey.toBuffer()],
         program.programId
@@ -1460,7 +1979,7 @@ describe("goalchain_program", () => {
       
       const userBalanceAfter = (await getAccount(provider.connection, user1Ata)).amount;
       const salaryDelta = Number(userBalanceAfter) - Number(userBalanceBefore);
-      assert.closeTo(salaryDelta, 108_000_000, 100);
+      assert.closeTo(salaryDelta, 118_800_000, 100);
 
       let cooldownFailed = false;
       try {
@@ -1493,7 +2012,7 @@ describe("goalchain_program", () => {
       );
 
       await program.methods
-        .initParodyPlayer(lowStaminaPlayerId, "No Stamina Player", 50, 50, user1.publicKey)
+        .initParodyPlayer(lowStaminaPlayerId, "No Stamina Player", 50, 50, user1.publicKey, new anchor.BN(100_000_000))
         .accounts({
           admin: payer.publicKey,
           config: configPda,
