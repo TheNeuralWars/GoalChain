@@ -1,0 +1,56 @@
+{
+    "name": "Bernardo Loop",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Bernardo Loop (Portugal). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/069_bernardo_loop.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Portugal"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 76
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 72
+        },
+        {
+            "trait_type": "Hype",
+            "value": 92
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/069_bernardo_loop.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

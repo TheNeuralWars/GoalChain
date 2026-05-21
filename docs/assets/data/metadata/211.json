@@ -1,0 +1,56 @@
+{
+    "name": "Aleks Mitro-Hulk",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Aleks Mitro-Hulk (Serbia). undefined",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/211_aleks_mitro-hulk.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Serbia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "0"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 89
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 25
+        },
+        {
+            "trait_type": "Hype",
+            "value": 82
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "Pending"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/211_aleks_mitro-hulk.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

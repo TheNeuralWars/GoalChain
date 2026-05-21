@@ -1,0 +1,56 @@
+{
+    "name": "Marruecos Pro 16 Token",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Marruecos Pro 16 Token (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/822_marruecos_pro_16_token.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Marruecos"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "16"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 72
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 70
+        },
+        {
+            "trait_type": "Hype",
+            "value": 76
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/822_marruecos_pro_16_token.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
