@@ -56,3 +56,6 @@ solana-test-ledger/
 .tmp.driveupload/
 google_sync/
 scripts/sync_to_drive.sh
+
+# --- Scratch / local experiments ---
+scratch/
