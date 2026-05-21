@@ -1,0 +1,56 @@
+{
+    "name": "Escocia Pro 18 Gas",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Escocia Pro 18 Gas (Escocia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1162_escocia_pro_18_gas.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Escocia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "18"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 90
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 54
+        },
+        {
+            "trait_type": "Hype",
+            "value": 95
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/1162_escocia_pro_18_gas.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
