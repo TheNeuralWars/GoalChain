@@ -352,60 +352,94 @@
     </section>
 
     <section id="social" class="section">
-        <h2 class="section-title reveal"><span data-i18n="soc_title">Únete a Zealy Quests</span></h2>
-        <p class="section-subtitle reveal" data-i18n="soc_sub">Completa tareas y misiones en nuestro espacio oficial de Zealy para ganar XP. ¡El XP acumulado se convertirá en tokens $GCH en el airdrop oficial!</p>
+        <h2 class="section-title reveal"><span data-i18n="soc_title">Play-to-Airdrop Hub</span></h2>
+        <p class="section-subtitle reveal" data-i18n="soc_sub">Completa misiones, comparte tu link de referidos e invita amigos para escalar en el ranking y asegurar tu asignación de $GCH.</p>
         
-        <div class="container" style="max-width: 1000px; margin-top: 3rem;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+        <!-- AIRDROP HUB METRICS (Points & Referral Link) -->
+        <div class="container" style="max-width: 1000px; margin-bottom: 2.5rem;">
+            <div class="glass-card reveal" style="padding: 30px; display: flex; flex-direction: column; gap: 20px; align-items: center; justify-content: center; text-align: center; border-color: var(--primary);">
+                <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; align-items: center; width: 100%;">
+                    <div>
+                        <div style="font-size: 0.75rem; font-weight: 800; color: var(--text-dim); letter-spacing: 2px;" data-i18n="soc_your_pts">TUS GOALPOINTS</div>
+                        <div id="totalPoints" style="font-size: 3rem; font-weight: 900; background: linear-gradient(90deg, #14f195, #9945ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 15px rgba(20, 241, 149, 0.2)); line-height: 1.1;">0</div>
+                    </div>
+                    <div style="border-left: 1px solid rgba(255,255,255,0.1); height: 50px; display: inline-block;" class="desktop-only"></div>
+                    <div>
+                        <div style="font-size: 0.75rem; font-weight: 800; color: var(--text-dim); letter-spacing: 2px;">AIRDROP TIER</div>
+                        <div id="userTierBadge" style="display: inline-block; font-size: 1.1rem; font-weight: 900; color: #8a8a9a; border: 2px solid #8a8a9a; padding: 4px 16px; border-radius: 20px; margin-top: 5px;">COMMON</div>
+                    </div>
+                </div>
                 
-                <!-- Columna 1: Zealy Questboard CTA -->
-                <div class="glass-card reveal" style="text-align: left; padding: 40px; border-color: var(--primary); display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(20,241,149,0.05) 0%, rgba(13,13,21,0.95) 100%);">
-                    <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: radial-gradient(circle, rgba(20,241,149,0.15) 0%, transparent 70%); pointer-events: none;"></div>
-                    
+                <div style="width: 100%; max-width: 600px; margin-top: 10px;">
+                    <div style="font-size:0.8rem;color:var(--text-dim);font-weight:700;margin-bottom:8px;" data-i18n="soc_ref_label">Tu enlace de referidos:</div>
+                    <div style="display: flex; gap: 10px; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); padding: 10px 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap;">
+                        <span id="referral-link-display" style="color:var(--primary);font-size:0.85rem;word-break:break-all;font-weight: 700;" data-i18n="soc_ref_placeholder">Conecta tu wallet para generar...</span>
+                        <button onclick="copyReferralLink()" class="btn btn-primary btn-glow" style="padding: 6px 16px; font-size: 0.75rem; border-radius: 8px; border: none; cursor: pointer;" data-i18n="copy_ref_btn">Copiar Enlace</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SOCIAL HOBS (Zealy & Discord) -->
+        <div class="container" style="max-width: 1000px; margin-bottom: 2.5rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+                <!-- Zealy Questroom CTA -->
+                <div class="glass-card reveal" style="text-align: left; padding: 30px; border-color: rgba(255,255,255,0.05); display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(20,241,149,0.02) 0%, rgba(13,13,21,0.95) 100%);">
                     <div>
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                            <span class="badge" style="background: rgba(20,241,149,0.2); color: #14f195; border: 1px solid #14f195; font-size: 0.7rem; font-weight: 900; letter-spacing: 1px; padding: 4px 10px; border-radius: 6px;" data-i18n="zealy_badge">CAMPAÑA ACTIVA</span>
-                            <span style="font-size: 0.75rem; color: var(--text-dim); font-weight: 700;" data-i18n="zealy_season">TEMPORADA 1</span>
+                            <span class="badge" style="background: rgba(20,241,149,0.15); color: #14f195; border: 1px solid rgba(20,241,149,0.3); font-size: 0.65rem; font-weight: 900; letter-spacing: 1px; padding: 4px 10px; border-radius: 6px;" data-i18n="zealy_badge">CAMPAÑA ACTIVA</span>
+                            <span style="font-size: 0.7rem; color: var(--text-dim); font-weight: 700;" data-i18n="zealy_season">TEMPORADA 1</span>
                         </div>
-                        <h3 style="font-size: 1.8rem; font-weight: 900; color: #fff; margin-bottom: 15px; line-height: 1.2;">GoalChain <span style="color: var(--primary);">Questroom</span></h3>
-                        <p style="font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 25px;">
+                        <h3 style="font-size: 1.5rem; font-weight: 900; color: #fff; margin-bottom: 12px; line-height: 1.2;">GoalChain <span style="color: var(--primary);">Questroom</span></h3>
+                        <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 20px;">
                             <span data-i18n="zealy_desc">Entra a nuestra plataforma oficial de Zealy, completa misiones diarias y semanales, interactúa en redes sociales y sube de nivel para multiplicar tu asignación del Airdrop de $GCH.</span>
                         </p>
-                        
-                        <div style="margin-bottom: 30px;">
-                            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 12px; font-size: 0.85rem; color: #fff;">
-                                <span style="color: var(--primary);">✔</span> <span data-i18n-html="zealy_q1"><b>Social Quests:</b> Follow, Like, Repost en 𝕏</span>
-                            </div>
-                            <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 12px; font-size: 0.85rem; color: #fff;">
-                                <span style="color: var(--primary);">✔</span> <span data-i18n-html="zealy_q2"><b>Discord Quests:</b> Consigue roles exclusivos de Degen</span>
-                            </div>
-                            <div style="display: flex; gap: 10px; align-items: center; font-size: 0.85rem; color: #fff;">
-                                <span style="color: var(--primary);">✔</span> <span data-i18n-html="zealy_q3"><b>Game Quests:</b> Comparte tus rachas de Penaltis</span>
-                            </div>
-                        </div>
                     </div>
-                    
-                    <a href="https://zealy.io/c/goalchain" target="_blank" class="btn btn-primary btn-glow" style="width: 100%; text-align: center; padding: 16px 20px; font-size: 1rem; font-weight: 900; letter-spacing: 1px; display: inline-block; text-decoration: none; border-radius: 12px;">
+                    <a href="https://zealy.io/c/goalchain" target="_blank" class="btn btn-secondary" style="width: 100%; text-align: center; padding: 12px 20px; font-size: 0.9rem; font-weight: 900; text-decoration: none; border-radius: 8px;">
                         <span data-i18n="zealy_cta">🔗 IR A ZEALY QUESTROOM</span>
                     </a>
                 </div>
                 
-                <!-- Columna 2: Discord & Social Proof -->
-                <div class="glass-card reveal" style="text-align: left; padding: 40px; display: flex; flex-direction: column; justify-content: space-between; border-color: rgba(255,255,255,0.05); background: rgba(13, 13, 21, 0.8);">
+                <!-- Discord Server Widget -->
+                <div class="glass-card reveal" style="text-align: left; padding: 30px; display: flex; flex-direction: column; justify-content: space-between; border-color: rgba(255,255,255,0.05); background: rgba(13, 13, 21, 0.8);">
                     <div>
-                        <h4 style="color: var(--secondary); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 10px; font-weight: 900;" data-i18n="discord_label">COMUNIDAD REAL-TIME</h4>
-                        <h3 style="font-size: 1.4rem; font-weight: 900; color: #fff; margin-bottom: 15px;" data-i18n="discord_title">Únete al Servidor de Discord</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; margin-bottom: 25px;">
-                            <span data-i18n="discord_desc">La trinchera de los degens. Debate fixture, recibe alertas en tiempo real, participa en trivias y reclama tu rol de Genesis Manager.</span>
-                        </p>
+                        <h4 style="color: var(--secondary); font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 8px; font-weight: 900;" data-i18n="discord_label">COMUNIDAD REAL-TIME</h4>
+                        <h3 style="font-size: 1.3rem; font-weight: 900; color: #fff; margin-bottom: 12px;" data-i18n="discord_title">Únete al Servidor de Discord</h3>
                     </div>
-                    
-                    <!-- Discord Widget Integration -->
-                    <div style="margin-top: 10px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
-                        <iframe src="https://discord.com/widget?id=1503668119053406330&theme=dark" width="100%" height="240" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                    <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+                        <iframe src="https://discord.com/widget?id=1503668119053406330&theme=dark" width="100%" height="160" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
                     </div>
                 </div>
-                
+            </div>
+        </div>
+
+        <!-- ON-CHAIN SOCIAL QUESTS GRID -->
+        <div class="container" style="max-width: 1000px; margin-bottom: 3.5rem;">
+            <h3 style="text-align: center; font-size: 1.4rem; font-weight: 900; color: #fff; margin-bottom: 1.5rem;" data-i18n="soc_quests_title">Misiones On-Chain Diarias</h3>
+            <div class="social-grid" id="socialGrid"></div>
+        </div>
+
+        <!-- LIVE AIRDROP LEADERBOARD -->
+        <div class="container" style="max-width: 1000px;">
+            <div class="glass-card reveal" style="padding:30px; border-color: rgba(255,255,255,0.05);">
+                <h3 style="text-align:center; color:var(--primary); margin-bottom:20px; font-weight: 900; font-size: 1.4rem; letter-spacing: 1px;">🏆 AIRDROP LEADERBOARD (LIVE)</h3>
+                <div style="overflow-x:auto;">
+                    <table id="leaderboardTable" style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+                        <thead>
+                            <tr style="border-bottom:1px solid rgba(255,255,255,0.1); color:var(--text-dim); font-size:0.75rem; text-align:left;">
+                                <th style="padding:12px 10px;">RANGO</th>
+                                <th style="padding:12px 10px;">USUARIO</th>
+                                <th style="padding:12px 10px;">GOLES / PUNTOS</th>
+                                <th style="padding:12px 10px;">TIER AIRDROP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Skeletons loaded by leaderboard.js -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="userPosition" style="text-align:center; margin-top:15px; font-weight:bold; color:var(--primary); display:none;"></div>
+                <p style="text-align:center; margin-top:20px; font-size:0.75rem; color:var(--text-dim);" data-i18n="leaderboard_footer">☁️ Datos guardados en servidor real • Snapshot Final: 10 de Junio 2026</p>
             </div>
         </div>
     </section>
