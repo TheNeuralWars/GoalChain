@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoalChain | Dev Hub</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1 style="font-weight: 900; letter-spacing: -2px;">GOAL<span style="color: var(--primary);">CHAIN</span> DEV HUB</h1>
+                <p style="color: var(--text-dim); font-size: 0.8rem;">Internal Profit Sharing & Milestone Tracker</p>
+            </div>
+            <div class="user-selector" id="userSelector">
+                <!-- Users injected here -->
+            </div>
+        </header>
+
+        <div class="stats-grid" id="statsGrid">
+            <!-- Stats injected here -->
+        </div>
+
+        <div class="main-grid">
+            <section class="panel">
+                <h2>📅 Daily Stand-up</h2>
+                <div class="daily-reset-timer" id="resetTimer">REINICIO DIARIO EN: --:--:--</div>
+                <ul class="task-list" id="dailyTasks">
+                    <!-- Daily tasks injected here -->
+                </ul>
+            </section>
+
+            <section class="panel" style="background: rgba(153, 69, 255, 0.02); border-color: rgba(153, 69, 255, 0.2);">
+                <h2>🚩 Road to Launch</h2>
+                <ul class="task-list" id="milestones">
+                    <!-- Milestones injected here -->
+                </ul>
+            </section>
+        </div>
+
+        <section class="panel" style="margin-top: 2rem;">
+            <h2>📜 Historial de Contribuciones</h2>
+            <div class="log-list" id="logList">
+                <!-- Logs injected here -->
+            </div>
+        </section>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

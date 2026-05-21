@@ -1,0 +1,56 @@
+{
+    "name": "Austria Pro 14 Coin",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Austria Pro 14 Coin (Austria). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "1105.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Austria"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "14"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 79
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 79
+        },
+        {
+            "trait_type": "Hype",
+            "value": 83
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "1105.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

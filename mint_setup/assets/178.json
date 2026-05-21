@@ -1,0 +1,56 @@
+{
+    "name": "Portugal Player 23",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Portugal Player 23 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "178.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Portugal"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "23"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 57
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 79
+        },
+        {
+            "trait_type": "Hype",
+            "value": 63
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "178.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

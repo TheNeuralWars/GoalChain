@@ -1,0 +1,56 @@
+{
+    "name": "Colombia Star 16 Token",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Colombia Star 16 Token (Colombia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "405.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Colombia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "16"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 68
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 83
+        },
+        {
+            "trait_type": "Hype",
+            "value": 53
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "405.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

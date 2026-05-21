@@ -1,0 +1,56 @@
+{
+    "name": "Australia Pro 8 Gas",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Australia Pro 8 Gas (Australia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "1047.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Australia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "8"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 96
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 42
+        },
+        {
+            "trait_type": "Hype",
+            "value": 93
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "1047.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

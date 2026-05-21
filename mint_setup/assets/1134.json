@@ -1,0 +1,56 @@
+{
+    "name": "Grecia Pro 17 Mint",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Grecia Pro 17 Mint (Grecia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "1134.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Grecia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "17"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 87
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 61
+        },
+        {
+            "trait_type": "Hype",
+            "value": 40
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "1134.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

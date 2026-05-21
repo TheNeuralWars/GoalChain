@@ -1,0 +1,56 @@
+{
+    "name": "Corea del Sur Pro 26 Token",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Corea del Sur Pro 26 Token (Corea del Sur). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "1013.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Corea del Sur"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "26"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 41
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 97
+        },
+        {
+            "trait_type": "Hype",
+            "value": 41
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "1013.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

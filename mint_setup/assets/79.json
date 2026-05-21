@@ -1,0 +1,56 @@
+{
+    "name": "Harry Chain",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Harry Chain (Inglaterra). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "79.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Inglaterra"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Número",
+            "value": "2"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 97
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 54
+        },
+        {
+            "trait_type": "Hype",
+            "value": 35
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "79.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

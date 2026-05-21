@@ -1,0 +1,56 @@
+{
+    "name": "Junyo I-Wallet",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Junyo I-Wallet (Japón). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "1018.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Japón"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "5"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 98
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 51
+        },
+        {
+            "trait_type": "Hype",
+            "value": 46
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "1018.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

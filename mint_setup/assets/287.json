@@ -1,0 +1,56 @@
+{
+    "name": "Romelu Lu-Cash",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Romelu Lu-Cash (Bélgica). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "287.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Bélgica"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "2"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 41
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 85
+        },
+        {
+            "trait_type": "Hype",
+            "value": 94
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "287.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

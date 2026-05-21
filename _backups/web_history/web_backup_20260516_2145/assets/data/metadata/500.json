@@ -1,0 +1,56 @@
+{
+    "name": "Australia Pro 6 Token",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Australia Pro 6 Token (Australia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/500_australia_pro_6_token.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Australia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Número",
+            "value": "6"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 60
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 95
+        },
+        {
+            "trait_type": "Hype",
+            "value": 62
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/500_australia_pro_6_token.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

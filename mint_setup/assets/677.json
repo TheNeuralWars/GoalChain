@@ -1,0 +1,56 @@
+{
+    "name": "Oleksandr Zinchen-Node",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Oleksandr Zinchen-Node (Ucrania). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "677.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Ucrania"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "2"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 90
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 76
+        },
+        {
+            "trait_type": "Hype",
+            "value": 86
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "677.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

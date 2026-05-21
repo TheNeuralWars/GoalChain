@@ -1,0 +1,56 @@
+{
+    "name": "Noruega Pro 25 Wallet",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Noruega Pro 25 Wallet (Noruega). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/753_noruega_pro_25_wallet.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Noruega"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "25"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 80
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 95
+        },
+        {
+            "trait_type": "Hype",
+            "value": 89
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/753_noruega_pro_25_wallet.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

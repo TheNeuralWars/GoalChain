@@ -1,0 +1,56 @@
+{
+    "name": "España Player 24",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - España Player 24 (España). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/128_espaa_player_24.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "España"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "24"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 81
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 41
+        },
+        {
+            "trait_type": "Hype",
+            "value": 65
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/128_espaa_player_24.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

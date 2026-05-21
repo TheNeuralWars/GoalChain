@@ -1,0 +1,48 @@
+name: GoalChain Security
+
+on:
+  pull_request:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  dependency-review:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+
+  npm-audit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        module:
+          - goalchain_program
+          - goalchain_api
+          - goalchain-sdk
+          - goalchain_oracle
+    defaults:
+      run:
+        working-directory: ${{ matrix.module }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: ${{ matrix.module }}/package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Audit (non-blocking report)
+        continue-on-error: true
+        run: npm audit --audit-level=high

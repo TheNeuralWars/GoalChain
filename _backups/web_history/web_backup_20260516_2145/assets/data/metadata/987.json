@@ -1,0 +1,56 @@
+{
+    "name": "Egipto Pro 25 Wallet",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Egipto Pro 25 Wallet (Egipto). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/987_egipto_pro_25_wallet.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Egipto"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Common"
+        },
+        {
+            "trait_type": "Número",
+            "value": "25"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 65
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 47
+        },
+        {
+            "trait_type": "Hype",
+            "value": 86
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/987_egipto_pro_25_wallet.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}

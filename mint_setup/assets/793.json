@@ -1,0 +1,56 @@
+{
+    "name": "Argelia Pro 14 Coin",
+    "symbol": "GCH",
+    "description": "GoalChain Genesis Squad - Argelia Pro 14 Coin (Argelia). Contrato profesional activo para el Mundial 2026.",
+    "seller_fee_basis_points": 500,
+    "image": "793.png",
+    "attributes": [
+        {
+            "trait_type": "País",
+            "value": "Argelia"
+        },
+        {
+            "trait_type": "Posición",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Rareza",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Número",
+            "value": "14"
+        },
+        {
+            "trait_type": "Ataque",
+            "value": 60
+        },
+        {
+            "trait_type": "Defensa",
+            "value": 76
+        },
+        {
+            "trait_type": "Hype",
+            "value": 81
+        },
+        {
+            "trait_type": "Oracle Sync",
+            "value": "active"
+        }
+    ],
+    "properties": {
+        "files": [
+            {
+                "uri": "793.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image",
+        "creators": [
+            {
+                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 100
+            }
+        ]
+    }
+}
