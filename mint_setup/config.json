@@ -1,13 +1,21 @@
 {
   "number": 1248,
   "symbol": "GCH",
-  "sellerFeeBasisPoints": 500,
+  "sellerFeeBasisPoints": 100,
   "isMutable": true,
   "isSequential": false,
   "creators": [
     {
-      "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-      "share": 100
+      "address": "Fndrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "share": 1
+    },
+    {
+      "address": "BldrFundxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "share": 10
+    },
+    {
+      "address": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "share": 89
     }
   ],
   "uploadMethod": "bundlr",
@@ -22,7 +30,7 @@
     "default": {
       "solPayment": {
         "value": 0.1,
-        "destination": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        "destination": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
       },
       "startDate": "2026-06-01T12:00:00Z",
       "mintLimit": {

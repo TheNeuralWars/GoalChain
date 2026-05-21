@@ -2,7 +2,7 @@
     "name": "Kai Havertz-Class",
     "symbol": "GCH",
     "description": "GoalChain Genesis Squad - Kai Havertz-Class (Alemania). undefined",
-    "seller_fee_basis_points": 500,
+    "seller_fee_basis_points": 100,
     "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/059_kai_havertz-class.png",
     "attributes": [
         {
@@ -48,8 +48,16 @@
         "category": "image",
         "creators": [
             {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
+                "address": "Fndrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 1
+            },
+            {
+                "address": "BldrFundxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 10
+            },
+            {
+                "address": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 89
             }
         ]
     }

@@ -9,6 +9,7 @@
     "init-tokens": "tsc && node dist/initialize_tokens.js",
     "init-config": "tsc && node dist/initialize_mainnet.js",
     "mint-to": "tsc && node dist/mint_to_user.js",
+    "contributor-epoch-hook": "tsc && node dist/contributor_epoch_hook.js",
     "lint": "tsc --noEmit",
     "test": "npm run lint"
   },

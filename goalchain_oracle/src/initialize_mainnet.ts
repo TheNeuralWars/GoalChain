@@ -21,7 +21,7 @@ async function main() {
     // Config Parameters
     const oraclePubkeyStr = process.env.ORACLE_AUTHORITY_PUBKEY;
     const treasuryTokenAccountStr = process.env.TREASURY_TOKEN_ACCOUNT;
-    const feeBps = parseInt(process.env.FEE_BPS || "1000"); // default 10%
+    const feeBps = parseInt(process.env.FEE_BPS || "100"); // default 1%
     const cutoffSeconds = parseInt(process.env.CUTOFF_BUFFER_SECONDS || "900"); // default 15 mins
 
     if (!oraclePubkeyStr || !treasuryTokenAccountStr) {
@@ -69,7 +69,14 @@ async function main() {
     if (!configInfo) {
         console.log(`📝 Config PDA not initialized. Initializing new config...`);
         method = program.methods
-            .initializeConfig(oracleAuthority, treasuryTokenAccount, feeBps, new BN(cutoffSeconds))
+            .initializeConfig(
+                oracleAuthority,
+                treasuryTokenAccount,
+                feeBps,
+                new BN(cutoffSeconds),
+                new BN(2 * anchor.web3.LAMPORTS_PER_SOL),
+                true
+            )
             .accounts({
                 admin: wallet.publicKey,
                 config: configPda,
@@ -78,7 +85,14 @@ async function main() {
     } else {
         console.log(`📝 Config PDA already exists. Updating existing config...`);
         method = program.methods
-            .updateConfig(oracleAuthority, treasuryTokenAccount, feeBps, new BN(cutoffSeconds))
+            .updateConfig(
+                oracleAuthority,
+                treasuryTokenAccount,
+                feeBps,
+                new BN(cutoffSeconds),
+                new BN(2 * anchor.web3.LAMPORTS_PER_SOL),
+                true
+            )
             .accounts({
                 admin: wallet.publicKey,
                 config: configPda,

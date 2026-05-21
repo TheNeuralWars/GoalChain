@@ -13,9 +13,9 @@ let colabState = {
         { name: 'GoalChain_Fan', content: 'Youtube: Tutorial Penaltis', views: '12K', tokens: '1,200 $GCH', status: 'Activo' }
     ],
     equity: [
-        { name: 'Nico (CEO)', share: '33.3%', points: '2,500' },
-        { name: 'Hermano 1 (Dev)', share: '33.3%', points: '2,450' },
-        { name: 'Hermano 2 (Ops)', share: '33.3%', points: '2,400' }
+        { name: 'Founder (Origin Recognition)', share: '1.0%', points: '250' },
+        { name: 'Builder Fund (Contributors + APIs + Marketing)', share: '10.0%', points: '2,500' },
+        { name: 'Community Treasury / DAO', share: '89.0%', points: '8,900' }
     ]
 };
 

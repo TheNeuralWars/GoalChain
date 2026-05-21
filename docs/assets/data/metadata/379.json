@@ -2,7 +2,7 @@
     "name": "William Troost-Cap",
     "symbol": "GCH",
     "description": "GoalChain Genesis Squad - William Troost-Cap (Nigeria). undefined",
-    "seller_fee_basis_points": 500,
+    "seller_fee_basis_points": 100,
     "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/379_william_troost-cap.png",
     "attributes": [
         {
@@ -48,8 +48,16 @@
         "category": "image",
         "creators": [
             {
-                "address": "GCHxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                "share": 100
+                "address": "Fndrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 1
+            },
+            {
+                "address": "BldrFundxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 10
+            },
+            {
+                "address": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "share": 89
             }
         ]
     }
