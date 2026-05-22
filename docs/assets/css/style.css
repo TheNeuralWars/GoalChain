@@ -19,7 +19,11 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--bg-dark);
+}
 
 body {
     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -2245,6 +2249,11 @@ body {
    ========================================================================== */
 
 @media (max-width: 768px) {
+    /* Disable fixed background attachment on mobile to prevent rendering failures */
+    .hero, #economics {
+        background-attachment: scroll !important;
+    }
+
     /* Live Stats Bar */
     .reveal[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
