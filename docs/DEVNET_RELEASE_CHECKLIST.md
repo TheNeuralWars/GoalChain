@@ -241,3 +241,54 @@ curl -s -X POST "http://localhost:3001/api/economy/health/alert"
 - [ ] Primer alerta `warning` recibida y parseable por Ops
 - [ ] Cooldown probado (no spam de alertas duplicadas)
 - [ ] Runbook de mitigación ejecutable por on-call
+
+### Opción robusta: systemd timer (Linux)
+
+Servicio one-shot:
+
+```ini
+# /etc/systemd/system/goalchain-econ-alert.service
+[Unit]
+Description=GoalChain Economy Health Alert Trigger
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=goalchain
+Group=goalchain
+Environment=GOALCHAIN_ALERT_TOKEN=replace_me_if_needed
+ExecStart=/usr/bin/curl -s -X POST https://api.goalchain.io/api/economy/health/alert -H Authorization:\ Bearer\ ${GOALCHAIN_ALERT_TOKEN}
+```
+
+Timer cada 10 minutos:
+
+```ini
+# /etc/systemd/system/goalchain-econ-alert.timer
+[Unit]
+Description=Run GoalChain Economy Health Alert every 10 minutes
+
+[Timer]
+OnCalendar=*:0/10
+Persistent=true
+Unit=goalchain-econ-alert.service
+
+[Install]
+WantedBy=timers.target
+```
+
+Activación:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now goalchain-econ-alert.timer
+sudo systemctl status goalchain-econ-alert.timer
+sudo systemctl list-timers | rg goalchain-econ-alert
+```
+
+Debug rápido:
+
+```bash
+sudo systemctl start goalchain-econ-alert.service
+journalctl -u goalchain-econ-alert.service -n 100 --no-pager
+```
