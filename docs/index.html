@@ -230,8 +230,6 @@
         </div>
     </header>
 
-    </header>
-
     <!-- PRE-LAUNCH IDO PRESALE WIDGET -->
     <section id="presale" class="section" style="background: radial-gradient(circle at center, #0f0f1c 0%, #06060a 100%); padding: 80px 0; border-bottom: 1px solid rgba(153, 69, 255, 0.2);">
         <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
@@ -506,6 +504,8 @@
                 </div>
                 <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('econCarousel', 1)">❯</button>
             </div>
+        </div>
+    </section>
 
     <!-- GAMEPLAY -->
     <section id="gameplay" class="section section-dark">
@@ -623,6 +623,14 @@
         <h2 class="section-title reveal"><span data-i18n="fix_title">Fixture — Mundial 2026</span></h2>
         <p class="section-subtitle reveal" data-i18n="fix_sub">48 selecciones, 12 grupos. Toda la acción del torneo integrada en GoalChain para apuestas en tiempo real.</p>
         <div class="fixture-tabs" id="fixtureTabs"></div>
+
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('fixtureCarousel', -1)">❮</button>
+            <div class="carousel-container fixture-carousel" id="fixtureCarousel">
+                <div class="group-grid" id="groupGrid"></div>
+            </div>
+            <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('fixtureCarousel', 1)">❯</button>
+        </div>
 
         <!-- STYLE FOR LIVE BETTING ARENA -->
         <style>
@@ -842,13 +850,6 @@
                 </div>
             </div>
         </div>
-        <div class="carousel-wrapper">
-            <button class="carousel-btn prev-btn" aria-label="Previous" onclick="scrollCarousel('fixtureCarousel', -1)">❮</button>
-            <div class="carousel-container fixture-carousel" id="fixtureCarousel">
-                <div class="group-grid" id="groupGrid"></div>
-            </div>
-            <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('fixtureCarousel', 1)">❯</button>
-        </div>
     </section>
 
     <!-- ROADMAP -->
@@ -864,8 +865,6 @@
                 <div class="roadmap-timeline" id="roadmapTimeline"></div>
             </div>
             <button class="carousel-btn next-btn" aria-label="Next" onclick="scrollCarousel('roadmapCarousel', 1)">❯</button>
-        </div>
-    </section>
         </div>
     </section>
     <!-- PACK OPENING SECTION -->
@@ -1136,9 +1135,6 @@
             </div>
         </div>
     </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Full Screen Reveal Overlay (Hidden by default) -->
     <div id="revealModal" class="reveal-overlay">
@@ -1185,7 +1181,6 @@
                     <span data-i18n="nft_dream_yield">Yield estimado:</span> <strong>+4,820 $GCH / partido</strong>
                 </p>
             </div>
-        </div>
     <!-- TRANSFER MARKET (MARKETPLACE) -->
     <section id="marketplace" class="section container" style="margin-top: 80px;">
         <div class="section-header" style="text-align: center; margin-bottom: 40px;">
@@ -1335,6 +1330,9 @@
             </div>
         </div>
     </section>
+
+    <!-- TEAM -->
+    <section id="team" class="section">
         <h2 class="section-title reveal"><span data-i18n="team_title">El Equipo</span></h2>
         <p class="section-subtitle reveal" data-i18n="team_sub">Tres hermanos, una pasión: el fútbol y la blockchain.</p>
         <div class="team-grid">
