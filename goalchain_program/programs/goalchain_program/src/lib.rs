@@ -22,6 +22,7 @@ pub const DEFAULT_MAX_CONTRIBUTORS_PER_EPOCH: u32 = 500;
 pub const DEFAULT_FEE_BURN_BPS: u16 = 4_000; // 40% of fee stream
 pub const DEFAULT_FEE_JACKPOT_BPS: u16 = 4_000; // 40% of fee stream
 pub const DEFAULT_MAX_STARTERS_PER_MANAGER: u8 = 11;
+pub const STAMINA_DRAIN_PER_MATCH: u8 = 30;
 
 /// Maps Genesis Squad rarity tier (metadata) → daily base yield in lamports.
 pub fn base_yield_for_rarity_tier(tier: u8) -> u64 {
@@ -1987,15 +1988,80 @@ pub mod goalchain_program {
         Ok(())
     }
 
+    /// Records a real match played by a player (idempotent per fixture + player).
+    /// First call drains stamina by STAMINA_DRAIN_PER_MATCH. Repeated calls are no-op.
+    pub fn oracle_record_match(ctx: Context<OracleRecordMatch>) -> Result<()> {
+        let record = &mut ctx.accounts.player_match_record;
+        let player = &mut ctx.accounts.parody_player;
+
+        if record.applied {
+            return Ok(());
+        }
+
+        if record.player == Pubkey::default() {
+            record.player = player.key();
+            record.fixture = ctx.accounts.fixture.key();
+            record.applied = false;
+            record.bump = ctx.bumps.player_match_record;
+        } else {
+            require_keys_eq!(
+                record.player,
+                player.key(),
+                GoalChainError::InvalidMatchRecord
+            );
+            require_keys_eq!(
+                record.fixture,
+                ctx.accounts.fixture.key(),
+                GoalChainError::InvalidMatchRecord
+            );
+        }
+
+        player.current_stamina = player
+            .current_stamina
+            .saturating_sub(STAMINA_DRAIN_PER_MATCH);
+        record.applied = true;
+        Ok(())
+    }
+
     /// El usuario reclama su sueldo, calculado dinámicamente.
     /// El impuesto de protocolo está hard-capped al 1% para limitar capture.
-    pub fn claim_daily_salary(ctx: Context<ClaimDailySalary>, _stadium_id: u16) -> Result<()> {
+    pub fn claim_daily_salary(
+        ctx: Context<ClaimDailySalary>,
+        stadium_id: u16,
+        day_id: i64,
+    ) -> Result<()> {
         let player = &mut ctx.accounts.parody_player;
         let manager = &ctx.accounts.manager_state;
         let stadium = &ctx.accounts.stadium_state;
+        let daily_claim = &mut ctx.accounts.manager_daily_claim;
 
         let clock = Clock::get()?;
         let current_ts = clock.unix_timestamp;
+        let _ = stadium_id;
+        let current_day = current_ts.div_euclid(86_400);
+        require!(day_id == current_day, GoalChainError::InvalidDayId);
+
+        if daily_claim.owner == Pubkey::default() {
+            daily_claim.owner = ctx.accounts.user.key();
+            daily_claim.day_id = day_id;
+            daily_claim.claim_count = 0;
+            daily_claim.bump = ctx.bumps.manager_daily_claim;
+        } else {
+            require_keys_eq!(
+                daily_claim.owner,
+                ctx.accounts.user.key(),
+                GoalChainError::Unauthorized
+            );
+            require!(daily_claim.day_id == day_id, GoalChainError::InvalidDayId);
+        }
+        require!(
+            daily_claim.claim_count < ctx.accounts.config.max_starters_per_manager,
+            GoalChainError::DailyClaimLimitReached
+        );
+        daily_claim.claim_count = daily_claim
+            .claim_count
+            .checked_add(1)
+            .ok_or(GoalChainError::MathOverflow)?;
 
         // 1. Enforce cooldown (24 hours)
         require!(
@@ -3494,7 +3560,7 @@ pub struct OracleUpdatePlayerYield<'info> {
 }
 
 #[derive(Accounts)]
-#[instruction(stadium_id: u16)]
+#[instruction(stadium_id: u16, day_id: i64)]
 pub struct ClaimDailySalary<'info> {
     #[account(
         mut,
@@ -3511,6 +3577,14 @@ pub struct ClaimDailySalary<'info> {
         bump
     )]
     pub stadium_state: Account<'info, StadiumState>,
+    #[account(
+        init_if_needed,
+        payer = user,
+        space = 8 + ManagerDailyClaim::INIT_SPACE,
+        seeds = [b"manager_daily_claim", user.key().as_ref(), day_id.to_le_bytes().as_ref()],
+        bump
+    )]
+    pub manager_daily_claim: Account<'info, ManagerDailyClaim>,
     #[account(mut)]
     pub config: Account<'info, GlobalConfig>,
     #[account(mut)]
@@ -3528,7 +3602,33 @@ pub struct ClaimDailySalary<'info> {
     pub vault_token_account: InterfaceAccount<'info, TokenAccount>,
     pub token_mint: InterfaceAccount<'info, Mint>,
     pub token_program: Interface<'info, TokenInterface>,
+    pub system_program: Program<'info, System>,
+    #[account(mut)]
     pub user: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct OracleRecordMatch<'info> {
+    #[account(mut)]
+    pub oracle_authority: Signer<'info>,
+    #[account(
+        seeds = [b"config"],
+        bump = config.bump,
+        constraint = config.oracle_authority == oracle_authority.key() @ GoalChainError::UnauthorizedOracle,
+    )]
+    pub config: Account<'info, GlobalConfig>,
+    #[account(mut)]
+    pub parody_player: Account<'info, ParodyPlayer>,
+    pub fixture: Account<'info, Fixture>,
+    #[account(
+        init_if_needed,
+        payer = oracle_authority,
+        space = 8 + PlayerMatchRecord::INIT_SPACE,
+        seeds = [b"player_match", parody_player.key().as_ref(), fixture.key().as_ref()],
+        bump
+    )]
+    pub player_match_record: Account<'info, PlayerMatchRecord>,
+    pub system_program: Program<'info, System>,
 }
 
 #[derive(Accounts)]
@@ -3656,6 +3756,24 @@ pub struct GoldenRecall<'info> {
 pub struct ManagerState {
     pub level: u8,
     pub salary_multiplier: u64,
+}
+
+#[account]
+#[derive(InitSpace)]
+pub struct ManagerDailyClaim {
+    pub owner: Pubkey,
+    pub day_id: i64,
+    pub claim_count: u8,
+    pub bump: u8,
+}
+
+#[account]
+#[derive(InitSpace)]
+pub struct PlayerMatchRecord {
+    pub player: Pubkey,
+    pub fixture: Pubkey,
+    pub applied: bool,
+    pub bump: u8,
 }
 
 #[account]
@@ -3838,6 +3956,12 @@ pub enum GoalChainError {
     PlayerIsEliminated,
     #[msg("Invalid action type from oracle")]
     InvalidActionType,
+    #[msg("Invalid claim day id")]
+    InvalidDayId,
+    #[msg("Daily XI claim limit reached")]
+    DailyClaimLimitReached,
+    #[msg("Invalid player-match record")]
+    InvalidMatchRecord,
     #[msg("Stamina already full")]
     StaminaAlreadyFull,
     #[msg("Golden Recall penalty required")]
