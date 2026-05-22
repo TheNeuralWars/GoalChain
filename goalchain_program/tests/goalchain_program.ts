@@ -2420,6 +2420,7 @@ describe("goalchain_program", () => {
 
     it("Permite cobrar el salario diario con éxito, y luego bloquea reclamos sucesivos por cooldown y stamina", async () => {
       const stadiumId = 99;
+      const dayId = Math.floor(Date.now() / 1000 / 86400);
 
       await program.methods
         .oracleResetSeason(new anchor.BN(100_000_000))
@@ -2440,6 +2441,16 @@ describe("goalchain_program", () => {
       stadiumIdBuffer.writeUInt16LE(stadiumId);
       const [stadiumStatePda] = PublicKey.findProgramAddressSync(
         [Buffer.from("stadium"), stadiumIdBuffer],
+        program.programId
+      );
+      const dayIdBuf = Buffer.alloc(8);
+      dayIdBuf.writeBigInt64LE(BigInt(dayId));
+      const [managerDailyClaimPda] = PublicKey.findProgramAddressSync(
+        [
+          Buffer.from("manager_daily_claim"),
+          user1.publicKey.toBuffer(),
+          dayIdBuf,
+        ],
         program.programId
       );
 
@@ -2470,17 +2481,19 @@ describe("goalchain_program", () => {
       ).amount;
 
       await program.methods
-        .claimDailySalary(stadiumId)
+        .claimDailySalary(stadiumId, new anchor.BN(dayId))
         .accounts({
           parodyPlayer: parodyPlayerPda,
           managerState: managerStatePda,
           stadiumState: stadiumStatePda,
+          managerDailyClaim: managerDailyClaimPda,
           config: configPda,
           userTokenAccount: user1Ata,
           architectPoolAccount: architectPoolAta,
           vaultTokenAccount: salaryVaultAta,
           tokenMint: betMint,
           tokenProgram: TOKEN_PROGRAM_ID,
+          systemProgram: SystemProgram.programId,
           user: user1.publicKey,
         } as any)
         .signers([user1])
@@ -2497,17 +2510,19 @@ describe("goalchain_program", () => {
       let cooldownFailed = false;
       try {
         await program.methods
-          .claimDailySalary(stadiumId)
+          .claimDailySalary(stadiumId, new anchor.BN(dayId))
           .accounts({
             parodyPlayer: parodyPlayerPda,
             managerState: managerStatePda,
             stadiumState: stadiumStatePda,
+            managerDailyClaim: managerDailyClaimPda,
             config: configPda,
             userTokenAccount: user1Ata,
             architectPoolAccount: architectPoolAta,
             vaultTokenAccount: salaryVaultAta,
             tokenMint: betMint,
             tokenProgram: TOKEN_PROGRAM_ID,
+            systemProgram: SystemProgram.programId,
             user: user1.publicKey,
           } as any)
           .signers([user1])
@@ -2555,17 +2570,19 @@ describe("goalchain_program", () => {
       let staminaFailed = false;
       try {
         await program.methods
-          .claimDailySalary(stadiumId)
+          .claimDailySalary(stadiumId, new anchor.BN(dayId))
           .accounts({
             parodyPlayer: lowStaminaPlayerPda,
             managerState: managerStatePda,
             stadiumState: stadiumStatePda,
+            managerDailyClaim: managerDailyClaimPda,
             config: configPda,
             userTokenAccount: user1Ata,
             architectPoolAccount: architectPoolAta,
             vaultTokenAccount: salaryVaultAta,
             tokenMint: betMint,
             tokenProgram: TOKEN_PROGRAM_ID,
+            systemProgram: SystemProgram.programId,
             user: user1.publicKey,
           } as any)
           .signers([user1])
@@ -2577,6 +2594,184 @@ describe("goalchain_program", () => {
       assert.isTrue(
         staminaFailed,
         "Debería haber fallado por falta de stamina (0)"
+      );
+    });
+
+    it("Aplica drenaje de stamina por match de forma idempotente por fixture", async () => {
+      const matchRecordPlayerId = `ARG_MATCH_${Date.now().toString(36)}`;
+      const [matchRecordPlayerPda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("player"), Buffer.from(matchRecordPlayerId)],
+        program.programId
+      );
+      const [playerMatchRecordPda] = PublicKey.findProgramAddressSync(
+        [
+          Buffer.from("player_match"),
+          matchRecordPlayerPda.toBuffer(),
+          fixturePda.toBuffer(),
+        ],
+        program.programId
+      );
+
+      await program.methods
+        .initParodyPlayer(
+          matchRecordPlayerId,
+          "Match Record Player",
+          70,
+          70,
+          user1.publicKey,
+          new anchor.BN(100_000_000)
+        )
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          parodyPlayer: matchRecordPlayerPda,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      await program.methods
+        .oracleRecordMatch()
+        .accounts({
+          oracleAuthority: oracleAuthority.publicKey,
+          config: configPda,
+          parodyPlayer: matchRecordPlayerPda,
+          fixture: fixturePda,
+          playerMatchRecord: playerMatchRecordPda,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([oracleAuthority])
+        .rpc();
+
+      let player = await program.account.parodyPlayer.fetch(
+        matchRecordPlayerPda
+      );
+      assert.equal(player.currentStamina, 70);
+
+      // Same fixture + player => no extra stamina drain
+      await program.methods
+        .oracleRecordMatch()
+        .accounts({
+          oracleAuthority: oracleAuthority.publicKey,
+          config: configPda,
+          parodyPlayer: matchRecordPlayerPda,
+          fixture: fixturePda,
+          playerMatchRecord: playerMatchRecordPda,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([oracleAuthority])
+        .rpc();
+
+      player = await program.account.parodyPlayer.fetch(matchRecordPlayerPda);
+      assert.equal(player.currentStamina, 70);
+    });
+
+    it("Enforcea límite diario de 11 claims por manager (XI cap)", async () => {
+      const stadiumId = 100;
+      const dayId = Math.floor(Date.now() / 1000 / 86400);
+
+      const [user2ManagerStatePda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("manager"), user2.publicKey.toBuffer()],
+        program.programId
+      );
+      const stadiumIdBuffer = Buffer.alloc(2);
+      stadiumIdBuffer.writeUInt16LE(stadiumId);
+      const [stadiumStatePda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("stadium"), stadiumIdBuffer],
+        program.programId
+      );
+      const dayIdBuf = Buffer.alloc(8);
+      dayIdBuf.writeBigInt64LE(BigInt(dayId));
+      const [user2ManagerDailyClaimPda] = PublicKey.findProgramAddressSync(
+        [
+          Buffer.from("manager_daily_claim"),
+          user2.publicKey.toBuffer(),
+          dayIdBuf,
+        ],
+        program.programId
+      );
+
+      await program.methods
+        .initializeManagerState(1, new anchor.BN(10_000))
+        .accounts({
+          user: user2.publicKey,
+          managerState: user2ManagerStatePda,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([user2])
+        .rpc();
+
+      await program.methods
+        .initializeStadiumState(stadiumId, new anchor.BN(10_000))
+        .accounts({
+          admin: payer.publicKey,
+          config: configPda,
+          stadiumState: stadiumStatePda,
+          systemProgram: SystemProgram.programId,
+        } as any)
+        .signers([payer])
+        .rpc();
+
+      const architectPoolAta = treasuryAta;
+      let twelfthClaimFailed = false;
+
+      for (let i = 0; i < 12; i++) {
+        const playerId = `XI_CAP_${i}_${Date.now().toString(36)}`;
+        const [playerPda] = PublicKey.findProgramAddressSync(
+          [Buffer.from("player"), Buffer.from(playerId)],
+          program.programId
+        );
+
+        await program.methods
+          .initParodyPlayer(
+            playerId,
+            `XI Cap ${i}`,
+            60,
+            60,
+            user2.publicKey,
+            new anchor.BN(100_000_000)
+          )
+          .accounts({
+            admin: payer.publicKey,
+            config: configPda,
+            parodyPlayer: playerPda,
+            systemProgram: SystemProgram.programId,
+          } as any)
+          .signers([payer])
+          .rpc();
+
+        try {
+          await program.methods
+            .claimDailySalary(stadiumId, new anchor.BN(dayId))
+            .accounts({
+              parodyPlayer: playerPda,
+              managerState: user2ManagerStatePda,
+              stadiumState: stadiumStatePda,
+              managerDailyClaim: user2ManagerDailyClaimPda,
+              config: configPda,
+              userTokenAccount: user2Ata,
+              architectPoolAccount: architectPoolAta,
+              vaultTokenAccount: salaryVaultAta,
+              tokenMint: betMint,
+              tokenProgram: TOKEN_PROGRAM_ID,
+              systemProgram: SystemProgram.programId,
+              user: user2.publicKey,
+            } as any)
+            .signers([user2])
+            .rpc();
+        } catch (e) {
+          if (i === 11) {
+            twelfthClaimFailed = true;
+            assert.include(e.toString(), "DailyClaimLimitReached");
+          } else {
+            throw e;
+          }
+        }
+      }
+
+      assert.isTrue(
+        twelfthClaimFailed,
+        "El claim #12 del mismo manager en el mismo día debe fallar"
       );
     });
   });
