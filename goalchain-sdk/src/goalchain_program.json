@@ -2938,6 +2938,24 @@
           "signer": true
         },
         {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
           "name": "rental_listing",
           "writable": true
         },
@@ -2947,6 +2965,14 @@
         },
         {
           "name": "owner_token_account",
+          "writable": true
+        },
+        {
+          "name": "treasury_token_account",
+          "writable": true
+        },
+        {
+          "name": "jackpot_token_account",
           "writable": true
         },
         {
