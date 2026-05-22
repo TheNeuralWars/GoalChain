@@ -1,0 +1,24 @@
+---
+description: Collaboration workflow for Cursor + Grok CLI
+alwaysApply: true
+---
+
+# Cursor + Grok Collaboration Rule
+
+- Use one owner per task: either Cursor or Grok implements; the other reviews.
+- Never edit the same file in parallel from both agents.
+- Work in short-lived branches (`feat/*`, `fix/*`, `exp/grok-*`) and merge small PRs.
+- Keep one source of truth for integration decisions before merge.
+
+## Required outputs from Grok
+
+- Proposed file list and scope boundaries.
+- Risk/regression notes and rollback suggestion.
+- Exact test commands to run.
+
+## Merge safety checklist
+
+- Confirm diff only touches expected files.
+- Run lint/build/tests before opening or merging PR.
+- Do not mix unrelated scopes in one PR.
+- Keep feature flags default OFF for risky/operational changes.
