@@ -1,6 +1,8 @@
 // ===== GoalChain i18n - Spanish / English =====
 const TRANSLATIONS = {
     es: {
+        dev_mode_tag: "MODO DESARROLLO",
+        dev_mode_warning: "Todos los parámetros, card yields y balances mostrados son para simulación y pruebas técnicas. No se requiere capital real.",
         nav_about: "Sobre", nav_game: "Mini-Juego", nav_fixture: "Fixture", nav_roadmap: "Roadmap", nav_economy: "Economía", nav_social: "Social",
         nav_wallet: "Conectar Wallet",
         nav_colabs: "COLABS ▼",
@@ -250,6 +252,8 @@ const TRANSLATIONS = {
         manager_architect: "Architect Signature"
     },
     en: {
+        dev_mode_tag: "DEVELOPER MODE",
+        dev_mode_warning: "All parameters, card yields, and token balances shown are for simulation and testing purposes only. No real capital is used.",
         nav_about: "About", nav_game: "Mini-Game", nav_fixture: "Fixture", nav_roadmap: "Roadmap", nav_economy: "Economy", nav_social: "Social",
         nav_wallet: "Connect Wallet",
         nav_colabs: "COLLABS ▼",

@@ -312,27 +312,35 @@
     </script>
 
     <!-- NAV -->
-    <nav class="main-nav" id="mainNav" style="position: fixed; top: 0; left: 0; width: 100%; background: rgba(6,6,10,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; height: 75px;">
-        <div class="logo" onclick="location.href='index.html'" style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
-            <img src="assets/img/logo_3d_clean.png" alt="GoalChain Logo" style="height: 38px; filter: drop-shadow(0 0 15px rgba(20, 241, 149, 0.4));">
-            <span style="font-weight: 900; letter-spacing: -1px; font-size: 1.3rem;">Goal<span style="color:#00e5ff;">Chain</span></span>
+    <nav class="main-nav" id="mainNav" style="position: fixed; top: 0; left: 0; width: 100%; background: rgba(6,6,10,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000; box-sizing: border-box; display: flex; flex-direction: column; padding: 0; align-items: stretch;">
+        <div class="dev-mode-banner">
+            <strong class="lang-es">MODO DESARROLLO</strong>
+            <strong class="lang-en">DEVELOPER MODE</strong>
+            <span class="lang-es">Todos los parámetros, card yields y balances mostrados son para simulación y pruebas técnicas. No se requiere capital real.</span>
+            <span class="lang-en">All parameters, yields, and token balances shown are for simulation and testing purposes only.</span>
         </div>
-        <div class="nav-links-desktop">
-            <a href="index.html#pitch" class="lang-es">Sobre Nosotros</a>
-            <a href="index.html#pitch" class="lang-en">About</a>
-            <a href="index.html#gameplay" class="lang-es">Mini-Juego</a>
-            <a href="index.html#gameplay" class="lang-en">Mini-Game</a>
-            <a href="index.html#nfts" class="lang-es">Colección</a>
-            <a href="index.html#nfts" class="lang-en">Collection</a>
-            <a href="index.html#roadmap" class="lang-es">Roadmap</a>
-            <a href="index.html#roadmap" class="lang-en">Roadmap</a>
-            <a href="colabs.html" style="color:#00e5ff;" class="lang-es">Portal Colabs</a>
-            <a href="colabs.html" style="color:#00e5ff;" class="lang-en">Colabs Portal</a>
-        </div>
-        
-        <div class="lang-control">
-            <button id="btnEs" class="lang-btn" onclick="setLanguage('es')">ES</button>
-            <button id="btnEn" class="lang-btn active" onclick="setLanguage('en')">EN</button>
+        <div class="nav-container-inner" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; box-sizing: border-box; height: 75px;">
+            <div class="logo" onclick="location.href='index.html'" style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                <img src="assets/img/logo_3d_clean.png" alt="GoalChain Logo" style="height: 38px; filter: drop-shadow(0 0 15px rgba(20, 241, 149, 0.4));">
+                <span style="font-weight: 900; letter-spacing: -1px; font-size: 1.3rem;">Goal<span style="color:#00e5ff;">Chain</span></span>
+            </div>
+            <div class="nav-links-desktop">
+                <a href="index.html#pitch" class="lang-es">Sobre Nosotros</a>
+                <a href="index.html#pitch" class="lang-en">About</a>
+                <a href="index.html#gameplay" class="lang-es">Mini-Juego</a>
+                <a href="index.html#gameplay" class="lang-en">Mini-Game</a>
+                <a href="index.html#nfts" class="lang-es">Colección</a>
+                <a href="index.html#nfts" class="lang-en">Collection</a>
+                <a href="index.html#roadmap" class="lang-es">Roadmap</a>
+                <a href="index.html#roadmap" class="lang-en">Roadmap</a>
+                <a href="colabs.html" style="color:#00e5ff;" class="lang-es">Portal Colabs</a>
+                <a href="colabs.html" style="color:#00e5ff;" class="lang-en">Colabs Portal</a>
+            </div>
+            
+            <div class="lang-control">
+                <button id="btnEs" class="lang-btn" onclick="setLanguage('es')">ES</button>
+                <button id="btnEn" class="lang-btn active" onclick="setLanguage('en')">EN</button>
+            </div>
         </div>
     </nav>
 

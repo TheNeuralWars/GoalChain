@@ -2664,3 +2664,33 @@ body {
     to { transform: rotate(360deg); }
 }
 
+/* Dev Mode Warning Banner */
+.dev-mode-banner {
+    background: rgba(255, 154, 51, 0.15) !important;
+    border-bottom: 1px solid rgba(255, 154, 51, 0.3) !important;
+    color: #ff9a33 !important;
+    width: 100%;
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
+    z-index: 1100;
+    backdrop-filter: blur(10px);
+}
+.dev-mode-banner strong {
+    color: #fff;
+    background: rgba(255, 154, 51, 0.25);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 154, 51, 0.4);
+}
+
+
