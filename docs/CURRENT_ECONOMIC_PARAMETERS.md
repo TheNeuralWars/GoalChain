@@ -2,6 +2,11 @@
 
 Estado auditado de parámetros económicos y rutas de captura detectadas.
 
+## Canonical config version
+
+- `config_version`: `v1.0.0-p0`
+- Source of truth: `docs/ECONOMIC_CANONICAL_CONFIG.json`
+
 ## On-chain (`goalchain_program/programs/goalchain_program/src/lib.rs`)
 
 - `MAX_FEE_BPS = 100` (1% cap).
