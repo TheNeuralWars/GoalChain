@@ -23,6 +23,62 @@ const provider = new AnchorProvider(connection, {} as any, {
 });
 const program = new Program(idl as any, provider) as any;
 
+interface EconomySnapshotRow {
+  [key: string]: string;
+}
+
+function parseCsv(content: string): EconomySnapshotRow[] {
+  const lines = content
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  if (lines.length < 2) return [];
+
+  const parseLine = (line: string): string[] => {
+    const out: string[] = [];
+    let current = "";
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i += 1) {
+      const ch = line[i];
+      if (ch === '"') {
+        const next = line[i + 1];
+        if (inQuotes && next === '"') {
+          current += '"';
+          i += 1;
+        } else {
+          inQuotes = !inQuotes;
+        }
+      } else if (ch === "," && !inQuotes) {
+        out.push(current);
+        current = "";
+      } else {
+        current += ch;
+      }
+    }
+    out.push(current);
+    return out;
+  };
+
+  const headers = parseLine(lines[0]).map((h) => h.trim());
+  return lines.slice(1).map((line) => {
+    const values = parseLine(line);
+    const row: EconomySnapshotRow = {};
+    headers.forEach((header, idx) => {
+      row[header] = (values[idx] ?? "").trim();
+    });
+    return row;
+  });
+}
+
+function num(value: unknown, fallback = 0): number {
+  if (typeof value === "number" && Number.isFinite(value)) return value;
+  if (typeof value === "string" && value.trim().length > 0) {
+    const parsed = Number(value);
+    if (Number.isFinite(parsed)) return parsed;
+  }
+  return fallback;
+}
+
 // --- IN-MEMORY SESSION STORE FOR GEMINI CONTEXT CACHING ---
 interface CacheSession {
   cachedContentId: string | null;
@@ -210,6 +266,137 @@ app.get("/api/economy/config", async (req, res) => {
     res
       .status(500)
       .json({ error: `Failed to load economy config: ${err.message}` });
+  }
+});
+
+// Economy sustainability metrics endpoint used by docs dashboards and ops checks.
+app.get("/api/economy/metrics", async (req, res) => {
+  try {
+    const canonicalPath = path.resolve(
+      __dirname,
+      "../../docs/ECONOMIC_CANONICAL_CONFIG.json",
+    );
+    const burnTrackerPath = path.resolve(__dirname, "../../docs/data/burn_tracker.json");
+    const scenariosPath = path.resolve(
+      __dirname,
+      "../../docs/data/tokenomics_scenarios.csv",
+    );
+
+    const canonicalConfig = fs.existsSync(canonicalPath)
+      ? JSON.parse(fs.readFileSync(canonicalPath, "utf-8"))
+      : null;
+    const burnTracker = fs.existsSync(burnTrackerPath)
+      ? JSON.parse(fs.readFileSync(burnTrackerPath, "utf-8"))
+      : null;
+
+    const scenarioRows = fs.existsSync(scenariosPath)
+      ? parseCsv(fs.readFileSync(scenariosPath, "utf-8"))
+      : [];
+    const baselineRow =
+      scenarioRows.find((r) => r.scenario_id === "RP_balanced") ??
+      scenarioRows.find((r) => r.scenario_id === "S0") ??
+      scenarioRows[0] ??
+      null;
+
+    const emissions24h = num(baselineRow?.emission_gross_gch);
+    const projectedBurn24h =
+      num(baselineRow?.potion_burn_gch) +
+      num(baselineRow?.fee_burn_gch) +
+      num(baselineRow?.vault_buyback_gch);
+
+    const burn7dFromTracker = num(burnTracker?.estimated_gch_burned);
+    const burns7d =
+      burn7dFromTracker > 0 ? burn7dFromTracker : projectedBurn24h > 0 ? projectedBurn24h * 7 : 0;
+    const burns24h = burns7d / 7;
+    const emissions7d = emissions24h * 7;
+    const netEmission24h = emissions24h - burns24h;
+
+    const [configPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("config")],
+      PROGRAM_ID,
+    );
+    let onchainConfig: any = null;
+    try {
+      const configAccount = await program.account.globalConfig.fetch(configPda);
+      onchainConfig = {
+        feeBps: num(configAccount.feeBps),
+        feeBurnBps: num(configAccount.feeBurnBps),
+        feeJackpotBps: num(configAccount.feeJackpotBps),
+        maxStartersPerManager: num(configAccount.maxStartersPerManager),
+        treasuryTokenAccount: configAccount.treasuryTokenAccount?.toBase58?.(),
+        jackpotTokenAccount: configAccount.jackpotTokenAccount?.toBase58?.(),
+      };
+    } catch (_err) {
+      onchainConfig = null;
+    }
+
+    const sinkChecks = [
+      canonicalConfig !== null,
+      burnTracker !== null,
+      baselineRow !== null,
+      onchainConfig?.feeBurnBps > 0,
+      onchainConfig?.feeJackpotBps > 0,
+      onchainConfig?.maxStartersPerManager >= 11,
+      Boolean(onchainConfig?.treasuryTokenAccount),
+      Boolean(onchainConfig?.jackpotTokenAccount),
+    ];
+    const sinksImplemented = sinkChecks.filter(Boolean).length;
+    const onchainSinkCoverage = Math.round((sinksImplemented / sinkChecks.length) * 10000) / 100;
+
+    const driftReasons: string[] = [];
+    const maxFeeBps = num(canonicalConfig?.core_parameters?.max_fee_bps);
+    if (onchainConfig && maxFeeBps > 0 && onchainConfig.feeBps > maxFeeBps) {
+      driftReasons.push("onchain fee_bps exceeds canonical max_fee_bps");
+    }
+    if (onchainConfig && onchainConfig.maxStartersPerManager !== 11) {
+      driftReasons.push("onchain max_starters_per_manager differs from expected 11");
+    }
+    if (
+      onchainConfig &&
+      onchainConfig.feeBurnBps + onchainConfig.feeJackpotBps > 10000
+    ) {
+      driftReasons.push("fee split bps sum exceeds 10000");
+    }
+
+    const emitBurnRatio7d = emissions7d > 0 ? burns7d / emissions7d : 0;
+    const vaultBuybackCoverage = emissions24h > 0 ? num(baselineRow?.vault_buyback_gch) / emissions24h : 0;
+
+    res.json({
+      timestamp_iso: new Date().toISOString(),
+      kpis: {
+        emit_burn_ratio_7d: emitBurnRatio7d,
+        onchain_sink_coverage: onchainSinkCoverage,
+        config_drift: driftReasons.length,
+        vault_buyback_coverage: vaultBuybackCoverage,
+      },
+      flow_24h: {
+        emissions_gch: emissions24h,
+        burns_gch: burns24h,
+        net_emission_gch: netEmission24h,
+      },
+      flow_7d: {
+        emissions_gch: emissions7d,
+        burns_gch: burns7d,
+      },
+      breakdown: {
+        potion_burn_gch: num(baselineRow?.potion_burn_gch),
+        fee_burn_gch: num(baselineRow?.fee_burn_gch),
+        vault_buyback_gch: num(baselineRow?.vault_buyback_gch),
+        treasury_fees_gch: num(baselineRow?.fee_treasury_gch),
+      },
+      config_drift_reasons: driftReasons,
+      source: {
+        canonical_config: canonicalPath,
+        burn_tracker: burnTrackerPath,
+        scenarios_csv: scenariosPath,
+        baseline_scenario_id: baselineRow?.scenario_id ?? null,
+      },
+    });
+  } catch (err: any) {
+    console.error("Economy metrics endpoint error:", err);
+    res
+      .status(500)
+      .json({ error: `Failed to load economy metrics: ${err.message}` });
   }
 });
 
