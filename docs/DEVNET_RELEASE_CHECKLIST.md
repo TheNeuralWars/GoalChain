@@ -134,3 +134,61 @@ Recordatorio:
 
 - El rollback en Solana upgradeable es **otro upgrade** a un binario anterior válido.
 - Nunca ejecutar `anchor keys sync` en ramas de release devnet/mainnet.
+
+---
+
+## 8) Mint gate runbook (pause / resume)
+
+Objetivo: estandarizar la operación cuando el ratio de sostenibilidad se desbalancea.
+
+### Entradas obligatorias
+
+- `emit_7d_gch`
+- `burn_7d_gch`
+- `ratio = burn_7d_gch / emit_7d_gch`
+- salida del script: `goalchain_oracle/src/mint_gate.ts`
+
+### Comando de evaluación
+
+```bash
+cd goalchain_oracle
+npm run mint-gate
+```
+
+Opcional:
+
+```bash
+MINT_GATE_CSV_PATH="../docs/data/tokenomics_scenarios.csv" MINT_GATE_WINDOW_DAYS=7 npm run mint-gate
+```
+
+### Política operativa
+
+- `ratio < 0.85`:
+  - [ ] Pausar mint 48h (acción multisig)
+  - [ ] Publicar incidente económico en Discord/X
+  - [ ] Activar campaña de sinks (stamina/events)
+- `0.85 <= ratio <= 1.20`:
+  - [ ] Mint permitido con límite conservador definido por gate
+- `ratio > 1.20`:
+  - [ ] Mint solo con revisión manual de treasury lead + protocol lead
+
+### Responsables
+
+- **Executor:** Treasury lead
+- **Approver A/B:** 2 firmantes multisig
+- **Comms:** Community/Marketing lead
+- **Postmortem:** Protocol lead
+
+### Evidencias mínimas por operación
+
+- [ ] JSON de salida de `mint_gate`
+- [ ] Tx hash (si hubo mint/pause update)
+- [ ] Captura de balances relevantes
+- [ ] Mensaje público de estado
+
+### Rollback de pausa
+
+- [ ] Re-ejecutar `mint_gate` con datos actualizados
+- [ ] Validar ratio en banda operativa
+- [ ] Aprobar reanudación por 2/3 multisig
+- [ ] Comunicar reapertura y límites
