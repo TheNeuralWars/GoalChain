@@ -93,53 +93,59 @@
     </script>
 
     <!-- NAV -->
-    <nav class="main-nav" id="mainNav">
-        <div class="logo" onclick="location.href='#'" style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
-            <img src="assets/img/logo_3d_clean.png" alt="GoalChain Logo" style="height: 42px; filter: drop-shadow(0 0 15px rgba(20, 241, 149, 0.4));">
-            <span style="font-weight: 900; letter-spacing: -1px;">Goal<span style="color:var(--primary);">Chain</span></span>
+    <nav class="main-nav" id="mainNav" style="flex-direction: column; padding: 0; align-items: stretch;">
+        <div class="dev-mode-banner">
+            <strong data-i18n="dev_mode_tag">DEVELOPER MODE</strong>
+            <span data-i18n="dev_mode_warning">All parameters, yields, and token balances shown are for simulation and testing purposes only.</span>
         </div>
-        
-        <div class="nav-links-desktop">
-            <a href="#pitch" data-i18n="nav_about">Sobre</a>
-            <a href="#gameplay" data-i18n="nav_game">Mini-Juego</a>
-            <a href="#nfts" data-i18n="nav_nfts">Colección</a>
-            <a href="#manager" data-i18n="nav_manager">Manager</a>
-            <a href="#stadiums" data-i18n="nav_stadiums">Estadios</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#economics" data-i18n="nav_economy">Economía</a>
-            <a href="#social" data-i18n="nav_social">Social</a>
-        </div>
-
-        <div class="nav-right">
-            <button onclick="openAlphaModal()" class="btn-glow desktop-only-btn" style="color:var(--primary); background: transparent; font-weight:900; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; font-family: inherit; flex-shrink: 0;">LAUNCH APP</button>
+        <div class="nav-container-inner" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; box-sizing: border-box;">
+            <div class="logo" onclick="location.href='#'" style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
+                <img src="assets/img/logo_3d_clean.png" alt="GoalChain Logo" style="height: 42px; filter: drop-shadow(0 0 15px rgba(20, 241, 149, 0.4));">
+                <span style="font-weight: 900; letter-spacing: -1px;">Goal<span style="color:var(--primary);">Chain</span></span>
+            </div>
             
-            <div class="nav-dropdown desktop-only-btn" style="position:relative; display:inline-block; flex-shrink: 0;">
-                <button class="btn-glow" style="background:transparent; border: 1px solid var(--secondary); color:var(--secondary); font-weight:900; padding: 5px 20px; border-radius: 20px; cursor:pointer; font-family:inherit; font-size: 0.8rem;" data-i18n="nav_colabs">COLABS ▼</button>
-                <div class="nav-dropdown-content">
-                    <a href="pitch.html" data-i18n="nav_pitch_link">📖 Pitch & Motivación</a>
-                    <a href="mega-guide.html" style="color:var(--primary); font-weight:900;" data-i18n="nav_guide_v2">⚡ Mega Guía v2.0 (Nueva)</a>
-                    <a href="mega-guide-v1.html" style="color:#9945ff; font-weight:900;" data-i18n="nav_guide_v1">⚽ Guía Inicial v1.0 (Original)</a>
-                    <a href="colabs.html" data-i18n="nav_colabs_link">🤝 Portal de Colaboradores</a>
+            <div class="nav-links-desktop">
+                <a href="#pitch" data-i18n="nav_about">Sobre</a>
+                <a href="#gameplay" data-i18n="nav_game">Mini-Juego</a>
+                <a href="#nfts" data-i18n="nav_nfts">Colección</a>
+                <a href="#manager" data-i18n="nav_manager">Manager</a>
+                <a href="#stadiums" data-i18n="nav_stadiums">Estadios</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#economics" data-i18n="nav_economy">Economía</a>
+                <a href="#social" data-i18n="nav_social">Social</a>
+            </div>
+
+            <div class="nav-right">
+                <button onclick="openAlphaModal()" class="btn-glow desktop-only-btn" style="color:var(--primary); background: transparent; font-weight:900; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; font-family: inherit; flex-shrink: 0;">LAUNCH APP</button>
+                
+                <div class="nav-dropdown desktop-only-btn" style="position:relative; display:inline-block; flex-shrink: 0;">
+                    <button class="btn-glow" style="background:transparent; border: 1px solid var(--secondary); color:var(--secondary); font-weight:900; padding: 5px 20px; border-radius: 20px; cursor:pointer; font-family:inherit; font-size: 0.8rem;" data-i18n="nav_colabs">COLABS ▼</button>
+                    <div class="nav-dropdown-content">
+                        <a href="pitch.html" data-i18n="nav_pitch_link">📖 Pitch & Motivación</a>
+                        <a href="mega-guide.html" style="color:var(--primary); font-weight:900;" data-i18n="nav_guide_v2">⚡ Mega Guía v2.0 (Nueva)</a>
+                        <a href="mega-guide-v1.html" style="color:#9945ff; font-weight:900;" data-i18n="nav_guide_v1">⚽ Guía Inicial v1.0 (Original)</a>
+                        <a href="colabs.html" data-i18n="nav_colabs_link">🤝 Portal de Colaboradores</a>
+                    </div>
                 </div>
+                <button id="connectWalletBtn" class="btn-wallet btn-glow" style="width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: rgba(20, 241, 149, 0.1); border: 1px solid var(--primary); color: var(--primary); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; padding: 0;" title="Connect Wallet">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
+                        <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path>
+                        <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path>
+                    </svg>
+                </button>
+                <div id="notifBell" class="notif-bell" style="position:relative; cursor:pointer; font-size:1.2rem;">
+                    <span class="bell-icon">🔔</span>
+                    <span id="notifBadge" class="notif-badge" style="position:absolute; top:-5px; right:-8px; background:#ff4d6a; color:white; font-size:0.65rem; padding:2px 6px; border-radius:10px; font-weight:bold; display:none;">0</span>
+                </div>
+                <div class="lang-toggle">
+                    <button id="langEs" onclick="setLang('es')">ES</button>
+                    <button id="langEn" class="active" onclick="setLang('en')">EN</button>
+                </div>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
-            <button id="connectWalletBtn" class="btn-wallet btn-glow" style="width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: rgba(20, 241, 149, 0.1); border: 1px solid var(--primary); color: var(--primary); border-radius: 50%; cursor: pointer; transition: all 0.3s ease; padding: 0;" title="Connect Wallet">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
-                    <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path>
-                    <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path>
-                </svg>
-            </button>
-            <div id="notifBell" class="notif-bell" style="position:relative; cursor:pointer; font-size:1.2rem;">
-                <span class="bell-icon">🔔</span>
-                <span id="notifBadge" class="notif-badge" style="position:absolute; top:-5px; right:-8px; background:#ff4d6a; color:white; font-size:0.65rem; padding:2px 6px; border-radius:10px; font-weight:bold; display:none;">0</span>
-            </div>
-            <div class="lang-toggle">
-                <button id="langEs" onclick="setLang('es')">ES</button>
-                <button id="langEn" class="active" onclick="setLang('en')">EN</button>
-            </div>
-            <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
         </div>
     </nav>
 
