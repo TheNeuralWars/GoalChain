@@ -461,6 +461,46 @@
           }
         },
         {
+          "name": "manager_daily_claim",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  110,
+                  97,
+                  103,
+                  101,
+                  114,
+                  95,
+                  100,
+                  97,
+                  105,
+                  108,
+                  121,
+                  95,
+                  99,
+                  108,
+                  97,
+                  105,
+                  109
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              },
+              {
+                "kind": "arg",
+                "path": "day_id"
+              }
+            ]
+          }
+        },
+        {
           "name": "config",
           "writable": true
         },
@@ -569,14 +609,23 @@
           "name": "token_program"
         },
         {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
           "name": "user",
+          "writable": true,
           "signer": true
         }
       ],
       "args": [
         {
-          "name": "_stadium_id",
+          "name": "stadium_id",
           "type": "u16"
+        },
+        {
+          "name": "day_id",
+          "type": "i64"
         }
       ]
     },
@@ -2034,6 +2083,93 @@
           "type": "pubkey"
         }
       ]
+    },
+    {
+      "name": "oracle_record_match",
+      "docs": [
+        "Records a real match played by a player (idempotent per fixture + player).",
+        "First call drains stamina by STAMINA_DRAIN_PER_MATCH. Repeated calls are no-op."
+      ],
+      "discriminator": [
+        174,
+        215,
+        198,
+        129,
+        157,
+        55,
+        14,
+        142
+      ],
+      "accounts": [
+        {
+          "name": "oracle_authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "parody_player",
+          "writable": true
+        },
+        {
+          "name": "fixture"
+        },
+        {
+          "name": "player_match_record",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  108,
+                  97,
+                  121,
+                  101,
+                  114,
+                  95,
+                  109,
+                  97,
+                  116,
+                  99,
+                  104
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "parody_player"
+              },
+              {
+                "kind": "account",
+                "path": "fixture"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
     },
     {
       "name": "oracle_reset_season",
@@ -4096,6 +4232,19 @@
       ]
     },
     {
+      "name": "ManagerDailyClaim",
+      "discriminator": [
+        222,
+        186,
+        162,
+        25,
+        144,
+        213,
+        85,
+        16
+      ]
+    },
+    {
       "name": "ManagerState",
       "discriminator": [
         222,
@@ -4145,6 +4294,19 @@
         55,
         131,
         214
+      ]
+    },
+    {
+      "name": "PlayerMatchRecord",
+      "discriminator": [
+        196,
+        215,
+        121,
+        107,
+        127,
+        194,
+        154,
+        110
       ]
     },
     {
@@ -4539,91 +4701,106 @@
     },
     {
       "code": 6033,
+      "name": "InvalidDayId",
+      "msg": "Invalid claim day id"
+    },
+    {
+      "code": 6034,
+      "name": "DailyClaimLimitReached",
+      "msg": "Daily XI claim limit reached"
+    },
+    {
+      "code": 6035,
+      "name": "InvalidMatchRecord",
+      "msg": "Invalid player-match record"
+    },
+    {
+      "code": 6036,
       "name": "StaminaAlreadyFull",
       "msg": "Stamina already full"
     },
     {
-      "code": 6034,
+      "code": 6037,
       "name": "GoldenRecallPenaltyRequired",
       "msg": "Golden Recall penalty required"
     },
     {
-      "code": 6035,
+      "code": 6038,
       "name": "InvalidItemType",
       "msg": "Invalid item type"
     },
     {
-      "code": 6036,
+      "code": 6039,
       "name": "AlreadyEquipped",
       "msg": "Item already equipped"
     },
     {
-      "code": 6037,
+      "code": 6040,
       "name": "InsufficientStamina",
       "msg": "Insufficient stamina"
     },
     {
-      "code": 6038,
+      "code": 6041,
       "name": "InvalidBuilderFundWeights",
       "msg": "Invalid builder fund weights"
     },
     {
-      "code": 6039,
+      "code": 6042,
       "name": "InvalidBuilderFundBucket",
       "msg": "Invalid builder fund bucket"
     },
     {
-      "code": 6040,
+      "code": 6043,
       "name": "InvalidContributorScore",
       "msg": "Invalid contributor score account"
     },
     {
-      "code": 6041,
+      "code": 6044,
       "name": "NoContributorScore",
       "msg": "No contributor score available"
     },
     {
-      "code": 6042,
+      "code": 6045,
       "name": "NoClaimableRewards",
       "msg": "No claimable rewards"
     },
     {
-      "code": 6043,
+      "code": 6046,
       "name": "InvalidEpochId",
       "msg": "Invalid epoch id"
     },
     {
-      "code": 6044,
+      "code": 6047,
       "name": "EpochAlreadyFinalized",
       "msg": "Epoch already finalized"
     },
     {
-      "code": 6045,
+      "code": 6048,
       "name": "EpochNotFinalized",
       "msg": "Epoch not finalized"
     },
     {
-      "code": 6046,
+      "code": 6049,
       "name": "NoEpochSnapshotScore",
       "msg": "Missing epoch snapshot score"
     },
     {
-      "code": 6047,
+      "code": 6050,
       "name": "InvalidEpochSnapshot",
       "msg": "Invalid epoch snapshot"
     },
     {
-      "code": 6048,
+      "code": 6051,
       "name": "ScoreUpdateCooldown",
       "msg": "Contributor score update is in cooldown"
     },
     {
-      "code": 6049,
+      "code": 6052,
       "name": "ContributorScoreTooLow",
       "msg": "Contributor score below minimum threshold"
     },
     {
-      "code": 6050,
+      "code": 6053,
       "name": "EpochContributorLimitReached",
       "msg": "Epoch contributor limit reached"
     }
@@ -5305,6 +5482,30 @@
       }
     },
     {
+      "name": "ManagerDailyClaim",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "day_id",
+            "type": "i64"
+          },
+          {
+            "name": "claim_count",
+            "type": "u8"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
       "name": "ManagerState",
       "type": {
         "kind": "struct",
@@ -5622,6 +5823,30 @@
           },
           {
             "name": "has_shield_jersey",
+            "type": "bool"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PlayerMatchRecord",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "player",
+            "type": "pubkey"
+          },
+          {
+            "name": "fixture",
+            "type": "pubkey"
+          },
+          {
+            "name": "applied",
             "type": "bool"
           },
           {
