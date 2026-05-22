@@ -1156,6 +1156,11 @@ describe("goalchain_program", () => {
     it("Permite a otro usuario rentar el NFT listado mediante pago SPL", async () => {
       const ownerBefore = (await getAccount(provider.connection, ownerTokenAta))
         .amount;
+      const treasuryBefore = (
+        await getAccount(provider.connection, treasuryAta)
+      ).amount;
+      const jackpotBefore = (await getAccount(provider.connection, jackpotAta))
+        .amount;
       const borrowerBefore = (
         await getAccount(provider.connection, borrowerTokenAta)
       ).amount;
@@ -1164,9 +1169,12 @@ describe("goalchain_program", () => {
         .rentNft()
         .accounts({
           borrower: borrower.publicKey,
+          config: configPda,
           rentalListing: rentalListingPda,
           borrowerTokenAccount: borrowerTokenAta,
           ownerTokenAccount: ownerTokenAta,
+          treasuryTokenAccount: treasuryAta,
+          jackpotTokenAccount: jackpotAta,
           tokenMint: betMint,
           tokenProgram: TOKEN_PROGRAM_ID,
         } as any)
@@ -1183,12 +1191,19 @@ describe("goalchain_program", () => {
 
       const ownerAfter = (await getAccount(provider.connection, ownerTokenAta))
         .amount;
+      const treasuryAfter = (await getAccount(provider.connection, treasuryAta))
+        .amount;
+      const jackpotAfter = (await getAccount(provider.connection, jackpotAta))
+        .amount;
       const borrowerAfter = (
         await getAccount(provider.connection, borrowerTokenAta)
       ).amount;
 
-      assert.equal(Number(ownerAfter) - Number(ownerBefore), 100_000_000);
-      assert.equal(Number(borrowerBefore) - Number(borrowerAfter), 100_000_000);
+      // 100 GCH listing price => owner 25, protocol 5 split as burn 2 / jackpot 2 / treasury 1
+      assert.equal(Number(ownerAfter) - Number(ownerBefore), 25_000_000);
+      assert.equal(Number(treasuryAfter) - Number(treasuryBefore), 1_000_000);
+      assert.equal(Number(jackpotAfter) - Number(jackpotBefore), 2_000_000);
+      assert.equal(Number(borrowerBefore) - Number(borrowerAfter), 30_000_000);
     });
 
     it("Impide rentar un NFT que ya está alquilado por otra persona (Hostile flow)", async () => {
@@ -1216,9 +1231,12 @@ describe("goalchain_program", () => {
           .rentNft()
           .accounts({
             borrower: anotherBorrower.publicKey,
+            config: configPda,
             rentalListing: rentalListingPda,
             borrowerTokenAccount: anotherAta,
             ownerTokenAccount: ownerTokenAta,
+            treasuryTokenAccount: treasuryAta,
+            jackpotTokenAccount: jackpotAta,
             tokenMint: betMint,
             tokenProgram: TOKEN_PROGRAM_ID,
           } as any)
@@ -2308,9 +2326,12 @@ describe("goalchain_program", () => {
         .rentNft()
         .accounts({
           borrower: user2.publicKey,
+          config: configPda,
           rentalListing: localRentalPda,
           borrowerTokenAccount: user2Ata,
           ownerTokenAccount: user1Ata,
+          treasuryTokenAccount: treasuryAta,
+          jackpotTokenAccount: jackpotAta,
           tokenMint: betMint,
           tokenProgram: TOKEN_PROGRAM_ID,
         } as any)
