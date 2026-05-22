@@ -63,6 +63,7 @@ describe("goalchain_program", () => {
   // SPL token addresses
   let betMint: PublicKey;
   let treasuryAta: PublicKey;
+  let jackpotAta: PublicKey;
   let user1Ata: PublicKey;
   let user2Ata: PublicKey;
   let playerAAta: PublicKey;
@@ -163,6 +164,14 @@ describe("goalchain_program", () => {
 
     // Generate ATAs
     treasuryAta = (
+      await getOrCreateAssociatedTokenAccount(
+        provider.connection,
+        payer,
+        betMint,
+        treasuryOwner.publicKey
+      )
+    ).address;
+    jackpotAta = (
       await getOrCreateAssociatedTokenAccount(
         provider.connection,
         payer,
@@ -292,6 +301,7 @@ describe("goalchain_program", () => {
           .initializeConfig(
             oracleAuthority.publicKey,
             treasuryAta,
+            jackpotAta,
             100,
             new anchor.BN(15 * 60),
             new anchor.BN(2 * anchor.web3.LAMPORTS_PER_SOL),
@@ -309,6 +319,7 @@ describe("goalchain_program", () => {
           .updateConfig(
             oracleAuthority.publicKey,
             treasuryAta,
+            jackpotAta,
             100,
             new anchor.BN(15 * 60),
             new anchor.BN(2 * anchor.web3.LAMPORTS_PER_SOL),
@@ -332,7 +343,14 @@ describe("goalchain_program", () => {
         config.treasuryTokenAccount.toBase58(),
         treasuryAta.toBase58()
       );
+      assert.equal(
+        config.jackpotTokenAccount.toBase58(),
+        jackpotAta.toBase58()
+      );
       assert.equal(config.feeBps, 100);
+      assert.equal(config.feeBurnBps, 4000);
+      assert.equal(config.feeJackpotBps, 4000);
+      assert.equal(config.maxStartersPerManager, 11);
     });
 
     it("Falla al inicializar con un fee por encima del límite duro (1%)", async () => {
@@ -343,6 +361,7 @@ describe("goalchain_program", () => {
           .initializeConfig(
             oracleAuthority.publicKey,
             treasuryAta,
+            jackpotAta,
             101,
             new anchor.BN(15 * 60),
             new anchor.BN(2 * anchor.web3.LAMPORTS_PER_SOL),
@@ -1433,6 +1452,8 @@ describe("goalchain_program", () => {
       const treasuryBefore = (
         await getAccount(provider.connection, treasuryAta)
       ).amount;
+      const jackpotBefore = (await getAccount(provider.connection, jackpotAta))
+        .amount;
 
       const [b1Pda] = PublicKey.findProgramAddressSync(
         [Buffer.from("bet"), user1.publicKey.toBuffer(), fixturePda.toBuffer()],
@@ -1449,6 +1470,7 @@ describe("goalchain_program", () => {
           userTokenAccount: user1Ata,
           fixtureVault: fixtureVault,
           treasuryTokenAccount: treasuryAta,
+          jackpotTokenAccount: jackpotAta,
           tokenMint: betMint,
           tokenProgram: TOKEN_PROGRAM_ID,
         } as any)
@@ -1458,14 +1480,18 @@ describe("goalchain_program", () => {
       const u1After = (await getAccount(provider.connection, user1Ata)).amount;
       const treasuryAfter = (await getAccount(provider.connection, treasuryAta))
         .amount;
+      const jackpotAfter = (await getAccount(provider.connection, jackpotAta))
+        .amount;
 
       // Pozo total = 400 + 600 = 1000 tokens
       // User1 aportó el 100% de la cuota ganadora (400 de 400).
       // Ganancia bruta = 1000 tokens.
       // Fee = 1000 * 1% = 10 tokens.
+      // Split fee (40/40/20): burn=4, jackpot=4, treasury=2.
       // Pago neto = 1000 - 10 = 990 tokens.
       assert.equal(Number(u1After) - Number(u1Before), 990_000_000);
-      assert.equal(Number(treasuryAfter) - Number(treasuryBefore), 10_000_000);
+      assert.equal(Number(treasuryAfter) - Number(treasuryBefore), 2_000_000);
+      assert.equal(Number(jackpotAfter) - Number(jackpotBefore), 4_000_000);
     });
 
     it("Rechaza reclamos redundantes o dobles reclamos del ganador (Hostile flow)", async () => {
@@ -1485,6 +1511,7 @@ describe("goalchain_program", () => {
             userTokenAccount: user1Ata,
             fixtureVault: fixtureVault,
             treasuryTokenAccount: treasuryAta,
+            jackpotTokenAccount: jackpotAta,
             tokenMint: betMint,
             tokenProgram: TOKEN_PROGRAM_ID,
           } as any)
@@ -1575,6 +1602,7 @@ describe("goalchain_program", () => {
             userTokenAccount: user2Ata,
             fixtureVault: cancelledFixtureVault,
             treasuryTokenAccount: treasuryAta,
+            jackpotTokenAccount: jackpotAta,
             tokenMint: betMint,
             tokenProgram: TOKEN_PROGRAM_ID,
           } as any)
@@ -1721,6 +1749,8 @@ describe("goalchain_program", () => {
       const treasuryBefore = (
         await getAccount(provider.connection, treasuryAta)
       ).amount;
+      const jackpotBefore = (await getAccount(provider.connection, jackpotAta))
+        .amount;
 
       const ticketId = new anchor.BN(Date.now()); // No se usa en claim, pero necesitamos position PDA
       // Buscaremos la posición que creamos en el test anterior. Para eso, recuperamos los IDs de la cuenta
@@ -1746,6 +1776,7 @@ describe("goalchain_program", () => {
           userTokenAccount: user1Ata,
           marketVault: marketVaultPda,
           treasuryTokenAccount: treasuryAta,
+          jackpotTokenAccount: jackpotAta,
           tokenMint: betMint,
           tokenProgram: TOKEN_PROGRAM_ID,
         } as any)
@@ -1755,11 +1786,15 @@ describe("goalchain_program", () => {
       const u1After = (await getAccount(provider.connection, user1Ata)).amount;
       const treasuryAfter = (await getAccount(provider.connection, treasuryAta))
         .amount;
+      const jackpotAfter = (await getAccount(provider.connection, jackpotAta))
+        .amount;
 
       // Apostado: 150 tokens.
       // Ganancia neta = 150 - (150 * 1% fee) = 148.5 tokens devueltos.
+      // Split fee (40/40/20): burn=0.6, jackpot=0.6, treasury=0.3
       assert.equal(Number(u1After) - Number(u1Before), 148_500_000);
-      assert.equal(Number(treasuryAfter) - Number(treasuryBefore), 1_500_000);
+      assert.equal(Number(treasuryAfter) - Number(treasuryBefore), 300_000);
+      assert.equal(Number(jackpotAfter) - Number(jackpotBefore), 600_000);
     });
   });
 

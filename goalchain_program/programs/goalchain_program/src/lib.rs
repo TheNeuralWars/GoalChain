@@ -1,7 +1,9 @@
 use anchor_lang::prelude::*;
-use anchor_spl::token_interface::{self, TokenInterface, TokenAccount, Mint, TransferChecked, Burn};
-use anchor_spl::token::TokenAccount as SplTokenAccount;
 use anchor_spl::associated_token::AssociatedToken;
+use anchor_spl::token::TokenAccount as SplTokenAccount;
+use anchor_spl::token_interface::{
+    self, Burn, Mint, TokenAccount, TokenInterface, TransferChecked,
+};
 
 declare_id!("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
 const SPL_STAKE_POOL_PROGRAM_ID: Pubkey = pubkey!("SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy");
@@ -17,16 +19,38 @@ pub const BPS_DENOMINATOR: u64 = 10_000;
 pub const DEFAULT_SCORE_UPDATE_COOLDOWN_SECONDS: i64 = 0;
 pub const DEFAULT_MIN_EPOCH_SCORE: u64 = 1;
 pub const DEFAULT_MAX_CONTRIBUTORS_PER_EPOCH: u32 = 500;
+pub const DEFAULT_FEE_BURN_BPS: u16 = 4_000; // 40% of fee stream
+pub const DEFAULT_FEE_JACKPOT_BPS: u16 = 4_000; // 40% of fee stream
+pub const DEFAULT_MAX_STARTERS_PER_MANAGER: u8 = 11;
 
 /// Maps Genesis Squad rarity tier (metadata) → daily base yield in lamports.
 pub fn base_yield_for_rarity_tier(tier: u8) -> u64 {
     match tier {
-        4 => 5_000 * GCH_LAMPORTS,  // mythic
-        3 => 1_000 * GCH_LAMPORTS,  // legendary
-        2 => 250 * GCH_LAMPORTS,    // epic
-        1 => 50 * GCH_LAMPORTS,     // rare
+        4 => 5_000 * GCH_LAMPORTS, // mythic
+        3 => 1_000 * GCH_LAMPORTS, // legendary
+        2 => 250 * GCH_LAMPORTS,   // epic
+        1 => 50 * GCH_LAMPORTS,    // rare
         _ => DEFAULT_BASE_YIELD_LAMPORTS,
     }
+}
+
+fn split_fee_amounts(total_fee: u64, burn_bps: u16, jackpot_bps: u16) -> Result<(u64, u64, u64)> {
+    let burn_amount = ((total_fee as u128)
+        .checked_mul(burn_bps as u128)
+        .ok_or(GoalChainError::MathOverflow)?
+        .checked_div(BPS_DENOMINATOR as u128)
+        .ok_or(GoalChainError::MathOverflow)?) as u64;
+    let jackpot_amount = ((total_fee as u128)
+        .checked_mul(jackpot_bps as u128)
+        .ok_or(GoalChainError::MathOverflow)?
+        .checked_div(BPS_DENOMINATOR as u128)
+        .ok_or(GoalChainError::MathOverflow)?) as u64;
+    let treasury_amount = total_fee
+        .checked_sub(burn_amount)
+        .ok_or(GoalChainError::MathOverflow)?
+        .checked_sub(jackpot_amount)
+        .ok_or(GoalChainError::MathOverflow)?;
+    Ok((burn_amount, jackpot_amount, treasury_amount))
 }
 
 #[program]
@@ -38,6 +62,7 @@ pub mod goalchain_program {
         ctx: Context<InitializeConfig>,
         oracle_authority: Pubkey,
         treasury_token_account: Pubkey,
+        jackpot_token_account: Pubkey,
         fee_bps: u16,
         cutoff_buffer_seconds: i64,
         max_sol_per_user: u64,
@@ -46,14 +71,28 @@ pub mod goalchain_program {
         // límite duro para evitar configs absurdas
         require!(fee_bps <= MAX_FEE_BPS, GoalChainError::InvalidConfig); // max 1%
         require!(cutoff_buffer_seconds >= 0, GoalChainError::InvalidConfig);
-        require!(cutoff_buffer_seconds <= 24 * 60 * 60, GoalChainError::InvalidConfig); // max 24h
+        require!(
+            cutoff_buffer_seconds <= 24 * 60 * 60,
+            GoalChainError::InvalidConfig
+        ); // max 24h
         require!(max_sol_per_user > 0, GoalChainError::InvalidConfig);
+        let fee_stream_bps = (DEFAULT_FEE_BURN_BPS as u32)
+            .checked_add(DEFAULT_FEE_JACKPOT_BPS as u32)
+            .ok_or(GoalChainError::MathOverflow)?;
+        require!(
+            fee_stream_bps <= BPS_DENOMINATOR as u32,
+            GoalChainError::InvalidConfig
+        );
 
         let cfg = &mut ctx.accounts.config;
         cfg.admin = ctx.accounts.admin.key();
         cfg.oracle_authority = oracle_authority;
         cfg.treasury_token_account = treasury_token_account;
+        cfg.jackpot_token_account = jackpot_token_account;
         cfg.fee_bps = fee_bps;
+        cfg.fee_burn_bps = DEFAULT_FEE_BURN_BPS;
+        cfg.fee_jackpot_bps = DEFAULT_FEE_JACKPOT_BPS;
+        cfg.max_starters_per_manager = DEFAULT_MAX_STARTERS_PER_MANAGER;
         cfg.cutoff_buffer_seconds = cutoff_buffer_seconds;
         cfg.max_sol_per_user = max_sol_per_user;
         cfg.presale_active = presale_active;
@@ -65,6 +104,7 @@ pub mod goalchain_program {
         ctx: Context<UpdateConfig>,
         oracle_authority: Pubkey,
         treasury_token_account: Pubkey,
+        jackpot_token_account: Pubkey,
         fee_bps: u16,
         cutoff_buffer_seconds: i64,
         max_sol_per_user: u64,
@@ -72,12 +112,23 @@ pub mod goalchain_program {
     ) -> Result<()> {
         require!(fee_bps <= MAX_FEE_BPS, GoalChainError::InvalidConfig);
         require!(cutoff_buffer_seconds >= 0, GoalChainError::InvalidConfig);
-        require!(cutoff_buffer_seconds <= 24 * 60 * 60, GoalChainError::InvalidConfig);
+        require!(
+            cutoff_buffer_seconds <= 24 * 60 * 60,
+            GoalChainError::InvalidConfig
+        );
         require!(max_sol_per_user > 0, GoalChainError::InvalidConfig);
+        let fee_stream_bps = (ctx.accounts.config.fee_burn_bps as u32)
+            .checked_add(ctx.accounts.config.fee_jackpot_bps as u32)
+            .ok_or(GoalChainError::MathOverflow)?;
+        require!(
+            fee_stream_bps <= BPS_DENOMINATOR as u32,
+            GoalChainError::InvalidConfig
+        );
 
         let cfg = &mut ctx.accounts.config;
         cfg.oracle_authority = oracle_authority;
         cfg.treasury_token_account = treasury_token_account;
+        cfg.jackpot_token_account = jackpot_token_account;
         cfg.fee_bps = fee_bps;
         cfg.cutoff_buffer_seconds = cutoff_buffer_seconds;
         cfg.max_sol_per_user = max_sol_per_user;
@@ -96,7 +147,10 @@ pub mod goalchain_program {
             .ok_or(GoalChainError::MathOverflow)?
             .checked_add(marketing_bps as u32)
             .ok_or(GoalChainError::MathOverflow)?;
-        require!(total_bps == BPS_DENOMINATOR as u32, GoalChainError::InvalidBuilderFundWeights);
+        require!(
+            total_bps == BPS_DENOMINATOR as u32,
+            GoalChainError::InvalidBuilderFundWeights
+        );
 
         let builder_fund = &mut ctx.accounts.builder_fund;
         builder_fund.admin = ctx.accounts.admin.key();
@@ -139,9 +193,15 @@ pub mod goalchain_program {
         min_epoch_score: u64,
         max_contributors_per_epoch: u32,
     ) -> Result<()> {
-        require!(score_update_cooldown_seconds >= 0, GoalChainError::InvalidConfig);
+        require!(
+            score_update_cooldown_seconds >= 0,
+            GoalChainError::InvalidConfig
+        );
         require!(min_epoch_score > 0, GoalChainError::InvalidConfig);
-        require!(max_contributors_per_epoch > 0, GoalChainError::InvalidConfig);
+        require!(
+            max_contributors_per_epoch > 0,
+            GoalChainError::InvalidConfig
+        );
 
         let builder_fund = &mut ctx.accounts.builder_fund;
         builder_fund.score_update_cooldown_seconds = score_update_cooldown_seconds;
@@ -168,7 +228,10 @@ pub mod goalchain_program {
             .ok_or(GoalChainError::MathOverflow)?
             .checked_add(marketing_bps as u32)
             .ok_or(GoalChainError::MathOverflow)?;
-        require!(total_bps == BPS_DENOMINATOR as u32, GoalChainError::InvalidBuilderFundWeights);
+        require!(
+            total_bps == BPS_DENOMINATOR as u32,
+            GoalChainError::InvalidBuilderFundWeights
+        );
 
         let builder_fund = &mut ctx.accounts.builder_fund;
         builder_fund.contributor_bps = contributor_bps;
@@ -214,7 +277,11 @@ pub mod goalchain_program {
                     mint: ctx.accounts.token_mint.to_account_info(),
                 },
             );
-            token_interface::transfer_checked(cpi_ctx, contributor_amount, ctx.accounts.token_mint.decimals)?;
+            token_interface::transfer_checked(
+                cpi_ctx,
+                contributor_amount,
+                ctx.accounts.token_mint.decimals,
+            )?;
         }
 
         if api_infra_amount > 0 {
@@ -227,7 +294,11 @@ pub mod goalchain_program {
                     mint: ctx.accounts.token_mint.to_account_info(),
                 },
             );
-            token_interface::transfer_checked(cpi_ctx, api_infra_amount, ctx.accounts.token_mint.decimals)?;
+            token_interface::transfer_checked(
+                cpi_ctx,
+                api_infra_amount,
+                ctx.accounts.token_mint.decimals,
+            )?;
         }
 
         if marketing_amount > 0 {
@@ -240,7 +311,11 @@ pub mod goalchain_program {
                     mint: ctx.accounts.token_mint.to_account_info(),
                 },
             );
-            token_interface::transfer_checked(cpi_ctx, marketing_amount, ctx.accounts.token_mint.decimals)?;
+            token_interface::transfer_checked(
+                cpi_ctx,
+                marketing_amount,
+                ctx.accounts.token_mint.decimals,
+            )?;
         }
 
         builder_fund.total_inflow = builder_fund
@@ -285,7 +360,11 @@ pub mod goalchain_program {
             BuilderFundBucket::ApiInfra => builder_fund.api_infra_vault,
             BuilderFundBucket::Marketing => builder_fund.marketing_vault,
         };
-        require_keys_eq!(ctx.accounts.source_vault.key(), expected_source, GoalChainError::InvalidBuilderFundBucket);
+        require_keys_eq!(
+            ctx.accounts.source_vault.key(),
+            expected_source,
+            GoalChainError::InvalidBuilderFundBucket
+        );
 
         let config_key = ctx.accounts.config.key();
         let seeds = &[
@@ -367,18 +446,25 @@ pub mod goalchain_program {
                     .last_update_timestamp
                     .checked_add(builder_fund.score_update_cooldown_seconds)
                     .ok_or(GoalChainError::MathOverflow)?;
-                require!(clock.unix_timestamp >= next_allowed, GoalChainError::ScoreUpdateCooldown);
+                require!(
+                    clock.unix_timestamp >= next_allowed,
+                    GoalChainError::ScoreUpdateCooldown
+                );
             }
         }
 
         if score >= previous_score {
-            let delta = score.checked_sub(previous_score).ok_or(GoalChainError::MathOverflow)?;
+            let delta = score
+                .checked_sub(previous_score)
+                .ok_or(GoalChainError::MathOverflow)?;
             builder_fund.total_contributor_score = builder_fund
                 .total_contributor_score
                 .checked_add(delta)
                 .ok_or(GoalChainError::MathOverflow)?;
         } else {
-            let delta = previous_score.checked_sub(score).ok_or(GoalChainError::MathOverflow)?;
+            let delta = previous_score
+                .checked_sub(score)
+                .ok_or(GoalChainError::MathOverflow)?;
             builder_fund.total_contributor_score = builder_fund
                 .total_contributor_score
                 .checked_sub(delta)
@@ -402,8 +488,14 @@ pub mod goalchain_program {
         let builder_fund = &mut ctx.accounts.builder_fund;
         let contributor_score = &mut ctx.accounts.contributor_score;
 
-        require!(builder_fund.total_contributor_score > 0, GoalChainError::NoContributorScore);
-        require!(contributor_score.score > 0, GoalChainError::NoContributorScore);
+        require!(
+            builder_fund.total_contributor_score > 0,
+            GoalChainError::NoContributorScore
+        );
+        require!(
+            contributor_score.score > 0,
+            GoalChainError::NoContributorScore
+        );
 
         let entitlement = ((builder_fund.contributor_allocated as u128)
             .checked_mul(contributor_score.score as u128)
@@ -471,7 +563,10 @@ pub mod goalchain_program {
             .current_epoch
             .checked_add(1)
             .ok_or(GoalChainError::MathOverflow)?;
-        require!(epoch_id == expected_epoch_id, GoalChainError::InvalidEpochId);
+        require!(
+            epoch_id == expected_epoch_id,
+            GoalChainError::InvalidEpochId
+        );
         require!(
             ctx.accounts.contributor_vault.amount >= contributor_pool,
             GoalChainError::InsufficientVaultBalance
@@ -506,7 +601,10 @@ pub mod goalchain_program {
         let builder_fund = &ctx.accounts.builder_fund;
 
         require!(!epoch.finalized, GoalChainError::EpochAlreadyFinalized);
-        require!(contributor_score.score > 0, GoalChainError::NoEpochSnapshotScore);
+        require!(
+            contributor_score.score > 0,
+            GoalChainError::NoEpochSnapshotScore
+        );
         require!(
             contributor_score.score >= builder_fund.min_epoch_score,
             GoalChainError::ContributorScoreTooLow
@@ -542,7 +640,10 @@ pub mod goalchain_program {
         let clock = Clock::get()?;
         let epoch = &mut ctx.accounts.builder_epoch;
         require!(!epoch.finalized, GoalChainError::EpochAlreadyFinalized);
-        require!(epoch.total_score_snapshot > 0, GoalChainError::NoEpochSnapshotScore);
+        require!(
+            epoch.total_score_snapshot > 0,
+            GoalChainError::NoEpochSnapshotScore
+        );
         epoch.finalized = true;
         epoch.finalized_at = clock.unix_timestamp;
 
@@ -572,10 +673,10 @@ pub mod goalchain_program {
         );
 
         let contributor_vault_ta = SplTokenAccount::try_deserialize(
-            &mut &ctx.accounts.contributor_vault.data.borrow()[..]
+            &mut &ctx.accounts.contributor_vault.data.borrow()[..],
         )?;
         let contributor_token_ta = SplTokenAccount::try_deserialize(
-            &mut &ctx.accounts.contributor_token_account.data.borrow()[..]
+            &mut &ctx.accounts.contributor_token_account.data.borrow()[..],
         )?;
         require_keys_eq!(
             contributor_vault_ta.mint,
@@ -651,10 +752,16 @@ pub mod goalchain_program {
         if user_stake.amount == 0 {
             user_stake.start_timestamp = clock.unix_timestamp;
         } else {
-            require!(user_stake.unclaimed_rewards == 0, GoalChainError::MustClaimFirst);
+            require!(
+                user_stake.unclaimed_rewards == 0,
+                GoalChainError::MustClaimFirst
+            );
         }
 
-        user_stake.amount = user_stake.amount.checked_add(amount).ok_or(GoalChainError::MathOverflow)?;
+        user_stake.amount = user_stake
+            .amount
+            .checked_add(amount)
+            .ok_or(GoalChainError::MathOverflow)?;
         user_stake.owner = ctx.accounts.user.key();
 
         let cpi_ctx = CpiContext::new(
@@ -664,7 +771,7 @@ pub mod goalchain_program {
                 to: ctx.accounts.stake_vault_token_account.to_account_info(),
                 authority: ctx.accounts.user.to_account_info(),
                 mint: ctx.accounts.token_mint.to_account_info(),
-            }
+            },
         );
         token_interface::transfer_checked(cpi_ctx, amount, ctx.accounts.token_mint.decimals)?;
 
@@ -673,8 +780,14 @@ pub mod goalchain_program {
 
     pub fn unstake(ctx: Context<Unstake>, amount: u64) -> Result<()> {
         let user_stake = &mut ctx.accounts.user_stake;
-        require!(user_stake.amount >= amount, GoalChainError::InsufficientFunds);
-        user_stake.amount = user_stake.amount.checked_sub(amount).ok_or(GoalChainError::MathOverflow)?;
+        require!(
+            user_stake.amount >= amount,
+            GoalChainError::InsufficientFunds
+        );
+        user_stake.amount = user_stake
+            .amount
+            .checked_sub(amount)
+            .ok_or(GoalChainError::MathOverflow)?;
 
         let seeds = &[b"config".as_ref(), &[ctx.accounts.config.bump]];
         let signer = &[&seeds[..]];
@@ -704,7 +817,10 @@ pub mod goalchain_program {
         initial_base_yield: u64,
     ) -> Result<()> {
         require!(initial_base_yield > 0, GoalChainError::InvalidConfig);
-        require!(initial_base_yield <= MAX_BASE_YIELD_LAMPORTS, GoalChainError::InvalidConfig);
+        require!(
+            initial_base_yield <= MAX_BASE_YIELD_LAMPORTS,
+            GoalChainError::InvalidConfig
+        );
 
         let player = &mut ctx.accounts.parody_player;
         player.owner = owner;
@@ -734,12 +850,21 @@ pub mod goalchain_program {
     pub fn update_player_stats(
         ctx: Context<UpdatePlayerStats>,
         new_goals: u8,
-        new_assists: u8
+        new_assists: u8,
     ) -> Result<()> {
         let player = &mut ctx.accounts.parody_player;
-        player.real_world_goals = player.real_world_goals.checked_add(new_goals).ok_or(GoalChainError::MathOverflow)?;
-        player.real_world_assists = player.real_world_assists.checked_add(new_assists).ok_or(GoalChainError::MathOverflow)?;
-        player.shot_power = player.shot_power.checked_add(new_goals).ok_or(GoalChainError::MathOverflow)?;
+        player.real_world_goals = player
+            .real_world_goals
+            .checked_add(new_goals)
+            .ok_or(GoalChainError::MathOverflow)?;
+        player.real_world_assists = player
+            .real_world_assists
+            .checked_add(new_assists)
+            .ok_or(GoalChainError::MathOverflow)?;
+        player.shot_power = player
+            .shot_power
+            .checked_add(new_goals)
+            .ok_or(GoalChainError::MathOverflow)?;
         Ok(())
     }
 
@@ -755,7 +880,10 @@ pub mod goalchain_program {
     pub fn rent_nft(ctx: Context<RentNft>) -> Result<()> {
         let listing = &mut ctx.accounts.rental_listing;
         require!(listing.is_active, GoalChainError::ListingNotActive);
-        require!(listing.current_borrower.is_none(), GoalChainError::AlreadyRented);
+        require!(
+            listing.current_borrower.is_none(),
+            GoalChainError::AlreadyRented
+        );
 
         let cpi_ctx = CpiContext::new(
             ctx.accounts.token_program.key(),
@@ -764,9 +892,13 @@ pub mod goalchain_program {
                 to: ctx.accounts.owner_token_account.to_account_info(),
                 authority: ctx.accounts.borrower.to_account_info(),
                 mint: ctx.accounts.token_mint.to_account_info(),
-            }
+            },
         );
-        token_interface::transfer_checked(cpi_ctx, listing.price_per_match, ctx.accounts.token_mint.decimals)?;
+        token_interface::transfer_checked(
+            cpi_ctx,
+            listing.price_per_match,
+            ctx.accounts.token_mint.decimals,
+        )?;
         listing.current_borrower = Some(ctx.accounts.borrower.key());
         Ok(())
     }
@@ -786,7 +918,7 @@ pub mod goalchain_program {
                 to: ctx.accounts.wager_vault.to_account_info(),
                 authority: ctx.accounts.player_a.to_account_info(),
                 mint: ctx.accounts.token_mint.to_account_info(),
-            }
+            },
         );
         token_interface::transfer_checked(cpi_ctx, amount, ctx.accounts.token_mint.decimals)?;
         Ok(())
@@ -794,7 +926,10 @@ pub mod goalchain_program {
 
     pub fn accept_wager(ctx: Context<AcceptWager>) -> Result<()> {
         let wager = &mut ctx.accounts.wager;
-        require!(wager.state == WagerState::Created, GoalChainError::WagerNotAvailable);
+        require!(
+            wager.state == WagerState::Created,
+            GoalChainError::WagerNotAvailable
+        );
         wager.player_b = Some(ctx.accounts.player_b.key());
         wager.state = WagerState::Accepted;
 
@@ -805,7 +940,7 @@ pub mod goalchain_program {
                 to: ctx.accounts.wager_vault.to_account_info(),
                 authority: ctx.accounts.player_b.to_account_info(),
                 mint: ctx.accounts.token_mint.to_account_info(),
-            }
+            },
         );
         token_interface::transfer_checked(cpi_ctx, wager.amount, ctx.accounts.token_mint.decimals)?;
         Ok(())
@@ -820,7 +955,10 @@ pub mod goalchain_program {
 
         {
             let wager = &ctx.accounts.wager;
-            require!(wager.state == WagerState::Accepted, GoalChainError::WagerNotReady);
+            require!(
+                wager.state == WagerState::Accepted,
+                GoalChainError::WagerNotReady
+            );
 
             let expected_winner = if winner_is_a {
                 wager.player_a
@@ -838,7 +976,10 @@ pub mod goalchain_program {
                 GoalChainError::InvalidMint
             );
 
-            total_payout = wager.amount.checked_mul(2).ok_or(GoalChainError::MathOverflow)?;
+            total_payout = wager
+                .amount
+                .checked_mul(2)
+                .ok_or(GoalChainError::MathOverflow)?;
             player_a_key = wager.player_a;
             timestamp_bytes = wager.timestamp.to_le_bytes();
             bump_val = wager.bump;
@@ -860,7 +1001,7 @@ pub mod goalchain_program {
                 authority: wager_account_info,
                 mint: ctx.accounts.token_mint.to_account_info(),
             },
-            signer_seeds
+            signer_seeds,
         );
         token_interface::transfer_checked(cpi_ctx, total_payout, ctx.accounts.token_mint.decimals)?;
 
@@ -874,7 +1015,7 @@ pub mod goalchain_program {
         match_id: String,
         team_a: String,
         team_b: String,
-        start_time: i64
+        start_time: i64,
     ) -> Result<()> {
         let fixture = &mut ctx.accounts.fixture;
         fixture.match_id = match_id;
@@ -898,13 +1039,19 @@ pub mod goalchain_program {
         let bet = &mut ctx.accounts.user_bet;
         let clock = Clock::get()?;
 
-        require!(fixture.status == MatchStatus::Upcoming, GoalChainError::BettingClosed);
+        require!(
+            fixture.status == MatchStatus::Upcoming,
+            GoalChainError::BettingClosed
+        );
 
         let cutoff_ts = fixture
             .start_timestamp
             .checked_sub(cfg.cutoff_buffer_seconds)
             .ok_or(GoalChainError::MathOverflow)?;
-        require!(clock.unix_timestamp <= cutoff_ts, GoalChainError::BettingClosed);
+        require!(
+            clock.unix_timestamp <= cutoff_ts,
+            GoalChainError::BettingClosed
+        );
 
         bet.owner = ctx.accounts.user.key();
         bet.fixture = fixture.key();
@@ -914,9 +1061,24 @@ pub mod goalchain_program {
         bet.claimed = false;
 
         match prediction {
-            MatchResult::TeamA => fixture.pool_a = fixture.pool_a.checked_add(amount).ok_or(GoalChainError::MathOverflow)?,
-            MatchResult::TeamB => fixture.pool_b = fixture.pool_b.checked_add(amount).ok_or(GoalChainError::MathOverflow)?,
-            MatchResult::Draw => fixture.pool_draw = fixture.pool_draw.checked_add(amount).ok_or(GoalChainError::MathOverflow)?,
+            MatchResult::TeamA => {
+                fixture.pool_a = fixture
+                    .pool_a
+                    .checked_add(amount)
+                    .ok_or(GoalChainError::MathOverflow)?
+            }
+            MatchResult::TeamB => {
+                fixture.pool_b = fixture
+                    .pool_b
+                    .checked_add(amount)
+                    .ok_or(GoalChainError::MathOverflow)?
+            }
+            MatchResult::Draw => {
+                fixture.pool_draw = fixture
+                    .pool_draw
+                    .checked_add(amount)
+                    .ok_or(GoalChainError::MathOverflow)?
+            }
         }
 
         let cpi_ctx = CpiContext::new(
@@ -926,7 +1088,7 @@ pub mod goalchain_program {
                 to: ctx.accounts.fixture_vault.to_account_info(),
                 authority: ctx.accounts.user.to_account_info(),
                 mint: ctx.accounts.token_mint.to_account_info(),
-            }
+            },
         );
         token_interface::transfer_checked(cpi_ctx, amount, ctx.accounts.token_mint.decimals)?;
         Ok(())
@@ -943,7 +1105,10 @@ pub mod goalchain_program {
             .sol_deposited
             .checked_add(amount)
             .ok_or(GoalChainError::MathOverflow)?;
-        require!(new_total <= cfg.max_sol_per_user, GoalChainError::PresaleLimitExceeded);
+        require!(
+            new_total <= cfg.max_sol_per_user,
+            GoalChainError::PresaleLimitExceeded
+        );
 
         if presale.sol_deposited == 0 {
             presale.owner = ctx.accounts.user.key();
@@ -972,18 +1137,20 @@ pub mod goalchain_program {
             data: ix_data,
         };
 
-        let bypass_requested =
-            ctx.accounts.stake_pool_program.key() == anchor_lang::solana_program::system_program::ID;
+        let bypass_requested = ctx.accounts.stake_pool_program.key()
+            == anchor_lang::solana_program::system_program::ID;
         let allow_local_bypass = !cfg!(feature = "mainnet");
 
         if bypass_requested {
             require!(allow_local_bypass, GoalChainError::InvalidStakePoolProgram);
             msg!("[GoalChain] Bypassing Jito CPI for localnet testing.");
-            let (expected_vault, _vault_bump) = Pubkey::find_program_address(
-                &[b"localnet_vault"],
-                ctx.program_id,
+            let (expected_vault, _vault_bump) =
+                Pubkey::find_program_address(&[b"localnet_vault"], ctx.program_id);
+            require_keys_eq!(
+                ctx.accounts.reserve_stake.key(),
+                expected_vault,
+                GoalChainError::InvalidVault
             );
-            require_keys_eq!(ctx.accounts.reserve_stake.key(), expected_vault, GoalChainError::InvalidVault);
 
             // Simulate SOL deposit by transferring SOL from user to reserve_stake
             let transfer_ix = anchor_lang::solana_program::system_instruction::transfer(
@@ -1019,7 +1186,7 @@ pub mod goalchain_program {
                     ctx.accounts.system_program.to_account_info(),
                     ctx.accounts.token_program.to_account_info(),
                     ctx.accounts.stake_pool_program.to_account_info(),
-                ]
+                ],
             )?;
         }
 
@@ -1029,7 +1196,7 @@ pub mod goalchain_program {
     pub fn update_fixture_status(
         ctx: Context<UpdateFixtureStatus>,
         status: MatchStatus,
-        winner: Option<MatchResult>
+        winner: Option<MatchResult>,
     ) -> Result<()> {
         // regla de consistencia mínima
         if status == MatchStatus::Completed {
@@ -1053,22 +1220,63 @@ pub mod goalchain_program {
             &[b"fixture_vault", fixture.key().as_ref()],
             ctx.program_id,
         );
-        require_keys_eq!(ctx.accounts.fixture_vault.key(), expected_vault, GoalChainError::InvalidVault);
+        require_keys_eq!(
+            ctx.accounts.fixture_vault.key(),
+            expected_vault,
+            GoalChainError::InvalidVault
+        );
 
-        let user_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.user_token_account.data.borrow()[..])?;
-        let vault_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.fixture_vault.data.borrow()[..])?;
-        let treasury_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.treasury_token_account.data.borrow()[..])?;
+        let user_ta = SplTokenAccount::try_deserialize(
+            &mut &ctx.accounts.user_token_account.data.borrow()[..],
+        )?;
+        let vault_ta =
+            SplTokenAccount::try_deserialize(&mut &ctx.accounts.fixture_vault.data.borrow()[..])?;
+        let treasury_ta = SplTokenAccount::try_deserialize(
+            &mut &ctx.accounts.treasury_token_account.data.borrow()[..],
+        )?;
+        let jackpot_ta = SplTokenAccount::try_deserialize(
+            &mut &ctx.accounts.jackpot_token_account.data.borrow()[..],
+        )?;
 
-        require_keys_eq!(user_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
-        require_keys_eq!(vault_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
-        require_keys_eq!(treasury_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
+        require_keys_eq!(
+            user_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
+        require_keys_eq!(
+            vault_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
+        require_keys_eq!(
+            treasury_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
+        require_keys_eq!(
+            jackpot_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
 
-        require!(fixture.status != MatchStatus::Cancelled, GoalChainError::UseRefundForCancelledFixture);
-        require!(fixture.status == MatchStatus::Completed, GoalChainError::MatchNotFinished);
+        require!(
+            fixture.status != MatchStatus::Cancelled,
+            GoalChainError::UseRefundForCancelledFixture
+        );
+        require!(
+            fixture.status == MatchStatus::Completed,
+            GoalChainError::MatchNotFinished
+        );
         require!(!bet.claimed, GoalChainError::AlreadyClaimed);
 
-        let winning_result = fixture.winner.as_ref().ok_or(GoalChainError::NoWinnerDeclared)?;
-        require!(bet.prediction == *winning_result, GoalChainError::NotAWinner);
+        let winning_result = fixture
+            .winner
+            .as_ref()
+            .ok_or(GoalChainError::NoWinnerDeclared)?;
+        require!(
+            bet.prediction == *winning_result,
+            GoalChainError::NotAWinner
+        );
 
         let winning_pool = match winning_result {
             MatchResult::TeamA => fixture.pool_a,
@@ -1079,20 +1287,28 @@ pub mod goalchain_program {
 
         let total_pool = fixture
             .pool_a
-            .checked_add(fixture.pool_b).ok_or(GoalChainError::MathOverflow)?
-            .checked_add(fixture.pool_draw).ok_or(GoalChainError::MathOverflow)?;
+            .checked_add(fixture.pool_b)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_add(fixture.pool_draw)
+            .ok_or(GoalChainError::MathOverflow)?;
 
         // --- payout base (sin fees) ---
         // share "bruto" del usuario sobre el total_pool (parimutuel)
         let gross_user_share = ((bet.amount as u128)
-            .checked_mul(total_pool as u128).ok_or(GoalChainError::MathOverflow)?
-            .checked_div(winning_pool as u128).ok_or(GoalChainError::MathOverflow)?) as u64;
+            .checked_mul(total_pool as u128)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(winning_pool as u128)
+            .ok_or(GoalChainError::MathOverflow)?) as u64;
 
         // --- fee proporcional por claim ---
         // fee sobre el payout del usuario (no global), evita sobrecobro cuando reclaman múltiples ganadores.
         let user_fee = ((gross_user_share as u128)
-            .checked_mul(cfg.fee_bps as u128).ok_or(GoalChainError::MathOverflow)?
-            .checked_div(10_000).ok_or(GoalChainError::MathOverflow)?) as u64;
+            .checked_mul(cfg.fee_bps as u128)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(10_000)
+            .ok_or(GoalChainError::MathOverflow)?) as u64;
+        let (burn_amount, jackpot_amount, treasury_amount) =
+            split_fee_amounts(user_fee, cfg.fee_burn_bps, cfg.fee_jackpot_bps)?;
 
         let user_net_share = gross_user_share
             .checked_sub(user_fee)
@@ -1100,13 +1316,19 @@ pub mod goalchain_program {
         let payout_total = user_net_share
             .checked_add(user_fee)
             .ok_or(GoalChainError::MathOverflow)?;
-        require!(vault_ta.amount >= payout_total, GoalChainError::InsufficientVaultBalance);
+        require!(
+            vault_ta.amount >= payout_total,
+            GoalChainError::InsufficientVaultBalance
+        );
 
         fixture.total_claimed = fixture
             .total_claimed
             .checked_add(gross_user_share)
             .ok_or(GoalChainError::MathOverflow)?;
-        require!(fixture.total_claimed <= total_pool, GoalChainError::InsufficientVaultBalance);
+        require!(
+            fixture.total_claimed <= total_pool,
+            GoalChainError::InsufficientVaultBalance
+        );
 
         // marcar claimed antes de transfer (ataques por reintentos no cambian estado)
         bet.claimed = true;
@@ -1114,11 +1336,7 @@ pub mod goalchain_program {
         // signer seeds para authority = fixture PDA
         let bump_val = fixture.bump;
         let bump_arr = [bump_val];
-        let signer_seeds: &[&[&[u8]]] = &[&[
-            b"fixture",
-            fixture.match_id.as_bytes(),
-            &bump_arr,
-        ]];
+        let signer_seeds: &[&[&[u8]]] = &[&[b"fixture", fixture.match_id.as_bytes(), &bump_arr]];
 
         // 1) payout neto al usuario
         let cpi_user = CpiContext::new_with_signer(
@@ -1131,10 +1349,14 @@ pub mod goalchain_program {
             },
             signer_seeds,
         );
-        token_interface::transfer_checked(cpi_user, user_net_share, ctx.accounts.token_mint.decimals)?;
+        token_interface::transfer_checked(
+            cpi_user,
+            user_net_share,
+            ctx.accounts.token_mint.decimals,
+        )?;
 
-        // 2) fee del usuario a treasury (si > 0)
-        if user_fee > 0 {
+        // 2) protocol split over claim fee stream
+        if treasury_amount > 0 {
             let cpi_fee = CpiContext::new_with_signer(
                 ctx.accounts.token_program.key(),
                 TransferChecked {
@@ -1145,7 +1367,42 @@ pub mod goalchain_program {
                 },
                 signer_seeds,
             );
-            token_interface::transfer_checked(cpi_fee, user_fee, ctx.accounts.token_mint.decimals)?;
+            token_interface::transfer_checked(
+                cpi_fee,
+                treasury_amount,
+                ctx.accounts.token_mint.decimals,
+            )?;
+        }
+
+        if jackpot_amount > 0 {
+            let cpi_jackpot = CpiContext::new_with_signer(
+                ctx.accounts.token_program.key(),
+                TransferChecked {
+                    from: ctx.accounts.fixture_vault.to_account_info(),
+                    to: ctx.accounts.jackpot_token_account.to_account_info(),
+                    authority: fixture_account_info.clone(),
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                },
+                signer_seeds,
+            );
+            token_interface::transfer_checked(
+                cpi_jackpot,
+                jackpot_amount,
+                ctx.accounts.token_mint.decimals,
+            )?;
+        }
+
+        if burn_amount > 0 {
+            let cpi_burn = CpiContext::new_with_signer(
+                ctx.accounts.token_program.key(),
+                Burn {
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                    from: ctx.accounts.fixture_vault.to_account_info(),
+                    authority: fixture_account_info.clone(),
+                },
+                signer_seeds,
+            );
+            token_interface::burn(cpi_burn, burn_amount)?;
         }
 
         Ok(())
@@ -1156,20 +1413,41 @@ pub mod goalchain_program {
         let fixture = &mut ctx.accounts.fixture;
         let bet = &mut ctx.accounts.user_bet;
 
-        require!(fixture.status == MatchStatus::Cancelled, GoalChainError::FixtureNotCancelled);
+        require!(
+            fixture.status == MatchStatus::Cancelled,
+            GoalChainError::FixtureNotCancelled
+        );
         require!(!bet.claimed, GoalChainError::AlreadyClaimed);
 
         let (expected_vault, _vault_bump) = Pubkey::find_program_address(
             &[b"fixture_vault", fixture.key().as_ref()],
             ctx.program_id,
         );
-        require_keys_eq!(ctx.accounts.fixture_vault.key(), expected_vault, GoalChainError::InvalidVault);
+        require_keys_eq!(
+            ctx.accounts.fixture_vault.key(),
+            expected_vault,
+            GoalChainError::InvalidVault
+        );
 
-        let user_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.user_token_account.data.borrow()[..])?;
-        let vault_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.fixture_vault.data.borrow()[..])?;
-        require_keys_eq!(user_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
-        require_keys_eq!(vault_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
-        require!(vault_ta.amount >= bet.amount, GoalChainError::InsufficientVaultBalance);
+        let user_ta = SplTokenAccount::try_deserialize(
+            &mut &ctx.accounts.user_token_account.data.borrow()[..],
+        )?;
+        let vault_ta =
+            SplTokenAccount::try_deserialize(&mut &ctx.accounts.fixture_vault.data.borrow()[..])?;
+        require_keys_eq!(
+            user_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
+        require_keys_eq!(
+            vault_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
+        require!(
+            vault_ta.amount >= bet.amount,
+            GoalChainError::InsufficientVaultBalance
+        );
 
         bet.claimed = true;
         fixture.total_refunded = fixture
@@ -1179,11 +1457,7 @@ pub mod goalchain_program {
 
         let bump_val = fixture.bump;
         let bump_arr = [bump_val];
-        let signer_seeds: &[&[&[u8]]] = &[&[
-            b"fixture",
-            fixture.match_id.as_bytes(),
-            &bump_arr,
-        ]];
+        let signer_seeds: &[&[&[u8]]] = &[&[b"fixture", fixture.match_id.as_bytes(), &bump_arr]];
 
         let cpi_refund = CpiContext::new_with_signer(
             ctx.accounts.token_program.key(),
@@ -1195,7 +1469,11 @@ pub mod goalchain_program {
             },
             signer_seeds,
         );
-        token_interface::transfer_checked(cpi_refund, bet.amount, ctx.accounts.token_mint.decimals)?;
+        token_interface::transfer_checked(
+            cpi_refund,
+            bet.amount,
+            ctx.accounts.token_mint.decimals,
+        )?;
         Ok(())
     }
 
@@ -1211,12 +1489,27 @@ pub mod goalchain_program {
             &[b"fixture_vault", fixture.key().as_ref()],
             ctx.program_id,
         );
-        require_keys_eq!(ctx.accounts.fixture_vault.key(), expected_vault, GoalChainError::InvalidVault);
+        require_keys_eq!(
+            ctx.accounts.fixture_vault.key(),
+            expected_vault,
+            GoalChainError::InvalidVault
+        );
 
-        let vault_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.fixture_vault.data.borrow()[..])?;
-        let treasury_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.treasury_token_account.data.borrow()[..])?;
-        require_keys_eq!(vault_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
-        require_keys_eq!(treasury_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
+        let vault_ta =
+            SplTokenAccount::try_deserialize(&mut &ctx.accounts.fixture_vault.data.borrow()[..])?;
+        let treasury_ta = SplTokenAccount::try_deserialize(
+            &mut &ctx.accounts.treasury_token_account.data.borrow()[..],
+        )?;
+        require_keys_eq!(
+            vault_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
+        require_keys_eq!(
+            treasury_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
 
         if vault_ta.amount == 0 {
             return Ok(());
@@ -1224,11 +1517,7 @@ pub mod goalchain_program {
 
         let bump_val = fixture.bump;
         let bump_arr = [bump_val];
-        let signer_seeds: &[&[&[u8]]] = &[&[
-            b"fixture",
-            fixture.match_id.as_bytes(),
-            &bump_arr,
-        ]];
+        let signer_seeds: &[&[&[u8]]] = &[&[b"fixture", fixture.match_id.as_bytes(), &bump_arr]];
 
         let cpi_ctx = CpiContext::new_with_signer(
             ctx.accounts.token_program.key(),
@@ -1240,7 +1529,11 @@ pub mod goalchain_program {
             },
             signer_seeds,
         );
-        token_interface::transfer_checked(cpi_ctx, vault_ta.amount, ctx.accounts.token_mint.decimals)?;
+        token_interface::transfer_checked(
+            cpi_ctx,
+            vault_ta.amount,
+            ctx.accounts.token_mint.decimals,
+        )?;
         Ok(())
     }
 
@@ -1331,18 +1624,40 @@ pub mod goalchain_program {
         let live = &ctx.accounts.live_state;
         let clock = Clock::get()?;
 
-        require!(market.status == MarketStatus::Open, GoalChainError::BettingClosed);
-        require_keys_eq!(market.fixture, ctx.accounts.fixture.key(), GoalChainError::InvalidMarket);
-        require_keys_eq!(live.fixture, ctx.accounts.fixture.key(), GoalChainError::InvalidLiveState);
+        require!(
+            market.status == MarketStatus::Open,
+            GoalChainError::BettingClosed
+        );
+        require_keys_eq!(
+            market.fixture,
+            ctx.accounts.fixture.key(),
+            GoalChainError::InvalidMarket
+        );
+        require_keys_eq!(
+            live.fixture,
+            ctx.accounts.fixture.key(),
+            GoalChainError::InvalidLiveState
+        );
 
         // market mint must match provided mint
-        require_keys_eq!(market.token_mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
+        require_keys_eq!(
+            market.token_mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
 
         // window by minute
-        require!(live.minute <= market.close_minute, GoalChainError::BettingClosed);
+        require!(
+            live.minute <= market.close_minute,
+            GoalChainError::BettingClosed
+        );
 
         // tied / goal-diff rules
-        let diff = if live.score_a >= live.score_b { live.score_a - live.score_b } else { live.score_b - live.score_a };
+        let diff = if live.score_a >= live.score_b {
+            live.score_a - live.score_b
+        } else {
+            live.score_b - live.score_a
+        };
         require!(diff <= market.max_goal_diff, GoalChainError::BettingClosed);
         if market.require_tied {
             require!(live.score_a == live.score_b, GoalChainError::BettingClosed);
@@ -1354,7 +1669,10 @@ pub mod goalchain_program {
                 .last_bet_ts
                 .checked_add(market.cooldown_seconds)
                 .ok_or(GoalChainError::MathOverflow)?;
-            require!(clock.unix_timestamp >= next_allowed, GoalChainError::BettingClosed);
+            require!(
+                clock.unix_timestamp >= next_allowed,
+                GoalChainError::BettingClosed
+            );
         }
 
         // record position (multiple tickets per user per market)
@@ -1369,9 +1687,24 @@ pub mod goalchain_program {
 
         // update pools
         match prediction {
-            MatchResult::TeamA => market.pool_a = market.pool_a.checked_add(amount).ok_or(GoalChainError::MathOverflow)?,
-            MatchResult::TeamB => market.pool_b = market.pool_b.checked_add(amount).ok_or(GoalChainError::MathOverflow)?,
-            MatchResult::Draw => market.pool_draw = market.pool_draw.checked_add(amount).ok_or(GoalChainError::MathOverflow)?,
+            MatchResult::TeamA => {
+                market.pool_a = market
+                    .pool_a
+                    .checked_add(amount)
+                    .ok_or(GoalChainError::MathOverflow)?
+            }
+            MatchResult::TeamB => {
+                market.pool_b = market
+                    .pool_b
+                    .checked_add(amount)
+                    .ok_or(GoalChainError::MathOverflow)?
+            }
+            MatchResult::Draw => {
+                market.pool_draw = market
+                    .pool_draw
+                    .checked_add(amount)
+                    .ok_or(GoalChainError::MathOverflow)?
+            }
         }
         market.last_bet_ts = clock.unix_timestamp;
 
@@ -1398,22 +1731,56 @@ pub mod goalchain_program {
         let clock = Clock::get()?;
 
         // --- runtime hardening: market vault PDA + mint match ---
-        let (expected_vault, _bump) = Pubkey::find_program_address(
-            &[b"market_vault", market.key().as_ref()],
-            ctx.program_id,
+        let (expected_vault, _bump) =
+            Pubkey::find_program_address(&[b"market_vault", market.key().as_ref()], ctx.program_id);
+        require_keys_eq!(
+            ctx.accounts.market_vault.key(),
+            expected_vault,
+            GoalChainError::InvalidVault
         );
-        require_keys_eq!(ctx.accounts.market_vault.key(), expected_vault, GoalChainError::InvalidVault);
 
-        let user_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.user_token_account.data.borrow()[..])?;
-        let vault_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.market_vault.data.borrow()[..])?;
-        let treasury_ta = SplTokenAccount::try_deserialize(&mut &ctx.accounts.treasury_token_account.data.borrow()[..])?;
+        let user_ta = SplTokenAccount::try_deserialize(
+            &mut &ctx.accounts.user_token_account.data.borrow()[..],
+        )?;
+        let vault_ta =
+            SplTokenAccount::try_deserialize(&mut &ctx.accounts.market_vault.data.borrow()[..])?;
+        let treasury_ta = SplTokenAccount::try_deserialize(
+            &mut &ctx.accounts.treasury_token_account.data.borrow()[..],
+        )?;
+        let jackpot_ta = SplTokenAccount::try_deserialize(
+            &mut &ctx.accounts.jackpot_token_account.data.borrow()[..],
+        )?;
 
-        require_keys_eq!(user_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
-        require_keys_eq!(vault_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
-        require_keys_eq!(treasury_ta.mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
-        require_keys_eq!(market.token_mint, ctx.accounts.token_mint.key(), GoalChainError::InvalidMint);
+        require_keys_eq!(
+            user_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
+        require_keys_eq!(
+            vault_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
+        require_keys_eq!(
+            treasury_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
+        require_keys_eq!(
+            jackpot_ta.mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
+        require_keys_eq!(
+            market.token_mint,
+            ctx.accounts.token_mint.key(),
+            GoalChainError::InvalidMint
+        );
 
-        require!(market.status == MarketStatus::Resolved, GoalChainError::MatchNotFinished);
+        require!(
+            market.status == MarketStatus::Resolved,
+            GoalChainError::MatchNotFinished
+        );
         require!(!pos.claimed, GoalChainError::AlreadyClaimed);
 
         // delay after resolution
@@ -1421,13 +1788,22 @@ pub mod goalchain_program {
             let unlock_ts = resolved_ts
                 .checked_add(market.delay_seconds)
                 .ok_or(GoalChainError::MathOverflow)?;
-            require!(clock.unix_timestamp >= unlock_ts, GoalChainError::ClaimTooEarly);
+            require!(
+                clock.unix_timestamp >= unlock_ts,
+                GoalChainError::ClaimTooEarly
+            );
         } else {
             return err!(GoalChainError::MatchNotFinished);
         }
 
-        let winning_result = market.winner.as_ref().ok_or(GoalChainError::NoWinnerDeclared)?;
-        require!(pos.prediction == *winning_result, GoalChainError::NotAWinner);
+        let winning_result = market
+            .winner
+            .as_ref()
+            .ok_or(GoalChainError::NoWinnerDeclared)?;
+        require!(
+            pos.prediction == *winning_result,
+            GoalChainError::NotAWinner
+        );
 
         let winning_pool = match winning_result {
             MatchResult::TeamA => market.pool_a,
@@ -1438,16 +1814,24 @@ pub mod goalchain_program {
 
         let total_pool = market
             .pool_a
-            .checked_add(market.pool_b).ok_or(GoalChainError::MathOverflow)?
-            .checked_add(market.pool_draw).ok_or(GoalChainError::MathOverflow)?;
+            .checked_add(market.pool_b)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_add(market.pool_draw)
+            .ok_or(GoalChainError::MathOverflow)?;
 
         let gross_user_share = ((pos.amount as u128)
-            .checked_mul(total_pool as u128).ok_or(GoalChainError::MathOverflow)?
-            .checked_div(winning_pool as u128).ok_or(GoalChainError::MathOverflow)?) as u64;
+            .checked_mul(total_pool as u128)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(winning_pool as u128)
+            .ok_or(GoalChainError::MathOverflow)?) as u64;
 
         let user_fee = ((gross_user_share as u128)
-            .checked_mul(cfg.fee_bps as u128).ok_or(GoalChainError::MathOverflow)?
-            .checked_div(10_000).ok_or(GoalChainError::MathOverflow)?) as u64;
+            .checked_mul(cfg.fee_bps as u128)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(10_000)
+            .ok_or(GoalChainError::MathOverflow)?) as u64;
+        let (burn_amount, jackpot_amount, treasury_amount) =
+            split_fee_amounts(user_fee, cfg.fee_burn_bps, cfg.fee_jackpot_bps)?;
 
         let user_net_share = gross_user_share
             .checked_sub(user_fee)
@@ -1475,10 +1859,14 @@ pub mod goalchain_program {
             },
             signer_seeds,
         );
-        token_interface::transfer_checked(cpi_user, user_net_share, ctx.accounts.token_mint.decimals)?;
+        token_interface::transfer_checked(
+            cpi_user,
+            user_net_share,
+            ctx.accounts.token_mint.decimals,
+        )?;
 
-        // fee to treasury
-        if user_fee > 0 {
+        // split fee stream into treasury/jackpot/burn
+        if treasury_amount > 0 {
             let cpi_fee = CpiContext::new_with_signer(
                 ctx.accounts.token_program.key(),
                 TransferChecked {
@@ -1489,7 +1877,42 @@ pub mod goalchain_program {
                 },
                 signer_seeds,
             );
-            token_interface::transfer_checked(cpi_fee, user_fee, ctx.accounts.token_mint.decimals)?;
+            token_interface::transfer_checked(
+                cpi_fee,
+                treasury_amount,
+                ctx.accounts.token_mint.decimals,
+            )?;
+        }
+
+        if jackpot_amount > 0 {
+            let cpi_jackpot = CpiContext::new_with_signer(
+                ctx.accounts.token_program.key(),
+                TransferChecked {
+                    from: ctx.accounts.market_vault.to_account_info(),
+                    to: ctx.accounts.jackpot_token_account.to_account_info(),
+                    authority: ctx.accounts.market.to_account_info(),
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                },
+                signer_seeds,
+            );
+            token_interface::transfer_checked(
+                cpi_jackpot,
+                jackpot_amount,
+                ctx.accounts.token_mint.decimals,
+            )?;
+        }
+
+        if burn_amount > 0 {
+            let cpi_burn = CpiContext::new_with_signer(
+                ctx.accounts.token_program.key(),
+                Burn {
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                    from: ctx.accounts.market_vault.to_account_info(),
+                    authority: ctx.accounts.market.to_account_info(),
+                },
+                signer_seeds,
+            );
+            token_interface::burn(cpi_burn, burn_amount)?;
         }
 
         Ok(())
@@ -1508,7 +1931,8 @@ pub mod goalchain_program {
         require!(!player.is_eliminated, GoalChainError::PlayerIsEliminated);
 
         match action_type {
-            1 => { // Gol Real: +10% yield
+            1 => {
+                // Gol Real: +10% yield
                 let bonus = player
                     .base_yield_rate
                     .checked_div(10)
@@ -1517,8 +1941,9 @@ pub mod goalchain_program {
                     .base_yield_rate
                     .checked_add(bonus)
                     .ok_or(GoalChainError::MathOverflow)?;
-            },
-            2 => { // Asistencia Real: +5% yield
+            }
+            2 => {
+                // Asistencia Real: +5% yield
                 let bonus = player
                     .base_yield_rate
                     .checked_div(20)
@@ -1527,19 +1952,22 @@ pub mod goalchain_program {
                     .base_yield_rate
                     .checked_add(bonus)
                     .ok_or(GoalChainError::MathOverflow)?;
-            },
-            3 => { // Tarjeta Roja: -20% yield
+            }
+            3 => {
+                // Tarjeta Roja: -20% yield
                 player.base_yield_rate = (player.base_yield_rate as u128)
                     .checked_mul(80)
                     .ok_or(GoalChainError::MathOverflow)?
                     .checked_div(100)
-                    .ok_or(GoalChainError::MathOverflow)? as u64;
+                    .ok_or(GoalChainError::MathOverflow)?
+                    as u64;
                 player.current_stamina = 0;
-            },
-            4 => { // Eliminación de su País
+            }
+            4 => {
+                // Eliminación de su País
                 player.base_yield_rate = 0;
                 player.is_eliminated = true;
-            },
+            }
             _ => return err!(GoalChainError::InvalidActionType),
         }
         Ok(())
@@ -1549,13 +1977,13 @@ pub mod goalchain_program {
     /// "revive" a los jugadores eliminados y reinicia su Yield Base inicial.
     pub fn oracle_reset_season(
         ctx: Context<OracleUpdatePlayerYield>,
-        new_base_yield: u64
+        new_base_yield: u64,
     ) -> Result<()> {
         let player = &mut ctx.accounts.parody_player;
         player.is_eliminated = false;
         player.base_yield_rate = new_base_yield;
         player.current_stamina = 100; // Vuelven descansados al nuevo torneo
-        
+
         Ok(())
     }
 
@@ -1571,33 +1999,50 @@ pub mod goalchain_program {
 
         // 1. Enforce cooldown (24 hours)
         require!(
-            current_ts >= player.last_claim_timestamp.checked_add(86400).ok_or(GoalChainError::MathOverflow)?,
+            current_ts
+                >= player
+                    .last_claim_timestamp
+                    .checked_add(86400)
+                    .ok_or(GoalChainError::MathOverflow)?,
             GoalChainError::ClaimTooEarly
         );
 
         // 2. Enforce stamina limit
-        require!(player.current_stamina >= 5, GoalChainError::InsufficientStamina);
+        require!(
+            player.current_stamina >= 5,
+            GoalChainError::InsufficientStamina
+        );
 
         // Update claim timestamp
         player.last_claim_timestamp = current_ts;
 
         let mut base_salary = player.base_yield_rate;
         if player.current_stamina < 30 {
-            base_salary = base_salary.checked_div(2).ok_or(GoalChainError::MathOverflow)?; // Penalidad de fatiga (-50%)
+            base_salary = base_salary
+                .checked_div(2)
+                .ok_or(GoalChainError::MathOverflow)?; // Penalidad de fatiga (-50%)
         }
 
         // Mul by multipliers (represented in basis points, e.g. 10000 = 1.0x) using u128 intermediate math to prevent overflow
         let final_daily_salary = (base_salary as u128)
-            .checked_mul(manager.salary_multiplier as u128).ok_or(GoalChainError::MathOverflow)?
-            .checked_div(10_000).ok_or(GoalChainError::MathOverflow)?
-            .checked_mul(stadium.revenue_multiplier as u128).ok_or(GoalChainError::MathOverflow)?
-            .checked_div(10_000).ok_or(GoalChainError::MathOverflow)? as u64;
+            .checked_mul(manager.salary_multiplier as u128)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(10_000)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_mul(stadium.revenue_multiplier as u128)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(10_000)
+            .ok_or(GoalChainError::MathOverflow)? as u64;
 
         // Founder capture hard-cap: 1% max protocol tax on salaries.
         let architect_tax = (final_daily_salary as u128)
-            .checked_mul(ARCHITECT_TAX_BPS as u128).ok_or(GoalChainError::MathOverflow)?
-            .checked_div(10_000).ok_or(GoalChainError::MathOverflow)? as u64;
-        let user_net_salary = final_daily_salary.checked_sub(architect_tax).ok_or(GoalChainError::MathOverflow)?;
+            .checked_mul(ARCHITECT_TAX_BPS as u128)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(10_000)
+            .ok_or(GoalChainError::MathOverflow)? as u64;
+        let user_net_salary = final_daily_salary
+            .checked_sub(architect_tax)
+            .ok_or(GoalChainError::MathOverflow)?;
 
         player.current_stamina = player.current_stamina.saturating_sub(5);
 
@@ -1615,7 +2060,11 @@ pub mod goalchain_program {
             },
             signer,
         );
-        token_interface::transfer_checked(cpi_user, user_net_salary, ctx.accounts.token_mint.decimals)?;
+        token_interface::transfer_checked(
+            cpi_user,
+            user_net_salary,
+            ctx.accounts.token_mint.decimals,
+        )?;
 
         // 2. Pagar el impuesto (1%) al destino de tesorería comunitaria
         let cpi_architect = CpiContext::new_with_signer(
@@ -1628,7 +2077,11 @@ pub mod goalchain_program {
             },
             signer,
         );
-        token_interface::transfer_checked(cpi_architect, architect_tax, ctx.accounts.token_mint.decimals)?;
+        token_interface::transfer_checked(
+            cpi_architect,
+            architect_tax,
+            ctx.accounts.token_mint.decimals,
+        )?;
 
         Ok(())
     }
@@ -1658,7 +2111,7 @@ pub mod goalchain_program {
     // ====================================================================
     // V2 HOOKS PARA EXPANSIÓN FUTURA (Evitando Feature Creep)
     // ====================================================================
-    
+
     /// [HOOK] La Forja: Permitirá fusionar NFTs en el futuro
     pub fn forge_nft(_ctx: Context<FutureHook>) -> Result<()> {
         Ok(())
@@ -1671,7 +2124,10 @@ pub mod goalchain_program {
 
     pub fn feed_potion(ctx: Context<FeedPotion>) -> Result<()> {
         let player = &mut ctx.accounts.parody_player;
-        require!(player.current_stamina < 100, GoalChainError::StaminaAlreadyFull);
+        require!(
+            player.current_stamina < 100,
+            GoalChainError::StaminaAlreadyFull
+        );
 
         // Burn 100 GCH (POTION_BURN_LAMPORTS; 6 decimals)
         let cpi_program = ctx.accounts.token_program.key();
@@ -1689,8 +2145,12 @@ pub mod goalchain_program {
 
     pub fn equip_locker_room_item(ctx: Context<EquipLockerRoomItem>, item_type: u8) -> Result<()> {
         let player = &mut ctx.accounts.parody_player;
-        require_keys_eq!(player.owner, ctx.accounts.user.key(), GoalChainError::Unauthorized);
-        
+        require_keys_eq!(
+            player.owner,
+            ctx.accounts.user.key(),
+            GoalChainError::Unauthorized
+        );
+
         let cpi_program = ctx.accounts.token_program.key();
         let cpi_accounts = TransferChecked {
             from: ctx.accounts.user_item_wallet.to_account_info(),
@@ -1703,35 +2163,47 @@ pub mod goalchain_program {
 
         match item_type {
             1 => {
-                require!(player.equipped_jersey.is_none(), GoalChainError::AlreadyEquipped);
+                require!(
+                    player.equipped_jersey.is_none(),
+                    GoalChainError::AlreadyEquipped
+                );
                 player.equipped_jersey = Some(ctx.accounts.item_mint.key());
-                player.base_yield_rate = player.base_yield_rate.checked_add(player.base_yield_rate / 10).ok_or(GoalChainError::MathOverflow)?;
-            },
+                player.base_yield_rate = player
+                    .base_yield_rate
+                    .checked_add(player.base_yield_rate / 10)
+                    .ok_or(GoalChainError::MathOverflow)?;
+            }
             2 => {
-                require!(player.equipped_boots.is_none(), GoalChainError::AlreadyEquipped);
+                require!(
+                    player.equipped_boots.is_none(),
+                    GoalChainError::AlreadyEquipped
+                );
                 player.equipped_boots = Some(ctx.accounts.item_mint.key());
                 player.speed = player.speed.saturating_add(5);
-            },
+            }
             3 => {
                 require!(!player.has_shield_jersey, GoalChainError::AlreadyEquipped);
                 player.has_shield_jersey = true;
-            },
+            }
             _ => return err!(GoalChainError::InvalidItemType),
         }
 
         Ok(())
     }
 
-    pub fn unequip_locker_room_item(ctx: Context<UnequipLockerRoomItem>, item_type: u8) -> Result<()> {
+    pub fn unequip_locker_room_item(
+        ctx: Context<UnequipLockerRoomItem>,
+        item_type: u8,
+    ) -> Result<()> {
         let player = &mut ctx.accounts.parody_player;
-        require_keys_eq!(player.owner, ctx.accounts.user.key(), GoalChainError::Unauthorized);
-        
+        require_keys_eq!(
+            player.owner,
+            ctx.accounts.user.key(),
+            GoalChainError::Unauthorized
+        );
+
         let player_id_bytes = player.player_id.as_bytes();
-        let seeds = &[
-            b"player",
-            player_id_bytes,
-            &[player.bump],
-        ];
+        let seeds = &[b"player", player_id_bytes, &[player.bump]];
         let signer_seeds = &[&seeds[..]];
 
         let cpi_program = ctx.accounts.token_program.key();
@@ -1746,19 +2218,30 @@ pub mod goalchain_program {
 
         match item_type {
             1 => {
-                require!(player.equipped_jersey == Some(ctx.accounts.item_mint.key()), GoalChainError::InvalidItemType);
+                require!(
+                    player.equipped_jersey == Some(ctx.accounts.item_mint.key()),
+                    GoalChainError::InvalidItemType
+                );
                 player.equipped_jersey = None;
-                player.base_yield_rate = player.base_yield_rate.checked_mul(10).ok_or(GoalChainError::MathOverflow)?.checked_div(11).ok_or(GoalChainError::MathOverflow)?;
-            },
+                player.base_yield_rate = player
+                    .base_yield_rate
+                    .checked_mul(10)
+                    .ok_or(GoalChainError::MathOverflow)?
+                    .checked_div(11)
+                    .ok_or(GoalChainError::MathOverflow)?;
+            }
             2 => {
-                require!(player.equipped_boots == Some(ctx.accounts.item_mint.key()), GoalChainError::InvalidItemType);
+                require!(
+                    player.equipped_boots == Some(ctx.accounts.item_mint.key()),
+                    GoalChainError::InvalidItemType
+                );
                 player.equipped_boots = None;
                 player.speed = player.speed.saturating_sub(5);
-            },
+            }
             3 => {
                 require!(player.has_shield_jersey, GoalChainError::InvalidItemType);
                 player.has_shield_jersey = false;
-            },
+            }
             _ => return err!(GoalChainError::InvalidItemType),
         }
 
@@ -1768,11 +2251,18 @@ pub mod goalchain_program {
     pub fn golden_recall(ctx: Context<GoldenRecall>) -> Result<()> {
         let listing = &mut ctx.accounts.rental_listing;
         require!(listing.is_active, GoalChainError::ListingNotActive);
-        
-        if let Some(borrower) = listing.current_borrower {
-            require_keys_eq!(ctx.accounts.borrower_token_account.owner, borrower, GoalChainError::Unauthorized);
 
-            let penalty = listing.price_per_match.checked_div(2).ok_or(GoalChainError::MathOverflow)?;
+        if let Some(borrower) = listing.current_borrower {
+            require_keys_eq!(
+                ctx.accounts.borrower_token_account.owner,
+                borrower,
+                GoalChainError::Unauthorized
+            );
+
+            let penalty = listing
+                .price_per_match
+                .checked_div(2)
+                .ok_or(GoalChainError::MathOverflow)?;
 
             if penalty > 0 {
                 let cpi_ctx = CpiContext::new(
@@ -1782,9 +2272,13 @@ pub mod goalchain_program {
                         to: ctx.accounts.borrower_token_account.to_account_info(),
                         authority: ctx.accounts.owner.to_account_info(),
                         mint: ctx.accounts.token_mint.to_account_info(),
-                    }
+                    },
                 );
-                token_interface::transfer_checked(cpi_ctx, penalty, ctx.accounts.token_mint.decimals)?;
+                token_interface::transfer_checked(
+                    cpi_ctx,
+                    penalty,
+                    ctx.accounts.token_mint.decimals,
+                )?;
             }
         }
 
@@ -1802,7 +2296,11 @@ pub struct GlobalConfig {
     pub admin: Pubkey,
     pub oracle_authority: Pubkey,
     pub treasury_token_account: Pubkey,
+    pub jackpot_token_account: Pubkey,
     pub fee_bps: u16,
+    pub fee_burn_bps: u16,
+    pub fee_jackpot_bps: u16,
+    pub max_starters_per_manager: u8,
     pub cutoff_buffer_seconds: i64,
     pub max_sol_per_user: u64,
     pub presale_active: bool,
@@ -2375,7 +2873,8 @@ pub struct ClaimContributorEpoch<'info> {
 
 #[derive(Accounts)]
 pub struct Stake<'info> {
-    #[account(mut)] pub user: Signer<'info>,
+    #[account(mut)]
+    pub user: Signer<'info>,
     #[account(
         seeds = [b"config"],
         bump = config.bump,
@@ -2383,7 +2882,8 @@ pub struct Stake<'info> {
     pub config: Account<'info, GlobalConfig>,
     #[account(init_if_needed, payer = user, space = 8 + UserStake::INIT_SPACE, seeds = [b"stake", user.key().as_ref()], bump)]
     pub user_stake: Account<'info, UserStake>,
-    #[account(mut)] pub user_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut)]
+    pub user_token_account: InterfaceAccount<'info, TokenAccount>,
     #[account(
         init_if_needed,
         payer = user,
@@ -2400,7 +2900,8 @@ pub struct Stake<'info> {
 
 #[derive(Accounts)]
 pub struct Unstake<'info> {
-    #[account(mut)] pub user: Signer<'info>,
+    #[account(mut)]
+    pub user: Signer<'info>,
     #[account(
         mut,
         seeds = [b"config"],
@@ -2414,7 +2915,8 @@ pub struct Unstake<'info> {
         constraint = user_stake.owner == user.key()
     )]
     pub user_stake: Account<'info, UserStake>,
-    #[account(mut)] pub user_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut)]
+    pub user_token_account: InterfaceAccount<'info, TokenAccount>,
     #[account(
         mut,
         seeds = [b"stake_vault", token_mint.key().as_ref()],
@@ -2429,7 +2931,12 @@ pub struct Unstake<'info> {
 
 #[account]
 #[derive(InitSpace)]
-pub struct UserStake { pub owner: Pubkey, pub amount: u64, pub start_timestamp: i64, pub unclaimed_rewards: u64 }
+pub struct UserStake {
+    pub owner: Pubkey,
+    pub amount: u64,
+    pub start_timestamp: i64,
+    pub unclaimed_rewards: u64,
+}
 
 #[derive(Accounts)]
 #[instruction(player_id: String)]
@@ -2449,10 +2956,12 @@ pub struct InitializeParodyPlayer<'info> {
 
 #[derive(Accounts)]
 pub struct UpdatePlayerStats<'info> {
-    #[account(mut)] pub oracle_authority: Signer<'info>,
+    #[account(mut)]
+    pub oracle_authority: Signer<'info>,
     #[account(seeds = [b"config"], bump = config.bump, constraint = config.oracle_authority == oracle_authority.key() @ GoalChainError::UnauthorizedOracle)]
     pub config: Account<'info, GlobalConfig>,
-    #[account(mut)] pub parody_player: Account<'info, ParodyPlayer>,
+    #[account(mut)]
+    pub parody_player: Account<'info, ParodyPlayer>,
 }
 
 #[account]
@@ -2460,10 +2969,16 @@ pub struct UpdatePlayerStats<'info> {
 pub struct ParodyPlayer {
     pub owner: Pubkey,
     pub last_claim_timestamp: i64,
-    #[max_len(32)] pub name: String,
-    #[max_len(32)] pub player_id: String,
-    pub real_world_goals: u8, pub real_world_assists: u8, pub matches_played: u8, pub speed: u8, pub shot_power: u8,
-    
+    #[max_len(32)]
+    pub name: String,
+    #[max_len(32)]
+    pub player_id: String,
+    pub real_world_goals: u8,
+    pub real_world_assists: u8,
+    pub matches_played: u8,
+    pub speed: u8,
+    pub shot_power: u8,
+
     // --- V2 Dynamic Yield Fields ---
     pub base_yield_rate: u64,
     pub current_stamina: u8,
@@ -2481,7 +2996,8 @@ pub struct ParodyPlayer {
 
 #[derive(Accounts)]
 pub struct ListForRent<'info> {
-    #[account(mut)] pub owner: Signer<'info>,
+    #[account(mut)]
+    pub owner: Signer<'info>,
     #[account(init, payer = owner, space = 8 + RentalListing::INIT_SPACE, seeds = [b"rental", parody_player_mint.key().as_ref()], bump)]
     pub rental_listing: Account<'info, RentalListing>,
     /// CHECK: The mint of the parody player NFT
@@ -2491,17 +3007,26 @@ pub struct ListForRent<'info> {
 
 #[derive(Accounts)]
 pub struct RentNft<'info> {
-    #[account(mut)] pub borrower: Signer<'info>,
-    #[account(mut)] pub rental_listing: Account<'info, RentalListing>,
-    #[account(mut)] pub borrower_token_account: InterfaceAccount<'info, TokenAccount>,
-    #[account(mut)] pub owner_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut)]
+    pub borrower: Signer<'info>,
+    #[account(mut)]
+    pub rental_listing: Account<'info, RentalListing>,
+    #[account(mut)]
+    pub borrower_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut)]
+    pub owner_token_account: InterfaceAccount<'info, TokenAccount>,
     pub token_mint: InterfaceAccount<'info, Mint>,
     pub token_program: Interface<'info, TokenInterface>,
 }
 
 #[account]
 #[derive(InitSpace)]
-pub struct RentalListing { pub owner: Pubkey, pub price_per_match: u64, pub current_borrower: Option<Pubkey>, pub is_active: bool }
+pub struct RentalListing {
+    pub owner: Pubkey,
+    pub price_per_match: u64,
+    pub current_borrower: Option<Pubkey>,
+    pub is_active: bool,
+}
 
 #[derive(Accounts)]
 #[instruction(timestamp: i64)]
@@ -2538,21 +3063,28 @@ pub struct CreateWager<'info> {
 
 #[derive(Accounts)]
 pub struct AcceptWager<'info> {
-    #[account(mut)] pub player_b: Signer<'info>,
-    #[account(mut)] pub wager: Account<'info, Wager>,
-    #[account(mut)] pub player_b_token: InterfaceAccount<'info, TokenAccount>,
-    #[account(mut)] pub wager_vault: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut)]
+    pub player_b: Signer<'info>,
+    #[account(mut)]
+    pub wager: Account<'info, Wager>,
+    #[account(mut)]
+    pub player_b_token: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut)]
+    pub wager_vault: InterfaceAccount<'info, TokenAccount>,
     pub token_mint: InterfaceAccount<'info, Mint>,
     pub token_program: Interface<'info, TokenInterface>,
 }
 
 #[derive(Accounts)]
 pub struct ResolveWager<'info> {
-    #[account(mut)] pub oracle_authority: Signer<'info>,
+    #[account(mut)]
+    pub oracle_authority: Signer<'info>,
     #[account(seeds = [b"config"], bump = config.bump, constraint = config.oracle_authority == oracle_authority.key() @ GoalChainError::UnauthorizedOracle)]
     pub config: Account<'info, GlobalConfig>,
-    #[account(mut)] pub wager: Account<'info, Wager>,
-    #[account(mut)] pub wager_vault: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut)]
+    pub wager: Account<'info, Wager>,
+    #[account(mut)]
+    pub wager_vault: InterfaceAccount<'info, TokenAccount>,
     #[account(
         mut,
         constraint = winner_token.mint == token_mint.key() @ GoalChainError::InvalidMint,
@@ -2564,10 +3096,21 @@ pub struct ResolveWager<'info> {
 
 #[account]
 #[derive(InitSpace)]
-pub struct Wager { pub player_a: Pubkey, pub player_b: Option<Pubkey>, pub amount: u64, pub timestamp: i64, pub bump: u8, pub state: WagerState }
+pub struct Wager {
+    pub player_a: Pubkey,
+    pub player_b: Option<Pubkey>,
+    pub amount: u64,
+    pub timestamp: i64,
+    pub bump: u8,
+    pub state: WagerState,
+}
 
 #[derive(AnchorSerialize, AnchorDeserialize, Clone, PartialEq, Eq, InitSpace)]
-pub enum WagerState { Created, Accepted, Resolved }
+pub enum WagerState {
+    Created,
+    Accepted,
+    Resolved,
+}
 
 #[derive(Accounts)]
 #[instruction(match_id: String)]
@@ -2583,13 +3126,16 @@ pub struct InitializeFixture<'info> {
 
 #[derive(Accounts)]
 pub struct PlaceBet<'info> {
-    #[account(mut)] pub user: Signer<'info>,
+    #[account(mut)]
+    pub user: Signer<'info>,
     #[account(seeds = [b"config"], bump = config.bump)]
     pub config: Account<'info, GlobalConfig>,
-    #[account(mut)] pub fixture: Account<'info, Fixture>,
+    #[account(mut)]
+    pub fixture: Account<'info, Fixture>,
     #[account(init, payer = user, space = 8 + UserBet::INIT_SPACE, seeds = [b"bet", user.key().as_ref(), fixture.key().as_ref()], bump)]
     pub user_bet: Account<'info, UserBet>,
-    #[account(mut)] pub user_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(mut)]
+    pub user_token_account: InterfaceAccount<'info, TokenAccount>,
     #[account(init_if_needed, payer = user, token::mint = token_mint, token::authority = fixture, seeds = [b"fixture_vault", fixture.key().as_ref()], bump)]
     pub fixture_vault: InterfaceAccount<'info, TokenAccount>,
     pub token_mint: InterfaceAccount<'info, Mint>,
@@ -2629,6 +3175,9 @@ pub struct ClaimBetPayout<'info> {
     #[account(mut, constraint = treasury_token_account.key() == config.treasury_token_account @ GoalChainError::InvalidTreasury)]
     /// CHECK: Validado manualmente contra token_mint en el handler
     pub treasury_token_account: UncheckedAccount<'info>,
+    #[account(mut, constraint = jackpot_token_account.key() == config.jackpot_token_account @ GoalChainError::InvalidJackpot)]
+    /// CHECK: Validado manualmente contra token_mint en el handler
+    pub jackpot_token_account: UncheckedAccount<'info>,
 
     pub token_mint: InterfaceAccount<'info, Mint>,
     pub token_program: Interface<'info, TokenInterface>,
@@ -2791,6 +3340,12 @@ pub struct ClaimMarketPayout<'info> {
     )]
     /// CHECK: validated by runtime mint check in handler
     pub treasury_token_account: UncheckedAccount<'info>,
+    #[account(
+        mut,
+        constraint = jackpot_token_account.key() == config.jackpot_token_account @ GoalChainError::InvalidJackpot
+    )]
+    /// CHECK: validated by runtime mint check in handler
+    pub jackpot_token_account: UncheckedAccount<'info>,
 
     pub token_mint: InterfaceAccount<'info, Mint>,
     pub token_program: Interface<'info, TokenInterface>,
@@ -3037,7 +3592,7 @@ pub struct EquipLockerRoomItem<'info> {
     pub item_mint: InterfaceAccount<'info, Mint>,
     #[account(mut)]
     pub user_item_wallet: InterfaceAccount<'info, TokenAccount>,
-    
+
     #[account(
         init_if_needed,
         payer = user,
@@ -3045,7 +3600,7 @@ pub struct EquipLockerRoomItem<'info> {
         associated_token::authority = parody_player,
     )]
     pub escrow_pda_wallet: InterfaceAccount<'info, TokenAccount>,
-    
+
     pub token_program: Interface<'info, TokenInterface>,
     pub associated_token_program: Program<'info, AssociatedToken>,
     pub system_program: Program<'info, System>,
@@ -3064,14 +3619,14 @@ pub struct UnequipLockerRoomItem<'info> {
     pub item_mint: InterfaceAccount<'info, Mint>,
     #[account(mut)]
     pub user_item_wallet: InterfaceAccount<'info, TokenAccount>,
-    
+
     #[account(
         mut,
         associated_token::mint = item_mint,
         associated_token::authority = parody_player,
     )]
     pub escrow_pda_wallet: InterfaceAccount<'info, TokenAccount>,
-    
+
     pub token_program: Interface<'info, TokenInterface>,
     pub associated_token_program: Program<'info, AssociatedToken>,
     pub system_program: Program<'info, System>,
@@ -3137,7 +3692,7 @@ pub struct ContributePresale<'info> {
     #[account(mut)]
     /// CHECK: Jito Stake Pool
     pub stake_pool: UncheckedAccount<'info>,
-    
+
     #[account(mut)]
     /// CHECK: Jito Withdraw Authority
     pub withdraw_authority: UncheckedAccount<'info>,
@@ -3257,6 +3812,8 @@ pub enum GoalChainError {
     InvalidMint,
     #[msg("Invalid treasury")]
     InvalidTreasury,
+    #[msg("Invalid jackpot")]
+    InvalidJackpot,
     #[msg("Invalid market config")]
     InvalidMarketConfig,
     #[msg("Invalid market")]
