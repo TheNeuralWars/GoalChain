@@ -133,50 +133,10 @@
           "writable": true
         },
         {
-          "name": "manager_state",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  109,
-                  97,
-                  110,
-                  97,
-                  103,
-                  101,
-                  114
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "user"
-              }
-            ]
-          }
+          "name": "manager_state"
         },
         {
-          "name": "stadium_state",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  115,
-                  116,
-                  97,
-                  100,
-                  105,
-                  117,
-                  109
-                ]
-              },
-              {
-                "kind": "arg",
-                "path": "stadium_id"
-              }
-            ]
-          }
+          "name": "stadium_state"
         },
         {
           "name": "config",
@@ -192,93 +152,7 @@
         },
         {
           "name": "vault_token_account",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "account",
-                "path": "config"
-              },
-              {
-                "kind": "const",
-                "value": [
-                  6,
-                  221,
-                  246,
-                  225,
-                  215,
-                  101,
-                  161,
-                  147,
-                  217,
-                  203,
-                  225,
-                  70,
-                  206,
-                  235,
-                  121,
-                  172,
-                  28,
-                  180,
-                  133,
-                  237,
-                  95,
-                  91,
-                  55,
-                  145,
-                  58,
-                  140,
-                  245,
-                  133,
-                  126,
-                  255,
-                  0,
-                  169
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "token_mint"
-              }
-            ],
-            "program": {
-              "kind": "const",
-              "value": [
-                140,
-                151,
-                37,
-                143,
-                78,
-                36,
-                137,
-                241,
-                187,
-                61,
-                16,
-                41,
-                20,
-                142,
-                13,
-                131,
-                11,
-                90,
-                19,
-                153,
-                218,
-                255,
-                16,
-                132,
-                4,
-                142,
-                123,
-                216,
-                219,
-                233,
-                248,
-                89
-              ]
-            }
-          }
+          "writable": true
         },
         {
           "name": "token_mint"
@@ -291,12 +165,7 @@
           "signer": true
         }
       ],
-      "args": [
-        {
-          "name": "_stadium_id",
-          "type": "u16"
-        }
-      ]
+      "args": []
     },
     {
       "name": "claim_market_payout",
@@ -380,24 +249,6 @@
           "name": "user",
           "writable": true,
           "signer": true
-        },
-        {
-          "name": "config",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
         },
         {
           "name": "presale_allocation",
@@ -844,24 +695,6 @@
           "signer": true
         },
         {
-          "name": "config",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
           "name": "parody_player",
           "writable": true,
           "pda": {
@@ -905,14 +738,6 @@
         {
           "name": "initial_shot_power",
           "type": "u8"
-        },
-        {
-          "name": "owner",
-          "type": "pubkey"
-        },
-        {
-          "name": "initial_base_yield",
-          "type": "u64"
         }
       ]
     },
@@ -974,14 +799,6 @@
         {
           "name": "cutoff_buffer_seconds",
           "type": "i64"
-        },
-        {
-          "name": "max_sol_per_user",
-          "type": "u64"
-        },
-        {
-          "name": "presale_active",
-          "type": "bool"
         }
       ]
     },
@@ -1066,140 +883,6 @@
         {
           "name": "start_time",
           "type": "i64"
-        }
-      ]
-    },
-    {
-      "name": "initialize_manager_state",
-      "discriminator": [
-        123,
-        105,
-        18,
-        201,
-        202,
-        93,
-        97,
-        223
-      ],
-      "accounts": [
-        {
-          "name": "user",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "manager_state",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  109,
-                  97,
-                  110,
-                  97,
-                  103,
-                  101,
-                  114
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "user"
-              }
-            ]
-          }
-        },
-        {
-          "name": "system_program",
-          "address": "11111111111111111111111111111111"
-        }
-      ],
-      "args": [
-        {
-          "name": "level",
-          "type": "u8"
-        },
-        {
-          "name": "salary_multiplier",
-          "type": "u64"
-        }
-      ]
-    },
-    {
-      "name": "initialize_stadium_state",
-      "discriminator": [
-        108,
-        246,
-        87,
-        130,
-        242,
-        88,
-        111,
-        181
-      ],
-      "accounts": [
-        {
-          "name": "admin",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "config",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "stadium_state",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  115,
-                  116,
-                  97,
-                  100,
-                  105,
-                  117,
-                  109
-                ]
-              },
-              {
-                "kind": "arg",
-                "path": "stadium_id"
-              }
-            ]
-          }
-        },
-        {
-          "name": "system_program",
-          "address": "11111111111111111111111111111111"
-        }
-      ],
-      "args": [
-        {
-          "name": "stadium_id",
-          "type": "u16"
-        },
-        {
-          "name": "revenue_multiplier",
-          "type": "u64"
         }
       ]
     },
@@ -1371,31 +1054,12 @@
       ],
       "accounts": [
         {
-          "name": "oracle_authority",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "config",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
           "name": "parody_player",
           "writable": true
+        },
+        {
+          "name": "oracle_authority",
+          "signer": true
         }
       ],
       "args": [
@@ -1485,31 +1149,12 @@
       ],
       "accounts": [
         {
-          "name": "oracle_authority",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "config",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
           "name": "parody_player",
           "writable": true
+        },
+        {
+          "name": "oracle_authority",
+          "signer": true
         }
       ],
       "args": [
@@ -1904,49 +1549,6 @@
       ]
     },
     {
-      "name": "refund_bet",
-      "discriminator": [
-        209,
-        182,
-        226,
-        96,
-        55,
-        121,
-        83,
-        183
-      ],
-      "accounts": [
-        {
-          "name": "user",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "fixture",
-          "writable": true
-        },
-        {
-          "name": "user_bet",
-          "writable": true
-        },
-        {
-          "name": "user_token_account",
-          "writable": true
-        },
-        {
-          "name": "fixture_vault",
-          "writable": true
-        },
-        {
-          "name": "token_mint"
-        },
-        {
-          "name": "token_program"
-        }
-      ],
-      "args": []
-    },
-    {
       "name": "rent_nft",
       "discriminator": [
         171,
@@ -2042,7 +1644,7 @@
       ],
       "args": [
         {
-          "name": "winner_is_a",
+          "name": "_winner_is_a",
           "type": "bool"
         }
       ]
@@ -2064,24 +1666,6 @@
           "name": "user",
           "writable": true,
           "signer": true
-        },
-        {
-          "name": "config",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
         },
         {
           "name": "user_stake",
@@ -2110,32 +1694,8 @@
           "writable": true
         },
         {
-          "name": "stake_vault_token_account",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  115,
-                  116,
-                  97,
-                  107,
-                  101,
-                  95,
-                  118,
-                  97,
-                  117,
-                  108,
-                  116
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "token_mint"
-              }
-            ]
-          }
+          "name": "vault_token_account",
+          "writable": true
         },
         {
           "name": "token_mint"
@@ -2154,63 +1714,6 @@
           "type": "u64"
         }
       ]
-    },
-    {
-      "name": "sweep_fixture_dust",
-      "discriminator": [
-        160,
-        202,
-        60,
-        103,
-        150,
-        189,
-        207,
-        180
-      ],
-      "accounts": [
-        {
-          "name": "admin",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "config",
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "name": "fixture",
-          "writable": true
-        },
-        {
-          "name": "fixture_vault",
-          "writable": true
-        },
-        {
-          "name": "treasury_token_account",
-          "writable": true
-        },
-        {
-          "name": "token_mint"
-        },
-        {
-          "name": "token_program"
-        }
-      ],
-      "args": []
     },
     {
       "name": "unequip_locker_room_item",
@@ -2389,83 +1892,8 @@
           "signer": true
         },
         {
-          "name": "config",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
-        },
-        {
           "name": "user_stake",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  115,
-                  116,
-                  97,
-                  107,
-                  101
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "user"
-              }
-            ]
-          }
-        },
-        {
-          "name": "user_token_account",
           "writable": true
-        },
-        {
-          "name": "stake_vault_token_account",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  115,
-                  116,
-                  97,
-                  107,
-                  101,
-                  95,
-                  118,
-                  97,
-                  117,
-                  108,
-                  116
-                ]
-              },
-              {
-                "kind": "account",
-                "path": "token_mint"
-              }
-            ]
-          }
-        },
-        {
-          "name": "token_mint"
-        },
-        {
-          "name": "token_program"
         }
       ],
       "args": [
@@ -2529,14 +1957,6 @@
         {
           "name": "cutoff_buffer_seconds",
           "type": "i64"
-        },
-        {
-          "name": "max_sol_per_user",
-          "type": "u64"
-        },
-        {
-          "name": "presale_active",
-          "type": "bool"
         }
       ]
     },
@@ -2879,138 +2299,93 @@
     },
     {
       "code": 6010,
-      "name": "InvalidWagerWinner",
-      "msg": "Winner token account does not match the declared wager winner"
-    },
-    {
-      "code": 6011,
       "name": "BettingClosed",
       "msg": "Betting closed"
     },
     {
-      "code": 6012,
+      "code": 6011,
       "name": "MatchNotFinished",
       "msg": "Match not finished"
     },
     {
-      "code": 6013,
+      "code": 6012,
       "name": "NoWinnerDeclared",
       "msg": "No winner declared"
     },
     {
-      "code": 6014,
+      "code": 6013,
       "name": "NotAWinner",
       "msg": "Not a winner"
     },
     {
-      "code": 6015,
+      "code": 6014,
       "name": "AlreadyClaimed",
       "msg": "Already claimed"
     },
     {
-      "code": 6016,
+      "code": 6015,
       "name": "InvalidPool",
       "msg": "Invalid pool"
     },
     {
-      "code": 6017,
+      "code": 6016,
       "name": "InvalidVault",
       "msg": "Invalid vault"
     },
     {
-      "code": 6018,
+      "code": 6017,
       "name": "InvalidMint",
       "msg": "Invalid mint"
     },
     {
-      "code": 6019,
+      "code": 6018,
       "name": "InvalidTreasury",
       "msg": "Invalid treasury"
     },
     {
-      "code": 6020,
+      "code": 6019,
       "name": "InvalidMarketConfig",
       "msg": "Invalid market config"
     },
     {
-      "code": 6021,
+      "code": 6020,
       "name": "InvalidMarket",
       "msg": "Invalid market"
     },
     {
-      "code": 6022,
+      "code": 6021,
       "name": "InvalidLiveState",
       "msg": "Invalid live state"
     },
     {
-      "code": 6023,
-      "name": "PresaleInactive",
-      "msg": "Presale is not active"
-    },
-    {
-      "code": 6024,
-      "name": "PresaleLimitExceeded",
-      "msg": "Presale contribution exceeds max per user"
-    },
-    {
-      "code": 6025,
-      "name": "InvalidStakePoolProgram",
-      "msg": "Invalid stake pool program"
-    },
-    {
-      "code": 6026,
-      "name": "FixtureNotCancelled",
-      "msg": "Fixture is not cancelled"
-    },
-    {
-      "code": 6027,
-      "name": "UseRefundForCancelledFixture",
-      "msg": "Cancelled fixtures must be refunded, not claimed"
-    },
-    {
-      "code": 6028,
-      "name": "InsufficientVaultBalance",
-      "msg": "Insufficient vault balance"
-    },
-    {
-      "code": 6029,
+      "code": 6022,
       "name": "ClaimTooEarly",
       "msg": "Claim too early"
     },
     {
-      "code": 6030,
+      "code": 6023,
       "name": "PlayerIsEliminated",
       "msg": "Player is eliminated"
     },
     {
-      "code": 6031,
+      "code": 6024,
       "name": "InvalidActionType",
       "msg": "Invalid action type from oracle"
     },
     {
-      "code": 6032,
+      "code": 6025,
       "name": "StaminaAlreadyFull",
       "msg": "Stamina already full"
     },
     {
-      "code": 6033,
+      "code": 6026,
       "name": "GoldenRecallPenaltyRequired",
       "msg": "Golden Recall penalty required"
     },
     {
-      "code": 6034,
+      "code": 6027,
       "name": "InvalidItemType",
       "msg": "Invalid item type"
-    },
-    {
-      "code": 6035,
-      "name": "AlreadyEquipped",
-      "msg": "Item already equipped"
-    },
-    {
-      "code": 6036,
-      "name": "InsufficientStamina",
-      "msg": "Insufficient stamina"
     }
   ],
   "types": [
@@ -3045,14 +2420,6 @@
           },
           {
             "name": "pool_draw",
-            "type": "u64"
-          },
-          {
-            "name": "total_claimed",
-            "type": "u64"
-          },
-          {
-            "name": "total_refunded",
             "type": "u64"
           },
           {
@@ -3104,14 +2471,6 @@
           {
             "name": "cutoff_buffer_seconds",
             "type": "i64"
-          },
-          {
-            "name": "max_sol_per_user",
-            "type": "u64"
-          },
-          {
-            "name": "presale_active",
-            "type": "bool"
           },
           {
             "name": "bump",
@@ -3171,7 +2530,7 @@
           },
           {
             "name": "salary_multiplier",
-            "type": "u64"
+            "type": "f64"
           }
         ]
       }
@@ -3395,14 +2754,6 @@
         "kind": "struct",
         "fields": [
           {
-            "name": "owner",
-            "type": "pubkey"
-          },
-          {
-            "name": "last_claim_timestamp",
-            "type": "i64"
-          },
-          {
             "name": "name",
             "type": "string"
           },
@@ -3544,7 +2895,7 @@
           },
           {
             "name": "revenue_multiplier",
-            "type": "u64"
+            "type": "f64"
           }
         ]
       }
