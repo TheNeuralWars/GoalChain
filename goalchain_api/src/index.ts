@@ -118,6 +118,37 @@ interface EconomyMetricsPayload {
   };
 }
 
+type EconomyHealthStatus = "healthy" | "warning" | "critical";
+
+interface EconomyHealthCheck {
+  key: string;
+  value: number;
+  min?: number;
+  max?: number;
+  pass: boolean;
+}
+
+interface EconomyHealthPayload {
+  timestamp_iso: string;
+  status: EconomyHealthStatus;
+  failing_checks: string[];
+  thresholds: {
+    emit_burn_ratio_min: number;
+    emit_burn_ratio_max: number;
+    onchain_sink_coverage_min: number;
+    config_drift_max: number;
+    vault_buyback_coverage_min: number;
+  };
+  checks: EconomyHealthCheck[];
+  kpis: EconomyMetricsPayload["kpis"];
+  config_drift_reasons: string[];
+}
+
+const healthAlertState = {
+  lastSentAt: 0,
+  lastStatus: "healthy" as EconomyHealthStatus,
+};
+
 async function buildEconomyMetricsPayload(): Promise<EconomyMetricsPayload> {
   const canonicalPath = path.resolve(
     __dirname,
@@ -239,6 +270,120 @@ async function buildEconomyMetricsPayload(): Promise<EconomyMetricsPayload> {
       baseline_scenario_id: baselineRow?.scenario_id ?? null,
     },
   };
+}
+
+async function buildEconomyHealthPayload(): Promise<EconomyHealthPayload> {
+  const metrics = await buildEconomyMetricsPayload();
+  const thresholds = {
+    emit_burn_ratio_min: envNum("KPI_EMIT_BURN_RATIO_MIN", 0.85),
+    emit_burn_ratio_max: envNum("KPI_EMIT_BURN_RATIO_MAX", 1.05),
+    onchain_sink_coverage_min: envNum("KPI_ONCHAIN_SINK_COVERAGE_MIN", 90),
+    config_drift_max: envNum("KPI_CONFIG_DRIFT_MAX", 0),
+    vault_buyback_coverage_min: envNum("KPI_VAULT_BUYBACK_COVERAGE_MIN", 0.25),
+  };
+
+  const checks: EconomyHealthCheck[] = [
+    {
+      key: "emit_burn_ratio_7d",
+      value: metrics.kpis.emit_burn_ratio_7d,
+      min: thresholds.emit_burn_ratio_min,
+      max: thresholds.emit_burn_ratio_max,
+      pass:
+        metrics.kpis.emit_burn_ratio_7d >= thresholds.emit_burn_ratio_min &&
+        metrics.kpis.emit_burn_ratio_7d <= thresholds.emit_burn_ratio_max,
+    },
+    {
+      key: "onchain_sink_coverage",
+      value: metrics.kpis.onchain_sink_coverage,
+      min: thresholds.onchain_sink_coverage_min,
+      pass: metrics.kpis.onchain_sink_coverage >= thresholds.onchain_sink_coverage_min,
+    },
+    {
+      key: "config_drift",
+      value: metrics.kpis.config_drift,
+      max: thresholds.config_drift_max,
+      pass: metrics.kpis.config_drift <= thresholds.config_drift_max,
+    },
+    {
+      key: "vault_buyback_coverage",
+      value: metrics.kpis.vault_buyback_coverage,
+      min: thresholds.vault_buyback_coverage_min,
+      pass:
+        metrics.kpis.vault_buyback_coverage >=
+        thresholds.vault_buyback_coverage_min,
+    },
+  ];
+
+  const failingChecks = checks.filter((c) => !c.pass);
+  const status: EconomyHealthStatus =
+    failingChecks.length === 0 ? "healthy" : "warning";
+
+  return {
+    timestamp_iso: metrics.timestamp_iso,
+    status,
+    failing_checks: failingChecks.map((c) => c.key),
+    thresholds,
+    checks,
+    kpis: metrics.kpis,
+    config_drift_reasons: metrics.config_drift_reasons,
+  };
+}
+
+async function sendEconomyHealthAlert(
+  health: EconomyHealthPayload,
+): Promise<{ sent: boolean; reason: string }> {
+  const webhookUrl = process.env.ECON_HEALTH_ALERT_WEBHOOK_URL;
+  if (!webhookUrl) {
+    return { sent: false, reason: "webhook_not_configured" };
+  }
+
+  const cooldownMinutes = envNum("ECON_HEALTH_ALERT_COOLDOWN_MINUTES", 60);
+  const cooldownMs = cooldownMinutes * 60 * 1000;
+  const now = Date.now();
+  if (
+    now - healthAlertState.lastSentAt < cooldownMs &&
+    healthAlertState.lastStatus === health.status
+  ) {
+    return { sent: false, reason: "cooldown_active" };
+  }
+
+  const checkSummary = health.checks
+    .map((check) => {
+      const limits = [
+        check.min !== undefined ? `min=${check.min}` : "",
+        check.max !== undefined ? `max=${check.max}` : "",
+      ]
+        .filter(Boolean)
+        .join(" ");
+      return `${check.pass ? "PASS" : "FAIL"} ${check.key}=${check.value}${limits ? ` (${limits})` : ""}`;
+    })
+    .join("\n");
+
+  const body = {
+    text:
+      `[GoalChain] Economy health is ${health.status.toUpperCase()}\n` +
+      `Failing checks: ${health.failing_checks.join(", ") || "none"}\n` +
+      `Timestamp: ${health.timestamp_iso}`,
+    status: health.status,
+    failing_checks: health.failing_checks,
+    checks: health.checks,
+    config_drift_reasons: health.config_drift_reasons,
+    check_summary: checkSummary,
+  };
+
+  const response = await fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+
+  if (!response.ok) {
+    throw new Error(`alert webhook failed with status ${response.status}`);
+  }
+
+  healthAlertState.lastSentAt = now;
+  healthAlertState.lastStatus = health.status;
+  return { sent: true, reason: "sent" };
 }
 
 // --- IN-MEMORY SESSION STORE FOR GEMINI CONTEXT CACHING ---
@@ -445,64 +590,43 @@ app.get("/api/economy/metrics", async (req, res) => {
 
 app.get("/api/economy/health", async (req, res) => {
   try {
-    const metrics = await buildEconomyMetricsPayload();
-    const thresholds = {
-      emit_burn_ratio_min: envNum("KPI_EMIT_BURN_RATIO_MIN", 0.85),
-      emit_burn_ratio_max: envNum("KPI_EMIT_BURN_RATIO_MAX", 1.05),
-      onchain_sink_coverage_min: envNum("KPI_ONCHAIN_SINK_COVERAGE_MIN", 90),
-      config_drift_max: envNum("KPI_CONFIG_DRIFT_MAX", 0),
-      vault_buyback_coverage_min: envNum("KPI_VAULT_BUYBACK_COVERAGE_MIN", 0.25),
-    };
-
-    const checks = [
-      {
-        key: "emit_burn_ratio_7d",
-        value: metrics.kpis.emit_burn_ratio_7d,
-        min: thresholds.emit_burn_ratio_min,
-        max: thresholds.emit_burn_ratio_max,
-        pass:
-          metrics.kpis.emit_burn_ratio_7d >= thresholds.emit_burn_ratio_min &&
-          metrics.kpis.emit_burn_ratio_7d <= thresholds.emit_burn_ratio_max,
-      },
-      {
-        key: "onchain_sink_coverage",
-        value: metrics.kpis.onchain_sink_coverage,
-        min: thresholds.onchain_sink_coverage_min,
-        pass: metrics.kpis.onchain_sink_coverage >= thresholds.onchain_sink_coverage_min,
-      },
-      {
-        key: "config_drift",
-        value: metrics.kpis.config_drift,
-        max: thresholds.config_drift_max,
-        pass: metrics.kpis.config_drift <= thresholds.config_drift_max,
-      },
-      {
-        key: "vault_buyback_coverage",
-        value: metrics.kpis.vault_buyback_coverage,
-        min: thresholds.vault_buyback_coverage_min,
-        pass:
-          metrics.kpis.vault_buyback_coverage >=
-          thresholds.vault_buyback_coverage_min,
-      },
-    ];
-
-    const failingChecks = checks.filter((c) => !c.pass);
-    const status = failingChecks.length === 0 ? "healthy" : "warning";
-
-    res.json({
-      timestamp_iso: metrics.timestamp_iso,
-      status,
-      failing_checks: failingChecks.map((c) => c.key),
-      thresholds,
-      checks,
-      kpis: metrics.kpis,
-      config_drift_reasons: metrics.config_drift_reasons,
-    });
+    res.json(await buildEconomyHealthPayload());
   } catch (err: any) {
     console.error("Economy health endpoint error:", err);
     res.status(500).json({
       status: "critical",
       error: `Failed to compute economy health: ${err.message}`,
+    });
+  }
+});
+
+// Triggerable alert endpoint for cron/monitors.
+app.post("/api/economy/health/alert", async (req, res) => {
+  try {
+    const health = await buildEconomyHealthPayload();
+    if (health.status === "healthy") {
+      return res.json({
+        status: health.status,
+        sent: false,
+        reason: "healthy_no_alert",
+        failing_checks: health.failing_checks,
+      });
+    }
+
+    const result = await sendEconomyHealthAlert(health);
+    return res.json({
+      status: health.status,
+      sent: result.sent,
+      reason: result.reason,
+      failing_checks: health.failing_checks,
+      cooldown_minutes: envNum("ECON_HEALTH_ALERT_COOLDOWN_MINUTES", 60),
+    });
+  } catch (err: any) {
+    console.error("Economy health alert endpoint error:", err);
+    return res.status(500).json({
+      status: "critical",
+      sent: false,
+      error: `Failed to send economy health alert: ${err.message}`,
     });
   }
 });
