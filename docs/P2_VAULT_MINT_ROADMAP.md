@@ -16,12 +16,12 @@
 
 ## 2. Phase A — Pre-mainnet (operational)
 
-| Step | Action | Owner |
-|------|--------|-------|
-| A1 | Mint **1B GCH** once to `salary_vault` + operational reserve | Multisig |
-| A2 | Document public **circulating supply** API (Helius + vault balances) | Backend |
-| A3 | **Revoke mint authority** on SPL mint (irreversible) | Multisig |
-| A4 | Fund vault with genesis SOL → JitoSOL per `contribute_presale` / NFT sales | Treasury |
+| Step | Action                                                                     | Owner    |
+| ---- | -------------------------------------------------------------------------- | -------- |
+| A1   | Mint **1B GCH** once to `salary_vault` + operational reserve               | Multisig |
+| A2   | Document public **circulating supply** API (Helius + vault balances)       | Backend  |
+| A3   | **Revoke mint authority** on SPL mint (irreversible)                       | Multisig |
+| A4   | Fund vault with genesis SOL → JitoSOL per `contribute_presale` / NFT sales | Treasury |
 
 **Policy choice (product):**
 
@@ -42,12 +42,12 @@ ratio        = burn_7d / emission_7d
 
 ### Rules
 
-| ratio | Action |
-|-------|--------|
-| 0.85 – 1.05 | Normal: refill vault if balance &lt; 14 days runway |
-| &lt; 0.85 | **Pause** `mintTo` 48h; promote potion/events |
-| &gt; 1.20 | Allow small mint for onboarding OR jackpot subsidy from treasury |
-| &gt; 10 | Emergency: investigate oracle bug or exploit |
+| ratio       | Action                                                           |
+| ----------- | ---------------------------------------------------------------- |
+| 0.85 – 1.05 | Normal: refill vault if balance &lt; 14 days runway              |
+| &lt; 0.85   | **Pause** `mintTo` 48h; promote potion/events                    |
+| &gt; 1.20   | Allow small mint for onboarding OR jackpot subsidy from treasury |
+| &gt; 10     | Emergency: investigate oracle bug or exploit                     |
 
 ### Runbook script (proposed path)
 
@@ -84,20 +84,20 @@ sequenceDiagram
 
 ### Parameters
 
-| Param | Default |
-|-------|---------|
-| `BUYBACK_SHARE_OF_YIELD` | 60% |
-| `JACKPOT_SHARE` | 10% of yield |
-| `REINVEST_SHARE` | 30% (stay in JitoSOL) |
-| Min crank | 0.1 SOL excess |
+| Param                    | Default               |
+| ------------------------ | --------------------- |
+| `BUYBACK_SHARE_OF_YIELD` | 60%                   |
+| `JACKPOT_SHARE`          | 10% of yield          |
+| `REINVEST_SHARE`         | 30% (stay in JitoSOL) |
+| Min crank                | 0.1 SOL excess        |
 
 ### Treasury size (H7)
 
-| SOL in vault | APY | GCH @ $0.01 buyback/day |
-|--------------|-----|-------------------------|
-| 1,000 | 7.5% | ~15k |
-| 5,000 | 7.5% | ~77k |
-| 10,000 | 7.5% | ~154k |
+| SOL in vault | APY  | GCH @ $0.01 buyback/day |
+| ------------ | ---- | ----------------------- |
+| 1,000        | 7.5% | ~15k                    |
+| 5,000        | 7.5% | ~77k                    |
+| 10,000       | 7.5% | ~154k                   |
 
 **Recommendation:** ≥ **5,000 SOL** equivalent before scaling past ~1k daily active managers.
 
@@ -105,11 +105,11 @@ sequenceDiagram
 
 ## 5. Phase D — On-chain optional upgrades
 
-| Instruction | Purpose |
-|-------------|---------|
-| `vault_deposit_sol` | NFT sale → Jito CPI (extend `contribute_presale`) |
-| `vault_harvest_buyback` | Permissionless crank with slippage bounds |
-| `record_burn_volume` | Single global `total_burned` u64 for transparency |
+| Instruction             | Purpose                                           |
+| ----------------------- | ------------------------------------------------- |
+| `vault_deposit_sol`     | NFT sale → Jito CPI (extend `contribute_presale`) |
+| `vault_harvest_buyback` | Permissionless crank with slippage bounds         |
+| `record_burn_volume`    | Single global `total_burned` u64 for transparency |
 
 Hyre/Phi agent logic remains **off-chain** (see `treasury_agents_test.ts` mocks); do not block P2 on perps.
 
@@ -153,3 +153,27 @@ See [`docs/issues/P2-vault-mint.md`](issues/P2-vault-mint.md).
   - minimum score threshold per epoch,
   - max contributors per epoch.
 - Oracle hook script added: `goalchain_oracle/src/contributor_epoch_hook.ts` (`npm run contributor-epoch-hook`), mapping git contributors to wallet addresses via `contributor_wallet_map.json`.
+
+---
+
+## 9. Week-5 policy decision (locked)
+
+**Decision:** `infinite gated` with multisig control (not fixed 1B hard-cap at this stage).
+
+### Why
+
+- Keeps emissions flexible for live ops while preserving control through gate rules.
+- Matches current on-chain architecture where salaries are operationally funded and policy-enforced.
+- Avoids premature supply lock while still requiring explicit governance for mint actions.
+
+### Guardrails (mandatory)
+
+- 2-of-3 multisig required for mint execution.
+- `mint_gate` decision must be attached to each mint operation (`goalchain_oracle/src/mint_gate.ts`).
+- Pause mint automatically when `burn_7d / emit_7d < 0.85`.
+- Weekly publication of `emit_7d`, `burn_7d`, `ratio`, and action taken.
+
+### Revisit trigger
+
+- Revisit this decision after 30 days of stable production telemetry
+  or when DAU exceeds 10k managers.
