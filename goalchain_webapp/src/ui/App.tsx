@@ -13,6 +13,33 @@ import { TradingTerminal } from './TradingTerminal';
 import { SquadGallery } from './SquadGallery';
 import { LiveEventFeed } from './LiveEventFeed';
 
+const DevModeBanner = () => (
+    <div style={{
+        background: 'rgba(255, 179, 0, 0.05)',
+        border: '1px solid rgba(255, 179, 0, 0.3)',
+        boxShadow: '0 0 15px rgba(255, 179, 0, 0.1)',
+        backdropFilter: 'blur(8px)',
+        borderRadius: '12px',
+        padding: '1rem 1.5rem',
+        margin: '1.5rem auto 2rem auto',
+        maxWidth: '1000px',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '15px',
+        textAlign: 'left'
+    }}>
+        <span style={{ fontSize: '1.5rem' }}>⚠️</span>
+        <div>
+            <h4 style={{ margin: 0, color: '#ffb300', fontSize: '1rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                Devnet Alpha Mode Active
+            </h4>
+            <p style={{ margin: '4px 0 0 0', fontSize: '0.85rem', color: '#e0e0e0', opacity: 0.9, lineHeight: '1.4' }}>
+                Todos los parámetros mostrados (pools, rendimientos, feeds y saldos de $GCH) son <strong>simulados y con fines de prueba</strong>. No se utiliza valor real en estas transacciones.
+            </p>
+        </div>
+    </div>
+);
+
 function App() {
     const network = WalletAdapterNetwork.Devnet;
     const endpoint = useMemo(() => clusterApiUrl(network), [network]);
@@ -30,6 +57,8 @@ function App() {
                                 <WalletMultiButton />
                             </div>
                         </header>
+                        
+                        <DevModeBanner />
                         
                         <main style={{ maxWidth: '1000px', margin: '0 auto' }}>
                             <FixturesPanel />
