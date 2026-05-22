@@ -539,6 +539,27 @@
         ⚽
         <span data-i18n="hero_badge">FIFA WORLD CUP 2026 — YA CASI AQUÍ</span>
       </div>
+      <div
+        id="official-frontend-note"
+        class="glass-card reveal"
+        style="
+          max-width: 980px;
+          margin: 16px auto 0 auto;
+          border-color: rgba(255, 179, 0, 0.35);
+          text-align: left;
+          padding: 14px 18px;
+          background: rgba(255, 179, 0, 0.06);
+        "
+      >
+        <div style="font-size: 0.78rem; letter-spacing: 1.6px; color: #ffb300">
+          READ-ONLY MODE (DOCS)
+        </div>
+        <div style="font-size: 0.9rem; color: #f3f3f3; margin-top: 6px">
+          Esta landing y dashboards son informativos. Los flujos transaccionales
+          oficiales (wallet, claims, markets, rent y ejecución on-chain) viven en
+          <code>goalchain_webapp</code>.
+        </div>
+      </div>
 
       <!-- Paso 4: Hype Meter del Mundial -->
       <div
@@ -4744,6 +4765,90 @@
               Last crank: <span id="burnTrackerTs">--</span>
             </div>
           </div>
+          <div
+            class="glass-card"
+            style="
+              text-align: center;
+              border-color: rgba(20, 241, 149, 0.3);
+              padding: 25px;
+            "
+          >
+            <div
+              style="
+                font-size: 0.7rem;
+                color: var(--text-dim);
+                letter-spacing: 2px;
+                margin-bottom: 10px;
+              "
+            >
+              EMIT/BURN RATIO (7D)
+            </div>
+            <div
+              style="font-size: 1.8rem; font-weight: 900; color: var(--primary)"
+              id="kpiEmitBurnRatio"
+            >
+              --
+            </div>
+            <div style="font-size: 0.6rem; color: var(--primary); margin-top: 5px">
+              Target range: 0.85 - 1.05
+            </div>
+          </div>
+          <div
+            class="glass-card"
+            style="
+              text-align: center;
+              border-color: rgba(153, 69, 255, 0.3);
+              padding: 25px;
+            "
+          >
+            <div
+              style="
+                font-size: 0.7rem;
+                color: var(--text-dim);
+                letter-spacing: 2px;
+                margin-bottom: 10px;
+              "
+            >
+              ON-CHAIN SINK COVERAGE
+            </div>
+            <div
+              style="font-size: 1.8rem; font-weight: 900; color: var(--secondary)"
+              id="kpiSinkCoverage"
+            >
+              --
+            </div>
+            <div style="font-size: 0.6rem; color: var(--secondary); margin-top: 5px">
+              Config drift: <span id="kpiConfigDrift">--</span>
+            </div>
+          </div>
+          <div
+            class="glass-card"
+            style="
+              text-align: center;
+              border-color: rgba(255, 179, 0, 0.3);
+              padding: 25px;
+            "
+          >
+            <div
+              style="
+                font-size: 0.7rem;
+                color: var(--text-dim);
+                letter-spacing: 2px;
+                margin-bottom: 10px;
+              "
+            >
+              NET EMISSION (24H)
+            </div>
+            <div
+              style="font-size: 1.8rem; font-weight: 900; color: #ffb300"
+              id="kpiNetEmission24h"
+            >
+              --
+            </div>
+            <div style="font-size: 0.6rem; color: #ffb300; margin-top: 5px">
+              Updated: <span id="kpiUpdatedAt">--</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -5130,6 +5235,7 @@
     <script src="assets/js/pack_opener.js?v=3.0"></script>
     <script src="assets/js/live_engine.js?v=1.0"></script>
     <script src="assets/js/burn_tracker.js?v=1.0"></script>
+    <script src="assets/js/economy_observability.js?v=1.0"></script>
     <!-- DIALECT NOTIFICATION INBOX -->
     <div
       id="notifInbox"
@@ -5538,6 +5644,13 @@
       }
 
       async function contributeToPresale() {
+        alert(
+          typeof currentLang !== "undefined" && currentLang === "en"
+            ? "⚠️ This docs page is read-only. Use the official transactional frontend in goalchain_webapp."
+            : "⚠️ Esta página de docs es solo lectura. Usa el frontend transaccional oficial en goalchain_webapp.",
+        );
+        return;
+
         const solInput = document.getElementById("presaleSolInput");
         if (!solInput) return;
         const solVal = parseFloat(solInput.value) || 0;
