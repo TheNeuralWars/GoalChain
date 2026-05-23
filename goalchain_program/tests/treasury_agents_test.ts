@@ -35,7 +35,8 @@ class RaydiumClmmMock {
     // 0.3% fee tier
     const baseFee = volume * 0.003;
     // Tight range captures more fees per volume
-    const efficiencyMultiplier = (this.rangeUpper - this.rangeLower) < (this.currentPrice * 0.1) ? 2.5 : 1.0;
+    const efficiencyMultiplier =
+      this.rangeUpper - this.rangeLower < this.currentPrice * 0.1 ? 2.5 : 1.0;
     const harvested = baseFee * efficiencyMultiplier;
     this.feesCollectedSol += harvested;
     return harvested;
@@ -83,7 +84,7 @@ class DriftPerpMock {
   }
 
   public calculatePnL(marketIndex: number, currentPrice: number): number {
-    const pos = this.activePositions.find(p => p.marketIndex === marketIndex);
+    const pos = this.activePositions.find((p) => p.marketIndex === marketIndex);
     if (!pos) return 0;
 
     const priceDiff = currentPrice - pos.entryPrice;
@@ -93,7 +94,9 @@ class DriftPerpMock {
   }
 
   public closePosition(marketIndex: number, currentPrice: number): number {
-    const posIdx = this.activePositions.findIndex(p => p.marketIndex === marketIndex);
+    const posIdx = this.activePositions.findIndex(
+      (p) => p.marketIndex === marketIndex
+    );
     if (posIdx === -1) return 0;
 
     const pnl = this.calculatePnL(marketIndex, currentPrice);
@@ -119,7 +122,12 @@ class FlashTradeMock {
     this.collateralSol = initialCollateralSol;
   }
 
-  public openShortHedge(asset: string, sizeUsd: number, leverage: number, entryPrice: number) {
+  public openShortHedge(
+    asset: string,
+    sizeUsd: number,
+    leverage: number,
+    entryPrice: number
+  ) {
     this.shortPositions.push({
       asset,
       sizeUsd,
@@ -129,7 +137,7 @@ class FlashTradeMock {
   }
 
   public getHedgingValue(asset: string, currentPrice: number): number {
-    const pos = this.shortPositions.find(p => p.asset === asset);
+    const pos = this.shortPositions.find((p) => p.asset === asset);
     if (!pos) return 0;
 
     const priceDiffRatio = (pos.entryPrice - currentPrice) / pos.entryPrice;
@@ -172,7 +180,10 @@ describe("GoalChain: Treasury AI Engine Integrations & Sentinel", () => {
     hyre.rangeUpper = 0.0104;
 
     // Harvest fees: tight range captures more fees
-    const feesWide = new RaydiumClmmMock("raydium_gch_sol_pool", 0.01).harvestFees(1000); // 1000 SOL volume
+    const feesWide = new RaydiumClmmMock(
+      "raydium_gch_sol_pool",
+      0.01
+    ).harvestFees(1000); // 1000 SOL volume
     const feesTight = hyre.harvestFees(1000);
 
     assert.equal(feesWide, 3.0); // 1000 * 0.003 * 1
@@ -202,7 +213,7 @@ describe("GoalChain: Treasury AI Engine Integrations & Sentinel", () => {
 
   it("Debería simular FlashTrade abriendo un Short SOL/USD para proteger el valor de la tesorería (Hedging)", () => {
     const flash = new FlashTradeMock("flash_sol_pool", 10); // 10 SOL collateral
-    
+
     // Abre Short SOL a $150 con apalancamiento 5x (size $1500)
     flash.openShortHedge("SOL", 1500, 5, 150);
 
