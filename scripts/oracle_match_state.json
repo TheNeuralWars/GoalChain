@@ -1,0 +1,10 @@
+{
+  "matchId": "LALIGA_2026_RM_BARCA",
+  "teamA": "Real Madrid",
+  "teamB": "Barcelona",
+  "minute": 90,
+  "scoreA": 3,
+  "scoreB": 1,
+  "isHt": false,
+  "isFt": true
+}
