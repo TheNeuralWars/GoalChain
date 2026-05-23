@@ -1,6 +1,8 @@
 # GoalChain — Multi-Agent Orchestration
 
-**Purpose:** Coordinate Cursor, Grok, Google Antigravity, and Hermes (24/7 server) without file conflicts, scope drift, or duplicate work.
+**Purpose:** Coordinate Cursor, Grok, Google Antigravity, and the **Hermes general agent** (OpenClaw on the 24/7 server) without file conflicts, scope drift, or duplicate work.
+
+**Hermes runtime:** OpenClaw + Grok (`xai/grok-4.3`) for chat/voice/panel; shell scripts in `~/hermes/scripts/` for sync and digests. See `ai_context/OPENCLAW_GOALCHAIN_OPERATOR.md`.
 
 **Related rules (Cursor):** `.cursor/rules/collab-multi-agent.mdc`, `.cursor/rules/meta-principal.mdc`  
 **Engineering charter:** `ai_context/META_CHARTER.md` ([meta-llm-charter](https://github.com/entropyvortex/meta-llm-charter))
@@ -11,7 +13,7 @@
 
 | Agent | Runtime | Best for | Default owner of |
 |-------|---------|----------|------------------|
-| **Hermes** | Your server 24/7 | Intake, prioritization, reminders, briefs, Slack hub | `docs/intake/`, issue drafts |
+| **Hermes** (OpenClaw) | Server 24/7 (`178.105.148.109`) | Intake, prioritization, reminders, briefs, voice/chat, Slack hub | `docs/intake/`, issue drafts |
 | **Cursor** | IDE | Implementation, PRs, Anchor/API/webapp, verification | Merge + integration |
 | **Grok** | xAI CLI / web | Research, review, marketing, alt drafts | `exp/grok-*` branches |
 | **Antigravity** | Google | Spikes, UI/plugins skills, exploration | `exp/antigravity-*` branches |
@@ -71,14 +73,22 @@ Optional later: bot that mirrors `docs/intake/` ↔ Slack threads (Hermes server
 
 ---
 
-## Hermes 24/7 server — suggested responsibilities
+## Hermes 24/7 server (OpenClaw + scripts)
 
-- Poll or receive voice/text notes → normalize to intake markdown
-- Weekly digest: open briefs, PR queue (#32–#34 merge order), KPI health (`/api/economy/health`)
-- Nudge when `humanpending.md` items block execution (META Zero-Pause protocol, if used)
-- **Do not** hold production keys or deploy without explicit runbook step
+**Conversational layer:** OpenClaw workspace `~/.openclaw/workspace` (SOUL/HEARTBEAT/USER). Deploy templates: `ops/openclaw/deploy-workspace.sh`.
 
-Store server-side config (example env, not committed):
+**Automation layer:** `~/hermes/scripts/` — `sync.sh`, `daily-digest.sh`, `openclaw-context.sh`, `create-brief.sh`.
+
+Responsibilities:
+
+- Voice/text/chat → normalize to `docs/intake/` or GitHub issues
+- Cron (OpenClaw): morning digest + periodic repo sync (`ops/openclaw/install-cron.sh`)
+- Heartbeat: sync + ops snapshot (`HEARTBEAT.md`)
+- Nudge on blockers; **do not** deploy on-chain/prod without runbook + explicit OK
+
+Bootstrap: `ops/hermes/bootstrap.sh` → `~/hermes/config.env` + clone. See `ai_context/HERMES_SETUP.md` and `ai_context/OPENCLAW_GOALCHAIN_OPERATOR.md`.
+
+Store server-side config (not committed):
 
 - `GOALCHAIN_REPO_PATH`
 - `SLACK_WEBHOOK_URL` / bot token
@@ -111,11 +121,17 @@ Store server-side config (example env, not committed):
 
 ## Current stacked PR order (reference)
 
-1. [#32](https://github.com/TheNeuralWars/GoalChain/pull/32) consolidation  
-2. [#33](https://github.com/TheNeuralWars/GoalChain/pull/33) video automation (flagged)  
-3. [#34](https://github.com/TheNeuralWars/GoalChain/pull/34) observability + alerts  
+Merge **in this order** (each PR targets the previous head branch):
 
-New work on economy/oracle should branch from latest merged base or rebase on `#34` chain.
+1. [#26](https://github.com/TheNeuralWars/GoalChain/pull/26) week1 canonical config  
+2. [#27](https://github.com/TheNeuralWars/GoalChain/pull/27) → … through [#31](https://github.com/TheNeuralWars/GoalChain/pull/31)  
+3. [#32](https://github.com/TheNeuralWars/GoalChain/pull/32) consolidation  
+4. [#33](https://github.com/TheNeuralWars/GoalChain/pull/33) video automation (flags OFF)  
+5. [#34](https://github.com/TheNeuralWars/GoalChain/pull/34) observability + health  
+
+Runbook: `docs/intake/2026-05-23-merge-stack-convergence.md`
+
+After `main` is current: **Cursor** → webapp devnet brief; **Antigravity** → `exp/antigravity-*` only (`docs/intake/2026-05-23-antigravity-post-merge-spikes.md`).
 
 ---
 
