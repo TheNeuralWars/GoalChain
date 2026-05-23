@@ -414,6 +414,61 @@ export class OracleService {
   }
 
   /**
+   * Records that a player participated in a fixture.
+   * Idempotent on-chain per (player, fixture): repeated calls do not double-drain stamina.
+   */
+  async recordPlayerMatch(matchId: string, playerId: string): Promise<string> {
+    console.log(
+      `[Oracle] 🧾 Recording match participation: ${playerId} in ${matchId}`,
+    );
+    const [fixturePda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("fixture"), Buffer.from(matchId)],
+      this.program.programId,
+    );
+    const [parodyPlayerPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("player"), Buffer.from(playerId)],
+      this.program.programId,
+    );
+    const [playerMatchRecordPda] = PublicKey.findProgramAddressSync(
+      [
+        Buffer.from("player_match"),
+        parodyPlayerPda.toBuffer(),
+        fixturePda.toBuffer(),
+      ],
+      this.program.programId,
+    );
+
+    try {
+      const method = this.program.methods.oracleRecordMatch().accounts({
+        oracleAuthority: this.wallet.publicKey,
+        config: this.configPda,
+        parodyPlayer: parodyPlayerPda,
+        fixture: fixturePda,
+        playerMatchRecord: playerMatchRecordPda,
+        systemProgram: SystemProgram.programId,
+      } as any);
+
+      const tx = await this.sendWithPriorityFees(method, [
+        this.wallet.publicKey,
+        this.configPda,
+        parodyPlayerPda,
+        fixturePda,
+        playerMatchRecordPda,
+      ]);
+      console.log(
+        `[Oracle] ✅ Player match participation recorded for ${playerId} (${matchId}). Tx: ${tx}`,
+      );
+      return tx;
+    } catch (error) {
+      console.error(
+        `[Oracle] ❌ Failed to record player match for ${playerId} (${matchId}):`,
+        error,
+      );
+      throw error;
+    }
+  }
+
+  /**
    * Updates real-world stats for a specific Parody Player (Goals, Assists) to boost Yield/Stamina.
    */
   async updatePlayerStats(
