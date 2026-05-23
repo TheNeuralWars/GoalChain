@@ -1,6 +1,6 @@
 # Antigravity — spikes post-merge (GoalChain)
 
-- **Status:** draft (blocked until PRs #26–#34 en `main`)
+- **Status:** done (spike implemented on branch `exp/antigravity-webapp-polish`)
 - **Priority:** P2
 - **Owner (implementer):** antigravity
 - **Reviewers:** cursor
