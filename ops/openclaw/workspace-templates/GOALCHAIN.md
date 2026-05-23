@@ -48,6 +48,13 @@ bash ~/hermes/scripts/oa-control.sh status
 bash ~/hermes/scripts/oa-control.sh auth
 ```
 
+Persistent mode (recommended after setup):
+
+```bash
+bash ~/hermes/scripts/oa-control.sh systemd-install
+bash ~/hermes/scripts/oa-control.sh systemd-status
+```
+
 Webhook inbox for OA messages:
 
 ```bash
