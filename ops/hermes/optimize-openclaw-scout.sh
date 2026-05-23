@@ -18,6 +18,19 @@ MAX_CANDIDATES="${OA_SCOUT_MAX_CANDIDATES:-5}"
 NEAR_MISS_MAX="${OA_SCOUT_NEAR_MISS_MAX:-2}"
 NEAR_MISS_LOW=$(( SCORE_MIN - 4 ))
 NEAR_MISS_HIGH=$(( SCORE_MIN - 1 ))
+SCOUT_TONE="${OA_SCOUT_TONE:-balanced}"
+
+case "${SCOUT_TONE}" in
+  influencer)
+    TONE_PROMPT="Style priority: bold influencer narrative, high energy, partnership storytelling first; then concise technical facts."
+    ;;
+  technical)
+    TONE_PROMPT="Style priority: technical precision first, concrete integration notes, concise and factual; minimal hype."
+    ;;
+  *)
+    TONE_PROMPT="Style priority: balanced narrative (influencer + technical) with clear actionability."
+    ;;
+esac
 
 python3 - <<PY
 import json, subprocess
@@ -35,7 +48,7 @@ openclaw cron add \
   --name "${RADAR_NAME}" \
   --cron "${RADAR_CRON}" \
   --session main \
-  --system-event "GoalChain Gold Radar run (optimized throughput). First run bash ~/hermes/scripts/openclaw-context.sh. Search AI-agent-web3 opportunities with direct leverage. HARD FILTERS: reject pure hype and unclear legal/license risk; allow projects with limited OSS if integration path is concrete and verifiable. Score 0-10: Strategic Fit, Build Feasibility <=2 weeks, Competitive Edge, Reliability/Maturity. Keep score >=${SCORE_MIN}/40. Output max ${MAX_CANDIDATES} candidates and max ${NEAR_MISS_MAX} near-miss candidates (${NEAR_MISS_LOW}-${NEAR_MISS_HIGH}) with clear upgrade path. Save to unique file ~/.openclaw/workspace/docs/ai-radar-<UTC-YYYY-MM-DD-HHMM>-<run>.md. Report style is mandatory: include both **Influencer Narrative** (enthusiastic, partnership-oriented) and **Technical Breakdown** (concrete integration steps, risks). For every candidate include X/Twitter link and explicit @alias to mention in social posts." \
+  --system-event "GoalChain Gold Radar run (optimized throughput). First run bash ~/hermes/scripts/openclaw-context.sh. Search AI-agent-web3 opportunities with direct leverage. HARD FILTERS: reject pure hype and unclear legal/license risk; allow projects with limited OSS if integration path is concrete and verifiable. Score 0-10: Strategic Fit, Build Feasibility <=2 weeks, Competitive Edge, Reliability/Maturity. Keep score >=${SCORE_MIN}/40. Output max ${MAX_CANDIDATES} candidates and max ${NEAR_MISS_MAX} near-miss candidates (${NEAR_MISS_LOW}-${NEAR_MISS_HIGH}) with clear upgrade path. Save to unique file ~/.openclaw/workspace/docs/ai-radar-<UTC-YYYY-MM-DD-HHMM>-<run>.md. Report style is mandatory: include both **Influencer Narrative** and **Technical Breakdown**. ${TONE_PROMPT} For every candidate include X/Twitter link and explicit @alias to mention in social posts." \
   --description "2h optimized AI radar for GoalChain"
 
 openclaw cron add \

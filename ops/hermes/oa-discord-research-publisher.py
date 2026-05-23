@@ -100,6 +100,13 @@ def find_narrative_line(lines: list[str]) -> str:
     return "Se detecto una oportunidad con potencial real para acelerar partnerships y ejecucion en GoalChain."
 
 
+def get_tone() -> str:
+    tone = getenv("OA_SCOUT_TONE", "balanced").lower()
+    if tone not in {"balanced", "influencer", "technical"}:
+        return "balanced"
+    return tone
+
+
 def make_message(path: pathlib.Path) -> tuple[str, str]:
     text = path.read_text(encoding="utf-8", errors="ignore")
     lines = text.splitlines()
@@ -108,12 +115,18 @@ def make_message(path: pathlib.Path) -> tuple[str, str]:
     body = compact_body(lines)
     aliases = extract_x_aliases(text)
     mention = f" @{' @'.join(aliases[:3])}" if aliases else ""
+    tone = get_tone()
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     header = f"🚀 **OA Research Spotlight**\n**{title}**"
     narrative_block = f"**Influencer take**\n{narrative}{mention}"
     technical_block = f"**Technical breakdown**\n{body}" if body else ""
     footer = f"\nSource: `{path}`\nGenerated: {ts}"
-    content = "\n\n".join(x for x in [header, narrative_block, technical_block] if x) + footer
+    if tone == "influencer":
+        content = "\n\n".join(x for x in [header, narrative_block] if x) + footer
+    elif tone == "technical":
+        content = "\n\n".join(x for x in [header, technical_block] if x) + footer
+    else:
+        content = "\n\n".join(x for x in [header, narrative_block, technical_block] if x) + footer
     if len(content) > 1900:
         content = content[:1890] + "…"
     return content, text
@@ -147,7 +160,14 @@ def make_x_post_text(path: pathlib.Path, raw_text: str) -> str:
     title = first_heading(raw_text.splitlines(), path.name)
     aliases = extract_x_aliases(raw_text)
     mentions = " ".join(f"@{a}" for a in aliases[:3])
-    base = f"OA Research: {title}"
+    tone = get_tone()
+    if tone == "technical":
+        prefix = "OA Tech Brief:"
+    elif tone == "influencer":
+        prefix = "OA Alpha Spotlight:"
+    else:
+        prefix = "OA Research:"
+    base = f"{prefix} {title}"
     if mentions:
         base += f" {mentions}"
     base += " #AI #Web3 #GoalChain"
