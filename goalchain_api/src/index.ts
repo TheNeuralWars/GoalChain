@@ -1,13 +1,13 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import path from 'path';
-import { Connection } from '@solana/web3.js';
-import { AnchorProvider, Program } from '@coral-xyz/anchor';
-import { idl, PROGRAM_ID, GoalchainProgram } from '@goalchain/sdk';
-import fs from 'fs';
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import path from "path";
+import { Connection, PublicKey } from "@solana/web3.js";
+import { AnchorProvider, Program } from "@coral-xyz/anchor";
+import { idl, PROGRAM_ID, GoalchainProgram } from "@goalchain/sdk";
+import fs from "fs";
 
-dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -16,9 +16,11 @@ const rpcUrl = process.env.RPC_URL || "https://api.devnet.solana.com";
 app.use(cors());
 app.use(express.json());
 
-const connection = new Connection(rpcUrl, 'confirmed');
+const connection = new Connection(rpcUrl, "confirmed");
 // Provider placeholder (readonly)
-const provider = new AnchorProvider(connection, {} as any, { commitment: 'confirmed' });
+const provider = new AnchorProvider(connection, {} as any, {
+  commitment: "confirmed",
+});
 const program = new Program(idl as any, provider) as any;
 
 // --- IN-MEMORY SESSION STORE FOR GEMINI CONTEXT CACHING ---
@@ -29,7 +31,7 @@ interface CacheSession {
 
 const cacheSession: CacheSession = {
   cachedContentId: null,
-  expireTime: null
+  expireTime: null,
 };
 
 /**
@@ -38,29 +40,44 @@ const cacheSession: CacheSession = {
  */
 async function getOrUpdateContextCache(apiKey: string): Promise<string> {
   const now = new Date();
-  
+
   // Cache Hit
-  if (cacheSession.cachedContentId && cacheSession.expireTime && cacheSession.expireTime > now) {
-    console.log(`ℹ️ [AI Orchestrator] Context Cache HIT: Usando cache existente -> ${cacheSession.cachedContentId}`);
+  if (
+    cacheSession.cachedContentId &&
+    cacheSession.expireTime &&
+    cacheSession.expireTime > now
+  ) {
+    console.log(
+      `ℹ️ [AI Orchestrator] Context Cache HIT: Usando cache existente -> ${cacheSession.cachedContentId}`,
+    );
     return cacheSession.cachedContentId;
   }
-  
-  console.log("⚠️ [AI Orchestrator] Context Cache MISS: Generando nuevo cache de contexto en Google Gemini...");
-  
+
+  console.log(
+    "⚠️ [AI Orchestrator] Context Cache MISS: Generando nuevo cache de contexto en Google Gemini...",
+  );
+
   // Load player database
   let playersJson = "";
   try {
-    const playersPath = path.resolve(__dirname, '../../docs/assets/data/players.json');
+    const playersPath = path.resolve(
+      __dirname,
+      "../../docs/assets/data/players.json",
+    );
     if (fs.existsSync(playersPath)) {
-      playersJson = fs.readFileSync(playersPath, 'utf-8');
-      console.log(`📊 [AI Orchestrator] Base de datos de jugadores cargada correctamente (${Math.round(playersJson.length / 1024)} KB)`);
+      playersJson = fs.readFileSync(playersPath, "utf-8");
+      console.log(
+        `📊 [AI Orchestrator] Base de datos de jugadores cargada correctamente (${Math.round(playersJson.length / 1024)} KB)`,
+      );
     } else {
-      console.warn("⚠️ [AI Orchestrator] No se encontró players.json en docs/assets/data/players.json");
+      console.warn(
+        "⚠️ [AI Orchestrator] No se encontró players.json en docs/assets/data/players.json",
+      );
     }
   } catch (err) {
     console.error("❌ [AI Orchestrator] Error al leer players.json:", err);
   }
-  
+
   // Compile massive reference context
   const masterContext = `Eres Eliza, la Coach Táctica de Inteligencia Artificial de GoalChain. Analizas la alineación y das consejos para maximizar yield de $GCH y estadísticas de juego.
   
@@ -101,25 +118,29 @@ ${playersJson}
       contents: [
         {
           role: "user",
-          parts: [
-            { text: masterContext }
-          ]
-        }
-      ]
-    })
+          parts: [{ text: masterContext }],
+        },
+      ],
+    }),
   });
-  
+
   if (!response.ok) {
     const errText = await response.text();
-    throw new Error(`Gemini Context Cache API returned status ${response.status}: ${errText}`);
+    throw new Error(
+      `Gemini Context Cache API returned status ${response.status}: ${errText}`,
+    );
   }
-  
+
   const data: any = await response.json();
   if (data.name) {
     cacheSession.cachedContentId = data.name;
     // Set expiration time from API response or fallback to 24 hours
-    cacheSession.expireTime = data.expireTime ? new Date(data.expireTime) : new Date(Date.now() + 24 * 60 * 60 * 1000);
-    console.log(`✅ [AI Orchestrator] Nuevo Context Cache registrado: ${data.name} (Expira: ${cacheSession.expireTime.toISOString()})`);
+    cacheSession.expireTime = data.expireTime
+      ? new Date(data.expireTime)
+      : new Date(Date.now() + 24 * 60 * 60 * 1000);
+    console.log(
+      `✅ [AI Orchestrator] Nuevo Context Cache registrado: ${data.name} (Expira: ${cacheSession.expireTime.toISOString()})`,
+    );
     return data.name;
   } else {
     throw new Error("Invalid response format from Gemini Context Caching API.");
@@ -129,18 +150,77 @@ ${playersJson}
 // --- ROUTES ---
 
 // Healthcheck
-app.get('/health', (req, res) => {
-  res.json({ status: 'OK', message: 'GoalChain API is running', programId: PROGRAM_ID.toBase58() });
+app.get("/health", (req, res) => {
+  res.json({
+    status: "OK",
+    message: "GoalChain API is running",
+    programId: PROGRAM_ID.toBase58(),
+  });
+});
+
+// Economy config endpoint (canonical docs config + live on-chain protocol config if available)
+app.get("/api/economy/config", async (req, res) => {
+  try {
+    const canonicalPath = path.resolve(
+      __dirname,
+      "../../docs/ECONOMIC_CANONICAL_CONFIG.json",
+    );
+    let canonicalConfig: any = null;
+    if (fs.existsSync(canonicalPath)) {
+      canonicalConfig = JSON.parse(fs.readFileSync(canonicalPath, "utf-8"));
+    }
+
+    const [configPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("config")],
+      PROGRAM_ID,
+    );
+    let onchainConfig: any = null;
+    try {
+      const configAccount = await program.account.globalConfig.fetch(configPda);
+      onchainConfig = {
+        pda: configPda.toBase58(),
+        admin: configAccount.admin.toBase58(),
+        oracleAuthority: configAccount.oracleAuthority.toBase58(),
+        treasuryTokenAccount: configAccount.treasuryTokenAccount.toBase58(),
+        jackpotTokenAccount:
+          configAccount.jackpotTokenAccount?.toBase58?.() ?? null,
+        feeBps: configAccount.feeBps,
+        feeBurnBps: configAccount.feeBurnBps ?? null,
+        feeJackpotBps: configAccount.feeJackpotBps ?? null,
+        maxStartersPerManager: configAccount.maxStartersPerManager ?? null,
+        cutoffBufferSeconds: Number(configAccount.cutoffBufferSeconds ?? 0),
+        maxSolPerUser: Number(configAccount.maxSolPerUser ?? 0),
+        presaleActive: Boolean(configAccount.presaleActive),
+      };
+    } catch (onchainErr) {
+      // Keep endpoint resilient when local/devnet account is missing.
+      onchainConfig = null;
+    }
+
+    res.json({
+      source: {
+        canonicalPath: canonicalPath,
+        rpcUrl,
+      },
+      canonicalConfig,
+      onchainConfig,
+    });
+  } catch (err: any) {
+    console.error("Economy config endpoint error:", err);
+    res
+      .status(500)
+      .json({ error: `Failed to load economy config: ${err.message}` });
+  }
 });
 
 // Whitelist: Save wallet and email
-app.post('/api/whitelist', (req, res) => {
+app.post("/api/whitelist", (req, res) => {
   const { wallet, email } = req.body;
   if (!wallet) {
-    return res.status(400).json({ error: 'Wallet address is required' });
+    return res.status(400).json({ error: "Wallet address is required" });
   }
 
-  const dataPath = path.join(__dirname, '../data/whitelist.json');
+  const dataPath = path.join(__dirname, "../data/whitelist.json");
   const dataDir = path.dirname(dataPath);
 
   try {
@@ -151,7 +231,7 @@ app.post('/api/whitelist', (req, res) => {
 
     let whitelist = [];
     if (fs.existsSync(dataPath)) {
-      const fileContent = fs.readFileSync(dataPath, 'utf-8');
+      const fileContent = fs.readFileSync(dataPath, "utf-8");
       whitelist = JSON.parse(fileContent);
     }
 
@@ -160,65 +240,95 @@ app.post('/api/whitelist', (req, res) => {
     if (!exists) {
       whitelist.push({
         wallet,
-        email: email || '',
-        timestamp: new Date().toISOString()
+        email: email || "",
+        timestamp: new Date().toISOString(),
       });
       fs.writeFileSync(dataPath, JSON.stringify(whitelist, null, 2));
       console.log(`✅ Whitelist: Nueva wallet registrada -> ${wallet}`);
-      res.json({ success: true, message: 'Registrado con éxito' });
+      res.json({ success: true, message: "Registrado con éxito" });
     } else {
-      res.json({ success: true, message: 'Wallet ya estaba registrada' });
+      res.json({ success: true, message: "Wallet ya estaba registrada" });
     }
   } catch (err) {
-    console.error('Whitelist Error:', err);
-    res.status(500).json({ error: 'Failed to save to whitelist' });
+    console.error("Whitelist Error:", err);
+    res.status(500).json({ error: "Failed to save to whitelist" });
   }
 });
 
 // Chat Proxy Route for Eliza AI Coach & Advisor (securely hides developer's GEMINI_API_KEY with strict guardrails)
-app.post('/api/coach/chat', async (req, res) => {
+app.post("/api/coach/chat", async (req, res) => {
   const { userText, context } = req.body;
   if (!userText) {
-    return res.status(400).json({ error: 'userText is required' });
+    return res.status(400).json({ error: "userText is required" });
   }
 
   // Guardrail 1: Limitar la longitud de la consulta del usuario (máximo 200 caracteres)
   if (userText.length > 200) {
-    return res.json({ 
-      reply: '⚠️ La consulta es demasiado larga. Para optimizar costos, por favor escribe una pregunta breve de menos de 200 caracteres.' 
+    return res.json({
+      reply:
+        "⚠️ La consulta es demasiado larga. Para optimizar costos, por favor escribe una pregunta breve de menos de 200 caracteres.",
     });
   }
 
   // Guardrail 2: Filtro proactivo de palabras clave sospechosas (evita programar, tareas escolares, etc.)
   const forbiddenKeywords = [
-    'python', 'javascript', 'html', 'css', 'java', 'c++', 'programar', 'código', 'code', 'script',
-    'algoritmo', 'ecuación', 'matemática', 'álgebra', 'física', 'tarea', 'crear app', 'desarrollar',
-    'hackear', 'grok', 'openai', 'gpt', 'essay', 'escribir un', 'resumir', 'historia de', 'traducir'
+    "python",
+    "javascript",
+    "html",
+    "css",
+    "java",
+    "c++",
+    "programar",
+    "código",
+    "code",
+    "script",
+    "algoritmo",
+    "ecuación",
+    "matemática",
+    "álgebra",
+    "física",
+    "tarea",
+    "crear app",
+    "desarrollar",
+    "hackear",
+    "grok",
+    "openai",
+    "gpt",
+    "essay",
+    "escribir un",
+    "resumir",
+    "historia de",
+    "traducir",
   ];
   const queryLower = userText.toLowerCase();
-  const isSuspicious = forbiddenKeywords.some(keyword => queryLower.includes(keyword));
+  const isSuspicious = forbiddenKeywords.some((keyword) =>
+    queryLower.includes(keyword),
+  );
   if (isSuspicious) {
-    return res.json({ 
-      reply: '⚠️ Como Coach Táctica de GoalChain, solo puedo asistirte con consultas relacionadas con el juego, fútbol y la optimización de tu plantilla. No puedo resolver tareas académicas ni programar aplicaciones.' 
+    return res.json({
+      reply:
+        "⚠️ Como Coach Táctica de GoalChain, solo puedo asistirte con consultas relacionadas con el juego, fútbol y la optimización de tu plantilla. No puedo resolver tareas académicas ni programar aplicaciones.",
     });
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     console.warn("⚠️ GEMINI_API_KEY is not configured in .env server file.");
-    return res.status(500).json({ error: 'Gemini API Key is not configured on the server.' });
+    return res
+      .status(500)
+      .json({ error: "Gemini API Key is not configured on the server." });
   }
 
   // Fallback System Prompt in case Cache creation fails
   const ctx = context || {};
   const serverSystemPrompt = `Eres Eliza, la Coach Táctica de Inteligencia Artificial de GoalChain. Analizas la alineación y das consejos para maximizar yield de $GCH y estadísticas de juego.
 Datos del manager:
-- Jugador actual: ${ctx.pName || 'Lionel Satoshi'} (${ctx.pStats || 'ATK:95 DEF:48 SPD:92 HYP:99'})
+- Jugador actual: ${ctx.pName || "Lionel Satoshi"} (${ctx.pStats || "ATK:95 DEF:48 SPD:92 HYP:99"})
 - Stamina: ${ctx.stamina ?? 100}%
-- Liga activa: ${ctx.activeLeague || 'world_cup'}
-- Camiseta: ${ctx.jersey || 'Ninguna'}
+- Liga activa: ${ctx.activeLeague || "world_cup"}
+- Camiseta: ${ctx.jersey || "Ninguna"}
 - Sinergia País: ${ctx.sameCountry ?? 1}/11, Sinergia Club: ${ctx.sameClub ?? 1}/11
-- Tema Estadio: ${ctx.stadium || 'desert'}
+- Tema Estadio: ${ctx.stadium || "desert"}
 - Balance: ${ctx.balance ?? 1240} $GCH
 
 REGLAS CRÍTICAS DE SEGURIDAD Y COMPORTAMIENTO:
@@ -231,17 +341,20 @@ REGLAS CRÍTICAS DE SEGURIDAD Y COMPORTAMIENTO:
   try {
     cachedContentId = await getOrUpdateContextCache(apiKey);
   } catch (err: any) {
-    console.warn(`⚠️ [AI Orchestrator] No se pudo crear o recuperar el Context Cache (Fallback a modo Legacy):`, err.message);
+    console.warn(
+      `⚠️ [AI Orchestrator] No se pudo crear o recuperar el Context Cache (Fallback a modo Legacy):`,
+      err.message,
+    );
   }
 
   // Step 2: Build the prompt query
   const queryText = `Datos actuales del manager:
-- Jugador actual: ${ctx.pName || 'Lionel Satoshi'} (${ctx.pStats || 'ATK:95 DEF:48 SPD:92 HYP:99'})
+- Jugador actual: ${ctx.pName || "Lionel Satoshi"} (${ctx.pStats || "ATK:95 DEF:48 SPD:92 HYP:99"})
 - Stamina: ${ctx.stamina ?? 100}%
-- Liga activa: ${ctx.activeLeague || 'world_cup'}
-- Camiseta: ${ctx.jersey || 'Ninguna'}
+- Liga activa: ${ctx.activeLeague || "world_cup"}
+- Camiseta: ${ctx.jersey || "Ninguna"}
 - Sinergia País: ${ctx.sameCountry ?? 1}/11, Sinergia Club: ${ctx.sameClub ?? 1}/11
-- Tema Estadio: ${ctx.stadium || 'desert'}
+- Tema Estadio: ${ctx.stadium || "desert"}
 - Balance: ${ctx.balance ?? 1240} $GCH
 
 Pregunta del manager: "${userText}"`;
@@ -252,22 +365,30 @@ Pregunta del manager: "${userText}"`;
         {
           role: "user",
           parts: [
-            { text: cachedContentId ? queryText : serverSystemPrompt + `\nPregunta del manager: "${userText}"` }
-          ]
-        }
+            {
+              text: cachedContentId
+                ? queryText
+                : serverSystemPrompt + `\nPregunta del manager: "${userText}"`,
+            },
+          ],
+        },
       ],
       generationConfig: {
         temperature: 0.6,
-        maxOutputTokens: 800
-      }
+        maxOutputTokens: 800,
+      },
     };
 
     // If cache hit, link cachedContent handle
     if (cachedContentId) {
       requestBody.cachedContent = cachedContentId;
-      console.log(`🚀 [AI Orchestrator] Enviando consulta con Cache Hit [${cachedContentId}]`);
+      console.log(
+        `🚀 [AI Orchestrator] Enviando consulta con Cache Hit [${cachedContentId}]`,
+      );
     } else {
-      console.log(`🚀 [AI Orchestrator] Enviando consulta en Modo Legacy (Sin Caché)`);
+      console.log(
+        `🚀 [AI Orchestrator] Enviando consulta en Modo Legacy (Sin Caché)`,
+      );
     }
 
     // Call the Flash Model generateContent API (v1beta required for context caching)
@@ -275,12 +396,14 @@ Pregunta del manager: "${userText}"`;
     const fetchResponse = await fetch(modelEndpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(requestBody)
+      body: JSON.stringify(requestBody),
     });
 
     if (!fetchResponse.ok) {
       const errorData = await fetchResponse.text();
-      throw new Error(`Gemini API returned status ${fetchResponse.status}: ${errorData}`);
+      throw new Error(
+        `Gemini API returned status ${fetchResponse.status}: ${errorData}`,
+      );
     }
 
     const data: any = await fetchResponse.json();
@@ -290,16 +413,28 @@ Pregunta del manager: "${userText}"`;
       const reply = part.text.trim();
       res.json({ reply });
     } else {
-      console.error("Gemini API structure error:", JSON.stringify(data, null, 2));
-      res.status(500).json({ error: 'Invalid response structure from Gemini API: ' + JSON.stringify(data) });
+      console.error(
+        "Gemini API structure error:",
+        JSON.stringify(data, null, 2),
+      );
+      res
+        .status(500)
+        .json({
+          error:
+            "Invalid response structure from Gemini API: " +
+            JSON.stringify(data),
+        });
     }
   } catch (error: any) {
     console.error("Error connecting to Gemini API:", error);
-    res.status(500).json({ error: 'Failed to communicate with Gemini API: ' + error.message });
+    res
+      .status(500)
+      .json({
+        error: "Failed to communicate with Gemini API: " + error.message,
+      });
   }
 });
 
 app.listen(port, () => {
   console.log(`GoalChain API listening at http://localhost:${port}`);
 });
-

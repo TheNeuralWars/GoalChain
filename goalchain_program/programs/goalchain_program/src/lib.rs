@@ -880,26 +880,103 @@ pub mod goalchain_program {
 
     pub fn rent_nft(ctx: Context<RentNft>) -> Result<()> {
         let listing = &mut ctx.accounts.rental_listing;
+        let cfg = &ctx.accounts.config;
         require!(listing.is_active, GoalChainError::ListingNotActive);
         require!(
             listing.current_borrower.is_none(),
             GoalChainError::AlreadyRented
         );
-
-        let cpi_ctx = CpiContext::new(
-            ctx.accounts.token_program.key(),
-            TransferChecked {
-                from: ctx.accounts.borrower_token_account.to_account_info(),
-                to: ctx.accounts.owner_token_account.to_account_info(),
-                authority: ctx.accounts.borrower.to_account_info(),
-                mint: ctx.accounts.token_mint.to_account_info(),
-            },
+        require_keys_eq!(
+            ctx.accounts.owner_token_account.owner,
+            listing.owner,
+            GoalChainError::Unauthorized
         );
-        token_interface::transfer_checked(
-            cpi_ctx,
-            listing.price_per_match,
-            ctx.accounts.token_mint.decimals,
-        )?;
+        require_keys_eq!(
+            ctx.accounts.borrower_token_account.owner,
+            ctx.accounts.borrower.key(),
+            GoalChainError::Unauthorized
+        );
+
+        // Week-4 economics:
+        // - Owner captures 25% of configured listing price
+        // - Protocol captures 5% (further split into burn/jackpot/treasury by config)
+        // - Borrower keeps 70% implicit share by only paying 30% upfront
+        let owner_share = ((listing.price_per_match as u128)
+            .checked_mul(2_500)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(BPS_DENOMINATOR as u128)
+            .ok_or(GoalChainError::MathOverflow)?) as u64;
+        let protocol_fee = ((listing.price_per_match as u128)
+            .checked_mul(500)
+            .ok_or(GoalChainError::MathOverflow)?
+            .checked_div(BPS_DENOMINATOR as u128)
+            .ok_or(GoalChainError::MathOverflow)?) as u64;
+        let (burn_amount, jackpot_amount, treasury_amount) =
+            split_fee_amounts(protocol_fee, cfg.fee_burn_bps, cfg.fee_jackpot_bps)?;
+
+        if owner_share > 0 {
+            let cpi_ctx = CpiContext::new(
+                ctx.accounts.token_program.key(),
+                TransferChecked {
+                    from: ctx.accounts.borrower_token_account.to_account_info(),
+                    to: ctx.accounts.owner_token_account.to_account_info(),
+                    authority: ctx.accounts.borrower.to_account_info(),
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                },
+            );
+            token_interface::transfer_checked(
+                cpi_ctx,
+                owner_share,
+                ctx.accounts.token_mint.decimals,
+            )?;
+        }
+
+        if treasury_amount > 0 {
+            let cpi_ctx = CpiContext::new(
+                ctx.accounts.token_program.key(),
+                TransferChecked {
+                    from: ctx.accounts.borrower_token_account.to_account_info(),
+                    to: ctx.accounts.treasury_token_account.to_account_info(),
+                    authority: ctx.accounts.borrower.to_account_info(),
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                },
+            );
+            token_interface::transfer_checked(
+                cpi_ctx,
+                treasury_amount,
+                ctx.accounts.token_mint.decimals,
+            )?;
+        }
+
+        if jackpot_amount > 0 {
+            let cpi_ctx = CpiContext::new(
+                ctx.accounts.token_program.key(),
+                TransferChecked {
+                    from: ctx.accounts.borrower_token_account.to_account_info(),
+                    to: ctx.accounts.jackpot_token_account.to_account_info(),
+                    authority: ctx.accounts.borrower.to_account_info(),
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                },
+            );
+            token_interface::transfer_checked(
+                cpi_ctx,
+                jackpot_amount,
+                ctx.accounts.token_mint.decimals,
+            )?;
+        }
+
+        if burn_amount > 0 {
+            let cpi_ctx = CpiContext::new(
+                ctx.accounts.token_program.key(),
+                Burn {
+                    mint: ctx.accounts.token_mint.to_account_info(),
+                    from: ctx.accounts.borrower_token_account.to_account_info(),
+                    authority: ctx.accounts.borrower.to_account_info(),
+                },
+            );
+            token_interface::burn(cpi_ctx, burn_amount)?;
+        }
+
         listing.current_borrower = Some(ctx.accounts.borrower.key());
         Ok(())
     }
@@ -3075,12 +3152,24 @@ pub struct ListForRent<'info> {
 pub struct RentNft<'info> {
     #[account(mut)]
     pub borrower: Signer<'info>,
+    #[account(seeds = [b"config"], bump = config.bump)]
+    pub config: Account<'info, GlobalConfig>,
     #[account(mut)]
     pub rental_listing: Account<'info, RentalListing>,
     #[account(mut)]
     pub borrower_token_account: InterfaceAccount<'info, TokenAccount>,
     #[account(mut)]
     pub owner_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(
+        mut,
+        constraint = treasury_token_account.key() == config.treasury_token_account @ GoalChainError::InvalidTreasury
+    )]
+    pub treasury_token_account: InterfaceAccount<'info, TokenAccount>,
+    #[account(
+        mut,
+        constraint = jackpot_token_account.key() == config.jackpot_token_account @ GoalChainError::InvalidJackpot
+    )]
+    pub jackpot_token_account: InterfaceAccount<'info, TokenAccount>,
     pub token_mint: InterfaceAccount<'info, Mint>,
     pub token_program: Interface<'info, TokenInterface>,
 }
