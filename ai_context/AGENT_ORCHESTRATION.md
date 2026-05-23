@@ -96,7 +96,8 @@ Hermes OA now supports wait-mode automation:
 - Free-text directives (example: "dale un spike a antigravity para integrar X") are auto-parsed into owner/priority/title/objective.
 - OA creates a GitHub issue with `agent:*` + `status:ready`.
 - If wait-mode command hooks are configured (`OA_AGENT_*_CMD`), OA auto-dispatches the task immediately without manual prompt entry in each app.
-- OpenCode server tasks (`agent:opencode`) keep autonomous execution through the OA worker loop.
+- `cursor` / `antigravity` / `opencode` can be routed to a local Mac bridge queue (`dispatch:local-queued`) and executed by a launchd daemon.
+- `grok` can remain server-side or be routed local depending on command hook.
 
 Recommended security:
 
