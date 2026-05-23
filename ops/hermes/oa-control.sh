@@ -43,6 +43,23 @@ discord_research_status() {
   fi
 }
 
+dispatch_commands_status() {
+  local cfg="${HERMES_HOME}/config.env"
+  local c1="" c2="" c3="" c4=""
+  if [[ -f "${cfg}" ]]; then
+    # shellcheck disable=SC1090
+    source "${cfg}"
+    c1="${OA_AGENT_CURSOR_CMD:-}"
+    c2="${OA_AGENT_ANTIGRAVITY_CMD:-}"
+    c3="${OA_AGENT_GROK_CMD:-}"
+    c4="${OA_AGENT_OPENCODE_CMD:-}"
+  fi
+  [[ -n "${c1}" ]] && echo "dispatch_cursor: configured" || echo "dispatch_cursor: disabled"
+  [[ -n "${c2}" ]] && echo "dispatch_antigravity: configured" || echo "dispatch_antigravity: disabled"
+  [[ -n "${c3}" ]] && echo "dispatch_grok: configured" || echo "dispatch_grok: disabled"
+  [[ -n "${c4}" ]] && echo "dispatch_opencode: configured" || echo "dispatch_opencode: disabled"
+}
+
 start_worker() {
   if has_systemd && units_installed; then
     systemctl --user start oa-worker.service
@@ -134,6 +151,7 @@ case "${cmd}" in
     echo "auth_session: $( tmux has-session -t "${AUTH_SESSION}" 2>/dev/null && echo running || echo stopped )"
     systemd_status
     discord_research_status
+    dispatch_commands_status
     ;;
   xai-auth|xai)
     bash "${HERMES_HOME}/scripts/oa-xai-connect.sh" "${2:-headless}"
