@@ -29,7 +29,7 @@ discord_research_status() {
   if [[ -n "${webhook}" ]]; then
     echo "discord_research: configured(webhook)"
   elif [[ -n "${token}" && -n "${channel}" ]]; then
-    echo "discord_research: configured(bot+channel, permissions_unverified)"
+    echo "discord_research: configured(bot+channel)"
   else
     echo "discord_research: missing_config"
   fi
