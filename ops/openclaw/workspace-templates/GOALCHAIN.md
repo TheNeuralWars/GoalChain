@@ -65,6 +65,8 @@ Scout optimization:
 
 ```bash
 bash ~/hermes/scripts/optimize-openclaw-scout.sh
+python3 ~/hermes/scripts/oa-scout-metrics.py --hours 48 --output ~/hermes/oa/state/scout-metrics.md
+bash ~/hermes/scripts/oa-scout-autotune.sh --apply
 ```
 
 Webhook inbox for OA messages:
