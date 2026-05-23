@@ -103,6 +103,288 @@
           "writable": true
         },
         {
+          "name": "jackpot_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "claim_contributor_epoch",
+      "discriminator": [
+        153,
+        237,
+        4,
+        9,
+        2,
+        187,
+        129,
+        175
+      ],
+      "accounts": [
+        {
+          "name": "contributor",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_fund",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  102,
+                  117,
+                  110,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_epoch"
+        },
+        {
+          "name": "epoch_contributor_snapshot",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  112,
+                  111,
+                  99,
+                  104,
+                  95,
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  105,
+                  98,
+                  117,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "builder_epoch"
+              },
+              {
+                "kind": "account",
+                "path": "contributor"
+              }
+            ]
+          }
+        },
+        {
+          "name": "epoch_contributor_claim",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  112,
+                  111,
+                  99,
+                  104,
+                  95,
+                  99,
+                  108,
+                  97,
+                  105,
+                  109
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "builder_epoch"
+              },
+              {
+                "kind": "account",
+                "path": "contributor"
+              }
+            ]
+          }
+        },
+        {
+          "name": "contributor_vault",
+          "writable": true
+        },
+        {
+          "name": "contributor_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "claim_contributor_rewards",
+      "discriminator": [
+        250,
+        234,
+        199,
+        237,
+        15,
+        65,
+        253,
+        166
+      ],
+      "accounts": [
+        {
+          "name": "contributor",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_fund",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  102,
+                  117,
+                  110,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "contributor_score",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  105,
+                  98,
+                  117,
+                  116,
+                  111,
+                  114,
+                  95,
+                  115,
+                  99,
+                  111,
+                  114,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "builder_fund"
+              },
+              {
+                "kind": "account",
+                "path": "contributor"
+              }
+            ]
+          }
+        },
+        {
+          "name": "contributor_vault",
+          "writable": true
+        },
+        {
+          "name": "contributor_token_account",
+          "writable": true
+        },
+        {
           "name": "token_mint"
         },
         {
@@ -115,7 +397,7 @@
       "name": "claim_daily_salary",
       "docs": [
         "El usuario reclama su sueldo, calculado dinámicamente.",
-        "El \"Impuesto del Protocolo\" del 10% se desvía a las \"Architect Licenses\"."
+        "El impuesto de protocolo está hard-capped al 1% para limitar capture."
       ],
       "discriminator": [
         35,
@@ -133,10 +415,50 @@
           "writable": true
         },
         {
-          "name": "manager_state"
+          "name": "manager_state",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  110,
+                  97,
+                  103,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
         },
         {
-          "name": "stadium_state"
+          "name": "stadium_state",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  100,
+                  105,
+                  117,
+                  109
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "stadium_id"
+              }
+            ]
+          }
         },
         {
           "name": "config",
@@ -152,7 +474,93 @@
         },
         {
           "name": "vault_token_account",
-          "writable": true
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "config"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "token_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
         },
         {
           "name": "token_mint"
@@ -165,7 +573,12 @@
           "signer": true
         }
       ],
-      "args": []
+      "args": [
+        {
+          "name": "_stadium_id",
+          "type": "u16"
+        }
+      ]
     },
     {
       "name": "claim_market_payout",
@@ -224,6 +637,10 @@
           "writable": true
         },
         {
+          "name": "jackpot_token_account",
+          "writable": true
+        },
+        {
           "name": "token_mint"
         },
         {
@@ -249,6 +666,24 @@
           "name": "user",
           "writable": true,
           "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "presale_allocation",
@@ -615,6 +1050,77 @@
       "args": []
     },
     {
+      "name": "finalize_contributor_epoch",
+      "discriminator": [
+        166,
+        7,
+        147,
+        229,
+        222,
+        212,
+        142,
+        192
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_fund",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  102,
+                  117,
+                  110,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_epoch",
+          "writable": true
+        }
+      ],
+      "args": []
+    },
+    {
       "name": "forge_nft",
       "docs": [
         "[HOOK] La Forja: Permitirá fusionar NFTs en el futuro"
@@ -636,6 +1142,101 @@
         }
       ],
       "args": []
+    },
+    {
+      "name": "fund_builder_fund",
+      "discriminator": [
+        79,
+        19,
+        138,
+        198,
+        172,
+        17,
+        47,
+        118
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_fund",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  102,
+                  117,
+                  110,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer_token_account",
+          "writable": true
+        },
+        {
+          "name": "contributor_vault",
+          "writable": true
+        },
+        {
+          "name": "api_infra_vault",
+          "writable": true
+        },
+        {
+          "name": "marketing_vault",
+          "writable": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
     },
     {
       "name": "golden_recall",
@@ -695,6 +1296,24 @@
           "signer": true
         },
         {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
           "name": "parody_player",
           "writable": true,
           "pda": {
@@ -738,6 +1357,240 @@
         {
           "name": "initial_shot_power",
           "type": "u8"
+        },
+        {
+          "name": "owner",
+          "type": "pubkey"
+        },
+        {
+          "name": "initial_base_yield",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_builder_fund",
+      "discriminator": [
+        179,
+        195,
+        43,
+        227,
+        10,
+        140,
+        204,
+        39
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_fund",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  102,
+                  117,
+                  110,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "contributor_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "builder_fund"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  105,
+                  98,
+                  117,
+                  116,
+                  111,
+                  114,
+                  115
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "api_infra_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "builder_fund"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  112,
+                  105,
+                  95,
+                  105,
+                  110,
+                  102,
+                  114,
+                  97
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "marketing_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "builder_fund"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  114,
+                  107,
+                  101,
+                  116,
+                  105,
+                  110,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "contributor_bps",
+          "type": "u16"
+        },
+        {
+          "name": "api_infra_bps",
+          "type": "u16"
+        },
+        {
+          "name": "marketing_bps",
+          "type": "u16"
         }
       ]
     },
@@ -793,12 +1646,24 @@
           "type": "pubkey"
         },
         {
+          "name": "jackpot_token_account",
+          "type": "pubkey"
+        },
+        {
           "name": "fee_bps",
           "type": "u16"
         },
         {
           "name": "cutoff_buffer_seconds",
           "type": "i64"
+        },
+        {
+          "name": "max_sol_per_user",
+          "type": "u64"
+        },
+        {
+          "name": "presale_active",
+          "type": "bool"
         }
       ]
     },
@@ -883,6 +1748,140 @@
         {
           "name": "start_time",
           "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_manager_state",
+      "discriminator": [
+        123,
+        105,
+        18,
+        201,
+        202,
+        93,
+        97,
+        223
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "manager_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  109,
+                  97,
+                  110,
+                  97,
+                  103,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "level",
+          "type": "u8"
+        },
+        {
+          "name": "salary_multiplier",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_stadium_state",
+      "discriminator": [
+        108,
+        246,
+        87,
+        130,
+        242,
+        88,
+        111,
+        181
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "stadium_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  100,
+                  105,
+                  117,
+                  109
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "stadium_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "stadium_id",
+          "type": "u16"
+        },
+        {
+          "name": "revenue_multiplier",
+          "type": "u64"
         }
       ]
     },
@@ -1054,12 +2053,31 @@
       ],
       "accounts": [
         {
-          "name": "parody_player",
-          "writable": true
+          "name": "oracle_authority",
+          "writable": true,
+          "signer": true
         },
         {
-          "name": "oracle_authority",
-          "signer": true
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "parody_player",
+          "writable": true
         }
       ],
       "args": [
@@ -1149,12 +2167,31 @@
       ],
       "accounts": [
         {
-          "name": "parody_player",
-          "writable": true
+          "name": "oracle_authority",
+          "writable": true,
+          "signer": true
         },
         {
-          "name": "oracle_authority",
-          "signer": true
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "parody_player",
+          "writable": true
         }
       ],
       "args": [
@@ -1549,6 +2586,204 @@
       ]
     },
     {
+      "name": "refund_bet",
+      "discriminator": [
+        209,
+        182,
+        226,
+        96,
+        55,
+        121,
+        83,
+        183
+      ],
+      "accounts": [
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "fixture",
+          "writable": true
+        },
+        {
+          "name": "user_bet",
+          "writable": true
+        },
+        {
+          "name": "user_token_account",
+          "writable": true
+        },
+        {
+          "name": "fixture_vault",
+          "writable": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "register_contributor_epoch_snapshot",
+      "discriminator": [
+        48,
+        117,
+        17,
+        210,
+        53,
+        78,
+        67,
+        144
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_fund",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  102,
+                  117,
+                  110,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_epoch",
+          "writable": true
+        },
+        {
+          "name": "contributor"
+        },
+        {
+          "name": "contributor_score",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  105,
+                  98,
+                  117,
+                  116,
+                  111,
+                  114,
+                  95,
+                  115,
+                  99,
+                  111,
+                  114,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "builder_fund"
+              },
+              {
+                "kind": "account",
+                "path": "contributor"
+              }
+            ]
+          }
+        },
+        {
+          "name": "epoch_contributor_snapshot",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  101,
+                  112,
+                  111,
+                  99,
+                  104,
+                  95,
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  105,
+                  98,
+                  117,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "builder_epoch"
+              },
+              {
+                "kind": "account",
+                "path": "contributor"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
       "name": "rent_nft",
       "discriminator": [
         171,
@@ -1644,8 +2879,103 @@
       ],
       "args": [
         {
-          "name": "_winner_is_a",
+          "name": "winner_is_a",
           "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "spend_builder_fund",
+      "discriminator": [
+        98,
+        34,
+        79,
+        18,
+        111,
+        251,
+        63,
+        255
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_fund",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  102,
+                  117,
+                  110,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "source_vault",
+          "writable": true
+        },
+        {
+          "name": "destination_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": [
+        {
+          "name": "bucket",
+          "type": {
+            "defined": {
+              "name": "BuilderFundBucket"
+            }
+          }
+        },
+        {
+          "name": "amount",
+          "type": "u64"
         }
       ]
     },
@@ -1666,6 +2996,24 @@
           "name": "user",
           "writable": true,
           "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
         },
         {
           "name": "user_stake",
@@ -1694,8 +3042,32 @@
           "writable": true
         },
         {
-          "name": "vault_token_account",
-          "writable": true
+          "name": "stake_vault_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  107,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "token_mint"
+              }
+            ]
+          }
         },
         {
           "name": "token_mint"
@@ -1714,6 +3086,182 @@
           "type": "u64"
         }
       ]
+    },
+    {
+      "name": "start_contributor_epoch",
+      "discriminator": [
+        202,
+        248,
+        180,
+        97,
+        182,
+        114,
+        177,
+        22
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_fund",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  102,
+                  117,
+                  110,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_epoch",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  101,
+                  112,
+                  111,
+                  99,
+                  104
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "builder_fund"
+              },
+              {
+                "kind": "arg",
+                "path": "epoch_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "contributor_vault",
+          "writable": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "epoch_id",
+          "type": "u64"
+        },
+        {
+          "name": "contributor_pool",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "sweep_fixture_dust",
+      "discriminator": [
+        160,
+        202,
+        60,
+        103,
+        150,
+        189,
+        207,
+        180
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "fixture",
+          "writable": true
+        },
+        {
+          "name": "fixture_vault",
+          "writable": true
+        },
+        {
+          "name": "treasury_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
     },
     {
       "name": "unequip_locker_room_item",
@@ -1892,14 +3440,251 @@
           "signer": true
         },
         {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
           "name": "user_stake",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  107,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_token_account",
           "writable": true
+        },
+        {
+          "name": "stake_vault_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  116,
+                  97,
+                  107,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "token_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_mint"
+        },
+        {
+          "name": "token_program"
         }
       ],
       "args": [
         {
           "name": "amount",
           "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "update_builder_fund_guardrails",
+      "discriminator": [
+        250,
+        29,
+        16,
+        9,
+        110,
+        16,
+        207,
+        229
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_fund",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  102,
+                  117,
+                  110,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "score_update_cooldown_seconds",
+          "type": "i64"
+        },
+        {
+          "name": "min_epoch_score",
+          "type": "u64"
+        },
+        {
+          "name": "max_contributors_per_epoch",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "update_builder_fund_weights",
+      "discriminator": [
+        151,
+        146,
+        94,
+        94,
+        75,
+        161,
+        24,
+        244
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_fund",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  102,
+                  117,
+                  110,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "contributor_bps",
+          "type": "u16"
+        },
+        {
+          "name": "api_infra_bps",
+          "type": "u16"
+        },
+        {
+          "name": "marketing_bps",
+          "type": "u16"
         }
       ]
     },
@@ -1951,12 +3736,24 @@
           "type": "pubkey"
         },
         {
+          "name": "jackpot_token_account",
+          "type": "pubkey"
+        },
+        {
           "name": "fee_bps",
           "type": "u16"
         },
         {
           "name": "cutoff_buffer_seconds",
           "type": "i64"
+        },
+        {
+          "name": "max_sol_per_user",
+          "type": "u64"
+        },
+        {
+          "name": "presale_active",
+          "type": "bool"
         }
       ]
     },
@@ -2073,9 +3870,192 @@
           "type": "u8"
         }
       ]
+    },
+    {
+      "name": "upsert_contributor_score",
+      "discriminator": [
+        130,
+        188,
+        38,
+        153,
+        86,
+        250,
+        64,
+        39
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "builder_fund",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  105,
+                  108,
+                  100,
+                  101,
+                  114,
+                  95,
+                  102,
+                  117,
+                  110,
+                  100
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "config"
+              }
+            ]
+          }
+        },
+        {
+          "name": "contributor"
+        },
+        {
+          "name": "contributor_score",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  116,
+                  114,
+                  105,
+                  98,
+                  117,
+                  116,
+                  111,
+                  114,
+                  95,
+                  115,
+                  99,
+                  111,
+                  114,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "builder_fund"
+              },
+              {
+                "kind": "account",
+                "path": "contributor"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "score",
+          "type": "u64"
+        }
+      ]
     }
   ],
   "accounts": [
+    {
+      "name": "BuilderContributorEpoch",
+      "discriminator": [
+        52,
+        197,
+        59,
+        45,
+        135,
+        163,
+        100,
+        228
+      ]
+    },
+    {
+      "name": "BuilderFund",
+      "discriminator": [
+        39,
+        109,
+        38,
+        146,
+        177,
+        69,
+        10,
+        72
+      ]
+    },
+    {
+      "name": "ContributorScore",
+      "discriminator": [
+        121,
+        148,
+        6,
+        150,
+        160,
+        251,
+        170,
+        22
+      ]
+    },
+    {
+      "name": "EpochContributorClaim",
+      "discriminator": [
+        244,
+        20,
+        2,
+        7,
+        248,
+        13,
+        29,
+        163
+      ]
+    },
+    {
+      "name": "EpochContributorSnapshot",
+      "discriminator": [
+        231,
+        33,
+        133,
+        254,
+        163,
+        177,
+        218,
+        48
+      ]
+    },
     {
       "name": "Fixture",
       "discriminator": [
@@ -2246,6 +4226,151 @@
       ]
     }
   ],
+  "events": [
+    {
+      "name": "BuilderFundFunded",
+      "discriminator": [
+        221,
+        118,
+        3,
+        208,
+        252,
+        39,
+        127,
+        202
+      ]
+    },
+    {
+      "name": "BuilderFundGuardrailsUpdated",
+      "discriminator": [
+        119,
+        40,
+        175,
+        38,
+        182,
+        7,
+        89,
+        17
+      ]
+    },
+    {
+      "name": "BuilderFundInitialized",
+      "discriminator": [
+        67,
+        104,
+        188,
+        77,
+        33,
+        72,
+        101,
+        45
+      ]
+    },
+    {
+      "name": "BuilderFundSpent",
+      "discriminator": [
+        22,
+        222,
+        134,
+        158,
+        49,
+        27,
+        35,
+        34
+      ]
+    },
+    {
+      "name": "BuilderFundWeightsUpdated",
+      "discriminator": [
+        233,
+        199,
+        211,
+        133,
+        245,
+        20,
+        61,
+        237
+      ]
+    },
+    {
+      "name": "ContributorEpochClaimed",
+      "discriminator": [
+        8,
+        14,
+        52,
+        224,
+        110,
+        213,
+        204,
+        249
+      ]
+    },
+    {
+      "name": "ContributorEpochFinalized",
+      "discriminator": [
+        217,
+        220,
+        31,
+        21,
+        138,
+        243,
+        160,
+        29
+      ]
+    },
+    {
+      "name": "ContributorEpochSnapshotRegistered",
+      "discriminator": [
+        5,
+        131,
+        116,
+        206,
+        69,
+        33,
+        100,
+        151
+      ]
+    },
+    {
+      "name": "ContributorEpochStarted",
+      "discriminator": [
+        181,
+        194,
+        137,
+        28,
+        161,
+        168,
+        225,
+        220
+      ]
+    },
+    {
+      "name": "ContributorRewardsClaimed",
+      "discriminator": [
+        71,
+        11,
+        79,
+        211,
+        203,
+        95,
+        206,
+        167
+      ]
+    },
+    {
+      "name": "ContributorScoreUpdated",
+      "discriminator": [
+        165,
+        172,
+        141,
+        234,
+        85,
+        12,
+        0,
+        3
+      ]
+    }
+  ],
   "errors": [
     {
       "code": 6000,
@@ -2299,96 +4424,724 @@
     },
     {
       "code": 6010,
+      "name": "InvalidWagerWinner",
+      "msg": "Winner token account does not match the declared wager winner"
+    },
+    {
+      "code": 6011,
       "name": "BettingClosed",
       "msg": "Betting closed"
     },
     {
-      "code": 6011,
+      "code": 6012,
       "name": "MatchNotFinished",
       "msg": "Match not finished"
     },
     {
-      "code": 6012,
+      "code": 6013,
       "name": "NoWinnerDeclared",
       "msg": "No winner declared"
     },
     {
-      "code": 6013,
+      "code": 6014,
       "name": "NotAWinner",
       "msg": "Not a winner"
     },
     {
-      "code": 6014,
+      "code": 6015,
       "name": "AlreadyClaimed",
       "msg": "Already claimed"
     },
     {
-      "code": 6015,
+      "code": 6016,
       "name": "InvalidPool",
       "msg": "Invalid pool"
     },
     {
-      "code": 6016,
+      "code": 6017,
       "name": "InvalidVault",
       "msg": "Invalid vault"
     },
     {
-      "code": 6017,
+      "code": 6018,
       "name": "InvalidMint",
       "msg": "Invalid mint"
     },
     {
-      "code": 6018,
+      "code": 6019,
       "name": "InvalidTreasury",
       "msg": "Invalid treasury"
     },
     {
-      "code": 6019,
+      "code": 6020,
+      "name": "InvalidJackpot",
+      "msg": "Invalid jackpot"
+    },
+    {
+      "code": 6021,
       "name": "InvalidMarketConfig",
       "msg": "Invalid market config"
     },
     {
-      "code": 6020,
+      "code": 6022,
       "name": "InvalidMarket",
       "msg": "Invalid market"
     },
     {
-      "code": 6021,
+      "code": 6023,
       "name": "InvalidLiveState",
       "msg": "Invalid live state"
     },
     {
-      "code": 6022,
+      "code": 6024,
+      "name": "PresaleInactive",
+      "msg": "Presale is not active"
+    },
+    {
+      "code": 6025,
+      "name": "PresaleLimitExceeded",
+      "msg": "Presale contribution exceeds max per user"
+    },
+    {
+      "code": 6026,
+      "name": "InvalidStakePoolProgram",
+      "msg": "Invalid stake pool program"
+    },
+    {
+      "code": 6027,
+      "name": "FixtureNotCancelled",
+      "msg": "Fixture is not cancelled"
+    },
+    {
+      "code": 6028,
+      "name": "UseRefundForCancelledFixture",
+      "msg": "Cancelled fixtures must be refunded, not claimed"
+    },
+    {
+      "code": 6029,
+      "name": "InsufficientVaultBalance",
+      "msg": "Insufficient vault balance"
+    },
+    {
+      "code": 6030,
       "name": "ClaimTooEarly",
       "msg": "Claim too early"
     },
     {
-      "code": 6023,
+      "code": 6031,
       "name": "PlayerIsEliminated",
       "msg": "Player is eliminated"
     },
     {
-      "code": 6024,
+      "code": 6032,
       "name": "InvalidActionType",
       "msg": "Invalid action type from oracle"
     },
     {
-      "code": 6025,
+      "code": 6033,
       "name": "StaminaAlreadyFull",
       "msg": "Stamina already full"
     },
     {
-      "code": 6026,
+      "code": 6034,
       "name": "GoldenRecallPenaltyRequired",
       "msg": "Golden Recall penalty required"
     },
     {
-      "code": 6027,
+      "code": 6035,
       "name": "InvalidItemType",
       "msg": "Invalid item type"
+    },
+    {
+      "code": 6036,
+      "name": "AlreadyEquipped",
+      "msg": "Item already equipped"
+    },
+    {
+      "code": 6037,
+      "name": "InsufficientStamina",
+      "msg": "Insufficient stamina"
+    },
+    {
+      "code": 6038,
+      "name": "InvalidBuilderFundWeights",
+      "msg": "Invalid builder fund weights"
+    },
+    {
+      "code": 6039,
+      "name": "InvalidBuilderFundBucket",
+      "msg": "Invalid builder fund bucket"
+    },
+    {
+      "code": 6040,
+      "name": "InvalidContributorScore",
+      "msg": "Invalid contributor score account"
+    },
+    {
+      "code": 6041,
+      "name": "NoContributorScore",
+      "msg": "No contributor score available"
+    },
+    {
+      "code": 6042,
+      "name": "NoClaimableRewards",
+      "msg": "No claimable rewards"
+    },
+    {
+      "code": 6043,
+      "name": "InvalidEpochId",
+      "msg": "Invalid epoch id"
+    },
+    {
+      "code": 6044,
+      "name": "EpochAlreadyFinalized",
+      "msg": "Epoch already finalized"
+    },
+    {
+      "code": 6045,
+      "name": "EpochNotFinalized",
+      "msg": "Epoch not finalized"
+    },
+    {
+      "code": 6046,
+      "name": "NoEpochSnapshotScore",
+      "msg": "Missing epoch snapshot score"
+    },
+    {
+      "code": 6047,
+      "name": "InvalidEpochSnapshot",
+      "msg": "Invalid epoch snapshot"
+    },
+    {
+      "code": 6048,
+      "name": "ScoreUpdateCooldown",
+      "msg": "Contributor score update is in cooldown"
+    },
+    {
+      "code": 6049,
+      "name": "ContributorScoreTooLow",
+      "msg": "Contributor score below minimum threshold"
+    },
+    {
+      "code": 6050,
+      "name": "EpochContributorLimitReached",
+      "msg": "Epoch contributor limit reached"
     }
   ],
   "types": [
+    {
+      "name": "BuilderContributorEpoch",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "builder_fund",
+            "type": "pubkey"
+          },
+          {
+            "name": "epoch_id",
+            "type": "u64"
+          },
+          {
+            "name": "contributor_pool",
+            "type": "u64"
+          },
+          {
+            "name": "total_score_snapshot",
+            "type": "u64"
+          },
+          {
+            "name": "contributor_count",
+            "type": "u32"
+          },
+          {
+            "name": "finalized",
+            "type": "bool"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "finalized_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BuilderFund",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "config",
+            "type": "pubkey"
+          },
+          {
+            "name": "token_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "contributor_vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "api_infra_vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "marketing_vault",
+            "type": "pubkey"
+          },
+          {
+            "name": "contributor_bps",
+            "type": "u16"
+          },
+          {
+            "name": "api_infra_bps",
+            "type": "u16"
+          },
+          {
+            "name": "marketing_bps",
+            "type": "u16"
+          },
+          {
+            "name": "total_inflow",
+            "type": "u64"
+          },
+          {
+            "name": "contributor_allocated",
+            "type": "u64"
+          },
+          {
+            "name": "api_infra_allocated",
+            "type": "u64"
+          },
+          {
+            "name": "marketing_allocated",
+            "type": "u64"
+          },
+          {
+            "name": "total_contributor_score",
+            "type": "u64"
+          },
+          {
+            "name": "contributor_claimed_total",
+            "type": "u64"
+          },
+          {
+            "name": "contributor_spent",
+            "type": "u64"
+          },
+          {
+            "name": "api_infra_spent",
+            "type": "u64"
+          },
+          {
+            "name": "marketing_spent",
+            "type": "u64"
+          },
+          {
+            "name": "current_epoch",
+            "type": "u64"
+          },
+          {
+            "name": "score_update_cooldown_seconds",
+            "type": "i64"
+          },
+          {
+            "name": "min_epoch_score",
+            "type": "u64"
+          },
+          {
+            "name": "max_contributors_per_epoch",
+            "type": "u32"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BuilderFundBucket",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Contributors"
+          },
+          {
+            "name": "ApiInfra"
+          },
+          {
+            "name": "Marketing"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BuilderFundFunded",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "builder_fund",
+            "type": "pubkey"
+          },
+          {
+            "name": "payer",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_amount",
+            "type": "u64"
+          },
+          {
+            "name": "contributor_amount",
+            "type": "u64"
+          },
+          {
+            "name": "api_infra_amount",
+            "type": "u64"
+          },
+          {
+            "name": "marketing_amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BuilderFundGuardrailsUpdated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "builder_fund",
+            "type": "pubkey"
+          },
+          {
+            "name": "score_update_cooldown_seconds",
+            "type": "i64"
+          },
+          {
+            "name": "min_epoch_score",
+            "type": "u64"
+          },
+          {
+            "name": "max_contributors_per_epoch",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BuilderFundInitialized",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "builder_fund",
+            "type": "pubkey"
+          },
+          {
+            "name": "token_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "contributor_bps",
+            "type": "u16"
+          },
+          {
+            "name": "api_infra_bps",
+            "type": "u16"
+          },
+          {
+            "name": "marketing_bps",
+            "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BuilderFundSpent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "builder_fund",
+            "type": "pubkey"
+          },
+          {
+            "name": "bucket",
+            "type": {
+              "defined": {
+                "name": "BuilderFundBucket"
+              }
+            }
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "recipient",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BuilderFundWeightsUpdated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "builder_fund",
+            "type": "pubkey"
+          },
+          {
+            "name": "contributor_bps",
+            "type": "u16"
+          },
+          {
+            "name": "api_infra_bps",
+            "type": "u16"
+          },
+          {
+            "name": "marketing_bps",
+            "type": "u16"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ContributorEpochClaimed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "epoch",
+            "type": "pubkey"
+          },
+          {
+            "name": "contributor",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ContributorEpochFinalized",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "epoch",
+            "type": "pubkey"
+          },
+          {
+            "name": "epoch_id",
+            "type": "u64"
+          },
+          {
+            "name": "total_score_snapshot",
+            "type": "u64"
+          },
+          {
+            "name": "contributor_count",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ContributorEpochSnapshotRegistered",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "epoch",
+            "type": "pubkey"
+          },
+          {
+            "name": "contributor",
+            "type": "pubkey"
+          },
+          {
+            "name": "score",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ContributorEpochStarted",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "builder_fund",
+            "type": "pubkey"
+          },
+          {
+            "name": "epoch_id",
+            "type": "u64"
+          },
+          {
+            "name": "contributor_pool",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ContributorRewardsClaimed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "builder_fund",
+            "type": "pubkey"
+          },
+          {
+            "name": "contributor",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "claimed_total",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ContributorScore",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "builder_fund",
+            "type": "pubkey"
+          },
+          {
+            "name": "contributor",
+            "type": "pubkey"
+          },
+          {
+            "name": "score",
+            "type": "u64"
+          },
+          {
+            "name": "claimed_amount",
+            "type": "u64"
+          },
+          {
+            "name": "last_update_timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ContributorScoreUpdated",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "builder_fund",
+            "type": "pubkey"
+          },
+          {
+            "name": "contributor",
+            "type": "pubkey"
+          },
+          {
+            "name": "score",
+            "type": "u64"
+          },
+          {
+            "name": "total_contributor_score",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EpochContributorClaim",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "epoch",
+            "type": "pubkey"
+          },
+          {
+            "name": "contributor",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          },
+          {
+            "name": "claimed_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "EpochContributorSnapshot",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "epoch",
+            "type": "pubkey"
+          },
+          {
+            "name": "contributor",
+            "type": "pubkey"
+          },
+          {
+            "name": "score",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
     {
       "name": "Fixture",
       "type": {
@@ -2420,6 +5173,14 @@
           },
           {
             "name": "pool_draw",
+            "type": "u64"
+          },
+          {
+            "name": "total_claimed",
+            "type": "u64"
+          },
+          {
+            "name": "total_refunded",
             "type": "u64"
           },
           {
@@ -2465,12 +5226,36 @@
             "type": "pubkey"
           },
           {
+            "name": "jackpot_token_account",
+            "type": "pubkey"
+          },
+          {
             "name": "fee_bps",
             "type": "u16"
           },
           {
+            "name": "fee_burn_bps",
+            "type": "u16"
+          },
+          {
+            "name": "fee_jackpot_bps",
+            "type": "u16"
+          },
+          {
+            "name": "max_starters_per_manager",
+            "type": "u8"
+          },
+          {
             "name": "cutoff_buffer_seconds",
             "type": "i64"
+          },
+          {
+            "name": "max_sol_per_user",
+            "type": "u64"
+          },
+          {
+            "name": "presale_active",
+            "type": "bool"
           },
           {
             "name": "bump",
@@ -2530,7 +5315,7 @@
           },
           {
             "name": "salary_multiplier",
-            "type": "f64"
+            "type": "u64"
           }
         ]
       }
@@ -2754,6 +5539,14 @@
         "kind": "struct",
         "fields": [
           {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "last_claim_timestamp",
+            "type": "i64"
+          },
+          {
             "name": "name",
             "type": "string"
           },
@@ -2895,7 +5688,7 @@
           },
           {
             "name": "revenue_multiplier",
-            "type": "f64"
+            "type": "u64"
           }
         ]
       }
