@@ -1,0 +1,33 @@
+{
+  "config_version": "v1.0.0-p0",
+  "network_defaults": {
+    "program_id": "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg",
+    "token_symbol": "GCH",
+    "token_decimals": 6
+  },
+  "core_parameters": {
+    "gch_lamports": 1000000,
+    "max_fee_bps": 100,
+    "architect_tax_bps": 100,
+    "default_base_yield_lamports": 100000000,
+    "max_base_yield_lamports": 10000000000,
+    "potion_burn_lamports": 100000000
+  },
+  "rarity_base_yields_lamports": {
+    "unknown": 100000000,
+    "rare": 50000000,
+    "epic": 250000000,
+    "legendary": 1000000000,
+    "mythic": 5000000000
+  },
+  "oracle_yield_policy": {
+    "goal_percent": 10,
+    "assist_percent": 5,
+    "red_card_percent": -20,
+    "elimination_sets_zero": true
+  },
+  "notes": [
+    "Source of truth for P0 across docs/UI/oracle references.",
+    "Contract enforcement lives in goalchain_program/src/lib.rs."
+  ]
+}
