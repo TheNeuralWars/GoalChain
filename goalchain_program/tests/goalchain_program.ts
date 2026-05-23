@@ -26,7 +26,8 @@ describe("goalchain_program", () => {
   anchor.setProvider(provider);
 
   const payer = (provider.wallet as any).payer as Keypair;
-  const program = anchor.workspace.GoalchainProgram as Program<GoalchainProgram>;
+  const program = anchor.workspace
+    .GoalchainProgram as Program<GoalchainProgram>;
 
   // Keypairs for various actors
   const oracleAuthority = Keypair.generate();
@@ -84,7 +85,9 @@ describe("goalchain_program", () => {
   };
 
   before(async () => {
-    console.log("⚙️ [GoalChain Tests] Preparing environment & minting test tokens...");
+    console.log(
+      "⚙️ [GoalChain Tests] Preparing environment & minting test tokens..."
+    );
 
     // Fund the local provider and our generated keys
     await airdropConfirmed(provider.wallet.publicKey, 5);
@@ -104,60 +107,186 @@ describe("goalchain_program", () => {
     }
 
     // Derive Core PDAs
-    [configPda] = PublicKey.findProgramAddressSync([Buffer.from("config")], program.programId);
-    [parodyPlayerPda] = PublicKey.findProgramAddressSync([Buffer.from("player"), Buffer.from(playerId)], program.programId);
-    [rentalListingPda] = PublicKey.findProgramAddressSync([Buffer.from("rental"), dummyNftMint.publicKey.toBuffer()], program.programId);
-    [fixturePda] = PublicKey.findProgramAddressSync([Buffer.from("fixture"), Buffer.from(matchId)], program.programId);
-    [fixtureVault] = PublicKey.findProgramAddressSync([Buffer.from("fixture_vault"), fixturePda.toBuffer()], program.programId);
-    [liveStatePda] = PublicKey.findProgramAddressSync([Buffer.from("live_state"), fixturePda.toBuffer()], program.programId);
-    [marketPda] = PublicKey.findProgramAddressSync([Buffer.from("market"), fixturePda.toBuffer(), Buffer.from([1])], program.programId);
-    [marketVaultPda] = PublicKey.findProgramAddressSync([Buffer.from("market_vault"), marketPda.toBuffer()], program.programId);
-    [userStakePda] = PublicKey.findProgramAddressSync([Buffer.from("stake"), user1.publicKey.toBuffer()], program.programId);
+    [configPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("config")],
+      program.programId
+    );
+    [parodyPlayerPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("player"), Buffer.from(playerId)],
+      program.programId
+    );
+    [rentalListingPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("rental"), dummyNftMint.publicKey.toBuffer()],
+      program.programId
+    );
+    [fixturePda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("fixture"), Buffer.from(matchId)],
+      program.programId
+    );
+    [fixtureVault] = PublicKey.findProgramAddressSync(
+      [Buffer.from("fixture_vault"), fixturePda.toBuffer()],
+      program.programId
+    );
+    [liveStatePda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("live_state"), fixturePda.toBuffer()],
+      program.programId
+    );
+    [marketPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("market"), fixturePda.toBuffer(), Buffer.from([1])],
+      program.programId
+    );
+    [marketVaultPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("market_vault"), marketPda.toBuffer()],
+      program.programId
+    );
+    [userStakePda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("stake"), user1.publicKey.toBuffer()],
+      program.programId
+    );
     [builderFundPda] = PublicKey.findProgramAddressSync(
       [Buffer.from("builder_fund"), configPda.toBuffer()],
       program.programId
     );
 
     // Deploy spl token mint
-    betMint = await createMint(provider.connection, payer, provider.wallet.publicKey, null, 6);
+    betMint = await createMint(
+      provider.connection,
+      payer,
+      provider.wallet.publicKey,
+      null,
+      6
+    );
     [stakeVaultPda] = PublicKey.findProgramAddressSync(
       [Buffer.from("stake_vault"), betMint.toBuffer()],
       program.programId
     );
 
     // Generate ATAs
-    treasuryAta = (await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, treasuryOwner.publicKey)).address;
-    user1Ata = (await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, user1.publicKey)).address;
-    user2Ata = (await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, user2.publicKey)).address;
-    playerAAta = (await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, playerA.publicKey)).address;
-    playerBAta = (await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, playerB.publicKey)).address;
-    salaryVaultAta = (await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, configPda, true)).address;
+    treasuryAta = (
+      await getOrCreateAssociatedTokenAccount(
+        provider.connection,
+        payer,
+        betMint,
+        treasuryOwner.publicKey
+      )
+    ).address;
+    user1Ata = (
+      await getOrCreateAssociatedTokenAccount(
+        provider.connection,
+        payer,
+        betMint,
+        user1.publicKey
+      )
+    ).address;
+    user2Ata = (
+      await getOrCreateAssociatedTokenAccount(
+        provider.connection,
+        payer,
+        betMint,
+        user2.publicKey
+      )
+    ).address;
+    playerAAta = (
+      await getOrCreateAssociatedTokenAccount(
+        provider.connection,
+        payer,
+        betMint,
+        playerA.publicKey
+      )
+    ).address;
+    playerBAta = (
+      await getOrCreateAssociatedTokenAccount(
+        provider.connection,
+        payer,
+        betMint,
+        playerB.publicKey
+      )
+    ).address;
+    salaryVaultAta = (
+      await getOrCreateAssociatedTokenAccount(
+        provider.connection,
+        payer,
+        betMint,
+        configPda,
+        true
+      )
+    ).address;
     [builderContributorVaultAta] = PublicKey.findProgramAddressSync(
-      [Buffer.from("builder_vault"), builderFundPda.toBuffer(), Buffer.from("contributors")],
+      [
+        Buffer.from("builder_vault"),
+        builderFundPda.toBuffer(),
+        Buffer.from("contributors"),
+      ],
       program.programId
     );
     [builderApiInfraVaultAta] = PublicKey.findProgramAddressSync(
-      [Buffer.from("builder_vault"), builderFundPda.toBuffer(), Buffer.from("api_infra")],
+      [
+        Buffer.from("builder_vault"),
+        builderFundPda.toBuffer(),
+        Buffer.from("api_infra"),
+      ],
       program.programId
     );
     [builderMarketingVaultAta] = PublicKey.findProgramAddressSync(
-      [Buffer.from("builder_vault"), builderFundPda.toBuffer(), Buffer.from("marketing")],
+      [
+        Buffer.from("builder_vault"),
+        builderFundPda.toBuffer(),
+        Buffer.from("marketing"),
+      ],
       program.programId
     );
 
     // Mint supply to users
-    await mintTo(provider.connection, payer, betMint, user1Ata, payer, 10_000_000_000);
-    await mintTo(provider.connection, payer, betMint, user2Ata, payer, 10_000_000_000);
-    await mintTo(provider.connection, payer, betMint, playerAAta, payer, 10_000_000_000);
-    await mintTo(provider.connection, payer, betMint, playerBAta, payer, 10_000_000_000);
-    await mintTo(provider.connection, payer, betMint, salaryVaultAta, payer, 10_000_000_000);
+    await mintTo(
+      provider.connection,
+      payer,
+      betMint,
+      user1Ata,
+      payer,
+      10_000_000_000
+    );
+    await mintTo(
+      provider.connection,
+      payer,
+      betMint,
+      user2Ata,
+      payer,
+      10_000_000_000
+    );
+    await mintTo(
+      provider.connection,
+      payer,
+      betMint,
+      playerAAta,
+      payer,
+      10_000_000_000
+    );
+    await mintTo(
+      provider.connection,
+      payer,
+      betMint,
+      playerBAta,
+      payer,
+      10_000_000_000
+    );
+    await mintTo(
+      provider.connection,
+      payer,
+      betMint,
+      salaryVaultAta,
+      payer,
+      10_000_000_000
+    );
 
     console.log("✅ [GoalChain Tests] Environment initialized!");
   });
 
   describe("🏛️ 1. GLOBAL CONFIG & ADMIN OPERATIONS", () => {
     it("Inicializa o actualiza la configuración global del protocolo de forma segura", async () => {
-      const cfgInfo = await provider.connection.getAccountInfo(configPda, "confirmed");
+      const cfgInfo = await provider.connection.getAccountInfo(
+        configPda,
+        "confirmed"
+      );
       if (!cfgInfo) {
         await program.methods
           .initializeConfig(
@@ -195,8 +324,14 @@ describe("goalchain_program", () => {
 
       const config = await program.account.globalConfig.fetch(configPda);
       assert.equal(config.admin.toBase58(), payer.publicKey.toBase58());
-      assert.equal(config.oracleAuthority.toBase58(), oracleAuthority.publicKey.toBase58());
-      assert.equal(config.treasuryTokenAccount.toBase58(), treasuryAta.toBase58());
+      assert.equal(
+        config.oracleAuthority.toBase58(),
+        oracleAuthority.publicKey.toBase58()
+      );
+      assert.equal(
+        config.treasuryTokenAccount.toBase58(),
+        treasuryAta.toBase58()
+      );
       assert.equal(config.feeBps, 100);
     });
 
@@ -245,13 +380,24 @@ describe("goalchain_program", () => {
         .signers([payer])
         .rpc();
 
-      const builderFund = await program.account.builderFund.fetch(builderFundPda);
+      const builderFund = await program.account.builderFund.fetch(
+        builderFundPda
+      );
       assert.equal(builderFund.contributorBps, 7000);
       assert.equal(builderFund.apiInfraBps, 2000);
       assert.equal(builderFund.marketingBps, 1000);
-      assert.equal(builderFund.contributorVault.toBase58(), builderContributorVaultAta.toBase58());
-      assert.equal(builderFund.apiInfraVault.toBase58(), builderApiInfraVaultAta.toBase58());
-      assert.equal(builderFund.marketingVault.toBase58(), builderMarketingVaultAta.toBase58());
+      assert.equal(
+        builderFund.contributorVault.toBase58(),
+        builderContributorVaultAta.toBase58()
+      );
+      assert.equal(
+        builderFund.apiInfraVault.toBase58(),
+        builderApiInfraVaultAta.toBase58()
+      );
+      assert.equal(
+        builderFund.marketingVault.toBase58(),
+        builderMarketingVaultAta.toBase58()
+      );
     });
 
     it("Fondea y divide en sub-ledgers desde una única fuente", async () => {
@@ -272,25 +418,41 @@ describe("goalchain_program", () => {
         .signers([user1])
         .rpc();
 
-      const contributorBal = (await getAccount(provider.connection, builderContributorVaultAta)).amount;
-      const apiBal = (await getAccount(provider.connection, builderApiInfraVaultAta)).amount;
-      const marketingBal = (await getAccount(provider.connection, builderMarketingVaultAta)).amount;
+      const contributorBal = (
+        await getAccount(provider.connection, builderContributorVaultAta)
+      ).amount;
+      const apiBal = (
+        await getAccount(provider.connection, builderApiInfraVaultAta)
+      ).amount;
+      const marketingBal = (
+        await getAccount(provider.connection, builderMarketingVaultAta)
+      ).amount;
       assert.equal(contributorBal.toString(), "700000000");
       assert.equal(apiBal.toString(), "200000000");
       assert.equal(marketingBal.toString(), "100000000");
 
-      const builderFund = await program.account.builderFund.fetch(builderFundPda);
+      const builderFund = await program.account.builderFund.fetch(
+        builderFundPda
+      );
       assert.equal(builderFund.totalInflow.toString(), totalAmount.toString());
       assert.equal(builderFund.apiInfraAllocated.toString(), "200000000");
     });
 
     it("Registra score de contributors y permite claim proporcional desde bucket contributors", async () => {
       const [user1ScorePda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user1.publicKey.toBuffer()],
+        [
+          Buffer.from("contributor_score"),
+          builderFundPda.toBuffer(),
+          user1.publicKey.toBuffer(),
+        ],
         program.programId
       );
       const [user2ScorePda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user2.publicKey.toBuffer()],
+        [
+          Buffer.from("contributor_score"),
+          builderFundPda.toBuffer(),
+          user2.publicKey.toBuffer(),
+        ],
         program.programId
       );
 
@@ -320,7 +482,8 @@ describe("goalchain_program", () => {
         .signers([payer])
         .rpc();
 
-      const user2Before = (await getAccount(provider.connection, user2Ata)).amount;
+      const user2Before = (await getAccount(provider.connection, user2Ata))
+        .amount;
       await program.methods
         .claimContributorRewards()
         .accounts({
@@ -335,19 +498,29 @@ describe("goalchain_program", () => {
         } as any)
         .signers([user2])
         .rpc();
-      const user2After = (await getAccount(provider.connection, user2Ata)).amount;
+      const user2After = (await getAccount(provider.connection, user2Ata))
+        .amount;
 
       // Contributor bucket = 700 GCH, user2 has 20% score => 140 GCH claim
-      assert.equal((Number(user2After) - Number(user2Before)).toString(), "140000000");
+      assert.equal(
+        (Number(user2After) - Number(user2Before)).toString(),
+        "140000000"
+      );
 
-      const builderFund = await program.account.builderFund.fetch(builderFundPda);
+      const builderFund = await program.account.builderFund.fetch(
+        builderFundPda
+      );
       assert.equal(builderFund.totalContributorScore.toString(), "100");
       assert.equal(builderFund.contributorClaimedTotal.toString(), "140000000");
     });
 
     it("Bloquea doble claim del contributor cuando no hay rewards nuevas", async () => {
       const [user2ScorePda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user2.publicKey.toBuffer()],
+        [
+          Buffer.from("contributor_score"),
+          builderFundPda.toBuffer(),
+          user2.publicKey.toBuffer(),
+        ],
         program.programId
       );
 
@@ -382,7 +555,11 @@ describe("goalchain_program", () => {
           builderFund: builderFundPda,
           contributor: user1.publicKey,
           contributorScore: PublicKey.findProgramAddressSync(
-            [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user1.publicKey.toBuffer()],
+            [
+              Buffer.from("contributor_score"),
+              builderFundPda.toBuffer(),
+              user1.publicKey.toBuffer(),
+            ],
             program.programId
           )[0],
           systemProgram: SystemProgram.programId,
@@ -398,7 +575,11 @@ describe("goalchain_program", () => {
           builderFund: builderFundPda,
           contributor: user2.publicKey,
           contributorScore: PublicKey.findProgramAddressSync(
-            [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user2.publicKey.toBuffer()],
+            [
+              Buffer.from("contributor_score"),
+              builderFundPda.toBuffer(),
+              user2.publicKey.toBuffer(),
+            ],
             program.programId
           )[0],
           systemProgram: SystemProgram.programId,
@@ -431,19 +612,35 @@ describe("goalchain_program", () => {
         program.programId
       );
       const [epochUser1SnapshotPda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("epoch_contributor"), epochPda.toBuffer(), user1.publicKey.toBuffer()],
+        [
+          Buffer.from("epoch_contributor"),
+          epochPda.toBuffer(),
+          user1.publicKey.toBuffer(),
+        ],
         program.programId
       );
       const [epochUser2SnapshotPda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("epoch_contributor"), epochPda.toBuffer(), user2.publicKey.toBuffer()],
+        [
+          Buffer.from("epoch_contributor"),
+          epochPda.toBuffer(),
+          user2.publicKey.toBuffer(),
+        ],
         program.programId
       );
       const [epochUser1ClaimPda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("epoch_claim"), epochPda.toBuffer(), user1.publicKey.toBuffer()],
+        [
+          Buffer.from("epoch_claim"),
+          epochPda.toBuffer(),
+          user1.publicKey.toBuffer(),
+        ],
         program.programId
       );
       const [epochUser2ClaimPda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("epoch_claim"), epochPda.toBuffer(), user2.publicKey.toBuffer()],
+        [
+          Buffer.from("epoch_claim"),
+          epochPda.toBuffer(),
+          user2.publicKey.toBuffer(),
+        ],
         program.programId
       );
 
@@ -469,7 +666,11 @@ describe("goalchain_program", () => {
           builderEpoch: epochPda,
           contributor: user1.publicKey,
           contributorScore: PublicKey.findProgramAddressSync(
-            [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user1.publicKey.toBuffer()],
+            [
+              Buffer.from("contributor_score"),
+              builderFundPda.toBuffer(),
+              user1.publicKey.toBuffer(),
+            ],
             program.programId
           )[0],
           epochContributorSnapshot: epochUser1SnapshotPda,
@@ -487,7 +688,11 @@ describe("goalchain_program", () => {
           builderEpoch: epochPda,
           contributor: user2.publicKey,
           contributorScore: PublicKey.findProgramAddressSync(
-            [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user2.publicKey.toBuffer()],
+            [
+              Buffer.from("contributor_score"),
+              builderFundPda.toBuffer(),
+              user2.publicKey.toBuffer(),
+            ],
             program.programId
           )[0],
           epochContributorSnapshot: epochUser2SnapshotPda,
@@ -507,8 +712,10 @@ describe("goalchain_program", () => {
         .signers([payer])
         .rpc();
 
-      const user1Before = (await getAccount(provider.connection, user1Ata)).amount;
-      const user2Before = (await getAccount(provider.connection, user2Ata)).amount;
+      const user1Before = (await getAccount(provider.connection, user1Ata))
+        .amount;
+      const user2Before = (await getAccount(provider.connection, user2Ata))
+        .amount;
 
       await program.methods
         .claimContributorEpoch()
@@ -546,17 +753,26 @@ describe("goalchain_program", () => {
         .signers([user2])
         .rpc();
 
-      const user1After = (await getAccount(provider.connection, user1Ata)).amount;
-      const user2After = (await getAccount(provider.connection, user2Ata)).amount;
+      const user1After = (await getAccount(provider.connection, user1Ata))
+        .amount;
+      const user2After = (await getAccount(provider.connection, user2Ata))
+        .amount;
 
       // 700 GCH pool split by snapshot 60/40
-      assert.equal((Number(user1After) - Number(user1Before)).toString(), "420000000");
-      assert.equal((Number(user2After) - Number(user2Before)).toString(), "280000000");
+      assert.equal(
+        (Number(user1After) - Number(user1Before)).toString(),
+        "420000000"
+      );
+      assert.equal(
+        (Number(user2After) - Number(user2Before)).toString(),
+        "280000000"
+      );
     });
 
     it("Permite gasto de API/infra desde el bucket correspondiente", async () => {
       const spendAmount = new anchor.BN(50_000_000); // 50 GCH
-      const receiverBefore = (await getAccount(provider.connection, user2Ata)).amount;
+      const receiverBefore = (await getAccount(provider.connection, user2Ata))
+        .amount;
 
       await program.methods
         .spendBuilderFund({ apiInfra: {} }, spendAmount)
@@ -572,11 +788,20 @@ describe("goalchain_program", () => {
         .signers([payer])
         .rpc();
 
-      const receiverAfter = (await getAccount(provider.connection, user2Ata)).amount;
-      assert.equal((Number(receiverAfter) - Number(receiverBefore)).toString(), spendAmount.toString());
+      const receiverAfter = (await getAccount(provider.connection, user2Ata))
+        .amount;
+      assert.equal(
+        (Number(receiverAfter) - Number(receiverBefore)).toString(),
+        spendAmount.toString()
+      );
 
-      const builderFund = await program.account.builderFund.fetch(builderFundPda);
-      assert.equal(builderFund.apiInfraSpent.toString(), spendAmount.toString());
+      const builderFund = await program.account.builderFund.fetch(
+        builderFundPda
+      );
+      assert.equal(
+        builderFund.apiInfraSpent.toString(),
+        spendAmount.toString()
+      );
     });
 
     it("Rechaza pesos inválidos que no suman 100%", async () => {
@@ -609,7 +834,11 @@ describe("goalchain_program", () => {
         .rpc();
 
       const [user1ScorePda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user1.publicKey.toBuffer()],
+        [
+          Buffer.from("contributor_score"),
+          builderFundPda.toBuffer(),
+          user1.publicKey.toBuffer(),
+        ],
         program.programId
       );
       let cooldownFailed = false;
@@ -629,7 +858,10 @@ describe("goalchain_program", () => {
       } catch (_e) {
         cooldownFailed = true;
       }
-      assert.isTrue(cooldownFailed, "Debería fallar por cooldown de actualización de score");
+      assert.isTrue(
+        cooldownFailed,
+        "Debería fallar por cooldown de actualización de score"
+      );
 
       // Disable cooldown, keep min score guardrail
       await program.methods
@@ -650,11 +882,19 @@ describe("goalchain_program", () => {
         program.programId
       );
       const [epoch2User2SnapshotPda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("epoch_contributor"), epoch2Pda.toBuffer(), user2.publicKey.toBuffer()],
+        [
+          Buffer.from("epoch_contributor"),
+          epoch2Pda.toBuffer(),
+          user2.publicKey.toBuffer(),
+        ],
         program.programId
       );
       const [user2ScorePda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("contributor_score"), builderFundPda.toBuffer(), user2.publicKey.toBuffer()],
+        [
+          Buffer.from("contributor_score"),
+          builderFundPda.toBuffer(),
+          user2.publicKey.toBuffer(),
+        ],
         program.programId
       );
 
@@ -690,7 +930,10 @@ describe("goalchain_program", () => {
       } catch (_e) {
         minScoreFailed = true;
       }
-      assert.isTrue(minScoreFailed, "Debería fallar porque user2 no alcanza min_epoch_score=50");
+      assert.isTrue(
+        minScoreFailed,
+        "Debería fallar porque user2 no alcanza min_epoch_score=50"
+      );
     });
   });
 
@@ -716,7 +959,9 @@ describe("goalchain_program", () => {
       assert.equal(userStake.amount.toString(), stakeAmount.toString());
       assert.equal(userStake.owner.toBase58(), user1.publicKey.toBase58());
 
-      const vaultBalance = (await getAccount(provider.connection, stakeVaultPda)).amount;
+      const vaultBalance = (
+        await getAccount(provider.connection, stakeVaultPda)
+      ).amount;
       assert.equal(vaultBalance.toString(), stakeAmount.toString());
     });
 
@@ -760,14 +1005,24 @@ describe("goalchain_program", () => {
       } catch (e) {
         failed = true;
       }
-      assert.isTrue(failed, "Debería haber rechazado el retiro por fondos insuficientes");
+      assert.isTrue(
+        failed,
+        "Debería haber rechazado el retiro por fondos insuficientes"
+      );
     });
   });
 
   describe("⚽ 3. PARODY PLAYER REGISTRY & ORACLE STATS UPDATES", () => {
     it("Inicializa un Parody Player (Lamine Ya-Hype)", async () => {
       await program.methods
-        .initParodyPlayer(playerId, "Lamine Ya-Hype", 92, 88, user1.publicKey, new anchor.BN(100_000_000))
+        .initParodyPlayer(
+          playerId,
+          "Lamine Ya-Hype",
+          92,
+          88,
+          user1.publicKey,
+          new anchor.BN(100_000_000)
+        )
         .accounts({
           admin: payer.publicKey,
           config: configPda,
@@ -818,7 +1073,10 @@ describe("goalchain_program", () => {
       } catch (e) {
         failed = true;
       }
-      assert.isTrue(failed, "Debería bloquear la transacción de un oráculo no autorizado");
+      assert.isTrue(
+        failed,
+        "Debería bloquear la transacción de un oráculo no autorizado"
+      );
     });
   });
 
@@ -827,9 +1085,30 @@ describe("goalchain_program", () => {
     let ownerTokenAta: PublicKey;
 
     before(async () => {
-      borrowerTokenAta = (await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, borrower.publicKey)).address;
-      ownerTokenAta = (await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, owner.publicKey)).address;
-      await mintTo(provider.connection, payer, betMint, borrowerTokenAta, payer, 1_000_000_000);
+      borrowerTokenAta = (
+        await getOrCreateAssociatedTokenAccount(
+          provider.connection,
+          payer,
+          betMint,
+          borrower.publicKey
+        )
+      ).address;
+      ownerTokenAta = (
+        await getOrCreateAssociatedTokenAccount(
+          provider.connection,
+          payer,
+          betMint,
+          owner.publicKey
+        )
+      ).address;
+      await mintTo(
+        provider.connection,
+        payer,
+        betMint,
+        borrowerTokenAta,
+        payer,
+        1_000_000_000
+      );
     });
 
     it("Permite a un poseedor listar su NFT en alquiler para partidos", async () => {
@@ -846,7 +1125,9 @@ describe("goalchain_program", () => {
         .signers([owner])
         .rpc();
 
-      const listing = await program.account.rentalListing.fetch(rentalListingPda);
+      const listing = await program.account.rentalListing.fetch(
+        rentalListingPda
+      );
       assert.equal(listing.owner.toBase58(), owner.publicKey.toBase58());
       assert.equal(listing.pricePerMatch.toString(), pricePerMatch.toString());
       assert.isTrue(listing.isActive);
@@ -854,8 +1135,11 @@ describe("goalchain_program", () => {
     });
 
     it("Permite a otro usuario rentar el NFT listado mediante pago SPL", async () => {
-      const ownerBefore = (await getAccount(provider.connection, ownerTokenAta)).amount;
-      const borrowerBefore = (await getAccount(provider.connection, borrowerTokenAta)).amount;
+      const ownerBefore = (await getAccount(provider.connection, ownerTokenAta))
+        .amount;
+      const borrowerBefore = (
+        await getAccount(provider.connection, borrowerTokenAta)
+      ).amount;
 
       await program.methods
         .rentNft()
@@ -870,11 +1154,19 @@ describe("goalchain_program", () => {
         .signers([borrower])
         .rpc();
 
-      const listing = await program.account.rentalListing.fetch(rentalListingPda);
-      assert.equal(listing.currentBorrower!.toBase58(), borrower.publicKey.toBase58());
+      const listing = await program.account.rentalListing.fetch(
+        rentalListingPda
+      );
+      assert.equal(
+        listing.currentBorrower!.toBase58(),
+        borrower.publicKey.toBase58()
+      );
 
-      const ownerAfter = (await getAccount(provider.connection, ownerTokenAta)).amount;
-      const borrowerAfter = (await getAccount(provider.connection, borrowerTokenAta)).amount;
+      const ownerAfter = (await getAccount(provider.connection, ownerTokenAta))
+        .amount;
+      const borrowerAfter = (
+        await getAccount(provider.connection, borrowerTokenAta)
+      ).amount;
 
       assert.equal(Number(ownerAfter) - Number(ownerBefore), 100_000_000);
       assert.equal(Number(borrowerBefore) - Number(borrowerAfter), 100_000_000);
@@ -882,8 +1174,22 @@ describe("goalchain_program", () => {
 
     it("Impide rentar un NFT que ya está alquilado por otra persona (Hostile flow)", async () => {
       const anotherBorrower = Keypair.generate();
-      const anotherAta = (await getOrCreateAssociatedTokenAccount(provider.connection, payer, betMint, anotherBorrower.publicKey)).address;
-      await mintTo(provider.connection, payer, betMint, anotherAta, payer, 200_000_000);
+      const anotherAta = (
+        await getOrCreateAssociatedTokenAccount(
+          provider.connection,
+          payer,
+          betMint,
+          anotherBorrower.publicKey
+        )
+      ).address;
+      await mintTo(
+        provider.connection,
+        payer,
+        betMint,
+        anotherAta,
+        payer,
+        200_000_000
+      );
 
       let failed = false;
       try {
@@ -902,7 +1208,10 @@ describe("goalchain_program", () => {
       } catch (e) {
         failed = true;
       }
-      assert.isTrue(failed, "Debería haber fallado porque el NFT ya está rentado");
+      assert.isTrue(
+        failed,
+        "Debería haber fallado porque el NFT ya está rentado"
+      );
     });
   });
 
@@ -914,7 +1223,11 @@ describe("goalchain_program", () => {
 
     before(() => {
       [wagerPda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("wager"), playerA.publicKey.toBuffer(), wagerTs.toArrayLike(Buffer, "le", 8)],
+        [
+          Buffer.from("wager"),
+          playerA.publicKey.toBuffer(),
+          wagerTs.toArrayLike(Buffer, "le", 8),
+        ],
         program.programId
       );
       [wagerVaultPda] = PublicKey.findProgramAddressSync(
@@ -943,7 +1256,9 @@ describe("goalchain_program", () => {
       assert.equal(wager.amount.toString(), wagerAmount.toString());
       assert.deepEqual(wager.state, { created: {} });
 
-      const vaultBalance = (await getAccount(provider.connection, wagerVaultPda)).amount;
+      const vaultBalance = (
+        await getAccount(provider.connection, wagerVaultPda)
+      ).amount;
       assert.equal(vaultBalance.toString(), wagerAmount.toString());
     });
 
@@ -965,8 +1280,10 @@ describe("goalchain_program", () => {
       assert.equal(wager.playerB!.toBase58(), playerB.publicKey.toBase58());
       assert.deepEqual(wager.state, { accepted: {} });
 
-      const vaultBalance = (await getAccount(provider.connection, wagerVaultPda)).amount;
-      assert.equal(vaultBalance.toString(), (wagerAmount.muln(2)).toString()); // 600 tokens pooled
+      const vaultBalance = (
+        await getAccount(provider.connection, wagerVaultPda)
+      ).amount;
+      assert.equal(vaultBalance.toString(), wagerAmount.muln(2).toString()); // 600 tokens pooled
     });
 
     it("Rechaza resolver el wager pagando a un token que no corresponde al ganador declarado (Hostile flow)", async () => {
@@ -989,11 +1306,15 @@ describe("goalchain_program", () => {
         failed = true;
         assert.include(e.toString(), "InvalidWagerWinner");
       }
-      assert.isTrue(failed, "Debería rechazar un winner_token que no coincide con winner_is_a");
+      assert.isTrue(
+        failed,
+        "Debería rechazar un winner_token que no coincide con winner_is_a"
+      );
     });
 
     it("Permite al Oráculo oficial resolver la apuesta PvP a favor del ganador", async () => {
-      const winnerBefore = (await getAccount(provider.connection, playerAAta)).amount;
+      const winnerBefore = (await getAccount(provider.connection, playerAAta))
+        .amount;
 
       await program.methods
         .resolveWager(true) // Player A gana
@@ -1012,7 +1333,8 @@ describe("goalchain_program", () => {
       const wager = await program.account.wager.fetch(wagerPda);
       assert.deepEqual(wager.state, { resolved: {} });
 
-      const winnerAfter = (await getAccount(provider.connection, playerAAta)).amount;
+      const winnerAfter = (await getAccount(provider.connection, playerAAta))
+        .amount;
       assert.equal(Number(winnerAfter) - Number(winnerBefore), 600_000_000); // 300 + 300 = 600 tokens
     });
   });
@@ -1044,8 +1366,14 @@ describe("goalchain_program", () => {
       const bet1 = new anchor.BN(400_000_000); // 400 a Argentina
       const bet2 = new anchor.BN(600_000_000); // 600 a Francia
 
-      const [b1Pda] = PublicKey.findProgramAddressSync([Buffer.from("bet"), user1.publicKey.toBuffer(), fixturePda.toBuffer()], program.programId);
-      const [b2Pda] = PublicKey.findProgramAddressSync([Buffer.from("bet"), user2.publicKey.toBuffer(), fixturePda.toBuffer()], program.programId);
+      const [b1Pda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("bet"), user1.publicKey.toBuffer(), fixturePda.toBuffer()],
+        program.programId
+      );
+      const [b2Pda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("bet"), user2.publicKey.toBuffer(), fixturePda.toBuffer()],
+        program.programId
+      );
 
       await program.methods
         .placeBet({ teamA: {} }, bet1)
@@ -1102,9 +1430,14 @@ describe("goalchain_program", () => {
 
     it("Permite reclamar recompensas de pozo parimutuel aplicando el fee", async () => {
       const u1Before = (await getAccount(provider.connection, user1Ata)).amount;
-      const treasuryBefore = (await getAccount(provider.connection, treasuryAta)).amount;
+      const treasuryBefore = (
+        await getAccount(provider.connection, treasuryAta)
+      ).amount;
 
-      const [b1Pda] = PublicKey.findProgramAddressSync([Buffer.from("bet"), user1.publicKey.toBuffer(), fixturePda.toBuffer()], program.programId);
+      const [b1Pda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("bet"), user1.publicKey.toBuffer(), fixturePda.toBuffer()],
+        program.programId
+      );
 
       await program.methods
         .claimBetPayout()
@@ -1123,7 +1456,8 @@ describe("goalchain_program", () => {
         .rpc();
 
       const u1After = (await getAccount(provider.connection, user1Ata)).amount;
-      const treasuryAfter = (await getAccount(provider.connection, treasuryAta)).amount;
+      const treasuryAfter = (await getAccount(provider.connection, treasuryAta))
+        .amount;
 
       // Pozo total = 400 + 600 = 1000 tokens
       // User1 aportó el 100% de la cuota ganadora (400 de 400).
@@ -1135,7 +1469,10 @@ describe("goalchain_program", () => {
     });
 
     it("Rechaza reclamos redundantes o dobles reclamos del ganador (Hostile flow)", async () => {
-      const [b1Pda] = PublicKey.findProgramAddressSync([Buffer.from("bet"), user1.publicKey.toBuffer(), fixturePda.toBuffer()], program.programId);
+      const [b1Pda] = PublicKey.findProgramAddressSync(
+        [Buffer.from("bet"), user1.publicKey.toBuffer(), fixturePda.toBuffer()],
+        program.programId
+      );
       let failed = false;
       try {
         await program.methods
@@ -1156,7 +1493,10 @@ describe("goalchain_program", () => {
       } catch (e) {
         failed = true;
       }
-      assert.isTrue(failed, "Debería haber fallado al intentar reclamar el pozo ya vaciado");
+      assert.isTrue(
+        failed,
+        "Debería haber fallado al intentar reclamar el pozo ya vaciado"
+      );
     });
 
     it("Permite refund cuando el fixture está Cancelled y bloquea claim_payout", async () => {
@@ -1170,11 +1510,16 @@ describe("goalchain_program", () => {
         program.programId
       );
       const [cancelledBetPda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("bet"), user2.publicKey.toBuffer(), cancelledFixturePda.toBuffer()],
+        [
+          Buffer.from("bet"),
+          user2.publicKey.toBuffer(),
+          cancelledFixturePda.toBuffer(),
+        ],
         program.programId
       );
       const cancelledBetAmount = new anchor.BN(250_000_000);
-      const user2BeforeBet = (await getAccount(provider.connection, user2Ata)).amount;
+      const user2BeforeBet = (await getAccount(provider.connection, user2Ata))
+        .amount;
 
       await program.methods
         .initializeFixture(
@@ -1239,7 +1584,10 @@ describe("goalchain_program", () => {
         claimFailed = true;
         assert.include(e.toString(), "UseRefundForCancelledFixture");
       }
-      assert.isTrue(claimFailed, "Claim payout debe fallar cuando el fixture está cancelado");
+      assert.isTrue(
+        claimFailed,
+        "Claim payout debe fallar cuando el fixture está cancelado"
+      );
 
       await program.methods
         .refundBet()
@@ -1255,7 +1603,8 @@ describe("goalchain_program", () => {
         .signers([user2])
         .rpc();
 
-      const user2AfterRefund = (await getAccount(provider.connection, user2Ata)).amount;
+      const user2AfterRefund = (await getAccount(provider.connection, user2Ata))
+        .amount;
       assert.equal(
         Number(user2AfterRefund) - Number(user2BeforeBet),
         0,
@@ -1293,7 +1642,7 @@ describe("goalchain_program", () => {
           new anchor.BN(0), // Sin delay (localnet clock no avanza con setTimeout)
           new anchor.BN(0), // Sin cooldown
           90, // Cierra en el minuto 90
-          1,  // Diferencia máxima de 1 gol
+          1, // Diferencia máxima de 1 gol
           true, // Requiere empate
           betMint
         )
@@ -1319,7 +1668,12 @@ describe("goalchain_program", () => {
       const betAmount = new anchor.BN(150_000_000); // 150 tokens al empate (Draw)
 
       const [posPda] = PublicKey.findProgramAddressSync(
-        [Buffer.from("position"), user1.publicKey.toBuffer(), marketPda.toBuffer(), ticketId.toArrayLike(Buffer, "le", 8)],
+        [
+          Buffer.from("position"),
+          user1.publicKey.toBuffer(),
+          marketPda.toBuffer(),
+          ticketId.toArrayLike(Buffer, "le", 8),
+        ],
         program.programId
       );
 
@@ -1364,7 +1718,9 @@ describe("goalchain_program", () => {
 
     it("Permite al usuario reclamar ganancias del mercado en vivo aplicando el fee", async () => {
       const u1Before = (await getAccount(provider.connection, user1Ata)).amount;
-      const treasuryBefore = (await getAccount(provider.connection, treasuryAta)).amount;
+      const treasuryBefore = (
+        await getAccount(provider.connection, treasuryAta)
+      ).amount;
 
       const ticketId = new anchor.BN(Date.now()); // No se usa en claim, pero necesitamos position PDA
       // Buscaremos la posición que creamos en el test anterior. Para eso, recuperamos los IDs de la cuenta
@@ -1397,7 +1753,8 @@ describe("goalchain_program", () => {
         .rpc();
 
       const u1After = (await getAccount(provider.connection, user1Ata)).amount;
-      const treasuryAfter = (await getAccount(provider.connection, treasuryAta)).amount;
+      const treasuryAfter = (await getAccount(provider.connection, treasuryAta))
+        .amount;
 
       // Apostado: 150 tokens.
       // Ganancia neta = 150 - (150 * 1% fee) = 148.5 tokens devueltos.
@@ -1421,7 +1778,7 @@ describe("goalchain_program", () => {
     before(async () => {
       // Airdrop SOL to presaleUser
       await airdropConfirmed(presaleUser.publicKey, 5);
-      
+
       // Airdrop to reserve stake to make it exist as a system owned account (since transfer CPI target requires it)
       await airdropConfirmed(reserveStake.publicKey, 1);
 
@@ -1459,7 +1816,9 @@ describe("goalchain_program", () => {
       );
       await airdropConfirmed(localnetVaultPda, 1);
 
-      const reserveBalanceBefore = await provider.connection.getBalance(localnetVaultPda);
+      const reserveBalanceBefore = await provider.connection.getBalance(
+        localnetVaultPda
+      );
 
       await program.methods
         .contributePresale(depositAmount)
@@ -1482,20 +1841,27 @@ describe("goalchain_program", () => {
         .rpc();
 
       // Verify Presale Allocation state
-      const presale = await program.account.presaleAllocation.fetch(presaleAllocationPda);
+      const presale = await program.account.presaleAllocation.fetch(
+        presaleAllocationPda
+      );
       assert.equal(presale.solDeposited.toString(), depositAmount.toString());
       assert.equal(presale.owner.toBase58(), presaleUser.publicKey.toBase58());
 
       // Verify SOL was transferred from user to reserveStake account
-      const reserveBalanceAfter = await provider.connection.getBalance(localnetVaultPda);
-      assert.equal(reserveBalanceAfter - reserveBalanceBefore, depositAmount.toNumber());
+      const reserveBalanceAfter = await provider.connection.getBalance(
+        localnetVaultPda
+      );
+      assert.equal(
+        reserveBalanceAfter - reserveBalanceBefore,
+        depositAmount.toNumber()
+      );
     });
 
     it("Falla si un usuario intenta saltarse el bypass de preventa usando una cuenta de reserva no autorizada", async () => {
       const depositAmount = new anchor.BN(1 * anchor.web3.LAMPORTS_PER_SOL);
       const evilReserve = Keypair.generate();
       await airdropConfirmed(evilReserve.publicKey, 1);
-      
+
       let failed = false;
       try {
         await program.methods
@@ -1521,7 +1887,10 @@ describe("goalchain_program", () => {
         failed = true;
         assert.include(e.toString(), "InvalidVault");
       }
-      assert.isTrue(failed, "Debería haber fallado porque evilReserve no es la vault autorizada");
+      assert.isTrue(
+        failed,
+        "Debería haber fallado porque evilReserve no es la vault autorizada"
+      );
     });
 
     it("Falla si una contribución excede el max_sol_per_user configurado", async () => {
@@ -1566,18 +1935,33 @@ describe("goalchain_program", () => {
 
     before(async () => {
       // Create a mock Item NFT (decimals = 0)
-      itemMint = await createMint(provider.connection, payer, provider.wallet.publicKey, null, 0);
-      
+      itemMint = await createMint(
+        provider.connection,
+        payer,
+        provider.wallet.publicKey,
+        null,
+        0
+      );
+
       // Get/Create user's ATA for this item
-      userItemWallet = (await getOrCreateAssociatedTokenAccount(
+      userItemWallet = (
+        await getOrCreateAssociatedTokenAccount(
+          provider.connection,
+          payer,
+          itemMint,
+          user1.publicKey
+        )
+      ).address;
+
+      // Mint 1 NFT to user
+      await mintTo(
         provider.connection,
         payer,
         itemMint,
-        user1.publicKey
-      )).address;
-
-      // Mint 1 NFT to user
-      await mintTo(provider.connection, payer, itemMint, userItemWallet, payer, 1);
+        userItemWallet,
+        payer,
+        1
+      );
 
       // Derive Escrow PDA wallet for parodyPlayerPda
       // seeds: [parodyPlayerPda, TOKEN_PROGRAM_ID, itemMint]
@@ -1630,7 +2014,10 @@ describe("goalchain_program", () => {
         failed = true;
         assert.include(e.toString(), "UnauthorizedOracle");
       }
-      assert.isTrue(failed, "Debería bloquear actualizaciones de yield de oráculos no autorizados");
+      assert.isTrue(
+        failed,
+        "Debería bloquear actualizaciones de yield de oráculos no autorizados"
+      );
     });
 
     it("Reduce la estamina del jugador aplicando una tarjeta roja y luego la restaura con una poción", async () => {
@@ -1648,7 +2035,9 @@ describe("goalchain_program", () => {
       let player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
       assert.equal(player.currentStamina, 0);
 
-      const userBalanceBefore = (await getAccount(provider.connection, user1Ata)).amount;
+      const userBalanceBefore = (
+        await getAccount(provider.connection, user1Ata)
+      ).amount;
 
       // 2. Usar poción (Quema 100 $GCH y restaura stamina a 100)
       await program.methods
@@ -1666,9 +2055,13 @@ describe("goalchain_program", () => {
       player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
       assert.equal(player.currentStamina, 100);
 
-      const userBalanceAfter = (await getAccount(provider.connection, user1Ata)).amount;
+      const userBalanceAfter = (await getAccount(provider.connection, user1Ata))
+        .amount;
       // 100 $GCH quemados = 100_000_000
-      assert.equal(Number(userBalanceBefore) - Number(userBalanceAfter), 100_000_000);
+      assert.equal(
+        Number(userBalanceBefore) - Number(userBalanceAfter),
+        100_000_000
+      );
     });
 
     it("El oráculo incrementa el yield un 10% tras un gol", async () => {
@@ -1696,6 +2089,45 @@ describe("goalchain_program", () => {
       assert.equal(player.baseYieldRate.toString(), "110000000");
     });
 
+    it("El oráculo aplica +5% por asistencia y 0 por eliminación", async () => {
+      await program.methods
+        .oracleResetSeason(new anchor.BN(100_000_000))
+        .accounts({
+          oracleAuthority: oracleAuthority.publicKey,
+          config: configPda,
+          parodyPlayer: parodyPlayerPda,
+        } as any)
+        .signers([oracleAuthority])
+        .rpc();
+
+      await program.methods
+        .oracleUpdatePlayerYield(2) // Assist
+        .accounts({
+          oracleAuthority: oracleAuthority.publicKey,
+          config: configPda,
+          parodyPlayer: parodyPlayerPda,
+        } as any)
+        .signers([oracleAuthority])
+        .rpc();
+
+      let player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
+      assert.equal(player.baseYieldRate.toString(), "105000000");
+
+      await program.methods
+        .oracleUpdatePlayerYield(4) // Elimination
+        .accounts({
+          oracleAuthority: oracleAuthority.publicKey,
+          config: configPda,
+          parodyPlayer: parodyPlayerPda,
+        } as any)
+        .signers([oracleAuthority])
+        .rpc();
+
+      player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
+      assert.equal(player.baseYieldRate.toString(), "0");
+      assert.equal(player.isEliminated, true);
+    });
+
     it("Equipa una camiseta (Jersey) en el Vestuario aplicando el boost y custodiando el NFT", async () => {
       let player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
       const yieldBefore = player.baseYieldRate;
@@ -1717,26 +2149,43 @@ describe("goalchain_program", () => {
 
       player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
       assert.equal(player.equippedJersey!.toBase58(), itemMint.toBase58());
-      
+
       // Boost del 10%
       const expectedYield = yieldBefore.add(yieldBefore.divn(10));
       assert.equal(player.baseYieldRate.toString(), expectedYield.toString());
 
       // Verificar que el NFT está en custodia
-      const escrowBalance = (await getAccount(provider.connection, escrowPdaWallet)).amount;
+      const escrowBalance = (
+        await getAccount(provider.connection, escrowPdaWallet)
+      ).amount;
       assert.equal(escrowBalance.toString(), "1");
     });
 
     it("Falla al equipar la misma prenda (Jersey) dos veces (throws AlreadyEquipped)", async () => {
-      const anotherItemMint = await createMint(provider.connection, payer, provider.wallet.publicKey, null, 0);
-      const anotherUserItemWallet = (await getOrCreateAssociatedTokenAccount(
+      const anotherItemMint = await createMint(
+        provider.connection,
+        payer,
+        provider.wallet.publicKey,
+        null,
+        0
+      );
+      const anotherUserItemWallet = (
+        await getOrCreateAssociatedTokenAccount(
+          provider.connection,
+          payer,
+          anotherItemMint,
+          user1.publicKey
+        )
+      ).address;
+      await mintTo(
         provider.connection,
         payer,
         anotherItemMint,
-        user1.publicKey
-      )).address;
-      await mintTo(provider.connection, payer, anotherItemMint, anotherUserItemWallet, payer, 1);
-      
+        anotherUserItemWallet,
+        payer,
+        1
+      );
+
       const [anotherEscrowPdaWallet] = PublicKey.findProgramAddressSync(
         [
           parodyPlayerPda.toBuffer(),
@@ -1766,7 +2215,10 @@ describe("goalchain_program", () => {
         failed = true;
         assert.include(e.toString(), "AlreadyEquipped");
       }
-      assert.isTrue(failed, "Debería haber rechazado el equipamiento duplicado de Jersey");
+      assert.isTrue(
+        failed,
+        "Debería haber rechazado el equipamiento duplicado de Jersey"
+      );
     });
 
     it("Desequipa la camiseta devolviendo el NFT y revirtiendo el boost de yield", async () => {
@@ -1789,7 +2241,9 @@ describe("goalchain_program", () => {
       assert.isNull(player.equippedJersey);
 
       // Verificar que el NFT regresó a la wallet del usuario
-      const userBalance = (await getAccount(provider.connection, userItemWallet)).amount;
+      const userBalance = (
+        await getAccount(provider.connection, userItemWallet)
+      ).amount;
       assert.equal(userBalance.toString(), "1");
     });
 
@@ -1797,7 +2251,7 @@ describe("goalchain_program", () => {
       // 1. Listar para renta
       const rentPrice = new anchor.BN(400_000_000); // 400 tokens
       const rentalNftMint = Keypair.generate();
-      
+
       const [localRentalPda] = PublicKey.findProgramAddressSync(
         [Buffer.from("rental"), rentalNftMint.publicKey.toBuffer()],
         program.programId
@@ -1829,11 +2283,18 @@ describe("goalchain_program", () => {
         .rpc();
 
       let listing = await program.account.rentalListing.fetch(localRentalPda);
-      assert.equal(listing.currentBorrower!.toBase58(), user2.publicKey.toBase58());
+      assert.equal(
+        listing.currentBorrower!.toBase58(),
+        user2.publicKey.toBase58()
+      );
       assert.isTrue(listing.isActive);
 
-      const borrowerBalanceBefore = (await getAccount(provider.connection, user2Ata)).amount;
-      const ownerBalanceBefore = (await getAccount(provider.connection, user1Ata)).amount;
+      const borrowerBalanceBefore = (
+        await getAccount(provider.connection, user2Ata)
+      ).amount;
+      const ownerBalanceBefore = (
+        await getAccount(provider.connection, user1Ata)
+      ).amount;
 
       // 3. Golden Recall (user1 reclama anticipadamente pagando el 50% = 200 tokens de multa a user2)
       await program.methods
@@ -1853,18 +2314,28 @@ describe("goalchain_program", () => {
       assert.isNull(listing.currentBorrower);
       assert.isFalse(listing.isActive);
 
-      const borrowerBalanceAfter = (await getAccount(provider.connection, user2Ata)).amount;
-      const ownerBalanceAfter = (await getAccount(provider.connection, user1Ata)).amount;
+      const borrowerBalanceAfter = (
+        await getAccount(provider.connection, user2Ata)
+      ).amount;
+      const ownerBalanceAfter = (
+        await getAccount(provider.connection, user1Ata)
+      ).amount;
 
       // Multa pagada de 200 tokens
-      assert.equal(Number(borrowerBalanceAfter) - Number(borrowerBalanceBefore), 200_000_000);
-      assert.equal(Number(ownerBalanceBefore) - Number(ownerBalanceAfter), 200_000_000);
+      assert.equal(
+        Number(borrowerBalanceAfter) - Number(borrowerBalanceBefore),
+        200_000_000
+      );
+      assert.equal(
+        Number(ownerBalanceBefore) - Number(ownerBalanceAfter),
+        200_000_000
+      );
     });
 
     it("Ejecuta Golden Recall sin borrower y desactiva el listing sin penalización", async () => {
       const rentPrice = new anchor.BN(400_000_000);
       const recallNftMint = Keypair.generate();
-      
+
       const [localRentalPda] = PublicKey.findProgramAddressSync(
         [Buffer.from("rental"), recallNftMint.publicKey.toBuffer()],
         program.programId
@@ -1885,7 +2356,9 @@ describe("goalchain_program", () => {
       assert.isNull(listing.currentBorrower);
       assert.isTrue(listing.isActive);
 
-      const ownerBalanceBefore = (await getAccount(provider.connection, user1Ata)).amount;
+      const ownerBalanceBefore = (
+        await getAccount(provider.connection, user1Ata)
+      ).amount;
 
       await program.methods
         .goldenRecall()
@@ -1904,7 +2377,9 @@ describe("goalchain_program", () => {
       assert.isNull(listing.currentBorrower);
       assert.isFalse(listing.isActive);
 
-      const ownerBalanceAfter = (await getAccount(provider.connection, user1Ata)).amount;
+      const ownerBalanceAfter = (
+        await getAccount(provider.connection, user1Ata)
+      ).amount;
       assert.equal(ownerBalanceBefore.toString(), ownerBalanceAfter.toString());
     });
 
@@ -1955,7 +2430,9 @@ describe("goalchain_program", () => {
         .rpc();
 
       const architectPoolAta = treasuryAta;
-      const userBalanceBefore = (await getAccount(provider.connection, user1Ata)).amount;
+      const userBalanceBefore = (
+        await getAccount(provider.connection, user1Ata)
+      ).amount;
 
       await program.methods
         .claimDailySalary(stadiumId)
@@ -1976,8 +2453,9 @@ describe("goalchain_program", () => {
 
       let player = await program.account.parodyPlayer.fetch(parodyPlayerPda);
       assert.equal(player.currentStamina, 95);
-      
-      const userBalanceAfter = (await getAccount(provider.connection, user1Ata)).amount;
+
+      const userBalanceAfter = (await getAccount(provider.connection, user1Ata))
+        .amount;
       const salaryDelta = Number(userBalanceAfter) - Number(userBalanceBefore);
       assert.closeTo(salaryDelta, 118_800_000, 100);
 
@@ -2012,7 +2490,14 @@ describe("goalchain_program", () => {
       );
 
       await program.methods
-        .initParodyPlayer(lowStaminaPlayerId, "No Stamina Player", 50, 50, user1.publicKey, new anchor.BN(100_000_000))
+        .initParodyPlayer(
+          lowStaminaPlayerId,
+          "No Stamina Player",
+          50,
+          50,
+          user1.publicKey,
+          new anchor.BN(100_000_000)
+        )
         .accounts({
           admin: payer.publicKey,
           config: configPda,
@@ -2054,7 +2539,10 @@ describe("goalchain_program", () => {
         staminaFailed = true;
         assert.include(e.toString(), "InsufficientStamina");
       }
-      assert.isTrue(staminaFailed, "Debería haber fallado por falta de stamina (0)");
+      assert.isTrue(
+        staminaFailed,
+        "Debería haber fallado por falta de stamina (0)"
+      );
     });
   });
 });
