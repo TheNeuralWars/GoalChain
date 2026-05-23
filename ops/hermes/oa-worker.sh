@@ -22,6 +22,9 @@ RESEARCH_PUBLISHER="${HERMES_HOME}/scripts/oa-discord-research-publisher.py"
 DISCORD_RESEARCH_WEBHOOK_URL="${DISCORD_RESEARCH_WEBHOOK_URL:-}"
 DISCORD_TOKEN="${DISCORD_TOKEN:-}"
 DISCORD_RESEARCH_CHANNEL_ID="${DISCORD_RESEARCH_CHANNEL_ID:-}"
+XAI_API_KEY="${XAI_API_KEY:-}"
+# Child processes (python/opencode) require exported env vars.
+export DISCORD_RESEARCH_WEBHOOK_URL DISCORD_TOKEN DISCORD_RESEARCH_CHANNEL_ID XAI_API_KEY
 mkdir -p "${PROPOSALS_DIR}"
 
 log() { printf '[%s] %s\n' "$(date -u '+%F %T UTC')" "$*"; }
