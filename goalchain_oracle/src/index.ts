@@ -4,8 +4,179 @@ import { createMint } from "@solana/spl-token";
 import * as dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import * as fs from "fs";
+import { spawn } from "child_process";
+import * as path from "path";
 
 dotenv.config();
+
+const VIDEO_ALERTS_ENABLED = ["1", "true", "yes", "on"].includes(
+  (process.env.ORACLE_VIDEO_ALERTS_ENABLED ?? "").toLowerCase(),
+);
+const VIDEO_ALERTS_TIMEOUT_MS = Number(
+  process.env.ORACLE_VIDEO_ALERTS_TIMEOUT_MS ?? "180000",
+);
+const VIDEO_ALERTS_DISCORD_ONLY = ["1", "true", "yes", "on"].includes(
+  (process.env.ORACLE_VIDEO_ALERTS_DISCORD_ONLY ?? "").toLowerCase(),
+);
+const VIDEO_ALERTS_PROD_DISCORD = ["1", "true", "yes", "on"].includes(
+  (process.env.ORACLE_VIDEO_ALERTS_PROD_DISCORD ?? "").toLowerCase(),
+);
+
+function cleanupTempVideo(tempVideoOutput: string) {
+  if (!fs.existsSync(tempVideoOutput)) return;
+  try {
+    fs.unlinkSync(tempVideoOutput);
+    console.log(
+      `[Video Pipeline] 🧹 Cleaned up temporary video: ${tempVideoOutput}`,
+    );
+  } catch (cleanupErr) {
+    console.error(
+      `[Video Pipeline] ⚠️ Failed to clean up temporary video:`,
+      cleanupErr,
+    );
+  }
+}
+
+function wireChildLogs(prefix: string, proc: ReturnType<typeof spawn>) {
+  if (proc.stdout) {
+    proc.stdout.on("data", (chunk: Buffer) => {
+      const text = chunk.toString().trim();
+      if (text) {
+        console.log(`[Video Pipeline] ${prefix}: ${text}`);
+      }
+    });
+  }
+  if (proc.stderr) {
+    proc.stderr.on("data", (chunk: Buffer) => {
+      const text = chunk.toString().trim();
+      if (text) {
+        console.warn(`[Video Pipeline] ${prefix} stderr: ${text}`);
+      }
+    });
+  }
+}
+
+/**
+ * Triggers the video generation and social posting in the background.
+ */
+function triggerVideoAlert(
+  teamA: string,
+  teamB: string,
+  scoreA: number,
+  scoreB: number,
+  eventText: string,
+  yieldChange: string
+) {
+  if (!VIDEO_ALERTS_ENABLED) {
+    return;
+  }
+  console.log(
+    `\n[Video Pipeline] 🎬 Triggering video generation & posting in background...`,
+  );
+
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
+  // Resolve paths relative to current file (dist or src).
+  const projectRoot = path.resolve(__dirname, "../..");
+  const generateScript = path.join(projectRoot, "scripts", "generate_video_alert.py");
+  const postScript = path.join(projectRoot, "scripts", "post_video_update.py");
+  if (!fs.existsSync(generateScript) || !fs.existsSync(postScript)) {
+    console.warn(
+      `[Video Pipeline] Skipping: missing script(s). generate=${generateScript}, post=${postScript}`,
+    );
+    return;
+  }
+
+  const timestamp = Math.floor(Date.now() / 1000);
+  const tempVideoOutput = path.join(projectRoot, `temp_oracle_alert_${timestamp}.mp4`);
+  const tweetText = `LIVE ORACLE UPDATE: ${eventText} in ${teamA} vs ${teamB}. Yield updated by ${yieldChange}. #GoalChain`;
+
+  const generateArgs = [
+    generateScript,
+    "--teamA",
+    teamA,
+    "--teamB",
+    teamB,
+    "--scoreA",
+    String(scoreA),
+    "--scoreB",
+    String(scoreB),
+    "--eventText",
+    eventText,
+    "--yieldChange",
+    yieldChange,
+    "-o",
+    tempVideoOutput,
+  ];
+
+  const postArgs = [postScript, "--video", tempVideoOutput, "--text", tweetText];
+  if (VIDEO_ALERTS_DISCORD_ONLY) {
+    postArgs.push("--discord-only");
+  }
+  if (VIDEO_ALERTS_PROD_DISCORD) {
+    postArgs.push("--prod");
+  }
+
+  const runWithTimeout = (
+    label: string,
+    args: string[],
+    onComplete: (ok: boolean) => void,
+  ) => {
+    const proc = spawn("python3", args, {
+      cwd: projectRoot,
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    wireChildLogs(label, proc);
+
+    let timedOut = false;
+    const timer = setTimeout(() => {
+      timedOut = true;
+      proc.kill("SIGTERM");
+      console.warn(
+        `[Video Pipeline] ${label} timed out after ${VIDEO_ALERTS_TIMEOUT_MS}ms`,
+      );
+    }, VIDEO_ALERTS_TIMEOUT_MS);
+
+    proc.on("error", (err) => {
+      clearTimeout(timer);
+      console.error(`[Video Pipeline] ${label} failed to start:`, err);
+      onComplete(false);
+    });
+
+    proc.on("close", (code) => {
+      clearTimeout(timer);
+      if (timedOut) {
+        onComplete(false);
+        return;
+      }
+      if (code !== 0) {
+        console.error(`[Video Pipeline] ${label} exited with code ${code}`);
+        onComplete(false);
+        return;
+      }
+      onComplete(true);
+    });
+  };
+
+  runWithTimeout("generate_video_alert.py", generateArgs, (generatedOk) => {
+    if (!generatedOk) {
+      cleanupTempVideo(tempVideoOutput);
+      return;
+    }
+
+    runWithTimeout("post_video_update.py", postArgs, (postOk) => {
+      if (!postOk) {
+        console.error(
+          "[Video Pipeline] Post step failed; oracle flow continues safely.",
+        );
+      } else {
+        console.log("[Video Pipeline] ✅ Video automation completed successfully.");
+      }
+      cleanupTempVideo(tempVideoOutput);
+    });
+  });
+}
 
 /**
  * Simulates an active sports match, feeding real-time updates to the blockchain via OracleService.
@@ -27,6 +198,7 @@ async function runMatchSimulation(oracle: OracleService, gchMint: PublicKey) {
 
   console.log(`🏟️ [STEP 2] KICKOFF! Updating Live State (Min 1)`);
   await oracle.upsertLiveState(matchId, 1, 0, 0, false, false);
+  triggerVideoAlert(teamA, teamB, 0, 0, "KICKOFF! The final has started", "+0.0%");
 
   console.log(`📈 [STEP 3] Creating 'Next Goal' Live Market...`);
   const marketId = 1;
@@ -46,6 +218,7 @@ async function runMatchSimulation(oracle: OracleService, gchMint: PublicKey) {
 
   console.log(`⚽ [STEP 4] GOOOOOOOAL! ARGENTINA SCORES! (Min 23)`);
   await oracle.upsertLiveState(matchId, 23, 1, 0, false, false);
+  triggerVideoAlert(teamA, teamB, 1, 0, "GOAL! Lionel Satoshi scores (23')", "+15.4%");
 
   console.log(`⚖️ [STEP 5] Resolving 'Next Goal' Market (Winner: Team A)`);
   await oracle.resolveMarket(matchId, marketId, { teamA: {} });
@@ -67,6 +240,7 @@ async function runMatchSimulation(oracle: OracleService, gchMint: PublicKey) {
 
   console.log(`🏁 [STEP 7] FULL TIME! Resolving Pre-Match Parimutuel Pools`);
   await oracle.completeFixture(matchId, { teamA: {} });
+  triggerVideoAlert(teamA, teamB, 1, 0, "FULL TIME! Argentina wins!", "+25.0%");
 
   console.log("\n=========================================");
   console.log("🔴 SIMULATION COMPLETE. ORACLE STANDING BY.");
