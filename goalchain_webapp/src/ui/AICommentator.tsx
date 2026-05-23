@@ -7,6 +7,8 @@ interface CommentaryItem {
 }
 
 export const AICommentator: React.FC = () => {
+    const wsUrl = (import.meta as any).env?.VITE_STREAMING_WS_URL as string | undefined;
+    const wsEnabled = Boolean(wsUrl);
     const [loadingPhase, setLoadingPhase] = useState<'downloading' | 'compiling' | 'active'>('downloading');
     const [downloadProgress, setDownloadProgress] = useState<number>(0);
     const [isMuted, setIsMuted] = useState<boolean>(false);
@@ -46,22 +48,26 @@ export const AICommentator: React.FC = () => {
     // WebSocket connection hook
     useEffect(() => {
         if (loadingPhase !== 'active') return;
+        if (!wsEnabled || !wsUrl) {
+            setWsStatus('disconnected');
+            return;
+        }
 
         let socket: WebSocket | null = null;
         let reconnectTimeout: any = null;
 
         const connect = () => {
             setWsStatus('connecting');
-            socket = new WebSocket('ws://localhost:8080');
+            socket = new WebSocket(wsUrl);
             wsRef.current = socket;
 
             socket.onopen = () => {
-                console.log('[Streaming Bridge] Connected to ws://localhost:8080');
+                console.log(`[Streaming Bridge] Connected to ${wsUrl}`);
                 setWsStatus('connected');
             };
 
             socket.onclose = () => {
-                console.log('[Streaming Bridge] Disconnected from ws://localhost:8080');
+                console.log(`[Streaming Bridge] Disconnected from ${wsUrl}`);
                 setWsStatus('disconnected');
                 reconnectTimeout = setTimeout(connect, 5000);
             };
@@ -83,10 +89,11 @@ export const AICommentator: React.FC = () => {
                 clearTimeout(reconnectTimeout);
             }
         };
-    }, [loadingPhase]);
+    }, [loadingPhase, wsEnabled, wsUrl]);
 
     // Broadcast message function
     const broadcastCommentary = (text: string, eventType: string, emotion: string, duration: number) => {
+        if (!wsEnabled) return;
         if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
             const payload = {
                 type: 'commentary',
@@ -305,9 +312,15 @@ export const AICommentator: React.FC = () => {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '6px',
-                        background: wsStatus === 'connected' ? 'rgba(20, 241, 149, 0.1)' : (wsStatus === 'connecting' ? 'rgba(234, 179, 8, 0.1)' : 'rgba(255, 75, 75, 0.1)'),
-                        border: wsStatus === 'connected' ? '1px solid rgba(20, 241, 149, 0.3)' : (wsStatus === 'connecting' ? '1px solid rgba(234, 179, 8, 0.3)' : '1px solid rgba(255, 75, 75, 0.3)'),
-                        color: wsStatus === 'connected' ? 'var(--primary-neon)' : (wsStatus === 'connecting' ? '#eab308' : 'var(--accent-red)'),
+                        background: !wsEnabled
+                            ? 'rgba(100, 116, 139, 0.12)'
+                            : (wsStatus === 'connected' ? 'rgba(20, 241, 149, 0.1)' : (wsStatus === 'connecting' ? 'rgba(234, 179, 8, 0.1)' : 'rgba(255, 75, 75, 0.1)')),
+                        border: !wsEnabled
+                            ? '1px solid rgba(100, 116, 139, 0.35)'
+                            : (wsStatus === 'connected' ? '1px solid rgba(20, 241, 149, 0.3)' : (wsStatus === 'connecting' ? '1px solid rgba(234, 179, 8, 0.3)' : '1px solid rgba(255, 75, 75, 0.3)')),
+                        color: !wsEnabled
+                            ? '#94a3b8'
+                            : (wsStatus === 'connected' ? 'var(--primary-neon)' : (wsStatus === 'connecting' ? '#eab308' : 'var(--accent-red)')),
                         padding: '4px 8px',
                         borderRadius: '6px',
                         fontSize: '0.65rem',
@@ -318,11 +331,17 @@ export const AICommentator: React.FC = () => {
                         <span className="pulse-dot" style={{
                             width: '6px',
                             height: '6px',
-                            backgroundColor: wsStatus === 'connected' ? 'var(--primary-neon)' : (wsStatus === 'connecting' ? '#eab308' : 'var(--accent-red)'),
+                            backgroundColor: !wsEnabled
+                                ? '#94a3b8'
+                                : (wsStatus === 'connected' ? 'var(--primary-neon)' : (wsStatus === 'connecting' ? '#eab308' : 'var(--accent-red)')),
                             boxShadow: wsStatus === 'connected' ? '0 0 8px var(--primary-neon-glow)' : 'none',
                             display: 'inline-block'
                         }}></span>
-                        {wsStatus === 'connected' ? `🔴 LIVE CAST (${broadcastCount})` : (wsStatus === 'connecting' ? 'CONNECTING...' : 'BRIDGE OFFLINE')}
+                        {!wsEnabled
+                            ? 'BRIDGE DISABLED'
+                            : (wsStatus === 'connected'
+                                ? `🔴 LIVE CAST (${broadcastCount})`
+                                : (wsStatus === 'connecting' ? 'CONNECTING...' : 'BRIDGE OFFLINE'))}
                     </div>
 
                     {voices.length > 0 && (
