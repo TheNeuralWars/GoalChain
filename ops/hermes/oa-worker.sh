@@ -23,6 +23,10 @@ DISCORD_RESEARCH_WEBHOOK_URL="${DISCORD_RESEARCH_WEBHOOK_URL:-}"
 DISCORD_TOKEN="${DISCORD_TOKEN:-}"
 DISCORD_RESEARCH_CHANNEL_ID="${DISCORD_RESEARCH_CHANNEL_ID:-}"
 XAI_API_KEY="${XAI_API_KEY:-}"
+OA_AGENT_CURSOR_CMD="${OA_AGENT_CURSOR_CMD:-}"
+OA_AGENT_ANTIGRAVITY_CMD="${OA_AGENT_ANTIGRAVITY_CMD:-}"
+OA_AGENT_GROK_CMD="${OA_AGENT_GROK_CMD:-}"
+OA_AGENT_OPENCODE_CMD="${OA_AGENT_OPENCODE_CMD:-}"
 # Child processes (python/opencode) require exported env vars.
 export DISCORD_RESEARCH_WEBHOOK_URL DISCORD_TOKEN DISCORD_RESEARCH_CHANNEL_ID XAI_API_KEY
 mkdir -p "${PROPOSALS_DIR}"
@@ -70,7 +74,106 @@ create_issue_from_webhook() {
   local priority="$2"
   local title="$3"
   local objective="$4"
-  bash "${HERMES_HOME}/scripts/create-task.sh" "${owner}" "${priority}" "${title}" "${objective}" || true
+  local out issue_url
+  out="$(bash "${HERMES_HOME}/scripts/create-task.sh" "${owner}" "${priority}" "${title}" "${objective}" 2>&1 || true)"
+  issue_url="$(python3 -c 'import re,sys
+t=sys.stdin.read()
+m=re.findall(r"https://github\\.com/[^\\s]+/issues/\\d+", t)
+print(m[-1] if m else "")' <<< "${out}")"
+  if [[ -z "${issue_url}" ]]; then
+    log "WARN create-task failed for owner=${owner}: ${out}"
+    return 1
+  fi
+  echo "${issue_url}"
+}
+
+agent_command_for_owner() {
+  case "${1:-}" in
+    cursor) printf '%s' "${OA_AGENT_CURSOR_CMD}" ;;
+    antigravity) printf '%s' "${OA_AGENT_ANTIGRAVITY_CMD}" ;;
+    grok) printf '%s' "${OA_AGENT_GROK_CMD}" ;;
+    opencode) printf '%s' "${OA_AGENT_OPENCODE_CMD}" ;;
+    *) printf '' ;;
+  esac
+}
+
+ensure_issue_labels() {
+  gh label create "status:in_progress" --repo "${GITHUB_REPO}" --color "fbca04" --description "Task is running" >/dev/null 2>&1 || true
+}
+
+dispatch_issue_to_waiting_agent() {
+  local owner="$1"
+  local priority="$2"
+  local title="$3"
+  local objective="$4"
+  local issue_url="$5"
+  local command issue_number issue_log
+
+  command="$(agent_command_for_owner "${owner}")"
+  [[ -n "${command}" ]] || return 0
+  issue_number="${issue_url##*/}"
+  issue_log="${LOG_DIR}/dispatch-${owner}-${issue_number}.log"
+  ensure_issue_labels
+  gh issue edit --repo "${GITHUB_REPO}" "${issue_number}" --remove-label "status:ready" --add-label "status:in_progress" >/dev/null 2>&1 || true
+  gh issue comment --repo "${GITHUB_REPO}" "${issue_number}" --body "Auto-dispatch: sent to waiting agent \`${owner}\` command runner." >/dev/null 2>&1 || true
+
+  (
+    export OA_TASK_OWNER="${owner}"
+    export OA_TASK_PRIORITY="${priority}"
+    export OA_TASK_TITLE="${title}"
+    export OA_TASK_OBJECTIVE="${objective}"
+    export OA_TASK_ISSUE_URL="${issue_url}"
+    export OA_TASK_ISSUE_NUMBER="${issue_number}"
+    export OA_TASK_REPO="${REPO}"
+    bash -lc "${command}"
+  ) >> "${issue_log}" 2>&1 &
+  log "Auto-dispatched issue #${issue_number} to ${owner} wait-mode command"
+}
+
+parse_task_from_text() {
+  local text="${1:-}"
+  python3 -c 'import json,re,sys,unicodedata
+text=(sys.argv[1] or "").strip()
+if not text:
+    print("")
+    raise SystemExit(0)
+
+def norm(s):
+    s = s.lower()
+    s = unicodedata.normalize("NFKD", s)
+    return "".join(c for c in s if not unicodedata.combining(c))
+
+n = norm(text)
+owners = ["cursor","antigravity","opencode","grok"]
+
+task = re.match(r"^task\s+(cursor|antigravity|opencode|grok)\s+(P0|P1|P2)\s+\"([^\"]+)\"\s+\"([^\"]+)\"$", text, flags=re.I)
+assign = re.match(r"^assign\s+(cursor|antigravity|opencode|grok)\s+(P0|P1|P2)\s*\|\s*([^|]+)\s*\|\s*(.+)$", text, flags=re.I)
+urgent = ("cambio urgente" in n) or ("policy:direct-main" in n) or ("urgente" in n)
+
+if task:
+    owner, priority, title, objective = task.groups()
+    item = {"owner": owner.lower(), "priority": priority.upper(), "title": title.strip(), "objective": objective.strip()}
+elif assign:
+    owner, priority, title, objective = assign.groups()
+    item = {"owner": owner.lower(), "priority": priority.upper(), "title": title.strip(), "objective": objective.strip()}
+else:
+    owner = next((o for o in owners if re.search(rf"\b{o}\b", n)), "opencode")
+    has_exec_verb = any(v in n for v in ["spike", "integr", "implement", "elabora", "hace", "haz", "crear", "mejora"])
+    priority = "P1" if has_exec_verb else "P2"
+    title_words = re.sub(r"\s+", " ", text).strip().split(" ")
+    title = " ".join(title_words[:10]).strip() or "OA task"
+    if has_exec_verb:
+        title = f"Spike: {title}"
+    item = {"owner": owner, "priority": priority, "title": title, "objective": text}
+
+if urgent:
+    item["priority"] = "P0"
+    if "CAMBIO URGENTE" not in item["title"]:
+        item["title"] = f"[CAMBIO URGENTE] {item['title']}"
+    item["objective"] = item["objective"] + "\n\nPolicy: direct main push requested by Nico via keyword cambio urgente."
+
+print(json.dumps(item, ensure_ascii=True))
+' "${text}"
 }
 
 consume_webhook_queue() {
@@ -84,50 +187,17 @@ consume_webhook_queue() {
     local text
     text="$(python3 -c 'import json,sys; print((json.loads(sys.argv[1]).get("text","") or "").strip())' "${line}" 2>/dev/null || true)"
     [[ -n "${text}" ]] || continue
+    local parsed owner priority title objective issue_url
+    parsed="$(parse_task_from_text "${text}" 2>/dev/null || true)"
+    [[ -n "${parsed}" ]] || continue
+    owner="$(python3 -c 'import json,sys; print((json.loads(sys.argv[1]).get("owner") or "opencode").strip())' "${parsed}" 2>/dev/null || echo "opencode")"
+    priority="$(python3 -c 'import json,sys; print((json.loads(sys.argv[1]).get("priority") or "P2").strip())' "${parsed}" 2>/dev/null || echo "P2")"
+    title="$(python3 -c 'import json,sys; print((json.loads(sys.argv[1]).get("title") or "OA task").strip())' "${parsed}" 2>/dev/null || echo "OA task")"
+    objective="$(python3 -c 'import json,sys; print((json.loads(sys.argv[1]).get("objective") or "").strip())' "${parsed}" 2>/dev/null || echo "${text}")"
 
-    # Supported formats:
-    # task cursor P1 "Title" "Objective"
-    # assign cursor P1 | Title | Objective
-    if [[ "${text}" =~ ^task[[:space:]]+(cursor|antigravity|opencode|grok)[[:space:]]+(P0|P1|P2)[[:space:]]+\"([^\"]+)\"[[:space:]]+\"([^\"]+)\"$ ]]; then
-      local owner priority title objective
-      owner="${BASH_REMATCH[1]}"
-      priority="${BASH_REMATCH[2]}"
-      title="${BASH_REMATCH[3]}"
-      objective="${BASH_REMATCH[4]}"
-      if is_urgent_text "${text}"; then
-        priority="P0"
-        title="[CAMBIO URGENTE] ${title}"
-        objective="${objective}\n\nPolicy: direct main push requested by Nico via keyword cambio urgente."
-      fi
-      create_issue_from_webhook "${owner}" "${priority}" "${title}" "${objective}"
-      continue
-    fi
-    if [[ "${text}" =~ ^assign[[:space:]]+(cursor|antigravity|opencode|grok)[[:space:]]+(P0|P1|P2)[[:space:]]*\|[[:space:]]*([^|]+)[[:space:]]*\|[[:space:]]*(.+)$ ]]; then
-      local owner priority title objective
-      owner="${BASH_REMATCH[1]}"
-      priority="${BASH_REMATCH[2]}"
-      title="${BASH_REMATCH[3]}"
-      objective="${BASH_REMATCH[4]}"
-      if is_urgent_text "${text}"; then
-        priority="P0"
-        title="[CAMBIO URGENTE] ${title}"
-        objective="${objective}\n\nPolicy: direct main push requested by Nico via keyword cambio urgente."
-      fi
-      create_issue_from_webhook "${owner}" "${priority}" "${title}" "${objective}"
-      continue
-    fi
-
-    # Fallback: treat any inbound webhook text as an opencode task request.
-    local fallback_title
-    fallback_title="$(python3 -c 'import sys; t=sys.argv[1].strip(); w=t.split(); print(" ".join(w[:8]) if w else "OA task")' "${text}")"
-    local fallback_priority="P2"
-    local fallback_objective="${text}"
-    if is_urgent_text "${text}"; then
-      fallback_priority="P0"
-      fallback_title="[CAMBIO URGENTE] ${fallback_title}"
-      fallback_objective="${text}\n\nPolicy: direct main push requested by Nico via keyword cambio urgente."
-    fi
-    create_issue_from_webhook "opencode" "${fallback_priority}" "${fallback_title}" "${fallback_objective}"
+    issue_url="$(create_issue_from_webhook "${owner}" "${priority}" "${title}" "${objective}" || true)"
+    [[ -n "${issue_url}" ]] || continue
+    dispatch_issue_to_waiting_agent "${owner}" "${priority}" "${title}" "${objective}" "${issue_url}"
   done < "${tmp}"
 
   rm -f "${tmp}"
