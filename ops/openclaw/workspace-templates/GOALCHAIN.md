@@ -61,6 +61,12 @@ bash ~/hermes/scripts/oa-control.sh systemd-install
 bash ~/hermes/scripts/oa-control.sh systemd-status
 ```
 
+Scout optimization:
+
+```bash
+bash ~/hermes/scripts/optimize-openclaw-scout.sh
+```
+
 Webhook inbox for OA messages:
 
 ```bash
