@@ -39,8 +39,27 @@
         var date = new Date(ts);
         setText("kpiUpdatedAt", date.toLocaleString());
       }
+
+      var healthRes = await fetch("http://localhost:3001/api/economy/health", {
+        cache: "no-store",
+      });
+      if (healthRes.ok) {
+        var health = await healthRes.json();
+        var failingCount =
+          health && Array.isArray(health.failing_checks)
+            ? health.failing_checks.length
+            : 0;
+        var label =
+          health && health.status === "healthy"
+            ? "healthy"
+            : "warning (" + failingCount + " checks)";
+        setText("kpiHealthStatus", label);
+      } else {
+        setText("kpiHealthStatus", "unavailable");
+      }
     } catch (_err) {
       // Keep docs resilient when API is offline.
+      setText("kpiHealthStatus", "offline");
     }
   }
 

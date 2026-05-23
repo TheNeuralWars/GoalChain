@@ -79,6 +79,313 @@ function num(value: unknown, fallback = 0): number {
   return fallback;
 }
 
+function envNum(name: string, fallback: number): number {
+  const value = process.env[name];
+  if (!value) return fallback;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
+}
+
+interface EconomyMetricsPayload {
+  timestamp_iso: string;
+  kpis: {
+    emit_burn_ratio_7d: number;
+    onchain_sink_coverage: number;
+    config_drift: number;
+    vault_buyback_coverage: number;
+  };
+  flow_24h: {
+    emissions_gch: number;
+    burns_gch: number;
+    net_emission_gch: number;
+  };
+  flow_7d: {
+    emissions_gch: number;
+    burns_gch: number;
+  };
+  breakdown: {
+    potion_burn_gch: number;
+    fee_burn_gch: number;
+    vault_buyback_gch: number;
+    treasury_fees_gch: number;
+  };
+  config_drift_reasons: string[];
+  source: {
+    canonical_config: string;
+    burn_tracker: string;
+    scenarios_csv: string;
+    baseline_scenario_id: string | null;
+  };
+}
+
+type EconomyHealthStatus = "healthy" | "warning" | "critical";
+
+interface EconomyHealthCheck {
+  key: string;
+  value: number;
+  min?: number;
+  max?: number;
+  pass: boolean;
+}
+
+interface EconomyHealthPayload {
+  timestamp_iso: string;
+  status: EconomyHealthStatus;
+  failing_checks: string[];
+  thresholds: {
+    emit_burn_ratio_min: number;
+    emit_burn_ratio_max: number;
+    onchain_sink_coverage_min: number;
+    config_drift_max: number;
+    vault_buyback_coverage_min: number;
+  };
+  checks: EconomyHealthCheck[];
+  kpis: EconomyMetricsPayload["kpis"];
+  config_drift_reasons: string[];
+}
+
+const healthAlertState = {
+  lastSentAt: 0,
+  lastStatus: "healthy" as EconomyHealthStatus,
+};
+
+async function buildEconomyMetricsPayload(): Promise<EconomyMetricsPayload> {
+  const canonicalPath = path.resolve(
+    __dirname,
+    "../../docs/ECONOMIC_CANONICAL_CONFIG.json",
+  );
+  const burnTrackerPath = path.resolve(__dirname, "../../docs/data/burn_tracker.json");
+  const scenariosPath = path.resolve(
+    __dirname,
+    "../../docs/data/tokenomics_scenarios.csv",
+  );
+
+  const canonicalConfig = fs.existsSync(canonicalPath)
+    ? JSON.parse(fs.readFileSync(canonicalPath, "utf-8"))
+    : null;
+  const burnTracker = fs.existsSync(burnTrackerPath)
+    ? JSON.parse(fs.readFileSync(burnTrackerPath, "utf-8"))
+    : null;
+
+  const scenarioRows = fs.existsSync(scenariosPath)
+    ? parseCsv(fs.readFileSync(scenariosPath, "utf-8"))
+    : [];
+  const baselineRow =
+    scenarioRows.find((r) => r.scenario_id === "RP_balanced") ??
+    scenarioRows.find((r) => r.scenario_id === "S0") ??
+    scenarioRows[0] ??
+    null;
+
+  const emissions24h = num(baselineRow?.emission_gross_gch);
+  const projectedBurn24h =
+    num(baselineRow?.potion_burn_gch) +
+    num(baselineRow?.fee_burn_gch) +
+    num(baselineRow?.vault_buyback_gch);
+
+  const burn7dFromTracker = num(burnTracker?.estimated_gch_burned);
+  const burns7d =
+    burn7dFromTracker > 0 ? burn7dFromTracker : projectedBurn24h > 0 ? projectedBurn24h * 7 : 0;
+  const burns24h = burns7d / 7;
+  const emissions7d = emissions24h * 7;
+  const netEmission24h = emissions24h - burns24h;
+
+  const [configPda] = PublicKey.findProgramAddressSync(
+    [Buffer.from("config")],
+    PROGRAM_ID,
+  );
+  let onchainConfig: any = null;
+  try {
+    const configAccount = await program.account.globalConfig.fetch(configPda);
+    onchainConfig = {
+      feeBps: num(configAccount.feeBps),
+      feeBurnBps: num(configAccount.feeBurnBps),
+      feeJackpotBps: num(configAccount.feeJackpotBps),
+      maxStartersPerManager: num(configAccount.maxStartersPerManager),
+      treasuryTokenAccount: configAccount.treasuryTokenAccount?.toBase58?.(),
+      jackpotTokenAccount: configAccount.jackpotTokenAccount?.toBase58?.(),
+    };
+  } catch (_err) {
+    onchainConfig = null;
+  }
+
+  const sinkChecks = [
+    canonicalConfig !== null,
+    burnTracker !== null,
+    baselineRow !== null,
+    onchainConfig?.feeBurnBps > 0,
+    onchainConfig?.feeJackpotBps > 0,
+    onchainConfig?.maxStartersPerManager >= 11,
+    Boolean(onchainConfig?.treasuryTokenAccount),
+    Boolean(onchainConfig?.jackpotTokenAccount),
+  ];
+  const sinksImplemented = sinkChecks.filter(Boolean).length;
+  const onchainSinkCoverage = Math.round((sinksImplemented / sinkChecks.length) * 10000) / 100;
+
+  const driftReasons: string[] = [];
+  const maxFeeBps = num(canonicalConfig?.core_parameters?.max_fee_bps);
+  if (onchainConfig && maxFeeBps > 0 && onchainConfig.feeBps > maxFeeBps) {
+    driftReasons.push("onchain fee_bps exceeds canonical max_fee_bps");
+  }
+  if (onchainConfig && onchainConfig.maxStartersPerManager !== 11) {
+    driftReasons.push("onchain max_starters_per_manager differs from expected 11");
+  }
+  if (
+    onchainConfig &&
+    onchainConfig.feeBurnBps + onchainConfig.feeJackpotBps > 10000
+  ) {
+    driftReasons.push("fee split bps sum exceeds 10000");
+  }
+
+  const emitBurnRatio7d = emissions7d > 0 ? burns7d / emissions7d : 0;
+  const vaultBuybackCoverage = emissions24h > 0 ? num(baselineRow?.vault_buyback_gch) / emissions24h : 0;
+
+  return {
+    timestamp_iso: new Date().toISOString(),
+    kpis: {
+      emit_burn_ratio_7d: emitBurnRatio7d,
+      onchain_sink_coverage: onchainSinkCoverage,
+      config_drift: driftReasons.length,
+      vault_buyback_coverage: vaultBuybackCoverage,
+    },
+    flow_24h: {
+      emissions_gch: emissions24h,
+      burns_gch: burns24h,
+      net_emission_gch: netEmission24h,
+    },
+    flow_7d: {
+      emissions_gch: emissions7d,
+      burns_gch: burns7d,
+    },
+    breakdown: {
+      potion_burn_gch: num(baselineRow?.potion_burn_gch),
+      fee_burn_gch: num(baselineRow?.fee_burn_gch),
+      vault_buyback_gch: num(baselineRow?.vault_buyback_gch),
+      treasury_fees_gch: num(baselineRow?.fee_treasury_gch),
+    },
+    config_drift_reasons: driftReasons,
+    source: {
+      canonical_config: canonicalPath,
+      burn_tracker: burnTrackerPath,
+      scenarios_csv: scenariosPath,
+      baseline_scenario_id: baselineRow?.scenario_id ?? null,
+    },
+  };
+}
+
+async function buildEconomyHealthPayload(): Promise<EconomyHealthPayload> {
+  const metrics = await buildEconomyMetricsPayload();
+  const thresholds = {
+    emit_burn_ratio_min: envNum("KPI_EMIT_BURN_RATIO_MIN", 0.85),
+    emit_burn_ratio_max: envNum("KPI_EMIT_BURN_RATIO_MAX", 1.05),
+    onchain_sink_coverage_min: envNum("KPI_ONCHAIN_SINK_COVERAGE_MIN", 90),
+    config_drift_max: envNum("KPI_CONFIG_DRIFT_MAX", 0),
+    vault_buyback_coverage_min: envNum("KPI_VAULT_BUYBACK_COVERAGE_MIN", 0.25),
+  };
+
+  const checks: EconomyHealthCheck[] = [
+    {
+      key: "emit_burn_ratio_7d",
+      value: metrics.kpis.emit_burn_ratio_7d,
+      min: thresholds.emit_burn_ratio_min,
+      max: thresholds.emit_burn_ratio_max,
+      pass:
+        metrics.kpis.emit_burn_ratio_7d >= thresholds.emit_burn_ratio_min &&
+        metrics.kpis.emit_burn_ratio_7d <= thresholds.emit_burn_ratio_max,
+    },
+    {
+      key: "onchain_sink_coverage",
+      value: metrics.kpis.onchain_sink_coverage,
+      min: thresholds.onchain_sink_coverage_min,
+      pass: metrics.kpis.onchain_sink_coverage >= thresholds.onchain_sink_coverage_min,
+    },
+    {
+      key: "config_drift",
+      value: metrics.kpis.config_drift,
+      max: thresholds.config_drift_max,
+      pass: metrics.kpis.config_drift <= thresholds.config_drift_max,
+    },
+    {
+      key: "vault_buyback_coverage",
+      value: metrics.kpis.vault_buyback_coverage,
+      min: thresholds.vault_buyback_coverage_min,
+      pass:
+        metrics.kpis.vault_buyback_coverage >=
+        thresholds.vault_buyback_coverage_min,
+    },
+  ];
+
+  const failingChecks = checks.filter((c) => !c.pass);
+  const status: EconomyHealthStatus =
+    failingChecks.length === 0 ? "healthy" : "warning";
+
+  return {
+    timestamp_iso: metrics.timestamp_iso,
+    status,
+    failing_checks: failingChecks.map((c) => c.key),
+    thresholds,
+    checks,
+    kpis: metrics.kpis,
+    config_drift_reasons: metrics.config_drift_reasons,
+  };
+}
+
+async function sendEconomyHealthAlert(
+  health: EconomyHealthPayload,
+): Promise<{ sent: boolean; reason: string }> {
+  const webhookUrl = process.env.ECON_HEALTH_ALERT_WEBHOOK_URL;
+  if (!webhookUrl) {
+    return { sent: false, reason: "webhook_not_configured" };
+  }
+
+  const cooldownMinutes = envNum("ECON_HEALTH_ALERT_COOLDOWN_MINUTES", 60);
+  const cooldownMs = cooldownMinutes * 60 * 1000;
+  const now = Date.now();
+  if (
+    now - healthAlertState.lastSentAt < cooldownMs &&
+    healthAlertState.lastStatus === health.status
+  ) {
+    return { sent: false, reason: "cooldown_active" };
+  }
+
+  const checkSummary = health.checks
+    .map((check) => {
+      const limits = [
+        check.min !== undefined ? `min=${check.min}` : "",
+        check.max !== undefined ? `max=${check.max}` : "",
+      ]
+        .filter(Boolean)
+        .join(" ");
+      return `${check.pass ? "PASS" : "FAIL"} ${check.key}=${check.value}${limits ? ` (${limits})` : ""}`;
+    })
+    .join("\n");
+
+  const body = {
+    text:
+      `[GoalChain] Economy health is ${health.status.toUpperCase()}\n` +
+      `Failing checks: ${health.failing_checks.join(", ") || "none"}\n` +
+      `Timestamp: ${health.timestamp_iso}`,
+    status: health.status,
+    failing_checks: health.failing_checks,
+    checks: health.checks,
+    config_drift_reasons: health.config_drift_reasons,
+    check_summary: checkSummary,
+  };
+
+  const response = await fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+
+  if (!response.ok) {
+    throw new Error(`alert webhook failed with status ${response.status}`);
+  }
+
+  healthAlertState.lastSentAt = now;
+  healthAlertState.lastStatus = health.status;
+  return { sent: true, reason: "sent" };
+}
+
 // --- IN-MEMORY SESSION STORE FOR GEMINI CONTEXT CACHING ---
 interface CacheSession {
   cachedContentId: string | null;
@@ -272,131 +579,55 @@ app.get("/api/economy/config", async (req, res) => {
 // Economy sustainability metrics endpoint used by docs dashboards and ops checks.
 app.get("/api/economy/metrics", async (req, res) => {
   try {
-    const canonicalPath = path.resolve(
-      __dirname,
-      "../../docs/ECONOMIC_CANONICAL_CONFIG.json",
-    );
-    const burnTrackerPath = path.resolve(__dirname, "../../docs/data/burn_tracker.json");
-    const scenariosPath = path.resolve(
-      __dirname,
-      "../../docs/data/tokenomics_scenarios.csv",
-    );
-
-    const canonicalConfig = fs.existsSync(canonicalPath)
-      ? JSON.parse(fs.readFileSync(canonicalPath, "utf-8"))
-      : null;
-    const burnTracker = fs.existsSync(burnTrackerPath)
-      ? JSON.parse(fs.readFileSync(burnTrackerPath, "utf-8"))
-      : null;
-
-    const scenarioRows = fs.existsSync(scenariosPath)
-      ? parseCsv(fs.readFileSync(scenariosPath, "utf-8"))
-      : [];
-    const baselineRow =
-      scenarioRows.find((r) => r.scenario_id === "RP_balanced") ??
-      scenarioRows.find((r) => r.scenario_id === "S0") ??
-      scenarioRows[0] ??
-      null;
-
-    const emissions24h = num(baselineRow?.emission_gross_gch);
-    const projectedBurn24h =
-      num(baselineRow?.potion_burn_gch) +
-      num(baselineRow?.fee_burn_gch) +
-      num(baselineRow?.vault_buyback_gch);
-
-    const burn7dFromTracker = num(burnTracker?.estimated_gch_burned);
-    const burns7d =
-      burn7dFromTracker > 0 ? burn7dFromTracker : projectedBurn24h > 0 ? projectedBurn24h * 7 : 0;
-    const burns24h = burns7d / 7;
-    const emissions7d = emissions24h * 7;
-    const netEmission24h = emissions24h - burns24h;
-
-    const [configPda] = PublicKey.findProgramAddressSync(
-      [Buffer.from("config")],
-      PROGRAM_ID,
-    );
-    let onchainConfig: any = null;
-    try {
-      const configAccount = await program.account.globalConfig.fetch(configPda);
-      onchainConfig = {
-        feeBps: num(configAccount.feeBps),
-        feeBurnBps: num(configAccount.feeBurnBps),
-        feeJackpotBps: num(configAccount.feeJackpotBps),
-        maxStartersPerManager: num(configAccount.maxStartersPerManager),
-        treasuryTokenAccount: configAccount.treasuryTokenAccount?.toBase58?.(),
-        jackpotTokenAccount: configAccount.jackpotTokenAccount?.toBase58?.(),
-      };
-    } catch (_err) {
-      onchainConfig = null;
-    }
-
-    const sinkChecks = [
-      canonicalConfig !== null,
-      burnTracker !== null,
-      baselineRow !== null,
-      onchainConfig?.feeBurnBps > 0,
-      onchainConfig?.feeJackpotBps > 0,
-      onchainConfig?.maxStartersPerManager >= 11,
-      Boolean(onchainConfig?.treasuryTokenAccount),
-      Boolean(onchainConfig?.jackpotTokenAccount),
-    ];
-    const sinksImplemented = sinkChecks.filter(Boolean).length;
-    const onchainSinkCoverage = Math.round((sinksImplemented / sinkChecks.length) * 10000) / 100;
-
-    const driftReasons: string[] = [];
-    const maxFeeBps = num(canonicalConfig?.core_parameters?.max_fee_bps);
-    if (onchainConfig && maxFeeBps > 0 && onchainConfig.feeBps > maxFeeBps) {
-      driftReasons.push("onchain fee_bps exceeds canonical max_fee_bps");
-    }
-    if (onchainConfig && onchainConfig.maxStartersPerManager !== 11) {
-      driftReasons.push("onchain max_starters_per_manager differs from expected 11");
-    }
-    if (
-      onchainConfig &&
-      onchainConfig.feeBurnBps + onchainConfig.feeJackpotBps > 10000
-    ) {
-      driftReasons.push("fee split bps sum exceeds 10000");
-    }
-
-    const emitBurnRatio7d = emissions7d > 0 ? burns7d / emissions7d : 0;
-    const vaultBuybackCoverage = emissions24h > 0 ? num(baselineRow?.vault_buyback_gch) / emissions24h : 0;
-
-    res.json({
-      timestamp_iso: new Date().toISOString(),
-      kpis: {
-        emit_burn_ratio_7d: emitBurnRatio7d,
-        onchain_sink_coverage: onchainSinkCoverage,
-        config_drift: driftReasons.length,
-        vault_buyback_coverage: vaultBuybackCoverage,
-      },
-      flow_24h: {
-        emissions_gch: emissions24h,
-        burns_gch: burns24h,
-        net_emission_gch: netEmission24h,
-      },
-      flow_7d: {
-        emissions_gch: emissions7d,
-        burns_gch: burns7d,
-      },
-      breakdown: {
-        potion_burn_gch: num(baselineRow?.potion_burn_gch),
-        fee_burn_gch: num(baselineRow?.fee_burn_gch),
-        vault_buyback_gch: num(baselineRow?.vault_buyback_gch),
-        treasury_fees_gch: num(baselineRow?.fee_treasury_gch),
-      },
-      config_drift_reasons: driftReasons,
-      source: {
-        canonical_config: canonicalPath,
-        burn_tracker: burnTrackerPath,
-        scenarios_csv: scenariosPath,
-        baseline_scenario_id: baselineRow?.scenario_id ?? null,
-      },
-    });
+    res.json(await buildEconomyMetricsPayload());
   } catch (err: any) {
     console.error("Economy metrics endpoint error:", err);
     res
       .status(500)
       .json({ error: `Failed to load economy metrics: ${err.message}` });
+  }
+});
+
+app.get("/api/economy/health", async (req, res) => {
+  try {
+    res.json(await buildEconomyHealthPayload());
+  } catch (err: any) {
+    console.error("Economy health endpoint error:", err);
+    res.status(500).json({
+      status: "critical",
+      error: `Failed to compute economy health: ${err.message}`,
+    });
+  }
+});
+
+// Triggerable alert endpoint for cron/monitors.
+app.post("/api/economy/health/alert", async (req, res) => {
+  try {
+    const health = await buildEconomyHealthPayload();
+    if (health.status === "healthy") {
+      return res.json({
+        status: health.status,
+        sent: false,
+        reason: "healthy_no_alert",
+        failing_checks: health.failing_checks,
+      });
+    }
+
+    const result = await sendEconomyHealthAlert(health);
+    return res.json({
+      status: health.status,
+      sent: result.sent,
+      reason: result.reason,
+      failing_checks: health.failing_checks,
+      cooldown_minutes: envNum("ECON_HEALTH_ALERT_COOLDOWN_MINUTES", 60),
+    });
+  } catch (err: any) {
+    console.error("Economy health alert endpoint error:", err);
+    return res.status(500).json({
+      status: "critical",
+      sent: false,
+      error: `Failed to send economy health alert: ${err.message}`,
+    });
   }
 });
 

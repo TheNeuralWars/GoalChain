@@ -1,0 +1,44 @@
+---
+description: Multi-agent orchestration (Cursor, Grok, Antigravity, Hermes)
+alwaysApply: true
+---
+
+# Multi-Agent Collaboration
+
+Agents: **Cursor** (implementation/integration), **Grok** (xAI CLI/web), **Antigravity** (Google), **Hermes** (24/7 personal ops on server). Hub docs: `ai_context/AGENT_ORCHESTRATION.md`.
+
+## Roles
+
+| Agent | Primary | Avoid |
+|-------|---------|--------|
+| Cursor | Code, PRs, on-chain/API/webapp, tests | Marketing-only tasks unless asked |
+| Grok | Research, drafts, review, marketing skills | Same-file parallel edits with Cursor |
+| Antigravity | Exploration, alt implementations, spikes | Merging unreviewed spikes into `main` |
+| Hermes | Intake, prioritization, reminders, briefs | Direct contract changes without handoff |
+
+## Golden rules
+
+1. **One implementer per task** — others review or advise.
+2. **Never edit the same file in parallel** across agents.
+3. **Branches:** `feat/*`, `fix/*`, `exp/grok-*`, `exp/antigravity-*`; small PRs.
+4. **Single integration owner** (default: Cursor) merges and runs verification.
+5. **Hermes → execution:** ideas land in `docs/intake/` or GitHub issues before coding.
+
+## Handoff packet (required for cross-agent work)
+
+- Objective (1 sentence)
+- Allowed files / forbidden files
+- Acceptance criteria + exact test commands
+- Risk/rollback note
+- Owner + status (`draft` / `ready` / `in_progress` / `done`)
+
+## Merge safety
+
+- Diff only expected files; no secrets or build artifacts.
+- Economy/on-chain: align with `ECONOMIC_CANONICAL_CONFIG.json`.
+- Feature flags OFF by default for oracle, mint, alerts, video automation.
+
+## Slack / multi-agent chat (when live)
+
+- Hermes moderates intake; no agent commits based on chat alone without a linked issue/branch.
+- Decisions that change scope get written to repo (`docs/intake/` or issue) within the same session.
