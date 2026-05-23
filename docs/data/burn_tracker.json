@@ -1,0 +1,21 @@
+{
+  "timestamp_iso": "2026-05-22T19:47:56.165Z",
+  "mode": "dry-run",
+  "principal_sol": 5000,
+  "current_sol": 5032.7,
+  "excess_sol": 32.69999999999982,
+  "buyback_share": 0.6,
+  "jackpot_share": 0.1,
+  "reinvest_share": 0.3,
+  "buyback_sol": 19.61999999999989,
+  "jackpot_sol": 3.269999999999982,
+  "reinvest_sol": 9.809999999999945,
+  "gch_price_usd": 0.01,
+  "estimated_gch_burned": 353159.999999998,
+  "tx_hashes": [
+    "dryrun_harvest_hcap804qzom",
+    "dryrun_swap_qse3i0dlz4j",
+    "dryrun_burn_y9natiu61f"
+  ],
+  "notes": ["Dry-run mode only: no on-chain state modified."]
+}
