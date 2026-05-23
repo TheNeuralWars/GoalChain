@@ -29,6 +29,12 @@ mkdir -p "${PROPOSALS_DIR}"
 
 log() { printf '[%s] %s\n' "$(date -u '+%F %T UTC')" "$*"; }
 
+is_urgent_text() {
+  local text="${1:-}"
+  text="$(printf '%s' "${text}" | tr '[:upper:]' '[:lower:]')"
+  [[ "${text}" == *"cambio urgente"* ]] || [[ "${text}" == *"policy:direct-main"* ]]
+}
+
 publish_research_updates() {
   if [[ -z "${DISCORD_RESEARCH_WEBHOOK_URL}" && ( -z "${DISCORD_TOKEN}" || -z "${DISCORD_RESEARCH_CHANNEL_ID}" ) ]]; then
     return 0
@@ -83,18 +89,45 @@ consume_webhook_queue() {
     # task cursor P1 "Title" "Objective"
     # assign cursor P1 | Title | Objective
     if [[ "${text}" =~ ^task[[:space:]]+(cursor|antigravity|opencode|grok)[[:space:]]+(P0|P1|P2)[[:space:]]+\"([^\"]+)\"[[:space:]]+\"([^\"]+)\"$ ]]; then
-      create_issue_from_webhook "${BASH_REMATCH[1]}" "${BASH_REMATCH[2]}" "${BASH_REMATCH[3]}" "${BASH_REMATCH[4]}"
+      local owner priority title objective
+      owner="${BASH_REMATCH[1]}"
+      priority="${BASH_REMATCH[2]}"
+      title="${BASH_REMATCH[3]}"
+      objective="${BASH_REMATCH[4]}"
+      if is_urgent_text "${text}"; then
+        priority="P0"
+        title="[CAMBIO URGENTE] ${title}"
+        objective="${objective}\n\nPolicy: direct main push requested by Nico via keyword cambio urgente."
+      fi
+      create_issue_from_webhook "${owner}" "${priority}" "${title}" "${objective}"
       continue
     fi
     if [[ "${text}" =~ ^assign[[:space:]]+(cursor|antigravity|opencode|grok)[[:space:]]+(P0|P1|P2)[[:space:]]*\|[[:space:]]*([^|]+)[[:space:]]*\|[[:space:]]*(.+)$ ]]; then
-      create_issue_from_webhook "${BASH_REMATCH[1]}" "${BASH_REMATCH[2]}" "${BASH_REMATCH[3]}" "${BASH_REMATCH[4]}"
+      local owner priority title objective
+      owner="${BASH_REMATCH[1]}"
+      priority="${BASH_REMATCH[2]}"
+      title="${BASH_REMATCH[3]}"
+      objective="${BASH_REMATCH[4]}"
+      if is_urgent_text "${text}"; then
+        priority="P0"
+        title="[CAMBIO URGENTE] ${title}"
+        objective="${objective}\n\nPolicy: direct main push requested by Nico via keyword cambio urgente."
+      fi
+      create_issue_from_webhook "${owner}" "${priority}" "${title}" "${objective}"
       continue
     fi
 
     # Fallback: treat any inbound webhook text as an opencode task request.
     local fallback_title
     fallback_title="$(python3 -c 'import sys; t=sys.argv[1].strip(); w=t.split(); print(" ".join(w[:8]) if w else "OA task")' "${text}")"
-    create_issue_from_webhook "opencode" "P2" "${fallback_title}" "${text}"
+    local fallback_priority="P2"
+    local fallback_objective="${text}"
+    if is_urgent_text "${text}"; then
+      fallback_priority="P0"
+      fallback_title="[CAMBIO URGENTE] ${fallback_title}"
+      fallback_objective="${text}\n\nPolicy: direct main push requested by Nico via keyword cambio urgente."
+    fi
+    create_issue_from_webhook "opencode" "${fallback_priority}" "${fallback_title}" "${fallback_objective}"
   done < "${tmp}"
 
   rm -f "${tmp}"
@@ -102,10 +135,11 @@ consume_webhook_queue() {
 
 process_opencode_issue() {
   local issue_json="$1"
-  local number title body
+  local number title body labels_csv
   number="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["number"])' "${issue_json}")"
   title="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["title"])' "${issue_json}")"
   body="$(python3 -c 'import json,sys; print((json.loads(sys.argv[1]).get("body") or "").replace("\r",""))' "${issue_json}")"
+  labels_csv="$(python3 -c 'import json,sys; issue=json.loads(sys.argv[1]); labels=issue.get("labels") or []; print(",".join([x.get("name","") for x in labels if isinstance(x,dict)]))' "${issue_json}")"
 
   local done_marker="${STATE_DIR}/issue-${number}.done"
   [[ -f "${done_marker}" ]] && return 0
@@ -113,10 +147,20 @@ process_opencode_issue() {
   log "Processing opencode issue #${number}: ${title}"
   ensure_branch_clean
 
+  local urgent_mode="0"
+  if is_urgent_text "${title}
+${body}
+${labels_csv}"; then
+    urgent_mode="1"
+    log "Issue #${number} flagged as CAMBIO URGENTE (direct-main mode)"
+  fi
+
   local branch="exp/opencode-issue-${number}"
   git -C "${REPO}" checkout main >/dev/null 2>&1 || true
   git -C "${REPO}" pull --ff-only origin main >/dev/null 2>&1 || true
-  git -C "${REPO}" checkout -B "${branch}" >/dev/null 2>&1 || true
+  if [[ "${urgent_mode}" == "0" ]]; then
+    git -C "${REPO}" checkout -B "${branch}" >/dev/null 2>&1 || true
+  fi
 
   local proposal_file="${PROPOSALS_DIR}/issue-${number}-proposal.md"
   cat > "${proposal_file}" <<EOF
@@ -139,11 +183,17 @@ $(printf '%s\n' "${body}" | sed -n '1,40p')
 
 ## Risk / rollback
 - Risk: scope drift or unstable dependencies.
-- Rollback: revert branch \`${branch}\` and close draft PR.
+- Rollback: $( [[ "${urgent_mode}" == "1" ]] && echo "revert main commit linked to issue #${number}" || echo "revert branch \`${branch}\` and close draft PR." )
 EOF
 
   # Ask OpenCode to implement. Timeout protects endless runs.
   export XAI_API_KEY
+  local work_mode_note
+  if [[ "${urgent_mode}" == "1" ]]; then
+    work_mode_note="DIRECT MAIN MODE ENABLED by Nico keyword 'cambio urgente'. Work on main and do not create feature branches."
+  else
+    work_mode_note="Keep branch ${branch}."
+  fi
   timeout 3600 opencode run --model "${OA_MODEL}" \
     "You are OA worker for GoalChain. Implement issue #${number}: ${title}.
 Before editing, read:
@@ -152,8 +202,26 @@ Before editing, read:
 - ai_context/AGENT_ORCHESTRATION.md
 Use repo constraints and META principles.
 First refine proposal in ${proposal_file}, then implement code in small safe steps.
-Do not touch secrets. Keep branch ${branch}. End by summarizing tests run and residual risks." \
+Do not touch secrets. ${work_mode_note} End by summarizing tests run and residual risks." \
     >/tmp/oa-opencode-${number}.log 2>&1 || true
+
+  if [[ "${urgent_mode}" == "1" ]]; then
+    if [[ -n "$(git -C "${REPO}" status --porcelain)" ]]; then
+      git -C "${REPO}" add -A
+      git -C "${REPO}" commit -m "oa: cambio urgente issue #${number}" >/dev/null 2>&1 || true
+      git -C "${REPO}" push origin main >/dev/null 2>&1 || true
+      gh issue comment --repo "${GITHUB_REPO}" "${number}" \
+        --body "Executed in **direct-main mode** due to keyword \`cambio urgente\`. Changes were pushed directly to \`main\`." \
+        >/dev/null 2>&1 || true
+    else
+      gh issue comment --repo "${GITHUB_REPO}" "${number}" \
+        --body "Issue had \`cambio urgente\` policy but OA produced no file changes." \
+        >/dev/null 2>&1 || true
+    fi
+    touch "${done_marker}"
+    log "Finished issue #${number} (direct-main mode)"
+    return 0
+  fi
 
   # Commit any produced changes.
   if [[ -n "$(git -C "${REPO}" status --porcelain)" ]]; then
@@ -183,7 +251,7 @@ pick_next_opencode_issue() {
     --label "agent:opencode" \
     --label "status:ready" \
     --limit 20 \
-    --json number,title,body,createdAt 2>/dev/null || echo '[]')"
+    --json number,title,body,createdAt,labels 2>/dev/null || echo '[]')"
   python3 -c 'import json,sys
 raw=sys.argv[1].strip() or "[]"
 try:

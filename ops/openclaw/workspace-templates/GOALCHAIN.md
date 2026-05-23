@@ -37,6 +37,12 @@ This creates a GitHub issue with labels:
 
 Then reply to Nico with the issue URL.
 
+If task text contains `cambio urgente`, include in issue objective:
+
+`Policy: direct main push requested by Nico via keyword cambio urgente.`
+
+This means emergency direct-main mode for the assigned agent.
+
 ## OA (OpenCode Autonomous) control
 
 Manager can control OA worker from commands:

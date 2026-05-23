@@ -119,6 +119,20 @@ Store server-side config (not committed):
 
 ---
 
+## Emergency override: `cambio urgente`
+
+You requested a global override keyword. The operational policy is:
+
+- If Nico includes `cambio urgente` in a task, treat it as **direct-to-main authorization**.
+- Applies to all agents (Cursor, Antigravity, OpenCode local, OpenCode server) at dispatch policy level.
+- For OpenCode server OA, this is enforced in code: the worker skips draft PR flow and pushes directly to `main`.
+- For other agents, Manager must include explicit issue/body note: `Policy: direct main push requested by Nico via keyword cambio urgente.`
+- Every direct-main execution must leave an audit trace in issue comments or session summary.
+
+Risk note: this bypasses normal PR safety. Use only for high-impact hotfixes where speed is more important than review.
+
+---
+
 ## Current stacked PR order (reference)
 
 Merge **in this order** (each PR targets the previous head branch):
