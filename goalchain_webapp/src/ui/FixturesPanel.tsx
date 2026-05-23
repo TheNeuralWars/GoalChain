@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { Program, AnchorProvider, Idl } from '@coral-xyz/anchor';
-import { idl, PROGRAM_ID } from '@goalchain/sdk';
 
 interface Fixture {
     pubkey: string;
@@ -15,7 +13,7 @@ interface Fixture {
 
 export const FixturesPanel: React.FC = () => {
     const { connection } = useConnection();
-    const { publicKey, sendTransaction } = useWallet();
+    const { publicKey } = useWallet();
     const [fixtures, setFixtures] = useState<Fixture[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -23,7 +21,6 @@ export const FixturesPanel: React.FC = () => {
         const fetchFixtures = async () => {
             try {
                 // Mocking connection to Program for Alpha UI
-                // En producción usaremos el AnchorProvider real aquí
                 const mockFixtures = [
                     { pubkey: '1', matchId: 'WC-01', teamA: 'Argentina', teamB: 'Francia', poolA: 1500, poolB: 1200, status: { upcoming: {} } },
                     { pubkey: '2', matchId: 'WC-02', teamA: 'Brasil', teamB: 'España', poolA: 800, poolB: 950, status: { live: {} } }
@@ -45,51 +42,143 @@ export const FixturesPanel: React.FC = () => {
             return;
         }
         console.log(`Apostando por ${side} en el partido ${fixturePubkey}`);
-        // Aquí integraremos la llamada al programa vía SDK
     };
 
-    if (loading) return <div>Cargando partidos del Mundial...</div>;
+    if (loading) {
+        return (
+            <div className="glass-card" style={{ textAlign: 'center', padding: '3rem' }}>
+                <div style={{ color: '#14f195', fontSize: '1.2rem', fontWeight: 600 }}>Cargando partidos del Mundial...</div>
+            </div>
+        );
+    }
 
     return (
-        <div className="fixtures-container" style={{ display: 'grid', gap: '1rem', marginTop: '2rem' }}>
-            <h2 style={{ color: '#14f195' }}>Próximos Partidos</h2>
-            {fixtures.map((f) => (
-                <div key={f.pubkey} style={{ 
-                    background: 'rgba(255,255,255,0.05)', 
-                    padding: '1.5rem', 
-                    borderRadius: '12px',
-                    border: '1px solid #333',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center'
-                }}>
-                    <div style={{ display: 'flex', gap: '2rem', fontSize: '1.2rem', fontWeight: 'bold' }}>
-                        <span>{f.teamA}</span>
-                        <span style={{ color: '#9945ff' }}>VS</span>
-                        <span>{f.teamB}</span>
-                    </div>
-                    
-                    <div style={{ margin: '1rem 0', fontSize: '0.9rem', opacity: 0.7 }}>
-                        ID: {f.matchId} | Pool Total: {f.poolA + f.poolB} $GCH
-                    </div>
+        <div style={{ display: 'grid', gap: '1.5rem' }}>
+            <h2 className="text-neon-green">
+                <span style={{ fontSize: '1.4rem' }}>🏆</span> Fixtures & Live Pools
+            </h2>
+            <div style={{ display: 'grid', gap: '1.25rem' }}>
+                {fixtures.map((f) => {
+                    const isLive = f.status && f.status.live;
+                    return (
+                        <div key={f.pubkey} className="glass-card" style={{ 
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '1.25rem',
+                            position: 'relative',
+                            overflow: 'hidden'
+                        }}>
+                            {/* Glow background strip for Live matches */}
+                            {isLive && (
+                                <div style={{
+                                    position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    height: '3px',
+                                    background: 'linear-gradient(90deg, #ff4b4b, #9945ff)'
+                                }} />
+                            )}
+                            
+                            {/* Header: ID and Status */}
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.8rem' }}>
+                                <span style={{ fontFamily: 'monospace', color: '#94a3b8', letterSpacing: '0.5px' }}>
+                                    ID: {f.matchId}
+                                </span>
+                                <span style={{ 
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: '6px',
+                                    padding: '4px 10px',
+                                    borderRadius: '20px',
+                                    background: isLive ? 'rgba(255, 75, 75, 0.12)' : 'rgba(20, 241, 149, 0.1)',
+                                    color: isLive ? '#ff4b4b' : '#14f195',
+                                    fontWeight: 700,
+                                    fontSize: '0.75rem',
+                                    textTransform: 'uppercase',
+                                    letterSpacing: '1px'
+                                }}>
+                                    <span style={{ 
+                                        width: '6px', 
+                                        height: '6px', 
+                                        borderRadius: '50%', 
+                                        background: isLive ? '#ff4b4b' : '#14f195',
+                                        boxShadow: isLive ? '0 0 8px #ff4b4b' : '0 0 8px #14f195',
+                                        animation: isLive ? 'pulse-glow 1.5s infinite' : 'none'
+                                    }} />
+                                    {isLive ? 'LIVE NOW' : 'UPCOMING'}
+                                </span>
+                            </div>
 
-                    <div className="bet-actions" style={{ display: 'flex', gap: '10px' }}>
-                        <button onClick={() => handleBet(f.pubkey, 'A')} style={btnStyle}>Gana {f.teamA}</button>
-                        <button onClick={() => handleBet(f.pubkey, 'Draw')} style={btnStyle}>Empate</button>
-                        <button onClick={() => handleBet(f.pubkey, 'B')} style={btnStyle}>Gana {f.teamB}</button>
-                    </div>
-                </div>
-            ))}
+                            {/* Teams Grid */}
+                            <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', padding: '0.5rem 0' }}>
+                                <div style={{ textAlign: 'center', width: '35%' }}>
+                                    <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#f8fafc' }}>{f.teamA}</div>
+                                    <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '4px' }}>Local</div>
+                                </div>
+                                
+                                <div style={{ 
+                                    display: 'flex', 
+                                    flexDirection: 'column', 
+                                    alignItems: 'center', 
+                                    justifyContent: 'center',
+                                    width: '15%'
+                                }}>
+                                    <span style={{ 
+                                        fontSize: '0.85rem', 
+                                        fontWeight: 900, 
+                                        color: '#9945ff', 
+                                        background: 'rgba(153, 69, 255, 0.1)', 
+                                        padding: '4px 10px', 
+                                        borderRadius: '8px',
+                                        border: '1px solid rgba(153, 69, 255, 0.2)'
+                                    }}>VS</span>
+                                </div>
+
+                                <div style={{ textAlign: 'center', width: '35%' }}>
+                                    <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#f8fafc' }}>{f.teamB}</div>
+                                    <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '4px' }}>Visitante</div>
+                                </div>
+                            </div>
+                            
+                            {/* Pool Indicator bar */}
+                            <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.75rem 1rem', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.03)' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: '#94a3b8', marginBottom: '8px' }}>
+                                    <span>Pool total apostado</span>
+                                    <span style={{ fontWeight: 700, color: '#14f195' }}>{f.poolA + f.poolB} $GCH</span>
+                                </div>
+                                <div style={{ height: '6px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '10px', overflow: 'hidden', display: 'flex' }}>
+                                    <div style={{ 
+                                        width: `${(f.poolA / (f.poolA + f.poolB)) * 100}%`, 
+                                        background: 'linear-gradient(90deg, #14f195, #10b981)' 
+                                    }} />
+                                    <div style={{ 
+                                        width: `${(f.poolB / (f.poolA + f.poolB)) * 100}%`, 
+                                        background: 'linear-gradient(90deg, #7c3aed, #9945ff)' 
+                                    }} />
+                                </div>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', color: '#64748b', marginTop: '6px' }}>
+                                    <span>{f.poolA} $GCH ({Math.round(f.poolA / (f.poolA + f.poolB) * 100)}%)</span>
+                                    <span>{f.poolB} $GCH ({Math.round(f.poolB / (f.poolA + f.poolB) * 100)}%)</span>
+                                </div>
+                            </div>
+
+                            {/* Actions */}
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px', marginTop: '0.25rem' }}>
+                                <button onClick={() => handleBet(f.pubkey, 'A')} className="btn-outline-green" style={{ fontSize: '0.8rem', padding: '0.6rem 0.5rem' }}>
+                                    Gana {f.teamA}
+                                </button>
+                                <button onClick={() => handleBet(f.pubkey, 'Draw')} className="btn-outline-green" style={{ fontSize: '0.8rem', padding: '0.6rem 0.5rem', color: '#94a3b8', borderColor: 'rgba(255,255,255,0.1)' }}>
+                                    Empate
+                                </button>
+                                <button onClick={() => handleBet(f.pubkey, 'B')} className="btn-outline-green" style={{ fontSize: '0.8rem', padding: '0.6rem 0.5rem', color: '#9945ff', borderColor: 'rgba(153, 69, 255, 0.4)' }}>
+                                    Gana {f.teamB}
+                                </button>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
-};
-
-const btnStyle: React.CSSProperties = {
-    background: '#14f195',
-    color: '#000',
-    border: 'none',
-    padding: '0.5rem 1rem',
-    borderRadius: '4px',
-    fontWeight: 'bold',
-    cursor: 'pointer'
 };
