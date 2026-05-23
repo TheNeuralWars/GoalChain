@@ -26,5 +26,11 @@ This document is the absolute **Source of Truth** for the GoalChain ecosystem ar
 - **Manager Office:** XP-based progression (Rookie -> Pro -> Architect).
 - **DAO Portal:** Community-driven game proposal system in the index gameplay section.
 
+## Multi-agent workflow
+
+- **Orchestration:** [`/ai_context/AGENT_ORCHESTRATION.md`](../AGENT_ORCHESTRATION.md) (Cursor, Grok, Antigravity, Hermes)
+- **Intake queue:** [`/docs/intake/`](/docs/intake/) — briefs before implementation
+- **Engineering charter:** [`/ai_context/META_CHARTER.md`](../META_CHARTER.md)
+
 ---
 *Last Updated: May 2026. Version: 10.0. Status: Production Ready.* 🏟️✨🚀

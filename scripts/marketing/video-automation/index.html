@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en" data-composition-variables='[
+  {"id": "teamA", "type": "string", "label": "Team A", "default": "Argentina"},
+  {"id": "teamB", "type": "string", "label": "Team B", "default": "Francia"},
+  {"id": "scoreA", "type": "string", "label": "Score A", "default": "2"},
+  {"id": "scoreB", "type": "string", "label": "Score B", "default": "1"},
+  {"id": "eventText", "type": "string", "label": "Event Text", "default": "Messi anotó (82\u0027)"},
+  {"id": "yieldChange", "type": "string", "label": "Yield Change", "default": "+15.4%"}
+]'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1080" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1080px;
+        overflow: hidden;
+        background: #020205;
+        font-family: 'Outfit', sans-serif;
+        color: #fff;
+      }
+      
+      /* Background ambient glows */
+      .glow-bg {
+        position: absolute;
+        width: 800px;
+        height: 800px;
+        border-radius: 50%;
+        filter: blur(150px);
+        opacity: 0.15;
+        z-index: 1;
+      }
+      .glow-green {
+        background: #14f195;
+        top: -200px;
+        left: -200px;
+      }
+      .glow-purple {
+        background: #9945ff;
+        bottom: -200px;
+        right: -200px;
+      }
+
+      /* Grid Background overlay */
+      .grid-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1080px;
+        height: 1080px;
+        background-size: 40px 40px;
+        background-image: 
+          linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        z-index: 2;
+      }
+
+      /* Main container wrapper */
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1080px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
+      }
+
+      /* Glassmorphic Sports Card */
+      .card-container {
+        width: 920px;
+        height: 920px;
+        background: rgba(10, 10, 15, 0.7);
+        border: 2px solid rgba(153, 69, 255, 0.2);
+        border-radius: 40px;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 0 100px rgba(153, 69, 255, 0.1), inset 0 0 40px rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(20px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Neon Border Glow Lines */
+      .card-border-glow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+        border: 2px solid transparent;
+        border-image: linear-gradient(135deg, #14f195, #9945ff) 1;
+        opacity: 0.8;
+        pointer-events: none;
+      }
+
+      /* Header Info */
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 30px;
+      }
+      .header-title {
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: #14f195;
+        text-shadow: 0 0 20px rgba(20, 241, 149, 0.4);
+      }
+      .live-indicator {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 20px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 8px 20px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .pulse-dot {
+        width: 12px;
+        height: 12px;
+        background: #14f195;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #14f195;
+      }
+
+      /* Teams & Score Display */
+      .scoreboard {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 750px;
+        margin: 40px auto;
+      }
+      .team-box {
+        width: 220px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .team-flag-wrapper {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .team-flag {
+        font-size: 70px;
+        line-height: 1;
+        filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.2));
+      }
+      .team-name {
+        font-size: 24px;
+        font-weight: 800;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .score-box {
+        width: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        font-size: 80px;
+        font-weight: 900;
+        color: #fff;
+        text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+      }
+      .score-divider {
+        color: #9945ff;
+        font-size: 50px;
+        text-shadow: 0 0 25px rgba(153, 69, 255, 0.5);
+      }
+
+      /* Event banner area */
+      .event-box {
+        background: rgba(20, 241, 149, 0.04);
+        border: 1px solid rgba(20, 241, 149, 0.2);
+        border-radius: 24px;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        text-align: center;
+        box-shadow: inset 0 0 30px rgba(20, 241, 149, 0.05);
+      }
+      .event-label {
+        font-size: 20px;
+        font-weight: 600;
+        color: #14f195;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+      }
+      .event-text {
+        font-size: 38px;
+        font-weight: 800;
+        color: #fff;
+      }
+
+      /* Yield / Token Boost display */
+      .yield-badge {
+        background: linear-gradient(135deg, rgba(153, 69, 255, 0.2) 0%, rgba(20, 241, 149, 0.2) 100%);
+        border: 1px solid rgba(20, 241, 149, 0.3);
+        border-radius: 20px;
+        padding: 25px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+        box-shadow: 0 10px 40px rgba(20, 241, 149, 0.1);
+      }
+      .yield-icon {
+        font-size: 36px;
+      }
+      .yield-value {
+        font-size: 38px;
+        font-weight: 900;
+        color: #14f195;
+        text-shadow: 0 0 20px rgba(20, 241, 149, 0.3);
+      }
+      .yield-text {
+        font-size: 24px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      /* Footer Branding */
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 30px;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 2px;
+      }
+      .branding {
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .branding span {
+        color: #14f195;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="video-automation"
+      data-start="0"
+      data-duration="5"
+      data-width="1080"
+      data-height="1080"
+    >
+      <!-- Ambient backgrounds -->
+      <div class="glow-bg glow-green"></div>
+      <div class="glow-bg glow-purple"></div>
+      <div class="grid-overlay"></div>
+
+      <div class="card-container" id="main-card" style="opacity: 0;">
+        <div class="card-border-glow"></div>
+
+        <!-- Header -->
+        <div class="card-header" id="c-header">
+          <div class="header-title">GoalChain Live Oracle</div>
+          <div class="live-indicator">
+            <div class="pulse-dot"></div>
+            <span>ON-CHAIN FEED</span>
+          </div>
+        </div>
+
+        <!-- Scoreboard -->
+        <div class="scoreboard">
+          <div class="team-box" id="team-a-box">
+            <span class="team-flag-wrapper"><span class="team-flag" id="flag-a">🇦🇷</span></span>
+            <span class="team-name" id="name-a">Argentina</span>
+          </div>
+
+          <div class="score-box" id="score-display">
+            <span id="score-val-a">2</span>
+            <span class="score-divider">:</span>
+            <span id="score-val-b">1</span>
+          </div>
+
+          <div class="team-box" id="team-b-box">
+            <span class="team-flag-wrapper"><span class="team-flag" id="flag-b">🇫🇷</span></span>
+            <span class="team-name" id="name-b">Francia</span>
+          </div>
+        </div>
+
+        <!-- Event Detail Box -->
+        <div class="event-box" id="c-event">
+          <div class="event-label">Evento Oracle</div>
+          <div class="event-text" id="event-desc">Messi anotó (82')</div>
+          <div class="yield-badge" id="c-yield">
+            <span class="yield-icon">💎</span>
+            <span class="yield-value" id="yield-val">+15.4%</span>
+            <span class="yield-text">Yield Boost</span>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="card-footer" id="c-footer">
+          <div class="branding">Goal<span>Chain</span>.fun</div>
+          <div>SOLANA MAINNET v2.0</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Flag helper lookup
+      const flagMap = {
+        'argentina': '🇦🇷',
+        'francia': '🇫🇷',
+        'espana': '🇪🇸',
+        'españa': '🇪🇸',
+        'brasil': '🇧🇷',
+        'alemania': '🇩🇪',
+        'inglaterra': '🇬🇧',
+        'italia': '🇮🇹',
+        'portugal': '🇵🇹',
+        'uruguay': '🇺🇾',
+        'mexico': '🇲🇽',
+        'médico': '🇲🇽',
+        'eeuu': '🇺🇸',
+        'usa': '🇺🇸',
+        'japon': '🇯🇵',
+        'japón': '🇯🇵'
+      };
+
+      // Load hyperframes variables
+      const {
+        teamA = "Argentina",
+        teamB = "Francia",
+        scoreA = "2",
+        scoreB = "1",
+        eventText = "Messi anotó (82')",
+        yieldChange = "+15.4%"
+      } = window.__hyperframes ? window.__hyperframes.getVariables() : {};
+
+      // Dynamic text assignments
+      document.getElementById('name-a').innerText = teamA;
+      document.getElementById('name-b').innerText = teamB;
+      document.getElementById('score-val-a').innerText = scoreA;
+      document.getElementById('score-val-b').innerText = scoreB;
+      document.getElementById('event-desc').innerText = eventText;
+      document.getElementById('yield-val').innerText = yieldChange;
+
+      // Assign flags dynamically if found in lookup
+      const normA = teamA.toLowerCase().trim();
+      const normB = teamB.toLowerCase().trim();
+      if (flagMap[normA]) document.getElementById('flag-a').innerText = flagMap[normA];
+      else document.getElementById('flag-a').innerText = '⚽';
+      
+      if (flagMap[normB]) document.getElementById('flag-b').innerText = flagMap[normB];
+      else document.getElementById('flag-b').innerText = '⚽';
+
+      // ----------------------------------------------------
+      // GSAP Animations (Deterministic rendering for Hyperframes)
+      // ----------------------------------------------------
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // 1. Reveal main card (using fromTo to prevent style/GSAP scale conflicts)
+      tl.fromTo("#main-card", 
+        { opacity: 0, scale: 0.9 },
+        { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.2)" }, 
+        0
+      );
+      
+      // 2. Animate header & footer sliding in
+      tl.from("#c-header", { y: -30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.3);
+      tl.from("#c-footer", { y: 30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.3);
+
+      // 3. Animate scoreboard (teams sliding in from sides)
+      tl.from("#team-a-box", { x: -80, opacity: 0, duration: 0.7, ease: "power3.out" }, 0.4);
+      tl.from("#team-b-box", { x: 80, opacity: 0, duration: 0.7, ease: "power3.out" }, 0.4);
+      tl.from("#score-display", { scale: 0.5, opacity: 0, duration: 0.8, ease: "back.out(1.5)" }, 0.5);
+
+      // 4. Animate Event Box and Yield Badge
+      tl.from("#c-event", { y: 50, opacity: 0, duration: 0.7, ease: "power3.out" }, 0.7);
+      tl.from("#c-yield", { scale: 0.8, opacity: 0, duration: 0.6, ease: "back.out(1.7)" }, 1.0);
+
+      // 5. Ambient neon glow pulsation (looping throughout the 5s composition)
+      tl.to(".card-border-glow", { opacity: 0.4, duration: 1.5, repeat: 2, yoyo: true, ease: "sine.inOut" }, 0.8);
+      tl.to("#yield-val", { textShadow: "0 0 35px rgba(20, 241, 149, 0.8)", duration: 1.0, repeat: 3, yoyo: true, ease: "sine.inOut" }, 1.0);
+
+      window.__timelines["video-automation"] = tl;
+    </script>
+  </body>
+</html>
