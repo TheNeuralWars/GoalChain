@@ -13,11 +13,11 @@ import { TradingTerminal } from './TradingTerminal';
 import { SquadGallery } from './SquadGallery';
 import { LiveEventFeed } from './LiveEventFeed';
 
-const DevModeBanner = () => (
+const ProductScopeBanner = () => (
     <div style={{
-        background: 'rgba(255, 179, 0, 0.05)',
-        border: '1px solid rgba(255, 179, 0, 0.3)',
-        boxShadow: '0 0 15px rgba(255, 179, 0, 0.1)',
+        background: 'rgba(20, 241, 149, 0.06)',
+        border: '1px solid rgba(20, 241, 149, 0.35)',
+        boxShadow: '0 0 15px rgba(20, 241, 149, 0.12)',
         backdropFilter: 'blur(8px)',
         borderRadius: '12px',
         padding: '1rem 1.5rem',
@@ -30,11 +30,11 @@ const DevModeBanner = () => (
     }}>
         <span style={{ fontSize: '1.5rem' }}>⚠️</span>
         <div>
-            <h4 style={{ margin: 0, color: '#ffb300', fontSize: '1rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                Devnet Alpha Mode Active
+            <h4 style={{ margin: 0, color: '#14f195', fontSize: '1rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                Official Transactional Frontend
             </h4>
             <p style={{ margin: '4px 0 0 0', fontSize: '0.85rem', color: '#e0e0e0', opacity: 0.9, lineHeight: '1.4' }}>
-                Todos los parámetros mostrados (pools, rendimientos, feeds y saldos de $GCH) son <strong>simulados y con fines de prueba</strong>. No se utiliza valor real en estas transacciones.
+                Esta app es el cliente transaccional oficial de GoalChain. La landing <code>docs</code> queda reservada para contenido informativo y dashboards read-only.
             </p>
         </div>
     </div>
@@ -58,7 +58,7 @@ function App() {
                             </div>
                         </header>
                         
-                        <DevModeBanner />
+                        <ProductScopeBanner />
                         
                         <main style={{ maxWidth: '1000px', margin: '0 auto' }}>
                             <FixturesPanel />
