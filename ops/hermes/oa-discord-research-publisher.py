@@ -15,9 +15,9 @@ import os
 import pathlib
 import re
 import sys
-import urllib.error
-import urllib.request
 from datetime import datetime, timezone
+
+import requests
 
 
 def getenv(name: str, default: str = "") -> str:
@@ -106,21 +106,16 @@ def post_discord(content: str) -> tuple[bool, str]:
     else:
         return False, "missing_discord_credentials"
 
-    req = urllib.request.Request(
-        url=url,
-        data=json.dumps(payload).encode("utf-8"),
-        headers=headers,
-        method="POST",
-    )
     try:
-        with urllib.request.urlopen(req, timeout=20) as resp:
-            code = getattr(resp, "status", 200)
-            if code in (200, 201, 204):
-                return True, f"ok:{code}"
-            return False, f"http_{code}"
-    except urllib.error.HTTPError as e:
-        detail = e.read().decode("utf-8", errors="ignore")[:300]
-        return False, f"http_{e.code}:{detail}"
+        response = requests.post(
+            url,
+            headers={**headers, "User-Agent": "GoalChainOA/1.0"},
+            json=payload,
+            timeout=20,
+        )
+        if response.status_code in (200, 201, 204):
+            return True, f"ok:{response.status_code}"
+        return False, f"http_{response.status_code}:{response.text[:300]}"
     except Exception as e:
         return False, f"error:{e}"
 
