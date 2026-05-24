@@ -1,11 +1,11 @@
-# Trigger deploy: 2026-05-22T20:23:00
+# Trigger deploy: 2026-05-24T06:00:00
 name: GoalChain CI/CD
 
 on:
   push:
     branches: [ main, master ]
     paths:
-      - 'docs/assets/images/nfts/**'
+      - 'docs/**'
       - 'players.json'
       - '.github/workflows/**'
   pull_request:
