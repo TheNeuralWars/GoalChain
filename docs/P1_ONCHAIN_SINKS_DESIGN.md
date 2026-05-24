@@ -188,10 +188,10 @@ flowchart TB
 
 ## 10. Migration / rollout
 
-1. Deploy new `GlobalConfig` fields via `update_config` (admin).
+1. Deploy new `GlobalConfig` fields via `update_config` (admin) — **fields exist in program**; validate on target cluster.
 2. Initialize jackpot ATA PDAs.
-3. Oracle upgrade: call `oracle_record_match` after each fixture resolution.
-4. Frontend: show fee split in i18n (replace “10% burned” unless burn_bps &gt; 0).
+3. Oracle upgrade: call `oracle_record_match` after each fixture resolution — **ix implemented; oracle call pending**.
+4. Frontend: show fee split in i18n (replace “10% burned” unless burn_bps > 0).
 
 ---
 
