@@ -44,8 +44,10 @@ Enforce frontend ownership split:
 - transactional flows only in `goalchain_webapp`
 - canonical play URL: `https://play.goalchain.fun` (alias `https://goalchain.fun/go`)
 
-### /to_do/3 (P1)
+### /to_do/3 (P1) — done
 Reconcile stale docs that contradict implemented backend/on-chain behavior.
+- Canonical map: `docs/IMPLEMENTATION_STATUS.md`
+- Updated: `P1-onchain-sinks.md`, `EXECUTION_BACKLOG_90D.md`, `LAUNCH_READINESS_CHECKLIST.md`, `FRONTEND_OWNERSHIP_POLICY.md`
 
 ### /to_do/4 (P1)
 Unify duplicate intake briefs for webapp devnet transactions into one canonical brief.
