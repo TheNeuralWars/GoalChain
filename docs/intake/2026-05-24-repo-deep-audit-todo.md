@@ -80,8 +80,8 @@ Replace mint placeholders with real environment-specific accounts and regenerate
 Add frontend integration/e2e checks for wallet -> bet -> claim flow.
 - Script: `goalchain_webapp/scripts/smoke-devnet.sh` (build + API ops/config smoke; wallet bet manual on devnet)
 
-### /to_do/11 (P2)
-Unify backlog sources (`docs/intake`, `docs/issues`, `EXECUTION_BACKLOG_90D`) into one consistent status model.
+### /to_do/11 (P2) — done
+Unify backlog sources → `docs/BACKLOG_STATUS_MODEL.md`
 
 ### /to_do/12 (P2)
 Stop noisy X publisher failures when credentials are missing (feature-flag/no-op mode).
@@ -89,8 +89,8 @@ Stop noisy X publisher failures when credentials are missing (feature-flag/no-op
 ### /to_do/13 (P2)
 Update task discovery scripts to include dispatch labels and in-progress states.
 
-### /to_do/14 (P2)
-Create a mandatory backend->frontend integration runbook template for all future features.
+### /to_do/14 (P2) — done
+Runbook template → `docs/intake/templates/feature-integration-runbook.md`
 
 ## Execution policy (autonomous sequence)
 
@@ -103,13 +103,12 @@ Create a mandatory backend->frontend integration runbook template for all future
 
 ## Blocker handling section (to fill during execution)
 
-- **B-001 (affects /to_do/2):** resolved 2026-05-24.
-  - **Decision:** canonical `play.goalchain.fun`; alias redirect `goalchain.fun/go`.
-  - **Implemented:** `docs/app.html` + `docs/go/index.html` redirects, CTAs → `/go/`, `docs/FRONTEND_ROUTING.md`, `goalchain_webapp/vercel.json`.
-  - **Remaining ops (user):** connect Vercel project to `goalchain_webapp/` and add DNS CNAME `play` → Vercel.
+- **B-001 (affects play deploy):** ops pending on user.
+  - **Guide:** `docs/PLAY_DEPLOY_GUIDE.md`
+  - **Summary:** Vercel import → Root Directory `goalchain_webapp` → domain `play.goalchain.fun` CNAME → env `VITE_API_BASE_URL` optional.
 
 - **B-002 (affects /to_do/9):** mint royalty wallets still placeholders in `mint_setup/`.
-  - **Why blocked:** requires confirmed Founder / BuilderFund / Community Treasury pubkeys per environment (devnet vs mainnet).
-  - **Required user intervention:** provide three Solana pubkeys (or approve devnet-only test wallets) to regenerate `mint_setup/config.json` + asset metadata batch.
-  - **Interim action:** documented; execution continues with remaining todos.
+  - **Guide:** `mint_setup/WALLET_SETUP.md`
+  - **Action:** provide 3 **public** addresses (Founder 1%, Builder Fund 10%, Community Treasury 89%) for devnet or mainnet. No private keys in repo.
+  - **Wallet work:** create 2 extra Phantom accounts on devnet OR use multisigs for prod; send pubkeys to agent/issue.
 
