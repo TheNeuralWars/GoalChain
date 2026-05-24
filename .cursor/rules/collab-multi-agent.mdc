@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Multi-Agent Collaboration
 
-Agents: **Cursor** (implementation/integration), **Grok** (xAI CLI/web), **Antigravity** (Google), **Hermes** (24/7 personal ops on server). Hub docs: `ai_context/AGENT_ORCHESTRATION.md`.
+Agents: **Antigravity** (Google - Master Agent & Integration Owner), **Cursor** (read-only draft assistant due to credit exhaustion), **Grok** (xAI CLI/web), **Hermes** (24/7 personal ops on server). Hub docs: `ai_context/AGENT_ORCHESTRATION.md`.
 
 ## Roles
 

@@ -13,7 +13,7 @@ Usar OpenCode como copiloto de sesiones para prototipos y alternativas en ramas 
 ## Context
 
 - **Manager (OpenClaw):** intake y priorizacion por WhatsApp.
-- **Cursor:** unico integrador a `main`.
+- **Antigravity:** Master Agent y único integrador a `main` (Cursor relegado a asistente de lectura/draft debido al agotamiento de créditos).
 - **OpenCode:** apoyo en sesiones, propuestas de implementacion y diffs revisables.
 - Reglas base: `ai_context/AGENT_ORCHESTRATION.md`, `ai_context/META_CHARTER.md`.
 

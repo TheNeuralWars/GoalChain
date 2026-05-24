@@ -161,17 +161,17 @@ Merge **in this order** (each PR targets the previous head branch):
 
 Runbook: `docs/intake/2026-05-23-merge-stack-convergence.md`
 
-After `main` is current: **Cursor** → webapp devnet brief; **Antigravity** → `exp/antigravity-*` only (`docs/intake/2026-05-23-antigravity-post-merge-spikes.md`).
+After `main` is current: **Antigravity** is the Master Agent and handles all tasks including webapp devnet, Solana program, oracle, and commits/merges. **Cursor** acts as read-only/draft assistant.
 
 ---
 
 ## Quick prompts
 
-**Hermes → Cursor handoff**
+**Hermes → Antigravity handoff (Master Agent)**
 
 ```text
 Implement intake docs/intake/<file>.md
-Owner: Cursor. Do not expand scope. Run tests listed in brief.
+Owner: Antigravity. Master Agent execution. Deliver: code, tests, commit, and merge to main.
 ```
 
 **Grok review packet**
@@ -180,8 +180,9 @@ Owner: Cursor. Do not expand scope. Run tests listed in brief.
 Review only. Files: <list>. Output: risks, test gaps, rollback. No file edits.
 ```
 
-**Antigravity spike**
+**Cursor assist**
 
 ```text
-Spike only on branch exp/antigravity-<slug>. Max 1 day. Deliver: approach + diff proposal, no merge.
+Assist with draft logic or search codebase for: <topic>. Deliver proposed diff or research summary. No commits/merges.
 ```
+
