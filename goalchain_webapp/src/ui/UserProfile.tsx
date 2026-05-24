@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { fetchUserChainStats } from '../lib/goalchainClient';
+import { useWallet } from '@solana/wallet-adapter-react';
 
 interface UserProfileProps {
   username?: string;
@@ -57,7 +56,6 @@ const ACTIVITY_COLORS: Record<string, string> = {
 };
 
 export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername }) => {
-  const { connection } = useConnection();
   const { publicKey } = useWallet();
   const urlUsername = window.location.pathname.split('/perfil/')[1];
   const username = propUsername || urlUsername || 'demo_user';
@@ -89,24 +87,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
   }
 
   useEffect(() => {
-    let mounted = true;
-    const load = async () => {
-      if (!publicKey) {
-        if (mounted) setChainStats(null);
-        return;
-      }
-      try {
-        const stats = await fetchUserChainStats(connection, publicKey);
-        if (mounted) setChainStats(stats);
-      } catch (e) {
-        if (mounted) setChainStats(null);
-      }
-    };
-    load();
-    return () => {
-      mounted = false;
-    };
-  }, [connection, publicKey?.toBase58()]);
+    setChainStats(null);
+  }, [publicKey?.toBase58()]);
 
   const { stats } = profile;
   const effectiveTotalBets = chainStats?.totalBets ?? stats.totalBets;
