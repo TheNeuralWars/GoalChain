@@ -10,6 +10,12 @@ import time
 
 import requests
 
+try:
+    from discord_i18n import t as discord_t
+except ImportError:  # pragma: no cover
+    def discord_t(key: str, **kwargs: str) -> str:
+        return key
+
 
 def getenv(name: str, default: str = "") -> str:
     return (os.getenv(name) or default).strip()
@@ -107,10 +113,10 @@ def main() -> int:
         return 0
 
     msg = (
-        "🚨 **OA Health Alert**\n"
-        f"- New research files are pending publish.\n"
-        f"- Last published timestamp lag: {lag // 60} min\n"
-        "- Action: check `oa-worker` + Discord credentials/webhook."
+        f"🚨 **{discord_t('health_stale_title')}**\n"
+        f"{discord_t('health_pending_line')}\n"
+        f"{discord_t('health_lag_line', minutes=str(lag // 60))}\n"
+        f"{discord_t('health_stale_body')}"
     )
     ok, reason = post_alert(msg)
     if not ok:
