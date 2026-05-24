@@ -67,6 +67,9 @@ def main() -> int:
     to_delete = commands[: max(0, total - keep)]
     print(f"Will delete {len(to_delete)} command(s).")
 
+    import time
+
+    pause = float(getenv("DISCORD_PRUNE_PAUSE_SEC") or "1.2")
     deleted = 0
     for cmd in to_delete:
         cmd_id = cmd.get("id")
@@ -77,12 +80,23 @@ def main() -> int:
             print(f"  dry-run delete: {name} ({cmd_id})")
             deleted += 1
             continue
-        st, body = request("DELETE", f"{API}/applications/{app_id}/commands/{cmd_id}", token)
-        if st in (200, 204):
-            print(f"  deleted: {name} ({cmd_id})")
-            deleted += 1
-        else:
+        for attempt in range(5):
+            st, body = request("DELETE", f"{API}/applications/{app_id}/commands/{cmd_id}", token)
+            if st in (200, 204):
+                print(f"  deleted: {name} ({cmd_id})")
+                deleted += 1
+                break
+            if st == 429:
+                retry = 2.0
+                try:
+                    retry = float(json.loads(body).get("retry_after", retry))
+                except Exception:
+                    pass
+                time.sleep(retry + 0.2)
+                continue
             print(f"  WARN delete {name}: HTTP {st} {body[:120]}", file=sys.stderr)
+            break
+        time.sleep(pause)
 
     print(f"Done. deleted={deleted} remaining≈{total - deleted}")
     return 0
