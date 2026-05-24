@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PLAY_SECTIONS } from '../config/playNav';
+import { OpsStatusPanel } from './OpsStatusPanel';
 
 const SECTION_BLURBS: Record<string, string> = {
   dashboard: 'Resumen y acceso rápido a todas las secciones.',
+  ops: 'Mint gate, vault crank y estado del protocolo.',
   fixtures: 'Partidos, mercados y apuestas on-chain.',
   trading: 'Terminal de trading y cotizaciones.',
   squad: 'Tu plantilla y colección de jugadores.',
+  vaults: 'Swarm vaults y yield del protocolo.',
+  commentator: 'Comentarista IA en vivo.',
   feed: 'Eventos en vivo del protocolo.',
 };
 
@@ -20,6 +24,9 @@ export function DashboardHub() {
         <p className="play-page-sub">
           Protocolo SportsFi v2.0 — World Cup 2026. Cliente transaccional en devnet.
         </p>
+      </div>
+      <div style={{ marginBottom: '1.5rem' }}>
+        <OpsStatusPanel />
       </div>
       <div className="play-hub-grid">
         {cards.map((section) => (
