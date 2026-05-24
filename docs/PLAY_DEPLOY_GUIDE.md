@@ -57,34 +57,28 @@ El webapp funciona en devnet **sin** API pública (wallet → RPC directo). El p
 | Sin `VITE_API_BASE_URL` | Ops panel muestra **API offline**; bets/fixtures on-chain siguen funcionando vía RPC |
 | Con URL pública de la API | Ops panel hace poll a `GET /api/ops/status` y muestra estado live |
 
-### Pasos
+### URL en producción (Hermes VPS)
 
-1. **Exponer `goalchain_api`** en un host público (VPS Hermes, Railway, Fly.io, etc.):
+| URL base (`VITE_API_BASE_URL`) | Estado |
+|--------------------------------|--------|
+| `https://crm.goalchain.fun/goalchain-api` | **Live ahora** (Caddy en `178.105.148.109`) |
+| `https://api.goalchain.fun` | Requiere registro DNS **A** → `178.105.148.109` |
+
+Redeploy script en el servidor:
 
 ```bash
-cd goalchain_api
-npm install && npm run build
-# En el servidor, con acceso al repo clonado (lee docs/data/*.csv|json):
-npm start   # default port 3001
+bash ~/hermes/workspace/GoalChain/ops/hermes/deploy-goalchain-api-vps.sh
 ```
 
-La API debe poder leer en el mismo filesystem:
-
-- `docs/data/tokenomics_scenarios.csv` (mint gate)
-- `docs/data/burn_tracker.json` (vault crank; actualizar con job `goalchain_oracle` vault_crank)
-- RPC devnet/mainnet para BuilderFund on-chain
-
-2. **Verificar** desde tu máquina:
-
 ```bash
-curl -s "https://TU-API/api/ops/status" | head -c 400
-curl -s "https://TU-API/api/economy/health" | head -c 200
+curl -s "https://crm.goalchain.fun/goalchain-api/api/ops/status" | head -c 400
+curl -s "https://crm.goalchain.fun/goalchain-api/api/economy/health" | head -c 200
 ```
 
 3. **Vercel** → proyecto `goalchain_webapp` → Settings → Environment Variables → Production:
 
 ```
-VITE_API_BASE_URL=https://TU-API
+VITE_API_BASE_URL=https://crm.goalchain.fun/goalchain-api
 ```
 
 Sin barra final. Mantené `VITE_RPC_URL=https://api.devnet.solana.com` para devnet.
