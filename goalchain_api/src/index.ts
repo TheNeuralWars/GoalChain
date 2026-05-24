@@ -1140,7 +1140,6 @@ app.post("/api/solana/jupiter/quote", async (req, res) => {
         priceImpactPct: data.priceImpactPct,
         routePlan: data.routePlan?.map((r: any) => r.swapInfo?.label).filter(Boolean),
       },
-      raw: data,
     });
   } catch (error: any) {
     res.status(500).json({
