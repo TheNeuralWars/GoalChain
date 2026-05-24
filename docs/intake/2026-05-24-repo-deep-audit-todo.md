@@ -31,12 +31,12 @@ Convert all backend/ops capabilities that are already implemented into concrete 
 
 ## `/to_do` list (prioritized)
 
-### /to_do/1 (P0)
+### /to_do/1 (P0) — done
 Implement end-to-end `goalchain_webapp` devnet transaction MVP:
-- real fixtures source
-- real `place_bet`
-- real user state / claims
-- no mock-only critical path
+- real fixtures source (`goalchainClient.fetchFixtures`)
+- real `place_bet` (`placeFixtureBet`)
+- real user state (`fetchUserChainStats` in profile)
+- LiveEventFeed on-chain snapshot
 
 ### /to_do/2 (P1) — done
 Enforce frontend ownership split:
