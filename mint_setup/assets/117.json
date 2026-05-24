@@ -1,16 +1,16 @@
 {
-    "name": "España Player 14",
+    "name": "Espa\u00f1a Player 14",
     "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - España Player 14 (España). Contrato profesional activo para el Mundial 2026.",
+    "description": "GoalChain Genesis Squad - Espa\u00f1a Player 14 (Espa\u00f1a). Contrato profesional activo para el Mundial 2026.",
     "seller_fee_basis_points": 100,
     "image": "117.png",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "España"
+            "trait_type": "Pa\u00eds",
+            "value": "Espa\u00f1a"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Posici\u00f3n",
             "value": "GK"
         },
         {
@@ -18,7 +18,7 @@
             "value": "Common"
         },
         {
-            "trait_type": "Número",
+            "trait_type": "N\u00famero",
             "value": "14"
         },
         {
@@ -48,15 +48,15 @@
         "category": "image",
         "creators": [
             {
-                "address": "Fndrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "address": "CLEAL1aTaL5g7WADbqq6UujFidP74htXqYGjRbbfPgNf",
                 "share": 1
             },
             {
-                "address": "BldrFundxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "address": "6mkGmgZyBFGVrpVNyp2Vybw1AFQ8Tge924bcEhDNtrjj",
                 "share": 10
             },
             {
-                "address": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "address": "TXerPuGgiFn3ttbvKGbPpqT6Srrn8R8KvCpeFcqA7Mo",
                 "share": 89
             }
         ]
