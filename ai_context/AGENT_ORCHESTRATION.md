@@ -88,6 +88,22 @@ Responsibilities:
 
 Bootstrap: `ops/hermes/bootstrap.sh` → `~/hermes/config.env` + clone. See `ai_context/HERMES_SETUP.md` and `ai_context/OPENCLAW_GOALCHAIN_OPERATOR.md`.
 
+### Hands-free dispatch (Discord / WhatsApp -> execution)
+
+Hermes OA now supports wait-mode automation:
+
+- Incoming webhook messages are normalized from generic JSON, Discord-like payloads, and WhatsApp/Twilio forms.
+- Free-text directives (example: "dale un spike a antigravity para integrar X") are auto-parsed into owner/priority/title/objective.
+- OA creates a GitHub issue with `agent:*` + `status:ready`.
+- If wait-mode command hooks are configured (`OA_AGENT_*_CMD`), OA auto-dispatches the task immediately without manual prompt entry in each app.
+- `cursor` / `antigravity` / `opencode` can be routed to a local Mac bridge queue (`dispatch:local-queued`) and executed by a launchd daemon.
+- `grok` can remain server-side or be routed local depending on command hook.
+
+Recommended security:
+
+- Set `OA_WEBHOOK_TOKEN` and send it as `Authorization: Bearer <token>` or `X-OA-Token`.
+- Optionally restrict channels with `OA_WEBHOOK_ALLOWED_SOURCES` (comma-separated).
+
 Store server-side config (not committed):
 
 - `GOALCHAIN_REPO_PATH`

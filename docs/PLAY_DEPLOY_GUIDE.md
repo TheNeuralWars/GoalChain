@@ -46,6 +46,53 @@ Guía paso a paso para publicar el webapp transaccional en Vercel.
 
 ---
 
+## Paso 1b — Ops panel live (opcional: `VITE_API_BASE_URL`)
+
+El webapp funciona en devnet **sin** API pública (wallet → RPC directo). El panel **Ops** (mint gate, vault crank, contributor epoch) necesita que `goalchain_api` esté accesible desde el navegador.
+
+### Qué hace la variable
+
+| Variable Vercel | Efecto |
+|-----------------|--------|
+| Sin `VITE_API_BASE_URL` | Ops panel muestra **API offline**; bets/fixtures on-chain siguen funcionando vía RPC |
+| Con URL pública de la API | Ops panel hace poll a `GET /api/ops/status` y muestra estado live |
+
+### URL en producción (Hermes VPS)
+
+| URL base (`VITE_API_BASE_URL`) | Estado |
+|--------------------------------|--------|
+| `https://crm.goalchain.fun/goalchain-api` | **Live ahora** (Caddy en `178.105.148.109`) |
+| `https://api.goalchain.fun` | Requiere registro DNS **A** → `178.105.148.109` |
+
+Redeploy script en el servidor:
+
+```bash
+bash ~/hermes/workspace/GoalChain/ops/hermes/deploy-goalchain-api-vps.sh
+```
+
+```bash
+curl -s "https://crm.goalchain.fun/goalchain-api/api/ops/status" | head -c 400
+curl -s "https://crm.goalchain.fun/goalchain-api/api/economy/health" | head -c 200
+```
+
+3. **Vercel** → proyecto `goalchain_webapp` → Settings → Environment Variables → Production:
+
+```
+VITE_API_BASE_URL=https://crm.goalchain.fun/goalchain-api
+```
+
+Sin barra final. Mantené `VITE_RPC_URL=https://api.devnet.solana.com` para devnet.
+
+4. **Redeploy** (Deployments → Redeploy) — Vite embebe las vars en build time.
+
+5. Abrí `https://play.goalchain.fun` → el panel Ops debe dejar de decir offline.
+
+### CORS
+
+`goalchain_api` usa `cors()` abierto. Si restringís en producción, permití origen `https://play.goalchain.fun`.
+
+---
+
 ## Paso 2 — Dominio custom `play.goalchain.fun`
 
 1. En Vercel → tu proyecto → **Settings** → **Domains**.
