@@ -3,7 +3,9 @@
 This document is the absolute **Source of Truth** for the GoalChain ecosystem architecture, visual standards, and economic mechanics.
 
 ## 🖼️ Master Assets & Data
-- **Production Frontend:** [`/docs`](./docs) (Live at goalchain.fun)
+- **Marketing / read-only site:** [`/docs`](./docs) (Live at goalchain.fun)
+- **Transactional webapp:** [`/goalchain_webapp`](../goalchain_webapp) (Live at play.goalchain.fun; alias goalchain.fun/go)
+- **Routing spec:** [`/docs/FRONTEND_ROUTING.md`](/docs/FRONTEND_ROUTING.md)
 - **Primary Database:** [`/ai_context/players.json`](./ai_context/players.json) (528 Real Players)
 - **Visual Engine:** [`/docs/assets/js/live_engine.js`](./docs/assets/js/live_engine.js) (Holograms, Burn Counter, Tickers)
 - **Economic Specs:** [`/ai_context/TOKENOMICS.md`](./ai_context/TOKENOMICS.md) (Infinity Engine 5-2-3 Split)
