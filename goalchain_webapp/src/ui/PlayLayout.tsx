@@ -1,5 +1,6 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { PlayNav } from './PlayNav';
 import { MARKETING_BASE } from '../config/playNav';
@@ -24,6 +25,7 @@ export function PlayLayout() {
       <div className="play-body">
         <Outlet />
       </div>
+      <Analytics />
     </div>
   );
 }
