@@ -46,5 +46,5 @@ Estado auditado de parámetros económicos y rutas de captura detectadas.
 ## Pendientes para cierre total de Fase 1
 
 1. Validar ownership real de wallets en entornos activos (devnet/mainnet).
-2. Implementar `BuilderFund` on-chain explícito (PDA dedicada, no solo treasury).
-3. Enlazar gastos de APIs/modelos/marketing al sub-ledger del Builder Fund (10%).
+2. `BuilderFund` on-chain ya existe; pendiente: validación operativa en entorno objetivo y runbook de uso.
+3. Enlazar gastos de APIs/modelos/marketing al sub-ledger operativo del Builder Fund (10%) con reporte periódico.
