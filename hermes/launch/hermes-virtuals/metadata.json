@@ -1,0 +1,35 @@
+{
+  "name": "Hermes - GoalChain Operator",
+  "symbol": "HERMES",
+  "description": "Agente 24/7 de intake, priorización y orquestación para el ecosistema GoalChain. Recibe mensajes desde WhatsApp/Telegram, genera briefs estructurados y coordina el flujo de trabajo entre agentes.",
+  "image": "https://goalchain.fun/assets/agents/hermes.png",
+  "external_url": "https://goalchain.fun/agents/hermes",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Operator"
+    },
+    {
+      "trait_type": "Status",
+      "value": "Active"
+    },
+    {
+      "trait_type": "Runtime",
+      "value": "OpenClaw + Grok"
+    },
+    {
+      "trait_type": "Revenue Model",
+      "value": "Intake fees + Task automation"
+    }
+  ],
+  "properties": {
+    "revenue_split": {
+      "holder": 40,
+      "vault": 30,
+      "treasury": 20,
+      "maintenance": 10
+    },
+    "launch_date": "2026-06",
+    "version": "1.0.0"
+  }
+}

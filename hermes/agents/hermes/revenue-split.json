@@ -1,0 +1,8 @@
+{
+  "agent": "hermes",
+  "holder": 40,
+  "vault": 30,
+  "treasury": 20,
+  "maintenance": 10,
+  "notes": "Revenue comes from intake fees and task automation commissions"
+}

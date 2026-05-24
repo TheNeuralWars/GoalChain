@@ -62,6 +62,33 @@ command_for_owner() {
   esac
 }
 
+run_with_timeout() {
+  local seconds="$1"
+  shift
+  if command -v timeout >/dev/null 2>&1; then
+    timeout "${seconds}" "$@"
+    return $?
+  fi
+  if command -v gtimeout >/dev/null 2>&1; then
+    gtimeout "${seconds}" "$@"
+    return $?
+  fi
+  # Fallback for macOS without coreutils timeout.
+  python3 - "$seconds" "$@" <<'PY'
+import os, signal, subprocess, sys
+secs = int(sys.argv[1])
+cmd = sys.argv[2:]
+p = subprocess.Popen(cmd)
+try:
+    p.wait(timeout=secs)
+except subprocess.TimeoutExpired:
+    p.kill()
+    p.wait()
+    sys.exit(124)
+sys.exit(p.returncode)
+PY
+}
+
 claim_issue() {
   local issue_number="$1"
   gh issue edit --repo "${GITHUB_REPO}" "${issue_number}" \
@@ -123,7 +150,7 @@ print(json.dumps(items[0]) if items else "")' "${raw}")"
     export OA_TASK_TITLE="${issue_title}"
     export OA_TASK_OBJECTIVE="${issue_objective}"
     export OA_TASK_REPO="${LOCAL_REPO_PATH}"
-    timeout "${TIMEOUT_SECONDS}" bash -lc "${command}"
+    run_with_timeout "${TIMEOUT_SECONDS}" bash -lc "${command}"
   ) >> "${run_log}" 2>&1
   local rc=$?
 
