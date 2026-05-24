@@ -11,19 +11,281 @@ const web3_js_1 = require("@solana/web3.js");
 const anchor_1 = require("@coral-xyz/anchor");
 const sdk_1 = require("@goalchain/sdk");
 const fs_1 = __importDefault(require("fs"));
-dotenv_1.default.config({ path: path_1.default.resolve(__dirname, '../../.env') });
+dotenv_1.default.config({ path: path_1.default.resolve(__dirname, "../../.env") });
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3001;
 const rpcUrl = process.env.RPC_URL || "https://api.devnet.solana.com";
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
-const connection = new web3_js_1.Connection(rpcUrl, 'confirmed');
+const connection = new web3_js_1.Connection(rpcUrl, "confirmed");
 // Provider placeholder (readonly)
-const provider = new anchor_1.AnchorProvider(connection, {}, { commitment: 'confirmed' });
+const provider = new anchor_1.AnchorProvider(connection, {}, {
+    commitment: "confirmed",
+});
 const program = new anchor_1.Program(sdk_1.idl, provider);
+function parseCsv(content) {
+    const lines = content
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter(Boolean);
+    if (lines.length < 2)
+        return [];
+    const parseLine = (line) => {
+        const out = [];
+        let current = "";
+        let inQuotes = false;
+        for (let i = 0; i < line.length; i += 1) {
+            const ch = line[i];
+            if (ch === '"') {
+                const next = line[i + 1];
+                if (inQuotes && next === '"') {
+                    current += '"';
+                    i += 1;
+                }
+                else {
+                    inQuotes = !inQuotes;
+                }
+            }
+            else if (ch === "," && !inQuotes) {
+                out.push(current);
+                current = "";
+            }
+            else {
+                current += ch;
+            }
+        }
+        out.push(current);
+        return out;
+    };
+    const headers = parseLine(lines[0]).map((h) => h.trim());
+    return lines.slice(1).map((line) => {
+        const values = parseLine(line);
+        const row = {};
+        headers.forEach((header, idx) => {
+            row[header] = (values[idx] ?? "").trim();
+        });
+        return row;
+    });
+}
+function num(value, fallback = 0) {
+    if (typeof value === "number" && Number.isFinite(value))
+        return value;
+    if (typeof value === "string" && value.trim().length > 0) {
+        const parsed = Number(value);
+        if (Number.isFinite(parsed))
+            return parsed;
+    }
+    return fallback;
+}
+function envNum(name, fallback) {
+    const value = process.env[name];
+    if (!value)
+        return fallback;
+    const parsed = Number(value);
+    return Number.isFinite(parsed) ? parsed : fallback;
+}
+const healthAlertState = {
+    lastSentAt: 0,
+    lastStatus: "healthy",
+};
+async function buildEconomyMetricsPayload() {
+    const canonicalPath = path_1.default.resolve(__dirname, "../../docs/ECONOMIC_CANONICAL_CONFIG.json");
+    const burnTrackerPath = path_1.default.resolve(__dirname, "../../docs/data/burn_tracker.json");
+    const scenariosPath = path_1.default.resolve(__dirname, "../../docs/data/tokenomics_scenarios.csv");
+    const canonicalConfig = fs_1.default.existsSync(canonicalPath)
+        ? JSON.parse(fs_1.default.readFileSync(canonicalPath, "utf-8"))
+        : null;
+    const burnTracker = fs_1.default.existsSync(burnTrackerPath)
+        ? JSON.parse(fs_1.default.readFileSync(burnTrackerPath, "utf-8"))
+        : null;
+    const scenarioRows = fs_1.default.existsSync(scenariosPath)
+        ? parseCsv(fs_1.default.readFileSync(scenariosPath, "utf-8"))
+        : [];
+    const baselineRow = scenarioRows.find((r) => r.scenario_id === "RP_balanced") ??
+        scenarioRows.find((r) => r.scenario_id === "S0") ??
+        scenarioRows[0] ??
+        null;
+    const emissions24h = num(baselineRow?.emission_gross_gch);
+    const projectedBurn24h = num(baselineRow?.potion_burn_gch) +
+        num(baselineRow?.fee_burn_gch) +
+        num(baselineRow?.vault_buyback_gch);
+    const burn7dFromTracker = num(burnTracker?.estimated_gch_burned);
+    const burns7d = burn7dFromTracker > 0 ? burn7dFromTracker : projectedBurn24h > 0 ? projectedBurn24h * 7 : 0;
+    const burns24h = burns7d / 7;
+    const emissions7d = emissions24h * 7;
+    const netEmission24h = emissions24h - burns24h;
+    const [configPda] = web3_js_1.PublicKey.findProgramAddressSync([Buffer.from("config")], sdk_1.PROGRAM_ID);
+    let onchainConfig = null;
+    try {
+        const configAccount = await program.account.globalConfig.fetch(configPda);
+        onchainConfig = {
+            feeBps: num(configAccount.feeBps),
+            feeBurnBps: num(configAccount.feeBurnBps),
+            feeJackpotBps: num(configAccount.feeJackpotBps),
+            maxStartersPerManager: num(configAccount.maxStartersPerManager),
+            treasuryTokenAccount: configAccount.treasuryTokenAccount?.toBase58?.(),
+            jackpotTokenAccount: configAccount.jackpotTokenAccount?.toBase58?.(),
+        };
+    }
+    catch (_err) {
+        onchainConfig = null;
+    }
+    const sinkChecks = [
+        canonicalConfig !== null,
+        burnTracker !== null,
+        baselineRow !== null,
+        onchainConfig?.feeBurnBps > 0,
+        onchainConfig?.feeJackpotBps > 0,
+        onchainConfig?.maxStartersPerManager >= 11,
+        Boolean(onchainConfig?.treasuryTokenAccount),
+        Boolean(onchainConfig?.jackpotTokenAccount),
+    ];
+    const sinksImplemented = sinkChecks.filter(Boolean).length;
+    const onchainSinkCoverage = Math.round((sinksImplemented / sinkChecks.length) * 10000) / 100;
+    const driftReasons = [];
+    const maxFeeBps = num(canonicalConfig?.core_parameters?.max_fee_bps);
+    if (onchainConfig && maxFeeBps > 0 && onchainConfig.feeBps > maxFeeBps) {
+        driftReasons.push("onchain fee_bps exceeds canonical max_fee_bps");
+    }
+    if (onchainConfig && onchainConfig.maxStartersPerManager !== 11) {
+        driftReasons.push("onchain max_starters_per_manager differs from expected 11");
+    }
+    if (onchainConfig &&
+        onchainConfig.feeBurnBps + onchainConfig.feeJackpotBps > 10000) {
+        driftReasons.push("fee split bps sum exceeds 10000");
+    }
+    const emitBurnRatio7d = emissions7d > 0 ? burns7d / emissions7d : 0;
+    const vaultBuybackCoverage = emissions24h > 0 ? num(baselineRow?.vault_buyback_gch) / emissions24h : 0;
+    return {
+        timestamp_iso: new Date().toISOString(),
+        kpis: {
+            emit_burn_ratio_7d: emitBurnRatio7d,
+            onchain_sink_coverage: onchainSinkCoverage,
+            config_drift: driftReasons.length,
+            vault_buyback_coverage: vaultBuybackCoverage,
+        },
+        flow_24h: {
+            emissions_gch: emissions24h,
+            burns_gch: burns24h,
+            net_emission_gch: netEmission24h,
+        },
+        flow_7d: {
+            emissions_gch: emissions7d,
+            burns_gch: burns7d,
+        },
+        breakdown: {
+            potion_burn_gch: num(baselineRow?.potion_burn_gch),
+            fee_burn_gch: num(baselineRow?.fee_burn_gch),
+            vault_buyback_gch: num(baselineRow?.vault_buyback_gch),
+            treasury_fees_gch: num(baselineRow?.fee_treasury_gch),
+        },
+        config_drift_reasons: driftReasons,
+        source: {
+            canonical_config: canonicalPath,
+            burn_tracker: burnTrackerPath,
+            scenarios_csv: scenariosPath,
+            baseline_scenario_id: baselineRow?.scenario_id ?? null,
+        },
+    };
+}
+async function buildEconomyHealthPayload() {
+    const metrics = await buildEconomyMetricsPayload();
+    const thresholds = {
+        emit_burn_ratio_min: envNum("KPI_EMIT_BURN_RATIO_MIN", 0.85),
+        emit_burn_ratio_max: envNum("KPI_EMIT_BURN_RATIO_MAX", 1.05),
+        onchain_sink_coverage_min: envNum("KPI_ONCHAIN_SINK_COVERAGE_MIN", 90),
+        config_drift_max: envNum("KPI_CONFIG_DRIFT_MAX", 0),
+        vault_buyback_coverage_min: envNum("KPI_VAULT_BUYBACK_COVERAGE_MIN", 0.25),
+    };
+    const checks = [
+        {
+            key: "emit_burn_ratio_7d",
+            value: metrics.kpis.emit_burn_ratio_7d,
+            min: thresholds.emit_burn_ratio_min,
+            max: thresholds.emit_burn_ratio_max,
+            pass: metrics.kpis.emit_burn_ratio_7d >= thresholds.emit_burn_ratio_min &&
+                metrics.kpis.emit_burn_ratio_7d <= thresholds.emit_burn_ratio_max,
+        },
+        {
+            key: "onchain_sink_coverage",
+            value: metrics.kpis.onchain_sink_coverage,
+            min: thresholds.onchain_sink_coverage_min,
+            pass: metrics.kpis.onchain_sink_coverage >= thresholds.onchain_sink_coverage_min,
+        },
+        {
+            key: "config_drift",
+            value: metrics.kpis.config_drift,
+            max: thresholds.config_drift_max,
+            pass: metrics.kpis.config_drift <= thresholds.config_drift_max,
+        },
+        {
+            key: "vault_buyback_coverage",
+            value: metrics.kpis.vault_buyback_coverage,
+            min: thresholds.vault_buyback_coverage_min,
+            pass: metrics.kpis.vault_buyback_coverage >=
+                thresholds.vault_buyback_coverage_min,
+        },
+    ];
+    const failingChecks = checks.filter((c) => !c.pass);
+    const status = failingChecks.length === 0 ? "healthy" : "warning";
+    return {
+        timestamp_iso: metrics.timestamp_iso,
+        status,
+        failing_checks: failingChecks.map((c) => c.key),
+        thresholds,
+        checks,
+        kpis: metrics.kpis,
+        config_drift_reasons: metrics.config_drift_reasons,
+    };
+}
+async function sendEconomyHealthAlert(health) {
+    const webhookUrl = process.env.ECON_HEALTH_ALERT_WEBHOOK_URL;
+    if (!webhookUrl) {
+        return { sent: false, reason: "webhook_not_configured" };
+    }
+    const cooldownMinutes = envNum("ECON_HEALTH_ALERT_COOLDOWN_MINUTES", 60);
+    const cooldownMs = cooldownMinutes * 60 * 1000;
+    const now = Date.now();
+    if (now - healthAlertState.lastSentAt < cooldownMs &&
+        healthAlertState.lastStatus === health.status) {
+        return { sent: false, reason: "cooldown_active" };
+    }
+    const checkSummary = health.checks
+        .map((check) => {
+        const limits = [
+            check.min !== undefined ? `min=${check.min}` : "",
+            check.max !== undefined ? `max=${check.max}` : "",
+        ]
+            .filter(Boolean)
+            .join(" ");
+        return `${check.pass ? "PASS" : "FAIL"} ${check.key}=${check.value}${limits ? ` (${limits})` : ""}`;
+    })
+        .join("\n");
+    const body = {
+        text: `[GoalChain] Economy health is ${health.status.toUpperCase()}\n` +
+            `Failing checks: ${health.failing_checks.join(", ") || "none"}\n` +
+            `Timestamp: ${health.timestamp_iso}`,
+        status: health.status,
+        failing_checks: health.failing_checks,
+        checks: health.checks,
+        config_drift_reasons: health.config_drift_reasons,
+        check_summary: checkSummary,
+    };
+    const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+    });
+    if (!response.ok) {
+        throw new Error(`alert webhook failed with status ${response.status}`);
+    }
+    healthAlertState.lastSentAt = now;
+    healthAlertState.lastStatus = health.status;
+    return { sent: true, reason: "sent" };
+}
 const cacheSession = {
     cachedContentId: null,
-    expireTime: null
+    expireTime: null,
 };
 /**
  * Gets the active Gemini Context Cache ID or uploads a new one if expired/missing.
@@ -32,7 +294,9 @@ const cacheSession = {
 async function getOrUpdateContextCache(apiKey) {
     const now = new Date();
     // Cache Hit
-    if (cacheSession.cachedContentId && cacheSession.expireTime && cacheSession.expireTime > now) {
+    if (cacheSession.cachedContentId &&
+        cacheSession.expireTime &&
+        cacheSession.expireTime > now) {
         console.log(`ℹ️ [AI Orchestrator] Context Cache HIT: Usando cache existente -> ${cacheSession.cachedContentId}`);
         return cacheSession.cachedContentId;
     }
@@ -40,9 +304,9 @@ async function getOrUpdateContextCache(apiKey) {
     // Load player database
     let playersJson = "";
     try {
-        const playersPath = path_1.default.resolve(__dirname, '../../docs/assets/data/players.json');
+        const playersPath = path_1.default.resolve(__dirname, "../../docs/assets/data/players.json");
         if (fs_1.default.existsSync(playersPath)) {
-            playersJson = fs_1.default.readFileSync(playersPath, 'utf-8');
+            playersJson = fs_1.default.readFileSync(playersPath, "utf-8");
             console.log(`📊 [AI Orchestrator] Base de datos de jugadores cargada correctamente (${Math.round(playersJson.length / 1024)} KB)`);
         }
         else {
@@ -91,12 +355,10 @@ ${playersJson}
             contents: [
                 {
                     role: "user",
-                    parts: [
-                        { text: masterContext }
-                    ]
-                }
-            ]
-        })
+                    parts: [{ text: masterContext }],
+                },
+            ],
+        }),
     });
     if (!response.ok) {
         const errText = await response.text();
@@ -106,7 +368,9 @@ ${playersJson}
     if (data.name) {
         cacheSession.cachedContentId = data.name;
         // Set expiration time from API response or fallback to 24 hours
-        cacheSession.expireTime = data.expireTime ? new Date(data.expireTime) : new Date(Date.now() + 24 * 60 * 60 * 1000);
+        cacheSession.expireTime = data.expireTime
+            ? new Date(data.expireTime)
+            : new Date(Date.now() + 24 * 60 * 60 * 1000);
         console.log(`✅ [AI Orchestrator] Nuevo Context Cache registrado: ${data.name} (Expira: ${cacheSession.expireTime.toISOString()})`);
         return data.name;
     }
@@ -116,16 +380,121 @@ ${playersJson}
 }
 // --- ROUTES ---
 // Healthcheck
-app.get('/health', (req, res) => {
-    res.json({ status: 'OK', message: 'GoalChain API is running', programId: sdk_1.PROGRAM_ID.toBase58() });
+app.get("/health", (req, res) => {
+    res.json({
+        status: "OK",
+        message: "GoalChain API is running",
+        programId: sdk_1.PROGRAM_ID.toBase58(),
+    });
+});
+// Economy config endpoint (canonical docs config + live on-chain protocol config if available)
+app.get("/api/economy/config", async (req, res) => {
+    try {
+        const canonicalPath = path_1.default.resolve(__dirname, "../../docs/ECONOMIC_CANONICAL_CONFIG.json");
+        let canonicalConfig = null;
+        if (fs_1.default.existsSync(canonicalPath)) {
+            canonicalConfig = JSON.parse(fs_1.default.readFileSync(canonicalPath, "utf-8"));
+        }
+        const [configPda] = web3_js_1.PublicKey.findProgramAddressSync([Buffer.from("config")], sdk_1.PROGRAM_ID);
+        let onchainConfig = null;
+        try {
+            const configAccount = await program.account.globalConfig.fetch(configPda);
+            onchainConfig = {
+                pda: configPda.toBase58(),
+                admin: configAccount.admin.toBase58(),
+                oracleAuthority: configAccount.oracleAuthority.toBase58(),
+                treasuryTokenAccount: configAccount.treasuryTokenAccount.toBase58(),
+                jackpotTokenAccount: configAccount.jackpotTokenAccount?.toBase58?.() ?? null,
+                feeBps: configAccount.feeBps,
+                feeBurnBps: configAccount.feeBurnBps ?? null,
+                feeJackpotBps: configAccount.feeJackpotBps ?? null,
+                maxStartersPerManager: configAccount.maxStartersPerManager ?? null,
+                cutoffBufferSeconds: Number(configAccount.cutoffBufferSeconds ?? 0),
+                maxSolPerUser: Number(configAccount.maxSolPerUser ?? 0),
+                presaleActive: Boolean(configAccount.presaleActive),
+            };
+        }
+        catch (onchainErr) {
+            // Keep endpoint resilient when local/devnet account is missing.
+            onchainConfig = null;
+        }
+        res.json({
+            source: {
+                canonicalPath: canonicalPath,
+                rpcUrl,
+            },
+            canonicalConfig,
+            onchainConfig,
+        });
+    }
+    catch (err) {
+        console.error("Economy config endpoint error:", err);
+        res
+            .status(500)
+            .json({ error: `Failed to load economy config: ${err.message}` });
+    }
+});
+// Economy sustainability metrics endpoint used by docs dashboards and ops checks.
+app.get("/api/economy/metrics", async (req, res) => {
+    try {
+        res.json(await buildEconomyMetricsPayload());
+    }
+    catch (err) {
+        console.error("Economy metrics endpoint error:", err);
+        res
+            .status(500)
+            .json({ error: `Failed to load economy metrics: ${err.message}` });
+    }
+});
+app.get("/api/economy/health", async (req, res) => {
+    try {
+        res.json(await buildEconomyHealthPayload());
+    }
+    catch (err) {
+        console.error("Economy health endpoint error:", err);
+        res.status(500).json({
+            status: "critical",
+            error: `Failed to compute economy health: ${err.message}`,
+        });
+    }
+});
+// Triggerable alert endpoint for cron/monitors.
+app.post("/api/economy/health/alert", async (req, res) => {
+    try {
+        const health = await buildEconomyHealthPayload();
+        if (health.status === "healthy") {
+            return res.json({
+                status: health.status,
+                sent: false,
+                reason: "healthy_no_alert",
+                failing_checks: health.failing_checks,
+            });
+        }
+        const result = await sendEconomyHealthAlert(health);
+        return res.json({
+            status: health.status,
+            sent: result.sent,
+            reason: result.reason,
+            failing_checks: health.failing_checks,
+            cooldown_minutes: envNum("ECON_HEALTH_ALERT_COOLDOWN_MINUTES", 60),
+        });
+    }
+    catch (err) {
+        console.error("Economy health alert endpoint error:", err);
+        return res.status(500).json({
+            status: "critical",
+            sent: false,
+            error: `Failed to send economy health alert: ${err.message}`,
+        });
+    }
 });
 // Whitelist: Save wallet and email
-app.post('/api/whitelist', (req, res) => {
+app.post("/api/whitelist", (req, res) => {
     const { wallet, email } = req.body;
     if (!wallet) {
-        return res.status(400).json({ error: 'Wallet address is required' });
+        return res.status(400).json({ error: "Wallet address is required" });
     }
-    const dataPath = path_1.default.join(__dirname, '../data/whitelist.json');
+    const dataPath = path_1.default.join(__dirname, "../data/whitelist.json");
     const dataDir = path_1.default.dirname(dataPath);
     try {
         // Asegurar que la carpeta data existe
@@ -134,7 +503,7 @@ app.post('/api/whitelist', (req, res) => {
         }
         let whitelist = [];
         if (fs_1.default.existsSync(dataPath)) {
-            const fileContent = fs_1.default.readFileSync(dataPath, 'utf-8');
+            const fileContent = fs_1.default.readFileSync(dataPath, "utf-8");
             whitelist = JSON.parse(fileContent);
         }
         // Evitar duplicados
@@ -142,62 +511,88 @@ app.post('/api/whitelist', (req, res) => {
         if (!exists) {
             whitelist.push({
                 wallet,
-                email: email || '',
-                timestamp: new Date().toISOString()
+                email: email || "",
+                timestamp: new Date().toISOString(),
             });
             fs_1.default.writeFileSync(dataPath, JSON.stringify(whitelist, null, 2));
             console.log(`✅ Whitelist: Nueva wallet registrada -> ${wallet}`);
-            res.json({ success: true, message: 'Registrado con éxito' });
+            res.json({ success: true, message: "Registrado con éxito" });
         }
         else {
-            res.json({ success: true, message: 'Wallet ya estaba registrada' });
+            res.json({ success: true, message: "Wallet ya estaba registrada" });
         }
     }
     catch (err) {
-        console.error('Whitelist Error:', err);
-        res.status(500).json({ error: 'Failed to save to whitelist' });
+        console.error("Whitelist Error:", err);
+        res.status(500).json({ error: "Failed to save to whitelist" });
     }
 });
 // Chat Proxy Route for Eliza AI Coach & Advisor (securely hides developer's GEMINI_API_KEY with strict guardrails)
-app.post('/api/coach/chat', async (req, res) => {
+app.post("/api/coach/chat", async (req, res) => {
     const { userText, context } = req.body;
     if (!userText) {
-        return res.status(400).json({ error: 'userText is required' });
+        return res.status(400).json({ error: "userText is required" });
     }
     // Guardrail 1: Limitar la longitud de la consulta del usuario (máximo 200 caracteres)
     if (userText.length > 200) {
         return res.json({
-            reply: '⚠️ La consulta es demasiado larga. Para optimizar costos, por favor escribe una pregunta breve de menos de 200 caracteres.'
+            reply: "⚠️ La consulta es demasiado larga. Para optimizar costos, por favor escribe una pregunta breve de menos de 200 caracteres.",
         });
     }
     // Guardrail 2: Filtro proactivo de palabras clave sospechosas (evita programar, tareas escolares, etc.)
     const forbiddenKeywords = [
-        'python', 'javascript', 'html', 'css', 'java', 'c++', 'programar', 'código', 'code', 'script',
-        'algoritmo', 'ecuación', 'matemática', 'álgebra', 'física', 'tarea', 'crear app', 'desarrollar',
-        'hackear', 'grok', 'openai', 'gpt', 'essay', 'escribir un', 'resumir', 'historia de', 'traducir'
+        "python",
+        "javascript",
+        "html",
+        "css",
+        "java",
+        "c++",
+        "programar",
+        "código",
+        "code",
+        "script",
+        "algoritmo",
+        "ecuación",
+        "matemática",
+        "álgebra",
+        "física",
+        "tarea",
+        "crear app",
+        "desarrollar",
+        "hackear",
+        "grok",
+        "openai",
+        "gpt",
+        "essay",
+        "escribir un",
+        "resumir",
+        "historia de",
+        "traducir",
     ];
     const queryLower = userText.toLowerCase();
-    const isSuspicious = forbiddenKeywords.some(keyword => queryLower.includes(keyword));
+    const isSuspicious = forbiddenKeywords.some((keyword) => queryLower.includes(keyword));
     if (isSuspicious) {
         return res.json({
-            reply: '⚠️ Como Coach Táctica de GoalChain, solo puedo asistirte con consultas relacionadas con el juego, fútbol y la optimización de tu plantilla. No puedo resolver tareas académicas ni programar aplicaciones.'
+            reply: "⚠️ Como Coach Táctica de GoalChain, solo puedo asistirte con consultas relacionadas con el juego, fútbol y la optimización de tu plantilla. No puedo resolver tareas académicas ni programar aplicaciones.",
         });
     }
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
         console.warn("⚠️ GEMINI_API_KEY is not configured in .env server file.");
-        return res.status(500).json({ error: 'Gemini API Key is not configured on the server.' });
+        return res
+            .status(500)
+            .json({ error: "Gemini API Key is not configured on the server." });
     }
     // Fallback System Prompt in case Cache creation fails
     const ctx = context || {};
     const serverSystemPrompt = `Eres Eliza, la Coach Táctica de Inteligencia Artificial de GoalChain. Analizas la alineación y das consejos para maximizar yield de $GCH y estadísticas de juego.
 Datos del manager:
-- Jugador actual: ${ctx.pName || 'Lionel Satoshi'} (${ctx.pStats || 'ATK:95 DEF:48 SPD:92 HYP:99'})
+- Jugador actual: ${ctx.pName || "Lionel Satoshi"} (${ctx.pStats || "ATK:95 DEF:48 SPD:92 HYP:99"})
 - Stamina: ${ctx.stamina ?? 100}%
-- Liga activa: ${ctx.activeLeague || 'world_cup'}
-- Camiseta: ${ctx.jersey || 'Ninguna'}
+- Liga activa: ${ctx.activeLeague || "world_cup"}
+- Camiseta: ${ctx.jersey || "Ninguna"}
 - Sinergia País: ${ctx.sameCountry ?? 1}/11, Sinergia Club: ${ctx.sameClub ?? 1}/11
-- Tema Estadio: ${ctx.stadium || 'desert'}
+- Tema Estadio: ${ctx.stadium || "desert"}
 - Balance: ${ctx.balance ?? 1240} $GCH
 
 REGLAS CRÍTICAS DE SEGURIDAD Y COMPORTAMIENTO:
@@ -214,12 +609,12 @@ REGLAS CRÍTICAS DE SEGURIDAD Y COMPORTAMIENTO:
     }
     // Step 2: Build the prompt query
     const queryText = `Datos actuales del manager:
-- Jugador actual: ${ctx.pName || 'Lionel Satoshi'} (${ctx.pStats || 'ATK:95 DEF:48 SPD:92 HYP:99'})
+- Jugador actual: ${ctx.pName || "Lionel Satoshi"} (${ctx.pStats || "ATK:95 DEF:48 SPD:92 HYP:99"})
 - Stamina: ${ctx.stamina ?? 100}%
-- Liga activa: ${ctx.activeLeague || 'world_cup'}
-- Camiseta: ${ctx.jersey || 'Ninguna'}
+- Liga activa: ${ctx.activeLeague || "world_cup"}
+- Camiseta: ${ctx.jersey || "Ninguna"}
 - Sinergia País: ${ctx.sameCountry ?? 1}/11, Sinergia Club: ${ctx.sameClub ?? 1}/11
-- Tema Estadio: ${ctx.stadium || 'desert'}
+- Tema Estadio: ${ctx.stadium || "desert"}
 - Balance: ${ctx.balance ?? 1240} $GCH
 
 Pregunta del manager: "${userText}"`;
@@ -229,14 +624,18 @@ Pregunta del manager: "${userText}"`;
                 {
                     role: "user",
                     parts: [
-                        { text: cachedContentId ? queryText : serverSystemPrompt + `\nPregunta del manager: "${userText}"` }
-                    ]
-                }
+                        {
+                            text: cachedContentId
+                                ? queryText
+                                : serverSystemPrompt + `\nPregunta del manager: "${userText}"`,
+                        },
+                    ],
+                },
             ],
             generationConfig: {
                 temperature: 0.6,
-                maxOutputTokens: 800
-            }
+                maxOutputTokens: 800,
+            },
         };
         // If cache hit, link cachedContent handle
         if (cachedContentId) {
@@ -251,7 +650,7 @@ Pregunta del manager: "${userText}"`;
         const fetchResponse = await fetch(modelEndpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(requestBody)
+            body: JSON.stringify(requestBody),
         });
         if (!fetchResponse.ok) {
             const errorData = await fetchResponse.text();
@@ -266,12 +665,62 @@ Pregunta del manager: "${userText}"`;
         }
         else {
             console.error("Gemini API structure error:", JSON.stringify(data, null, 2));
-            res.status(500).json({ error: 'Invalid response structure from Gemini API: ' + JSON.stringify(data) });
+            res
+                .status(500)
+                .json({
+                error: "Invalid response structure from Gemini API: " +
+                    JSON.stringify(data),
+            });
         }
     }
     catch (error) {
         console.error("Error connecting to Gemini API:", error);
-        res.status(500).json({ error: 'Failed to communicate with Gemini API: ' + error.message });
+        res
+            .status(500)
+            .json({
+            error: "Failed to communicate with Gemini API: " + error.message,
+        });
+    }
+});
+app.post("/api/solana/jupiter/quote", async (req, res) => {
+    try {
+        const { inputMint, outputMint, amount, slippageBps = 50 } = req.body;
+        if (!inputMint || !outputMint || !amount) {
+            return res.status(400).json({
+                error: "Missing required fields: inputMint, outputMint, amount",
+            });
+        }
+        const params = new URLSearchParams({
+            inputMint,
+            outputMint,
+            amount: amount.toString(),
+            slippageBps: slippageBps.toString(),
+        });
+        const url = `https://quote-api.jup.ag/v6/quote?${params.toString()}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        if (!response.ok) {
+            return res.status(400).json({
+                error: data.error || "Failed to fetch Jupiter quote",
+            });
+        }
+        res.json({
+            success: true,
+            quote: {
+                inputMint: data.inputMint,
+                outputMint: data.outputMint,
+                inAmount: data.inAmount,
+                outAmount: data.outAmount,
+                priceImpactPct: data.priceImpactPct,
+                routePlan: data.routePlan?.map((r) => r.swapInfo?.label).filter(Boolean),
+            },
+            raw: data,
+        });
+    }
+    catch (error) {
+        res.status(500).json({
+            error: "Failed to get Jupiter quote: " + error.message,
+        });
     }
 });
 app.listen(port, () => {

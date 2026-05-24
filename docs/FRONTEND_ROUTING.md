@@ -30,7 +30,13 @@ Vercel project con **Root Directory** = `goalchain_webapp`.
 
 Config: `goalchain_webapp/vercel.json`.
 
-**Detailed step-by-step:** [`docs/PLAY_DEPLOY_GUIDE.md`](PLAY_DEPLOY_GUIDE.md)
+**Navegación unificada (Play):** el menú de Play replica las secciones de `goalchain.fun`:
+- **Jugar** → rutas in-app: `/`, `/fixtures`, `/trading`, `/squad`, `/feed`
+- **Explorar** → enlaces a anclas del sitio marketing (`VITE_MARKETING_URL`, default `https://goalchain.fun`)
+- **Recursos** → pitch, mega-guías, colabs, legal (marketing)
+- **Cuenta** → `/crear-usuario` o `/perfil/:username`
+
+Config de menú: `goalchain_webapp/src/config/playNav.ts`.
 
 ## Shared constant
 
