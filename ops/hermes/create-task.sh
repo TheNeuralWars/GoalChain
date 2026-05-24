@@ -7,7 +7,7 @@ HERMES_HOME="${HERMES_HOME:-$HOME/hermes}"
 source "$HERMES_HOME/config.env"
 
 if [[ $# -lt 4 ]]; then
-  echo "Usage: $0 <owner:cursor|antigravity|opencode|grok> <priority:P0|P1|P2> <title> <objective>"
+  echo "Usage: $0 <owner:cursor|antigravity|opencode|code|grok> <priority:P0|P1|P2> <title> <objective>"
   echo "Example:"
   echo "  $0 cursor P1 \"Webapp devnet bets\" \"Wire real place_bet tx in webapp\""
   exit 1
@@ -19,9 +19,10 @@ TITLE="$3"
 OBJECTIVE="$4"
 
 case "$OWNER" in
+  code) OWNER="opencode" ;;
   cursor|antigravity|opencode|grok) ;;
   *)
-    echo "ERROR: owner must be one of: cursor|antigravity|opencode|grok"
+    echo "ERROR: owner must be one of: cursor|antigravity|opencode|code|grok"
     exit 1
     ;;
 esac
@@ -71,7 +72,7 @@ Requested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned 
   - antigravity: \`exp/antigravity-*\`
   - opencode: \`exp/opencode-*\`
   - grok: \`exp/grok-*\`
-- No direct merge to \`main\` without Cursor integration review
+- Draft PR for Antigravity/Nico review — no direct merge to \`main\` unless \`cambio urgente\`
 EOF
 )"
 
