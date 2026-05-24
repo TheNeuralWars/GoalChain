@@ -14,6 +14,7 @@ import { SquadGallery } from './SquadGallery';
 import { LiveEventFeed } from './LiveEventFeed';
 import { AICommentator } from './AICommentator';
 import { SwarmVaults } from './SwarmVaults';
+import { OpsStatusPanel } from './OpsStatusPanel';
 
 const ProductScopeBanner = () => (
     <div style={{
@@ -63,6 +64,10 @@ function App() {
                         </header>
                         
                         <ProductScopeBanner />
+
+                        <div style={{ maxWidth: '1200px', margin: '0 auto 1rem auto', padding: '0 1rem' }}>
+                            <OpsStatusPanel />
+                        </div>
                         
                         <main className="dashboard-grid">
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
