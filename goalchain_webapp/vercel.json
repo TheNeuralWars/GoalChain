@@ -4,5 +4,8 @@
   "installCommand": "npm install && npm --prefix ../goalchain-sdk install && npm --prefix ../goalchain-sdk run build",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/classic-dashboard.html", "destination": "/classic-dashboard.html" },
+    { "source": "/((?!classic-dashboard\\.html).*)", "destination": "/index.html" }
+  ]
 }
