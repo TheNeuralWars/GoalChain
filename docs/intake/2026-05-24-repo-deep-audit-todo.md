@@ -54,11 +54,12 @@ Unify duplicate intake briefs for webapp devnet transactions into one canonical 
 - Canonical: `docs/intake/2026-05-22-webapp-devnet-transactions.md`
 - Duplicate cancelled: `2026-05-23-quiero-que-el-webapp-muestre-transacciones-en-devnet.md`
 
-### /to_do/5 (P1)
+### /to_do/5 (P1) — done
 Expose backend ops state in frontend:
 - mint gate status
 - vault crank status
 - contributor epoch hook status
+- API: `GET /api/ops/status` · UI: `OpsStatusPanel` in webapp
 
 ### /to_do/6 (P1)
 Consolidate Hermes/OpenClaw installers into an idempotent server install path.
