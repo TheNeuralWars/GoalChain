@@ -13,7 +13,7 @@ Explorar mejoras UI/cliente y skills en ramas `exp/antigravity-*` **después** d
 ## Context
 
 - **Manager (OpenClaw):** intake y priorización por WhatsApp — no implementa merges.
-- **Cursor:** único integrador a `main`.
+- **Antigravity:** Master Agent y único integrador a `main` (Cursor relegado a asistente de lectura/draft debido al agotamiento de créditos).
 - Handoff ops server: `docs/intake/2026-05-23-antigravity-hermes-openclaw-handoff.md` (marcar `done` cuando Nico confirme).
 
 ## Allowed files
