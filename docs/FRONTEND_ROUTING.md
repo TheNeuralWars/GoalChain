@@ -30,6 +30,8 @@ Vercel project con **Root Directory** = `goalchain_webapp`.
 
 Config: `goalchain_webapp/vercel.json`.
 
+**Detailed step-by-step:** [`docs/PLAY_DEPLOY_GUIDE.md`](PLAY_DEPLOY_GUIDE.md)
+
 ## Shared constant
 
 Browser-side play URL for docs redirects: `docs/assets/js/play_url.js` (`GOALCHAIN_PLAY_URL`).
