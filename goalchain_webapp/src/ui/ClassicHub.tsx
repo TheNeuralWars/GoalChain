@@ -9,8 +9,8 @@ export function ClassicHub() {
   return (
     <div className="play-classic-wrap">
       <div className="play-classic-toolbar">
-        <Link to="/dashboard" className="play-classic-back">
-          Dashboard React (devnet) →
+        <Link to="/" className="play-classic-back">
+          ← Dashboard principal
         </Link>
         <span className="play-classic-label">Classic Hub — diseño completo pre-migración</span>
       </div>

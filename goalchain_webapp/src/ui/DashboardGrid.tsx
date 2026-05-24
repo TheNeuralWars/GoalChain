@@ -18,7 +18,7 @@ const ProductScopeBanner = () => (
       <p>
         Cliente transaccional en devnet. Para el hub completo (AI Agent, Minigames, 3D Gallery,
         Manager Office…){' '}
-        <Link to="/">Classic Hub (inicio) →</Link>
+        <Link to="/hub">Classic Hub (9 pestañas) →</Link>
       </p>
     </div>
   </div>

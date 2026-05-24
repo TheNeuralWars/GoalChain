@@ -57,15 +57,15 @@ function App() {
           <WalletModalProvider>
             <Routes>
               <Route element={<PlayLayout />}>
-                <Route path="/" element={<ClassicHub />} />
                 <Route
-                  path="/dashboard"
+                  path="/"
                   element={
-                    <PlayPage title="Dashboard React (devnet)" align="left">
+                    <PlayPage title="GoalChain Alpha Dashboard" align="left">
                       <DashboardGrid />
                     </PlayPage>
                   }
                 />
+                <Route path="/hub" element={<ClassicHub />} />
                 <Route
                   path="/ops"
                   element={
