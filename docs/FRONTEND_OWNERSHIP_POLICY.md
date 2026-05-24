@@ -15,6 +15,7 @@ Fecha: **2026-05-22**
 
 - Los flujos de preventa/simulación transaccional en `docs/index.html` quedan explícitamente en modo read-only.
 - Cualquier CTA económica en `docs` debe redirigir a `goalchain_webapp` o documentación operativa.
+- URL transaccional canónica: **`https://play.goalchain.fun`** (alias **`https://goalchain.fun/go`**).
 - Los datos KPI de economía se consumen desde `GET /api/economy/metrics` cuando el backend está disponible.
 
 ## Regla de aceptación para releases
