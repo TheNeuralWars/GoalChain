@@ -28,3 +28,8 @@ if command -v gh >/dev/null 2>&1 && [[ -n "${GITHUB_REPO:-}" ]]; then
   echo "==> Open PRs:"
   gh pr list --repo "${GITHUB_REPO}" --state open --limit 5
 fi
+
+if [[ -f "${REPO}/scripts/anytype_sync.py" ]]; then
+  echo "==> Running Anytype synchronization..."
+  python3 "${REPO}/scripts/anytype_sync.py" || echo "WARN: Anytype sync failed"
+fi

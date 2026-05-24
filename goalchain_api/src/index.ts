@@ -1092,6 +1092,63 @@ Pregunta del manager: "${userText}"`;
   }
 });
 
+// ============================================
+// Jupiter Quote Endpoint (Solana DEX)
+// ============================================
+
+interface JupiterQuoteRequest {
+  inputMint: string;
+  outputMint: string;
+  amount: number;
+  slippageBps?: number;
+}
+
+app.post("/api/solana/jupiter/quote", async (req, res) => {
+  try {
+    const { inputMint, outputMint, amount, slippageBps = 50 }: JupiterQuoteRequest = req.body;
+
+    if (!inputMint || !outputMint || !amount) {
+      return res.status(400).json({
+        error: "Missing required fields: inputMint, outputMint, amount",
+      });
+    }
+
+    const params = new URLSearchParams({
+      inputMint,
+      outputMint,
+      amount: amount.toString(),
+      slippageBps: slippageBps.toString(),
+    });
+
+    const url = `https://quote-api.jup.ag/v6/quote?${params.toString()}`;
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (!response.ok) {
+      return res.status(400).json({
+        error: data.error || "Failed to fetch Jupiter quote",
+      });
+    }
+
+    res.json({
+      success: true,
+      quote: {
+        inputMint: data.inputMint,
+        outputMint: data.outputMint,
+        inAmount: data.inAmount,
+        outAmount: data.outAmount,
+        priceImpactPct: data.priceImpactPct,
+        routePlan: data.routePlan?.map((r: any) => r.swapInfo?.label).filter(Boolean),
+      },
+      raw: data,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      error: "Failed to get Jupiter quote: " + error.message,
+    });
+  }
+});
+
 app.listen(port, () => {
   console.log(`GoalChain API listening at http://localhost:${port}`);
 });
