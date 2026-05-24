@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoalChain Live Scoreboard Simulator</title>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .scoreboard {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 450px;
+        }
+        .header {
+            font-size: 0.9rem;
+            color: #14f195;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .teams-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .team {
+            width: 150px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .score {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+            padding: 0 20px;
+        }
+        .status-badge {
+            display: inline-block;
+            background: rgba(20, 241, 149, 0.15);
+            border: 1px solid rgba(20, 241, 149, 0.3);
+            color: #14f195;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .status-badge.ht {
+            background: rgba(234, 179, 8, 0.15);
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            color: #eab308;
+        }
+        .status-badge.ft {
+            background: rgba(255, 75, 75, 0.15);
+            border: 1px solid rgba(255, 75, 75, 0.3);
+            color: #ff4b4b;
+        }
+        .events-log {
+            margin-top: 25px;
+            text-align: left;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        .event-item {
+            margin-bottom: 6px;
+        }
+        .event-minute {
+            color: #14f195;
+            font-weight: 700;
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scoreboard" id="match-scoreboard">
+        <div class="header">GoalChain Oracle Feed (Mockup)</div>
+        
+        <div class="teams-container">
+            <div class="team" id="home-team">Real Madrid</div>
+            <div class="score">
+                <span id="home-score">3</span> - <span id="away-score">1</span>
+            </div>
+            <div class="team" id="away-team">Barcelona</div>
+        </div>
+        
+        <!-- Status classes: ht = Half Time, ft = Full Time, live = Live Match -->
+        <div class="status-badge ft" id="match-status">Full Time</div>
+        
+        <div class="events-log">
+            <strong>Eventos del Partido:</strong>
+            <div class="event-item"><span class="event-minute">12'</span> Gol de Vinícius Júnior (Real Madrid)</div>
+            <div class="event-item"><span class="event-minute">32'</span> Gol de Robert Lewandowski (Barcelona)</div>
+            <div class="event-item"><span class="event-minute">41'</span> Gol de Jude Bellingham (Real Madrid)</div>
+            <div class="event-item"><span class="event-minute">78'</span> Gol de Vinícius Júnior (Real Madrid)</div>
+        </div>
+    </div>
+</body>
+</html>

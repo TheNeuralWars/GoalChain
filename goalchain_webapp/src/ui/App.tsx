@@ -16,6 +16,9 @@ import { SquadGallery } from './SquadGallery';
 import { LiveEventFeed } from './LiveEventFeed';
 import { CreateUser } from './CreateUser';
 import { UserProfile } from './UserProfile';
+import { AICommentator } from './AICommentator';
+import { SwarmVaults } from './SwarmVaults';
+import { OpsStatusPanel } from './OpsStatusPanel';
 
 function PlayPage({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -47,6 +50,14 @@ function App() {
               <Route element={<PlayLayout />}>
                 <Route path="/" element={<DashboardHub />} />
                 <Route
+                  path="/ops"
+                  element={
+                    <PlayPage title="Ops & Protocol Status">
+                      <OpsStatusPanel />
+                    </PlayPage>
+                  }
+                />
+                <Route
                   path="/fixtures"
                   element={
                     <PlayPage title="Fixtures & Mercados">
@@ -67,6 +78,22 @@ function App() {
                   element={
                     <PlayPage title="Squad Gallery">
                       <SquadGallery />
+                    </PlayPage>
+                  }
+                />
+                <Route
+                  path="/vaults"
+                  element={
+                    <PlayPage title="Swarm Vaults">
+                      <SwarmVaults />
+                    </PlayPage>
+                  }
+                />
+                <Route
+                  path="/commentator"
+                  element={
+                    <PlayPage title="AI Commentator">
+                      <AICommentator />
                     </PlayPage>
                   }
                 />

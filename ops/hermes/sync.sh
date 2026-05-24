@@ -33,4 +33,3 @@ if [[ -f "${REPO}/scripts/anytype_sync.py" ]]; then
   echo "==> Running Anytype synchronization..."
   python3 "${REPO}/scripts/anytype_sync.py" || echo "WARN: Anytype sync failed"
 fi
-

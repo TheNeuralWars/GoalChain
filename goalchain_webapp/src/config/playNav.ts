@@ -22,9 +22,12 @@ export type PlayNavGroup = {
 /** Transactional sections — each maps to a Play route. */
 export const PLAY_SECTIONS: PlayNavItem[] = [
   { id: 'dashboard', label: 'Dashboard', to: '/' },
+  { id: 'ops', label: 'Ops', to: '/ops' },
   { id: 'fixtures', label: 'Fixtures', to: '/fixtures' },
   { id: 'trading', label: 'Trading', to: '/trading' },
   { id: 'squad', label: 'Squad', to: '/squad' },
+  { id: 'vaults', label: 'Vaults', to: '/vaults' },
+  { id: 'commentator', label: 'AI Commentator', to: '/commentator' },
   { id: 'feed', label: 'Live Feed', to: '/feed' },
 ];
 

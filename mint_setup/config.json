@@ -6,15 +6,15 @@
   "isSequential": false,
   "creators": [
     {
-      "address": "Fndrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "address": "CLEAL1aTaL5g7WADbqq6UujFidP74htXqYGjRbbfPgNf",
       "share": 1
     },
     {
-      "address": "BldrFundxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "address": "6mkGmgZyBFGVrpVNyp2Vybw1AFQ8Tge924bcEhDNtrjj",
       "share": 10
     },
     {
-      "address": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "address": "TXerPuGgiFn3ttbvKGbPpqT6Srrn8R8KvCpeFcqA7Mo",
       "share": 89
     }
   ],
@@ -30,7 +30,7 @@
     "default": {
       "solPayment": {
         "value": 0.1,
-        "destination": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        "destination": "TXerPuGgiFn3ttbvKGbPpqT6Srrn8R8KvCpeFcqA7Mo"
       },
       "startDate": "2026-06-01T12:00:00Z",
       "mintLimit": {

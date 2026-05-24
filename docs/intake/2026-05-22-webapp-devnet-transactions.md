@@ -1,11 +1,22 @@
 # Conectar goalchain_webapp a flujos reales en Devnet (MVP)
 
-- **Status:** ready
+- **Status:** done
 - **Priority:** P1
 - **Owner (implementer):** cursor
 - **Reviewers:** grok
 - **Created:** 2026-05-22
-- **PR:** (pendiente — branch sugerida: `feat/webapp-devnet-mvp`)
+- **PR:** pending merge (`feat/webapp-devnet-mvp`)
+- **Play URL:** `https://play.goalchain.fun` (alias `goalchain.fun/go`) — ver `docs/FRONTEND_ROUTING.md`
+
+## Canonical brief
+
+Este es el **único brief activo** para transacciones devnet en el webapp.
+
+Briefs duplicados (no usar):
+
+| File | Status |
+|------|--------|
+| `2026-05-23-quiero-que-el-webapp-muestre-transacciones-en-devnet.md` | **cancelled** — redirige aquí |
 
 ## Objective
 

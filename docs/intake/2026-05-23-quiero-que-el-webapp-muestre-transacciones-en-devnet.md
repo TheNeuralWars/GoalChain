@@ -14,7 +14,7 @@ Este brief queda cancelado por duplicado.
 Fuente canónica activa:
 - `docs/intake/2026-05-22-webapp-devnet-transactions.md`
 
-Todo el avance de implementación y criterios debe registrarse en el brief canónico.
+Todo el avance de implementación y criterios debe registrarse **solo** en el brief canónico.
 
 ## Context
 Mensaje recibido vía WhatsApp / OpenClaw. Completar contexto si es necesario.
