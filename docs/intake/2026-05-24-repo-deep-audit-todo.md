@@ -49,8 +49,10 @@ Reconcile stale docs that contradict implemented backend/on-chain behavior.
 - Canonical map: `docs/IMPLEMENTATION_STATUS.md`
 - Updated: `P1-onchain-sinks.md`, `EXECUTION_BACKLOG_90D.md`, `LAUNCH_READINESS_CHECKLIST.md`, `FRONTEND_OWNERSHIP_POLICY.md`
 
-### /to_do/4 (P1)
+### /to_do/4 (P1) — done
 Unify duplicate intake briefs for webapp devnet transactions into one canonical brief.
+- Canonical: `docs/intake/2026-05-22-webapp-devnet-transactions.md`
+- Duplicate cancelled: `2026-05-23-quiero-que-el-webapp-muestre-transacciones-en-devnet.md`
 
 ### /to_do/5 (P1)
 Expose backend ops state in frontend:
