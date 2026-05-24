@@ -38,11 +38,14 @@ export interface OpsStatus {
   };
 }
 
-const DEFAULT_API = 'http://localhost:3001';
+const DEFAULT_API_DEV = 'http://localhost:3001';
+/** Public API behind Caddy on Hermes VPS (see ops/hermes/deploy-goalchain-api-vps.sh). */
+const DEFAULT_API_PROD = 'https://crm.goalchain.fun/goalchain-api';
 
 export function apiBaseUrl(): string {
   const raw = import.meta.env.VITE_API_BASE_URL?.trim();
-  return raw && raw.length > 0 ? raw.replace(/\/$/, '') : DEFAULT_API;
+  if (raw) return raw.replace(/\/$/, '');
+  return import.meta.env.PROD ? DEFAULT_API_PROD : DEFAULT_API_DEV;
 }
 
 export async function fetchOpsStatus(signal?: AbortSignal): Promise<OpsStatus> {
