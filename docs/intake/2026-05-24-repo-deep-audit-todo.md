@@ -73,11 +73,12 @@ Harden dispatch lifecycle:
 ### /to_do/8 (P1)
 Align config variables with actual consumption; remove or implement dead keys.
 
-### /to_do/9 (P1)
+### /to_do/9 (P1) — blocked
 Replace mint placeholders with real environment-specific accounts and regenerate artifacts.
 
-### /to_do/10 (P1)
+### /to_do/10 (P1) — done
 Add frontend integration/e2e checks for wallet -> bet -> claim flow.
+- Script: `goalchain_webapp/scripts/smoke-devnet.sh` (build + API ops/config smoke; wallet bet manual on devnet)
 
 ### /to_do/11 (P2)
 Unify backlog sources (`docs/intake`, `docs/issues`, `EXECUTION_BACKLOG_90D`) into one consistent status model.
@@ -106,4 +107,9 @@ Create a mandatory backend->frontend integration runbook template for all future
   - **Decision:** canonical `play.goalchain.fun`; alias redirect `goalchain.fun/go`.
   - **Implemented:** `docs/app.html` + `docs/go/index.html` redirects, CTAs → `/go/`, `docs/FRONTEND_ROUTING.md`, `goalchain_webapp/vercel.json`.
   - **Remaining ops (user):** connect Vercel project to `goalchain_webapp/` and add DNS CNAME `play` → Vercel.
+
+- **B-002 (affects /to_do/9):** mint royalty wallets still placeholders in `mint_setup/`.
+  - **Why blocked:** requires confirmed Founder / BuilderFund / Community Treasury pubkeys per environment (devnet vs mainnet).
+  - **Required user intervention:** provide three Solana pubkeys (or approve devnet-only test wallets) to regenerate `mint_setup/config.json` + asset metadata batch.
+  - **Interim action:** documented; execution continues with remaining todos.
 
