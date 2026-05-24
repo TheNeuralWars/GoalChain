@@ -50,7 +50,9 @@ export const FixturesPanel: React.FC = () => {
                 side,
                 amountUi,
             });
-            alert(`Apuesta enviada ✅\nTx: ${signature}`);
+            const explorer = `https://explorer.solana.com/tx/${signature}?cluster=devnet`;
+            window.open(explorer, '_blank', 'noopener,noreferrer');
+            alert(`Apuesta enviada ✅\nExplorer: ${explorer}`);
             const refreshed = await fetchFixtures(connection);
             setFixtures(refreshed);
             setError(null);
