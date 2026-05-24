@@ -1,5 +1,6 @@
 {
-  "environment": "devnet",
+  "environment": "devnet,mainnet",
+  "note": "Same creator pubkeys on both clusters; mint deployment is per-cluster.",
   "updated": "2026-05-24",
   "founder": "CLEAL1aTaL5g7WADbqq6UujFidP74htXqYGjRbbfPgNf",
   "builder_fund": "6mkGmgZyBFGVrpVNyp2Vybw1AFQ8Tge924bcEhDNtrjj",

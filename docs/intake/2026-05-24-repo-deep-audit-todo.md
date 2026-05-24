@@ -61,20 +61,24 @@ Expose backend ops state in frontend:
 - contributor epoch hook status
 - API: `GET /api/ops/status` · UI: `OpsStatusPanel` in webapp
 
-### /to_do/6 (P1)
+### /to_do/6 (P1) — done
 Consolidate Hermes/OpenClaw installers into an idempotent server install path.
+- Entry: `ops/hermes/install-hermes-server.sh` (bootstrap + script sync + hands-free + optional OpenClaw)
 
-### /to_do/7 (P0)
+### /to_do/7 (P0) — done
 Harden dispatch lifecycle:
-- queue reliability
-- `dispatch:local-queued/running/done/blocked` transitions
-- retry safety
+- Idempotent queue in `oa-dispatch-local.sh` (skip duplicate queued/running/done)
+- Labels: `dispatch:local-queued/running/done/blocked`
+- Retry + macOS timeout fallback in `local-agent-bridge.sh`
 
-### /to_do/8 (P1)
+### /to_do/8 (P1) — done
 Align config variables with actual consumption; remove or implement dead keys.
+- Trimmed `ops/hermes/config.env.example` to [used] vs [planned]
+- Flags: `OA_RESEARCH_PUBLISHER_ENABLED`, `OA_X_PUBLISH_ENABLED` (default OFF)
 
 ### /to_do/9 (P1) — done
 Replace mint placeholders → `mint_setup/wallets.json` + `apply_wallets.py` (1248 assets, 2026-05-24)
+- Same pubkeys for devnet + mainnet (`wallets.json` field `environment`)
 
 ### /to_do/10 (P1) — done
 Add frontend integration/e2e checks for wallet -> bet -> claim flow.
@@ -83,11 +87,14 @@ Add frontend integration/e2e checks for wallet -> bet -> claim flow.
 ### /to_do/11 (P2) — done
 Unify backlog sources → `docs/BACKLOG_STATUS_MODEL.md`
 
-### /to_do/12 (P2)
+### /to_do/12 (P2) — done
 Stop noisy X publisher failures when credentials are missing (feature-flag/no-op mode).
+- Worker skips publisher unless `OA_RESEARCH_PUBLISHER_ENABLED=true`
+- `post_x` no-op when `OA_X_PUBLISH_ENABLED=false`
 
-### /to_do/13 (P2)
+### /to_do/13 (P2) — done
 Update task discovery scripts to include dispatch labels and in-progress states.
+- `scripts/check-tasks.sh`: ready + in_progress per agent + dispatch queue
 
 ### /to_do/14 (P2) — done
 Runbook template → `docs/intake/templates/feature-integration-runbook.md`
@@ -106,6 +113,8 @@ Runbook template → `docs/intake/templates/feature-integration-runbook.md`
 - **B-001 (play deploy):** resolved 2026-05-24 — `play.goalchain.fun` valid on Vercel.
 
 - **B-002 (mint wallets):** resolved 2026-05-24.
-  - **Wallets:** `mint_setup/wallets.json`
+  - **Wallets:** `mint_setup/wallets.json` (devnet + mainnet, same pubkeys)
   - **Regenerate:** `python3 mint_setup/apply_wallets.py`
+
+- **B-003 (ops panel live):** optional — deploy public `goalchain_api` + set `VITE_API_BASE_URL` on Vercel. See `docs/PLAY_DEPLOY_GUIDE.md` Paso 1b.
 
