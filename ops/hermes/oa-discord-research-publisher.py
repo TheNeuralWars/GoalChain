@@ -35,6 +35,10 @@ def getenv(name: str, default: str = "") -> str:
     return (os.getenv(name) or default).strip()
 
 
+def truthy(val: str) -> bool:
+    return val.strip().lower() in ("1", "true", "yes")
+
+
 def build_sources() -> list[str]:
     home = pathlib.Path.home()
     repo = pathlib.Path(getenv("GOALCHAIN_REPO_PATH", str(home / "hermes/workspace/GoalChain")))
@@ -255,6 +259,8 @@ def post_discord(content: str) -> tuple[bool, str]:
 
 
 def post_x(content: str) -> tuple[bool, str]:
+    if not truthy(getenv("OA_X_PUBLISH_ENABLED", "false")):
+        return True, "skipped_x_disabled"
     ck = getenv("X_API_KEY")
     cs = getenv("X_API_SECRET")
     at = getenv("X_ACCESS_TOKEN")
@@ -306,6 +312,8 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> int:
+    if not truthy(getenv("OA_RESEARCH_PUBLISHER_ENABLED", "false")):
+        return 0
     print(discord_t("publisher_disabled"))
     return 0
 

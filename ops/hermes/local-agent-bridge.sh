@@ -23,11 +23,21 @@ GITHUB_REPO="${GITHUB_REPO:-TheNeuralWars/GoalChain}"
 POLL_SECONDS="${LOCAL_BRIDGE_POLL_SECONDS:-20}"
 TIMEOUT_SECONDS="${LOCAL_BRIDGE_TIMEOUT_SECONDS:-5400}"
 LOCAL_REPO_PATH="${LOCAL_REPO_PATH:-$HOME/GoalChain}"
+MAX_RETRIES="${LOCAL_BRIDGE_MAX_RETRIES:-1}"
 
 if ! command -v gh >/dev/null 2>&1; then
   echo "ERROR: gh CLI not found in PATH"
   exit 1
 fi
+
+ensure_dispatch_labels() {
+  gh label create "dispatch:local-queued" --repo "${GITHUB_REPO}" --color "1d76db" --description "Queued for local bridge runner" >/dev/null 2>&1 || true
+  gh label create "dispatch:local-running" --repo "${GITHUB_REPO}" --color "fbca04" --description "Running on local bridge" >/dev/null 2>&1 || true
+  gh label create "dispatch:local-done" --repo "${GITHUB_REPO}" --color "0e8a16" --description "Local bridge completed" >/dev/null 2>&1 || true
+  gh label create "dispatch:local-blocked" --repo "${GITHUB_REPO}" --color "b60205" --description "Local bridge failed" >/dev/null 2>&1 || true
+  gh label create "status:done" --repo "${GITHUB_REPO}" --color "0e8a16" --description "Task completed" >/dev/null 2>&1 || true
+  gh label create "status:blocked" --repo "${GITHUB_REPO}" --color "b60205" --description "Task failed or blocked" >/dev/null 2>&1 || true
+}
 
 owner_for_issue() {
   local issue_json="$1"
@@ -62,39 +72,104 @@ command_for_owner() {
   esac
 }
 
+run_with_timeout() {
+  local seconds="$1"
+  shift
+  if command -v timeout >/dev/null 2>&1; then
+    timeout "${seconds}" "$@"
+    return $?
+  fi
+  if command -v gtimeout >/dev/null 2>&1; then
+    gtimeout "${seconds}" "$@"
+    return $?
+  fi
+  python3 - "$seconds" "$@" <<'PY'
+import subprocess
+import sys
+
+secs = int(sys.argv[1])
+cmd = sys.argv[2:]
+p = subprocess.Popen(cmd)
+try:
+    p.wait(timeout=secs)
+except subprocess.TimeoutExpired:
+    p.kill()
+    p.wait()
+    sys.exit(124)
+sys.exit(p.returncode)
+PY
+}
+
+retry_count_for_issue() {
+  local issue_number="$1"
+  local f="${STATE_DIR}/dispatch-retries-${issue_number}.txt"
+  if [[ -f "${f}" ]]; then
+    cat "${f}"
+  else
+    echo "0"
+  fi
+}
+
+set_retry_count() {
+  local issue_number="$1"
+  local count="$2"
+  echo "${count}" > "${STATE_DIR}/dispatch-retries-${issue_number}.txt"
+}
+
 claim_issue() {
   local issue_number="$1"
   gh issue edit --repo "${GITHUB_REPO}" "${issue_number}" \
     --remove-label "dispatch:local-queued" \
-    --add-label "dispatch:local-running" >/dev/null 2>&1
+    --remove-label "dispatch:local-blocked" \
+    --add-label "dispatch:local-running" \
+    --add-label "status:in_progress" >/dev/null 2>&1
 }
 
 finish_issue_success() {
   local issue_number="$1"
   local message="$2"
-  gh label create "status:done" --repo "${GITHUB_REPO}" --color "0e8a16" --description "Task completed" >/dev/null 2>&1 || true
   gh issue edit --repo "${GITHUB_REPO}" "${issue_number}" \
     --remove-label "dispatch:local-running" \
+    --remove-label "dispatch:local-queued" \
     --remove-label "status:in_progress" \
+    --add-label "dispatch:local-done" \
     --add-label "status:done" >/dev/null 2>&1 || true
   gh issue comment --repo "${GITHUB_REPO}" "${issue_number}" --body "${message}" >/dev/null 2>&1 || true
+  rm -f "${STATE_DIR}/dispatch-retries-${issue_number}.txt"
 }
 
 finish_issue_failure() {
   local issue_number="$1"
   local message="$2"
-  gh label create "status:blocked" --repo "${GITHUB_REPO}" --color "b60205" --description "Task failed or blocked" >/dev/null 2>&1 || true
+  local retries next_retry
+  retries="$(retry_count_for_issue "${issue_number}")"
+  next_retry=$(( retries + 1 ))
+  set_retry_count "${issue_number}" "${next_retry}"
+
+  if (( next_retry <= MAX_RETRIES )); then
+    gh issue edit --repo "${GITHUB_REPO}" "${issue_number}" \
+      --remove-label "dispatch:local-running" \
+      --add-label "dispatch:local-queued" >/dev/null 2>&1 || true
+    gh issue comment --repo "${GITHUB_REPO}" "${issue_number}" --body \
+      "${message}\n\nRetry ${next_retry}/${MAX_RETRIES}: re-queued for local bridge." >/dev/null 2>&1 || true
+    return 0
+  fi
+
   gh issue edit --repo "${GITHUB_REPO}" "${issue_number}" \
     --remove-label "dispatch:local-running" \
+    --remove-label "dispatch:local-queued" \
+    --add-label "dispatch:local-blocked" \
     --add-label "status:blocked" >/dev/null 2>&1 || true
   gh issue comment --repo "${GITHUB_REPO}" "${issue_number}" --body "${message}" >/dev/null 2>&1 || true
 }
 
 process_one() {
+  ensure_dispatch_labels
   local raw first
   raw="$(gh issue list --repo "${GITHUB_REPO}" --state open --label "dispatch:local-queued" --limit 30 --json number,title,body,url,labels,createdAt 2>/dev/null || echo '[]')"
   first="$(python3 -c 'import json,sys
 items=json.loads(sys.argv[1]) if sys.argv[1].strip() else []
+items=[x for x in items if "dispatch:local-running" not in [l.get("name","") for l in x.get("labels",[]) if isinstance(l,dict)]]
 items=sorted(items, key=lambda x:x.get("createdAt",""))
 print(json.dumps(items[0]) if items else "")' "${raw}")"
   [[ -n "${first}" ]] || return 1
@@ -123,7 +198,7 @@ print(json.dumps(items[0]) if items else "")' "${raw}")"
     export OA_TASK_TITLE="${issue_title}"
     export OA_TASK_OBJECTIVE="${issue_objective}"
     export OA_TASK_REPO="${LOCAL_REPO_PATH}"
-    timeout "${TIMEOUT_SECONDS}" bash -lc "${command}"
+    run_with_timeout "${TIMEOUT_SECONDS}" bash -lc "${command}"
   ) >> "${run_log}" 2>&1
   local rc=$?
 
