@@ -4,7 +4,8 @@ import { PLAY_SECTIONS } from '../config/playNav';
 import { OpsStatusPanel } from './OpsStatusPanel';
 
 const SECTION_BLURBS: Record<string, string> = {
-  dashboard: 'Resumen y acceso rápido a todas las secciones.',
+  dashboard: 'Paneles glass en dos columnas (fixtures, trading, squad…).',
+  hub: 'Hub completo pre-Vercel: 9 pestañas, sidebar, AI Agent, minigames, 3D gallery.',
   ops: 'Mint gate, vault crank y estado del protocolo.',
   fixtures: 'Partidos, mercados y apuestas on-chain.',
   trading: 'Terminal de trading y cotizaciones.',
