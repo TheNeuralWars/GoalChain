@@ -6,11 +6,11 @@
     "image": "967.png",
     "attributes": [
         {
-            "trait_type": "País",
+            "trait_type": "Pa\u00eds",
             "value": "Egipto"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Posici\u00f3n",
             "value": "DEF"
         },
         {
@@ -18,7 +18,7 @@
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
+            "trait_type": "N\u00famero",
             "value": "6"
         },
         {
@@ -48,15 +48,15 @@
         "category": "image",
         "creators": [
             {
-                "address": "Fndrxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "address": "CLEAL1aTaL5g7WADbqq6UujFidP74htXqYGjRbbfPgNf",
                 "share": 1
             },
             {
-                "address": "BldrFundxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "address": "6mkGmgZyBFGVrpVNyp2Vybw1AFQ8Tge924bcEhDNtrjj",
                 "share": 10
             },
             {
-                "address": "CmntyTreasuryxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "address": "TXerPuGgiFn3ttbvKGbPpqT6Srrn8R8KvCpeFcqA7Mo",
                 "share": 89
             }
         ]
