@@ -1,12 +1,12 @@
 # P1 Design: On-Chain Sinks & Emission Guards
 
-**Status:** Design spec (not yet implemented in `lib.rs`)  
+**Status:** Implemented in on-chain core (`goalchain_program/.../lib.rs`) with follow-up operational hardening pending  
 **Depends on:** P0 (oracle %, potion 100 GCH, `initial_base_yield`)  
 **Program ID:** `FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg`
 
 ---
 
-## 1. Goals
+## 1. Goals (historical design reference)
 
 1. Convert betting house edge into **deflation** (burn) and **engagement** (jackpot), not only treasury accumulation.
 2. Implement **match stamina drain** so potion demand matches `DYNAMIC_YIELD_ORACLE.md`.

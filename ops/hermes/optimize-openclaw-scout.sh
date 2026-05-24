@@ -13,7 +13,7 @@ SYNTH_CRON="${OA_SCOUT_SYNTH_CRON:-30 9 * * *}"
 WEEKLY_CRON="${OA_SCOUT_WEEKLY_CRON:-0 12 * * 1}"
 DIGEST_CRON="${OA_SCOUT_DIGEST_CRON:-0 9 * * *}"
 AUTOTUNE_CRON="${OA_SCOUT_AUTOTUNE_CRON:-10 11 * * *}"
-SCORE_MIN="${OA_SCOUT_SCORE_MIN:-28}"
+SCORE_MIN="${OA_SCOUT_SCORE_MIN:-32}"
 MAX_CANDIDATES="${OA_SCOUT_MAX_CANDIDATES:-5}"
 NEAR_MISS_MAX="${OA_SCOUT_NEAR_MISS_MAX:-2}"
 NEAR_MISS_LOW=$(( SCORE_MIN - 4 ))
@@ -48,7 +48,7 @@ openclaw cron add \
   --name "${RADAR_NAME}" \
   --cron "${RADAR_CRON}" \
   --session main \
-  --system-event "GoalChain Gold Radar run (optimized throughput). First run bash ~/hermes/scripts/openclaw-context.sh. Search AI-agent-web3 opportunities with direct leverage. HARD FILTERS: reject pure hype and unclear legal/license risk; allow projects with limited OSS if integration path is concrete and verifiable. Score 0-10: Strategic Fit, Build Feasibility <=2 weeks, Competitive Edge, Reliability/Maturity. Keep score >=${SCORE_MIN}/40. Output max ${MAX_CANDIDATES} candidates and max ${NEAR_MISS_MAX} near-miss candidates (${NEAR_MISS_LOW}-${NEAR_MISS_HIGH}) with clear upgrade path. Save to unique file ~/.openclaw/workspace/docs/ai-radar-<UTC-YYYY-MM-DD-HHMM>-<run>.md. Report style is mandatory: include both **Influencer Narrative** and **Technical Breakdown**. ${TONE_PROMPT} For every candidate include X/Twitter link and explicit @alias to mention in social posts." \
+  --system-event "GoalChain Gold Radar run. Mission: ANALYZE, STUDY and FIND high-leverage opportunities that can create a BOOM for GoalChain (integrations, partnerships, embeddable platforms, useful GitHub repos, X users with similar philosophy, protocols we can build on or connect with). HARD FILTERS: reject pure hype, unclear license, no concrete integration path. Periodically search and analyze posts containing #goalchainmanager — these are manual signals from the founder to guide direction. Score 0-10 on: Strategic Fit, Build Feasibility (<=3 weeks), Competitive Edge, Reliability/Maturity. Only output candidates with clear value. If nothing meets criteria, output a short 'No high-value opportunities found this cycle' note instead of generic spam. Save to ~/.openclaw/workspace/docs/ai-radar-<UTC-YYYY-MM-DD-HHMM>-<run>.md. Always include X/Twitter links and @aliases. ${TONE_PROMPT}" \
   --description "2h optimized AI radar for GoalChain"
 
 openclaw cron add \

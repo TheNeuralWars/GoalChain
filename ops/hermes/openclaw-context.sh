@@ -35,12 +35,24 @@ else
 fi
 echo
 
+echo "## Blocked until Nico confirms merge"
+echo "- docs/intake/2026-05-22-webapp-devnet-transactions.md → do not assign implementation yet"
+echo
+
 if [[ -n "${API_BASE_URL:-}" ]] || [[ -n "${HEALTH_URL:-}" ]]; then
   URL="${HEALTH_URL:-${API_BASE_URL}/api/economy/health}"
   echo "## Economy health"
   curl -sf "$URL" 2>/dev/null | head -c 400 || echo "(health check failed)"
   echo
 fi
+
+echo "## GBrain"
+if command -v gbrain >/dev/null 2>&1; then
+  gbrain stats 2>/dev/null | head -8 || echo "(gbrain stats failed)"
+else
+  echo "(gbrain not installed — run ops/hermes/install-gbrain-hermes.sh)"
+fi
+echo
 
 echo "## Gateway"
 openclaw gateway status 2>/dev/null | grep -E "Runtime:|Connectivity|Listening" || echo "(openclaw status unavailable)"
