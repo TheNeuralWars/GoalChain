@@ -1,0 +1,35 @@
+{
+  "name": "Devnet Oracle",
+  "symbol": "DORACLE",
+  "description": "Agente de validación de datos en devnet, simulación de apuestas y reportes de performance para el ecosistema GoalChain.",
+  "image": "https://goalchain.fun/assets/agents/devnet-oracle.png",
+  "external_url": "https://goalchain.fun/agents/devnet-oracle",
+  "attributes": [
+    {
+      "trait_type": "Category",
+      "value": "Oracle"
+    },
+    {
+      "trait_type": "Status",
+      "value": "Planned"
+    },
+    {
+      "trait_type": "Runtime",
+      "value": "OpenClaw + Scripts"
+    },
+    {
+      "trait_type": "Revenue Model",
+      "value": "Simulation and testing commissions"
+    }
+  ],
+  "properties": {
+    "revenue_split": {
+      "holder": 35,
+      "vault": 35,
+      "treasury": 20,
+      "maintenance": 10
+    },
+    "launch_date": "2026-06",
+    "version": "1.0.0"
+  }
+}

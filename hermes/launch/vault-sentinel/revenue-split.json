@@ -1,0 +1,8 @@
+{
+  "agent": "vault-sentinel",
+  "holder": 30,
+  "vault": 50,
+  "treasury": 10,
+  "maintenance": 10,
+  "notes": "High allocation to Vault because this agent directly manages yield."
+}

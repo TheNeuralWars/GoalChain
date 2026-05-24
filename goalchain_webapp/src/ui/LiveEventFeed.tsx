@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useConnection } from '@solana/wallet-adapter-react';
+import { fetchFixtures } from '../lib/goalchainClient';
 
 interface Event {
     id: number;
@@ -8,24 +10,42 @@ interface Event {
 }
 
 export const LiveEventFeed: React.FC = () => {
-    const [events, setEvents] = useState<Event[]>([
-        { id: 1, type: 'BET', message: 'Nueva apuesta: 5.5 $GCH en ARG vs FRA', time: 'hace 2 min' },
-        { id: 2, type: 'RESOLVE', message: 'Mercado Resuelto: Brasil (Win)', time: 'hace 5 min' }
-    ]);
+    const { connection } = useConnection();
+    const [events, setEvents] = useState<Event[]>([]);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            const newEvent: Event = {
-                id: Date.now(),
-                type: 'BET',
-                message: `Apuesta detectada: ${Math.floor(Math.random() * 100)} $GCH`,
-                time: 'Justo ahora'
-            };
-            setEvents(prev => [newEvent, ...prev.slice(0, 4)]);
-        }, 8000);
+        let mounted = true;
+        const refresh = async () => {
+            try {
+                const fixtures = await fetchFixtures(connection);
+                if (!mounted) return;
+                const next = fixtures.slice(0, 5).map((f, idx) => {
+                    const total = f.poolA + f.poolB + f.poolDraw;
+                    const type: Event['type'] = f.status === 'resolved' ? 'RESOLVE' : (f.status === 'live' ? 'GOAL' : 'BET');
+                    return {
+                        id: Number(`${Date.now()}${idx}`),
+                        type,
+                        message: `${f.matchId}: ${f.teamA} vs ${f.teamB} | estado=${f.status} | pool=${total}`,
+                        time: 'On-chain snapshot',
+                    };
+                });
+                setEvents(next);
+                setError(null);
+            } catch (e) {
+                if (!mounted) return;
+                setError('No se pudo actualizar el feed on-chain.');
+                setEvents([]);
+            }
+        };
+        refresh();
+        const interval = setInterval(refresh, 15000);
 
-        return () => clearInterval(interval);
-    }, []);
+        return () => {
+            mounted = false;
+            clearInterval(interval);
+        };
+    }, [connection]);
 
     return (
         <div className="live-feed" style={{ 
@@ -39,7 +59,13 @@ export const LiveEventFeed: React.FC = () => {
             <h3 style={{ margin: '0 0 1rem 0', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <span className="pulse-dot"></span> On-Chain Live Feed (Helius)
             </h3>
+            {error && (
+                <div style={{ color: '#ff9ea8', fontSize: '0.8rem', marginBottom: 10 }}>{error}</div>
+            )}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {events.length === 0 && !error && (
+                    <div style={{ fontSize: '0.85rem', opacity: 0.75 }}>Sin eventos recientes on-chain para mostrar.</div>
+                )}
                 {events.map(event => (
                     <div key={event.id} style={{ 
                         fontSize: '0.85rem', 

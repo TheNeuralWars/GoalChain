@@ -24,6 +24,13 @@ Agents: **Cursor** (implementation/integration), **Grok** (xAI CLI/web), **Antig
 4. **Single integration owner** (default: Cursor) merges and runs verification.
 5. **Hermes → execution:** ideas land in `docs/intake/` or GitHub issues before coding.
 
+## Session Initialization
+When the user opens this workspace, or at the start of a session:
+1. Run `./scripts/check-tasks.sh` to sync the repository and check for new tasks assigned by the Manager.
+2. Ask the user if they want you to work on the assigned issue/task.
+3. Keep focus tight on the assigned issue; do not drift scope.
+
+
 ## Handoff packet (required for cross-agent work)
 
 - Objective (1 sentence)
@@ -42,3 +49,11 @@ Agents: **Cursor** (implementation/integration), **Grok** (xAI CLI/web), **Antig
 
 - Hermes moderates intake; no agent commits based on chat alone without a linked issue/branch.
 - Decisions that change scope get written to repo (`docs/intake/` or issue) within the same session.
+
+## Anytype Integration & Calendar Deadlines
+- The project roadmap/milestone map is automatically synced to the space page "GoalChain Milestone Map" via `./scripts/anytype_sync.py` (which runs in `sync.sh` every 30 minutes).
+- To create upcoming project deadlines that notify the user via WhatsApp and Discord:
+  - Create a Page or Task object in the Anytype Space.
+  - In its description/markdown body, write a line with the format: `Deadline: YYYY-MM-DD` (or `Due: YYYY-MM-DD`, `Vence: YYYY-MM-DD`).
+  - The synchronization script parses these and dispatches alerts when they fall within a 48-hour window.
+
