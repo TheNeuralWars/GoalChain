@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "smoke:devnet": "bash scripts/smoke-devnet.sh"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.30.1",
