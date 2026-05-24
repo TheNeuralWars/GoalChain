@@ -228,7 +228,7 @@ def make_x_post_text(path: pathlib.Path, raw_text: str) -> str:
     return base[:275]
 
 
-def post_discord(content: str) -> tuple[bool, str]:
+def post_discord(content: str, thread_name: str | None = None) -> tuple[bool, str]:
     webhook = getenv("DISCORD_RESEARCH_WEBHOOK_URL")
     token = getenv("DISCORD_TOKEN")
     channel = getenv("DISCORD_RESEARCH_CHANNEL_ID")
@@ -237,10 +237,20 @@ def post_discord(content: str) -> tuple[bool, str]:
         url = webhook
         headers = {"Content-Type": "application/json"}
         payload = {"content": content}
+        if thread_name:
+            payload["thread_name"] = thread_name
     elif token and channel:
-        url = f"https://discord.com/api/v10/channels/{channel}/messages"
-        headers = {"Authorization": f"Bot {token}", "Content-Type": "application/json"}
-        payload = {"content": content}
+        if thread_name:
+            url = f"https://discord.com/api/v10/channels/{channel}/threads"
+            headers = {"Authorization": f"Bot {token}", "Content-Type": "application/json"}
+            payload = {
+                "name": thread_name,
+                "message": {"content": content}
+            }
+        else:
+            url = f"https://discord.com/api/v10/channels/{channel}/messages"
+            headers = {"Authorization": f"Bot {token}", "Content-Type": "application/json"}
+            payload = {"content": content}
     else:
         return False, "missing_discord_credentials"
 
@@ -314,7 +324,48 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     if not truthy(getenv("OA_RESEARCH_PUBLISHER_ENABLED", "false")):
         return 0
-    print(discord_t("publisher_disabled"))
+
+    args = parse_args()
+    state_path = pathlib.Path(args.state_file).expanduser()
+    state = read_state(state_path)
+    patterns = args.source_glob or build_sources()
+
+    fresh = collect_new_files(patterns, state)
+    if not fresh:
+        print("research_publisher: no_new_reports")
+        return 0
+
+    sent = 0
+    for p in fresh[: max(args.max_per_run, 1)]:
+        msg, raw_text = make_message(p)
+        if not msg:
+            print(f"research_publisher: skip_useless_report file={p}")
+            state[str(p)] = p.stat().st_mtime
+            continue
+
+        # Extract title as thread_name for the Forum Channel
+        lines = p.read_text(encoding="utf-8", errors="ignore").splitlines()
+        title = first_heading(lines, p.name)
+
+        ok, info = post_discord(msg, thread_name=title)
+        if not ok:
+            print(f"research_publisher: send_failed file={p} reason={info}")
+            if info == "missing_discord_credentials":
+                return 0
+            return 1
+        x_text = make_x_post_text(p, raw_text)
+        x_ok, x_info = post_x(x_text)
+        if not x_ok:
+            print(f"research_publisher: x_send_failed file={p} reason={x_info}")
+            if x_info == "missing_x_credentials":
+                return 0
+            return 1
+        state[str(p)] = p.stat().st_mtime
+        sent += 1
+        print(f"research_publisher: sent file={p} status={info} x_status={x_info}")
+
+    write_state(state_path, state)
+    print(f"research_publisher: done sent={sent}")
     return 0
 
 
