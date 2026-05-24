@@ -51,17 +51,24 @@ Con eso el agente regenera:
 
 - No subir seed phrase ni JSON de keypair al repo.
 - No firmar transacciones de mint todavía — solo reemplazar placeholders en config.
-- No mezclar devnet y mainnet: para mainnet repetís el proceso con wallets de mainnet y un mint nuevo.
 
-## Verificación después del cambio
+### Devnet vs mainnet
+
+Las **mismas 3 pubkeys** en `mint_setup/wallets.json` aplican a devnet y mainnet (campo `environment: devnet,mainnet`). El deploy del mint es **por cluster**: devnet primero para probar, mainnet cuando estés listo con candy guard y RPC de producción.
+
+### Regenerar tras cambio de wallets
 
 ```bash
+# 1) Editar mint_setup/wallets.json
+# 2) Aplicar a config + assets
+python3 mint_setup/apply_wallets.py
+# 3) Verificar
 grep -r "xxxx" mint_setup/config.json mint_setup/assets/ | head
-# debe devolver vacío
-
-cd goalchain_webapp && npm run build
 ```
 
-## Relación con on-chain BuilderFund
+## Wallets activas (2026-05-24)
+
+Ver `mint_setup/wallets.json` — mismas direcciones para devnet y mainnet.
+
 
 El **Builder Fund on-chain** (PDA en el programa) es distinto del campo **creator share** del mint Metaplex, pero en producción conviene que la pubkey `BldrFund...` del mint apunte a la misma wallet (o multisig) que controla el flota operativo del Builder Fund documentado en `docs/CURRENT_ECONOMIC_PARAMETERS.md`.

@@ -24,9 +24,19 @@ from datetime import datetime, timezone
 
 import requests
 
+try:
+    from discord_i18n import t as discord_t
+except ImportError:  # pragma: no cover
+    def discord_t(key: str, **kwargs: str) -> str:
+        return key
+
 
 def getenv(name: str, default: str = "") -> str:
     return (os.getenv(name) or default).strip()
+
+
+def truthy(val: str) -> bool:
+    return val.strip().lower() in ("1", "true", "yes")
 
 
 def build_sources() -> list[str]:
@@ -161,10 +171,10 @@ def make_message(path: pathlib.Path) -> tuple[str, str]:
     mention = f" @{' @'.join(aliases[:3])}" if aliases else ""
     tone = get_tone()
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    header = f"🚀 **OA Research Spotlight**\n**{title}**"
+    header = f"{discord_t('research_header')}\n**{title}**"
     narrative_block = f"**Influencer take**\n{narrative}{mention}"
     technical_block = f"**Technical breakdown**\n{body}" if body else ""
-    footer = f"\nSource: `{path}`\nGenerated: {ts}"
+    footer = f"\n{discord_t('research_footer')}\nSource: `{path}`\nGenerated: {ts}"
     if tone == "influencer":
         content = "\n\n".join(x for x in [header, narrative_block] if x) + footer
     elif tone == "technical":
@@ -249,6 +259,8 @@ def post_discord(content: str) -> tuple[bool, str]:
 
 
 def post_x(content: str) -> tuple[bool, str]:
+    if not truthy(getenv("OA_X_PUBLISH_ENABLED", "false")):
+        return True, "skipped_x_disabled"
     ck = getenv("X_API_KEY")
     cs = getenv("X_API_SECRET")
     at = getenv("X_ACCESS_TOKEN")
@@ -300,7 +312,9 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> int:
-    print("research_publisher: DISABLED (oa-research-live channel deprecated)")
+    if not truthy(getenv("OA_RESEARCH_PUBLISHER_ENABLED", "false")):
+        return 0
+    print(discord_t("publisher_disabled"))
     return 0
 
 

@@ -2,7 +2,11 @@
 # Register OpenClaw cron jobs for GoalChain (run on server as goalchain user)
 set -euo pipefail
 
-# Morning digest (09:00 UTC — adjust --cron if you prefer local time)
+if ! command -v openclaw >/dev/null 2>&1; then
+  echo "ERROR: openclaw CLI not found"
+  exit 1
+fi
+
 openclaw cron add \
   --name "goalchain-morning-digest" \
   --cron "0 9 * * *" \
@@ -11,7 +15,6 @@ openclaw cron add \
   --description "Daily GoalChain ops digest via Hermes agent" \
   2>/dev/null || echo "WARN: morning digest job may already exist"
 
-# Repo sync every 6 hours (light system event — agent can ignore if busy)
 openclaw cron add \
   --name "goalchain-repo-sync" \
   --cron "0 */6 * * *" \

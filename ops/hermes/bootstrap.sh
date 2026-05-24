@@ -26,7 +26,6 @@ fi
 if [[ ! -f "${HERMES_HOME}/config.env" ]]; then
   echo "==> Creating ${HERMES_HOME}/config.env from example"
   cp "${SCRIPT_DIR}/config.env.example" "${HERMES_HOME}/config.env"
-  # Expand default path
   if [[ "$(uname)" == "Darwin" ]]; then
     sed -i '' "s|\${HOME}|${HOME}|g" "${HERMES_HOME}/config.env"
   else
@@ -36,7 +35,6 @@ else
   echo "==> config.env already exists (unchanged): ${HERMES_HOME}/config.env"
 fi
 
-# Source for sanity check
 # shellcheck disable=SC1090
 set -a
 source "${HERMES_HOME}/config.env"
@@ -58,8 +56,4 @@ else
 fi
 
 echo ""
-echo "Done. Next steps:"
-echo "  1) Edit secrets: nano ${HERMES_HOME}/config.env"
-echo "  2) Optional PAT: GITHUB_TOKEN=ghp_... (or use gh auth login)"
-echo "  3) Sync repo: ${SCRIPT_DIR}/sync.sh"
-echo "  4) Point Hermes system prompt at: ai_context/HERMES_SETUP.md"
+echo "Done. Next: bash ${SCRIPT_DIR}/install-hermes-server.sh"

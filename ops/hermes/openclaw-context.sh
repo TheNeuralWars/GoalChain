@@ -31,14 +31,8 @@ echo "## Intake briefs"
 if [[ -d "$REPO/docs/intake" ]]; then
   ls -1 "$REPO/docs/intake"/*.md 2>/dev/null | grep -v TEMPLATE | grep -v README || echo "(none)"
 else
-  echo "(docs/intake missing — merge PR #34?)"
+  echo "(docs/intake missing)"
 fi
-echo
-
-echo "## Merge order (reference)"
-echo "1. PR #32 consolidation"
-echo "2. PR #33 video (flags off)"
-echo "3. PR #34 observability"
 echo
 
 echo "## Blocked until Nico confirms merge"
@@ -51,6 +45,14 @@ if [[ -n "${API_BASE_URL:-}" ]] || [[ -n "${HEALTH_URL:-}" ]]; then
   curl -sf "$URL" 2>/dev/null | head -c 400 || echo "(health check failed)"
   echo
 fi
+
+echo "## GBrain"
+if command -v gbrain >/dev/null 2>&1; then
+  gbrain stats 2>/dev/null | head -8 || echo "(gbrain stats failed)"
+else
+  echo "(gbrain not installed — run ops/hermes/install-gbrain-hermes.sh)"
+fi
+echo
 
 echo "## Gateway"
 openclaw gateway status 2>/dev/null | grep -E "Runtime:|Connectivity|Listening" || echo "(openclaw status unavailable)"
