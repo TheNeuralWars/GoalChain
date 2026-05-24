@@ -42,6 +42,10 @@ copy_script "oa-discord-research-publisher.py"
 copy_script "oa-xai-connect.sh"
 copy_script "setup-tunnel-xai.sh"
 copy_script "install-opencode-xai.sh"
+copy_script "oa-run-code.sh"
+copy_script "hermes-context.sh"
+copy_script "setup-hermes-runtime.sh"
+copy_script "deploy-hermes-workspace.sh"
 
 ensure_key() {
   local key="$1"
@@ -97,10 +101,21 @@ fi
 
 ensure_key "OA_WEBHOOK_TOKEN" "${token}"
 ensure_key "OA_WEBHOOK_ALLOWED_SOURCES" "discord,whatsapp,unknown"
-ensure_key "OA_AGENT_CURSOR_CMD" "bash ${HERMES_HOME}/scripts/oa-dispatch-local.sh cursor"
-ensure_key "OA_AGENT_ANTIGRAVITY_CMD" "bash ${HERMES_HOME}/scripts/oa-dispatch-local.sh antigravity"
-ensure_key "OA_AGENT_GROK_CMD" "bash ${HERMES_HOME}/scripts/oa-agent-runner.sh grok"
-ensure_key "OA_AGENT_OPENCODE_CMD" "bash ${HERMES_HOME}/scripts/oa-dispatch-local.sh opencode"
+if [[ "$(uname -s)" == "Linux" ]]; then
+  ensure_key "OA_AGENT_CURSOR_CMD" ""
+  ensure_key "OA_AGENT_ANTIGRAVITY_CMD" ""
+  ensure_key "OA_AGENT_GROK_CMD" "bash ${HERMES_HOME}/scripts/oa-agent-runner.sh grok"
+  ensure_key "OA_AGENT_OPENCODE_CMD" "bash ${HERMES_HOME}/scripts/oa-agent-runner.sh opencode"
+  ensure_key "OA_CODE_ENGINE" "fcc"
+  ensure_key "OA_CODE_CMD" "${HOME}/.local/bin/fcc-claude"
+else
+  ensure_key "OA_AGENT_CURSOR_CMD" "bash ${HERMES_HOME}/scripts/oa-dispatch-local.sh cursor"
+  ensure_key "OA_AGENT_ANTIGRAVITY_CMD" "bash ${HERMES_HOME}/scripts/oa-dispatch-local.sh antigravity"
+  ensure_key "OA_AGENT_GROK_CMD" "bash ${HERMES_HOME}/scripts/oa-agent-runner.sh grok"
+  ensure_key "OA_AGENT_OPENCODE_CMD" "bash ${HERMES_HOME}/scripts/oa-dispatch-local.sh opencode"
+fi
+ensure_key "OA_MODEL" "xai/grok-4.3"
+ensure_key "OA_CODE_MODEL" "github-copilot/claude-sonnet-4.5"
 
 echo "Hands-free installer completed."
 echo ""

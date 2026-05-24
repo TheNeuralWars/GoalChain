@@ -16,6 +16,7 @@ Wants=network-online.target
 
 [Service]
 Type=simple
+Environment=PATH=%h/.local/bin:%h/.npm-global/bin:/usr/local/bin:/usr/bin:/bin
 WorkingDirectory=%h/hermes/workspace/GoalChain
 ExecStart=/usr/bin/env bash -lc 'touch "%h/hermes/oa/RUNNING"; exec "%h/hermes/scripts/oa-worker.sh" >> "%h/hermes/oa/logs/worker.log" 2>&1'
 ExecStopPost=/usr/bin/env bash -lc 'rm -f "%h/hermes/oa/RUNNING"'
@@ -34,6 +35,7 @@ Wants=network-online.target
 
 [Service]
 Type=simple
+Environment=PATH=%h/.local/bin:%h/.npm-global/bin:/usr/local/bin:/usr/bin:/bin
 WorkingDirectory=%h/hermes/workspace/GoalChain
 ExecStart=/usr/bin/env bash -lc 'exec python3 "%h/hermes/scripts/oa-webhook.py" >> "%h/hermes/oa/logs/webhook.log" 2>&1'
 Restart=always

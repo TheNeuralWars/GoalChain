@@ -41,6 +41,8 @@ ISSUE_URL="${OA_TASK_ISSUE_URL:-}"
 TASK_TITLE="${OA_TASK_TITLE:-}"
 TASK_OBJECTIVE="${OA_TASK_OBJECTIVE:-}"
 MODEL="${OA_MODEL:-xai/grok-4.3}"
+OA_CODE_MODEL="${OA_CODE_MODEL:-github-copilot/claude-sonnet-4.5}"
+RUN_CODE="${HERMES_HOME}/scripts/oa-run-code.sh"
 GITHUB_REPO="${GITHUB_REPO:-TheNeuralWars/GoalChain}"
 RUN_LOG="${LOG_DIR}/runner-${OWNER}-issue-${ISSUE_NUMBER:-unknown}.log"
 
@@ -126,7 +128,15 @@ fi
 
 {
   echo "[$(date -u '+%F %T UTC')] owner=${OWNER} issue=${ISSUE_NUMBER} urgent=${URGENT_MODE}"
-  timeout 3600 opencode run --model "${MODEL}" "${PROMPT}"
+  prompt_file="/tmp/oa-runner-prompt-${ISSUE_NUMBER}.txt"
+  printf '%s\n' "${PROMPT}" > "${prompt_file}"
+  if [[ "${OWNER}" == "opencode" && -x "${RUN_CODE}" ]]; then
+    bash "${RUN_CODE}" --workdir "${REPO}" --prompt-file "${prompt_file}" --log "${RUN_LOG}"
+  elif [[ "${OWNER}" == "opencode" ]]; then
+    timeout 3600 opencode run --model "${OA_CODE_MODEL}" "$(cat "${prompt_file}")"
+  else
+    timeout 3600 opencode run --model "${MODEL}" "$(cat "${prompt_file}")"
+  fi
 } >> "${RUN_LOG}" 2>&1 || true
 
 if [[ -z "$(git -C "${REPO}" status --porcelain)" ]]; then

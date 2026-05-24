@@ -17,7 +17,11 @@ touch "${QUEUE_FILE}"
 source "${HERMES_HOME}/config.env"
 REPO="${GOALCHAIN_REPO_PATH:-$HERMES_HOME/workspace/GoalChain}"
 PROPOSALS_DIR="${REPO}/docs/proposals/opencode"
-OA_MODEL="${OA_MODEL:-opencode/big-pickle}"
+OA_MODEL="${OA_MODEL:-xai/grok-4.3}"
+OA_CODE_ENGINE="${OA_CODE_ENGINE:-fcc}"
+OA_CODE_MODEL="${OA_CODE_MODEL:-github-copilot/claude-sonnet-4.5}"
+OA_CODE_CMD="${OA_CODE_CMD:-}"
+RUN_CODE="${HERMES_HOME}/scripts/oa-run-code.sh"
 RESEARCH_PUBLISHER="${HERMES_HOME}/scripts/oa-discord-research-publisher.py"
 DISCORD_RESEARCH_WEBHOOK_URL="${DISCORD_RESEARCH_WEBHOOK_URL:-}"
 DISCORD_TOKEN="${DISCORD_TOKEN:-}"
@@ -201,6 +205,11 @@ consume_webhook_queue() {
 
     issue_url="$(create_issue_from_webhook "${owner}" "${priority}" "${title}" "${objective}" || true)"
     [[ -n "${issue_url}" ]] || continue
+    # opencode/FCC: OA worker picks agent:opencode + status:ready (avoid local-bridge queue on VPS).
+    if [[ "${owner}" == "opencode" ]]; then
+      log "Webhook queued opencode issue for OA worker: ${issue_url}"
+      continue
+    fi
     dispatch_issue_to_waiting_agent "${owner}" "${priority}" "${title}" "${objective}" "${issue_url}"
   done < "${tmp}"
 
@@ -260,24 +269,31 @@ $(printf '%s\n' "${body}" | sed -n '1,40p')
 - Rollback: $( [[ "${urgent_mode}" == "1" ]] && echo "revert main commit linked to issue #${number}" || echo "revert branch \`${branch}\` and close draft PR." )
 EOF
 
-  # Ask OpenCode to implement. Timeout protects endless runs.
   export XAI_API_KEY
-  local work_mode_note
+  local work_mode_note prompt_file run_log
   if [[ "${urgent_mode}" == "1" ]]; then
     work_mode_note="DIRECT MAIN MODE ENABLED by Nico keyword 'cambio urgente'. Work on main and do not create feature branches."
   else
     work_mode_note="Keep branch ${branch}."
   fi
-  timeout 3600 opencode run --model "${OA_MODEL}" \
-    "You are OA worker for GoalChain. Implement issue #${number}: ${title}.
+  prompt_file="/tmp/oa-code-prompt-${number}.txt"
+  run_log="/tmp/oa-opencode-${number}.log"
+  cat > "${prompt_file}" <<EOF
+You are the GoalChain code agent (Free Claude Code / FCC). Implement issue #${number}: ${title}.
 Before editing, read:
 - ai_context/META_CHARTER.md
 - .cursor/rules/meta-principal.mdc
 - ai_context/AGENT_ORCHESTRATION.md
 Use repo constraints and META principles.
 First refine proposal in ${proposal_file}, then implement code in small safe steps.
-Do not touch secrets. ${work_mode_note} End by summarizing tests run and residual risks." \
-    >/tmp/oa-opencode-${number}.log 2>&1 || true
+Do not touch secrets. ${work_mode_note}
+End by summarizing tests run and residual risks.
+EOF
+  if [[ -x "${RUN_CODE}" ]]; then
+    bash "${RUN_CODE}" --workdir "${REPO}" --prompt-file "${prompt_file}" --log "${run_log}" >> "${run_log}" 2>&1 || true
+  else
+    log "WARN oa-run-code.sh missing; skipping implementation for #${number}"
+  fi
 
   if [[ "${urgent_mode}" == "1" ]]; then
     if [[ -n "$(git -C "${REPO}" status --porcelain)" ]]; then
@@ -309,7 +325,7 @@ Do not touch secrets. ${work_mode_note} End by summarizing tests run and residua
     if [[ "${pr_count}" == "0" ]]; then
       gh pr create --repo "${GITHUB_REPO}" --base main --head "${branch}" --draft \
         --title "OA draft: issue #${number} — ${title}" \
-        --body "Automated OA draft implementation for issue #${number}. Requires Cursor review/approval." >/dev/null 2>&1 || true
+        --body "Automated FCC/OpenCode draft for issue #${number}. Requires Antigravity or Nico review before merge." >/dev/null 2>&1 || true
     fi
   fi
 

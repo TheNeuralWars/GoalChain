@@ -42,7 +42,10 @@ def truthy(val: str) -> bool:
 def build_sources() -> list[str]:
     home = pathlib.Path.home()
     repo = pathlib.Path(getenv("GOALCHAIN_REPO_PATH", str(home / "hermes/workspace/GoalChain")))
+    hermes_docs = home / ".hermes" / "workspace" / "docs"
     return [
+        str(hermes_docs / "ai-radar-*.md"),
+        str(home / ".hermes" / "workspace" / "memory" / "weekly-ai-deepdive-*.md"),
         str(home / ".openclaw/workspace/docs/ai-radar-*.md"),
         str(home / ".openclaw/workspace/memory/weekly-ai-deepdive-*.md"),
         str(repo / "docs/intake/*ai-ecosystem-opportunities*.md"),
