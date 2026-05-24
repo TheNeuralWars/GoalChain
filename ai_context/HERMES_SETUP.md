@@ -1,6 +1,6 @@
 # Hermes — Setup (GoalChain)
 
-Bootstrap local o en server 24/7. **Agente conversacional:** OpenClaw (Hermes) — ver `ai_context/OPENCLAW_GOALCHAIN_OPERATOR.md`. **Fuente de verdad de tareas:** `docs/intake/` en el repo.
+Bootstrap local o en server 24/7. **Manager conversacional:** Hermes Agent (Grok) en el VPS. **Agente de código:** Free Claude Code (FCC) vía `oa-worker`. **Fuente de verdad de tareas:** `docs/intake/` + issues GitHub `agent:opencode`.
 
 ## Quick start (Mac / Linux)
 
@@ -44,35 +44,41 @@ nano ~/hermes/config.env   # opcional: GITHUB_TOKEN, API_BASE_URL, Slack
 0 8 * * * ...
 ```
 
-## GBrain (memoria persistente + Copilot)
+## Runtime en el VPS (recomendado)
 
-Instala la capa de memoria [gbrain](https://github.com/garrytan/gbrain) y usa GitHub Copilot en el agente `dev`:
-
-```bash
-bash ops/hermes/install-gbrain-hermes.sh   # servidor: Bun + PGLite + MCP OpenClaw
-```
-
-Guía completa: `docs/intake/2026-05-24-hermes-gbrain-copilot-setup.md`
-
-- **Copilot:** agente OpenClaw `dev` → `github-copilot/claude-sonnet-4.5`; OpenCode ya tiene OAuth.
-- **Grok:** default chat / agente `public` / OA worker (`OA_MODEL` en config.env).
-- **API keys gbrain:** `ZEROENTROPY_API_KEY` o `OPENAI_API_KEY` en `config.env` → `gbrain embed --stale`.
-
-## OpenClaw (servidor — agente general)
+Tras `git pull` en `~/hermes/workspace/GoalChain`:
 
 ```bash
-# Desde el repo (tras pull) o tras scp de ops/openclaw:
-bash ops/openclaw/deploy-workspace.sh    # en el server: ~/openclaw/deploy-workspace.sh
-bash ops/openclaw/install-cron.sh        # digest 09:00 UTC + sync cada 6h
+bash ops/hermes/setup-hermes-runtime.sh
+bash ~/hermes/scripts/oa-control.sh status
+bash ~/hermes/scripts/hermes-context.sh
 ```
 
-Panel (Mac): `ssh -N -L 18790:127.0.0.1:18789 goalchain@178.105.148.109` → `http://127.0.0.1:18790/#token=...`
+| Rol | Runtime | Variable |
+|-----|---------|----------|
+| **Manager** (Hermes) | `hermes-gateway.service` + Grok | `OA_MODEL=xai/grok-4.3` |
+| **Código** (FCC) | `oa-worker` + `fcc-claude` | `OA_CODE_ENGINE=fcc` |
+| **Integración** | Antigravity (merge) | — |
 
-Workspace: `SOUL.md`, `HEARTBEAT.md`, `USER.md`, symlink `GoalChain/` → `~/hermes/workspace/GoalChain`.
+Workspace Manager: `~/.hermes/SOUL.md` (plantilla: `ops/hermes/workspace-templates/SOUL.md`).
 
-## System prompt (legacy / manual)
+Flujo dev (Discord/WhatsApp): Manager crea issue `agent:opencode` → OA worker ejecuta FCC en `exp/opencode-issue-*` → draft PR → revisión Antigravity/Nico.
 
-OpenClaw carga `SOUL.md` automáticamente. Referencia adicional: `ai_context/AGENT_ORCHESTRATION.md` + `docs/intake/README.md`.
+## GBrain (memoria opcional)
+
+```bash
+bash ops/hermes/install-gbrain-hermes.sh
+```
+
+Guía: `docs/intake/2026-05-24-hermes-gbrain-copilot-setup.md`. API: `ZEROENTROPY_API_KEY` en `config.env`.
+
+## OpenClaw (legacy, opcional)
+
+Si aún usas OpenClaw en algún host: `ops/openclaw/deploy-workspace.sh`. El VPS actual usa **Hermes Agent**, no OpenClaw.
+
+## System prompt
+
+Hermes Agent carga `~/.hermes/SOUL.md`. Referencia: `ai_context/AGENT_ORCHESTRATION.md` + `docs/intake/README.md`.
 
 ## Auth GitHub
 
