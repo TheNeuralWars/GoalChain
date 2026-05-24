@@ -73,8 +73,8 @@ Harden dispatch lifecycle:
 ### /to_do/8 (P1)
 Align config variables with actual consumption; remove or implement dead keys.
 
-### /to_do/9 (P1) — blocked
-Replace mint placeholders with real environment-specific accounts and regenerate artifacts.
+### /to_do/9 (P1) — done
+Replace mint placeholders → `mint_setup/wallets.json` + `apply_wallets.py` (1248 assets, 2026-05-24)
 
 ### /to_do/10 (P1) — done
 Add frontend integration/e2e checks for wallet -> bet -> claim flow.
@@ -103,12 +103,9 @@ Runbook template → `docs/intake/templates/feature-integration-runbook.md`
 
 ## Blocker handling section (to fill during execution)
 
-- **B-001 (affects play deploy):** ops pending on user.
-  - **Guide:** `docs/PLAY_DEPLOY_GUIDE.md`
-  - **Summary:** Vercel import → Root Directory `goalchain_webapp` → domain `play.goalchain.fun` CNAME → env `VITE_API_BASE_URL` optional.
+- **B-001 (play deploy):** resolved 2026-05-24 — `play.goalchain.fun` valid on Vercel.
 
-- **B-002 (affects /to_do/9):** mint royalty wallets still placeholders in `mint_setup/`.
-  - **Guide:** `mint_setup/WALLET_SETUP.md`
-  - **Action:** provide 3 **public** addresses (Founder 1%, Builder Fund 10%, Community Treasury 89%) for devnet or mainnet. No private keys in repo.
-  - **Wallet work:** create 2 extra Phantom accounts on devnet OR use multisigs for prod; send pubkeys to agent/issue.
+- **B-002 (mint wallets):** resolved 2026-05-24.
+  - **Wallets:** `mint_setup/wallets.json`
+  - **Regenerate:** `python3 mint_setup/apply_wallets.py`
 
