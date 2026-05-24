@@ -9,7 +9,8 @@ import { clusterApiUrl } from '@solana/web3.js';
 import '@solana/wallet-adapter-react-ui/styles.css';
 
 import { PlayLayout } from './PlayLayout';
-import { DashboardHub } from './DashboardHub';
+import { DashboardGrid } from './DashboardGrid';
+import { ClassicHub } from './ClassicHub';
 import { FixturesPanel } from './FixturesPanel';
 import { TradingTerminal } from './TradingTerminal';
 import { SquadGallery } from './SquadGallery';
@@ -20,13 +21,21 @@ import { AICommentator } from './AICommentator';
 import { SwarmVaults } from './SwarmVaults';
 import { OpsStatusPanel } from './OpsStatusPanel';
 
-function PlayPage({ title, children }: { title: string; children: React.ReactNode }) {
+function PlayPage({
+  title,
+  children,
+  align = 'center',
+}: {
+  title: string;
+  children: React.ReactNode;
+  align?: 'center' | 'left';
+}) {
   return (
-    <div className="play-page">
+    <div className="play-page play-page--grid">
       <div className="play-page-hero play-page-hero--compact">
         <h1>{title}</h1>
       </div>
-      <main className="play-page-main">{children}</main>
+      <main className={`play-page-main play-page-main--${align}`}>{children}</main>
     </div>
   );
 }
@@ -48,7 +57,15 @@ function App() {
           <WalletModalProvider>
             <Routes>
               <Route element={<PlayLayout />}>
-                <Route path="/" element={<DashboardHub />} />
+                <Route path="/" element={<ClassicHub />} />
+                <Route
+                  path="/dashboard"
+                  element={
+                    <PlayPage title="Dashboard React (devnet)" align="left">
+                      <DashboardGrid />
+                    </PlayPage>
+                  }
+                />
                 <Route
                   path="/ops"
                   element={
