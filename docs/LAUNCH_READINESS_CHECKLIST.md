@@ -9,9 +9,9 @@ Este documento define la base operativa para la siguiente etapa: release readine
 ## 1) Release Readiness (Go/No-Go)
 
 ### Consolidación de producto (Week 8-9)
-- [ ] `goalchain_webapp` publicado como frontend transaccional oficial (wallet, claims, markets, rent)
-- [ ] `docs` confirmado en modo **read-only** (sin ejecución de transacciones/simulaciones transaccionales)
-- [ ] CTA y copy en landing alineados al ownership por capa (`webapp` transaccional, `docs` informativo)
+- [ ] `goalchain_webapp` publicado como frontend transaccional oficial en **`play.goalchain.fun`** (wallet, claims, markets, rent)
+- [x] `docs` confirmado en modo **read-only** — CTAs → `/go/`, `app.html` redirect (PR #75)
+- [x] CTA y copy en landing alineados al ownership por capa (`webapp` transaccional, `docs` informativo)
 
 ### Configuración crítica on-chain
 - [ ] `oracle_authority` validada y controlada por wallet operacional definida
