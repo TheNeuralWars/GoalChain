@@ -107,8 +107,52 @@ def get_tone() -> str:
     return tone
 
 
+def is_useless_report(text: str) -> bool:
+    """Return True if the report has no real value and should not be posted."""
+    lower = text.lower()
+
+    # Hard useless markers
+    useless_markers = [
+        "none met the minimum score",
+        "no candidates reached",
+        "no useful projects found",
+        "no projects with concrete integration",
+        "score: 22/40",
+        "predominantly hype-driven",
+        "no high-value opportunities found this cycle",
+    ]
+    for marker in useless_markers:
+        if marker in lower:
+            return True
+
+    # Must contain at least one concrete signal to be considered useful
+    useful_signals = [
+        "github.com/",
+        "x.com/",
+        "twitter.com/",
+        "@",
+        "integration",
+        "partnership",
+        "repo",
+        "protocol",
+        "embed",
+        "build on",
+        "opportunity",
+    ]
+    has_signal = any(signal in lower for signal in useful_signals)
+    if not has_signal:
+        return True
+
+    return False
+
+
 def make_message(path: pathlib.Path) -> tuple[str, str]:
     text = path.read_text(encoding="utf-8", errors="ignore")
+
+    # Skip posting if the report has no real value
+    if is_useless_report(text):
+        return "", text
+
     lines = text.splitlines()
     title = first_heading(lines, path.name)
     narrative = find_narrative_line(lines)
@@ -256,38 +300,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> int:
-    args = parse_args()
-    state_path = pathlib.Path(args.state_file).expanduser()
-    state = read_state(state_path)
-    patterns = args.source_glob or build_sources()
-
-    fresh = collect_new_files(patterns, state)
-    if not fresh:
-        print("research_publisher: no_new_reports")
-        return 0
-
-    sent = 0
-    for p in fresh[: max(args.max_per_run, 1)]:
-        msg, raw_text = make_message(p)
-        ok, info = post_discord(msg)
-        if not ok:
-            print(f"research_publisher: send_failed file={p} reason={info}")
-            if info == "missing_discord_credentials":
-                return 0
-            return 1
-        x_text = make_x_post_text(p, raw_text)
-        x_ok, x_info = post_x(x_text)
-        if not x_ok:
-            print(f"research_publisher: x_send_failed file={p} reason={x_info}")
-            if x_info == "missing_x_credentials":
-                return 0
-            return 1
-        state[str(p)] = p.stat().st_mtime
-        sent += 1
-        print(f"research_publisher: sent file={p} status={info} x_status={x_info}")
-
-    write_state(state_path, state)
-    print(f"research_publisher: done sent={sent}")
+    print("research_publisher: DISABLED (oa-research-live channel deprecated)")
     return 0
 
 
