@@ -1,8 +1,8 @@
 # GoalChain — Multi-Agent Orchestration
 
-**Purpose:** Coordinate Cursor, Grok, Google Antigravity, and the **Hermes general agent** (OpenClaw on the 24/7 server) without file conflicts, scope drift, or duplicate work.
+**Purpose:** Coordinate Cursor, Grok, Google Antigravity, **Hermes Manager**, and **Free Claude Code (FCC)** on the 24/7 server without file conflicts, scope drift, or duplicate work.
 
-**Hermes runtime:** OpenClaw + Grok (`xai/grok-4.3`) for chat/voice/panel; shell scripts in `~/hermes/scripts/` for sync and digests. See `ai_context/OPENCLAW_GOALCHAIN_OPERATOR.md`.
+**Hermes runtime:** Hermes Agent gateway + Grok (`xai/grok-4.3`) for chat/triage; `oa-worker` + FCC for repo implementation (`agent:opencode`). See `ai_context/HERMES_SETUP.md`.
 
 **Related rules (Cursor):** `.cursor/rules/collab-multi-agent.mdc`, `.cursor/rules/meta-principal.mdc`  
 **Engineering charter:** `ai_context/META_CHARTER.md` ([meta-llm-charter](https://github.com/entropyvortex/meta-llm-charter))
@@ -13,7 +13,8 @@
 
 | Agent | Runtime | Best for | Default owner of |
 |-------|---------|----------|------------------|
-| **Hermes** (OpenClaw) | Server 24/7 (`178.105.148.109`) | Intake, prioritization, reminders, briefs, voice/chat, Slack hub | `docs/intake/`, issue drafts |
+| **Hermes** (Manager) | Server 24/7 (`178.105.148.109`) | Intake, prioritization, reminders, briefs, Discord/WhatsApp | `docs/intake/`, issue drafts |
+| **FCC** (code agent) | Server `oa-worker` + `fcc-claude` | Autonomous implementation, draft PRs | `exp/opencode-issue-*`, `agent:opencode` |
 | **Antigravity** (Google) | IDE / Plugin SDK | Implementation, commits, PR approvals, merges, Solana/API/webapp, verification | Merge + integration (Master Agent) |
 | **Cursor** | IDE | Spikes, read-only draft implementations (Credits spent: draft assistance) | `exp/cursor-*` branches |
 | **Grok** | xAI CLI / web | Research, review, marketing, alt drafts | `exp/grok-*` branches |
@@ -73,11 +74,13 @@ Optional later: bot that mirrors `docs/intake/` ↔ Slack threads (Hermes server
 
 ---
 
-## Hermes 24/7 server (OpenClaw + scripts)
+## Hermes 24/7 server (Manager + FCC + scripts)
 
-**Conversational layer:** OpenClaw workspace `~/.openclaw/workspace` (SOUL/HEARTBEAT/USER). Deploy templates: `ops/openclaw/deploy-workspace.sh`.
+**Conversational layer:** Hermes Agent `~/.hermes/` (`SOUL.md`, gateway). Deploy: `ops/hermes/deploy-hermes-workspace.sh`.
 
-**Automation layer:** `~/hermes/scripts/` — `sync.sh`, `daily-digest.sh`, `openclaw-context.sh`, `create-brief.sh`.
+**Code layer:** `oa-worker.service` picks GitHub issues `agent:opencode` + `status:ready`, runs `ops/hermes/oa-run-code.sh` (FCC preferred).
+
+**Automation layer:** `~/hermes/scripts/` — `sync.sh`, `hermes-context.sh`, `create-task.sh`, `setup-hermes-runtime.sh`.
 
 Responsibilities:
 
