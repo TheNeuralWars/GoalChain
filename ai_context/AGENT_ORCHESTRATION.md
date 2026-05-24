@@ -14,11 +14,11 @@
 | Agent | Runtime | Best for | Default owner of |
 |-------|---------|----------|------------------|
 | **Hermes** (OpenClaw) | Server 24/7 (`178.105.148.109`) | Intake, prioritization, reminders, briefs, voice/chat, Slack hub | `docs/intake/`, issue drafts |
-| **Cursor** | IDE | Implementation, PRs, Anchor/API/webapp, verification | Merge + integration |
+| **Antigravity** (Google) | IDE / Plugin SDK | Implementation, commits, PR approvals, merges, Solana/API/webapp, verification | Merge + integration (Master Agent) |
+| **Cursor** | IDE | Spikes, read-only draft implementations (Credits spent: draft assistance) | `exp/cursor-*` branches |
 | **Grok** | xAI CLI / web | Research, review, marketing, alt drafts | `exp/grok-*` branches |
-| **Antigravity** | Google | Spikes, UI/plugins skills, exploration | `exp/antigravity-*` branches |
 
-**Integration owner (default):** Cursor — only one agent merges to stacked PR chains unless you reassign per task.
+**Integration owner (default):** Antigravity — only one agent merges to stacked PR chains unless you reassign per task.
 
 ---
 
@@ -47,9 +47,9 @@ Statuses: `draft` → `ready` → `assigned` → `in_progress` → `done` | `can
 
 ### 3) Execution (Cursor / Antigravity / Grok)
 
-- Cursor: production paths (`goalchain_program`, `goalchain_api`, `goalchain_webapp`, `goalchain_oracle`)
-- Antigravity: spikes aligned with `ai_context/01_guidelines/AGENT_GUIDE.md` skills (Solana, glass UI, client AI)
-- Grok: review packets, marketing, non-merge drafts
+- **Antigravity**: Primary production paths (`goalchain_program`, `goalchain_api`, `goalchain_webapp`, `goalchain_oracle`, Solana, glass UI, client AI) — Master Agent and integration lead.
+- **Cursor**: Assistive IDE tasks, draft implementations, and local spikes (due to spent credits).
+- **Grok**: Review packets, marketing, non-merge drafts.
 
 ### 4) Closure
 
@@ -117,9 +117,9 @@ Store server-side config (not committed):
 
 | Prefix | Agent | Merge policy |
 |--------|-------|----------------|
-| `feat/*` `fix/*` | Cursor | Stacked PRs, reviewed |
+| `feat/*` `fix/*` | Antigravity | Main production features, verified & integrated directly or via PR |
+| `exp/cursor-*` | Cursor | Draft implementations & assistive spikes; reviewed before integrate |
 | `exp/grok-*` | Grok | Cherry-pick or new PR after review |
-| `exp/antigravity-*` | Antigravity | Same |
 | `docs/intake-*` | Hermes | Direct to main only if markdown-only |
 
 ---

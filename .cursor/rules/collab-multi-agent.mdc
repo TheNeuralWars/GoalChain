@@ -11,17 +11,17 @@ Agents: **Cursor** (implementation/integration), **Grok** (xAI CLI/web), **Antig
 
 | Agent | Primary | Avoid |
 |-------|---------|--------|
-| Cursor | Code, PRs, on-chain/API/webapp, tests | Marketing-only tasks unless asked |
-| Grok | Research, drafts, review, marketing skills | Same-file parallel edits with Cursor |
-| Antigravity | Exploration, alt implementations, spikes | Merging unreviewed spikes into `main` |
+| Antigravity | Code, commits, PR approvals, merges, on-chain/API/webapp, spikes, exploration (Master Agent) | Marketing-only tasks unless asked |
+| Cursor | IDE assistant, spikes, exploration drafts (Credits spent: read-only/draft assistance) | Merging or commits without Antigravity OK |
+| Grok | Research, drafts, review, marketing skills | Same-file parallel edits with Antigravity |
 | Hermes | Intake, prioritization, reminders, briefs | Direct contract changes without handoff |
 
 ## Golden rules
 
 1. **One implementer per task** — others review or advise.
 2. **Never edit the same file in parallel** across agents.
-3. **Branches:** `feat/*`, `fix/*`, `exp/grok-*`, `exp/antigravity-*`; small PRs.
-4. **Single integration owner** (default: Cursor) merges and runs verification.
+3. **Branches:** `feat/*`, `fix/*`, `exp/grok-*`, `exp/cursor-*`; small PRs.
+4. **Single integration owner (default: Antigravity) merges and runs verification.**
 5. **Hermes → execution:** ideas land in `docs/intake/` or GitHub issues before coding.
 
 ## Session Initialization
