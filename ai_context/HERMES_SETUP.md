@@ -71,13 +71,21 @@ Flujo dev (Discord/WhatsApp): Manager crea issue `agent:opencode` → OA worker 
 - En el VPS Hermes: **`FCC_CLOUD_ONLY=1`** en secrets (no descargar modelos de 50GB); Admin UI vía `ssh -L 8082:127.0.0.1:8082 goalchain@178.105.148.109`
 - **Routing automático:** Hermes solo elige P0/P1/P2; `fcc-resolve-tier.sh` + `fcc-claude --model opus|sonnet|haiku` — ver `ops/hermes/DISCORD_WORKDAY_SETUP.md`
 
-## GBrain (memoria opcional)
+## GBrain (memoria institucional)
 
+**Hermes VPS:**
 ```bash
 bash ops/hermes/install-gbrain-hermes.sh
+# MCP ya en ~/.hermes/config.yaml → mcp_servers.gbrain; reinicia gateway tras install
 ```
 
-Guía: `docs/intake/2026-05-24-hermes-gbrain-copilot-setup.md`. API: `ZEROENTROPY_API_KEY` en `config.env`.
+**Cursor (Mac):**
+```bash
+bash ops/hermes/install-gbrain-cursor.sh
+# MCP: .cursor/mcp.json — recargá la ventana de Cursor
+```
+
+Guía: `docs/intake/2026-05-24-hermes-gbrain-copilot-setup.md`. Embeddings opcionales: `ZEROENTROPY_API_KEY` o `OPENAI_API_KEY` en `config.env` / `.env`.
 
 ## OpenClaw (legacy, opcional)
 

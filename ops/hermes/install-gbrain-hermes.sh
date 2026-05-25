@@ -7,7 +7,10 @@ HERMES_HOME="${HERMES_HOME:-$HOME/hermes}"
 REPO="${GOALCHAIN_REPO_PATH:-$HERMES_HOME/workspace/GoalChain}"
 BRAIN_REPO="${GBRAIN_REPO:-$HOME/brain}"
 OPENCLAW_CONFIG="${OPENCLAW_CONFIG:-$HOME/.openclaw/openclaw.json}"
-WORKSPACE="${OPENCLAW_WORKSPACE:-$HOME/.openclaw/workspace}"
+# Hermes Agent (primary on VPS); OpenClaw workspace is legacy fallback.
+HERMES_WORKSPACE="${HERMES_WORKSPACE:-$HOME/.hermes/workspace}"
+WORKSPACE="${GBRAIN_SKILLPACK_WORKSPACE:-$HERMES_WORKSPACE}"
+HERMES_CONFIG="${HERMES_CONFIG:-$HOME/.hermes/config.yaml}"
 CONFIG_ENV="${HERMES_HOME}/config.env"
 SEARCH_MODE="${GBRAIN_SEARCH_MODE:-balanced}"
 INSTALL_DREAM_CRON="${INSTALL_DREAM_CRON:-false}"
@@ -133,6 +136,34 @@ scaffold_skills() {
     || log "WARN: skillpack scaffold skipped (re-run: gbrain skillpack scaffold --all --workspace ${WORKSPACE})"
 }
 
+wire_hermes_mcp() {
+  need_cmd python3
+  [[ -f "${HERMES_CONFIG}" ]] || { log "WARN: no ${HERMES_CONFIG}"; return 0; }
+  cp "${HERMES_CONFIG}" "${HERMES_CONFIG}.bak-gbrain-$(date +%Y%m%d%H%M%S)"
+  export HERMES_CONFIG GBRAIN_CMD="${HOME}/.bun/bin/gbrain"
+  python3 - <<'PY'
+import os
+from pathlib import Path
+
+try:
+    import yaml
+except ImportError:
+    print("WARN: PyYAML missing; pip install pyyaml or patch mcp_servers manually")
+    raise SystemExit(0)
+
+path = Path(os.environ["HERMES_CONFIG"])
+cfg = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+gbrain_cmd = os.environ.get("GBRAIN_CMD", "gbrain")
+if not Path(gbrain_cmd).exists():
+    gbrain_cmd = "gbrain"
+servers = cfg.setdefault("mcp_servers", {})
+servers["gbrain"] = {"command": gbrain_cmd, "args": ["serve"]}
+path.write_text(yaml.dump(cfg, default_flow_style=False, sort_keys=False), encoding="utf-8")
+print("patched mcp_servers.gbrain in", path)
+PY
+  log "Hermes MCP gbrain registered (restart hermes-gateway)"
+}
+
 wire_openclaw_mcp() {
   need_cmd python3
   [[ -f "${OPENCLAW_CONFIG}" ]] || { log "WARN: no ${OPENCLAW_CONFIG}"; return 0; }
@@ -172,7 +203,7 @@ print_next_steps() {
 
 === GBrain install done ===
 Brain repo:     ${BRAIN_REPO}
-OpenClaw MCP:   mcp.servers.gbrain → gbrain serve
+Hermes MCP:     mcp_servers.gbrain → gbrain serve (${HERMES_CONFIG})
 Workspace:      ${WORKSPACE} (skills scaffolded)
 
 Copilot (already on server):
@@ -198,6 +229,7 @@ main() {
   setup_brain_repo
   import_goalchain_context
   scaffold_skills
+  wire_hermes_mcp
   wire_openclaw_mcp
   install_dream_cron_hint
   print_next_steps
