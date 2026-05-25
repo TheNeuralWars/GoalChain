@@ -3,8 +3,11 @@
 set -euo pipefail
 
 HERMES_HOME="${HERMES_HOME:-$HOME/hermes}"
+# Export all keys from config for Python child processes.
+set -a
 # shellcheck disable=SC1090
 source "${HERMES_HOME}/config.env"
+set +a
 
 SCRIPT="${HERMES_HOME}/scripts/oa-x-scout-run.py"
 PUBLISHER="${HERMES_HOME}/scripts/oa-discord-research-publisher.py"
