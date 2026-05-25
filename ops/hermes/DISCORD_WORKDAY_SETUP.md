@@ -32,6 +32,18 @@ Aplicar: `bash ~/hermes/scripts/configure-fcc-env.sh` → reinicia `fcc-server`.
 
 Manager **no** comparte cupo con FCC: Grok para charlar, OpenRouter/NIM/Groq para código.
 
+## Discord mañana — sin elegir modelos
+
+Vos hablás normal; Hermes elige **P0 / P1 / P2** al crear el issue. El worker traduce:
+
+| Vos decís (ejemplos) | Hermes usa | FCC ejecuta |
+|----------------------|------------|-------------|
+| "refactor play", "tokenomics", "on-chain" | P0 | `--model opus` → `MODEL_OPUS` (NIM) |
+| "arreglá el panel", "nueva card" | P1 | `--model sonnet` → `MODEL_SONNET` |
+| "cambiá un texto", "css chico" | P2 | `--model haiku` → `MODEL_HAIKU` |
+
+Slugs (`nvidia_nim/...`) viven solo en `~/hermes/fcc.secrets.env` — una vez, no en chat.
+
 ## Discord mañana
 
 1. Un issue `agent:opencode` por tarea (no tres workers en el mismo issue).

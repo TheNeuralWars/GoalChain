@@ -276,6 +276,15 @@ EOF
   else
     work_mode_note="Keep branch ${branch}."
   fi
+  local priority fcc_tier
+  priority="P1"
+  echo ",${labels_csv}," | grep -q ',priority:P0,' && priority="P0"
+  echo ",${labels_csv}," | grep -q ',priority:P2,' && priority="P2"
+  fcc_tier="$(bash "${HERMES_HOME}/scripts/fcc-resolve-tier.sh" \
+    --priority "${priority}" --labels "${labels_csv}" --text "${title} ${body}" 2>/dev/null || echo sonnet)"
+  export OA_TASK_PRIORITY="${priority}"
+  export OA_FCC_TIER="${fcc_tier}"
+
   prompt_file="/tmp/oa-code-prompt-${number}.txt"
   run_log="/tmp/oa-opencode-${number}.log"
   cat > "${prompt_file}" <<EOF
@@ -290,7 +299,8 @@ Do not touch secrets. ${work_mode_note}
 End by summarizing tests run and residual risks.
 EOF
   if [[ -x "${RUN_CODE}" ]]; then
-    bash "${RUN_CODE}" --workdir "${REPO}" --prompt-file "${prompt_file}" --log "${run_log}" >> "${run_log}" 2>&1 || true
+    log "FCC tier=${fcc_tier} (priority=${priority}) for issue #${number}"
+    bash "${RUN_CODE}" --workdir "${REPO}" --prompt-file "${prompt_file}" --tier "${fcc_tier}" --log "${run_log}" >> "${run_log}" 2>&1 || true
   else
     log "WARN oa-run-code.sh missing; skipping implementation for #${number}"
   fi
