@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { apiBaseUrl } from '../lib/opsClient';
 
 interface JupiterQuote {
   inputMint: string;
@@ -16,7 +17,7 @@ interface QuoteResponse {
 }
 
 export function JupiterQuoteWidget() {
-  const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+  const API_BASE = apiBaseUrl();
 
   const [inputMint, setInputMint] = useState('So11111111111111111111111111111111111111112'); // SOL
   const [outputMint, setOutputMint] = useState('EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'); // USDC

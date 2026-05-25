@@ -39,7 +39,7 @@ Guía paso a paso para publicar el webapp transaccional en Vercel.
 
 | Variable | Valor sugerido |
 |----------|----------------|
-| `VITE_API_BASE_URL` | URL pública de tu API (ej. `https://api.goalchain.io` o tu túnel). Si no tenés API pública aún, omitila — el webapp funciona en devnet igual; el panel Ops mostrará offline. |
+| `VITE_API_BASE_URL` | **`https://crm.goalchain.fun/goalchain-api`** o déjala **vacía** (el build usa ese default). No uses `https://api.goalchain.io` hasta que exista DNS — rompe el panel Ops con *Failed to fetch*. |
 | `VITE_RPC_URL` | `https://api.devnet.solana.com` (devnet) o tu RPC Helius/QuickNode |
 | `VITE_MARKETING_URL` | `https://goalchain.fun` — base para enlaces del menú **Explorar** / **Recursos** |
 
