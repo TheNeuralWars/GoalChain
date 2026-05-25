@@ -3,18 +3,20 @@
 set -euo pipefail
 
 usage() {
-  echo "Usage: $0 --workdir <repo> --prompt-file <file> [--log <file>]"
+  echo "Usage: $0 --workdir <repo> --prompt-file <file> [--tier opus|sonnet|haiku] [--log <file>]"
   exit 1
 }
 
 WORKDIR=""
 PROMPT_FILE=""
 LOG_FILE=""
+FCC_TIER="${OA_FCC_TIER:-}"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --workdir) WORKDIR="$2"; shift 2 ;;
     --prompt-file) PROMPT_FILE="$2"; shift 2 ;;
+    --tier) FCC_TIER="$2"; shift 2 ;;
     --log) LOG_FILE="$2"; shift 2 ;;
     -h|--help) usage ;;
     *) echo "Unknown arg: $1"; usage ;;
@@ -25,10 +27,23 @@ done
 [[ -f "${PROMPT_FILE}" ]] || { echo "ERROR: prompt file not found: ${PROMPT_FILE}"; exit 1; }
 
 HERMES_HOME="${HERMES_HOME:-$HOME/hermes}"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if [[ -f "${HERMES_HOME}/config.env" ]]; then
   # shellcheck disable=SC1090
   source "${HERMES_HOME}/config.env"
 fi
+
+resolve_tier() {
+  local t="${FCC_TIER:-${OA_FCC_TIER:-}}"
+  case "${t}" in
+    opus|sonnet|haiku) printf '%s' "${t}"; return ;;
+  esac
+  if [[ -x "${SCRIPT_DIR}/fcc-resolve-tier.sh" ]]; then
+    bash "${SCRIPT_DIR}/fcc-resolve-tier.sh" --priority "${OA_TASK_PRIORITY:-P1}"
+    return
+  fi
+  printf '%s' "sonnet"
+}
 
 OA_CODE_ENGINE="${OA_CODE_ENGINE:-auto}"
 OA_CODE_CMD="${OA_CODE_CMD:-}"
@@ -64,10 +79,12 @@ resolve_fcc() {
 
 run_fcc() {
   local fcc_bin="$1"
-  log_line "code_engine=fcc cmd=${fcc_bin}"
+  local tier
+  tier="$(resolve_tier)"
+  log_line "code_engine=fcc cmd=${fcc_bin} tier=${tier} (FCC maps to MODEL_$(printf '%s' "${tier}" | tr '[:lower:]' '[:upper:]') in ~/.fcc/.env)"
   (
     cd "${WORKDIR}"
-    timeout "${TIMEOUT_SEC}" "${fcc_bin}" -p "$(cat "${PROMPT_FILE}")" </dev/null
+    timeout "${TIMEOUT_SEC}" "${fcc_bin}" --model "${tier}" -p "$(cat "${PROMPT_FILE}")" </dev/null
   )
 }
 

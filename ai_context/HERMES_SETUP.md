@@ -69,6 +69,7 @@ Flujo dev (Discord/WhatsApp): Manager crea issue `agent:opencode` → OA worker 
 - Config: `~/hermes/fcc.secrets.env` → `bash ~/hermes/scripts/configure-fcc-env.sh` → `~/.fcc/.env`
 - Guía (español): **`ops/hermes/FCC_PROVIDERS.md`** — proveedores 1–14 = API keys; **15–17 = solo local** (URL, no key); catálogo LM Studio → slugs `open_router/` / `nvidia_nim/`
 - En el VPS Hermes: **`FCC_CLOUD_ONLY=1`** en secrets (no descargar modelos de 50GB); Admin UI vía `ssh -L 8082:127.0.0.1:8082 goalchain@178.105.148.109`
+- **Routing automático:** Hermes solo elige P0/P1/P2; `fcc-resolve-tier.sh` + `fcc-claude --model opus|sonnet|haiku` — ver `ops/hermes/DISCORD_WORKDAY_SETUP.md`
 
 ## GBrain (memoria opcional)
 

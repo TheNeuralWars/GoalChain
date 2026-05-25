@@ -74,6 +74,16 @@ Sin instalar esos GGUF en el servidor, podés acercarte así en FCC:
 
 Los nombres exactos en OpenRouter a veces difieren (`:free`, sufijos, etc.). Si un slug falla en smoke, abrí [openrouter.ai/models](https://openrouter.ai/models) y copiá el id tal cual.
 
+## Hermes / Discord — routing automático (sin memorizar modelos)
+
+GoalChain no pide slugs en chat. Flujo:
+
+1. **Hermes** crea issue con `create-task.sh opencode P0|P1|P2 ...`
+2. **`oa-worker`** → `fcc-resolve-tier.sh` → `opus` | `sonnet` | `haiku`
+3. **`oa-run-code.sh`** → `fcc-claude --model <tier>` → FCC proxy usa `MODEL_OPUS` / `MODEL_SONNET` / `MODEL_HAIKU` en `~/.fcc/.env`
+
+Configurás los proveedores **una vez** en `fcc.secrets.env` (sección 18 de [free-claude-code](https://github.com/Alishahryar1/free-claude-code)).
+
 ## Mezclar proveedores por tier (sección 18 del README)
 
 FCC permite que Opus / Sonnet / Haiku usen proveedores distintos:
