@@ -40,11 +40,23 @@ export interface OpsStatus {
 
 const DEFAULT_API_DEV = 'http://localhost:3001';
 /** Public API behind Caddy on Hermes VPS (see ops/hermes/deploy-goalchain-api-vps.sh). */
-const DEFAULT_API_PROD = 'https://crm.goalchain.fun/goalchain-api';
+export const DEFAULT_API_PROD = 'https://crm.goalchain.fun/goalchain-api';
+
+/** Legacy Vercel env — DNS not wired; causes "Failed to fetch" on Play. */
+const STALE_VERCEL_API_URLS = new Set([
+  'https://api.goalchain.io',
+  'http://api.goalchain.io',
+]);
 
 export function apiBaseUrl(): string {
   const raw = import.meta.env.VITE_API_BASE_URL?.trim();
-  if (raw) return raw.replace(/\/$/, '');
+  if (raw) {
+    const base = raw.replace(/\/$/, '');
+    if (import.meta.env.PROD && STALE_VERCEL_API_URLS.has(base)) {
+      return DEFAULT_API_PROD;
+    }
+    return base;
+  }
   return import.meta.env.PROD ? DEFAULT_API_PROD : DEFAULT_API_DEV;
 }
 
