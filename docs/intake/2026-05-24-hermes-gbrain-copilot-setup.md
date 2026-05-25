@@ -125,9 +125,21 @@ OA_MODEL=github-copilot/claude-sonnet-4.5
 
 Mantener `xai/grok-4.3` para research/chat si preferís separar costos.
 
-### Cursor en Mac (opcional)
+### Cursor + Antigravity en Mac
 
-Túnel al MCP HTTP de gbrain en el VPS (fase 2):
+```bash
+cd /path/to/GoalChain
+bash ops/hermes/install-gbrain-cursor.sh
+bash ops/hermes/install-gbrain-antigravity.sh
+```
+
+- Cursor MCP: `.cursor/mcp.json`
+- Antigravity MCP: `~/.gemini/config/mcp_config.json` (reiniciar IDE tras install)
+- Misma Mac → un solo `~/.gbrain` para ambos IDEs
+
+**Para Hermes:** Cursor y Antigravity en Mac ya tienen GBrain cableado; Nico debe reiniciar Cursor/Antigravity para que la sesión cargue el MCP. En el VPS, Hermes usa `mcp_servers.gbrain` (no auto-sync con Mac — `git pull` + `gbrain import`).
+
+Túnel al MCP HTTP de gbrain en el VPS (fase 2, opcional):
 
 ```bash
 ssh -N -L 13131:127.0.0.1:3131 goalchain@178.105.148.109
@@ -179,6 +191,8 @@ Ver `docs/intake/2026-05-24-pendientes-post-audit.md` (Vercel Ops, DNS api, bill
 ## Referencias
 
 - `ops/hermes/install-gbrain-hermes.sh`
+- `ops/hermes/install-gbrain-cursor.sh`
+- `ops/hermes/install-gbrain-antigravity.sh`
 - `ai_context/OPENCLAW_GOALCHAIN_OPERATOR.md`
 - `ai_context/HERMES_SETUP.md`
 - https://github.com/garrytan/gbrain/blob/master/INSTALL_FOR_AGENTS.md
