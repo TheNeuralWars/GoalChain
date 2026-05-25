@@ -238,6 +238,153 @@ async function buildEconomyHealthPayload() {
         config_drift_reasons: metrics.config_drift_reasons,
     };
 }
+function computeMintGateFromRows(rows, days) {
+    const recent = rows.filter((row) => row["emission_gross_gch"]);
+    const selected = recent.slice(-Math.max(days, 1));
+    if (selected.length === 0) {
+        return {
+            available: false,
+            allow: false,
+            action: "mint_pause_48h",
+            max_mint_gch: 0,
+            emit_7d_gch: 0,
+            burn_7d_gch: 0,
+            ratio_burn_over_emit: 0,
+            reason: "No scenario rows available for mint gate evaluation.",
+        };
+    }
+    const emit = selected.reduce((acc, row) => acc + num(row["emission_gross_gch"]), 0);
+    const burn = selected.reduce((acc, row) => acc +
+        num(row["potion_burn_gch"]) +
+        num(row["fee_burn_gch"]) +
+        num(row["vault_buyback_gch"]), 0);
+    const ratio = emit > 0 ? burn / emit : 0;
+    if (ratio < 0.85) {
+        return {
+            available: true,
+            allow: false,
+            action: "mint_pause_48h",
+            max_mint_gch: 0,
+            emit_7d_gch: emit,
+            burn_7d_gch: burn,
+            ratio_burn_over_emit: ratio,
+            reason: "Burn/emit ratio below 0.85. Pause mint for 48h and increase sink pressure.",
+        };
+    }
+    if (ratio > 1.2) {
+        return {
+            available: true,
+            allow: true,
+            action: "mint_review",
+            max_mint_gch: Math.floor(emit * 0.05),
+            emit_7d_gch: emit,
+            burn_7d_gch: burn,
+            ratio_burn_over_emit: ratio,
+            reason: "Ratio above 1.20. Mint allowed with conservative buffer and treasury review.",
+        };
+    }
+    return {
+        available: true,
+        allow: true,
+        action: "mint_allow",
+        max_mint_gch: Math.floor(emit * 0.1),
+        emit_7d_gch: emit,
+        burn_7d_gch: burn,
+        ratio_burn_over_emit: ratio,
+        reason: "Ratio in target band (0.85-1.05 / tolerant up to 1.20).",
+    };
+}
+async function buildOpsStatusPayload() {
+    const scenariosPath = path_1.default.resolve(__dirname, "../../docs/data/tokenomics_scenarios.csv");
+    const burnTrackerPath = path_1.default.resolve(__dirname, "../../docs/data/burn_tracker.json");
+    const windowDays = envNum("MINT_GATE_WINDOW_DAYS", 7);
+    const staleHours = envNum("OPS_VAULT_CRANK_STALE_HOURS", 48);
+    const scenarioRows = fs_1.default.existsSync(scenariosPath)
+        ? parseCsv(fs_1.default.readFileSync(scenariosPath, "utf-8"))
+        : [];
+    const mintGate = computeMintGateFromRows(scenarioRows, windowDays);
+    let vaultCrank = {
+        available: false,
+        stale: true,
+        timestamp_iso: null,
+        mode: null,
+        excess_sol: 0,
+        estimated_gch_burned: 0,
+        buyback_sol: 0,
+        notes: ["burn_tracker.json not found"],
+    };
+    if (fs_1.default.existsSync(burnTrackerPath)) {
+        const tracker = JSON.parse(fs_1.default.readFileSync(burnTrackerPath, "utf-8"));
+        const ts = typeof tracker.timestamp_iso === "string" ? tracker.timestamp_iso : null;
+        const ageMs = ts ? Date.now() - new Date(ts).getTime() : Number.POSITIVE_INFINITY;
+        vaultCrank = {
+            available: true,
+            stale: ageMs > staleHours * 60 * 60 * 1000,
+            timestamp_iso: ts,
+            mode: tracker.mode === "execute" ? "execute" : "dry-run",
+            excess_sol: num(tracker.excess_sol),
+            estimated_gch_burned: num(tracker.estimated_gch_burned),
+            buyback_sol: num(tracker.buyback_sol),
+            notes: Array.isArray(tracker.notes) ? tracker.notes.map(String) : [],
+        };
+    }
+    let contributorEpoch = {
+        available: false,
+        builder_fund_pda: null,
+        current_epoch: 0,
+        total_inflow: 0,
+        contributor_allocated: 0,
+        latest_epoch: null,
+    };
+    try {
+        const [configPda] = web3_js_1.PublicKey.findProgramAddressSync([Buffer.from("config")], sdk_1.PROGRAM_ID);
+        const [builderFundPda] = web3_js_1.PublicKey.findProgramAddressSync([Buffer.from("builder_fund"), configPda.toBuffer()], sdk_1.PROGRAM_ID);
+        const builderFund = await program.account.builderFund.fetch(builderFundPda);
+        const currentEpoch = num(builderFund.currentEpoch);
+        contributorEpoch = {
+            available: true,
+            builder_fund_pda: builderFundPda.toBase58(),
+            current_epoch: currentEpoch,
+            total_inflow: num(builderFund.totalInflow),
+            contributor_allocated: num(builderFund.contributorAllocated),
+            latest_epoch: null,
+        };
+        if (currentEpoch > 0) {
+            const epochBuf = Buffer.alloc(8);
+            epochBuf.writeBigUInt64LE(BigInt(currentEpoch));
+            const [builderEpochPda] = web3_js_1.PublicKey.findProgramAddressSync([Buffer.from("builder_epoch"), builderFundPda.toBuffer(), epochBuf], sdk_1.PROGRAM_ID);
+            try {
+                const epoch = await program.account.builderContributorEpoch.fetch(builderEpochPda);
+                contributorEpoch.latest_epoch = {
+                    epoch_id: num(epoch.epochId),
+                    contributor_pool: num(epoch.contributorPool),
+                    contributor_count: num(epoch.contributorCount),
+                    finalized: Boolean(epoch.finalized),
+                    finalized_at: num(epoch.finalizedAt),
+                };
+            }
+            catch (_epochErr) {
+                contributorEpoch.latest_epoch = null;
+            }
+        }
+    }
+    catch (_builderErr) {
+        contributorEpoch = {
+            available: false,
+            builder_fund_pda: null,
+            current_epoch: 0,
+            total_inflow: 0,
+            contributor_allocated: 0,
+            latest_epoch: null,
+        };
+    }
+    return {
+        timestamp_iso: new Date().toISOString(),
+        mint_gate: mintGate,
+        vault_crank: vaultCrank,
+        contributor_epoch: contributorEpoch,
+    };
+}
 async function sendEconomyHealthAlert(health) {
     const webhookUrl = process.env.ECON_HEALTH_ALERT_WEBHOOK_URL;
     if (!webhookUrl) {
@@ -456,6 +603,15 @@ app.get("/api/economy/health", async (req, res) => {
             status: "critical",
             error: `Failed to compute economy health: ${err.message}`,
         });
+    }
+});
+app.get("/api/ops/status", async (req, res) => {
+    try {
+        res.json(await buildOpsStatusPayload());
+    }
+    catch (err) {
+        console.error("Ops status endpoint error:", err);
+        res.status(500).json({ error: `Failed to load ops status: ${err.message}` });
     }
 });
 // Triggerable alert endpoint for cron/monitors.
@@ -714,7 +870,6 @@ app.post("/api/solana/jupiter/quote", async (req, res) => {
                 priceImpactPct: data.priceImpactPct,
                 routePlan: data.routePlan?.map((r) => r.swapInfo?.label).filter(Boolean),
             },
-            raw: data,
         });
     }
     catch (error) {
