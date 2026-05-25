@@ -73,19 +73,57 @@ Flujo dev (Discord/WhatsApp): Manager crea issue `agent:opencode` → OA worker 
 
 ## GBrain (memoria institucional)
 
-**Hermes VPS:**
+Tres runtimes, **sin sync automática** entre sí. Fuente común: repo Git (`ai_context/`, `docs/intake/`) + `gbrain import` tras cada `git pull`.
+
+| Host | Script | MCP / store |
+|------|--------|-------------|
+| **Hermes VPS** | `install-gbrain-hermes.sh` | `~/.hermes/config.yaml` → `mcp_servers.gbrain`; reinicia `hermes-gateway` |
+| **Cursor (Mac)** | `install-gbrain-cursor.sh` | `.cursor/mcp.json` → recargar ventana Cursor |
+| **Antigravity (Mac)** | `install-gbrain-antigravity.sh` | `~/.gemini/config/mcp_config.json` → **reiniciar Antigravity IDE** |
+
+En la Mac de Nico, Cursor y Antigravity comparten el mismo `~/.gbrain` (una sola instancia PGLite local). El VPS tiene el suyo en el servidor.
+
+**Mensaje para Manager (Hermes):** Cursor y Antigravity en Mac ya tienen GBrain instalado vía MCP; hasta que Nico reinicie Cursor/Antigravity, las sesiones activas pueden no “recordar” el tool — en el VPS vos sí usás `mcp_servers.gbrain` tras `install-gbrain-hermes.sh`.
+
 ```bash
+# VPS
 bash ops/hermes/install-gbrain-hermes.sh
-# MCP ya en ~/.hermes/config.yaml → mcp_servers.gbrain; reinicia gateway tras install
-```
+systemctl --user restart hermes-gateway
 
-**Cursor (Mac):**
-```bash
+# Mac (Nico)
 bash ops/hermes/install-gbrain-cursor.sh
-# MCP: .cursor/mcp.json — recargá la ventana de Cursor
+bash ops/hermes/install-gbrain-antigravity.sh
 ```
 
-Guía: `docs/intake/2026-05-24-hermes-gbrain-copilot-setup.md`. Embeddings opcionales: `ZEROENTROPY_API_KEY` o `OPENAI_API_KEY` en `config.env` / `.env`.
+Re-sync memoria tras merge a `main`:
+```bash
+gbrain import ai_context docs/intake && gbrain embed --stale
+```
+
+Guía: `docs/intake/2026-05-24-hermes-gbrain-copilot-setup.md`. Embeddings: `ZEROENTROPY_API_KEY` o `OPENAI_API_KEY` en `config.env` / `.env`.
+
+## Superpowers (swap + MCP on-chain + cron + webhooks)
+
+En el VPS, tras pull:
+
+```bash
+sudo SWAP_SIZE_GB=2 SWAP_FILE=/swapfile2 bash ~/hermes/scripts/setup-swap-extra.sh   # +2GB (requiere sudo en VPS)
+bash ~/hermes/scripts/install-hermes-superpowers.sh
+```
+
+| Capa | Qué hace |
+|------|----------|
+| **native-mcp** | `mcp_servers.goalchain-ops` (venv python) → API ops/health/config + on-chain |
+| **webhook-subscriptions** | `:8644` + `goalchain-alpha-push` → WhatsApp (`--deliver-only`) |
+| **hermes cron** | Alpha `*/30 * * * *`, scan 05:00 UTC, resumen 07:00 UTC → `WHATSAPP_TARGET` |
+
+Requisitos: `WHATSAPP_TARGET` en `~/hermes/config.env`, `approvals.cron_mode: allow`. Si Twenty CRM ocupa `:3000`, el instalador fija `whatsapp.extra.bridge_port: 3001`.
+
+## X-Scout (foro active-research)
+
+- Timer: `hermes-x-scout.timer` → `ops/hermes/oa-x-scout-run.sh`
+- Publicación: `ops/hermes/oa-x-scout-discord.py` (embed + un hilo por ciclo; cooldown `OA_X_SCOUT_MIN_INTERVAL_SEC`, default 7200)
+- Config: `DISCORD_RESEARCH_CHANNEL_ID` = foro **active-research**; `OA_WORKER_PUBLISH_RESEARCH=false` evita spam del worker
 
 ## OpenClaw (legacy, opcional)
 

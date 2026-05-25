@@ -10,16 +10,12 @@ import '@solana/wallet-adapter-react-ui/styles.css';
 
 import { PlayLayout } from './PlayLayout';
 import { DashboardGrid } from './DashboardGrid';
-import { ClassicHub } from './ClassicHub';
-import { FixturesPanel } from './FixturesPanel';
-import { TradingTerminal } from './TradingTerminal';
-import { SquadGallery } from './SquadGallery';
-import { LiveEventFeed } from './LiveEventFeed';
+import { EstadioPortal } from './EstadioPortal';
+import { DeFiPortal } from './DeFiPortal';
+import { ClubPortal } from './ClubPortal';
 import { CreateUser } from './CreateUser';
 import { UserProfile } from './UserProfile';
-import { AICommentator } from './AICommentator';
-import { SwarmVaults } from './SwarmVaults';
-import { OpsStatusPanel } from './OpsStatusPanel';
+import { ClassicHub } from './ClassicHub';
 
 function PlayPage({
   title,
@@ -60,68 +56,36 @@ function App() {
                 <Route
                   path="/"
                   element={
-                    <PlayPage title="GoalChain Alpha Dashboard" align="left">
+                    <PlayPage title="Panel de Inicio" align="left">
                       <DashboardGrid />
                     </PlayPage>
                   }
                 />
+                <Route
+                  path="/estadio"
+                  element={
+                    <PlayPage title="Portal del Estadio" align="left">
+                      <EstadioPortal />
+                    </PlayPage>
+                  }
+                />
+                <Route
+                  path="/defi"
+                  element={
+                    <PlayPage title="DeFi Terminal" align="left">
+                      <DeFiPortal />
+                    </PlayPage>
+                  }
+                />
+                <Route
+                  path="/club"
+                  element={
+                    <PlayPage title="Mi Club &amp; Manager" align="left">
+                      <ClubPortal />
+                    </PlayPage>
+                  }
+                />
                 <Route path="/hub" element={<ClassicHub />} />
-                <Route
-                  path="/ops"
-                  element={
-                    <PlayPage title="Ops & Protocol Status">
-                      <OpsStatusPanel />
-                    </PlayPage>
-                  }
-                />
-                <Route
-                  path="/fixtures"
-                  element={
-                    <PlayPage title="Fixtures & Mercados">
-                      <FixturesPanel />
-                    </PlayPage>
-                  }
-                />
-                <Route
-                  path="/trading"
-                  element={
-                    <PlayPage title="Trading Terminal">
-                      <TradingTerminal />
-                    </PlayPage>
-                  }
-                />
-                <Route
-                  path="/squad"
-                  element={
-                    <PlayPage title="Squad Gallery">
-                      <SquadGallery />
-                    </PlayPage>
-                  }
-                />
-                <Route
-                  path="/vaults"
-                  element={
-                    <PlayPage title="Swarm Vaults">
-                      <SwarmVaults />
-                    </PlayPage>
-                  }
-                />
-                <Route
-                  path="/commentator"
-                  element={
-                    <PlayPage title="AI Commentator">
-                      <AICommentator />
-                    </PlayPage>
-                  }
-                />
-                <Route
-                  path="/feed"
-                  element={
-                    <PlayPage title="Live Event Feed">
-                      <LiveEventFeed />
-                    </PlayPage>
-                  }
-                />
                 <Route path="/crear-usuario" element={<CreateUser />} />
                 <Route path="/perfil/:username" element={<ProfilePage />} />
               </Route>

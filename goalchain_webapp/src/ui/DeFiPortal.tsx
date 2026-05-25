@@ -1,0 +1,51 @@
+import React, { useState } from 'react';
+import { TradingTerminal } from './TradingTerminal';
+import { SwarmVaults } from './SwarmVaults';
+
+export function DeFiPortal() {
+  const [activeSubTab, setActiveSubTab] = useState<'trading' | 'vaults'>('trading');
+
+  const tabs = [
+    { id: 'trading', label: '💱 Vibe Swap & Trading', desc: 'Negocia tokens y activa vibe bots' },
+    { id: 'vaults', label: '🏦 Swarm Yield Vaults', desc: 'Estrategias de liquidez con agentes autónomos' },
+  ] as const;
+
+  return (
+    <div className="play-page play-page--portal">
+      <div className="portal-header glass-card">
+        <div className="portal-badge portal-badge--defi">DEFI PORTAL</div>
+        <h1>Terminal Financiera</h1>
+        <p className="portal-subtitle">
+          Maximiza el rendimiento de tu club con arbitraje inteligente, vaults autónomas y liquidez automatizada.
+        </p>
+
+        {/* Glassmorphic Tabs Navigation */}
+        <div className="portal-tabs portal-tabs--two-col">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveSubTab(tab.id)}
+              className={`portal-tab-btn portal-tab-btn--defi ${activeSubTab === tab.id ? 'portal-tab-btn--active' : ''}`}
+            >
+              <span className="tab-label">{tab.label}</span>
+              <span className="tab-desc">{tab.desc}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="portal-content-wrapper">
+        {activeSubTab === 'trading' && (
+          <div className="portal-fade-in">
+            <TradingTerminal />
+          </div>
+        )}
+        {activeSubTab === 'vaults' && (
+          <div className="portal-fade-in">
+            <SwarmVaults />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
