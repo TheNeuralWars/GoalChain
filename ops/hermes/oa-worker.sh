@@ -13,8 +13,10 @@ LOG_DIR="${OA_HOME}/logs"
 mkdir -p "${OA_HOME}/inbox" "${STATE_DIR}" "${LOG_DIR}"
 touch "${QUEUE_FILE}"
 
+set -a
 # shellcheck disable=SC1090
 source "${HERMES_HOME}/config.env"
+set +a
 REPO="${GOALCHAIN_REPO_PATH:-$HERMES_HOME/workspace/GoalChain}"
 PROPOSALS_DIR="${REPO}/docs/proposals/opencode"
 OA_MODEL="${OA_MODEL:-xai/grok-4.3}"
