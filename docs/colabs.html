@@ -7,102 +7,120 @@
     <link rel="icon" type="image/png" href="assets/img/logo_3d_clean.png?v=2.0">
     <link rel="stylesheet" href="assets/css/style.css?v=4.2">
     <link rel="stylesheet" href="assets/css/colabs.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script src="assets/js/i18n.js"></script>
 </head>
 <body>
     <div class="vibrancy"></div>
 
-    <!-- Botón de Salida -->
-    <a href="index.html" class="exit-pitch top-exit" title="Volver al Inicio (ESC)">
-        <span>&times;</span>
-    </a>
-
-    <!-- Botón de Salida Flotante Inferior -->
-    <a href="index.html" class="exit-portal-btn" title="Salir del Portal">
-        <span>🚪</span> Salir
-    </a>
+    <!-- Double-route Exit Panel (Top Left) -->
+    <div class="colab-exit-panel">
+        <a href="/go/" class="exit-btn exit-btn--app" title="Volver a la dApp de GoalChain">
+            <span class="exit-icon">🏠</span>
+            <span class="exit-text" data-i18n="colab_exit_app">Ir al Inicio</span>
+        </a>
+        <a href="index.html" class="exit-btn exit-btn--mkt" title="Salir al sitio de marketing">
+            <span class="exit-icon">🚪</span>
+            <span class="exit-text" data-i18n="colab_exit_mkt">Salir</span>
+        </a>
+    </div>
 
     <style>
-        .exit-portal-btn {
+        .colab-exit-panel {
             position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            background: rgba(255, 77, 106, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 77, 106, 0.3);
-            border-radius: 50px;
-            padding: 10px 25px;
-            color: #ff4d6a;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 800;
-            z-index: 9999;
+            top: 1.5rem;
+            left: 1.5rem;
             display: flex;
-            align-items: center;
             gap: 10px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 9999;
         }
-        .exit-portal-btn:hover {
-            background: #ff4d6a;
-            color: #fff;
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 77, 106, 0.4);
-        }
-        .top-exit {
-            top: 2rem;
-            right: 2rem;
-        }
-        .exit-pitch {
-            position: fixed;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        
+        .exit-btn {
+            background: rgba(10, 10, 20, 0.7);
+            backdrop-filter: blur(14px) saturate(180%);
+            -webkit-backdrop-filter: blur(14px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50px;
+            padding: 8px 16px;
             color: #fff;
             text-decoration: none;
-            font-size: 2rem;
-            font-weight: 300;
-            z-index: 9999;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
-        .exit-pitch:hover {
-            background: var(--primary);
-            color: #000;
-            transform: rotate(90deg) scale(1.1);
+        
+        .exit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .exit-btn--app:hover {
             border-color: var(--primary);
+            box-shadow: 0 6px 20px rgba(20, 241, 149, 0.2);
+            color: var(--primary);
+        }
+        
+        .exit-btn--mkt:hover {
+            border-color: #ff4d6a;
+            box-shadow: 0 6px 20px rgba(255, 77, 106, 0.2);
+            color: #ff4d6a;
+        }
+        
+        .exit-icon {
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 600px) {
+            .colab-exit-panel {
+                top: auto;
+                bottom: 1.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                width: calc(100% - 3rem);
+                justify-content: center;
+            }
+            .exit-btn {
+                flex: 1;
+                justify-content: center;
+                font-size: 0.75rem;
+                padding: 10px 12px;
+            }
         }
     </style>
 
     <!-- Login Gateway -->
     <div id="loginGateway" class="gateway-overlay">
-        <div class="glass-card gateway-card">
-            <div class="logo" style="display: flex; align-items: center; gap: 10px; justify-content: center;">
+        <div class="glass-card gateway-card" style="position: relative;">
+            <!-- Language Selector -->
+            <div class="lang-toggle" style="position: absolute; top: 20px; right: 20px; display: flex; gap: 6px; z-index: 50;">
+                <button id="langEs" onclick="setLang('es')" style="padding: 4px 10px; border-radius: 8px; font-weight: 800; font-size: 0.75rem; cursor: pointer;">ES</button>
+                <button id="langEn" class="active" onclick="setLang('en')" style="padding: 4px 10px; border-radius: 8px; font-weight: 800; font-size: 0.75rem; cursor: pointer;">EN</button>
+            </div>
+
+            <div class="logo" style="display: flex; align-items: center; gap: 10px; justify-content: center; margin-top: 15px;">
                 <img src="assets/img/logo_3d_clean.png" alt="Logo" style="height: 40px; filter: drop-shadow(0 0 10px rgba(20, 241, 149, 0.3));">
                 Goal<span style="font-weight: 900;">Chain</span>
             </div>
-            <h2 style="margin: 1.5rem 0 0.5rem;">Portal de Colaboradores</h2>
+            <h2 style="margin: 1.5rem 0 0.5rem;" data-i18n="colab_title">Portal de Colaboradores</h2>
             <div class="login-box">
-                <h1>🔐 Acceso Restringido</h1>
-                <p>Este portal es exclusivo para desarrolladores, partners e influencers autorizados de GoalChain.</p>
-                <button id="connectBtn" class="btn btn-primary btn-glow" style="width: 100%; margin-top: 20px;">CONECTAR PHANTOM</button>
+                <h1 data-i18n="colab_restrict">🔐 Acceso Restringido</h1>
+                <p data-i18n="colab_restrict_desc">Este portal es exclusivo para desarrolladores, partners e influencers autorizados de GoalChain.</p>
+                <button id="connectBtn" class="btn btn-primary btn-glow" style="width: 100%; margin-top: 20px;" data-i18n="colab_connect">CONECTAR PHANTOM</button>
                 
                 <div id="accessDenied" style="display:none; margin-top: 20px; color: #ff4d4d; font-size: 0.8rem; border: 1px solid #ff4d4d; padding: 10px; border-radius: 8px;">
                     🚫 Wallet no autorizada.
                 </div>
 
                 <div class="how-to-join" style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: left;">
-                    <h4 style="font-size: 0.9rem; color: var(--primary);">🚀 ¿Quieres colaborar?</h4>
-                    <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 5px;">Las colaboraciones están abiertas. Para ser añadido a la whitelist:</p>
+                    <h4 style="font-size: 0.9rem; color: var(--primary);" data-i18n="colab_join_t">🚀 ¿Quieres colaborar?</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 5px;" data-i18n="colab_join_d">Las colaboraciones están abiertas. Para ser añadido a la whitelist:</p>
                     <ul style="font-size: 0.75rem; color: var(--text-dim); margin-top: 10px; padding-left: 15px;">
-                        <li>Abre un ticket en nuestro <b>Discord</b>.</li>
-                        <li>Envíanos un DM directo a <b>@NicoPez</b>.</li>
+                        <li data-i18n="colab_join_step1">Abre un ticket en nuestro <b>Discord</b>.</li>
+                        <li data-i18n="colab_join_step2">Envíanos un DM directo a <b>@NicoPez</b>.</li>
                     </ul>
                 </div>
             </div>
@@ -111,22 +129,29 @@
 
     <!-- Main Colab App (Hidden until Auth) -->
     <main id="colabApp" style="display: none;">
-        <nav class="colab-nav">
+        <nav class="colab-nav" style="display: flex; align-items: center; justify-content: space-between;">
             <div class="logo" style="display: flex; align-items: center; gap: 8px;">
                 <img src="assets/img/logo_3d_clean.png" alt="Logo" style="height: 25px;">
                 Goal<span>Chain</span> <small>PARTNERS</small>
             </div>
             <div class="colab-tabs">
-                <button class="tab-btn active" data-tab="dev" id="tabDev">Dev Team</button>
-                <button class="tab-btn" data-tab="influencers" id="tabInfluencers">Influencers</button>
-                <button class="tab-btn" data-tab="partners" id="tabPartners">Partners</button>
-                <button class="tab-btn" data-tab="finance" id="tabFinance" style="color:var(--primary);">🏦 Finance</button>
-                <button class="tab-btn" data-tab="academy" id="tabAcademy" style="color:var(--secondary);">🌱 Academy Admin</button>
-                <button class="tab-btn" data-tab="guide" id="tabGuide" style="color:#00e5ff; font-weight: 800;">📖 Mega Guides</button>
+                <button class="tab-btn active" data-tab="dev" id="tabDev" data-i18n="colab_tab_dev">Equipo Dev</button>
+                <button class="tab-btn" data-tab="influencers" id="tabInfluencers" data-i18n="colab_tab_inf">Influencers</button>
+                <button class="tab-btn" data-tab="partners" id="tabPartners" data-i18n="colab_tab_part">Partners</button>
+                <button class="tab-btn" data-tab="finance" id="tabFinance" style="color:var(--primary);" data-i18n="colab_tab_fin">🏦 Finanzas</button>
+                <button class="tab-btn" data-tab="academy" id="tabAcademy" style="color:var(--secondary);" data-i18n="colab_tab_acad">🌱 Academia Admin</button>
+                <button class="tab-btn" data-tab="guide" id="tabGuide" style="color:#00e5ff; font-weight: 800;" data-i18n="colab_tab_guide">📖 Mega Guías</button>
             </div>
-            <div id="userBadge" class="user-badge">
-                <span id="userRole">Dev</span>
-                <span id="userAddress">0x...</span>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <!-- Lang Toggle inside app nav -->
+                <div class="lang-toggle" style="display: flex; gap: 4px;">
+                    <button id="langEsApp" onclick="setLang('es')" style="padding: 3px 8px; border-radius: 6px; font-weight: 800; font-size: 0.7rem; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); background: transparent; color: #fff;">ES</button>
+                    <button id="langEnApp" class="active" onclick="setLang('en')" style="padding: 3px 8px; border-radius: 6px; font-weight: 800; font-size: 0.7rem; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); background: transparent; color: #fff;">EN</button>
+                </div>
+                <div id="userBadge" class="user-badge">
+                    <span id="userRole">Dev</span>
+                    <span id="userAddress">0x...</span>
+                </div>
             </div>
         </nav>
 

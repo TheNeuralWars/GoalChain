@@ -33,6 +33,30 @@ MESSAGES: dict[str, dict[str, str]] = {
         "es": "research_publisher: DESACTIVADO (canal oa-research-live deprecado)",
         "en": "research_publisher: DISABLED (oa-research-live channel deprecated)",
     },
+    "xscout_default_thesis": {
+        "es": "Ciclo de radar sin candidatos accionables con repo OSS y señal en X.",
+        "en": "Radar cycle without actionable candidates with OSS repo and X signal.",
+    },
+    "xscout_field_candidates": {
+        "es": "Candidatos",
+        "en": "Candidates",
+    },
+    "xscout_field_why_now": {
+        "es": "Por qué ahora",
+        "en": "Why now",
+    },
+    "xscout_field_poc": {
+        "es": "PoC 48h",
+        "en": "48h PoC",
+    },
+    "xscout_field_links": {
+        "es": "Enlaces",
+        "en": "Links",
+    },
+    "xscout_footer": {
+        "es": "X-Scout · Hermes · {ts}",
+        "en": "X-Scout · Hermes · {ts}",
+    },
 }
 
 

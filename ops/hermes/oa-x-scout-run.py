@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """
-Hermes X-Scout: fetch X signals + synthesize ai-radar report for Discord active-research.
+Hermes X-Scout v2: X signals + Grok synthesis → one markdown report → Discord forum.
 
 Writes: ~/.hermes/workspace/docs/ai-radar-<UTC>.md
+Publish: ops/hermes/oa-x-scout-discord.py (active-research forum, embeds, dedup)
 """
 from __future__ import annotations
 
 import base64
 import hmac
-import json
 import os
 import re
+import subprocess
 import sys
 import time
 import urllib.parse
@@ -22,10 +23,14 @@ import requests
 
 HOME = Path.home()
 OUT_DIR = HOME / ".hermes" / "workspace" / "docs"
+HERMES_HOME = Path(os.getenv("HERMES_HOME", str(HOME / "hermes")))
+DISCORD_PUBLISH = HERMES_HOME / "scripts" / "oa-x-scout-discord.py"
+STATE_FILE = HERMES_HOME / "oa" / "state" / "x-scout-discord.json"
+
 QUERIES = [
     "(solana OR web3) (AI agent OR agents) -is:retweet lang:en",
     "#goalchain OR goalchainmanager lang:en",
-    "(Claude Code OR MCP) (open source OR github) lang:en",
+    "(Claude Code OR MCP) (open source OR github) -is:retweet lang:en",
 ]
 
 
@@ -37,7 +42,15 @@ def _pct(value: str) -> str:
     return urllib.parse.quote(value, safe="~-._")
 
 
-def oauth1_header(method: str, url: str, ck: str, cs: str, at: str, ats: str, query: dict[str, str] | None = None) -> str:
+def oauth1_header(
+    method: str,
+    url: str,
+    ck: str,
+    cs: str,
+    at: str,
+    ats: str,
+    query: dict[str, str] | None = None,
+) -> str:
     nonce = base64.urlsafe_b64encode(os.urandom(16)).decode("ascii").rstrip("=")
     timestamp = str(int(time.time()))
     oauth = {
@@ -58,7 +71,7 @@ def oauth1_header(method: str, url: str, ck: str, cs: str, at: str, ats: str, qu
     return "OAuth " + ", ".join(f'{_pct(k)}="{_pct(v)}"' for k, v in sorted(oauth.items()))
 
 
-def fetch_x_snippets() -> str:
+def fetch_x_snippets() -> tuple[str, int]:
     ck, cs, at, ats = (
         getenv("X_API_KEY"),
         getenv("X_API_SECRET"),
@@ -66,14 +79,15 @@ def fetch_x_snippets() -> str:
         getenv("X_ACCESS_SECRET"),
     )
     if not all([ck, cs, at, ats]):
-        return "(X API credentials missing — synthesis uses Grok only.)"
+        return "(X API credentials missing — synthesis uses Grok only.)", 0
 
     lines: list[str] = []
+    hits = 0
     for q in QUERIES:
         qparams = {
             "query": q,
-            "max_results": "12",
-            "tweet.fields": "created_at,public_metrics,author_id",
+            "max_results": "10",
+            "tweet.fields": "created_at,public_metrics",
             "expansions": "author_id",
             "user.fields": "username",
         }
@@ -83,56 +97,65 @@ def fetch_x_snippets() -> str:
             r = requests.get(
                 url,
                 params=qparams,
-                headers={"Authorization": auth, "User-Agent": "GoalChainXScout/1.0"},
+                headers={"Authorization": auth, "User-Agent": "GoalChainXScout/2.0"},
                 timeout=25,
             )
             if r.status_code != 200:
-                lines.append(f"- query `{q[:40]}…` HTTP {r.status_code}")
+                lines.append(f"- query `{q[:36]}…` HTTP {r.status_code}")
                 continue
             data = r.json()
             users = {
                 u.get("id"): u.get("username", "?")
                 for u in (data.get("includes") or {}).get("users") or []
             }
-            for t in (data.get("data") or [])[:6]:
+            for t in (data.get("data") or [])[:5]:
                 uid = t.get("author_id", "")
                 user = users.get(uid, "?")
-                text = re.sub(r"\s+", " ", (t.get("text") or ""))[:200]
+                text = re.sub(r"\s+", " ", (t.get("text") or ""))[:180]
                 tid = t.get("id", "")
-                lines.append(f"- @{user}: {text} https://x.com/{user}/status/{tid}")
+                lines.append(f"- [@{user}](https://x.com/{user}/status/{tid}): {text}")
+                hits += 1
         except Exception as e:
             lines.append(f"- query error: {e}")
-        time.sleep(0.4)
-    return "\n".join(lines) if lines else "(no X results this cycle)"
+        time.sleep(0.35)
+    body = "\n".join(lines) if lines else "(no X results this cycle)"
+    return body, hits
 
 
-def grok_synthesize(x_context: str, score_min: int) -> str:
+def grok_synthesize(x_context: str, x_hits: int, score_min: int, ts: str) -> str:
     key = getenv("XAI_API_KEY")
     if not key:
         raise SystemExit("XAI_API_KEY missing in ~/hermes/config.env")
 
     model = getenv("OA_SCOUT_GROK_MODEL", "grok-3")
     tone = getenv("OA_SCOUT_TONE", "balanced")
-    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d-%H%M")
-    prompt = f"""You are GoalChain X-Scout. Write a markdown radar report for the team.
 
-UTC stamp: {ts}
+    prompt = f"""You are GoalChain X-Scout (Hermes). Write ONE markdown radar for the Discord **active-research** forum.
+
+UTC: {ts}
 Tone: {tone}
-Minimum candidate score: {score_min}/40 (only include candidates meeting this).
+Minimum candidate score to include in table: {score_min}/40
+X snippets collected: {x_hits}
 
-## X snippets (live)
+## Live X snippets
 {x_context}
 
-## Requirements
-- Title: # GoalChain AI Radar — {ts}
-- 1 paragraph thesis on why these matter for GoalChain (Solana, agents, play webapp, ops).
-- Table with max 3 candidates: Name | Score /40 | Strategic | Build | Edge | Maturity | Links
-- Each candidate MUST include at least one https://github.com/ repo AND one https://x.com/ or @alias reference.
-- Section "Why now" with 3 bullets.
-- Section "48h PoC" with branch name exp/scout-<slug> and 5 steps.
-- If nothing strong enough, still pick ONE "near-miss" with honest gaps (do NOT write "none met minimum" only).
-
-Output markdown only."""
+## Output rules (strict)
+1. If there is NO candidate with score >= {score_min}, real https://github.com/ repo (active), AND https://x.com/ proof:
+   - Output ONLY:
+     # GoalChain AI Radar — {ts}
+     <!-- X_SCOUT_QUIET -->
+     One short paragraph (max 3 sentences) explaining why this cycle is quiet. No table.
+2. If there IS at least one strong candidate:
+   - Title: # GoalChain AI Radar — {ts}
+   - Opening paragraph: thesis for GoalChain (Solana, agents, play webapp, ops) — max 4 sentences.
+   - Markdown table (max 3 rows): | Project | Score /40 | Strategic | Build | Edge | Links |
+     - Links column MUST include full https://github.com/... and https://x.com/... URLs.
+   - ## Why now — exactly 3 bullets.
+   - ## 48h PoC — branch `exp/scout-<slug>` + exactly 5 numbered steps.
+3. NEVER write "none met minimum", "no candidates", or filler scores like 22/40 without a named project.
+4. NEVER repeat boilerplate from prior cycles. Be specific to the X snippets above.
+5. Markdown only. No JSON."""
 
     r = requests.post(
         "https://api.x.ai/v1/chat/completions",
@@ -140,16 +163,35 @@ Output markdown only."""
         json={
             "model": model,
             "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.4,
+            "temperature": 0.35,
         },
         timeout=180,
     )
     if r.status_code != 200:
         raise SystemExit(f"xAI HTTP {r.status_code}: {r.text[:400]}")
-    content = r.json()["choices"][0]["message"]["content"]
-    if not content.strip().startswith("#"):
+    content = r.json()["choices"][0]["message"]["content"].strip()
+    if not content.startswith("#"):
         content = f"# GoalChain AI Radar — {ts}\n\n{content}"
-    return content.strip() + "\n"
+    return content + "\n"
+
+
+def publish_to_discord(report_path: Path) -> int:
+    if not Path(DISCORD_PUBLISH).is_file():
+        print(f"x_scout: WARN discord publisher missing at {DISCORD_PUBLISH}")
+        return 0
+    env = {**os.environ, "OA_X_SCOUT_STATE_FILE": str(STATE_FILE)}
+    proc = subprocess.run(
+        [sys.executable, str(DISCORD_PUBLISH), str(report_path), "--state-file", str(STATE_FILE)],
+        env=env,
+        capture_output=True,
+        text=True,
+        timeout=60,
+    )
+    if proc.stdout:
+        print(proc.stdout.rstrip())
+    if proc.stderr:
+        print(proc.stderr.rstrip(), file=sys.stderr)
+    return proc.returncode
 
 
 def main() -> int:
@@ -158,10 +200,14 @@ def main() -> int:
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d-%H%M")
     out = OUT_DIR / f"ai-radar-{ts}.md"
 
-    x_ctx = fetch_x_snippets()
-    body = grok_synthesize(x_ctx, score_min)
+    x_ctx, x_hits = fetch_x_snippets()
+    body = grok_synthesize(x_ctx, x_hits, score_min, ts)
     out.write_text(body, encoding="utf-8")
-    print(f"x_scout: wrote {out} ({len(body)} bytes)")
+    print(f"x_scout: wrote {out} ({len(body)} bytes, x_hits={x_hits})")
+
+    if getenv("OA_RESEARCH_PUBLISHER_ENABLED", "false").lower() in ("1", "true", "yes"):
+        return publish_to_discord(out)
+    print("x_scout: discord publish skipped (OA_RESEARCH_PUBLISHER_ENABLED=false)")
     return 0
 
 

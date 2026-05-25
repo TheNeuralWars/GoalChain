@@ -47,6 +47,10 @@ is_urgent_text() {
 }
 
 publish_research_updates() {
+  # X-Scout owns ai-radar-* posts (hermes-x-scout.timer). Worker must not republish them.
+  if [[ "${OA_WORKER_PUBLISH_RESEARCH:-false}" != "true" ]]; then
+    return 0
+  fi
   if [[ "${OA_RESEARCH_PUBLISHER_ENABLED}" != "true" ]]; then
     return 0
   fi
@@ -67,9 +71,9 @@ publish_research_updates() {
   python3 "${RESEARCH_PUBLISHER}" \
     --state-file "${STATE_DIR}/research-discord-posted.json" \
     --max-per-run 1 \
+    --exclude-glob "ai-radar-*.md" \
     >> "${LOG_DIR}/worker.log" 2>&1 || {
-      # Avoid noisy loops on bad credentials/permissions.
-      echo "$(( now + 900 ))" > "${cooldown_file}"
+      echo "$(( now + 7200 ))" > "${cooldown_file}"
       return 0
     }
   rm -f "${cooldown_file}"

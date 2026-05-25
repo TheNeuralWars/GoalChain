@@ -43,10 +43,9 @@ def build_sources() -> list[str]:
     home = pathlib.Path.home()
     repo = pathlib.Path(getenv("GOALCHAIN_REPO_PATH", str(home / "hermes/workspace/GoalChain")))
     hermes_docs = home / ".hermes" / "workspace" / "docs"
+    # ai-radar-* is published only by X-Scout (oa-x-scout-discord.py), not this legacy publisher.
     return [
-        str(hermes_docs / "ai-radar-*.md"),
         str(home / ".hermes" / "workspace" / "memory" / "weekly-ai-deepdive-*.md"),
-        str(home / ".openclaw/workspace/docs/ai-radar-*.md"),
         str(home / ".openclaw/workspace/memory/weekly-ai-deepdive-*.md"),
         str(repo / "docs/intake/*ai-ecosystem-opportunities*.md"),
     ]
@@ -301,12 +300,28 @@ def post_x(content: str) -> tuple[bool, str]:
         return False, f"error:{e}"
 
 
-def collect_new_files(patterns: list[str], state: dict[str, float]) -> list[pathlib.Path]:
+def _excluded(name: str, exclude_globs: list[str]) -> bool:
+    from fnmatch import fnmatch
+
+    for pat in exclude_globs:
+        if fnmatch(name, pat) or fnmatch(pathlib.Path(name).name, pat):
+            return True
+    return False
+
+
+def collect_new_files(
+    patterns: list[str],
+    state: dict[str, float],
+    exclude_globs: list[str] | None = None,
+) -> list[pathlib.Path]:
     files: list[pathlib.Path] = []
+    exclude = exclude_globs or []
     for pattern in patterns:
         for raw in glob.glob(pattern):
             p = pathlib.Path(raw)
             if not p.is_file():
+                continue
+            if _excluded(p.name, exclude) or _excluded(str(p), exclude):
                 continue
             mtime = p.stat().st_mtime
             if state.get(str(p), 0) >= mtime:
@@ -321,6 +336,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--state-file", required=True)
     parser.add_argument("--max-per-run", type=int, default=1)
     parser.add_argument("--source-glob", action="append", default=[])
+    parser.add_argument(
+        "--exclude-glob",
+        action="append",
+        default=[],
+        help="Skip files matching these globs (e.g. ai-radar-*.md for X-Scout-owned reports)",
+    )
     return parser.parse_args()
 
 
@@ -333,7 +354,7 @@ def main() -> int:
     state = read_state(state_path)
     patterns = args.source_glob or build_sources()
 
-    fresh = collect_new_files(patterns, state)
+    fresh = collect_new_files(patterns, state, exclude_globs=args.exclude_glob)
     if not fresh:
         print("research_publisher: no_new_reports")
         return 0
@@ -344,9 +365,9 @@ def main() -> int:
         if not msg:
             print(f"research_publisher: skip_useless_report file={p}")
             state[str(p)] = p.stat().st_mtime
+            write_state(state_path, state)
             continue
 
-        # Extract title as thread_name for the Forum Channel
         lines = p.read_text(encoding="utf-8", errors="ignore").splitlines()
         title = first_heading(lines, p.name)
 
@@ -356,16 +377,19 @@ def main() -> int:
             if info == "missing_discord_credentials":
                 return 0
             return 1
+
+        # Persist immediately so oa-worker (20s loop) cannot repost the same file.
+        state[str(p)] = p.stat().st_mtime
+        write_state(state_path, state)
+        sent += 1
+        print(f"research_publisher: sent file={p} status={info}")
+
         x_text = make_x_post_text(p, raw_text)
         x_ok, x_info = post_x(x_text)
         if not x_ok:
-            print(f"research_publisher: x_send_failed file={p} reason={x_info}")
-            if x_info == "missing_x_credentials":
-                return 0
-            return 1
-        state[str(p)] = p.stat().st_mtime
-        sent += 1
-        print(f"research_publisher: sent file={p} status={info} x_status={x_info}")
+            print(f"research_publisher: x_send_failed file={p} reason={x_info} (discord already posted)")
+        else:
+            print(f"research_publisher: x_status={x_info}")
 
     write_state(state_path, state)
     print(f"research_publisher: done sent={sent}")

@@ -21,15 +21,10 @@ export type PlayNavGroup = {
 
 /** Transactional sections — each maps to a Play route. */
 export const PLAY_SECTIONS: PlayNavItem[] = [
-  { id: 'dashboard', label: 'Dashboard', to: '/' },
-  { id: 'hub', label: 'Classic Hub', to: '/hub' },
-  { id: 'ops', label: 'Ops', to: '/ops' },
-  { id: 'fixtures', label: 'Fixtures', to: '/fixtures' },
-  { id: 'trading', label: 'Trading', to: '/trading' },
-  { id: 'squad', label: 'Squad', to: '/squad' },
-  { id: 'vaults', label: 'Vaults', to: '/vaults' },
-  { id: 'commentator', label: 'AI Commentator', to: '/commentator' },
-  { id: 'feed', label: 'Live Feed', to: '/feed' },
+  { id: 'inicio', label: 'Inicio', to: '/' },
+  { id: 'estadio', label: 'Estadio', to: '/estadio' },
+  { id: 'defi', label: 'DeFi Terminal', to: '/defi' },
+  { id: 'club', label: 'Mi Club', to: '/club' },
 ];
 
 /** Mirrors docs/index.html primary nav (marketing anchors). */

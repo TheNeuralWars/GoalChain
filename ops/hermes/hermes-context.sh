@@ -77,6 +77,8 @@ echo
 echo "## GBrain"
 if command -v gbrain >/dev/null 2>&1; then
   gbrain stats 2>/dev/null | head -8 || echo "(gbrain stats failed)"
+  echo "- Mac agents: Cursor + Antigravity share ~/.gbrain (MCP); reload IDE if tools missing"
+  echo "- Re-sync after main merge: gbrain import ai_context docs/intake"
 else
-  echo "(gbrain not installed — ops/hermes/install-gbrain-hermes.sh)"
+  echo "(gbrain not installed — bash ops/hermes/install-gbrain-hermes.sh)"
 fi
