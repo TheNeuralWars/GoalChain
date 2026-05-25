@@ -49,9 +49,12 @@ def quote(val: str) -> str:
 incoming = parse_env(secrets)
 current = parse_env(fcc)
 
-# Map secrets file → FCC .env keys
-if key := incoming.get("OPENROUTER_API_KEY"):
-    current["OPENROUTER_API_KEY"] = key
+# Map secrets file → FCC .env keys (all *_API_KEY + base URLs)
+for k, v in incoming.items():
+    if k.endswith("_API_KEY") and v:
+        current[k] = v
+    if k in ("LM_STUDIO_BASE_URL", "LLAMACPP_BASE_URL", "OLLAMA_BASE_URL") and v:
+        current[k] = v
 
 extra = incoming.get("FCC_OPENROUTER_EXTRA_MODELS", "")
 if extra:
@@ -77,8 +80,15 @@ for tier, env_key in (
     if incoming.get(tier):
         current[env_key] = incoming[tier]
 
-if incoming.get("LM_STUDIO_BASE_URL"):
-    current["LM_STUDIO_BASE_URL"] = incoming["LM_STUDIO_BASE_URL"]
+# Cloud-only: do not route MODEL* through lmstudio (VPS has no 50GB local weights)
+if incoming.get("FCC_CLOUD_ONLY", "").lower() in ("1", "true", "yes"):
+    for k in ("LM_STUDIO_BASE_URL", "LLAMACPP_BASE_URL", "OLLAMA_BASE_URL"):
+        current.pop(k, None)
+    for k in list(current.keys()):
+        v = current.get(k, "")
+        if isinstance(v, str) and v.startswith("lmstudio/"):
+            print(f"WARN cloud-only: stripping lmstudio slug from {k}", file=sys.stderr)
+            current.pop(k, None)
 
 # Preserve order: update keys in place, append new keys from current not in file
 lines = fcc.read_text(encoding="utf-8").splitlines() if fcc.exists() else []
