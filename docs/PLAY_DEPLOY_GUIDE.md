@@ -94,6 +94,7 @@ Para forzar redeploy manual: Vercel → Deployments → **Redeploy**.
 
 | Problema | Solución |
 |----------|----------|
+| **Deployment Blocked** — commit author sin acceso (Hobby + repo privado) | No hace falta Pro. Los commits deben usar el **email de GitHub del dueño del proyecto Vercel** (ej. `217240408+TheNeuralWars@users.noreply.github.com`). En tu Mac: `git config user.email "…"` y volvé a pushear, o Deploy Hook del dueño en Vercel → Settings → Git. |
 | Build falla `@goalchain/sdk` | Confirmá Root Directory = `goalchain_webapp` y que `installCommand` buildea el SDK (ver `vercel.json`). |
 | Página en blanco en rutas | `vercel.json` ya incluye rewrite SPA a `index.html`. |
 | Ops panel "API offline" | Levantá `goalchain_api` público y seteá `VITE_API_BASE_URL` en Vercel → Redeploy. |
