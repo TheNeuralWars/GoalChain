@@ -1,32 +1,22 @@
 #!/usr/bin/env bash
-# Run Hermes X-Scout (Grok + X API) and optionally publish to Discord active-research.
+# Hermes X-Scout v2: synthesize radar + publish ONE forum thread (active-research).
 set -euo pipefail
 
 HERMES_HOME="${HERMES_HOME:-$HOME/hermes}"
-# Export all keys from config for Python child processes.
 set -a
 # shellcheck disable=SC1090
 source "${HERMES_HOME}/config.env"
 set +a
 
 SCRIPT="${HERMES_HOME}/scripts/oa-x-scout-run.py"
-PUBLISHER="${HERMES_HOME}/scripts/oa-discord-research-publisher.py"
-STATE="${HERMES_HOME}/oa/state"
 LOG="${HERMES_HOME}/oa/logs/x-scout.log"
+STATE="${HERMES_HOME}/oa/state"
 
 mkdir -p "${STATE}" "$(dirname "${LOG}")" "${HOME}/.hermes/workspace/docs"
 
 {
-  echo "=== $(date -u '+%F %T UTC') x-scout run ==="
+  echo "=== $(date -u '+%F %T UTC') x-scout v2 ==="
   python3 "${SCRIPT}"
-  if [[ "${OA_RESEARCH_PUBLISHER_ENABLED}" == "true" ]]; then
-    export OA_RESEARCH_PUBLISHER_ENABLED
-    python3 "${PUBLISHER}" \
-      --state-file "${STATE}/research-discord-posted.json" \
-      --max-per-run 1
-  else
-    echo "x_scout: publisher disabled (set OA_RESEARCH_PUBLISHER_ENABLED=true)"
-  fi
 } >> "${LOG}" 2>&1
 
 echo "x_scout: done (log: ${LOG})"

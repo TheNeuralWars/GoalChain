@@ -23,6 +23,244 @@
       href="assets/img/logo_3d_clean.png?v=2.0"
     />
     <link rel="shortcut icon" href="assets/img/logo_3d_clean.png?v=2.0" />
+    
+    <!-- 4 unified portals styles and xscout dynamic stream overrides -->
+    <style>
+      :root {
+        --primary-neon: #14f195;
+        --secondary-neon: #9945ff;
+        --accent-red: #ff4b4b;
+      }
+      
+      /* Hero Portals Grid */
+      .hero-portals-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        max-width: 900px;
+        margin: 25px auto 0 auto;
+        padding: 0 15px;
+      }
+      
+      .hero-portal-card {
+        background: rgba(10, 10, 20, 0.45);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        padding: 18px 12px;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .hero-portal-card-icon {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+        line-height: 1;
+      }
+      
+      .hero-portal-card h4 {
+        font-size: 0.95rem;
+        font-weight: 800;
+        margin: 0 0 4px 0;
+        letter-spacing: -0.2px;
+      }
+      
+      .hero-portal-card span {
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.3;
+      }
+      
+      /* Glow hover behaviors matching play app */
+      .hero-portal-card--inicio:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 12px 30px rgba(255, 255, 255, 0.04);
+        transform: translateY(-3px);
+      }
+      
+      .hero-portal-card--estadio:hover {
+        border-color: var(--primary-neon);
+        box-shadow: 0 12px 30px rgba(20, 241, 149, 0.12);
+        transform: translateY(-3px);
+      }
+      
+      .hero-portal-card--defi:hover {
+        border-color: var(--secondary-neon);
+        box-shadow: 0 12px 30px rgba(153, 69, 255, 0.12);
+        transform: translateY(-3px);
+      }
+      
+      .hero-portal-card--club:hover {
+        border-color: var(--accent-red);
+        box-shadow: 0 12px 30px rgba(255, 75, 75, 0.12);
+        transform: translateY(-3px);
+      }
+      
+      /* X-Scout dynamic live stream section */
+      .xscout-live-section {
+        background: radial-gradient(circle at center, rgba(15, 15, 28, 0.9) 0%, rgba(6, 6, 10, 1) 100%);
+        padding: 60px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .xscout-live-section::before {
+        content: '';
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(255, 215, 0, 0.03) 0%, transparent 70%);
+        top: -150px;
+        left: 5%;
+        pointer-events: none;
+      }
+      
+      .xscout-live-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 30px;
+        max-width: 980px;
+        margin: 0 auto;
+        align-items: center;
+        padding: 0 15px;
+      }
+      
+      .xscout-live-info {
+        text-align: left;
+      }
+      
+      .xscout-live-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.72rem;
+        font-weight: 900;
+        color: #ffd700;
+        background: rgba(255, 215, 0, 0.1);
+        border: 1px solid rgba(255, 215, 0, 0.25);
+        padding: 4px 10px;
+        border-radius: 20px;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      
+      .xscout-live-info h3 {
+        font-size: 2.2rem;
+        font-weight: 800;
+        margin: 0 0 12px 0;
+        color: #fff;
+        line-height: 1.2;
+      }
+      
+      .xscout-live-info p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.98rem;
+        line-height: 1.6;
+        margin: 0 0 20px 0;
+      }
+      
+      .xscout-pulse {
+        width: 6px;
+        height: 6px;
+        background: #ffd700;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: 0 0 8px #ffd700;
+        animation: xscoutPulseBlink 2.5s infinite ease-in-out;
+      }
+      
+      @keyframes xscoutPulseBlink {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+      }
+      
+      .xscout-live-card-stream {
+        background: rgba(6, 6, 10, 0.65);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 215, 0, 0.15);
+        border-radius: 24px;
+        padding: 30px;
+        position: relative;
+        box-shadow: 0 15px 35px rgba(255, 215, 0, 0.02);
+      }
+      
+      .xscout-post-item {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        border-radius: 16px;
+        padding: 18px;
+        text-align: left;
+        margin-bottom: 15px;
+        transition: background 0.2s;
+      }
+      
+      .xscout-post-item:hover {
+        background: rgba(255, 255, 255, 0.04);
+      }
+      
+      .xscout-post-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+        font-size: 0.8rem;
+      }
+      
+      .xscout-post-avatar {
+        font-size: 1.1rem;
+      }
+      
+      .xscout-post-author {
+        font-weight: bold;
+        color: #fff;
+      }
+      
+      .xscout-post-handle {
+        color: rgba(255, 255, 255, 0.4);
+      }
+      
+      .xscout-post-time {
+        color: rgba(255, 255, 255, 0.3);
+        margin-left: auto;
+      }
+      
+      .xscout-post-body {
+        margin: 0;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      
+      .xscout-post-body .hashtag {
+        color: var(--primary-neon);
+        font-weight: 600;
+      }
+      
+      @media (max-width: 768px) {
+        .hero-portals-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+        
+        .xscout-live-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        
+        .xscout-live-info {
+          text-align: center;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="vibrancy"></div>
@@ -643,17 +881,32 @@
           <p data-i18n="cd_sec">SEG</p>
         </div>
       </div>
-      <div class="hero-btns">
-        <a
-          href="/go/"
-          class="btn btn-primary btn-glow"
-          style="font-size: 1.2rem; padding: 1rem 3rem"
-          data-i18n="hero_btn_app"
-          >ABRIR DASHBOARD</a
-        >
-        <a href="#gameplay" class="btn btn-secondary" data-i18n="hero_play"
-          >Jugar Penaltis YA</a
-        >
+      <!-- 4 Unified Portals Premium Launchers Grid -->
+      <div class="hero-portals-grid reveal">
+        <!-- Inicio Portal -->
+        <a href="/go/" class="hero-portal-card hero-portal-card--inicio">
+          <div class="hero-portal-card-icon">🏠</div>
+          <h4 data-i18n="portal_inicio">Inicio</h4>
+          <span data-i18n="portal_inicio_desc">Dashboard &amp; Ops</span>
+        </a>
+        <!-- Estadio Portal -->
+        <a href="/go/estadio" class="hero-portal-card hero-portal-card--estadio">
+          <div class="hero-portal-card-icon">🏟️</div>
+          <h4 data-i18n="portal_estadio">Estadio Portal</h4>
+          <span data-i18n="portal_estadio_desc">Apuestas &amp; IA Live</span>
+        </a>
+        <!-- DeFi Portal -->
+        <a href="/go/defi" class="hero-portal-card hero-portal-card--defi">
+          <div class="hero-portal-card-icon">💱</div>
+          <h4 data-i18n="portal_defi">DeFi Swarm</h4>
+          <span data-i18n="portal_defi_desc">Vibe Swap &amp; Vaults</span>
+        </a>
+        <!-- Club Portal -->
+        <a href="/go/club" class="hero-portal-card hero-portal-card--club">
+          <div class="hero-portal-card-icon">👕</div>
+          <h4 data-i18n="portal_club">Mi Club</h4>
+          <span data-i18n="portal_club_desc">Plantilla &amp; Manager</span>
+        </a>
       </div>
     </header>
 
@@ -1036,6 +1289,51 @@
             GoalChain. Tus tokens se liberarán y acreditarán automáticamente
             tras la preventa en tu wallet conectada.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Paso 8: X-Scout dynamic live stream section -->
+    <section class="xscout-live-section">
+      <div class="xscout-live-grid">
+        <div class="xscout-live-info reveal">
+          <div class="xscout-live-badge">
+            <span class="xscout-pulse"></span>
+            <span data-i18n="xscout_active">X-SCOUT IA ACTIVO</span>
+          </div>
+          <h3 data-i18n="xscout_title">Análisis en Vivo &amp; Oportunidades</h3>
+          <p data-i18n="xscout_desc">
+            X-Scout es nuestro agente de inteligencia artificial autónomo que rastrea constantemente redes sociales y mercados en Solana. Descubre arbitrajes, tendencias de tokens de clubes y jugadas destacadas del Mundial en tiempo real.
+          </p>
+          <a href="/go/defi" class="btn btn-primary btn-glow" data-i18n="xscout_btn">
+            OPERAR CON LA IA →
+          </a>
+        </div>
+        <div class="xscout-live-card-stream reveal">
+          <!-- X-Scout Post 1 -->
+          <div class="xscout-post-item">
+            <div class="xscout-post-meta">
+              <span class="xscout-post-avatar">🕵️‍♂️</span>
+              <span class="xscout-post-author">X-Scout Bot</span>
+              <span class="xscout-post-handle">@x-scout_bot</span>
+              <span class="xscout-post-time">hace 10m</span>
+            </div>
+            <p class="xscout-post-body">
+              📈 <span class="hashtag">#ArbitrajeSolana</span>: Detectada discrepancia de 2.4% en el par de liquidez GOAL/USDC entre Raydium y Meteora. Los Swarm Vaults del DeFi Portal ya están ejecutando balanceos automáticos para capturar el spread. ¡Excelente día para los stakers!
+            </p>
+          </div>
+          <!-- X-Scout Post 2 -->
+          <div class="xscout-post-item">
+            <div class="xscout-post-meta">
+              <span class="xscout-post-avatar">🕵️‍♂️</span>
+              <span class="xscout-post-author">X-Scout Bot</span>
+              <span class="xscout-post-handle">@x-scout_bot</span>
+              <span class="xscout-post-time">hace 1h</span>
+            </div>
+            <p class="xscout-post-body">
+              ⚽ <span class="hashtag">#WorldCup2026</span>: El Cronista IA reporta una alta volatilidad en los coeficientes del partido ARG vs FRA para el próximo encuentro. Las apuestas on-chain están abiertas en la pestaña Estadio.
+            </p>
+          </div>
         </div>
       </div>
     </section>

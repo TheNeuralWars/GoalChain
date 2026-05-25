@@ -49,9 +49,9 @@ def quote(val: str) -> str:
 incoming = parse_env(secrets)
 current = parse_env(fcc)
 
-# Map secrets file → FCC .env keys (all *_API_KEY + base URLs)
+# Map secrets file → FCC .env keys (provider keys + Admin UI extra slots)
 for k, v in incoming.items():
-    if k.endswith("_API_KEY") and v:
+    if v and (k.endswith("_API_KEY") or k.startswith("API_KEY_EXTRA_")):
         current[k] = v
     if k in ("LM_STUDIO_BASE_URL", "LLAMACPP_BASE_URL", "OLLAMA_BASE_URL") and v:
         current[k] = v
