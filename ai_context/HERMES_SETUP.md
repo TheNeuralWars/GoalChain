@@ -64,6 +64,12 @@ Workspace Manager: `~/.hermes/SOUL.md` (plantilla: `ops/hermes/workspace-templat
 
 Flujo dev (Discord/WhatsApp): Manager crea issue `agent:opencode` → OA worker ejecuta FCC en `exp/opencode-issue-*` → draft PR → revisión Antigravity/Nico.
 
+### FCC — proveedores 1–18 (sin LM Studio en el VPS)
+
+- Config: `~/hermes/fcc.secrets.env` → `bash ~/hermes/scripts/configure-fcc-env.sh` → `~/.fcc/.env`
+- Guía (español): **`ops/hermes/FCC_PROVIDERS.md`** — proveedores 1–14 = API keys; **15–17 = solo local** (URL, no key); catálogo LM Studio → slugs `open_router/` / `nvidia_nim/`
+- En el VPS Hermes: **`FCC_CLOUD_ONLY=1`** en secrets (no descargar modelos de 50GB); Admin UI vía `ssh -L 8082:127.0.0.1:8082 goalchain@178.105.148.109`
+
 ## GBrain (memoria opcional)
 
 ```bash
