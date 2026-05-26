@@ -1,0 +1,51 @@
+id,title,priority,agent,labels,epic,status,blocked_by,source
+1,"[P0][oracle] Deprecate migrate_config.ts — migrateConfig instruction does not exist",P0,antigravity,"P0,bug,oracle,ops,agent:antigravity",,ready,,audit
+2,"[P0][economy][oracle] Block vault_crank execute mode until real Jupiter/burn integration",P0,antigravity,"P0,bug,economy,oracle,observability,agent:antigravity",,ready,,audit
+3,"[P0][webapp][api] EconomyConfigBanner reads wrong fields from /api/economy/config",P0,opencode,"P0,bug,webapp,api,economy,devnet,mundial-mvp,agent:opencode",mundial-mvp,ready,,audit
+4,"[P0][smart-contracts] Fix anchor test runner — surfpool missing breaks program tests",P0,antigravity,"P0,ci,smart-contracts,devnet,agent:antigravity",,ready,,audit
+5,"[P0][webapp][ops] Deploy play.goalchain.fun with VITE_API_BASE_URL production",P0,antigravity,"P0,devnet,webapp,ops,mundial-mvp,agent:antigravity",mundial-mvp,ready,CEO-Vercel-creds,master-plan
+6,"[P0][devnet][webapp] QA — Complete Mundial demo runbook on production Play",P0,opencode,"P0,devnet,webapp,mundial-mvp,qa,agent:opencode",mundial-mvp,ready,5,master-plan
+7,"[P0][integration] Merge Mundial MVP PR — claim UI simulation badges oracle hooks",P0,antigravity,"P0,mundial-mvp,webapp,oracle,agent:antigravity",mundial-mvp,ready,,mundial-impl
+8,"[P1][webapp] UserProfile — label mock data fix balance to chain truth",P1,opencode,"P1,webapp,mundial-mvp,ux,agent:opencode",mundial-mvp,ready,,audit
+9,"[P1][webapp] Add simulation badges to Estadio non-fixture tabs",P1,opencode,"P1,webapp,mundial-mvp,ux,agent:opencode",mundial-mvp,ready,,audit
+10,"[P1][docs][api] Point goalchain.fun JS to production API base",P1,antigravity,"P1,docs,api,webapp,agent:antigravity",,ready,,audit
+11,"[P1][webapp][api] Integrate /api/coach/chat in Play via apiBaseUrl",P1,opencode,"P1,webapp,api,agent:opencode",,ready,,master-plan
+12,"[P1][oracle][devnet] Seed participantPlayerIds for oracle_record_match demos",P1,antigravity,"P1,oracle,devnet,docs,agent:antigravity",mundial-mvp,ready,,audit
+13,"[P1][ops] Close duplicate FCC draft PRs #95-99 superseded by Mundial MVP",P1,antigravity,"P1,ops,mundial-mvp,agent:antigravity",mundial-mvp,ready,,audit
+14,"[P1][security][webapp] Address npm audit high severity in goalchain_webapp",P1,opencode,"P1,security,webapp,agent:opencode",,ready,,audit
+15,"[P1][webapp] Code-split DeFi/Club routes to reduce main bundle size",P1,opencode,"P1,webapp,performance,tech-debt,agent:opencode",,ready,,audit
+16,"[P1][api][economy] Add drift and config_version to /api/economy/config",P1,antigravity,"P1,api,economy,observability,agent:antigravity",,ready,,audit
+17,"[P1][hermes][ops] Run sync-hermes-active-profile-discord.sh verify #hermes",P1,antigravity,"P1,hermes,ops,agent:antigravity",,ready,,master-plan
+18,"[P1][hermes][docs] Enforce HERMES-MUNDIAL-SCOPE-FREEZE on new intake",P1,grok,"P1,hermes,docs,mundial-mvp,agent:grok",,ready,,master-plan
+19,"[P1][grok] Review Mundial MVP EN public copy and prohibited claims",P1,grok,"P1,grok,economy,docs,mundial-mvp,agent:grok",mundial-mvp,ready,,master-plan
+20,"[P1][grok][economy] Validate canonical parameters vs marketing docs",P1,grok,"P1,economy,grok,docs,agent:grok",,ready,,master-plan
+21,"[P1][smart-contracts][docs] Document FutureHook instructions as disabled",P1,cursor,"P1,smart-contracts,docs,agent:cursor",,ready,,audit
+22,"[P1][tech-debt] Archive goalchain_backend empty package at root",P1,antigravity,"P1,tech-debt,docs,agent:antigravity",,ready,,audit
+23,"[P1][ci][devnet] GitHub Action run smoke-devnet.sh on webapp PRs",P1,antigravity,"P1,ci,webapp,devnet,agent:antigravity",,ready,,structure-proposal
+24,"[P1][economy][ops] Add scripts/verify-canonical-economy.sh drift detection",P1,cursor,"P1,economy,observability,ops,agent:cursor",,ready,,structure-proposal
+25,"[P1][webapp] AICommentator surface WebSocket errors in UI",P1,opencode,"P1,webapp,ux,agent:opencode",,ready,,audit
+26,"[P1][webapp][devnet] FixturesPanel inline errors instead of alert()",P1,opencode,"P1,webapp,devnet,ux,agent:opencode",mundial-mvp,ready,,audit
+27,"[P1][hermes][oracle] Audit VPS env video alerts flags OFF",P1,antigravity,"P1,hermes,oracle,ops,agent:antigravity",,ready,,audit
+28,"[P1][webapp][docs] Document CreateUser localStorage-only identity",P1,cursor,"P1,webapp,docs,agent:cursor",,ready,,audit
+29,"[P2][docs] Update docs merge stack merged #26 #35 remove blocked language",P2,cursor,"P2,docs,agent:cursor",,ready,DO-NOT-REMERGE-32-34,audit
+30,"[P2][webapp] JupiterQuoteWidget integrate or remove orphan",P2,opencode,"P2,webapp,tech-debt,agent:opencode",,ready,,audit
+31,"[P2][webapp] Remove or archive DashboardHub.tsx unrouted",P2,opencode,"P2,tech-debt,webapp,agent:opencode",,ready,,audit
+32,"[P2][docs] Generate audit MATRIX.csv codebase traceability",P2,cursor,"P2,docs,agent:cursor",,ready,,structure-proposal
+33,"[P2][tech-debt] Mark exp/ Dexter fork as non-productive",P2,cursor,"P2,tech-debt,docs,agent:cursor",,ready,,audit
+34,"[P2][webapp][smart-contracts] Post-Mundial live market bets UI",P2,opencode,"P2,webapp,smart-contracts,agent:opencode",post-mundial,backlog,scope-freeze,master-plan
+35,"[P2][economy] Post-Mundial Genesis Agents protocol intake brief",P2,grok,"P2,economy,docs,agent:grok",post-mundial,backlog,scope-freeze,master-plan
+36,"[P2][oracle][economy] Post-Mundial real vault_crank execute path",P2,antigravity,"P2,economy,oracle,agent:antigravity",post-mundial,backlog,2,master-plan
+37,"[P2][ops] Post-Mundial LAUNCH_READINESS_CHECKLIST mainnet gate",P2,grok,"P2,ops,smart-contracts,agent:grok",post-mundial,backlog,scope-freeze,master-plan
+38,"[P2][webapp] Post-Mundial rent_nft read-only UI in Club",P2,opencode,"P2,webapp,smart-contracts,agent:opencode",post-mundial,backlog,scope-freeze,master-plan
+39,"[P2][hermes][ops] Tune alpha-watch Mundial pre-match reminders",P2,grok,"P2,hermes,ops,mundial-mvp,agent:grok",,backlog,scope-freeze,master-plan
+40,"[P2][docs][hermes] Add gbrain import ritual to PR template",P2,cursor,"P2,docs,hermes,agent:cursor",,ready,,master-plan
+41,"[P2][oracle] Replace @ts-ignore in OracleService typed import",P2,opencode,"P2,oracle,tech-debt,agent:opencode",,ready,,audit
+42,"[P2][webapp][oracle] LiveEventFeed optional real-time oracle stream",P2,opencode,"P2,webapp,oracle,agent:opencode",post-mundial,backlog,,audit
+43,"[P2][ops] Add mundial-mvp label filter to check-tasks.sh",P2,cursor,"P2,ops,agent:cursor",,ready,,structure-proposal
+44,"[P2][hermes] X-Scout Mundial competitor research cadence",P2,grok,"P2,hermes,docs,agent:grok",,backlog,scope-freeze,master-plan
+45,"[P2][webapp] Classic Hub deprecate route or fix coach API URL",P2,opencode,"P2,webapp,tech-debt,agent:opencode",,ready,,audit
+46,"[P2][economy] Add fee_burn to tokenomics_simulation S0 scenarios",P2,cursor,"P2,economy,agent:cursor",,ready,,audit
+47,"[P2][oracle][economy] BuilderFund contributor epoch validation runbook",P2,antigravity,"P2,economy,oracle,docs,agent:antigravity",post-mundial,backlog,,audit
+48,"[Epic][P1][mundial-mvp] Mundial 2026 release gate",P1,antigravity,"epic,P1,mundial-mvp,agent:antigravity",mundial-mvp,ready,,orchestration
+49,"[Epic][P2] Post-Mundial backlog markets genesis vault mainnet",P2,grok,"epic,P2,agent:grok",post-mundial,backlog,scope-freeze,orchestration
+50,"[P1][ops] Bulk create GitHub issues from GITHUB_ISSUES_BACKLOG CSV",P1,hermes,"P1,ops,mundial-mvp,agent:hermes",mundial-mvp,ready,git-push,handoff
