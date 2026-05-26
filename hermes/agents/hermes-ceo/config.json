@@ -1,0 +1,14 @@
+{
+  "name": "Hermes CEO",
+  "slug": "hermes-ceo",
+  "category": "ceo_orchestrator",
+  "description": "Official Strategic Orchestrator and CEO agent for GoalChain. Coordinates multi-agent delegation, project governance, and economic validation.",
+  "virtuals_token_id": null,
+  "status": "draft",
+  "revenue_split": {
+    "holder": 40,
+    "vault": 30,
+    "treasury": 20,
+    "maintenance": 10
+  }
+}
