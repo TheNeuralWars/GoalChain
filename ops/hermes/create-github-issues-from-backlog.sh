@@ -33,6 +33,16 @@ python3 - "${CSV}" "${GITHUB_REPO}" "${DRY_RUN}" <<'PY'
 import csv, subprocess, sys
 csv_path, repo, dry = sys.argv[1], sys.argv[2], sys.argv[3] == "1"
 created = 0
+known_labels = set()
+
+def ensure_label(lab):
+    if lab in known_labels:
+        return
+    # Try to create label on the fly
+    if not dry:
+        subprocess.run(["gh", "label", "create", lab, "--repo", repo, "--color", "a2eeef"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    known_labels.add(lab)
+
 with open(csv_path, newline="", encoding="utf-8") as f:
     for row in csv.DictReader(f):
         iid = row["id"].strip()
@@ -40,6 +50,11 @@ with open(csv_path, newline="", encoding="utf-8") as f:
             continue
         title = row["title"].strip()
         labels = [x.strip() for x in row["labels"].split(",") if x.strip()]
+        
+        # Ensure all labels exist in the repo
+        for lab in labels:
+            ensure_label(lab)
+            
         body = f"""## Imported from intake backlog (2026-05-26)
 
 - **Backlog ID:** {iid}

@@ -1,5 +1,5 @@
 import { AnchorProvider, BN, Idl, Program } from '@coral-xyz/anchor';
-import { getAssociatedTokenAddressSync, getMint } from '@solana/spl-token';
+import { getAssociatedTokenAddressSync, getMint, TOKEN_PROGRAM_ID } from '@solana/spl-token';
 import idl from '@goalchain/sdk/src/goalchain_program.json';
 import { Connection, PublicKey } from '@solana/web3.js';
 
@@ -9,7 +9,7 @@ const SEEDS = {
   FIXTURE_VAULT: 'fixture_vault',
 } as const;
 
-export type FixtureStatus = 'upcoming' | 'live' | 'resolved' | 'cancelled' | 'unknown';
+export type FixtureStatus = 'upcoming' | 'live' | 'completed' | 'cancelled' | 'unknown';
 export type PredictionSide = 'A' | 'B' | 'Draw';
 
 type WalletLike = {
@@ -39,6 +39,14 @@ export interface FixtureView {
   status: FixtureStatus;
 }
 
+export interface UserBetView {
+  pubkey: string;
+  fixture: string;
+  amountBaseUnits: number;
+  claimed: boolean;
+  prediction: PredictionSide | 'unknown';
+}
+
 export interface UserChainStats {
   totalBets: number;
   totalVolumeBaseUnits: number;
@@ -50,11 +58,47 @@ export interface UserChainStats {
 
 function normalizeStatus(raw: unknown): FixtureStatus {
   if (!raw || typeof raw !== 'object') return 'unknown';
-  if ('upcoming' in (raw as Record<string, unknown>)) return 'upcoming';
-  if ('live' in (raw as Record<string, unknown>)) return 'live';
-  if ('resolved' in (raw as Record<string, unknown>)) return 'resolved';
-  if ('cancelled' in (raw as Record<string, unknown>)) return 'cancelled';
+  const r = raw as Record<string, unknown>;
+  if ('upcoming' in r || 'Upcoming' in r) return 'upcoming';
+  if ('live' in r || 'Live' in r) return 'live';
+  if ('completed' in r || 'Completed' in r) return 'completed';
+  if ('cancelled' in r || 'Cancelled' in r) return 'cancelled';
   return 'unknown';
+}
+
+function normalizePrediction(raw: unknown): PredictionSide | 'unknown' {
+  if (!raw || typeof raw !== 'object') return 'unknown';
+  const r = raw as Record<string, unknown>;
+  if ('teamA' in r || 'TeamA' in r) return 'A';
+  if ('teamB' in r || 'TeamB' in r) return 'B';
+  if ('draw' in r || 'Draw' in r) return 'Draw';
+  return 'unknown';
+}
+
+async function resolveBetTokenAccounts(
+  program: Program<any>,
+  connection: Connection,
+  wallet: PublicKey,
+): Promise<{
+  config: PublicKey;
+  tokenMint: PublicKey;
+  userTokenAccount: PublicKey;
+  treasuryTokenAccount: PublicKey;
+  jackpotTokenAccount: PublicKey;
+}> {
+  const [config] = PublicKey.findProgramAddressSync([Buffer.from(SEEDS.CONFIG)], PROGRAM_ID);
+  const configAccount = await (program as any).account.globalConfig.fetch(config);
+  const treasuryTokenAccount = configAccount.treasuryTokenAccount as PublicKey;
+  const jackpotTokenAccount = configAccount.jackpotTokenAccount as PublicKey;
+  const treasuryTokenInfo = await connection.getParsedAccountInfo(treasuryTokenAccount);
+  const parsed = (treasuryTokenInfo.value as any)?.data?.parsed;
+  const tokenMintString = parsed?.info?.mint as string | undefined;
+  if (!tokenMintString) {
+    throw new Error('No se pudo resolver el token mint desde GlobalConfig.');
+  }
+  const tokenMint = new PublicKey(tokenMintString);
+  const userTokenAccount = getAssociatedTokenAddressSync(tokenMint, wallet);
+  return { config, tokenMint, userTokenAccount, treasuryTokenAccount, jackpotTokenAccount };
 }
 
 function toUiFixture(pubkey: PublicKey, account: any): FixtureView {
@@ -120,7 +164,6 @@ export async function placeFixtureBet(params: {
   }
 
   const program = createProgram(connection, wallet);
-  const [config] = PublicKey.findProgramAddressSync([Buffer.from(SEEDS.CONFIG)], PROGRAM_ID);
   const [userBet] = PublicKey.findProgramAddressSync(
     [Buffer.from('bet'), wallet.publicKey.toBuffer(), fixture.toBuffer()],
     PROGRAM_ID,
@@ -130,17 +173,12 @@ export async function placeFixtureBet(params: {
     PROGRAM_ID,
   );
 
-  const configAccount = await (program as any).account.globalConfig.fetch(config);
-  const treasuryTokenAccount = configAccount.treasuryTokenAccount as PublicKey;
-  const treasuryTokenInfo = await connection.getParsedAccountInfo(treasuryTokenAccount);
-  const parsed = (treasuryTokenInfo.value as any)?.data?.parsed;
-  const tokenMintString = parsed?.info?.mint as string | undefined;
-  if (!tokenMintString) {
-    throw new Error('No se pudo resolver el token mint desde GlobalConfig.');
-  }
-  const tokenMint = new PublicKey(tokenMintString);
+  const { config, tokenMint, userTokenAccount } = await resolveBetTokenAccounts(
+    program,
+    connection,
+    wallet.publicKey,
+  );
   const mintInfo = await getMint(connection, tokenMint);
-  const userTokenAccount = getAssociatedTokenAddressSync(tokenMint, wallet.publicKey);
   const amount = parseAmountToBaseUnits(amountUi, mintInfo.decimals);
   if (amount.lte(new BN(0))) {
     throw new Error('El monto debe ser mayor a 0.');
@@ -161,6 +199,110 @@ export async function placeFixtureBet(params: {
       userTokenAccount,
       fixtureVault,
       tokenMint,
+    } as any)
+    .rpc();
+}
+
+export async function fetchUserBets(connection: Connection, owner: PublicKey): Promise<UserBetView[]> {
+  const program = createProgram(connection);
+  const rows: Array<{ publicKey: PublicKey; account: any }> = await (program as any).account.userBet.all([
+    { memcmp: { offset: 8, bytes: owner.toBase58() } },
+  ]);
+
+  const asNumber = (value: unknown): number => {
+    if (!value) return 0;
+    if (typeof value === 'number') return value;
+    if (typeof (value as any).toNumber === 'function') return (value as any).toNumber();
+    if (typeof (value as any).toString === 'function') {
+      const n = Number((value as any).toString());
+      return Number.isFinite(n) ? n : 0;
+    }
+    return 0;
+  };
+
+  return rows.map((row) => ({
+    pubkey: row.publicKey.toBase58(),
+    fixture: (row.account?.fixture as PublicKey)?.toBase58?.() ?? String(row.account?.fixture),
+    amountBaseUnits: asNumber(row.account?.amount),
+    claimed: Boolean(row.account?.claimed),
+    prediction: normalizePrediction(row.account?.prediction),
+  }));
+}
+
+export async function claimFixturePayout(params: {
+  connection: Connection;
+  wallet: WalletLike;
+  fixture: PublicKey;
+}): Promise<string> {
+  const { connection, wallet, fixture } = params;
+  if (!wallet.publicKey || !wallet.signTransaction || !wallet.signAllTransactions) {
+    throw new Error('Wallet no disponible para firmar transacciones.');
+  }
+
+  const program = createProgram(connection, wallet);
+  const [userBet] = PublicKey.findProgramAddressSync(
+    [Buffer.from('bet'), wallet.publicKey.toBuffer(), fixture.toBuffer()],
+    PROGRAM_ID,
+  );
+  const [fixtureVault] = PublicKey.findProgramAddressSync(
+    [Buffer.from(SEEDS.FIXTURE_VAULT), fixture.toBuffer()],
+    PROGRAM_ID,
+  );
+  const { config, tokenMint, userTokenAccount, treasuryTokenAccount, jackpotTokenAccount } =
+    await resolveBetTokenAccounts(program, connection, wallet.publicKey);
+
+  return (program as any).methods
+    .claimBetPayout()
+    .accounts({
+      user: wallet.publicKey,
+      config,
+      fixture,
+      userBet,
+      userTokenAccount,
+      fixtureVault,
+      treasuryTokenAccount,
+      jackpotTokenAccount,
+      tokenMint,
+      tokenProgram: TOKEN_PROGRAM_ID,
+    } as any)
+    .rpc();
+}
+
+export async function refundFixtureBet(params: {
+  connection: Connection;
+  wallet: WalletLike;
+  fixture: PublicKey;
+}): Promise<string> {
+  const { connection, wallet, fixture } = params;
+  if (!wallet.publicKey || !wallet.signTransaction || !wallet.signAllTransactions) {
+    throw new Error('Wallet no disponible para firmar transacciones.');
+  }
+
+  const program = createProgram(connection, wallet);
+  const [userBet] = PublicKey.findProgramAddressSync(
+    [Buffer.from('bet'), wallet.publicKey.toBuffer(), fixture.toBuffer()],
+    PROGRAM_ID,
+  );
+  const [fixtureVault] = PublicKey.findProgramAddressSync(
+    [Buffer.from(SEEDS.FIXTURE_VAULT), fixture.toBuffer()],
+    PROGRAM_ID,
+  );
+  const { tokenMint, userTokenAccount } = await resolveBetTokenAccounts(
+    program,
+    connection,
+    wallet.publicKey,
+  );
+
+  return (program as any).methods
+    .refundBet()
+    .accounts({
+      user: wallet.publicKey,
+      fixture,
+      userBet,
+      userTokenAccount,
+      fixtureVault,
+      tokenMint,
+      tokenProgram: TOKEN_PROGRAM_ID,
     } as any)
     .rpc();
 }

@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "gbrain": {
-      "command": "/Users/NicoPez/.bun/bin/gbrain",
-      "args": ["serve"]
+      "command": "/Users/NicoPez/.bun/bin/bun",
+      "args": ["/Users/NicoPez/.bun/bin/gbrain", "serve"]
     }
   }
 }

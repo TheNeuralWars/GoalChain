@@ -74,14 +74,16 @@ import_goalchain() {
 wire_cursor_mcp() {
   export PATH="$HOME/.bun/bin:${PATH:-}"
   mkdir -p "${REPO_ROOT}/.cursor"
+  BUN_BIN="$(command -v bun)"
   GBRAIN_BIN="$(command -v gbrain)"
-  python3 - "${CURSOR_MCP}" "${GBRAIN_BIN}" <<'PY'
+  python3 - "${CURSOR_MCP}" "${BUN_BIN}" "${GBRAIN_BIN}" <<'PY'
 import json
 import sys
 from pathlib import Path
 
 path = Path(sys.argv[1])
-gbin = sys.argv[2]
+bun_bin = sys.argv[2]
+gbrain_bin = sys.argv[3]
 data = {}
 if path.exists():
     try:
@@ -89,7 +91,8 @@ if path.exists():
     except Exception:
         data = {}
 servers = data.setdefault("mcpServers", data.get("mcpServers", {}))
-servers["gbrain"] = {"command": gbin, "args": ["serve"]}
+# Cursor GUI has no shell PATH — gbrain's shebang uses `env bun`, so invoke bun explicitly.
+servers["gbrain"] = {"command": bun_bin, "args": [gbrain_bin, "serve"]}
 path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 print("wrote", path)
 PY

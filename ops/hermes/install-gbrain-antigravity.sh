@@ -92,14 +92,16 @@ wire_antigravity_mcp() {
   export PATH="$HOME/.bun/bin:${PATH:-}"
   resolve_antigravity_mcp
   mkdir -p "$(dirname "${ANTIGRAVITY_MCP}")"
+  BUN_BIN="$(command -v bun)"
   GBRAIN_BIN="$(command -v gbrain)"
-  python3 - "${ANTIGRAVITY_MCP}" "${GBRAIN_BIN}" <<'PY'
+  python3 - "${ANTIGRAVITY_MCP}" "${BUN_BIN}" "${GBRAIN_BIN}" <<'PY'
 import json
 import sys
 from pathlib import Path
 
 path = Path(sys.argv[1])
-gbin = sys.argv[2]
+bun_bin = sys.argv[2]
+gbrain_bin = sys.argv[3]
 data = {}
 if path.exists():
     try:
@@ -107,7 +109,7 @@ if path.exists():
     except Exception:
         data = {}
 servers = data.setdefault("mcpServers", data.get("mcpServers", {}))
-servers["gbrain"] = {"command": gbin, "args": ["serve"]}
+servers["gbrain"] = {"command": bun_bin, "args": [gbrain_bin, "serve"]}
 path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 print("wrote", path)
 PY

@@ -381,7 +381,11 @@ export class OracleService {
   /**
    * Concludes the match and resolves the pre-match parimutuel betting pools.
    */
-  async completeFixture(matchId: string, winner: any): Promise<string> {
+  async completeFixture(
+    matchId: string,
+    winner: any,
+    opts?: { participantPlayerIds?: string[] },
+  ): Promise<string> {
     console.log(`[Oracle] 🏁 Completing Fixture ${matchId}...`);
     const [fixturePda] = PublicKey.findProgramAddressSync(
       [Buffer.from("fixture"), Buffer.from(matchId)],
@@ -403,6 +407,23 @@ export class OracleService {
         fixturePda,
       ]);
       console.log(`[Oracle] ✅ Fixture ${matchId} completed! Tx: ${tx}`);
+
+      const recordOnComplete =
+        process.env.ORACLE_RECORD_MATCH_ON_COMPLETE !== "false";
+      const participants = opts?.participantPlayerIds ?? [];
+      if (recordOnComplete && participants.length > 0) {
+        for (const playerId of participants) {
+          try {
+            await this.recordPlayerMatch(matchId, playerId);
+          } catch (recordErr) {
+            console.warn(
+              `[Oracle] recordPlayerMatch skipped for ${playerId} (${matchId}):`,
+              recordErr,
+            );
+          }
+        }
+      }
+
       return tx;
     } catch (error) {
       console.error(

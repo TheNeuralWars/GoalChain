@@ -6,5 +6,6 @@
   "scoreA": 3,
   "scoreB": 1,
   "isHt": false,
-  "isFt": true
+  "isFt": true,
+  "participantPlayerIds": []
 }
