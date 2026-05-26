@@ -98,6 +98,8 @@ SHARED_KEYS = [
     "WEBHOOK_PORT",
     "WEBHOOK_SECRET",
     "HERMES_GATEWAY_TOKEN",
+    "GITHUB_TOKEN",
+    "GH_TOKEN",
 ]
 
 # Map DISCORD_TOKEN (config.env) → DISCORD_BOT_TOKEN (Hermes gateway) if bot token missing.
