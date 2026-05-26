@@ -1,23 +1,42 @@
 # Implementation Status (docs ↔ code reconciliation)
 
-**Updated:** 2026-05-24  
-**Purpose:** Single map of what is implemented in code vs what remains operational/frontend work. Resolves stale “planned” language in older design docs.
+**Updated:** 2026-05-26  
+**Purpose:** Single map of what is implemented in code vs operational/frontend work.
 
 Source of truth for parameters: `docs/ECONOMIC_CANONICAL_CONFIG.json`.
 
 ---
 
+## Mundial 2026 MVP (devnet demo — target before 2026-06-11)
+
+| Item | Status | Notes |
+|------|--------|-------|
+| Wallet connect devnet | **Implemented** | Play webapp |
+| Fixtures list on-chain | **Implemented** | `fetchFixtures` |
+| `place_bet` UI | **Implemented** | `FixturesPanel` |
+| `claim_bet_payout` UI | **Implemented** | `claimFixturePayout` + Cobrar button |
+| `refund_bet` UI | **Implemented** | Cancelled fixtures |
+| Economy banner (API) | **Implemented** | `EconomyConfigBanner` → `/api/economy/config` |
+| Simulation badges (DeFi/Club) | **Implemented** | `SimulationBadge` |
+| Ops panel home | **Implemented** | `OpsStatusPanel` |
+| Smoke script | **Implemented** | `scripts/smoke-devnet.sh` + runbook |
+| `oracle_record_match` on FT | **Implemented** | `completeFixture` + `ORACLE_RECORD_MATCH_ON_COMPLETE` |
+| Rarity yields from canonical JSON | **Implemented** | `goalchain_oracle/src/economy/rarityYield.ts` |
+
+**Out of Mundial MVP:** mainnet, live market bets UI, real trading/vaults, Genesis Agents, video automation.
+
+Brief: `docs/intake/MUNDIAL-2026-MVP.md` · Demo: `docs/intake/MUNDIAL-2026-DEMO-RUNBOOK.md`
+
+---
+
 ## On-chain core (`goalchain_program`)
 
-| Capability | Design doc | Code status | Remaining |
-|------------|------------|-------------|-----------|
-| `fee_burn_bps`, `fee_jackpot_bps`, `max_starters_per_manager` on `GlobalConfig` | `P1_ONCHAIN_SINKS_DESIGN.md` §2 | **Implemented** (`lib.rs`, init defaults) | Env-specific config validation on target cluster |
-| Fee split on claim/payout paths | §3 | **Implemented** (`split_fee_amounts` in claims) | Integration tests + frontend i18n accuracy |
-| `oracle_record_match` (stamina drain, idempotent) | §4 | **Implemented** (`lib.rs`) | **Oracle wiring** — `goalchain_oracle` does not call it yet |
-| `ManagerDailyClaim` XI cap (11/day) | §5 | **Implemented** | Integration test coverage |
-| `rent_nft` 70/25/5 split | §6 | **Implemented** | Webapp UX copy |
-| `BuilderFund` + contributor epochs | `CURRENT_ECONOMIC_PARAMETERS.md`, `P2_VAULT_MINT_ROADMAP.md` | **Implemented** (accounts + fund/spend/epoch ix) | Operational runbook + devnet/mainnet validation |
-| P0 fee cap, architect tax, potion burn, rarity yields | `P0_HARDENING_PLAN.md` | **Implemented** | Governance review for mainnet deploy |
+| Capability | Code status | Remaining |
+|------------|-------------|-----------|
+| Fee split on claim/payout | **Implemented** | Mainnet validation |
+| `oracle_record_match` | **Implemented** | Oracle wired on fixture complete |
+| ManagerDailyClaim XI cap | **Implemented** | — |
+| BuilderFund + epochs | **Implemented** | Ops runbook |
 
 ---
 
@@ -25,21 +44,20 @@ Source of truth for parameters: `docs/ECONOMIC_CANONICAL_CONFIG.json`.
 
 | Job | Status | Notes |
 |-----|--------|-------|
-| `OracleService` fixture sync | **Implemented** | Live devnet path |
-| `vault_crank.ts` | **Implemented** | Ops script exists |
-| `mint_gate.ts` | **Implemented** | Script in repo; env thresholds need tuning |
-| `contributor_epoch_hook.ts` | **Implemented** | Script in repo |
-| Call `oracle_record_match` after fixture resolution | **Not wired** | On-chain ix exists; oracle integration pending |
+| Fixture sync / complete | **Implemented** | Scraper driver |
+| `recordPlayerMatch` after complete | **Implemented** | Optional `participantPlayerIds` in match state JSON |
+| `rarityYield` canonical load | **Implemented** | Reads `ECONOMIC_CANONICAL_CONFIG.json` |
+| `vault_crank.ts` | **Implemented** | Execute path still dry-run/fake until post-Mundial |
 
 ---
 
 ## API (`goalchain_api`)
 
-| Endpoint | Status |
-|----------|--------|
-| `GET /api/economy/config` | **Implemented** |
-| `GET /api/economy/metrics` | **Implemented** |
-| `GET /health` | **Implemented** |
+| Endpoint | Play webapp usage |
+|----------|-------------------|
+| `GET /api/ops/status` | **Yes** |
+| `GET /api/economy/config` | **Yes** (banner) |
+| `POST /api/coach/chat` | Classic hub / marketing (not Vite routes yet) |
 
 ---
 
@@ -47,27 +65,24 @@ Source of truth for parameters: `docs/ECONOMIC_CANONICAL_CONFIG.json`.
 
 | Surface | URL | Status |
 |---------|-----|--------|
-| Marketing / read-only | `goalchain.fun` (`docs/`) | **Live** — CTAs → `/go/` |
-| Transactional webapp | `play.goalchain.fun` (`goalchain_webapp/`) | **Deploy pending** (Vercel + DNS); devnet MVP in progress |
-| Legacy dashboard | `goalchain.fun/app.html` | **Redirect** → play |
-
-See `docs/FRONTEND_ROUTING.md`.
+| Marketing | `goalchain.fun` (`docs/`) | **Live** — Mundial CTAs → `/go/estadio` |
+| Play | `play.goalchain.fun` (`goalchain_webapp/`) | Devnet MVP in repo; deploy per `docs/PLAY_DEPLOY_GUIDE.md` |
 
 ---
 
-## Docs that were stale (corrected 2026-05-24)
+## Post-Mundial backlog
 
-- `P1_ONCHAIN_SINKS_DESIGN.md` — header now marks on-chain core as implemented.
-- `docs/issues/P1-onchain-sinks.md` — scope split into done vs follow-up.
-- `EXECUTION_BACKLOG_90D.md` Sprint 1 — annotated with implementation status.
-- `FRONTEND_OWNERSHIP_POLICY.md` — play URL + redirect policy.
+1. Merge stack PRs #26–#34 (`docs/intake/2026-05-26-merge-stack-handoff-antigravity.md`)
+2. Live market bets UI + oracle markets
+3. Vault crank real execution or documented OFF
+4. Genesis Agents (`docs/GENESIS_AGENTS_PROTOCOL.md`)
+5. Archive `goalchain_backend/` (`goalchain_backend/ARCHIVED.md`)
+6. Coach API in Play via `apiBaseUrl()` (retire localhost in `docs/assets/js/ai_agent.js`)
 
 ---
 
-## Still open (not contradictions — genuine backlog)
+## Archived / dead packages
 
-1. Wire `oracle_record_match` in `OracleService` after match resolution.
-2. Frontend: expose mint gate / vault crank / epoch hook status (`/to_do/5`).
-3. Webapp devnet E2E: wallet → bet → claim (`/to_do/1`, `/to_do/10`).
-4. BuilderFund operational validation + spend runbook on target env.
-5. Simulation script: include `fee_burn` in S0 scenarios (`scripts/tokenomics_simulation.py`).
+- `goalchain_backend/` — see `ARCHIVED.md`
+- `goalchain_web/` — empty shell
+- `DashboardHub.tsx` — not routed in `App.tsx`

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { SimulationBadge } from '../components/SimulationBadge';
 
 interface BotState {
     isEnabled: boolean;
@@ -458,8 +459,9 @@ export const TradingTerminal: React.FC = () => {
     return (
         <div className="glass-card trading-terminal" style={{ textAlign: 'left' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '1rem' }}>
-                <h2 className="text-neon-purple" style={{ margin: 0, borderBottom: 'none', paddingBottom: 0 }}>
+                <h2 className="text-neon-purple" style={{ margin: 0, borderBottom: 'none', paddingBottom: 0, display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                     <span role="img" aria-label="chart">📈</span> Drift Derivatives Terminal
+                    <SimulationBadge />
                 </h2>
                 {/* Tab selector */}
                 <div className="terminal-tabs" style={{ marginBottom: 0, paddingBottom: 0, borderBottom: 'none' }}>

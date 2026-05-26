@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { SimulationBadge } from '../components/SimulationBadge';
 
 interface Allocation {
     name: string;
@@ -199,8 +200,9 @@ export const SwarmVaults: React.FC = () => {
     return (
         <div className="glass-card swarm-vaults-panel" style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <div>
-                <h2 className="text-neon-purple" style={{ margin: 0, borderBottom: 'none', paddingBottom: 0 }}>
+                <h2 className="text-neon-purple" style={{ margin: 0, borderBottom: 'none', paddingBottom: 0, display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
                     🤖 Swarm Vaults (Bóvedas de Enjambre AI)
+                    <SimulationBadge />
                 </h2>
                 <p style={{ opacity: 0.7, fontSize: '0.85rem', marginTop: '6px', marginBottom: '0.5rem' }}>
                     Delega tus tokens `$GCH` a enjambres autónomos de agentes que ejecutan hedging y arbitraje en vivo.
