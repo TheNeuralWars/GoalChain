@@ -295,14 +295,20 @@ EOF
   run_log="/tmp/oa-opencode-${number}.log"
   cat > "${prompt_file}" <<EOF
 You are the GoalChain code agent (Free Claude Code / FCC). Implement issue #${number}: ${title}.
-Before editing, read:
+
+Before editing, read (in order):
+- CLAUDE.md (skills: frontend-design for webapp; gstack review/investigate/plan-eng — no /ship or browser /qa)
 - ai_context/META_CHARTER.md
 - .cursor/rules/meta-principal.mdc
 - ai_context/AGENT_ORCHESTRATION.md
-Use repo constraints and META principles.
+
+Issue body (requirements):
+${body}
+
+Use repo constraints and META principles. Installed skills live in ~/.claude/skills/ (frontend-design, gstack).
 First refine proposal in ${proposal_file}, then implement code in small safe steps.
 Do not touch secrets. ${work_mode_note}
-End by summarizing tests run and residual risks.
+Open a draft PR only (unless cambio urgente). End by summarizing tests run and residual risks.
 EOF
   if [[ -x "${RUN_CODE}" ]]; then
     log "FCC tier=${fcc_tier} (priority=${priority}) for issue #${number}"

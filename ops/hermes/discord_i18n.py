@@ -61,7 +61,7 @@ MESSAGES: dict[str, dict[str, str]] = {
 
 
 def lang() -> str:
-    value = (os.getenv("DISCORD_MESSAGE_LANG") or os.getenv("OA_DISCORD_LANG") or "es").strip().lower()
+    value = (os.getenv("DISCORD_MESSAGE_LANG") or os.getenv("OA_DISCORD_LANG") or "en").strip().lower()
     return "en" if value.startswith("en") else "es"
 
 

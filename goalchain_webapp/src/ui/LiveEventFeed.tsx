@@ -22,7 +22,7 @@ export const LiveEventFeed: React.FC = () => {
                 if (!mounted) return;
                 const next = fixtures.slice(0, 5).map((f, idx) => {
                     const total = f.poolA + f.poolB + f.poolDraw;
-                    const type: Event['type'] = f.status === 'resolved' ? 'RESOLVE' : (f.status === 'live' ? 'GOAL' : 'BET');
+                    const type: Event['type'] = f.status === 'completed' ? 'RESOLVE' : (f.status === 'live' ? 'GOAL' : 'BET');
                     return {
                         id: Number(`${Date.now()}${idx}`),
                         type,

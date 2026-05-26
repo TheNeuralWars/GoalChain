@@ -1,7 +1,17 @@
 /**
  * Maps NFT rarity metadata to on-chain base_yield_rate (6-decimal lamports).
- * Keep in sync with goalchain_program::base_yield_for_rarity_tier.
+ * Loads defaults from docs/ECONOMIC_CANONICAL_CONFIG.json when available.
  */
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const CANONICAL_CONFIG_PATH = path.resolve(
+  __dirname,
+  "../../../docs/ECONOMIC_CANONICAL_CONFIG.json",
+);
+
 export const GCH_LAMPORTS = 1_000_000;
 
 export const RARITY_TIER = {
@@ -13,13 +23,35 @@ export const RARITY_TIER = {
 
 export type RarityName = keyof typeof RARITY_TIER;
 
-const YIELD_BY_TIER: Record<number, number> = {
+const DEFAULT_YIELD_BY_TIER: Record<number, number> = {
   0: 100 * GCH_LAMPORTS,
   [RARITY_TIER.rare]: 50 * GCH_LAMPORTS,
   [RARITY_TIER.epic]: 250 * GCH_LAMPORTS,
   [RARITY_TIER.legendary]: 1000 * GCH_LAMPORTS,
   [RARITY_TIER.mythic]: 5000 * GCH_LAMPORTS,
 };
+
+function loadYieldsFromCanonical(): Record<number, number> | null {
+  try {
+    const raw = JSON.parse(fs.readFileSync(CANONICAL_CONFIG_PATH, "utf8"));
+    const yields = raw?.rarity_base_yields_lamports as Record<string, number>;
+    if (!yields || typeof yields !== "object") return null;
+    return {
+      0: yields.unknown ?? DEFAULT_YIELD_BY_TIER[0],
+      [RARITY_TIER.rare]: yields.rare ?? DEFAULT_YIELD_BY_TIER[RARITY_TIER.rare],
+      [RARITY_TIER.epic]: yields.epic ?? DEFAULT_YIELD_BY_TIER[RARITY_TIER.epic],
+      [RARITY_TIER.legendary]:
+        yields.legendary ?? DEFAULT_YIELD_BY_TIER[RARITY_TIER.legendary],
+      [RARITY_TIER.mythic]:
+        yields.mythic ?? DEFAULT_YIELD_BY_TIER[RARITY_TIER.mythic],
+    };
+  } catch {
+    return null;
+  }
+}
+
+const YIELD_BY_TIER: Record<number, number> =
+  loadYieldsFromCanonical() ?? DEFAULT_YIELD_BY_TIER;
 
 export function baseYieldForRarityTier(tier: number): number {
   return YIELD_BY_TIER[tier] ?? YIELD_BY_TIER[0];

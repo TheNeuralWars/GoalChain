@@ -73,8 +73,17 @@ if [[ -f "${SCRIPT_DIR}/deploy-hermes-workspace.sh" ]]; then
   bash "${SCRIPT_DIR}/deploy-hermes-workspace.sh" --update
 fi
 
+if [[ -x "${SCRIPT_DIR}/configure-hermes-language.sh" ]]; then
+  bash "${SCRIPT_DIR}/configure-hermes-language.sh"
+elif [[ -x "${SCRIPTS_DIR}/configure-hermes-language.sh" ]]; then
+  bash "${SCRIPTS_DIR}/configure-hermes-language.sh"
+fi
+
 if command -v fcc-claude >/dev/null 2>&1 || [[ -x "${HOME}/.local/bin/fcc-claude" ]]; then
   echo "==> FCC (Free Claude Code): OK"
+  if [[ -x "${SCRIPT_DIR}/install-fcc-skills.sh" ]]; then
+    bash "${SCRIPT_DIR}/install-fcc-skills.sh" || echo "WARN: install-fcc-skills.sh failed (retry manually)"
+  fi
 else
   echo "WARN: fcc-claude not found — install: uv tool install free-claude-code (or see docs/intake)"
 fi

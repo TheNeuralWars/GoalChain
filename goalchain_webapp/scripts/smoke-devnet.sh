@@ -32,4 +32,20 @@ if "canonicalConfig" not in data and "canonical_config" not in data and "canonic
 print("economy config ok")
 PY
 
+echo "==> Webapp exports (claim + economy client)"
+python3 - <<PY
+import pathlib
+root = pathlib.Path("${WEBAPP_DIR}/src")
+client = (root / "lib/goalchainClient.ts").read_text()
+for sym in ("claimFixturePayout", "fetchUserBets", "refundFixtureBet"):
+    if sym not in client:
+        raise SystemExit(f"missing {sym} in goalchainClient.ts")
+economy = (root / "lib/economyClient.ts").read_text()
+if "fetchEconomyConfig" not in economy:
+    raise SystemExit("missing fetchEconomyConfig")
+print("webapp client exports ok")
+PY
+
 echo "Smoke devnet checks passed."
+echo "Manual E2E: wallet devnet -> /estadio -> place_bet -> oracle complete -> claim_bet_payout"
+echo "Runbook: docs/intake/MUNDIAL-2026-DEMO-RUNBOOK.md"

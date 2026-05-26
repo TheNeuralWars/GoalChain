@@ -46,6 +46,15 @@
 3. `/to_do/n` items in the audit doc are the integration owner's rollup; mark `— done` there when merged.
 4. Do not mark `done` in backlog docs until code is on `main` (or explicitly deployed for ops-only tasks).
 
+## Mundial 2026 freeze (2026-05-26 → 2026-06-11)
+
+- **Single P0 track:** `docs/intake/MUNDIAL-2026-MVP.md` — label GitHub `mundial-mvp`
+- **FCC batch #95–#99:** frozen — see `docs/intake/2026-05-26-mundial-fcc-queue-freeze.md`
+- **Scope policy:** `docs/intake/HERMES-MUNDIAL-SCOPE-FREEZE.md`
+- **Master plan hub:** `ai_context/MASTER_PLAN.md` · index `docs/governance/MASTER_PLAN_INDEX.md`
+
+New `ready` issues outside Mundial require CEO exception (`cambio urgente`) noted in intake body.
+
 ## Discovery
 
 ```bash
