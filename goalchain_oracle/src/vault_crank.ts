@@ -72,12 +72,10 @@ async function main() {
     estimatedGchBurned = gchPriceUsd > 0 ? buybackUsd / gchPriceUsd : 0;
 
     if (mode === "execute") {
-      // Production path should integrate Jupiter + burn txs.
-      // For now this script generates deterministic operational artifacts and tx placeholders.
-      txHashes.push(fakeTx("harvest"));
-      txHashes.push(fakeTx("swap_jupiter"));
-      txHashes.push(fakeTx("burn_gch"));
-      txHashes.push(fakeTx("jackpot_fund"));
+      throw new Error(
+        "Execute mode is disabled: Real Jupiter swap and GCH burn integration is not implemented yet. " +
+        "Please use dry-run mode (VAULT_CRANK_EXECUTE=0) to preview calculations safely."
+      );
     } else {
       txHashes.push(fakeTx("dryrun_harvest"));
       txHashes.push(fakeTx("dryrun_swap"));
