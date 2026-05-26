@@ -1,5 +1,7 @@
 # 🏆 GoalChain: Infinity Engine & Genesis Squad.
 
+**Plan Maestro (Mundial 2026 → 2027):** [`ai_context/MASTER_PLAN.md`](ai_context/MASTER_PLAN.md) · [Gobernanza](docs/governance/MASTER_PLAN_INDEX.md) · [Estado implementación](docs/IMPLEMENTATION_STATUS.md)
+
 GoalChain is a premier Web3 ecosystem built on **Solana**, designed to merge the passion of global football with a robust, sustainable, and circular economy. Powered by the **Infinity Engine**, GoalChain introduces a "Zero Value Loss" model where user capital fuels real-time token utility.
 
 ## ⚽ The Genesis Squad (v3.0)
@@ -21,10 +23,14 @@ The core of GoalChain's economy is designed for perpetual growth and stability:
 - **Phase 4 (2027):** Favela Streets (3v3 PvP) & RWA Stadium Management.
 
 ## 📂 Repository Structure
-- **/docs:** Production frontend (live at goalchain.fun).
-- **/ai_context:** Master documentation, economic blueprints, and AI skills.
+- **/docs:** Marketing site (live at [goalchain.fun](https://goalchain.fun)); CTAs → play.
+- **/goalchain_webapp:** Transactional Play ([play.goalchain.fun](https://play.goalchain.fun)) — Mundial devnet MVP (bet + claim).
+- **/goalchain_api:** Economy + ops HTTP API.
+- **/ai_context:** Agent orchestration, Hermes setup, META charter.
 - **/goalchain_program:** Solana smart contracts (Rust/Anchor).
-- **/goalchain_oracle:** Real-time data feed integration.
+- **/goalchain_oracle:** Fixture oracle + economy helpers.
+- **/ops/hermes:** 24/7 Manager (FCC dispatch, Discord, GBrain).
+- **goalchain_backend:** Archived — see `goalchain_backend/ARCHIVED.md`.
 
 ## 🛠️ Technical Stack
 - **Blockchain:** Solana (L1)

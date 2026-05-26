@@ -1683,6 +1683,46 @@ input:checked + .slider-red:before {
   margin: 0;
 }
 
+.simulation-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(245, 166, 35, 0.15);
+  border: 1px solid rgba(245, 166, 35, 0.45);
+  color: #f5c842;
+  vertical-align: middle;
+}
+
+.portal-honesty-note {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin: 0.35rem 0 0.75rem;
+}
+
+.economy-banner {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+}
+
+.economy-banner--ok {
+  border-left: 3px solid var(--primary-neon);
+}
+
+.economy-banner--drift,
+.economy-banner--warn {
+  border-left: 3px solid #f5a623;
+}
+
+.economy-banner-drift {
+  color: #f5c842;
+}
+
 /* Media Queries for Portals */
 @media (max-width: 900px) {
   .welcome-hero {

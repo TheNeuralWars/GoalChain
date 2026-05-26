@@ -2,6 +2,8 @@
 
 **Purpose:** Coordinate Cursor, Grok, Google Antigravity, **Hermes Manager**, and **Free Claude Code (FCC)** on the 24/7 server without file conflicts, scope drift, or duplicate work.
 
+**Executive hub:** [`MASTER_PLAN.md`](MASTER_PLAN.md) · Vertex KPIs: [`docs/governance/VERTEX_REGISTRY.md`](../docs/governance/VERTEX_REGISTRY.md) · Orders: [`docs/governance/AGENT_DIRECTIVES.md`](../docs/governance/AGENT_DIRECTIVES.md)
+
 **Hermes runtime:** Hermes Agent gateway + Grok (`xai/grok-4.3`) for chat/triage; `oa-worker` + FCC for repo implementation (`agent:opencode`). See `ai_context/HERMES_SETUP.md`.
 
 **Related rules (Cursor):** `.cursor/rules/collab-multi-agent.mdc`, `.cursor/rules/meta-principal.mdc`  
@@ -20,6 +22,24 @@
 | **Grok** | xAI CLI / web | Research, review, marketing, alt drafts | `exp/grok-*` branches |
 
 **Integration owner (default):** Antigravity — only one agent merges to stacked PR chains unless you reassign per task.
+
+**Active Hermes profile:** `jito-strategy` (not `default`). Discord/cron changes must sync root `~/.hermes/config.yaml` **and** `~/.hermes/profiles/jito-strategy/config.yaml` via `ops/hermes/sync-hermes-active-profile-discord.sh`.
+
+---
+
+## CEO lazy commands (Hermes)
+
+Nico steers with three templates in `#hermes` / WhatsApp (`manager:` prefix):
+
+| Command | Hermes action |
+|---------|----------------|
+| `prioridad` | Reorder work: Mundial MVP (`docs/intake/MUNDIAL-2026-MVP.md`) > merge stack #26–#34 > webapp > backlog |
+| `dispatch <agente> <objetivo>` | Create issue + intake brief (`agent:opencode` or `agent:antigravity`) |
+| `estado` | Status packet: merge stack, FCC queue, play/API health, next demo fixture |
+
+Scope freeze until 2026-06-11: `docs/intake/HERMES-MUNDIAL-SCOPE-FREEZE.md`.
+
+**GBrain ritual (no live Mac↔VPS sync):** after merge to `main`, each host runs `gbrain import ai_context docs/intake`.
 
 ---
 
@@ -78,9 +98,11 @@ Optional later: bot that mirrors `docs/intake/` ↔ Slack threads (Hermes server
 
 **Conversational layer:** Hermes Agent `~/.hermes/` (`SOUL.md`, gateway). Deploy: `ops/hermes/deploy-hermes-workspace.sh`.
 
-**Code layer:** `oa-worker.service` picks GitHub issues `agent:opencode` + `status:ready`, runs `ops/hermes/oa-run-code.sh` (FCC preferred).
+**Code layer:** `oa-worker.service` picks GitHub issues `agent:opencode` + `status:ready`, runs `ops/hermes/oa-run-code.sh` (FCC preferred). FCC reads **`CLAUDE.md`** and skills in `~/.claude/skills/` (`install-fcc-skills.sh`).
 
-**Automation layer:** `~/hermes/scripts/` — `sync.sh`, `hermes-context.sh`, `create-task.sh`, `setup-hermes-runtime.sh`.
+**Automation layer:** `~/hermes/scripts/` — `sync.sh`, `hermes-context.sh`, `create-task.sh`, `setup-hermes-runtime.sh`, `install-fcc-skills.sh`.
+
+**Tooling guide (all agents + Nico):** `ai_context/AGENT_TOOLS_GUIDE.md`.
 
 Responsibilities:
 
@@ -168,7 +190,29 @@ After `main` is current: **Antigravity** is the Master Agent and handles all tas
 
 ---
 
+## Agent tooling (2026-05-25)
+
+| Agent | Install / config | Execution orders |
+|-------|------------------|------------------|
+| **FCC** | `bash ops/hermes/install-fcc-skills.sh`; repo `CLAUDE.md` | Headless: follow skill *intent* in `CLAUDE.md` (frontend-design, gstack review/investigate); draft PR only |
+| **Hermes** | `SOUL.md` + deploy workspace | Issue body must include skill hints for webapp/P0; see `AGENT_TOOLS_GUIDE.md` |
+| **Cursor** | GBrain MCP + optional superpowers plugin | Draft only; UI → frontend-design; reload IDE after MCP install |
+| **Antigravity** | GBrain MCP + gstack on Mac | Merge owner; `/review` before merge on risky PRs |
+| **Grok** | — | Review packets only; no FCC skills |
+
+Full user guide: **`ai_context/AGENT_TOOLS_GUIDE.md`**.
+
+---
+
 ## Quick prompts
+
+**Hermes → FCC (opencode issue)**
+
+```text
+agent:opencode status:ready priority:P1
+Scope: goalchain_webapp/src/ui/...
+Apply frontend-design skill. Verification: cd goalchain_webapp && npm run build
+```
 
 **Hermes → Antigravity handoff (Master Agent)**
 

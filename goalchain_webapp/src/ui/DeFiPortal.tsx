@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { SimulationBadge } from '../components/SimulationBadge';
 import { TradingTerminal } from './TradingTerminal';
 import { SwarmVaults } from './SwarmVaults';
 
@@ -14,7 +15,11 @@ export function DeFiPortal() {
     <div className="play-page play-page--portal">
       <div className="portal-header glass-card">
         <div className="portal-badge portal-badge--defi">DEFI PORTAL</div>
+        <SimulationBadge />
         <h1>Terminal Financiera</h1>
+        <p className="portal-honesty-note">
+          Demostración visual — sin transacciones on-chain hasta post-Mundial 2026.
+        </p>
         <p className="portal-subtitle">
           Maximiza el rendimiento de tu club con arbitraje inteligente, vaults autónomas y liquidez automatizada.
         </p>

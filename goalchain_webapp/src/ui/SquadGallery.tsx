@@ -1,4 +1,5 @@
 import React from 'react';
+import { SimulationBadge } from '../components/SimulationBadge';
 
 interface PlayerCardProps {
     name: string;
@@ -127,8 +128,9 @@ export const SquadGallery: React.FC = () => {
 
     return (
         <div className="squad-gallery" style={{ marginTop: '0.5rem', textAlign: 'left' }}>
-            <h2 className="text-neon-green" style={{ borderBottom: 'none', paddingBottom: 0, marginBottom: '1.5rem' }}>
+            <h2 className="text-neon-green" style={{ borderBottom: 'none', paddingBottom: 0, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
                 <span style={{ fontSize: '1.4rem' }}>🏆</span> Mi Cantera (Youth Academy)
+                <SimulationBadge />
             </h2>
             
             {/* Player Card Responsive Grid */}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { SimulationBadge } from '../components/SimulationBadge';
 import { SquadGallery } from './SquadGallery';
 import { UserProfile } from './UserProfile';
 import { CreateUser } from './CreateUser';
@@ -41,7 +42,11 @@ export function ClubPortal() {
     <div className="play-page play-page--portal">
       <div className="portal-header glass-card">
         <div className="portal-badge portal-badge--club">CLUB PORTAL</div>
+        <SimulationBadge />
         <h1>Mi Club &amp; Manager</h1>
+        <p className="portal-honesty-note">
+          Plantilla demo — NFTs on-chain y rent se activan post-Mundial.
+        </p>
         <p className="portal-subtitle">
           Gestiona tu plantilla de jugadores digitales, mejora sus estadísticas y monitorea tu reputación de manager.
         </p>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { EconomyConfigBanner } from './EconomyConfigBanner';
 import { OpsStatusPanel } from './OpsStatusPanel';
+import { SimulationBadge } from '../components/SimulationBadge';
 
 interface UserData {
   username: string;
@@ -29,6 +31,7 @@ export function DashboardGrid() {
 
   return (
     <div className="inicio-portal">
+      <EconomyConfigBanner />
       {/* Welcome Hero Banner */}
       <div className="welcome-hero glass-card portal-fade-in">
         <div className="welcome-hero-content">
@@ -54,11 +57,11 @@ export function DashboardGrid() {
         <div className="welcome-hero-stats">
           <div className="hero-stat-box">
             <span className="hero-stat-val">1240</span>
-            <span className="hero-stat-label">Managers Activos</span>
+            <span className="hero-stat-label">Managers Activos <SimulationBadge label="demo" /></span>
           </div>
           <div className="hero-stat-box">
             <span className="hero-stat-val text-neon-purple">$2.4M</span>
-            <span className="hero-stat-label">Volumen Total</span>
+            <span className="hero-stat-label">Volumen Total <SimulationBadge label="demo" /></span>
           </div>
         </div>
       </div>
@@ -104,13 +107,14 @@ export function DashboardGrid() {
           <div className="launcher-card-header">
             <div className="launcher-card-icon">💱</div>
             <div className="launcher-card-badge launcher-card-badge--defi">DEFI SWARM</div>
+            <SimulationBadge />
           </div>
           <h3>DeFi Terminal</h3>
           <p>
             Negocia tokens con Vibe Swap, configura bots automatizados de arbitraje y deposita en las bóvedas de rendimiento Swarm para generar retornos del protocolo.
           </p>
           <div className="launcher-card-footer">
-            <span className="launcher-card-status text-neon-purple">TVL: $1,240,550 USDC</span>
+            <span className="launcher-card-status text-neon-purple">TVL demo (simulación)</span>
             <span className="launcher-card-btn text-neon-purple">Operar DeFi →</span>
           </div>
         </div>
