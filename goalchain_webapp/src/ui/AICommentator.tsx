@@ -18,7 +18,8 @@ export const AICommentator: React.FC = () => {
     const [commentaryHistory, setCommentaryHistory] = useState<CommentaryItem[]>([]);
     
     // WebSocket Streaming Bridge state
-    const [wsStatus, setWsStatus] = useState<'disconnected' | 'connecting' | 'connected'>('disconnected');
+    const [wsStatus, setWsStatus] = useState<'disconnected' | 'connecting' | 'connected' | 'error'>('disconnected');
+    const [wsError, setWsError] = useState<string | null>(null);
     const [broadcastCount, setBroadcastCount] = useState<number>(0);
     const wsRef = useRef<WebSocket | null>(null);
 
@@ -64,16 +65,21 @@ export const AICommentator: React.FC = () => {
             socket.onopen = () => {
                 console.log(`[Streaming Bridge] Connected to ${wsUrl}`);
                 setWsStatus('connected');
+                setWsError(null);
             };
 
             socket.onclose = () => {
                 console.log(`[Streaming Bridge] Disconnected from ${wsUrl}`);
                 setWsStatus('disconnected');
+                setWsError(null);
                 reconnectTimeout = setTimeout(connect, 5000);
             };
 
             socket.onerror = (err) => {
-                console.error('[Streaming Bridge] WebSocket error:', err);
+                // Downgraded from console.error — WS errors are expected when bridge is offline
+                console.warn('[Streaming Bridge] WebSocket error (will retry in 5s):', err);
+                setWsStatus('error');
+                setWsError('Bridge offline — reintentando...');
                 socket?.close();
             };
         };
@@ -308,26 +314,44 @@ export const AICommentator: React.FC = () => {
                 {/* Voice Controls */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     {/* Streaming Bridge Badge */}
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        background: !wsEnabled
-                            ? 'rgba(100, 116, 139, 0.12)'
-                            : (wsStatus === 'connected' ? 'rgba(20, 241, 149, 0.1)' : (wsStatus === 'connecting' ? 'rgba(234, 179, 8, 0.1)' : 'rgba(255, 75, 75, 0.1)')),
-                        border: !wsEnabled
-                            ? '1px solid rgba(100, 116, 139, 0.35)'
-                            : (wsStatus === 'connected' ? '1px solid rgba(20, 241, 149, 0.3)' : (wsStatus === 'connecting' ? '1px solid rgba(234, 179, 8, 0.3)' : '1px solid rgba(255, 75, 75, 0.3)')),
-                        color: !wsEnabled
-                            ? '#94a3b8'
-                            : (wsStatus === 'connected' ? 'var(--primary-neon)' : (wsStatus === 'connecting' ? '#eab308' : 'var(--accent-red)')),
-                        padding: '4px 8px',
-                        borderRadius: '6px',
-                        fontSize: '0.65rem',
-                        fontWeight: 800,
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.5px'
-                    }}>
+                    <div
+                        title={wsError ?? undefined}
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            background: !wsEnabled
+                                ? 'rgba(100, 116, 139, 0.12)'
+                                : (wsStatus === 'connected'
+                                    ? 'rgba(20, 241, 149, 0.1)'
+                                    : wsStatus === 'connecting'
+                                    ? 'rgba(234, 179, 8, 0.1)'
+                                    : wsStatus === 'error'
+                                    ? 'rgba(255, 75, 75, 0.08)'
+                                    : 'rgba(255, 75, 75, 0.1)'),
+                            border: !wsEnabled
+                                ? '1px solid rgba(100, 116, 139, 0.35)'
+                                : (wsStatus === 'connected'
+                                    ? '1px solid rgba(20, 241, 149, 0.3)'
+                                    : wsStatus === 'connecting'
+                                    ? '1px solid rgba(234, 179, 8, 0.3)'
+                                    : '1px solid rgba(255, 75, 75, 0.3)'),
+                            color: !wsEnabled
+                                ? '#94a3b8'
+                                : (wsStatus === 'connected'
+                                    ? 'var(--primary-neon)'
+                                    : wsStatus === 'connecting'
+                                    ? '#eab308'
+                                    : 'var(--accent-red)'),
+                            padding: '4px 8px',
+                            borderRadius: '6px',
+                            fontSize: '0.65rem',
+                            fontWeight: 800,
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.5px',
+                            cursor: wsError ? 'help' : 'default',
+                        }}
+                    >
                         <span className="pulse-dot" style={{
                             width: '6px',
                             height: '6px',
@@ -339,9 +363,13 @@ export const AICommentator: React.FC = () => {
                         }}></span>
                         {!wsEnabled
                             ? 'BRIDGE DISABLED'
-                            : (wsStatus === 'connected'
-                                ? `🔴 LIVE CAST (${broadcastCount})`
-                                : (wsStatus === 'connecting' ? 'CONNECTING...' : 'BRIDGE OFFLINE'))}
+                            : wsStatus === 'connected'
+                            ? `🔴 LIVE CAST (${broadcastCount})`
+                            : wsStatus === 'connecting'
+                            ? 'CONNECTING...'
+                            : wsStatus === 'error'
+                            ? '⚠ BRIDGE ERROR'
+                            : 'BRIDGE OFFLINE'}
                     </div>
 
                     {voices.length > 0 && (
