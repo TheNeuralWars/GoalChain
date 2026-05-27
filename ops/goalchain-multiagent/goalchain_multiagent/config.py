@@ -41,8 +41,11 @@ class Settings(BaseSettings):
     goalchain_ma_max_hops: int = 6
     goalchain_ma_ops_live: bool = True
     goalchain_ma_dev_write_github: bool = False
+    goalchain_ma_twenty_api_key: str = ""
+    goalchain_ma_twenty_url: str = "https://crm.goalchain.fun"
     github_repo: str = "TheNeuralWars/GoalChain"
     hermes_home: str = "/home/goalchain/hermes"
+
 
 
     anthropic_api_key: str = ""
