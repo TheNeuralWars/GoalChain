@@ -54,7 +54,24 @@ agent:opencode (FCC)
         )
         if issue_info:
             msg = f"Actively created GitHub issue #{issue_info['number']} on repo {repo}."
+            
+            # Push elegant slack notification for our internal logs pipeline
+            if settings.goalchain_ma_slack_webhook.strip():
+                try:
+                    notify_agent_step_slack(
+                        agent_name="dev",
+                        objective=objective,
+                        content=msg,
+                        meta={
+                            "Issue Number": str(issue_info["number"]),
+                            "GitHub Link": issue_info["url"],
+                        },
+                        settings=settings,
+                    )
+                except Exception:  # noqa: BLE001
+                    pass
         else:
+
             msg = "Attempted to create GitHub issue, but the subprocess execution failed."
 
     artifacts = list(state.get("artifacts") or [])
