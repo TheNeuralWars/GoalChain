@@ -25,8 +25,8 @@ issue,title,priority,bucket,pr_number,notes
 46,[OPENCODE] Modify OA worker: research large-context open source coding agents,P1,draft_ok,196,
 49,[OPENCODE] Spike: Weekly pending tasks & blockers check,P2,draft_ok,216,
 50,[ANTIGRAVITY] Spike: dale un spike a antigravity para validar el flujo hands-free,P1,draft_ok,197,
-89,[DRAFT] Implementar x-Scout inicial para GoalChain,P1,incomplete,,
-90,"[DRAFT] Recuperar features perdidas tras migración Vercel (AI Hub, Player Market, Minigames, LP, Manager Profile)",P1,incomplete,,
+89,[DRAFT] Implementar x-Scout inicial para GoalChain,P2,draft_ok,228,Draft PR created
+90,[DRAFT] Recuperar features perdidas tras migración Vercel,P1,draft_ok,229,Draft PR created
 93,[Manager] Enable full Discord channel posting capability,P1,draft_ok,103,
 95,[OPENCODE] FCC: OAuth remote runbook (Mac→VPS tunnel),P2,draft_ok,172,
 96,[OPENCODE] FCC: Simulation badges on mock webapp surfaces,P2,draft_ok,173,
