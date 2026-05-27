@@ -12,8 +12,8 @@ export function ClassicHub() {
         <Link to="/" className="play-classic-back">
           ← Dashboard principal
         </Link>
-        <span className="play-classic-label">Classic Hub — legacy (coach puede usar API local en dev)</span>
-        <span className="simulation-badge">LEGACY</span>
+        <span className="play-classic-label">Classic Hub — Features recuperadas (AI Hub, Player Market, Minigames Lab, LP, Manager Profile)</span>
+        <span className="simulation-badge">RECOVERED</span>
       </div>
       <iframe
         title="GoalChain Classic Dashboard"
