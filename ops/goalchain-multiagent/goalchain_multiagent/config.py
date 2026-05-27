@@ -43,8 +43,10 @@ class Settings(BaseSettings):
     goalchain_ma_dev_write_github: bool = False
     goalchain_ma_twenty_api_key: str = ""
     goalchain_ma_twenty_url: str = "https://crm.goalchain.fun"
+    goalchain_ma_slack_webhook: str = ""
     github_repo: str = "TheNeuralWars/GoalChain"
     hermes_home: str = "/home/goalchain/hermes"
+
 
 
 
