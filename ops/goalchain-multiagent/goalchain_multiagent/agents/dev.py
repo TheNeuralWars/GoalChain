@@ -3,6 +3,7 @@ from __future__ import annotations
 import re
 from goalchain_multiagent.config import get_settings
 from goalchain_multiagent.github_api import create_github_issue
+from goalchain_multiagent.slack_api import notify_agent_step_slack
 from goalchain_multiagent.state import GraphState
 
 
