@@ -25,7 +25,7 @@ Cada vértice tiene dueño, fuente de verdad, KPI y órdenes en [`docs/governanc
 | V4 | **API** | `goalchain_api` | Antigravity |
 | V5 | **Play** | `goalchain_webapp` → play.goalchain.fun | FCC → Antigravity |
 | V6 | **Marketing** | `docs/` → goalchain.fun | Antigravity (docs) |
-| V7 | **Ops / agentes** | `ops/hermes`, intake, GitHub | Hermes |
+| V7 | **Ops / agentes** | `ops/hermes`, `ops/goalchain-multiagent`, intake, GitHub | Hermes |
 | V8 | **Memoria institucional** | Git + GBrain | Todos (ritual) |
 
 ```mermaid
