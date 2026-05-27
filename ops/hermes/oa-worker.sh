@@ -310,49 +310,102 @@ First refine proposal in ${proposal_file}, then implement code in small safe ste
 Do not touch secrets. ${work_mode_note}
 Open a draft PR only (unless cambio urgente). End by summarizing tests run and residual risks.
 EOF
+  local run_status="0"
   if [[ -x "${RUN_CODE}" ]]; then
     log "FCC tier=${fcc_tier} (priority=${priority}) for issue #${number}"
-    bash "${RUN_CODE}" --workdir "${REPO}" --prompt-file "${prompt_file}" --tier "${fcc_tier}" --log "${run_log}" >> "${run_log}" 2>&1 || true
+    bash "${RUN_CODE}" --workdir "${REPO}" --prompt-file "${prompt_file}" --tier "${fcc_tier}" --log "${run_log}" >> "${run_log}" 2>&1 || run_status=$?
   else
     log "WARN oa-run-code.sh missing; skipping implementation for #${number}"
+    run_status=99
   fi
 
-  if [[ "${urgent_mode}" == "1" ]]; then
+  # Check run log for indicators of failure even if exit status is 0
+  local has_error="0"
+  if [[ ${run_status} -ne 0 ]]; then
+    has_error="1"
+  elif [[ -f "${run_log}" ]]; then
+    if grep -q -E "model_not_supported|Error:|FCC run failed" "${run_log}"; then
+      has_error="1"
+    fi
+  fi
+
+  if [[ "${has_error}" == "0" ]]; then
+    if [[ "${urgent_mode}" == "1" ]]; then
+      if [[ -n "$(git -C "${REPO}" status --porcelain)" ]]; then
+        git -C "${REPO}" add -A
+        git -C "${REPO}" commit -m "oa: cambio urgente issue #${number}" >/dev/null 2>&1 || true
+        git -C "${REPO}" push origin main >/dev/null 2>&1 || true
+        gh issue comment --repo "${GITHUB_REPO}" "${number}" \
+          --body "Executed in **direct-main mode** due to keyword \`cambio urgente\`. Changes were pushed directly to \`main\`.\n\nTier: \`${fcc_tier}\`\nLog: \`${run_log}\`" \
+          >/dev/null 2>&1 || true
+      else
+        gh issue comment --repo "${GITHUB_REPO}" "${number}" \
+          --body "Issue had \`cambio urgente\` policy but OA produced no file changes.\n\nTier: \`${fcc_tier}\`\nLog: \`${run_log}\`" \
+          >/dev/null 2>&1 || true
+      fi
+      gh issue edit --repo "${GITHUB_REPO}" "${number}" \
+        --remove-label "status:ready" \
+        --remove-label "status:in_progress" \
+        --add-label "status:done" >/dev/null 2>&1 || true
+      touch "${done_marker}"
+      log "Finished issue #${number} (direct-main mode)"
+      return 0
+    fi
+
+    # Normal mode (non-urgent)
+    local pr_url=""
     if [[ -n "$(git -C "${REPO}" status --porcelain)" ]]; then
       git -C "${REPO}" add -A
-      git -C "${REPO}" commit -m "oa: cambio urgente issue #${number}" >/dev/null 2>&1 || true
-      git -C "${REPO}" push origin main >/dev/null 2>&1 || true
-      gh issue comment --repo "${GITHUB_REPO}" "${number}" \
-        --body "Executed in **direct-main mode** due to keyword \`cambio urgente\`. Changes were pushed directly to \`main\`." \
-        >/dev/null 2>&1 || true
+      git -C "${REPO}" commit -m "oa: draft implementation for issue #${number}" >/dev/null 2>&1 || true
+      git -C "${REPO}" push -u origin "${branch}" >/dev/null 2>&1 || true
+
+      # Create draft PR if none exists for branch.
+      local pr_count
+      pr_count="$(gh pr list --repo "${GITHUB_REPO}" --head "${branch}" --state open --json number | python3 -c 'import json,sys; print(len(json.load(sys.stdin)))' 2>/dev/null || echo 0)"
+      if [[ "${pr_count}" == "0" ]]; then
+        pr_url="$(gh pr create --repo "${GITHUB_REPO}" --base main --head "${branch}" --draft \
+          --title "OA draft: issue #${number} — ${title}" \
+          --body "Automated FCC/OpenCode draft for issue #${number}. Requires Antigravity or Nico review before merge." 2>/dev/null || true)"
+      else
+        pr_url="$(gh pr list --repo "${GITHUB_REPO}" --head "${branch}" --state open --json url --jq '.[0].url' 2>/dev/null || true)"
+      fi
+    fi
+
+    # Success comment and labels
+    local comment_body="Automated FCC/OpenCode completed issue #${number}.\n\n- **Tier Used:** \`${fcc_tier}\`"
+    if [[ -n "${pr_url}" ]]; then
+      comment_body="${comment_body}\n- **Draft PR:** ${pr_url}"
     else
-      gh issue comment --repo "${GITHUB_REPO}" "${number}" \
-        --body "Issue had \`cambio urgente\` policy but OA produced no file changes." \
-        >/dev/null 2>&1 || true
+      comment_body="${comment_body}\n- No code changes were produced."
     fi
+    gh issue comment --repo "${GITHUB_REPO}" "${number}" --body "$(printf "${comment_body}")" >/dev/null 2>&1 || true
+
+    gh issue edit --repo "${GITHUB_REPO}" "${number}" \
+      --remove-label "status:ready" \
+      --remove-label "status:in_progress" \
+      --add-label "status:done" >/dev/null 2>&1 || true
+
     touch "${done_marker}"
-    log "Finished issue #${number} (direct-main mode)"
-    return 0
-  fi
-
-  # Commit any produced changes.
-  if [[ -n "$(git -C "${REPO}" status --porcelain)" ]]; then
-    git -C "${REPO}" add -A
-    git -C "${REPO}" commit -m "oa: draft implementation for issue #${number}" >/dev/null 2>&1 || true
-    git -C "${REPO}" push -u origin "${branch}" >/dev/null 2>&1 || true
-
-    # Create draft PR if none exists for branch.
-    local pr_count
-    pr_count="$(gh pr list --repo "${GITHUB_REPO}" --head "${branch}" --state open --json number | python3 -c 'import json,sys; print(len(json.load(sys.stdin)))' 2>/dev/null || echo 0)"
-    if [[ "${pr_count}" == "0" ]]; then
-      gh pr create --repo "${GITHUB_REPO}" --base main --head "${branch}" --draft \
-        --title "OA draft: issue #${number} — ${title}" \
-        --body "Automated FCC/OpenCode draft for issue #${number}. Requires Antigravity or Nico review before merge." >/dev/null 2>&1 || true
+    log "Finished issue #${number} (normal mode)"
+  else
+    # Failure handling: DO NOT touch done marker, remove in_progress, comment + add status:blocked or status:ready for retry
+    # Let's see if it is model_not_supported to mention that explicitly or generally block
+    local fail_reason="FCC execution failed"
+    if grep -q "model_not_supported" "${run_log}" 2>/dev/null; then
+      fail_reason="Model not supported"
     fi
-  fi
 
-  touch "${done_marker}"
-  log "Finished issue #${number}"
+    local comment_body="Automated FCC/OpenCode run failed for issue #${number}.\n\n- **Reason:** ${fail_reason}\n- **Tier Attempted:** \`${fcc_tier}\`\n- **Status:** re-queued as \`status:ready\` for retry (or blocked if persistent error)."
+    gh issue comment --repo "${GITHUB_REPO}" "${number}" --body "$(printf "${comment_body}")" >/dev/null 2>&1 || true
+
+    # Per guidelines, failure should not touch .done, and let's remove status:in_progress, add status:ready (so it is re-queued) or status:blocked.
+    # The requirement says: "commentar; status:blocked o status:ready para retry". Let's put back status:ready so it can retry, or status:blocked if we want manual intervention. Let's do status:ready for retry.
+    gh issue edit --repo "${GITHUB_REPO}" "${number}" \
+      --remove-label "status:in_progress" \
+      --add-label "status:ready" >/dev/null 2>&1 || true
+
+    log "Failed issue #${number}: ${fail_reason}. Done marker NOT touched. Re-labeled status:ready."
+  fi
 }
 
 pick_next_opencode_issue() {
