@@ -132,7 +132,7 @@ curl -s -X POST http://127.0.0.1:8790/v1/run \
 | Fase | Entregable | Gate |
 |------|------------|------|
 | **0** (esta PR) | Scaffold + docs + systemd | `pytest` + curl health en VPS |
-| **1** | LLM real + CEO loop max 6 hops | Token en vault; mock off |
+| **1** | LLM real + CEO loop max 6 hops | `llm.py`; `llm_ready` en `/health`; mock off + API key |
 | **2** | Tools: GitHub (`gh`), GBrain search, Slack | CSO light en tools |
 | **3** | Growth → Twenty; Ops → alpha-watch | Post-Mundial |
 
@@ -159,6 +159,15 @@ El nodo Dev **nunca** sustituye a FCC; emite `artifacts` que Hermes convierte en
 - [x] Servicio user systemd en VPS; no puerto público (`install-vps.sh` + enable, 2026-05-27)
 - [x] Hook `empresa:` en `hermes/agents/hermes-ceo/prompt.md` + `SOUL.md`
 - [x] Entrada en `ai_context/AGENT_ORCHESTRATION.md` § LangGraph
+
+---
+
+## Aceptación Fase 1
+
+- [x] `goalchain_multiagent/llm.py` — delegate + synthesize vía Anthropic u OpenAI
+- [x] Fallback a reglas si LLM falla o `MOCK_LLM=1`
+- [x] `GET /health` incluye `llm_ready`
+- [ ] VPS: `ANTHROPIC_API_KEY` o `OPENAI_API_KEY` en `~/.config/goalchain-multiagent.env` + `MOCK_LLM=0`
 
 ---
 
