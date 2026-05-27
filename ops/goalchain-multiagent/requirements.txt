@@ -1,0 +1,12 @@
+# GoalChain multi-agent service (LangGraph). Pin after first VPS smoke.
+langgraph>=0.2.60,<0.4
+langchain-core>=0.3.0,<0.4
+langchain-anthropic>=0.3.0,<0.4
+langchain-openai>=0.2.0,<0.4
+fastapi>=0.115.0,<0.116
+uvicorn[standard]>=0.32.0,<0.33
+pydantic>=2.9.0,<3
+pydantic-settings>=2.6.0,<3
+httpx>=0.27.0,<0.28
+pytest>=8.3.0,<9
+pytest-asyncio>=0.24.0,<0.25
