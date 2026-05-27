@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from goalchain_multiagent.config import get_settings
 from goalchain_multiagent.ops_live import collect_ops_snapshot
+from goalchain_multiagent.slack_api import notify_agent_step_slack
 from goalchain_multiagent.state import GraphState
 
 
@@ -26,6 +27,22 @@ def ops_node(state: GraphState) -> GraphState:
         title = "Ops snapshot (stub)"
         msg = "Ops checklist appended (stub)."
 
+    # Push elegant slack notification for our internal logs pipeline
+    if settings.goalchain_ma_slack_webhook.strip():
+        try:
+            notify_agent_step_slack(
+                agent_name="ops",
+                objective=objective,
+                content=msg,
+                meta={
+                    "Active Queue": "FCC/OpenCode",
+                    "Services Status": "systemctl live",
+                },
+                settings=settings,
+            )
+        except Exception:  # noqa: BLE001 — avoid crashing loop if slack fails
+            pass
+
     artifacts = list(state.get("artifacts") or [])
     artifacts.append(
         {
@@ -42,3 +59,4 @@ def ops_node(state: GraphState) -> GraphState:
         "messages": (state.get("messages") or []) + [{"role": "ops", "content": msg}],
         "next_agent": "ceo",
     }
+

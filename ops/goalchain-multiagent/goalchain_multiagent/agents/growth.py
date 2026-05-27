@@ -34,6 +34,23 @@ def growth_node(state: GraphState) -> GraphState:
         if lead_info:
             crm_saved = True
             crm_msg = f"Saved lead '{lead_name}' directly in Twenty CRM ({lead_info['url']})."
+            
+            # Push elegant slack notification for our internal logs pipeline
+            if settings.goalchain_ma_slack_webhook.strip():
+                try:
+                    notify_agent_step_slack(
+                        agent_name="growth",
+                        objective=objective,
+                        content=crm_msg,
+                        meta={
+                            "Lead CRM ID": lead_info["id"],
+                            "URL": lead_info["url"],
+                        },
+                        settings=settings,
+                    )
+                except Exception:  # noqa: BLE001
+                    pass
+
 
     artifacts = list(state.get("artifacts") or [])
     artifacts.append(
