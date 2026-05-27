@@ -96,6 +96,15 @@ Este documento define la base operativa para la siguiente etapa: release readine
 
 ---
 
+## 4.1) Client-Side Identity Hardening (CreateUser localStorage-only) (#136)
+
+Para maximizar la privacidad y alinearnos con las mejores prácticas de Web3:
+- **Sin Base de Datos de Usuarios:** GoalChain no mantiene base de datos externa ni PII (Personally Identifiable Information).
+- **Identidad en localStorage:** La identidad del mánager (`CreateUser`) y la persistencia de las claves de visuales y configuraciones se almacenan **únicamente** del lado del cliente en el navegador (`localStorage`).
+- **Resguardo ante Borrado:** Si el mánager limpia las cookies/caché de su navegador, su identidad local se regenerará al reconectar su Phantom/Solflare wallet, reconstruyendo el estado a partir de los balances on-chain en Solana.
+
+---
+
 ## 5) Post-Mundial Mainnet Gate — Scope Freeze Lifted 2026-05-27 (issue #145)
 
 > Esta sección es la **puerta de mainnet** post-Mundial 2026. Todos los ítems deben estar en `[x]` antes de aprobar el deploy a mainnet.
