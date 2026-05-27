@@ -14,9 +14,9 @@ def test_create_twenty_lead_no_key():
 
 @patch("urllib.request.urlopen")
 def test_create_twenty_lead_success(mock_urlopen):
-    # Mock HTTP response
+    # Mock HTTP GraphQL response shape
     mock_resp = MagicMock()
-    mock_resp.read.return_value = b'{"data": {"id": "dd3f5435-c51a-4d77-9e52-917282731add"}}'
+    mock_resp.read.return_value = b'{"data": {"createPerson": {"id": "dd3f5435-c51a-4d77-9e52-917282731add"}}}'
     mock_urlopen.return_value.__enter__.return_value = mock_resp
 
     settings = Settings(
@@ -32,3 +32,4 @@ def test_create_twenty_lead_success(mock_urlopen):
     assert res["id"] == "dd3f5435-c51a-4d77-9e52-917282731add"
     assert res["url"] == "https://crm.goalchain.fun/object/person/dd3f5435-c51a-4d77-9e52-917282731add"
     assert res["live"] is True
+
