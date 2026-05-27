@@ -47,7 +47,7 @@ def create_twenty_lead(
     mutation CreateLead($first: String!, $last: String!, $email: String) {
       createPerson(data: {
         name: { firstName: $first, lastName: $last }
-        emails: { create: { address: $email, label: "Work" } }
+        emails: { primaryEmail: $email }
       }) {
         id
       }
