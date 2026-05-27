@@ -93,3 +93,41 @@ Este documento define la base operativa para la siguiente etapa: release readine
 - [ ] Ejecutar checklist antes de cada release candidato
 - [ ] Mantener este documento en sincronía con cambios de contratos/reglas
 - [ ] Registrar incidentes y mejoras para retroalimentar la fase siguiente
+
+---
+
+## 5) Post-Mundial Mainnet Gate — Scope Freeze Lifted 2026-05-27 (issue #145)
+
+> Esta sección es la **puerta de mainnet** post-Mundial 2026. Todos los ítems deben estar en `[x]` antes de aprobar el deploy a mainnet.
+
+### 5.1 Economía verificada
+- [ ] `ECONOMIC_VALIDATION_REPORT.md` aprobado por Nico (ver `docs/governance/ECONOMIC_VALIDATION_REPORT.md`)
+- [ ] Parámetros canónicos vs marketing docs alineados (`fee_bps`, `burn_bps`, `jackpot_bps`)
+- [ ] `scripts/verify-canonical-economy.sh` pasa sin drift en entorno target (issue #132)
+- [ ] `emit_burn_ratio_7d ≥ 0.3` y `onchain_sink_coverage ≥ 0.7` en observabilidad (issue #24)
+
+### 5.2 On-chain hardening
+- [ ] Program ID `FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg` verificado para mainnet
+- [ ] `admin` multisig operativa configurada (no dev key)
+- [ ] `oracle_authority` rotada desde key de desarrollo
+- [ ] `vault_crank` bloqueado en modo `fake` — real path disponible y testeado (issue #144)
+- [ ] `migrate_config.ts` archivado — `migrateConfig()` removida de ops runbooks (issue #1)
+- [ ] `anchor test --validator legacy` pasa en CI (issue #4)
+
+### 5.3 Frontend y API
+- [ ] `play.goalchain.fun` activo con `VITE_API_BASE_URL` apuntando a producción
+- [ ] `EconomyConfigBanner` muestra `v1.0.0-p0` y drift cuando on-chain difiere (issue #3)
+- [ ] API `/api/economy/observability` retorna KPIs reales (issue #24)
+- [ ] WebSocket AICommentator no bloquea UI con errores no manejados (issue #25 backlog)
+
+### 5.4 Genesis Agents (opcional para mainnet v1)
+- [ ] Brief aprobado (`docs/governance/GENESIS_AGENTS_BRIEF.md`)
+- [ ] Si se incluyen: `register_genesis_agent` auditado, permisos mínimos confirmados
+
+### 5.5 Go/No-Go final
+- [ ] Nico aprueba el gate en este documento (checkbox manual)
+- [ ] Rama `release/mainnet-v1` creada desde `main` verde
+- [ ] Deploy ejecutado por Nico (no automático)
+
+**Bloqueantes conocidos al 2026-05-27:** issues #144 (vault_crank real), #3 (EconomyConfigBanner), #4 (anchor CI).
+
