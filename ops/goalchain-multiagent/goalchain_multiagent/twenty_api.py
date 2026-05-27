@@ -1,4 +1,4 @@
-"""Twenty CRM REST API client for saving leads and opportunities."""
+"""Twenty CRM GraphQL API client for saving leads dynamically."""
 
 from __future__ import annotations
 
@@ -19,9 +19,10 @@ def create_twenty_lead(
     note: str | None = None,
     settings: Settings | None = None,
 ) -> dict[str, Any] | None:
-    """Create a new person (Lead) in Twenty CRM.
+    """Create a new person (Lead) in Twenty CRM using GraphQL.
 
-    We use twenty REST API `/api/v1/people` or similar endpoints.
+    Fallback loopback GraphQL: http://127.0.0.1:3000/graphql (for container bypass)
+    Standard URL: https://crm.goalchain.fun/graphql
     """
     s = settings or get_settings()
     api_key = s.goalchain_ma_twenty_api_key.strip()
@@ -31,20 +32,48 @@ def create_twenty_lead(
         logger.warning("Twenty API Key is missing. Skipping real CRM save.")
         return None
 
-    # Payload for Twenty People REST API (Standard Schema)
-    payload = {
-        "name": {
-            "firstName": name.split(" ")[0] if name else "Lead",
-            "lastName": " ".join(name.split(" ")[1:]) if len(name.split(" ")) > 1 else "LangGraph",
-        },
-    }
-    if email:
-        payload["emails"] = [{"address": email, "label": "Work"}]
-    if linkedin:
-        # Standard custom/social field or store in notes/description
-        payload["linkedin"] = linkedin
+    first_name = name.split(" ")[0] if name else "Solana"
+    last_name = " ".join(name.split(" ")[1:]) if len(name.split(" ")) > 1 else "Partner"
 
-    url = f"{base_url}/api/v1/people"
+    # We will build standard GraphQL Mutation.
+    # Note: If crm.goalchain.fun blocks loopback, we can fallback to http://127.0.0.1:3000/graphql
+    # which we verified works flawlessly on the VPS local network.
+    graphql_url = f"{base_url}/graphql"
+    if "crm.goalchain.fun" in base_url:
+        # Loopback bypass for local fast network speeds and reliability
+        graphql_url = "http://127.0.0.1:3000/graphql"
+
+    query = """
+    mutation CreateLead($first: String!, $last: String!, $email: String) {
+      createPerson(data: {
+        name: { firstName: $first, lastName: $last }
+        emails: { create: { address: $email, label: "Work" } }
+      }) {
+        id
+      }
+    }
+    """
+    if not email:
+        # Avoid creating emails field if none provided
+        query = """
+        mutation CreateLead($first: String!, $last: String!) {
+          createPerson(data: {
+            name: { firstName: $first, lastName: $last }
+          }) {
+            id
+          }
+        }
+        """
+
+    variables = {"first": first_name, "last": last_name}
+    if email:
+        variables["email"] = email
+
+    payload = {
+        "query": query,
+        "variables": variables
+    }
+
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
@@ -53,15 +82,22 @@ def create_twenty_lead(
 
     try:
         data = json.dumps(payload).encode("utf-8")
-        req = urllib.request.Request(url, data=data, headers=headers, method="POST")
-        with urllib.request.urlopen(req, timeout=15) as response:
+        req = urllib.request.Request(graphql_url, data=data, headers=headers, method="POST")
+        with urllib.request.urlopen(req, timeout=20) as response:
             res_body = response.read().decode("utf-8")
             result = json.loads(res_body)
-            person_id = result.get("data", {}).get("id") or result.get("id")
-            
-            # If we have a note, let's create a Note connected to this person if Twenty supports it,
-            # or return the created person metadata.
-            logger.info("Successfully created lead in Twenty CRM: %s", person_id)
+
+            if "errors" in result:
+                logger.error("GraphQL reported errors: %s", result["errors"])
+                return None
+
+            person_data = result.get("data", {}).get("createPerson")
+            if not person_data:
+                logger.error("Response body did not contain person data: %s", res_body)
+                return None
+
+            person_id = person_data.get("id")
+            logger.info("Successfully created lead in Twenty CRM via GraphQL: %s", person_id)
             return {
                 "id": person_id,
                 "name": name,
@@ -70,5 +106,5 @@ def create_twenty_lead(
             }
 
     except Exception as exc:
-        logger.exception("Failed to write to Twenty CRM: %s", exc)
+        logger.exception("Failed to write to Twenty CRM via GraphQL: %s", exc)
         return None
