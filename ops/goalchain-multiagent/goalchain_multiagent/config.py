@@ -40,8 +40,10 @@ class Settings(BaseSettings):
     goalchain_ma_openrouter_base_url: str = "https://openrouter.ai/api/v1"
     goalchain_ma_max_hops: int = 6
     goalchain_ma_ops_live: bool = True
+    goalchain_ma_dev_write_github: bool = False
     github_repo: str = "TheNeuralWars/GoalChain"
     hermes_home: str = "/home/goalchain/hermes"
+
 
     anthropic_api_key: str = ""
     openai_api_key: str = ""
