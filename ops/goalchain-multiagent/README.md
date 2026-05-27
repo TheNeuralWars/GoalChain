@@ -35,3 +35,16 @@ systemctl --user enable --now goalchain-multiagent.service
 ```
 
 Puerto **8790** solo en loopback. Antigravity integra merge; Hermes añade hook `empresa:` cuando esté validado.
+
+## Fase 1 — LLM real (CEO)
+
+En `~/.config/goalchain-multiagent.env`:
+
+```bash
+GOALCHAIN_MA_MOCK_LLM=0
+ANTHROPIC_API_KEY=sk-ant-...   # o OPENAI_API_KEY=sk-...
+systemctl --user restart goalchain-multiagent.service
+curl -s http://127.0.0.1:8790/health   # llm_ready: true
+```
+
+Si falla el LLM, el CEO vuelve a routing por reglas sin tumbar el servicio.

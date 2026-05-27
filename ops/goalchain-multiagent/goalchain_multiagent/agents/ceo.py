@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import re
 
+from goalchain_multiagent.config import get_settings
+from goalchain_multiagent import llm
 from goalchain_multiagent.state import AgentName, GraphState
 
 
@@ -37,7 +39,7 @@ def ceo_node(state: GraphState) -> GraphState:
 
     # Second CEO pass: synthesize and finish after a worker spoke.
     if len(trace) >= 2 and trace[-2] in ("dev", "growth", "ops"):
-        summary = _default_summary(state)
+        summary = _synthesize_summary(state)
         return {
             "hop": hop,
             "route_trace": trace,
@@ -47,12 +49,20 @@ def ceo_node(state: GraphState) -> GraphState:
         }
 
     delegate = _pick_delegate(state.get("objective") or "")
+    msg = f"Delegating to {delegate}."
+    settings = get_settings()
+    if llm.llm_available(settings):
+        try:
+            delegate = llm.ceo_delegate_llm(state, settings)
+            msg = f"LLM delegating to {delegate}."
+        except Exception as exc:  # noqa: BLE001 — fall back to rules
+            msg = f"LLM routing failed ({exc}); rule-based delegate to {delegate}."
+
     return {
         "hop": hop,
         "route_trace": trace,
         "next_agent": delegate,
-        "messages": (state.get("messages") or [])
-        + [{"role": "ceo", "content": f"Delegating to {delegate}."}],
+        "messages": (state.get("messages") or []) + [{"role": "ceo", "content": msg}],
     }
 
 
@@ -61,6 +71,16 @@ def route_after_ceo(state: GraphState) -> str:
     if nxt == "finish" or state.get("finished"):
         return "finish"
     return str(nxt)
+
+
+def _synthesize_summary(state: GraphState) -> str:
+    settings = get_settings()
+    if llm.llm_available(settings):
+        try:
+            return llm.ceo_synthesize_llm(state, settings)
+        except Exception:  # noqa: BLE001
+            pass
+    return _default_summary(state)
 
 
 def _default_summary(state: GraphState) -> str:

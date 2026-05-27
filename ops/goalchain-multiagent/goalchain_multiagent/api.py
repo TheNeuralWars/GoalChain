@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field
 
 from goalchain_multiagent import __version__
 from goalchain_multiagent.config import Settings, get_settings
+from goalchain_multiagent import llm
 from goalchain_multiagent.graph import run_objective
 
 app = FastAPI(
@@ -51,6 +52,7 @@ def health(settings: Settings = Depends(get_settings)) -> dict[str, Any]:
         "version": __version__,
         "enabled": settings.goalchain_multiagent_enabled,
         "mock_llm": settings.goalchain_ma_mock_llm,
+        "llm_ready": llm.llm_available(settings),
     }
 
 

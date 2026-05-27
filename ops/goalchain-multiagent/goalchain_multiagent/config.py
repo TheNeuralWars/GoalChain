@@ -32,6 +32,7 @@ class Settings(BaseSettings):
     goalchain_ma_token: str = ""
     goalchain_ma_mock_llm: bool = True
     goalchain_ma_model: str = "claude-sonnet-4-20250514"
+    goalchain_ma_openai_model: str = "gpt-4o-mini"
     goalchain_ma_max_hops: int = 6
     github_repo: str = "TheNeuralWars/GoalChain"
     hermes_home: str = "/home/goalchain/hermes"
