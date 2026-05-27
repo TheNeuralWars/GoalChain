@@ -2,22 +2,70 @@ from __future__ import annotations
 
 import json
 import re
-from typing import Any
+from typing import Any, Literal
 
 from goalchain_multiagent.config import Settings, get_settings
+from goalchain_multiagent.fcc_env import load_fcc_env
 from goalchain_multiagent.state import AgentName, GraphState
+
+Provider = Literal["mock", "openrouter", "anthropic", "openai", "none"]
+
+
+def resolve_provider(settings: Settings | None = None) -> Provider:
+    s = settings or get_settings()
+    if s.goalchain_ma_mock_llm:
+        return "mock"
+
+    mode = (s.goalchain_ma_provider or "auto").lower().strip()
+    fcc = load_fcc_env() if s.goalchain_ma_use_fcc_keys else {}
+
+    if mode == "openrouter":
+        key = s.openrouter_api_key.strip() or fcc.get("OPENROUTER_API_KEY", "").strip()
+        return "openrouter" if key else "none"
+    if mode == "anthropic":
+        return "anthropic" if s.anthropic_api_key.strip() else "none"
+    if mode == "openai":
+        key = s.openai_api_key.strip()
+        return "openai" if key else "none"
+
+    # auto: prefer explicit multiagent keys, then FCC OpenRouter (no extra billing)
+    if s.anthropic_api_key.strip():
+        return "anthropic"
+    if s.openai_api_key.strip():
+        return "openai"
+    if fcc.get("OPENROUTER_API_KEY", "").strip():
+        return "openrouter"
+    return "none"
 
 
 def llm_available(settings: Settings | None = None) -> bool:
-    s = settings or get_settings()
-    if s.goalchain_ma_mock_llm:
-        return False
-    return bool(s.anthropic_api_key.strip() or s.openai_api_key.strip())
+    return resolve_provider(settings) not in ("mock", "none")
+
+
+def _openrouter_key(settings: Settings) -> str:
+    fcc = load_fcc_env() if settings.goalchain_ma_use_fcc_keys else {}
+    return settings.openrouter_api_key.strip() or fcc.get("OPENROUTER_API_KEY", "").strip()
 
 
 def get_chat_model(settings: Settings | None = None):
     s = settings or get_settings()
-    if s.anthropic_api_key.strip():
+    provider = resolve_provider(s)
+
+    if provider == "openrouter":
+        from langchain_openai import ChatOpenAI
+
+        key = _openrouter_key(s)
+        if not key:
+            return None
+        return ChatOpenAI(
+            model=s.goalchain_ma_openrouter_model,
+            api_key=key,
+            base_url=s.goalchain_ma_openrouter_base_url,
+            max_tokens=1024,
+            temperature=0.2,
+        )
+
+    if provider == "anthropic":
         from langchain_anthropic import ChatAnthropic
 
         return ChatAnthropic(
@@ -26,7 +74,8 @@ def get_chat_model(settings: Settings | None = None):
             max_tokens=1024,
             temperature=0.2,
         )
-    if s.openai_api_key.strip():
+
+    if provider == "openai":
         from langchain_openai import ChatOpenAI
 
         return ChatOpenAI(
@@ -35,6 +84,7 @@ def get_chat_model(settings: Settings | None = None):
             max_tokens=1024,
             temperature=0.2,
         )
+
     return None
 
 
