@@ -23,7 +23,7 @@
 
 **Integration owner (default):** Antigravity — only one agent merges to stacked PR chains unless you reassign per task.
 
-**Active Hermes profile:** `jito-strategy` (not `default`). Discord/cron changes must sync root `~/.hermes/config.yaml` **and** `~/.hermes/profiles/jito-strategy/config.yaml` via `ops/hermes/sync-hermes-active-profile-discord.sh`.
+**Active Hermes profile:** `hermes-ceo` (using `~/.hermes/profiles/hermes-ceo/`). Discord/cron changes must sync profile configurations.
 
 ---
 
@@ -31,11 +31,9 @@
 
 Nico steers with three templates in `#hermes` / WhatsApp (`manager:` prefix):
 
-| Command | Hermes action |
-|---------|----------------|
-| `prioridad` | Reorder work: Mundial MVP (`docs/intake/MUNDIAL-2026-MVP.md`) > merge stack #26–#34 > webapp > backlog |
+| `prioridad` | Reorder work: Mundial MVP (`docs/intake/MUNDIAL-2026-MVP.md`) > webapp > backlog |
 | `dispatch <agente> <objetivo>` | Create issue + intake brief (`agent:opencode` or `agent:antigravity`) |
-| `estado` | Status packet: merge stack, FCC queue, play/API health, next demo fixture |
+| `estado` | Status packet: FCC queue, play/API health, next demo fixture |
 
 Scope freeze until 2026-06-11: `docs/intake/HERMES-MUNDIAL-SCOPE-FREEZE.md`.
 
@@ -91,6 +89,25 @@ Recommended pattern (does not require a specific vendor):
 5. **@mentions:** `@cursor-task`, `@grok-review`, `@antigravity-spike` as labels in the brief, not as parallel editors on the same branch
 
 Optional later: bot that mirrors `docs/intake/` ↔ Slack threads (Hermes server).
+
+---
+
+## LangGraph agent company (V7 extension)
+
+**Servicio aislado** — no dentro del runtime Hermes/OpenClaw.
+
+| Pieza | Ubicación |
+|-------|-----------|
+| Diseño + fases | `docs/intake/2026-05-27-langgraph-agent-company.md` |
+| Código Python | `ops/goalchain-multiagent/` |
+| API loopback | `http://127.0.0.1:8790` (`POST /v1/run`, `GET /health`) |
+| Deploy VPS | `ops/goalchain-multiagent/install-vps.sh` → `goalchain-multiagent.service` |
+
+**Grafo Fase 0:** CEO → Dev | Growth | Ops → CEO → finish. Dev emite **draft de issue** para FCC; no escribe en el repo.
+
+**Hermes:** front-desk (`prioridad` | `dispatch` | `estado`); opt-in `empresa: <objetivo>` → `bash ops/hermes/call-langgraph.sh` (ver `hermes/agents/hermes-ceo/prompt.md` §6, `SOUL.md`).
+
+**Flag:** `GOALCHAIN_MULTIAGENT_ENABLED=0` por defecto hasta smoke en VPS.
 
 ---
 

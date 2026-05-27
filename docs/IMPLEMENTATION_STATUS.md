@@ -72,7 +72,7 @@ Brief: `docs/intake/MUNDIAL-2026-MVP.md` · Demo: `docs/intake/MUNDIAL-2026-DEMO
 
 ## Post-Mundial backlog
 
-1. Merge stack PRs #26–#34 (`docs/intake/2026-05-26-merge-stack-handoff-antigravity.md`)
+1. Merge stack PRs #26–#34 + #35 (Completed/Merged)
 2. Live market bets UI + oracle markets
 3. Vault crank real execution or documented OFF
 4. Genesis Agents (`docs/GENESIS_AGENTS_PROTOCOL.md`)
