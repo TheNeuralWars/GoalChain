@@ -37,6 +37,7 @@ Environment="PATH=${HERMES_AGENT_HOME}/venv/bin:/home/goalchain/.bun/bin:/home/g
 Environment="VIRTUAL_ENV=${HERMES_AGENT_HOME}/venv"
 Environment="HERMES_HOME=${HERMES_AGENT_ROOT}"
 Environment="GOALCHAIN_HERMES_HOME=${GOALCHAIN_HERMES_HOME}"
+EnvironmentFile=-/home/goalchain/.hermes/vault.env
 Restart=always
 RestartSec=5
 RestartMaxDelaySec=300
