@@ -9,6 +9,7 @@ from goalchain_multiagent import __version__
 from goalchain_multiagent.config import Settings, get_settings
 from goalchain_multiagent import llm
 from goalchain_multiagent.graph import run_objective
+from goalchain_multiagent.fcc_dispatch import run_dispatch_cycle
 
 app = FastAPI(
     title="GoalChain Multi-Agent",
@@ -86,6 +87,43 @@ def v1_run(
         route_trace=list(result.get("route_trace") or []),
         artifacts=list(result.get("artifacts") or []),
         messages=list(result.get("messages") or []),
+    )
+
+
+
+class DispatchRequest(BaseModel):
+    dry_run: bool = False
+    limit: int = Field(default=3, ge=1, le=10)
+
+
+class DispatchResponse(BaseModel):
+    status: str
+    total_ready: int
+    dispatched: int
+    failed: int
+    results: list[dict[str, Any]]
+
+
+@app.post("/v1/dispatch", response_model=DispatchResponse)
+def v1_dispatch(
+    body: DispatchRequest = DispatchRequest(),
+    _: None = Depends(_auth),
+    settings: Settings = Depends(get_settings),
+) -> DispatchResponse:
+    """Trigger one FCC dispatch cycle: scan status:ready issues and send to OpenCode."""
+    if not settings.goalchain_multiagent_enabled:
+        raise HTTPException(
+            status_code=503,
+            detail="GOALCHAIN_MULTIAGENT_ENABLED=0",
+        )
+    repo = settings.github_repo or "TheNeuralWars/GoalChain"
+    summary = run_dispatch_cycle(repo=repo, limit=body.limit, dry_run=body.dry_run)
+    return DispatchResponse(
+        status="ok",
+        total_ready=summary["total_ready"],
+        dispatched=summary["dispatched"],
+        failed=summary["failed"],
+        results=summary["results"],
     )
 
 
