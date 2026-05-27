@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 # Hermes / CEO: call local LangGraph service (loopback). Usage:
 #   bash ops/hermes/call-langgraph.sh "estado cola FCC y demo Mundial"
-#   bash ops/hermes/call-langgraph.sh "empresa: priorizar partnerships"
+#   bash ops/hermes/call-langgraph.sh --reply "empresa: estado cola FCC"   # Discord: paste stdout ONLY
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HERMES_HOME="${HERMES_HOME:-$HOME/hermes}"
 ENV_FILE="${GOALCHAIN_MA_ENV:-$HOME/.config/goalchain-multiagent.env}"
 URL="${GOALCHAIN_MA_URL:-http://127.0.0.1:8790}"
+REPLY_MODE=0
+RAW=""
+
+if [[ "${1:-}" == "--reply" ]]; then
+  REPLY_MODE=1
+  shift
+fi
 RAW="${*:-}"
 
 if [[ -z "${RAW}" ]]; then
@@ -43,8 +51,13 @@ if [[ -z "${TOKEN}" ]]; then
   exit 1
 fi
 
-curl -sf -X POST "${URL}/v1/run" \
+RESPONSE="$(curl -sf -X POST "${URL}/v1/run" \
   -H "Authorization: Bearer ${TOKEN}" \
   -H "Content-Type: application/json" \
-  -d "$(python3 -c 'import json,sys; print(json.dumps({"objective":sys.argv[1],"source":"hermes","actor":"nico"}))' "${OBJECTIVE}")" \
-  | python3 -m json.tool
+  -d "$(python3 -c 'import json,sys; print(json.dumps({"objective":sys.argv[1],"source":"hermes","actor":"nico"}))' "${OBJECTIVE}")")"
+
+if [[ "${REPLY_MODE}" -eq 1 ]]; then
+  printf '%s' "${RESPONSE}" | python3 "${SCRIPT_DIR}/format-langgraph-reply.py"
+else
+  printf '%s' "${RESPONSE}" | python3 -m json.tool
+fi

@@ -1,0 +1,4 @@
+name: goalchain-empresa
+version: 1.0.0
+description: "Bypass LLM for empresa:/grafo: — runs LangGraph via empresa.sh and posts stdout to Discord/WhatsApp."
+author: GoalChain
