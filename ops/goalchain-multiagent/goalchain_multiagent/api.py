@@ -47,12 +47,15 @@ def _auth(
 
 @app.get("/health")
 def health(settings: Settings = Depends(get_settings)) -> dict[str, Any]:
+    provider = llm.resolve_provider(settings)
     return {
         "ok": True,
         "version": __version__,
         "enabled": settings.goalchain_multiagent_enabled,
         "mock_llm": settings.goalchain_ma_mock_llm,
         "llm_ready": llm.llm_available(settings),
+        "llm_provider": provider,
+        "fcc_keys": settings.goalchain_ma_use_fcc_keys,
     }
 
 

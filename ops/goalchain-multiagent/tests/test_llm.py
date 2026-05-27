@@ -18,6 +18,22 @@ def test_llm_not_available_when_mock():
 def test_llm_available_with_key():
     s = Settings(goalchain_ma_mock_llm=False, anthropic_api_key="sk-test")
     assert llm.llm_available(s) is True
+    assert llm.resolve_provider(s) == "anthropic"
+
+
+def test_llm_auto_uses_fcc_openrouter(tmp_path, monkeypatch):
+    fcc = tmp_path / ".fcc.env"
+    fcc.write_text('OPENROUTER_API_KEY="sk-or-test"\n', encoding="utf-8")
+    monkeypatch.setattr(
+        "goalchain_multiagent.fcc_env.fcc_env_path", lambda: fcc
+    )
+    s = Settings(
+        goalchain_ma_mock_llm=False,
+        goalchain_ma_provider="auto",
+        goalchain_ma_use_fcc_keys=True,
+    )
+    assert llm.resolve_provider(s) == "openrouter"
+    assert llm.llm_available(s) is True
 
 
 @patch("goalchain_multiagent.llm.get_chat_model")

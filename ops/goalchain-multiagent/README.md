@@ -38,13 +38,20 @@ Puerto **8790** solo en loopback. Antigravity integra merge; Hermes añade hook 
 
 ## Fase 1 — LLM real (CEO)
 
+**No hace falta una key nueva de Anthropic** si ya tenés FCC con OpenRouter en `~/.fcc/.env` (misma que `oa-worker`).
+
 En `~/.config/goalchain-multiagent.env`:
 
 ```bash
+GOALCHAIN_MULTIAGENT_ENABLED=1
 GOALCHAIN_MA_MOCK_LLM=0
-ANTHROPIC_API_KEY=sk-ant-...   # o OPENAI_API_KEY=sk-...
+GOALCHAIN_MA_PROVIDER=auto
+GOALCHAIN_MA_USE_FCC_KEYS=1
+GOALCHAIN_MA_OPENROUTER_MODEL=openai/gpt-4o-mini
 systemctl --user restart goalchain-multiagent.service
-curl -s http://127.0.0.1:8790/health   # llm_ready: true
+curl -s http://127.0.0.1:8790/health   # llm_ready: true, llm_provider: openrouter
 ```
+
+Requisitos: `fcc-server` activo en `:8082` y `OPENROUTER_API_KEY` en `~/.fcc/.env` (Admin UI o `fcc.secrets.env`).
 
 Si falla el LLM, el CEO vuelve a routing por reglas sin tumbar el servicio.

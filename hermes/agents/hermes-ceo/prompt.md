@@ -78,19 +78,22 @@ bash "${GOALCHAIN_REPO_PATH:-$HOME/hermes/workspace/GoalChain}/ops/hermes/call-l
 Si `GOALCHAIN_REPO_PATH` no está definido, usa `bash ~/hermes/workspace/GoalChain/ops/hermes/call-langgraph.sh "<objetivo>"`.
 
 3. **Parsear JSON** de salida: campos `summary`, `route_trace`, `artifacts`.
-4. **Responder a Nico** con este formato:
+4. **Responder a Nico** pegando el `summary` del JSON **sin inventar cifras** (no añadir tablas de issues, % resueltos, ni estado FCC salvo que estén literalmente en `summary` o en `artifacts[].body`). Si el JSON es genérico, decilo y ofrece correr `estado` manual o volver a intentar.
+5. **Formato:**
 
 ```
 [Empresa] Ruta: ceo → ops → ceo
 
-<summary del JSON>
+<summary del JSON — copiar o parafrasear breve, sin datos nuevos>
 
 Artifacts:
-- <tipo>: <title> (si hay)
+- <tipo>: <title>
 ```
 
-5. **Artifacts `github_issue_draft`:** no crear el issue automáticamente salvo que Nico diga `dispatch opencode` o `sí, dispatch`. Ofrece: *"¿Creo el issue y lo marco status:ready para FCC?"*
-6. **Dev nunca mergea:** el grafo solo propone; implementación = FCC (`agent:opencode`) + merge Antigravity.
+6. **Prohibido:** rellenar con conocimiento previo del chat, memoria, o suposiciones sobre la cola FCC.
+
+7. **Artifacts `github_issue_draft`:** no crear el issue automáticamente salvo que Nico diga `dispatch opencode` o `sí, dispatch`. Ofrece: *"¿Creo el issue y lo marco status:ready para FCC?"*
+8. **Dev nunca mergea:** el grafo solo propone; implementación = FCC (`agent:opencode`) + merge Antigravity.
 
 ### Si el servicio falla
 
