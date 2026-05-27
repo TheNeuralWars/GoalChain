@@ -16,7 +16,11 @@ prioridad
 estado
 dispatch antigravity merge stack 26-34
 dispatch opencode deploy vercel play mundial
+empresa: estado cola FCC y demo Mundial
+grafo: partnerships API y monetización post-Mundial
 ```
+
+`empresa:` / `grafo:` invocan LangGraph en loopback (`ops/hermes/call-langgraph.sh`). Hermes publica el `summary`; no auto-crea issues salvo confirmación + `dispatch`.
 
 ### Órdenes esta semana
 
@@ -114,3 +118,13 @@ gbrain import ai_context docs/intake
 bash ~/hermes/workspace/GoalChain/ops/hermes/sync-hermes-active-profile-discord.sh
 systemctl --user restart hermes-gateway
 ```
+
+---
+
+## 5) FutureHook Placeholder Guards (#129)
+
+Las instrucciones `forge_nft` y `delegate_nft_for_rent` en el smart contract Anchor de Solana utilizan el contexto `FutureHook`. 
+
+> [!NOTE]
+> **Estado de Producción:** Estas instrucciones son marcadores de posición (`Ok(())` no-op) reservados para expansiones de la Fase V2. Están desactivadas para reducir la superficie de ataque y el riesgo operativo en mainnet. Ninguna dApp ni bot debe intentar firmar o invocar estas instrucciones.
+
