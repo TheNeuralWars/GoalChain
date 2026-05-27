@@ -33,3 +33,4 @@ def test_create_twenty_lead_success(mock_urlopen):
     assert res["url"] == "https://crm.goalchain.fun/object/person/dd3f5435-c51a-4d77-9e52-917282731add"
     assert res["live"] is True
 
+
