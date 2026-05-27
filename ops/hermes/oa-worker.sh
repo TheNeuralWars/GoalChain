@@ -357,17 +357,19 @@ EOF
 
 pick_next_opencode_issue() {
   local raw
+  # Any code-agent label + status:ready (opencode/FCC, antigravity, grok). Cursor stays IDE-local.
   raw="$(gh issue list \
     --repo "${GITHUB_REPO}" \
     --state open \
-    --label "agent:opencode" \
     --label "status:ready" \
-    --limit 20 \
+    --limit 100 \
     --json number,title,body,createdAt,labels 2>/dev/null || echo '[]')"
   STATE_DIR="${STATE_DIR}" python3 -c 'import json,sys
 from pathlib import Path
 raw=sys.argv[1].strip() or "[]"
 state_dir=Path(sys.argv[2] or ".")
+CODE_AGENTS=frozenset({"agent:opencode", "agent:antigravity", "agent:grok"})
+SKIP_AGENTS=frozenset({"agent:cursor"})
 try:
     items=json.loads(raw)
 except Exception:
@@ -387,8 +389,24 @@ def already_done(issue):
     if (state_dir / f"issue-{n}.done").exists():
         return True
     return "status:done" in labels(issue)
-items=[i for i in items if not already_done(i)]
-items=sorted(items, key=lambda x:x.get("createdAt",""))
+def priority_rank(issue):
+    labs=labels(issue)
+    if "priority:P0" in labs or "P0" in labs:
+        return 0
+    if "priority:P1" in labs or "P1" in labs:
+        return 1
+    if "priority:P2" in labs or "P2" in labs:
+        return 2
+    return 3
+def eligible(issue):
+    labs=set(labels(issue))
+    if labs & SKIP_AGENTS:
+        return False
+    if not (labs & CODE_AGENTS):
+        return False
+    return not already_done(issue)
+items=[i for i in items if eligible(i)]
+items=sorted(items, key=lambda x: (priority_rank(x), x.get("createdAt","")))
 print(json.dumps(items[0]) if items else "")' "${raw}" "${STATE_DIR}"
 }
 
