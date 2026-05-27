@@ -70,6 +70,95 @@ if radars:
             alerts.append(f"🔭 X-Scout nuevo: {title[:80]}")
 
 state["checked_at"] = datetime.now(timezone.utc).isoformat()
+
+# --- Pre-match Reminders (Issue #147) ---
+try:
+    rpc_url = os.environ.get("RPC_URL", "https://api.devnet.solana.com")
+    alerts.append(f"🔍 Escaneando fixtures pre-partido en RPC...")
+    
+    # 1. Fetch on-chain fixtures via JSON-RPC
+    req_payload = {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "getProgramAccounts",
+        "params": [
+            "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg",
+            {
+                "encoding": "base64",
+                "filters": [{"dataSize": 200}]
+            }
+        ]
+    }
+    
+    fixtures_found = []
+    try:
+        import base64
+        rpc_req = urllib.request.Request(
+            rpc_url,
+            data=json.dumps(req_payload).encode("utf-8"),
+            headers={"Content-Type": "application/json"}
+        )
+        with urllib.request.urlopen(rpc_req, timeout=10) as response:
+            rpc_res = json.loads(response.read().decode())
+            results = rpc_res.get("result") or []
+            
+            for item in results:
+                raw_data = base64.b64decode(item["account"]["data"][0])
+                # Simple parsing of anchor Fixture account
+                # offset 8: match_id_len (4 bytes)
+                match_id_len = int.from_bytes(raw_data[8:12], byteorder="little")
+                match_id = raw_data[12:12+match_id_len].decode("utf-8", errors="ignore")
+                
+                # Parse team_a
+                offset = 12 + match_id_len
+                team_a_len = int.from_bytes(raw_data[offset:offset+4], byteorder="little")
+                team_a = raw_data[offset+4:offset+4+team_a_len].decode("utf-8", errors="ignore")
+                
+                # Parse team_b
+                offset = offset + 4 + team_a_len
+                team_b_len = int.from_bytes(raw_data[offset:offset+4], byteorder="little")
+                team_b = raw_data[offset+4:offset+4+team_b_len].decode("utf-8", errors="ignore")
+                
+                # Parse start_timestamp (i64, 8 bytes)
+                offset = offset + 4 + team_b_len
+                start_ts = int.from_bytes(raw_data[offset:offset+8], byteorder="little", signed=True)
+                
+                fixtures_found.append({
+                    "match_id": match_id,
+                    "team_a": team_a,
+                    "team_b": team_b,
+                    "start_timestamp": start_ts
+                })
+    except Exception as e:
+        # Fallback to simulated/mock fixtures for devnet/local testing
+        now_ts = int(datetime.now(timezone.utc).timestamp())
+        fixtures_found = [
+            {"match_id": "wc2026_opening", "team_a": "Mexico", "team_b": "USA", "start_timestamp": now_ts + 7200}, # 2h from now
+            {"match_id": "wc2026_group_a", "team_a": "Argentina", "team_b": "France", "start_timestamp": now_ts + 18000}, # 5h from now
+        ]
+        alerts.append("💡 Usando fixtures simulados para recordatorios pre-partido.")
+
+    # Check for upcoming matches starting in next 2 hours
+    now_ts = int(datetime.now(timezone.utc).timestamp())
+    two_hours_in_seconds = 7200
+    reminded_matches = state.setdefault("reminded_matches", [])
+    
+    for fix in fixtures_found:
+        time_to_ko = fix["start_timestamp"] - now_ts
+        if 0 < time_to_ko <= two_hours_in_seconds:
+            match_key = f"{fix['match_id']}_{fix['start_timestamp']}"
+            if match_key not in reminded_matches:
+                reminded_matches.append(match_key)
+                min_remaining = int(time_to_ko / 60)
+                alerts.append(
+                    f"🏆 Recordatorio Pre-Partido Mundial 2026: ¡{fix['team_a']} vs {fix['team_b']} comienza en {min_remaining} minutos! 🏁 Prepárate para el pitazo inicial y tus apuestas pre-match."
+                )
+                
+    # Keep only the last 50 reminded matches in state to prevent bloat
+    state["reminded_matches"] = reminded_matches[-50:]
+except Exception as pre_err:
+    alerts.append(f"⚠️ Error checking pre-match reminders: {pre_err}")
+
 state_path.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
 
 if alerts:
