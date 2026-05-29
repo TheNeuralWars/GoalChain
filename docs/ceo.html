@@ -244,6 +244,21 @@
             box-shadow: 0 2px 8px rgba(167, 139, 250, 0.3);
         }
 
+        .panel-btn {
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+            white-space: nowrap;
+        }
+        .panel-btn:active {
+            transform: scale(0.96);
+        }
+
         .toast {
             position: fixed;
             bottom: 20px;
@@ -289,14 +304,43 @@
         </div>
     </div>
 
-    <!-- Big prominent button for sending instructions to the bot -->
-    <div style="max-width: 900px; margin: 0 auto; padding: 0 16px;">
-        <div class="big-action-bar">
-            <button onclick="copyInstructionToBot()" class="big-instruction-btn">
-                📤 <span>Enviar instrucción al bot (copiar "panel")</span>
-            </button>
-            <div style="font-size: 0.72rem; color: #64748b; margin-top: 8px;">
-                Copia "panel" → Pégalo en Discord para que el @GoalChain Manager te muestre los botones de acciones rápidas
+    <!-- Panel de Control Integrado (emulación de los botones del Discord Manager) -->
+    <div style="max-width: 980px; margin: 0 auto; padding: 0 16px 12px;">
+        <div style="background: #111116; border: 1px solid #3a3a48; border-radius: 16px; padding: 16px; margin-bottom: 16px;">
+            <div style="font-weight: 800; margin-bottom: 10px; color: #a78bfa;">🧠 Panel de Control Integrado GoalChain</div>
+            <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 12px;">Emulación web de los botones del @GoalChain Manager</div>
+
+            <!-- Fila 1: Grok Agents -->
+            <div style="margin-bottom: 10px;">
+                <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 4px;">🤖 Agentes Inteligentes (Grok)</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <button onclick="copyAgentCommand('CEO')" class="panel-btn" style="background:#3b82f6;">💼 CEO (Grok)</button>
+                    <button onclick="copyAgentCommand('Growth')" class="panel-btn" style="background:#22c55e;">📈 Growth (Grok)</button>
+                    <button onclick="copyAgentCommand('Dev')" class="panel-btn" style="background:#eab308;">💻 Dev (Grok)</button>
+                    <button onclick="copyAgentCommand('X-Scout')" class="panel-btn" style="background:#a78bfa;">📡 X-Scout</button>
+                </div>
+            </div>
+
+            <!-- Fila 2: FCC -->
+            <div style="margin-bottom: 10px;">
+                <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 4px;">🧠 Free Claude Code (FCC)</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <button onclick="copyAgentCommand('FCC Sonnet')" class="panel-btn" style="background:#3b82f6;">💻 FCC Sonnet (Nvidia)</button>
+                    <button onclick="copyAgentCommand('FCC Opus')" class="panel-btn" style="background:#a78bfa;">🧠 FCC Opus (Nvidia)</button>
+                    <button onclick="copyAgentCommand('FCC Haiku')" class="panel-btn" style="background:#f97316;">⚡ FCC Haiku (Nvidia)</button>
+                </div>
+            </div>
+
+            <!-- Fila 3: System -->
+            <div>
+                <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 4px;">🛠️ Herramientas de Sistema</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <button onclick="copyAgentCommand('Cancelar')" class="panel-btn" style="background:#ef4444;">🛑 Cancelar Run</button>
+                    <button onclick="copyAgentCommand('Limpiar')" class="panel-btn" style="background:#eab308;">🔄 Limpiar</button>
+                    <button onclick="copyAgentCommand('Solana Build')" class="panel-btn" style="background:#22c55e;">📦 Solana Build</button>
+                    <button onclick="copyAgentCommand('Restart CEO')" class="panel-btn" style="background:#22c55e;">🟢 Restart CEO</button>
+                    <button onclick="copyAgentCommand('Force Post')" class="panel-btn" style="background:#3b82f6;">🚀 Force Post</button>
+                </div>
             </div>
         </div>
     </div>
@@ -466,6 +510,15 @@
                 showToast("✅ Copiado 'panel'. Pégalo en Discord para ver los botones del Manager.");
             }).catch(() => {
                 prompt("Copia este comando y pégalo en Discord:", command);
+            });
+        }
+
+        function copyAgentCommand(agent) {
+            const command = `Agente ${agent}: `;
+            navigator.clipboard.writeText(command).then(() => {
+                showToast(`✅ Copiado: "Agente ${agent}: " — Listo para pegar en Discord o al CLI`);
+            }).catch(() => {
+                prompt(`Copia este comando para ${agent}:`, command);
             });
         }
 
