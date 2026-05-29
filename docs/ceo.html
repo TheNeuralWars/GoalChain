@@ -194,6 +194,61 @@
             padding: 60px 20px;
             color: var(--dim);
         }
+
+        /* Big prominent button for sending instructions */
+        .big-action-bar {
+            background: #1a1a22;
+            border: 1px solid #3a3a48;
+            border-radius: 14px;
+            padding: 12px 16px;
+            margin: 12px 0 20px;
+            text-align: center;
+        }
+
+        .big-instruction-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #a78bfa, #7c3aed);
+            color: white;
+            border: none;
+            padding: 16px 20px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .big-instruction-btn:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 8px rgba(167, 139, 250, 0.3);
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #22c55e;
+            color: black;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -218,6 +273,18 @@
         </div>
     </div>
 
+    <!-- Big prominent button for sending instructions to the bot -->
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 16px;">
+        <div class="big-action-bar">
+            <button onclick="copyInstructionToBot()" class="big-instruction-btn">
+                📤 <span>Enviar instrucción al bot</span>
+            </button>
+            <div style="font-size: 0.72rem; color: #64748b; margin-top: 8px;">
+                Copia el comando y pégalo en Discord
+            </div>
+        </div>
+    </div>
+
     <div class="chat-container">
         <div id="chatWindow" class="chat-window">
             <div id="messages"></div>
@@ -228,6 +295,9 @@
     <div class="footer">
         Fuente: <a href="https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/Talks/Grok-CEO.md" target="_blank">Grok-CEO.md</a> • Se actualiza automáticamente
     </div>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast"></div>
 
     <script>
         let lastContent = '';
@@ -304,6 +374,26 @@
                     setTimeout(() => btns[0].innerText = original, 1200);
                 }
             });
+        }
+
+        function copyInstructionToBot() {
+            const command = "Agente CEO: ";
+            navigator.clipboard.writeText(command).then(() => {
+                showToast("✅ Copiado. Pégalo en Discord y completa tu instrucción.");
+            }).catch(() => {
+                // Fallback for older browsers / restricted environments
+                prompt("Copia este comando y pégalo en Discord:", command);
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            if (!toast) return;
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2400);
         }
 
         // Cargar al inicio
