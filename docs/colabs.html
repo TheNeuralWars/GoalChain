@@ -516,7 +516,7 @@
                             <button onclick="triggerControlAction('sys_btn_force_post')" class="btn btn-primary" style="padding: 12px; font-size: 0.9rem;">🚀 Force Post</button>
                         </div>
                         <p style="font-size: 0.75rem; color: #64748b; margin-top: 12px;">
-                            Estas acciones generan intake files idénticos a los que produce el Manager cuando recibís el botón desde Discord. Soltá el archivo en <code>docs/intake/</code> y el Manager lo procesa exactamente igual.
+                            Los botones intentan ejecutar la acción <strong>en caliente</strong> (igual que cuando los apretás en Discord). Si no hay backend local disponible, generan el intake para que el Manager lo procese de la misma forma.
                         </p>
                     </div>
 
