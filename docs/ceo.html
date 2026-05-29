@@ -316,44 +316,79 @@
                 loading.style.display = 'none';
                 container.innerHTML = '';
 
-                // Split by standard separators used in the clean log
-                const entries = text.split('---').filter(e => e.includes('### 🕒') && e.trim().length > 60);
+                // More flexible parsing - split on --- or on timestamp headers
+                let blocks = text.split('---');
+                if (blocks.length < 3) {
+                    blocks = text.split(/### 🕒/);
+                }
+
+                const entries = blocks.filter(e => e.trim().length > 80);
 
                 let rendered = 0;
 
                 entries.forEach(entry => {
-                    // Extract Usuario
-                    const userMatch = entry.match(/\*\*Usuario \(Nicolás\):\*\*\s*([\s\S]*?)(?=\*\*Agente CEO:|\*\*Resumen Ejecutivo:|$)/);
-                    if (userMatch && userMatch[1].trim().length > 8) {
-                        addMessage(container, 'user', 'Nicolás', userMatch[1].trim());
-                        rendered++;
+                    // Try multiple patterns for user messages
+                    let userText = null;
+                    const userPatterns = [
+                        /\*\*Usuario \(Nicolás\):\*\*\s*([\s\S]*?)(?=\*\*Agente CEO|\*\*Respuesta Agente CEO|\*\*Resumen|$)/i,
+                        /\*\*Usuario:\*\*\s*([\s\S]*?)(?=\*\*Agente CEO|\*\*Respuesta Agente CEO|\*\*Resumen|$)/i,
+                        /\*\*Nico.*?:\*\*\s*([\s\S]*?)(?=\*\*Agente CEO|\*\*Respuesta Agente CEO|\*\*Resumen|$)/i
+                    ];
+                    for (const pattern of userPatterns) {
+                        const m = entry.match(pattern);
+                        if (m && m[1] && m[1].trim().length > 10) {
+                            userText = m[1].trim();
+                            break;
+                        }
                     }
 
-                    // Extract Agente CEO
-                    const ceoMatch = entry.match(/\*\*Agente CEO:\*\*\s*([\s\S]*?)(?=\*\*Resumen Ejecutivo:|$)/);
-                    if (ceoMatch && ceoMatch[1].trim().length > 15) {
-                        addMessage(container, 'ceo', 'Agente CEO', ceoMatch[1].trim());
+                    // Try multiple patterns for CEO responses
+                    let ceoText = null;
+                    const ceoPatterns = [
+                        /\*\*Agente CEO:\*\*\s*([\s\S]*?)(?=\*\*Resumen Ejecutivo|\*\*Resumen|$)/i,
+                        /\*\*Respuesta Agente CEO:\*\*\s*([\s\S]*?)(?=\*\*Resumen Ejecutivo|\*\*Resumen|$)/i,
+                        /\*\*Agente CEO \(Respuesta completa\):\*\*\s*([\s\S]*?)(?=\*\*Resumen|$)/i
+                    ];
+                    for (const pattern of ceoPatterns) {
+                        const m = entry.match(pattern);
+                        if (m && m[1] && m[1].trim().length > 15) {
+                            ceoText = m[1].trim();
+                            break;
+                        }
+                    }
+
+                    if (userText) {
+                        addMessage(container, 'user', 'Nicolás', userText);
+                        rendered++;
+                    }
+                    if (ceoText) {
+                        addMessage(container, 'ceo', 'Agente CEO', ceoText);
                         rendered++;
                     }
                 });
 
-                // If still nothing rendered, show the last clean block as fallback
-                if (rendered === 0 && text.length > 300) {
-                    const parts = text.split('### 🕒');
-                    const lastBlock = parts[parts.length - 1];
-                    if (lastBlock && lastBlock.trim().length > 50) {
-                        const div = document.createElement('div');
-                        div.style.cssText = 'background:#1f1f2e; padding:16px; border-radius:12px; border:1px solid #3a3a48; font-size:0.9rem; white-space:pre-wrap; line-height:1.5;';
-                        div.textContent = '### 🕒' + lastBlock.trim();
-                        container.appendChild(div);
+                // Strong fallback: always show the last substantial chunk of the file if we couldn't parse structured messages
+                if (rendered === 0 && text.length > 400) {
+                    // Take the last ~4000 characters and show them cleanly
+                    let lastChunk = text.trim().slice(-4200);
+                    // Try to start from a reasonable point (after a timestamp if possible)
+                    const lastTimestamp = lastChunk.lastIndexOf('### 🕒');
+                    if (lastTimestamp > 100) {
+                        lastChunk = lastChunk.substring(lastTimestamp);
                     }
+
+                    const fallback = document.createElement('div');
+                    fallback.style.cssText = 'background:#1a1a22; padding:18px; border-radius:14px; border:1px solid #3a3a48; font-size:0.92rem; white-space:pre-wrap; line-height:1.55; max-height:70vh; overflow:auto;';
+                    fallback.textContent = lastChunk;
+                    container.appendChild(fallback);
+                    rendered = 1;
                 }
 
-                // Force scroll to bottom (show latest message)
+                // Always force scroll to the very bottom so the latest content is visible
                 const chatWindow = document.getElementById('chatWindow');
                 setTimeout(() => {
                     chatWindow.scrollTop = chatWindow.scrollHeight;
-                }, 60);
+                }, 80);
 
             } catch (e) {
                 loading.innerHTML = 'Error cargando el log.<br>Intenta refrescar.';
