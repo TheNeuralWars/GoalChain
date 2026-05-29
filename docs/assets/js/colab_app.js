@@ -132,24 +132,86 @@ function triggerControlAction(customId) {
         return;
     }
 
+    const label = getActionLabel(customId);
+    const now = new Date();
+    const timestamp = now.toISOString().replace(/[:.]/g, '-').slice(0, 19);
+
     const action = {
         id: Date.now(),
         customId: customId,
         wallet: currentWallet,
-        time: new Date().toLocaleTimeString('es-AR'),
-        status: 'Registrada'
+        time: now.toLocaleTimeString('es-AR'),
+        status: 'Intake generado (mismo flujo que Discord)'
     };
 
     controlActionsLog.unshift(action);
 
-    const label = getActionLabel(customId);
-    alert(`✅ Acción registrada: ${label}\n\nWallet: ${currentWallet}\nHora: ${action.time}\n\nEsta acción se propaga al Manager (igual que cuando la apretás desde Discord).`);
+    // Generate the exact same intake/task that the Discord button handler creates
+    const intakeContent = generateIntakeForDiscordAction(customId, currentWallet, timestamp);
 
-    // TODO: En el futuro, acá haríamos un fetch autenticado a un endpoint que replica
-    // exactamente el handler del botón de Discord (custom_id).
-    // Por ahora queda registrado de forma auditable y visible.
+    // Download as ready intake file — the Manager watches this exact mechanism
+    const filename = `web-action-${customId}-${timestamp}.md`;
+    downloadTextFile(filename, intakeContent);
+
+    alert(`✅ Acción generada con el MISMO mecanismo que los botones de Discord\n\nBotón: ${label}\nWallet: ${currentWallet}\n\nSe descargó el archivo de intake. Colócalo en docs/intake/ para que el Manager lo procese exactamente igual que una interacción de Discord.`);
 
     renderControlActions();
+}
+
+function generateIntakeForDiscordAction(customId, wallet, timestamp) {
+    const label = getActionLabel(customId);
+    const owner = mapCustomIdToOwner(customId);
+
+    return `---
+title: "[WEB] ${label}"
+date: ${new Date().toISOString()}
+source: web-panel
+wallet: ${wallet}
+custom_id: ${customId}
+discord_mirror: true
+---
+
+## Objective
+Ejecutar **exactamente** la misma acción que produce el botón "${label}" cuando se aprieta en Discord con el @GoalChain Manager.
+
+## Owner
+${owner}
+
+## Priority
+P0
+
+## Context
+Disparado desde el Panel de Control web (Colabs autenticado).
+Debe comportarse idénticamente a la interacción de Discord (mismo custom_id / mismo flujo interno).
+
+## Required output
+- Misma respuesta/efecto que el botón en Discord
+- Logs claros
+- Cualquier tarea creada debe llevar label "source:web-panel"
+
+## Workflow
+- Procesar como si el Manager hubiera recibido el botón desde Discord
+- Usar el mismo path (tmux session, FCC launch, system command, etc.)
+`;
+}
+
+function mapCustomIdToOwner(customId) {
+    if (customId.startsWith('grok_btn_')) return 'grok';
+    if (customId.startsWith('fcc_btn_')) return 'opencode';
+    if (customId.startsWith('sys_btn_')) return 'opencode';
+    return 'grok';
+}
+
+function downloadTextFile(filename, content) {
+    const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 }
 
 function getActionLabel(customId) {
@@ -171,7 +233,23 @@ function getActionLabel(customId) {
 }
 
 function renderControlActions() {
-    console.log('[Control Panel] Últimas acciones web:', controlActionsLog.slice(0, 5));
+    const container = document.getElementById('webActionsLog');
+    if (!container) return;
+
+    if (controlActionsLog.length === 0) {
+        container.innerHTML = `<em style="color: #64748b;">Aún no se han disparado acciones desde este panel en esta sesión.</em>`;
+        return;
+    }
+
+    container.innerHTML = controlActionsLog.slice(0, 8).map(a => {
+        const label = getActionLabel(a.customId);
+        return `<div style="margin-bottom: 6px; color: #cbd5e1;">
+            <span style="color:#22c55e;">[${a.time}]</span> 
+            <strong>${label}</strong> 
+            <span style="color:#64748b;">(${a.wallet.slice(0,4)}...${a.wallet.slice(-4)})</span>
+            <span style="color:#a78bfa;">→ ${a.status}</span>
+        </div>`;
+    }).join('');
 }
 
 window.triggerControlAction = triggerControlAction;
