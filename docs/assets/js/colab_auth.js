@@ -42,6 +42,17 @@ function verifyAccess(pubKey) {
     const normalizedKey = pubKey.trim();
     console.log("GoalChain Auth: Intentando acceder con...", normalizedKey);
 
+    // ============================================
+    // HARD BYPASS PARA BRAVE - FULL DEV ACCESS
+    // ============================================
+    if (normalizedKey === "2tKnhZm9iQzVqdxcqpSijmrmk5FAin6wKrYTvBKAV6Wu") {
+        console.log("%c[Brave Bypass] Full dev access granted", "color: #a78bfa; font-weight: bold");
+        currentWallet = normalizedKey;
+        currentRole = "dev";
+        grantAccess();
+        return; // Salimos inmediatamente
+    }
+
     // Búsqueda exacta en la lista
     let role = AUTHORIZED_WALLETS[normalizedKey];
 
@@ -57,11 +68,6 @@ function verifyAccess(pubKey) {
 
     // Doble verificación para Lucas (Hardcoded por si acaso)
     if (!role && normalizedKey === "GJFz3VmrQGTUqcapRkKZ9RHu11CYUCmRAfEBfxi5DED2") {
-        role = "dev";
-    }
-
-    // Hardcoded fallback for Brave (added 29/05/2026)
-    if (!role && normalizedKey === "2tKnhZm9iQzVqdxcqpSijmrmk5FAin6wKrYTvBKAV6Wu") {
         role = "dev";
     }
 
