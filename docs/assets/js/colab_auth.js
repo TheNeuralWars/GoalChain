@@ -8,7 +8,7 @@ const AUTHORIZED_WALLETS = {
     // DEV TEAM
     "D6AabfJnF6sxuAymDz7JMbB4r2i2FaQVzPb7G7nhMMxo": "dev", // Nico (Admin)
     "GJFz3VmrQGTUqcapRkKZ9RHu11CYUCmRAfEBfxi5DED2": "dev", // Lucas (Team)
-    "2tKnhZm9iQzVqdxcqpSijmrmk5FAin6wKrYTvBKAV6Wu": "dev", // Whitelisted by Nico - 2026-05-29
+    "2tKnhZm9iQzVqdxcqpSijmrmk5FAin6wKrYTvBKAV6Wu": "dev", // Brave - Dev access (added by Nico)
 
     // INFLUENCERS
     "HqXS...Influencer1": "influencer",
@@ -57,6 +57,11 @@ function verifyAccess(pubKey) {
 
     // Doble verificación para Lucas (Hardcoded por si acaso)
     if (!role && normalizedKey === "GJFz3VmrQGTUqcapRkKZ9RHu11CYUCmRAfEBfxi5DED2") {
+        role = "dev";
+    }
+
+    // Hardcoded fallback for Brave (added 29/05/2026)
+    if (!role && normalizedKey === "2tKnhZm9iQzVqdxcqpSijmrmk5FAin6wKrYTvBKAV6Wu") {
         role = "dev";
     }
 
