@@ -314,10 +314,10 @@
             <div style="margin-bottom: 10px;">
                 <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 4px;">🤖 Agentes Inteligentes (Grok)</div>
                 <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                    <button onclick="copyAgentCommand('CEO')" class="panel-btn" style="background:#3b82f6;">💼 CEO (Grok)</button>
-                    <button onclick="copyAgentCommand('Growth')" class="panel-btn" style="background:#22c55e;">📈 Growth (Grok)</button>
-                    <button onclick="copyAgentCommand('Dev')" class="panel-btn" style="background:#eab308;">💻 Dev (Grok)</button>
-                    <button onclick="copyAgentCommand('X-Scout')" class="panel-btn" style="background:#a78bfa;">📡 X-Scout</button>
+                    <button onclick="triggerControlAction('grok_btn_ceo')" class="panel-btn" style="background:#3b82f6;">💼 CEO (Grok)</button>
+                    <button onclick="triggerControlAction('grok_btn_growth')" class="panel-btn" style="background:#22c55e;">📈 Growth (Grok)</button>
+                    <button onclick="triggerControlAction('grok_btn_developer')" class="panel-btn" style="background:#eab308;">💻 Dev (Grok)</button>
+                    <button onclick="triggerControlAction('grok_btn_xscout')" class="panel-btn" style="background:#a78bfa;">📡 X-Scout</button>
                 </div>
             </div>
 
@@ -325,9 +325,9 @@
             <div style="margin-bottom: 10px;">
                 <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 4px;">🧠 Free Claude Code (FCC)</div>
                 <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                    <button onclick="copyAgentCommand('FCC Sonnet')" class="panel-btn" style="background:#3b82f6;">💻 FCC Sonnet (Nvidia)</button>
-                    <button onclick="copyAgentCommand('FCC Opus')" class="panel-btn" style="background:#a78bfa;">🧠 FCC Opus (Nvidia)</button>
-                    <button onclick="copyAgentCommand('FCC Haiku')" class="panel-btn" style="background:#f97316;">⚡ FCC Haiku (Nvidia)</button>
+                    <button onclick="triggerControlAction('fcc_btn_sonnet')" class="panel-btn" style="background:#3b82f6;">💻 FCC Sonnet (Nvidia)</button>
+                    <button onclick="triggerControlAction('fcc_btn_opus')" class="panel-btn" style="background:#a78bfa;">🧠 FCC Opus (Nvidia)</button>
+                    <button onclick="triggerControlAction('fcc_btn_haiku')" class="panel-btn" style="background:#f97316;">⚡ FCC Haiku (Nvidia)</button>
                 </div>
             </div>
 
@@ -335,11 +335,11 @@
             <div>
                 <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 4px;">🛠️ Herramientas de Sistema</div>
                 <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                    <button onclick="copyAgentCommand('Cancelar')" class="panel-btn" style="background:#ef4444;">🛑 Cancelar Run</button>
-                    <button onclick="copyAgentCommand('Limpiar')" class="panel-btn" style="background:#eab308;">🔄 Limpiar</button>
-                    <button onclick="copyAgentCommand('Solana Build')" class="panel-btn" style="background:#22c55e;">📦 Solana Build</button>
-                    <button onclick="copyAgentCommand('Restart CEO')" class="panel-btn" style="background:#22c55e;">🟢 Restart CEO</button>
-                    <button onclick="copyAgentCommand('Force Post')" class="panel-btn" style="background:#3b82f6;">🚀 Force Post</button>
+                    <button onclick="triggerControlAction('sys_btn_cancel')" class="panel-btn" style="background:#ef4444;">🛑 Cancelar Run</button>
+                    <button onclick="triggerControlAction('sys_btn_reset')" class="panel-btn" style="background:#eab308;">🔄 Limpiar</button>
+                    <button onclick="triggerControlAction('sys_btn_solana')" class="panel-btn" style="background:#22c55e;">📦 Solana Build</button>
+                    <button onclick="triggerControlAction('sys_btn_restart_ceo')" class="panel-btn" style="background:#22c55e;">🟢 Restart CEO</button>
+                    <button onclick="triggerControlAction('sys_btn_force_post')" class="panel-btn" style="background:#3b82f6;">🚀 Force Post</button>
                 </div>
             </div>
         </div>
@@ -400,9 +400,11 @@
                     const ceoMatch = block.match(/(?:Agente CEO|Respuesta Agente CEO).*?:\s*([\s\S]*?)(?=\n\s*\*\*Resumen|$)/i);
                     if (ceoMatch && ceoMatch[1]) {
                         ceoText = cleanText(ceoMatch[1]);
-                        // Cut off at common noise
                         ceoText = ceoText.split(/\n\s*\*\*Resumen/i)[0].trim();
                     }
+                    // Aggressively strip separator lines
+                    if (userText) userText = userText.replace(/^-{3,}.*$/gm, '').trim();
+                    if (ceoText) ceoText = ceoText.replace(/^-{3,}.*$/gm, '').trim();
 
                     if (userText && userText.length > 5) {
                         addMessageWithTime(container, 'user', 'Nicolás', userText, timestamp);
@@ -513,12 +515,84 @@
             });
         }
 
+        // Full functional buttons (same as authenticated Colabs Panel Control)
+        let ceoControlLog = [];
+
+        function triggerControlAction(customId) {
+            const label = getActionLabel(customId);
+            const now = new Date();
+            const ts = now.toISOString().replace(/[:.]/g, '-').slice(0,19);
+
+            const action = { id: Date.now(), customId, label, time: now.toLocaleTimeString('es-AR'), status: 'Ejecutando...' };
+            ceoControlLog.unshift(action);
+
+            // Generate proper intake (same as Discord)
+            const intake = generateIntake(customId, label, ts);
+            downloadTextFile(`web-action-${customId}-${ts}.md`, intake);
+
+            // Try hot execution
+            executeHot(customId, label);
+
+            renderControlLog();
+        }
+
+        function getActionLabel(id) {
+            const m = { 'grok_btn_ceo':'CEO (Grok)', 'grok_btn_growth':'Growth (Grok)', 'grok_btn_developer':'Dev (Grok)', 'grok_btn_xscout':'X-Scout',
+                        'fcc_btn_sonnet':'FCC Sonnet', 'fcc_btn_opus':'FCC Opus', 'fcc_btn_haiku':'FCC Haiku',
+                        'sys_btn_cancel':'Cancelar Run', 'sys_btn_reset':'Limpiar', 'sys_btn_solana':'Solana Build',
+                        'sys_btn_restart_ceo':'Restart CEO', 'sys_btn_force_post':'Force Post' };
+            return m[id] || id;
+        }
+
+        function generateIntake(customId, label, ts) {
+            return `---
+title: "[WEB] ${label}"
+date: ${new Date().toISOString()}
+source: ceo-page
+custom_id: ${customId}
+---
+
+## Objective
+Ejecutar la misma acción que el botón "${label}" en Discord.
+
+## Context
+Disparado desde la página CEO (https://goalchain.fun/ceo.html).
+Debe comportarse igual que la interacción de Discord.
+`;
+        }
+
+        async function executeHot(customId, label) {
+            const payload = { action: customId, source: "ceo-page", timestamp: new Date().toISOString() };
+            const urls = ["http://127.0.0.1:8790/control", "http://127.0.0.1:8080/api/control-action"];
+
+            for (const u of urls) {
+                try {
+                    const r = await fetch(u, { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(payload) });
+                    if (r.ok) {
+                        showToast(`🔥 ${label} ejecutado en caliente`);
+                        return;
+                    }
+                } catch(e){}
+            }
+            showToast(`⚠️ ${label} → Intake generado (el Manager lo ejecutará)`);
+        }
+
+        function downloadTextFile(name, content) {
+            const b = new Blob([content], {type:'text/markdown'});
+            const u = URL.createObjectURL(b);
+            const a = document.createElement('a'); a.href=u; a.download=name; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(u);
+        }
+
+        function renderControlLog() {
+            // Simple console + toast feedback for now on this page
+            console.log('Control actions:', ceoControlLog.slice(0,3));
+        }
+
+        // Legacy copy functions kept for the small header buttons
         function copyAgentCommand(agent) {
             const command = `Agente ${agent}: `;
             navigator.clipboard.writeText(command).then(() => {
-                showToast(`✅ Copiado: "Agente ${agent}: " — Listo para pegar en Discord o al CLI`);
-            }).catch(() => {
-                prompt(`Copia este comando para ${agent}:`, command);
+                showToast(`✅ Copiado: "Agente ${agent}: "`);
             });
         }
 
