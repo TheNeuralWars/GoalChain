@@ -23,34 +23,55 @@ let currentRole = null;
 
 async function connectWallet() {
     try {
-        // Soporte mejorado para múltiples wallets (Phantom, Brave Wallet, mobile, etc.)
         let provider = null;
+        let walletName = '';
 
-        // Intentar Phantom desktop / inyectado
+        // 1. Phantom (desktop extension or in-app browser)
         if (window.solana && window.solana.isPhantom) {
             provider = window.solana;
+            walletName = 'Phantom';
         } 
-        // Brave Wallet o cualquier otro provider en window.solana
+        // 2. Any injected Solana provider (Brave Wallet, etc.)
         else if (window.solana) {
             provider = window.solana;
+            walletName = 'Solana Wallet';
         } 
-        // Phantom mobile / window.phantom
+        // 3. Phantom mobile specific injection
         else if (window.phantom && window.phantom.solana) {
             provider = window.phantom.solana;
+            walletName = 'Phantom';
         }
 
         if (!provider) {
-            alert("No se detectó ninguna wallet de Solana compatible.\n\nPor favor usa Phantom o Brave Wallet e intenta de nuevo.");
+            // Mostrar mensaje mucho más claro y útil
+            const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            
+            let message = "No se detectó ninguna wallet de Solana compatible.";
+
+            if (isMobile) {
+                message += "\n\n📱 Estás en móvil:\n" +
+                    "1. Abre la app de Phantom\n" +
+                    "2. Toca el botón del navegador (abajo a la derecha)\n" +
+                    "3. Pega este enlace: " + window.location.href + "\n\n" +
+                    "O instala la extensión de Phantom en Chrome/Brave si estás en desktop.";
+            } else {
+                message += "\n\nPor favor:\n" +
+                    "• Instala la extensión de Phantom en este navegador, o\n" +
+                    "• Abre este enlace desde la app de Phantom en tu celular.";
+            }
+
+            alert(message);
             return;
         }
 
+        console.log(`Conectando con ${walletName}...`);
         const response = await provider.connect();
         const pubKey = response.publicKey.toString();
         verifyAccess(pubKey);
 
     } catch (error) {
         console.error("Error Auth:", error);
-        alert("Error al conectar la wallet. Revisa la consola (F12).");
+        alert("Error al conectar la wallet. Revisa la consola (F12) para más detalles.");
     }
 }
 function verifyAccess(pubKey) {
