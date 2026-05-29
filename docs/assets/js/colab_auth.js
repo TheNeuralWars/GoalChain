@@ -8,6 +8,7 @@ const AUTHORIZED_WALLETS = {
     // DEV TEAM
     "D6AabfJnF6sxuAymDz7JMbB4r2i2FaQVzPb7G7nhMMxo": "dev", // Nico (Admin)
     "GJFz3VmrQGTUqcapRkKZ9RHu11CYUCmRAfEBfxi5DED2": "dev", // Lucas (Team)
+    "2tKnhZm9iQzVqdxcqpSijmrmk5FAin6wKrYTvBKAV6Wu": "dev", // Whitelisted by Nico - 2026-05-29
 
     // INFLUENCERS
     "HqXS...Influencer1": "influencer",
