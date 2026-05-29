@@ -277,10 +277,10 @@
     <div style="max-width: 900px; margin: 0 auto; padding: 0 16px;">
         <div class="big-action-bar">
             <button onclick="copyInstructionToBot()" class="big-instruction-btn">
-                📤 <span>Enviar instrucción al bot</span>
+                📤 <span>Enviar instrucción al bot (copiar "panel")</span>
             </button>
             <div style="font-size: 0.72rem; color: #64748b; margin-top: 8px;">
-                Copia el comando y pégalo en Discord
+                Copia "panel" → Pégalo en Discord para que el @GoalChain Manager te muestre los botones de acciones rápidas
             </div>
         </div>
     </div>
@@ -318,23 +318,38 @@
 
                 const entries = text.split('---').filter(e => e.trim().length > 30);
 
+                let hasParsedMessages = false;
+
                 entries.forEach(entry => {
                     // Usuario
                     const userMatch = entry.match(/\*\*Usuario \(Nicolás\):\*\*\s*([\s\S]*?)(?=\*\*Agente CEO:|\*\*Resumen|$)/);
                     if (userMatch && userMatch[1].trim()) {
                         addMessage(container, 'user', 'Nicolás', userMatch[1].trim());
+                        hasParsedMessages = true;
                     }
 
                     // Agente CEO
                     const ceoMatch = entry.match(/\*\*Agente CEO:\*\*\s*([\s\S]*?)(?=\*\*Resumen Ejecutivo:|$)/);
                     if (ceoMatch && ceoMatch[1].trim()) {
                         addMessage(container, 'ceo', 'Agente CEO', ceoMatch[1].trim());
+                        hasParsedMessages = true;
                     }
                 });
 
-                // Auto scroll
+                // Fallback: si no se pudo parsear bien (archivo con mucho output de consola), mostramos el final del archivo
+                if (!hasParsedMessages && text.trim().length > 100) {
+                    const lastPart = text.trim().slice(-2800); // últimas líneas aprox
+                    const fallbackDiv = document.createElement('div');
+                    fallbackDiv.style.cssText = 'background:#1a1a22; padding:14px; border-radius:12px; font-family:monospace; font-size:0.8rem; white-space:pre-wrap; color:#cbd5e1; border:1px solid #3a3a48;';
+                    fallbackDiv.textContent = lastPart;
+                    container.appendChild(fallbackDiv);
+                }
+
+                // Siempre scrollear hasta el final (último mensaje)
                 const chatWindow = document.getElementById('chatWindow');
-                chatWindow.scrollTop = chatWindow.scrollHeight;
+                setTimeout(() => {
+                    chatWindow.scrollTop = chatWindow.scrollHeight;
+                }, 50);
 
             } catch (e) {
                 loading.innerHTML = 'Error cargando el log.<br>Intenta refrescar.';
@@ -377,11 +392,11 @@
         }
 
         function copyInstructionToBot() {
-            const command = "Agente CEO: ";
+            // Copia el comando que hace que el @GoalChain Manager muestre el panel de acciones rápidas (incluyendo las del CEO Log)
+            const command = "panel";
             navigator.clipboard.writeText(command).then(() => {
-                showToast("✅ Copiado. Pégalo en Discord y completa tu instrucción.");
+                showToast("✅ Copiado 'panel'. Pégalo en Discord para ver los botones del Manager.");
             }).catch(() => {
-                // Fallback for older browsers / restricted environments
                 prompt("Copia este comando y pégalo en Discord:", command);
             });
         }
