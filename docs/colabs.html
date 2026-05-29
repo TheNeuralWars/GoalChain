@@ -516,7 +516,18 @@
                             <button onclick="triggerControlAction('sys_btn_force_post')" class="btn btn-primary" style="padding: 12px; font-size: 0.9rem;">🚀 Force Post</button>
                         </div>
                         <p style="font-size: 0.75rem; color: #64748b; margin-top: 12px;">
-                            Estas acciones se registran y se ejecutan en la infraestructura (igual que cuando las apretás desde Discord).
+                            Estas acciones generan intake files idénticos a los que produce el Manager cuando recibís el botón desde Discord. Soltá el archivo en <code>docs/intake/</code> y el Manager lo procesa exactamente igual.
+                        </p>
+                    </div>
+
+                    <!-- Live Web Actions Log -->
+                    <div class="glass-card" style="margin-top: 20px;">
+                        <h3 style="margin-bottom: 10px;">📋 Acciones disparadas desde la web (esta sesión)</h3>
+                        <div id="webActionsLog" style="font-family: monospace; font-size: 0.8rem; background: #0a0a10; padding: 12px; border-radius: 8px; max-height: 200px; overflow: auto; border: 1px solid #3a3a48;">
+                            <em style="color: #64748b;">Aún no se han disparado acciones desde este panel en esta sesión.</em>
+                        </div>
+                        <p style="font-size: 0.7rem; color: #64748b; margin-top: 8px;">
+                            Cada botón genera un archivo de intake listo para que el Manager lo trate como una interacción de Discord.
                         </p>
                     </div>
                 </div>
