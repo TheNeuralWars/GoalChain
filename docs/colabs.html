@@ -141,6 +141,7 @@
                 <button class="tab-btn" data-tab="finance" id="tabFinance" style="color:var(--primary);" data-i18n="colab_tab_fin">🏦 Finanzas</button>
                 <button class="tab-btn" data-tab="academy" id="tabAcademy" style="color:var(--secondary);" data-i18n="colab_tab_acad">🌱 Academia Admin</button>
                 <button class="tab-btn" data-tab="guide" id="tabGuide" style="color:#00e5ff; font-weight: 800;" data-i18n="colab_tab_guide">📖 Mega Guías</button>
+                <button class="tab-btn" data-tab="ceo" id="tabCeo" style="color:#a78bfa; font-weight: 800;" data-i18n="colab_tab_ceo">🤖 Agente CEO</button>
             </div>
             <div style="display: flex; align-items: center; gap: 15px;">
                 <!-- Lang Toggle inside app nav -->
@@ -420,11 +421,202 @@
                 </div>
             </section>
 
+            <!-- SECTION: AGENTE CEO LOG (Chat UI) -->
+            <section id="ceoLogSection" class="tab-content" style="display:none; padding: 0;">
+                <div style="max-width: 980px; margin: 0 auto; padding: 20px 20px 40px;">
+                    
+                    <!-- Chat Header -->
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding: 0 8px;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <div style="width: 42px; height: 42px; background: linear-gradient(135deg, #a78bfa, #7c3aed); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px;">🤖</div>
+                                <div>
+                                    <h2 style="margin: 0; font-size: 1.35rem; font-weight: 800;">Agente CEO</h2>
+                                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px;">
+                                        <div id="ceoLiveStatus" style="background: #22c55e; color: black; font-size: 10px; font-weight: 900; padding: 1px 8px; border-radius: 20px; letter-spacing: 0.5px;">LIVE</div>
+                                        <span style="font-size: 0.75rem; color: var(--text-dim);">GoalChain • Talks/Grok-CEO.md</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Discord Quick Actions -->
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <a href="https://discord.com/channels/@me" target="_blank" 
+                               style="background: #5865F2; color: white; padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 0.8rem; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                                💬 Abrir Discord
+                            </a>
+                            <button onclick="copyDiscordCommand()" 
+                                    style="background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.15); padding: 8px 14px; border-radius: 8px; font-weight: 700; font-size: 0.8rem; cursor: pointer;">
+                                📤 Copiar instrucción
+                            </button>
+                            <button onclick="refreshCeoChat()" 
+                                    style="background: rgba(255,255,255,0.06); color: #fff; border: 1px solid rgba(255,255,255,0.1); padding: 8px 14px; border-radius: 8px; font-weight: 700; font-size: 0.8rem; cursor: pointer;">
+                                ↻ Actualizar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Window -->
+                    <div id="ceoChatWindow" 
+                         style="background: #0a0a10; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; height: 620px; overflow-y: auto; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+                        <div id="ceoChatMessages" style="display: flex; flex-direction: column; gap: 18px;"></div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 12px; font-size: 0.7rem; color: var(--text-dim);">
+                        Actualiza automáticamente cada 10 segundos • Fuente: <a href="https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/Talks/Grok-CEO.md" target="_blank" style="color: #a78bfa;">Grok-CEO.md</a>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </main>
 
     <script src="assets/js/colab_auth.js"></script>
     <script src="assets/js/colab_app.js"></script>
+
+    <!-- CEO Chat Styles & Logic -->
+    <style>
+        .ceo-message {
+            display: flex;
+            max-width: 82%;
+            margin-bottom: 4px;
+        }
+        .ceo-message.user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+        .ceo-bubble {
+            padding: 14px 18px;
+            border-radius: 18px;
+            font-size: 0.92rem;
+            line-height: 1.45;
+            white-space: pre-wrap;
+        }
+        .ceo-message.user .ceo-bubble {
+            background: #3b82f6;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        .ceo-message.ceo .ceo-bubble {
+            background: #1f1f2e;
+            color: #e2e8f0;
+            border: 1px solid rgba(167, 139, 250, 0.25);
+            border-bottom-left-radius: 4px;
+        }
+        .ceo-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            opacity: 0.7;
+        }
+        .ceo-message.user .ceo-label {
+            text-align: right;
+        }
+        .ceo-timestamp {
+            font-size: 0.65rem;
+            opacity: 0.4;
+            margin-top: 4px;
+        }
+    </style>
+
+    <script>
+        let ceoChatInterval = null;
+        let lastCeoContent = '';
+
+        function initCeoChat() {
+            const chatWindow = document.getElementById('ceoChatWindow');
+            if (!chatWindow) return;
+
+            // Clear any previous interval
+            if (ceoChatInterval) clearInterval(ceoChatInterval);
+
+            // Initial load
+            loadCeoChat();
+
+            // Poll every 10 seconds
+            ceoChatInterval = setInterval(() => {
+                loadCeoChat(true);
+            }, 10000);
+        }
+
+        async function loadCeoChat(silent = false) {
+            const messagesContainer = document.getElementById('ceoChatMessages');
+            if (!messagesContainer) return;
+
+            try {
+                const res = await fetch('https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/Talks/Grok-CEO.md', { cache: 'no-store' });
+                const text = await res.text();
+
+                if (text === lastCeoContent) return; // No changes
+
+                lastCeoContent = text;
+                messagesContainer.innerHTML = '';
+
+                // Parse the log into messages
+                const entries = text.split('---').filter(e => e.trim().length > 20);
+
+                entries.forEach(entry => {
+                    const userMatch = entry.match(/\*\*Usuario \(Nicolás\):\*\*\s*([\s\S]*?)(?=\*\*Agente CEO:|\*\*Resumen|$)/);
+                    const ceoMatch = entry.match(/\*\*Agente CEO:\*\*\s*([\s\S]*?)(?=\*\*Resumen Ejecutivo:|$)/);
+
+                    if (userMatch) {
+                        addChatBubble(messagesContainer, 'user', 'Nicolás', userMatch[1].trim());
+                    }
+                    if (ceoMatch) {
+                        addChatBubble(messagesContainer, 'ceo', 'Agente CEO', ceoMatch[1].trim());
+                    }
+                });
+
+                // Auto scroll to bottom
+                const chatWindow = document.getElementById('ceoChatWindow');
+                chatWindow.scrollTop = chatWindow.scrollHeight;
+
+            } catch (err) {
+                if (!silent) {
+                    messagesContainer.innerHTML = `<div style="color:#f87171; padding:20px; text-align:center;">Error cargando el log. Intenta refrescar.</div>`;
+                }
+            }
+        }
+
+        function addChatBubble(container, type, label, text) {
+            const div = document.createElement('div');
+            div.className = `ceo-message ${type}`;
+
+            const safeText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+            div.innerHTML = `
+                <div style="display:flex; flex-direction:column; ${type === 'user' ? 'align-items:flex-end' : ''}">
+                    <div class="ceo-label">${label}</div>
+                    <div class="ceo-bubble">${safeText}</div>
+                </div>
+            `;
+            container.appendChild(div);
+        }
+
+        function refreshCeoChat() {
+            const messagesContainer = document.getElementById('ceoChatMessages');
+            if (messagesContainer) messagesContainer.innerHTML = '<div style="text-align:center; padding:30px; color:#64748b;">Actualizando...</div>';
+            lastCeoContent = '';
+            loadCeoChat();
+        }
+
+        function copyDiscordCommand() {
+            const text = "Agente CEO: [Escribe aquí tu instrucción]";
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = event.target.innerText;
+                event.target.innerText = "¡Copiado!";
+                setTimeout(() => {
+                    if (event.target) event.target.innerText = originalText || "📤 Copiar instrucción";
+                }, 1400);
+            }).catch(() => {
+                prompt("Copia este comando:", text);
+            });
+        }
+
+        // Make init available globally
+        window.initCeoChat = initCeoChat;
+    </script>
     <script src="assets/js/lending_app.js"></script>
     <script src="assets/js/cnft_scout.js"></script>
     <script src="assets/js/drift_markets.js"></script>
@@ -435,6 +627,18 @@
                 window.location.href = 'index.html';
             }
         });
+
+        // Ensure CEO tab section shows correctly when .active is added
+        const style = document.createElement('style');
+        style.innerHTML = `
+            #ceoLogSection.tab-content.active {
+                display: block !important;
+            }
+            #ceoLogSection.tab-content {
+                display: none;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
