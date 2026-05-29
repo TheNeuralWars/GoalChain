@@ -316,40 +316,44 @@
                 loading.style.display = 'none';
                 container.innerHTML = '';
 
-                const entries = text.split('---').filter(e => e.trim().length > 30);
+                // Split by standard separators used in the clean log
+                const entries = text.split('---').filter(e => e.includes('### 🕒') && e.trim().length > 60);
 
-                let hasParsedMessages = false;
+                let rendered = 0;
 
                 entries.forEach(entry => {
-                    // Usuario
-                    const userMatch = entry.match(/\*\*Usuario \(Nicolás\):\*\*\s*([\s\S]*?)(?=\*\*Agente CEO:|\*\*Resumen|$)/);
-                    if (userMatch && userMatch[1].trim()) {
+                    // Extract Usuario
+                    const userMatch = entry.match(/\*\*Usuario \(Nicolás\):\*\*\s*([\s\S]*?)(?=\*\*Agente CEO:|\*\*Resumen Ejecutivo:|$)/);
+                    if (userMatch && userMatch[1].trim().length > 8) {
                         addMessage(container, 'user', 'Nicolás', userMatch[1].trim());
-                        hasParsedMessages = true;
+                        rendered++;
                     }
 
-                    // Agente CEO
+                    // Extract Agente CEO
                     const ceoMatch = entry.match(/\*\*Agente CEO:\*\*\s*([\s\S]*?)(?=\*\*Resumen Ejecutivo:|$)/);
-                    if (ceoMatch && ceoMatch[1].trim()) {
+                    if (ceoMatch && ceoMatch[1].trim().length > 15) {
                         addMessage(container, 'ceo', 'Agente CEO', ceoMatch[1].trim());
-                        hasParsedMessages = true;
+                        rendered++;
                     }
                 });
 
-                // Fallback: si no se pudo parsear bien (archivo con mucho output de consola), mostramos el final del archivo
-                if (!hasParsedMessages && text.trim().length > 100) {
-                    const lastPart = text.trim().slice(-2800); // últimas líneas aprox
-                    const fallbackDiv = document.createElement('div');
-                    fallbackDiv.style.cssText = 'background:#1a1a22; padding:14px; border-radius:12px; font-family:monospace; font-size:0.8rem; white-space:pre-wrap; color:#cbd5e1; border:1px solid #3a3a48;';
-                    fallbackDiv.textContent = lastPart;
-                    container.appendChild(fallbackDiv);
+                // If still nothing rendered, show the last clean block as fallback
+                if (rendered === 0 && text.length > 300) {
+                    const parts = text.split('### 🕒');
+                    const lastBlock = parts[parts.length - 1];
+                    if (lastBlock && lastBlock.trim().length > 50) {
+                        const div = document.createElement('div');
+                        div.style.cssText = 'background:#1f1f2e; padding:16px; border-radius:12px; border:1px solid #3a3a48; font-size:0.9rem; white-space:pre-wrap; line-height:1.5;';
+                        div.textContent = '### 🕒' + lastBlock.trim();
+                        container.appendChild(div);
+                    }
                 }
 
-                // Siempre scrollear hasta el final (último mensaje)
+                // Force scroll to bottom (show latest message)
                 const chatWindow = document.getElementById('chatWindow');
                 setTimeout(() => {
                     chatWindow.scrollTop = chatWindow.scrollHeight;
-                }, 50);
+                }, 60);
 
             } catch (e) {
                 loading.innerHTML = 'Error cargando el log.<br>Intenta refrescar.';
