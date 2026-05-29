@@ -141,21 +141,65 @@ function triggerControlAction(customId) {
         customId: customId,
         wallet: currentWallet,
         time: now.toLocaleTimeString('es-AR'),
-        status: 'Intake generado (mismo flujo que Discord)'
+        status: 'Ejecutando en caliente + Intake'
     };
 
     controlActionsLog.unshift(action);
 
-    // Generate the exact same intake/task that the Discord button handler creates
+    // 1. Always generate the intake (audit + fallback, same as Discord path)
     const intakeContent = generateIntakeForDiscordAction(customId, currentWallet, timestamp);
-
-    // Download as ready intake file — the Manager watches this exact mechanism
     const filename = `web-action-${customId}-${timestamp}.md`;
     downloadTextFile(filename, intakeContent);
 
-    alert(`✅ Acción generada con el MISMO mecanismo que los botones de Discord\n\nBotón: ${label}\nWallet: ${currentWallet}\n\nSe descargó el archivo de intake. Colócalo en docs/intake/ para que el Manager lo procese exactamente igual que una interacción de Discord.`);
+    // 2. Try hot execution (en caliente) - same effect as Discord button
+    executeHotAction(customId, currentWallet, label);
 
     renderControlActions();
+}
+
+async function executeHotAction(customId, wallet, label) {
+    const payload = {
+        action: customId,
+        wallet: wallet,
+        source: "web-panel",
+        timestamp: new Date().toISOString(),
+        label: label
+    };
+
+    // Try the local multi-agent / Hermes control endpoint (same one the Manager uses internally)
+    const endpoints = [
+        "http://127.0.0.1:8790/control",
+        "http://127.0.0.1:8080/api/control-action",
+        "/api/control-action"
+    ];
+
+    let success = false;
+
+    for (const url of endpoints) {
+        try {
+            const res = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Web-Panel": "true",
+                    "X-Triggered-By": wallet
+                },
+                body: JSON.stringify(payload)
+            });
+
+            if (res.ok) {
+                success = true;
+                showToast(`🔥 ${label} ejecutado en caliente`);
+                break;
+            }
+        } catch (err) {
+            // endpoint not available, try next
+        }
+    }
+
+    if (!success) {
+        showToast(`⚠️ ${label} → Intake generado. No se encontró backend local en caliente. El Manager lo ejecutará cuando sueltes el archivo en docs/intake/ (igual que desde Discord).`);
+    }
 }
 
 function generateIntakeForDiscordAction(customId, wallet, timestamp) {
