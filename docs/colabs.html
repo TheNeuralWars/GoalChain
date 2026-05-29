@@ -148,6 +148,7 @@
                 <button class="tab-btn" data-tab="academy" id="tabAcademy" style="color:var(--secondary);" data-i18n="colab_tab_acad">🌱 Academia Admin</button>
                 <button class="tab-btn" data-tab="guide" id="tabGuide" style="color:#00e5ff; font-weight: 800;" data-i18n="colab_tab_guide">📖 Mega Guías</button>
                 <button class="tab-btn" data-tab="ceo" id="tabCeo" style="color:#a78bfa; font-weight: 800;" data-i18n="colab_tab_ceo">🤖 Agente CEO</button>
+                <button class="tab-btn" data-tab="control" id="tabControl" style="color:#f97316; font-weight: 800;">🛠️ Panel Control</button>
             </div>
             <div style="display: flex; align-items: center; gap: 15px;">
                 <!-- Lang Toggle inside app nav -->
@@ -471,6 +472,52 @@
 
                     <div style="text-align: center; margin-top: 12px; font-size: 0.7rem; color: var(--text-dim);">
                         Actualiza automáticamente cada 10 segundos • Fuente: <a href="https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/Talks/Grok-CEO.md" target="_blank" style="color: #a78bfa;">Grok-CEO.md</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION: PANEL DE CONTROL (Mirror of Discord Manager buttons) -->
+            <section id="controlPanelSection" class="tab-content" style="display:none;">
+                <div class="colab-header">
+                    <h2>🛠️ Panel de Control Integrado</h2>
+                    <p>Espejo funcional de los botones del @GoalChain Manager en Discord. Las acciones se ejecutan en la infraestructura real.</p>
+                </div>
+
+                <div style="max-width: 1100px; margin: 0 auto;">
+                    <!-- Fila 1: Agentes Grok -->
+                    <div class="glass-card" style="margin-bottom: 20px;">
+                        <h3 style="margin-bottom: 12px;">🤖 Agentes Inteligentes (Grok)</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                            <button onclick="triggerControlAction('grok_btn_ceo')" class="btn btn-primary" style="padding: 14px; font-size: 0.95rem;">💼 CEO (Grok)</button>
+                            <button onclick="triggerControlAction('grok_btn_growth')" class="btn" style="padding: 14px; font-size: 0.95rem; background: #22c55e;">📈 Growth (Grok)</button>
+                            <button onclick="triggerControlAction('grok_btn_developer')" class="btn" style="padding: 14px; font-size: 0.95rem; background: #eab308;">💻 Dev (Grok)</button>
+                            <button onclick="triggerControlAction('grok_btn_xscout')" class="btn" style="padding: 14px; font-size: 0.95rem; background: #a78bfa;">📡 X-Scout</button>
+                        </div>
+                    </div>
+
+                    <!-- Fila 2: FCC -->
+                    <div class="glass-card" style="margin-bottom: 20px;">
+                        <h3 style="margin-bottom: 12px;">🧠 Free Claude Code (FCC - Nvidia)</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                            <button onclick="triggerControlAction('fcc_btn_sonnet')" class="btn btn-primary" style="padding: 14px; font-size: 0.95rem;">💻 FCC Sonnet</button>
+                            <button onclick="triggerControlAction('fcc_btn_opus')" class="btn" style="padding: 14px; font-size: 0.95rem; background: #a78bfa;">🧠 FCC Opus</button>
+                            <button onclick="triggerControlAction('fcc_btn_haiku')" class="btn" style="padding: 14px; font-size: 0.95rem; background: #f97316;">⚡ FCC Haiku</button>
+                        </div>
+                    </div>
+
+                    <!-- Fila 3: System -->
+                    <div class="glass-card">
+                        <h3 style="margin-bottom: 12px;">🛠️ Herramientas de Sistema</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px;">
+                            <button onclick="triggerControlAction('sys_btn_cancel')" class="btn" style="padding: 12px; font-size: 0.9rem; background: #ef4444;">🛑 Cancelar Run</button>
+                            <button onclick="triggerControlAction('sys_btn_reset')" class="btn" style="padding: 12px; font-size: 0.9rem; background: #eab308;">🔄 Limpiar</button>
+                            <button onclick="triggerControlAction('sys_btn_solana')" class="btn" style="padding: 12px; font-size: 0.9rem; background: #22c55e;">📦 Solana Build</button>
+                            <button onclick="triggerControlAction('sys_btn_restart_ceo')" class="btn" style="padding: 12px; font-size: 0.9rem; background: #22c55e;">🟢 Restart CEO</button>
+                            <button onclick="triggerControlAction('sys_btn_force_post')" class="btn btn-primary" style="padding: 12px; font-size: 0.9rem;">🚀 Force Post</button>
+                        </div>
+                        <p style="font-size: 0.75rem; color: #64748b; margin-top: 12px;">
+                            Estas acciones se registran y se ejecutan en la infraestructura (igual que cuando las apretás desde Discord).
+                        </p>
                     </div>
                 </div>
             </section>

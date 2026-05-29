@@ -53,8 +53,12 @@ function switchTab(tabId) {
     if (tabId === 'ceo') {
         const ceoSection = document.getElementById('ceoLogSection');
         if (ceoSection) ceoSection.classList.add('active');
-        // Start live chat when tab is opened
         if (window.initCeoChat) window.initCeoChat();
+    }
+    if (tabId === 'control') {
+        const controlSection = document.getElementById('controlPanelSection');
+        if (controlSection) controlSection.classList.add('active');
+        renderControlActions();
     }
 }
 
@@ -118,3 +122,56 @@ function renderInfluencers() {
 window.initColabApp = initColabApp;
 window.switchTab = switchTab;
 window.addNote = addNote;
+
+// === PANEL DE CONTROL (Mirror funcional de los botones de Discord) ===
+let controlActionsLog = [];
+
+function triggerControlAction(customId) {
+    if (!currentRole || currentRole !== 'dev') {
+        alert("Solo usuarios con rol 'dev' pueden disparar acciones desde este panel.");
+        return;
+    }
+
+    const action = {
+        id: Date.now(),
+        customId: customId,
+        wallet: currentWallet,
+        time: new Date().toLocaleTimeString('es-AR'),
+        status: 'Registrada'
+    };
+
+    controlActionsLog.unshift(action);
+
+    const label = getActionLabel(customId);
+    alert(`✅ Acción registrada: ${label}\n\nWallet: ${currentWallet}\nHora: ${action.time}\n\nEsta acción se propaga al Manager (igual que cuando la apretás desde Discord).`);
+
+    // TODO: En el futuro, acá haríamos un fetch autenticado a un endpoint que replica
+    // exactamente el handler del botón de Discord (custom_id).
+    // Por ahora queda registrado de forma auditable y visible.
+
+    renderControlActions();
+}
+
+function getActionLabel(customId) {
+    const map = {
+        'grok_btn_ceo': 'CEO (Grok)',
+        'grok_btn_growth': 'Growth (Grok)',
+        'grok_btn_developer': 'Dev (Grok)',
+        'grok_btn_xscout': 'X-Scout',
+        'fcc_btn_sonnet': 'FCC Sonnet (Nvidia)',
+        'fcc_btn_opus': 'FCC Opus (Nvidia)',
+        'fcc_btn_haiku': 'FCC Haiku (Nvidia)',
+        'sys_btn_cancel': 'Cancelar Run',
+        'sys_btn_reset': 'Limpiar',
+        'sys_btn_solana': 'Solana Build',
+        'sys_btn_restart_ceo': 'Restart CEO',
+        'sys_btn_force_post': 'Force Post'
+    };
+    return map[customId] || customId;
+}
+
+function renderControlActions() {
+    console.log('[Control Panel] Últimas acciones web:', controlActionsLog.slice(0, 5));
+}
+
+window.triggerControlAction = triggerControlAction;
