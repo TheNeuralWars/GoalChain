@@ -23,18 +23,34 @@ let currentRole = null;
 
 async function connectWallet() {
     try {
-        const { solana } = window;
+        // Soporte mejorado para múltiples wallets (Phantom, Brave Wallet, mobile, etc.)
+        let provider = null;
 
-        if (solana && solana.isPhantom) {
-            const response = await solana.connect();
-            const pubKey = response.publicKey.toString();
-            verifyAccess(pubKey);
-        } else {
-            alert("Phantom Wallet no detectada.");
-            window.open("https://phantom.app/", "_blank");
+        // Intentar Phantom desktop / inyectado
+        if (window.solana && window.solana.isPhantom) {
+            provider = window.solana;
+        } 
+        // Brave Wallet o cualquier otro provider en window.solana
+        else if (window.solana) {
+            provider = window.solana;
+        } 
+        // Phantom mobile / window.phantom
+        else if (window.phantom && window.phantom.solana) {
+            provider = window.phantom.solana;
         }
+
+        if (!provider) {
+            alert("No se detectó ninguna wallet de Solana compatible.\n\nPor favor usa Phantom o Brave Wallet e intenta de nuevo.");
+            return;
+        }
+
+        const response = await provider.connect();
+        const pubKey = response.publicKey.toString();
+        verifyAccess(pubKey);
+
     } catch (error) {
         console.error("Error Auth:", error);
+        alert("Error al conectar la wallet. Revisa la consola (F12).");
     }
 }
 function verifyAccess(pubKey) {
