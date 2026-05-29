@@ -31,7 +31,7 @@ async function connectWallet() {
             provider = window.solana;
             walletName = 'Phantom';
         } 
-        // 2. Any injected Solana provider (Brave Wallet, etc.)
+        // 2. Any injected Solana provider (Brave Wallet, Solflare, etc.)
         else if (window.solana) {
             provider = window.solana;
             walletName = 'Solana Wallet';
@@ -43,25 +43,32 @@ async function connectWallet() {
         }
 
         if (!provider) {
-            // Mostrar mensaje mucho más claro y útil
             const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-            
-            let message = "No se detectó ninguna wallet de Solana compatible.";
 
             if (isMobile) {
-                message += "\n\n📱 Estás en móvil:\n" +
-                    "1. Abre la app de Phantom\n" +
-                    "2. Toca el botón del navegador (abajo a la derecha)\n" +
-                    "3. Pega este enlace: " + window.location.href + "\n\n" +
-                    "O instala la extensión de Phantom en Chrome/Brave si estás en desktop.";
-            } else {
-                message += "\n\nPor favor:\n" +
-                    "• Instala la extensión de Phantom en este navegador, o\n" +
-                    "• Abre este enlace desde la app de Phantom en tu celular.";
-            }
+                // On mobile: offer to open directly in Phantom
+                const shouldOpen = confirm(
+                    "No se detectó wallet inyectada.\n\n" +
+                    "¿Quieres abrir esta página directamente dentro de Phantom para conectar tu wallet?"
+                );
 
-            alert(message);
-            return;
+                if (shouldOpen) {
+                    // Phantom deep link to open current page in their in-app browser
+                    const currentUrl = encodeURIComponent(window.location.href);
+                    // Phantom universal link format
+                    window.location.href = `https://phantom.app/ul/browse/${currentUrl}`;
+                }
+                return;
+            } else {
+                // Desktop
+                alert(
+                    "No se detectó ninguna wallet de Solana compatible.\n\n" +
+                    "Opciones:\n" +
+                    "• Instala la extensión de Phantom en este navegador\n" +
+                    "• Abre este enlace desde la app de Phantom en tu celular"
+                );
+                return;
+            }
         }
 
         console.log(`Conectando con ${walletName}...`);
