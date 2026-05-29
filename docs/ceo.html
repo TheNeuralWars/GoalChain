@@ -293,7 +293,7 @@
     </div>
 
     <div class="footer">
-        Fuente: <a href="https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/Talks/Grok-CEO.md" target="_blank">Grok-CEO.md</a> • Se actualiza automáticamente
+        Fuente: ceo-log.txt (actualizado desde el repo) • <a href="https://github.com/TheNeuralWars/GoalChain/blob/main/Talks/Grok-CEO.md" target="_blank">Ver en GitHub</a>
     </div>
 
     <!-- Toast notification -->
@@ -307,7 +307,7 @@
             const loading = document.getElementById('loading');
             
             try {
-                const res = await fetch('https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/Talks/Grok-CEO.md', { cache: 'no-store' });
+                const res = await fetch('./ceo-log.txt', { cache: 'no-store' });
                 const text = await res.text();
 
                 if (text === lastContent) return;
