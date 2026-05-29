@@ -177,6 +177,22 @@
         .message.user .label {
             text-align: right;
         }
+
+        .timestamp {
+            font-size: 0.65rem;
+            background: rgba(255,255,255,0.08);
+            color: #94a3b8;
+            padding: 2px 8px;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 6px;
+            width: fit-content;
+            font-family: monospace;
+        }
+        
+        .message.user .timestamp {
+            margin-left: auto;
+        }
         
         .footer {
             text-align: center;
@@ -316,75 +332,57 @@
                 loading.style.display = 'none';
                 container.innerHTML = '';
 
-                // More flexible parsing - split on --- or on timestamp headers
-                let blocks = text.split('---');
-                if (blocks.length < 3) {
-                    blocks = text.split(/### 🕒/);
-                }
-
-                const entries = blocks.filter(e => e.trim().length > 80);
+                // Split into blocks by timestamp headers
+                const blocks = text.split(/### 🕒/);
 
                 let rendered = 0;
 
-                entries.forEach(entry => {
-                    // Try multiple patterns for user messages
+                blocks.forEach(block => {
+                    if (!block.includes('Usuario') && !block.includes('Agente CEO')) return;
+
+                    // Extract timestamp
+                    const timeMatch = block.match(/(\d{1,2}\/\d{1,2}\/\d{4}[^\n]*)/);
+                    const timestamp = timeMatch ? timeMatch[1].trim() : '';
+
+                    // Extract user's prompt (clean)
                     let userText = null;
-                    const userPatterns = [
-                        /\*\*Usuario \(Nicolás\):\*\*\s*([\s\S]*?)(?=\*\*Agente CEO|\*\*Respuesta Agente CEO|\*\*Resumen|$)/i,
-                        /\*\*Usuario:\*\*\s*([\s\S]*?)(?=\*\*Agente CEO|\*\*Respuesta Agente CEO|\*\*Resumen|$)/i,
-                        /\*\*Nico.*?:\*\*\s*([\s\S]*?)(?=\*\*Agente CEO|\*\*Respuesta Agente CEO|\*\*Resumen|$)/i
-                    ];
-                    for (const pattern of userPatterns) {
-                        const m = entry.match(pattern);
-                        if (m && m[1] && m[1].trim().length > 10) {
-                            userText = m[1].trim();
-                            break;
-                        }
+                    const userMatch = block.match(/(?:Usuario \(Nicolás\)|Usuario|Nico).*?:\s*([\s\S]*?)(?=\n\s*\*\*(Agente CEO|Respuesta Agente CEO|Resumen|$))/i);
+                    if (userMatch && userMatch[1]) {
+                        userText = cleanText(userMatch[1]);
                     }
 
-                    // Try multiple patterns for CEO responses
+                    // Extract CEO response (main answer, stop before Resumen)
                     let ceoText = null;
-                    const ceoPatterns = [
-                        /\*\*Agente CEO:\*\*\s*([\s\S]*?)(?=\*\*Resumen Ejecutivo|\*\*Resumen|$)/i,
-                        /\*\*Respuesta Agente CEO:\*\*\s*([\s\S]*?)(?=\*\*Resumen Ejecutivo|\*\*Resumen|$)/i,
-                        /\*\*Agente CEO \(Respuesta completa\):\*\*\s*([\s\S]*?)(?=\*\*Resumen|$)/i
-                    ];
-                    for (const pattern of ceoPatterns) {
-                        const m = entry.match(pattern);
-                        if (m && m[1] && m[1].trim().length > 15) {
-                            ceoText = m[1].trim();
-                            break;
-                        }
+                    const ceoMatch = block.match(/(?:Agente CEO|Respuesta Agente CEO).*?:\s*([\s\S]*?)(?=\n\s*\*\*Resumen|$)/i);
+                    if (ceoMatch && ceoMatch[1]) {
+                        ceoText = cleanText(ceoMatch[1]);
+                        // Cut off at common noise
+                        ceoText = ceoText.split(/\n\s*\*\*Resumen/i)[0].trim();
                     }
 
-                    if (userText) {
-                        addMessage(container, 'user', 'Nicolás', userText);
+                    if (userText && userText.length > 5) {
+                        addMessageWithTime(container, 'user', 'Nicolás', userText, timestamp);
                         rendered++;
                     }
-                    if (ceoText) {
-                        addMessage(container, 'ceo', 'Agente CEO', ceoText);
+                    if (ceoText && ceoText.length > 10) {
+                        addMessageWithTime(container, 'ceo', 'Agente CEO', ceoText, timestamp);
                         rendered++;
                     }
                 });
 
-                // Strong fallback: always show the last substantial chunk of the file if we couldn't parse structured messages
-                if (rendered === 0 && text.length > 400) {
-                    // Take the last ~4000 characters and show them cleanly
-                    let lastChunk = text.trim().slice(-4200);
-                    // Try to start from a reasonable point (after a timestamp if possible)
-                    const lastTimestamp = lastChunk.lastIndexOf('### 🕒');
-                    if (lastTimestamp > 100) {
-                        lastChunk = lastChunk.substring(lastTimestamp);
-                    }
+                // Fallback if nothing parsed well: show the very end of the file in a clean way
+                if (rendered === 0 && text.length > 500) {
+                    let last = text.trim().slice(-3500);
+                    const lastHeader = last.lastIndexOf('### 🕒');
+                    if (lastHeader > 50) last = last.substring(lastHeader);
 
-                    const fallback = document.createElement('div');
-                    fallback.style.cssText = 'background:#1a1a22; padding:18px; border-radius:14px; border:1px solid #3a3a48; font-size:0.92rem; white-space:pre-wrap; line-height:1.55; max-height:70vh; overflow:auto;';
-                    fallback.textContent = lastChunk;
-                    container.appendChild(fallback);
-                    rendered = 1;
+                    const div = document.createElement('div');
+                    div.style.cssText = 'background:#1f1f2e; padding:16px; border-radius:12px; border:1px solid #3a3a48; font-size:0.9rem; white-space:pre-wrap; line-height:1.5;';
+                    div.textContent = last;
+                    container.appendChild(div);
                 }
 
-                // Always force scroll to the very bottom so the latest content is visible
+                // Force scroll to latest message
                 const chatWindow = document.getElementById('chatWindow');
                 setTimeout(() => {
                     chatWindow.scrollTop = chatWindow.scrollHeight;
@@ -405,6 +403,37 @@
                 <div style="display:flex; flex-direction:column; width:100%;">
                     <div class="label">${label}</div>
                     <div class="bubble">${safe}</div>
+                </div>
+            `;
+            container.appendChild(div);
+        }
+
+        // Clean text: remove markdown, placeholders, extra lines
+        function cleanText(str) {
+            return str
+                .replace(/\[Respuesta completa.*?\]/gi, '')
+                .replace(/\[Mensaje completo.*?\]/gi, '')
+                .replace(/\*\*/g, '')
+                .replace(/^>\s?/gm, '')
+                .replace(/^\s*[-•]\s*/gm, '')
+                .replace(/\n{3,}/g, '\n\n')
+                .trim();
+        }
+
+        function addMessageWithTime(container, type, label, text, timestamp) {
+            const div = document.createElement('div');
+            div.className = `message ${type}`;
+
+            const safe = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const timeHTML = timestamp 
+                ? `<div class="timestamp">${timestamp}</div>` 
+                : '';
+
+            div.innerHTML = `
+                <div style="display:flex; flex-direction:column; width:100%;">
+                    <div class="label">${label}</div>
+                    <div class="bubble">${safe}</div>
+                    ${timeHTML}
                 </div>
             `;
             container.appendChild(div);
