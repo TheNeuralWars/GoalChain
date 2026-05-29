@@ -50,6 +50,12 @@ function switchTab(tabId) {
     if (tabId === 'finance') document.getElementById('financeSection').classList.add('active');
     if (tabId === 'academy') document.getElementById('academySection').classList.add('active');
     if (tabId === 'guide') document.getElementById('guideSection').classList.add('active');
+    if (tabId === 'ceo') {
+        const ceoSection = document.getElementById('ceoLogSection');
+        if (ceoSection) ceoSection.classList.add('active');
+        // Start live chat when tab is opened
+        if (window.initCeoChat) window.initCeoChat();
+    }
 }
 
 // --- DEV TEAM LOGIC ---
