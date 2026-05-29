@@ -46,18 +46,18 @@ async function connectWallet() {
             const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
             if (isMobile) {
-                // On mobile: offer to open directly in Phantom
-                const shouldOpen = confirm(
-                    "No se detectó wallet inyectada.\n\n" +
-                    "¿Quieres abrir esta página directamente dentro de Phantom para conectar tu wallet?"
-                );
+                // Mobile flow: Use Phantom deep link to request connection
+                // This will open Phantom app, user approves, then returns to Chrome with the connection
+                const currentUrl = window.location.href;
 
-                if (shouldOpen) {
-                    // Phantom deep link to open current page in their in-app browser
-                    const currentUrl = encodeURIComponent(window.location.href);
-                    // Phantom universal link format
-                    window.location.href = `https://phantom.app/ul/browse/${currentUrl}`;
-                }
+                // Phantom connect deep link (requests connection from the installed app)
+                const connectUrl = 
+                    `https://phantom.app/ul/v1/connect?` +
+                    `app_url=${encodeURIComponent(window.location.origin)}&` +
+                    `redirect_link=${encodeURIComponent(currentUrl)}&` +
+                    `cluster=mainnet-beta`;
+
+                window.location.href = connectUrl;
                 return;
             } else {
                 // Desktop
@@ -158,4 +158,39 @@ if (window.solana) {
             window.location.reload();
         }
     });
+}
+
+// Handle return from Phantom mobile app after user approves the connection request
+// This allows staying in normal Chrome while connecting via the installed Phantom app
+function handlePhantomMobileRedirect() {
+    const params = new URLSearchParams(window.location.search);
+    
+    let address = params.get('public_key') || 
+                  params.get('address') ||
+                  params.get('phantom_encryption_public_key');
+
+    // Some flows return the address inside the 'data' parameter
+    const dataParam = params.get('data');
+    if (!address && dataParam) {
+        try {
+            const decoded = atob(dataParam);
+            if (decoded.length > 30 && decoded.length < 60) {
+                address = decoded;
+            }
+        } catch (e) {}
+    }
+
+    if (address && address.length > 30) {
+        console.log("%c[Phantom Mobile] Connection successful via deep link", "color:#22c55e");
+        verifyAccess(address);
+
+        // Clean up the URL
+        const cleanUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState({}, document.title, cleanUrl);
+    }
+}
+
+// Run on load
+if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', handlePhantomMobileRedirect);
 }
