@@ -38,6 +38,22 @@
     background: rgba(255,255,255,0.05);
     padding: 5px;
     border-radius: 12px;
+    /* Mobile horizontal scroll support */
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar visually but keep functionality */
+.colab-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+/* Make individual tabs not shrink too much on mobile */
+.tab-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
 .tab-btn {
@@ -65,6 +81,33 @@
     border-radius: 50px;
     border: 1px solid var(--border);
     font-size: 0.8rem;
+}
+
+/* Mobile improvements for tab navigation */
+@media (max-width: 768px) {
+    .colab-nav {
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .colab-tabs {
+        order: 3;           /* Move tabs to bottom row on mobile */
+        width: 100%;
+        margin-top: 4px;
+        padding: 4px;
+        border-radius: 10px;
+    }
+
+    .tab-btn {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.75rem;
+    }
+
+    .user-badge {
+        padding: 4px 10px;
+        font-size: 0.7rem;
+    }
 }
 
 #userRole {
