@@ -3,9 +3,11 @@ import { SimulationBadge } from '../components/SimulationBadge';
 import { SquadGallery } from './SquadGallery';
 import { UserProfile } from './UserProfile';
 import { CreateUser } from './CreateUser';
+import { NFTMarketplace } from './NFTMarketplace';
+import { AICoach } from './AICoach';
 
 export function ClubPortal() {
-  const [activeSubTab, setActiveSubTab] = useState<'squad' | 'profile'>('squad');
+  const [activeSubTab, setActiveSubTab] = useState<'squad' | 'market' | 'coach' | 'profile'>('squad');
   const [hasAccount, setHasAccount] = useState(false);
   const [username, setUsername] = useState('demo_user');
 
@@ -34,8 +36,10 @@ export function ClubPortal() {
   }, []);
 
   const tabs = [
-    { id: 'squad', label: '👕 Mi Plantilla (NFTs)', desc: 'Colección de jugadores, estadísticas y niveles' },
-    { id: 'profile', label: '👤 Perfil de Manager', desc: 'Tu identidad en GoalChain y estadísticas on-chain' },
+    { id: 'squad', label: '👕 Mi Plantilla (NFTs)', desc: 'Colección de jugadores y estamina' },
+    { id: 'market', label: '🛒 Mercado Fichajes', desc: 'Compra cartas en SOL o en Cash' },
+    { id: 'coach', label: '🤖 Asistente IA (Eliza)', desc: 'Asesoría táctica e inteligencia' },
+    { id: 'profile', label: '👤 Perfil de Manager', desc: 'Tu reputación e identidad' },
   ] as const;
 
   return (
@@ -52,7 +56,7 @@ export function ClubPortal() {
         </p>
 
         {/* Glassmorphic Tabs Navigation */}
-        <div className="portal-tabs portal-tabs--two-col">
+        <div className="portal-tabs" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '8px' }}>
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -70,6 +74,16 @@ export function ClubPortal() {
         {activeSubTab === 'squad' && (
           <div className="portal-fade-in">
             <SquadGallery />
+          </div>
+        )}
+        {activeSubTab === 'market' && (
+          <div className="portal-fade-in">
+            <NFTMarketplace />
+          </div>
+        )}
+        {activeSubTab === 'coach' && (
+          <div className="portal-fade-in">
+            <AICoach />
           </div>
         )}
         {activeSubTab === 'profile' && (

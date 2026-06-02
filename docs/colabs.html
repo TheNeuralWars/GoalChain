@@ -335,7 +335,7 @@
             </section>
 
             <!-- SECTION: ACADEMY ADMIN (cNFTs) -->
-            <section id="academySection" class="tab-content" style="display:none;">
+            <section id="academySection" class="tab-content">
                 <div class="colab-header">
                     <h2>🌱 Academy Management (Admin)</h2>
                     <p>Gestión de Merkle Trees, metadatos y despliegue de colecciones comprimidas.</p>
@@ -384,7 +384,7 @@
             </section>
 
             <!-- SECTION: MEGA GUIDE PORTAL (SIDE-BY-SIDE v1.0 & v2.0) -->
-            <section id="guideSection" class="tab-content" style="display:none;">
+            <section id="guideSection" class="tab-content">
                 <div class="colab-header">
                     <h2>📖 Biblioteca de Guías del Ecosistema GoalChain</h2>
                     <p>Accede a las especificaciones oficiales y la evolución de nuestra arquitectura SportsFi.</p>
@@ -429,7 +429,7 @@
             </section>
 
             <!-- SECTION: AGENTE CEO LOG (Chat UI) -->
-            <section id="ceoLogSection" class="tab-content" style="display:none; padding: 0;">
+            <section id="ceoLogSection" class="tab-content" style="padding: 0;">
                 <div style="max-width: 980px; margin: 0 auto; padding: 20px 20px 40px;">
                     
                     <!-- Chat Header -->
@@ -477,7 +477,7 @@
             </section>
 
             <!-- SECTION: PANEL DE CONTROL (Mirror of Discord Manager buttons) -->
-            <section id="controlPanelSection" class="tab-content" style="display:none;">
+            <section id="controlPanelSection" class="tab-content">
                 <div class="colab-header">
                     <h2>🛠️ Panel de Control Integrado</h2>
                     <p>Espejo funcional de los botones del @GoalChain Manager en Discord. Las acciones se ejecutan en la infraestructura real.</p>
@@ -692,13 +692,13 @@
             }
         });
 
-        // Ensure CEO tab section shows correctly when .active is added
+        // Ensure all active tab sections show correctly and override inline hidden states
         const style = document.createElement('style');
         style.innerHTML = `
-            #ceoLogSection.tab-content.active {
+            .tab-content.active {
                 display: block !important;
             }
-            #ceoLogSection.tab-content {
+            .tab-content {
                 display: none;
             }
         `;
