@@ -1,5 +1,8 @@
 # HANDOFF → Hermes (GoalChain Manager)
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/259
+- **Task Status:** ready
+
 **To:** Hermes / GoalChain Manager (`jito-strategy` profile)  
 **From:** Cursor (local session, bridge down)  
 **Date:** 2026-05-26  

@@ -1,5 +1,8 @@
 # Handoff Antigravity — Hermes + OpenClaw + Voice (GoalChain)
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/244
+- **Task Status:** ready
+
 - **Status:** done (OpenClaw + WhatsApp Manager; Twilio voice optional/deferred)
 - **Priority:** P1
 - **Owner (implementer):** antigravity

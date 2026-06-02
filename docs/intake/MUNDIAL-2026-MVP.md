@@ -1,5 +1,8 @@
 # Mundial 2026 — Play devnet MVP (bet + claim)
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/272
+- **Task Status:** ready
+
 - **Date:** 2026-05-26
 - **Status:** ready
 - **Priority:** P0

@@ -1,5 +1,8 @@
 # FCC queue reconciliation + model_not_supported retry — Antigravity (hands-free)
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/262
+- **Task Status:** ready
+
 - **Date:** 2026-05-27
 - **Status:** done
 - **Owner:** Antigravity (implement + merge)

@@ -1,5 +1,8 @@
 # Hermes + GBrain + GitHub Copilot — reconfiguración
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/252
+- **Task Status:** ready
+
 - **Date:** 2026-05-24
 - **Status:** in_progress
 - **Owner:** Nico + cursor

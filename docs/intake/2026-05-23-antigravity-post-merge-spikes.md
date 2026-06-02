@@ -1,5 +1,8 @@
 # Antigravity — spikes post-merge (GoalChain)
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/245
+- **Task Status:** ready
+
 - **Status:** draft (blocked until PRs #26–#34 en `main`)
 - **Priority:** P2
 - **Owner (implementer):** antigravity

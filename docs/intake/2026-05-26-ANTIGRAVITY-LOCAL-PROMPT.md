@@ -1,5 +1,8 @@
 # Prompt para Antigravity (Mac local) — copiar y pegar
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/257
+- **Task Status:** ready
+
 **Fecha:** 2026-05-26  
 **Rama sugerida:** `feat/mundial-integration` (desde `main` actualizado)
 
