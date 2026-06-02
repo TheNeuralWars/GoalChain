@@ -468,6 +468,14 @@ main_loop() {
   while [[ -f "${RUN_FLAG}" ]]; do
     publish_research_updates
     consume_webhook_queue
+
+    # Run the autonomous reviewer to audit and merge open PRs
+    if [[ -x "${HERMES_HOME}/scripts/autonomic-reviewer.sh" ]]; then
+      bash "${HERMES_HOME}/scripts/autonomic-reviewer.sh" || true
+    elif [[ -x "${SCRIPT_DIR}/autonomic-reviewer.sh" ]]; then
+      bash "${SCRIPT_DIR}/autonomic-reviewer.sh" || true
+    fi
+
     local issue
     issue="$(pick_next_opencode_issue || true)"
     if [[ -n "${issue}" ]]; then
