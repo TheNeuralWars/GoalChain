@@ -2,6 +2,8 @@
 
 Este documento contiene la alineación titular completa (11 jugadores) de cada una de las 48 naciones participantes, con sus nombres Web3 parodiados y descripciones precisas para la generación de imágenes.
 
+**Actualizado (2026-06):** Los datos de los 11 titulares por selección (players.json) han sido enriquecidos con información oficial confirmada + parámetros reales de Transfermarkt.it (market value, club actual, pie preferido, altura/peso en cm/kg, caps/goles NT, URLs TM, posición detallada) para uso en NFTs (rarity, metadata) y dinámicas del juego (salarios GCH, boosts, oracle de rendimiento). Ver `ai_context/03_data/players.json` y `docs/assets/data/players.json`. Argentina 11 verificado vs anuncios recientes de Scaloni + TM. Estructura lista para las otras 47 selecciones.
+
 ---
 
 ### 🇦🇷 ARGENTINA (The Champions)
