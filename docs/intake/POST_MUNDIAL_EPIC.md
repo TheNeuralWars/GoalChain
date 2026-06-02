@@ -1,5 +1,8 @@
 # Epic: Post-Mundial Backlog — Markets, Genesis Vault, Mainnet
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/273
+- **Task Status:** ready
+
 **Issue:** [#157](https://github.com/TheNeuralWars/GoalChain/issues/157)  
 **Backlog ID:** 49  
 **Priority:** P2 (Epic)  

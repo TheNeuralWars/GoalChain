@@ -1,5 +1,8 @@
 # Hermes bridge reconnect — Mac (Cursor) ↔ VPS (Manager)
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/258
+- **Task Status:** ready
+
 - **Date:** 2026-05-26
 - **Status:** ready
 - **Priority:** P0

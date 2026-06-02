@@ -1,5 +1,8 @@
 # X-Scout v2 — foro active-research (anti-spam)
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/256
+- **Task Status:** ready
+
 - **Date:** 2026-05-25
 - **Status:** done
 - **Owner:** Cursor (draft) / Antigravity merge

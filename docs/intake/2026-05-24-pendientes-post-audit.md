@@ -1,5 +1,8 @@
 # Pendientes post-audit (retomar)
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/253
+- **Task Status:** ready
+
 - **Date:** 2026-05-24
 - **Status:** ready
 - **Owner:** Nico (infra) + cursor (cuando haya acceso)

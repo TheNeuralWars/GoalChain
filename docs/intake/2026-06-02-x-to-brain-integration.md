@@ -1,4 +1,7 @@
 # Brief: Integrar Herramientas del Feed de X a la Memoria de GBrain
+
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/268
+- **Task Status:** ready
 **Status:** ready
 **Priority:** P1
 

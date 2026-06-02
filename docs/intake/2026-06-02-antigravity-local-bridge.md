@@ -1,4 +1,7 @@
 # Brief: Activar Puente Físico con Antigravity en Mac Local
+
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/266
+- **Task Status:** ready
 **Status:** ready
 **Priority:** P1
 

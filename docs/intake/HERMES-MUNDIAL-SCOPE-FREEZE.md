@@ -1,5 +1,8 @@
 # Hermes intake policy — Mundial scope freeze
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/270
+- **Task Status:** ready
+
 **Effective:** 2026-05-26 until 2026-06-11
 
 ## Accept (P0)

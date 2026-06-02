@@ -1,4 +1,7 @@
 # Brief: Robustecer Loop de Auto-Corrección y QA en tmux
+
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/267
+- **Task Status:** ready
 **Status:** ready
 **Priority:** P1
 

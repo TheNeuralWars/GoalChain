@@ -1,5 +1,8 @@
 # LangGraph — Empresa autónoma de agentes GoalChain
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/264
+- **Task Status:** ready
+
 **Status:** `ready` (Fase 0 scaffold en repo; VPS deploy pendiente Antigravity)  
 **Owner:** Nico (CEO) · **Implementación VPS:** Antigravity  
 **Vértice:** V7 Ops / agentes (complementa Hermes, no lo reemplaza)

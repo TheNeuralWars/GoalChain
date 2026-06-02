@@ -1,5 +1,8 @@
 # 2026-05-23-necesito-un-agente-que-monitoree-el-yield-del-vault
 
+- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/248
+- **Task Status:** ready
+
 - **Status:** draft
 - **Priority:** P2
 - **Owner:** cursor
