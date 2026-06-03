@@ -87,7 +87,7 @@ def transcribe_audio_gemini(audio_bytes, mime_type="audio/ogg"):
     if response.status_code == 200:
         data = response.json()
         try:
-            text = data["contents"][0]["parts"][0]["text"].strip()
+            text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
             return text
         except (KeyError, IndexError) as e:
             raise Exception(f"Failed parsing Gemini API response: {e}. Raw response: {response.text}")
