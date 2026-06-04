@@ -37,12 +37,31 @@ const RARITY_COLORS: Record<string, string> = {
   common: '#cbd5e1',
 };
 
+const FALLBACK_TREASURY = 'FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg';
+
 export function NFTMarketplace() {
   const { connection } = useConnection();
   const { publicKey, sendTransaction } = useWallet();
   const [listings, setListings] = useState<PlayerNFT[]>([]);
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [loadingId, setLoadingId] = useState<number | null>(null);
+  const [treasuryAddress, setTreasuryAddress] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchTreasury = async () => {
+      try {
+        const apiBase = import.meta.env.VITE_API_BASE_URL || '';
+        const res = await fetch(`${apiBase}/api/economy/config`);
+        if (!res.ok) return;
+        const data = await res.json();
+        const addr = data?.onchainConfig?.treasuryTokenAccount || FALLBACK_TREASURY;
+        setTreasuryAddress(addr || null);
+      } catch {
+        setTreasuryAddress(null);
+      }
+    };
+    fetchTreasury();
+  }, []);
 
   // Load players and simulate listings on mount
   useEffect(() => {
@@ -103,7 +122,12 @@ export function NFTMarketplace() {
     }
 
     try {
-      const destination = new solanaWeb3.PublicKey('FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg'); // Tesorería
+      if (!treasuryAddress) {
+        alert('⚠️ Tesorería no disponible en este momento. La compra en SOL está deshabilitada.');
+        setLoadingId(null);
+        return;
+      }
+      const destination = new solanaWeb3.PublicKey(treasuryAddress);
       const priceStr = player.price.split(' ')[0];
       const priceSol = parseFloat(priceStr) || 0.1;
       const lamports = Math.floor(priceSol * 1_000_000); // Scaled for devnet testing (0.001 SOL per listed SOL)
@@ -154,6 +178,11 @@ export function NFTMarketplace() {
           <h2 className="text-neon-purple" style={{ margin: 0, borderBottom: 'none', paddingBottom: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
             🛒 Mercado de Transferencias
             <SimulationBadge />
+            {treasuryAddress === null && (
+              <span style={{ fontSize: '0.6rem', color: 'var(--accent-red)', fontWeight: 600 }}>
+                ⛔ SOL OFFLINE
+              </span>
+            )}
           </h2>
           <p style={{ opacity: 0.7, fontSize: '0.8rem', marginTop: '4px' }}>
             Ficha jugadores de otros managers en tiempo real. Soporta compra on-chain en SOL o compra simulada en Cash.
@@ -259,11 +288,17 @@ export function NFTMarketplace() {
                     <button 
                       onClick={() => handleBuy(player, 'solana')} 
                       className="btn-neon-green"
-                      style={{ padding: '8px', fontSize: '0.78rem', fontWeight: 900, borderRadius: '8px', cursor: 'pointer' }}
-                      disabled={loadingId === player.id}
+                      style={{ padding: '8px', fontSize: '0.78rem', fontWeight: 900, borderRadius: '8px', cursor: 'pointer', opacity: treasuryAddress ? 1 : 0.4 }}
+                      disabled={loadingId === player.id || !treasuryAddress}
+                      title={treasuryAddress ? undefined : 'Tesorería no disponible — compra en SOL deshabilitada'}
                     >
                       {loadingId === player.id ? 'PROCESANDO...' : '⚡ COMPRAR CON SOL'}
                     </button>
+                    {!treasuryAddress && (
+                      <span style={{ fontSize: '0.65rem', color: 'var(--accent-red)', textAlign: 'center' }}>
+                        ⚠️ Tesorería no disponible — solo compra en Cash
+                      </span>
+                    )}
                   </div>
 
                 </div>
