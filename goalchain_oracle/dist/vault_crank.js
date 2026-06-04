@@ -125,7 +125,17 @@ async function main() {
                 }
                 // On-chain harvest / burn transaction fallback (works on Devnet & Localnet)
                 notes.push("Executing on-chain transaction...");
-                const transaction = new Transaction().add(SystemProgram.transfer({
+                const transaction = new Transaction();
+                try {
+                    const { getPriorityFeeInstructions } = await import("./priorityFees.js");
+                    const priorityFeeIxs = await getPriorityFeeInstructions(connection, [payer.publicKey.toBase58()], 50000);
+                    transaction.add(...priorityFeeIxs);
+                    notes.push(`Added Compute Budget & Helius Priority Fees to transfer transaction.`);
+                }
+                catch (feeErr) {
+                    notes.push(`Could not fetch dynamic priority fee instructions (falling back): ${feeErr.message}`);
+                }
+                transaction.add(SystemProgram.transfer({
                     fromPubkey: payer.publicKey,
                     toPubkey: new PublicKey("11111111111111111111111111111111"), // System burn
                     lamports: Math.min(1000000, Math.round(buybackSol * 1e9)), // Limit devnet/localnet test lamports to 0.001 SOL

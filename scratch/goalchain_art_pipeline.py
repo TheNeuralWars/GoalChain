@@ -255,7 +255,7 @@ def main_menu():
         print(f"   {Term.CYAN}[4]{Term.RESET} Salir de la consola del Motor")
         print(f"{Term.GRID}────────────────────────────────────────────────────────{Term.RESET}")
         
-        choice = input(f"\n{Term.BOLD}Ingresa tu opción (1-4): {Term.RESET}").strip()
+        choice = "2"
 
         if choice == '1':
             show_prompts()

@@ -19,8 +19,8 @@ HERMES_HOME = os.getenv("HERMES_HOME", os.path.expanduser("~/hermes"))
 REPO_ROOT = os.getenv("GOALCHAIN_REPO_PATH", os.path.join(HERMES_HOME, "workspace/GoalChain"))
 INTAKE_DIR = os.path.join(REPO_ROOT, "docs/intake")
 
-# Local Gemini Web API proxy
-LOCAL_API_URL = "http://localhost:8081/v1/chat/completions"
+# Local Unified Gateway Web API proxy
+LOCAL_API_URL = "http://localhost:8080/v1/chat/completions"
 CHAT_HISTORY = {} # Keep conversation history: chat_id -> list of message dicts
 
 # Load Gemini API Key from active environment or process proc environment fallback
@@ -160,7 +160,7 @@ def chat_with_gemini(chat_id, user_text):
         
     try:
         payload = {
-            "model": "gemini-3.5-flash-thinking",
+            "model": "claude-opus-4.8",
             "messages": CHAT_HISTORY[chat_id]
         }
         res = requests.post(LOCAL_API_URL, json=payload, timeout=90)

@@ -53,7 +53,9 @@ async function main() {
             else if (matchState.scoreB > matchState.scoreA) {
                 winnerObj = { teamB: {} };
             }
-            await oracle.completeFixture(matchState.matchId, winnerObj);
+            await oracle.completeFixture(matchState.matchId, winnerObj, {
+                participantPlayerIds: matchState.participantPlayerIds,
+            });
         }
         console.log(`[Oracle Driver] ✅ Feeder run completed successfully.`);
     }

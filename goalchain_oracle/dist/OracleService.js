@@ -1,7 +1,7 @@
 import pkg from "@coral-xyz/anchor";
 const { BN } = pkg;
 import * as anchor from "@coral-xyz/anchor";
-import { Connection, Keypair, PublicKey, SystemProgram, Transaction } from "@solana/web3.js";
+import { Connection, Keypair, PublicKey, SystemProgram, Transaction, } from "@solana/web3.js";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import * as fs from "fs";
 import * as path from "path";
@@ -45,7 +45,7 @@ export class OracleService {
      */
     async sendWithPriorityFees(methodBuilder, keysForPriorityEstimate, computeUnitsLimit = 200000) {
         const instruction = await methodBuilder.instruction();
-        const accountKeys = keysForPriorityEstimate.map(k => k.toBase58());
+        const accountKeys = keysForPriorityEstimate.map((k) => k.toBase58());
         const priorityFeeIxs = await getPriorityFeeInstructions(this.connection, accountKeys, computeUnitsLimit);
         const tx = new Transaction();
         tx.add(...priorityFeeIxs, instruction);
@@ -61,19 +61,21 @@ export class OracleService {
         await this.connection.confirmTransaction({
             signature: txid,
             blockhash: latestBlockhash.blockhash,
-            lastValidBlockHeight: latestBlockhash.lastValidBlockHeight
+            lastValidBlockHeight: latestBlockhash.lastValidBlockHeight,
         }, "confirmed");
         return txid;
     }
     /**
      * Synchronizes the global config to authorize this Oracle's wallet.
      */
-    async syncOracleAuthority(treasuryAta) {
+    async syncOracleAuthority(treasuryAta, jackpotAta) {
+        const effectiveJackpotAta = jackpotAta ?? treasuryAta;
         const configInfo = await this.connection.getAccountInfo(this.configPda);
         let method;
         if (!configInfo) {
             method = this.program.methods
-                .initializeConfig(this.wallet.publicKey, treasuryAta, 1000, new BN(15 * 60))
+                .initializeConfig(this.wallet.publicKey, treasuryAta, effectiveJackpotAta, 100, // 1% max founder-capture aligned
+            new BN(15 * 60), new BN(2 * anchor.web3.LAMPORTS_PER_SOL), true)
                 .accounts({
                 admin: this.wallet.publicKey,
                 config: this.configPda,
@@ -82,13 +84,17 @@ export class OracleService {
         }
         else {
             method = this.program.methods
-                .updateConfig(this.wallet.publicKey, treasuryAta, 1000, new BN(15 * 60))
+                .updateConfig(this.wallet.publicKey, treasuryAta, effectiveJackpotAta, 100, // 1% max founder-capture aligned
+            new BN(15 * 60), new BN(2 * anchor.web3.LAMPORTS_PER_SOL), true)
                 .accounts({
                 admin: this.wallet.publicKey,
                 config: this.configPda,
             });
         }
-        const tx = await this.sendWithPriorityFees(method, [this.wallet.publicKey, this.configPda]);
+        const tx = await this.sendWithPriorityFees(method, [
+            this.wallet.publicKey,
+            this.configPda,
+        ]);
         console.log(`[Oracle] 🛡️ Synced Oracle Authority to: ${this.wallet.publicKey.toBase58()}. Tx: ${tx}`);
         return tx;
     }
@@ -107,7 +113,11 @@ export class OracleService {
                 fixture: fixturePda,
                 systemProgram: SystemProgram.programId,
             });
-            const tx = await this.sendWithPriorityFees(method, [this.wallet.publicKey, this.configPda, fixturePda]);
+            const tx = await this.sendWithPriorityFees(method, [
+                this.wallet.publicKey,
+                this.configPda,
+                fixturePda,
+            ]);
             console.log(`[Oracle] ✅ Fixture ${matchId} initialized! Tx: ${tx}`);
             return tx;
         }
@@ -133,7 +143,12 @@ export class OracleService {
                 liveState: liveStatePda,
                 systemProgram: SystemProgram.programId,
             });
-            const tx = await this.sendWithPriorityFees(method, [this.wallet.publicKey, this.configPda, fixturePda, liveStatePda]);
+            const tx = await this.sendWithPriorityFees(method, [
+                this.wallet.publicKey,
+                this.configPda,
+                fixturePda,
+                liveStatePda,
+            ]);
             console.log(`[Oracle] ✅ Live state updated for ${matchId}. Tx: ${tx}`);
             return tx;
         }
@@ -165,7 +180,13 @@ export class OracleService {
                 tokenProgram: TOKEN_PROGRAM_ID,
                 systemProgram: SystemProgram.programId,
             });
-            const tx = await this.sendWithPriorityFees(method, [this.wallet.publicKey, this.configPda, fixturePda, marketPda, tokenMint]);
+            const tx = await this.sendWithPriorityFees(method, [
+                this.wallet.publicKey,
+                this.configPda,
+                fixturePda,
+                marketPda,
+                tokenMint,
+            ]);
             console.log(`[Oracle] ✅ Live Market ${marketId} opened successfully! Tx: ${tx}`);
             return tx;
         }
@@ -177,8 +198,7 @@ export class OracleService {
     /**
      * Resolves a live market, declaring a winner and allowing users to claim payouts.
      */
-    async resolveMarket(matchId, marketId, winner // e.g. { teamA: {} }, { teamB: {} }, { draw: {} }
-    ) {
+    async resolveMarket(matchId, marketId, winner) {
         console.log(`[Oracle] ⚖️ Resolving Live Market (ID: ${marketId}) for ${matchId}...`);
         const [fixturePda] = PublicKey.findProgramAddressSync([Buffer.from("fixture"), Buffer.from(matchId)], this.program.programId);
         const [marketPda] = PublicKey.findProgramAddressSync([Buffer.from("market"), fixturePda.toBuffer(), Buffer.from([marketId])], this.program.programId);
@@ -190,7 +210,11 @@ export class OracleService {
                 config: this.configPda,
                 market: marketPda,
             });
-            const tx = await this.sendWithPriorityFees(method, [this.wallet.publicKey, this.configPda, marketPda]);
+            const tx = await this.sendWithPriorityFees(method, [
+                this.wallet.publicKey,
+                this.configPda,
+                marketPda,
+            ]);
             console.log(`[Oracle] ✅ Live Market ${marketId} resolved! Tx: ${tx}`);
             return tx;
         }
@@ -202,7 +226,7 @@ export class OracleService {
     /**
      * Concludes the match and resolves the pre-match parimutuel betting pools.
      */
-    async completeFixture(matchId, winner) {
+    async completeFixture(matchId, winner, opts) {
         console.log(`[Oracle] 🏁 Completing Fixture ${matchId}...`);
         const [fixturePda] = PublicKey.findProgramAddressSync([Buffer.from("fixture"), Buffer.from(matchId)], this.program.programId);
         try {
@@ -213,12 +237,65 @@ export class OracleService {
                 config: this.configPda,
                 fixture: fixturePda,
             });
-            const tx = await this.sendWithPriorityFees(method, [this.wallet.publicKey, this.configPda, fixturePda]);
+            const tx = await this.sendWithPriorityFees(method, [
+                this.wallet.publicKey,
+                this.configPda,
+                fixturePda,
+            ]);
             console.log(`[Oracle] ✅ Fixture ${matchId} completed! Tx: ${tx}`);
+            const recordOnComplete = process.env.ORACLE_RECORD_MATCH_ON_COMPLETE !== "false";
+            const participants = opts?.participantPlayerIds ?? [];
+            if (recordOnComplete && participants.length > 0) {
+                for (const playerId of participants) {
+                    try {
+                        await this.recordPlayerMatch(matchId, playerId);
+                    }
+                    catch (recordErr) {
+                        console.warn(`[Oracle] recordPlayerMatch skipped for ${playerId} (${matchId}):`, recordErr);
+                    }
+                }
+            }
             return tx;
         }
         catch (error) {
             console.error(`[Oracle] ❌ Failed to complete fixture ${matchId}:`, error);
+            throw error;
+        }
+    }
+    /**
+     * Records that a player participated in a fixture.
+     * Idempotent on-chain per (player, fixture): repeated calls do not double-drain stamina.
+     */
+    async recordPlayerMatch(matchId, playerId) {
+        console.log(`[Oracle] 🧾 Recording match participation: ${playerId} in ${matchId}`);
+        const [fixturePda] = PublicKey.findProgramAddressSync([Buffer.from("fixture"), Buffer.from(matchId)], this.program.programId);
+        const [parodyPlayerPda] = PublicKey.findProgramAddressSync([Buffer.from("player"), Buffer.from(playerId)], this.program.programId);
+        const [playerMatchRecordPda] = PublicKey.findProgramAddressSync([
+            Buffer.from("player_match"),
+            parodyPlayerPda.toBuffer(),
+            fixturePda.toBuffer(),
+        ], this.program.programId);
+        try {
+            const method = this.program.methods.oracleRecordMatch().accounts({
+                oracleAuthority: this.wallet.publicKey,
+                config: this.configPda,
+                parodyPlayer: parodyPlayerPda,
+                fixture: fixturePda,
+                playerMatchRecord: playerMatchRecordPda,
+                systemProgram: SystemProgram.programId,
+            });
+            const tx = await this.sendWithPriorityFees(method, [
+                this.wallet.publicKey,
+                this.configPda,
+                parodyPlayerPda,
+                fixturePda,
+                playerMatchRecordPda,
+            ]);
+            console.log(`[Oracle] ✅ Player match participation recorded for ${playerId} (${matchId}). Tx: ${tx}`);
+            return tx;
+        }
+        catch (error) {
+            console.error(`[Oracle] ❌ Failed to record player match for ${playerId} (${matchId}):`, error);
             throw error;
         }
     }
@@ -236,7 +313,11 @@ export class OracleService {
                 config: this.configPda,
                 parodyPlayer: parodyPlayerPda,
             });
-            const tx = await this.sendWithPriorityFees(method, [this.wallet.publicKey, this.configPda, parodyPlayerPda]);
+            const tx = await this.sendWithPriorityFees(method, [
+                this.wallet.publicKey,
+                this.configPda,
+                parodyPlayerPda,
+            ]);
             console.log(`[Oracle] ✅ Player ${playerId} stats updated! Tx: ${tx}`);
             return tx;
         }
