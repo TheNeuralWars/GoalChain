@@ -37,8 +37,6 @@ const RARITY_COLORS: Record<string, string> = {
   common: '#cbd5e1',
 };
 
-const FALLBACK_TREASURY = 'FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg';
-
 export function NFTMarketplace() {
   const { connection } = useConnection();
   const { publicKey, sendTransaction } = useWallet();
@@ -54,8 +52,12 @@ export function NFTMarketplace() {
         const res = await fetch(`${apiBase}/api/economy/config`);
         if (!res.ok) return;
         const data = await res.json();
-        const addr = data?.onchainConfig?.treasuryTokenAccount || FALLBACK_TREASURY;
-        setTreasuryAddress(addr || null);
+        const treasury = data?.onchainConfig?.treasuryTokenAccount;
+        // Use on-chain treasury when the validator is live.
+        // When on-chain config is missing (no local validator), leave
+        // treasury as null so the SOL button is disabled — never send
+        // to the hardcoded program ID fallback.
+        setTreasuryAddress(treasury || null);
       } catch {
         setTreasuryAddress(null);
       }
