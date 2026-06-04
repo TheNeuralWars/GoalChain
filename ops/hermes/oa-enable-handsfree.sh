@@ -128,7 +128,7 @@ else
   ensure_key "OA_AGENT_OPENCODE_CMD" "bash ${HERMES_HOME}/scripts/oa-dispatch-local.sh opencode"
 fi
 ensure_key "OA_MODEL" "xai/grok-4.3"
-ensure_key "OA_CODE_MODEL" "github-copilot/claude-sonnet-4.5"
+ensure_key "OA_CODE_MODEL" "opencode/nemotron-3-ultra-free"
 
 echo "Hands-free installer completed."
 echo ""

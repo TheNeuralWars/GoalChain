@@ -47,7 +47,7 @@ resolve_tier() {
 
 OA_CODE_ENGINE="${OA_CODE_ENGINE:-auto}"
 OA_CODE_CMD="${OA_CODE_CMD:-}"
-OA_CODE_MODEL="${OA_CODE_MODEL:-github-copilot/claude-sonnet-4.5}"
+OA_CODE_MODEL="opencode/nemotron-3-ultra-free"
 OA_MODEL="${OA_MODEL:-xai/grok-4.3}"
 TIMEOUT_SEC="${OA_CODE_TIMEOUT_SEC:-3600}"
 
