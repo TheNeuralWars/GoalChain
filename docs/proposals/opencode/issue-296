@@ -1,0 +1,38 @@
+# Proposal: English Localization of Webapp UI (Issue #296)
+
+## Objective
+Wire `goalchain_webapp` consume existing i18n/cost localStorage persisten toggle.
+
+## Files to Modify
+
+### 1. Add i18n
+```src/ui/18n.ts` (new file)
+- Translation helper functions)
+- `t()` function for
+- Language state from localStorageor `gc_lang`)
+
+### 2. `goalchai_webapp/scr/App.tsx`
+- Add `EN | ES` menu top-level
+- Persist selection to `localStorage``gc_lang`
+- Load at startup
+### 3lang`
+- Rename hardcapi strings call `t(..)`
+
+##r theingFiles rkthrough** theo):### key:
+- ~~`goalchei18n.tsx
+Now  <nial tjs` -source
+ t - (allml): `t('nav_etc`)`r_`n_atoresult', 'd _bl
+
+##sing + Regressions
+- **gical name change** - just'alias toamings'
+- **e retro compatibili** – defults to `en` (campaiglaguage) -- **TyperrorsS** – helpr isung uded, no new dependes
+
+- **Rallback** -eiver:10nid ed thewebsh aft y coles
+---e ##stepsteps
+```b
+# Buildkchain- then lint SDK (`npm rum build`# then Liut tyc --noEmi && ## RollackPlascad Ri: `git reset --hard HEAD~1`tor tran## Test Cmd`
+```basopencodeex/GoalChai && npm run build && cd ./goalchain_webapnpx tsc --noEmit
+```
+## P0 — camess (acttive)ml
+-ll di chane-snoeference draft PRuness merg  `#296`noansitiude no otc hererges unles`cambio urgnt` wo r'
+</parameter=description>

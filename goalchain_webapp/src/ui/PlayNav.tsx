@@ -5,6 +5,7 @@ import {
   RESOURCE_LINKS,
   type PlayNavItem,
 } from '../config/playNav';
+import { LanguageToggle } from '../components/LanguageToggle';
 
 function useStoredUserLink(): { to: string; label: string } {
   const [userNav, setUserNav] = useState({ to: '/crear-usuario', label: '✨ Crear cuenta' });
@@ -75,15 +76,18 @@ export function PlayNav() {
             Goal<span className="play-nav-brand-accent">Chain</span> Play
           </span>
         </Link>
-        <button
-          type="button"
-          className="play-nav-toggle"
-          aria-expanded={mobileOpen}
-          aria-controls="play-nav-menu"
-          onClick={() => setMobileOpen((o) => !o)}
-        >
-          {mobileOpen ? '✕' : '☰'}
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <LanguageToggle />
+          <button
+            type="button"
+            className="play-nav-toggle"
+            aria-expanded={mobileOpen}
+            aria-controls="play-nav-menu"
+            onClick={() => setMobileOpen((o) => !o)}
+          >
+            {mobileOpen ? '✕' : '☰'}
+          </button>
+        </div>
       </div>
 
       <div id="play-nav-menu" className={`play-nav-menu${mobileOpen ? ' play-nav-menu--open' : ''}`}>

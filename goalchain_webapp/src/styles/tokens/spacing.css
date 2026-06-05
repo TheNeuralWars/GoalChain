@@ -1,0 +1,187 @@
+/**
+ * GoalChain Design System — Spacing Tokens
+ * 4px base unit scale (following Linear, Stripe, Vercel)
+ * Use semantic names for component-specific spacing
+ */
+
+:root {
+  /* ==========================================
+     PRIMITIVE SPACING (4px base unit)
+     ========================================== */
+  --space-0: 0;
+  --space-1: 4px;    /* 0.25rem */
+  --space-2: 8px;    /* 0.5rem */
+  --space-3: 12px;   /* 0.75rem */
+  --space-4: 16px;   /* 1rem — BASE UNIT */
+  --space-5: 20px;   /* 1.25rem */
+  --space-6: 24px;   /* 1.5rem */
+  --space-7: 28px;   /* 1.75rem */
+  --space-8: 32px;   /* 2rem */
+  --space-9: 36px;   /* 2.25rem */
+  --space-10: 40px;  /* 2.5rem */
+  --space-12: 48px;  /* 3rem */
+  --space-14: 56px;  /* 3.5rem */
+  --space-16: 64px;  /* 4rem */
+  --space-20: 80px;  /* 5rem */
+  --space-24: 96px;  /* 6rem */
+  --space-28: 112px; /* 7rem */
+  --space-32: 128px; /* 8rem */
+
+  /* ==========================================
+     SEMANTIC SPACING (Component-level)
+     ========================================== */
+  /* Layout */
+  --space-layout-gutter: var(--space-6);        /* Page gutters */
+  --space-layout-section: var(--space-12);      /* Between major sections */
+  --space-layout-component: var(--space-8);     /* Between components */
+  --space-layout-group: var(--space-4);         /* Related elements group */
+
+  /* Container padding */
+  --space-container-sm: var(--space-4);         /* Small containers, cards */
+  --space-container-md: var(--space-6);         /* Medium containers */
+  --space-container-lg: var(--space-8);         /* Large containers, pages */
+  --space-container-xl: var(--space-12);        /* Full-width sections */
+
+  /* Component internal spacing */
+  --space-component-padding-xs: var(--space-1);
+  --space-component-padding-sm: var(--space-2);
+  --space-component-padding-md: var(--space-3);
+  --space-component-padding-lg: var(--space-4);
+  --space-component-padding-xl: var(--space-6);
+
+  /* Gap spacing (flex/grid gaps) */
+  --space-gap-xs: var(--space-1);
+  --space-gap-sm: var(--space-2);
+  --space-gap-md: var(--space-3);
+  --space-gap-lg: var(--space-4);
+  --space-gap-xl: var(--space-6);
+  --space-gap-2xl: var(--space-8);
+
+  /* Inset spacing (position: absolute insets) */
+  --space-inset-xs: var(--space-1);
+  --space-inset-sm: var(--space-2);
+  --space-inset-md: var(--space-3);
+  --space-inset-lg: var(--space-4);
+
+  /* Stack spacing (vertical rhythm) */
+  --space-stack-xs: var(--space-1);
+  --space-stack-sm: var(--space-2);
+  --space-stack-md: var(--space-3);
+  --space-stack-lg: var(--space-4);
+  --space-stack-xl: var(--space-6);
+  --space-stack-2xl: var(--space-8);
+
+  /* Inline spacing (horizontal rhythm) */
+  --space-inline-xs: var(--space-1);
+  --space-inline-sm: var(--space-2);
+  --space-inline-md: var(--space-3);
+  --space-inline-lg: var(--space-4);
+  --space-inline-xl: var(--space-6);
+
+  /* Icon + text spacing */
+  --space-icon-text: var(--space-2);
+  --space-icon-text-lg: var(--space-3);
+
+  /* Form spacing */
+  --space-form-field: var(--space-4);        /* Between form fields */
+  --space-form-group: var(--space-6);        /* Between field groups */
+  --space-form-section: var(--space-8);      /* Between form sections */
+
+  /* Navigation */
+  --space-nav-item-gap: var(--space-1);
+  --space-nav-group-gap: var(--space-4);
+  --space-nav-section-gap: var(--space-6);
+
+  /* Data display */
+  --space-table-cell-padding: var(--space-3);
+  --space-table-row-gap: var(--space-1);
+  --space-list-item-gap: var(--space-2);
+  --space-card-content-gap: var(--space-4);
+
+  /* Modal / overlay */
+  --space-modal-padding: var(--space-6);
+  --space-modal-gap: var(--space-4);
+  --space-toast-gap: var(--space-3);
+
+  /* ==========================================
+     RESPONSIVE SPACING (adjusts at breakpoints)
+     ========================================== */
+  /* These scale down on mobile */
+  --space-responsive-gutter: var(--space-4);      /* Mobile: 16px, Desktop: 24px */
+  --space-responsive-section: var(--space-8);     /* Mobile: 32px, Desktop: 48px */
+  --space-responsive-container: var(--space-4);   /* Mobile: 16px, Desktop: 24px */
+
+  @media (min-width: 768px) {
+    :root {
+      --space-responsive-gutter: var(--space-6);
+      --space-responsive-section: var(--space-12);
+      --space-responsive-container: var(--space-6);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --space-responsive-gutter: var(--space-8);
+      --space-responsive-section: var(--space-16);
+      --space-responsive-container: var(--space-8);
+    }
+  }
+
+  @media (min-width: 1440px) {
+    :root {
+      --space-responsive-gutter: var(--space-10);
+      --space-responsive-section: var(--space-20);
+      --space-responsive-container: var(--space-10);
+    }
+  }
+}
+
+/* ==========================================
+   UTILITY CLASSES (for rapid prototyping)
+   ========================================== */
+.space-0   { padding: var(--space-0); }
+.space-1   { padding: var(--space-1); }
+.space-2   { padding: var(--space-2); }
+.space-3   { padding: var(--space-3); }
+.space-4   { padding: var(--space-4); }
+.space-5   { padding: var(--space-5); }
+.space-6   { padding: var(--space-6); }
+.space-8   { padding: var(--space-8); }
+.space-10  { padding: var(--space-10); }
+.space-12  { padding: var(--space-12); }
+.space-16  { padding: var(--space-16); }
+
+.px-1 { padding-left: var(--space-1); padding-right: var(--space-1); }
+.px-2 { padding-left: var(--space-2); padding-right: var(--space-2); }
+.px-3 { padding-left: var(--space-3); padding-right: var(--space-3); }
+.px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+.px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+.px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
+
+.py-1 { padding-top: var(--space-1); padding-bottom: var(--space-1); }
+.py-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
+.py-3 { padding-top: var(--space-3); padding-bottom: var(--space-3); }
+.py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+.py-6 { padding-top: var(--space-6); padding-bottom: var(--space-6); }
+.py-8 { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+
+.gap-1 { gap: var(--space-1); }
+.gap-2 { gap: var(--space-2); }
+.gap-3 { gap: var(--space-3); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+.gap-8 { gap: var(--space-8); }
+
+.mt-1 { margin-top: var(--space-1); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+
+.mb-1 { margin-bottom: var(--space-1); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
