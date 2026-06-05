@@ -305,6 +305,10 @@ Before editing, read (in order):
 Issue body (requirements):
 ${body}
 
+CRITICAL COMPATIBILITY RULES FOR NEMOTRON-3-ULTRA-FREE:
+1. DO NOT use the \`todowrite\` tool. It causes schema errors with Nemotron-3. Manage all your tasks and checklists in text format in the proposal file.
+2. DO NOT write or overwrite large files (greater than 50 lines) using the \`write\` tool. Output truncation will break JSON parsing and crash the run. Break changes down into smaller files or modular edits.
+
 Use repo constraints and META principles. Installed skills live in ~/.claude/skills/ (frontend-design, gstack).
 First refine proposal in ${proposal_file}, then implement code in small safe steps.
 Do not touch secrets. ${work_mode_note}
@@ -395,16 +399,15 @@ EOF
       fail_reason="Model not supported"
     fi
 
-    local comment_body="Automated FCC/OpenCode run failed for issue #${number}.\n\n- **Reason:** ${fail_reason}\n- **Tier Attempted:** \`${fcc_tier}\`\n- **Status:** re-queued as \`status:ready\` for retry (or blocked if persistent error)."
+    local comment_body="Automated FCC/OpenCode run failed for issue #${number}.\n\n- **Reason:** ${fail_reason}\n- **Tier Attempted:** \`${fcc_tier}\`\n- **Status:** marked as \`status:blocked\` for manual review to prevent infinite retries. Run logs are at \`/tmp/oa-opencode-${number}.log\`."
     gh issue comment --repo "${GITHUB_REPO}" "${number}" --body "$(printf "${comment_body}")" >/dev/null 2>&1 || true
 
-    # Per guidelines, failure should not touch .done, and let's remove status:in_progress, add status:ready (so it is re-queued) or status:blocked.
-    # The requirement says: "commentar; status:blocked o status:ready para retry". Let's put back status:ready so it can retry, or status:blocked if we want manual intervention. Let's do status:ready for retry.
+    # Per guidelines, failure should not touch .done, and let's remove status:in_progress, add status:blocked.
     gh issue edit --repo "${GITHUB_REPO}" "${number}" \
       --remove-label "status:in_progress" \
-      --add-label "status:ready" >/dev/null 2>&1 || true
+      --add-label "status:blocked" >/dev/null 2>&1 || true
 
-    log "Failed issue #${number}: ${fail_reason}. Done marker NOT touched. Re-labeled status:ready."
+    log "Failed issue #${number}: ${fail_reason}. Done marker NOT touched. Re-labeled status:blocked."
   fi
 }
 
@@ -417,10 +420,10 @@ pick_next_opencode_issue() {
     --label "status:ready" \
     --limit 100 \
     --json number,title,body,createdAt,labels 2>/dev/null || echo '[]')"
-  STATE_DIR="${STATE_DIR}" python3 -c 'import json,sys
+  echo "${raw}" | STATE_DIR="${STATE_DIR}" python3 -c 'import json,sys
 from pathlib import Path
-raw=sys.argv[1].strip() or "[]"
-state_dir=Path(sys.argv[2] or ".")
+raw=sys.stdin.read().strip() or "[]"
+state_dir=Path(sys.argv[1] or ".")
 CODE_AGENTS=frozenset({"agent:opencode", "agent:antigravity", "agent:grok"})
 SKIP_AGENTS=frozenset({"agent:cursor"})
 try:
@@ -460,7 +463,7 @@ def eligible(issue):
     return not already_done(issue)
 items=[i for i in items if eligible(i)]
 items=sorted(items, key=lambda x: (priority_rank(x), x.get("createdAt","")))
-print(json.dumps(items[0]) if items else "")' "${raw}" "${STATE_DIR}"
+print(json.dumps(items[0]) if items else "")' "${STATE_DIR}"
 }
 
 main_loop() {

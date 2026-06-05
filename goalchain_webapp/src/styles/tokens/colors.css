@@ -1,0 +1,246 @@
+/**
+ * GoalChain Design System — Color Tokens
+ * Semantic color palette for light/dark modes
+ * Following Stripe/Linear/Vercel patterns: semantic naming, not color naming
+ */
+
+:root {
+  /* ==========================================
+     PRIMITIVE COLORS (Raw palette values)
+     ========================================== */
+  /* Brand — GoalChain teal/green spectrum */
+  --color-brand-50: #f0fdfa;
+  --color-brand-100: #ccfbf1;
+  --color-brand-200: #99f6e4;
+  --color-brand-300: #5eead4;
+  --color-brand-400: #2dd4bf;
+  --color-brand-500: #14b8a6;  /* Primary brand */
+  --color-brand-600: #0d9488;
+  --color-brand-700: #0f766e;
+  --color-brand-800: #115e59;
+  --color-brand-900: #134e4a;
+  --color-brand-950: #042f2e;
+
+  /* Accent — Gold/amber for premium, rewards, $GCH */
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;  /* Primary accent */
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-accent-800: #92400e;
+  --color-accent-900: #78350f;
+  --color-accent-950: #451a03;
+
+  /* Neutral — Gray scale for UI chrome */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+
+  /* Solana — Ecosystem colors */
+  --color-solana-green: #14f195;
+  --color-solana-purple: #9945ff;
+  --color-solana-blue: #00c4ff;
+
+  /* Semantic feedback colors */
+  --color-success-50: #f0fdf4;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+
+  --color-warning-50: #fffbeb;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+
+  --color-error-50: #fef2f2;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+
+  --color-info-50: #eff6ff;
+  --color-info-500: #3b82f6;
+  --color-info-600: #2563eb;
+  --color-info-700: #1d4ed8;
+
+  /* ==========================================
+     SEMANTIC COLORS (Light mode defaults)
+     ========================================== */
+  /* Background layers */
+  --color-bg-primary: var(--color-neutral-0);        /* Main canvas */
+  --color-bg-secondary: var(--color-neutral-50);     /* Cards, panels */
+  --color-bg-tertiary: var(--color-neutral-100);     /* Hover states, subtle borders */
+  --color-bg-inverse: var(--color-neutral-950);      /* Dark surfaces on light */
+
+  /* Brand surfaces */
+  --color-bg-brand: var(--color-brand-500);
+  --color-bg-brand-subtle: var(--color-brand-50);
+  --color-bg-brand-hover: var(--color-brand-600);
+  --color-bg-brand-pressed: var(--color-brand-700);
+
+  /* Accent surfaces */
+  --color-bg-accent: var(--color-accent-500);
+  --color-bg-accent-subtle: var(--color-accent-50);
+  --color-bg-accent-hover: var(--color-accent-600);
+
+  /* Feedback surfaces */
+  --color-bg-success: var(--color-success-500);
+  --color-bg-success-subtle: var(--color-success-50);
+  --color-bg-warning: var(--color-warning-500);
+  --color-bg-warning-subtle: var(--color-warning-50);
+  --color-bg-error: var(--color-error-500);
+  --color-bg-error-subtle: var(--color-error-50);
+  --color-bg-info: var(--color-info-500);
+  --color-bg-info-subtle: var(--color-info-50);
+
+  /* Text colors */
+  --color-text-primary: var(--color-neutral-950);      /* Headlines, primary content */
+  --color-text-secondary: var(--color-neutral-700);    /* Body text, descriptions */
+  --color-text-tertiary: var(--color-neutral-500);     /* Muted, placeholders, labels */
+  --color-text-inverse: var(--color-neutral-0);        /* Text on dark surfaces */
+  --color-text-brand: var(--color-brand-700);          /* Brand-colored text */
+  --color-text-accent: var(--color-accent-700);        /* Accent-colored text */
+  --color-text-success: var(--color-success-700);
+  --color-text-warning: var(--color-warning-700);
+  --color-text-error: var(--color-error-700);
+  --color-text-info: var(--color-info-700);
+
+  /* Link colors */
+  --color-link: var(--color-brand-600);
+  --color-link-hover: var(--color-brand-700);
+  --color-link-visited: var(--color-brand-800);
+
+  /* Border colors */
+  --color-border-primary: var(--color-neutral-200);    /* Default borders */
+  --color-border-secondary: var(--color-neutral-300);  /* Emphasized borders */
+  --color-border-brand: var(--color-brand-300);
+  --color-border-accent: var(--color-accent-300);
+  --color-border-focus: var(--color-brand-500);        /* Focus rings */
+  --color-border-error: var(--color-error-500);
+
+  /* Interactive states */
+  --color-hover-overlay: rgba(0, 0, 0, 0.04);
+  --color-active-overlay: rgba(0, 0, 0, 0.08);
+  --color-focus-ring: var(--color-brand-500);
+  --color-disabled-overlay: rgba(0, 0, 0, 0.12);
+
+  /* Overlay / modal backdrop */
+  --color-overlay: rgba(10, 10, 10, 0.5);
+  --color-overlay-light: rgba(10, 10, 10, 0.3);
+}
+
+/* ==========================================
+   DARK MODE OVERRIDES
+   ========================================== */
+[data-theme="dark"],
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    /* Background layers — inverted */
+    --color-bg-primary: var(--color-neutral-950);
+    --color-bg-secondary: var(--color-neutral-900);
+    --color-bg-tertiary: var(--color-neutral-800);
+    --color-bg-inverse: var(--color-neutral-0);
+
+    /* Brand surfaces — brighter in dark */
+    --color-bg-brand: var(--color-brand-400);
+    --color-bg-brand-subtle: rgba(20, 184, 166, 0.15);
+    --color-bg-brand-hover: var(--color-brand-300);
+    --color-bg-brand-pressed: var(--color-brand-500);
+
+    /* Accent surfaces */
+    --color-bg-accent: var(--color-accent-400);
+    --color-bg-accent-subtle: rgba(245, 158, 11, 0.15);
+    --color-bg-accent-hover: var(--color-accent-300);
+
+    /* Feedback surfaces */
+    --color-bg-success: var(--color-success-500);
+    --color-bg-success-subtle: rgba(34, 197, 94, 0.15);
+    --color-bg-warning: var(--color-warning-500);
+    --color-bg-warning-subtle: rgba(245, 158, 11, 0.15);
+    --color-bg-error: var(--color-error-500);
+    --color-bg-error-subtle: rgba(239, 68, 68, 0.15);
+    --color-bg-info: var(--color-info-500);
+    --color-bg-info-subtle: rgba(59, 130, 246, 0.15);
+
+    /* Text colors — inverted */
+    --color-text-primary: var(--color-neutral-50);
+    --color-text-secondary: var(--color-neutral-300);
+    --color-text-tertiary: var(--color-neutral-500);
+    --color-text-inverse: var(--color-neutral-950);
+    --color-text-brand: var(--color-brand-300);
+    --color-text-accent: var(--color-accent-300);
+    --color-text-success: var(--color-success-400);
+    --color-text-warning: var(--color-warning-400);
+    --color-text-error: var(--color-error-400);
+    --color-text-info: var(--color-info-400);
+
+    /* Links */
+    --color-link: var(--color-brand-400);
+    --color-link-hover: var(--color-brand-300);
+    --color-link-visited: var(--color-brand-200);
+
+    /* Borders */
+    --color-border-primary: var(--color-neutral-800);
+    --color-border-secondary: var(--color-neutral-700);
+    --color-border-brand: var(--color-brand-700);
+    --color-border-accent: var(--color-accent-700);
+    --color-border-focus: var(--color-brand-400);
+    --color-border-error: var(--color-error-400);
+
+    /* Interactive states */
+    --color-hover-overlay: rgba(255, 255, 255, 0.06);
+    --color-active-overlay: rgba(255, 255, 255, 0.12);
+    --color-focus-ring: var(--color-brand-400);
+    --color-disabled-overlay: rgba(255, 255, 255, 0.12);
+
+    /* Overlay */
+    --color-overlay: rgba(0, 0, 0, 0.7);
+    --color-overlay-light: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ==========================================
+   FORCED LIGHT MODE (for testing/override)
+   ========================================== */
+[data-theme="light"] {
+  /* Light mode values are defaults above */
+}
+
+/* ==========================================
+   HIGH CONTRAST MODE (accessibility)
+   ========================================== */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border-primary: var(--color-text-primary);
+    --color-border-secondary: var(--color-text-primary);
+    --color-bg-secondary: var(--color-bg-primary);
+    --color-hover-overlay: var(--color-text-tertiary);
+    --color-active-overlay: var(--color-text-secondary);
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration-instant: 0ms;
+    --motion-duration-fast: 0ms;
+    --motion-duration-normal: 0ms;
+    --motion-duration-slow: 0ms;
+    --motion-easing-standard: linear;
+    --motion-easing-emphasized: linear;
+    --motion-easing-decelerate: linear;
+  }
+}

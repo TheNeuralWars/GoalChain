@@ -97,7 +97,7 @@ run_opencode() {
   log_line "code_engine=opencode model=${model}"
   (
     cd "${WORKDIR}"
-    timeout "${TIMEOUT_SEC}" opencode run --model "${model}" "$(cat "${PROMPT_FILE}")"
+    timeout "${TIMEOUT_SEC}" opencode run --dangerously-skip-permissions --model "${model}" "$(cat "${PROMPT_FILE}")"
   )
 }
 

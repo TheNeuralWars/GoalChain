@@ -1,0 +1,281 @@
+/**
+ * GoalChain Design System — Typography Tokens
+ * Font families, sizes, weights, line heights, letter spacing
+ * Following Linear/Stripe/Vercel: semantic scale, fluid type
+ */
+
+:root {
+  /* ==========================================
+     PRIMITIVE FONT FAMILIES
+     ========================================== */
+  /* Sans — Inter (modern, readable, variable font) */
+  --font-sans: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans-fallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Mono — JetBrains Mono (code, addresses, numbers) */
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+  --font-mono-fallback: 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+
+  /* Display — Custom/brand headline font (optional, falls back to sans) */
+  --font-display: 'Inter Variable', 'Inter', var(--font-sans-fallback);
+
+  /* ==========================================
+     PRIMITIVE FONT WEIGHTS
+     ========================================== */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* ==========================================
+     PRIMITIVE FONT SIZES (fluid clamp)
+     ========================================== */
+  /* Mobile base: 16px, Desktop base: 16px (same, scale via clamp) */
+  --font-size-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);      /* ~11-12px */
+  --font-size-sm: clamp(0.8125rem, 0.75rem + 0.3125vw, 0.875rem); /* ~13-14px */
+  --font-size-base: clamp(0.9375rem, 0.875rem + 0.3125vw, 1rem);  /* ~15-16px */
+  --font-size-lg: clamp(1.0625rem, 1rem + 0.3125vw, 1.125rem);   /* ~17-18px */
+  --font-size-xl: clamp(1.25rem, 1.125rem + 0.625vw, 1.5rem);    /* ~20-24px */
+  --font-size-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);        /* ~24-32px */
+  --font-size-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);    /* ~30-40px */
+  --font-size-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem);      /* ~36-56px */
+  --font-size-5xl: clamp(3rem, 2rem + 5vw, 5rem);                /* ~48-80px */
+
+  /* ==========================================
+     PRIMITIVE LINE HEIGHTS
+     ========================================== */
+  --line-height-none: 1;
+  --line-height-tight: 1.1;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* ==========================================
+     PRIMITIVE LETTER SPACING
+     ========================================== */
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+
+  /* ==========================================
+     SEMANTIC TYPOGRAPHY (Component-level)
+     ========================================== */
+  /* Display / Hero */
+  --text-display-lg: 
+    var(--font-size-5xl) / var(--line-height-tight)
+    var(--font-display)
+    var(--font-weight-extrabold)
+    var(--letter-spacing-tighter);
+  --text-display-md:
+    var(--font-size-4xl) / var(--line-height-tight)
+    var(--font-display)
+    var(--font-weight-bold)
+    var(--letter-spacing-tighter);
+  --text-display-sm:
+    var(--font-size-3xl) / var(--line-height-snug)
+    var(--font-display)
+    var(--font-weight-bold)
+    var(--letter-spacing-tight);
+
+  /* Headlines */
+  --text-h1:
+    var(--font-size-3xl) / var(--line-height-snug)
+    var(--font-sans)
+    var(--font-weight-bold)
+    var(--letter-spacing-tight);
+  --text-h2:
+    var(--font-size-2xl) / var(--line-height-snug)
+    var(--font-sans)
+    var(--font-weight-bold)
+    var(--letter-spacing-tight);
+  --text-h3:
+    var(--font-size-xl) / var(--line-height-snug)
+    var(--font-sans)
+    var(--font-weight-semibold)
+    var(--letter-spacing-normal);
+  --text-h4:
+    var(--font-size-lg) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-semibold)
+    var(--letter-spacing-normal);
+  --text-h5:
+    var(--font-size-base) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-semibold)
+    var(--letter-spacing-wide);
+  --text-h6:
+    var(--font-size-sm) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-semibold)
+    var(--letter-spacing-wider);
+
+  /* Body */
+  --text-body-lg:
+    var(--font-size-lg) / var(--line-height-relaxed)
+    var(--font-sans)
+    var(--font-weight-normal)
+    var(--letter-spacing-normal);
+  --text-body:
+    var(--font-size-base) / var(--line-height-relaxed)
+    var(--font-sans)
+    var(--font-weight-normal)
+    var(--letter-spacing-normal);
+  --text-body-sm:
+    var(--font-size-sm) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-normal)
+    var(--letter-spacing-normal);
+  --text-body-xs:
+    var(--font-size-xs) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-normal)
+    var(--letter-spacing-normal);
+
+  /* UI Labels */
+  --text-label-lg:
+    var(--font-size-base) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-medium)
+    var(--letter-spacing-normal);
+  --text-label:
+    var(--font-size-sm) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-medium)
+    var(--letter-spacing-wide);
+  --text-label-sm:
+    var(--font-size-xs) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-medium)
+    var(--letter-spacing-wider);
+
+  /* Code / Data */
+  --text-code:
+    var(--font-size-sm) / var(--line-height-normal)
+    var(--font-mono)
+    var(--font-weight-normal)
+    var(--letter-spacing-normal);
+  --text-code-lg:
+    var(--font-size-base) / var(--line-height-normal)
+    var(--font-mono)
+    var(--font-weight-normal)
+    var(--letter-spacing-normal);
+  --text-data:
+    var(--font-size-base) / var(--line-height-normal)
+    var(--font-mono)
+    var(--font-weight-medium)
+    var(--letter-spacing-normal);
+  --text-data-lg:
+    var(--font-size-lg) / var(--line-height-normal)
+    var(--font-mono)
+    var(--font-weight-semibold)
+    var(--letter-spacing-normal);
+
+  /* Button / Interactive */
+  --text-button:
+    var(--font-size-sm) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-semibold)
+    var(--letter-spacing-wide);
+  --text-button-lg:
+    var(--font-size-base) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-semibold)
+    var(--letter-spacing-wide);
+
+  /* Caption / Helper */
+  --text-caption:
+    var(--font-size-xs) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-normal)
+    var(--letter-spacing-wide);
+  --text-caption-sm:
+    clamp(0.625rem, 0.575rem + 0.25vw, 0.6875rem) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-normal)
+    var(--letter-spacing-wider);
+
+  /* Link */
+  --text-link:
+    var(--font-size-sm) / var(--line-height-normal)
+    var(--font-sans)
+    var(--font-weight-medium)
+    var(--letter-spacing-normal);
+}
+
+/* ==========================================
+   UTILITY CLASSES
+   ========================================== */
+.font-sans { font-family: var(--font-sans); }
+.font-mono { font-family: var(--font-mono); }
+.font-display { font-family: var(--font-display); }
+
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+.text-4xl { font-size: var(--font-size-4xl); }
+.text-5xl { font-size: var(--font-size-5xl); }
+
+.font-light { font-weight: var(--font-weight-light); }
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+.font-extrabold { font-weight: var(--font-weight-extrabold); }
+
+.leading-none { line-height: var(--line-height-none); }
+.leading-tight { line-height: var(--line-height-tight); }
+.leading-snug { line-height: var(--line-height-snug); }
+.leading-normal { line-height: var(--line-height-normal); }
+.leading-relaxed { line-height: var(--line-height-relaxed); }
+.leading-loose { line-height: var(--line-height-loose); }
+
+.tracking-tighter { letter-spacing: var(--letter-spacing-tighter); }
+.tracking-tight { letter-spacing: var(--letter-spacing-tight); }
+.tracking-normal { letter-spacing: var(--letter-spacing-normal); }
+.tracking-wide { letter-spacing: var(--letter-spacing-wide); }
+.tracking-wider { letter-spacing: var(--letter-spacing-wider); }
+.tracking-widest { letter-spacing: var(--letter-spacing-widest); }
+
+/* Semantic text styles */
+.text-display-lg { font: var(--text-display-lg); }
+.text-display-md { font: var(--text-display-md); }
+.text-display-sm { font: var(--text-display-sm); }
+
+.text-h1 { font: var(--text-h1); }
+.text-h2 { font: var(--text-h2); }
+.text-h3 { font: var(--text-h3); }
+.text-h4 { font: var(--text-h4); }
+.text-h5 { font: var(--text-h5); }
+.text-h6 { font: var(--text-h6); }
+
+.text-body-lg { font: var(--text-body-lg); }
+.text-body { font: var(--text-body); }
+.text-body-sm { font: var(--text-body-sm); }
+.text-body-xs { font: var(--text-body-xs); }
+
+.text-label-lg { font: var(--text-label-lg); }
+.text-label { font: var(--text-label); }
+.text-label-sm { font: var(--text-label-sm); }
+
+.text-code { font: var(--text-code); }
+.text-code-lg { font: var(--text-code-lg); }
+.text-data { font: var(--text-data); }
+.text-data-lg { font: var(--text-data-lg); }
+
+.text-button { font: var(--text-button); }
+.text-button-lg { font: var(--text-button-lg); }
+
+.text-caption { font: var(--text-caption); }
+.text-caption-sm { font: var(--text-caption-sm); }
+
+.text-link { font: var(--text-link); }

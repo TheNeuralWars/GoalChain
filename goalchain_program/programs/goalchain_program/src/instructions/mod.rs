@@ -1,0 +1,20 @@
+// Instructions module
+pub mod betting;
+pub mod config;
+pub mod builder_fund;
+pub mod player;
+pub mod yield;
+pub mod lending;
+pub mod locker_room;
+pub mod hooks;
+pub mod presale;
+
+pub use betting::*;
+pub use config::*;
+pub use builder_fund::*;
+pub use player::*;
+pub use yield::*;
+pub use lending::*;
+pub use locker_room::*;
+pub use hooks::*;
+pub use presale::*;

@@ -1,0 +1,386 @@
+/**
+ * GoalChain Design System — Base Typography
+ * Applies semantic text styles to HTML elements
+ * Uses tokens from tokens/typography.css
+ */
+
+@import '../tokens/typography.css';
+
+/* ==========================================
+   HEADINGS
+   ========================================== */
+h1 { font: var(--text-h1); }
+h2 { font: var(--text-h2); }
+h3 { font: var(--text-h3); }
+h4 { font: var(--text-h4); }
+h5 { font: var(--text-h5); }
+h6 { font: var(--text-h6); }
+
+/* Heading spacing */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: var(--space-4);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+}
+
+h1 { margin-top: var(--space-10); }
+h2 { margin-top: var(--space-8); }
+h3 { margin-top: var(--space-6); }
+h4 { margin-top: var(--space-5); }
+h5,
+h6 { margin-top: var(--space-4); }
+
+/* First child no margin-top */
+:first-child {
+  margin-top: 0 !important;
+}
+
+/* ==========================================
+   PARAGRAPHS & TEXT
+   ========================================== */
+p {
+  font: var(--text-body);
+  margin-bottom: var(--space-4);
+  color: var(--color-text-secondary);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.lead {
+  font: var(--text-body-lg);
+  color: var(--color-text-primary);
+}
+
+/* ==========================================
+   INLINE TEXT ELEMENTS
+   ========================================== */
+strong,
+b {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+u {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+small {
+  font: var(--text-body-xs);
+  color: var(--color-text-muted);
+}
+
+mark {
+  background: var(--color-warning-100);
+  color: var(--color-warning-900);
+  padding: 0 var(--space-1);
+  border-radius: var(--radius-sm);
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+code:not(pre > code) {
+  background: var(--color-neutral-100);
+  color: var(--color-brand-700);
+  padding: var(--space-0-5) var(--space-1);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+pre {
+  background: var(--color-neutral-950);
+  color: var(--color-neutral-100);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+  margin-bottom: var(--space-4);
+  tab-size: 2;
+}
+
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+kbd {
+  background: var(--color-neutral-900);
+  color: var(--color-neutral-100);
+  padding: var(--space-0-5) var(--space-1);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  box-shadow: inset 0 -2px 0 var(--color-neutral-700);
+}
+
+blockquote {
+  border-left: 3px solid var(--color-brand-500);
+  padding-left: var(--space-4);
+  margin: var(--space-6) 0;
+  font: var(--text-body-lg);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+blockquote footer,
+blockquote cite {
+  font: var(--text-body-sm);
+  color: var(--color-text-muted);
+  font-style: normal;
+}
+
+blockquote cite::before {
+  content: '— ';
+}
+
+/* ==========================================
+   LISTS
+   ========================================== */
+ul,
+ol {
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-6);
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li {
+  margin-bottom: var(--space-2);
+  font: var(--text-body);
+  color: var(--color-text-secondary);
+}
+
+li::marker {
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-bold);
+}
+
+li > p {
+  margin-bottom: var(--space-2);
+}
+
+li > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Nested lists */
+li ul,
+li ol {
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+/* ==========================================
+   HR
+   ========================================== */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border-default);
+  margin: var(--space-8) 0;
+}
+
+/* ==========================================
+   LINKS (Enhanced)
+   ========================================== */
+a {
+  font: var(--text-link);
+  color: var(--color-brand-600);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--easing-ease-out);
+}
+
+a:hover {
+  color: var(--color-brand-700);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+}
+
+/* External link indicator */
+a[target="_blank"]::after {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: var(--space-1);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='10' y1='14' x2='21' y2='3'/%3E%3C/svg%3E");
+  background-size: contain;
+  vertical-align: middle;
+  opacity: 0.6;
+}
+
+/* ==========================================
+   ADDRESS
+   ========================================== */
+address {
+  font-style: normal;
+  font: var(--text-body-sm);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================
+   TIME
+   ========================================== */
+time {
+  font: var(--text-body-sm);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================
+   DEFINITION LISTS
+   ========================================== */
+dl {
+  margin-bottom: var(--space-4);
+}
+
+dt {
+  font: var(--text-label);
+  color: var(--color-text-primary);
+  margin-top: var(--space-3);
+}
+
+dd {
+  font: var(--text-body-sm);
+  color: var(--color-text-secondary);
+  margin-left: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+/* ==========================================
+   ABBREVIATIONS
+   ========================================== */
+abbr {
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+  cursor: help;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted var(--color-text-muted);
+}
+
+/* ==========================================
+   SUB / SUP
+   ========================================== */
+sub,
+sup {
+  font-size: var(--font-size-xs);
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* ==========================================
+   UTILITIES
+   ========================================== */
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-wrap {
+  white-space: normal;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Gradient text */
+.text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================
+   RESPONSIVE TYPOGRAPHY ADJUSTMENTS
+   ========================================== */
+@media (max-width: 640px) {
+  h1 { font: var(--text-display-sm); }
+  h2 { font: var(--text-h1); }
+  h3 { font: var(--text-h2); }
+
+  .lead {
+    font: var(--text-body);
+  }
+}
+
+/* ==========================================
+   PRINT
+   ========================================== */
+@media print {
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    color: #000 !important;
+  }
+
+  p, li, blockquote {
+    color: #000 !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  pre,
+  code,
+  kbd {
+    background: transparent !important;
+    color: #000 !important;
+    border: 1px solid #999;
+  }
+}

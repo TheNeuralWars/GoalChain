@@ -1,0 +1,154 @@
+/**
+ * GoalChain Design System — Border & Radius Tokens
+ * Borders, radii, divider widths
+ */
+
+:root {
+  /* ==========================================
+     PRIMITIVE BORDER WIDTHS
+     ========================================== */
+  --border-width-none: 0;
+  --border-width-hairline: 1px;
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 3px;
+  --border-width-heavy: 4px;
+
+  /* ==========================================
+     PRIMITIVE BORDER RADII
+     ========================================== */
+  --radius-none: 0;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+
+  /* ==========================================
+     SEMANTIC BORDER WIDTHS
+     ========================================== */
+  --border-width-default: var(--border-width-thin);
+  --border-width-emphasized: var(--border-width-medium);
+  --border-width-focus: var(--border-width-medium);
+  --border-width-error: var(--border-width-medium);
+  --border-width-divider: var(--border-width-hairline);
+
+  /* ==========================================
+     SEMANTIC BORDER RADII
+     ========================================== */
+  --radius-button: var(--radius-md);
+  --radius-button-sm: var(--radius-sm);
+  --radius-button-lg: var(--radius-lg);
+  --radius-input: var(--radius-md);
+  --radius-card: var(--radius-xl);
+  --radius-card-sm: var(--radius-lg);
+  --radius-modal: var(--radius-2xl);
+  --radius-tooltip: var(--radius-md);
+  --radius-dropdown: var(--radius-lg);
+  --radius-toast: var(--radius-lg);
+  --radius-avatar: var(--radius-full);
+  --radius-badge: var(--radius-full);
+  --radius-tag: var(--radius-sm);
+  --radius-progress: var(--radius-full);
+
+  /* ==========================================
+     BORDER COLORS (reference color tokens)
+     ========================================== */
+  --border-color-default: var(--color-neutral-300);
+  --border-color-muted: var(--color-neutral-200);
+  --border-color-emphasized: var(--color-neutral-400);
+  --border-color-brand: var(--color-brand-500);
+  --border-color-brand-hover: var(--color-brand-600);
+  --border-color-success: var(--color-success-500);
+  --border-color-warning: var(--color-warning-500);
+  --border-color-error: var(--color-error-500);
+  --border-color-focus: var(--color-brand-500);
+  --border-color-divider: var(--color-neutral-200);
+
+  /* ==========================================
+     BORDER STYLES
+     ========================================== */
+  --border-style-solid: solid;
+  --border-style-dashed: dashed;
+  --border-style-dotted: dotted;
+  --border-style-double: double;
+
+  /* ==========================================
+     DIVIDER UTILITIES
+     ========================================== */
+  --divider-horizontal: 1px solid var(--color-neutral-200);
+  --divider-vertical: 1px solid var(--color-neutral-200);
+
+  /* ==========================================
+     OUTLINE (focus-visible)
+     ========================================== */
+  --outline-width: 2px;
+  --outline-offset: 2px;
+  --outline-color: var(--color-brand-500);
+  --outline-style: solid;
+}
+
+/* ==========================================
+   BORDER UTILITY CLASSES
+   ========================================== */
+.border-default {
+  border: var(--border-width-default) var(--border-style-solid) var(--border-color-default);
+}
+.border-muted {
+  border: var(--border-width-default) var(--border-style-solid) var(--border-color-muted);
+}
+.border-emphasized {
+  border: var(--border-width-emphasized) var(--border-style-solid) var(--border-color-emphasized);
+}
+.border-brand {
+  border: var(--border-width-default) var(--border-style-solid) var(--border-color-brand);
+}
+.border-success {
+  border: var(--border-width-default) var(--border-style-solid) var(--border-color-success);
+}
+.border-warning {
+  border: var(--border-width-default) var(--border-style-solid) var(--border-color-warning);
+}
+.border-error {
+  border: var(--border-width-error) var(--border-style-solid) var(--border-color-error);
+}
+.border-focus {
+  outline: var(--outline-width) var(--outline-style) var(--outline-color);
+  outline-offset: var(--outline-offset);
+}
+.border-divider {
+  border-bottom: var(--divider-horizontal);
+}
+.border-divider-vertical {
+  border-right: var(--divider-vertical);
+}
+
+/* Radius utilities */
+.rounded-none { border-radius: var(--radius-none); }
+.rounded-xs { border-radius: var(--radius-xs); }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+.rounded-2xl { border-radius: var(--radius-2xl); }
+.rounded-3xl { border-radius: var(--radius-3xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+/* Semantic radius aliases */
+.rounded-button { border-radius: var(--radius-button); }
+.rounded-button-sm { border-radius: var(--radius-button-sm); }
+.rounded-button-lg { border-radius: var(--radius-button-lg); }
+.rounded-input { border-radius: var(--radius-input); }
+.rounded-card { border-radius: var(--radius-card); }
+.rounded-card-sm { border-radius: var(--radius-card-sm); }
+.rounded-modal { border-radius: var(--radius-modal); }
+.rounded-tooltip { border-radius: var(--radius-tooltip); }
+.rounded-dropdown { border-radius: var(--radius-dropdown); }
+.rounded-toast { border-radius: var(--radius-toast); }
+.rounded-avatar { border-radius: var(--radius-avatar); }
+.rounded-badge { border-radius: var(--radius-badge); }
+.rounded-tag { border-radius: var(--radius-tag); }
+.rounded-progress { border-radius: var(--radius-progress); }
