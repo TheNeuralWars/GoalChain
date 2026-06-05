@@ -1,0 +1,12 @@
+export { oracleCli, runCli } from "./oracle-cli.js";
+export { syncAuthorityCommand } from "./commands/sync-authority.js";
+export { initFixtureCommand } from "./commands/init-fixture.js";
+export { liveUpdateCommand } from "./commands/live-update.js";
+export { createMarketCommand } from "./commands/create-market.js";
+export { resolveMarketCommand } from "./commands/resolve-market.js";
+export { completeFixtureCommand } from "./commands/complete-fixture.js";
+export { recordPlayerCommand } from "./commands/record-player.js";
+export { updateStatsCommand } from "./commands/update-stats.js";
+export { crankVaultsCommand } from "./commands/crank-vaults.js";
+export { contributorEpochCommand } from "./commands/contributor-epoch.js";
+export { initTokensCommand } from "./commands/init-tokens.js";

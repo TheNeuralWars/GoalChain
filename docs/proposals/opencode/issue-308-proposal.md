@@ -1,59 +1,100 @@
-# OA Proposal — Issue #308
-
-## Title
-[OPENCODE] Oracle: Extract markets module (create live market, resolve market, update market status)
-
-## Source
-GitHub issue #308
+# Issue #308 Proposal: Oracle Markets Module Extraction
 
 ## Objective
-## Objective
-Extract live market operations into packages/oracle/src/markets/:
+Extract live market operations from `OracleService.ts` into a dedicated `packages/oracle/src/markets/` module.
 
-## Scope
-Create `packages/oracle/src/markets/` with:
+## Current State
+Market operations (lines 274-379 in `OracleService.ts`):
+- `createLiveMarket()` - lines 274-334
+- `resolveMarket()` - lines 339-379
 
-1. `createLiveMarket.ts` - Open new live betting market (lines 274-334)
-2. `resolveMarket.ts` - Resolve market with winner, allow claims (lines 339-379)
-3. `updateMarketStatus.ts` - Update market status (open/closed/resolved)
-4. `markets.ts` - Composed MarketsService class
-5. `types.ts` - MarketInput, MarketType, WinnerVariant, MarketStatus
+## Proposed File Structure
+```
+goalchain_oracle/src/markets/
+├── types.ts              # MarketInput, MarketType, WinnerVariant, MarketStatus
+├── createLiveMarket.ts   # Create live market logic
+├── resolveMarket.ts      # Resolve market with winner
+├── updateMarketStatus.ts # Update market status (open/closed/resolved/cancelled)
+├── markets.ts            # Composed MarketsService class
+└── index.ts              # Barrel exports
+```
 
-## Acceptance Criteria
-- Each file < 150 lines
-- Proper PDA derivation for market accounts
+## Implementation Plan
+
+### 1. types.ts
+Define TypeScript equivalents of on-chain enums:
+- `MarketType`: `MatchResultLive` | `NextGoal` | `Custom`
+- `MarketStatus`: `Open` | `Closed` | `Resolved` | `Cancelled`
+- `MatchResult` (WinnerVariant): `TeamA` | `TeamB` | `Draw`
+- `MarketInput` interface for createLiveMarket parameters
+- `ResolveMarketInput` interface for resolveMarket parameters
+
+### 2. createLiveMarket.ts
+Extract `createLiveMarket` logic from OracleService:
+- PDA derivation for market account
 - Token mint validation (must be GCH or approved)
 - Delay seconds and close minute validation
-- Unit tests for market creation flow
+- Returns transaction signature
 
-## Skill Hint
-Follow gstack investigate workflow (root cause, max 3 fixes).
+### 3. resolveMarket.ts
+Extract `resolveMarket` logic:
+- PDA derivation
+- Winner validation
+- Calls `oracleUpdateMarketStatus` with `Resolved` status and winner
 
-## Owner
-opencode
+### 4. updateMarketStatus.ts
+New function to update market status generically:
+- Accepts `MarketStatus` enum and optional `winner`
+- Validates status transitions (e.g., can't reopen resolved market)
+- Used by both resolveMarket and future close/cancel operations
 
-## Priority
-P0
+### 5. markets.ts
+Composed `MarketsService` class:
+- Depends on `OracleService` (connection, wallet, provider, program, configPda)
+- Exposes `createLiveMarket`, `resolveMarket`, `updateMarketStatus`
+- Delegates to individual modules
 
-## Context
-Requested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned with GoalChain orchestration rules.
+### 6. OracleService.ts refactor
+- Remove `createLiveMarket` and `resolveMarket` methods
+- Add `markets: MarketsService` property
+- Delegate market operations to `this.markets`
 
-## Required output
-- Proposed file list
-- Risks/regressions + rollback
-- Exact test commands
+## Acceptance Criteria
+- [ ] Each file < 150 lines
+- [ ] Proper PDA derivation for market accounts
+- [ ] Token mint validation (must be GCH or approved)
+- [ ] Delay seconds and close minute validation
+- [ ] Unit tests for market creation flow
 
-## Workflow
-- One implementer only
-- Branch naming:
-  - cursor: `feat/*` or `fix/*`
+## Risks & Regressions
+| Risk | Impact | Mitigation |
+|------|--------|------------|
+| Breaking existing OracleService API | High | Keep same method signatures on MarketsService, delegate from OracleService |
+| PDA derivation mismatch | High | Copy exact derivation logic from OracleService |
+| Token mint validation missing | Medium | Add explicit validation in createLiveMarket |
+| Test coverage gaps | Medium | Add unit tests for new modules |
 
-## OA Plan (draft)
-- Analyze repository constraints and META alignment.
-- Implement minimal safe changes first.
-- Run local checks where feasible.
-- Prepare draft PR for Cursor review.
+## Rollback Plan
+1. Revert `OracleService.ts` to original state
+2. Delete `goalchain_oracle/src/markets/` directory
+3. Run `npm run lint` in `goalchain_oracle` to verify
 
-## Risk / rollback
-- Risk: scope drift or unstable dependencies.
-- Rollback: revert main commit linked to issue #308
+## Test Commands
+```bash
+# Lint check
+cd goalchain_oracle && npm run lint
+
+# Build check
+cd goalchain_oracle && npm run build
+
+# Run program tests (requires local validator)
+cd goalchain_program && anchor test --validator legacy
+
+# Manual verification - run oracle simulation
+cd goalchain_oracle && npm start
+```
+
+## Branch & PR
+- Branch: `exp/opencode-issue-308`
+- PR: Draft, title references #308
+- No direct merge to main (no `cambio urgente` in issue)
