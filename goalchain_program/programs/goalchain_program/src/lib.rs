@@ -5,24 +5,11 @@ use anchor_spl::token_interface::{
     self, Burn, Mint, TokenAccount, TokenInterface, TransferChecked,
 };
 
+pub mod constants;
+pub mod state;
+
 declare_id!("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
 const SPL_STAKE_POOL_PROGRAM_ID: Pubkey = pubkey!("SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy");
-
-/// $GCH uses 6 decimals: 1 GCH = 1_000_000 base units.
-pub const GCH_LAMPORTS: u64 = 1_000_000;
-pub const DEFAULT_BASE_YIELD_LAMPORTS: u64 = 100 * GCH_LAMPORTS;
-pub const POTION_BURN_LAMPORTS: u64 = 100 * GCH_LAMPORTS;
-pub const MAX_BASE_YIELD_LAMPORTS: u64 = 10_000 * GCH_LAMPORTS;
-pub const MAX_FEE_BPS: u16 = 100; // 1% hard cap
-pub const ARCHITECT_TAX_BPS: u64 = 100; // 1%
-pub const BPS_DENOMINATOR: u64 = 10_000;
-pub const DEFAULT_SCORE_UPDATE_COOLDOWN_SECONDS: i64 = 0;
-pub const DEFAULT_MIN_EPOCH_SCORE: u64 = 1;
-pub const DEFAULT_MAX_CONTRIBUTORS_PER_EPOCH: u32 = 500;
-pub const DEFAULT_FEE_BURN_BPS: u16 = 4_000; // 40% of fee stream
-pub const DEFAULT_FEE_JACKPOT_BPS: u16 = 4_000; // 40% of fee stream
-pub const DEFAULT_MAX_STARTERS_PER_MANAGER: u8 = 11;
-pub const STAMINA_DRAIN_PER_MATCH: u8 = 30;
 
 /// Maps Genesis Squad rarity tier (metadata) → daily base yield in lamports.
 pub fn base_yield_for_rarity_tier(tier: u8) -> u64 {
