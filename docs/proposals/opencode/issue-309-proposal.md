@@ -1,94 +1,59 @@
-# Issue #309 Proposal: Extract Players Module from Oracle Fixtures
+# OA Proposal — Issue #309
+
+## Title
+[OPENCODE] Oracle: Extract players module (record match, update stats)
+
+## Source
+GitHub issue #309
 
 ## Objective
-Extract player operations into `packages/oracle/src/players/` as a dedicated domain module.
+## Objective
+Extract player operations into packages/oracle/src/players/:
 
-## Current State
-- `recordPlayerMatch.ts` exists in `src/fixtures/` (42 lines)
-- `updatePlayerStats()` method exists in `OracleService.ts` (lines 450-483)
-- Types `PlayerMatchRecord` and `PlayerStatsUpdate` in `src/fixtures/types.ts`
-- PDA derivation functions in `src/fixtures/types.ts`
+## Scope
+Create `packages/oracle/src/players/` with:
 
-## Proposed File Structure
-```
-goalchain_oracle/src/players/
-├── types.ts          # PlayerMatchInput, PlayerStatsInput, PlayerError
-├── recordMatch.ts    # Record player fixture participation
-├── updateStats.ts    # Update player goals/assists with canonical config validation
-├── players.ts        # Composed PlayersService class
-└── index.ts          # Barrel exports
-```
+1. `recordMatch.ts` - Record player fixture participation (from fixtures/recordPlayerMatch.ts)
+2. `updateStats.ts` - Update player goals/assists for yield calculation (from fixtures/updatePlayerStats.ts)
+3. `players.ts` - Composed PlayersService class
+4. `types.ts` - PlayerMatchInput, PlayerStatsInput
 
-## Implementation Plan
+## Note
+These were in fixtures/ in the monolith but belong in their own domain module.
 
-### 1. `types.ts` (~30 lines)
-- Move `PlayerMatchRecord` → `PlayerMatchInput`
-- Move `PlayerStatsUpdate` → `PlayerStatsInput`
-- Add `PlayerErrorCode` and `PlayerError` class (mirroring `OracleError`)
-- Re-export PDA derivation functions from `../fixtures/types.js`
+## Acceptance Criteria
+- Each file < 100 lines
+- Reuse fixtures module for PDA derivation
+- Stats update validates against ECONOMIC_CANONICAL_CONFIG.json rarity yields
 
-### 2. `recordMatch.ts` (~45 lines)
-- Extract logic from `fixtures/recordPlayerMatch.ts`
-- Import PDA derivation from `../fixtures/types.js`
-- Use `PlayerError` for error handling
+## Skill Hint
+Follow gstack investigate workflow (root cause, max 3 fixes).
 
-### 3. `updateStats.ts` (~60 lines)
-- Extract logic from `OracleService.updatePlayerStats()`
-- **Add validation**: Check `goalsAdded`/`assistsAdded` against `ECONOMIC_CANONICAL_CONFIG.json` rarity yields
-- Import `baseYieldForRarityName` from `../economy/rarityYield.js`
-- Use `PlayerError` for error handling
+## Owner
+opencode
 
-### 4. `players.ts` (~50 lines)
-- `PlayersService` class composing `recordMatch` and `updateStats`
-- Constructor accepts `OracleService` (for `program`, `wallet`, `configPda`, `sendWithPriorityFees`)
-- Delegate to standalone functions
+## Priority
+P0
 
-### 5. `index.ts` (~10 lines)
-- Barrel export all modules
+## Context
+Requested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned with GoalChain orchestration rules.
 
-## Integration Points
-- `OracleService` will delegate to `PlayersService` (backward compatible)
-- `runMatchSimulation` in `index.ts` continues to work via `oracle.updatePlayerStats()`
-- No changes to on-chain program or SDK
+## Required output
+- Proposed file list
+- Risks/regressions + rollback
+- Exact test commands
 
-## Validation Logic for `updateStats.ts`
-```typescript
-// Pseudo-code for canonical config validation
-const baseYield = baseYieldForRarityName(playerRarity); // from config
-const goalPercent = config.oracle_yield_policy.goal_percent; // 10%
-const assistPercent = config.oracle_yield_policy.assist_percent; // 5%
-// Validate goalsAdded/assistsAdded are reasonable (e.g., < 10 per match)
-```
+## Workflow
+- One implementer only
+- Branch naming:
+  - cursor: `feat/*` or `fix/*`
 
-## Risks & Regressions
-| Risk | Likelihood | Mitigation |
-|------|------------|------------|
-| Breaking `OracleService.updatePlayerStats()` callers | Low | Keep method as thin delegate to `PlayersService` |
-| PDA derivation mismatch | Low | Reuse exact same functions from `fixtures/types.ts` |
-| Canonical config path resolution | Medium | Use existing pattern from `rarityYield.ts` |
+## OA Plan (draft)
+- Analyze repository constraints and META alignment.
+- Implement minimal safe changes first.
+- Run local checks where feasible.
+- Prepare draft PR for Cursor review.
 
-## Rollback Plan
-1. Revert `goalchain_oracle/src/players/` directory creation
-2. Restore `OracleService.updatePlayerStats()` inline implementation
-3. No database/on-chain state changes — purely code reorganization
-
-## Test Commands
-```bash
-# Lint (type-check)
-cd goalchain_oracle && npm run lint
-
-# Build
-cd goalchain_oracle && npm run build
-
-# Verify OracleService still compiles and exports correctly
-cd goalchain_oracle && node -e "import('./dist/OracleService.js').then(m => console.log('OK:', Object.keys(m)))"
-```
-
-## Branch
-`exp/opencode-issue-309` (draft PR for Antigravity/Nico review)
-
-## Notes
-- Each file < 100 lines ✓
-- Reuses fixtures PDA derivation ✓
-- Validates against `ECONOMIC_CANONICAL_CONFIG.json` ✓
-- Follows existing `markets/` module pattern ✓
+## Risk / rollback
+- Risk: scope drift or unstable dependencies.
+- Rollback: revert branch `exp/opencode-issue-309` and close draft PR.
