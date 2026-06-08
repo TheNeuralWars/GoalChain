@@ -6,6 +6,7 @@ on:
       - main
       - copilot/**
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -48,7 +49,7 @@ jobs:
           echo "$HOME/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
         shell: bash
 
-      - name: Install Anchor
+      - name: Install Anchor AVM
         run: |
           cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
           avm install 1.0.2
@@ -57,6 +58,7 @@ jobs:
 
       - name: Verify installations
         run: |
+          export PATH="$HOME/.local/share/solana/install/active_release/bin:$HOME/.avm/bin:$PATH"
           solana --version
           anchor --version
         shell: bash
@@ -66,13 +68,17 @@ jobs:
         working-directory: goalchain_program
 
       - name: Build Anchor program and generate IDL
-        run: anchor build --ignore-keys
+        run: |
+          export PATH="$HOME/.local/share/solana/install/active_release/bin:$HOME/.avm/bin:$PATH"
+          anchor build --ignore-keys
         working-directory: goalchain_program
         env:
           ANCHOR_SKIP_IDL_BUILD: false
 
       - name: Verify IDL sync targets
-        run: bash scripts/sync-idl.sh --check
+        run: |
+          export PATH="$HOME/.local/share/solana/install/active_release/bin:$HOME/.avm/bin:$PATH"
+          bash scripts/sync-idl.sh --check
 
   goalchain-sdk:
     runs-on: ubuntu-latest
