@@ -47,6 +47,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-rust-
 
+      - name: Install Anchor (if not present)
+        run: |
+          export PATH="$HOME/.local/share/solana/install/active_release/bin:$HOME/.avm/bin:$HOME/.cargo/bin:$PATH"
+          if ! command -v anchor &> /dev/null; then
+            echo "Anchor not found, installing via cargo..."
+            cargo install anchor-cli --locked
+          else
+            echo "Anchor already installed"
+          fi
+          anchor --version
+
       - name: Verify Solana/Anchor installations
         run: |
           export PATH="$HOME/.local/share/solana/install/active_release/bin:$HOME/.avm/bin:$PATH"
