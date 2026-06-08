@@ -42,26 +42,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-rust-
 
-      - name: Setup Solana CLI
-        uses: solana-labs/setup-solana@v1
-        with:
-          version: "2.1.0"
-          cache: true
+      - name: Install Solana CLI
+        run: |
+          sh -c "$(curl -sSfL https://release.solana.com/v1.18.18/install)"
+          echo "$HOME/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
+        shell: bash
 
-      - name: Setup Anchor
-        uses: actions/cache@v4
-        with:
-          path: ~/.avm
-          key: ${{ runner.os }}-anchor-${{ hashFiles('goalchain_program/Anchor.toml') }}
-          restore-keys: |
-            ${{ runner.os }}-anchor-
-
-      - name: Install Anchor AVM
-        if: steps.setup-anchor.outputs.cache-hit != 'true'
+      - name: Install Anchor
         run: |
           cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
           avm install 1.0.2
           avm use 1.0.2
+        shell: bash
+
+      - name: Verify installations
+        run: |
+          solana --version
+          anchor --version
         shell: bash
 
       - name: Install program npm deps
