@@ -16,28 +16,64 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git author (fix Vercel email check)
+        run: |
+          git config user.name "GoalChain Bot"
+          git config user.email "goalchain-bot@users.noreply.github.com"
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Setup Rust
-        uses: dtolnay/rust-toolchain@stable
-      - name: Install Solana CLI
-        run: sh -c "$(curl -sSfL https://release.anza.xyz/stable/install)"
-      - name: Add Solana to PATH
-        run: echo "$HOME/.local/share/solana/install/active_release/bin" >> "$GITHUB_PATH"
+          cache: npm
+          cache-dependency-path: goalchain_program/package-lock.json
+
+      - name: Setup Rust cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            ~/.rustup
+          key: ${{ runner.os }}-rust-${{ hashFiles('goalchain_program/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-rust-
+
+      - name: Setup Solana CLI
+        uses: solana-labs/setup-solana@v1
+        with:
+          version: "2.1.0"
+          cache: true
+
+      - name: Setup Anchor
+        uses: actions/cache@v4
+        with:
+          path: ~/.avm
+          key: ${{ runner.os }}-anchor-${{ hashFiles('goalchain_program/Anchor.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-anchor-
+
       - name: Install Anchor AVM
-        run: cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
-      - name: Install Anchor CLI
+        if: steps.setup-anchor.outputs.cache-hit != 'true'
         run: |
+          cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
           avm install 1.0.2
           avm use 1.0.2
+        shell: bash
+
       - name: Install program npm deps
         run: npm ci
         working-directory: goalchain_program
+
       - name: Build Anchor program and generate IDL
         run: anchor build --ignore-keys
         working-directory: goalchain_program
+        env:
+          ANCHOR_SKIP_IDL_BUILD: false
+
       - name: Verify IDL sync targets
         run: bash scripts/sync-idl.sh --check
 
@@ -50,16 +86,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
           cache-dependency-path: goalchain-sdk/package-lock.json
+
       - name: Install
         run: npm ci
+
       - name: Lint
         run: npm run lint
+
       - name: Build
         run: npm run build
 
@@ -72,16 +112,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
           cache-dependency-path: goalchain_api/package-lock.json
+
       - name: Install
         run: npm ci
+
       - name: Lint
         run: npm run lint
+
       - name: Build
         run: npm run build
 
@@ -93,14 +137,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
           cache-dependency-path: goalchain_program/package-lock.json
+
       - name: Install
         run: npm ci
+
       - name: Lint
         run: npm run lint
 
@@ -112,13 +159,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
           cache-dependency-path: goalchain_oracle/package-lock.json
+
       - name: Install
         run: npm ci
+
       - name: Lint
         run: npm run lint

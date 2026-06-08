@@ -36,14 +36,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
           cache-dependency-path: ${{ matrix.module }}/package-lock.json
+
       - name: Install
         run: npm ci
+
       - name: Audit (non-blocking report)
         continue-on-error: true
-        run: npm audit --audit-level=high
+        run: |
+          npm audit --audit-level=high || true
