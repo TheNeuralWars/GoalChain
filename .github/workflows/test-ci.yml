@@ -5,10 +5,16 @@ on:
   workflow_dispatch:
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, arm64, hermes, goalchain]
     steps:
-      - name: Hello without checkout
+      - name: Hello on self-hosted
         run: |
-          echo "Hello World"
+          echo "Runner: $(hostname)"
+          echo "Arch: $(uname -m)"
+          echo "Node: $(node --version)"
+          echo "NPM: $(npm --version)"
+          echo "Rust: $(rustc --version 2>/dev/null || echo 'not installed')"
+          echo "Solana: $(solana --version 2>/dev/null || echo 'not installed')"
+          echo "Anchor: $(anchor --version 2>/dev/null || echo 'not installed')"
           pwd
           ls -la
