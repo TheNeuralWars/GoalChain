@@ -752,6 +752,32 @@ app.get("/health", (req, res) => {
 });
 
 // Economy config endpoint (canonical docs config + live on-chain protocol config if available)
+
+function computeDrift(canonical: any, onchain: any): { has_drift: boolean; fields: string[] } {
+  const reasons: string[] = [];
+  if (!canonical || !onchain) {
+    return { has_drift: false, fields: [] };
+  }
+  // 1. Validar max_fee_bps
+  const maxFeeBps = Number(canonical.core_parameters?.max_fee_bps ?? 0);
+  const feeBps = Number(onchain.feeBps ?? 0);
+  if (maxFeeBps > 0 && feeBps > maxFeeBps) {
+    reasons.push(`fee_bps on-chain (${feeBps}) excede el límite máximo canónico (${maxFeeBps})`);
+  }
+  // 2. Validar maxStartersPerManager
+  const maxStarters = Number(onchain.maxStartersPerManager ?? 0);
+  if (maxStarters !== 11) {
+    reasons.push(`maxStartersPerManager on-chain (${maxStarters}) difiere del valor esperado de 11`);
+  }
+  // 3. Validar fee split sum
+  const feeBurn = Number(onchain.feeBurnBps ?? 0);
+  const feeJackpot = Number(onchain.feeJackpotBps ?? 0);
+  if (feeBurn + feeJackpot > 10000) {
+    reasons.push("La suma de fee split (burn + jackpot) excede los 10000 BPS");
+  }
+  return { has_drift: reasons.length > 0, fields: reasons };
+}
+
 app.get("/api/economy/config", async (req, res) => {
   try {
     const canonicalPath = path.resolve(
@@ -795,8 +821,10 @@ app.get("/api/economy/config", async (req, res) => {
         canonicalPath: canonicalPath,
         rpcUrl,
       },
+      config_version: canonicalConfig?.config_version ?? "v1.0.0-p0",
       canonicalConfig,
       onchainConfig,
+      drift: computeDrift(canonicalConfig, onchainConfig),
     });
   } catch (err: any) {
     console.error("Economy config endpoint error:", err);

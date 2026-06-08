@@ -1,0 +1,16 @@
+---
+description: Load canonical Cursor context synced from Antigravity and live VPS
+alwaysApply: true
+---
+
+# Session bootstrap (Cursor)
+
+At the start of a GoalChain session:
+
+1. Run `./scripts/check-tasks.sh` and offer to work on assigned Manager tasks.
+2. Read **`ai_context/CURSOR_SESSION_CONTEXT.md`** for current VPS SSH, paths, GBrain ritual, and agent roles.
+3. **Do not** use retired host `178.105.148.109` — production is **`ubuntu@89.168.20.135`** (`/data/apps/GoalChain`).
+4. Cursor is **draft-only**; Antigravity merges. Hand off via intake brief + test commands.
+5. GBrain: reload Cursor window after MCP changes; run `gbrain import ai_context docs/intake` after pulling `main`.
+
+Connection template: `ops/connection/GOALCHAIN_CONNECTION.env.example`

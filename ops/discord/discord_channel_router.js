@@ -39,11 +39,12 @@
  * NEVER: @everyone in retention posts (announcements only for real news).
  */
 
-const { Client, GatewayIntentBits } = require("/opt/hermes/discord-community-bot/node_modules/discord.js");
+const { Client, GatewayIntentBits } = require("discord.js");
 const fs = require("fs");
+const path = require("path");
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
-const envContent = fs.readFileSync("/opt/hermes/discord-community-bot/.env", "utf8");
+const envContent = fs.readFileSync(path.join(__dirname, ".env"), "utf8");
 const TOKEN = envContent.match(/DISCORD_COMMUNITY_BOT_TOKEN=(.+)/)[1].trim().replace(/"/g, "");
 
 // Channel IDs (permanent — do not add channels without updating channel map above)

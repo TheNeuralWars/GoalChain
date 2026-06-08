@@ -27,8 +27,9 @@ Agents: **Antigravity** (Google - Master Agent & Integration Owner), **Cursor** 
 ## Session Initialization
 When the user opens this workspace, or at the start of a session:
 1. Run `./scripts/check-tasks.sh` to sync the repository and check for new tasks assigned by the Manager.
-2. Ask the user if they want you to work on the assigned issue/task.
-3. Keep focus tight on the assigned issue; do not drift scope.
+2. Read `ai_context/CURSOR_SESSION_CONTEXT.md` (Oracle VPS `ubuntu@89.168.20.135`, not Hetzner).
+3. Ask the user if they want you to work on the assigned issue/task.
+4. Keep focus tight on the assigned issue; do not drift scope.
 
 
 ## Handoff packet (required for cross-agent work)

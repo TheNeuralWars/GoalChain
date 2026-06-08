@@ -157,19 +157,85 @@ def remove_background(input_path, output_path):
 
 # --- Prompt Builder ---
 
+def build_enhanced_appearance(physical):
+    """Build a rich appearance description from enhanced physical fields."""
+    parts = []
+    
+    # Hair details
+    hair_color = physical.get("hair_color", "")
+    hairstyle = physical.get("hairstyle", "")
+    if hair_color and hairstyle:
+        parts.append(f"{hairstyle} {hair_color} hair")
+    elif hair_color:
+        parts.append(f"{hair_color} hair")
+    elif hairstyle:
+        parts.append(f"{hairstyle} hair")
+    
+    # Facial hair
+    facial_hair = physical.get("facial_hair", "")
+    if facial_hair and facial_hair != "clean shaven":
+        parts.append(f"{facial_hair}")
+    elif facial_hair == "clean shaven":
+        parts.append("clean shaven")
+    
+    # Face structure
+    face_structure = physical.get("face_structure", "")
+    if face_structure:
+        parts.append(face_structure)
+    
+    # Eye color
+    eye_color = physical.get("eye_color", "")
+    if eye_color:
+        parts.append(f"{eye_color} eyes")
+    
+    # Skin tone
+    skin_tone = physical.get("skin_tone", "")
+    if skin_tone:
+        parts.append(f"{skin_tone} skin")
+    
+    # Distinctive features (pick top 2)
+    distinctive = physical.get("distinctive_features", [])
+    if distinctive:
+        parts.append(", ".join(distinctive[:2]))
+    
+    # Build type
+    build_type = physical.get("build_type", "")
+    if build_type:
+        parts.append(build_type)
+    
+    # Visible tattoos
+    tattoos = physical.get("tattoos", [])
+    if tattoos:
+        visible_tattoos = [t for t in tattoos if any(kw in t.lower() for kw in ['neck', 'hand', 'face', 'calf', 'forearm', 'wrist', 'behind ear'])]
+        if visible_tattoos:
+            parts.append(f"visible tattoos: {', '.join(visible_tattoos[:2])}")
+        elif len(tattoos) > 0:
+            parts.append(f"heavily tattooed ({len(tattoos)} pieces)")
+    
+    # Fallback to original 't' field if enhanced fields are empty
+    if not parts:
+        physical_t = physical.get("t", "")
+        if physical_t:
+            return physical_t
+        h = physical.get("h", "1.80m")
+        w = physical.get("w", "75kg")
+        return f"An athletic football player, height {h}, weight {w}."
+    
+    return ", ".join(parts) + "."
+
+
 def build_player_prompt(player):
-    """Build a premium 3D caricature prompt based on player metadata."""
+    """Build a premium 3D caricature prompt based on player metadata with enhanced physical details."""
     player_name = player["name"]
     real_name = player.get("real_name", "Verified Athlete")
     country = player["country"]
     position = player.get("position", "FWD")
+    rarity = player.get("rarity", "common")
     
     physical = player.get("physical", {})
-    physical_t = physical.get("t", "")
-    if not physical_t:
-        h = physical.get("h", "1.80m")
-        w = physical.get("w", "75kg")
-        physical_t = f"An athletic football player, height {h}, weight {w}."
+    
+    # Build rich appearance from enhanced fields
+    appearance = build_enhanced_appearance(physical)
         
     # National Kit Color Mapping (World Cup countries)
     kit_colors = {
@@ -245,14 +311,25 @@ def build_player_prompt(player):
     else:
         pose = "a confident athletic standing stance"
 
+    # Rarity-based visual flair
+    rarity_effects = {
+        "mythic": "cosmic mythic aura with golden supernova particles and ethereal glow",
+        "legendary": "holographic glitch effect with silver spark trails",
+        "epic": "electric neon pulse with vibrant energy waves",
+        "rare": "subtle cyber outline with clean tech aesthetic",
+        "common": "clean studio render"
+    }
+    rarity_effect = rarity_effects.get(rarity, "clean studio render")
+
     prompt = (
         f"A premium 3D stylized character render of a professional soccer player parody "
         f"named '{player_name}' (inspired by the looks of {real_name}). "
         f"Subject: A full-body 3D digital figurine card character. "
-        f"Appearance: {physical_t}. "
+        f"Appearance: {appearance}. "
         f"Pose: {pose}. "
         f"Kit: Wearing a clean, modern generic national kit for {country} (colors: {kit_color}). "
         f"The kit must be completely generic: NO brand logos, NO commercial sponsor prints. "
+        f"Rarity Effect: {rarity_effect}. "
         f"Lighting: High-contrast studio lighting with strong, vibrant neon green (#14f195) and neon purple (#9945ff) rim lights outlining the figure. "
         f"Technical: 3D model, octane render style, Unreal Engine 5 aesthetic, crisp details, smooth 3D caricature collectible look, 8k resolution. "
         f"Background: SOLID PURE FLAT WHITE BACKGROUND."

@@ -1,0 +1,26 @@
+---
+description: GoalChain agent tooling — FCC skills, GBrain, handoffs
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# Agent tools (GoalChain)
+
+Read **`ai_context/CURSOR_SESSION_CONTEXT.md`** (VPS SSH, GBrain, current topology) then **`ai_context/AGENT_TOOLS_GUIDE.md`** for full usage.
+
+## Cursor (this IDE)
+
+- **Draft only** — no merge to `main`; Antigravity integrates.
+- **Webapp UI** (`goalchain_webapp/`): mention **frontend-design** skill; follow `CLAUDE.md`.
+- **GBrain:** `.cursor/mcp.json` — reload window if tools missing.
+- **superpowers** (optional): `/plugin install superpowers@claude-plugins-official` for planning/TDD on Mac.
+- **gstack** (optional Mac): `/review`, `/investigate`; not `/ship` (draft PR flow).
+
+## FCC (server)
+
+Do not implement here — Hermes creates `agent:opencode` issues; worker uses `CLAUDE.md` + `~/.claude/skills/`.
+
+## Handoff
+
+Deliver PR or summary to Antigravity; reference intake path and test commands from the brief.
