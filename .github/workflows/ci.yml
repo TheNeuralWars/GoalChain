@@ -45,12 +45,18 @@ jobs:
 
       - name: Install Solana CLI
         run: |
-          sh -c "$(curl -sSfL https://release.solana.com/v1.18.18/install)"
+          set -euo pipefail
+          echo "Installing Solana v1.18.18..."
+          sh -c "$(curl -sSfL https://release.anza.xyz/v1.18.18/install)" || {
+            echo "Anza install failed, trying Solana..."
+            sh -c "$(curl -sSfL https://release.solana.com/v1.18.18/install)"
+          }
           echo "$HOME/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
         shell: bash
 
       - name: Install Anchor AVM
         run: |
+          set -euo pipefail
           cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
           avm install 1.0.2
           avm use 1.0.2
@@ -59,7 +65,9 @@ jobs:
       - name: Verify installations
         run: |
           export PATH="$HOME/.local/share/solana/install/active_release/bin:$HOME/.avm/bin:$PATH"
+          echo "Solana version:"
           solana --version
+          echo "Anchor version:"
           anchor --version
         shell: bash
 
