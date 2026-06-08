@@ -1,4 +1,4 @@
-# Trigger deploy: 2026-05-24T06:00:00
+# Trigger deploy: 2026-06-08T06:00:00
 name: GoalChain CI/CD
 
 on:
@@ -10,7 +10,7 @@ on:
       - '.github/workflows/**'
   pull_request:
     branches: [ main, master ]
-  workflow_dispatch:   # Permite ejecución manual desde la pestaña "Actions"
+  workflow_dispatch:
 
 jobs:
   validate-nfts:
@@ -19,6 +19,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git author (fix Vercel email check)
+        run: |
+          git config user.name "GoalChain Bot"
+          git config user.email "goalchain-bot@users.noreply.github.com"
 
       - name: Validar convención de nombres de imágenes
         run: |
@@ -77,6 +84,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Configure git author (fix Vercel email check)
+        run: |
+          git config user.name "GoalChain Bot"
+          git config user.email "goalchain-bot@users.noreply.github.com"
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v4
