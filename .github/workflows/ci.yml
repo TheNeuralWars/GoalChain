@@ -13,10 +13,11 @@ permissions:
 
 jobs:
   # ============================================
-  # SOLANA/ANCHOR BUILD → GitHub-hosted (ARM64 supported via action)
+  # ALL JOBS → Self-hosted runner (VPS ARM64, persistent cache, unlimited minutes)
+  # Solana/Anchor will be available once build completes (~30 min one-time)
   # ============================================
   goalchain-program-idl:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, arm64, hermes, goalchain, solana]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -46,30 +47,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-rust-
 
-      - name: Setup Solana CLI
-        uses: solana-labs/setup-solana@v1
-        with:
-          version: "1.18.18"
-          cache: true
-
-      - name: Setup Anchor
-        uses: actions/cache@v4
-        with:
-          path: ~/.avm
-          key: ${{ runner.os }}-anchor-${{ hashFiles('goalchain_program/Anchor.toml') }}
-          restore-keys: |
-            ${{ runner.os }}-anchor-
-
-      - name: Install Anchor AVM
-        if: steps.setup-anchor.outputs.cache-hit != 'true'
+      - name: Verify Solana/Anchor installations
         run: |
-          cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
-          avm install 1.0.2
-          avm use 1.0.2
-        shell: bash
-
-      - name: Verify installations
-        run: |
+          export PATH="$HOME/.local/share/solana/install/active_release/bin:$HOME/.avm/bin:$PATH"
           solana --version
           anchor --version
         shell: bash
@@ -79,17 +59,18 @@ jobs:
         working-directory: goalchain_program
 
       - name: Build Anchor program and generate IDL
-        run: anchor build --ignore-keys
+        run: |
+          export PATH="$HOME/.local/share/solana/install/active_release/bin:$HOME/.avm/bin:$PATH"
+          anchor build --ignore-keys
         working-directory: goalchain_program
         env:
           ANCHOR_SKIP_IDL_BUILD: false
 
       - name: Verify IDL sync targets
-        run: bash scripts/sync-idl.sh --check
+        run: |
+          export PATH="$HOME/.local/share/solana/install/active_release/bin:$HOME/.avm/bin:$PATH"
+          bash scripts/sync-idl.sh --check
 
-  # ============================================
-  # PURE NODE/TS JOBS → Self-hosted runner (VPS ARM64, persistent cache, unlimited minutes)
-  # ============================================
   goalchain-sdk:
     runs-on: [self-hosted, arm64, hermes, goalchain]
     needs: goalchain-program-idl
