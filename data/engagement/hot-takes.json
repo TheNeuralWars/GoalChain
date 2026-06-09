@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ht_001",
+    "take": "Low blocks kill the sport. If you park the bus for 90 minutes against a top team, you're not 'defending well' — you're admitting football is boring and you'd rather not play it. Change my mind.",
+    "category": "tactical",
+    "difficulty": "spicy"
+  },
+  {
+    "id": "ht_002",
+    "take": "Messi > Pelé *only* because of longevity, not peak. Pelé's 1958-1963 peak was higher than anything Messi did. Messi's GOAT case is 15+ years at world-class level, not a single season.",
+    "category": "player_legacy",
+    "difficulty": "spicy"
+  },
+  {
+    "id": "ht_003",
+    "take": "Fan ownership (50+1) > Arab oil money. German clubs have sustainable competitive balance, community roots, and ticket prices humans can afford. The Premier League is a billionaire's playground — entertain me, but don't call it 'better'.",
+    "category": "governance",
+    "difficulty": "spicy"
+  },
+  {
+    "id": "ht_004",
+    "take": "VAR has done more harm than good. Net negative. The 'clear and obvious' standard is gone; we now have forensic offside lines measured in armpit millimeters. Spontaneous celebration is dead. Was it worth it?",
+    "category": "modern_football",
+    "difficulty": "spicy"
+  },
+  {
+    "id": "ht_005",
+    "take": "xG is overrated for single-match prediction. It's a descriptive metric (what happened) masquerading as predictive. A 0.3 xG chance can be a tap-in; a 0.05 xG can be a 30-yard screamer. Context > model.",
+    "category": "analytics",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "ht_006",
+    "take": "48-team World Cup ruins the magic. It's a cash grab. Dilutes quality, creates meaningless group games, exhausts players. 32 teams was perfect — every game mattered. FIFA chose money over the tournament's soul.",
+    "category": "world_cup",
+    "difficulty": "spicy"
+  },
+  {
+    "id": "ht_007",
+    "take": "The 'next Messi/Ronaldo' narrative is media lazy. There will never be another 15-year duopoly. The game has fragmented: Haaland (goals), Mbappé (big moments), Bellingham (complete), Vinícius (chaos). Enjoy the variety.",
+    "category": "player_legacy",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "ht_008",
+    "take": "Premier League 'best league' claim is marketing, not fact. Best *product*? Yes. Best *football*? La Liga has better tacticians, Bundesliga better development, Serie A better defending. PL wins on pace and broadcast deals.",
+    "category": "modern_football",
+    "difficulty": "moderate"
+  },
+  {
+    "id": "ht_009",
+    "take": "Penalty shootouts are the cruelest, most beautiful way to decide a final. Pure psychology vs technique. No tactics, no fitness, no luck — just nerve. Keep them. Don't replace with 'golden goal' or dribble-from-25-yards gimmicks.",
+    "category": "tactical",
+    "difficulty": "mild"
+  },
+  {
+    "id": "ht_010",
+    "take": "Academy graduates choosing 'smaller' clubs for minutes > sitting on big-club benches. Bellingham to Dortmund > Bellingham to Real bench. Musiala at Bayern > Musiala at Chelsea U23. Development pathway > badge prestige.",
+    "category": "player_legacy",
+    "difficulty": "mild"
+  }
+]

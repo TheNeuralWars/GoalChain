@@ -1,0 +1,15 @@
+[
+  {
+    "date": "2026-06-07",
+    "protocol": "GoalChain",
+    "vault": "GCH Economy Vault",
+    "apy": "10% oracle + buyback",
+    "tvl_sol": 32.7,
+    "risk": "MED",
+    "chain": "Solana",
+    "type": "Oracle-driven football yield + vault crank",
+    "haiku": "Blocks stack slow and deep\nCompounding writes the story\nPatience builds the yield",
+    "haiku_fingerprint": "ae2c01aed6f78f86",
+    "posted_at": "2026-06-07T12:52:54.428348Z"
+  }
+]

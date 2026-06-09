@@ -1,0 +1,11 @@
+[Unit]
+Description=GoalChain Autonomous Agent Supervisor
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/ubuntu/.hermes/hermes-agent/venv/bin/python3 /home/ubuntu/GoalChain/ops/hermes/antigravity_supervisor.py
+WorkingDirectory=/home/ubuntu/GoalChain
+Environment="PYTHONUNBUFFERED=1"
+StandardOutput=journal
+StandardError=journal

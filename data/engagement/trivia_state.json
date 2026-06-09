@@ -1,0 +1,9 @@
+{
+  "used_questions": ["tr_001", "tr_002"],
+  "current_question_id": "tr_002",
+  "current_question_posted_at": "2026-06-08T20:00:00Z",
+  "last_updated": "2026-06-08T23:00:00Z",
+  "revealed": true,
+  "revealed_at": "2026-06-08T23:00:00Z",
+  "reveal_note": "Question message not found in Discord channel; no reveal posted"
+}
