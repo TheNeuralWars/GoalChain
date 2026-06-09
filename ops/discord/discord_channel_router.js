@@ -2,41 +2,35 @@
 /**
  * discord_channel_router.js — GoalChain Discord Posting Router
  * =============================================================
- * GOLDEN RULE ENFORCED: Each type of content has ONE specific channel.
- * No cross-posting. No repetition. Max impact per channel.
+ * 📋 LEY DE CANALES DISCORD — IMPLEMENTADA (highest priority, permanent)
  *
- * CHANNEL MAP (permanent law — change only with explicit directive):
- * ─────────────────────────────────────────────────────────────────
- * #📢 announcements     → Official news ONLY: launches, presale milestones,
- *                          major partnerships, on-chain events. Max 1/day.
- *                          Audience: everyone (public-facing). Pin-worthy.
+ * Canal → Propósito (único, permanente)
+ * Canal               Para qué                                      Quién postea          Límite
+ * #📢 announcements   Lanzamientos oficiales, milestones de presale,  Bot solo en eventos   1/día
+ *                     eventos on-chain reales                       mayores
  *
- * #marketing-active     → INTERNAL/TEAM: campaign planning, post schedules,
- *                          scheduler logs, copy drafts. NOT for public content.
- *                          (Rename to #ops-marketing if possible)
+ * #👑 genesis-lounge  Player spotlights + lore drops + biometrics.    Bot (router)          2/día
+ *                     Retención profunda de holders
  *
- * #👑 genesis-lounge    → Deep COMMUNITY RETENTION: player spotlights,
- *                          lore drops, biometric reveals, squad facts.
- *                          Audience: holders + invested community. Max 2/day.
+ * #🍻 degen-locker-room Zealy push + señales X-Scout + urgencia       Bot (router)          1/día
+ *                     presale + CTAs
  *
- * #🍻 degen-locker-room → ALPHA + ENGAGEMENT: Zealy quests, X-Scout arb
- *                          signals, presale urgency, degen energy, calls to
- *                          action. Audience: active degens. Max 1/day.
+ * #marketing-active   Log interno de ops únicamente. Sin contenido   Bot nunca postea      —
+ *                     público                                       aquí públicamente
  *
- * #general              → Community conversation ONLY. Bot does NOT post here.
- *                          Let it breathe as organic discussion space.
+ * #general            Chat orgánico de la comunidad                  Bot NO postea         —
  *
- * CONTENT → CHANNEL ROUTING:
- * ─────────────────────────────────────────────────────────────────
- * Player Spotlight (lore + stats)      → #genesis-lounge
- * Zealy quest push / airdrop urgency   → #degen-locker-room
- * Presale milestone / Vault update     → #announcements (if major) OR #degen
- * X-Scout arb signal                   → #degen-locker-room
- * Launch / Partnership announcement    → #announcements
- * Internal campaign log                → #marketing-active (not public content)
- * ─────────────────────────────────────────────────────────────────
- * NEVER: same message in 2+ channels same day.
- * NEVER: @everyone in retention posts (announcements only for real news).
+ * Lo que se cambió
+ * - VPS: discord_marketing_poster.js reemplazado por discord_channel_router.js — ya no blast a 4 canales a la vez
+ * - Estado diario: el router guarda discord_router_state.json para saber qué ya se publicó hoy
+ * - Sin @everyone en posts de retención — solo para anuncios oficiales reales
+ * - Backup: discord_marketing_poster.js.bak.golden-rule en el VPS por si acaso
+ *
+ * GOLDEN RULE + MAX LAW: English only. ONE channel per content type. No repeats.
+ * No cross-blasting. Study state + logs before deciding. X = short public diff.
+ * Discord retention = deeper, channel-specific, no overload.
+ *
+ * NEVER post the same narrative block to genesis-lounge + degen-locker-room same day.
  */
 
 const { Client, GatewayIntentBits } = require("discord.js");
@@ -44,8 +38,29 @@ const fs = require("fs");
 const path = require("path");
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
-const envContent = fs.readFileSync(path.join(__dirname, ".env"), "utf8");
-const TOKEN = envContent.match(/DISCORD_COMMUNITY_BOT_TOKEN=(.+)/)[1].trim().replace(/"/g, "");
+let TOKEN = process.env.DISCORD_BOT_TOKEN || process.env.DISCORD_TOKEN;
+if (!TOKEN) {
+  const paths = [
+    "/data/apps/dot-hermes/profiles/hermes-ceo/.env",
+    "/data/apps/dot-hermes/.env",
+  ];
+  for (const p of paths) {
+    if (fs.existsSync(p)) {
+      try {
+        const envContent = fs.readFileSync(p, "utf8");
+        const match = envContent.match(/DISCORD_BOT_TOKEN=(.+)/) || envContent.match(/DISCORD_TOKEN=(.+)/);
+        if (match) {
+          TOKEN = match[1].trim().replace(/"/g, "").replace(/'/g, "");
+          break;
+        }
+      } catch (e) {}
+    }
+  }
+}
+if (!TOKEN) {
+  console.error("[Router] ERROR: DISCORD_BOT_TOKEN not found.");
+  process.exit(1);
+}
 
 // Channel IDs (permanent — do not add channels without updating channel map above)
 const CHANNELS = {
@@ -56,7 +71,7 @@ const CHANNELS = {
 };
 
 // ─── STATE: what ran today to prevent same-day repeats ───────────────────────
-const STATE_FILE = "/home/goalchain/hermes/logs/discord_router_state.json";
+const STATE_FILE = "/data/apps/dot-hermes/logs/discord_router_state.json";
 
 function loadState() {
   try {
@@ -76,6 +91,8 @@ function saveState(state) {
 // ─── SQUAD DATA ──────────────────────────────────────────────────────────────
 function loadSquad() {
   const paths = [
+    "/data/apps/GoalChain/docs/assets/data/players.json",
+    "/data/apps/GoalChain/ai_context/03_data/players.json",
     "/home/goalchain/hermes/workspace/GoalChain/docs/assets/data/players.json",
     "/home/goalchain/hermes/workspace/GoalChain/ai_context/03_data/players.json",
   ];
@@ -182,14 +199,19 @@ Every presale entry fuels the deflationary pressure before launch.
  */
 function decidePost(state) {
   const posted = state.postedToday || [];
+  const genesisCount = (posted.filter(x => x === "genesis-spotlight")).length;
+  const degenCount = (posted.filter(x => x === "degen-cta")).length;
 
-  // Priority 1: Genesis Lounge spotlight (if not done today)
-  if (!posted.includes("genesis-spotlight")) {
+  // 📋 LEY DE CANALES: respect exact daily limits
+  // genesis-lounge: max 2 spotlights (deep retention)
+  // degen-locker-room: max 1 (Zealy + X-Scout + urgency)
+  // announcements: only major (never in normal router runs)
+
+  if (genesisCount < 2) {
     return { channelKey: "genesisLounge", contentType: "genesis-spotlight" };
   }
 
-  // Priority 2: Degen Locker CTA (if not done today)
-  if (!posted.includes("degen-cta")) {
+  if (degenCount < 1) {
     return { channelKey: "degenLocker", contentType: "degen-cta" };
   }
 
@@ -244,7 +266,7 @@ client.once("ready", async () => {
     saveState(state);
 
     // Log to marketing ops (internal only, no public post)
-    const logPath = "/home/goalchain/hermes/workspace/GoalChain/scratch/marketing_log.md";
+    const logPath = "/data/apps/GoalChain/scratch/marketing_log.md";
     const entry = `\n## Discord Router - ${new Date().toISOString()}\n- Type: ${decision.contentType}\n- Channel: #${ch.name} (${channelId})\n- Spotlight: ${spotlight ? `${spotlight.name} (${spotlight.real})` : "N/A"}\n- Rule: ONE channel per content type per day (Golden Rule enforced)\n`;
     try { fs.appendFileSync(logPath, entry); } catch {}
 

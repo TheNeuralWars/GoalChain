@@ -81,5 +81,5 @@ nationsPool.forEach(nation => {
     }
 });
 
-fs.writeFileSync('/Users/NicoPez/GoalChain/goalchain_web/assets/data/players.json', JSON.stringify(allPlayers, null, 4));
+fs.writeFileSync('/data/apps/GoalChain/scratch/players.json', JSON.stringify(allPlayers, null, 4));
 console.log(`¡Lista actualizada con sueldos reales y GoalChain!`);

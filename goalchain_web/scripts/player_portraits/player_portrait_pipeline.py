@@ -30,9 +30,9 @@ except ImportError:
     exit(1)
 
 # Configuration
-PLAYERS_JSON = "/home/goalchain/hermes/workspace/GoalChain/ai_context/03_data/players.json"
-OUTPUT_DIR = "/home/goalchain/hermes/workspace/GoalChain/goalchain_web/scripts/player_portraits/output"
-LOG_FILE = "/home/goalchain/hermes/workspace/GoalChain/goalchain_web/scripts/player_portraits/pipeline.log"
+PLAYERS_JSON = "/data/apps/GoalChain/ai_context/03_data/players.json"
+OUTPUT_DIR = "/data/apps/GoalChain/goalchain_web/scripts/player_portraits/output"
+LOG_FILE = "/data/apps/GoalChain/goalchain_web/scripts/player_portraits/pipeline.log"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
