@@ -1,0 +1,38 @@
+{
+  "source_url": "https://x.com/0xDepressionn/status/2064278748824805678?s=20",
+  "author": "0xDepressionn",
+  "revenue_mentioned": "$72,000 ARR locked (3 B2B @ $2K/mo), $336K 12mo projection",
+  "setup_fee_mentioned": "None (B2B SaaS subscription)",
+  "stack_keywords_found": [
+    "claude-code",
+    "supabase",
+    "vercel",
+    "typescript",
+    "ai",
+    "solo-founder",
+    "b2b",
+    "saas",
+    "waitlist",
+    "voice-cloning",
+    "content-generation"
+  ],
+  "raw_length": 50000,
+  "error": null,
+  "key_metrics": {
+    "waitlist_signups": 320,
+    "b2b_contracts": 3,
+    "b2b_monthly": 2000,
+    "locked_arr": 72000,
+    "projected_arr_12mo": 336000,
+    "infra_cost_build": 0,
+    "infra_cost_scale": 45,
+    "code_ai_percentage": 97.9,
+    "build_time": "nights/weekends solo"
+  },
+  "pricing": {
+    "first_100": 39,
+    "base_plan": 47,
+    "pro_plan": 97
+  },
+  "b2b_pricing": 2000
+}
