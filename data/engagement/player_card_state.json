@@ -1,0 +1,24 @@
+{
+  "used_players": [
+    {
+      "id": 1,
+      "name": "Lionel Satoshi",
+      "country": "Argentina",
+      "position": "FWD",
+      "parody_club": "Miami Pink Nodes",
+      "date": "2026-06-07",
+      "day": 1
+    },
+    {
+      "id": 2,
+      "name": "Dibu De-Fi",
+      "country": "Argentina",
+      "position": "GK",
+      "parody_club": "Birmingham Lion Core",
+      "date": "2026-06-08",
+      "day": 2
+    }
+  ],
+  "queue": [],
+  "last_updated": "2026-06-08T15:00:00Z"
+}

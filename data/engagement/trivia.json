@@ -1,0 +1,142 @@
+[
+  {
+    "id": "tr_001",
+    "question": "Which player holds the record for most goals in a single Premier League season (38 games)?",
+    "options": {
+      "A": "Alan Shearer",
+      "B": "Mohamed Salah",
+      "C": "Erling Haaland",
+      "D": "Andy Cole"
+    },
+    "answer": "C",
+    "explanation": "Erling Haaland scored 36 goals in the 2022-23 season for Manchester City, breaking the 38-game record jointly held by Shearer (95-96) and Cole (93-94) at 34.",
+    "category": "records",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tr_002",
+    "question": "Which manager is credited with popularizing the 'False 9' role in modern football?",
+    "options": {
+      "A": "Pep Guardiola",
+      "B": "Luciano Spalletti",
+      "C": "Vicente del Bosque",
+      "D": "Johan Cruyff"
+    },
+    "answer": "B",
+    "explanation": "Luciano Spalletti first used Francesco Totti as a false 9 at Roma in 2005-06 out of necessity (injuries), revolutionizing the role. Guardiola later perfected it with Messi at Barcelona.",
+    "category": "tactics",
+    "difficulty": "hard"
+  },
+  {
+    "id": "tr_003",
+    "question": "Which club has won the most Copa Libertadores titles?",
+    "options": {
+      "A": "Boca Juniors",
+      "B": "River Plate",
+      "C": "Independiente",
+      "D": "Peñarol"
+    },
+    "answer": "C",
+    "explanation": "Independiente (Argentina) holds the record with 7 Copa Libertadores titles (1964, 1965, 1972, 1973, 1974, 1975, 1984). Boca has 6, Peñarol 5, River Plate 4.",
+    "category": "south_america",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tr_004",
+    "question": "Who is the only player to win the World Cup as both captain and manager?",
+    "options": {
+      "A": "Franz Beckenbauer",
+      "B": "Mário Zagallo",
+      "C": "Didier Deschamps",
+      "D": "All of the above"
+    },
+    "answer": "D",
+    "explanation": "Beckenbauer (1974 player, 1990 manager), Zagallo (1958/62 player, 1970 manager), and Deschamps (1998 player, 2018 manager) are the only three to achieve this double.",
+    "category": "world_cup",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tr_005",
+    "question": "Which goalkeeper has the most Premier League clean sheets in history?",
+    "options": {
+      "A": "Petr Čech",
+      "B": "David de Gea",
+      "C": "Edwin van der Sar",
+      "D": "Joe Hart"
+    },
+    "answer": "A",
+    "explanation": "Petr Čech holds the record with 202 Premier League clean sheets for Chelsea and Arsenal. Van der Sar is second with 132, De Gea third with 120+.",
+    "category": "records",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tr_006",
+    "question": "What tactical innovation did Arrigo Sacchi's AC Milan pioneer in the late 1980s?",
+    "options": {
+      "A": "Tiki-taka possession play",
+      "B": "High defensive line + offside trap + zonal marking",
+      "C": "Gegenpressing",
+      "D": "Inverted fullbacks"
+    },
+    "answer": "B",
+    "explanation": "Sacchi's Milan (1987-91) revolutionized defending with a high line (25-30m from goal), systematic offside trap, and pure zonal marking — moving as a unit. This allowed their pressing forwards to hunt in packs.",
+    "category": "tactics",
+    "difficulty": "hard"
+  },
+  {
+    "id": "tr_007",
+    "question": "Which player scored a hat-trick in a World Cup final?",
+    "options": {
+      "A": "Geoff Hurst",
+      "B": "Kylian Mbappé",
+      "C": "Both A and B",
+      "D": "Neither"
+    },
+    "answer": "C",
+    "explanation": "Geoff Hurst (England vs West Germany, 1966) and Kylian Mbappé (France vs Argentina, 2022) are the only two players to score hat-tricks in World Cup finals.",
+    "category": "world_cup",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tr_008",
+    "question": "Which club did Lionel Messi score his 644th goal for to break Pelé's single-club record?",
+    "options": {
+      "A": "Barcelona",
+      "B": "PSG",
+      "C": "Inter Miami",
+      "D": "Newell's Old Boys"
+    },
+    "answer": "A",
+    "explanation": "Messi scored his 644th goal for Barcelona against Real Valladolid on Dec 22, 2020, surpassing Pelé's 643 for Santos. He finished with 672 for Barca before leaving in 2021.",
+    "category": "records",
+    "difficulty": "medium"
+  },
+  {
+    "id": "tr_009",
+    "question": "What is 'Gegenpressing' literally translated from German?",
+    "options": {
+      "A": "Counter-attacking",
+      "B": "Counter-pressing",
+      "C": "High pressing",
+      "D": "Pressing trap"
+    },
+    "answer": "B",
+    "explanation": "'Gegenpressing' = 'Gegen' (counter/against) + 'Pressing'. Coined by Ralf Rangnick, popularized by Klopp: the team immediately presses after losing possession to win it back high up the pitch.",
+    "category": "tactics",
+    "difficulty": "easy"
+  },
+  {
+    "id": "tr_010",
+    "question": "Which stadium hosted the 'Maracanazo' — Uruguay's 1950 World Cup final win over Brazil?",
+    "options": {
+      "A": "Estadio Centenario",
+      "B": "Maracanã Stadium",
+      "C": "Estadio Azteca",
+      "D": "Stade de France"
+    },
+    "answer": "B",
+    "explanation": "The 1950 World Cup final (technically a final group match) at Rio's Maracanã saw Uruguay shock Brazil 2-1 before 199,854 fans — the largest football crowd ever. Brazil needed only a draw; Uruguay won the title.",
+    "category": "world_cup",
+    "difficulty": "medium"
+  }
+]

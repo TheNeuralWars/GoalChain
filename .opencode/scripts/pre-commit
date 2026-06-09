@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# pre-commit hook: run tsc --noEmit on TS packages that have staged changes.
+# Stops the commit if any package fails typecheck.
+#
+# Install:
+#   ln -sf ../../.opencode/scripts/pre-commit .git/hooks/pre-commit
+#   chmod +x .opencode/scripts/pre-commit
+
+set -e
+
+# Detect TS packages in this monorepo (each has its own package.json with "lint" = tsc --noEmit)
+TS_PACKAGES=(
+  "goalchain-sdk"
+  "goalchain_api"
+  "goalchain_oracle"
+)
+
+# Find which packages have staged changes
+STAGED=$(git diff --cached --name-only --diff-filter=ACMR)
+
+if [ -z "$STAGED" ]; then
+  exit 0
+fi
+
+AFFECTED=()
+for pkg in "${TS_PACKAGES[@]}"; do
+  if echo "$STAGED" | grep -q "^${pkg}/"; then
+    AFFECTED+=("$pkg")
+  fi
+done
+
+# Webapp is opt-in (known React types compat warning with @solana/wallet-adapter-react)
+# Uncomment if you want it enforced:
+# if echo "$STAGED" | grep -q "^goalchain_webapp/"; then
+#   AFFECTED+=("goalchain_webapp")
+# fi
+
+if [ ${#AFFECTED[@]} -eq 0 ]; then
+  exit 0
+fi
+
+echo "→ pre-commit: typechecking ${#AFFECTED[@]} package(s): ${AFFECTED[*]}"
+
+# Build SDK first if affected (API/webapp depend on it)
+if [[ " ${AFFECTED[*]} " =~ " goalchain_api " ]] || [[ " ${AFFECTED[*]} " =~ " goalchain_webapp " ]]; then
+  if [ ! -d "goalchain-sdk/dist" ]; then
+    echo "→ building SDK first (required by API/webapp)"
+    (cd goalchain-sdk && npm run build) || { echo "✗ SDK build failed"; exit 1; }
+  fi
+fi
+
+FAILED=()
+for pkg in "${AFFECTED[@]}"; do
+  echo ""
+  echo "=== typechecking $pkg ==="
+  if (cd "$pkg" && npx tsc --noEmit); then
+    echo "✓ $pkg ok"
+  else
+    echo "✗ $pkg FAILED"
+    FAILED+=("$pkg")
+  fi
+done
+
+echo ""
+if [ ${#FAILED[@]} -ne 0 ]; then
+  echo "✗ typecheck failed in: ${FAILED[*]}"
+  echo "  fix errors and re-commit."
+  exit 1
+fi
+
+echo "✓ all affected packages pass typecheck"
+exit 0

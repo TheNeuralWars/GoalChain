@@ -1,0 +1,64 @@
+[
+  {
+    "day": 1,
+    "date": "2026-06-07",
+    "player": {
+      "id": 1,
+      "name": "Lionel Satoshi",
+      "country": "Argentina",
+      "position": "FWD",
+      "parody_club": "Miami Pink Nodes",
+      "rarity": "mythic"
+    },
+    "lore": "From Rosario's dusty pitches, a left foot rewrote the laws of physics, bending spacetime with every touch. The blockchain remembers: when he dribbles, even consensus algorithms pause to watch.",
+    "haiku": "Magic left foot glows\nDefenders fade into myth\nGoalChain crowns the king",
+    "haiku_fingerprint": "7f3a2b1c9d8e4f6a",
+    "stats": "ATK 95 | DEF 25 | HYPE 99 | Salary 5,000 GCH",
+    "assets_used": {
+      "raw": "docs/assets/img/nfts/001_lionel_satoshi.png",
+      "transparent": "docs/assets/img/nfts/transparent/001_lionel_satoshi.png"
+    },
+    "visual_generated": false,
+    "fallback_used": true,
+    "posted_to_discord": true,
+    "discord_threads": {
+      "player_images": "1509604591199588432",
+      "penalty_field": "1513167361111494766"
+    },
+    "channels": [
+      "1508885190183751700",
+      "1511489798521749554"
+    ]
+  },
+  {
+    "day": 2,
+    "date": "2026-06-08",
+    "player": {
+      "id": 2,
+      "name": "Dibu De-Fi",
+      "country": "Argentina",
+      "position": "GK",
+      "parody_club": "Birmingham Lion Core",
+      "rarity": "epic"
+    },
+    "lore": "Between the posts he stands, a guardian of the net whose shadow stretches across penalty spots like a cold wallet across a bull market. When shooters approach, the blockchain itself records their hesitation — each save a transaction confirmed, each dance a smart contract executed with malicious precision.",
+    "haiku": "Gloves catch falling stars\nPenalty takers kneel down\nThe wall holds the line",
+    "haiku_fingerprint": "a1b2c3d4e5f67890",
+    "stats": "ATK 30 | DEF 86 | HYPE 79 | Salary 250 GCH",
+    "assets_used": {
+      "raw": "docs/assets/img/nfts/002_Dibu_De-Fi.png",
+      "transparent": "docs/assets/img/nfts/transparent/002_dibu_de_fi.png"
+    },
+    "visual_generated": false,
+    "fallback_used": true,
+    "posted_to_discord": true,
+    "discord_threads": {
+      "player_images": "1513559563234836480",
+      "penalty_field": "1513559790721433782"
+    },
+    "channels": [
+      "1508885190183751700",
+      "1511489798521749554"
+    ]
+  }
+]
