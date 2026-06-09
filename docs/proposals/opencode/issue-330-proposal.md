@@ -4,9 +4,8 @@
 [OPENCODE] Program: Rewrite lib.rs as module declarations (~50 lines)
 
 ## Source
-Local queue (autonomous mode)
+GitHub issue #330 (processed via autonomous local queue)
 
-## Objective
 ## Objective
 Rewrite programs/goalchain_program/src/lib.rs as pure module declarations:
 
@@ -47,12 +46,26 @@ pub mod goalchain_program {
     pub use instructions::builder_fund::*;
     // Fixture
     pub use instructions::fixture::*;
+    // Betting
+    pub use instructions::betting::*;
+    // Live Market
+    pub use instructions::live_market::*;
+    // Player
+    pub use instructions::player::*;
+    // Vault
+    pub use instructions::vault::*;
+    // Governance
+    pub use instructions::governance::*;
+    // Contributor
+    pub use instructions::contributor::*;
+}
+```
 
 ## Priority
 P0
 
 ## Labels
-status:ready,source:manager,agent:opencode,status:done,priority:P0,
+status:ready, source:manager, agent:opencode, status:done, priority:P0
 
 ## OA Plan (draft)
 - Analyze repository constraints and META alignment.
@@ -62,4 +75,4 @@ status:ready,source:manager,agent:opencode,status:done,priority:P0,
 
 ## Risk / rollback
 - Risk: scope drift or unstable dependencies.
-- Rollback: revert branch `exp/opencode-issue-330`.
+- Rollback: revert branch `exp/opencode-issue-330` and close draft PR.
