@@ -29,6 +29,10 @@ jobs:
 
       - name: Validar convención de nombres de imágenes
         run: |
+          echo "=== DEBUG: Listando directorio NFT ==="
+          ls -la docs/assets/images/nfts/
+          echo "=== DEBUG: pwd ==="
+          pwd
           python3 << 'EOF'
           import os
           import re
@@ -37,6 +41,7 @@ jobs:
           nft_dir = "docs/assets/images/nfts"
           if not os.path.exists(nft_dir):
               print("❌ Carpeta docs/assets/images/nfts no encontrada")
+              print(f"   CWD: {os.getcwd()}")
               sys.exit(1)
 
           invalid_files = []
@@ -60,6 +65,10 @@ jobs:
 
       - name: Verificar integridad de imágenes (tamaño mínimo)
         run: |
+          echo "=== DEBUG: Listando directorio NFT ==="
+          ls -la docs/assets/images/nfts/
+          echo "=== DEBUG: pwd ==="
+          pwd
           find docs/assets/images/nfts -type f \( -name "*.jpg" -o -name "*.png" \) -exec sh -c '
             for f; do
               size=$(stat -c%s "$f")
