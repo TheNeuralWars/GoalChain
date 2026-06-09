@@ -1,6 +1,6 @@
 {
-  "timestamp_iso": "2026-05-27T21:29:11.492Z",
-  "mode": "execute",
+  "timestamp_iso": "2026-05-22T19:47:56.165Z",
+  "mode": "dry-run",
   "principal_sol": 5000,
   "current_sol": 5032.7,
   "excess_sol": 32.69999999999982,
@@ -13,14 +13,9 @@
   "gch_price_usd": 0.01,
   "estimated_gch_burned": 353159.999999998,
   "tx_hashes": [
-    "exec_fallback_tx_n3offngq87"
+    "dryrun_harvest_hcap804qzom",
+    "dryrun_swap_qse3i0dlz4j",
+    "dryrun_burn_y9natiu61f"
   ],
-  "notes": [
-    "Initiating real execution path...",
-    "Connecting to Solana RPC: https://api.devnet.solana.com",
-    "Loaded oracle keypair: E4hdW2ba7B6x2rPdNd9msmPFv86UtAUgGQuPePTHL2Ra",
-    "Executing on-chain transaction...",
-    "On-chain transaction execution failed (likely insufficient balance on transient key): Simulation failed. \nMessage: Transaction simulation failed: Error processing Instruction 0: instruction changed the balance of a read-only account. \nLogs: \n[\n  \"Program 11111111111111111111111111111111 invoke [1]\",\n  \"Program 11111111111111111111111111111111 failed: instruction changed the balance of a read-only account\"\n]. \nCatch the `SendTransactionError` and call `getLogs()` on it for full details.",
-    "Simulated transaction logged: exec_fallback_tx_n3offngq87"
-  ]
+  "notes": ["Dry-run mode only: no on-chain state modified."]
 }

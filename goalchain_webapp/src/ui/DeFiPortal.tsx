@@ -1,8 +1,7 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { useState } from 'react';
 import { SimulationBadge } from '../components/SimulationBadge';
-
-const TradingTerminal = lazy(() => import('./TradingTerminal').then(m => ({ default: m.TradingTerminal })));
-const SwarmVaults = lazy(() => import('./SwarmVaults').then(m => ({ default: m.SwarmVaults })));
+import { TradingTerminal } from './TradingTerminal';
+import { SwarmVaults } from './SwarmVaults';
 
 export function DeFiPortal() {
   const [activeSubTab, setActiveSubTab] = useState<'trading' | 'vaults'>('trading');
@@ -43,16 +42,12 @@ export function DeFiPortal() {
       <div className="portal-content-wrapper">
         {activeSubTab === 'trading' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Cargando terminal...</div>}>
-              <TradingTerminal />
-            </Suspense>
+            <TradingTerminal />
           </div>
         )}
         {activeSubTab === 'vaults' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Cargando vaults...</div>}>
-              <SwarmVaults />
-            </Suspense>
+            <SwarmVaults />
           </div>
         )}
       </div>

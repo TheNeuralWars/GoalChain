@@ -1,8 +1,5 @@
 # FCC queue freeze — Mundial 2026 focus
 
-- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/261
-- **Task Status:** ready
-
 - **Date:** 2026-05-26
 - **Status:** ready
 - **Owner:** Hermes (dispatch) + Antigravity (merge)

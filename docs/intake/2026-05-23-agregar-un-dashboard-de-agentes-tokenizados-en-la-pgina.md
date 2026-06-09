@@ -1,8 +1,5 @@
 # 2026-05-23-agregar-un-dashboard-de-agentes-tokenizados-en-la-pgina
 
-- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/243
-- **Task Status:** ready
-
 - **Status:** draft
 - **Priority:** P2
 - **Owner:** cursor

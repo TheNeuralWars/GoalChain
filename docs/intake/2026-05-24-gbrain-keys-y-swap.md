@@ -1,8 +1,5 @@
 # GBrain en Hermes: swap, keys y tus suscripciones
 
-- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/251
-- **Task Status:** ready
-
 - **Date:** 2026-05-24
 - **Status:** ready
 - **Owner:** Nico

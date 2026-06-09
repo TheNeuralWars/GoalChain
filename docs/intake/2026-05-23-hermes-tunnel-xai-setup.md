@@ -1,8 +1,5 @@
 # Hermes: Cloudflare Tunnel + xAI for OA
 
-- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/246
-- **Task Status:** ready
-
 **Status:** ready (needs Nico credentials on server)  
 **Owner:** Nico + Manager  
 **Scope:** `~/hermes/config.env`, Cloudflare Zero Trust, OpenCode/OA

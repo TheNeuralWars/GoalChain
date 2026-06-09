@@ -1,8 +1,5 @@
 # Mundial 2026 — Demo devnet (5 min)
 
-- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/271
-- **Task Status:** ready
-
 **Owner:** Nico (CEO) · **Support:** Hermes / Antigravity
 
 ## Prerequisites
