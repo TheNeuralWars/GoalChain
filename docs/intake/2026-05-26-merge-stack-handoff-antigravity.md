@@ -1,8 +1,5 @@
 # Merge stack #26→#34 — Antigravity handoff (Fase 0)
 
-- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/260
-- **Task Status:** ready
-
 - **Date:** 2026-05-26
 - **Status:** ready
 - **Owner:** Antigravity (sole merge integrator)

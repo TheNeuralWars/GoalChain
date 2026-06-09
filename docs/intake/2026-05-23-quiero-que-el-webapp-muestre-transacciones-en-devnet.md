@@ -1,8 +1,5 @@
 # 2026-05-23-quiero-que-el-webapp-muestre-transacciones-en-devnet
 
-- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/250
-- **Task Status:** ready
-
 - **Status:** cancelled (duplicate)
 - **Priority:** P2
 - **Owner:** cursor

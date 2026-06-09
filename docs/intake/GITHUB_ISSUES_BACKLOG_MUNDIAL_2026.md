@@ -1,8 +1,5 @@
 # GitHub Issues Backlog — Mundial 2026 + Audit + Plan Maestro
 
-- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/269
-- **Task Status:** ready
-
 **Generated:** 2026-05-26  
 **Machine-readable:** [`GITHUB_ISSUES_BACKLOG_MUNDIAL_2026.csv`](GITHUB_ISSUES_BACKLOG_MUNDIAL_2026.csv)  
 **Hermes handoff:** [`2026-05-26-hermes-manager-handoff.md`](2026-05-26-hermes-manager-handoff.md)  

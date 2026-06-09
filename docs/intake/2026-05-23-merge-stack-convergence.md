@@ -1,8 +1,5 @@
 # Merge stack #26–#34 + convergencia multi-agente
 
-- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/247
-- **Task Status:** ready
-
 - **Status:** ready
 - **Priority:** P0
 - **Owner (implementer):** cursor

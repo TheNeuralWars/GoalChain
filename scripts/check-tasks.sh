@@ -4,13 +4,8 @@
 
 set -euo pipefail
 
-MUNDIAL_ONLY=0
-if [[ "${1:-}" == "--mundial" || "${1:-}" == "-m" || "${1:-}" == "--mundial-only" || ( "${1:-}" == "--label" && "${2:-}" == "mundial-mvp" ) ]]; then
-  MUNDIAL_ONLY=1
-fi
-
 echo "🔄 Sincronizando repositorio..."
-git pull 2>/dev/null || echo "⚠️ Sincronización git pull omitida (sin rama remota o tracking info)."
+git pull
 
 echo ""
 if ! command -v gh >/dev/null 2>&1; then
@@ -22,22 +17,15 @@ fi
 list_agent_tasks() {
   local agent="$1"
   local status="$2"
-  local labels_arg=(--label "status:${status}" --label "agent:${agent}")
-  if [[ "${MUNDIAL_ONLY}" -eq 1 ]]; then
-    labels_arg+=(--label "mundial-mvp")
-  fi
   gh issue list \
-    "${labels_arg[@]}" \
+    --label "status:${status}" \
+    --label "agent:${agent}" \
     --limit 8 \
     --json number,title,labels,updatedAt \
     --jq '.[] | "\(.number)\t\(.title)"' 2>/dev/null || true
 }
 
 echo "🤖 Tareas activas asignadas por Manager:"
-if [[ "${MUNDIAL_ONLY}" -eq 1 ]]; then
-  echo "🏆 [Filtro: mundial-mvp activo]"
-fi
-
 for agent in cursor antigravity opencode grok; do
   echo ""
   echo "--- ${agent} (ready) ---"

@@ -12,7 +12,6 @@
     "mint-gate": "tsc && node dist/mint_gate.js",
     "vault-crank": "tsc && node dist/vault_crank.js",
     "contributor-epoch-hook": "tsc && node dist/contributor_epoch_hook.js",
-    "cli": "tsc && node dist/cli.js",
     "lint": "tsc --noEmit",
     "test": "npm run lint"
   },

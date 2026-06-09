@@ -2,7 +2,6 @@ import os
 import requests
 import json
 import sys
-
 def load_env_file(dotenv_path):
     if not os.path.exists(dotenv_path):
         return
@@ -26,10 +25,7 @@ def load_env_file(dotenv_path):
 
 # Load environment variables from .env in the workspace root
 load_env_file(os.path.join(os.path.dirname(__file__), '..', '.env'))
-# Also try to load from config.env in hermes home
-hermes_config = os.path.expanduser("~/hermes/config.env")
-if os.path.exists(hermes_config):
-    load_env_file(hermes_config)
+
 
 # Script para automatizar la creación de misiones en Zealy (Crew3)
 # Documentación API Zealy V2: https://api-v2.zealy.io/
@@ -79,7 +75,7 @@ def create_quest(subdomain, api_key, quest_data):
         print(f"❌ Error al crear misión '{quest_data['name']}': {response.text}")
         return None
 
-def run_configurator():
+if __name__ == "__main__":
     print("🚀 GOALCHAIN ZEALY AUTOMATIC CONFIGURATOR 🚀")
     
     # Datos provistos por el usuario with environment fallback
@@ -94,13 +90,14 @@ def run_configurator():
     categories = list_categories(subdomain, api_key)
     
     if not categories:
-        print("❌ No se pudieron cargar las categorías. Asegúrate de que tu API Key sea correcta.")
+        print("❌ No se pudieron cargar las categorías. Asegúrate de que tu API Key sea correcta y que la comunidad esté creada.")
         sys.exit(1)
         
     print(f"✅ Conexión exitosa. Se encontraron {len(categories)} categorías.")
     for cat in categories:
         print(f"   - [{cat.get('id')}] {cat.get('name')}")
         
+    # Usar la primera categoría por defecto o buscar una que se llame 'Onboarding' / 'Social'
     target_category_id = categories[0].get('id')
     for cat in categories:
         if 'onboarding' in cat.get('name', '').lower() or 'getting' in cat.get('name', '').lower() or 'social' in cat.get('name', '').lower():
@@ -109,79 +106,80 @@ def run_configurator():
             
     print(f"\n📂 Las misiones se añadirán a la categoría ID: {target_category_id}")
     
+    # Definición de misiones de GoalChain con formato TipTap y settings correctos
     quests = [
         {
             "categoryId": target_category_id,
-            "name": "🐦 Follow @GoalChainSOL on X",
+            "name": "🐦 Sigue a @GoalChainDotFun en X",
             "published": True,
             "recurrence": "once",
             "conditionOperator": "AND",
             "conditions": [],
             "rewards": [{"type": "xp", "value": 100}],
-            "description": make_tiptap_desc("Follow our official Twitter / X account to stay updated with announcements, sports oracle data, and daily Genesis Squad giveaways."),
+            "description": make_tiptap_desc("Sigue nuestra cuenta oficial en Twitter / X para no perderte ningún anuncio, oráculo deportivo ni los sorteos diarios del Genesis Squad."),
             "tasks": [
                 {
                     "type": "visitLink",
-                    "name": "Follow @GoalChainSOL on X",
+                    "name": "Sigue a @GoalChainDotFun en Twitter",
                     "settings": {
-                        "linkUrl": "https://x.com/GoalChainSOL"
+                        "linkUrl": "https://twitter.com/GoalChainDotFun"
                     }
                 }
             ]
         },
         {
             "categoryId": target_category_id,
-            "name": "📢 Share the Official GoalChain Launch",
+            "name": "📢 Comparte el Lanzamiento Oficial de GoalChain",
             "published": True,
             "recurrence": "once",
             "conditionOperator": "AND",
             "conditions": [],
             "rewards": [{"type": "xp", "value": 150}],
-            "description": make_tiptap_desc("Like and repost our official launch tweet to spread the word about the parimutuel SportsFi revolution on Solana. Show that you are a Genesis Degen!"),
+            "description": make_tiptap_desc("Da Like y Repost a nuestro tweet oficial para correr la voz sobre la revolución parimutuel en Solana. ¡Demuestra que eres un Genesis Degen!"),
             "tasks": [
                 {
                     "type": "visitLink",
-                    "name": "Interact with our pinned post",
+                    "name": "Interactúa con nuestro Tweet fijado",
                     "settings": {
-                        "linkUrl": "https://x.com/GoalChainSOL/status/2061948281257697449"
+                        "linkUrl": "https://twitter.com/GoalChainDotFun/status/2055983823637082445"
                     }
                 }
             ]
         },
         {
             "categoryId": target_category_id,
-            "name": "👾 Join the GoalChain Discord",
+            "name": "👾 Únete al Discord de GoalChain",
             "published": True,
             "recurrence": "once",
             "conditionOperator": "AND",
             "conditions": [],
             "rewards": [{"type": "xp", "value": 100}],
-            "description": make_tiptap_desc("Join the official GoalChain community. Connect with other Managers, discuss match tactics, and participate in exclusive tournaments."),
+            "description": make_tiptap_desc("Únete a la trinchera oficial de la comunidad de GoalChain. Conéctate con otros Managers, debate tácticas y participa en torneos exclusivos."),
             "tasks": [
                 {
                     "type": "visitLink",
-                    "name": "Join our server",
+                    "name": "Únete a nuestro servidor",
                     "settings": {
-                        "linkUrl": "https://discord.gg/YcsmySVDU"
+                        "linkUrl": "https://discord.gg/nzjHNBfSh"
                     }
                 }
             ]
         },
         {
             "categoryId": target_category_id,
-            "name": "🥅 Try the Penalty Shootout Simulator",
+            "name": "🥅 Prueba el Simulador de Penaltis",
             "published": True,
             "recurrence": "once",
             "conditionOperator": "AND",
             "conditions": [],
             "rewards": [{"type": "xp", "value": 200}],
-            "description": make_tiptap_desc("Visit goalchain.fun, play a match in the Penalty Shootout Simulator, and upload a screenshot showing your score and your connected wallet address."),
+            "description": make_tiptap_desc("Ve a goalchain.fun, juega una partida en el Simulador de Penaltis y sube una captura de pantalla donde se muestre tu puntuación y tu wallet conectada."),
             "tasks": [
                 {
                     "type": "file",
-                    "name": "Upload your screenshot from goalchain.fun",
+                    "name": "Sube tu captura de pantalla de goalchain.fun",
                     "settings": {
-                        "text": "Upload the screenshot of your game on goalchain.fun",
+                        "text": "Sube aquí la captura de tu partida en goalchain.fun",
                         "restrictFileType": False,
                         "maxFileCount": 1,
                         "maxFileSize": 10
@@ -191,19 +189,19 @@ def run_configurator():
         },
         {
             "categoryId": target_category_id,
-            "name": "🔥 Feedback & Architecture Suggestions",
+            "name": "🔥 Feedback & Sugerencias de Arquitectura",
             "published": True,
             "recurrence": "daily",
             "conditionOperator": "AND",
             "conditions": [],
             "rewards": [{"type": "xp", "value": 50}],
-            "description": make_tiptap_desc("What mechanics, sports oracle features, or parimutuel games would you like to see in the next version of GoalChain? Submit your text suggestion. Available daily!"),
+            "description": make_tiptap_desc("¿Qué mecánica, oráculo deportivo o juego parimutuel te gustaría ver en la próxima versión de GoalChain? Envíanos tu sugerencia en texto. ¡Misión disponible todos los días!"),
             "tasks": [
                 {
                     "type": "text",
-                    "name": "Propose a feature or leave feedback",
+                    "name": "Propón un juego o deja tu feedback",
                     "settings": {
-                        "text": "Write your proposal or feedback here...",
+                        "text": "Escribe aquí tu propuesta de juego o feedback...",
                         "autoValidated": False
                     }
                 }
@@ -211,118 +209,8 @@ def run_configurator():
         }
     ]
     
-    additional_campaign_quests = [
-        {
-            "categoryId": target_category_id,
-            "name": "⚡ Degen Preseason: Stamina Boost Daily Check-in",
-            "published": True,
-            "recurrence": "daily",
-            "conditionOperator": "AND",
-            "conditions": [],
-            "rewards": [{"type": "xp", "value": 75}],
-            "description": make_tiptap_desc("Join the daily Stamina Boost ritual in the Discord channel #degen-preseason or #degen-locker-room. Comment or react to the post of the day. 2x multiplier active!"),
-            "tasks": [
-                {
-                    "type": "visitLink",
-                    "name": "Go to Stamina Boost on Discord",
-                    "settings": {
-                        "linkUrl": "https://discord.gg/YcsmySVDU",
-                        "inviteUrl": "https://discord.gg/YcsmySVDU"
-                    }
-                }
-            ]
-        },
-        {
-            "categoryId": target_category_id,
-            "name": "🎨 Degen Preseason: Meme the Genesis (Week 1)",
-            "published": True,
-            "recurrence": "once",
-            "conditionOperator": "AND",
-            "conditions": [],
-            "rewards": [{"type": "xp", "value": 250}],
-            "description": make_tiptap_desc("Create and upload a meme featuring the parody players of the Genesis Squad (use the player list). Post it on Discord in the designated meme channel. Community votes determine the bonus rewards!"),
-            "tasks": [
-                {
-                    "type": "file",
-                    "name": "Upload your GoalChain meme",
-                    "settings": {
-                        "text": "Meme with player parody (e.g., Lionel Satoshi, Ruben Dias-Base, etc.)",
-                        "restrictFileType": False,
-                        "maxFileCount": 1,
-                        "maxFileSize": 10
-                    }
-                }
-            ]
-        },
-        {
-            "categoryId": target_category_id,
-            "name": "🗣️ Degen Preseason: Join Voice Locker Room Night",
-            "published": True,
-            "recurrence": "weekly",
-            "conditionOperator": "AND",
-            "conditions": [],
-            "rewards": [{"type": "xp", "value": 150}],
-            "description": make_tiptap_desc("Attend at least one Voice Night (Tactics Talk or Scout Report). Participate in the voice chat or upload a screenshot of the event. Earn the Voice Legend role + XP."),
-            "tasks": [
-                {
-                    "type": "visitLink",
-                    "name": "Join Discord Voice channels",
-                    "settings": {
-                        "linkUrl": "https://discord.gg/YcsmySVDU",
-                        "inviteUrl": "https://discord.gg/YcsmySVDU"
-                    }
-                }
-            ]
-        },
-        {
-            "categoryId": target_category_id,
-            "name": "🤖 Degen Preseason: Ask X-Scout (First Question)",
-            "published": True,
-            "recurrence": "once",
-            "conditionOperator": "AND",
-            "conditions": [],
-            "rewards": [{"type": "xp", "value": 100}],
-            "description": make_tiptap_desc("Ask your first question to the X-Scout agent in the #ask-xscout Discord channel. The agent will reply using our 528 database of players. Connect with our AI!"),
-            "tasks": [
-                {
-                    "type": "visitLink",
-                    "name": "Go to #ask-xscout channel on Discord",
-                    "settings": {
-                        "linkUrl": "https://discord.gg/YcsmySVDU",
-                        "inviteUrl": "https://discord.gg/YcsmySVDU"
-                    }
-                }
-            ]
-        },
-        {
-            "categoryId": target_category_id,
-            "name": "👥 Degen Preseason: Form your Squad (Squad Wars)",
-            "published": True,
-            "recurrence": "once",
-            "conditionOperator": "AND",
-            "conditions": [],
-            "rewards": [{"type": "xp", "value": 200}],
-            "description": make_tiptap_desc("Form or join a Squad of 4-6 members on Discord (#squad-wars). Compete in the first weekly challenge (trivia, predictions, or quests). Group rewards + roles await!"),
-            "tasks": [
-                {
-                    "type": "visitLink",
-                    "name": "Join Discord to form your Squad",
-                    "settings": {
-                        "linkUrl": "https://discord.gg/YcsmySVDU",
-                        "inviteUrl": "https://discord.gg/YcsmySVDU"
-                    }
-                }
-            ]
-        }
-    ]
-    
-    quests.extend(additional_campaign_quests)
-    
-    print("\n🔨 Starting Zealy quest creation...")
+    print("\n🔨 Iniciando creación de misiones en Zealy...")
     for q in quests:
         create_quest(subdomain, api_key, q)
         
     print("\n🏁 Proceso de configuración automatizada finalizado.")
-
-if __name__ == "__main__":
-    run_configurator()

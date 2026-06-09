@@ -1,8 +1,7 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { useState } from 'react';
+import { FixturesPanel } from './FixturesPanel';
+import { AICommentator } from './AICommentator';
 import { LiveEventFeed } from './LiveEventFeed';
-
-const FixturesPanel = lazy(() => import('./FixturesPanel').then(m => ({ default: m.FixturesPanel })));
-const AICommentator = lazy(() => import('./AICommentator').then(m => ({ default: m.AICommentator })));
 
 export function EstadioPortal() {
   const [activeSubTab, setActiveSubTab] = useState<'fixtures' | 'commentator' | 'feed'>('fixtures');
@@ -40,16 +39,12 @@ export function EstadioPortal() {
       <div className="portal-content-wrapper">
         {activeSubTab === 'fixtures' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Cargando partidos...</div>}>
-              <FixturesPanel />
-            </Suspense>
+            <FixturesPanel />
           </div>
         )}
         {activeSubTab === 'commentator' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Cargando comentarista...</div>}>
-              <AICommentator />
-            </Suspense>
+            <AICommentator />
           </div>
         )}
         {activeSubTab === 'feed' && (

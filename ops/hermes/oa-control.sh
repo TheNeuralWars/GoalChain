@@ -2,17 +2,10 @@
 # Manage OpenCode Autonomous worker (OA) lifecycle on Hermes server.
 set -euo pipefail
 
-# Force robust paths if running on the GoalChain VPS
-if [[ -d "/home/goalchain" ]]; then
-  HOME="/home/goalchain"
-  HERMES_HOME="/home/goalchain/.hermes"
-fi
-
-HERMES_HOME="${HERMES_HOME:-$HOME/.hermes}"
+HERMES_HOME="${HERMES_HOME:-$HOME/hermes}"
 OA_HOME="${HERMES_HOME}/oa"
 RUN_FLAG="${OA_HOME}/RUNNING"
 WORKER_SESSION="oa-worker"
-
 WEBHOOK_SESSION="oa-webhook"
 AUTH_SESSION="oa-auth"
 

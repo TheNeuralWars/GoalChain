@@ -8,7 +8,6 @@ import { clusterApiUrl } from '@solana/web3.js';
 
 import '@solana/wallet-adapter-react-ui/styles.css';
 
-import { LanguageProvider } from '../i18n/index';
 import { PlayLayout } from './PlayLayout';
 import { DashboardGrid } from './DashboardGrid';
 import { EstadioPortal } from './EstadioPortal';
@@ -34,6 +33,67 @@ function PlayPage({
       </div>
       <main className={`play-page-main play-page-main--${align}`}>{children}</main>
     </div>
+  );
+}
+
+const ProfilePage = () => {
+  const { username } = useParams<{ username: string }>();
+  return <UserProfile username={username} />;
+};
+
+function App() {
+  const network = WalletAdapterNetwork.Devnet;
+  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+  const wallets = useMemo(() => [new PhantomWalletAdapter()], [network]);
+
+  return (
+    <BrowserRouter>
+      <ConnectionProvider endpoint={endpoint}>
+        <WalletProvider wallets={wallets} autoConnect>
+          <WalletModalProvider>
+            <Routes>
+              <Route element={<PlayLayout />}>
+                <Route
+                  path="/"
+                  element={
+                    <PlayPage title="Panel de Inicio" align="left">
+                      <DashboardGrid />
+                    </PlayPage>
+                  }
+                />
+                <Route
+                  path="/estadio"
+                  element={
+                    <PlayPage title="Portal del Estadio" align="left">
+                      <EstadioPortal />
+                    </PlayPage>
+                  }
+                />
+                <Route
+                  path="/defi"
+                  element={
+                    <PlayPage title="DeFi Terminal" align="left">
+                      <DeFiPortal />
+                    </PlayPage>
+                  }
+                />
+                <Route
+                  path="/club"
+                  element={
+                    <PlayPage title="Mi Club &amp; Manager" align="left">
+                      <ClubPortal />
+                    </PlayPage>
+                  }
+                />
+                <Route path="/hub" element={<ClassicHub />} />
+                <Route path="/crear-usuario" element={<CreateUser />} />
+                <Route path="/perfil/:username" element={<ProfilePage />} />
+              </Route>
+            </Routes>
+          </WalletModalProvider>
+        </WalletProvider>
+      </ConnectionProvider>
+    </BrowserRouter>
   );
 }
 

@@ -189,74 +189,6 @@ PY
   log "OpenClaw MCP gbrain registered (restart gateway if running)"
 }
 
-wire_fcc_mcp() {
-  need_cmd python3
-  local fcc_config="${HOME}/.claude/config.json"
-  mkdir -p "$(dirname "${fcc_config}")"
-  export FCC_CONFIG="${fcc_config}" GBRAIN_CMD="${HOME}/.bun/bin/gbrain"
-  python3 - <<'PY'
-import os
-import json
-from pathlib import Path
-
-path = Path(os.environ["FCC_CONFIG"])
-gbrain_cmd = os.environ.get("GBRAIN_CMD", "gbrain")
-if not Path(gbrain_cmd).exists():
-    gbrain_cmd = "gbrain"
-
-cfg = {}
-if path.exists():
-    try:
-        cfg = json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        cfg = {}
-
-servers = cfg.setdefault("mcpServers", {})
-servers["gbrain"] = {
-    "command": gbrain_cmd,
-    "args": ["serve"]
-}
-
-path.write_text(json.dumps(cfg, indent=2) + "\n", encoding="utf-8")
-print("patched mcpServers.gbrain in FCC config:", path)
-PY
-  log "FCC MCP gbrain registered (~/.claude/config.json)"
-}
-
-wire_opencode_mcp() {
-  need_cmd python3
-  local opencode_config="${HOME}/.opencode/opencode.json"
-  mkdir -p "$(dirname "${opencode_config}")"
-  export OPENCODE_CONFIG="${opencode_config}" GBRAIN_CMD="${HOME}/.bun/bin/gbrain"
-  python3 - <<'PY'
-import os
-import json
-from pathlib import Path
-
-path = Path(os.environ["OPENCODE_CONFIG"])
-gbrain_cmd = os.environ.get("GBRAIN_CMD", "gbrain")
-if not Path(gbrain_cmd).exists():
-    gbrain_cmd = "gbrain"
-
-cfg = {}
-if path.exists():
-    try:
-        cfg = json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        cfg = {}
-
-servers = cfg.setdefault("mcpServers", {})
-servers["gbrain"] = {
-    "command": gbrain_cmd,
-    "args": ["serve"]
-}
-
-path.write_text(json.dumps(cfg, indent=2) + "\n", encoding="utf-8")
-print("patched mcpServers.gbrain in OpenCode config:", path)
-PY
-  log "OpenCode MCP gbrain registered (~/.opencode/opencode.json)"
-}
-
 install_dream_cron_hint() {
   if [[ "${INSTALL_DREAM_CRON}" != "true" ]]; then
     log "dream cron: set INSTALL_DREAM_CRON=true to run: gbrain autopilot --install"
@@ -273,8 +205,6 @@ print_next_steps() {
 Brain repo:     ${BRAIN_REPO}
 Hermes MCP:     mcp_servers.gbrain → gbrain serve (${HERMES_CONFIG})
 Workspace:      ${WORKSPACE} (skills scaffolded)
-FCC Config:     ~/.claude/config.json (gbrain registered)
-OpenCode/Grok:  ~/.opencode/opencode.json (gbrain registered)
 
 Copilot (already on server):
   - OpenClaw agent 'dev' → github-copilot/claude-sonnet-4.5
@@ -301,8 +231,6 @@ main() {
   scaffold_skills
   wire_hermes_mcp
   wire_openclaw_mcp
-  wire_fcc_mcp
-  wire_opencode_mcp
   install_dream_cron_hint
   print_next_steps
 }

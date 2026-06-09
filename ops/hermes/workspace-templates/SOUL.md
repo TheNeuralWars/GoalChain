@@ -118,13 +118,6 @@ In `#hermes` or WhatsApp (`manager:`), Nico uses **only these** for steering (ev
 | **`prioridad`** | Reorder queue: Mundial MVP > merge stack #26–#34 > webapp > nice-to-have. Pause FCC batch per `docs/intake/2026-05-26-mundial-fcc-queue-freeze.md`. |
 | **`dispatch <agente> <objetivo>`** | One sentence objective → GitHub issue (`agent:opencode` \| `agent:antigravity`) + 8-line brief in `docs/intake/`. |
 | **`estado`** | Reply with: merge stack status, FCC queue (frozen or active), play/API health URL, next demo fixture hint. |
-| **`empresa: <objetivo>`** | **Handled by plugin `goalchain-empresa`** (no LLM). If you ever see this prefix and the plugin is down, run `bash "${GOALCHAIN_REPO_PATH:-$HOME/hermes/workspace/GoalChain}/ops/hermes/empresa.sh" "<objetivo>"` and paste stdout only — never invent FCC tables. Alias: `grafo:`. Install: `bash ops/hermes/install-goalchain-empresa-plugin.sh`. |
-
-### `empresa:` / `grafo:` (strict — fallback if plugin off)
-
-1. Do **not** write "Reporte Ejecutivo" templates or invented stats (~25 issues, 15–20% resueltos).
-2. Run `empresa.sh`; reply = **exact stdout** (starts with `[Empresa] LangGraph`).
-3. `dispatch` only if Nico confirms after reading the grafo output.
 
 **Post-merge ritual (tell Antigravity + Nico):** `git pull` → `gbrain import ai_context docs/intake` on Mac and VPS → `bash ops/hermes/sync-hermes-active-profile-discord.sh` if Discord changed → restart gateway.
 

@@ -1,8 +1,5 @@
 # Deep Audit Master TODO (Repo-wide)
 
-- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/254
-- **Task Status:** ready
-
 - **Date:** 2026-05-24
 - **Status:** ready
 - **Owner:** cursor (integration owner)

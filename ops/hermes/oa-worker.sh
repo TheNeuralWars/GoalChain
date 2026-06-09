@@ -21,7 +21,7 @@ REPO="${GOALCHAIN_REPO_PATH:-$HERMES_HOME/workspace/GoalChain}"
 PROPOSALS_DIR="${REPO}/docs/proposals/opencode"
 OA_MODEL="${OA_MODEL:-xai/grok-4.3}"
 OA_CODE_ENGINE="${OA_CODE_ENGINE:-fcc}"
-OA_CODE_MODEL="opencode/nemotron-3-ultra-free" # locked exclusively to the free promo model
+OA_CODE_MODEL="${OA_CODE_MODEL:-github-copilot/claude-sonnet-4.5}"
 OA_CODE_CMD="${OA_CODE_CMD:-}"
 RUN_CODE="${HERMES_HOME}/scripts/oa-run-code.sh"
 RESEARCH_PUBLISHER="${HERMES_HOME}/scripts/oa-discord-research-publisher.py"
@@ -305,127 +305,69 @@ Before editing, read (in order):
 Issue body (requirements):
 ${body}
 
-CRITICAL COMPATIBILITY RULES FOR NEMOTRON-3-ULTRA-FREE:
-1. DO NOT use the \`todowrite\` tool. It causes schema errors with Nemotron-3. Manage all your tasks and checklists in text format in the proposal file.
-2. DO NOT write or overwrite large files (greater than 50 lines) using the \`write\` tool. Output truncation will break JSON parsing and crash the run. Break changes down into smaller files or modular edits.
-
 Use repo constraints and META principles. Installed skills live in ~/.claude/skills/ (frontend-design, gstack).
 First refine proposal in ${proposal_file}, then implement code in small safe steps.
 Do not touch secrets. ${work_mode_note}
 Open a draft PR only (unless cambio urgente). End by summarizing tests run and residual risks.
 EOF
-  local run_status="0"
   if [[ -x "${RUN_CODE}" ]]; then
     log "FCC tier=${fcc_tier} (priority=${priority}) for issue #${number}"
-    bash "${RUN_CODE}" --workdir "${REPO}" --prompt-file "${prompt_file}" --tier "${fcc_tier}" --log "${run_log}" >> "${run_log}" 2>&1 || run_status=$?
+    bash "${RUN_CODE}" --workdir "${REPO}" --prompt-file "${prompt_file}" --tier "${fcc_tier}" --log "${run_log}" >> "${run_log}" 2>&1 || true
   else
     log "WARN oa-run-code.sh missing; skipping implementation for #${number}"
-    run_status=99
   fi
 
-  # Check run log for indicators of failure even if exit status is 0
-  local has_error="0"
-  if [[ ${run_status} -ne 0 ]]; then
-    has_error="1"
-  elif [[ -f "${run_log}" ]]; then
-    if grep -q -E "model_not_supported|Error:|FCC run failed" "${run_log}"; then
-      has_error="1"
-    fi
-  fi
-
-  if [[ "${has_error}" == "0" ]]; then
-    if [[ "${urgent_mode}" == "1" ]]; then
-      if [[ -n "$(git -C "${REPO}" status --porcelain)" ]]; then
-        git -C "${REPO}" add -A
-        git -C "${REPO}" commit -m "oa: cambio urgente issue #${number}" >/dev/null 2>&1 || true
-        git -C "${REPO}" push origin main >/dev/null 2>&1 || true
-        gh issue comment --repo "${GITHUB_REPO}" "${number}" \
-          --body "Executed in **direct-main mode** due to keyword \`cambio urgente\`. Changes were pushed directly to \`main\`.\n\nTier: \`${fcc_tier}\`\nLog: \`${run_log}\`" \
-          >/dev/null 2>&1 || true
-      else
-        gh issue comment --repo "${GITHUB_REPO}" "${number}" \
-          --body "Issue had \`cambio urgente\` policy but OA produced no file changes.\n\nTier: \`${fcc_tier}\`\nLog: \`${run_log}\`" \
-          >/dev/null 2>&1 || true
-      fi
-      gh issue edit --repo "${GITHUB_REPO}" "${number}" \
-        --remove-label "status:ready" \
-        --remove-label "status:in_progress" \
-        --add-label "status:done" >/dev/null 2>&1 || true
-      touch "${done_marker}"
-      log "Finished issue #${number} (direct-main mode)"
-      return 0
-    fi
-
-    # Normal mode (non-urgent)
-    local pr_url=""
+  if [[ "${urgent_mode}" == "1" ]]; then
     if [[ -n "$(git -C "${REPO}" status --porcelain)" ]]; then
       git -C "${REPO}" add -A
-      git -C "${REPO}" commit -m "oa: draft implementation for issue #${number}" >/dev/null 2>&1 || true
-      git -C "${REPO}" push -u origin "${branch}" >/dev/null 2>&1 || true
-
-      # Create draft PR if none exists for branch.
-      local pr_count
-      pr_count="$(gh pr list --repo "${GITHUB_REPO}" --head "${branch}" --state open --json number | python3 -c 'import json,sys; print(len(json.load(sys.stdin)))' 2>/dev/null || echo 0)"
-      if [[ "${pr_count}" == "0" ]]; then
-        pr_url="$(gh pr create --repo "${GITHUB_REPO}" --base main --head "${branch}" --draft \
-          --title "OA draft: issue #${number} — ${title}" \
-          --body "Automated FCC/OpenCode draft for issue #${number}. Requires Antigravity or Nico review before merge." 2>/dev/null || true)"
-      else
-        pr_url="$(gh pr list --repo "${GITHUB_REPO}" --head "${branch}" --state open --json url --jq '.[0].url' 2>/dev/null || true)"
-      fi
-    fi
-
-    # Success comment and labels
-    local comment_body="Automated FCC/OpenCode completed issue #${number}.\n\n- **Tier Used:** \`${fcc_tier}\`"
-    if [[ -n "${pr_url}" ]]; then
-      comment_body="${comment_body}\n- **Draft PR:** ${pr_url}"
+      git -C "${REPO}" commit -m "oa: cambio urgente issue #${number}" >/dev/null 2>&1 || true
+      git -C "${REPO}" push origin main >/dev/null 2>&1 || true
+      gh issue comment --repo "${GITHUB_REPO}" "${number}" \
+        --body "Executed in **direct-main mode** due to keyword \`cambio urgente\`. Changes were pushed directly to \`main\`." \
+        >/dev/null 2>&1 || true
     else
-      comment_body="${comment_body}\n- No code changes were produced."
+      gh issue comment --repo "${GITHUB_REPO}" "${number}" \
+        --body "Issue had \`cambio urgente\` policy but OA produced no file changes." \
+        >/dev/null 2>&1 || true
     fi
-    gh issue comment --repo "${GITHUB_REPO}" "${number}" --body "$(printf "${comment_body}")" >/dev/null 2>&1 || true
-
-    gh issue edit --repo "${GITHUB_REPO}" "${number}" \
-      --remove-label "status:ready" \
-      --remove-label "status:in_progress" \
-      --add-label "status:done" >/dev/null 2>&1 || true
-
     touch "${done_marker}"
-    log "Finished issue #${number} (normal mode)"
-  else
-    # Failure handling: DO NOT touch done marker, remove in_progress, comment + add status:blocked or status:ready for retry
-    # Let's see if it is model_not_supported to mention that explicitly or generally block
-    local fail_reason="FCC execution failed"
-    if grep -q "model_not_supported" "${run_log}" 2>/dev/null; then
-      fail_reason="Model not supported"
-    fi
-
-    local comment_body="Automated FCC/OpenCode run failed for issue #${number}.\n\n- **Reason:** ${fail_reason}\n- **Tier Attempted:** \`${fcc_tier}\`\n- **Status:** marked as \`status:blocked\` for manual review to prevent infinite retries. Run logs are at \`/tmp/oa-opencode-${number}.log\`."
-    gh issue comment --repo "${GITHUB_REPO}" "${number}" --body "$(printf "${comment_body}")" >/dev/null 2>&1 || true
-
-    # Per guidelines, failure should not touch .done, and let's remove status:in_progress, add status:blocked.
-    gh issue edit --repo "${GITHUB_REPO}" "${number}" \
-      --remove-label "status:in_progress" \
-      --add-label "status:blocked" >/dev/null 2>&1 || true
-
-    log "Failed issue #${number}: ${fail_reason}. Done marker NOT touched. Re-labeled status:blocked."
+    log "Finished issue #${number} (direct-main mode)"
+    return 0
   fi
+
+  # Commit any produced changes.
+  if [[ -n "$(git -C "${REPO}" status --porcelain)" ]]; then
+    git -C "${REPO}" add -A
+    git -C "${REPO}" commit -m "oa: draft implementation for issue #${number}" >/dev/null 2>&1 || true
+    git -C "${REPO}" push -u origin "${branch}" >/dev/null 2>&1 || true
+
+    # Create draft PR if none exists for branch.
+    local pr_count
+    pr_count="$(gh pr list --repo "${GITHUB_REPO}" --head "${branch}" --state open --json number | python3 -c 'import json,sys; print(len(json.load(sys.stdin)))' 2>/dev/null || echo 0)"
+    if [[ "${pr_count}" == "0" ]]; then
+      gh pr create --repo "${GITHUB_REPO}" --base main --head "${branch}" --draft \
+        --title "OA draft: issue #${number} — ${title}" \
+        --body "Automated FCC/OpenCode draft for issue #${number}. Requires Antigravity or Nico review before merge." >/dev/null 2>&1 || true
+    fi
+  fi
+
+  touch "${done_marker}"
+  log "Finished issue #${number}"
 }
 
 pick_next_opencode_issue() {
   local raw
-  # Any code-agent label + status:ready (opencode/FCC, antigravity, grok). Cursor stays IDE-local.
   raw="$(gh issue list \
     --repo "${GITHUB_REPO}" \
     --state open \
+    --label "agent:opencode" \
     --label "status:ready" \
-    --limit 100 \
+    --limit 20 \
     --json number,title,body,createdAt,labels 2>/dev/null || echo '[]')"
-  echo "${raw}" | STATE_DIR="${STATE_DIR}" python3 -c 'import json,sys
+  STATE_DIR="${STATE_DIR}" python3 -c 'import json,sys
 from pathlib import Path
-raw=sys.stdin.read().strip() or "[]"
-state_dir=Path(sys.argv[1] or ".")
-CODE_AGENTS=frozenset({"agent:opencode", "agent:antigravity", "agent:grok"})
-SKIP_AGENTS=frozenset({"agent:cursor"})
+raw=sys.argv[1].strip() or "[]"
+state_dir=Path(sys.argv[2] or ".")
 try:
     items=json.loads(raw)
 except Exception:
@@ -445,25 +387,9 @@ def already_done(issue):
     if (state_dir / f"issue-{n}.done").exists():
         return True
     return "status:done" in labels(issue)
-def priority_rank(issue):
-    labs=labels(issue)
-    if "priority:P0" in labs or "P0" in labs:
-        return 0
-    if "priority:P1" in labs or "P1" in labs:
-        return 1
-    if "priority:P2" in labs or "P2" in labs:
-        return 2
-    return 3
-def eligible(issue):
-    labs=set(labels(issue))
-    if labs & SKIP_AGENTS:
-        return False
-    if not (labs & CODE_AGENTS):
-        return False
-    return not already_done(issue)
-items=[i for i in items if eligible(i)]
-items=sorted(items, key=lambda x: (priority_rank(x), x.get("createdAt","")))
-print(json.dumps(items[0]) if items else "")' "${STATE_DIR}"
+items=[i for i in items if not already_done(i)]
+items=sorted(items, key=lambda x:x.get("createdAt",""))
+print(json.dumps(items[0]) if items else "")' "${raw}" "${STATE_DIR}"
 }
 
 main_loop() {
@@ -471,14 +397,6 @@ main_loop() {
   while [[ -f "${RUN_FLAG}" ]]; do
     publish_research_updates
     consume_webhook_queue
-
-    # Run the autonomous reviewer to audit and merge open PRs
-    if [[ -x "${HERMES_HOME}/scripts/autonomic-reviewer.sh" ]]; then
-      bash "${HERMES_HOME}/scripts/autonomic-reviewer.sh" || true
-    elif [[ -x "${SCRIPT_DIR}/autonomic-reviewer.sh" ]]; then
-      bash "${SCRIPT_DIR}/autonomic-reviewer.sh" || true
-    fi
-
     local issue
     issue="$(pick_next_opencode_issue || true)"
     if [[ -n "${issue}" ]]; then

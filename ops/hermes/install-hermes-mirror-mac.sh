@@ -4,9 +4,9 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-SSH_HOST="${GOALCHAIN_SSH:-ubuntu@89.168.20.135}"
+SSH_HOST="${GOALCHAIN_SSH:-goalchain@178.105.148.109}"
 HERMES_HOME="${HERMES_HOME:-$HOME/.hermes}"
-REMOTE_HERMES="${REMOTE_HERMES:-/home/ubuntu/.hermes}"
+REMOTE_HERMES="${REMOTE_HERMES:-/home/goalchain/.hermes}"
 STAMP="$(date +%Y%m%d%H%M%S)"
 BACKUP="${HERMES_HOME}/backups/pre-mirror-${STAMP}"
 

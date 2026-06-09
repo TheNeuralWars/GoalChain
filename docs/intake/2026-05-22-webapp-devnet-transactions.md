@@ -1,8 +1,5 @@
 # Conectar goalchain_webapp a flujos reales en Devnet (MVP)
 
-- **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/242
-- **Task Status:** ready
-
 - **Status:** done
 - **Priority:** P1
 - **Owner (implementer):** cursor

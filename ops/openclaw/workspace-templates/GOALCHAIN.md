@@ -2,11 +2,6 @@
 
 Read this when Nico asks about the project on WhatsApp or panel.
 
-## 🔴 READ FIRST: Operational Decisions
-
-**All sessions MUST read `ai_context/OPERATIONAL_DECISIONS.md` at start.**
-Contains: GitHub Actions exhausted → local PR/merge, Nemotron routing, profile isolation, GBrain sync, language rules.
-
 ## Repo
 
 `/home/goalchain/hermes/workspace/GoalChain` — sync: `bash ~/hermes/scripts/sync.sh`

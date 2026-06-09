@@ -31,10 +31,6 @@ export class OracleService {
   // PDAs
   public configPda: PublicKey;
 
-  // Services
-  public markets: MarketsService;
-  public players: PlayersService;
-
   constructor(
     rpcUrl: string,
     keypairPathOrWallet: string | anchor.Wallet,
@@ -81,23 +77,12 @@ export class OracleService {
       [Buffer.from("config")],
       this.program.programId,
     );
-
-    this.markets = createMarketsService({
-      connection: this.connection,
-      wallet: this.wallet,
-      provider: this.provider,
-      program: this.program,
-      configPda: this.configPda,
-      sendWithPriorityFees: this.sendWithPriorityFees.bind(this),
-    });
-
-    this.players = new PlayersService(this);
   }
 
   /**
    * Helper to wrap instruction execution with dynamic Helius priority fees and blockhash management.
    */
-  public async sendWithPriorityFees(
+  private async sendWithPriorityFees(
     methodBuilder: any,
     keysForPriorityEstimate: PublicKey[],
     computeUnitsLimit: number = 200000,
@@ -287,7 +272,6 @@ export class OracleService {
 
   /**
    * Creates a new live betting market for the given fixture.
-   * Delegates to MarketsService.
    */
   async createLiveMarket(
     matchId: string,
@@ -297,44 +281,103 @@ export class OracleService {
     closeMinute: number,
     tokenMint: PublicKey,
   ): Promise<string> {
-    // Convert legacy anchor marketType object to our MarketType enum
-    let typedMarketType: any;
-    if (marketType.nextGoal) typedMarketType = "NextGoal";
-    else if (marketType.matchResultLive) typedMarketType = "MatchResultLive";
-    else if (marketType.custom) typedMarketType = "Custom";
-    else typedMarketType = "NextGoal"; // default
+    console.log(
+      `[Oracle] 📈 Opening Live Market (ID: ${marketId}) for ${matchId}...`,
+    );
+    const [fixturePda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("fixture"), Buffer.from(matchId)],
+      this.program.programId,
+    );
+    const [marketPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("market"), fixturePda.toBuffer(), Buffer.from([marketId])],
+      this.program.programId,
+    );
 
-    return this.markets.createLiveMarket({
-      matchId,
-      marketId,
-      marketType: typedMarketType,
-      delaySeconds,
-      closeMinute,
-      tokenMint,
-    });
+    try {
+      const method = this.program.methods
+        .oracleCreateMarket(
+          marketId,
+          marketType,
+          new BN(delaySeconds),
+          new BN(0), // cooldown
+          closeMinute,
+          1, // max_goal_diff default
+          true, // require_tied default
+          tokenMint,
+        )
+        .accounts({
+          oracleAuthority: this.wallet.publicKey,
+          config: this.configPda,
+          fixture: fixturePda,
+          market: marketPda,
+          tokenMint: tokenMint,
+          tokenProgram: TOKEN_PROGRAM_ID,
+          systemProgram: SystemProgram.programId,
+        } as any);
+
+      const tx = await this.sendWithPriorityFees(method, [
+        this.wallet.publicKey,
+        this.configPda,
+        fixturePda,
+        marketPda,
+        tokenMint,
+      ]);
+      console.log(
+        `[Oracle] ✅ Live Market ${marketId} opened successfully! Tx: ${tx}`,
+      );
+      return tx;
+    } catch (error) {
+      console.error(
+        `[Oracle] ❌ Failed to create market ${marketId} for ${matchId}:`,
+        error,
+      );
+      throw error;
+    }
   }
 
   /**
    * Resolves a live market, declaring a winner and allowing users to claim payouts.
-   * Delegates to MarketsService.
    */
   async resolveMarket(
     matchId: string,
     marketId: number,
     winner: any, // e.g. { teamA: {} }, { teamB: {} }, { draw: {} }
   ): Promise<string> {
-    // Convert legacy anchor winner object to our MatchResult enum
-    let typedWinner: any;
-    if (winner.teamA) typedWinner = "TeamA";
-    else if (winner.teamB) typedWinner = "TeamB";
-    else if (winner.draw) typedWinner = "Draw";
-    else throw new Error("Invalid winner format");
+    console.log(
+      `[Oracle] ⚖️ Resolving Live Market (ID: ${marketId}) for ${matchId}...`,
+    );
+    const [fixturePda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("fixture"), Buffer.from(matchId)],
+      this.program.programId,
+    );
+    const [marketPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("market"), fixturePda.toBuffer(), Buffer.from([marketId])],
+      this.program.programId,
+    );
 
-    return this.markets.resolveMarket({
-      matchId,
-      marketId,
-      winner: typedWinner,
-    });
+    try {
+      const method = this.program.methods
+        .oracleUpdateMarketStatus({ resolved: {} }, winner)
+        .accounts({
+          oracleAuthority: this.wallet.publicKey,
+          config: this.configPda,
+          market: marketPda,
+        } as any);
+
+      const tx = await this.sendWithPriorityFees(method, [
+        this.wallet.publicKey,
+        this.configPda,
+        marketPda,
+      ]);
+      console.log(`[Oracle] ✅ Live Market ${marketId} resolved! Tx: ${tx}`);
+      return tx;
+    } catch (error) {
+      console.error(
+        `[Oracle] ❌ Failed to resolve market ${marketId} for ${matchId}:`,
+        error,
+      );
+      throw error;
+    }
   }
 
   /**
@@ -396,21 +439,93 @@ export class OracleService {
   /**
    * Records that a player participated in a fixture.
    * Idempotent on-chain per (player, fixture): repeated calls do not double-drain stamina.
-   * Delegates to PlayersService.recordMatch().
    */
   async recordPlayerMatch(matchId: string, playerId: string): Promise<string> {
-    return this.players.recordMatch({ matchId, playerId });
+    console.log(
+      `[Oracle] 🧾 Recording match participation: ${playerId} in ${matchId}`,
+    );
+    const [fixturePda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("fixture"), Buffer.from(matchId)],
+      this.program.programId,
+    );
+    const [parodyPlayerPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("player"), Buffer.from(playerId)],
+      this.program.programId,
+    );
+    const [playerMatchRecordPda] = PublicKey.findProgramAddressSync(
+      [
+        Buffer.from("player_match"),
+        parodyPlayerPda.toBuffer(),
+        fixturePda.toBuffer(),
+      ],
+      this.program.programId,
+    );
+
+    try {
+      const method = this.program.methods.oracleRecordMatch().accounts({
+        oracleAuthority: this.wallet.publicKey,
+        config: this.configPda,
+        parodyPlayer: parodyPlayerPda,
+        fixture: fixturePda,
+        playerMatchRecord: playerMatchRecordPda,
+        systemProgram: SystemProgram.programId,
+      } as any);
+
+      const tx = await this.sendWithPriorityFees(method, [
+        this.wallet.publicKey,
+        this.configPda,
+        parodyPlayerPda,
+        fixturePda,
+        playerMatchRecordPda,
+      ]);
+      console.log(
+        `[Oracle] ✅ Player match participation recorded for ${playerId} (${matchId}). Tx: ${tx}`,
+      );
+      return tx;
+    } catch (error) {
+      console.error(
+        `[Oracle] ❌ Failed to record player match for ${playerId} (${matchId}):`,
+        error,
+      );
+      throw error;
+    }
   }
 
   /**
    * Updates real-world stats for a specific Parody Player (Goals, Assists) to boost Yield/Stamina.
-   * Delegates to PlayersService.updateStats().
    */
   async updatePlayerStats(
     playerId: string,
     goalsAdded: number,
     assistsAdded: number,
   ): Promise<string> {
-    return this.players.updateStats({ playerId, goalsAdded, assistsAdded });
+    console.log(
+      `[Oracle] 👤 Updating Player Stats: ${playerId} (+${goalsAdded}G, +${assistsAdded}A)`,
+    );
+    const [parodyPlayerPda] = PublicKey.findProgramAddressSync(
+      [Buffer.from("player"), Buffer.from(playerId)],
+      this.program.programId,
+    );
+
+    try {
+      const method = this.program.methods
+        .updatePlayerStats(goalsAdded, assistsAdded)
+        .accounts({
+          oracleAuthority: this.wallet.publicKey,
+          config: this.configPda,
+          parodyPlayer: parodyPlayerPda,
+        } as any);
+
+      const tx = await this.sendWithPriorityFees(method, [
+        this.wallet.publicKey,
+        this.configPda,
+        parodyPlayerPda,
+      ]);
+      console.log(`[Oracle] ✅ Player ${playerId} stats updated! Tx: ${tx}`);
+      return tx;
+    } catch (error) {
+      console.error(`[Oracle] ❌ Failed to update player ${playerId}:`, error);
+      throw error;
+    }
   }
 }
