@@ -1,8 +1,0 @@
-{
-  "agent": "devnet-oracle",
-  "holder": 35,
-  "vault": 35,
-  "treasury": 20,
-  "maintenance": 10,
-  "notes": "Balanced split. Revenue from simulation and testing commissions."
-}

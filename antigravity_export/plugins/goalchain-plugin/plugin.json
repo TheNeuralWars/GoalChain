@@ -1,8 +1,0 @@
-{
-  "name": "goalchain-plugin",
-  "version": "1.0.0",
-  "description": "Custom skills for GoalChain Solana dApp, responsive visual optimization, and WebAI client integration.",
-  "author": {
-    "name": "NicoPez & Antigravity"
-  }
-}

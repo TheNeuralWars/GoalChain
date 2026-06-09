@@ -1,0 +1,116 @@
+name: Bug Report
+description: Report a bug to help us improve
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for reporting a bug! Please fill out the sections below."
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the bug.
+      placeholder: When I click Play Penalties, the game loads but shows LOADING forever
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior.
+      value: |
+        1. Go to play.goalchain.fun
+        2. Connect wallet
+        3. Click Play Penalties
+        4. Game shows LOADING and never starts
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen.
+      placeholder: Penalty game should start and let me shoot
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened.
+      placeholder: Game stuck on LOADING with no error in console
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      options:
+        - macOS
+        - Windows
+        - Linux
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: wallet
+    attributes:
+      label: Wallet
+      options:
+        - Phantom
+        - Solflare
+        - Backpack
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: network
+    attributes:
+      label: Network
+      options:
+        - Devnet
+        - Mainnet
+        - Localnet
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Commit / Build
+      description: Git SHA or build number
+      placeholder: a1b2c3d or v2.1.0
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Console Output
+      description: Paste relevant logs here
+      render: shell
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other information that might help.
+    validations:
+      required: false
+  - type: textarea
+    id: fix
+    attributes:
+      label: Possible Fix (optional)
+      description: If you have an idea whats causing it or how to fix it.
+    validations:
+      required: false

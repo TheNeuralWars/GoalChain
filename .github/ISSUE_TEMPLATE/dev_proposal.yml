@@ -1,0 +1,116 @@
+name: Dev Proposal
+description: Propose a significant development initiative (RFC style)
+title: "[PROPOSAL] "
+labels: ["proposal", "governance", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Dev Proposal Template
+        Use this for significant initiatives: architecture changes, new protocols, tokenomics updates, major features.
+        Follow the structure below. Proposals get a 7-day discussion period before core team decision.
+  - type: textarea
+    id: summary
+    attributes:
+      label: One-Line Summary
+      description: TL;DR of the proposal.
+      placeholder: Integrate real Zealy XP sync via API to replace mock leaderboard data
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem & Motivation
+      description: Why do we need this? What's the pain point?
+      placeholder: |
+        - Current leaderboard shows fake users (SolanaWhale...7f2a)
+        - Zealy XP displayed is static (1,650) not real user data
+        - Users can't trust the airdrop tier system
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Technical approach, components, APIs.
+      placeholder: |
+        1. Create `zealyClient.ts` with fetchUserXP(wallet), fetchLeaderboard(limit), generateReferralLink(wallet)
+        2. Add VITE_ZEALY_API_KEY to .env.example
+        3. Connect wallet -> fetch real XP -> cache 5min -> display
+        4. Sync Now button for manual refresh
+        5. Update leaderboard component to use real data + tier badges
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Other approaches and why they were rejected.
+      placeholder: Webhook-based sync rejected due to Zealy rate limits and reliability
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks & Mitigations
+      description: Technical, security, UX, timeline risks.
+      placeholder: |
+        - API rate limits: Implement cache + exponential backoff
+        - API downtime: Fallback to cached data + stale indicator
+        - Privacy: Only fetch by connected wallet address, no PII stored
+    validations:
+      required: true
+  - type: textarea
+    id: testing
+    attributes:
+      label: Testing Strategy
+      description: How will this be validated?
+      placeholder: |
+        - Unit tests for zealyClient (mock API)
+        - Integration test: connect wallet -> see real XP update
+        - Load test: 100 concurrent users fetching XP
+        - Manual QA on devnet with test Zealy accounts
+    validations:
+      required: true
+  - type: textarea
+    id: timeline
+    attributes:
+      label: Timeline & Milestones
+      description: Breakdown with estimates.
+      placeholder: |
+        - Week 1: zealyClient + types + unit tests
+        - Week 2: UI integration (ZealyQuests + Leaderboard components)
+        - Week 3: Cache, error handling, Sync Now button
+        - Week 4: QA, docs, deploy to devnet
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - P0 - Critical (blocks launch, security, data integrity)
+        - P1 - High (major feature, revenue, user trust)
+        - P2 - Medium (significant improvement)
+        - P3 - Low (exploratory, nice to have)
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Other teams, external services, prerequisites.
+      placeholder: Zealy API access (need API key from Nico), wallet adapter already in place
+    validations:
+      required: false
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I've searched existing issues/discussions for duplicates
+          required: true
+        - label: This aligns with current roadmap (docs/roadmap.md)
+          required: true
+        - label: I'm willing to implement or drive this to completion
+          required: true

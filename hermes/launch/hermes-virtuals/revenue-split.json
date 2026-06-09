@@ -1,8 +1,0 @@
-{
-  "agent": "hermes",
-  "holder": 40,
-  "vault": 30,
-  "treasury": 20,
-  "maintenance": 10,
-  "notes": "Revenue from intake fees and task automation. Uses OpenClaw/Grok as reasoning engine."
-}
