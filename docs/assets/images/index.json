@@ -1,0 +1,137 @@
+{
+  "version": "1.0",
+  "total_assets": 15,
+  "asset_types": [
+    "background",
+    "banner"
+  ],
+  "rarities": [
+    "common",
+    "rare",
+    "epic",
+    "legendary",
+    "mythic"
+  ],
+  "assets": [
+    {
+      "filename": "bg_common_001_ground_urban_1778864969477.png",
+      "rarity": "common",
+      "theme": "ground_urban",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_common_001_ground_urban_1778864969477.png"
+    },
+    {
+      "filename": "bg_common_001_urban_1778864612080.png",
+      "rarity": "common",
+      "theme": "urban",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_common_001_urban_1778864612080.png"
+    },
+    {
+      "filename": "bg_common_002_grass_1778864625731.png",
+      "rarity": "common",
+      "theme": "grass",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_common_002_grass_1778864625731.png"
+    },
+    {
+      "filename": "bg_common_003_favela_1778864667417.png",
+      "rarity": "common",
+      "theme": "favela",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_common_003_favela_1778864667417.png"
+    },
+    {
+      "filename": "bg_epic_001_fireworks_1778864695762.png",
+      "rarity": "epic",
+      "theme": "fireworks",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_epic_001_fireworks_1778864695762.png"
+    },
+    {
+      "filename": "bg_epic_002_clouds_1778864757324.png",
+      "rarity": "epic",
+      "theme": "clouds",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_epic_002_clouds_1778864757324.png"
+    },
+    {
+      "filename": "bg_epic_003_aurora_1778864803776.png",
+      "rarity": "epic",
+      "theme": "aurora",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_epic_003_aurora_1778864803776.png"
+    },
+    {
+      "filename": "bg_legendary_001_hologram_1778864729261.png",
+      "rarity": "legendary",
+      "theme": "hologram",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_legendary_001_hologram_1778864729261.png"
+    },
+    {
+      "filename": "bg_legendary_002_underwater_1778864817628.png",
+      "rarity": "legendary",
+      "theme": "underwater",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_legendary_002_underwater_1778864817628.png"
+    },
+    {
+      "filename": "bg_mythic_001_lunar_1778864743593.png",
+      "rarity": "mythic",
+      "theme": "lunar",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_mythic_001_lunar_1778864743593.png"
+    },
+    {
+      "filename": "bg_rare_001_sunset_1778864639593.png",
+      "rarity": "rare",
+      "theme": "sunset",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_rare_001_sunset_1778864639593.png"
+    },
+    {
+      "filename": "bg_rare_002_floodlights_1778864679047.png",
+      "rarity": "rare",
+      "theme": "floodlights",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_rare_002_floodlights_1778864679047.png"
+    },
+    {
+      "filename": "bg_rare_003_coastal_1778864790418.png",
+      "rarity": "rare",
+      "theme": "coastal",
+      "usage": "background",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/bg_rare_003_coastal_1778864790418.png"
+    },
+    {
+      "filename": "goalchain_hero_banner_1778863443102.png",
+      "rarity": "legendary",
+      "theme": "brand_hero",
+      "usage": "banner",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/goalchain_hero_banner_1778863443102.png"
+    },
+    {
+      "filename": "goalchain_soccer_hero_1778863555336.png",
+      "rarity": "legendary",
+      "theme": "soccer_hero",
+      "usage": "banner",
+      "dimensions": "1024x1024",
+      "file_path": "/home/ubuntu/GoalChain/assets/img/promo/goalchain_soccer_hero_1778863555336.png"
+    }
+  ]
+}
