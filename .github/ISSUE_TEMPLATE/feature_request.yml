@@ -1,0 +1,65 @@
+name: Feature Request
+description: Suggest a new feature or improvement
+title: "[FEATURE] "
+labels: ["feature", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for suggesting a feature! Please describe your idea below."
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this solve? Who has this problem?
+      placeholder: Users can't see their real Zealy XP in the dashboard - it shows mock data
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe your ideal solution.
+      placeholder: Add a Zealy API integration that fetches real user XP by wallet address
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Other solutions you've thought of.
+      placeholder: Could also sync via webhook when user completes quests
+    validations:
+      required: false
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Frontend (goalchain_webapp)
+        - Smart Contract (goalchain_program)
+        - API (goalchain_api)
+        - SDK (goalchain_sdk)
+        - Marketing Site (docs/)
+        - Oracle / Backend
+        - Design / Assets
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options:
+        - P0 - Critical (blocks launch, security, data loss)
+        - P1 - High (major UX improvement, revenue impact)
+        - P2 - Medium (nice to have, quality of life)
+        - P3 - Low (polish, experimental)
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Mockups, references, related issues, etc.
+    validations:
+      required: false

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Ask a Question
+    url: https://github.com/TheNeuralWars/GoalChain/discussions
+    about: General questions, ideas, or discussions
+  - name: 🛡️ Report Security Issue
+    url: https://github.com/TheNeuralWars/GoalChain/security/advisories/new
+    about: Report a vulnerability privately
+  - name: 📖 Read Contributing Guide
+    url: https://github.com/TheNeuralWars/GoalChain/blob/main/CONTRIBUTING.md
+    about: Guidelines for contributing code, docs, designs

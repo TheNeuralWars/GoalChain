@@ -1,0 +1,27 @@
+# GoalChain Code Owners
+
+# Global owners - required review for all changes
+* @NicoPez @LucasBello
+
+# Frontend (goalchain_webapp)
+/goalchain_webapp/ @NicoPez @LucasBello
+
+# Smart Contract (goalchain_program)
+/goalchain_program/ @NicoPez
+
+# SDK & API
+/goalchain_sdk/ @NicoPez
+/goalchain_api/ @NicoPez
+
+# Documentation & Marketing
+/docs/ @NicoPez @LucasBello
+/*.md @NicoPez @LucasBello
+
+# CI/CD & Infrastructure
+/.github/ @NicoPez
+
+# Scripts (build, deploy, sync)
+/scripts/ @NicoPez
+
+# Design System & Assets
+/assets/ @LucasBello
