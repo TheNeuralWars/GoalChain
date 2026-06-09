@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import { LanguageToggle } from '../components/LanguageToggle';
 import {
   PLAY_NAV_GROUPS,
   RESOURCE_LINKS,
@@ -122,6 +123,10 @@ export function PlayNav() {
           <NavLink to={userNav.to} className={navLinkClass}>
             {userNav.label}
           </NavLink>
+        </div>
+
+        <div className="play-nav-group play-nav-group--lang">
+          <LanguageToggle />
         </div>
       </div>
     </nav>
