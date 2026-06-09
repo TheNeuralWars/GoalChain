@@ -4,7 +4,7 @@
 [OPENCODE] Task 3 - Surface Presale Status & Whitelist Form on Landing
 
 ## Source
-GitHub issue #297
+Local queue (autonomous mode)
 
 ## Objective
 ## Objective
@@ -37,12 +37,18 @@ Requested by Nico via Manager (hermes-ceo profile). Keep scope tight and aligned
   - grok: `exp/grok-*`
 - Draft PR for Antigravity/Nico review — no direct merge to `main` unless `cambio urgente`
 
+## Priority
+P1
+
+## Labels
+status:ready,source:manager,agent:opencode,priority:P1,
+
 ## OA Plan (draft)
 - Analyze repository constraints and META alignment.
 - Implement minimal safe changes first.
 - Run local checks where feasible.
-- Prepare draft PR for Cursor review.
+- Prepare draft for review.
 
 ## Risk / rollback
 - Risk: scope drift or unstable dependencies.
-- Rollback: revert main commit linked to issue #297
+- Rollback: revert branch `exp/opencode-issue-297`.
