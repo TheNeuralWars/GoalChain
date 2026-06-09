@@ -1,7 +1,7 @@
 // ===== GoalChain i18n - Spanish / English =====
 // Auto-generated from goalchain_webapp/src/i18n/locales/*.json
 // DO NOT EDIT DIRECTLY - run: node scripts/sync-marketing-i18n.js --apply
-// Generated: 2026-06-09T22:19:13.857Z
+// Generated: 2026-06-09T22:33:04.747Z
 
 const TRANSLATIONS = {
   es: {
@@ -281,6 +281,10 @@ const TRANSLATIONS = {
   xscout_active: "X-SCOUT IA ACTIVO",
   xscout_btn: "OPERAR CON LA IA →",
   xscout_desc: "X-Scout es nuestro agente de inteligencia artificial autónomo que rastrea constantemente redes sociales y mercados en Solana. Descubre arbitrajes, tendencias de tokens de clubes y jugadas destacadas del Mundial en tiempo real.",
+  xscout_post_1_meta: "hace 10m",
+  xscout_post_1_text: "📈 #ArbitrajeSolana: Detectada discrepancia de 2.4% en el par de liquidez GOAL/USDC entre Raydium y Meteora. Los Swarm Vaults del DeFi Portal ya están rebalanceando automáticamente para capturar el spread. ¡Excelente día para los stakers!",
+  xscout_post_2_meta: "hace 1h",
+  xscout_post_2_text: "⚽ #WorldCup2026: El Cronista IA reporta una alta volatilidad en los coeficientes del partido ARG vs FRA para el próximo encuentro. Las apuestas on-chain están abiertas en la pestaña Estadio.",
   xscout_title: "Análisis en Vivo & Oportunidades",
   zealy_badge: "CAMPAÑA ACTIVA",
   zealy_cta: "🔗 IR A ZEALY QUESTROOM",
@@ -567,6 +571,10 @@ const TRANSLATIONS = {
   xscout_active: "X-SCOUT AI ACTIVE",
   xscout_btn: "TRADE WITH AI →",
   xscout_desc: "X-Scout is our autonomous AI agent that constantly tracks social networks and markets on Solana. It discovers arbitrage opportunities, club token trends, and World Cup highlights in real-time.",
+  xscout_post_1_meta: "10m ago",
+  xscout_post_1_text: "📈 #ArbitrajeSolana: Detected 2.4% discrepancy in GOAL/USDC liquidity pair between Raydium and Meteora. Swarm Vaults at DeFi Portal are auto-rebalancing to capture the spread. Great day for stakers!",
+  xscout_post_2_meta: "1h ago",
+  xscout_post_2_text: "⚽ #WorldCup2026: AI Chronicler reports high volatility in ARG vs FRA match coefficients for the upcoming game. On-chain bets are open in the Stadium tab.",
   xscout_title: "Live Analysis & Opportunities",
   zealy_badge: "ACTIVE CAMPAIGN",
   zealy_cta: "🔗 GO TO ZEALY QUESTROOM",

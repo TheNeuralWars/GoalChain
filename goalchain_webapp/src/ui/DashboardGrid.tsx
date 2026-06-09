@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { EconomyConfigBanner } from './EconomyConfigBanner';
 import { OpsStatusPanel } from './OpsStatusPanel';
 import { SimulationBadge } from '../components/SimulationBadge';
+import { useTranslation } from '../i18n/index';
 
 interface UserData {
   username: string;
@@ -12,6 +13,7 @@ interface UserData {
 
 export function DashboardGrid() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [user, setUser] = useState<UserData | null>(null);
   const [showOpsConsole, setShowOpsConsole] = useState(false);
 
@@ -68,7 +70,7 @@ export function DashboardGrid() {
 
       {/* Developer Ops Collapsible Panel */}
       <div className="ops-collapsible-wrapper glass-card">
-        <button 
+        <button
           onClick={() => setShowOpsConsole(prev => !prev)}
           className="ops-toggle-btn"
           aria-expanded={showOpsConsole}
@@ -138,32 +140,32 @@ export function DashboardGrid() {
         </div>
       </div>
 
-      {/* X-Scout Active Research Stream (Mock feed de Twitter AI Explorer) */}
+      {/* X-Scout Active Research Stream (from i18n) */}
       <div className="xscout-stream glass-card">
         <div className="xscout-stream-header">
           <div className="xscout-badge">🤖 X-SCOUT INTEL</div>
-          <h3>Tendencias y Análisis de IA (X / Twitter)</h3>
-          <p>Exploración autónoma de arbitraje, tokens deportivos y oportunidades en Solana.</p>
+          <h3>{t('xscout_title')}</h3>
+          <p>{t('xscout_desc')}</p>
         </div>
         <div className="xscout-stream-content">
           <div className="xscout-post">
             <div className="xscout-post-meta">
               <span className="xscout-avatar">🕵️‍♂️</span>
               <span className="xscout-username">@x-scout_bot</span>
-              <span className="xscout-time">hace 10m</span>
+              <span className="xscout-time">{t('xscout_post_1_meta')}</span>
             </div>
             <p className="xscout-post-text">
-              📈 <span className="hashtag">#ArbitrajeSolana</span>: Detectada discrepancia de 2.4% en el par de liquidez GOAL/USDC entre Raydium y Meteora. Los Swarm Vaults del DeFi Portal ya están ejecutando balanceos automáticos para capturar el spread. ¡Excelente día para los stakers!
+              {t('xscout_post_1_text')}
             </p>
           </div>
           <div className="xscout-post">
             <div className="xscout-post-meta">
               <span className="xscout-avatar">🕵️‍♂️</span>
               <span className="xscout-username">@x-scout_bot</span>
-              <span className="xscout-time">hace 1h</span>
+              <span className="xscout-time">{t('xscout_post_2_meta')}</span>
             </div>
             <p className="xscout-post-text">
-              ⚽ <span className="hashtag">#WorldCup2026</span>: El Cronista IA reporta una alta volatilidad en los coeficientes del partido ARG vs FRA para el próximo encuentro. Las apuestas on-chain están abiertas en la pestaña Estadio.
+              {t('xscout_post_2_text')}
             </p>
           </div>
         </div>
