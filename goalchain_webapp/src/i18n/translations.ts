@@ -213,6 +213,14 @@ export type TranslationKeys = {
   rm_q4_title: string;
   rm_q5_title: string;
   rm_q6_title: string;
+  rm_phase_done_items: string;
+  rm_phase_done_t: string;
+  rm_phase_now_items: string;
+  rm_phase_now_t: string;
+  rm_phase_postwc_items: string;
+  rm_phase_postwc_t: string;
+  rm_phase_wc2026_items: string;
+  rm_phase_wc2026_t: string;
   rm_sub: string;
   rm_title: string;
   soc_connect_info: string;
