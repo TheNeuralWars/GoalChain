@@ -1,0 +1,22 @@
+{
+  "rpcUrl": "https://api.devnet.solana.com",
+  "network": "devnet",
+  "programId": "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg",
+  "jito": {
+    "enabled": true,
+    "blockEngineUrl": "https://mainnet.block-engine.jito.wtf",
+    "tipAccount": "HFqU5x63V5UmMtwh8KzSNwYzxGm4UaUPxy7HZcLjBkH"
+  },
+  "priorityFees": {
+    "microLamports": 100000,
+    "maxPriorityFee": 500000
+  },
+  "vault": {
+    "crankBatchSize": 10,
+    "dryRunDefault": true
+  },
+  "healthCheck": {
+    "rpcTimeoutMs": 5000,
+    "jitoTimeoutMs": 10000
+  }
+}

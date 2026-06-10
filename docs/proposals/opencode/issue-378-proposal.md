@@ -52,7 +52,7 @@ Create goalchain_oracle/src/vault-crank/:
 - Analyze repository constraints and META alignment.
 - Implement minimal safe changes first.
 - Run local checks where feasible.
-- Prepare draft PR for review.
+- Prepare draft PR for Cursor review.
 
 ## Risk / rollback
 - Risk: scope drift or unstable dependencies.

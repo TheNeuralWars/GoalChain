@@ -1,14 +1,11 @@
-import { apiBaseUrl } from './opsClient';
+import { apiBaseUrl } from "./opsClient";
 
 export interface EconomyConfigResponse {
   config_version?: string;
-  canonicalConfig?: {
-    config_version?: string;
-    [key: string]: unknown;
-  };
-  canonical_config?: Record<string, unknown>;
+  canonicalConfig?: Record<string, unknown> | null;
+  canonical_config?: Record<string, unknown> | null;
   onchainConfig?: Record<string, unknown> | null;
-  drift?: { has_drift?: boolean; fields?: string[] };
+  drift?: { has_drift?: boolean; fields?: string[] } | null;
   config_drift_reasons?: string[];
 }
 

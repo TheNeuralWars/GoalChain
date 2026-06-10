@@ -1,0 +1,33 @@
+{
+  "name": "@goalchain/oracle",
+  "version": "1.0.0",
+  "description": "GoalChain Oracle CLI - Operations tooling for on-chain oracle operations",
+  "main": "dist/cli/index.js",
+  "bin": {
+    "oracle": "./bin/oracle.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "tsc --noEmit",
+    "dev": "ts-node src/cli/index.ts",
+    "check": "npm run lint && npm run build",
+    "test": "echo \"No automated tests configured\""
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.30.1",
+    "@goalchain/sdk": "file:../goalchain-sdk",
+    "@solana/web3.js": "^1.98.0",
+    "commander": "^11.1.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "src"
+  ]
+}

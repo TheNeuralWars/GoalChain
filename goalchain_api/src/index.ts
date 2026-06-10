@@ -790,6 +790,42 @@ app.get("/api/economy/config", async (req, res) => {
       onchainConfig = null;
     }
 
+    // Compute drift between canonical and on-chain config
+    let drift: { has_drift: boolean; fields: string[] } | null = null;
+    let config_drift_reasons: string[] = [];
+    let config_version = canonicalConfig?.config_version ?? "v1.0.0-p0";
+
+    if (canonicalConfig && onchainConfig) {
+      const reasons: string[] = [];
+
+      // 1. Validate max_fee_bps
+      const maxFeeBps = Number(canonicalConfig.core_parameters?.max_fee_bps ?? 0);
+      const feeBps = Number(onchainConfig.feeBps ?? 0);
+      if (maxFeeBps > 0 && feeBps > maxFeeBps) {
+        reasons.push(`fee_bps on-chain (${feeBps}) exceeds canonical max (${maxFeeBps})`);
+      }
+
+      // 2. Validate maxStartersPerManager
+      const maxStarters = Number(onchainConfig.maxStartersPerManager ?? 0);
+      if (maxStarters !== 11) {
+        reasons.push(`maxStartersPerManager on-chain (${maxStarters}) differs from expected 11`);
+      }
+
+      // 3. Validate fee split sum
+      const feeBurn = Number(onchainConfig.feeBurnBps ?? 0);
+      const feeJackpot = Number(onchainConfig.feeJackpotBps ?? 0);
+      if (feeBurn + feeJackpot > 10000) {
+        reasons.push("Sum of fee split (burn + jackpot) exceeds 10000 BPS");
+      }
+
+      if (reasons.length > 0) {
+        drift = { has_drift: true, fields: reasons };
+        config_drift_reasons = reasons;
+      } else {
+        drift = { has_drift: false, fields: [] };
+      }
+    }
+
     res.json({
       source: {
         canonicalPath: canonicalPath,
@@ -797,6 +833,9 @@ app.get("/api/economy/config", async (req, res) => {
       },
       canonicalConfig,
       onchainConfig,
+      config_version,
+      drift,
+      config_drift_reasons,
     });
   } catch (err: any) {
     console.error("Economy config endpoint error:", err);
@@ -1095,6 +1134,13 @@ Pregunta del manager: "${userText}"`;
 // ============================================
 // Jupiter Quote Endpoint (Solana DEX)
 // ============================================
+
+import claimsRoutes from './routes/claims';
+import settlementRoutes from './routes/settlement';
+
+// Register new routes
+app.use('/api/claims', claimsRoutes);
+app.use('/api', settlementRoutes);
 
 interface JupiterQuoteRequest {
   inputMint: string;

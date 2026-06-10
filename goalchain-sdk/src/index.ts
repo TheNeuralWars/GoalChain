@@ -20,3 +20,5 @@ export const SEEDS = {
     MARKET_VAULT: "market_vault",
     POSITION: "position",
 };
+
+export * from './client';

@@ -7,6 +7,9 @@ const PROGRAM_ID = new PublicKey('FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg')
 const SEEDS = {
   CONFIG: 'config',
   FIXTURE_VAULT: 'fixture_vault',
+  MARKET: 'market',
+  MARKET_VAULT: 'market_vault',
+  POSITION: 'position',
 } as const;
 
 export type FixtureStatus = 'upcoming' | 'live' | 'completed' | 'cancelled' | 'unknown';
@@ -45,6 +48,33 @@ export interface UserBetView {
   amountBaseUnits: number;
   claimed: boolean;
   prediction: PredictionSide | 'unknown';
+}
+
+export interface MarketView {
+  pubkey: string;
+  marketId: number;
+  marketType: string;
+  status: MarketStatus;
+  teamA?: string;
+  teamB?: string;
+  question?: string;
+  poolA: number;
+  poolB: number;
+  poolDraw: number;
+  totalPool: number;
+  startTime?: number;
+  endTime?: number;
+}
+
+export type MarketStatus = 'active' | 'closed' | 'settled' | 'cancelled' | 'unknown';
+
+export interface PositionView {
+  pubkey: string;
+  market: string;
+  owner: string;
+  side: 'A' | 'B' | 'Draw';
+  amountBaseUnits: number;
+  claimed: boolean;
 }
 
 export interface UserChainStats {
@@ -342,4 +372,167 @@ export async function fetchUserChainStats(connection: Connection, owner: PublicK
     stakedAmountBaseUnits,
     unclaimedRewardsBaseUnits,
   };
+}
+
+function normalizeMarketStatus(raw: unknown): MarketStatus {
+  if (!raw || typeof raw !== 'object') return 'unknown';
+  const r = raw as Record<string, unknown>;
+  if ('active' in r || 'Active' in r) return 'active';
+  if ('closed' in r || 'Closed' in r) return 'closed';
+  if ('settled' in r || 'Settled' in r) return 'settled';
+  if ('cancelled' in r || 'Cancelled' in r) return 'cancelled';
+  return 'unknown';
+}
+
+function toUiMarket(pubkey: PublicKey, account: any): MarketView {
+  const asNumber = (value: unknown): number => {
+    if (!value) return 0;
+    if (typeof value === 'number') return value;
+    if (typeof (value as any).toNumber === 'function') return (value as any).toNumber();
+    if (typeof (value as any).toString === 'function') {
+      const n = Number((value as any).toString());
+      return Number.isFinite(n) ? n : 0;
+    }
+    return 0;
+  };
+
+  return {
+    pubkey: pubkey.toBase58(),
+    marketId: asNumber(account?.marketId),
+    marketType: account?.marketType ?? 'unknown',
+    status: normalizeMarketStatus(account?.status),
+    teamA: account?.teamA,
+    teamB: account?.teamB,
+    question: account?.question,
+    poolA: asNumber(account?.poolA),
+    poolB: asNumber(account?.poolB),
+    poolDraw: asNumber(account?.poolDraw),
+    totalPool: asNumber(account?.poolA) + asNumber(account?.poolB) + asNumber(account?.poolDraw),
+    startTime: asNumber(account?.startTime),
+    endTime: asNumber(account?.endTime),
+  };
+}
+
+function toUiPosition(pubkey: PublicKey, account: any): PositionView {
+  const asNumber = (value: unknown): number => {
+    if (!value) return 0;
+    if (typeof value === 'number') return value;
+    if (typeof (value as any).toNumber === 'function') return (value as any).toNumber();
+    if (typeof (value as any).toString === 'function') {
+      const n = Number((value as any).toString());
+      return Number.isFinite(n) ? n : 0;
+    }
+    return 0;
+  };
+
+  return {
+    pubkey: pubkey.toBase58(),
+    market: (account?.market as PublicKey)?.toBase58?.() ?? String(account?.market),
+    owner: (account?.owner as PublicKey)?.toBase58?.() ?? String(account?.owner),
+    side: account?.side?.A ? 'A' : account?.side?.B ? 'B' : 'Draw',
+    amountBaseUnits: asNumber(account?.amount),
+    claimed: Boolean(account?.claimed),
+  };
+}
+
+export async function fetchMarkets(connection: Connection): Promise<MarketView[]> {
+  const program = createProgram(connection);
+  const rows: Array<{ publicKey: PublicKey; account: any }> = await (program as any).account.market.all();
+  return rows.map((row) => toUiMarket(row.publicKey, row.account));
+}
+
+export async function fetchUserPositions(connection: Connection, owner: PublicKey): Promise<PositionView[]> {
+  const program = createProgram(connection);
+  const rows: Array<{ publicKey: PublicKey; account: any }> = await (program as any).account.position.all([
+    { memcmp: { offset: 8, bytes: owner.toBase58() } },
+  ]);
+
+  return rows.map((row) => toUiPosition(row.publicKey, row.account));
+}
+
+export async function claimMarketPayout(params: {
+  connection: Connection;
+  wallet: WalletLike;
+  market: PublicKey;
+  position: PublicKey;
+}): Promise<string> {
+  const { connection, wallet, market, position } = params;
+  if (!wallet.publicKey || !wallet.signTransaction || !wallet.signAllTransactions) {
+    throw new Error('Wallet no disponible para firmar transacciones.');
+  }
+
+  const program = createProgram(connection, wallet);
+  const [marketVault] = PublicKey.findProgramAddressSync(
+    [Buffer.from(SEEDS.MARKET_VAULT), market.toBuffer()],
+    PROGRAM_ID,
+  );
+  const { config, tokenMint, userTokenAccount, treasuryTokenAccount, jackpotTokenAccount } =
+    await resolveBetTokenAccounts(program, connection, wallet.publicKey);
+
+  return (program as any).methods
+    .claimMarketPayout()
+    .accounts({
+      user: wallet.publicKey,
+      config,
+      market,
+      position,
+      userTokenAccount,
+      marketVault,
+      treasuryTokenAccount,
+      jackpotTokenAccount,
+      tokenMint,
+      tokenProgram: TOKEN_PROGRAM_ID,
+    } as any)
+    .rpc();
+}
+
+export async function placeMarketBet(params: {
+  connection: Connection;
+  wallet: WalletLike;
+  market: PublicKey;
+  side: 'A' | 'B' | 'Draw';
+  amountUi: string;
+}): Promise<string> {
+  const { connection, wallet, market, side, amountUi } = params;
+  if (!wallet.publicKey || !wallet.signTransaction || !wallet.signAllTransactions) {
+    throw new Error('Wallet no disponible para firmar transacciones.');
+  }
+
+  const program = createProgram(connection, wallet);
+  const [position] = PublicKey.findProgramAddressSync(
+    [Buffer.from('position'), wallet.publicKey.toBuffer(), market.toBuffer()],
+    PROGRAM_ID,
+  );
+  const [marketVault] = PublicKey.findProgramAddressSync(
+    [Buffer.from(SEEDS.MARKET_VAULT), market.toBuffer()],
+    PROGRAM_ID,
+  );
+  const { config, tokenMint, userTokenAccount } = await resolveBetTokenAccounts(
+    program,
+    connection,
+    wallet.publicKey,
+  );
+  const mintInfo = await getMint(connection, tokenMint);
+  const amount = parseAmountToBaseUnits(amountUi, mintInfo.decimals);
+  if (amount.lte(new BN(0))) {
+    throw new Error('El monto debe ser mayor a 0.');
+  }
+
+  const prediction: any =
+    side === 'A' ? { teamA: {} } :
+    side === 'B' ? { teamB: {} } :
+    { draw: {} };
+
+  return (program as any).methods
+    .placeMarketBet(prediction, amount)
+    .accounts({
+      user: wallet.publicKey,
+      config,
+      market,
+      position,
+      userTokenAccount,
+      marketVault,
+      tokenMint,
+    } as any)
+    .rpc();
 }
