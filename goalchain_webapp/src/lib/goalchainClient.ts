@@ -40,6 +40,10 @@ export interface FixtureView {
   poolB: number;
   poolDraw: number;
   status: FixtureStatus;
+  group?: string;
+  round?: string;
+  venue?: string;
+  matchDate?: number;
 }
 
 export interface UserBetView {
@@ -152,6 +156,10 @@ function toUiFixture(pubkey: PublicKey, account: any): FixtureView {
     poolB: asNumber(account?.poolB),
     poolDraw: asNumber(account?.poolDraw),
     status: normalizeStatus(account?.status),
+    group: account?.group,
+    round: account?.round,
+    venue: account?.venue,
+    matchDate: asNumber(account?.matchDate),
   };
 }
 

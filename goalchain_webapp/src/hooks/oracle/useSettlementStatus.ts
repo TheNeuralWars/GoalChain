@@ -4,9 +4,11 @@ import { Connection } from '@solana/web3.js';
 import { useConnection } from '@solana/wallet-adapter-react';
 import { fetchUserBets, type UserBetView, type FixtureStatus } from '../../lib/goalchainClient';
 
+type SettlementStatus = FixtureStatus | 'loading' | 'error' | 'unknown';
+
 interface UseSettlementStatusResult {
   /** Current settlement status of the fixture */
-  status: FixtureStatus | 'loading' | 'error';
+  status: SettlementStatus;
   /** If settled, whether the user's bet won */
   isWinner?: boolean;
   /** If settled and user bet, the claimable amount in base units */
@@ -29,7 +31,7 @@ export function useSettlementStatus(
   fixturePubkey: string | null
 ): UseSettlementStatusResult {
   const { connection } = useConnection();
-  const [status, setStatus] = UseSettlementStatusResultState.loading;
+  const [status, setStatus] = useState<SettlementStatus>('loading');
   const [userBet, setUserBet] = useState<UserBetView | null>(null);
   const [error, setError] = useState<string | undefined>();
 
@@ -88,8 +90,3 @@ export function useSettlementStatus(
     error,
   };
 }
-
-// Helper for initial state
-const UseSettlementStatusResultState = {
-  loading: 'loading' as FixtureStatus | 'loading' | 'error',
-};
