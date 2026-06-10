@@ -1,16 +1,23 @@
 export type Language = "en" | "es";
 
 export type TranslationKeys = {
+  // Alpha
   alpha_back: string;
   alpha_enter: string;
   alpha_sub: string;
   alpha_title: string;
+  
+  // Carousel
   carousel_hint_generic: string;
   carousel_hint_pillars: string;
+  
+  // Countdown
   cd_days: string;
   cd_hours: string;
   cd_min: string;
   cd_sec: string;
+  
+  // Collabs
   colab_connect: string;
   colab_dev_sub: string;
   colab_dev_title: string;
@@ -29,15 +36,23 @@ export type TranslationKeys = {
   colab_tab_inf: string;
   colab_tab_part: string;
   colab_title: string;
+  
+  // Collection
   coll_empty: string;
   coll_empty_hint: string;
   coll_sub: string;
   coll_title: string;
+  
+  // Cookies
   cookies_btn: string;
   cookies_text: string;
+  
+  // CTA
   cta_share: string;
   cta_sub: string;
   cta_title: string;
+  
+  // DAO
   dao_btn: string;
   dao_cancel: string;
   dao_form_desc: string;
@@ -45,12 +60,20 @@ export type TranslationKeys = {
   dao_form_submit: string;
   dao_form_t: string;
   dao_title: string;
+  
+  // Dev mode
   dev_mode_tag: string;
   dev_mode_warning: string;
+  
+  // Discord
   discord_desc: string;
   discord_label: string;
   discord_title: string;
+  
+  // Distribution
   dist_title: string;
+  
+  // Economy
   econ_badge: string;
   econ_boost_d: string;
   econ_boost_t: string;
@@ -64,6 +87,18 @@ export type TranslationKeys = {
   econ_feat3_t: string;
   econ_feat4_d: string;
   econ_feat4_t: string;
+  econ_feat5_d: string;
+  econ_feat5_t: string;
+  econ_feat6_d: string;
+  econ_feat6_t: string;
+  econ_feat7_d: string;
+  econ_feat7_t: string;
+  econ_feat8_d: string;
+  econ_feat8_t: string;
+  econ_feat9_d: string;
+  econ_feat9_t: string;
+  econ_feat10_d: string;
+  econ_feat10_t: string;
   econ_flow_desc: string;
   econ_flow_title: string;
   econ_split_d: string;
@@ -72,11 +107,17 @@ export type TranslationKeys = {
   econ_title: string;
   econ_vault_d: string;
   econ_vault_t: string;
+  
+  // Fixtures
   fix_all: string;
   fix_sub: string;
   fix_title: string;
+  
+  // Footer
   footer_built: string;
   footer_colabs: string;
+  
+  // Game
   game_bag_label: string;
   game_bet_label: string;
   game_daily_desc: string;
@@ -95,6 +136,8 @@ export type TranslationKeys = {
   game_step4: string;
   game_sub: string;
   game_title: string;
+  
+  // Hero
   hero_badge: string;
   hero_btn_app: string;
   hero_hype_agents: string;
@@ -102,9 +145,15 @@ export type TranslationKeys = {
   hero_play: string;
   hero_sub: string;
   hero_title: string;
+  
+  // Infinity
   infinity_desc: string;
+  
+  // Launch
   launch_sub: string;
   launch_title: string;
+  
+  // Manager
   manager_architect: string;
   manager_boost: string;
   manager_exp: string;
@@ -113,17 +162,23 @@ export type TranslationKeys = {
   manager_slots: string;
   manager_title: string;
   manager_vault_health: string;
+  
+  // MGR
   mgr_assets_label: string;
   mgr_progress: string;
   mgr_sub: string;
   mgr_title: string;
   mgr_yield_change: string;
+  
+  // Mint
   mint_alert_success: string;
   mint_confirm: string;
   mint_note: string;
   mint_progress: string;
   mint_success: string;
   mint_title: string;
+  
+  // Navigation
   nav_about: string;
   nav_colabs: string;
   nav_colabs_link: string;
@@ -139,6 +194,8 @@ export type TranslationKeys = {
   nav_social: string;
   nav_stadiums: string;
   nav_wallet: string;
+  
+  // NFT
   nft_badge: string;
   nft_btn: string;
   nft_desc: string;
@@ -161,8 +218,12 @@ export type TranslationKeys = {
   nft_sort_rarity: string;
   nft_sync: string;
   nft_title: string;
+  
+  // Notifications
   notif_optin_btn: string;
   notif_optin_desc: string;
+  
+  // Pack
   pack_badge: string;
   pack_congrats: string;
   pack_obtained: string;
@@ -175,6 +236,8 @@ export type TranslationKeys = {
   pack_sim: string;
   pack_sub: string;
   pack_title: string;
+  
+  // Pitch
   pitch_feat1_d: string;
   pitch_feat1_t: string;
   pitch_feat2_d: string;
@@ -187,6 +250,8 @@ export type TranslationKeys = {
   pitch_feat5_t: string;
   pitch_sub: string;
   pitch_title: string;
+  
+  // Portal
   portal_club: string;
   portal_club_desc: string;
   portal_defi: string;
@@ -195,6 +260,8 @@ export type TranslationKeys = {
   portal_estadio_desc: string;
   portal_inicio: string;
   portal_inicio_desc: string;
+  
+  // Presale
   presale_btn: string;
   presale_calc_t: string;
   presale_footer_t: string;
@@ -206,7 +273,19 @@ export type TranslationKeys = {
   presale_softcap: string;
   presale_sub: string;
   presale_title: string;
+  
+  // Reveal
   reveal_add: string;
+  
+  // Roadmap phases
+  rm_phase_done_items: string;
+  rm_phase_done_t: string;
+  rm_phase_now_items: string;
+  rm_phase_now_t: string;
+  rm_phase_postwc_items: string;
+  rm_phase_postwc_t: string;
+  rm_phase_wc2026_items: string;
+  rm_phase_wc2026_t: string;
   rm_q1_title: string;
   rm_q2_title: string;
   rm_q3_title: string;
@@ -215,6 +294,8 @@ export type TranslationKeys = {
   rm_q6_title: string;
   rm_sub: string;
   rm_title: string;
+  
+  // Social/Zealy
   soc_connect_info: string;
   soc_ref_label: string;
   soc_ref_placeholder: string;
@@ -233,6 +314,8 @@ export type TranslationKeys = {
   soc_t6_t: string;
   soc_title: string;
   soc_your_pts: string;
+  
+  // Stadium
   stad_aether_desc: string;
   stad_explore_btn: string;
   stad_kronos_desc: string;
@@ -241,6 +324,8 @@ export type TranslationKeys = {
   stad_sub: string;
   stad_titanium_desc: string;
   stad_title: string;
+  
+  // Stats
   stat_apy: string;
   stat_backed: string;
   stat_goals: string;
@@ -250,6 +335,8 @@ export type TranslationKeys = {
   stat_saves: string;
   stat_staked: string;
   stat_streak: string;
+  
+  // Team
   team1_name: string;
   team1_role: string;
   team2_name: string;
@@ -257,27 +344,41 @@ export type TranslationKeys = {
   team_manifesto_link: string;
   team_sub: string;
   team_title: string;
+  
+  // Ticker
   ticker_1: string;
   ticker_2: string;
   ticker_3: string;
   ticker_live: string;
   ticker_match: string;
   ticker_next_match: string;
+  
+  // Trust
   trust_audit: string;
   trust_discord: string;
   trust_instagram: string;
   trust_sub: string;
   trust_title: string;
   trust_twitter: string;
+  
+  // Whitelist
   wl_btn: string;
   wl_email: string;
   wl_note: string;
   wl_sub: string;
   wl_title: string;
+  
+  // X-Scout
   xscout_active: string;
   xscout_btn: string;
   xscout_desc: string;
+  xscout_post_1_meta: string;
+  xscout_post_1_text: string;
+  xscout_post_2_meta: string;
+  xscout_post_2_text: string;
   xscout_title: string;
+  
+  // Zealy
   zealy_badge: string;
   zealy_cta: string;
   zealy_desc: string;
@@ -285,6 +386,28 @@ export type TranslationKeys = {
   zealy_q2: string;
   zealy_q3: string;
   zealy_season: string;
+  
+  // Oracle
+  oracle_feed_title: string;
+  oracle_log_title: string;
+  oracle_error_feed: string;
+  oracle_no_events: string;
+  oracle_log_connected: string;
+  oracle_log_validator: string;
+  oracle_log_authority: string;
+  oracle_log_fixture_init: string;
+  oracle_log_fixture_ready: string;
+  oracle_log_market_create: string;
+  oracle_log_market_ready: string;
+  oracle_log_goal: string;
+  oracle_log_market_close: string;
+  oracle_log_resolving: string;
+  oracle_log_settle: string;
+  oracle_log_half_time: string;
+  oracle_log_market_open_2: string;
+  oracle_log_final: string;
+  oracle_log_complete: string;
+  oracle_log_waiting: string;
 };
 
 export type Translations = Record<Language, TranslationKeys>;
