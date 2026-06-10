@@ -1,0 +1,63 @@
+# Issue #522: [MONEY-PRINTER] Multi-Platform Publisher (goalchain-publisher skill)
+
+## Source
+Local queue (autonomous FIFO mode)
+
+## Objective
+## Objective
+Build **goalchain-publisher** skill: Buffered MP4 → TikTok, Instagram Reels, YouTube Shorts, X (video) via API with optimal scheduling, UTM tracking, CTA rotation.
+
+## Context
+- Plan: `docs/implementation-plans/money-printer-goalchain-plan.md`
+- Buffer: `~/hermes/content-buffer/videos/` (MP4 + metadata)
+- Platforms: TikTok, IG Reels, YT Shorts, X Video
+- APIs: Buffer.com / Hootsuite / native (rotate to avoid rate limits)
+
+## Deliverables
+1. **Skill**: `~/.hermes/profiles/marketing-active/skills/social-media/goalchain-publisher/SKILL.md`
+2. **Script**: `ops/content-flywheel/scripts/publisher.py`
+3. **Platform specs**: `ops/content-flywheel/config/platform_specs.json`
+
+## Requirements
+- **Per-platform optimization**:
+  - TikTok: 9:16, <60s, trending sounds, hashtags
+  - IG Reels: 9:16, <90s, location tag, collabs
+  - YT Shorts: 9:16, <60s, SEO title/description
+  - X Video: 16:9 or 9:16, <140s, thread reply with link
+- **Scheduling**: Optimal times learned from analytics (start: 12 UTC, 18 UTC, 22 UTC)
+- **UTM tracking**: `?utm_source={platform}&utm_medium=video&utm_campaign={script_theme}&utm_content={video_id}`
+- **CTA rotation**: play.goalchain.fun / referral codes / Discord invite / NFT drop
+- **Rate limit handling**: Exponential backoff, queue, rotate API keys
+- **State**: Update `state.db` → `published` with platform URLs, timestamps
+
+## Platform Specs JSON
+```json
+{
+  "tiktok": {"max_duration": 60, "aspect": "9:16", "hashtags": ["goalchain", "footballbetting", "web3gaming"]},
+  "instagram": {"max_duration": 90, "aspect": "9:16", "location": "Global"},
+  "youtube_shorts": {"max_duration": 60, "aspect": "9:16", "category": "Gaming"},
+  "x": {"max_duration": 140, "aspect": "9:16", "thread": true}
+}
+```
+
+## Verification
+```bash
+cd ~/hermes/workspace/GoalChain && python ops/content-flywheel/scripts/publisher.py --dry-run --video-id gc_20260610_001
+# Should show publish plan per platform with UTMs
+
+## Priority
+P1
+
+## Labels
+P1,status:ready,agent:opencode,
+
+## OA Plan (aggressive / yolo mode)
+- **FULL AUTONOMY**: Make decisions, implement, test, push. No approval needed.
+- Implement the complete solution in one pass - no minimal/progressive approach.
+- Run all checks: build, lint, typecheck, tests. Fix all errors.
+- Push directly to branch and open PR. Auto-merge if CI passes.
+- If blocked by missing deps/config: document, create follow-up issue, continue.
+
+## Risk / rollback
+- Risk: scope drift or unstable dependencies.
+- Rollback: revert branch `exp/opencode-issue-522`.
