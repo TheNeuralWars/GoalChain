@@ -285,6 +285,45 @@ export type TranslationKeys = {
   zealy_q2: string;
   zealy_q3: string;
   zealy_season: string;
+
+  // Claim Dashboard
+  claim_title: string;
+  claim_subtitle: string;
+  claim_wallet_required: string;
+  claim_connect_wallet: string;
+  claim_success: string;
+  claim_error: string;
+  claim_no_bets: string;
+  claim_no_bets_desc: string;
+  claim_none_ready: string;
+  claim_none_ready_desc: string;
+  claim_your_bet: string;
+  claim_estimated: string;
+  claim_claiming: string;
+  claim_action: string;
+  claim_match_details: string;
+  claim_other_bets: string;
+  fix_completed: string;
+  fix_claimed: string;
+
+  // BetSlip
+  betslip_title: string;
+  betslip_open: string;
+  betslip_close: string;
+  betslip_empty: string;
+  betslip_empty_hint: string;
+  betslip_continue: string;
+  betslip_draw: string;
+  betslip_amount: string;
+  betslip_remove: string;
+  betslip_clear_all: string;
+  betslip_total_stake: string;
+  betslip_selections: string;
+  betslip_connect_wallet: string;
+  betslip_placing: string;
+  betslip_place: string;
+  betslip_bet_singular: string;
+  betslip_bet_plural: string;
 };
 
 export type Translations = Record<Language, TranslationKeys>;
