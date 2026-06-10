@@ -4,7 +4,7 @@
 [OPENCODE] [VOXLY] B2B Dashboard + Stripe Billing
 
 ## Source
-GitHub issue #535
+Local queue (autonomous mode)
 
 ## Objective
 ## Objective
@@ -48,12 +48,19 @@ Voxly-track. 3 B2B contracts signed at $2K/mo = $72K ARR. Need production billin
 ## Owner
 opencode
 
-## OA Plan (draft)
-- Analyze repository constraints and META alignment.
-- Implement minimal safe changes first.
-- Run local checks where feasible.
-- Prepare draft PR for Cursor review.
+## Priority
+P1
+
+## Labels
+status:ready,source:manager,agent:opencode,priority:P1,
+
+## OA Plan (aggressive / yolo mode)
+- **FULL AUTONOMY**: Make decisions, implement, test, push. No approval needed.
+- Implement the complete solution in one pass - no minimal/progressive approach.
+- Run all checks: build, lint, typecheck, tests. Fix all errors.
+- Push directly to branch and open PR. Auto-merge if CI passes.
+- If blocked by missing deps/config: document, create follow-up issue, continue.
 
 ## Risk / rollback
 - Risk: scope drift or unstable dependencies.
-- Rollback: revert branch `exp/opencode-issue-535` and close draft PR.
+- Rollback: revert branch `exp/opencode-issue-535`.
