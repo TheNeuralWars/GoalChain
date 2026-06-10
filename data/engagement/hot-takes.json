@@ -1,0 +1,104 @@
+{
+  "takes": [
+    {
+      "id": "ht_001",
+      "take": "The best formation isn't 4-4-2 or 4-3-3 — it's whatever makes your opponent uncomfortable.",
+      "tags": ["tactics", "philosophy"]
+    },
+    {
+      "id": "ht_002",
+      "take": "Expected Goals (xG) killed the romance of the long shot. Sometimes 0.02 xG is worth 3 points and a memory that lasts forever.",
+      "tags": ["analytics", "romance"]
+    },
+    {
+      "id": "ht_003",
+      "take": "A goalkeeper who can't play with their feet isn't a modern goalkeeper — they're a liability with gloves.",
+      "tags": ["goalkeepers", "evolution"]
+    },
+    {
+      "id": "ht_004",
+      "take": "The most underrated skill in football: receiving a pass under pressure and keeping the ball. Everything else is noise.",
+      "tags": ["technique", "fundamentals"]
+    },
+    {
+      "id": "ht_005",
+      "take": "VAR didn't ruin football. The handball rule did. VAR just exposed how broken the rulebook was.",
+      "tags": ["VAR", "rules"]
+    },
+    {
+      "id": "ht_006",
+      "take": "Pressing isn't about running — it's about hunting in packs. One man pressing is a workout. Eleven is a trap.",
+      "tags": ["pressing", "teamwork"]
+    },
+    {
+      "id": "ht_007",
+      "take": "The best #10s in history didn't chase the ball — they made the ball come to them. Positioning > hustle.",
+      "tags": ["playmakers", "intelligence"]
+    },
+    {
+      "id": "ht_008",
+      "take": "A 0-0 can be more beautiful than a 4-3 if both teams are playing chess at 200km/h. Chaos isn't the only entertainment.",
+      "tags": ["aesthetics", "tactical"]
+    },
+    {
+      "id": "ht_009",
+      "take": "Fullbacks are the new wingers. Wingers are the new strikers. Strikers are the new... content creators?",
+      "tags": ["evolution", "positions"]
+    },
+    {
+      "id": "ht_010",
+      "take": "The most dangerous lead in football is 2-0. The team winning relaxes. The team losing finds desperation. 2-1 happens fast.",
+      "tags": ["psychology", "game-management"]
+    },
+    {
+      "id": "ht_011",
+      "take": "Penalties aren't a lottery. They're a test of nerve, technique, and goalkeeper homework. Call it a lottery to feel better about losing.",
+      "tags": ["penalties", "mentality"]
+    },
+    {
+      "id": "ht_012",
+      "take": "The best defenders don't make last-ditch tackles — they're never in a position to need one. Invisible excellence.",
+      "tags": ["defending", "positioning"]
+    },
+    {
+      "id": "ht_013",
+      "take": "Counter-attacking isn't a style. It's an admission that you're better at exploiting space than creating it. Nothing wrong with that.",
+      "tags": ["counter-attack", "honesty"]
+    },
+    {
+      "id": "ht_014",
+      "take": "The half-space is the most valuable real estate on a football pitch. Control it, and you control the game.",
+      "tags": ["tactics", "space"]
+    },
+    {
+      "id": "ht_015",
+      "take": "A manager's job isn't to pick the best 11 players. It's to make 11 players play like the best version of themselves.",
+      "tags": ["management", "leadership"]
+    },
+    {
+      "id": "ht_016",
+      "take": "Pre-assists are the most underappreciated stat in football. The pass before the assist often required more vision.",
+      "tags": ["analytics", "vision"]
+    },
+    {
+      "id": "ht_017",
+      "take": "Youth academies optimize for winning U-14 tournaments, not producing first-team players. The system is broken by design.",
+      "tags": ["academies", "development"]
+    },
+    {
+      "id": "ht_018",
+      "take": "The most important 10 minutes in football: 40-50. Halftime adjustments meet fresh legs. Games turn there.",
+      "tags": ["game-management", "timing"]
+    },
+    {
+      "id": "ht_019",
+      "take": "A player's first touch tells you their ceiling. Their second touch tells you their work ethic.",
+      "tags": ["technique", "character"]
+    },
+    {
+      "id": "ht_020",
+      "take": "Football Twitter argues about tactics. Football players worry about space, time, and the man marking them. Different games.",
+      "tags": ["perspective", "reality"]
+    }
+  ]
+}
