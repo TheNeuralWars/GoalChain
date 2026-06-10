@@ -45,4 +45,4 @@ Requested by Nico via Manager (hermes-ceo profile). Keep scope tight and aligned
 
 ## Risk / rollback
 - Risk: scope drift or unstable dependencies.
-- Rollback: revert main commit linked to issue #258
+- Rollback: revert branch `exp/opencode-issue-258` and close draft PR.
