@@ -64,6 +64,18 @@ export type TranslationKeys = {
   econ_feat3_t: string;
   econ_feat4_d: string;
   econ_feat4_t: string;
+  econ_feat5_d: string;
+  econ_feat5_t: string;
+  econ_feat6_d: string;
+  econ_feat6_t: string;
+  econ_feat7_d: string;
+  econ_feat7_t: string;
+  econ_feat8_d: string;
+  econ_feat8_t: string;
+  econ_feat9_d: string;
+  econ_feat9_t: string;
+  econ_feat10_d: string;
+  econ_feat10_t: string;
   econ_flow_desc: string;
   econ_flow_title: string;
   econ_split_d: string;
