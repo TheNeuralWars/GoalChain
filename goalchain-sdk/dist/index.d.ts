@@ -17,4 +17,3 @@ export declare const SEEDS: {
     MARKET_VAULT: string;
     POSITION: string;
 };
-export * from './client';
