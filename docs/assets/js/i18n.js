@@ -119,7 +119,9 @@ const TRANSLATIONS = {
     mgr_sub: 'Gestiona tu equipo, controla tu Yield y domina el mercado de transferencias.',
     mgr_title: 'Manager <span>Dashboard</span>',
     mgr_yield_change: '+12.5% vs ayer',
-    mint_alert_success: '¡Felicidades! Has minteado tu primer Genesis NFT (simulado).\n\nEn la versión real esto sería un cNFT en Solana.',
+    mint_alert_success: '¡Felicidades! Has minteado tu primer Genesis NFT (simulado).
+
+En la versión real esto sería un cNFT en Solana.',
     mint_confirm: '✅ CONFIRMAR MINTEO (SIMULADO)',
     mint_note: 'Esto es una prueba técnica • En producción mintaría en Solana',
     mint_progress: 'MINTANDO...',
@@ -405,7 +407,9 @@ const TRANSLATIONS = {
     mgr_sub: 'Manage your team, control your Yield and dominate the transfer market.',
     mgr_title: 'Manager <span>Dashboard</span>',
     mgr_yield_change: '+12.5% vs yesterday',
-    mint_alert_success: 'Congratulations! You\'ve minted your first Genesis NFT (simulated).\n\nIn the real version this would be a cNFT on Solana.',
+    mint_alert_success: 'Congratulations! You\'ve minted your first Genesis NFT (simulated).
+
+In the real version this would be a cNFT on Solana.',
     mint_confirm: '✅ CONFIRM MINT (SIMULATED)',
     mint_note: 'This is a technical test • In production it would mint on Solana',
     mint_progress: 'MINTING...',
@@ -574,69 +578,3 @@ const TRANSLATIONS = {
     zealy_season: 'SEASON 1',
   }
 };
-
-let currentLang = 'en';
-
-function applyTranslations() {
-  const t = TRANSLATIONS[currentLang];
-  if (!t) return;
-  
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) el.innerHTML = t[key];
-  });
-  
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if (t[key]) el.setAttribute('placeholder', t[key]);
-  });
-  
-  document.querySelectorAll('[data-i18n-title]').forEach(el => {
-    const key = el.getAttribute('data-i18n-title');
-    if (t[key]) el.setAttribute('title', t[key]);
-  });
-  
-  document.querySelectorAll('[data-i18n-alt]').forEach(el => {
-    const key = el.getAttribute('data-i18n-alt');
-    if (t[key]) el.setAttribute('alt', t[key]);
-  });
-}
-
-function setLang(lang) {
-  if (!TRANSLATIONS[lang]) lang = 'en';
-  currentLang = lang;
-  document.documentElement.lang = lang;
-  localStorage.setItem('lang', lang);
-  applyTranslations();
-  updateLangButtons(lang);
-  
-  // Dispatch custom event for other scripts
-  window.dispatchEvent(new CustomEvent('langchanged', { detail: { lang } }));
-}
-
-function updateLangButtons(lang) {
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-  });
-}
-
-function initI18n() {
-  const saved = localStorage.getItem('lang');
-  const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
-  const initialLang = (saved && TRANSLATIONS[saved]) ? saved : browserLang;
-  setLang(initialLang);
-  
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')));
-  });
-}
-
-// Auto-init when DOM ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initI18n);
-} else {
-  initI18n();
-}
-
-// Expose for manual use
-window.GoalChainI18n = { setLang, getLang: () => currentLang, TRANSLATIONS };
