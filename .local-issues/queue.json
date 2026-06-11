@@ -1,1 +1,328 @@
-{"issues":[],"next_id":1}
+{
+  "issues": [
+    {
+      "id": 1,
+      "title": "[TEST] Add health endpoint to webapp",
+      "body": "Add a simple /health endpoint to the GoalChain webapp that returns JSON {status: 'ok', timestamp: ISO}. Files to modify: goalchain_webapp/src/main.tsx or create a new route. Verify with npm run build.",
+      "priority": "P0",
+      "labels": [
+        "status:ready",
+        "source:manager",
+        "agent:opencode",
+        "priority:P0"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:24Z",
+      "attempts": 1,
+      "assigned_worker": "sigma",
+      "github_number": 716
+    },
+    {
+      "id": 2,
+      "title": "[OPENCODE] [Epic][P2] Post-Mundial backlog markets genesis vault mainnet",
+      "body": "## Objective\n[Epic][P2] Post-Mundial backlog markets genesis vault mainnet\n\n## Owner\nopencode\n\n## Priority\nP2\n\n## Context\nRequested by Nico via Manager (WhatsApp/OpenClaw). **All implementation by server workers (FCC/OpenCode)** — not Antigravity Mac or Grok gateway.\n\nOriginal agent assignment: grok\nEpic: post-mundial\nBlocked by: scope-freeze,orchestration\n\n## Workflow (Producer-Critic Pattern)\n1. **Implementer** (opencode via FCC/OpenCode) creates PR on branch `exp/opencode-issue-XXX`\n2. **Critic Agent** reviews PR automatically (read-only, no code changes)\n3. Critic posts structured review: PASS/FAIL + findings\n4. If FAIL: Implementer addresses findings, pushes updates\n5. If PASS: Label `status:critic_pass` → Antigravity/Nico human review\n6. Merge after human approval\n\n## Required Output (Implementer)\n- Proposed file list\n- Risks/regressions + rollback\n- Exact test commands\n- **Structured plan JSON** as FIRST output",
+      "priority": "P2",
+      "labels": [
+        "priority:P2",
+        "status:ready",
+        "source:manager",
+        "agent:opencode",
+        "scope:freeze"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:34Z",
+      "attempts": 1,
+      "assigned_worker": "gamma",
+      "github_number": 653
+    },
+    {
+      "id": 3,
+      "title": "[OPENCODE] [P2][hermes] X-Scout Mundial competitor research cadence",
+      "body": "## Objective\n[P2][hermes] X-Scout Mundial competitor research cadence\n\n## Owner\nopencode\n\n## Priority\nP2\n\n## Context\nRequested by Nico via Manager (WhatsApp/OpenClaw). **All implementation by server workers (FCC/OpenCode)** — not Antigravity Mac or Grok gateway.\n\nOriginal agent assignment: grok\nEpic: post-mundial\nBlocked by: scope-freeze,master-plan\n\n## Workflow (Producer-Critic Pattern)\n1. **Implementer** (opencode via FCC/OpenCode) creates PR on branch `exp/opencode-issue-XXX`\n2. **Critic Agent** reviews PR automatically (read-only, no code changes)\n3. Critic posts structured review: PASS/FAIL + findings\n4. If FAIL: Implementer addresses findings, pushes updates\n5. If PASS: Label `status:critic_pass` → Antigravity/Nico human review\n6. Merge after human approval\n\n## Required Output (Implementer)\n- Proposed file list\n- Risks/regressions + rollback\n- Exact test commands\n- **Structured plan JSON** as FIRST output",
+      "priority": "P2",
+      "labels": [
+        "priority:P2",
+        "status:ready",
+        "source:manager",
+        "agent:opencode",
+        "scope:freeze"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:35Z",
+      "attempts": 1,
+      "assigned_worker": "delta",
+      "github_number": 651
+    },
+    {
+      "id": 4,
+      "title": "[OPENCODE] [P2][ops] Post-Mundial LAUNCH_READINESS_CHECKLIST mainnet gate",
+      "body": "## Objective\n[P2][ops] Post-Mundial LAUNCH_READINESS_CHECKLIST mainnet gate\n\n## Owner\nopencode\n\n## Priority\nP2\n\n## Context\nRequested by Nico via Manager (WhatsApp/OpenClaw). **All implementation by server workers (FCC/OpenCode)** — not Antigravity Mac or Grok gateway.\n\nOriginal agent assignment: grok\nEpic: post-mundial\nBlocked by: scope-freeze,master-plan\n\n## Workflow (Producer-Critic Pattern)\n1. **Implementer** (opencode via FCC/OpenCode) creates PR on branch `exp/opencode-issue-XXX`\n2. **Critic Agent** reviews PR automatically (read-only, no code changes)\n3. Critic posts structured review: PASS/FAIL + findings\n4. If FAIL: Implementer addresses findings, pushes updates\n5. If PASS: Label `status:critic_pass` → Antigravity/Nico human review\n6. Merge after human approval\n\n## Required Output (Implementer)\n- Proposed file list\n- Risks/regressions + rollback\n- Exact test commands\n- **Structured plan JSON** as FIRST output",
+      "priority": "P2",
+      "labels": [
+        "priority:P2",
+        "status:ready",
+        "source:manager",
+        "agent:opencode",
+        "status:done",
+        "scope:freeze"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:35Z",
+      "attempts": 1,
+      "assigned_worker": "epsilon",
+      "github_number": 647
+    },
+    {
+      "id": 5,
+      "title": "[OPENCODE] [P2][webapp][smart-contracts] Post-Mundial live market bets UI",
+      "body": "## Objective\n[P2][webapp][smart-contracts] Post-Mundial live market bets UI\n\n## Owner\nopencode\n\n## Priority\nP2\n\n## Context\nRequested by Nico via Manager (WhatsApp/OpenClaw). **All implementation by server workers (FCC/OpenCode)** — not Antigravity Mac or Grok gateway.\n\nOriginal agent assignment: opencode\nEpic: post-mundial\nBlocked by: scope-freeze,master-plan\n\n## Workflow (Producer-Critic Pattern)\n1. **Implementer** (opencode via FCC/OpenCode) creates PR on branch `exp/opencode-issue-XXX`\n2. **Critic Agent** reviews PR automatically (read-only, no code changes)\n3. Critic posts structured review: PASS/FAIL + findings\n4. If FAIL: Implementer addresses findings, pushes updates\n5. If PASS: Label `status:critic_pass` → Antigravity/Nico human review\n6. Merge after human approval\n\n## Required Output (Implementer)\n- Proposed file list\n- Risks/regressions + rollback\n- Exact test commands\n- **Structured plan JSON** as FIRST output",
+      "priority": "P2",
+      "labels": [
+        "priority:P2",
+        "status:ready",
+        "source:manager",
+        "agent:opencode",
+        "status:done",
+        "scope:freeze"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:36Z",
+      "attempts": 1,
+      "assigned_worker": "zeta",
+      "github_number": 644
+    },
+    {
+      "id": 6,
+      "title": "[OPENCODE] [P2][ops] Add mundial-mvp label filter to check-tasks.sh",
+      "body": "## Objective\n[P2][ops] Add mundial-mvp label filter to check-tasks.sh\n\n## Owner\nopencode\n\n## Priority\nP2\n\n## Context\nRequested by Nico via Manager (WhatsApp/OpenClaw). **All implementation by server workers (FCC/OpenCode)** — not Antigravity Mac or Grok gateway.\n\nOriginal agent assignment: cursor\n\n## Workflow (Producer-Critic Pattern)\n1. **Implementer** (opencode via FCC/OpenCode) creates PR on branch `exp/opencode-issue-XXX`\n2. **Critic Agent** reviews PR automatically (read-only, no code changes)\n3. Critic posts structured review: PASS/FAIL + findings\n4. If FAIL: Implementer addresses findings, pushes updates\n5. If PASS: Label `status:critic_pass` → Antigravity/Nico human review\n6. Merge after human approval\n\n## Required Output (Implementer)\n- Proposed file list\n- Risks/regressions + rollback\n- Exact test commands\n- **Structured plan JSON** as FIRST output",
+      "priority": "P2",
+      "labels": [
+        "priority:P2",
+        "status:ready",
+        "source:manager",
+        "agent:opencode",
+        "status:done"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:37Z",
+      "attempts": 1,
+      "assigned_worker": "eta",
+      "github_number": 632
+    },
+    {
+      "id": 7,
+      "title": "[OPENCODE] [P1][docs][api] Point goalchain.fun JS to production API base",
+      "body": "## Objective\n[P1][docs][api] Point goalchain.fun JS to production API base\n\n## Owner\nopencode\n\n## Priority\nP1\n\n## Context\nRequested by Nico via Manager (WhatsApp/OpenClaw). **All implementation by server workers (FCC/OpenCode)** — not Antigravity Mac or Grok gateway.\n\nOriginal agent assignment: antigravity\n\n## Workflow (Producer-Critic Pattern)\n1. **Implementer** (opencode via FCC/OpenCode) creates PR on branch `exp/opencode-issue-XXX`\n2. **Critic Agent** reviews PR automatically (read-only, no code changes)\n3. Critic posts structured review: PASS/FAIL + findings\n4. If FAIL: Implementer addresses findings, pushes updates\n5. If PASS: Label `status:critic_pass` → Antigravity/Nico human review\n6. Merge after human approval\n\n## Required Output (Implementer)\n- Proposed file list\n- Risks/regressions + rollback\n- Exact test commands\n- **Structured plan JSON** as FIRST output",
+      "priority": "P1",
+      "labels": [
+        "status:ready",
+        "source:manager",
+        "agent:opencode",
+        "priority:P1",
+        "status:done"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:28Z",
+      "attempts": 1,
+      "assigned_worker": "omega",
+      "github_number": 584
+    },
+    {
+      "id": 8,
+      "title": "[OPENCODE] [VOXLY] Voice Learning Engine",
+      "body": "## Objective\nBuild the core voice-learning engine that clones a user's voice from 30-60 seconds of reference audio and generates TTS in that voice for GoalChain content (match previews, betting analysis, coach personas).\n\n## Owner\nopencode\n\n## Priority\nP0\n\n## Context\nRequested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned with GoalChain orchestration rules.\n\nPart of Voxly-style AI Content Engine track (Score 53/60 GO decision). Voice-learning IP becomes GoalChain moat: coach personas, automated match previews in user's voice, betting analysis in analyst voice, white-label for sportsbooks/fantasy platforms.\n\n## Workflow (Producer-Critic Pattern)\n1. **Implementer** (opencode) creates PR on branch `exp/opencode-issue-XXX`\n2. **Critic Agent** reviews PR automatically (read-only, no code changes)\n3. Critic posts structured review: PASS/FAIL + findings\n4. If FAIL: Implementer addresses findings, pushes updates\n5. If PASS: Label `status:critic_pass` → Antigravity/Nico human review\n6. Merge after human approval\n\n## Required Output (Implementer)\n- Proposed file list\n- Risks/regressions + rollback\n- Exact test commands\n- **Structured plan JSON** as FIRST output (see below)\n\n## Required First Output: Plan JSON\nBefore any code changes, output this JSON to stdout:\n```json\n{\n  \"goal\": \"Build voice cloning engine for GoalChain content automation\",\n  \"issue_number\": 123,\n  \"branch\": \"exp/opencode-issue-123\",\n  \"steps\": [\n    {\"action\": \"setup project structure\", \"files\": [\"voice_engine/\", \"voice_engine/main.py\"], \"depends_on\": []},\n    {\"action\": \"integrate OpenVoice v2\", \"files\": [\"voice_engine/cloning.py\", \"voice_engine/models/\"], \"depends_on\": [\"setup project structure\"]},\n    {\"action\": \"implement FastAPI endpoints\", \"files\": [\"voice_engine/api.py\"], \"depends_on\": [\"integrate OpenVoice v2\"]},\n    {\"action\": \"add football domain adaptation\", \"files\": [\"voice_engine/football_presets.py\"], \"depends_on\": [\"implement FastAPI endpoints\"]},\n    {\"action\": \"Supabase storage integration\", \"files\": [\"voice_engine/storage.py\"], \"depends_on\": [\"implement FastAPI endpoints\"]},\n    {\"action\": \"Docker deployment config\", \"files\": [\"Dockerfile\", \"docker-compose.yml\"], \"depends_on\": [\"Supabase storage integration\"]}\n  ],\n  \"dependencies\": [\"openvoice\", \"onnxruntime\", \"fastapi\", \"supabase-py\", \"redis\"],\n  \"risks\": [\"ARM64 compatibility (Oracle Cloud)\", \"Model license (OpenVoice v2 = MIT)\", \"Latency target <3s for 30s audio\", \"Storage: voice embeddings ~50MB each\"],\n  \"verification\": [\"curl -X POST /voice/clone -F 'audio=@sample.wav'\", \"curl -X POST /voice/synthesize -d '{\\\"voice_id\\\":\\\"...\\\",\\\"text\\\":\\\"test\\\",\\\"style\\\":\\\"analyst_calm\\\"}'\", \"python -m pytest tests/voice/ -v\"]\n}\n```\n\n## Technical Specification\n\n### EXACT DELIVERABLES:\n1. **Voice Cloning Service (FastAPI)**:\n   - POST /voice/clone: upload 30-60s reference audio (wav/mp3) → returns voice_id\n   - POST /voice/synthesize: voice_id + text + emotion/style → audio file (mp3/wav)\n   - GET /voice/models: list available cloned voices\n   - DELETE /voice/models/{voice_id}: cleanup\n\n2. **Model Backend** (pick one, prioritize local/zero-API-cost):\n   - **Option A: OpenVoice v2 (MIT, multilingual, few-second cloning) — RECOMMENDED**\n   - Option B: RVC (Retrieval-based Voice Conversion) — high quality, needs training\n   - Option C: Coqui TTS XTTS v2 — multilingual, 6s reference\n\n3. **Football/GoalChain Domain Adaptation**:\n   - Emotion presets: 'analyst_calm', 'coach_hype', 'commentator_excited', 'narrator_neutral'\n   - Football terminology pronunciation dictionary (player names, team names, tactics terms)\n   - SSML-style tags for pacing: <pause>, <emphasis>, <prosody rate>\n\n4. **Integration Points**:\n   - Output feeds directly into MoneyPrinterTurbo video generation pipeline\n   - Hermes MCP tool 'voice-ops' for cron/agent access\n   - Supabase storage for voice models + generated audio\n\n### TECHNICAL STACK:\n- FastAPI + Pydantic + Uvicorn (async)\n- Model inference: ONNX Runtime / torch.compile for speed\n- Storage: Supabase (existing GoalChain project)\n- Queue: Redis (existing) for async synthesis jobs\n- Deployment: Docker on VPS (same as MoneyPrinterTurbo)\n\n### VERIFICATION COMMANDS:\n- curl -X POST http://localhost:8081/voice/clone -F 'audio=@sample.wav' → returns voice_id\n- curl -X POST http://localhost:8081/voice/synthesize -d '{\"voice_id\":\"...\",\"text\":\"GoalChain alpha signal: Real Madrid over 2.5 goals\",\"style\":\"analyst_calm\"}' → audio.mp3\n- python -m pytest tests/voice/ -v\n\n### RISKS:\n- ARM64 compatibility (Oracle Cloud) — use ONNX/NCNN compiled models\n- Model license (OpenVoice v2 = MIT, RVC = non-commercial, XTTS = Coqui CoCPL)\n- Latency: target <3s for 30s audio generation\n- Storage: voice embeddings ~50MB each, plan for 100+ voices\n\n### DEPENDENCIES:\n- Supabase project (existing)\n- Redis (existing)\n- FFmpeg (existing in MoneyPrinterTurbo container)\n\n## FCC Tier\nopus (nemotron-3-super via NVIDIA NIM) — P0 architecture task\nApply frontend-design skill for any UI components. Follow gstack plan-eng-review before coding.",
+      "priority": "P0",
+      "labels": [
+        "status:ready",
+        "source:manager",
+        "agent:opencode",
+        "priority:P0"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:24Z",
+      "attempts": 1,
+      "assigned_worker": "tau",
+      "github_number": 538
+    },
+    {
+      "id": 9,
+      "title": "[OPENCODE] [DIRECTOR] Demo Filming Script + Screen Record Plan",
+      "body": "## Objective\nCreate a complete directors package for Nico to self-film the GoalChain Content Engine demo.\n\n## Deliverables\n1. **Filming Script** (markdown): Scene-by-scene with dialogue, camera angles, timing, B-roll cues\n2. **Screen Recording Plan**: Exact clicks/flows to record for the demo portion (Supabase dashboard, Vercel deploy, generation test)\n3. **Technical Checklist**: Camera/mic/lighting setup, OBS/ScreenFlow settings, export specs\n4. **Post-Production Notes**: Where Nico adds voiceover, where screen record syncs, music/sfx cues\n\n## Context\n- Nico = actor, Manager = director\n- No voice cloning — Nico records his own voice\n- Demo: GoalChain Content Engine (Voxly spin) — waitlist landing, voice profile concept, multi-platform generation\n- Target: 2-3 min final cut for sales calls + waitlist page\n- Stack: Supabase (free tier) + Vercel (free tier) + Hermes Agent\n\n## Filming Script Structure\n- **Hook (0-15s)**: Problem — content creation bottleneck for sports/betting creators\n- **Solution Reveal (15-45s)**: GoalChain Content Engine — \"Voxly for sports\"\n- **Live Demo Walkthrough (45s-2:00)**: Screen record of waitlist → dashboard → generate match preview in Nico's voice\n- **B2B Proof (2:00-2:30)**: $72K ARR, 3 contracts, 320 waitlist — social proof\n- **CTA (2:30-3:00)**: Join waitlist / Book demo / Contact sales\n\n## Screen Recording Flows to Capture\n1. Vercel deploy preview → live URL\n2. Supabase dashboard: voice_profiles table, Edge Functions logs\n3. Generation API call → JSON response → rendered output\n4. Waitlist page: tier selection, email capture, referral link\n\n## Technical Specs\n- Camera: 1080p/30fps minimum (phone OK if good light)\n- Mic: Lavalier or USB cardioid (no room echo)\n- Lighting: Key + fill, 45° angle, no backlight\n- Screen record: 1440p/60fps, system audio off (Nico adds VO)\n- Export: ProRes or high-bitrate H.264, 1080p final\n\n## Owner\nopencode\n\n## Priority\nP0\n\n## Context\nRequested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned with GoalChain orchestration rules.\n\n## Workflow (Producer-Critic Pattern)\n1. **Implementer** (opencode) creates PR on branch `exp/opencode-issue-XXX`\n2. **Critic Agent** reviews PR automatically (read-only, no code changes)\n3. Critic posts structured review: PASS/FAIL + findings\n4. If FAIL: Implementer addresses findings, pushes updates\n5. If PASS: Label `status:critic_pass` → Antigravity/Nico human review\n6. Merge after human approval\n\n## Required Output (Implementer)\n- Proposed file list\n- Risks/regressions + rollback\n- Exact test commands\n- **Structured plan JSON** as FIRST output (see below)\n\n## Required First Output: Plan JSON\nBefore any code changes, output this JSON to stdout:\n```json\n{\n  \"goal\": \"Brief description of the objective\",\n  \"issue_number\": 123,\n  \"branch\": \"exp/opencode-issue-123\",\n  \"steps\": [\n    {\"action\": \"create vector/ dir\", \"files\": [\"src/vector/turbovec_store.py\"], \"depends_on\": []},\n    {\"action\": \"implement player index\", \"files\": [\"src/vector/player_index.py\"], \"depends_on\": [\"create vector/ dir\"]}\n  ],\n  \"dependencies\": [\"turbovec pip package\"],\n  \"risks\": [\"turbovec API changes\", \"embedding dim mismatch\"],\n  \"verification\": [\"pip install turbovec\", \"python -m pytest tests/vector/\", \"index build <2s\", \"RAM <50MB\"]\n}\n```\n\n## Workflow\n- One implementer only\n- Branch naming:\n  - cursor: `feat/*` or `fix/*`\n  - antigravity: `exp/antigravity-*`\n  - opencode: `exp/opencode-*`\n  - grok: `exp/grok-*`\n- Draft PR for Antigravity/Nico review — no direct merge to `main` unless `cambio urgente`",
+      "priority": "P0",
+      "labels": [
+        "status:ready",
+        "source:manager",
+        "agent:opencode",
+        "priority:P0"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:25Z",
+      "attempts": 1,
+      "assigned_worker": "upsilon",
+      "github_number": 537
+    },
+    {
+      "id": 10,
+      "title": "[OPENCODE] [DRAFT] World Cup 2026 — Confirmed Starting XI + Full Player Data Overhaul",
+      "body": "## Objective\n# FCC Task: World Cup 2026 — Confirmed Starting XI + Full Player Data Overhaul\n\n**Priority: P0** — Massive research + data restructuring task. Follow `gstack plan-eng-review` before coding. Apply `frontend-design` skill for any UI touchpoints.\n\n---\n\n## Objective\n\nReplace the current `docs/assets/data/players.json` (528 players across 48 countries × 11) with **verified, confirmed 2026 World Cup starting XIs** — 11 starters per qualified nation — with **complete physical attributes, real market values, trait assignments, parody clubs, and GoalChain lore narratives**.\n\n**Source of truth:** Official FIFA 2026 World Cup squad announcements + confirmed starting lineups from opening matches / official team sheets.\n\n---\n\n## Scope\n\n| Metric | Current | Target |\n|--------|---------|--------|\n| Countries | 48 | 48 (only qualified nations) |\n| Players per country | 11 | 11 (confirmed starters only) |\n| Total players | 528 | 528 |\n| Physical attributes | Partial / inconsistent | 100% complete per schema |\n| `match_salary_gch` | Placeholder | Real market value (€) → GCH mapping |\n| `traits` | Sparse | Full taxonomy assignment |\n| `meta.parody_club` | Inconsistent | Consistent per real club |\n| `meta.narrative` | Generic | GoalChain lore + player lore blend |\n\n---\n\n## Research Methodology (MANDATORY — do not hallucinate)\n\n### 1. Confirm Qualified Nations (48)\nUse **FIFA.com**, **official confederation sites** (UEFA, CONMEBOL, CONCACAF, CAF, AFC, OFC) to list the exact 48 qualified teams.  \n**Do not assume** — verify each.\n\n### 2. For Each Nation: Identify the 11 Confirmed Starters\n- **Primary source:** Official FIFA squad list (26-man) + matchday lineups from World Cup 2026 openers\n- **Secondary:** Reputable beat reporters (Fabrizio Romano, The Athletic, Marca, Olé, L'Équipe, ESPN, Globo Esporte)\n- **Tertiary:** Club official sites / national federation announcements\n- **Formation:** Use the coach's **preferred formation** (4-3-3, 4-2-3-1, 3-5-2, etc.) — pick the 11 most likely starters based on:\n  - Recent qualifiers / friendlies\n  - Coach's trusted core\n  - Injury status (exclude injured players)\n  - Tactical fit\n\n### 3. Physical Attributes — Deep Research Per Player\nFor **every single player**, fill **ALL** fields in `physical` — no empty arrays, no \"unknown\":\n\n| Field | Research Method |\n|-------|-----------------|\n| `dob` | Wikipedia / Transfermarkt / FBref |\n| `h` / `w` | Official FIFA profile / club site |\n| `hair_color`, `hairstyle` | Recent match photos (Getty, Reuters, club media) — describe precisely: \"mid-skin burst fade with textured fringe\", \"shoulder-length loose curls\", \"clean shaven buzz cut\" |\n| `facial_hair` | \"clean shaven\", \"light stubble\", \"full beard with gray at chin\", \"goatee\" — be specific |\n| `face_structure` | \"oval face, high cheekbones, straight nose\", \"square jaw, heavy brow\", \"round face, soft jawline\" |\n| `skin_tone` | Use **Fitzpatrick-adjacent descriptors**: \"fair with cool undertones\", \"light olive, tans easily\", \"medium brown with warm undertones\", \"deep brown\", \"fair with freckles\" |\n| `eye_color` | \"dark brown\", \"light brown/hazel\", \"blue\", \"green\" — verify via close-up photos |\n| `tattoos` | **Exhaustive list** — search \"[player] tattoos\" + recent shirtless/short-sleeve photos. Format: `\"left forearm: lion\", \"right sleeve: geometric\", \"chest: family script\"` — if none: `[\"none visible\"]` |\n| `distinctive_features` | 3-5 unique identifiers: \"gap in front teeth\", \"perpetual intense gaze\", \"wears headband\", \"celebration: finger to temple\", \"knee brace on right leg\" |\n| `build_type` | Concise: \"lean muscular, 1.70m, low center of gravity\", \"tall goalkeeper frame, 1.95m, broad shoulders\", \"compact strong, 1.75m, explosive acceleration\" |\n| `t` (composite text) | Single descriptive paragraph combining all above — used for visual generation |\n\n### 4. Market Value → `match_salary_gch` Mapping\n**Source:** Transfermarkt (current market value in €) as of **June 2026**.  \n**Formula:** `match_salary_gch = floor(market_value_eur / 10000)` with caps:\n\n| Market Value (€) | `match_salary_gch` | Rarity Hint |\n|------------------|--------------------|-------------|\n| ≥ 100M | 10,000 | mythic |\n| 80-99M | 8,000-9,999 | mythic/legendary |\n| 60-79M | 6,000-7,999 | legendary |\n| 40-59M | 4,000-5,999 | legendary/epic |\n| 25-39M | 2,500-3,999 | epic |\n| 15-24M | 1,500-2,499 | epic/rare |\n| 8-14M | 800-1,499 | rare |\n| 4-7M | 400-799 | rare |\n| < 4M | 100-399 | rare/common |\n\n**Hard caps:** Max 10,000 (Messi/Ronaldo tier), Min 50 (lowest). Round to nearest 50.\n\n### 5. Trait Taxonomy — Assign 1-4 Per Player\n**Mandatory traits pool** (expand only if justified):\n\n**Attacking:**\n- `GOAT Aura` (reserved: Messi, Ronaldo, maybe 1-2 others)\n- `Playmaker Maestro` / `Playmaker` / `Visionary`\n- `Dribbling God` / `Elite Dribbler`\n- `Goal Hunter` / `Clinical Finisher` / `Poacher`\n- `Aerial Threat` / `Target Man`\n- `Long-Range Sniper`\n- `Pressing Machine` / `High-Press Trigger`\n\n**Midfield:**\n- `Box-to-Box Engine`\n- `Deep-Lying Architect` / `Regista`\n- `Interceptions King` / `Ball Winner`\n- `Technical Maestro` / `Silky Touch`\n- `Transition Trigger`\n\n**Defensive:**\n- `Iron Wall` / `Physical Powerhouse`\n- `Recovery Pace` / `Speed Demon`\n- `Anticipation Master` / `Reading the Game`\n- `Set-Piece General`\n- `Tackling Artist`\n\n**Goalkeeper:**\n- `Penalty Specialist` / `Shootout King`\n- `Shot Stopper` / `Reflex Cat`\n- `Sweeper Keeper` / `Ball-Playing GK`\n- `Commanding Presence` / `Aerial Dominance`\n- `Mind Games Master`\n\n**Meta/Intangible:**\n- `Leader` / `Captain Material`\n- `Big Game Player` / `Clutch Gene`\n- `Mentality Monster`\n- `Versatility` (plays 3+ positions)\n\n**Assignment rules:**\n- Starters get 2-4 traits; superstars get 3-4\n- No duplicate traits on same player\n- Traits must match position + playstyle (verify via FBref/StatsBomb playstyle tags)\n\n### 6. Parody Club System — **Consistency is Critical**\n\n**Rule:** Every real club → **ONE unique parody name** used by ALL players from that club.\n\n**Naming convention:** `[City/Region] [Mascot/Color] [Web3 Suffix]`\n\n| Real Club | Parody Club | Suffix Pool |\n|-----------|-------------|-------------|\n| Real Madrid | Madrid Mattress DAO | DAO, Nodes, Core, Logic, Hive, Kop, Devils, Logic |\n| FC Barcelona | Barcelona Blaugrana Chain | Chain, Nodes, DAO, Protocol |\n| Manchester City | Manchester Sky Blocks | Blocks, Nodes, Core, DAO |\n| Manchester United | Manchester Red Devils DAO | Devils DAO, Red Core, United Nodes |\n| Liverpool | Liverpool Crimson Kop | Kop, Chain, Nodes |\n| Arsenal | London Cannon Core | Core, Nodes, DAO |\n| Chelsea | London Blue Nodes | Blue Nodes, Core, Blocks |\n| Tottenham | London Cockerel Nodes | Cockerel Nodes, Spurs DAO |\n| Bayern Munich | Munich Bavarian Blocks | Blocks, Core, DAO |\n| Borussia Dortmund | Dortmund Yellow Hive | Hive, Nodes, DAO |\n| PSG | Paris Neon Protocol | Protocol, Nodes, Core |\n| Inter Milan | Milan Nerazzurri Logic | Logic, Nodes, DAO |\n| AC Milan | Milan Rossoneri Chain | Chain, Nodes, DAO |\n| Juventus | Turin Zebra Nodes | Zebra Nodes, Core, DAO |\n| Napoli | Naples Partenopei DAO | DAO, Nodes, Core |\n| Atlético Madrid | Madrid Colchoneros Logic | Logic, Nodes, DAO |\n| Bayer Leverkusen | Leverkusen Werkself Core | Core, Nodes, DAO |\n| RB Leipzig | Leipzig Red Bull Nodes | Nodes, Core, DAO |\n| Aston Villa | Birmingham Lion Core | Lion Core, Nodes, DAO |\n| Newcastle | Newcastle Magpie DAO | Magpie DAO, Nodes, Core |\n| Brighton | Brighton Seagull Protocol | Protocol, Nodes, Core |\n| West Ham | London Hammer Nodes | Hammer Nodes, Core, DAO |\n| (Add all other clubs represented in WC squads) | | |\n\n**Process:**\n1. Build a **lookup table**: `real_club → parody_club`\n2. Apply consistently — if 3 Argentina players play for Real Madrid, all 3 get `\"Madrid Mattress DAO\"`\n3. National team players without current club (free agents) → `\"Free Agent Nomads\"`\n\n### 7. `meta` Object — Required Fields\n\n```json\n\"meta\": {\n  \"parody_club\": \"<from lookup table>\",\n  \"visual_effect\": \"<rarity-based + player-specific>\",\n  \"narrative\": \"<2-3 sentences blending player lore + GoalChain lore>\"\n}\n```\n\n**Visual effects by rarity:**\n- `mythic`: `\"Cosmic Aura & Golden Supernova\"`, `\"Quantum Rift & Ethereal Gold\"`\n- `legendary`: `\"Holographic Glitch & Silver Spark\"`, `\"Neon Prism & Plasma Trails\"`\n- `epic`: `\"Electric Neon Pulse\"`, `\"Cyber Arc & Voltage Flare\"`\n- `rare`: `\"Subtle Cyber Outline\"`, `\"Digital Shimmer & Grid Lines\"`\n\n**Narrative template:**\n> \"A world-class {POS} verified as a {RARITY} asset. Known globally for being a {TRAIT_1}, {TRAIT_2}, this player {player-specific lore hook} — making them a {GoalChain role} in the ecosystem.\"\n\n**Example (Enzo Ether):**\n> \"A world-class MID verified as a legendary asset. Known globally for being a Playmaker, Visionary, this player orchestrates the midfield like a decentralized consensus protocol — distributing value across the pitch with surgical precision, making them a cornerstone of the GoalChain ecosystem.\"\n\n---\n\n## Technical Requirements\n\n### Input File\n`docs/assets/data/players.json` — **read-only reference** for schema only.\n\n### Output File\n**Overwrite** `docs/assets/data/players.json` with new array of 528 objects.\n\n### ID Assignment\n- Keep sequential `id: 1..528`\n- Group by country (alphabetical by country name in English)\n- Within country: starters in formation order (GK → DEF → MID → FWD)\n\n### Country Names — English Standard\nUse FIFA English names: `Argentina`, `France`, `England`, `Brazil`, `Spain`, `Germany`, `Portugal`, `Netherlands`, `United States`, `Mexico`, `Canada`, `Morocco`, `Japan`, `Senegal`, `South Korea`, `Australia`, `Saudi Arabia`, `Denmark`, `Switzerland`, `Serbia`, `Poland`, `Ukraine`, `Turkey`, `Scotland`, `Hungary`, `Austria`, `Colombia`, `Ecuador`, `Paraguay`, `Venezuela`, `Chile`, `Peru`, `Algeria`, `Ghana`, `Nigeria`, `Cameroon`, `Ivory Coast`, `Tunisia`, `Costa Rica`, `Panama`, `Iran`, `Iraq`, `Qatar`, `New Zealand`, `Egypt`, `South Africa`, `Mali`, `Burkina Faso`\n\n### Rarity Assignment (by market value + status)\n| Tier | Criteria | Count Target |\n|------|----------|--------------|\n| `mythic` | Global icons, >100M value, GOAT-tier | 10 (2 per confederation max) |\n| `legendary` | World-class starters, 50-100M | 50 |\n| `epic` | Confirmed starters, 20-50M | 150 |\n| `rare` | Starters <20M, role players | 318 |\n\n### Position Codes\n`GK`, `DEF`, `MID`, `FWD` — match formation slots.\n\n### `bg_type` Mapping\n`mythic` → `BG-MYT`, `legendary` → `BG-LEG`, `epic` → `BG-EPI`, `rare` → `BG-RAR`\n\n### `stats` Calibration (0-100)\n| Position | ATK Range | DEF Range | HYPE Range |\n|----------|-----------|-----------|------------|\n| GK | 20-45 | 70-95 | 60-95 |\n| DEF | 10-50 | 55-90 | 50-85 |\n| MID | 45-95 | 45-95 | 60-95 |\n| FWD | 55-98 | 10-45 | 65-99 |\n\nCalibrate to player's actual profile (FBref percentiles).\n\n---\n\n## Verification Commands (RUN BEFORE SUBMITTING)\n\n```bash\n# 1. Count validation\npython3 -c \"\nimport json\nwith open('docs/assets/data/players.json') as f: d=json.load(f)\nprint(f'Total: {len(d)}')\nfrom collections import Counter\nc=Counter(p['country'] for p in d)\nprint('Countries:', len(c))\nfor k,v in sorted(c.items()): print(f'  {k}: {v}')\nassert all(v==11 for v in c.values()), 'Not all 11!'\nassert len(d)==528, 'Not 528!'\nprint('✅ Counts OK')\n\"\n\n# 2. Schema validation\npython3 -c \"\nimport json\nwith open('docs/assets/data/players.json') as f: d=json.load(f)\nrequired = ['id','name','country','rarity','bg_type','position','stats','real_name','physical','match_salary_gch','traits','meta']\nphys_req = ['dob','h','w','t','hair_color','hairstyle','facial_hair','face_structure','skin_tone','eye_color','tattoos','distinctive_features','build_type']\nmeta_req = ['parody_club','visual_effect','narrative']\nfor i,p in enumerate(d):\n    for r in required:\n        assert r in p, f'Player {i} missing {r}'\n    for pr in phys_req:\n        assert pr in p['physical'], f'Player {i} physical missing {pr}'\n    for mr in meta_req:\n        assert mr in p['meta'], f'Player {i} meta missing {mr}'\n    assert len(p['traits']) >= 1, f'Player {i} no traits'\n    assert p['tattoos'] != [], f'Player {i} empty tattoos'\n    assert p['distinctive_features'] != [], f'Player {i} empty distinctive_features'\nprint('✅ Schema OK')\n\"\n\n# 3. Parody club consistency\npython3 -c \"\nimport json\nwith open('docs/assets/data/players.json') as f: d=json.load(f)\nfrom collections import defaultdict\nclub_map = defaultdict(set)\nfor p in d:\n    club_map[p['meta']['parody_club']].add(p['real_name'])\nprint('Parody clubs:', len(club_map))\nfor club, players in sorted(club_map.items()):\n    if len(players) > 1:\n        print(f'  {club}: {len(players)} players - {sorted(players)[:3]}...')\n# Check no real club has multiple parody names\n# (requires reverse mapping - add if you have real_club field)\nprint('✅ Parody check done')\n\"\n\n# 4. ID continuity\npython3 -c \"\nimport json\nwith open('docs/assets/data/players.json') as f: d=json.load(f)\nids = [p['id'] for p in d]\nassert ids == list(range(1, 529)), f'IDs broken: {ids[:10]}...{ids[-10:]}'\nprint('✅ IDs sequential 1-528')\n\"\n\n# 5. Market value sanity\npython3 -c \"\nimport json\nwith open('docs/assets/data/players.json') as f: d=json.load(f)\nsalaries = [p['match_salary_gch'] for p in d]\nprint(f'Salary range: {min(salaries)} - {max(salaries)}')\nprint(f'Avg: {sum(salaries)/len(salaries):.0f}')\n# Check no zeros\nassert all(s >= 50 for s in salaries), 'Salary too low'\nassert all(s <= 10000 for s in salaries), 'Salary too high'\nprint('✅ Salaries OK')\n\"\n```\n\n---\n\n## Deliverables\n\n1. **Updated `docs/assets/data/players.json`** — 528 complete, verified players\n2. **Research log** — `docs/intake/wc2026-research-log.md` listing:\n   - Source URL per country (official squad announcement)\n   - Formation used + starter selection rationale\n   - Market value source (Transfermarkt URL + date)\n   - Physical attribute photo sources (Getty/Reuters/club media URLs)\n3. **Parody club registry** — `docs/intake/parody-club-registry.json`:\n   ```json\n   {\n     \"Real Madrid\": \"Madrid Mattress DAO\",\n     \"FC Barcelona\": \"Barcelona Blaugrana Chain\",\n     ...\n   }\n   ```\n\n---\n\n## Skill Hints\n\n- **Research:** Use `web_search` + `web_extract` for official sources\n- **Data processing:** Write Python scripts for validation/transform\n- **Frontend-design skill** if any UI preview needed\n- **Follow `gstack plan-eng-review`** — present plan before coding\n\n---\n\n## Estimated Effort\n\n| Phase | Hours |\n|-------|-------|\n| Research (48 nations × sources) | 15-20 |\n| Physical attribute deep-dive (528 × ~10 fields) | 20-30 |\n| Market value mapping + salary calc | 3-5 |\n| Trait assignment + narrative writing | 8-12 |\n| Parody club registry + consistency pass | 3-5 |\n| Validation + JSON assembly | 2-3 |\n| **Total** | **50-75** |\n\n**Assign to:** FCC `opencode` with `nvidia_nim/nvidia/nemotron-3-super-120b-a12b` (P0 tier)\n\n---\n\n## Acceptance Criteria\n\n- [ ] All 528 players have **complete physical attributes** (no empty arrays, no \"unknown\")\n- [ ] All 48 countries have **exactly 11 confirmed starters** (verified vs official FIFA squads)\n- [ ] `match_salary_gch` reflects **real Transfermarkt June 2026 values** via formula\n- [ ] Every player has **2-4 relevant traits** from taxonomy\n- [ ] **Parody clubs consistent** — same real club = same parody name\n- [ ] `meta.narrative` blends **player lore + GoalChain lore** (2-3 sentences)\n- [ ] All **verification commands pass** without errors\n- [ ] Research log + parody registry **saved to `docs/intake/`**\n\n---\n\n*P0 Task — No shortcuts. Research must be traceable to official sources. Hallucinated data = rejection.*\n\n## Owner\nopencode\n\n## Priority\nP0\n\n## Context\nRequested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned with GoalChain orchestration rules.\n\n## Workflow (Producer-Critic Pattern)\n1. **Implementer** (opencode) creates PR on branch `exp/opencode-issue-XXX`\n2. **Critic Agent** reviews PR automatically (read-only, no code changes)\n3. Critic posts structured review: PASS/FAIL + findings\n4. If FAIL: Implementer addresses findings, pushes updates\n5. If PASS: Label `status:critic_pass` → Antigravity/Nico human review\n6. Merge after human approval\n\n## Required Output (Implementer)\n- Proposed file list\n- Risks/regressions + rollback\n- Exact test commands\n- **Structured plan JSON** as FIRST output (see below)\n\n## Required First Output: Plan JSON\nBefore any code changes, output this JSON to stdout:\n```json\n{\n  \"goal\": \"Brief description of the objective\",\n  \"issue_number\": 123,\n  \"branch\": \"exp/opencode-issue-123\",\n  \"steps\": [\n    {\"action\": \"create vector/ dir\", \"files\": [\"src/vector/turbovec_store.py\"], \"depends_on\": []},\n    {\"action\": \"implement player index\", \"files\": [\"src/vector/player_index.py\"], \"depends_on\": [\"create vector/ dir\"]}\n  ],\n  \"dependencies\": [\"turbovec pip package\"],\n  \"risks\": [\"turbovec API changes\", \"embedding dim mismatch\"],\n  \"verification\": [\"pip install turbovec\", \"python -m pytest tests/vector/\", \"index build <2s\", \"RAM <50MB\"]\n}\n```\n\n## Workflow\n- One implementer only\n- Branch naming:\n  - cursor: `feat/*` or `fix/*`\n  - antigravity: `exp/antigravity-*`\n  - opencode: `exp/opencode-*`\n  - grok: `exp/grok-*`\n- Draft PR for Antigravity/Nico review — no direct merge to `main` unless `cambio urgente`",
+      "priority": "P0",
+      "labels": [
+        "status:ready",
+        "source:manager",
+        "agent:opencode",
+        "priority:P0"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:25Z",
+      "attempts": 1,
+      "assigned_worker": "phi",
+      "github_number": 532
+    },
+    {
+      "id": 11,
+      "title": "[MONEY-PRINTER] Multi-Platform Publisher (goalchain-publisher skill)",
+      "body": "## Objective\nBuild **goalchain-publisher** skill: Buffered MP4 → TikTok, Instagram Reels, YouTube Shorts, X (video) via API with optimal scheduling, UTM tracking, CTA rotation.\n\n## Context\n- Plan: `docs/implementation-plans/money-printer-goalchain-plan.md`\n- Buffer: `~/hermes/content-buffer/videos/` (MP4 + metadata)\n- Platforms: TikTok, IG Reels, YT Shorts, X Video\n- APIs: Buffer.com / Hootsuite / native (rotate to avoid rate limits)\n\n## Deliverables\n1. **Skill**: `~/.hermes/profiles/marketing-active/skills/social-media/goalchain-publisher/SKILL.md`\n2. **Script**: `ops/content-flywheel/scripts/publisher.py`\n3. **Platform specs**: `ops/content-flywheel/config/platform_specs.json`\n\n## Requirements\n- **Per-platform optimization**:\n  - TikTok: 9:16, <60s, trending sounds, hashtags\n  - IG Reels: 9:16, <90s, location tag, collabs\n  - YT Shorts: 9:16, <60s, SEO title/description\n  - X Video: 16:9 or 9:16, <140s, thread reply with link\n- **Scheduling**: Optimal times learned from analytics (start: 12 UTC, 18 UTC, 22 UTC)\n- **UTM tracking**: `?utm_source={platform}&utm_medium=video&utm_campaign={script_theme}&utm_content={video_id}`\n- **CTA rotation**: play.goalchain.fun / referral codes / Discord invite / NFT drop\n- **Rate limit handling**: Exponential backoff, queue, rotate API keys\n- **State**: Update `state.db` → `published` with platform URLs, timestamps\n\n## Platform Specs JSON\n```json\n{\n  \"tiktok\": {\"max_duration\": 60, \"aspect\": \"9:16\", \"hashtags\": [\"goalchain\", \"footballbetting\", \"web3gaming\"]},\n  \"instagram\": {\"max_duration\": 90, \"aspect\": \"9:16\", \"location\": \"Global\"},\n  \"youtube_shorts\": {\"max_duration\": 60, \"aspect\": \"9:16\", \"category\": \"Gaming\"},\n  \"x\": {\"max_duration\": 140, \"aspect\": \"9:16\", \"thread\": true}\n}\n```\n\n## Verification\n```bash\ncd ~/hermes/workspace/GoalChain && python ops/content-flywheel/scripts/publisher.py --dry-run --video-id gc_20260610_001\n# Should show publish plan per platform with UTMs\n```\n\n## Priority: P1 — Phase 2 (Day 3-4)",
+      "priority": "P1",
+      "labels": [
+        "P1",
+        "status:ready",
+        "agent:opencode"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:28Z",
+      "attempts": 1,
+      "assigned_worker": "stigma",
+      "github_number": 522
+    },
+    {
+      "id": 12,
+      "title": "[OPENCODE] [P0] #412 EconomyConfigBanner reads wrong fields from /api/economy/config",
+      "body": "# [OPENCODE] [P0] #412 EconomyConfigBanner reads wrong fields from /api/economy/config\n\n## Priority: P0 (webapp bug blocking correct UI)\n## Labels: agent:opencode, priority:P0, area:webapp, status:ready\n\n## Problem\nThe `EconomyConfigBanner` component in the webapp reads incorrect fields from the `/api/economy/config` endpoint, showing stale/wrong data.\n\n## Current State\n- API endpoint: `/api/economy/config` returns canonical config from `docs/ECONOMIC_CANONICAL_CONFIG.json`\n- Component: Likely in `goalchain_webapp/src/features/` or `components/`\n- Fields returned vs fields expected are misaligned\n\n## Required Fix\n1. **Find** the `EconomyConfigBanner` component\n2. **Check** the actual API response shape from `/api/economy/config`\n3. **Fix** the field mapping in the component to match actual response\n4. **Verify** the banner displays correct values (mint/burn ratios, vault crank params, priority fees, etc.)\n\n## Files to Check/Modify\n- `goalchain_webapp/src/**/EconomyConfigBanner.tsx` (or similar)\n- `goalchain_api/src/routes/economy.ts` — confirm response shape\n- `docs/ECONOMIC_CANONICAL_CONFIG.json` — canonical source\n\n## Verification Commands\n```bash\n# Check API response\ncurl http://localhost:3001/api/economy/config | jq .\n\n# Run webapp typecheck\ncd goalchain_webapp && npm run typecheck 2>&1\n```\n\n## Acceptance Criteria\n- EconomyConfigBanner displays correct live values from API\n- No TypeScript errors in webapp\n- Fields match `ECONOMIC_CANONICAL_CONFIG.json` canonical config\n\n## Notes\n- This is a read-only UI fix — no backend changes needed unless API shape is wrong\n- Use SDK types where possible (`goalchain-sdk` types)\n",
+      "priority": "P0",
+      "labels": [
+        "status:ready",
+        "agent:opencode",
+        "priority:P0",
+        "area:webapp"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:26Z",
+      "attempts": 1,
+      "assigned_worker": "chi",
+      "github_number": 503
+    },
+    {
+      "id": 13,
+      "title": "[P2][growth][daily-routine] Mobile PWA + Responsive Landing with Presale CTA",
+      "body": "**Source:** growth-agent (2026-06-04)\n**Priority:** P2\n**Assigned Agent:** daily-routine\n\n## Description\nThe webapp has no `manifest.json`, no service worker, no mobile-responsive landing page. The root `/` route renders `DashboardGrid` (an ops dashboard) instead of a marketing landing page. Most Zealy/Discord/X traffic arrives on mobile wallets (Phantom mobile, Solflare). Steps: (1) create `goalchain_webapp/public/manifest.json` with app name, icons, theme color, start URL; add `<link rel=\"manifest\">` to `index.html`, (2) add a basic service worker for offline asset caching, (3) create a marketing landing route at `/` (`LandingPage.tsx`) with: hero section (\"GoalChain — Football Meets DeFi\"), $GCH presale call-to-action (\"Register Wallet\" linking to whitelist form), live player count (528 NFTs), economy health badge placeholder, and wallet connect button. Move `DashboardGrid` to `/dashboard`. Add responsive CSS breakpoints.\n\n**Expected Impact:** The Degen Preseason campaign drives mobile-first traffic to a devnet-only, Spanish-language ops dashboard with no presale entry point — a 90% bounce rate situation. A mobile-optimized landing page with a visible presale CTA at `/` converts campaign traffic into whitelist signups. PWA support enables \"Add to Home Screen\" for returning users. This is the product-side equivalent of actually opening the door when the campaign knocks.\n\n---\n*Auto-generated by GoalChain Growth Agent (opencode/deepseek-v4-flash-free)*",
+      "priority": "P2",
+      "labels": [
+        "P2",
+        "webapp",
+        "ops",
+        "status:ready",
+        "agent:opencode",
+        "status:done"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:37Z",
+      "attempts": 1,
+      "assigned_worker": "theta",
+      "github_number": 460
+    },
+    {
+      "id": 14,
+      "title": "[P2][growth][marketing-active] Launch First Paid Ad Campaign (Twitter Ads Spain $1K)",
+      "body": "**Source:** growth-agent (2026-06-04)\n**Priority:** P2\n**Assigned Agent:** marketing-active\n\n## Description\n`scripts/marketing/campaign_budgets.json` allocates $6,500 across 5 campaigns but **no ad accounts exist and no ads have ever run**. Activate the simplest campaign first: Twitter Ads — Football Fans (Spain) at $1,000 budget. Steps: (1) create Twitter Ads account under @GoalChainSOL, (2) set up conversion tracking via `goalchain.fun/?utm_source=twitter_ad&utm_campaign=spain_football` UTM parameters (the webapp already has Vercel Speed Insights in `main.tsx` — add a minimal conversion pixel or event), (3) launch a single promoted tweet using the existing Degen Preseason copy from `x_daily_post.sh`, (4) add ROI logging into `scripts/marketing/roi_audit.py`. Document the account setup process in `docs/ADS_SETUP.md` so the remaining $5,500 can be deployed.\n\n**Expected Impact:** $6,500 in earmarked budget is sitting idle while organic reach is constrained (20 X posts/month). Even a $1,000 test at $0.10-$0.50 CPC can deliver 2,000-10,000 clicks to goalchain.fun — more than organic X posts generate in a month. The first campaign proves the ad pipeline and provides real CPC/CVR data to optimize the remaining budget. Zero ad spend = zero attributable conversions from the largest marketing line item.\n\n---\n*Auto-generated by GoalChain Growth Agent (opencode/deepseek-v4-flash-free)*",
+      "priority": "P2",
+      "labels": [
+        "P2",
+        "docs",
+        "ops",
+        "status:ready",
+        "agent:opencode",
+        "status:done"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:38Z",
+      "attempts": 1,
+      "assigned_worker": "iota",
+      "github_number": 452
+    },
+    {
+      "id": 15,
+      "title": "[P1][growth][hermes-ceo] Zealy Quest Verification Webhook + Discord Role Sync",
+      "body": "**Source:** growth-agent (2026-06-04)\n**Priority:** P1\n**Assigned Agent:** hermes-ceo\n\n## Description\nZealy Season 1 is referenced in Discord content templates (`discord_channel_router.js:138`) and i18n strings, but there is zero integration: no webhook handler, no quest verification, no role assignment. Add `POST /api/zealy/webhook` in `goalchain_api/src/index.ts` that accepts Zealy's completion payload (wallet, user ID, quest ID). On receipt: (1) verify the wallet isn't spoofed by matching against `whitelist.json` or an on-chain check, (2) call Discord's Guild Member Role API (bot already has `GuildMembers` intent at `hermes/discord-community-bot/src/index.ts:12`) to assign the `Degen` or `Quests` role, (3) log to `data/zealy_completions.json` for analytics. Configure Zealy webhook URL via `ZEALY_WEBHOOK_SECRET` env var.\n\n**Expected Impact:** Zealy is driving traffic to goalchain.fun but there is no closed loop — users complete quests, nothing happens, retention drops. A verification webhook that auto-assigns Discord roles and logs completions creates the progression loop Zealy is designed for, keeps users engaged in Discord, and gives the team a measurable Zealy-to-presale funnel. This is a <200-line backend change plus Discord bot config.\n\n---\n*Auto-generated by GoalChain Growth Agent (opencode/deepseek-v4-flash-free)*",
+      "priority": "P1",
+      "labels": [
+        "P1",
+        "api",
+        "ops",
+        "status:ready",
+        "agent:opencode",
+        "status:done"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:33Z",
+      "attempts": 1,
+      "assigned_worker": "alpha",
+      "github_number": 447
+    },
+    {
+      "id": 16,
+      "title": "[P1][growth][player-images] Player NFT Card Image Generation Pipeline (528 cards)",
+      "body": "**Source:** growth-agent (2026-06-04)\n**Priority:** P1\n**Assigned Agent:** player-images\n\n## Description\nThe NFT marketplace (`NFTMarketplace.tsx:254`) renders `⚽` emoji for every listing because only 44 of 528 player images exist in `docs/assets/img/nfts/`. The metadata index (`nft_metadata_index.json`) references `.webp` filenames and contains all attributes (country, rarity, position, stats, club, market value). Build a generation script (`scripts/generate_nft_images/`) that reads `players.json` + `nft_metadata_index.json`, renders each player card as an SVG overlay (gradient background, country flag emoji, name, rarity badge, stat bars), and outputs to `docs/assets/img/nfts/{id}_{slug}.webp`. Use a headless browser (playwright/puppeteer) for consistent high-quality rendering if SVG-in-browser quality is needed. Add the script to `goalchain-sdk/package.json` as `npm run generate-nft-images`.\n\n**Expected Impact:** Turns the marketplace from a text list into a premium visual card shop. The 44 existing images were clearly handcrafted (design-heavy, slow to scale); an automated SVG pipeline can produce all 528 in <5 minutes. Players previewing cards is the #1 conversion driver for any NFT marketplace — without it, the treasury fix (`412d62ae`) unlocks SOL transfers but nobody will actually buy what they can't see.\n\n---\n*Auto-generated by GoalChain Growth Agent (opencode/deepseek-v4-flash-free)*",
+      "priority": "P1",
+      "labels": [
+        "P1",
+        "webapp",
+        "ops",
+        "status:ready",
+        "agent:opencode",
+        "status:done"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:33Z",
+      "attempts": 1,
+      "assigned_worker": "beta",
+      "github_number": 438
+    },
+    {
+      "id": 17,
+      "title": "[P0][growth][x-scout] X/Twitter Media Attachments for Campaign Posts",
+      "body": "**Source:** growth-agent (2026-06-04)\n**Priority:** P0\n**Assigned Agent:** x-scout\n\n## Description\n`ops/x/x_budget_poster.py` posts text-only tweets via X API v1 (1/day, 20/month cap), but the Degen Preseason campaign (commit `93558e18`) drives traffic with no visual assets. X API v2's `media/upload` endpoint supports attaching images — the repo has 44 NFT player card images in `docs/assets/img/nfts/` plus campaign creative opportunity. Modify the poster to accept an `--image` flag, upload via `POST https://upload.twitter.com/1.1/media/upload.json`, attach `media_ids` to the tweet payload. Update `x_daily_post.sh` to cycle existing player card images into the 7 daily content angles (roadmap, presale, vault, etc.).\n\n**Expected Impact:** Tweets with images get 2-3x more engagement (likes, retweets, link clicks). Every text-only post today is leaving 50-70% of potential campaign reach on the table. With 20 posts/month budget, this directly amplifies Degen Preseason conversion without spending a dollar more on ads.\n\n---\n*Auto-generated by GoalChain Growth Agent (opencode/deepseek-v4-flash-free)*",
+      "priority": "P0",
+      "labels": [
+        "P0",
+        "api",
+        "ops",
+        "status:ready",
+        "agent:opencode",
+        "status:done"
+      ],
+      "status": "in_progress",
+      "created_at": "2026-06-11T20:18:23Z",
+      "updated_at": "2026-06-11T20:18:27Z",
+      "attempts": 1,
+      "assigned_worker": "psi",
+      "github_number": 432
+    }
+  ],
+  "next_id": 18
+}
