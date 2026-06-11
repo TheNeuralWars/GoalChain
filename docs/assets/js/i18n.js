@@ -1,7 +1,7 @@
 // ===== GoalChain i18n - Spanish / English =====
 // Auto-generated from goalchain_webapp/src/i18n/locales/*.json
 // DO NOT EDIT DIRECTLY - run: node scripts/sync-marketing-i18n.js --apply
-// Generated: 2026-06-11T02:36:11.105Z
+// Generated: 2026-06-11T03:38:00.609Z
 
 const TRANSLATIONS = {
   es: {
