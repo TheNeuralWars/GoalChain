@@ -100,6 +100,15 @@ SHARED_KEYS = [
     "HERMES_GATEWAY_TOKEN",
     "GITHUB_TOKEN",
     "GH_TOKEN",
+    "FIRECRAWL_API_KEY",
+    "X_API_KEY",
+    "X_API_SECRET",
+    "X_ACCESS_TOKEN",
+    "X_ACCESS_SECRET",
+    "X_BEARER_TOKEN",
+    "NOTION_API_KEY",
+    "NOTION_DATABASE_ID",
+    "NOTION_MILESTONES_DATABASE_ID",
 ]
 
 # Map DISCORD_TOKEN (config.env) → DISCORD_BOT_TOKEN (Hermes gateway) if bot token missing.
@@ -135,20 +144,51 @@ def merge_sources() -> dict[str, str]:
     return merged
 
 
-def update_env_file(path: Path, secrets: dict[str, str]) -> list[str]:
+def update_env_file(path: Path, secrets: dict[str, str], profile_name: str) -> list[str]:
     lines = path.read_text(encoding="utf-8").splitlines() if path.exists() else []
-    index = {i: line for i, line in enumerate(lines)}
+    
+    # Identify keys to exclude/disable for this profile
+    keys_to_exclude = []
+    if profile_name != "hermes-ceo":
+        keys_to_exclude = ["DISCORD_BOT_TOKEN", "DISCORD_TOKEN", "WEBHOOK_PORT"]
+        if profile_name != "lucas":
+            keys_to_exclude.extend(["TELEGRAM_BOT_TOKEN", "TELEGRAM_TOKEN"])
+
+    # Comment out or remove excluded keys from existing lines
+    new_lines = []
     keys_present = set()
     for line in lines:
         s = line.strip()
-        if not s or s.startswith("#") or "=" not in s:
+        if not s:
+            new_lines.append(line)
             continue
-        keys_present.add(s.split("=", 1)[0].strip())
+        if s.startswith("#"):
+            # Avoid duplicating disabled comments
+            if "Disabled to avoid gateway conflicts" in s:
+                continue
+            new_lines.append(line)
+            continue
+        if "=" in s:
+            k, v = s.split("=", 1)
+            k = k.strip()
+            if k in keys_to_exclude:
+                new_lines.append(f"# {line} # Disabled to avoid gateway conflicts")
+            elif k == "WEBHOOK_ENABLED" and profile_name != "hermes-ceo":
+                new_lines.append('WEBHOOK_ENABLED="false"')
+                keys_present.add(k)
+            else:
+                new_lines.append(line)
+                keys_present.add(k)
+        else:
+            new_lines.append(line)
 
     updated = []
-    new_lines = list(lines)
     for key in SHARED_KEYS:
+        if key in keys_to_exclude:
+            continue
         val = secrets.get(key, "")
+        if key == "WEBHOOK_ENABLED" and profile_name != "hermes-ceo":
+            val = "false"
         if not val:
             continue
         entry = f'{key}="{val}"' if re.search(r'[\s#"]', val) else f"{key}={val}"
@@ -166,7 +206,13 @@ def update_env_file(path: Path, secrets: dict[str, str]) -> list[str]:
             updated.append(key)
             keys_present.add(key)
 
-    if updated:
+    # Also explicitly add WEBHOOK_ENABLED="false" for worker profiles if not already present
+    if profile_name != "hermes-ceo":
+        if "WEBHOOK_ENABLED" not in keys_present:
+            new_lines.append('WEBHOOK_ENABLED="false"')
+            updated.append("WEBHOOK_ENABLED")
+
+    if updated or len(new_lines) != len(lines):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text("\n".join(new_lines).rstrip() + "\n", encoding="utf-8")
         path.chmod(0o600)
@@ -210,7 +256,7 @@ if not targets:
 
 for pdir in targets:
     env_path = pdir / ".env"
-    changed = update_env_file(env_path, secrets)
+    changed = update_env_file(env_path, secrets, pdir.name)
     print(f"{pdir.name}: updated {len(changed)} keys in .env")
     if copy_auth:
         src_auth = home / "auth.json"

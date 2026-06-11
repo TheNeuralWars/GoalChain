@@ -81,6 +81,14 @@ export const PROVIDERS: ProviderDef[] = [
     modelPrefix: 'ollama:',
     contextWindow: 128_000,
   },
+  {
+    id: 'nvidia',
+    displayName: 'NVIDIA',
+    modelPrefix: 'nvidia/',
+    apiKeyEnvVar: 'NVIDIA_API_KEY',
+    fastModel: 'nvidia/nemotron-3-nano-30b-a3b',
+    contextWindow: 1_000_000,
+  },
 ];
 
 const defaultProvider = PROVIDERS.find((p) => p.id === 'openai')!;

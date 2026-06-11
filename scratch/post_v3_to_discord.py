@@ -28,28 +28,28 @@ if not WEBHOOK_URL or not WEBHOOK_URL.startswith("https://"):
 image_path = "/Users/NicoPez/GoalChain/docs/assets/img/nfts/bg/bg_rare_1.png"
 file_name = os.path.basename(image_path)
 
-print(f"🏟️ Preparando publicación en Discord...")
+print(f"🏟️ Preparing Discord publication (LEGACY V3 script — for new publications see discord_retention_poster.py + schedulers. MAX LAW: 100% ENGLISH ONLY for all current X/Discord posts.)")
 
-# Definición del Embed de Discord con diseño Cyberpunk/Web3
+# Definition of Discord Embed with Cyberpunk/Web3 design (translated to ENGLISH per max law)
 embed = {
-    "title": "🔥 GOALCHAIN V3: ACTUALIZACIÓN MAESTRA DE INFRAESTRUCTURA 🔥",
+    "title": "🔥 GOALCHAIN V3: MASTER INFRASTRUCTURE UPDATE 🔥",
     "description": (
-        "¡Saludos, vestuario! ⚽⛓️\n\n"
-        "Hemos completado la mayor actualización del motor técnico y visual de **GoalChain** hasta la fecha, alineando la jugabilidad en cadena con una experiencia estética triple A.\n\n"
-        "Aquí tienes los detalles clave de la **Versión 3** que ya están en vivo:\n\n"
-        "🤖 **1. GALERÍA 3D EN VIDEO HÍBRIDO (PNG + MP4)**\n"
-        "¡Los cromos cobran vida! Hemos integrado soporte nativo para bucles de video `.mp4` en el fondo. Ahora las auroras boreales se mueven y los reflectores destellan en 3D bajo un efecto Parallax fluido detrás del jugador.\n\n"
-        "💎 **2. INTERFAZ ULTRA-SLEEK GLASSMORPHIC**\n"
-        "Rediseñamos la caja de datos un **55% más compacta**. Disfruta de un diseño translúcido premium con badges integrados para las estadísticas (ATK/DEF/HYP) y una barra de energía láser de STAMINA que reacciona dinámicamente.\n\n"
-        "⚡ **3. RESURRECCIÓN ESTACIONAL POR ORÁCULO (Anchor Rust)**\n"
-        "¡Tus activos son inmortales! Programamos la instrucción `oracle_reset_season` en Rust. El Oráculo de la liga ahora puede revivir a los jugadores eliminados del torneo mundialista, restaurando su estamina y recalibrando sus tasas de yield para las nuevas competiciones.\n\n"
-        "💸 **4. ECONOMÍA DE EQUILIBRIO INFLACIONARIO**\n"
-        "El balance perfecto de tokenomics:\n"
-        "🔹 **50% de Mints** directo a Liquidez Bloqueada (Raydium LP Burn).\n"
-        "🔹 **50% al Smart Treasury** en Jito Staking para recompras y quemas automáticas.\n\n"
-        "📢 *La pre-producción de los estadios bajo el 'Protocolo a Ras de Suelo' en Grok ya está activa. ¡Prepárate para abrir tus sobres!*"
+        "Greetings, locker room! ⚽⛓️\n\n"
+        "We have completed the largest technical and visual engine update for **GoalChain** to date, aligning on-chain gameplay with a triple-A aesthetic experience.\n\n"
+        "Here are the key details of **Version 3** now live:\n\n"
+        "🤖 **1. 3D HYBRID VIDEO GALLERY (PNG + MP4)**\n"
+        "Cards come to life! We integrated native support for `.mp4` video loops in the background. Auroras now move and spotlights flash in 3D under smooth Parallax behind the player.\n\n"
+        "💎 **2. ULTRA-SLEEK GLASSMORPHIC INTERFACE**\n"
+        "We redesigned the data box **55% more compact**. Enjoy a premium translucent design with integrated badges for stats (ATK/DEF/HYPE) and a laser STAMINA energy bar that reacts dynamically.\n\n"
+        "⚡ **3. SEASONAL ORACLE RESURRECTION (Anchor Rust)**\n"
+        "Your assets are immortal! We programmed the `oracle_reset_season` instruction in Rust. The league Oracle can now revive players eliminated from the world tournament, restoring their stamina and recalibrating yield rates for new competitions.\n\n"
+        "💸 **4. INFLATIONARY EQUILIBRIUM ECONOMY**\n"
+        "The perfect tokenomics balance:\n"
+        "🔹 **50% of Mints** direct to Locked Liquidity (Raydium LP Burn).\n"
+        "🔹 **50% to Smart Treasury** in Jito Staking for automatic buybacks and burns.\n\n"
+        "📢 *Pre-production of stadiums under the 'Ground-Up Protocol' in Grok is already active. Get ready to open your packs!*"
     ),
-    "color": 10044671, # Púrpura Solana (#9945ff)
+    "color": 10044671, # Solana Purple (#9945ff)
     "thumbnail": {
         "url": "https://theneuralwars.github.io/GoalChain/assets/img/mock/logo.jpg"
     },

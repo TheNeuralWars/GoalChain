@@ -132,6 +132,20 @@ const MODEL_FACTORIES: Record<string, ModelFactory> = {
       ...opts,
       ...(process.env.OLLAMA_BASE_URL ? { baseUrl: process.env.OLLAMA_BASE_URL } : {}),
     }),
+  nvidia: (name, opts) => {
+    let modelId = name;
+    if (modelId === 'nvidia/nemotron-3-ultra:free') {
+      modelId = 'mistralai/mistral-nemotron';
+    }
+    return new ChatOpenAI({
+      model: modelId,
+      ...opts,
+      apiKey: getApiKey('NVIDIA_API_KEY'),
+      configuration: {
+        baseURL: 'https://integrate.api.nvidia.com/v1',
+      },
+    });
+  },
 };
 
 const DEFAULT_FACTORY: ModelFactory = (name, opts) =>

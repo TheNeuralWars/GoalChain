@@ -2,7 +2,7 @@ import requests
 from requests_oauthlib import OAuth1
 import os
 
-# Credenciales OAuth 1.0a (V1) para subir la imagen y postear en X
+# OAuth 1.0a (V1) credentials for media upload + posting to X (LEGACY script; MAX LAW: new campaign publications always 100% English per user directive)
 CONSUMER_KEY = "YLTNgANFNTzMkj4AqIUaH8IDI"
 CONSUMER_SECRET = "HYDJ1Q4iU1HVgkerKVcjGxoGsZksrUMXg3iHOfmyJMGzHHfoML"
 ACCESS_TOKEN = "2054634242458386432-QMqQ9pL54o0tZRbjeYnHXHLroOsSd5"
@@ -17,7 +17,7 @@ def upload_media(file_path):
     if req.status_code == 200:
         return req.json()["media_id_string"]
     else:
-        print(f"Error subiendo imagen: {req.text}")
+        print(f"Error uploading image: {req.text}")
         return None
 
 def post_tweet(text, media_id=None, reply_to=None):
@@ -85,8 +85,8 @@ if t1_id:
     # Tuit 4: Oracle Live feeds & Slashing
     t4_text = (
         "3/ 🟥 LIVE SPORTS ORACLE & THE DEATH PLEDGE 💀\n\n"
-        "Nuestros cNFTs (Bubblegum) vibran en caliente. Al detectar goles o tarjetas en la vida real, el Oráculo ejecuta escrituras atómicas en Solana.\n\n"
-        "⚠️ ¡ALERTA! Si la selección de tu jugador queda eliminada del Mundial, se activa el 'Death Pledge': su rendimiento diario cae a 0% de por vida. ¡Puro trading especulativo!"
+        "Our cNFTs (Bubblegum) are hot. Upon detecting real-life goals or cards, the Oracle executes atomic writes on Solana.\n\n"
+        "⚠️ ALERT! If your player's national team is eliminated from the World Cup, the 'Death Pledge' activates: their daily yield drops to 0% for life. Pure speculative trading!"
     )
     t4_id = post_tweet(t4_text, reply_to=t3_id)
     print(f"   Tuit 4 publicado: {t4_id}")
@@ -94,8 +94,8 @@ if t1_id:
     # Tuit 5: The MEV circular economy flywheel
     t5_text = (
         "4/ 🔄 MEV SWAP-AND-BURN VALUE FLYWHEEL ♾️\n\n"
-        "¿Miedo a la inflación? Toda fricción de packs y regalías se deposita en JitoSOL. Las ganancias e intereses acumulados por propinas MEV se reclaman en pools de Raydium/Orca para recomprar y quemar $GCH perpetuamente.\n\n"
-        "¡A más juego, más yield, más compras automáticas del token! 📉❌"
+        "Fear inflation? All pack friction and royalties are deposited into JitoSOL. MEV tip profits and interest accrued are claimed in Raydium/Orca pools to perpetually buy back and burn $GCH.\n\n"
+        "More play = more yield = more automatic token buybacks! 📉❌"
     )
     t5_id = post_tweet(t5_text, reply_to=t4_id)
     if t5_id:
@@ -107,13 +107,13 @@ if t1_id:
     # Tuit 6: CTA Link
     t6_text = (
         "5/ 📖 READ THE MASTERPIECE NOW! 🗺️✨\n\n"
-        "La guía cuenta con soporte de traducción al instante en un clic, animaciones interactivas de Solana y simulaciones financieras en tiempo real.\n\n"
-        "👉 Lee la guía oficial completa aquí: https://goalchain.fun/mega-guide.html\n\n"
-        "¡Alinea tu plantel y conquista el ledger! ⚽🏆"
+        "The guide has instant one-click translation support, interactive Solana animations, and real-time financial simulations.\n\n"
+        "👉 Read the full official guide here: https://goalchain.fun/mega-guide.html\n\n"
+        "Align your squad and conquer the ledger! ⚽🏆"
     )
     t6_id = post_tweet(t6_text, reply_to=t5_id)
-    print(f"   Tuit 6 publicado: {t6_id}")
+    print(f"   Tweet 6 posted: {t6_id}")
     
-    print("\n🏆 HILO DE PRESENTACIÓN DE LA MEGA GUÍA COMPLETADO CON ÉXITO EN X.")
+    print("\n🏆 MEGA GUIDE LAUNCH THREAD COMPLETED SUCCESSFULLY ON X.")
 else:
-    print("❌ Falló la publicación del primer Tuit. Abortando hilo.")
+    print("❌ First tweet failed. Aborting thread.")

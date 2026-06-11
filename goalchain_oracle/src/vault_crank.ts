@@ -81,13 +81,40 @@ async function main() {
 
       const rpcUrl = process.env.RPC_URL || "https://api.devnet.solana.com";
       const keypairPath = process.env.ORACLE_KEYPAIR_PATH || "~/.config/solana/id.json";
-      const gchMintStr = process.env.GCH_MINT || "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg"; // program ID or GCH token
+      const programId = process.env.PROGRAM_ID || "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg";
 
       notes.push(`Connecting to Solana RPC: ${rpcUrl}`);
       
       try {
         const { Connection, Keypair, PublicKey, SystemProgram, Transaction, sendAndConfirmTransaction } = await import("@solana/web3.js");
         const connection = new Connection(rpcUrl, "confirmed");
+
+        let gchMintStr = process.env.GCH_MINT;
+        if (!gchMintStr) {
+          try {
+            const [configPda] = PublicKey.findProgramAddressSync(
+              [Buffer.from("config")],
+              new PublicKey(programId)
+            );
+            const accountInfo = await connection.getAccountInfo(configPda);
+            if (accountInfo && accountInfo.data.length >= 104) {
+              const treasuryPubkey = new PublicKey(accountInfo.data.slice(72, 104));
+              const treasuryTokenInfo = await connection.getParsedAccountInfo(treasuryPubkey);
+              const parsed = (treasuryTokenInfo.value as any)?.data?.parsed;
+              const tokenMintString = parsed?.info?.mint as string | undefined;
+              if (tokenMintString) {
+                gchMintStr = tokenMintString;
+                notes.push(`Dynamically resolved GCH Mint from on-chain config: ${gchMintStr}`);
+              }
+            }
+          } catch (resolveErr: any) {
+            notes.push(`Could not dynamically resolve GCH Mint from config PDA: ${resolveErr.message}`);
+          }
+        }
+        if (!gchMintStr) {
+          gchMintStr = "So11111111111111111111111111111111111111112"; // Fallback to WSOL
+          notes.push(`No GCH Mint found in env or config. Falling back to WSOL: ${gchMintStr}`);
+        }
         
         // Resolve keypair path
         let resolvedPath = keypairPath;
@@ -161,7 +188,18 @@ async function main() {
 
         // On-chain harvest / burn transaction fallback (works on Devnet & Localnet)
         notes.push("Executing on-chain transaction...");
-        const transaction = new Transaction().add(
+        const transaction = new Transaction();
+        
+        try {
+          const { getPriorityFeeInstructions } = await import("./priorityFees.js");
+          const priorityFeeIxs = await getPriorityFeeInstructions(connection, [payer.publicKey.toBase58()], 50000);
+          transaction.add(...priorityFeeIxs);
+          notes.push(`Added Compute Budget & Helius Priority Fees to transfer transaction.`);
+        } catch (feeErr: any) {
+          notes.push(`Could not fetch dynamic priority fee instructions (falling back): ${feeErr.message}`);
+        }
+
+        transaction.add(
           SystemProgram.transfer({
             fromPubkey: payer.publicKey,
             toPubkey: new PublicKey("11111111111111111111111111111111"), // System burn

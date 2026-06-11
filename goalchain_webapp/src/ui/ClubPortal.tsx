@@ -30,16 +30,16 @@ export function ClubPortal() {
 
   useEffect(() => {
     checkAccount();
-    // Escuchar cambios de cuenta (por ejemplo si se crea una en la pestaña)
+    // Listen for account changes (e.g. if one is created in the tab)
     window.addEventListener('storage', checkAccount);
     return () => window.removeEventListener('storage', checkAccount);
   }, []);
 
   const tabs = [
-    { id: 'squad', label: '👕 Mi Plantilla (NFTs)', desc: 'Colección de jugadores y estamina' },
-    { id: 'market', label: '🛒 Mercado Fichajes', desc: 'Compra cartas en SOL o en Cash' },
-    { id: 'coach', label: '🤖 Asistente IA (Eliza)', desc: 'Asesoría táctica e inteligencia' },
-    { id: 'profile', label: '👤 Perfil de Manager', desc: 'Tu reputación e identidad' },
+    { id: 'squad', label: '👕 My Squad (NFTs)', desc: 'Collection of players and stamina' },
+    { id: 'market', label: '🛒 Transfer Market', desc: 'Buy cards in SOL or Cash' },
+    { id: 'coach', label: '🤖 AI Assistant (Eliza)', desc: 'Tactical advice and intelligence' },
+    { id: 'profile', label: '👤 Manager Profile', desc: 'Your reputation and identity' },
   ] as const;
 
   return (
@@ -49,10 +49,10 @@ export function ClubPortal() {
         <SimulationBadge />
         <h1>Mi Club &amp; Manager</h1>
         <p className="portal-honesty-note">
-          Plantilla demo — NFTs on-chain y rent se activan post-Mundial.
+          Demo squad — on-chain NFTs and yield activate post-World Cup.
         </p>
         <p className="portal-subtitle">
-          Gestiona tu plantilla de jugadores digitales, mejora sus estadísticas y monitorea tu reputación de manager.
+          Manage your digital player squad, improve their stats, and monitor your manager reputation.
         </p>
 
         {/* Glassmorphic Tabs Navigation */}

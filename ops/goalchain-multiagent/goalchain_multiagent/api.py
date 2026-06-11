@@ -18,6 +18,19 @@ app = FastAPI(
 )
 
 
+@app.on_event("startup")
+def startup_event() -> None:
+    from goalchain_multiagent.slack_listener import start_slack_listener
+    start_slack_listener()
+
+
+@app.on_event("shutdown")
+def shutdown_event() -> None:
+    from goalchain_multiagent.slack_listener import stop_slack_listener
+    stop_slack_listener()
+
+
+
 class RunRequest(BaseModel):
     objective: str = Field(..., min_length=1, max_length=8000)
     source: str = "api"

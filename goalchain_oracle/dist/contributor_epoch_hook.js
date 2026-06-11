@@ -98,21 +98,43 @@ async function main() {
     const epochBuf = Buffer.alloc(8);
     epochBuf.writeBigUInt64LE(BigInt(epochId));
     const [builderEpochPda] = PublicKey.findProgramAddressSync([Buffer.from("builder_epoch"), builderFundPda.toBuffer(), epochBuf], oracle.program.programId);
-    const txStart = await oracle.program.methods
-        .startContributorEpoch(epochBn, new BN(contributorPool.toString()))
-        .accounts({
-        admin: oracle.wallet.publicKey,
-        config: oracle.configPda,
-        builderFund: builderFundPda,
-        builderEpoch: builderEpochPda,
-        contributorVault,
-        systemProgram: SystemProgram.programId,
-    })
-        .rpc();
-    console.log(`[hook] epoch ${epochId} started, tx=${txStart}`);
+    let epochState = null;
+    try {
+        epochState = await oracle.program.account.builderEpoch.fetch(builderEpochPda);
+    }
+    catch (e) {
+        // Expected to fail if epoch does not exist yet
+    }
+    if (epochState) {
+        if (epochState.finalized) {
+            console.log(`[hook] Epoch ${epochId} is already finalized on-chain. Skipping execution.`);
+            return;
+        }
+        console.log(`[hook] Epoch ${epochId} has already been started but not finalized. Resuming snapshots & finalization...`);
+    }
+    else {
+        const txStart = await oracle.program.methods
+            .startContributorEpoch(epochBn, new BN(contributorPool.toString()))
+            .accounts({
+            admin: oracle.wallet.publicKey,
+            config: oracle.configPda,
+            builderFund: builderFundPda,
+            builderEpoch: builderEpochPda,
+            contributorVault,
+            systemProgram: SystemProgram.programId,
+        })
+            .rpc();
+        console.log(`[hook] epoch ${epochId} started, tx=${txStart}`);
+    }
     for (const item of normalized) {
         const [contributorScorePda] = PublicKey.findProgramAddressSync([Buffer.from("contributor_score"), builderFundPda.toBuffer(), item.wallet.toBuffer()], oracle.program.programId);
         const [epochContributorSnapshotPda] = PublicKey.findProgramAddressSync([Buffer.from("epoch_contributor"), builderEpochPda.toBuffer(), item.wallet.toBuffer()], oracle.program.programId);
+        // Check if snapshot is already registered
+        const snapshotAccountInfo = await oracle.connection.getAccountInfo(epochContributorSnapshotPda);
+        if (snapshotAccountInfo !== null) {
+            console.log(`[hook] epoch snapshot for ${item.email} already registered. Skipping.`);
+            continue;
+        }
         const tx = await oracle.program.methods
             .registerContributorEpochSnapshot()
             .accounts({

@@ -1,9 +1,13 @@
 from __future__ import annotations
 
 import re
+import logging
 from goalchain_multiagent.config import get_settings
 from goalchain_multiagent.state import GraphState
 from goalchain_multiagent.twenty_api import create_twenty_lead
+
+logger = logging.getLogger(__name__)
+
 
 
 def growth_node(state: GraphState) -> GraphState:
@@ -52,6 +56,36 @@ def growth_node(state: GraphState) -> GraphState:
                     pass
 
 
+    # Create automated marketing issues for FCC to pick up
+    marketing_issue_info = None
+    if any(k in objective.lower() for k in ["marketing", "campaña", "grow", "leads", "twenty"]):
+        title = f"Campaña de Marketing: Captura y Narrativa '{objective[:40]}...'"
+        body = (
+            f"### 📢 Plan de Campaña de Marketing GoalChain\n\n"
+            f"**Objetivo Solicitado**: {objective}\n\n"
+            f"**Estrategia Propuesta**:\n"
+            f"- Extraer tendencias narrativas y shifts de Solana Web3 de forma automatizada.\n"
+            f"- Generar borradores de hilos de Twitter/X y campañas de email frío (outreach) en Twenty CRM.\n"
+            f"- Mapear los KPIs de retención del simulador del Estadio en vivo.\n\n"
+            f"**Acciones de Ejecución Automática (FCC / OpenCode)**:\n"
+            f"- [ ] Crear script scraper `scripts/marketing_trend_scraper.py` para analizar competidores.\n"
+            f"- [ ] Generar plantilla de email de campaña `templates/marketing_campaign_outreach.html`.\n\n"
+            f"**Estado del Issue**: Listo para procesamiento autónomo."
+        )
+        repo = settings.github_repo or "TheNeuralWars/GoalChain"
+        try:
+            from goalchain_multiagent.github_api import create_github_issue
+            marketing_issue_info = create_github_issue(
+                title=title,
+                body=body,
+                repo=repo,
+                labels=["status:ready", "agent:opencode", "marketing"],
+            )
+            if marketing_issue_info:
+                crm_msg += f" | Creado Issue de Marketing autónomo en GitHub: {marketing_issue_info['url']} (FCC lo tomará en 5 mins)."
+        except Exception as ge:
+            logger.warning("Could not auto-create GitHub marketing issue: %s", ge)
+
     artifacts = list(state.get("artifacts") or [])
     artifacts.append(
         {
@@ -68,6 +102,7 @@ def growth_node(state: GraphState) -> GraphState:
                 "crm_saved": crm_saved,
                 "lead_id": lead_info["id"] if lead_info else None,
                 "lead_url": lead_info["url"] if lead_info else None,
+                "marketing_issue_url": marketing_issue_info["url"] if marketing_issue_info else None,
             },
         }
     )
