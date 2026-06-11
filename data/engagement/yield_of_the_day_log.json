@@ -1,0 +1,22 @@
+[
+  {
+    "protocol": "GoalChain",
+    "vault": "GCH Economy Vault (Football Oracle Yield)",
+    "apy": 10.0,
+    "tvl_usd": 5900,
+    "tvl_sol": 32.7,
+    "risk": "MED",
+    "chain": "Solana (devnet)",
+    "type": "Oracle-driven football yield + vault crank",
+    "score": 8.5,
+    "buyback_sol": 19.62,
+    "estimated_gch_burned": 353160,
+    "burn_emit_ratio": 0.116,
+    "stale": true,
+    "last_crank": "2026-05-22T19:47:56.165Z",
+    "health_status": "warning",
+    "haiku": "Yield wakes at dawn\nCompounds while the world still sleeps\nPatience builds the wealth",
+    "timestamp": "2026-06-11T12:04:22.689870+00:00",
+    "cached": true
+  }
+]
