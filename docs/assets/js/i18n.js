@@ -285,7 +285,7 @@ const TRANSLATIONS = {
     zealy_q1: '<b>Social Quests:</b> Follow, Like, Repost en 𝕏',
     zealy_q2: '<b>Discord Quests:</b> Consigue roles exclusivos de Degen',
     zealy_q3: '<b>Game Quests:</b> Comparte tus rachas de Penaltis',
-    zealy_season: 'TEMPORADA 1'
+    zealy_season: 'TEMPORADA 1',
   },
   en: {
     alpha_back: 'BACK',
@@ -571,7 +571,7 @@ const TRANSLATIONS = {
     zealy_q1: '<b>Social Quests:</b> Follow, Like, Repost on 𝕏',
     zealy_q2: '<b>Discord Quests:</b> Earn exclusive Degen roles',
     zealy_q3: '<b>Game Quests:</b> Share your Penalty streaks',
-    zealy_season: 'SEASON 1'
+    zealy_season: 'SEASON 1',
   }
 };
 
