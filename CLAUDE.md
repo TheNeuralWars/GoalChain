@@ -59,6 +59,14 @@ cd goalchain_program && anchor test  # or issue-specified command
 - P1 → sonnet (default features)
 - P2 → haiku (small fixes, copy, CSS)
 
+## Autonomous Fleet Environment (VPS)
+
+When running on the live Oracle VPS:
+- There are **24 Greek autonomous workers** (`alpha` to `omega`) running on port numbers `3456` to `3479`.
+- Each worker executes inside its own isolated home profile directory: `/home/ubuntu/.hermes/profiles/<letter>/` (e.g., `alpha` at `/home/ubuntu/.hermes/profiles/alpha/`).
+- Stale database copies and backups are pruned; the single source of truth for task queuing is `/home/ubuntu/.hermes/kanban.db` and state coordinates are in `state.db`.
+- Heavy MCP servers (`canva`, `github`, `filesystem`) are disabled to prevent CPU/memory exhaustion. Do not attempt to run or configure them.
+
 ## GoalChain Core Context
 
 GoalChain is a Solana-based web3 football manager monorepo.
@@ -87,3 +95,10 @@ GoalChain is a Solana-based web3 football manager monorepo.
 
 - **No todowrite Tool**: The `todowrite` tool has schema issues with Nemotron-3. Avoid using it; track all task lists in plain text in the proposal file instead.
 - **Modular Writes Only**: Do not overwrite or write files larger than 50 lines in a single turn using the `write` tool. Output token limits will truncate the JSON payload and crash the execution. Break changes down into smaller files.
+
+## ECC Performance & Optimization Guidelines
+
+- **Token Conservation**: Run with `ECC_HOOK_PROFILE=minimal` to disable heavy workspace scanning, saving context tokens and reducing latency.
+- **Context Boundaries**: Never request unnecessary files. Keep requests tight and rely on target edits.
+- **Memory Maintenance**: Let the background routine run db vacuuming and logs cleanup (`ECC_SESSION_RETENTION_DAYS=7`).
+

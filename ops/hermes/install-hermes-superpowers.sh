@@ -18,7 +18,7 @@ log() { printf '[superpowers] %s\n' "$*"; }
 
 copy_scripts() {
   mkdir -p "${SCRIPTS}" "${HERMES_AGENT_SCRIPTS}" "${HERMES_HOME}/oa/state" "${HERMES_HOME}/logs"
-  for f in mcp-goalchain-ops.py goalchain-alpha-watch.sh goalchain-morning-conclusions.sh setup-swap-extra.sh install-hermes-superpowers.sh install-fcc-skills.sh; do
+  for f in mcp-goalchain-ops.py goalchain-alpha-watch.sh goalchain-morning-conclusions.sh setup-swap-extra.sh install-hermes-superpowers.sh install-fcc-skills.sh install-ecc-optimizations.sh; do
     src="${SCRIPT_DIR}/${f}"
     [[ -f "${src}" ]] || continue
     for dst in "${SCRIPTS}/${f}" "${HERMES_AGENT_SCRIPTS}/${f}"; do
@@ -261,6 +261,14 @@ main() {
   patch_config_yaml
   setup_swap_extra
   setup_cron_and_webhooks
+  
+  log "running ECC optimizations..."
+  if [[ -x "${SCRIPTS}/install-ecc-optimizations.sh" ]]; then
+    bash "${SCRIPTS}/install-ecc-optimizations.sh"
+  elif [[ -x "${SCRIPT_DIR}/install-ecc-optimizations.sh" ]]; then
+    bash "${SCRIPT_DIR}/install-ecc-optimizations.sh"
+  fi
+
   restart_gateway
   cat <<EOF
 

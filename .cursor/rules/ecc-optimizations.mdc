@@ -1,0 +1,29 @@
+---
+description: ECC (Agent Harness Performance Optimization System) guidelines for token, memory, and performance efficiency.
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+# ECC Optimizations (GoalChain)
+
+Maintain maximum execution speed and token efficiency across all agent sessions.
+
+## 1. Token Optimization & Context Control
+
+- **Slim Contexts:** Keep file reads targeted. Avoid reading entire files unless absolutely necessary.
+- **Hook Profile:** Set `ECC_HOOK_PROFILE=minimal` to prevent heavy pre/post hooks from bloating your session context.
+- **Limit Start Context:** Use `ECC_SESSION_START_CONTEXT=off` to avoid dumping large history files on startup.
+- **Disable Heavy MCPs:** Ensure heavy unused MCP servers (`canva`, `github`, `filesystem`) are disabled to avoid background CPU/Memory drag.
+
+## 2. Memory Persistence & Pruning
+
+- **Pruning:** Maintain SQLite databases and old session logs by settting `ECC_SESSION_RETENTION_DAYS=7`.
+- **Memory Trimming:** Regularly run `ops/hermes/trim-hermes-memory.sh` to keep `MEMORY.md` under limits.
+- **Agent Data Boundary:** Keep Cursor and Claude Code session data isolated by setting `ECC_AGENT_DATA_HOME="$HOME/.cursor/ecc"`.
+
+## 3. High-Throughput Verification Loops
+
+- **Local Compilation:** Always rebuild SDK (`cd goalchain-sdk && npm run build`) before compiling dependent packages.
+- **Targeted Testing:** Run localized tests (`npm test` in the touched package directory) instead of full monorepo runs.
+- **Grader Checks:** Review changes for lint warnings and type safety before submitting.
