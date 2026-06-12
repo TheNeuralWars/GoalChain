@@ -56,4 +56,4 @@ Create components in goalchain_webapp/src/components/layout/:
 
 ## Risk / rollback
 - Risk: scope drift or unstable dependencies.
-- Rollback: revert branch `exp/opencode-issue-363` and close draft PR.
+- Rollback: revert main commit linked to issue #363
