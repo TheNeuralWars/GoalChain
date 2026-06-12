@@ -55,8 +55,8 @@ fi
 REPO="${WORKTREE_DIR}"
 PROPOSALS_DIR="${REPO}/docs/proposals/opencode"
 OA_MODEL="${OA_MODEL:-xai/grok-4.3}"
-OA_CODE_ENGINE="${OA_CODE_ENGINE:-fcc}"
-OA_CODE_MODEL="${OA_CODE_MODEL:-opencode/nemotron-3-ultra-free}"
+OA_CODE_ENGINE="${OA_CODE_ENGINE:-hermes}"
+OA_CODE_MODEL="${OA_CODE_MODEL:-nvidia/nemotron-3-ultra}"
 OA_CODE_CMD="${OA_CODE_CMD:-}"
 RUN_CODE="${HERMES_HOME}/scripts/oa-run-code.sh"
 RESEARCH_PUBLISHER="${HERMES_HOME}/scripts/oa-discord-research-publisher.py"
@@ -329,15 +329,11 @@ process_opencode_issue() {
 ${body}
 EOF
 
-  # Run FCC
-  local fcc_tier
-  fcc_tier="$(bash "${HERMES_HOME}/scripts/fcc-resolve-tier.sh" --priority "${priority}" --labels "${labels}" --text "${title} ${body}")"
-
   local prompt_file="${STATE_DIR}/prompt-${WORKER_ID}-${number}.txt"
   local run_log="/tmp/oa-${owner}-${WORKER_ID}-${number}.log"
 
   cat > "${prompt_file}" <<EOF
-You are the GoalChain code agent (Free Claude Code / FCC). Implement issue #${number}: ${title}.
+You are the GoalChain code agent. Implement issue #${number}: ${title}.
 
 Before editing, read (in order):
 - CLAUDE.md (skills: frontend-design for webapp; gstack review/investigate/plan-eng — no /ship or browser /qa)
@@ -360,8 +356,8 @@ EOF
 
   local run_status="0"
   if [[ -x "${RUN_CODE}" ]]; then
-    log "FCC tier=${fcc_tier} (priority=${priority}) for issue #${number} on worker ${WORKER_ID}"
-    bash "${RUN_CODE}" --workdir "${REPO}" --prompt-file "${prompt_file}" --tier "${fcc_tier}" --log "${run_log}" --profile "${WORKER_ID}" >> "${run_log}" 2>&1 || run_status=$?
+    log "Running Hermes coding agent for issue #${number} on worker ${WORKER_ID}"
+    bash "${RUN_CODE}" --workdir "${REPO}" --prompt-file "${prompt_file}" --log "${run_log}" >> "${run_log}" 2>&1 || run_status=$?
   else
     log "WARN oa-run-code.sh missing; skipping implementation for #${number}"
     run_status=99
@@ -372,7 +368,7 @@ EOF
   if [[ ${run_status} -ne 0 ]]; then
     has_error="1"
   elif [[ -f "${run_log}" ]]; then
-    if grep -q -E "model_not_supported|Error:|FCC run failed" "${run_log}"; then
+    if grep -q -E "model_not_supported|Error:|run failed" "${run_log}"; then
       has_error="1"
     fi
   fi
