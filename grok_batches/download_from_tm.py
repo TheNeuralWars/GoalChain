@@ -244,11 +244,12 @@ def scrape_profile_for_images(tm_url: str, tmid: str) -> dict:
 
 def resolve_tm_url_via_search(real_name: str, country: str | None = None) -> str | None:
     """Use TM quick search. Stricter: only accept clean /.../profil/spieler/NNNN urls."""
-    # Try a few query variants for difficult names
+    # Try query variants
     queries = [real_name]
     if "Jr" in real_name or "Jr." in real_name:
         queries.append(real_name.replace(" Jr.", "").replace(" Jr", "").strip())
-    queries.append(real_name.split()[0])  # first name fallback sometimes helps
+
+    real_words = set(re.findall(r'\w+', real_name.lower()))
 
     for q in queries:
         search_url = f"https://www.transfermarkt.it/schnellsuche/ergebnis/schnellsuche?query={requests.utils.quote(q)}"
@@ -261,20 +262,30 @@ def resolve_tm_url_via_search(real_name: str, country: str | None = None) -> str
             for a in soup.find_all("a", href=True):
                 href = a["href"]
                 if "/profil/spieler/" in href:
-                    # Must end with clean numeric id
                     m = re.search(r"/spieler/(\d+)(?:/|$)", href)
                     if m:
                         full = urljoin("https://www.transfermarkt.it", href)
                         link_text = (a.get_text() or "").strip().lower()
-                        score = 0
-                        if real_name.lower() in link_text or real_name.lower().split()[0] in link_text:
-                            score += 10
-                        if "/profil/spieler/" in full:
-                            score += 5
+                        link_words = set(re.findall(r'\w+', link_text))
+                        
+                        # Calculate intersection of words
+                        overlap = real_words.intersection(link_words)
+                        if not overlap:
+                            continue
+                            
+                        score = len(overlap) * 20
+                        # Exact match bonus
+                        if real_name.lower() in link_text:
+                            score += 50
+                        # Length penalty to avoid matching longer unrelated names
+                        score -= abs(len(real_words) - len(link_words)) * 2
+                        
                         candidates.append((score, full))
             if candidates:
-                candidates.sort(reverse=True)
-                return candidates[0][1]
+                candidates.sort(key=lambda x: x[0], reverse=True)
+                # Ensure the best candidate has a decent score (at least one matching word)
+                if candidates[0][0] > 10:
+                    return candidates[0][1]
         except Exception as e:
             print(f"  search resolve failed for {q}: {e}")
     return None

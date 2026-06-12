@@ -4,11 +4,11 @@
 set -euo pipefail
 
 HERMES_HOME="${HERMES_HOME:-$HOME/hermes}"
-OA_HOME="${HERMES_HOME}/oa"
-RUN_FLAG="${OA_HOME}/RUNNING"
-QUEUE_FILE="${OA_HOME}/inbox/messages.jsonl"
-STATE_DIR="${OA_HOME}/state"
-LOG_DIR="${OA_HOME}/logs"
+OA_HOME="${OA_HOME:-${HERMES_HOME}/oa}"
+RUN_FLAG="${RUN_FLAG:-${OA_HOME}/RUNNING}"
+QUEUE_FILE="${QUEUE_FILE:-${OA_HOME}/inbox/messages.jsonl}"
+STATE_DIR="${STATE_DIR:-${OA_HOME}/state}"
+LOG_DIR="${LOG_DIR:-${OA_HOME}/logs}"
 
 mkdir -p "${OA_HOME}/inbox" "${STATE_DIR}" "${LOG_DIR}"
 touch "${QUEUE_FILE}"
@@ -491,4 +491,6 @@ main_loop() {
   log "OA worker stopped (run flag removed)"
 }
 
-main_loop
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  main_loop
+fi

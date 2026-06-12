@@ -12,7 +12,7 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 SSH_HOST="${GOALCHAIN_SSH:-ubuntu@89.168.20.135}"
 HERMES_HOME="${HERMES_HOME:-$HOME/.hermes}"
 REMOTE_HERMES="${REMOTE_HERMES:-/home/ubuntu/.hermes}"
-REMOTE_GOALCHAIN="${REMOTE_GOALCHAIN:-/home/ubuntu/GoalChain}"
+REMOTE_GOALCHAIN="${REMOTE_GOALCHAIN:-/data/apps/GoalChain}"
 REMOTE_OPS="${REMOTE_GOALCHAIN}/ops/hermes"
 
 PUSH_ENV=true
@@ -183,7 +183,7 @@ def merge(push_path, target_path):
             seen.add(k)
     out.append('')
     out.append('# --- GoalChain server paths (do not mirror to Mac) ---')
-    out.append('GOALCHAIN_REPO_PATH=\"/home/ubuntu/GoalChain\"')
+    out.append('GOALCHAIN_REPO_PATH=\"/data/apps/GoalChain\"')
     out.append('GOALCHAIN_HERMES_HOME=\"/home/ubuntu/.hermes\"')
     target_path.write_text(chr(10).join(out).rstrip() + chr(10))
     push_path.unlink(missing_ok=True)

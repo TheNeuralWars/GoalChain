@@ -1,6 +1,6 @@
 # Hermes — OAuth Remote Runbook (Mac → VPS tunnel)
 
-**VPS:** `goalchain@178.105.148.109`  
+**VPS:** `ubuntu@89.168.20.135` (Oracle)  
 **Issue:** [#95](https://github.com/TheNeuralWars/GoalChain/issues/95)  
 **Applies to:** xAI Grok OAuth flow when Hermes runs headless on the VPS.
 
@@ -35,7 +35,7 @@ bash ops/hermes/push-hermes-mirror-to-server.sh
 ### Step 3 — Verify on VPS
 
 ```bash
-ssh goalchain@178.105.148.109 "hermes chat --provider xai-oauth -q 'ping'"
+ssh ubuntu@89.168.20.135 "hermes chat --provider xai-oauth -q 'ping'"
 # Expected: Grok responds without browser prompt
 ```
 
@@ -58,7 +58,7 @@ hermes chat --provider xai-oauth -q "refresh test"
 bash ops/hermes/push-hermes-mirror-to-server.sh --env-only
 
 # 3. Restart Hermes gateway on VPS (if needed):
-ssh goalchain@178.105.148.109 "sudo systemctl restart hermes-gateway"
+ssh ubuntu@89.168.20.135 "systemctl --user restart hermes-gateway-hermes-ceo"
 ```
 
 **Automated refresh** (optional — via `hermes-credential-maintain.sh`):
@@ -78,7 +78,7 @@ If you need to trigger OAuth from the VPS directly (e.g., during a remote sessio
 
 ```bash
 # On your Mac — open SSH tunnel forwarding VPS port 9222 locally:
-ssh -L 9222:localhost:9222 goalchain@178.105.148.109
+ssh -L 9222:localhost:9222 ubuntu@89.168.20.135
 
 # On VPS (in the tunnel session) — start Hermes with DISPLAY forwarding:
 BROWSER=none hermes chat --provider xai-oauth -q "hello"
@@ -103,7 +103,7 @@ BROWSER=none hermes chat --provider xai-oauth -q "hello"
 | Symptom | Fix |
 |---------|-----|
 | `browser not found` on VPS | Use tunnel approach above or push from Mac |
-| Token push fails (SSH error) | Check `~/.ssh/config` has `Host goalchain` → `178.105.148.109` |
+| Token push fails (SSH error) | Check connection env or `~/.ssh/config` is configured for `ubuntu@89.168.20.135` |
 | Grok 401 after push | Wait 30s for gateway to pick up new `auth.json`, or `systemctl restart hermes-gateway` |
 | OA worker still uses OpenCode after push | Check `OA_MODEL` in `~/hermes/config.env` — must be `xai/grok-4.3` |
 

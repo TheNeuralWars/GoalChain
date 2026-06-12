@@ -1,5 +1,7 @@
 # GoalChain Development Guide
 
+**Cursor agents:** read `ai_context/CURSOR_SESSION_CONTEXT.md` first (live VPS + GBrain sync). Production server is Oracle `ubuntu@89.168.20.135`; repo on VPS at `/data/apps/GoalChain`.
+
 ## Cursor Cloud specific instructions
 
 ### Architecture
@@ -51,6 +53,13 @@ No external databases needed — all persistent state is on-chain (Solana).
 - The webapp TypeScript check (`tsc --noEmit`) has a known error with `ConnectionProvider` JSX types. This is a React 18 / `@solana/wallet-adapter-react` types mismatch. It does **not** block the Vite dev server.
 - The API gracefully handles missing on-chain accounts (returns `onchainConfig: null`) so it runs fine without a local validator.
 - Always rebuild the SDK (`cd goalchain-sdk && npm run build`) after changing SDK source files; the API and webapp consume its `dist/` output.
+
+### Autonomous VPS Worker Fleet
+
+- The production Oracle VPS runs **24 Greek autonomous workers** (`alpha` to `omega`) bound to ports `3456-3479`.
+- Each worker executes tasks inside its own isolated home profile directory under `/home/ubuntu/.hermes/profiles/<letter>/` to prevent directory or log conflicts.
+- Stale database backups and corrupt clones are automatically cleaned; the central task manager uses `/home/ubuntu/.hermes/kanban.db` and coordinates via `state.db`.
+- Heavy MCP servers (`canva`, `github`, `filesystem`) are disabled globally to ensure maximum speed and minimal resource usage.
 
 ## GOLDEN RULES FOR MARKETING / PUBLICATIONS (added 2026-06-02, user directives - permanent)
 1. **English MAX LAW (ley maxima):** ALL publications/posts/copy/facts/CTAs/spotlights/engagement on X, Discord, Zealy, ads, ANY platform = 100% ENGLISH ONLY. No Spanish words/phrases in generated public content. Generators, scripts, posters, quests, schedulers, docs that feed them must produce EN. Historical in internal logs only.

@@ -19,7 +19,7 @@ SCRIPTS_DIR="$REPO_ROOT/ops/hermes"
 PUSH_SCRIPT="$SCRIPTS_DIR/push-grok-mirror-to-server.sh"
 PULL_SCRIPT="$SCRIPTS_DIR/install-grok-mirror-mac.sh"
 
-SSH_HOST="${GOALCHAIN_SSH:-goalchain@178.105.148.109}"
+SSH_HOST="${GOALCHAIN_SSH:-ubuntu@89.168.20.135}"
 
 # Colors
 RED='\033[0;31m'
@@ -65,7 +65,7 @@ You can also call the wrapper directly:
   grok-sync server --auth-only
 
 Environment variables:
-  GOALCHAIN_SSH     Override the SSH target (default: goalchain@178.105.148.109)
+  GOALCHAIN_SSH     Override the SSH target (default: ubuntu@89.168.20.135)
   GOALCHAIN_REPO    Path to the GoalChain repo (default: ~/GoalChain)
 EOF
 }

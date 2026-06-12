@@ -7,7 +7,7 @@
 #
 # Usage:
 #   bash ops/hermes/install-grok-mirror-mac.sh
-#   GOALCHAIN_SSH=goalchain@178.105.148.109 bash ops/hermes/install-grok-mirror-mac.sh
+#   GOALCHAIN_SSH=ubuntu@89.168.20.135 bash ops/hermes/install-grok-mirror-mac.sh
 #
 # What it syncs (safe subset):
 #   - auth.json (OIDC / xAI OAuth)
@@ -22,9 +22,9 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-SSH_HOST="${GOALCHAIN_SSH:-goalchain@178.105.148.109}"
+SSH_HOST="${GOALCHAIN_SSH:-ubuntu@89.168.20.135}"
 GROK_HOME="${GROK_HOME:-$HOME/.grok}"
-REMOTE_GROK="${REMOTE_GROK:-/home/goalchain/.grok}"
+REMOTE_GROK="${REMOTE_GROK:-/home/ubuntu/.grok}"
 
 SYNC_AUTH=true
 SYNC_CONFIG=true

@@ -94,6 +94,16 @@ def goalchain_onchain_program_info() -> str:
 # === IMAGE & VIDEO GENERATION ORCHESTRATION TOOLS ===
 
 def _load_players() -> list:
+    # First check safe persistent copy outside git workspace
+    safe_path = Path("/home/ubuntu/hermes/players.json")
+    if safe_path.exists():
+        try:
+            with open(safe_path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+
+    # Fallback to repo paths
     repo = Path(REPO)
     for p in ["docs/assets/data/players.json", "ai_context/03_data/players.json"]:
         path = repo / p
@@ -104,6 +114,7 @@ def _load_players() -> list:
             except Exception:
                 pass
     return []
+
 
 
 def _load_generation_state() -> dict:
@@ -176,8 +187,62 @@ def get_next_visual_batch(style: str = "anime-stadium", count: int = 5) -> str:
         
         # Physical description from JSON
         physical_data = player.get("physical", {})
-        physical_desc = physical_data.get("t", "Athletic build, short dark hair, clean shaven, fair skin tone.")
-        
+        raw_physical_desc = physical_data.get("t", "Athletic build, short dark hair, clean shaven, fair skin tone.")
+
+        import re as _re
+
+        # ─────────────────────────────────────────────────────────────────────────
+        # PROMPT SANITIZER — keeps Grok on-style for the full 528-player collection
+        # ─────────────────────────────────────────────────────────────────────────
+        physical_desc = raw_physical_desc
+
+        # FILTER 1: Strip all parenthetical content.
+        # Parentheses contain nicknames ('El Fideo'), heights (1.94m), style notes
+        # "(often with creative graphics)", anime refs "(Naruto/Dragon Ball)", and
+        # mask notes "(often wears a protective black face mask)".
+        # Grok may render these literally — strip them all.
+        physical_desc = _re.sub(r"\([^)]*\)", "", physical_desc)
+
+        # FILTER 2: Age-related adjectives — Grok exaggerates these into child renders.
+        _age_words = [
+            r"\byouthful\b", r"\byoung\b", r"\bjuvenile\b", r"\bboyish\b",
+            r"\bbaby[- ]?faced\b", r"\bteen\b", r"\badolescent\b", r"\bkid[- ]?like\b",
+            r"\bchild[- ]?like\b", r"\byouthful[-\s]?appearance\b", r"\byoung[-\s]?face\b",
+            r"\bimmature\b",
+        ]
+        for _pat in _age_words:
+            physical_desc = _re.sub(_pat, "", physical_desc, flags=_re.IGNORECASE)
+
+        # FILTER 3: Normalize extreme body-size intensifiers.
+        # "Towering" or "exceptionally tall" makes Grok render cartoon giants.
+        # Replace with proportional equivalents that read normally in anime style.
+        _body_normalizations = [
+            (r"\bcolossal(?:ly)?\b",                "tall"),
+            (r"\btowering\b",                        "tall"),
+            (r"\bexceptionally\s+tall\b",            "tall"),
+            (r"\bexceptionally\s+(?:strong|powerful)\b", "powerful"),
+            (r"\bexceptionally\s+fast\b",            "fast"),
+            (r"\bexceptionally\s+agile\b",           "agile"),
+            (r"\bexceptionally\s+wide\b",            "broad-shouldered"),
+            (r"\bexceptionally\s+tenacious\b",       "tenacious"),
+            (r"\bmassive\b",                         "strong"),
+            (r"\bimposing\b",                        "commanding"),
+            (r"\bvery\s+small\b",                    "compact"),
+            (r"\bvery\s+agile\b",                    "agile"),
+            (r"\bvery\s+fast\b",                     "fast"),
+            (r"\bvery\s+athletic\b",                 "athletic"),
+        ]
+        for _pat, _repl in _body_normalizations:
+            physical_desc = _re.sub(_pat, _repl, physical_desc, flags=_re.IGNORECASE)
+
+        # FILTER 4: Fix dangling conjunctions left after word removal
+        # e.g. ", but focused look" → ", focused look"
+        physical_desc = _re.sub(r",\s*(but|yet)\s+", ", ", physical_desc, flags=_re.IGNORECASE)
+
+        # FILTER 5: Final cleanup — double spaces, trailing punctuation
+        physical_desc = _re.sub(r"  +", " ", physical_desc).strip(", .")
+        # ─────────────────────────────────────────────────────────────────────────
+
         # Read populated jersey number from players.json
         player_number = player.get("jersey_number")
         if not player_number:
@@ -186,15 +251,21 @@ def get_next_visual_batch(style: str = "anime-stadium", count: int = 5) -> str:
         
         # Inject details for solid white background, no logos, and exact physical features
         prompt = (
-            f"Full-body 3D digital render of a young athletic male soccer player, stylized modern anime game character style, highly detailed. "
-            f"Likeness inspired by {real_name}. Physical appearance and details: {physical_desc} "
-            f"He is looking directly at the camera with a confident, smirk expression. "
+            f"Full-body 3D digital render of an adult male professional soccer player aged 21-35, "
+            f"NOT a child, NOT a teenager, NOT a young boy — a grown adult man with a mature face and fully-developed adult physique. "
+            f"Normal realistic athletic proportions: standard human height and build, no exaggerated size differences between players. "
+            f"Mature athletic anime style, highly detailed, elegant proportions, beautiful anime key visual aesthetic. "
+            f"Likeness features inspired by {real_name}: {physical_desc} "
+            f"Style: high-end 2.5D/3D anime game art, smooth detailed shading, volumetric lighting, deep soft shadows, high contrast, well-defined shadows and highlights, not photorealistic, no real-life photography, no realistic skin texture. "
+            f"He is looking directly at the camera with a confident, smirk expression. No face masks, no accessories covering the face. "
             f"He is wearing a modern custom football kit: a jersey with a {jersey_colors} gradient pattern, black sleeves, "
             f"and absolutely NO logos, NO badges, and NO text on the chest (completely plain blank chest). "
             f"Matching soccer shorts with the number \"{player_number}\" on the leg, matching high socks with stripes, and shiny metallic {cleat_color} soccer cleats. "
             f"Pose: standing confidently with one foot resting on top of a soccer ball. "
             f"Background: Solid, completely clean, flat, uniform white background. No shadows, no floor textures, no gradients, no stadium, no distractions. Perfect for easy background removal."
         )
+
+
 
         
         batch_prompts.append({

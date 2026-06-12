@@ -31,10 +31,6 @@ install_frontend_design() {
     return 0
   fi
   log "frontend-design: installing to ${dest}"
-  if command -v npx >/dev/null 2>&1 && [[ "${DRY_RUN}" != "1" ]]; then
-    (cd "${REPO_ROOT}" && npx --yes skills add https://github.com/anthropics/skills --skill frontend-design) \
-      && log "frontend-design: installed via npx skills (repo .agents/skills)" || true
-  fi
   if [[ -f "${repo_skill}/SKILL.md" ]]; then
     run mkdir -p "${dest}" "${PROJECT_SKILLS_DIR}/frontend-design"
     run cp -R "${repo_skill}/"* "${dest}/"

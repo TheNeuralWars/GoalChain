@@ -1,6 +1,6 @@
 # OpenClaw — GoalChain General Agent (Hermes role)
 
-**Runtime:** OpenClaw gateway on Hermes server (`178.105.148.109`)  
+**Runtime:** Legacy OpenClaw doc — production Hermes is on Oracle (`ubuntu@89.168.20.135`). See `ai_context/CURSOR_SESSION_CONTEXT.md`.  
 **Model:** `xai/grok-4.3` (Grok via OAuth)  
 **Workspace:** `~/.openclaw/workspace`  
 **Repo clone (ops):** `~/hermes/workspace/GoalChain`
@@ -48,7 +48,7 @@ Shell automation stays in `~/hermes/scripts/` and feeds context via `openclaw-co
 ## Panel access (Mac)
 
 ```bash
-ssh -N -L 18790:127.0.0.1:18789 goalchain@178.105.148.109
+ssh -N -L 18790:127.0.0.1:18789 ubuntu@89.168.20.135
 # http://127.0.0.1:18790/#token=<gateway token>
 ```
 

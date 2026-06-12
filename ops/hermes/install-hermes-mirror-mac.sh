@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Mirror Hermes Agent config from VPS → Mac CLI (same API keys / model as server).
-# Usage: GOALCHAIN_SSH=goalchain@178.105.148.109 bash ops/hermes/install-hermes-mirror-mac.sh
+# Usage: GOALCHAIN_SSH=ubuntu@89.168.20.135 bash ops/hermes/install-hermes-mirror-mac.sh
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"

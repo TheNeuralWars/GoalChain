@@ -2,7 +2,7 @@
 # Push Mac Grok CLI config → VPS (inverse of install-grok-mirror-mac.sh).
 #
 # Use this when you have updated auth, config, or skills on your Mac and want
-# the Grok CLI running on the GoalChain VPS (178.105.148.109) to stay in sync.
+# the Grok CLI running on the GoalChain VPS (89.168.20.135) to stay in sync.
 #
 # This is the Grok equivalent of push-hermes-mirror-to-server.sh.
 #
@@ -25,9 +25,9 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-SSH_HOST="${GOALCHAIN_SSH:-goalchain@178.105.148.109}"
+SSH_HOST="${GOALCHAIN_SSH:-ubuntu@89.168.20.135}"
 GROK_HOME="${GROK_HOME:-$HOME/.grok}"
-REMOTE_GROK="${REMOTE_GROK:-/home/goalchain/.grok}"
+REMOTE_GROK="${REMOTE_GROK:-/home/ubuntu/.grok}"
 REMOTE_OPS="${REMOTE_GROK}/../hermes/workspace/GoalChain/ops/hermes"  # not used directly
 
 PUSH_AUTH=true

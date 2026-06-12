@@ -108,7 +108,7 @@ Transactional football prediction game on Solana devnet.
 Canonical repo: ${REPO}
 Play: https://play.goalchain.fun
 API ops: https://crm.goalchain.fun/goalchain-api
-Hermes server: 178.105.148.109
+Hermes server: ubuntu@89.168.20.135 (Oracle)
 EOF
 }
 

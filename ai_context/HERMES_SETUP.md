@@ -14,12 +14,12 @@ nano ~/hermes/config.env   # opcional: GITHUB_TOKEN, API_BASE_URL, Slack
 
 ## Hermes CLI en Mac (espejo del VPS)
 
-Misma config y API keys que el server (`~/.hermes` en `178.105.148.109`):
+Misma config y API keys que el server (`~/.hermes` en Oracle `ubuntu@89.168.20.135`):
 
 ```bash
 bash ops/hermes/install-hermes-mirror-mac.sh
 # Re-sync cuando cambien keys en el VPS:
-GOALCHAIN_SSH=goalchain@178.105.148.109 bash ops/hermes/install-hermes-mirror-mac.sh
+GOALCHAIN_SSH=ubuntu@89.168.20.135 bash ops/hermes/install-hermes-mirror-mac.sh
 ```
 
 Uso local (mismos comandos que upstream):
@@ -122,7 +122,7 @@ Flujo dev (Discord/WhatsApp): Manager crea issue `agent:opencode` → OA worker 
 
 - Config: `~/hermes/fcc.secrets.env` → `bash ~/hermes/scripts/configure-fcc-env.sh` → `~/.fcc/.env`
 - Guía (español): **`ops/hermes/FCC_PROVIDERS.md`** — proveedores 1–14 = API keys; **15–17 = solo local** (URL, no key); catálogo LM Studio → slugs `open_router/` / `nvidia_nim/`
-- En el VPS Hermes: **`FCC_CLOUD_ONLY=1`** en secrets (no descargar modelos de 50GB); Admin UI vía `ssh -L 8082:127.0.0.1:8082 goalchain@178.105.148.109`
+- En el VPS Hermes: **`FCC_CLOUD_ONLY=1`** en secrets (no descargar modelos de 50GB); Admin UI vía `ssh -L 8082:127.0.0.1:8082 ubuntu@89.168.20.135`
 - **Routing automático:** Hermes solo elige P0/P1/P2; `fcc-resolve-tier.sh` + `fcc-claude --model opus|sonnet|haiku` — ver `ops/hermes/DISCORD_WORKDAY_SETUP.md`
 - **FCC estable:** `fcc-server` en `:8082` (`bash ~/hermes/scripts/ensure-fcc-server.sh`). Si falla auth: `bash ~/hermes/scripts/sync-fcc-keys-from-hermes.sh` (copia keys válidas de Hermes a FCC **sin** quitarlas de perfiles agente). Smoke: `fcc-claude --model sonnet -p "echo ok"` en el clone.
 - **Skills FCC:** `CLAUDE.md` (repo root) + `~/.claude/skills/{frontend-design,gstack}` — instalar:

@@ -15,7 +15,7 @@
 
 | Agent | Runtime | Best for | Default owner of |
 |-------|---------|----------|------------------|
-| **Hermes** (Manager) | Server 24/7 (`178.105.148.109`) | Intake, prioritization, reminders, briefs, Discord/WhatsApp | `docs/intake/`, issue drafts |
+| **Hermes** (Manager) | Server 24/7 (`ubuntu@89.168.20.135`, Oracle) | Intake, prioritization, reminders, briefs, Discord/WhatsApp | `docs/intake/`, issue drafts |
 | **FCC** (code agent) | Server `oa-worker` + `fcc-claude` | Autonomous implementation, draft PRs | `exp/opencode-issue-*`, `agent:opencode` |
 | **Antigravity** (Google) | IDE / Plugin SDK | Implementation, commits, PR approvals, merges, Solana/API/webapp, verification | Merge + integration (Master Agent) |
 | **Cursor** | IDE | Spikes, read-only draft implementations (Credits spent: draft assistance) | `exp/cursor-*` branches |
@@ -111,11 +111,15 @@ Optional later: bot that mirrors `docs/intake/` ↔ Slack threads (Hermes server
 
 ---
 
-## Hermes 24/7 server (Manager + FCC + scripts)
+## Hermes 24/7 server (Manager + Greek FCC Fleet + scripts)
 
 **Conversational layer:** Hermes Agent `~/.hermes/` (`SOUL.md`, gateway). Deploy: `ops/hermes/deploy-hermes-workspace.sh`.
 
-**Code layer:** `oa-worker.service` picks GitHub issues `agent:opencode` + `status:ready`, runs `ops/hermes/oa-run-code.sh` (FCC preferred). FCC reads **`CLAUDE.md`** and skills in `~/.claude/skills/` (`install-fcc-skills.sh`).
+**Code & Worker layer:** The system runs **24 Greek autonomous workers** (`alpha` to `omega`, systemd units `oa-worker-autonomous-<letter>.service`) running on ports `3456-3479` (corresponding systemd units `fcc-server-<letter>.service`). Each worker:
+- Operates under its own isolated profile directory: `/home/ubuntu/.hermes/profiles/<letter>/` (e.g., `alpha` on port `3456` in `/home/ubuntu/.hermes/profiles/alpha/`).
+- Reads tasks from the central SQLite `kanban.db` and coordinates via `state.db`.
+- Spawns `fcc-claude` to process GitHub issues labeled `agent:opencode` + `status:ready` using `ops/hermes/oa-run-code.sh`.
+- Loads `CLAUDE.md` and skills in `~/.claude/skills/` (`install-fcc-skills.sh`).
 
 **Automation layer:** `~/hermes/scripts/` — `sync.sh`, `hermes-context.sh`, `create-task.sh`, `setup-hermes-runtime.sh`, `install-fcc-skills.sh`.
 
