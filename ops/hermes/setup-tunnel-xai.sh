@@ -99,7 +99,7 @@ status_tunnel() {
 }
 
 verify_xai() {
-  bash "${HERMES_HOME}/scripts/install-opencode-xai.sh" >/dev/null
+  # bash "${HERMES_HOME}/scripts/install-opencode-xai.sh" >/dev/null # Obsolete
   echo "providers:"
   opencode providers list 2>&1 | head -25
   echo

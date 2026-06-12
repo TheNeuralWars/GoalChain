@@ -7,7 +7,7 @@ CONFIG="${HERMES_HOME}/config.env"
 SESSION="oa-xai-auth"
 MODE="${1:-headless}"
 
-bash "${HERMES_HOME}/scripts/install-opencode-xai.sh"
+# bash "${HERMES_HOME}/scripts/install-opencode-xai.sh" # Obsolete
 
 # shellcheck disable=SC1090
 [[ -f "${CONFIG}" ]] && source "${CONFIG}" || true
@@ -46,7 +46,7 @@ case "${MODE}" in
   browser|oauth-browser)
     echo "SuperGrok subscription (browser OAuth — needs local port forward)"
     echo "On your laptop run:"
-    echo "  ssh -L 56121:127.0.0.1:56121 goalchain@178.105.148.109"
+    echo "  ssh -L 56121:127.0.0.1:56121 ubuntu@89.168.20.135"
     echo "Then attach tmux and complete browser login."
     start_login_session "xAI Grok OAuth (SuperGrok Subscription)"
     ;;
