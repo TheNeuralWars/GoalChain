@@ -304,12 +304,14 @@ run_opencode() {
 }
 
 run_hermes() {
-  local profile="${PROFILE:-default}"
-  log_line "code_engine=hermes profile=${profile}"
+  local profile="default"
+  log_line "code_engine=hermes profile=${profile} (waiting for concurrency lock...)"
   (
+    flock -x 9
+    log_line "code_engine=hermes profile=${profile} (lock acquired, running task)"
     cd "${WORKDIR}"
     /home/ubuntu/.hermes/hermes-agent/venv/bin/python -m hermes_cli.main --profile "${profile}" --oneshot "$(cat "${PROMPT_FILE}")" --yolo --accept-hooks
-  )
+  ) 9>/home/ubuntu/hermes/oa/worker.lock
 }
 
 case "${OA_CODE_ENGINE}" in
