@@ -56,4 +56,4 @@ Create goalchain_webapp/src/features/estadio-portal/:
 
 ## Risk / rollback
 - Risk: scope drift or unstable dependencies.
-- Rollback: revert branch `exp/opencode-issue-370` and close draft PR.
+- Rollback: revert main commit linked to issue #370
