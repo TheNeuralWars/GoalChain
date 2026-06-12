@@ -361,7 +361,7 @@ EOF
   local run_status="0"
   if [[ -x "${RUN_CODE}" ]]; then
     log "FCC tier=${fcc_tier} (priority=${priority}) for issue #${number} on worker ${WORKER_ID}"
-    bash "${RUN_CODE}" --workdir "${REPO}" --prompt-file "${prompt_file}" --tier "${fcc_tier}" --log "${run_log}" >> "${run_log}" 2>&1 || run_status=$?
+    bash "${RUN_CODE}" --workdir "${REPO}" --prompt-file "${prompt_file}" --tier "${fcc_tier}" --log "${run_log}" --profile "${WORKER_ID}" >> "${run_log}" 2>&1 || run_status=$?
   else
     log "WARN oa-run-code.sh missing; skipping implementation for #${number}"
     run_status=99
