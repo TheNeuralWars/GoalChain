@@ -1,6 +1,6 @@
 # Hermes — Setup (GoalChain)
 
-Bootstrap local o en server 24/7. **Manager conversacional:** Hermes Agent (Grok) en el VPS. **Agente de código:** Free Claude Code (FCC) vía `oa-worker`. **Fuente de verdad de tareas:** `docs/intake/` + issues GitHub `agent:opencode`.
+Bootstrap local o en server 24/7. **Manager conversacional:** Hermes Agent (Grok) en el VPS. **Agente de código:** **Hermes CEO** (Nemotron-3-Ultra-free) vía `oa-run-code.sh` (semáforo 4 slots). **Fuente de verdad de tareas:** `docs/intake/` + issues GitHub `agent:opencode`.
 
 ## Quick start (Mac / Linux)
 
@@ -80,6 +80,8 @@ Qué hace el push:
 | `API_BASE_URL` / `HEALTH_URL` | KPI health post-merge #34 |
 | `BLOCKED_BRIEFS` | Briefs en cola hasta tu OK |
 | `SLACK_*` | Vacío hasta Fase 2 |
+| `OA_CODE_ENGINE` | `hermes` (motor unificado Hermes CEO) |
+| `OA_CODE_MODEL` | `nemotron-3-ultra-free` (único modelo para P0/P1/P2) |
 
 ## Cron sugerido (servidor)
 
@@ -103,8 +105,8 @@ bash ~/hermes/scripts/hermes-context.sh
 
 | Rol | Runtime | Variable |
 |-----|---------|----------|
-| **Manager** (Hermes) | `hermes-gateway.service` + Grok | `OA_MODEL=xai/grok-4.3` |
-| **Código** (FCC) | `oa-worker` + `fcc-claude` | `OA_CODE_ENGINE=fcc` |
+| **Manager** (Hermes) | `hermes-hermes-ceo.service` + Grok | `OA_MODEL=xai/grok-4.3` |
+| **Código** (Hermes CEO) | `oa-run-code.sh` (semáforo 4 slots) | `OA_CODE_ENGINE=hermes` |
 | **Integración** | Antigravity (merge) | — |
 
 Workspace Manager: `~/.hermes/SOUL.md` (plantilla: `ops/hermes/workspace-templates/SOUL.md`).
@@ -113,25 +115,21 @@ Workspace Manager: `~/.hermes/SOUL.md` (plantilla: `ops/hermes/workspace-templat
 
 ```bash
 bash ops/hermes/configure-hermes-language.sh
-systemctl --user restart hermes-gateway
+systemctl --user restart hermes-hermes-ceo
 ```
 
-Flujo dev (Discord/WhatsApp): Manager crea issue `agent:opencode` → OA worker ejecuta FCC en `exp/opencode-issue-*` → draft PR → revisión Antigravity/Nico.
+Flujo dev (Discord/WhatsApp): Manager crea issue `agent:opencode` → `oa-run-code.sh` ejecuta Hermes CEO en `exp/opencode-issue-*` (máx 4 concurrentes) → draft PR → revisión Antigravity/Nico.
 
-### FCC — proveedores 1–18 (sin LM Studio en el VPS)
+### Hermes CEO — motor unificado (Nemotron-3-Ultra-free)
 
-- Config: `~/hermes/fcc.secrets.env` → `bash ~/hermes/scripts/configure-fcc-env.sh` → `~/.fcc/.env`
-- Guía (español): **`ops/hermes/FCC_PROVIDERS.md`** — proveedores 1–14 = API keys; **15–17 = solo local** (URL, no key); catálogo LM Studio → slugs `open_router/` / `nvidia_nim/`
-- En el VPS Hermes: **`FCC_CLOUD_ONLY=1`** en secrets (no descargar modelos de 50GB); Admin UI vía `ssh -L 8082:127.0.0.1:8082 ubuntu@89.168.20.135`
-- **Routing automático:** Hermes solo elige P0/P1/P2; `fcc-resolve-tier.sh` + `fcc-claude --model opus|sonnet|haiku` — ver `ops/hermes/DISCORD_WORKDAY_SETUP.md`
-- **FCC estable:** `fcc-server` en `:8082` (`bash ~/hermes/scripts/ensure-fcc-server.sh`). Si falla auth: `bash ~/hermes/scripts/sync-fcc-keys-from-hermes.sh` (copia keys válidas de Hermes a FCC **sin** quitarlas de perfiles agente). Smoke: `fcc-claude --model sonnet -p "echo ok"` en el clone.
-- **Skills FCC:** `CLAUDE.md` (repo root) + `~/.claude/skills/{frontend-design,gstack}` — instalar:
-
-```bash
-bash ops/hermes/install-fcc-skills.sh
-```
-
-Guía para Nico y handoffs: **`ai_context/AGENT_TOOLS_GUIDE.md`**.
+- **Config:** sin `fcc.secrets.env` ni `configure-fcc-env.sh` — usa keys directas de `~/hermes/config.env` (NVIDIA_NIM_API_KEY, OPENROUTER_API_KEY, etc.)
+- **Ejecución:** `bash ~/hermes/scripts/oa-run-code.sh --workdir <repo> --prompt-file <file> --log <log>` (sin `--tier`)
+- **Concurrencia:** semáforo 4 slots (`worker_1.lock`–`worker_4.lock`) — evita sobrecarga del VPS
+- **Skills:** `CLAUDE.md` (repo root) + `~/.claude/skills/{frontend-design,gstack}` — instalar:
+  ```bash
+  bash ops/hermes/install-hermes-superpowers.sh
+  ```
+- **Guía para Nico y handoffs:** **`ai_context/AGENT_TOOLS_GUIDE.md`**
 
 ## GBrain (memoria institucional)
 
@@ -139,7 +137,7 @@ Tres runtimes, **sin sync automática** entre sí. Fuente común: repo Git (`ai_
 
 | Host | Script | MCP / store |
 |------|--------|-------------|
-| **Hermes VPS** | `install-gbrain-hermes.sh` | `~/.hermes/config.yaml` → `mcp_servers.gbrain`; reinicia `hermes-gateway` |
+| **Hermes VPS** | `install-gbrain-hermes.sh` | `~/.hermes/config.yaml` → `mcp_servers.gbrain`; reinicia `hermes-hermes-ceo` |
 | **Cursor (Mac)** | `install-gbrain-cursor.sh` | `.cursor/mcp.json` → recargar ventana Cursor |
 | **Antigravity (Mac)** | `install-gbrain-antigravity.sh` | `~/.gemini/config/mcp_config.json` → **reiniciar Antigravity IDE** |
 
@@ -147,12 +145,12 @@ En la Mac de Nico, Cursor y Antigravity comparten el mismo `~/.gbrain` (una sola
 
 **Cursor MCP y `bun`:** el binario `gbrain` usa shebang `#!/usr/bin/env bun`. La app Cursor no hereda el PATH del shell → error `env: bun: No such file or directory`. El MCP debe invocar `bun` con ruta absoluta: `"command": "~/.bun/bin/bun", "args": ["~/.bun/bin/gbrain", "serve"]` (lo escribe `install-gbrain-cursor.sh`). Tras cambiar `.cursor/mcp.json`, **Reload Window**.
 
-**Mensaje para Manager (Hermes):** Cursor y Antigravity en Mac ya tienen GBrain instalado vía MCP; hasta que Nico reinicie Cursor/Antigravity, las sesiones activas pueden no “recordar” el tool — en el VPS vos sí usás `mcp_servers.gbrain` tras `install-gbrain-hermes.sh`.
+**Mensaje para Manager (Hermes):** Cursor y Antigravity en Mac ya tienen GBrain instalado vía MCP; hasta que Nico reinicie Cursor/Antigravity, las sesiones activas pueden no "recordar" el tool — en el VPS vos sí usás `mcp_servers.gbrain` tras `install-gbrain-hermes.sh`.
 
 ```bash
 # VPS
 bash ops/hermes/install-gbrain-hermes.sh
-systemctl --user restart hermes-gateway
+systemctl --user restart hermes-hermes-ceo
 
 # Mac (Nico)
 bash ops/hermes/install-gbrain-cursor.sh
@@ -290,8 +288,8 @@ Si Hermes dejó de responder en `#openclaw-chat` pero el bot parecía vivo antes
 # Gateway en crash loop (venv path roto tras sed HERMES_HOME):
 bash ops/hermes/fix-hermes-gateway-service.sh
 bash ops/hermes/configure-discord-openclaw-chat.sh
-systemctl --user restart hermes-gateway
-journalctl --user -u hermes-gateway -n 30 --no-pager
+systemctl --user restart hermes-hermes-ceo
+journalctl --user -u hermes-hermes-ceo -n 30 --no-pager
 ```
 
 **Causa típica:** `hermes-gateway.service` apuntando a `~/hermes/hermes-agent/venv` (no existe). Correcto: venv `~/.hermes/hermes-agent/venv`, **`HERMES_HOME` en systemd = `~/.hermes`** (carga `.env` y token Discord). Scripts GoalChain usan `~/hermes/config.env` por ruta fija, no confundir las dos carpetas.

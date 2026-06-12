@@ -1,10 +1,10 @@
 # GoalChain — Multi-Agent Orchestration
 
-**Purpose:** Coordinate Cursor, Grok, Google Antigravity, **Hermes Manager**, and **Free Claude Code (FCC)** on the 24/7 server without file conflicts, scope drift, or duplicate work.
+**Purpose:** Coordinate Cursor, Grok, Google Antigravity, **Hermes Manager**, and **Hermes CEO (Nemotron-3-Ultra-free)** on the 24/7 server without file conflicts, scope drift, or duplicate work.
 
 **Executive hub:** [`MASTER_PLAN.md`](MASTER_PLAN.md) · Vertex KPIs: [`docs/governance/VERTEX_REGISTRY.md`](../docs/governance/VERTEX_REGISTRY.md) · Orders: [`docs/governance/AGENT_DIRECTIVES.md`](../docs/governance/AGENT_DIRECTIVES.md)
 
-**Hermes runtime:** Hermes Agent gateway + Grok (`xai/grok-4.3`) for chat/triage; `oa-worker` + FCC for repo implementation (`agent:opencode`). See `ai_context/HERMES_SETUP.md`.
+**Hermes runtime:** Hermes Agent gateway + Grok (`xai/grok-4.3`) for chat/triage; `oa-run-code.sh` + Hermes CEO for repo implementation (`agent:opencode`). See `ai_context/HERMES_SETUP.md`.
 
 **Related rules (Cursor):** `.cursor/rules/collab-multi-agent.mdc`, `.cursor/rules/meta-principal.mdc`  
 **Engineering charter:** `ai_context/META_CHARTER.md` ([meta-llm-charter](https://github.com/entropyvortex/meta-llm-charter))
@@ -16,9 +16,9 @@
 | Agent | Runtime | Best for | Default owner of |
 |-------|---------|----------|------------------|
 | **Hermes** (Manager) | Server 24/7 (`ubuntu@89.168.20.135`, Oracle) | Intake, prioritization, reminders, briefs, Discord/WhatsApp | `docs/intake/`, issue drafts |
-| **FCC** (code agent) | Server `oa-worker` + `fcc-claude` | Autonomous implementation, draft PRs | `exp/opencode-issue-*`, `agent:opencode` |
+| **Hermes CEO** (code agent) | Server `oa-run-code.sh` (semáforo 4 slots) + Nemotron-3-Ultra-free | Autonomous implementation, draft PRs | `exp/opencode-issue-*`, `agent:opencode` |
 | **Antigravity** (Google) | IDE / Plugin SDK | Implementation, commits, PR approvals, merges, Solana/API/webapp, verification | Merge + integration (Master Agent) |
-| **Cursor** | IDE | Spikes, read-only draft implementations (Credits spent: draft assistance) | `exp/cursor-*` branches |
+| **Cursor** | IDE | Spikes, read-only draft implementations | `exp/cursor-*` branches |
 | **Grok** | xAI CLI / web | Research, review, marketing, alt drafts | `exp/grok-*` branches |
 
 **Integration owner (default):** Antigravity — only one agent merges to stacked PR chains unless you reassign per task.
@@ -32,8 +32,8 @@
 Nico steers with three templates in `#hermes` / WhatsApp (`manager:` prefix):
 
 | `prioridad` | Reorder work: Mundial MVP (`docs/intake/MUNDIAL-2026-MVP.md`) > webapp > backlog |
-| `dispatch <agente> <objetivo>` | Create issue + intake brief (`agent:opencode` or `agent:antigravity`) |
-| `estado` | Status packet: FCC queue, play/API health, next demo fixture |
+| `dispatch <agente> <objetivo>` | Create issue + intake brief (`agent:opencode` [Hermes CEO] or `agent:antigravity`) |
+| `estado` | Status packet: Hermes CEO queue, play/API health, next demo fixture |
 
 Scope freeze until 2026-06-11: `docs/intake/HERMES-MUNDIAL-SCOPE-FREEZE.md`.
 
@@ -64,11 +64,12 @@ Statuses: `draft` → `ready` → `assigned` → `in_progress` → `done` | `can
 - P2: docs / marketing / ops automation
 - Assign **one** implementer; others advisory only.
 
-### 3) Execution (Cursor / Antigravity / Grok)
+### 3) Execution (Cursor / Antigravity / Grok / Hermes CEO)
 
 - **Antigravity**: Primary production paths (`goalchain_program`, `goalchain_api`, `goalchain_webapp`, `goalchain_oracle`, Solana, glass UI, client AI) — Master Agent and integration lead.
-- **Cursor**: Assistive IDE tasks, draft implementations, and local spikes (due to spent credits).
+- **Cursor**: Assistive IDE tasks, draft implementations, and local spikes.
 - **Grok**: Review packets, marketing, non-merge drafts.
+- **Hermes CEO**: Autonomous code execution via `oa-run-code.sh` (semaphore 4 slots) on issues `agent:opencode` + `status:ready`.
 
 ### 4) Closure
 
@@ -86,7 +87,7 @@ Recommended pattern (does not require a specific vendor):
 2. **Hermes** posts new briefs and daily priority stack
 3. **No commit from chat alone** — every actionable item must link to `docs/intake/*.md` or a GitHub issue
 4. **Decision log:** scope changes get copied into the intake file or issue within the same day
-5. **@mentions:** `@cursor-task`, `@grok-review`, `@antigravity-spike` as labels in the brief, not as parallel editors on the same branch
+5. **@mentions:** `@cursor-task`, `@grok-review`, `@antigravity-spike`, `@hermes-ceo-task` as labels in the brief, not as parallel editors on the same branch
 
 Optional later: bot that mirrors `docs/intake/` ↔ Slack threads (Hermes server).
 
@@ -103,7 +104,7 @@ Optional later: bot that mirrors `docs/intake/` ↔ Slack threads (Hermes server
 | API loopback | `http://127.0.0.1:8790` (`POST /v1/run`, `GET /health`) |
 | Deploy VPS | `ops/goalchain-multiagent/install-vps.sh` → `goalchain-multiagent.service` |
 
-**Grafo Fase 0:** CEO → Dev | Growth | Ops → CEO → finish. Dev emite **draft de issue** para FCC; no escribe en el repo.
+**Grafo Fase 0:** CEO → Dev | Growth | Ops → CEO → finish. Dev emite **draft de issue** para Hermes CEO; no escribe en el repo.
 
 **Hermes:** front-desk (`prioridad` | `dispatch` | `estado`); opt-in `empresa: <objetivo>` → `bash ops/hermes/call-langgraph.sh` (ver `hermes/agents/hermes-ceo/prompt.md` §6, `SOUL.md`).
 
@@ -111,17 +112,18 @@ Optional later: bot that mirrors `docs/intake/` ↔ Slack threads (Hermes server
 
 ---
 
-## Hermes 24/7 server (Manager + Greek FCC Fleet + scripts)
+## Hermes 24/7 server (Manager + Hermes CEO + scripts)
 
 **Conversational layer:** Hermes Agent `~/.hermes/` (`SOUL.md`, gateway). Deploy: `ops/hermes/deploy-hermes-workspace.sh`.
 
-**Code & Worker layer:** The system runs **24 Greek autonomous workers** (`alpha` to `omega`, systemd units `oa-worker-autonomous-<letter>.service`) running on ports `3456-3479` (corresponding systemd units `fcc-server-<letter>.service`). Each worker:
-- Operates under its own isolated profile directory: `/home/ubuntu/.hermes/profiles/<letter>/` (e.g., `alpha` on port `3456` in `/home/ubuntu/.hermes/profiles/alpha/`).
-- Reads tasks from the central SQLite `kanban.db` and coordinates via `state.db`.
-- Spawns `fcc-claude` to process GitHub issues labeled `agent:opencode` + `status:ready` using `ops/hermes/oa-run-code.sh`.
-- Loads `CLAUDE.md` and skills in `~/.claude/skills/` (`install-fcc-skills.sh`).
+**Code & Worker layer:** The system runs **Hermes CEO code engine** via `oa-run-code.sh` with a **semaphore of 4 concurrent slots** (`worker_1.lock`–`worker_4.lock`). Workers acquire a lock via `flock -n`, execute the task using the `hermes-ceo` profile, and release the lock. This replaces the former 24 Greek autonomous worker fleet.
 
-**Automation layer:** `~/hermes/scripts/` — `sync.sh`, `hermes-context.sh`, `create-task.sh`, `setup-hermes-runtime.sh`, `install-fcc-skills.sh`.
+- All tasks execute under the unified `hermes-ceo` profile (no per-worker profiles).
+- Tasks sourced from GitHub issues labeled `agent:opencode` + `status:ready` + priority (`P0`/`P1`/`P2`).
+- Loads `CLAUDE.md` and skills in `~/.claude/skills/` (frontend-design, gstack).
+- Direct-to-main mode enabled via `cambio urgente` keyword.
+
+**Automation layer:** `~/hermes/scripts/` — `sync.sh`, `hermes-context.sh`, `create-task.sh`, `setup-hermes-runtime.sh`, `install-hermes-superpowers.sh`, `oa-run-code.sh`.
 
 **Tooling guide (all agents + Nico):** `ai_context/AGENT_TOOLS_GUIDE.md`.
 
@@ -147,7 +149,7 @@ Hermes OA now supports wait-mode automation:
 
 Recommended security:
 
-- Set `OA_WEBHOOK_TOKEN` and send it as `Authorization: Bearer <token>` or `X-OA-Token`.
+- Set `OA_WEBHOOK_TOKEN` and send it as `Authorization: Bearer *** or `X-OA-Token`.
 - Optionally restrict channels with `OA_WEBHOOK_ALLOWED_SOURCES` (comma-separated).
 
 Store server-side config (not committed):
@@ -166,6 +168,7 @@ Store server-side config (not committed):
 | `feat/*` `fix/*` | Antigravity | Main production features, verified & integrated directly or via PR |
 | `exp/cursor-*` | Cursor | Draft implementations & assistive spikes; reviewed before integrate |
 | `exp/grok-*` | Grok | Cherry-pick or new PR after review |
+| `exp/opencode-issue-*` | Hermes CEO | Draft PRs from autonomous implementation; reviewed by Antigravity |
 | `docs/intake-*` | Hermes | Direct to main only if markdown-only |
 
 ---
@@ -186,8 +189,8 @@ Store server-side config (not committed):
 You requested a global override keyword. The operational policy is:
 
 - If Nico includes `cambio urgente` in a task, treat it as **direct-to-main authorization**.
-- Applies to all agents (Cursor, Antigravity, OpenCode local, OpenCode server) at dispatch policy level.
-- For OpenCode server OA, this is enforced in code: the worker skips draft PR flow and pushes directly to `main`.
+- Applies to all agents (Cursor, Antigravity, Hermes CEO) at dispatch policy level.
+- For Hermes CEO `oa-run-code.sh`, this is enforced in code: the worker skips draft PR flow and pushes directly to `main`.
 - For other agents, Manager must include explicit issue/body note: `Policy: direct main push requested by Nico via keyword cambio urgente.`
 - Every direct-main execution must leave an audit trace in issue comments or session summary.
 
@@ -207,19 +210,19 @@ Merge **in this order** (each PR targets the previous head branch):
 
 Runbook: `docs/intake/2026-05-23-merge-stack-convergence.md`
 
-After `main` is current: **Antigravity** is the Master Agent and handles all tasks including webapp devnet, Solana program, oracle, and commits/merges. **Cursor** acts as read-only/draft assistant.
+After `main` is current: **Antigravity** is the Master Agent and handles all tasks including webapp devnet, Solana program, oracle, and commits/merges. **Cursor** acts as read-only/draft assistant. **Hermes CEO** executes autonomous tasks from the kanban queue.
 
 ---
 
-## Agent tooling (2026-05-25)
+## Agent tooling (2026-06-12)
 
 | Agent | Install / config | Execution orders |
 |-------|------------------|------------------|
-| **FCC** | `bash ops/hermes/install-fcc-skills.sh`; repo `CLAUDE.md` | Headless: follow skill *intent* in `CLAUDE.md` (frontend-design, gstack review/investigate); draft PR only |
+| **Hermes CEO** | `bash ops/hermes/install-hermes-superpowers.sh`; repo `CLAUDE.md` + `~/.claude/skills/` | Headless: follow skill *intent* in `CLAUDE.md` (frontend-design, gstack review/investigate/plan-eng); draft PR only. Priority mapping: P0→Nemotron, P1→Nemotron, P2→Nemotron. |
 | **Hermes** | `SOUL.md` + deploy workspace | Issue body must include skill hints for webapp/P0; see `AGENT_TOOLS_GUIDE.md` |
 | **Cursor** | GBrain MCP + optional superpowers plugin | Draft only; UI → frontend-design; reload IDE after MCP install |
 | **Antigravity** | GBrain MCP + gstack on Mac | Merge owner; `/review` before merge on risky PRs |
-| **Grok** | — | Review packets only; no FCC skills |
+| **Grok** | xAI CLI / web | Review packets only; no code execution skills |
 
 Full user guide: **`ai_context/AGENT_TOOLS_GUIDE.md`**.
 
@@ -227,7 +230,7 @@ Full user guide: **`ai_context/AGENT_TOOLS_GUIDE.md`**.
 
 ## Quick prompts
 
-**Hermes → FCC (opencode issue)**
+**Hermes → Hermes CEO (opencode issue)**
 
 ```text
 agent:opencode status:ready priority:P1
@@ -253,4 +256,3 @@ Review only. Files: <list>. Output: risks, test gaps, rollback. No file edits.
 ```text
 Assist with draft logic or search codebase for: <topic>. Deliver proposed diff or research summary. No commits/merges.
 ```
-
