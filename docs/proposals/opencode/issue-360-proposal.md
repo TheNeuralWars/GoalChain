@@ -56,4 +56,4 @@ Create test files in goalchain_api/tests/ and goalchain-sdk/tests/:
 
 ## Risk / rollback
 - Risk: scope drift or unstable dependencies.
-- Rollback: revert branch `exp/opencode-issue-360` and close draft PR.
+- Rollback: revert main commit linked to issue #360
