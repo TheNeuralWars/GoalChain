@@ -36,6 +36,16 @@ setup_env_flags() {
 
   # VPS settings: write to ~/hermes/config.env and ~/.hermes/.env if they exist
   local vps_envs=("$HOME/.hermes/.env" "$HOME/hermes/config.env")
+  
+  # Also propagate optimization vars to ALL Hermes profile environments
+  if [[ -d "$HOME/.hermes/profiles" ]]; then
+    for p_dir in "$HOME/.hermes/profiles"/*; do
+      if [[ -d "${p_dir}" && -f "${p_dir}/.env" ]]; then
+        vps_envs+=("${p_dir}/.env")
+      fi
+    done
+  fi
+
   for env_file in "${vps_envs[@]}"; do
     if [[ -f "${env_file}" ]]; then
       for var in "${vars[@]}"; do
@@ -59,6 +69,13 @@ setup_env_flags() {
 # 2. SQLite Database Vacuuming (Maintenance)
 vacuum_databases() {
   log "Pruning database overhead and vacuuming logs..."
+  
+  # Delete corrupted backup dbs to free disk space immediately
+  if [[ -d "$HOME/.hermes" ]]; then
+    log "Deleting corrupted kanban backup databases..."
+    rm -f "$HOME/.hermes"/kanban.db.corrupt.*.bak || true
+  fi
+
   local dbs=(
     "$HOME/.hermes/state.db"
     "$HOME/.hermes/kanban.db"
