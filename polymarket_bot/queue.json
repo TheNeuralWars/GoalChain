@@ -1,0 +1,28 @@
+[
+  {
+    "market": "540818",
+    "token_id": "0xc329e6ef6e31f2221f9f8212a8d345ee7a5299bd512948ace6aaeb02bc15ac50",
+    "question": "New Playboi Carti Album before GTA VI?",
+    "category": "other",
+    "is_updown": false,
+    "regime_flag": "high_vol",
+    "gap": 0.015,
+    "depth": 5635.57,
+    "hours": 1152.17,
+    "ev_score": 0.015,
+    "midpoint": 0.535
+  },
+  {
+    "market": "553858",
+    "token_id": "0x2cc929dd7e5b3d458162571969f998b6c38ccb343bbeedca60a852579530a49e",
+    "question": "Will the New York Knicks win the 2026 NBA Finals?",
+    "category": "sports",
+    "is_updown": false,
+    "regime_flag": "high_vol",
+    "gap": 0.0055,
+    "depth": 201437.12,
+    "hours": 420.17,
+    "ev_score": 0.0055,
+    "midpoint": 0.8135
+  }
+]

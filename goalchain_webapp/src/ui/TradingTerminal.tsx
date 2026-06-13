@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { SimulationBadge } from '../components/SimulationBadge';
+import { useTranslation } from '../i18n';
 
 interface BotState {
     isEnabled: boolean;
@@ -26,6 +27,7 @@ interface BotLog {
 }
 
 export const TradingTerminal: React.FC = () => {
+    const { t } = useTranslation();
     const [activeTab, setActiveTab] = useState<'manual' | 'vibe'>('manual');
     const [selectedPair, setSelectedPair] = useState<string>('Argentina (ARG-PERP)');
     const [position, setPosition] = useState<'Long' | 'Short'>('Long');
@@ -176,9 +178,9 @@ export const TradingTerminal: React.FC = () => {
                 reason = 'Stop Loss (-15%)';
             } else if (sentiment < 45) {
                 shouldClose = true;
-                reason = 'Cambio de Sentimiento (Bajo)';
+                reason = t('sentiment_change_low');
             }
-            
+
             if (shouldClose) {
                 const finalPnl = Number(pnlValue.toFixed(2));
                 setToroState(prev => ({
@@ -187,11 +189,11 @@ export const TradingTerminal: React.FC = () => {
                     totalProfit: Number((prev.totalProfit + finalPnl).toFixed(2)),
                     activePosition: null
                 }));
-                const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                const timestamp = t('bot_timestamp_just_now');
                 setBotLogs(prev => [
                     {
                         id: Date.now(),
-                        botName: 'El Toro Sentimental',
+                        botName: t('bot_toro_name'),
                         type: 'CLOSE',
                         pair: selectedPair,
                         price: currentPrice,
@@ -202,16 +204,16 @@ export const TradingTerminal: React.FC = () => {
                     },
                     ...prev
                 ]);
-                
+
                 // Adjust sentiment down slightly because Toro takes profit
                 setSentiment(s => Math.max(5, s - 8));
-                
+
                 window.dispatchEvent(new CustomEvent('goalchain-event', {
                     detail: {
                         id: Date.now(),
                         type: 'RESOLVE',
-                        message: `🤖 Vibe-Bot [El Toro Sentimental] cerró LONG en ${selectedPair} con PnL: ${finalPnl >= 0 ? '+' : ''}$${finalPnl} (${reason})`,
-                        time: 'Justo ahora'
+                        message: t('bot_log_toro_close', { pair: selectedPair, pnl: finalPnl >= 0 ? '+' + finalPnl : finalPnl, reason }),
+                        time: timestamp
                     }
                 }));
             }
@@ -226,11 +228,11 @@ export const TradingTerminal: React.FC = () => {
                     size: 100
                 }
             }));
-            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const timestamp = t('bot_timestamp_just_now');
             setBotLogs(prev => [
                 {
                     id: Date.now(),
-                    botName: 'El Toro Sentimental',
+                    botName: t('bot_toro_name'),
                     type: 'LONG',
                     pair: selectedPair,
                     price: currentPrice,
@@ -244,12 +246,12 @@ export const TradingTerminal: React.FC = () => {
                 detail: {
                     id: Date.now(),
                     type: 'BET',
-                    message: `🤖 Vibe-Bot [El Toro Sentimental] ejecutó LONG x5 en ${selectedPair} @ $${currentPrice} (Sentimiento: ${sentiment}% Hype)`,
-                    time: 'Justo ahora'
+                    message: t('bot_log_toro_open', { leverage: 5, pair: selectedPair, price: currentPrice, sentiment }),
+                    time: timestamp
                 }
             }));
         }
-        
+
         // Oso Bot Logic
         if (osoState.activePosition) {
             // Check close conditions
@@ -258,7 +260,7 @@ export const TradingTerminal: React.FC = () => {
             const lev = osoState.activePosition.leverage;
             const pnlPercent = ((entry - currentPrice) / entry) * lev;
             const pnlValue = pnlPercent * size;
-            
+
             let shouldClose = false;
             let reason = '';
             if (pnlPercent >= 0.25) {
@@ -269,9 +271,9 @@ export const TradingTerminal: React.FC = () => {
                 reason = 'Stop Loss (-15%)';
             } else if (sentiment > 55) {
                 shouldClose = true;
-                reason = 'Cambio de Sentimiento (Alto)';
+                reason = t('sentiment_change_high');
             }
-            
+
             if (shouldClose) {
                 const finalPnl = Number(pnlValue.toFixed(2));
                 setOsoState(prev => ({
@@ -280,11 +282,11 @@ export const TradingTerminal: React.FC = () => {
                     totalProfit: Number((prev.totalProfit + finalPnl).toFixed(2)),
                     activePosition: null
                 }));
-                const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                const timestamp = t('bot_timestamp_just_now');
                 setBotLogs(prev => [
                     {
                         id: Date.now(),
-                        botName: 'El Oso Analítico',
+                        botName: t('bot_oso_name'),
                         type: 'CLOSE',
                         pair: selectedPair,
                         price: currentPrice,
@@ -295,16 +297,16 @@ export const TradingTerminal: React.FC = () => {
                     },
                     ...prev
                 ]);
-                
+
                 // Adjust sentiment up slightly because Oso covers short
                 setSentiment(s => Math.min(95, s + 8));
-                
+
                 window.dispatchEvent(new CustomEvent('goalchain-event', {
                     detail: {
                         id: Date.now(),
                         type: 'RESOLVE',
-                        message: `🤖 Vibe-Bot [El Oso Analítico] cerró SHORT en ${selectedPair} con PnL: ${finalPnl >= 0 ? '+' : ''}$${finalPnl} (${reason})`,
-                        time: 'Justo ahora'
+                        message: t('bot_log_oso_close', { pair: selectedPair, pnl: finalPnl >= 0 ? '+' + finalPnl : finalPnl, reason }),
+                        time: timestamp
                     }
                 }));
             }
@@ -319,11 +321,11 @@ export const TradingTerminal: React.FC = () => {
                     size: 100
                 }
             }));
-            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const timestamp = t('bot_timestamp_just_now');
             setBotLogs(prev => [
                 {
                     id: Date.now(),
-                    botName: 'El Oso Analítico',
+                    botName: t('bot_oso_name'),
                     type: 'SHORT',
                     pair: selectedPair,
                     price: currentPrice,
@@ -337,8 +339,8 @@ export const TradingTerminal: React.FC = () => {
                 detail: {
                     id: Date.now(),
                     type: 'BET',
-                    message: `🤖 Vibe-Bot [El Oso Analítico] ejecutó SHORT x5 en ${selectedPair} @ $${currentPrice} (Sentimiento: ${sentiment}% Pánico)`,
-                    time: 'Justo ahora'
+                    message: t('trading_bot_oso_open_msg', { leverage: 5, pair: selectedPair, price: currentPrice, sentiment }),
+                    time: timestamp
                 }
             }));
         }
@@ -366,7 +368,7 @@ export const TradingTerminal: React.FC = () => {
     }, [osoState.activePosition, currentPrice]);
 
     const handleExecute = () => {
-        alert(`Posición ${position} x${leverage} ejecutada con éxito en el par ${selectedPair} en el Oracle de GoalChain.`);
+        alert(t('trading_position_executed_alert', { position, leverage, pair: selectedPair }));
     };
 
     // Render Chart function to avoid code duplication
@@ -384,7 +386,7 @@ export const TradingTerminal: React.FC = () => {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div>
                     <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                        Rendimiento Real-Time
+                        {t('trading_real_time_performance')}
                     </div>
                     <div style={{ fontSize: '1.5rem', fontWeight: 800, color: activeColor, marginTop: '2px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                         {latestPriceChange >= 0 ? `+${latestPriceChange}` : latestPriceChange}%
@@ -394,7 +396,7 @@ export const TradingTerminal: React.FC = () => {
                     </div>
                 </div>
                 <div style={{ textAlign: 'right', fontSize: '0.75rem', color: '#64748b' }}>
-                    <div>ORACLE INDICE</div>
+                    <div>{t('trading_oracle_indice')}</div>
                     <div style={{ fontFamily: 'monospace', color: '#cbd5e1', fontWeight: 700, marginTop: '2px' }}>
                         ${priceHistory[priceHistory.length - 1].toFixed(2)}
                     </div>
@@ -450,8 +452,8 @@ export const TradingTerminal: React.FC = () => {
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.65rem', color: '#475569', fontWeight: 600 }}>
-                <span>LIVELINK</span>
-                <span>MOCK FEED (SECURE DRIFT PIPELINE)</span>
+                <span>{t('trading_livelink_label')}</span>
+                <span>{t('trading_mock_feed')}</span>
             </div>
         </div>
     );
@@ -481,7 +483,7 @@ export const TradingTerminal: React.FC = () => {
             </div>
 
             <p style={{ opacity: 0.7, fontSize: '0.85rem', marginTop: '-4px', marginBottom: '1.5rem' }}>
-                Especula sobre el rendimiento de las selecciones con apalancamiento usando oráculos de Drift y AI Vibe trading.
+                {t('trading_speculate_desc')}
             </p>
 
             {activeTab === 'manual' ? (
@@ -491,7 +493,7 @@ export const TradingTerminal: React.FC = () => {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                         <div>
                             <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                                Seleccionar Par
+                                {t('trading_select_pair_label')}
                             </label>
                             <select 
                                 value={selectedPair} 
@@ -499,15 +501,15 @@ export const TradingTerminal: React.FC = () => {
                                 className="form-select" 
                                 style={{ marginTop: '0.5rem' }}
                             >
-                                <option value="Argentina (ARG-PERP)">Argentina (ARG-PERP)</option>
-                                <option value="Francia (FRA-PERP)">Francia (FRA-PERP)</option>
-                                <option value="España (ESP-PERP)">España (ESP-PERP)</option>
+                                <option value="Argentina (ARG-PERP)">{t('trading_arg_pair')}</option>
+                                <option value="Francia (FRA-PERP)">{t('trading_fra_pair')}</option>
+                                <option value="España (ESP-PERP)">{t('trading_esp_pair')}</option>
                             </select>
                         </div>
 
                         <div>
                             <label style={{ fontSize: '0.8rem', fontWeight: 700, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: '0.5rem' }}>
-                                Dirección de Posición
+                                {t('trading_position_direction')}
                             </label>
                             <div style={{ display: 'flex', gap: '10px' }}>
                                 <button 
@@ -515,21 +517,21 @@ export const TradingTerminal: React.FC = () => {
                                     className={position === 'Long' ? 'btn-neon-green' : 'btn-outline-green'}
                                     style={{ flex: 1, padding: '0.5rem 1rem' }}
                                 >
-                                    Long (Comprar)
+                                    {t('trading_long_buy')}
                                 </button>
                                 <button 
                                     onClick={() => setPosition('Short')}
                                     className={position === 'Short' ? 'btn-neon-red' : 'btn-outline-red'}
                                     style={{ flex: 1, padding: '0.5rem 1rem' }}
                                 >
-                                    Short (Vender)
+                                    {t('trading_short_sell')}
                                 </button>
                             </div>
                         </div>
 
                         <div>
                             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', fontWeight: 700, color: '#94a3b8' }}>
-                                <span style={{ textTransform: 'uppercase', letterSpacing: '0.5px' }}>Apalancamiento</span>
+                                <span style={{ textTransform: 'uppercase', letterSpacing: '0.5px' }}>{t('trading_leverage_label')}</span>
                                 <span style={{ color: 'var(--secondary-neon)' }}>{leverage}x</span>
                             </div>
                             <input 
@@ -545,7 +547,7 @@ export const TradingTerminal: React.FC = () => {
                             className={position === 'Long' ? 'btn-neon-green' : 'btn-neon-red'}
                             style={{ width: '100%', padding: '0.8rem', fontSize: '0.9rem', marginTop: 'auto' }}
                         >
-                            Ejecutar Posición {position}
+                            {t('trading_execute_position', { position })}
                         </button>
                     </div>
 
@@ -566,7 +568,7 @@ export const TradingTerminal: React.FC = () => {
                             textAlign: 'center'
                         }}>
                             <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '0.5rem', textAlign: 'left' }}>
-                                Sentimiento del Mercado (Helius Feed)
+                                {t('trading_market_sentiment')}
                             </div>
                             
                             <svg width="200" height="110" viewBox="0 0 200 110" style={{ overflow: 'visible', margin: '0 auto', display: 'block' }}>
@@ -588,7 +590,7 @@ export const TradingTerminal: React.FC = () => {
                                 </g>
                                 
                                 <text x="100" y="110" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="800" letterSpacing="0.5">
-                                    {sentiment}% - {sentiment > 65 ? '⚡ HYPE' : (sentiment < 35 ? '⚠️ PÁNICO' : '⚖️ NEUTRAL')}
+                                    {sentiment}% - {sentiment > 65 ? t('trading_sentiment_hype') : (sentiment < 35 ? t('trading_sentiment_panic') : t('trading_sentiment_neutral'))}
                                 </text>
                             </svg>
                         </div>
@@ -598,8 +600,8 @@ export const TradingTerminal: React.FC = () => {
                             {/* Toro */}
                             <div className={`bot-switch-container ${toroState.isEnabled ? 'active-toro' : ''}`}>
                                 <div className="switch-label">
-                                    <span className="switch-title">🐂 El Toro Sentimental</span>
-                                    <span className="switch-desc">Opera LONG con Hype (&gt;65%)</span>
+                                    <span className="switch-title">{t('bot_toro_name')}</span>
+                                    <span className="switch-desc">{t('trading_bot_toro_desc')}</span>
                                     <div style={{ display: 'flex', gap: '12px', marginTop: '6px', fontSize: '0.72rem', fontFamily: 'monospace' }}>
                                         <div>Bal: <span style={{ color: '#ffffff' }}>${toroState.balance.toFixed(2)}</span></div>
                                         <div>Profit: <span style={{ color: toroState.totalProfit >= 0 ? 'var(--primary-neon)' : 'var(--accent-red)' }}>
@@ -612,7 +614,7 @@ export const TradingTerminal: React.FC = () => {
                                                 🟢 LONG Activo @ ${toroState.activePosition.entryPrice.toFixed(2)} ({toroUnrealizedPnl >= 0 ? '+' : ''}${toroUnrealizedPnl.toFixed(2)})
                                             </span>
                                         ) : (
-                                            <span style={{ color: '#64748b' }}>⚪ Idle</span>
+                                            <span style={{ color: '#64748b' }}>{t('trading_bot_idle')}</span>
                                         )}
                                     </div>
                                 </div>
@@ -633,8 +635,8 @@ export const TradingTerminal: React.FC = () => {
                             {/* Oso */}
                             <div className={`bot-switch-container ${osoState.isEnabled ? 'active-oso' : ''}`}>
                                 <div className="switch-label">
-                                    <span className="switch-title">🐻 El Oso Analítico</span>
-                                    <span className="switch-desc">Opera SHORT con Pánico (&lt;35%)</span>
+                                    <span className="switch-title">{t('bot_oso_name')}</span>
+                                    <span className="switch-desc">{t('trading_bot_oso_desc')}</span>
                                     <div style={{ display: 'flex', gap: '12px', marginTop: '6px', fontSize: '0.72rem', fontFamily: 'monospace' }}>
                                         <div>Bal: <span style={{ color: '#ffffff' }}>${osoState.balance.toFixed(2)}</span></div>
                                         <div>Profit: <span style={{ color: osoState.totalProfit >= 0 ? 'var(--primary-neon)' : 'var(--accent-red)' }}>
@@ -647,7 +649,7 @@ export const TradingTerminal: React.FC = () => {
                                                 🔴 SHORT Activo @ ${osoState.activePosition.entryPrice.toFixed(2)} ({osoUnrealizedPnl >= 0 ? '+' : ''}${osoUnrealizedPnl.toFixed(2)})
                                             </span>
                                         ) : (
-                                            <span style={{ color: '#64748b' }}>⚪ Idle</span>
+                                            <span style={{ color: '#64748b' }}>{t('trading_bot_idle')}</span>
                                         )}
                                     </div>
                                 </div>
@@ -682,7 +684,7 @@ export const TradingTerminal: React.FC = () => {
                             gap: '8px'
                         }}>
                             <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                                🤖 Ledger de Transacciones (Vibe-Bots)
+                                {t('trading_ledger_title')}
                             </div>
                             <div className="vibe-ledger">
                                 {botLogs.length > 0 ? (
@@ -709,7 +711,7 @@ export const TradingTerminal: React.FC = () => {
                                     ))
                                 ) : (
                                     <div style={{ color: '#475569', textAlign: 'center', padding: '2rem 0', fontSize: '0.72rem', fontStyle: 'italic' }}>
-                                        Esperando señales de sentimiento en el mercado...
+                                        {t('trading_waiting_signals')}
                                     </div>
                                 )}
                             </div>

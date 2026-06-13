@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchEconomyConfig } from '../lib/economyClient';
+import { useTranslation } from '../i18n';
 
 interface CanonicalConfig {
   config_version?: string;
@@ -19,6 +20,7 @@ interface OnchainConfig {
 }
 
 export function EconomyConfigBanner() {
+  const { t } = useTranslation();
   const [version, setVersion] = useState<string | null>(null);
   const [drift, setDrift] = useState<boolean | null>(null);
   const [driftReasons, setDriftReasons] = useState<string[]>([]);
@@ -40,20 +42,20 @@ export function EconomyConfigBanner() {
           const maxFeeBps = Number(canonical.core_parameters?.max_fee_bps ?? 0);
           const feeBps = Number(onchain.feeBps ?? 0);
           if (maxFeeBps > 0 && feeBps > maxFeeBps) {
-            reasons.push(`fee_bps on-chain (${feeBps}) excede el límite máximo canónico (${maxFeeBps})`);
+            reasons.push(t('econ_reason_fee_exceeds', { feeBps, maxFeeBps }));
           }
 
           // 2. Validar maxStartersPerManager
           const maxStarters = Number(onchain.maxStartersPerManager ?? 0);
           if (maxStarters !== 11) {
-            reasons.push(`maxStartersPerManager on-chain (${maxStarters}) difiere del valor esperado de 11`);
+            reasons.push(t('econ_reason_starters_differs', { maxStarters }));
           }
 
           // 3. Validar fee split sum
           const feeBurn = Number(onchain.feeBurnBps ?? 0);
           const feeJackpot = Number(onchain.feeJackpotBps ?? 0);
           if (feeBurn + feeJackpot > 10000) {
-            reasons.push('La suma de fee split (burn + jackpot) excede los 10000 BPS');
+            reasons.push(t('econ_reason_fee_split_exceeds'));
           }
         }
 
@@ -63,11 +65,11 @@ export function EconomyConfigBanner() {
       })
       .catch((e: Error) => {
         if (e.name !== 'AbortError') {
-          setError('No se pudo cargar la economía canónica desde la API.');
+          setError(t('econ_error_load'));
         }
       });
     return () => ac.abort();
-  }, []);
+  }, []); // t is stable from useTranslation
 
   if (error) {
     return (
@@ -99,11 +101,11 @@ export function EconomyConfigBanner() {
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <strong>Economía canónica</strong> · versión {version}
+        <strong>{t('econ_label_canonical')}</strong> · versión {version}
         {drift ? (
-          <span style={{ fontWeight: 'bold' }}>⚠️ Drift detectado vs on-chain</span>
+          <span style={{ fontWeight: 'bold' }}>{t('econ_drift_detected')}</span>
         ) : (
-          <span>✓ Alineada con API</span>
+          <span>{t('econ_aligned')}</span>
         )}
       </div>
       {drift && driftReasons.length > 0 && (

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PLAY_SECTIONS } from '../config/playNav';
 import { OpsStatusPanel } from './OpsStatusPanel';
+import { useTranslation } from '../i18n';
 
 const SECTION_BLURBS: Record<string, string> = {
   dashboard: 'Paneles glass en dos columnas (fixtures, trading, squad…).',
@@ -16,6 +17,7 @@ const SECTION_BLURBS: Record<string, string> = {
 };
 
 export function DashboardHub() {
+  const { t } = useTranslation();
   const cards = PLAY_SECTIONS.filter((s) => s.to && s.to !== '/');
 
   return (
@@ -32,7 +34,7 @@ export function DashboardHub() {
       <div className="play-hub-grid">
         {cards.map((section) => (
           <Link key={section.id} to={section.to!} className="play-hub-card">
-            <h3>{section.label}</h3>
+            <h3>{t(section.labelKey as any)}</h3>
             <p>{SECTION_BLURBS[section.id] ?? ''}</p>
             <span className="play-hub-card-cta">Abrir →</span>
           </Link>

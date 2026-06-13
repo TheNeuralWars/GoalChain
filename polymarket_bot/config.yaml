@@ -1,0 +1,101 @@
+# Polymarket Bot Configuration
+# All thresholds and settings for exit_monitor.py daemon
+
+# Daemon settings
+daemon:
+  loop_interval_seconds: 60
+  dry_run: false
+  once: false
+  log_level: "INFO"
+
+# Polymarket API / CLOB settings
+polymarket:
+  clob_url: "https://clob.polymarket.com"  # Overridden by Hermes Vault POLYMARKET_CLOB_URL
+  private_key_env: "POLYMARKET_PK"          # Loaded from Hermes Vault
+  chain_id: 137                              # Polygon mainnet
+
+# Exit trigger thresholds
+triggers:
+  # TARGET_HIT: take profit at 85% of expected move
+  target_hit:
+    enabled: true
+    profit_ratio: 0.85  # current_price >= entry_price + 0.85 * expected_gap
+
+  # VOLUME_SPIKE: 10m volume > 3x avg_10m_volume (PRIMARY exit signal)
+  volume_spike:
+    enabled: true
+    volume_multiplier: 3.0
+    window_minutes: 10
+
+  # TIME_DECAY: stale thesis after 24h with minimal price movement
+  time_decay:
+    enabled: true
+    max_hours: 24
+    max_price_change: 0.02  # |price_change| < 0.02
+
+  # REGIME_FLIP: market structure changed - EXIT ALL IMMEDIATELY
+  regime_flip:
+    enabled: true
+    # Check brain.regime_check.market_flipped from regime analysis
+    check_interval_seconds: 30
+
+  # LIQUIDATION_CASCADE: orderbook depth drop > 50% in 1m
+  liquidation_cascade:
+    enabled: true
+    depth_drop_threshold: 0.50  # 50% drop
+    window_minutes: 1
+
+  # WHALE_EXIT: 47 target wallets closing same position
+  whale_exit:
+    enabled: true
+    reduce_fraction: 0.50  # Reduce 50% on first signal, full exit on confirmation
+    confirmation_window_minutes: 5
+
+# Order execution settings
+execution:
+  # Market orders for regime/liquidation (speed), limit for target/volume
+  market_order_triggers:
+    - "REGIME_FLIP"
+    - "LIQUIDATION_CASCADE"
+  limit_order_triggers:
+    - "TARGET_HIT"
+    - "VOLUME_SPIKE"
+    - "TIME_DECAY"
+    - "WHALE_EXIT"
+  # Slippage tolerance for market orders (bps)
+  max_slippage_bps: 100
+  # Limit order offset from mid (bps) for non-market triggers
+  limit_offset_bps: 10
+
+# Whale wallet tracking (47 target wallets)
+whale_wallets:
+  # Populated from whale_wallets.json file
+  file_path: "whale_wallets.json"
+  # Example format in whale_wallets.json:
+  # ["0x1234...", "0x5678...", ...]
+
+# GBrain Learning Loop Integration
+gbrain:
+  enabled: true
+  mcp_server: "gbrain"
+  # Per-exit write: {thesis, outcome, regime, PnL}
+  write_on_exit: true
+  # Weekly analysis by Nemotron (handled by external scheduler)
+  weekly_analysis: true
+  # Monthly auto-reoptimization (handled by external scheduler)
+  monthly_reoptimize: true
+
+# Webhook alerts
+webhook:
+  enabled: true
+  url_env: "POLymarket_WEBHOOK_URL"  # Alert webhook URL
+  # Format: 🔴 EXIT {market} {reason} PnL: ${pnl:+.2f}
+  template: "🔴 EXIT {market} {reason} PnL: ${pnl:+.2f}"
+
+# Data file paths
+paths:
+  positions_file: "positions.json"
+  trades_file: "trades.json"
+  whale_wallets_file: "whale_wallets.json"
+  config_file: "config.yaml"
+  log_file: "exit_monitor.log"

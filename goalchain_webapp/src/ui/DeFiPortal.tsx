@@ -1,15 +1,17 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { SimulationBadge } from '../components/SimulationBadge';
+import { useTranslation } from '../i18n';
 
 const TradingTerminal = lazy(() => import('./TradingTerminal').then(m => ({ default: m.TradingTerminal })));
 const SwarmVaults = lazy(() => import('./SwarmVaults').then(m => ({ default: m.SwarmVaults })));
 
 export function DeFiPortal() {
+  const { t } = useTranslation();
   const [activeSubTab, setActiveSubTab] = useState<'trading' | 'vaults'>('trading');
 
   const tabs = [
-    { id: 'trading', label: '💱 Vibe Swap & Trading', desc: 'Negocia tokens y activa vibe bots' },
-    { id: 'vaults', label: '🏦 Swarm Yield Vaults', desc: 'Estrategias de liquidez con agentes autónomos' },
+    { id: 'trading', labelKey: 'portal_defi', descKey: 'defi_vaults_desc' },
+    { id: 'vaults', labelKey: 'defi_vaults_label', descKey: 'defi_vaults_desc' },
   ] as const;
 
   return (
@@ -19,10 +21,10 @@ export function DeFiPortal() {
         <SimulationBadge />
         <h1>Terminal Financiera</h1>
         <p className="portal-honesty-note">
-          Demostración visual — sin transacciones on-chain hasta post-Mundial 2026.
+          {t('defi_simulation_note')}
         </p>
         <p className="portal-subtitle">
-          Maximiza el rendimiento de tu club con arbitraje inteligente, vaults autónomas y liquidez automatizada.
+          {t('defi_maximize_yield')}
         </p>
 
         {/* Glassmorphic Tabs Navigation */}
@@ -33,8 +35,8 @@ export function DeFiPortal() {
               onClick={() => setActiveSubTab(tab.id)}
               className={`portal-tab-btn portal-tab-btn--defi ${activeSubTab === tab.id ? 'portal-tab-btn--active' : ''}`}
             >
-              <span className="tab-label">{tab.label}</span>
-              <span className="tab-desc">{tab.desc}</span>
+              <span className="tab-label">{t(tab.labelKey as any)}</span>
+              <span className="tab-desc">{t(tab.descKey as any)}</span>
             </button>
           ))}
         </div>
@@ -43,14 +45,14 @@ export function DeFiPortal() {
       <div className="portal-content-wrapper">
         {activeSubTab === 'trading' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Cargando terminal...</div>}>
+            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('defi_loading_trading')}</div>}>
               <TradingTerminal />
             </Suspense>
           </div>
         )}
         {activeSubTab === 'vaults' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Cargando vaults...</div>}>
+            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('defi_loading_vaults')}</div>}>
               <SwarmVaults />
             </Suspense>
           </div>

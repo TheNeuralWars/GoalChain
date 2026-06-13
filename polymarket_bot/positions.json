@@ -1,0 +1,40 @@
+[
+  {
+    "market": "Will Dogecoin reach $1 by 2026?",
+    "token_id": "0x4444444444444444444444444444444444444444444444444444444444444444",
+    "side": "YES",
+    "entry_price": 0.25,
+    "size": 20.00,
+    "expected_gap": 0.15,
+    "entry_time": "2026-06-13T08:00:00Z",
+    "thesis": "DOGE social media momentum",
+    "regime_at_entry": "trending_up",
+    "kelly_fraction_at_entry": 0.04,
+    "status": "OPEN",
+    "current_price": 0.30,
+    "avg_10m_volume": 1500.0,
+    "current_10m_volume": 2000.0,
+    "orderbook_depth": 4000.0,
+    "hours_since_entry": 3.0,
+    "price_change_pct": 0.20
+  },
+  {
+    "market": "Will Cardano flip Solana?",
+    "token_id": "0x5555555555555555555555555555555555555555555555555555555555555555",
+    "side": "NO",
+    "entry_price": 0.45,
+    "size": 10.00,
+    "expected_gap": 0.10,
+    "entry_time": "2026-06-13T06:00:00Z",
+    "thesis": "ADA fundamentals weakening vs SOL",
+    "regime_at_entry": "trending_up",
+    "kelly_fraction_at_entry": 0.05,
+    "status": "OPEN",
+    "current_price": 0.40,
+    "avg_10m_volume": 1200.0,
+    "current_10m_volume": 1000.0,
+    "orderbook_depth": 2000.0,
+    "hours_since_entry": 5.0,
+    "price_change_pct": -0.11
+  }
+]

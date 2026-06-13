@@ -1,0 +1,41 @@
+# Exit Monitor Systemd Service
+# Save as: /etc/systemd/system/polymarket-exit-monitor.service
+# Then: sudo systemctl daemon-reload && sudo systemctl enable --now polymarket-exit-monitor
+
+[Unit]
+Description=Polymarket Exit Monitor Daemon
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/data/apps/GoalChain/polymarket_bot
+Environment=PATH=/home/ubuntu/.local/bin:/usr/local/bin:/usr/bin:/bin
+Environment=POLYMARKET_CLOB_URL=https://clob.polymarket.com
+# POLYMARKET_PK and WEBHOOK_URL should be set via systemd credentials or environment
+# Use: systemctl set-environment POLYMARKET_PK="..." WEBHOOK_URL="..."
+ExecStart=/home/ubuntu/.local/bin/python /data/apps/GoalChain/polymarket_bot/exit_monitor.py --config config.yaml
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=polymarket-exit-monitor
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=false
+ReadWritePaths=/data/apps/GoalChain/polymarket_bot
+CapabilityBoundingSet=
+
+# Resource limits
+MemoryMax=512M
+CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target

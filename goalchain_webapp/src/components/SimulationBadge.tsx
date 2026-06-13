@@ -1,13 +1,16 @@
 import React from 'react';
+import { useTranslation } from '../i18n';
 
 /** Marks UI that does not execute on-chain txs (Mundial MVP honesty). */
-export function SimulationBadge({ label = 'SIMULACIÓN' }: { label?: string }) {
+export function SimulationBadge({ label }: { label?: string }) {
+  const { t } = useTranslation();
+  const badgeLabel = label ?? t('simulation_badge_label');
   return (
     <span
       className="simulation-badge"
-      title="Esta sección no ejecuta transacciones on-chain. Solo demostración visual."
+      title={t('simulation_badge_tooltip')}
     >
-      {label}
+      {badgeLabel}
     </span>
   );
 }

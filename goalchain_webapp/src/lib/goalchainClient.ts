@@ -98,7 +98,7 @@ async function resolveBetTokenAccounts(
   const parsed = (treasuryTokenInfo.value as any)?.data?.parsed;
   const tokenMintString = parsed?.info?.mint as string | undefined;
   if (!tokenMintString) {
-    throw new Error('No se pudo resolver el token mint desde GlobalConfig.');
+    throw new Error('Could not resolve token mint from GlobalConfig.');
   }
   const tokenMint = new PublicKey(tokenMintString);
   const userTokenAccount = getAssociatedTokenAddressSync(tokenMint, wallet);
@@ -143,7 +143,7 @@ function createProgram(connection: Connection, wallet?: WalletLike): Program<any
 function parseAmountToBaseUnits(amountUi: string, decimals: number): BN {
   const normalized = amountUi.trim().replace(',', '.');
   if (!/^\d+(\.\d+)?$/.test(normalized)) {
-    throw new Error('Monto inválido. Usa formato numérico, ej: 1.5');
+    throw new Error('Invalid amount. Use numeric format, e.g.: 1.5');
   }
   const [whole, frac = ''] = normalized.split('.');
   const fracPadded = (frac + '0'.repeat(decimals)).slice(0, decimals);
@@ -168,7 +168,7 @@ export async function placeFixtureBet(params: {
 }): Promise<string> {
   const { connection, wallet, fixture, side, amountUi } = params;
   if (!wallet.publicKey || !wallet.signTransaction || !wallet.signAllTransactions) {
-    throw new Error('Wallet no disponible para firmar transacciones.');
+    throw new Error('Wallet not available for signing transactions.');
   }
 
   const program = createProgram(connection, wallet);
@@ -189,7 +189,7 @@ export async function placeFixtureBet(params: {
   const mintInfo = await getMint(connection, tokenMint);
   const amount = parseAmountToBaseUnits(amountUi, mintInfo.decimals);
   if (amount.lte(new BN(0))) {
-    throw new Error('El monto debe ser mayor a 0.');
+    throw new Error('Amount must be greater than 0.');
   }
 
   const prediction: any =
@@ -244,7 +244,7 @@ export async function claimFixturePayout(params: {
 }): Promise<string> {
   const { connection, wallet, fixture } = params;
   if (!wallet.publicKey || !wallet.signTransaction || !wallet.signAllTransactions) {
-    throw new Error('Wallet no disponible para firmar transacciones.');
+    throw new Error('Wallet not available for signing transactions.');
   }
 
   const program = createProgram(connection, wallet);
@@ -283,7 +283,7 @@ export async function refundFixtureBet(params: {
 }): Promise<string> {
   const { connection, wallet, fixture } = params;
   if (!wallet.publicKey || !wallet.signTransaction || !wallet.signAllTransactions) {
-    throw new Error('Wallet no disponible para firmar transacciones.');
+    throw new Error('Wallet not available for signing transactions.');
   }
 
   const program = createProgram(connection, wallet);

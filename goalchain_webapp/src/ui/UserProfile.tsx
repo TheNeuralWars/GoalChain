@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { fetchUserChainStats } from '../lib/goalchainClient';
+import { useTranslation } from '../i18n';
 
 interface UserProfileProps {
   username?: string;
 }
 
-// Mock data — en producción viene de Firestore/on-chain
+// Mock data — in production comes from Firestore/on-chain
 const getMockProfile = (username: string) => ({
   username,
   avatar: '🦅',
   role: 'Manager',
   wallet: 'GoAL...c4in',
-  joinedDate: 'Mayo 2026',
+  joinedDate: 'May 2026',
   stats: {
     balance: 2_340.50,
     totalBets: 47,
@@ -25,7 +26,7 @@ const getMockProfile = (username: string) => ({
   },
   recentActivity: [
     { type: 'BET',     desc: 'ARG vs FRA — Long x5',   amount: '+320 USDC', date: '23 May',  positive: true },
-    { type: 'NFT',     desc: 'Enzo Bit Gold — Adquirido', amount: '-180 USDC', date: '22 May', positive: false },
+    { type: 'NFT',     desc: 'Enzo Bit Gold — Acquired', amount: '-180 USDC', date: '22 May', positive: false },
     { type: 'UPGRADE', desc: 'Enzo Bit → Platinum',     amount: '-50 USDC',  date: '21 May',  positive: false },
     { type: 'BET',     desc: 'BRA vs ESP — Short x3',   amount: '+150 USDC', date: '20 May',  positive: true },
     { type: 'BET',     desc: 'GER vs POR — Long x2',    amount: '-80 USDC',  date: '19 May',  positive: false },
@@ -59,6 +60,7 @@ const ACTIVITY_COLORS: Record<string, string> = {
 export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername }) => {
   const { connection } = useConnection();
   const { publicKey } = useWallet();
+  const { t } = useTranslation();
   const urlUsername = window.location.pathname.split('/perfil/')[1];
   const username = propUsername || urlUsername || 'demo_user';
   const profile = getMockProfile(username);
@@ -132,7 +134,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
             <span className="profile-rank-badge" style={{ borderColor: rankColor, color: rankColor }}>
               ⭐ {stats.rank}
             </span>
-            <span className="profile-joined">Desde {profile.joinedDate}</span>
+            <span className="profile-joined">{t('profile_joined')} {profile.joinedDate}</span>
           </div>
           <div className="profile-wallet">
             <code>{profile.wallet}</code>
@@ -143,19 +145,19 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
           <div className="profile-xp-track">
             <div className="profile-xp-fill" style={{ width: `${(stats.xp % 5000) / 50}%` }} />
           </div>
-          <div className="profile-xp-next">Próximo nivel: {5000 - (stats.xp % 5000)} XP</div>
+          <div className="profile-xp-next">{t('profile_next_level', { xp: 5000 - (stats.xp % 5000) })}</div>
         </div>
       </div>
 
       {/* Quick stats bar */}
       <div className="profile-stats-bar">
         {[
-          { label: 'Balance',      value: `$${stats.balance.toLocaleString('es', { minimumFractionDigits: 2 })}`, icon: '💰' },
-          { label: 'Win Rate',     value: `${stats.winRate}%`,       icon: '🎯' },
-          { label: 'Total Bets',   value: effectiveTotalBets,         icon: '📊' },
-          { label: 'NFTs',         value: stats.nftsOwned,            icon: '🃏' },
-          { label: 'Volume',       value: chainStats ? `${effectiveVolume.toLocaleString()} u` : `$${(stats.totalVolume / 1000).toFixed(1)}K`, icon: '📈' },
-          { label: 'Upgrades',     value: stats.upgradesDone,         icon: '⚡' },
+          { label: t('profile_balance'), value: `$${stats.balance.toLocaleString('es', { minimumFractionDigits: 2 })}`, icon: '💰' },
+          { label: t('profile_win_rate'), value: `${stats.winRate}%`, icon: '🎯' },
+          { label: t('profile_total_bets'), value: effectiveTotalBets, icon: '📊' },
+          { label: t('profile_nfts'), value: stats.nftsOwned, icon: '🃏' },
+          { label: t('profile_volume'), value: chainStats ? `${effectiveVolume.toLocaleString()} u` : `$${(stats.totalVolume / 1000).toFixed(1)}K`, icon: '📈' },
+          { label: t('profile_upgrades'), value: stats.upgradesDone, icon: '⚡' },
         ].map(s => (
           <div key={s.label} className="profile-stat-item">
             <span className="stat-icon">{s.icon}</span>
@@ -174,7 +176,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
             className={`profile-tab ${activeTab === tab ? 'active' : ''}`}
             onClick={() => setActiveTab(tab)}
           >
-            {{ overview: '📋 Overview', nfts: '🃏 NFTs', activity: '⚡ Actividad', ecosystem: '🌍 Ecosistema' }[tab]}
+            {{ overview: t('tab_overview'), nfts: t('tab_nfts'), activity: t('tab_activity'), ecosystem: t('tab_ecosystem') }}[tab]
           </button>
         ))}
       </div>
@@ -186,18 +188,18 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
           <div className="tab-overview">
             <div className="overview-grid">
               <div className="overview-card">
-                <h3>💰 Balance actual</h3>
+                <h3>{t('overview_balance')}</h3>
                 <div className="big-number" style={{ color: '#14f195' }}>
                   {chainStats ? `${effectiveBalance.toLocaleString()} base units` : `$${stats.balance.toLocaleString('es', { minimumFractionDigits: 2 })} USDC`}
                 </div>
                 {chainStats && (
                   <div style={{ marginTop: 6, fontSize: '0.75rem', opacity: 0.8 }}>
-                    Stake: {effectiveStaked.toLocaleString()} base units
+                    {t('overview_stake')}: {effectiveStaked.toLocaleString()} base units
                   </div>
                 )}
               </div>
               <div className="overview-card">
-                <h3>🎯 Performance</h3>
+                <h3>{t('overview_performance')}</h3>
                 <div className="perf-ring-wrap">
                   <svg viewBox="0 0 80 80" className="perf-ring">
                     <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="8" />
@@ -212,15 +214,15 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                       {stats.winRate}%
                     </text>
                   </svg>
-                  <span>Win Rate</span>
+                  <span>{t('overview_win_rate')}</span>
                 </div>
               </div>
               <div className="overview-card">
-                <h3>📊 Operaciones</h3>
+                <h3>{t('overview_operations')}</h3>
                 <div className="ops-breakdown">
-                  <div>Total bets: <strong>{effectiveTotalBets}</strong></div>
-                  <div>Cobradas: <strong style={{ color: '#14f195' }}>{effectiveClaimedBets}</strong></div>
-                  <div>Abiertas: <strong style={{ color: '#f35d7b' }}>{effectiveOpenBets}</strong></div>
+                  <div>{t('overview_total_bets')}: <strong>{effectiveTotalBets}</strong></div>
+                  <div>{t('overview_claimed')}: <strong style={{ color: '#14f195' }}>{effectiveClaimedBets}</strong></div>
+                  <div>{t('overview_open')}: <strong style={{ color: '#f35d7b' }}>{effectiveOpenBets}</strong></div>
                 </div>
               </div>
             </div>
@@ -242,7 +244,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
               {Array.from({ length: Math.max(0, 6 - profile.nfts.length) }).map((_, i) => (
                 <div key={`empty-${i}`} className="nft-profile-card nft-empty">
                   <div className="nft-emoji" style={{ opacity: 0.2 }}>🃏</div>
-                  <div style={{ opacity: 0.3, fontSize: '0.75rem' }}>Sin NFT</div>
+                  <div style={{ opacity: 0.3, fontSize: '0.75rem' }}>{t('nft_empty')}</div>
                 </div>
               ))}
             </div>
@@ -270,10 +272,10 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
           <div className="tab-ecosystem">
             <div className="ecosystem-grid">
               {[
-                { label: 'Jugadores activos',  value: profile.ecosystemStats.totalPlayers.toLocaleString(), icon: '👥' },
-                { label: 'Volumen total',       value: profile.ecosystemStats.totalVolume,                   icon: '💹' },
-                { label: 'Partidos jugados',    value: profile.ecosystemStats.matchesPlayed,                 icon: '⚽' },
-                { label: 'Top Manager',         value: `@${profile.ecosystemStats.topManager}`,              icon: '🏆' },
+                { label: t('ecosystem_players'), value: profile.ecosystemStats.totalPlayers.toLocaleString(), icon: '👥' },
+                { label: t('ecosystem_volume'), value: profile.ecosystemStats.totalVolume, icon: '💹' },
+                { label: t('ecosystem_matches'), value: profile.ecosystemStats.matchesPlayed, icon: '⚽' },
+                { label: t('ecosystem_top_manager'), value: `@${profile.ecosystemStats.topManager}`, icon: '🏆' },
               ].map(e => (
                 <div key={e.label} className="ecosystem-card">
                   <div className="ecosystem-icon">{e.icon}</div>
@@ -283,7 +285,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
               ))}
             </div>
             <div className="ecosystem-note">
-              <p>🔗 Compartí tu perfil: <code>play.goalchain.fun/perfil/{profile.username}</code></p>
+              <p dangerouslySetInnerHTML={{ __html: t('profile_share_link', { username: profile.username }) }} />
             </div>
           </div>
         )}

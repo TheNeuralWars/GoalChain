@@ -6,6 +6,7 @@ import {
   type PlayNavItem,
 } from '../config/playNav';
 import { LanguageToggle } from '../components/LanguageToggle';
+import { useTranslation } from '../i18n';
 
 function useStoredUserLink(): { to: string; label: string } {
   const [userNav, setUserNav] = useState({ to: '/crear-usuario', label: '✨ Crear cuenta' });
@@ -32,11 +33,12 @@ function useStoredUserLink(): { to: string; label: string } {
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   `play-nav-link${isActive ? ' play-nav-link--active' : ''}`;
 
-function NavItem({ item }: { item: PlayNavItem }) {
+function NavItem({ item, t }: { item: PlayNavItem; t: (key: string) => string }) {
+  const label = t(item.labelKey as any);
   if (item.to) {
     return (
       <NavLink to={item.to} end={item.to === '/'} className={navLinkClass}>
-        {item.label}
+        {label}
       </NavLink>
     );
   }
@@ -48,7 +50,7 @@ function NavItem({ item }: { item: PlayNavItem }) {
         target={item.external ? '_blank' : undefined}
         rel={item.external ? 'noopener noreferrer' : undefined}
       >
-        {item.label}
+        {label}
         {item.external ? <span className="play-nav-ext" aria-hidden> ↗</span> : null}
       </a>
     );
@@ -57,6 +59,7 @@ function NavItem({ item }: { item: PlayNavItem }) {
 }
 
 export function PlayNav() {
+  const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const location = useLocation();
@@ -93,10 +96,10 @@ export function PlayNav() {
       <div id="play-nav-menu" className={`play-nav-menu${mobileOpen ? ' play-nav-menu--open' : ''}`}>
         {PLAY_NAV_GROUPS.map((group) => (
           <div key={group.id} className="play-nav-group">
-            <span className="play-nav-group-label">{group.label}</span>
+            <span className="play-nav-group-label">{t(group.labelKey as any)}</span>
             <div className="play-nav-group-links">
               {group.items.map((item) => (
-                <NavItem key={item.id} item={item} />
+                <NavItem key={item.id} item={item} t={t} />
               ))}
             </div>
           </div>
@@ -115,7 +118,7 @@ export function PlayNav() {
           {resourcesOpen ? (
             <div className="play-nav-dropdown">
               {RESOURCE_LINKS.map((item) => (
-                <NavItem key={item.id} item={item} />
+                <NavItem key={item.id} item={item} t={t} />
               ))}
             </div>
           ) : null}
