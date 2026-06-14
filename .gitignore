@@ -48,5 +48,23 @@ solana-test-ledger/
 .tmp.driveupload/
 google_sync/
 scripts/sync_to_drive.sh
+# --- Python / Pycache ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+
+# --- Polymarket Bot (runtime & secrets) ---
+polymarket_bot/__pycache__/
+polymarket_bot/*.pyc
+polymarket_bot/config.yaml
+polymarket_bot/whale_wallets.json
+polymarket_bot/positions.json
+polymarket_bot/queue.json
+polymarket_bot/trades.json
+polymarket_bot/*.service
+
 # --- Scratch / local experiments ---
 scratch/
