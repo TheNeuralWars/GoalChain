@@ -60,7 +60,10 @@ else:
     # Mac / Linux local paths
     PRIMARY_ROOT = "/Users/NicoPez/GoalChain"
     if not os.path.exists(PRIMARY_ROOT):
-        PRIMARY_ROOT = os.getcwd()
+        if os.path.exists("/data/apps/GoalChain"):
+            PRIMARY_ROOT = "/data/apps/GoalChain"
+        else:
+            PRIMARY_ROOT = os.getcwd()
     PLAYERS_JSON = os.path.join(PRIMARY_ROOT, "docs/assets/data/players.json")
     BATCHES_ROOT = os.path.join(PRIMARY_ROOT, "grok_batches")
     GEMINI_MIRROR = ""
