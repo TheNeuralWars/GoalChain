@@ -315,9 +315,15 @@ def upload_generated_asset(player_id: int, image_url: str, style: str = "v6.4") 
     
     # Download image url
     try:
-        # Translate GitHub URLs to raw user content download links
+        # Translate GitHub URLs to instant raw download links to avoid raw.githubusercontent.com CDN caching delay
         if "github.com" in image_url and "/blob/" in image_url:
-            image_url = image_url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
+            image_url = image_url.replace("/blob/", "/raw/")
+        elif "raw.githubusercontent.com" in image_url:
+            # Reconstruct instant github.com/raw link from raw.githubusercontent.com
+            parts = image_url.replace("https://raw.githubusercontent.com/", "").split("/", 3)
+            if len(parts) >= 4:
+                owner, repo_name, branch, path = parts
+                image_url = f"https://github.com/{owner}/{repo_name}/raw/{branch}/{path}"
             
         req = requests.get(image_url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=30)
         req.raise_for_status()
