@@ -59,6 +59,8 @@ __pycache__/
 # --- Polymarket Bot (runtime & secrets) ---
 polymarket_bot/__pycache__/
 polymarket_bot/*.pyc
+polymarket_bot/venv/
+polymarket_bot/thesis.json
 polymarket_bot/config.yaml
 polymarket_bot/whale_wallets.json
 polymarket_bot/positions.json
