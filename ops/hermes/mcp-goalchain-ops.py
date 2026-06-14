@@ -315,6 +315,10 @@ def upload_generated_asset(player_id: int, image_url: str, style: str = "v6.4") 
     
     # Download image url
     try:
+        # Translate GitHub URLs to raw user content download links
+        if "github.com" in image_url and "/blob/" in image_url:
+            image_url = image_url.replace("github.com", "raw.githubusercontent.com").replace("/blob/", "/")
+            
         req = requests.get(image_url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=30)
         req.raise_for_status()
         with open(file_path, "wb") as f:
