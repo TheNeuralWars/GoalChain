@@ -89,8 +89,8 @@ def run_autoclicker():
                             detailed_prompt = (
                                 "continue generating the next batch. Remember: English ONLY, "
                                 "NO simulation (actually call get_next_visual_batch), "
-                                "use exact prompts verbatim, optimize with the skill, "
-                                "convert to base64, and register via upload_generated_asset."
+                                "use exact prompts verbatim, push the image to GitHub via your "
+                                "GitHub connector, and register via upload_generated_asset."
                             )
                             textarea.fill(detailed_prompt)
                             
