@@ -184,15 +184,34 @@ def get_local_queue_status():
     except Exception as e:
         return f"⚠️ Error reading queue status: {e}"
 
+SYSTEM_PROMPT = (
+    "You are Hermes, Nico's expert Web3 & SportsFi autonomous agent for GoalChain, running on the production Oracle VPS.\n"
+    "You have absolute and total control over the server environment. Speak in Spanish as Nico is Spanish-speaking. Keep your tone direct, epic, and developer-oriented.\n\n"
+    "You have access to the following XML tags to execute actions on the VPS. When you need to use a tool, output the tag. Do NOT output anything else in that turn, wait for the tool output to be provided in the next turn:\n"
+    "1. To run a shell command in the repository root directory:\n"
+    "   <run_command>command to run</run_command>\n"
+    "   Examples: `git status`, `git pull`, `systemctl --user status goalchain_api`, `pm2 status`, `df -h`, `free -m`\n"
+    "2. To view/read a file in the workspace:\n"
+    "   <view_file>relative/path/to/file</view_file>\n"
+    "3. To list directory contents:\n"
+    "   <list_dir>relative/path/to/directory</list_dir>\n"
+    "4. To enqueue a code intake task (start an autonomous worker to write code):\n"
+    "   <enqueue_task>detailed prompt for the task</enqueue_task>\n\n"
+    "Always prefer checking the actual state of the repository/system by running commands or reading files rather than guessing. If Nico asks about status, what files exist, or what is going on, use your tools! Explain what you are doing in Spanish."
+)
+
 def chat_with_grok(chat_id, user_text):
-    """Chats with Grok (xAI) using XAI_API_KEY and maintains conversation history"""
+    """Chats with Grok (xAI) and executes tools if requested by the model"""
     if not XAI_API_KEY:
         return "⚠️ Missing XAI_API_KEY in VPS environment. Cannot chat."
 
     if chat_id not in CHAT_HISTORY:
         CHAT_HISTORY[chat_id] = [
-            {"role": "system", "content": "You are Hermes, Nico's expert Web3 & SportsFi development agent for GoalChain. Help him design, draft, and refine features. Keep formatting readable, bullet-pointed where helpful, and tone direct. Speak in Spanish since Nico is Spanish-speaking."}
+            {"role": "system", "content": SYSTEM_PROMPT}
         ]
+    else:
+        # Update system prompt in case it changed
+        CHAT_HISTORY[chat_id][0] = {"role": "system", "content": SYSTEM_PROMPT}
 
     # Append new user message
     CHAT_HISTORY[chat_id].append({"role": "user", "content": user_text})
@@ -202,31 +221,98 @@ def chat_with_grok(chat_id, user_text):
         "Content-Type": "application/json",
         "Authorization": f"Bearer {XAI_API_KEY}"
     }
-    
-    payload = {
-        "model": os.environ.get("XAI_MODEL", "grok-4.3"),
-        "messages": CHAT_HISTORY[chat_id],
-        "temperature": 0.7
-    }
 
-    try:
-        res = requests.post(url, json=payload, headers=headers, timeout=40)
-        if res.status_code == 200:
+    max_tool_iterations = 5
+    for iteration in range(max_tool_iterations):
+        payload = {
+            "model": os.environ.get("XAI_MODEL", "grok-4.3"),
+            "messages": CHAT_HISTORY[chat_id],
+            "temperature": 0.7
+        }
+
+        try:
+            res = requests.post(url, json=payload, headers=headers, timeout=45)
+            if res.status_code != 200:
+                return f"⚠️ Grok API returned status {res.status_code}: {res.text}"
+            
             data = res.json()
             assistant_text = data["choices"][0]["message"]["content"].strip()
             
             # Save history
             CHAT_HISTORY[chat_id].append({"role": "assistant", "content": assistant_text})
             
-            # Limit history to 20 messages (including system prompt)
-            if len(CHAT_HISTORY[chat_id]) > 21:
-                CHAT_HISTORY[chat_id] = [CHAT_HISTORY[chat_id][0]] + CHAT_HISTORY[chat_id][-20:]
+            # Look for tags
+            tool_found = False
+            tool_output = ""
+            
+            # 1. run_command
+            if "<run_command>" in assistant_text and "</run_command>" in assistant_text:
+                cmd = assistant_text.split("<run_command>")[1].split("</run_command>")[0].strip()
+                log(f"Tool Call: run_command -> {cmd}")
+                try:
+                    run_dir = REPO_ROOT if os.path.exists(REPO_ROOT) else os.path.expanduser("~")
+                    result = subprocess.run(cmd, shell=True, cwd=run_dir, capture_output=True, text=True, timeout=30)
+                    tool_output = f"Exit code: {result.returncode}\n\nSTDOUT:\n{result.stdout}\n\nSTDERR:\n{result.stderr}"
+                except Exception as e:
+                    tool_output = f"Error executing command: {e}"
+                tool_found = True
+            
+            # 2. view_file
+            elif "<view_file>" in assistant_text and "</view_file>" in assistant_text:
+                filepath = assistant_text.split("<view_file>")[1].split("</view_file>")[0].strip()
+                log(f"Tool Call: view_file -> {filepath}")
+                full_path = filepath if os.path.isabs(filepath) else os.path.join(REPO_ROOT, filepath)
+                try:
+                    if os.path.exists(full_path):
+                        with open(full_path, "r", encoding="utf-8", errors="replace") as f:
+                            content = f.read(5000)
+                            if len(content) >= 5000:
+                                content += "\n... [Truncated due to size]"
+                            tool_output = f"File {filepath} contents:\n{content}"
+                    else:
+                        tool_output = f"File not found: {filepath}"
+                except Exception as e:
+                    tool_output = f"Error reading file: {e}"
+                tool_found = True
                 
-            return assistant_text
-        else:
-            return f"⚠️ Grok API returned status {res.status_code}: {res.text}"
-    except Exception as e:
-        return f"⚠️ Error communicating with Grok API: {e}"
+            # 3. list_dir
+            elif "<list_dir>" in assistant_text and "</list_dir>" in assistant_text:
+                dirpath = assistant_text.split("<list_dir>")[1].split("</list_dir>")[0].strip()
+                log(f"Tool Call: list_dir -> {dirpath}")
+                full_path = dirpath if os.path.isabs(dirpath) else os.path.join(REPO_ROOT, dirpath)
+                try:
+                    if os.path.exists(full_path):
+                        items = os.listdir(full_path)
+                        tool_output = f"Directory {dirpath} contents:\n" + "\n".join(items)
+                    else:
+                        tool_output = f"Directory not found: {dirpath}"
+                except Exception as e:
+                    tool_output = f"Error listing directory: {e}"
+                tool_found = True
+                
+            # 4. enqueue_task
+            elif "<enqueue_task>" in assistant_text and "</enqueue_task>" in assistant_text:
+                task_desc = assistant_text.split("<enqueue_task>")[1].split("</enqueue_task>")[0].strip()
+                log(f"Tool Call: enqueue_task -> {task_desc}")
+                try:
+                    brief_path = create_intake_brief_from_voice(task_desc)
+                    tool_output = f"Task enqueued successfully! Brief created at {os.path.basename(brief_path)}. Workers will start shortly."
+                except Exception as e:
+                    tool_output = f"Error enqueuing task: {e}"
+                tool_found = True
+
+            if tool_found:
+                CHAT_HISTORY[chat_id].append({"role": "system", "content": f"[TOOL RESULT]\n{tool_output}"})
+                continue
+            else:
+                if len(CHAT_HISTORY[chat_id]) > 31:
+                    CHAT_HISTORY[chat_id] = [CHAT_HISTORY[chat_id][0]] + CHAT_HISTORY[chat_id][-30:]
+                return assistant_text
+
+        except Exception as e:
+            return f"⚠️ Error communicating with Grok API: {e}"
+            
+    return "⚠️ Se alcanzó el límite de ejecución de herramientas. Por favor simplifica tu consulta."
 
 def process_text_flow(chat_id, text):
     """Decides if the text is a direct intake command, a status query, or standard chat"""
