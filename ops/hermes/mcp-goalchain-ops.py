@@ -260,7 +260,8 @@ def get_next_visual_batch(style: str = "anime-stadium", count: int = 5) -> str:
             f"He is looking directly at the camera with a confident, smirk expression. No face masks, no accessories covering the face. "
             f"He is wearing a modern custom football kit: a jersey with a {jersey_colors} gradient pattern, black sleeves, "
             f"and absolutely NO logos, NO badges, and NO text on the chest (completely plain blank chest). "
-            f"Matching soccer shorts with the number \"{player_number}\" on the leg, matching high socks with stripes, and shiny metallic {cleat_color} soccer cleats. "
+            f"He is wearing matching soccer shorts with the jersey number \"{player_number}\" clearly printed, highly visible, and perfectly legible in high-contrast solid color on the front leg of the shorts. No other numbers or letters should appear on the uniform. "
+            f"Matching socks with stripes, and shiny metallic {cleat_color} soccer cleats. "
             f"Pose: standing confidently with one foot resting on top of a soccer ball. "
             f"Background: Solid, completely clean, flat, uniform white background. No shadows, no floor textures, no gradients, no stadium, no distractions. Perfect for easy background removal."
         )
