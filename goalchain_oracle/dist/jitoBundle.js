@@ -241,7 +241,7 @@ export async function simulateBundle(blockEngineUrl, transactions) {
     }
 }
 export async function buildVaultCrankBundle(params) {
-    const { connection, payer, stakingIx, buybackIx, burnIx, basePriorityFeeMicroLamports, priorityTier, tipAccounts } = params;
+    const { connection, payer, stakingIx, buybackTx, burnTx, basePriorityFeeMicroLamports, priorityTier, tipAccounts } = params;
     // Get priority fee instructions (compute budget + priority fee)
     const { getPriorityFeeInstructions } = await import("./priorityFees.js");
     const priorityFeeIxs = await getPriorityFeeInstructions(connection, [payer.publicKey.toBase58()], 500_000);
@@ -255,21 +255,16 @@ export async function buildVaultCrankBundle(params) {
     stakingTx.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
     stakingTx.sign(payer);
     transactions.push(VersionedTransaction.deserialize(stakingTx.serialize()));
-    // 2. Buyback transaction (if present)
-    if (buybackIx) {
-        const buybackTx = new Transaction().add(...priorityFeeIxs, buybackIx);
-        buybackTx.feePayer = payer.publicKey;
-        buybackTx.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
-        buybackTx.sign(payer);
-        transactions.push(VersionedTransaction.deserialize(buybackTx.serialize()));
+    // 2. Buyback transaction (if present) - use Jupiter VersionedTransaction directly
+    if (buybackTx) {
+        // Sign the buyback transaction
+        buybackTx.sign([payer]);
+        transactions.push(buybackTx);
     }
     // 3. Burn transaction (if present)
-    if (burnIx) {
-        const burnTx = new Transaction().add(...priorityFeeIxs, burnIx);
-        burnTx.feePayer = payer.publicKey;
-        burnTx.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
-        burnTx.sign(payer);
-        transactions.push(VersionedTransaction.deserialize(burnTx.serialize()));
+    if (burnTx) {
+        burnTx.sign([payer]);
+        transactions.push(burnTx);
     }
     // 4. Jito Tip transaction (MUST BE LAST)
     if (tipAccount && tipLamports > 0) {
@@ -292,7 +287,7 @@ export async function buildVaultCrankBundle(params) {
  * High-level function to execute a vault crank via Jito bundle.
  * Handles the full flow: fetch tip accounts, build bundle, simulate, submit, confirm.
  */
-export async function executeVaultCrankBundle(connection, payer, stakingIx, buybackIx, burnIx, options = {}) {
+export async function executeVaultCrankBundle(connection, payer, stakingIx, buybackTx, burnTx, options = {}) {
     const { blockEngineUrl = BLOCK_ENGINE_URLS.devnet, priorityTier = PriorityTier.STANDARD, maxPollAttempts = 30, } = options;
     console.log(`[Jito Bundle] Starting vault crank bundle execution (tier: ${priorityTier})`);
     // 1. Fetch tip accounts
@@ -309,8 +304,8 @@ export async function executeVaultCrankBundle(connection, payer, stakingIx, buyb
         connection,
         payer,
         stakingIx,
-        buybackIx,
-        burnIx,
+        buybackTx,
+        burnTx,
         basePriorityFeeMicroLamports: basePriorityFee,
         priorityTier,
         tipAccounts,
