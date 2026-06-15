@@ -3,7 +3,7 @@
 Telegram Voice Listener Bot for GoalChain (Humans-0 Pipeline)
 Escucha notas de voz de Telegram, las transcribe con Gemini v1beta,
 genera un brief de ingesta en docs/intake/ y detona el flujo autónomo de código y push.
-También admite chat directo con Gemini y consulta de estado de la cola.
+También admite chat directo con Grok (xAI) y consulta de estado de la cola.
 """
 
 import os
@@ -23,23 +23,34 @@ QUEUE_FILE = os.path.join(HERMES_HOME, ".local-issues/queue.json")
 
 CHAT_HISTORY = {} # Keep conversation history: chat_id -> list of message dicts
 
-# Load Gemini API Key from active environment or config.env
+# Load Gemini and xAI API Keys from config.env
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+XAI_API_KEY = os.getenv("XAI_API_KEY")
 
-if not GEMINI_API_KEY:
+def load_keys():
+    global GEMINI_API_KEY, XAI_API_KEY
     config_file = os.path.join(HERMES_HOME, "config.env")
     if os.path.exists(config_file):
         with open(config_file) as f:
             for line in f:
-                if "GEMINI_API_KEY" in line and "=" in line:
+                if "=" in line:
                     parts = line.split("=", 1)
+                    key = parts[0].strip()
                     val = parts[1].strip().strip('"').strip("'")
-                    GEMINI_API_KEY = val
-                    os.environ["GEMINI_API_KEY"] = val
+                    if key == "GEMINI_API_KEY":
+                        GEMINI_API_KEY = val
+                        os.environ["GEMINI_API_KEY"] = val
+                    elif key == "XAI_API_KEY":
+                        XAI_API_KEY = val
+                        os.environ["XAI_API_KEY"] = val
 
-# Fallback hardcoded key if still empty
+load_keys()
+
+# Fallback keys if empty
 if not GEMINI_API_KEY:
     GEMINI_API_KEY = "AQ.Ab8RN6J42usKOAbHisJC8dkgkRpH8IZGNVet_l7rWvrIHsvpQA"
+if not XAI_API_KEY:
+    XAI_API_KEY = ""
 
 def log(msg):
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [TELEGRAM-BOT] {msg}", flush=True)
@@ -173,63 +184,49 @@ def get_local_queue_status():
     except Exception as e:
         return f"⚠️ Error reading queue status: {e}"
 
-def chat_with_gemini_direct(chat_id, user_text):
-    """Chats with Gemini directly using GEMINI_API_KEY and maintains conversation history"""
-    if not GEMINI_API_KEY:
-        return "⚠️ Missing GEMINI_API_KEY. Cannot chat."
+def chat_with_grok(chat_id, user_text):
+    """Chats with Grok (xAI) using XAI_API_KEY and maintains conversation history"""
+    if not XAI_API_KEY:
+        return "⚠️ Missing XAI_API_KEY in VPS environment. Cannot chat."
 
     if chat_id not in CHAT_HISTORY:
-        CHAT_HISTORY[chat_id] = []
-
-    # System instruction (Gemini API format)
-    system_instruction = {
-        "parts": [{"text": "You are Hermes, Nico's expert Web3 & SportsFi development agent for GoalChain. Help him design, draft, and refine features. Keep formatting readable, bullet-pointed where helpful, and tone direct. Speak in Spanish since Nico is Spanish-speaking."}]
-    }
-
-    # Format history for Gemini API
-    contents = []
-    for msg in CHAT_HISTORY[chat_id]:
-        role = "model" if msg["role"] == "assistant" else "user"
-        contents.append({
-            "role": role,
-            "parts": [{"text": msg["content"]}]
-        })
+        CHAT_HISTORY[chat_id] = [
+            {"role": "system", "content": "You are Hermes, Nico's expert Web3 & SportsFi development agent for GoalChain. Help him design, draft, and refine features. Keep formatting readable, bullet-pointed where helpful, and tone direct. Speak in Spanish since Nico is Spanish-speaking."}
+        ]
 
     # Append new user message
-    contents.append({
-        "role": "user",
-        "parts": [{"text": user_text}]
-    })
+    CHAT_HISTORY[chat_id].append({"role": "user", "content": user_text})
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
+    url = "https://api.x.ai/v1/chat/completions"
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {XAI_API_KEY}"
+    }
     
     payload = {
-        "contents": contents,
-        "systemInstruction": system_instruction,
-        "generationConfig": {
-            "temperature": 0.7
-        }
+        "model": "grok-beta",
+        "messages": CHAT_HISTORY[chat_id],
+        "temperature": 0.7
     }
 
     try:
-        res = requests.post(url, json=payload, timeout=30)
+        res = requests.post(url, json=payload, headers=headers, timeout=40)
         if res.status_code == 200:
             data = res.json()
-            assistant_text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
+            assistant_text = data["choices"][0]["message"]["content"].strip()
             
             # Save history
-            CHAT_HISTORY[chat_id].append({"role": "user", "content": user_text})
             CHAT_HISTORY[chat_id].append({"role": "assistant", "content": assistant_text})
             
-            # Limit history to 20 messages
-            if len(CHAT_HISTORY[chat_id]) > 20:
-                CHAT_HISTORY[chat_id] = CHAT_HISTORY[chat_id][-20:]
+            # Limit history to 20 messages (including system prompt)
+            if len(CHAT_HISTORY[chat_id]) > 21:
+                CHAT_HISTORY[chat_id] = [CHAT_HISTORY[chat_id][0]] + CHAT_HISTORY[chat_id][-20:]
                 
             return assistant_text
         else:
-            return f"⚠️ Gemini API returned status {res.status_code}: {res.text}"
+            return f"⚠️ Grok API returned status {res.status_code}: {res.text}"
     except Exception as e:
-        return f"⚠️ Error communicating with Gemini API: {e}"
+        return f"⚠️ Error communicating with Grok API: {e}"
 
 def process_text_flow(chat_id, text):
     """Decides if the text is a direct intake command, a status query, or standard chat"""
@@ -253,8 +250,8 @@ def process_text_flow(chat_id, text):
         )
         send_message(chat_id, response_msg)
     else:
-        # 3. Standard chat mode
-        response = chat_with_gemini_direct(chat_id, cleaned)
+        # 3. Standard chat mode (uses Grok/xAI as default)
+        response = chat_with_grok(chat_id, cleaned)
         send_message(chat_id, response)
 
 def handle_voice_message(voice_data, file_id):
@@ -304,7 +301,7 @@ def handle_voice_message(voice_data, file_id):
         
     except Exception as e:
         log(f"ERROR during transcription/ingestion: {e}")
-        send_message(chat_id, f"❌ **Error al transcribir tu nota de voz:** {e}")
+        send_message(chat_id, f"❌ **Error al transcribir tu nota de voz:** {e}\n\nNota: Tu cuenta de Gemini API parece bloqueada (403 PERMISSION_DENIED). Por favor actualiza GEMINI_API_KEY en config.env.")
 
 def send_message(chat_id, text):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
@@ -350,7 +347,7 @@ def main_loop():
                     chat_id = message["chat"]["id"]
                     log(f"Received text command: {text}")
                     if text.lower().startswith("/start") or text.lower().startswith("/help"):
-                        send_message(chat_id, "🎙️ **GoalChain Humans-0 Voice Bot (Modo Dual)** 🎙️\n\n- Háblame normalmente para chatear conmigo sobre ideas.\n- Envía `status` o `queue` para ver el estado de la flota de workers.\n- Empieza tu mensaje con `xq ` (ej: `xq agregar endpoint de prueba`) para encolar una tarea de código automáticamente.")
+                        send_message(chat_id, "🎙️ **GoalChain Humans-0 Voice Bot (Modo Dual)** 🎙️\n\n- Háblame normalmente para chatear conmigo sobre ideas (usando Grok).\n- Envía `status` o `queue` para ver el estado de la flota de workers.\n- Empieza tu mensaje con `xq ` (ej: `xq agregar endpoint de prueba`) para encolar una tarea de código automáticamente.")
                     else:
                         process_text_flow(chat_id, text)
                         
