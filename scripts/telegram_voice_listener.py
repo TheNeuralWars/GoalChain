@@ -214,7 +214,9 @@ def chat_with_grok(chat_id, user_text):
     
     try:
         run_dir = REPO_ROOT if os.path.exists(REPO_ROOT) else os.path.expanduser("~")
-        result = subprocess.run(cmd, capture_output=True, text=True, cwd=run_dir, timeout=90)
+        sub_env = os.environ.copy()
+        sub_env["HERMES_HOME"] = os.path.expanduser("~/.hermes")
+        result = subprocess.run(cmd, capture_output=True, text=True, cwd=run_dir, env=sub_env, timeout=90)
         
         stdout_text = result.stdout.strip()
         stderr_text = result.stderr.strip()
