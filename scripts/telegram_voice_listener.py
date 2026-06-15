@@ -3,6 +3,7 @@
 Telegram Voice Listener Bot for GoalChain (Humans-0 Pipeline)
 Escucha notas de voz de Telegram, las transcribe con Gemini v1beta,
 genera un brief de ingesta en docs/intake/ y detona el flujo autónomo de código y push.
+También admite chat directo con Gemini y consulta de estado de la cola.
 """
 
 import os
@@ -18,12 +19,11 @@ BOT_TOKEN = "8677250341:AAFK4UIJzXxgnGL_qLhXrq_RmRKeWKmCNIg"
 HERMES_HOME = os.getenv("HERMES_HOME", os.path.expanduser("~/hermes"))
 REPO_ROOT = os.getenv("GOALCHAIN_REPO_PATH", os.path.join(HERMES_HOME, "workspace/GoalChain"))
 INTAKE_DIR = os.path.join(REPO_ROOT, "docs/intake")
+QUEUE_FILE = os.path.join(HERMES_HOME, ".local-issues/queue.json")
 
-# Local Gemini Web API proxy
-LOCAL_API_URL = "http://localhost:8081/v1/chat/completions"
 CHAT_HISTORY = {} # Keep conversation history: chat_id -> list of message dicts
 
-# Load Gemini API Key from active environment or process proc environment fallback
+# Load Gemini API Key from active environment or config.env
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 if not GEMINI_API_KEY:
@@ -37,22 +37,15 @@ if not GEMINI_API_KEY:
                     GEMINI_API_KEY = val
                     os.environ["GEMINI_API_KEY"] = val
 
-def report_to_discord(brief_path, transcription_text):
-    """Llama al reporte de Discord en segundo plano"""
-    try:
-        subprocess.Popen([
-            "python3", 
-            "/home/ubuntu/GoalChain/scripts/post_discord_manifesto.py", 
-            "--task-file", brief_path
-        ])
-    except Exception as e:
-        log(f"Reporter error (non-fatal): {e}")
+# Fallback hardcoded key if still empty
+if not GEMINI_API_KEY:
+    GEMINI_API_KEY = "AQ.Ab8RN6J42usKOAbHisJC8dkgkRpH8IZGNVet_l7rWvrIHsvpQA"
 
 def log(msg):
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [TELEGRAM-BOT] {msg}", flush=True)
 
 def transcribe_audio_gemini(audio_bytes, mime_type="audio/ogg"):
-    """Llama a la API de Gemini v1beta con soporte nativo de audio multimodal (sin dependencias de SDK)"""
+    """Llama a la API de Gemini v1beta con soporte nativo de audio multimodal"""
     if not GEMINI_API_KEY:
         raise ValueError("Missing GEMINI_API_KEY. Cannot transcribe audio.")
 
@@ -103,6 +96,7 @@ def create_intake_brief_from_voice(transcription_text):
     slug = f"voice-task-{timestamp}"
     filepath = os.path.join(INTAKE_DIR, f"{date_str}-{slug}.md")
     
+    # Extract first few words as title
     words = transcription_text.strip().split()
     title_words = words[:8] if len(words) >= 8 else words
     title_str = " ".join(title_words).strip(".!?, ")
@@ -115,7 +109,7 @@ def create_intake_brief_from_voice(transcription_text):
 
 - **Status:** ready-for-hermes
 - **Priority:** P1
-- **Owner:** grok-triage
+- **Owner:** opencode
 - **Created:** {date_str}
 - **Source:** Voice Note via Telegram Bot
 
@@ -144,44 +138,114 @@ This task was received as a voice note from Nico via the Telegram Bot and transc
     log(f"Successfully generated intake brief: {filepath}")
     return filepath
 
-def chat_with_gemini(chat_id, user_text):
-    """Talks to the local gemini-web2api server with conversational history"""
-    if chat_id not in CHAT_HISTORY:
-        CHAT_HISTORY[chat_id] = [
-            {"role": "system", "content": "You are Hermes, Nico's expert Web3 & SportsFi development agent for GoalChain. Help him design, draft, and refine features. Keep formatting readable and tone direct."}
-        ]
+def get_local_queue_status():
+    """Reads queue.json and returns a formatted status report"""
+    if not os.path.exists(QUEUE_FILE):
+        return "📁 No queue file found on VPS."
     
-    # Append user prompt
-    CHAT_HISTORY[chat_id].append({"role": "user", "content": user_text})
-    
-    # Keep history to last 15 messages (plus system prompt) to conserve context
-    if len(CHAT_HISTORY[chat_id]) > 16:
-        CHAT_HISTORY[chat_id] = [CHAT_HISTORY[chat_id][0]] + CHAT_HISTORY[chat_id][-15:]
-        
     try:
-        payload = {
-            "model": "gemini-3.5-flash-thinking",
-            "messages": CHAT_HISTORY[chat_id]
+        with open(QUEUE_FILE, "r") as f:
+            data = json.load(f)
+        issues = data.get("issues", [])
+        if not issues:
+            return "✅ The queue is empty."
+        
+        status_map = {
+            "in_progress": "⚡ In Progress",
+            "ready": "⏳ Ready",
+            "done": "✅ Done",
+            "merged": "🚀 Merged",
+            "blocked": "🚫 Blocked"
         }
-        res = requests.post(LOCAL_API_URL, json=payload, timeout=90)
-        if res.status_code == 200:
-            assistant_content = res.json()["choices"][0]["message"]["content"]
-            CHAT_HISTORY[chat_id].append({"role": "assistant", "content": assistant_content})
-            return assistant_content
-        else:
-            return f"⚠️ Local Gemini API proxy returned status {res.status_code}: {res.text}"
+        
+        report = "📊 **GoalChain Fleet Status** 📊\n\n"
+        for i in issues:
+            gh_num = i.get("github_number")
+            issue_ref = f"#{gh_num}" if gh_num else f"ID {i.get('id')}"
+            status = i.get("status")
+            status_display = status_map.get(status, status.capitalize())
+            worker = i.get("assigned_worker") or "None"
+            
+            report += f"• **{issue_ref}**: {i.get('title')}\n"
+            report += f"  Status: {status_display} | Worker: `{worker}`\n\n"
+            
+        return report.strip()
     except Exception as e:
-        return f"⚠️ Error communicating with local Gemini API proxy: {e}"
+        return f"⚠️ Error reading queue status: {e}"
+
+def chat_with_gemini_direct(chat_id, user_text):
+    """Chats with Gemini directly using GEMINI_API_KEY and maintains conversation history"""
+    if not GEMINI_API_KEY:
+        return "⚠️ Missing GEMINI_API_KEY. Cannot chat."
+
+    if chat_id not in CHAT_HISTORY:
+        CHAT_HISTORY[chat_id] = []
+
+    # System instruction (Gemini API format)
+    system_instruction = {
+        "parts": [{"text": "You are Hermes, Nico's expert Web3 & SportsFi development agent for GoalChain. Help him design, draft, and refine features. Keep formatting readable, bullet-pointed where helpful, and tone direct. Speak in Spanish since Nico is Spanish-speaking."}]
+    }
+
+    # Format history for Gemini API
+    contents = []
+    for msg in CHAT_HISTORY[chat_id]:
+        role = "model" if msg["role"] == "assistant" else "user"
+        contents.append({
+            "role": role,
+            "parts": [{"text": msg["content"]}]
+        })
+
+    # Append new user message
+    contents.append({
+        "role": "user",
+        "parts": [{"text": user_text}]
+    })
+
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
+    
+    payload = {
+        "contents": contents,
+        "systemInstruction": system_instruction,
+        "generationConfig": {
+            "temperature": 0.7
+        }
+    }
+
+    try:
+        res = requests.post(url, json=payload, timeout=30)
+        if res.status_code == 200:
+            data = res.json()
+            assistant_text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
+            
+            # Save history
+            CHAT_HISTORY[chat_id].append({"role": "user", "content": user_text})
+            CHAT_HISTORY[chat_id].append({"role": "assistant", "content": assistant_text})
+            
+            # Limit history to 20 messages
+            if len(CHAT_HISTORY[chat_id]) > 20:
+                CHAT_HISTORY[chat_id] = CHAT_HISTORY[chat_id][-20:]
+                
+            return assistant_text
+        else:
+            return f"⚠️ Gemini API returned status {res.status_code}: {res.text}"
+    except Exception as e:
+        return f"⚠️ Error communicating with Gemini API: {e}"
 
 def process_text_flow(chat_id, text):
-    """Decides if the text is a direct intake command (starting with xq) or standard agent chat"""
+    """Decides if the text is a direct intake command, a status query, or standard chat"""
     cleaned = text.strip()
+    cleaned_lower = cleaned.lower()
     
-    # Check for direct code/tasks ingestion prefix
-    if cleaned.lower().startswith("xq "):
+    # 1. Check for queue status commands
+    if cleaned_lower in ["/status", "status", "queue", "/queue", "cola", "estado"]:
+        status_report = get_local_queue_status()
+        send_message(chat_id, status_report)
+        return
+
+    # 2. Check for direct code/tasks ingestion prefix
+    if cleaned_lower.startswith("xq "):
         task_prompt = cleaned[3:].strip()
         brief_path = create_intake_brief_from_voice(task_prompt)
-        report_to_discord(brief_path, task_prompt)
         response_msg = (
             f"📝 **Text Brief Ingested!**\n\n"
             f"📁 **Brief:** `{os.path.basename(brief_path)}`\n"
@@ -189,17 +253,19 @@ def process_text_flow(chat_id, text):
         )
         send_message(chat_id, response_msg)
     else:
-        # Standard chat mode
-        response = chat_with_gemini(chat_id, cleaned)
+        # 3. Standard chat mode
+        response = chat_with_gemini_direct(chat_id, cleaned)
         send_message(chat_id, response)
 
 def handle_voice_message(voice_data, file_id):
-    """Descarga el audio de Telegram, lo transcribe y procesa como chat o ingesta"""
+    """Descarga el audio de Telegram, lo transcribe y genera la tarea"""
     log(f"Downloading voice note {file_id} from Telegram...")
     chat_id = voice_data["chat"]["id"]
     
+    # getFile API call
     file_url = f"https://api.telegram.org/bot{BOT_TOKEN}/getFile?file_id={file_id}"
     res = requests.get(file_url).json()
+    
     if not res.get("ok"):
         log(f"ERROR: Failed to get file path from Telegram: {res}")
         return
@@ -207,6 +273,7 @@ def handle_voice_message(voice_data, file_id):
     file_path = res["result"]["file_path"]
     download_url = f"https://api.telegram.org/file/bot{BOT_TOKEN}/{file_path}"
     
+    # Download audio bytes
     audio_res = requests.get(download_url)
     if audio_res.status_code != 200:
         log(f"ERROR: Failed to download audio file: {audio_res.status_code}")
@@ -223,11 +290,21 @@ def handle_voice_message(voice_data, file_id):
             log("WARN: Transcription is too short. Ignoring.")
             return
             
-        process_text_flow(chat_id, transcription)
+        # Create intake brief
+        brief_path = create_intake_brief_from_voice(transcription)
+        
+        # Respond back to Telegram user
+        success_msg = (
+            f"🧠 **Hermes Ingestion de Voz Exitosa** 🚀\n\n"
+            f"📝 **Transcripción:**\n_\"{transcription}\"_\n\n"
+            f"📁 **Brief de Ingreso Creado:** `{os.path.basename(brief_path)}`\n"
+            f"⚡ **Estado:** Tarea encolada autónomamente (`status:ready`). ¡El worker está codificando y testeando!"
+        )
+        send_message(chat_id, success_msg)
         
     except Exception as e:
-        log(f"ERROR during transcription/processing: {e}")
-        send_message(chat_id, f"❌ **Error processing voice note:** {e}")
+        log(f"ERROR during transcription/ingestion: {e}")
+        send_message(chat_id, f"❌ **Error al transcribir tu nota de voz:** {e}")
 
 def send_message(chat_id, text):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
@@ -236,7 +313,6 @@ def send_message(chat_id, text):
         "text": text,
         "parse_mode": "Markdown"
     }
-    # Fallback to HTML if markdown parsing fails
     res = requests.post(url, json=payload)
     if res.status_code != 200:
         payload["parse_mode"] = ""
@@ -274,7 +350,7 @@ def main_loop():
                     chat_id = message["chat"]["id"]
                     log(f"Received text command: {text}")
                     if text.lower().startswith("/start") or text.lower().startswith("/help"):
-                        send_message(chat_id, "🎙️ **GoalChain Humans-0 Voice Bot (Dual Chat/Intake)** 🎙️\n\n- Talk normally to chat with me as an AI assistant to discuss ideas.\n- Start your message with `xq ` (e.g. `xq create a new page`) to trigger an automatic code intake task.")
+                        send_message(chat_id, "🎙️ **GoalChain Humans-0 Voice Bot (Modo Dual)** 🎙️\n\n- Háblame normalmente para chatear conmigo sobre ideas.\n- Envía `status` o `queue` para ver el estado de la flota de workers.\n- Empieza tu mensaje con `xq ` (ej: `xq agregar endpoint de prueba`) para encolar una tarea de código automáticamente.")
                     else:
                         process_text_flow(chat_id, text)
                         
