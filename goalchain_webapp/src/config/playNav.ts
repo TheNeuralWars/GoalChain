@@ -25,6 +25,7 @@ export const PLAY_SECTIONS: PlayNavItem[] = [
   { id: 'estadio', label: 'Estadio', to: '/estadio' },
   { id: 'defi', label: 'DeFi Terminal', to: '/defi' },
   { id: 'club', label: 'Mi Club', to: '/club' },
+  { id: 'staking', label: 'Staking & Burn', to: '/staking' },
   { id: 'guias', label: 'Manuales y Guías', to: '/guias' },
 ];
 
