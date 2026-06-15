@@ -155,11 +155,11 @@ def register_on_vps(player_id, base64_data):
 
 def run_generator():
     print("=== GoalChain Grok Autonomous Browser Generator ===")
-    print("Connecting to local Chrome at http://localhost:9222...")
+    print("Connecting to local Chrome at http://127.0.0.1:9222...")
     
     with sync_playwright() as p:
         try:
-            browser = p.chromium.connect_over_cdp("http://localhost:9222")
+            browser = p.chromium.connect_over_cdp("http://127.0.0.1:9222")
         except Exception as e:
             print(f"[ERROR] Could not connect to Chrome. Make sure Chrome is open on port 9222: {e}")
             sys.exit(1)
