@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { fetchWithTimeout, retrySendAndConfirm } from "@goalchain/sdk";
 
 interface VaultCrankReport {
   timestamp_iso: string;
@@ -84,7 +85,7 @@ async function main() {
       const programId = process.env.PROGRAM_ID || "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg";
 
       notes.push(`Connecting to Solana RPC: ${rpcUrl}`);
-      
+
       try {
         const { Connection, Keypair, PublicKey, SystemProgram, Transaction, sendAndConfirmTransaction } = await import("@solana/web3.js");
         const connection = new Connection(rpcUrl, "confirmed");
@@ -115,13 +116,13 @@ async function main() {
           gchMintStr = "So11111111111111111111111111111111111111112"; // Fallback to WSOL
           notes.push(`No GCH Mint found in env or config. Falling back to WSOL: ${gchMintStr}`);
         }
-        
+
         // Resolve keypair path
         let resolvedPath = keypairPath;
         if (keypairPath.startsWith("~")) {
           resolvedPath = keypairPath.replace("~", process.env.HOME || "");
         }
-        
+
         let payer: any = null;
         if (fs.existsSync(resolvedPath)) {
           const secretKey = JSON.parse(fs.readFileSync(resolvedPath, "utf-8"));
@@ -142,15 +143,15 @@ async function main() {
             const lamports = Math.round(buybackSol * 1e9);
             const quoteUrl = `https://quote-api.jup.ag/v6/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=${gchMintStr}&amount=${lamports}&slippageBps=100`;
             notes.push(`Fetching Jupiter Quote: ${quoteUrl}`);
-            
+
             // Native fetch exists in Node 18+
-            const quoteRes = await fetch(quoteUrl);
+            const quoteRes = await fetchWithTimeout(quoteUrl, { timeoutMs: 10000 });
             if (quoteRes.ok) {
               const quoteData: any = await quoteRes.json();
               notes.push(`Jupiter quote fetched: GCH out = ${quoteData.outAmount}`);
-              
+
               // Construct swap transaction
-              const swapRes = await fetch("https://quote-api.jup.ag/v6/swap", {
+              const swapRes = await fetchWithTimeout("https://quote-api.jup.ag/v6/swap", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -158,12 +159,13 @@ async function main() {
                   userPublicKey: payer.publicKey.toBase58(),
                   wrapAndUnwrapSol: true,
                 }),
+                timeoutMs: 10000,
               });
-              
+
               if (swapRes.ok) {
                 const { swapTransaction } = await swapRes.json() as any;
                 notes.push("Jupiter swap transaction generated. Ready to sign and submit.");
-                
+
                 // Sign & Send
                 const rawTx = Buffer.from(swapTransaction, "base64");
                 const tx = Transaction.from(rawTx);
@@ -189,7 +191,7 @@ async function main() {
         // On-chain harvest / burn transaction fallback (works on Devnet & Localnet)
         notes.push("Executing on-chain transaction...");
         const transaction = new Transaction();
-        
+
         try {
           const { getPriorityFeeInstructions } = await import("./priorityFees.js");
           const priorityFeeIxs = await getPriorityFeeInstructions(connection, [payer.publicKey.toBase58()], 50000);
@@ -206,11 +208,21 @@ async function main() {
             lamports: Math.min(1000000, Math.round(buybackSol * 1e9)), // Limit devnet/localnet test lamports to 0.001 SOL
           })
         );
-        
+
         try {
-          const txid = await sendAndConfirmTransaction(connection, transaction, [payer], {
-            commitment: "confirmed",
-          });
+          const txid = await retrySendAndConfirm(
+            () => sendAndConfirmTransaction(connection, transaction, [payer], {
+              commitment: "confirmed",
+            }),
+            {
+              maxRetries: 3,
+              baseDelayMs: 1000,
+              maxDelayMs: 10000,
+              onRetry: (attempt, error) => {
+                notes.push(`Retry ${attempt}/3 for sendAndConfirmTransaction: ${error.message}`);
+              },
+            }
+          );
           txHashes.push(txid);
           notes.push(`Successfully sent on-chain buyback transfer: ${txid}`);
         } catch (txErr: any) {
