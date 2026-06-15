@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { fetchWithTimeout, retrySendAndConfirm } from "@goalchain/sdk";
 const BUYBACK_SHARE = Number(process.env.BUYBACK_SHARE_OF_YIELD || "0.60");
 const JACKPOT_SHARE = Number(process.env.JACKPOT_SHARE_OF_YIELD || "0.10");
 const REINVEST_SHARE = Number(process.env.REINVEST_SHARE_OF_YIELD || "0.30");
@@ -106,12 +107,12 @@ async function main() {
                         const quoteUrl = `https://quote-api.jup.ag/v6/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=${gchMintStr}&amount=${lamports}&slippageBps=100`;
                         notes.push(`Fetching Jupiter Quote: ${quoteUrl}`);
                         // Native fetch exists in Node 18+
-                        const quoteRes = await fetch(quoteUrl);
+                        const quoteRes = await fetchWithTimeout(quoteUrl, { timeoutMs: 10000 });
                         if (quoteRes.ok) {
                             const quoteData = await quoteRes.json();
                             notes.push(`Jupiter quote fetched: GCH out = ${quoteData.outAmount}`);
                             // Construct swap transaction
-                            const swapRes = await fetch("https://quote-api.jup.ag/v6/swap", {
+                            const swapRes = await fetchWithTimeout("https://quote-api.jup.ag/v6/swap", {
                                 method: "POST",
                                 headers: { "Content-Type": "application/json" },
                                 body: JSON.stringify({
@@ -119,6 +120,7 @@ async function main() {
                                     userPublicKey: payer.publicKey.toBase58(),
                                     wrapAndUnwrapSol: true,
                                 }),
+                                timeoutMs: 10000,
                             });
                             if (swapRes.ok) {
                                 const { swapTransaction } = await swapRes.json();
@@ -165,8 +167,15 @@ async function main() {
                     lamports: Math.min(1000000, Math.round(buybackSol * 1e9)), // Limit devnet/localnet test lamports to 0.001 SOL
                 }));
                 try {
-                    const txid = await sendAndConfirmTransaction(connection, transaction, [payer], {
+                    const txid = await retrySendAndConfirm(() => sendAndConfirmTransaction(connection, transaction, [payer], {
                         commitment: "confirmed",
+                    }), {
+                        maxRetries: 3,
+                        baseDelayMs: 1000,
+                        maxDelayMs: 10000,
+                        onRetry: (attempt, error) => {
+                            notes.push(`Retry ${attempt}/3 for sendAndConfirmTransaction: ${error.message}`);
+                        },
                     });
                     txHashes.push(txid);
                     notes.push(`Successfully sent on-chain buyback transfer: ${txid}`);
