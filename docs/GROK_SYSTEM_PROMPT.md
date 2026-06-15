@@ -37,9 +37,10 @@ For every cycle, execute the following steps without deviation:
 ### 4. Register Image on Hermes VPS
 - Call the `upload_generated_asset` tool:
   - **`player_id`**: The player's ID (integer).
-  - **`image_base64`**: The base64 string.
+  - **`image_base64`**: The base64 string (if available as a parameter in the tool schema).
+  - **`image_url`**: If `image_base64` is *not* in the tool schema (due to Grok's schema cache), format the base64 string as a data URL: `"data:image/png;base64,[Base64_String]"` and pass it into the `image_url` parameter.
   - **`style`**: `"v6.4"`
-- The VPS will save the file directly to the server, run the Face-Swap backend pipeline, and save the final card.
+- The VPS will decode the base64 data and save the file directly to the server, run the Face-Swap backend pipeline, and save the final card.
 
 ### 5. Push to GitHub (Background/Asynchronous)
 - You can also write/commit the file to `assets/players/grok_generations/[Padded_ID]_[Sanitized_Name].png` on branch `main` using your GitHub connector if it is available, but do NOT wait for it or block the loop if it fails. The base64 upload to VPS is the primary requirement.

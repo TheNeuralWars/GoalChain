@@ -328,24 +328,38 @@ def upload_generated_asset(player_id: int, image_url: str = "", image_base64: st
         except Exception as e:
             return f"Error: Failed to decode and save base64 image data. Reason: {str(e)}"
     elif image_url:
-        # Download image url
-        try:
-            # Translate GitHub URLs to instant raw download links to avoid raw.githubusercontent.com CDN caching delay
-            if "github.com" in image_url and "/blob/" in image_url:
-                image_url = image_url.replace("/blob/", "/raw/")
-            elif "raw.githubusercontent.com" in image_url:
-                # Reconstruct instant github.com/raw link from raw.githubusercontent.com
-                parts = image_url.replace("https://raw.githubusercontent.com/", "").split("/", 3)
-                if len(parts) >= 4:
-                    owner, repo_name, branch, path = parts
-                    image_url = f"https://github.com/{owner}/{repo_name}/raw/{branch}/{path}"
-                
-            req = requests.get(image_url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=30)
-            req.raise_for_status()
-            with open(file_path, "wb") as f:
-                f.write(req.content)
-        except Exception as e:
-            return f"Error: Failed to download asset from {image_url}. Reason: {str(e)}"
+        if image_url.startswith("data:"):
+            import base64
+            try:
+                # Format: "data:image/png;base64,iVBORw0KG..."
+                if "," in image_url:
+                    base64_data = image_url.split(",", 1)[1]
+                else:
+                    base64_data = image_url
+                img_data = base64.b64decode(base64_data)
+                with open(file_path, "wb") as f:
+                    f.write(img_data)
+            except Exception as e:
+                return f"Error: Failed to decode and save data URL. Reason: {str(e)}"
+        else:
+            # Download image url
+            try:
+                # Translate GitHub URLs to instant raw download links to avoid raw.githubusercontent.com CDN caching delay
+                if "github.com" in image_url and "/blob/" in image_url:
+                    image_url = image_url.replace("/blob/", "/raw/")
+                elif "raw.githubusercontent.com" in image_url:
+                    # Reconstruct instant github.com/raw link from raw.githubusercontent.com
+                    parts = image_url.replace("https://raw.githubusercontent.com/", "").split("/", 3)
+                    if len(parts) >= 4:
+                        owner, repo_name, branch, path = parts
+                        image_url = f"https://github.com/{owner}/{repo_name}/raw/{branch}/{path}"
+                    
+                req = requests.get(image_url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=30)
+                req.raise_for_status()
+                with open(file_path, "wb") as f:
+                    f.write(req.content)
+            except Exception as e:
+                return f"Error: Failed to download asset from {image_url}. Reason: {str(e)}"
     else:
         return "Error: Either image_url or image_base64 must be provided."
         

@@ -28,9 +28,10 @@ For **each** player returned in the batch, execute the complete sub-cycle (Gener
      ```
 3. **Register on VPS**: Call the `upload_generated_asset` tool:
    - **`player_id`**: The player's ID (integer).
-   - **`image_base64`**: The complete base64 string obtained in the previous step.
+   - **`image_base64`**: The complete base64 string (if this parameter is visible in the tool schema).
+   - **`image_url`**: If the `image_base64` parameter is *not* visible in the tool schema (due to Grok's schema cache), you must format the base64 string as a data URL: `"data:image/png;base64,[Your_Base64_String]"` and pass it directly into the `image_url` parameter.
    - **`style`**: `"v6.4"`
-   *(This uploads the asset directly to the VPS filesystem without requiring an immediate GitHub push, bypassing GitHub connector permission or CDN latency issues).*
+   *(Passing either `image_base64` or a base64 `data:` URI in `image_url` uploads the asset directly to the VPS filesystem without requiring an HTTP download, bypassing the GitHub push requirement).*
 
 4. **Background Git Commits**:
    - While the VPS receives the files directly, you can also write/commit them to the GitHub repository using your GitHub connector when possible, or save them in your workspace, but this step is non-blocking. The VPS registration via base64 is the primary path.
