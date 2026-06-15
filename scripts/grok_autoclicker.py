@@ -84,9 +84,15 @@ def run_autoclicker():
                         if current_ready_count > last_ready_count or (current_ready_count > 0 and last_ready_count == 0):
                             print(f"[INFO] New ready message detected (count: {current_ready_count}). Sending 'continue'...")
                             
-                            # Click input, type "continue" and click submit
+                            # Click input, type command and click submit
                             textarea.click()
-                            textarea.fill("continue")
+                            detailed_prompt = (
+                                "continue generating the next batch. Remember: English ONLY, "
+                                "NO simulation (actually call get_next_visual_batch), "
+                                "use exact prompts verbatim, optimize with the skill, "
+                                "convert to base64, and register via upload_generated_asset."
+                            )
+                            textarea.fill(detailed_prompt)
                             
                             # Press Enter
                             textarea.press("Enter")
