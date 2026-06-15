@@ -14,27 +14,19 @@ Call the `get_next_visual_batch` tool.
 - The tool returns a list of players, their IDs, and the **exact, pre-filled visual prompt** for each one.
 
 ### 2. Process Each Player Individually
-For **each** player returned in the batch, execute the complete sub-cycle (Generate -> Optimize & Encode -> Register) before moving to the next player:
+For **each** player returned in the batch, execute the complete sub-cycle (Generate -> Push to GitHub -> Register) before moving to the next player:
 
-1. **Generate**: Trigger your internal **Grok Imagine** tool with the exact `prompt`.
-2. **Optimize & Encode**: 
-   - Run the uploaded helper skill `grok_helper_skill.py` in your Python sandbox to validate and optimize the image.
-   - Run a short Python script to read the optimized PNG file and convert it into a base64-encoded string:
-     ```python
-     import base64
-     with open("output_optimized.png", "rb") as f:
-         b64_str = base64.b64encode(f.read()).decode("utf-8")
-     print(b64_str[:50]) # verification
-     ```
-3. **Register on VPS**: Call the `upload_generated_asset` tool:
+1. **Generate**: Trigger your internal **Grok Imagine** tool with the exact `prompt` returned by the tool.
+2. **Commit & Push to GitHub (CRITICAL)**: You MUST call your active **GitHub connector tool** (e.g., `create_or_update_file_contents` or similar write tool) to upload the generated image directly to the repository:
+   - **Target Path**: `assets/players/grok_generations/[Padded_ID]_[Sanitized_Name].png`
+   - **Commit message**: `feat(assets): generate visual card for player [ID] - [Name]`
+   *(Note: You must actively invoke the GitHub connector tool to commit and push the file to the remote repository so it becomes live on GitHub immediately).*
+3. **Register on VPS**: Once the push tool returns a success status, call the `upload_generated_asset` tool:
    - **`player_id`**: The player's ID (integer).
-   - **`image_base64`**: The complete base64 string (if this parameter is visible in the tool schema).
-   - **`image_url`**: If the `image_base64` parameter is *not* visible in the tool schema (due to Grok's schema cache), you must format the base64 string as a data URL: `"data:image/png;base64,[Your_Base64_String]"` and pass it directly into the `image_url` parameter.
+   - **`image_url`**: The instant raw download URL of the pushed GitHub file: `https://github.com/TheNeuralWars/GoalChain/raw/main/assets/players/grok_generations/[Padded_ID]_[Sanitized_Name].png` (use `/raw/` instead of `/blob/` to avoid CDN cache delays).
    - **`style`**: `"v6.4"`
-   *(Passing either `image_base64` or a base64 `data:` URI in `image_url` uploads the asset directly to the VPS filesystem without requiring an HTTP download, bypassing the GitHub push requirement).*
 
-4. **Background Git Commits**:
-   - While the VPS receives the files directly, you can also write/commit them to the GitHub repository using your GitHub connector when possible, or save them in your workspace, but this step is non-blocking. The VPS registration via base64 is the primary path.
+*By doing this one-by-one, every player is fully saved and registered immediately.*
 
 ### 3. Report Progress & Request Continue
 Once the batch of 5 is complete:
