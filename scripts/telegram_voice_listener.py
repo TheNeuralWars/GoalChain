@@ -232,7 +232,8 @@ def chat_with_grok(chat_id, user_text):
         "Authorization": f"Bearer {XAI_API_KEY}"
     }
 
-    max_tool_iterations = 5
+    max_tool_iterations = 20
+    last_assistant_text = ""
     for iteration in range(max_tool_iterations):
         payload = {
             "model": os.environ.get("XAI_MODEL", "grok-4.3"),
@@ -247,6 +248,7 @@ def chat_with_grok(chat_id, user_text):
             
             data = res.json()
             assistant_text = data["choices"][0]["message"]["content"].strip()
+            last_assistant_text = assistant_text
             
             # Save history
             CHAT_HISTORY[chat_id].append({"role": "assistant", "content": assistant_text})
@@ -322,7 +324,12 @@ def chat_with_grok(chat_id, user_text):
         except Exception as e:
             return f"⚠️ Error communicating with Grok API: {e}"
             
-    return "⚠️ Se alcanzó el límite de ejecución de herramientas. Por favor simplifica tu consulta."
+    # Clean XML tags from final response when limit is hit
+    clean_last_response = last_assistant_text
+    for tag in ["<run_command>", "</run_command>", "<view_file>", "</view_file>", "<list_dir>", "</list_dir>", "<enqueue_task>", "</enqueue_task>"]:
+        clean_last_response = clean_last_response.replace(tag, "")
+    
+    return f"{clean_last_response.strip()}\n\n⚠️ *(Nota: Se alcanzó el límite de 20 pasos de ejecución de herramientas. Si falta algo por hacer, indícamelo).* "
 
 def process_text_flow(chat_id, text):
     """Decides if the text is a direct intake command, a status query, or standard chat"""
