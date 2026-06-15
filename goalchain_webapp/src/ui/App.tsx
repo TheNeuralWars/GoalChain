@@ -17,6 +17,7 @@ import { ClubPortal } from './ClubPortal';
 import { CreateUser } from './CreateUser';
 import { UserProfile } from './UserProfile';
 import { ClassicHub } from './ClassicHub';
+const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
 
 function PlayPage({
   title,
@@ -85,6 +86,16 @@ function App() {
                       <PlayPage title="Mi Club &amp; Manager" align="left">
                         <ClubPortal />
                       </PlayPage>
+                    }
+                  />
+                  <Route
+                    path="/staking"
+                    element={
+                      <React.Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Loading Staking Dashboard...</div>}>
+                        <PlayPage title="Infinity Burn & Staking" align="left">
+                          <StakingBurnDashboard />
+                        </PlayPage>
+                      </React.Suspense>
                     }
                   />
                   <Route path="/hub" element={<ClassicHub />} />

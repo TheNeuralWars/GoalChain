@@ -1747,3 +1747,927 @@ input:checked + .slider-red:before {
   }
 }
 
+/* ==========================================
+   Staking Burn Dashboard Styles
+   ========================================== */
+
+.flame-svg {
+  will-change: filter, opacity;
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+.flame-svg path,
+.flame-svg circle,
+.flame-svg ellipse {
+  will-change: d, opacity, transform;
+}
+
+.infinity-burn-card {
+  background: linear-gradient(135deg, rgba(10, 10, 20, 0.6) 0%, rgba(5, 5, 10, 0.7) 100%);
+  border: 1px solid rgba(255, 75, 75, 0.15);
+  box-shadow: 
+    0 12px 40px 0 rgba(0, 0, 0, 0.5),
+    0 0 60px 0 rgba(255, 75, 75, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.infinity-burn-card:hover {
+  border-color: rgba(255, 75, 75, 0.3);
+  box-shadow: 
+    0 16px 45px 0 rgba(0, 0, 0, 0.6),
+    0 0 80px 0 rgba(255, 75, 75, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.stat-card {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px 0 rgba(0, 0, 0, 0.4);
+}
+
+.strategy-btn {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.strategy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.strategy-btn.active {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.yield-calculator {
+  background: linear-gradient(135deg, rgba(10, 10, 20, 0.55) 0%, rgba(5, 5, 10, 0.65) 100%);
+}
+
+.health-status-badge {
+  animation: pulse-glow 3s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flame-svg * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .health-status-badge {
+    animation: none;
+  }
+  
+  .infinity-burn-card:hover,
+  .stat-card:hover,
+  .strategy-btn:hover {
+    transform: none;
+  }
+}
+
+/* Responsive adjustments for Staking Dashboard */
+@media (max-width: 768px) {
+  .infinity-burn-card {
+    min-height: 240px;
+  }
+  
+  .infinity-burn-card > div[style*="grid"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+  
+  .infinity-burn-card > div[style*="grid"] div:first-child div {
+    font-size: 1.8rem !important;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .yield-calculator {
+    padding: 1rem !important;
+  }
+}
+
+/* ==========================================
+   AI-EXPONENTIAL: Premium Glassmorphic Staking & Flame System
+   ========================================== */
+
+/* --- Enhanced Color Tokens for Flame System --- */
+:root {
+  --flame-core: #ff3300;
+  --flame-heart: #ff6600;
+  --flame-gold: #ffcc00;
+  --flame-white: #fff8dc;
+  --ember-glow: rgba(255, 68, 0, 0.25);
+  --ember-glow-strong: rgba(255, 68, 0, 0.45);
+  
+  --glass-bg: rgba(10, 10, 20, 0.55);
+  --glass-bg-strong: rgba(8, 8, 16, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-border-hover: rgba(20, 241, 149, 0.3);
+  --glass-border-flame: rgba(255, 75, 75, 0.25);
+  --glass-inner-glow: rgba(20, 241, 149, 0.03);
+  --glass-inner-glow-flame: rgba(255, 75, 75, 0.05);
+  
+  --shadow-glass: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+  --shadow-glass-hover: 0 16px 45px 0 rgba(0, 0, 0, 0.6);
+  --shadow-flame: 0 0 60px 0 rgba(255, 75, 75, 0.08);
+  --shadow-flame-hover: 0 0 80px 0 rgba(255, 75, 75, 0.15);
+}
+
+/* --- Premium Glass Card Variants --- */
+.glass-card-premium {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-glass), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, border-color, box-shadow;
+}
+
+.glass-card-premium:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--shadow-glass-hover), 0 0 30px rgba(20, 241, 149, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transform: translateY(-2px);
+}
+
+.glass-card-flame {
+  background: linear-gradient(135deg, rgba(15, 8, 8, 0.6) 0%, rgba(10, 5, 5, 0.75) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border-flame);
+  border-radius: 20px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-glass), var(--shadow-flame), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, border-color, box-shadow;
+}
+
+.glass-card-flame:hover {
+  border-color: rgba(255, 75, 75, 0.4);
+  box-shadow: var(--shadow-glass-hover), var(--shadow-flame-hover), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Border gradient accent for selected/active cards */
+.glass-card-premium.active,
+.glass-card-flame.active {
+  border-image: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon)) 1;
+  box-shadow: var(--shadow-glass-hover), 0 0 40px rgba(20, 241, 149, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* --- Hardware Acceleration Helpers --- */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.flame-layer {
+  will-change: transform, opacity, filter;
+  transform: translateZ(0);
+}
+
+/* --- Flame Animation System --- */
+.infinity-flame-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.infinity-flame-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 0 30px rgba(255, 75, 75, 0.3));
+  will-change: filter;
+}
+
+.infinity-flame-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+/* Flame intensity indicator bar */
+.flame-intensity-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.flame-intensity-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-neon) 0%, #fbbf24 50%, var(--accent-red) 100%);
+  border-radius: 4px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.flame-intensity-marker {
+  position: absolute;
+  left: var(--marker-position, 0%);
+  top: -4px;
+  width: 2px;
+  height: 16px;
+  background: #fff;
+  transform: translateX(-50%);
+  border-radius: 1px;
+  box-shadow: 0 0 8px #fff;
+  transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flame-target-zone {
+  position: absolute;
+  left: 75%;
+  right: 105%;
+  top: 0;
+  bottom: 0;
+  background: rgba(20, 241, 149, 0.1);
+  border-left: 1px dashed var(--primary-neon);
+  border-right: 1px dashed var(--primary-neon);
+  pointer-events: none;
+}
+
+/* --- Vault Strategy Card --- */
+.vault-strategy-card {
+  flex: 1;
+  min-width: 180px;
+  padding: 1.25rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  color: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.vault-strategy-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 0%, transparent 50%, var(--card-color, var(--secondary-neon)) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.vault-strategy-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+  border-color: var(--card-color, var(--secondary-neon));
+}
+
+.vault-strategy-card:hover::before {
+  opacity: 1;
+}
+
+.vault-strategy-card.selected {
+  background: linear-gradient(135deg, rgba(153, 69, 255, 0.08) 0%, rgba(20, 241, 149, 0.05) 100%);
+  border-color: var(--card-color, var(--secondary-neon));
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(var(--card-color-rgb, 153, 69, 255), 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.vault-strategy-card.selected::before {
+  opacity: 1;
+}
+
+.vault-strategy-name {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--card-color, var(--secondary-neon));
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vault-strategy-apy {
+  font-weight: 900;
+  font-size: 0.85rem;
+  color: var(--card-color, var(--secondary-neon));
+  background: rgba(var(--card-color-rgb, 153, 69, 255), 0.15);
+  padding: 2px 10px;
+  border-radius: 8px;
+  animation: apy-pulse 3s infinite;
+}
+
+@keyframes apy-pulse {
+  0%, 100% { box-shadow: 0 0 5px rgba(var(--card-color-rgb, 153, 69, 255), 0.2); }
+  50% { box-shadow: 0 0 15px rgba(var(--card-color-rgb, 153, 69, 255), 0.5); }
+}
+
+.vault-strategy-desc {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+.vault-strategy-risk {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vault-strategy-risk.low {
+  background: rgba(20, 241, 149, 0.15);
+  color: var(--primary-neon);
+  border: 1px solid rgba(20, 241, 149, 0.3);
+}
+
+.vault-strategy-risk.medium {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.vault-strategy-risk.high {
+  background: rgba(255, 75, 75, 0.15);
+  color: var(--accent-red);
+  border: 1px solid rgba(255, 75, 75, 0.3);
+}
+
+/* --- Yield Calculator --- */
+.yield-calculator-premium {
+  background: linear-gradient(135deg, rgba(10, 10, 20, 0.55) 0%, rgba(5, 5, 10, 0.65) 100%);
+  border: 1px solid var(--glass-border);
+}
+
+.yield-input-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.yield-input-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.yield-input-wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.yield-input-premium {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  background: rgba(15, 15, 25, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.yield-input-premium:focus {
+  border-color: var(--secondary-neon);
+  box-shadow: 0 0 15px rgba(153, 69, 255, 0.15);
+}
+
+.yield-input-premium::placeholder {
+  color: #475569;
+}
+
+.token-switcher {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.token-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.token-btn.gch {
+  background: var(--secondary-neon);
+  color: #fff;
+  border-color: var(--secondary-neon);
+}
+
+.token-btn.gch.inactive {
+  background: rgba(255, 255, 255, 0.03);
+  color: #cbd5e1;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.token-btn.sol {
+  background: var(--primary-neon);
+  color: #030712;
+  border-color: var(--primary-neon);
+}
+
+.token-btn.sol.inactive {
+  background: rgba(255, 255, 255, 0.03);
+  color: #cbd5e1;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.token-btn:hover:not(.inactive) {
+  filter: brightness(1.1);
+}
+
+.preset-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.preset-chip {
+  flex: 1;
+  min-width: 60px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preset-chip:hover {
+  border-color: var(--secondary-neon);
+  color: var(--secondary-neon);
+  background: rgba(153, 69, 255, 0.05);
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.yield-result-card {
+  padding: 1.25rem;
+  border-radius: 14px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.yield-result-card.daily,
+.yield-result-card.weekly {
+  background: rgba(20, 241, 149, 0.06);
+  border: 1px solid rgba(20, 241, 149, 0.15);
+}
+
+.yield-result-card.monthly {
+  background: rgba(251, 191, 36, 0.06);
+  border: 1px solid rgba(251, 191, 36, 0.15);
+}
+
+.yield-result-card.yearly {
+  background: rgba(255, 75, 75, 0.06);
+  border: 1px solid rgba(255, 75, 75, 0.15);
+}
+
+.yield-result-label {
+  font-size: 0.65rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.yield-result-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 4px;
+}
+
+.yield-result-value.daily,
+.yield-result-value.weekly {
+  color: var(--primary-neon);
+}
+
+.yield-result-value.monthly {
+  color: #fbbf24;
+}
+
+.yield-result-value.yearly {
+  color: var(--accent-red);
+}
+
+.yield-result-usd {
+  font-size: 0.65rem;
+  color: #64748b;
+}
+
+/* Burn Contribution Section */
+.burn-contribution-section {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.burn-contribution-info {
+  flex: 1;
+  min-width: 200px;
+}
+
+.burn-contribution-label {
+  font-size: 0.65rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.burn-contribution-value {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--accent-red);
+  font-family: 'JetBrains Mono', monospace;
+  text-shadow: 0 0 15px rgba(255, 75, 75, 0.4);
+  animation: burn-pulse 2s infinite;
+}
+
+@keyframes burn-pulse {
+  0%, 100% { text-shadow: 0 0 15px rgba(255, 75, 75, 0.4); }
+  50% { text-shadow: 0 0 25px rgba(255, 75, 75, 0.8), 0 0 35px rgba(255, 75, 75, 0.4); }
+}
+
+.burn-contribution-basis {
+  font-size: 0.7rem;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.stake-value-display {
+  text-align: right;
+  min-width: 140px;
+}
+
+.stake-value-label {
+  font-size: 0.65rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.stake-value-amount {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fbbf24;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* --- Health Check Cards --- */
+.health-checks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.75rem;
+}
+
+.health-check-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--check-border, rgba(255, 75, 75, 0.2));
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.health-check-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.health-check-card.pass {
+  --check-border: rgba(20, 241, 149, 0.2);
+}
+
+.health-check-card.fail {
+  --check-border: rgba(255, 75, 75, 0.2);
+}
+
+.health-check-main {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.health-check-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--dot-color, var(--accent-red));
+  box-shadow: 0 0 8px var(--dot-color, var(--accent-red));
+}
+
+.health-check-card.pass .health-check-dot {
+  --dot-color: var(--primary-neon);
+  box-shadow: 0 0 8px rgba(20, 241, 149, 0.6);
+}
+
+.health-check-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.health-check-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.health-check-status {
+  font-weight: 700;
+}
+
+.health-check-card.pass .health-check-status {
+  color: var(--primary-neon);
+}
+
+.health-check-card.fail .health-check-status {
+  color: var(--accent-red);
+}
+
+.health-check-values {
+  color: #94a3b8;
+}
+
+.config-drift-alert {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 75, 75, 0.05);
+  border: 1px solid rgba(255, 75, 75, 0.2);
+  border-radius: 12px;
+}
+
+.config-drift-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.config-drift-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+/* --- KPI Overlay Stats (Hero Card) --- */
+.kpi-overlay-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.kpi-overlay-stat {
+  text-align: center;
+}
+
+.kpi-overlay-value {
+  font-size: 2.25rem;
+  font-weight: 900;
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.1;
+}
+
+.kpi-overlay-value.burn {
+  color: var(--accent-red);
+  text-shadow: 0 0 20px rgba(255, 75, 75, 0.6);
+}
+
+.kpi-overlay-value.emit {
+  color: var(--primary-neon);
+  text-shadow: 0 0 20px rgba(20, 241, 149, 0.6);
+}
+
+.kpi-overlay-value.net {
+  text-shadow: 0 0 20px rgba(20, 241, 149, 0.6);
+}
+
+.kpi-overlay-value.ratio {
+  color: #fbbf24;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+}
+
+.kpi-overlay-label {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* --- Stats Grid Cards (Breakdown) --- */
+.stats-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.stat-breakdown-card {
+  padding: 1.25rem;
+  border-left: 3px solid var(--card-accent, var(--primary-neon));
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-breakdown-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.stat-breakdown-label {
+  font-size: 0.65rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.stat-breakdown-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--card-accent, var(--primary-neon));
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 2px;
+}
+
+.stat-breakdown-desc {
+  font-size: 0.65rem;
+  color: #64748b;
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .infinity-flame-svg * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .health-status-badge,
+  .vault-strategy-apy,
+  .burn-contribution-value {
+    animation: none !important;
+  }
+  
+  .infinity-burn-card:hover,
+  .stat-card:hover,
+  .strategy-btn:hover,
+  .vault-strategy-card:hover,
+  .stat-breakdown-card:hover,
+  .glass-card-premium:hover,
+  .glass-card-flame:hover {
+    transform: none;
+  }
+  
+  .yield-input-premium:focus,
+  .token-btn:hover,
+  .preset-chip:hover,
+  .flame-intensity-fill {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 1024px) {
+  .kpi-overlay-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+  
+  .kpi-overlay-value {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .kpi-overlay-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .vault-strategy-card {
+    min-width: 100%;
+  }
+  
+  .yield-input-group {
+    grid-template-columns: 1fr;
+  }
+  
+  .yield-input-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .token-switcher {
+    flex-direction: row;
+  }
+  
+  .token-btn {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .burn-contribution-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .stake-value-display {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .health-checks-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-breakdown-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Skeleton Loader --- */
+.skeleton-loader {
+  background: linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.02) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 20px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-loader {
+    animation: none;
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
