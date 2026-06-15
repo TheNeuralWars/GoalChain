@@ -204,7 +204,7 @@ def chat_with_grok(chat_id, user_text):
     }
     
     payload = {
-        "model": "grok-beta",
+        "model": os.environ.get("XAI_MODEL", "grok-4.3"),
         "messages": CHAT_HISTORY[chat_id],
         "temperature": 0.7
     }

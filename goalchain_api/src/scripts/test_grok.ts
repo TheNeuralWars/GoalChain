@@ -24,7 +24,7 @@ async function testGrok() {
         'Authorization': `Bearer ${XAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: 'grok-beta',
+        model: process.env.XAI_MODEL || 'grok-4.3',
         messages: [
           { role: 'system', content: 'Eres el motor de inteligencia artificial de GoalChain. Hablas de forma épica, futbolera y con terminología Web3/Solana.' },
           { role: 'user', content: 'Saluda a la comunidad de GoalChain y confirma que tu motor de IA está en línea.' }
