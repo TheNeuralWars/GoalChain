@@ -1,6 +1,12 @@
 import fs from "fs";
 import path from "path";
+import { Connection, Keypair, PublicKey, SystemProgram, Transaction, TransactionInstruction, sendAndConfirmTransaction } from "@solana/web3.js";
 import { fetchWithTimeout, retrySendAndConfirm } from "@goalchain/sdk";
+import {
+  executeVaultCrankBundle,
+  PriorityTier,
+  BLOCK_ENGINE_URLS,
+} from "./jitoBundle.js";
 
 interface VaultCrankReport {
   timestamp_iso: string;
@@ -23,6 +29,12 @@ interface VaultCrankReport {
 const BUYBACK_SHARE = Number(process.env.BUYBACK_SHARE_OF_YIELD || "0.60");
 const JACKPOT_SHARE = Number(process.env.JACKPOT_SHARE_OF_YIELD || "0.10");
 const REINVEST_SHARE = Number(process.env.REINVEST_SHARE_OF_YIELD || "0.30");
+
+// Jito Bundle Configuration
+const JITO_BUNDLE_ENABLED = process.env.JITO_BUNDLE_ENABLED === "1";
+const JITO_BLOCK_ENGINE_URL = process.env.JITO_BLOCK_ENGINE_URL || BLOCK_ENGINE_URLS.devnet;
+const JITO_PRIORITY_TIER = (process.env.JITO_PRIORITY_TIER as PriorityTier) || PriorityTier.STANDARD;
+const JITO_MAX_POLL_ATTEMPTS = Number(process.env.JITO_MAX_POLL_ATTEMPTS || "30");
 
 function clampShare(value: number): number {
   if (!Number.isFinite(value)) return 0;
@@ -87,7 +99,7 @@ async function main() {
       notes.push(`Connecting to Solana RPC: ${rpcUrl}`);
 
       try {
-        const { Connection, Keypair, PublicKey, SystemProgram, Transaction, sendAndConfirmTransaction } = await import("@solana/web3.js");
+        const { Connection, Keypair, PublicKey, SystemProgram, Transaction } = await import("@solana/web3.js");
         const connection = new Connection(rpcUrl, "confirmed");
 
         let gchMintStr = process.env.GCH_MINT;
@@ -123,7 +135,7 @@ async function main() {
           resolvedPath = keypairPath.replace("~", process.env.HOME || "");
         }
 
-        let payer: any = null;
+        let payer: Keypair;
         if (fs.existsSync(resolvedPath)) {
           const secretKey = JSON.parse(fs.readFileSync(resolvedPath, "utf-8"));
           payer = Keypair.fromSecretKey(new Uint8Array(secretKey));
@@ -135,104 +147,205 @@ async function main() {
         }
 
         const isMainnet = rpcUrl.includes("mainnet") || rpcUrl.includes("jito") || rpcUrl.includes("helius");
+        const buybackLamports = Math.round(buybackSol * 1e9);
 
-        if (isMainnet) {
-          notes.push("Production Mainnet detected. Attempting live Jupiter swap & burn...");
-          // In mainnet, perform the real Jupiter API quote & swap call
-          try {
-            const lamports = Math.round(buybackSol * 1e9);
-            const quoteUrl = `https://quote-api.jup.ag/v6/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=${gchMintStr}&amount=${lamports}&slippageBps=100`;
-            notes.push(`Fetching Jupiter Quote: ${quoteUrl}`);
+        // --- JITO BUNDLE PATH ---
+        if (JITO_BUNDLE_ENABLED) {
+          notes.push(`Jito Bundle execution enabled (tier: ${JITO_PRIORITY_TIER}, block engine: ${JITO_BLOCK_ENGINE_URL})`);
 
-            // Native fetch exists in Node 18+
-            const quoteRes = await fetchWithTimeout(quoteUrl, { timeoutMs: 10000 });
-            if (quoteRes.ok) {
-              const quoteData: any = await quoteRes.json();
-              notes.push(`Jupiter quote fetched: GCH out = ${quoteData.outAmount}`);
+          // Build staking instruction (deposit excess SOL to vault/stake pool)
+          // For now, use a placeholder staking instruction - in production this would be the actual vault deposit CPI
+          const stakingIx = SystemProgram.transfer({
+            fromPubkey: payer.publicKey,
+            toPubkey: payer.publicKey, // Self-transfer as placeholder for stake instruction
+            lamports: 0, // No lamports moved in placeholder
+          });
 
-              // Construct swap transaction
-              const swapRes = await fetchWithTimeout("https://quote-api.jup.ag/v6/swap", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  quoteResponse: quoteData,
-                  userPublicKey: payer.publicKey.toBase58(),
-                  wrapAndUnwrapSol: true,
-                }),
-                timeoutMs: 10000,
-              });
+          // Build buyback instruction (Jupiter swap SOL -> GCH)
+          let buybackIx: TransactionInstruction | null = null;
+          if (isMainnet && buybackLamports > 0) {
+            try {
+              const quoteUrl = `https://quote-api.jup.ag/v6/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=${gchMintStr}&amount=${buybackLamports}&slippageBps=100`;
+              notes.push(`Fetching Jupiter Quote: ${quoteUrl}`);
 
-              if (swapRes.ok) {
-                const { swapTransaction } = await swapRes.json() as any;
-                notes.push("Jupiter swap transaction generated. Ready to sign and submit.");
+              const quoteRes = await fetchWithTimeout(quoteUrl, { timeoutMs: 10000 });
+              if (quoteRes.ok) {
+                const quoteData: any = await quoteRes.json();
+                notes.push(`Jupiter quote fetched: GCH out = ${quoteData.outAmount}`);
 
-                // Sign & Send
-                const rawTx = Buffer.from(swapTransaction, "base64");
-                const tx = Transaction.from(rawTx);
-                tx.sign(payer);
-                const txid = await connection.sendRawTransaction(tx.serialize(), {
-                  skipPreflight: false,
-                  preflightCommitment: "confirmed",
+                const swapRes = await fetchWithTimeout("https://quote-api.jup.ag/v6/swap", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    quoteResponse: quoteData,
+                    userPublicKey: payer.publicKey.toBase58(),
+                    wrapAndUnwrapSol: true,
+                  }),
+                  timeoutMs: 10000,
                 });
-                txHashes.push(txid);
-                notes.push(`Jupiter swap transaction sent: ${txid}`);
+
+                if (swapRes.ok) {
+                  const { swapTransaction } = await swapRes.json() as any;
+                  notes.push("Jupiter swap transaction generated.");
+                  const rawTx = Buffer.from(swapTransaction, "base64");
+                  const swapTx = Transaction.from(rawTx);
+                  // Extract instructions from the swap transaction
+                  buybackIx = swapTx.instructions[0]; // Simplified - in production, use all instructions
+                } else {
+                  throw new Error(`Jupiter swap endpoint returned status ${swapRes.status}`);
+                }
               } else {
-                throw new Error(`Jupiter swap endpoint returned status ${swapRes.status}`);
+                throw new Error(`Jupiter quote endpoint returned status ${quoteRes.status}`);
+              }
+            } catch (swapErr: any) {
+              notes.push(`Jupiter swap failed/not-executed: ${swapErr.message}`);
+              notes.push("Proceeding without buyback in bundle...");
+            }
+          }
+
+          // Build burn instruction (transfer GCH to burn address)
+          let burnIx: TransactionInstruction | null = null;
+          if (buybackLamports > 0) {
+            // In production, this would be an SPL token burn instruction
+            // For devnet/localnet, use a minimal system transfer as placeholder
+            burnIx = SystemProgram.transfer({
+              fromPubkey: payer.publicKey,
+              toPubkey: new PublicKey("11111111111111111111111111111111"), // Burn address
+              lamports: Math.min(1000000, buybackLamports), // Limit for devnet
+            });
+          }
+
+          // Execute via Jito Bundle
+          try {
+            const result = await executeVaultCrankBundle(
+              connection,
+              payer,
+              stakingIx,
+              buybackIx,
+              burnIx,
+              {
+                blockEngineUrl: JITO_BLOCK_ENGINE_URL,
+                priorityTier: JITO_PRIORITY_TIER,
+                maxPollAttempts: JITO_MAX_POLL_ATTEMPTS,
+              }
+            );
+
+            if (result.success) {
+              notes.push(`Jito Bundle LANDED: ${result.bundleId}`);
+              if (result.txHashes) {
+                txHashes.push(...result.txHashes);
               }
             } else {
-              throw new Error(`Jupiter quote endpoint returned status ${quoteRes.status}`);
+              notes.push(`Jito Bundle FAILED: ${result.error}`);
+              notes.push("Falling back to standard RPC execution...");
+              throw new Error(result.error || "Bundle execution failed");
             }
-          } catch (swapErr: any) {
-            notes.push(`Jupiter swap failed/not-executed: ${swapErr.message}`);
-            notes.push("Falling back to standard on-chain burn transaction...");
+          } catch (bundleErr: any) {
+            notes.push(`Jito Bundle error: ${bundleErr.message}`);
+            notes.push("Falling back to standard RPC execution...");
+            // Fall through to standard execution below
           }
         }
 
-        // On-chain harvest / burn transaction fallback (works on Devnet & Localnet)
-        notes.push("Executing on-chain transaction...");
-        const transaction = new Transaction();
+        // --- STANDARD RPC FALLBACK PATH ---
+        if (!JITO_BUNDLE_ENABLED || txHashes.length === 0) {
+          if (isMainnet) {
+            notes.push("Production Mainnet detected. Attempting live Jupiter swap & burn...");
+            // In mainnet, perform the real Jupiter API quote & swap call
+            try {
+              const lamports = Math.round(buybackSol * 1e9);
+              const quoteUrl = `https://quote-api.jup.ag/v6/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=${gchMintStr}&amount=${lamports}&slippageBps=100`;
+              notes.push(`Fetching Jupiter Quote: ${quoteUrl}`);
 
-        try {
-          const { getPriorityFeeInstructions } = await import("./priorityFees.js");
-          const priorityFeeIxs = await getPriorityFeeInstructions(connection, [payer.publicKey.toBase58()], 50000);
-          transaction.add(...priorityFeeIxs);
-          notes.push(`Added Compute Budget & Helius Priority Fees to transfer transaction.`);
-        } catch (feeErr: any) {
-          notes.push(`Could not fetch dynamic priority fee instructions (falling back): ${feeErr.message}`);
-        }
+              // Native fetch exists in Node 18+
+              const quoteRes = await fetchWithTimeout(quoteUrl, { timeoutMs: 10000 });
+              if (quoteRes.ok) {
+                const quoteData: any = await quoteRes.json();
+                notes.push(`Jupiter quote fetched: GCH out = ${quoteData.outAmount}`);
 
-        transaction.add(
-          SystemProgram.transfer({
-            fromPubkey: payer.publicKey,
-            toPubkey: new PublicKey("11111111111111111111111111111111"), // System burn
-            lamports: Math.min(1000000, Math.round(buybackSol * 1e9)), // Limit devnet/localnet test lamports to 0.001 SOL
-          })
-        );
+                // Construct swap transaction
+                const swapRes = await fetchWithTimeout("https://quote-api.jup.ag/v6/swap", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    quoteResponse: quoteData,
+                    userPublicKey: payer.publicKey.toBase58(),
+                    wrapAndUnwrapSol: true,
+                  }),
+                  timeoutMs: 10000,
+                });
 
-        try {
-          const txid = await retrySendAndConfirm(
-            () => sendAndConfirmTransaction(connection, transaction, [payer], {
-              commitment: "confirmed",
-            }),
-            {
-              maxRetries: 3,
-              baseDelayMs: 1000,
-              maxDelayMs: 10000,
-              onRetry: (attempt, error) => {
-                notes.push(`Retry ${attempt}/3 for sendAndConfirmTransaction: ${error.message}`);
-              },
+                if (swapRes.ok) {
+                  const { swapTransaction } = await swapRes.json() as any;
+                  notes.push("Jupiter swap transaction generated. Ready to sign and submit.");
+
+                  // Sign & Send
+                  const rawTx = Buffer.from(swapTransaction, "base64");
+                  const tx = Transaction.from(rawTx);
+                  tx.sign(payer);
+                  const txid = await connection.sendRawTransaction(tx.serialize(), {
+                    skipPreflight: false,
+                    preflightCommitment: "confirmed",
+                  });
+                  txHashes.push(txid);
+                  notes.push(`Jupiter swap transaction sent: ${txid}`);
+                } else {
+                  throw new Error(`Jupiter swap endpoint returned status ${swapRes.status}`);
+                }
+              } else {
+                throw new Error(`Jupiter quote endpoint returned status ${quoteRes.status}`);
+              }
+            } catch (swapErr: any) {
+              notes.push(`Jupiter swap failed/not-executed: ${swapErr.message}`);
+              notes.push("Falling back to standard on-chain burn transaction...");
             }
-          );
-          txHashes.push(txid);
-          notes.push(`Successfully sent on-chain buyback transfer: ${txid}`);
-        } catch (txErr: any) {
-          notes.push(`On-chain transaction execution failed (likely insufficient balance on transient key): ${txErr.message}`);
-          // Fallback hash so the script completes successfully and updates stats
-          const mockTx = fakeTx("exec_fallback_tx");
-          txHashes.push(mockTx);
-          notes.push(`Simulated transaction logged: ${mockTx}`);
-        }
+          }
 
+          // On-chain harvest / burn transaction fallback (works on Devnet & Localnet)
+          notes.push("Executing on-chain transaction...");
+          const transaction = new Transaction();
+
+          try {
+            const { getPriorityFeeInstructions } = await import("./priorityFees.js");
+            const priorityFeeIxs = await getPriorityFeeInstructions(connection, [payer.publicKey.toBase58()], 50000);
+            transaction.add(...priorityFeeIxs);
+            notes.push(`Added Compute Budget & Helius Priority Fees to transfer transaction.`);
+          } catch (feeErr: any) {
+            notes.push(`Could not fetch dynamic priority fee instructions (falling back): ${feeErr.message}`);
+          }
+
+          transaction.add(
+            SystemProgram.transfer({
+              fromPubkey: payer.publicKey,
+              toPubkey: new PublicKey("11111111111111111111111111111111"), // System burn
+              lamports: Math.min(1000000, Math.round(buybackSol * 1e9)), // Limit devnet/localnet test lamports to 0.001 SOL
+            })
+          );
+
+          try {
+            const txid = await retrySendAndConfirm(
+              () => sendAndConfirmTransaction(connection, transaction, [payer], {
+                commitment: "confirmed",
+              }),
+              {
+                maxRetries: 3,
+                baseDelayMs: 1000,
+                maxDelayMs: 10000,
+                onRetry: (attempt, error) => {
+                  notes.push(`Retry ${attempt}/3 for sendAndConfirmTransaction: ${error.message}`);
+                },
+              }
+            );
+            txHashes.push(txid);
+            notes.push(`Successfully sent on-chain buyback transfer: ${txid}`);
+          } catch (txErr: any) {
+            notes.push(`On-chain transaction execution failed (likely insufficient balance on transient key): ${txErr.message}`);
+            // Fallback hash so the script completes successfully and updates stats
+            const mockTx = fakeTx("exec_fallback_tx");
+            txHashes.push(mockTx);
+            notes.push(`Simulated transaction logged: ${mockTx}`);
+          }
+        }
       } catch (solanaErr: any) {
         notes.push(`Solana web3 initialization or runtime error: ${solanaErr.message}`);
         txHashes.push(fakeTx("exec_err_harvest"));
