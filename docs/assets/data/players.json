@@ -177,7 +177,7 @@
       "narrative": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, Visionary, this player is a cornerstone of the GoalChain ecosystem"
     },
     "market_value_eur": 73000000,
-    "tm_url": "https://www.transfermarkt.it/alexis-mac-allister/profil/spieler/534033",
+    "tm_url": "https://www.transfermarkt.it/rodrigo-de-paul/profil/spieler/200631",
     "tm_data": {
       "source": "transfermarkt.it",
       "last_updated": "2026-06",
@@ -186,33 +186,33 @@
   },
   {
     "id": 6,
-    "name": "Angel Di Merkle",
+    "name": "Lautaro Bull-tinez",
     "country": "Argentina",
     "rarity": "epic",
     "bg_type": "BG-EPI",
     "position": "FWD",
     "stats": {
-      "atk": 81,
-      "def": 34,
-      "hype": 80
+      "atk": 89,
+      "def": 35,
+      "hype": 85
     },
-    "real_name": "Ángel Di María",
+    "real_name": "Lautaro Martínez",
     "physical": {
-      "dob": "1988-02-14",
-      "h": "1.78m",
-      "w": "75kg",
-      "t": "Short dark hair classically styled, clean shaven, lean agile build, olive skin tone, leadership expression, sleeve tattoos on arms"
+      "dob": "1997-08-22",
+      "h": "1.74m",
+      "w": "72kg",
+      "t": "Short dark styled hair with side fade, clean shaven, strong athletic build, olive skin tone, passionate focused gaze"
     },
-    "match_salary_gch": 360,
+    "match_salary_gch": 1100,
     "traits": [
       "Goal Hunter"
     ],
     "meta": {
-      "parody_club": "Dortmund Yellow Hive",
+      "parody_club": "Milan Devil Core",
       "visual_effect": "Electric Neon Pulse",
       "narrative": "A world-class FWD verified as a epic asset. Known globally for being a Goal Hunter, this player is a cornerstone of the GoalChain ecosystem"
     },
-    "market_value_eur": 42000000,
+    "market_value_eur": 110000000,
     "tm_url": "https://www.transfermarkt.it/lautaro-martinez/profil/spieler/406625",
     "tm_data": {
       "source": "transfermarkt.it",
@@ -250,7 +250,7 @@
       "narrative": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, Technical Maestro, this player is a cornerstone of the GoalChain ecosystem"
     },
     "market_value_eur": 75000000,
-    "tm_url": "https://www.transfermarkt.it/angel-di-maria/profil/spieler/45320",
+    "tm_url": "https://www.transfermarkt.it/alexis-mac-allister/profil/spieler/534033",
     "tm_data": {
       "source": "transfermarkt.it",
       "last_updated": "2026-06",
@@ -286,7 +286,7 @@
       "narrative": "A world-class DEF verified as a rare asset. Known globally for being a Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem"
     },
     "market_value_eur": 20600000,
-    "tm_url": "https://www.transfermarkt.it/rodrigo-de-paul/profil/spieler/200631",
+    "tm_url": "https://www.transfermarkt.it/cristian-romero/profil/spieler/355915",
     "tm_data": {
       "source": "transfermarkt.it",
       "last_updated": "2026-06",
@@ -322,7 +322,7 @@
       "narrative": "A world-class GK verified as a legendary asset. Known globally for being a Shot Stopper, this player is a cornerstone of the GoalChain ecosystem"
     },
     "market_value_eur": 79000000,
-    "tm_url": "https://www.transfermarkt.it/nicolas-tagliafico/profil/spieler/113949",
+    "tm_url": "https://www.transfermarkt.it/lisandro-martinez/profil/spieler/372246",
     "tm_data": {
       "source": "transfermarkt.it",
       "last_updated": "2026-06",
@@ -394,7 +394,7 @@
       "narrative": "A world-class DEF verified as a rare asset. Known globally for being a Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem"
     },
     "market_value_eur": 21800000,
-    "tm_url": "https://www.transfermarkt.it/cristian-romero/profil/spieler/355915"
+    "tm_url": "https://www.transfermarkt.it/nicolas-tagliafico/profil/spieler/113949"
   },
   {
     "id": 12,
