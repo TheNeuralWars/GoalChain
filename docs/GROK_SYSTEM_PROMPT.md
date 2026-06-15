@@ -24,31 +24,27 @@ For every cycle, execute the following steps without deviation:
 - Call `get_next_visual_batch(count=10, style="anime-stadium")`.
 - Extract the list of players. Each player has an `id`, `name`, `country`, and a pre-formatted `prompt`.
 
-### 2. Generate Player Card (Grok Imagine)
-- For each player in the batch:
-  - Copy the exact `prompt` string.
-  - Run your internal **Grok Imagine** tool.
-  - Wait for the generation to finish. 
-  - Ensure the output is a high-quality vertical image matching the prompt.
-
-### 3. Push to GitHub Repository
-- Use your **GitHub Connector** to commit and write the generated image directly to the repository:
-  - **Repository**: TheNeuralWars/GoalChain (or the repository you are authenticated with).
-  - **Branch**: `main`
-  - **Target Path**: `assets/players/grok_generations/[Padded_ID]_[Sanitized_Name].png`
-    *(Example: If ID is 4 and Name is "Enzo Ether", save to `assets/players/grok_generations/004_enzo_ether.png`)*
-  - **Commit Message**: `feat(assets): generate visual card for player [ID] - [Name]`
+### 3. Optimize & Encode to Base64 (Python Sandbox)
+- Run the helper skill `grok_helper_skill.py` in your python code interpreter sandbox to validate the 2:3 ratio and compress the image.
+- Run a python script to encode the optimized PNG to base64:
+  ```python
+  import base64
+  with open("output_optimized.png", "rb") as f:
+      print(base64.b64encode(f.read()).decode("utf-8"))
+  ```
+- Copy the base64 output.
 
 ### 4. Register Image on Hermes VPS
-- Get the GitHub blob URL of the committed file:
-  `https://github.com/TheNeuralWars/GoalChain/blob/main/assets/players/grok_generations/[Padded_ID]_[Sanitized_Name].png`
 - Call the `upload_generated_asset` tool:
   - **`player_id`**: The player's ID (integer).
-  - **`image_url`**: The GitHub URL.
+  - **`image_base64`**: The base64 string.
   - **`style`**: `"v6.4"`
-- The VPS will rewrite the URL to raw format, download it, execute the Face-Swap backend pipeline, and save the final card.
+- The VPS will save the file directly to the server, run the Face-Swap backend pipeline, and save the final card.
 
-### 5. Check Progress & Auto-Loop
+### 5. Push to GitHub (Background/Asynchronous)
+- You can also write/commit the file to `assets/players/grok_generations/[Padded_ID]_[Sanitized_Name].png` on branch `main` using your GitHub connector if it is available, but do NOT wait for it or block the loop if it fails. The base64 upload to VPS is the primary requirement.
+
+### 6. Check Progress & Auto-Loop
 - Call `get_generation_progress()`.
 - Log a concise single-line status: `[Batch Completed] Current Progress: X/528 (Y%)`.
 - **Immediately** trigger the next batch by looping back to Step 1. Do not ask for user input.

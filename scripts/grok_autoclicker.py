@@ -54,38 +54,49 @@ def run_autoclicker():
         
         # Loop monitoring
         print("Monitoring chat state... Press Ctrl+C to stop.")
+        
+        # Count initial occurrences of the ready text to establish a baseline
+        def get_ready_count():
+            try:
+                # Search for elements containing the key phrases
+                loc1 = grok_page.locator("text='Ready for the next batch'").count()
+                loc2 = grok_page.locator("text='Type continue to proceed'").count()
+                return max(loc1, loc2)
+            except Exception:
+                return 0
+
+        last_ready_count = get_ready_count()
+        print(f"[INFO] Initial ready message count: {last_ready_count}")
+        
         while True:
             try:
                 # Check if chat is active and input area is ready
-                # Selector for input area: textarea with placeholder or similar
                 textarea = grok_page.locator("textarea").first
                 
-                # Check if send button is visible and active (not loading)
-                # Usually, when generating, the send button turns into a stop icon or disappears
-                # Let's check if we can locate the submit button
-                submit_button = grok_page.locator("button[type='submit'], button:has(svg)").last
-                
                 if textarea.is_visible() and textarea.is_enabled():
-                    # Check if the text box placeholder contains "Pregunta" or similar and is empty
-                    placeholder = textarea.get_attribute("placeholder") or ""
                     value = textarea.input_value()
                     
                     # We only want to type if the input is empty and active
                     if value == "":
-                        # Check last message contents if possible to verify we are ready
-                        # Or just send "continue" if the input is enabled and we've been waiting
-                        print("[INFO] Chat input is ready. Sending 'continue'...")
+                        current_ready_count = get_ready_count()
                         
-                        # Click input, type "continue" and click submit
-                        textarea.click()
-                        textarea.fill("continue")
-                        
-                        # Press Enter or click send
-                        textarea.press("Enter")
-                        
-                        # Wait a bit for the input to process and send
-                        time.sleep(10)
-                        print("[INFO] Prompt sent. Waiting for next generation cycle...")
+                        # Trigger if we see a new ready message, or if we have at least one and haven't triggered yet
+                        if current_ready_count > last_ready_count or (current_ready_count > 0 and last_ready_count == 0):
+                            print(f"[INFO] New ready message detected (count: {current_ready_count}). Sending 'continue'...")
+                            
+                            # Click input, type "continue" and click submit
+                            textarea.click()
+                            textarea.fill("continue")
+                            
+                            # Press Enter
+                            textarea.press("Enter")
+                            
+                            # Update our baseline to the new count
+                            last_ready_count = current_ready_count
+                            
+                            # Wait for Grok to start processing (so count doesn't immediately match)
+                            time.sleep(15)
+                            print("[INFO] Prompt sent. Waiting for next generation cycle...")
                         
                 time.sleep(5)
             except KeyboardInterrupt:

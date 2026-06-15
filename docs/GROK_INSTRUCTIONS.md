@@ -14,19 +14,26 @@ Call the `get_next_visual_batch` tool.
 - The tool returns a list of players, their IDs, and the **exact, pre-filled visual prompt** for each one.
 
 ### 2. Process Each Player Individually
-For **each** player returned in the batch, execute the complete sub-cycle (Generate -> Push -> Register) before moving to the next player:
+For **each** player returned in the batch, execute the complete sub-cycle (Generate -> Optimize & Encode -> Register) before moving to the next player:
 
 1. **Generate**: Trigger your internal **Grok Imagine** tool with the exact `prompt`.
-2. **Optimize**: Run the uploaded helper skill `grok_helper_skill.py` in your Python sandbox to validate the 2:3 ratio and optimize the image size.
-3. **Commit & Push to GitHub**: Commit the optimized image directly to the repository:
-   - **Path**: `assets/players/grok_generations/[Padded_ID]_[Sanitized_Name].png`
-   - **Commit message**: `feat(assets): generate visual card for player [ID] - [Name]`
-4. **Register on VPS**: Call the `upload_generated_asset` tool:
+2. **Optimize & Encode**: 
+   - Run the uploaded helper skill `grok_helper_skill.py` in your Python sandbox to validate and optimize the image.
+   - Run a short Python script to read the optimized PNG file and convert it into a base64-encoded string:
+     ```python
+     import base64
+     with open("output_optimized.png", "rb") as f:
+         b64_str = base64.b64encode(f.read()).decode("utf-8")
+     print(b64_str[:50]) # verification
+     ```
+3. **Register on VPS**: Call the `upload_generated_asset` tool:
    - **`player_id`**: The player's ID (integer).
-   - **`image_url`**: The GitHub blob URL (`https://github.com/TheNeuralWars/GoalChain/blob/main/assets/players/grok_generations/[Padded_ID]_[Sanitized_Name].png`).
+   - **`image_base64`**: The complete base64 string obtained in the previous step.
    - **`style`**: `"v6.4"`
+   *(This uploads the asset directly to the VPS filesystem without requiring an immediate GitHub push, bypassing GitHub connector permission or CDN latency issues).*
 
-*By doing this one-by-one, every player is fully saved and registered immediately.*
+4. **Background Git Commits**:
+   - While the VPS receives the files directly, you can also write/commit them to the GitHub repository using your GitHub connector when possible, or save them in your workspace, but this step is non-blocking. The VPS registration via base64 is the primary path.
 
 ### 3. Report Progress & Request Continue
 Once the batch of 5 is complete:
@@ -35,6 +42,7 @@ Once the batch of 5 is complete:
    `[Batch Completed] Current Progress: X/528 (Y%)`
 3. Prompt the user clearly to launch the next batch:
    `Ready for the next batch. Type **continue** to proceed.`
+
 
 ---
 
