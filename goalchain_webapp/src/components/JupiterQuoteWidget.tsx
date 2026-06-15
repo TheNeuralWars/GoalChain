@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { apiBaseUrl } from '../lib/opsClient';
 
 interface JupiterQuote {
@@ -16,6 +16,85 @@ interface QuoteResponse {
   error?: string;
 }
 
+/**
+ * Fetch with timeout using AbortController (browser-compatible).
+ */
+async function fetchWithTimeout(
+  url: string,
+  options: RequestInit & { timeoutMs?: number } = {}
+): Promise<Response> {
+  const { timeoutMs = 10000, signal, ...fetchOptions } = options;
+
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+  // If an external signal is provided, abort when it aborts
+  if (signal) {
+    signal.addEventListener('abort', () => controller.abort());
+  }
+
+  try {
+    const response = await fetch(url, {
+      ...fetchOptions,
+      signal: controller.signal,
+    });
+    return response;
+  } catch (error) {
+    if (error instanceof DOMException && error.name === 'AbortError') {
+      throw new Error(`Request timeout after ${timeoutMs}ms`);
+    }
+    throw error;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
+/**
+ * Retry wrapper with exponential backoff (browser-compatible).
+ */
+async function retryWithBackoff<T>(
+  fn: () => Promise<T>,
+  options: { maxRetries: number; baseDelayMs: number; maxDelayMs: number } = {
+    maxRetries: 3,
+    baseDelayMs: 500,
+    maxDelayMs: 5000,
+  }
+): Promise<T> {
+  let lastError: unknown;
+
+  for (let attempt = 0; attempt <= options.maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (error) {
+      lastError = error;
+
+      // Don't retry on the last attempt
+      if (attempt === options.maxRetries) {
+        break;
+      }
+
+      // Only retry on network errors or timeout
+      if (error instanceof Error) {
+        const isTimeout = error.message.includes('timeout');
+        const isNetworkError = error.message.includes('Failed to fetch') || error.message.includes('NetworkError');
+        if (!isTimeout && !isNetworkError) {
+          throw error;
+        }
+      }
+
+      // Calculate delay with exponential backoff and jitter
+      const delay = Math.min(
+        options.baseDelayMs * Math.pow(2, attempt) + Math.random() * 1000,
+        options.maxDelayMs
+      );
+
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
+
+  throw lastError;
+}
+
 export function JupiterQuoteWidget() {
   const API_BASE = apiBaseUrl();
 
@@ -28,22 +107,30 @@ export function JupiterQuoteWidget() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchQuote = async () => {
+  const fetchQuote = useCallback(async () => {
     setLoading(true);
     setError(null);
     setQuote(null);
 
     try {
-      const res = await fetch(`${API_BASE}/api/solana/jupiter/quote`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          inputMint,
-          outputMint,
-          amount: Number(amount),
-          slippageBps: Number(slippageBps),
+      const res = await retryWithBackoff(
+        () => fetchWithTimeout(`${API_BASE}/api/solana/jupiter/quote`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            inputMint,
+            outputMint,
+            amount: Number(amount),
+            slippageBps: Number(slippageBps),
+          }),
+          timeoutMs: 10000,
         }),
-      });
+        {
+          maxRetries: 3,
+          baseDelayMs: 500,
+          maxDelayMs: 5000,
+        }
+      );
 
       const data: QuoteResponse = await res.json();
 
@@ -60,7 +147,7 @@ export function JupiterQuoteWidget() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [API_BASE, inputMint, outputMint, amount, slippageBps]);
 
   return (
     <div className="p-6 max-w-xl border rounded-xl bg-white shadow-sm">

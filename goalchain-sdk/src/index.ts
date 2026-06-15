@@ -6,6 +6,9 @@ export const PROGRAM_ID = new PublicKey("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXd
 export { idl };
 export type { GoalchainProgram } from './goalchain_program';
 
+// Retry and timeout utilities
+export * from './utils/retry';
+
 export const SEEDS = {
     CONFIG: "config",
     STAKE: "stake",

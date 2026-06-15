@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import path from "path";
 import { Connection, PublicKey } from "@solana/web3.js";
 import { AnchorProvider, Program } from "@coral-xyz/anchor";
-import { idl, PROGRAM_ID, GoalchainProgram } from "@goalchain/sdk";
+import { idl, PROGRAM_ID, GoalchainProgram, retryRpcCall } from "@goalchain/sdk";
 import fs from "fs";
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
@@ -195,7 +195,7 @@ async function buildEconomyMetricsPayload(): Promise<EconomyMetricsPayload> {
   );
   let onchainConfig: any = null;
   try {
-    const configAccount = await program.account.globalConfig.fetch(configPda);
+    const configAccount = await retryRpcCall(() => program.account.globalConfig.fetch(configPda)) as any;
     onchainConfig = {
       feeBps: num(configAccount.feeBps),
       feeBurnBps: num(configAccount.feeBurnBps),
@@ -507,7 +507,7 @@ async function buildOpsStatusPayload(): Promise<OpsStatusPayload> {
       [Buffer.from("builder_fund"), configPda.toBuffer()],
       PROGRAM_ID,
     );
-    const builderFund = await program.account.builderFund.fetch(builderFundPda);
+    const builderFund = await retryRpcCall(() => program.account.builderFund.fetch(builderFundPda)) as any;
     const currentEpoch = num(builderFund.currentEpoch);
     contributorEpoch = {
       available: true,
@@ -526,9 +526,9 @@ async function buildOpsStatusPayload(): Promise<OpsStatusPayload> {
         PROGRAM_ID,
       );
       try {
-        const epoch = await program.account.builderContributorEpoch.fetch(
+        const epoch = await retryRpcCall(() => program.account.builderContributorEpoch.fetch(
           builderEpochPda,
-        );
+        )) as any;
         contributorEpoch.latest_epoch = {
           epoch_id: num(epoch.epochId),
           contributor_pool: num(epoch.contributorPool),
@@ -769,7 +769,7 @@ app.get("/api/economy/config", async (req, res) => {
     );
     let onchainConfig: any = null;
     try {
-      const configAccount = await program.account.globalConfig.fetch(configPda);
+      const configAccount = await retryRpcCall(() => program.account.globalConfig.fetch(configPda)) as any;
       onchainConfig = {
         pda: configPda.toBase58(),
         admin: configAccount.admin.toBase58(),
@@ -1096,6 +1096,8 @@ Pregunta del manager: "${userText}"`;
 // Jupiter Quote Endpoint (Solana DEX)
 // ============================================
 
+import { fetchWithTimeout, retryWithBackoff } from "@goalchain/sdk";
+
 interface JupiterQuoteRequest {
   inputMint: string;
   outputMint: string;
@@ -1121,7 +1123,17 @@ app.post("/api/solana/jupiter/quote", async (req, res) => {
     });
 
     const url = `https://quote-api.jup.ag/v6/quote?${params.toString()}`;
-    const response = await fetch(url);
+
+    // Fetch with retry and timeout
+    const response = await retryWithBackoff(
+      () => fetchWithTimeout(url, { timeoutMs: 10000 }),
+      {
+        maxRetries: 3,
+        baseDelayMs: 500,
+        maxDelayMs: 5000,
+        retryableStatusCodes: [408, 429, 500, 502, 503, 504],
+      }
+    );
     const data = await response.json();
 
     if (!response.ok) {
