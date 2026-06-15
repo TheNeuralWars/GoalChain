@@ -1,12 +1,50 @@
 import fs from "fs";
 import path from "path";
-import { Connection, Keypair, PublicKey, SystemProgram, Transaction, TransactionInstruction, sendAndConfirmTransaction } from "@solana/web3.js";
+import {
+  Connection,
+  Keypair,
+  PublicKey,
+  SystemProgram,
+  Transaction,
+  TransactionInstruction,
+  VersionedTransaction,
+  sendAndConfirmTransaction,
+} from "@solana/web3.js";
 import { fetchWithTimeout, retrySendAndConfirm } from "@goalchain/sdk";
 import {
   executeVaultCrankBundle,
   PriorityTier,
   BLOCK_ENGINE_URLS,
 } from "./jitoBundle.js";
+
+/**
+ * Simulates a transaction and throws a detailed error if simulation fails.
+ * Used as a preflight check before submitting transactions on mainnet.
+ */
+async function simulateAndValidate(
+  connection: Connection,
+  tx: VersionedTransaction | Transaction,
+  label: string
+): Promise<void> {
+  // Handle VersionedTransaction vs Transaction overloads with correct config shape
+  let simResult: any;
+  if (tx instanceof VersionedTransaction) {
+    simResult = await connection.simulateTransaction(tx, {
+      commitment: "confirmed",
+      replaceRecentBlockhash: true,
+      sigVerify: false,
+    } as any);
+  } else {
+    simResult = await connection.simulateTransaction(tx, [], false);
+  }
+
+  if (simResult.value.err) {
+    const logs = simResult.value.logs?.join("\n") || "No logs";
+    throw new Error(`Simulation failed for ${label}: ${JSON.stringify(simResult.value.err)}\nLogs:\n${logs}`);
+  }
+
+  console.log(`[vault_crank] Simulation OK for ${label}: ${simResult.value.unitsConsumed} CU consumed`);
+}
 
 interface VaultCrankReport {
   timestamp_iso: string;
@@ -161,8 +199,8 @@ async function main() {
             lamports: 0, // No lamports moved in placeholder
           });
 
-          // Build buyback instruction (Jupiter swap SOL -> GCH)
-          let buybackIx: TransactionInstruction | null = null;
+          // Build buyback transaction (Jupiter swap SOL -> GCH)
+          let buybackTx: VersionedTransaction | null = null;
           if (isMainnet && buybackLamports > 0) {
             try {
               const quoteUrl = `https://quote-api.jup.ag/v6/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=${gchMintStr}&amount=${buybackLamports}&slippageBps=100`;
@@ -188,9 +226,11 @@ async function main() {
                   const { swapTransaction } = await swapRes.json() as any;
                   notes.push("Jupiter swap transaction generated.");
                   const rawTx = Buffer.from(swapTransaction, "base64");
-                  const swapTx = Transaction.from(rawTx);
-                  // Extract instructions from the swap transaction
-                  buybackIx = swapTx.instructions[0]; // Simplified - in production, use all instructions
+                  // Use VersionedTransaction.deserialize for v0 transaction support
+                  buybackTx = VersionedTransaction.deserialize(rawTx);
+                  
+                  // Preflight simulation before adding to bundle
+                  await simulateAndValidate(connection, buybackTx, "Jupiter buyback (Jito)");
                 } else {
                   throw new Error(`Jupiter swap endpoint returned status ${swapRes.status}`);
                 }
@@ -203,16 +243,23 @@ async function main() {
             }
           }
 
-          // Build burn instruction (transfer GCH to burn address)
-          let burnIx: TransactionInstruction | null = null;
+          // Build burn transaction (SPL Token burn of GCH)
+          // NOTE: Real GCH burn requires treasury token account authority.
+          // This placeholder uses a minimal system transfer for devnet/localnet testing only.
+          let burnTx: VersionedTransaction | null = null;
           if (buybackLamports > 0) {
-            // In production, this would be an SPL token burn instruction
+            // In production, this would be an SPL Token burn instruction on the treasury GCH token account
             // For devnet/localnet, use a minimal system transfer as placeholder
-            burnIx = SystemProgram.transfer({
+            const burnIx = SystemProgram.transfer({
               fromPubkey: payer.publicKey,
-              toPubkey: new PublicKey("11111111111111111111111111111111"), // Burn address
+              toPubkey: new PublicKey("11111111111111111111111111111111"), // Burn address placeholder
               lamports: Math.min(1000000, buybackLamports), // Limit for devnet
             });
+            const burnLegacyTx = new Transaction().add(burnIx);
+            burnLegacyTx.feePayer = payer.publicKey;
+            burnLegacyTx.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
+            burnTx = VersionedTransaction.deserialize(burnLegacyTx.serialize());
+            notes.push("Burn transaction created (placeholder - real burn requires SPL Token burn ix)");
           }
 
           // Execute via Jito Bundle
@@ -221,8 +268,8 @@ async function main() {
               connection,
               payer,
               stakingIx,
-              buybackIx,
-              burnIx,
+              buybackTx,
+              burnTx,
               {
                 blockEngineUrl: JITO_BLOCK_ENGINE_URL,
                 priorityTier: JITO_PRIORITY_TIER,
@@ -279,16 +326,28 @@ async function main() {
                   const { swapTransaction } = await swapRes.json() as any;
                   notes.push("Jupiter swap transaction generated. Ready to sign and submit.");
 
-                  // Sign & Send
+                  // Sign & Send using VersionedTransaction for v0 support
                   const rawTx = Buffer.from(swapTransaction, "base64");
-                  const tx = Transaction.from(rawTx);
-                  tx.sign(payer);
-                  const txid = await connection.sendRawTransaction(tx.serialize(), {
+                  const versionedTx = VersionedTransaction.deserialize(rawTx);
+                  
+                  // Preflight simulation
+                  await simulateAndValidate(connection, versionedTx, "Jupiter buyback (standard)");
+                  
+                  // Sign the transaction
+                  versionedTx.sign([payer]);
+                  
+                  // Send using sendTransaction for VersionedTransaction support
+                  const txid = await connection.sendTransaction(versionedTx, {
                     skipPreflight: false,
                     preflightCommitment: "confirmed",
                   });
                   txHashes.push(txid);
                   notes.push(`Jupiter swap transaction sent: ${txid}`);
+                  
+                  // NOTE: Real GCH burn requires SPL Token burn instruction on treasury token account.
+                  // This is not implemented here as it requires treasury token account authority.
+                  // The swap itself buys back GCH to the treasury; burning is a separate step.
+                  notes.push("NOTE: GCH burn step requires SPL Token burn ix on treasury token account (not implemented in this path)");
                 } else {
                   throw new Error(`Jupiter swap endpoint returned status ${swapRes.status}`);
                 }
@@ -296,54 +355,17 @@ async function main() {
                 throw new Error(`Jupiter quote endpoint returned status ${quoteRes.status}`);
               }
             } catch (swapErr: any) {
-              notes.push(`Jupiter swap failed/not-executed: ${swapErr.message}`);
-              notes.push("Falling back to standard on-chain burn transaction...");
+              // On mainnet, Jupiter failure is a hard error - do not fall back to fake transfers
+              const errMsg = `Jupiter swap failed on mainnet: ${swapErr.message}. Aborting - no risky fallback.`;
+              notes.push(errMsg);
+              throw new Error(errMsg);
             }
-          }
-
-          // On-chain harvest / burn transaction fallback (works on Devnet & Localnet)
-          notes.push("Executing on-chain transaction...");
-          const transaction = new Transaction();
-
-          try {
-            const { getPriorityFeeInstructions } = await import("./priorityFees.js");
-            const priorityFeeIxs = await getPriorityFeeInstructions(connection, [payer.publicKey.toBase58()], 50000);
-            transaction.add(...priorityFeeIxs);
-            notes.push(`Added Compute Budget & Helius Priority Fees to transfer transaction.`);
-          } catch (feeErr: any) {
-            notes.push(`Could not fetch dynamic priority fee instructions (falling back): ${feeErr.message}`);
-          }
-
-          transaction.add(
-            SystemProgram.transfer({
-              fromPubkey: payer.publicKey,
-              toPubkey: new PublicKey("11111111111111111111111111111111"), // System burn
-              lamports: Math.min(1000000, Math.round(buybackSol * 1e9)), // Limit devnet/localnet test lamports to 0.001 SOL
-            })
-          );
-
-          try {
-            const txid = await retrySendAndConfirm(
-              () => sendAndConfirmTransaction(connection, transaction, [payer], {
-                commitment: "confirmed",
-              }),
-              {
-                maxRetries: 3,
-                baseDelayMs: 1000,
-                maxDelayMs: 10000,
-                onRetry: (attempt, error) => {
-                  notes.push(`Retry ${attempt}/3 for sendAndConfirmTransaction: ${error.message}`);
-                },
-              }
-            );
-            txHashes.push(txid);
-            notes.push(`Successfully sent on-chain buyback transfer: ${txid}`);
-          } catch (txErr: any) {
-            notes.push(`On-chain transaction execution failed (likely insufficient balance on transient key): ${txErr.message}`);
-            // Fallback hash so the script completes successfully and updates stats
-            const mockTx = fakeTx("exec_fallback_tx");
+          } else {
+            // Devnet/localnet: mock execution for testing
+            notes.push("Devnet/localnet mode: simulating Jupiter swap & burn (no real transactions)");
+            const mockTx = fakeTx("devnet_mock_swap");
             txHashes.push(mockTx);
-            notes.push(`Simulated transaction logged: ${mockTx}`);
+            notes.push(`Mock transaction logged: ${mockTx}`);
           }
         }
       } catch (solanaErr: any) {
