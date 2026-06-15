@@ -196,8 +196,8 @@ def run_generator():
             
             prompt = build_prompt_for_player(player)
             
-            # Locate input box
-            textarea = grok_page.locator("textarea").first
+            # Locate input box (ignoring hidden textareas used for layout sizing)
+            textarea = grok_page.locator("div[role='textbox'], div[contenteditable='true'], textarea:visible").first
             textarea.click()
             textarea.fill(prompt)
             
