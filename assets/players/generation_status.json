@@ -6,8 +6,15 @@
       "style": "v6.4",
       "raw_path": "assets/players/raw/ARGENTINA/001_lionel_satoshi.png",
       "downloaded_at": null
+    },
+    "2": {
+      "name": "Dibu De-Fi",
+      "country": "Argentina",
+      "style": "v6.4",
+      "raw_path": "assets/players/raw/ARGENTINA/002_dibu_de-fi.png",
+      "downloaded_at": null
     }
   },
   "pending": [],
-  "last_updated": "2026-06-15T02:42:51.163795"
+  "last_updated": "2026-06-15T02:45:10.996376"
 }
