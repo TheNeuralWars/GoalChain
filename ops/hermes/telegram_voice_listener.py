@@ -11,6 +11,7 @@ import json
 import time
 import base64
 import requests
+import subprocess
 
 # === CONFIGURATION ===
 BOT_TOKEN = "8677250341:AAFK4UIJzXxgnGL_qLhXrq_RmRKeWKmCNIg"
@@ -37,6 +38,33 @@ if not GEMINI_API_KEY:
 
 def log(msg):
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [TELEGRAM-BOT] {msg}", flush=True)
+
+def chat_with_hermes(text):
+    """Llama a la CLI de Hermes de forma síncrona para interactuar conversacionalmente"""
+    log(f"Routing chat query to Hermes: '{text}'")
+    try:
+        env = os.environ.copy()
+        local_bin = os.path.expanduser("~/.local/bin")
+        if local_bin not in env.get("PATH", ""):
+            env["PATH"] = f"{local_bin}:{env.get('PATH', '')}"
+
+        # Ejecuta la CLI de Hermes con el perfil hermes-ceo y la query del usuario
+        cmd = ["hermes", "-p", "hermes-ceo", "chat", "-q", text]
+        log(f"Running command: {' '.join(cmd)}")
+        result = subprocess.run(cmd, capture_output=True, text=True, env=env, timeout=180)
+        
+        if result.returncode == 0:
+            return result.stdout.strip()
+        else:
+            log(f"ERROR: Hermes CLI returned code {result.returncode}. Stderr: {result.stderr}")
+            return f"❌ **Error de Hermes CLI:**\n{result.stderr.strip() or 'Código de salida no cero'}"
+    except subprocess.TimeoutExpired:
+        log("ERROR: Hermes CLI execution timed out.")
+        return "⏰ **Hermes tardó demasiado en responder.**"
+    except Exception as e:
+        log(f"ERROR: Exception executing Hermes CLI: {e}")
+        return f"❌ **Error llamando a Hermes:** {e}"
+
 
 def transcribe_audio_gemini(audio_bytes, mime_type="audio/ogg"):
     """Llama a la API de Gemini v1beta con soporte nativo de audio multimodal (sin dependencias de SDK)"""
@@ -135,7 +163,7 @@ This task was received as a voice note from Nico via the Telegram Bot and transc
     return filepath
 
 def handle_voice_message(voice_data, file_id):
-    """Descarga el audio de Telegram, lo transcribe y genera la tarea"""
+    """Descarga el audio de Telegram, lo transcribe y decide si es chat o tarea de código"""
     log(f"Downloading voice note {file_id} from Telegram...")
     
     # getFile API call
@@ -166,18 +194,26 @@ def handle_voice_message(voice_data, file_id):
             log("WARN: Transcription is too short. Ignoring.")
             return
             
-        # Create intake brief
-        brief_path = create_intake_brief_from_voice(transcription)
-        
-        # Respond back to Telegram user
         chat_id = voice_data["chat"]["id"]
-        success_msg = (
-            f"🧠 **Hermes Voice Ingestion Success** 🚀\n\n"
-            f"📝 **Transcription:**\n_\"{transcription}\"_\n\n"
-            f"📁 **Intake Brief Created:** `{os.path.basename(brief_path)}`\n"
-            f"⚡ **Task status:** Enqueued autonomously (`status:ready`). Worker is coding & testing now!"
-        )
-        send_message(chat_id, success_msg)
+        
+        # Check if it is a task ingestion or a normal chat query
+        if transcription.strip().lower().startswith("xq"):
+            # Create intake brief
+            brief_path = create_intake_brief_from_voice(transcription)
+            
+            # Respond back to Telegram user
+            success_msg = (
+                f"🧠 **Hermes Voice Ingestion Success** 🚀\n\n"
+                f"📝 **Transcription:**\n_\"{transcription}\"_\n\n"
+                f"📁 **Intake Brief Created:** `{os.path.basename(brief_path)}`\n"
+                f"⚡ **Task status:** Enqueued autonomously (`status:ready`). Worker is coding & testing now!"
+            )
+            send_message(chat_id, success_msg)
+        else:
+            # Route as conversational query to Hermes CLI
+            send_message(chat_id, "⏳ *Hermes está procesando tu consulta de voz...*")
+            reply = chat_with_hermes(transcription)
+            send_message(chat_id, reply)
         
     except Exception as e:
         log(f"ERROR during transcription/ingestion: {e}")
@@ -223,14 +259,24 @@ def main_loop():
                 elif "text" in message:
                     text = message["text"]
                     chat_id = message["chat"]["id"]
-                    # If user just sends text, guide them or process as raw prompt
                     log(f"Received text command: {text}")
+                    
                     if text.lower().startswith("/start") or text.lower().startswith("/help"):
-                        send_message(chat_id, "🎙️ **GoalChain Humans-0 Voice Bot** 🎙️\n\nSend me a voice note describing what task you want me to develop. I will transcribe it, create an intake brief, and the automated agents will build, test, and merge the code autonomously!")
-                    else:
+                        help_msg = (
+                            "🎙️ **GoalChain Humans-0 Voice Bot (Dual Chat/Intake) 🎤**\n\n"
+                            "- Envía un mensaje de voz o texto normal para chatear conmigo (usando Hermes en el VPS).\n"
+                            "- Empieza tu mensaje de voz o texto con **xq** (ej: *xq crear una nueva vista*) para generar una tarea de código y ejecutar el pipeline autónomo."
+                        )
+                        send_message(chat_id, help_msg)
+                    elif text.strip().lower().startswith("xq"):
                         # Process text as direct task ingestion
                         brief_path = create_intake_brief_from_voice(text)
                         send_message(chat_id, f"📝 **Text Brief Ingested!**\n\n📁 **Brief:** `{os.path.basename(brief_path)}`\n⚡ Task enqueued autonomously. Worker started!")
+                    else:
+                        # Process as direct chat with Hermes
+                        send_message(chat_id, "⏳ *Hermes está procesando...*")
+                        reply = chat_with_hermes(text)
+                        send_message(chat_id, reply)
                         
         except Exception as e:
             log(f"Exception in polling loop: {e}")
