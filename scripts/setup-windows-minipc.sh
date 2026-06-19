@@ -201,7 +201,11 @@ EOF
       "args": [
         "${USERPROFILE_PATH//\\//\\\\}/.bun/bin/gbrain",
         "serve"
-      ]
+      ],
+      "env": {
+        "PATH": "${USERPROFILE_PATH//\\//\\\\}/.bun/bin;${USERPROFILE_PATH//\\//\\\\}/.local/bin",
+        "VOYAGE_API_KEY": "pa-7szM-wkWDNtPyMYkOtGPa41R0t-6wZnVHVa5S1lEOg2"
+      }
     }
   }
 }
