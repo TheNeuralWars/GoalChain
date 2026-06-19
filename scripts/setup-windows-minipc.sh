@@ -37,11 +37,10 @@ install_winget_package() {
   fi
 }
 
-# Install Node.js LTS
+# Install Node.js LTS, GitHub CLI, and Obsidian
 install_winget_package "OpenJS.NodeJS.LTS" "Node.js (LTS)"
-
-# Install GitHub CLI
 install_winget_package "GitHub.cli" "GitHub CLI"
+install_winget_package "Obsidian.Obsidian" "Obsidian"
 
 # 3. Bun Installation
 if ! command -v bun >/dev/null 2>&1; then
@@ -157,6 +156,74 @@ log "Initializing local context database..."
 gbrain import ai_context docs/intake || warn "Initial intake import skipped."
 gbrain embed --stale || warn "Context embedding skipped."
 
+# 12. Configure Antigravity identical to Mac
+log "Configuring Antigravity settings..."
+for path_cand in "${USERPROFILE_PATH}/.gemini/config" "${USERPROFILE_PATH}/.gemini/antigravity"; do
+  mkdir -p "${path_cand}"
+  # Write dark theme configuration
+  cat <<EOF > "${path_cand}/config.json"
+{
+  "userSettings": {
+    "globalPermissionGrants": {
+      "allow": [
+        "command(git status)",
+        "command(git add)",
+        "command(git commit)",
+        "read_url(https://goalchain.fun/)",
+        "read_url(hermes-agent.nousresearch.com)",
+        "read_url(yanxbt.substack.com)",
+        "read_url(t.co)",
+        "read_url(wurkapi.fun)",
+        "read_url(x.com)",
+        "mcp(gbrain/query)",
+        "mcp(gbrain/list_pages)",
+        "read_url(github.com)"
+      ]
+    },
+    "themeMode": "THEME_MODE_DARK",
+    "useAiCredits": true
+  }
+}
+EOF
+  # Write MCP gbrain server settings
+  cat <<EOF > "${path_cand}/mcp_config.json"
+{
+  "mcpServers": {
+    "cloudrun": {
+      "args": [
+        "-y",
+        "@google-cloud/cloud-run-mcp"
+      ],
+      "command": "npx"
+    },
+    "gbrain": {
+      "command": "${USERPROFILE_PATH//\\//\\\\}/.bun/bin/bun.exe",
+      "args": [
+        "${USERPROFILE_PATH//\\//\\\\}/.bun/bin/gbrain",
+        "serve"
+      ]
+    }
+  }
+}
+EOF
+done
+
+# 13. Download and Configure Obsidian community plugins
+log "Installing Obsidian community plugins (Git Sync & Dataview)..."
+download_obsidian_plugin() {
+  local repo="$1"
+  local name="$2"
+  local dest_dir=".obsidian/plugins/${name}"
+  mkdir -p "${dest_dir}"
+  log "Downloading ${name} files..."
+  curl -sSfL -o "${dest_dir}/main.js" "https://github.com/${repo}/releases/latest/download/main.js" || warn "Failed main.js for ${name}"
+  curl -sSfL -o "${dest_dir}/manifest.json" "https://github.com/${repo}/releases/latest/download/manifest.json" || warn "Failed manifest.json for ${name}"
+  curl -sSfL -o "${dest_dir}/styles.css" "https://github.com/${repo}/releases/latest/download/styles.css" || true
+}
+
+download_obsidian_plugin "vinzent03/obsidian-git" "obsidian-git"
+download_obsidian_plugin "blacksmithgu/obsidian-dataview" "dataview"
+
 log "Setup completed successfully!"
 echo "--------------------------------------------------------"
 echo "  Windows Mini PC Developer workspace is now ready."
@@ -167,7 +234,7 @@ echo "  Bun:      $(bun --version 2>/dev/null || echo 'Not configured in current
 echo "--------------------------------------------------------"
 echo "  Please restart Git Bash (or run 'source ~/.bashrc') to refresh PATH."
 echo "  Official team keypair goalchain_program-keypair.json copied successfully."
-echo "  Obsidian Note-taking integration: Open Obsidian and select this"
-echo "  repository directory as a Vault to edit docs/intake/ and ai_context/"
-echo "  cooperatively with gbrain vector memory."
+echo "  Antigravity mirrored and configured in dark mode with GBrain."
+echo "  Obsidian is installed and preloaded with Obsidian Git & Dataview."
+echo "  Open Obsidian and select this repository folder as a Vault."
 echo "--------------------------------------------------------"
