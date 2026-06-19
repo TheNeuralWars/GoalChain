@@ -1,0 +1,36 @@
+model:
+  default: nvidia/nemotron-3-ultra:free
+  provider: nous
+  base_url: https://inference-api.nousresearch.com/v1
+display:
+  background_process_notifications: all
+  bell_on_complete: false
+  compact: false
+  language: en
+  platforms:
+    telegram:
+      streaming: true
+    discord:
+      streaming: false
+    whatsapp:
+      streaming: true
+  streaming: true
+agent:
+  max_turns: 60
+  gateway_timeout: 1800
+  system_prompt: "You are a technical expert. Provide detailed, accurate technical information."
+mcp_servers:
+  gbrain:
+    command: gbrain
+    args:
+      - serve
+  goalchain-ops:
+    command: python3
+    args:
+      - ops/hermes/mcp-goalchain-ops.py
+    env:
+      GOALCHAIN_API_BASE: https://crm.goalchain.fun/goalchain-api
+      RPC_URL: https://api.devnet.solana.com
+      PROGRAM_ID: FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg
+      GOALCHAIN_REPO_PATH: .
+    timeout: 90

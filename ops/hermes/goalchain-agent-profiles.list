@@ -1,9 +1,3 @@
 # Canonical Hermes agent profiles (GoalChain). One name per line.
 # Used by bootstrap-profile-secrets.sh and sync-goalchain-agent-profiles.sh.
-daily-routine
-jito-strategy
-marketing-active
-player-images
-repo-deepdive
-x-scout
 hermes-ceo
