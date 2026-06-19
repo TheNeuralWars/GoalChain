@@ -118,26 +118,36 @@ fi
 # Copy key to VPS (Oracle)
 VPS_HOST="89.168.20.135"
 VPS_USER="ubuntu"
-log "Copying SSH public key to VPS (${VPS_USER}@${VPS_HOST})..."
+GOALCHAIN_SSH="${VPS_USER}@${VPS_HOST}"
+
+log "Copying SSH public key to VPS (${GOALCHAIN_SSH})..."
 log "Please enter your VPS SSH password if prompted."
-cat "${SSH_KEY}.pub" | ssh -o StrictHostKeyChecking=no "${VPS_USER}@${VPS_HOST}" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys" || \
+cat "${SSH_KEY}.pub" | ssh -o StrictHostKeyChecking=no "${GOALCHAIN_SSH}" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys" || \
   warn "Could not copy SSH key automatically. Please manually append the following key to ~/.ssh/authorized_keys on the VPS:"
 cat "${SSH_KEY}.pub"
 
-# 8. Mirror Configuration from VPS
+# 8. Copy Official Smart Contract Keypair from VPS
+log "Downloading official smart contract team keypair from VPS..."
+mkdir -p goalchain_program/target/deploy
+scp -o BatchMode=yes -q \
+  "${GOALCHAIN_SSH}:/data/apps/GoalChain/goalchain_program/target/deploy/goalchain_program-keypair.json" \
+  "goalchain_program/target/deploy/goalchain_program-keypair.json" || \
+  warn "Could not download program keypair from VPS. If required, copy it manually to goalchain_program/target/deploy/goalchain_program-keypair.json."
+
+# 9. Mirror Configuration from VPS
 log "Mirroring Hermes profile config from VPS..."
 # Ensure Python packages like pyyaml are present for the patch process
 pip install pyyaml --quiet 2>/dev/null || python -m pip install pyyaml --quiet 2>/dev/null || warn "Python PyYAML package not found; patch-config-for-mac step might fail. Run 'pip install pyyaml' manually."
 
 # Execute mirror script
-GOALCHAIN_SSH="${VPS_USER}@${VPS_HOST}" bash ops/hermes/install-hermes-mirror-mac.sh || \
+GOALCHAIN_SSH="${GOALCHAIN_SSH}" bash ops/hermes/install-hermes-mirror-mac.sh || \
   warn "Hermes configuration mirroring finished with warnings."
 
-# 9. Proactively Stop/Disable local Hermes Gateway (Avoid Session Collisions)
+# 10. Proactively Stop/Disable local Hermes Gateway (Avoid Session Collisions)
 log "Disabling local Hermes gateway..."
 bash ops/hermes/disable-hermes-mac.sh || true
 
-# 10. Install GBrain local MCP integration for Cursor / Antigravity
+# 11. Install GBrain local MCP integration for Cursor / Antigravity
 log "Installing local GBrain MCP integrations..."
 bash ops/hermes/install-gbrain-cursor.sh || warn "Cursor GBrain MCP setup warning."
 bash ops/hermes/install-gbrain-antigravity.sh || warn "Antigravity GBrain MCP setup warning."
@@ -156,7 +166,8 @@ echo "  Anchor:   $(anchor --version 2>/dev/null || echo 'Not configured in curr
 echo "  Bun:      $(bun --version 2>/dev/null || echo 'Not configured in current bash path')"
 echo "--------------------------------------------------------"
 echo "  Please restart Git Bash (or run 'source ~/.bashrc') to refresh PATH."
-echo "  Note: Make sure to copy the official smart contract keypair"
-echo "        goalchain_program-keypair.json to:"
-echo "        goalchain_program/target/deploy/"
+echo "  Official team keypair goalchain_program-keypair.json copied successfully."
+echo "  Obsidian Note-taking integration: Open Obsidian and select this"
+echo "  repository directory as a Vault to edit docs/intake/ and ai_context/"
+echo "  cooperatively with gbrain vector memory."
 echo "--------------------------------------------------------"
