@@ -70,3 +70,8 @@ polymarket_bot/*.service
 
 # --- Scratch / local experiments ---
 scratch/
+# --- Reorganization (2026-06-19): archive, cache, deep-research clones ---
+_archive/
+*.tar.gz
+goalchain_webapp/.vercel/
+research/x-deep/*/*/repos/
