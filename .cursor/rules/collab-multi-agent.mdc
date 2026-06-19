@@ -14,8 +14,8 @@ Agents: **Antigravity** (Google - Master Agent & Integration Owner), **Cursor** 
 | Antigravity | Code, commits, PR approvals, merges, on-chain/API/webapp, spikes, exploration (Master Agent) | Marketing-only tasks unless asked |
 | Cursor | IDE assistant, spikes, exploration drafts (Credits spent: read-only/draft assistance) | Merging or commits without Antigravity OK |
 | Grok | Research, drafts, review, marketing skills | Same-file parallel edits with Antigravity |
-| Hermes (CEO) | Intake, prioritization, reminders, briefs, Discord/WhatsApp | Direct contract changes without handoff |
-| Greek Workers | 24 VPS agents (`alpha` to `omega`) on ports `3456-3479` picking `agent:opencode` issues | Direct merges (they only push draft PRs `exp/opencode-issue-*`) |
+| Hermes (CEO) | Triage (gateway), autonomous implementation (`oa-run-code.sh` + 4-slot semaphore) | Direct contract changes without handoff |
+| Hermes Workers | Single queue runner on VPS (`oa-worker.service`) picking `agent:opencode` issues | Direct merges (they only push draft PRs `exp/opencode-issue-*`) |
 
 ## Golden rules
 

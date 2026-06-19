@@ -173,6 +173,10 @@ mcp["goalchain-ops"] = {
     "timeout": 90,
 }
 
+if "hermes-vault" in mcp:
+    mcp["hermes-vault"]["command"] = str(Path.home() / ".local/bin/hermes-vault")
+
+
 # CLI: do not mirror gateway-only platform blocks blindly
 dst_path.write_text(yaml.dump(dst, default_flow_style=False, sort_keys=False), encoding="utf-8")
 print("patched", dst_path, "model=", dst.get("model", {}))

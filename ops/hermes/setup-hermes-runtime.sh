@@ -50,9 +50,9 @@ PY
 ensure_key "GIT_AUTHOR_NAME" "Hermes"
 ensure_key "GIT_AUTHOR_EMAIL" "hermes@goalchain.local"
 ensure_key "OA_MODEL" "xai/grok-4.3"
-ensure_key "OA_CODE_ENGINE" "fcc"
-ensure_key "OA_CODE_MODEL" "github-copilot/claude-sonnet-4.5"
-ensure_key "OA_CODE_CMD" "${HOME}/.local/bin/fcc-claude"
+ensure_key "OA_CODE_ENGINE" "hermes"
+ensure_key "OA_CODE_MODEL" "nemotron-3-ultra-free"
+ensure_key "OA_CODE_CMD" "${HOME}/.hermes/hermes-agent/venv/bin/python -m hermes_cli.main"
 ensure_key "OA_RESEARCH_PUBLISHER_ENABLED" "false"
 
 if [[ "$(uname -s)" == "Linux" ]]; then
@@ -79,13 +79,13 @@ elif [[ -x "${SCRIPTS_DIR}/configure-hermes-language.sh" ]]; then
   bash "${SCRIPTS_DIR}/configure-hermes-language.sh"
 fi
 
-if command -v fcc-claude >/dev/null 2>&1 || [[ -x "${HOME}/.local/bin/fcc-claude" ]]; then
-  echo "==> FCC (Free Claude Code): OK"
-  if [[ -x "${SCRIPT_DIR}/install-fcc-skills.sh" ]]; then
-    bash "${SCRIPT_DIR}/install-fcc-skills.sh" || echo "WARN: install-fcc-skills.sh failed (retry manually)"
+if [[ -x "${HOME}/.hermes/hermes-agent/venv/bin/python" ]]; then
+  echo "==> Hermes CLI: OK"
+  if [[ -x "${SCRIPT_DIR}/install-hermes-superpowers.sh" ]]; then
+    bash "${SCRIPT_DIR}/install-hermes-superpowers.sh" || echo "WARN: install-hermes-superpowers.sh failed (retry manually)"
   fi
 else
-  echo "WARN: fcc-claude not found — install: uv tool install free-claude-code (or see docs/intake)"
+  echo "WARN: Hermes CLI not found at ~/.hermes/hermes-agent/venv/bin/python"
 fi
 
 if [[ "${INSTALL_SYSTEMD:-true}" == "true" ]] && [[ "$(uname -s)" == "Linux" ]]; then

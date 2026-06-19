@@ -56,9 +56,9 @@ No external databases needed — all persistent state is on-chain (Solana).
 
 ### Autonomous VPS Worker Fleet
 
-- The production Oracle VPS runs **24 Greek autonomous workers** (`alpha` to `omega`) bound to ports `3456-3479`.
-- Each worker executes tasks inside its own isolated home profile directory under `/home/ubuntu/.hermes/profiles/<letter>/` to prevent directory or log conflicts.
-- Stale database backups and corrupt clones are automatically cleaned; the central task manager uses `/home/ubuntu/.hermes/kanban.db` and coordinates via `state.db`.
+- The production Oracle VPS runs a unified worker service (`oa-worker.service`) that delegates implementation to **Hermes CEO** (oneshot agent) via the `oa-run-code.sh` runner.
+- Concurrency is managed via a **4-slot semaphore lock system** (`worker_1.lock` to `worker_4.lock`) to prevent directory or log conflicts and avoid VPS resource exhaustion.
+- Stale database backups and logs are automatically cleaned via the central task manager coordinates.
 - Heavy MCP servers (`canva`, `github`, `filesystem`) are disabled globally to ensure maximum speed and minimal resource usage.
 
 ## GOLDEN RULES FOR MARKETING / PUBLICATIONS (added 2026-06-02, user directives - permanent)
