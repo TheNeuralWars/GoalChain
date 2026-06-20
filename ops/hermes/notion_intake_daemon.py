@@ -51,24 +51,14 @@ def get_notion_client(api_key):
     return session
 
 def query_notion_tasks(session, database_id):
-    """Queries Notion database for tasks where Status is 'Ready' or 'Inbox'."""
+    """Queries Notion database for tasks where Status is 'Ready'."""
     url = f"https://api.notion.com/v1/databases/{database_id}/query"
     payload = {
         "filter": {
-            "or": [
-                {
-                    "property": "Status",
-                    "status": {
-                        "equals": "Ready"
-                    }
-                },
-                {
-                    "property": "Status",
-                    "status": {
-                        "equals": "Inbox"
-                    }
-                }
-            ]
+            "property": "Status",
+            "status": {
+                "equals": "Ready"
+            }
         }
     }
     
@@ -81,6 +71,83 @@ def query_notion_tasks(session, database_id):
     except Exception as e:
         print(f"[Notion] Network exception querying database: {e}", file=sys.stderr)
         return []
+
+def get_page_body_markdown(session, page_id):
+    """
+    Fetches the block children of a Notion page and converts them to a Markdown string.
+    """
+    url = f"https://api.notion.com/v1/blocks/{page_id}/children"
+    markdown_lines = []
+    
+    try:
+        has_more = True
+        start_cursor = None
+        
+        while has_more:
+            params = {}
+            if start_cursor:
+                params["start_cursor"] = start_cursor
+                
+            response = session.get(url, params=params, timeout=15)
+            if response.status_code != 200:
+                print(f"[Notion] Error getting page blocks: {response.status_code} - {response.text}", file=sys.stderr)
+                break
+                
+            data = response.json()
+            blocks = data.get("results", [])
+            
+            for block in blocks:
+                block_type = block.get("type")
+                if not block_type:
+                    continue
+                
+                def extract_text(rich_text_list):
+                    text_parts = []
+                    for rt in rich_text_list:
+                        text_parts.append(rt.get("text", {}).get("content", ""))
+                    return "".join(text_parts)
+                
+                block_data = block.get(block_type, {})
+                rich_text = block_data.get("rich_text", [])
+                text_content = extract_text(rich_text)
+                
+                if block_type == "paragraph":
+                    markdown_lines.append(text_content + "\n")
+                elif block_type == "heading_1":
+                    markdown_lines.append(f"# {text_content}\n")
+                elif block_type == "heading_2":
+                    markdown_lines.append(f"## {text_content}\n")
+                elif block_type == "heading_3":
+                    markdown_lines.append(f"### {text_content}\n")
+                elif block_type == "bulleted_list_item":
+                    markdown_lines.append(f"- {text_content}")
+                elif block_type == "numbered_list_item":
+                    markdown_lines.append(f"1. {text_content}")
+                elif block_type == "to_do":
+                    checked = block_data.get("checked", False)
+                    checkbox = "[x]" if checked else "[ ]"
+                    markdown_lines.append(f"- {checkbox} {text_content}")
+                elif block_type == "quote":
+                    markdown_lines.append(f"> {text_content}\n")
+                elif block_type == "divider":
+                    markdown_lines.append("---\n")
+                elif block_type == "code":
+                    lang = block_data.get("language", "")
+                    markdown_lines.append(f"```{lang}\n{text_content}\n```\n")
+                elif block_type == "callout":
+                    icon_emoji = ""
+                    icon = block_data.get("icon", {})
+                    if icon.get("type") == "emoji":
+                        icon_emoji = icon.get("emoji", "") + " "
+                    markdown_lines.append(f"> {icon_emoji}{text_content}\n")
+                
+            has_more = data.get("has_more", False)
+            start_cursor = data.get("next_cursor")
+            
+    except Exception as e:
+        print(f"[Notion] Exception fetching page body markdown: {e}", file=sys.stderr)
+        
+    return "\n".join(markdown_lines)
 
 def update_task_status(session, page_id, status_name="In Progress"):
     """Updates the status of a Notion task/page."""
@@ -356,6 +423,15 @@ def process_tasks(config, session, database_id):
         else:
             for page in tasks:
                 parsed = parse_notion_properties(page)
+                
+                # Fetch page body markdown
+                body_md = get_page_body_markdown(session, parsed["id"])
+                
+                # Append page body markdown to objective
+                full_objective = parsed["objective"]
+                if body_md.strip():
+                    full_objective = f"{full_objective}\n\n### Notion Page Content:\n{body_md}"
+                
                 print(f"[Notion] Dispatching: [{parsed['owner'].upper()}] ({parsed['priority']}) {parsed['title']}")
                 
                 # Run create-task.sh
@@ -365,7 +441,7 @@ def process_tasks(config, session, database_id):
                     parsed["owner"],
                     parsed["priority"],
                     parsed["title"],
-                    parsed["objective"]
+                    full_objective
                 ]
                 
                 try:
