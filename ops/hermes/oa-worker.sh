@@ -222,7 +222,7 @@ consume_webhook_queue() {
   rm -f "${tmp}"
 }
 
-process_opencode_issue() {
+process_hermes_issue() {
   local issue_json="$1"
   local number title body labels_csv
   number="$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["number"])' "${issue_json}")"
