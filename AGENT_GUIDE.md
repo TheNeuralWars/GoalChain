@@ -91,6 +91,7 @@ The following Antigravity skills are mandatory references:
 1. `solana-web3-integration` — PDAs, IDL handling, `DevGoaL` wallet mock fallbacks.
 2. `responsive-glassmorphism` — dApp glass UI on PC/tablet/mobile.
 3. `client-side-ai-ml` — WebGPU/WASM/IndexedDB patterns for in-browser AI.
+4. `grok-cli-delegation` — For image/video generation tasks (e.g. NFT cards, automated video projects), agents can delegate the work to the active `grok-cli` session on the VPS by running `/home/ubuntu/hermes/scripts/grok-agent-cmd.sh "<instruction>"`.
 
 ---
 
