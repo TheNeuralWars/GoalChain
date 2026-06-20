@@ -44,7 +44,7 @@ owner_for_issue() {
   python3 -c 'import json,sys
 issue=json.loads(sys.argv[1])
 labels=[(x.get("name","") if isinstance(x,dict) else "") for x in issue.get("labels",[])]
-for o in ("cursor","antigravity","opencode"):
+for o in ("cursor","antigravity","hermes"):
     if f"agent:{o}" in labels:
         print(o)
         raise SystemExit(0)
@@ -67,7 +67,7 @@ command_for_owner() {
   case "${1:-}" in
     cursor) printf '%s' "${LOCAL_CURSOR_CMD:-}" ;;
     antigravity) printf '%s' "${LOCAL_ANTIGRAVITY_CMD:-}" ;;
-    opencode) printf '%s' "${LOCAL_OPENCODE_CMD:-}" ;;
+    hermes) printf '%s' "${LOCAL_HERMES_CMD:-${LOCAL_OPENCODE_CMD:-}}" ;;
     *) printf '' ;;
   esac
 }
