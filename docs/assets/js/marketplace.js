@@ -61,7 +61,7 @@ function renderMarket(filter = 'all') {
         return `
             <div class="glass-card market-item reveal" data-rarity="${item.rarity}" style="padding: 0; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
                 <div style="position: relative; height: 320px; overflow: hidden;">
-                    <img src="${imgPath}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='assets/img/nfts/001_lionel_satoshi.png'">
+                    <img src="${imgPath}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='assets/img/nfts/card_placeholder_soon.png'">
                     <div style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); padding: 5px 12px; border-radius: 20px; font-weight: 900; color: #14f195; border: 1px solid #14f195;">
                         ${item.price}
                     </div>

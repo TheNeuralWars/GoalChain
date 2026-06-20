@@ -188,7 +188,7 @@ function executeReveal() {
             <div class="card-inner">
                 <div class="card-front">
                     <div class="glare"></div>
-                    <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/img/nfts/001_lionel_satoshi.png'">
+                    <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/img/nfts/card_placeholder_soon.png'">
                     <div class="nft-overlay">
                         <div class="player-info">
                             <span class="player-name">${player.name}</span>
@@ -237,7 +237,7 @@ function renderInventory(filter = 'all') {
             <div class="nft-card-3d in-view" data-rarity="${player.rarity}" style="transform: scale(0.6); margin: -50px;">
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/img/nfts/001_lionel_satoshi.png'">
+                        <img src="${imgPath}" alt="${player.name}" onerror="this.src='assets/img/nfts/card_placeholder_soon.png'">
                     </div>
                 </div>
             </div>

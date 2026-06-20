@@ -217,7 +217,7 @@ function renderParallaxCard(container, player) {
                     <img src="${playerImgUrl}" loading="lazy" style="
                         width: 95%; height: 95%; object-fit: contain; pointer-events: none;
                         filter: ${filterStyle};
-                    " onerror="this.src='assets/img/mock/player_placeholder.webp'; this.style.opacity='0.2';">
+                    " onerror="this.src='assets/img/nfts/card_placeholder_soon.png'; this.style.opacity='0.95';">
                 </div>
                 
                 <!-- CAPA FX: Low Battery Warning -->
