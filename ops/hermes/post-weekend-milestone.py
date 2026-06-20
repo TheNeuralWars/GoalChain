@@ -130,7 +130,7 @@ Este fin de semana cruzamos una línea: dejó de ser “proyecto en repo” y em
 **Lo que ya está encendido**
 • **Play** → https://play.goalchain.fun — dashboard denso, Classic Hub en `/hub`, Devnet con Phantom
 • **Ops en vivo** → API en `crm.goalchain.fun/goalchain-api` (mint gate, vault crank, contributor epoch)
-• **Hermes 24/7** → Manager en Discord/WhatsApp; convierte pedidos en issues y ramas `exp/opencode-issue-*`
+• **Hermes 24/7** → Manager en Discord/WhatsApp; convierte pedidos en issues y ramas `exp/hermes-issue-*`
 • **FCC (Free Claude Code)** → agente de código multi-proveedor (OpenRouter, NVIDIA NIM, Groq…) sin que tengas que elegir modelos a mano
 • **X-Scout** → radar automático en el foro **#active-research** (señales X + síntesis Grok cada ~2h)
 

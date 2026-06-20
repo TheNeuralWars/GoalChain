@@ -60,9 +60,7 @@ def create_intake_database(parent_page_id, title="Hermes Task Intake"):
             "Agent": {
                 "select": {
                     "options": [
-                        {"name": "opencode", "color": "purple"},
-                        {"name": "cursor", "color": "blue"},
-                        {"name": "antigravity", "color": "orange"},
+                        {"name": "hermes", "color": "purple"},
                         {"name": "grok", "color": "red"}
                     ]
                 }

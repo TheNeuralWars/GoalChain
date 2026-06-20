@@ -28,9 +28,9 @@ else
 fi
 echo
 
-echo "## Open opencode / FCC tasks"
+echo "## Open hermes / FCC tasks"
 if command -v gh >/dev/null 2>&1; then
-  gh issue list --repo "$GITHUB_REPO" --state open --label "agent:opencode" --limit 8 2>/dev/null || echo "(gh failed)"
+  gh issue list --repo "$GITHUB_REPO" --state open --label "agent:hermes" --limit 8 2>/dev/null || echo "(gh failed)"
 else
   echo "(gh not available)"
 fi

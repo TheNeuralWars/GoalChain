@@ -232,22 +232,20 @@ def parse_notion_properties(page):
         priority = "P1"
 
     # 3. Extract Owner / Agent
-    owner = "opencode"
+    owner = "hermes"
     owner_prop = properties.get("Agent") or properties.get("Owner")
     if owner_prop:
         if owner_prop.get("select"):
-            owner = owner_prop["select"].get("name", "opencode").lower()
+            owner = owner_prop["select"].get("name", "hermes").lower()
         elif owner_prop.get("status"):
-            owner = owner_prop["status"].get("name", "opencode").lower()
+            owner = owner_prop["status"].get("name", "hermes").lower()
             
-    # Map 'hermes' to 'opencode' (autonomous agent runner)
-    if owner == "hermes":
-        owner = "opencode"
+    # Map legacy names to 'hermes'
+    if owner in {"opencode", "code"}:
+        owner = "hermes"
         
-    if owner not in {"cursor", "antigravity", "opencode", "grok", "code"}:
-        owner = "opencode"
-    if owner == "code":
-        owner = "opencode"
+    if owner not in {"cursor", "antigravity", "hermes", "grok"}:
+        owner = "hermes"
 
     # 4. Extract Objective (reads text from Objective property or falls back to description)
     objective = ""

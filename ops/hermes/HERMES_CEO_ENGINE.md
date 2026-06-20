@@ -22,15 +22,15 @@
 
 ```bash
 # 1. Manager crea issue (Discord/WhatsApp o manual)
-bash ~/hermes/scripts/create-task.sh opencode P1 "[DRAFT] Task title" "detailed prompt with skills"
+bash ~/hermes/scripts/create-task.sh hermes P1 "[DRAFT] Task title" "detailed prompt with skills"
 
 # 2. Hermes CEO ejecuta (máx 4 concurrentes)
 bash ~/hermes/scripts/oa-run-code.sh \
   --workdir ~/hermes/workspace/GoalChain \
   --prompt-file /tmp/oa-code-prompt-<number>.txt \
-  --log /tmp/oa-opencode-<number>.log
+  --log /tmp/oa-hermes-<number>.log
 
-# 3. Resultado: draft PR en branch exp/opencode-issue-<number>
+# 3. Resultado: draft PR en branch exp/hermes-issue-<number>
 #    Revisión → Antigravity mergea
 ```
 

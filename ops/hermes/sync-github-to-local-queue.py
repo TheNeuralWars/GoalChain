@@ -48,7 +48,7 @@ def main():
         sys.exit(1)
 
     # Filter to only the code agents we care about
-    CODE_AGENTS = {"agent:opencode", "agent:antigravity", "agent:grok"}
+    CODE_AGENTS = {"agent:hermes", "agent:antigravity", "agent:grok"}
     
     existing_github_nums = {
         issue["github_number"] 

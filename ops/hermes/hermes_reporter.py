@@ -77,7 +77,7 @@ def main():
     p.add_argument("--title",         type=str, help="Issue/task title")
     p.add_argument("--pr",            type=str, help="PR URL if created")
     p.add_argument("--tier",          type=str, help="Agent tier used (fast/standard/sonnet/etc)")
-    p.add_argument("--agent",         type=str, default="opencode", help="Agent executing the task")
+    p.add_argument("--agent",         type=str, default="hermes", help="Agent executing the task")
     p.add_argument("--reason",        type=str, help="Failure reason")
     p.add_argument("--custom",        type=str, help="Send any custom message")
     args = p.parse_args()
@@ -102,7 +102,7 @@ def main():
         msg = (
             f"⚡ **Task Active** · {now_utc()}\n"
             f"**#{args.issue or '?'}** — {args.title or 'Untitled'}\n"
-            f"👤 Agent: `agent:{args.agent or 'opencode'}`\n"
+            f"👤 Agent: `agent:{args.agent or 'hermes'}`\n"
             f"🏷️ Model: `{resolved_model}`\n"
             f"⚙️ Status: **in_progress** 🚀 (agent executing code implementation now)"
         )
@@ -111,7 +111,7 @@ def main():
     # ── Mode: task done ──────────────────────────────────────────────────────
     elif args.done:
         pr_line = f"\n🔗 PR: {args.pr}" if args.pr else "\n📭 No code changes (analysis/research task)"
-        tier_line = f" · agent: `{args.agent or 'opencode'}` (`{resolved_model}`)"
+        tier_line = f" · agent: `{args.agent or 'hermes'}` (`{resolved_model}`)"
         issue_link = f"https://github.com/TheNeuralWars/GoalChain/issues/{args.issue}" if args.issue else ""
         msg = (
             f"✅ **Task Done** · {now_utc()}{tier_line}\n"

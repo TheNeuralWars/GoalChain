@@ -133,7 +133,7 @@ def create_intake_brief_from_voice(transcription_text):
 
 - **Status:** ready-for-hermes
 - **Priority:** P1
-- **Owner:** opencode
+- **Owner:** hermes
 - **Created:** {date_str}
 - **Source:** Voice Note via Telegram Bot
 
@@ -148,7 +148,7 @@ This task was received as a voice note from Nico via the Telegram Bot and transc
 ## Recommended Path Forward
 
 - [ ] Parse and generate implementation tasks via autonomic-intake-processor.
-- [ ] Auto-dispatch to FCC/OpenCode for code implementation.
+- [ ] Auto-dispatch to FCC/Hermes for code implementation.
 - [ ] Run typescript checks and auto-merge to main if clean.
 
 ## Tags

@@ -53,7 +53,7 @@ def main():
         labels = issue.get("labels", [])
         github_num = issue.get("github_number")
 
-        owner = "opencode"
+        owner = "hermes"
         if "agent:antigravity" in labels:
             owner = "antigravity"
         elif "agent:grok" in labels:

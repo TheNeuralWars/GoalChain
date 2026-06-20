@@ -136,7 +136,7 @@ def post_status_to_notion(config, title, description, category="Codebase"):
     except Exception as e:
         print(f"[Supervisor] Notion posting exception: {e}")
 
-def check_pending_opencode_work():
+def check_pending_hermes_work():
     try:
         res = subprocess.run(
             ["gh", "issue", "list", "--repo", "TheNeuralWars/GoalChain", "--state", "open", "--label", "status:ready", "--json", "labels"],
@@ -148,7 +148,7 @@ def check_pending_opencode_work():
             return False
         import json
         issues = json.loads(res.stdout)
-        code_agents = {"agent:opencode", "agent:antigravity", "agent:grok"}
+        code_agents = {"agent:hermes", "agent:antigravity", "agent:grok"}
         for issue in issues:
             labels = {l["name"] for l in issue.get("labels", []) if "name" in l}
             if labels & code_agents:
@@ -211,7 +211,7 @@ def main():
                 
     # Specific queue check for oa-worker
     if not args.dry_run and service_states.get("oa-worker") == "inactive":
-        if check_pending_opencode_work():
+        if check_pending_hermes_work():
             print("[Supervisor] Healing: Pending work detected for oa-worker but service is inactive. Starting it...")
             subprocess.run(["systemctl", "--user", "start", "oa-worker"], check=False)
             healed_services.append("oa-worker (started due to pending queue)")
@@ -229,7 +229,7 @@ def main():
             service_states["hermes-gateway-hermes-ceo"] = check_service_status("hermes-gateway-hermes-ceo")
             
     # Check English Max Law
-    proposals_dir = repo_path / "docs" / "proposals" / "opencode"
+    proposals_dir = repo_path / "docs" / "proposals" / "hermes"
     violations = audit_english_max_law(proposals_dir)
     if violations:
         print("[Supervisor] WARNING: English Max Law violations detected:")

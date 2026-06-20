@@ -16,7 +16,7 @@ replacement = '''      gh issue edit --repo "${GITHUB_REPO}" "${number}" \\
         --add-label "status:done" >/dev/null 2>&1 || true
       touch "${done_marker}"
       # Send done/changelog reports also in direct-main urgent mode!
-      python3 /home/goalchain/hermes/scripts/hermes_reporter.py --done --issue "${number}" --title "${title:-Task}" --tier "${fcc_tier:-}" --agent "opencode" 2>/dev/null || true
+      python3 /home/goalchain/hermes/scripts/hermes_reporter.py --done --issue "${number}" --title "${title:-Task}" --tier "${fcc_tier:-}" --agent "hermes" 2>/dev/null || true
       log "Finished issue #${number} (direct-main mode)"
       return 0'''
 
@@ -27,7 +27,7 @@ if target in content:
 else:
     # Loose check for spacing
     target_loose = 'log "Finished issue #${number} (direct-main mode)"\n      return 0'
-    replacement_loose = 'python3 /home/goalchain/hermes/scripts/hermes_reporter.py --done --issue "${number}" --title "${title:-Task}" --tier "${fcc_tier:-}" --agent "opencode" 2>/dev/null || true\n      log "Finished issue #${number} (direct-main mode)"\n      return 0'
+    replacement_loose = 'python3 /home/goalchain/hermes/scripts/hermes_reporter.py --done --issue "${number}" --title "${title:-Task}" --tier "${fcc_tier:-}" --agent "hermes" 2>/dev/null || true\n      log "Finished issue #${number} (direct-main mode)"\n      return 0'
     if target_loose in content:
         with open(path, 'w', encoding='utf-8') as f:
             f.write(content.replace(target_loose, replacement_loose))
