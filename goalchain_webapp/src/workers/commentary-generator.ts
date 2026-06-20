@@ -204,7 +204,7 @@ export class CommentaryGenerator {
   /** Initialize WASM module from compiled .wasm bytes */
   async initWasm(wasmBytes: Uint8Array): Promise<boolean> {
     try {
-      this.wasmModule = await WebAssembly.compile(wasmBytes);
+      this.wasmModule = await WebAssembly.compile(wasmBytes as BufferSource);
       this.wasmInstance = await WebAssembly.instantiate(this.wasmModule);
       return true;
     } catch (e) {
