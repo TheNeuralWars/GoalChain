@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Mark open issues ready for oa-worker: opencode, antigravity, grok, and legacy unlabeled.
-# Legacy issues without agent:* get agent:opencode. Skips agent:cursor and status:done.
+# Mark open issues ready for oa-worker: hermes, antigravity, grok, and legacy unlabeled.
+# Legacy issues without agent:* get agent:hermes. Skips agent:cursor and status:done.
 set -euo pipefail
 
 HERMES_HOME="${HERMES_HOME:-$HOME/hermes}"
@@ -17,7 +17,7 @@ mapfile -t ROWS < <(
   gh issue list --repo "${REPO}" --state open --limit 200 --json number,labels \
     | python3 -c '
 import json, sys
-code = {"agent:opencode", "agent:antigravity", "agent:grok"}
+code = {"agent:hermes", "agent:antigravity", "agent:grok"}
 skip = {"agent:cursor"}
 all_agents = code | skip
 for issue in json.load(sys.stdin):
@@ -35,7 +35,7 @@ for issue in json.load(sys.stdin):
 )
 
 echo "issues_to_queue: ${#ROWS[@]}"
-gh label create "agent:opencode" --repo "${REPO}" --color "0052cc" --description "FCC/OpenCode worker" >/dev/null 2>&1 || true
+gh label create "agent:hermes" --repo "${REPO}" --color "0052cc" --description "Hermes worker" >/dev/null 2>&1 || true
 for row in "${ROWS[@]}"; do
   n="${row%%$'\t'*}"
   add_agent="${row#*$'\t'}"
@@ -44,7 +44,7 @@ for row in "${ROWS[@]}"; do
     continue
   fi
   if [[ "${add_agent}" == "1" ]]; then
-    gh issue edit "${n}" --repo "${REPO}" --add-label "agent:opencode" >/dev/null 2>&1 || true
+    gh issue edit "${n}" --repo "${REPO}" --add-label "agent:hermes" >/dev/null 2>&1 || true
   fi
   gh issue edit "${n}" --repo "${REPO}" --add-label "status:ready" >/dev/null 2>&1 || true
   rm -f "${STATE_DIR}/issue-${n}.done"

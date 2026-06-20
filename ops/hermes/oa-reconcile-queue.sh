@@ -17,7 +17,7 @@ log "DRY_RUN=${DRY_RUN}"
 log "STATE_DIR=${STATE_DIR}"
 log "REPO=${REPO}"
 
-# 1. Fetch all open issues with status:ready and agent:opencode/antigravity/grok
+# 1. Fetch all open issues with status:ready and agent:hermes/antigravity/grok
 log "Fetching open issues with status:ready..."
 issues_json="$(gh issue list --repo "${REPO}" --state open --label "status:ready" --limit 200 --json number,title,labels 2>/dev/null || echo '[]')"
 
@@ -34,7 +34,7 @@ dry_run = sys.argv[3] == "1"
 github_repo = sys.argv[4]
 repo_path = Path(sys.argv[5])
 
-CODE_AGENTS = {"agent:opencode", "agent:antigravity", "agent:grok"}
+CODE_AGENTS = {"agent:hermes", "agent:antigravity", "agent:grok"}
 
 print(f"Total status:ready open issues fetched: {len(issues)}")
 reconciled_count = 0
@@ -63,7 +63,7 @@ for issue in issues:
         # - check if there's a draft PR matching head branch exp/opencode-issue-N
         # - check if there is direct commit on main matching issue-N
         
-        branch_name = f"exp/opencode-issue-{number}"
+        branch_name = f"exp/hermes-issue-{number}"
         has_branch = False
         has_pr = False
         has_main_commit = False

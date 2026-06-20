@@ -4,12 +4,12 @@ set -euo pipefail
 
 OWNER="${1:-}"
 if [[ -z "${OWNER}" ]]; then
-  echo "Usage: $0 <cursor|antigravity|opencode>"
+  echo "Usage: $0 <cursor|antigravity|hermes>"
   exit 1
 fi
 
 case "${OWNER}" in
-  cursor|antigravity|opencode) ;;
+  cursor|antigravity|hermes) ;;
   *)
     echo "ERROR: invalid owner '${OWNER}'"
     exit 1

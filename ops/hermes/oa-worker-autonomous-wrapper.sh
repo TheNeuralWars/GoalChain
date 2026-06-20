@@ -53,7 +53,7 @@ if [[ ! -d "${WORKTREE_DIR}" ]]; then
 fi
 
 REPO="${WORKTREE_DIR}"
-PROPOSALS_DIR="${REPO}/docs/proposals/opencode"
+PROPOSALS_DIR="${REPO}/docs/proposals/hermes"
 OA_MODEL="${OA_MODEL:-xai/grok-4.3}"
 OA_CODE_ENGINE="${OA_CODE_ENGINE:-hermes}"
 OA_CODE_MODEL="${OA_CODE_MODEL:-nvidia/nemotron-3-ultra}"
@@ -68,7 +68,7 @@ OA_RESEARCH_PUBLISHER_ENABLED="${OA_RESEARCH_PUBLISHER_ENABLED:-false}"
 OA_AGENT_CURSOR_CMD="${OA_AGENT_CURSOR_CMD:-}"
 OA_AGENT_ANTIGRAVITY_CMD="${OA_AGENT_ANTIGRAVITY_CMD:-}"
 OA_AGENT_GROK_CMD="${OA_AGENT_GROK_CMD:-}"
-OA_AGENT_OPENCODE_CMD="${OA_AGENT_OPENCODE_CMD:-}"
+OA_AGENT_HERMES_CMD="${OA_AGENT_HERMES_CMD:-}"
 
 export DISCORD_RESEARCH_WEBHOOK_URL DISCORD_TOKEN DISCORD_RESEARCH_CHANNEL_ID XAI_API_KEY OA_RESEARCH_PUBLISHER_ENABLED
 mkdir -p "${PROPOSALS_DIR}"
@@ -138,7 +138,7 @@ agent_command_for_owner() {
     cursor) printf '%s' "${OA_AGENT_CURSOR_CMD}" ;;
     antigravity) printf '%s' "${OA_AGENT_ANTIGRAVITY_CMD}" ;;
     grok) printf '%s' "${OA_AGENT_GROK_CMD}" ;;
-    opencode) printf '%s' "${OA_AGENT_OPENCODE_CMD}" ;;
+    hermes) printf '%s' "${OA_AGENT_HERMES_CMD}" ;;
     *) printf '' ;;
   esac
 }
@@ -190,10 +190,10 @@ def norm(s):
     return "".join(c for c in s if not unicodedata.combining(c))
 
 n = norm(text)
-owners = ["cursor","antigravity","opencode","grok"]
+owners = ["cursor","antigravity","hermes","grok"]
 
-task = re.match(r"^task\s+(cursor|antigravity|opencode|grok)\s+(P0|P1|P2)\s+\"([^\"]+)\"\s+\"([^\"]+)\"$", text, flags=re.I)
-assign = re.match(r"^assign\s+(cursor|antigravity|opencode|grok)\s+(P0|P1|P2)\s*\|\s*([^|]+)\s*\|\s*(.+)$", text, flags=re.I)
+task = re.match(r"^task\s+(cursor|antigravity|hermes|grok)\s+(P0|P1|P2)\s+\"([^\"]+)\"\s+\"([^\"]+)\"$", text, flags=re.I)
+assign = re.match(r"^assign\s+(cursor|antigravity|hermes|grok)\s+(P0|P1|P2)\s*\|\s*([^|]+)\s*\|\s*(.+)$", text, flags=re.I)
 urgent = ("cambio urgente" in n) or ("policy:direct-main" in n) or ("urgente" in n)
 
 if task:
@@ -203,7 +203,7 @@ elif assign:
     owner, priority, title, objective = assign.groups()
     item = {"owner": owner.lower(), "priority": priority.upper(), "title": title.strip(), "objective": objective.strip()}
 else:
-    owner = next((o for o in owners if re.search(rf"\\b{o}\\b", n)), "opencode")
+    owner = next((o for o in owners if re.search(rf"\\b{o}\\b", n)), "hermes")
     has_exec_verb = any(v in n for v in ["spike", "integr", "implement", "elabora", "hace", "haz", "crear", "mejora"])
     priority = "P1" if has_exec_verb else "P2"
     title_words = re.sub(r"\s+", " ", text).strip().split(" ")
@@ -257,7 +257,7 @@ consume_webhook_queue() {
 }
 
 # Local-queue-aware issue picker: claims next ready issue from local queue
-pick_next_opencode_issue() {
+pick_next_hermes_issue() {
   local issue_json
   issue_json="$(bash "${HERMES_HOME}/scripts/local-issue-queue.sh" claim "${WORKER_ID}" 2>/dev/null || echo "NONE")"
   if [[ "${issue_json}" == "NONE" ]] || [[ -z "${issue_json}" ]]; then
@@ -267,7 +267,7 @@ pick_next_opencode_issue() {
   fi
 }
 
-process_opencode_issue() {
+process_hermes_issue() {
   local issue_json="$1"
   local number title body priority owner labels
   # number is the local issue id
@@ -289,7 +289,7 @@ process_opencode_issue() {
     bash "${HERMES_HOME}/scripts/local-issue-queue.sh" update "${number}" "done" >/dev/null 2>&1 || true
     return 0
   else
-    owner="opencode"
+    owner="hermes"
   fi
 
   # Priority from labels
@@ -407,9 +407,9 @@ main_loop() {
     fi
 
     local issue
-    issue="$(pick_next_opencode_issue || true)"
+    issue="$(pick_next_hermes_issue || true)"
     if [[ -n "${issue}" ]]; then
-      process_opencode_issue "${issue}"
+      process_hermes_issue "${issue}"
       sleep 2
       continue
     fi

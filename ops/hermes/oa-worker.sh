@@ -18,7 +18,7 @@ set -a
 source "${HERMES_HOME}/config.env"
 set +a
 REPO="${GOALCHAIN_REPO_PATH:-$HERMES_HOME/workspace/GoalChain}"
-PROPOSALS_DIR="${REPO}/docs/proposals/opencode"
+PROPOSALS_DIR="${REPO}/docs/proposals/hermes"
 OA_MODEL="${OA_MODEL:-xai/grok-4.3}"
 OA_CODE_ENGINE="${OA_CODE_ENGINE:-fcc}"
 OA_CODE_MODEL="opencode/nemotron-3-ultra-free" # locked exclusively to the free promo model
@@ -33,7 +33,7 @@ OA_RESEARCH_PUBLISHER_ENABLED="${OA_RESEARCH_PUBLISHER_ENABLED:-false}"
 OA_AGENT_CURSOR_CMD="${OA_AGENT_CURSOR_CMD:-}"
 OA_AGENT_ANTIGRAVITY_CMD="${OA_AGENT_ANTIGRAVITY_CMD:-}"
 OA_AGENT_GROK_CMD="${OA_AGENT_GROK_CMD:-}"
-OA_AGENT_OPENCODE_CMD="${OA_AGENT_OPENCODE_CMD:-}"
+OA_AGENT_HERMES_CMD="${OA_AGENT_HERMES_CMD:-}"
 # Child processes (python/opencode) require exported env vars.
 export DISCORD_RESEARCH_WEBHOOK_URL DISCORD_TOKEN DISCORD_RESEARCH_CHANNEL_ID XAI_API_KEY OA_RESEARCH_PUBLISHER_ENABLED
 mkdir -p "${PROPOSALS_DIR}"
@@ -106,7 +106,7 @@ agent_command_for_owner() {
     cursor) printf '%s' "${OA_AGENT_CURSOR_CMD}" ;;
     antigravity) printf '%s' "${OA_AGENT_ANTIGRAVITY_CMD}" ;;
     grok) printf '%s' "${OA_AGENT_GROK_CMD}" ;;
-    opencode) printf '%s' "${OA_AGENT_OPENCODE_CMD}" ;;
+    hermes) printf '%s' "${OA_AGENT_HERMES_CMD}" ;;
     *) printf '' ;;
   esac
 }
@@ -158,10 +158,10 @@ def norm(s):
     return "".join(c for c in s if not unicodedata.combining(c))
 
 n = norm(text)
-owners = ["cursor","antigravity","opencode","grok"]
+owners = ["cursor","antigravity","hermes","grok"]
 
-task = re.match(r"^task\s+(cursor|antigravity|opencode|grok)\s+(P0|P1|P2)\s+\"([^\"]+)\"\s+\"([^\"]+)\"$", text, flags=re.I)
-assign = re.match(r"^assign\s+(cursor|antigravity|opencode|grok)\s+(P0|P1|P2)\s*\|\s*([^|]+)\s*\|\s*(.+)$", text, flags=re.I)
+task = re.match(r"^task\s+(cursor|antigravity|hermes|grok)\s+(P0|P1|P2)\s+\"([^\"]+)\"\s+\"([^\"]+)\"$", text, flags=re.I)
+assign = re.match(r"^assign\s+(cursor|antigravity|hermes|grok)\s+(P0|P1|P2)\s*\|\s*([^|]+)\s*\|\s*(.+)$", text, flags=re.I)
 urgent = ("cambio urgente" in n) or ("policy:direct-main" in n) or ("urgente" in n)
 
 if task:
@@ -171,7 +171,7 @@ elif assign:
     owner, priority, title, objective = assign.groups()
     item = {"owner": owner.lower(), "priority": priority.upper(), "title": title.strip(), "objective": objective.strip()}
 else:
-    owner = next((o for o in owners if re.search(rf"\b{o}\b", n)), "opencode")
+    owner = next((o for o in owners if re.search(rf"\b{o}\b", n)), "hermes")
     has_exec_verb = any(v in n for v in ["spike", "integr", "implement", "elabora", "hace", "haz", "crear", "mejora"])
     priority = "P1" if has_exec_verb else "P2"
     title_words = re.sub(r"\s+", " ", text).strip().split(" ")
@@ -204,16 +204,16 @@ consume_webhook_queue() {
     local parsed owner priority title objective issue_url
     parsed="$(parse_task_from_text "${text}" 2>/dev/null || true)"
     [[ -n "${parsed}" ]] || continue
-    owner="$(python3 -c 'import json,sys; print((json.loads(sys.argv[1]).get("owner") or "opencode").strip())' "${parsed}" 2>/dev/null || echo "opencode")"
+    owner="$(python3 -c 'import json,sys; print((json.loads(sys.argv[1]).get("owner") or "hermes").strip())' "${parsed}" 2>/dev/null || echo "hermes")"
     priority="$(python3 -c 'import json,sys; print((json.loads(sys.argv[1]).get("priority") or "P2").strip())' "${parsed}" 2>/dev/null || echo "P2")"
     title="$(python3 -c 'import json,sys; print((json.loads(sys.argv[1]).get("title") or "OA task").strip())' "${parsed}" 2>/dev/null || echo "OA task")"
     objective="$(python3 -c 'import json,sys; print((json.loads(sys.argv[1]).get("objective") or "").strip())' "${parsed}" 2>/dev/null || echo "${text}")"
 
     issue_url="$(create_issue_from_webhook "${owner}" "${priority}" "${title}" "${objective}" || true)"
     [[ -n "${issue_url}" ]] || continue
-    # opencode/FCC: OA worker picks agent:opencode + status:ready (avoid local-bridge queue on VPS).
-    if [[ "${owner}" == "opencode" ]]; then
-      log "Webhook queued opencode issue for OA worker: ${issue_url}"
+    # hermes/FCC: OA worker picks agent:hermes + status:ready (avoid local-bridge queue on VPS).
+    if [[ "${owner}" == "hermes" ]]; then
+      log "Webhook queued hermes issue for OA worker: ${issue_url}"
       continue
     fi
     dispatch_issue_to_waiting_agent "${owner}" "${priority}" "${title}" "${objective}" "${issue_url}"
@@ -233,7 +233,7 @@ process_opencode_issue() {
   local done_marker="${STATE_DIR}/issue-${number}.done"
   [[ -f "${done_marker}" ]] && return 0
 
-  log "Processing opencode issue #${number}: ${title}"
+  log "Processing hermes issue #${number}: ${title}"
   ensure_branch_clean
 
   local urgent_mode="0"
@@ -244,7 +244,7 @@ ${labels_csv}"; then
     log "Issue #${number} flagged as CAMBIO URGENTE (direct-main mode)"
   fi
 
-  local branch="exp/opencode-issue-${number}"
+  local branch="exp/hermes-issue-${number}"
   git -C "${REPO}" checkout main >/dev/null 2>&1 || true
   git -C "${REPO}" pull --ff-only origin main >/dev/null 2>&1 || true
   if [[ "${urgent_mode}" == "0" ]]; then
@@ -292,7 +292,7 @@ EOF
   export OA_FCC_TIER="${fcc_tier}"
 
   prompt_file="/tmp/oa-code-prompt-${number}.txt"
-  run_log="/tmp/oa-opencode-${number}.log"
+  run_log="/tmp/oa-hermes-${number}.log"
   cat > "${prompt_file}" <<EOF
 You are the GoalChain code agent (Free Claude Code / FCC). Implement issue #${number}: ${title}.
 
@@ -369,14 +369,14 @@ EOF
       if [[ "${pr_count}" == "0" ]]; then
         pr_url="$(gh pr create --repo "${GITHUB_REPO}" --base main --head "${branch}" --draft \
           --title "OA draft: issue #${number} — ${title}" \
-          --body "Automated FCC/OpenCode draft for issue #${number}. Requires Antigravity or Nico review before merge." 2>/dev/null || true)"
+          --body "Automated FCC/Hermes draft for issue #${number}. Requires Antigravity or Nico review before merge." 2>/dev/null || true)"
       else
         pr_url="$(gh pr list --repo "${GITHUB_REPO}" --head "${branch}" --state open --json url --jq '.[0].url' 2>/dev/null || true)"
       fi
     fi
 
     # Success comment and labels
-    local comment_body="Automated FCC/OpenCode completed issue #${number}.\n\n- **Tier Used:** \`${fcc_tier}\`"
+    local comment_body="Automated FCC/Hermes completed issue #${number}.\n\n- **Tier Used:** \`${fcc_tier}\`"
     if [[ -n "${pr_url}" ]]; then
       comment_body="${comment_body}\n- **Draft PR:** ${pr_url}"
     else
@@ -399,7 +399,7 @@ EOF
       fail_reason="Model not supported"
     fi
 
-    local comment_body="Automated FCC/OpenCode run failed for issue #${number}.\n\n- **Reason:** ${fail_reason}\n- **Tier Attempted:** \`${fcc_tier}\`\n- **Status:** marked as \`status:blocked\` for manual review to prevent infinite retries. Run logs are at \`/tmp/oa-opencode-${number}.log\`."
+    local comment_body="Automated FCC/Hermes run failed for issue #${number}.\n\n- **Reason:** ${fail_reason}\n- **Tier Attempted:** \`${fcc_tier}\`\n- **Status:** marked as \`status:blocked\` for manual review to prevent infinite retries. Run logs are at \`/tmp/oa-hermes-${number}.log\`."
     gh issue comment --repo "${GITHUB_REPO}" "${number}" --body "$(printf "${comment_body}")" >/dev/null 2>&1 || true
 
     # Per guidelines, failure should not touch .done, and let's remove status:in_progress, add status:blocked.
@@ -411,7 +411,7 @@ EOF
   fi
 }
 
-pick_next_opencode_issue() {
+pick_next_hermes_issue() {
   local raw
   # Any code-agent label + status:ready (opencode/FCC, antigravity, grok). Cursor stays IDE-local.
   raw="$(gh issue list \
@@ -424,7 +424,7 @@ pick_next_opencode_issue() {
 from pathlib import Path
 raw=sys.stdin.read().strip() or "[]"
 state_dir=Path(sys.argv[1] or ".")
-CODE_AGENTS=frozenset({"agent:opencode", "agent:antigravity", "agent:grok"})
+CODE_AGENTS=frozenset({"agent:hermes", "agent:antigravity", "agent:grok"})
 SKIP_AGENTS=frozenset({"agent:cursor"})
 try:
     items=json.loads(raw)
@@ -480,9 +480,9 @@ main_loop() {
     fi
 
     local issue
-    issue="$(pick_next_opencode_issue || true)"
+    issue="$(pick_next_hermes_issue || true)"
     if [[ -n "${issue}" ]]; then
-      process_opencode_issue "${issue}"
+      process_hermes_issue "${issue}"
       sleep 2
       continue
     fi
