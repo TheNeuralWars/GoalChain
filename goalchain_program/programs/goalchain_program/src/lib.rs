@@ -8,6 +8,9 @@ use anchor_spl::token_interface::{
 pub mod constants;
 pub mod state;
 
+use constants::*;
+
+
 declare_id!("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
 const SPL_STAKE_POOL_PROGRAM_ID: Pubkey = pubkey!("SPoo1Ku8WFXoNDMHPsrGSTSG1Y47rzgn41SLUNakuHy");
 

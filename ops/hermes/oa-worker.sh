@@ -43,7 +43,7 @@ log() { printf '[%s] %s\n' "$(date -u '+%F %T UTC')" "$*"; }
 is_urgent_text() {
   local text="${1:-}"
   text="$(printf '%s' "${text}" | tr '[:upper:]' '[:lower:]')"
-  [[ "${text}" == *"cambio urgente"* ]] || [[ "${text}" == *"policy:direct-main"* ]]
+  [[ "${text}" == *"cambio urgente"* ]] || [[ "${text}" == *"policy:direct-main"* ]] || [[ "${text}" == *"bypass-review"* ]] || [[ "${text}" == *"bypass_review"* ]] || [[ "${text}" == *"auto-merge"* ]]
 }
 
 publish_research_updates() {
@@ -239,9 +239,9 @@ process_hermes_issue() {
   local urgent_mode="0"
   if is_urgent_text "${title}
 ${body}
-${labels_csv}"; then
+${labels_csv}" || [[ "${OA_AUTO_MERGE:-false}" == "true" ]]; then
     urgent_mode="1"
-    log "Issue #${number} flagged as CAMBIO URGENTE (direct-main mode)"
+    log "Issue #${number} flagged as CAMBIO URGENTE or AUTO-MERGE (direct-main mode)"
   fi
 
   local branch="exp/hermes-issue-${number}"
@@ -469,6 +469,27 @@ print(json.dumps(items[0]) if items else "")' "${STATE_DIR}"
 main_loop() {
   log "OA worker started"
   while [[ -f "${RUN_FLAG}" ]]; do
+    # Run periodic project healthcheck (every 10 minutes)
+    if [[ -f "${REPO}/scripts/project-healthcheck.sh" ]]; then
+      local now
+      now="$(date +%s)"
+      local last_hc_file="${STATE_DIR}/healthcheck-last-run.txt"
+      local last_hc=0
+      [[ -f "${last_hc_file}" ]] && last_hc="$(cat "${last_hc_file}" 2>/dev/null || echo 0)"
+      if (( now - last_hc >= 600 )); then
+        log "Running periodic project healthcheck..."
+        if ! bash "${REPO}/scripts/project-healthcheck.sh" >> "${LOG_DIR}/healthcheck.log" 2>&1; then
+          log "WARNING: Project healthcheck failed! Details in ${LOG_DIR}/healthcheck.log"
+          if [[ -n "${DISCORD_RESEARCH_WEBHOOK_URL:-}" ]]; then
+            curl -H "Content-Type: application/json" -X POST -d '{"content": "🚨 **GoalChain healthcheck FAILED!** Project build/typecheck is broken. Check healthcheck.log."}' "${DISCORD_RESEARCH_WEBHOOK_URL}" >/dev/null 2>&1 || true
+          fi
+        else
+          log "✓ Project healthcheck passed."
+        fi
+        echo "${now}" > "${last_hc_file}"
+      fi
+    fi
+
     publish_research_updates
     consume_webhook_queue
 

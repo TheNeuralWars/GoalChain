@@ -349,6 +349,112 @@ def query_in_progress_notion_tasks(session, database_id):
         print(f"[Notion] Network exception querying in progress tasks: {e}", file=sys.stderr)
         return []
 
+def append_completion_report_to_notion(session, page_id, issue_number, title, issue_data):
+    """Appends a structured completion report block to the Notion page."""
+    url = f"https://api.notion.com/v1/blocks/{page_id}/children"
+    
+    issue_url = issue_data.get("url", f"https://github.com/TheNeuralWars/GoalChain/issues/{issue_number}")
+    comments = issue_data.get("comments", [])
+    
+    # Find the agent's report comment
+    report_text = ""
+    for comment in reversed(comments):
+        body = comment.get("body", "")
+        if "Executed in" in body or "Tier:" in body or "Log:" in body or "PR" in body:
+            report_text = body
+            break
+            
+    if not report_text and comments:
+        report_text = comments[-1].get("body", "")
+        
+    children = [
+        {
+            "object": "block",
+            "type": "divider",
+            "divider": {}
+        },
+        {
+            "object": "block",
+            "type": "heading_3",
+            "heading_3": {
+                "rich_text": [
+                    {
+                        "type": "text",
+                        "text": {
+                            "content": "🤖 Reporte de Ejecución (Hermes)"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "object": "block",
+            "type": "paragraph",
+            "paragraph": {
+                "rich_text": [
+                    {
+                        "type": "text",
+                        "text": {
+                            "content": "La tarea ha sido completada con éxito. "
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "text": {
+                            "content": f"GitHub Issue #{issue_number}",
+                            "link": {
+                                "url": issue_url
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+    
+    if report_text:
+        lines = [line.strip() for line in report_text.split("\n") if line.strip()]
+        callout_text_items = []
+        for line in lines:
+            callout_text_items.append({
+                "type": "text",
+                "text": {
+                    "content": line + "\n"
+                }
+            })
+            
+        if callout_text_items:
+            callout_text_items[-1]["text"]["content"] = callout_text_items[-1]["text"]["content"].rstrip("\n")
+            
+            children.append({
+                "object": "block",
+                "type": "callout",
+                "callout": {
+                    "rich_text": callout_text_items,
+                    "icon": {
+                        "type": "emoji",
+                        "emoji": "📝"
+                    },
+                    "color": "gray_background"
+                }
+            })
+            
+    payload = {
+        "children": children
+    }
+    
+    try:
+        response = session.patch(url, json=payload, timeout=15)
+        if response.status_code == 200:
+            print(f"[Notion] Successfully appended completion report to task page {page_id}")
+            return True
+        else:
+            print(f"[Notion] Warning: Failed to append report block: {response.status_code} - {response.text}", file=sys.stderr)
+    except Exception as e:
+        print(f"[Notion] Exception appending report block: {e}", file=sys.stderr)
+        
+    return False
+
 def check_and_update_completed_tasks(config, session, database_id):
     """Checks In Progress tasks, queries GitHub for their status, and marks them Done if completed."""
     tasks = query_in_progress_notion_tasks(session, database_id)
@@ -386,7 +492,7 @@ def check_and_update_completed_tasks(config, session, database_id):
             "gh", "issue", "view",
             issue_number,
             "--repo", "TheNeuralWars/GoalChain",
-            "--json", "state,labels"
+            "--json", "state,labels,url,comments"
         ]
         
         try:
@@ -401,7 +507,12 @@ def check_and_update_completed_tasks(config, session, database_id):
             is_done = (state == "CLOSED") or ("status:done" in labels)
             
             if is_done:
-                print(f"[Notion] Task '{title}' (GitHub #{issue_number}) is completed. Updating status to 'Done' in Notion...")
+                print(f"[Notion] Task '{title}' (GitHub #{issue_number}) is completed. Appending report and updating status to 'Done' in Notion...")
+                
+                # Append execution report first
+                append_completion_report_to_notion(session, page_id, issue_number, title, issue_data)
+                
+                # Update status
                 if update_task_status(session, page_id, "Done"):
                     print(f"[Notion] Successfully updated status to 'Done' for '{title}'")
                 else:
