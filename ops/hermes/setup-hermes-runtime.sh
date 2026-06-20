@@ -57,12 +57,12 @@ ensure_key "OA_RESEARCH_PUBLISHER_ENABLED" "false"
 
 if [[ "$(uname -s)" == "Linux" ]]; then
   ensure_key "OA_AGENT_GROK_CMD" "bash ${HERMES_HOME}/scripts/oa-agent-runner.sh grok"
-  ensure_key "OA_AGENT_OPENCODE_CMD" "bash ${HERMES_HOME}/scripts/oa-agent-runner.sh opencode"
+  ensure_key "OA_AGENT_HERMES_CMD" "bash ${HERMES_HOME}/scripts/oa-agent-runner.sh hermes"
   ensure_key "OA_AGENT_CURSOR_CMD" ""
   ensure_key "OA_AGENT_ANTIGRAVITY_CMD" ""
 else
   ensure_key "OA_AGENT_GROK_CMD" "bash ${HERMES_HOME}/scripts/oa-agent-runner.sh grok"
-  ensure_key "OA_AGENT_OPENCODE_CMD" "bash ${HERMES_HOME}/scripts/oa-dispatch-local.sh opencode"
+  ensure_key "OA_AGENT_HERMES_CMD" "bash ${HERMES_HOME}/scripts/oa-dispatch-local.sh hermes"
   ensure_key "OA_AGENT_CURSOR_CMD" "bash ${HERMES_HOME}/scripts/oa-dispatch-local.sh cursor"
   ensure_key "OA_AGENT_ANTIGRAVITY_CMD" "bash ${HERMES_HOME}/scripts/oa-dispatch-local.sh antigravity"
 fi
