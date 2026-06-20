@@ -261,57 +261,139 @@ def parse_notion_properties(page):
         "objective": objective.strip() or f"Execute task: {title}"
     }
 
-def process_tasks(config, session, database_id):
-    """Finds tasks, processes them, and runs create-task.sh."""
-    tasks = query_notion_tasks(session, database_id)
+def query_in_progress_notion_tasks(session, database_id):
+    """Queries Notion database for tasks where Status is 'In Progress'."""
+    url = f"https://api.notion.com/v1/databases/{database_id}/query"
+    payload = {
+        "filter": {
+            "property": "Status",
+            "status": {
+                "equals": "In Progress"
+            }
+        }
+    }
+    try:
+        response = session.post(url, json=payload, timeout=15)
+        if response.status_code != 200:
+            print(f"[Notion] Error querying in progress tasks: {response.status_code} - {response.text}", file=sys.stderr)
+            return []
+        return response.json().get("results", [])
+    except Exception as e:
+        print(f"[Notion] Network exception querying in progress tasks: {e}", file=sys.stderr)
+        return []
+
+def check_and_update_completed_tasks(config, session, database_id):
+    """Checks In Progress tasks, queries GitHub for their status, and marks them Done if completed."""
+    tasks = query_in_progress_notion_tasks(session, database_id)
     if not tasks:
         return
         
-    print(f"[Notion] Found {len(tasks)} new task(s)")
-    repo_path = Path(config.get("GOALCHAIN_REPO_PATH", "/home/ubuntu/GoalChain"))
-    script_path = repo_path / "ops" / "hermes" / "create-task.sh"
-    
-    if not script_path.is_file():
-        print(f"[Notion] Error: create-task.sh not found at {script_path}", file=sys.stderr)
-        return
-
     for page in tasks:
-        parsed = parse_notion_properties(page)
-        print(f"[Notion] Dispatching: [{parsed['owner'].upper()}] ({parsed['priority']}) {parsed['title']}")
+        page_id = page.get("id")
+        properties = page.get("properties", {})
         
-        # Run create-task.sh
+        # Get Title for logging
+        title = "Untitled Task"
+        title_prop = properties.get("Title") or properties.get("Name")
+        if title_prop and title_prop.get("title"):
+            title = "".join([t.get("text", {}).get("content", "") for t in title_prop["title"]]).strip()
+            
+        github_url = None
+        github_issue_prop = properties.get("GitHub Issue") or properties.get("Link")
+        if github_issue_prop:
+            if github_issue_prop.get("type") == "url":
+                github_url = github_issue_prop.get("url")
+                
+        if not github_url:
+            continue
+            
+        import re
+        match = re.search(r"/issues/(\d+)", github_url)
+        if not match:
+            continue
+            
+        issue_number = match.group(1)
+        
+        # Query GitHub issue
         cmd = [
-            "bash",
-            str(script_path),
-            parsed["owner"],
-            parsed["priority"],
-            parsed["title"],
-            parsed["objective"]
+            "gh", "issue", "view",
+            issue_number,
+            "--repo", "TheNeuralWars/GoalChain",
+            "--json", "state,labels"
         ]
         
         try:
-            res = subprocess.run(cmd, capture_output=True, text=True, check=True)
-            stdout_str = res.stdout.strip()
-            print(f"[Notion] Successfully created issue: {stdout_str}")
-            
-            # Extract issue URL if present
-            issue_url = ""
-            for line in stdout_str.splitlines():
-                if "Created issue:" in line:
-                    issue_url = line.split("Created issue:", 1)[1].strip()
-                    break
-            
-            if issue_url:
-                write_github_link_to_notion(session, parsed["id"], issue_url)
-            
-            # Update status in Notion to prevent reprocessing
-            if update_task_status(session, parsed["id"], "In Progress"):
-                print(f"[Notion] Updated Notion status to 'In Progress'")
-            else:
-                print(f"[Notion] Warning: failed to update status for page {parsed['id']}")
+            res = subprocess.run(cmd, capture_output=True, text=True)
+            if res.returncode != 0:
+                continue
                 
-        except subprocess.CalledProcessError as err:
-            print(f"[Notion] Command failed: {err.stderr}", file=sys.stderr)
+            issue_data = json.loads(res.stdout)
+            state = issue_data.get("state", "").upper()
+            labels = [l.get("name", "").lower() for l in issue_data.get("labels", []) if isinstance(l, dict)]
+            
+            is_done = (state == "CLOSED") or ("status:done" in labels)
+            
+            if is_done:
+                print(f"[Notion] Task '{title}' (GitHub #{issue_number}) is completed. Updating status to 'Done' in Notion...")
+                if update_task_status(session, page_id, "Done"):
+                    print(f"[Notion] Successfully updated status to 'Done' for '{title}'")
+                else:
+                    print(f"[Notion] Failed to update status to 'Done' for '{title}'")
+        except Exception as e:
+            print(f"[Notion] Error checking GitHub status for issue #{issue_number}: {e}", file=sys.stderr)
+
+def process_tasks(config, session, database_id):
+    """Finds tasks, processes them, and runs create-task.sh."""
+    # 1. Process new/incoming tasks
+    tasks = query_notion_tasks(session, database_id)
+    if tasks:
+        print(f"[Notion] Found {len(tasks)} new task(s)")
+        repo_path = Path(config.get("GOALCHAIN_REPO_PATH", "/home/ubuntu/GoalChain"))
+        script_path = repo_path / "ops" / "hermes" / "create-task.sh"
+        
+        if not script_path.is_file():
+            print(f"[Notion] Error: create-task.sh not found at {script_path}", file=sys.stderr)
+        else:
+            for page in tasks:
+                parsed = parse_notion_properties(page)
+                print(f"[Notion] Dispatching: [{parsed['owner'].upper()}] ({parsed['priority']}) {parsed['title']}")
+                
+                # Run create-task.sh
+                cmd = [
+                    "bash",
+                    str(script_path),
+                    parsed["owner"],
+                    parsed["priority"],
+                    parsed["title"],
+                    parsed["objective"]
+                ]
+                
+                try:
+                    res = subprocess.run(cmd, capture_output=True, text=True, check=True)
+                    stdout_str = res.stdout.strip()
+                    print(f"[Notion] Successfully created issue: {stdout_str}")
+                    
+                    # Extract issue URL if present
+                    issue_url = ""
+                    for line in stdout_str.splitlines():
+                        if "Created issue:" in line:
+                            issue_url = line.split("Created issue:", 1)[1].strip()
+                            break
+                    
+                    if issue_url:
+                        write_github_link_to_notion(session, parsed["id"], issue_url)
+                    
+                    # Update status in Notion to prevent reprocessing
+                    if update_task_status(session, parsed["id"], "In Progress"):
+                        print(f"[Notion] Updated Notion status to 'In Progress'")
+                    else:
+                        print(f"[Notion] Warning: failed to update status for page {parsed['id']}")
+                        
+                except subprocess.CalledProcessError as err:
+                    print(f"[Notion] Command failed: {err.stderr}", file=sys.stderr)
+
+    # 2. Check and update completed tasks
+    check_and_update_completed_tasks(config, session, database_id)
 
 def main():
     parser = argparse.ArgumentParser(description="Notion Intake Daemon")
