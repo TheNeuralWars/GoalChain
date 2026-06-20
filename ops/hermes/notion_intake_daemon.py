@@ -239,6 +239,11 @@ def parse_notion_properties(page):
             owner = owner_prop["select"].get("name", "opencode").lower()
         elif owner_prop.get("status"):
             owner = owner_prop["status"].get("name", "opencode").lower()
+            
+    # Map 'hermes' to 'opencode' (autonomous agent runner)
+    if owner == "hermes":
+        owner = "opencode"
+        
     if owner not in {"cursor", "antigravity", "opencode", "grok", "code"}:
         owner = "opencode"
     if owner == "code":
