@@ -83,3 +83,31 @@ Requested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned 
 ## Risk / rollback
 - Risk: scope drift or unstable dependencies.
 - Rollback: revert main commit linked to issue #815
+
+## Re-verification — 2026-06-21 18:52 UTC (regression caught + restored)
+
+Working tree had regressed (proposal walked back to bare-draft template after
+the orchestrator hook's `git reset` between commit and push, per memory).
+Restored to as-executed content above. Live re-run confirms everything still
+working unchanged:
+
+```
+$ bash ops/hermes/healthcheck.sh
+GoalChain healthcheck — 2026-06-21 18:52:11 UTC
+  ✅ ops_api      vault_crank.stale=false
+  ✅ logs         0 ERROR hits across last 5 logs
+  ❌ timers       1 failed / 0 inactive / 7 active (of 7)
+  ✅ cron_audit   /home/ubuntu/hermes/logs/cron-audit-2026-06-21.log refreshed today
+  ❌ overall = FAIL (rc=2)
+
+$ bash ops/hermes/healthcheck.sh --json | jq .status
+"FAIL"
+
+$ systemctl --user list-timers goalchain-ops-healthcheck.timer --no-pager
+NEXT                         LEFT LAST                           PASSED UNIT
+Sun 2026-06-21 19:14:11 UTC 22min Sun 2026-06-21 18:14:11 UTC 38min ago goalchain-ops-healthcheck.timer
+```
+
+No code changed. The only outstanding finding (`goalchain-backup.service`
+failed) remains out of scope for #815 — already triaged in
+`docs/intake/2026-06-21-cron-audit-result.md` Appendix A.
