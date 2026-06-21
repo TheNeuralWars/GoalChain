@@ -4,7 +4,45 @@
 [HERMES] [OPS] Centralize health-check + audit remaining timers/cron
 
 ## Source
-GitHub issue #815
+GitHub issue #815 (state: OPEN; labels: `agent:hermes`, `priority:P2`,
+`status:ready`, `source:manager`, `status:blocked`).
+
+## Round 8 status (live, 2026-06-21 22:00 UTC)
+
+Round 7 closed the implementation (`ops/hermes/healthcheck.sh`,
+`install-healthcheck-timer.sh`, MCP resource `goalchain-ops://.health`,
+intake brief, skill pointer) — all merged in PR #820 / regression-fix
+PR #822. Round 8 is the **closing** round:
+
+- New branch `exp/hermes/issue-815-round8` opened from a clean `main`
+  (the older `exp/hermes-issue-815` head was clobbered to the
+  orchestrator-hook stub during cycle 7; replaced here so the audit
+  trail is reproducible from the issue, not from the truncated branch).
+- Live verification snapshot (this session, executed not inspected):
+  - `bash ops/hermes/healthcheck.sh` → exit 2 (FAIL is *the* designed
+    outcome: surfaces `goalchain-backup.service` in `failed` state —
+    PATH/sh shebang regression, see Appendix A of the intake brief).
+  - `systemctl --user status goalchain-ops-healthcheck.timer` →
+    `Active: active (waiting) since Sun 2026-06-21 14:07:58 UTC`,
+    next fire 22:14:41 UTC (≤1h).
+  - `goalchain_ops_health()` MCP resource returns the JSON envelope
+    (verified by direct Python probe inside the FastMCP module — R5).
+- PR #823 (round 7 docs-only) is **superseded** by the new draft PR
+  opened from `exp/hermes/issue-815-round8`; closing #823 with a
+  pointer comment.
+- Issue #815 closing comment will paste the audit log fragment for
+  the `goalchain-backup.service` regression, then close the issue.
+
+## Resolved scope (issue body ↔ artifacts)
+
+| § | Requirement | Artifact | Status |
+|---|-------------|----------|--------|
+| 1 | Inventory loop into `~/hermes/logs/cron-audit-<DATE>.log` | `ops/hermes/healthcheck.sh` `audit_inventory()` (system + user) | merged |
+| 2 | `ops/hermes/healthcheck.sh` w/ PASS/WARN/FAIL table + ops_api probe + log-spam + timer health | `ops/hermes/healthcheck.sh` (229 L, bash, `set -euo pipefail`, `--json` / `--audit` / `--help`) | merged |
+| 3 | `goalchain-ops-healthcheck.timer` every 1h | `ops/hermes/install-healthcheck-timer.sh` + `~/.config/systemd/user/goalchain-ops-healthcheck.{timer,service}` (`OnUnitActiveSec=1h`, `OnBootSec=90s`, `Persistent=true`, `SuccessExitStatus=1 2`) | live |
+| 4 | MCP resource `goalchain-ops://.health` w/ fallback | `ops/hermes/mcp-goalchain-ops.py` `@mcp.resource(...)` (line 114+); `_run_healthcheck()` fallback | merged |
+| 5 | Rootcause note in `docs/intake/2026-06-21-cron-audit-result.md` | `docs/intake/2026-06-21-cron-audit-result.md` (254 L incl. Appendix A: skill-path correction + PATH root-cause) | merged |
+| extra | One-line update to `goalchain-hermes-ops` skill mentioning healthcheck command | `~/.hermes/skills/goalchain-hermes-ops/SKILL.md` line 214; mirrored at `~/.hermes/profiles/hermes-ceo/skills/devops/goalchain-ops/SKILL.md` 263–275 | live |
 
 ## Objective
 ## Objective
