@@ -199,3 +199,56 @@ ls -la ~/hermes/logs/cron-audit-*.log ~/hermes/logs/healthcheck.log
 - Grok: no copy / marketing generated; this is ops only.
 - Hermes: skill `goalchain-ops/SKILL.md` updated with a single new section.
   The `dispatch` and `estado` commands are unchanged.
+
+---
+
+## Appendix A — added 2026-06-21 16:30 UTC (post-merge verification)
+
+### Skill path correction
+
+The "Centralized health check (issue #815)" section was added to the
+**canonical** skill at `~/.hermes/skills/goalchain-hermes-ops/SKILL.md`
+(lines 255–280, version bumped), not the alternate path referenced earlier
+in this doc. The `~/.hermes/profiles/hermes-ceo/skills/devops/goalchain-ops/`
+copy is a stale duplicate from a previous run; not used downstream.
+
+### Day-one regression root cause (goalchain-backup.service)
+
+The healthcheck surfaced `goalchain-backup.service` in `failed` state on
+every tick since 14:13 UTC. Reproduction under issue #815's "survey, don't
+repair" rule:
+
+```bash
+$ systemctl --user status goalchain-backup.service
+× Active: failed (Result: exit-code) since Sun 2026-06-21 00:23:12 UTC
+   Main PID: 1312009 (code=exited, status=127)
+$ env -i PATH= /home/ubuntu/hermes/scripts/backup-to-object-storage.sh
+/usr/bin/env: 'bash': No such file or directory
+```
+
+Status 127 → systemd strips `Environment=PATH` (unit file has none) and
+the shebang `#!/usr/bin/env bash` resolves `bash` against an empty PATH.
+
+**Fix candidates (out of scope for #815, queued for separate triage):**
+1. Add `Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin`
+   override drop-in (`~/.config/systemd/user/goalchain-backup.service.d/override.conf`).
+2. Replace shebang with absolute path `#!/usr/bin/bash`.
+
+Option 1 is preferred — matches the env-layering pattern already documented
+in the canonical skill (drop-ins, not unit edits).
+
+### Verification snapshot (live, this session)
+
+```text
+$ bash ops/hermes/healthcheck.sh
+GoalChain healthcheck — 2026-06-21 16:22:32 UTC
+  ✅ ops_api      vault_crank.stale=false
+  ✅ logs         0 ERROR hits across last 5 logs
+  ❌ timers       1 failed / 0 inactive / 7 active (of 7)
+  ✅ cron_audit   /home/ubuntu/hermes/logs/cron-audit-2026-06-21.log refreshed today
+  ❌ overall = FAIL (rc=2)
+
+$ systemctl --user list-timers goalchain-ops-healthcheck.timer
+NEXT                         LEFT LAST                          PASSED UNIT
+Sun 2026-06-21 17:13:41 UTC 51min Sun 2026-06-21 16:13:41 UTC 8min ago goalchain-ops-healthcheck.timer
+```
