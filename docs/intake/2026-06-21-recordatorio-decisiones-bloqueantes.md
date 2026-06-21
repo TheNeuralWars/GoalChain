@@ -1,76 +1,47 @@
-# Recordatorio Nico — Decisiones bloqueantes (issues #811 y #812)
+# Recordatorio Nico — Decisiones bloqueantes (issues #811 / #812 / #817)
 
-**Date:** 2026-06-21 10:25 UTC
-**Author:** Manager
-**Status:** necesito tu OK antes de cerrar #811/#812
-
----
-
-## 1. Threshold de mint_gate (issue #811)
-
-`mcp_goalchain_ops_goalchain_ops_status.mint_gate` está en `allow:false, ratio_burn_over_emit: 0.116, reason: "Burn/emit ratio below 0.85. Pause mint for 48h and increase sink pressure."` desde hace 48h.
-
-Pregunta concreta:
-- ¿El umbral correcto sigue siendo **0.85** (configurado en `docs/ECONOMIC_CANONICAL_CONFIG.json`)?
-- ¿O querés que mantengamos el 0.85 pero extendamos el cooldown (lo cual requería tocar la lógica de gobernanza del mint gate)?
-
-Si me decís "0.85 está bien, dejá", no cambio nada — solo documento en el issue.
-Si querés cambiar a otro valor (0.5, 1.0, etc.) puedo abrir issue aparte con el cambio al canonical config.
+**Date:** 2026-06-21 10:25 UTC (original)
+**Update:** 2026-06-21 10:42 UTC — Nico delega, luego corrige sobre assets
+**Author:** Manager (Grok)
+**Status:** cerrado, dos decisiones tomadas + una cancelación
 
 ---
 
-## 2. Live mode de vault_crank (issue #811)
+## Estado final (post-Nico)
 
-Hoy `vault_crank.mode: dry-run`, `stale: true` desde 15-jun. Quiere decir que cualquier buyback/burn se calcula pero NO se ejecuta on-chain. Vamos a tener 32.7 SOL de exceso esperando + 19.62 SOL de buyback sugerido + 353160 GCH estimado a quemar.
+### 1. Threshold mint_gate (issue #811) ✅ DECIDIDO
+Mantener **0.85**. Conservador. Sin cambios. CEO cierra #811 documentando que está OK y procediendo al diagnóstico de por qué `stale:true`.
 
-Pregunta concreta:
-- ¿Activamos `mode: live` y dejamos que el MCP worker ejecute real on-chain al próximo trigger?
-- ¿O mantenemos dry-run hasta validar el threshold nuevo del punto 1?
+### 2. Live mode vault_crank (issue #811) ✅ DECIDIDO
+**Cambiar a `mode: live`** si el CEO confirma dos guard rails:
+- Wallet firmante tiene ≥ 1 SOL libre.
+- RPC devnet sin 429 en últimas 24h.
 
-**Default que tomé (sin tu OK no lo cambio)**: dejar dry-run, identificar el path para volver a live cuando vos confirmes.
+Si falla cualquiera → dry-run una semana más. Post-mortem corto en el issue.
 
----
+### 3. Asset automation (issue #817) ❌ CANCELADO 2026-06-21 10:38 UTC
+Nico avisó que está resolviendo la cola de 528 player assets **manualmente con Antigravity + Grok CLI** ahora mismo. No hace falta automatizar.
 
-## 3. Automatización de la cola de assets (issue #812)
+→ Issue #817 cerrado con label `cancelled`. Ningún cron nuevo se instala.
 
-Encontré que el contador 1/528 está congelado porque nadie llama `mcp_goalchain_ops_get_next_visual_batch` + `upload_generated_asset` en loop. Hoy depende de invocación manual de Grok.
-
-Tres opciones:
-
-**Opción A — Mantener manual** (status quo). Bajo costo, pero impredecible. Si vos abrís el chat y pedís assets, aparecen. Si no, no.
-
-**Opción B — Cron nuevo `goalchain-asset-batch.timer`** cada 20 min en horario hábil (08:00–22:00 UTC) + burst 06:00 UTC de 30 assets. Predecible, ~€X/día de FAL (no puedo calcular exacto sin saber el plan). NECESITA TU OK para instalar el timer.
-
-**Opción C — Disparar desde `goalchain-sync-queue.timer`** (uno de los 12 timers existentes, sin agregar nuevo unit). Más limpio, reutiliza infraestructura. Verificar primero que ese timer tenga ciclos disponibles y aceptar que comparte cuota.
-
-Mi recomendación: **C si hay capacidad, fallback B si no, default A si querés conservar control manual**. Pero necesito tu OK concreto para B o C.
+→ Issue #812 sigue activo pero su sentido práctico se reduce: el batch manual de 5–10 era para validar el path; ya está validado por el trabajo que Nico está haciendo. El CEO puede cerrar #812 con un comentario de "ya no aplica, Nico está procesando la cola por su cuenta" o reducir el scope.
 
 ---
 
-## 4. Cosas que voy a hacer sin tu OK (autónomas, scribbles)
+## Cronograma revisado
 
-- Brief de audit cron resultado (#815) — voy a ejecutarlo igual.
-- Crear `ops/hermes/gbrain-vacuum.service` + timer mensual (#816, nuevo) — no toca datos, sólo VACUUM/REINDEX de pglite. Ver abajo.
-- `sync-gbrain.sh` (#813) — script puro, no toca gbrain funcional.
-- MAC_RELOAD_GBRAIN_REMINDER.md (#814) — sólo docs/intake, sin código.
-
----
-
-## 5. Chequeo de salud actual (snapshot del VPS, 2026-06-21 10:21 UTC)
-
-- pglite: 75 MB, sin riesgo OOM.
-- RAM libre: 16 GB.
-- Disk `/data` 160 GB libres / `/` 4.6 GB libres (90% used — pero gbrain vive en /data, fuera de peligro).
-- 12 timers systemd --user activos, 1 worker MCP `goalchain-ops` corriendo, gateway hermes OK.
-- FAL backend configurado (FLUX 2 Klein 9B).
+| Semana | Acción |
+|--------|--------|
+| 21-jun | Issues #811, #813, #814, #815, #816 cerrados por CEO. #812/#817 cerrado por Nico vía Antigravity |
+| 22-jun | Install: solo #816 (vacuum weekly). Assets los maneja Nico |
+| 23-jun | Switch vault_crank a `live` si guard rails pasan |
+| 28-jun | Cola de assets en 200–300 (vía Nico/Grok manual) |
+| 12-jul | Mitad de Mundial MVP |
 
 ---
 
-## Acción esperada de tu parte
+## Por qué esta corrección importa
 
-Respondeme en #hermes o acá:
-1. 0.85 OK / cambiar a otro valor / N/A.
-2. live mode ON / mantener dry-run.
-3. Asset automation A / B / C.
+El primer round de decisiones (2026-06-21 10:32) tomó opción B (cron nuevo). Esa decisión queda **invalidada** para assets. El CEO fue notificado vía `gh issue edit 817` con la cancelación.
 
-Mientras espero, sigo con los issues #813, #814, #815, #816 que no dependen de tu decisión.
+**Lección para mí**: cuando Nico dice "no sé, decidí vos", pero después recuerdo que tiene un proceso paralelo en curso, la decisión correcta es preguntar ANTES de armar un cron, no después. Apliqué ese aprendizaje acá.
