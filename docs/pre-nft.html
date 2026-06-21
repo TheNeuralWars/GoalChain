@@ -176,7 +176,8 @@
       /* 3D Card Flip Container */
       .card-3d-container {
         perspective: 1000px;
-        height: 400px;
+        aspect-ratio: 2 / 3;
+        height: auto;
         cursor: pointer;
       }
 
@@ -230,7 +231,20 @@
         height: 100%;
         object-fit: cover;
         z-index: 1;
-        opacity: 0.65;
+        opacity: 0.8;
+      }
+
+      /* Glowing white backdrop to keep player opaque and bright under multiply blend mode */
+      .player-backing-highlight {
+        position: absolute;
+        top: 15%;
+        left: 10%;
+        width: 80%;
+        height: 65%;
+        background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 70%);
+        z-index: 1.5;
+        pointer-events: none;
+        mix-blend-mode: normal;
       }
 
       .player-layer-silhouette {
@@ -242,6 +256,7 @@
         object-fit: contain;
         z-index: 2;
         mix-blend-mode: multiply; /* Dynamically blend out white background! */
+        filter: brightness(1.05) contrast(1.05);
       }
 
       .card-overlay-details {
@@ -289,6 +304,7 @@
         object-fit: contain;
         z-index: 3;
         opacity: 0.85;
+        mix-blend-mode: screen; /* Remove black background */
       }
 
       .card-overlay-badge {
@@ -782,13 +798,13 @@
           cardContainer.className = 'card-3d-container';
           cardContainer.id = `card-container-${player.id}`;
 
-          let statusBadgeText = '⚪ SIN REVISAR';
+          let statusBadgeText = '⚪ UNREVIEWED';
           let badgeClass = 'pending';
           if (review.status === 'approved') {
-            statusBadgeText = '👍 APROBADO';
+            statusBadgeText = '👍 APPROVED';
             badgeClass = 'approved';
           } else if (review.status === 'adjustment') {
-            statusBadgeText = '⚠️ AJUSTE';
+            statusBadgeText = '⚠️ ADJUSTMENT';
             badgeClass = 'adjustment';
           }
 
@@ -806,6 +822,7 @@
                 
                 <!-- layered composite -->
                 <img class="stadium-layer-bg" src="${stadiumBg}" alt="Stadium background" />
+                <div class="player-backing-highlight"></div>
                 <img class="player-layer-silhouette" src="${imageUrl}" alt="${player.name}" onerror="this.onerror=null; this.src='https://placehold.co/300x400/0f172a/10f195?text=Pre-NFT+Art';" />
                 
                 <!-- Sponsor Overlay GoalChain logo -->
@@ -841,7 +858,7 @@
                 
                 <div class="card-back-header">
                   <h4>${player.name}</h4>
-                  <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">Detalles de Contrato Pre-NFT</span>
+                  <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">Pre-NFT Contract Details</span>
                 </div>
 
                 <div class="card-back-body">
@@ -851,11 +868,11 @@
 
                   <div class="financial-grid">
                     <div>
-                      <span style="font-size: 0.55rem; color: var(--text-muted); display: block;">VALOR NETO</span>
+                      <span style="font-size: 0.55rem; color: var(--text-muted); display: block;">NET VALUE</span>
                       <strong class="financial-val">€${player.market_value_eur ? (player.market_value_eur / 1000000).toFixed(1) + 'M' : 'N/A'}</strong>
                     </div>
                     <div>
-                      <span style="font-size: 0.55rem; color: var(--text-muted); display: block;">SALARIO / PARTIDO</span>
+                      <span style="font-size: 0.55rem; color: var(--text-muted); display: block;">MATCH SALARY</span>
                       <strong class="financial-val">${player.match_salary_gch ? player.match_salary_gch.toLocaleString('de-DE') + ' GCH' : 'N/A'}</strong>
                     </div>
                   </div>
@@ -865,8 +882,8 @@
                   </p>
 
                   <div style="font-size: 0.65rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-                    <strong>Club de parodia:</strong> ${player.meta.parody_club}<br/>
-                    <strong>Altura:</strong> ${player.physical.h} | <strong>Peso:</strong> ${player.physical.w}
+                    <strong>Parody Club:</strong> ${player.meta.parody_club}<br/>
+                    <strong>Height:</strong> ${player.physical.h} | <strong>Weight:</strong> ${player.physical.w}
                   </div>
                 </div>
 
@@ -874,16 +891,16 @@
                 <div class="critique-card-section" onclick="event.stopPropagation();">
                   <div class="critique-card-actions">
                     <button class="critique-btn approve ${review.status === 'approved' ? 'active' : ''}" id="btn-approve-${player.id}">
-                      👍 Aprobar
+                      👍 Approve
                     </button>
                     <button class="critique-btn adjust ${review.status === 'adjustment' ? 'active' : ''}" id="btn-adjust-${player.id}">
-                      ⚠️ Ajustar
+                      ⚠️ Adjust
                     </button>
                   </div>
                   <textarea 
                     class="critique-card-notes" 
                     id="notes-${player.id}" 
-                    placeholder="Escribe los ajustes necesarios aquí..."
+                    placeholder="Detail required adjustments here (jersey, hair, pose, face)..."
                   >${review.notes || ''}</textarea>
                 </div>
 
@@ -965,7 +982,7 @@
         // Update front card badge label and class
         const statusPill = cardContainer.querySelector(`.card-status-pill`);
         statusPill.className = `card-status-pill ${status === 'approved' ? 'approved' : status === 'adjustment' ? 'adjustment' : 'pending'}`;
-        statusPill.textContent = status === 'approved' ? '👍 APROBADO' : status === 'adjustment' ? '⚠️ AJUSTE' : '⚪ SIN REVISAR';
+        statusPill.textContent = status === 'approved' ? '👍 APPROVED' : status === 'adjustment' ? '⚠️ ADJUSTMENT' : '⚪ UNREVIEWED';
       }
 
       // Event listeners for filters
