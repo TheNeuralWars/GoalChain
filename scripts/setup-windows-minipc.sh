@@ -22,6 +22,12 @@ if [[ ! "${OS_NAME}" =~ MINGW|MSYS|CYGWIN ]]; then
   fi
 fi
 
+# Convert paths using cygpath
+USERPROFILE_PATH="$(cmd.exe /c "echo %USERPROFILE%" | tr -d '\r')"
+USERPROFILE_WIN="$(cygpath -w "${USERPROFILE_PATH}")"
+REPO_PATH="$(pwd)"
+REPO_PATH_WIN="$(cygpath -w "${REPO_PATH}")"
+
 # 2. Dependency checks & Installation using Winget
 log "Checking Windows Native dependencies via winget..."
 
@@ -37,10 +43,11 @@ install_winget_package() {
   fi
 }
 
-# Install Node.js LTS, GitHub CLI, and Obsidian
+# Install Node.js LTS, GitHub CLI, Python 3, and Obsidian
 install_winget_package "OpenJS.NodeJS.LTS" "Node.js (LTS)"
 install_winget_package "GitHub.cli" "GitHub CLI"
 install_winget_package "Obsidian.Obsidian" "Obsidian"
+install_winget_package "Python.Python.3.11" "Python 3.11" || install_winget_package "Python.Python.3" "Python 3"
 
 # 3. Bun Installation
 if ! command -v bun >/dev/null 2>&1; then
@@ -61,10 +68,10 @@ else
   log "Rustup is already installed: $(rustup --version)"
 fi
 
-# Load cargo environment if available
-USERPROFILE_PATH="$(cmd.exe /c "echo %USERPROFILE%" | tr -d '\r')"
+# Load cargo and bun environment
 CARGO_BIN_WIN="${USERPROFILE_PATH}/.cargo/bin"
-export PATH="${CARGO_BIN_WIN}:${PATH}"
+BUN_BIN_WIN="${USERPROFILE_PATH}/.bun/bin"
+export PATH="${CARGO_BIN_WIN}:${BUN_BIN_WIN}:${PATH}"
 
 # 5. Solana CLI Installation
 if ! command -v solana >/dev/null 2>&1; then
@@ -114,61 +121,94 @@ if [ ! -f "${SSH_KEY}" ]; then
   ssh-keygen -t ed25519 -C "nico-minipc" -f "${SSH_KEY}" -N ""
 fi
 
-# Copy key to VPS (Oracle)
 VPS_HOST="89.168.20.135"
 VPS_USER="ubuntu"
 GOALCHAIN_SSH="${VPS_USER}@${VPS_HOST}"
 
-log "Copying SSH public key to VPS (${GOALCHAIN_SSH})..."
-log "Please enter your VPS SSH password if prompted."
-cat "${SSH_KEY}.pub" | ssh -o StrictHostKeyChecking=no "${GOALCHAIN_SSH}" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys" || \
-  warn "Could not copy SSH key automatically. Please manually append the following key to ~/.ssh/authorized_keys on the VPS:"
-cat "${SSH_KEY}.pub"
+# Check if SSH connection already works
+log "Checking SSH connection to VPS..."
+if ssh -o BatchMode=yes -o ConnectTimeout=5 "${GOALCHAIN_SSH}" "echo OK" >/dev/null 2>&1; then
+  log "SSH connection to VPS is already working and authorized!"
+else
+  warn "SSH connection is not authorized yet. Attempting automatic key copy..."
+  # Copy key to VPS (Oracle) using password if supported
+  if cat "${SSH_KEY}.pub" | ssh -o StrictHostKeyChecking=no -o ConnectTimeout=8 "${GOALCHAIN_SSH}" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"; then
+    log "Successfully copied SSH key to VPS."
+  else
+    warn "Could not copy SSH key automatically. You need to authorize this PC using your Mac."
+    echo "--------------------------------------------------------"
+    echo "👉 ACTION REQUIRED: Run this command ON YOUR MAC to authorize this PC:"
+    echo "   ssh ${GOALCHAIN_SSH} \"echo '$(cat "${SSH_KEY}.pub")' >> ~/.ssh/authorized_keys\""
+    echo "--------------------------------------------------------"
+    read -p "Press Enter once you have run the command on your Mac to continue..."
+  fi
+fi
 
-# 8. Copy Official Smart Contract Keypair from VPS
+# 8. Copy Official Smart Contract Keypair and secrets from VPS
 log "Downloading official smart contract team keypair from VPS..."
 mkdir -p goalchain_program/target/deploy
-scp -o BatchMode=yes -q \
-  "${GOALCHAIN_SSH}:/data/apps/GoalChain/goalchain_program/target/deploy/goalchain_program-keypair.json" \
+scp -o ConnectTimeout=10 "${GOALCHAIN_SSH}:/data/apps/GoalChain/goalchain_program/target/deploy/goalchain_program-keypair.json" \
   "goalchain_program/target/deploy/goalchain_program-keypair.json" || \
   warn "Could not download program keypair from VPS. If required, copy it manually to goalchain_program/target/deploy/goalchain_program-keypair.json."
 
-# 8b. Copy .env file from VPS
 log "Downloading repository secrets (.env) from VPS..."
-scp -o BatchMode=yes -q \
-  "${GOALCHAIN_SSH}:/data/apps/GoalChain/.env" \
-  ".env" || \
+scp -o ConnectTimeout=10 "${GOALCHAIN_SSH}:/data/apps/GoalChain/.env" ".env" || \
   warn "Could not download .env file from VPS. If required, copy it manually to the repository root."
 
+# 9. Mirror Hermes Configuration from VPS
+log "Mirroring Hermes config and installing dependencies..."
+pip install pyyaml --quiet 2>/dev/null || python -m pip install pyyaml --quiet 2>/dev/null || warn "Failed to install pyyaml."
 
-# 9. Mirror Configuration from VPS
-log "Mirroring Hermes profile config from VPS..."
-# Ensure Python packages like pyyaml are present for the patch process
-pip install pyyaml --quiet 2>/dev/null || python -m pip install pyyaml --quiet 2>/dev/null || warn "Python PyYAML package not found; patch-config-for-mac step might fail. Run 'pip install pyyaml' manually."
+# Install hermes-agent on Windows
+pip install hermes-agent --quiet 2>/dev/null || python -m pip install hermes-agent --quiet 2>/dev/null || warn "Failed to install hermes-agent."
 
-# Execute mirror script
-GOALCHAIN_SSH="${GOALCHAIN_SSH}" bash ops/hermes/install-hermes-mirror-mac.sh || \
-  warn "Hermes configuration mirroring finished with warnings."
+HERMES_DIR="${HOME}/.hermes"
+mkdir -p "${HERMES_DIR}"
 
-# 10. Proactively Stop/Disable local Hermes Gateway (Avoid Session Collisions)
-log "Disabling local Hermes gateway..."
-bash ops/hermes/disable-hermes-mac.sh || true
+log "Pulling Hermes config files from VPS..."
+scp -o ConnectTimeout=10 \
+  "${GOALCHAIN_SSH}:/home/ubuntu/.hermes/.env" \
+  "${GOALCHAIN_SSH}:/home/ubuntu/.hermes/auth.json" \
+  "${GOALCHAIN_SSH}:/home/ubuntu/.hermes/config.yaml" \
+  "${GOALCHAIN_SSH}:/home/ubuntu/.hermes/SOUL.md" \
+  "${HERMES_DIR}/" 2>/dev/null || warn "Failed to download remote Hermes configs."
 
-# 11. Install GBrain local MCP integration for Cursor / Antigravity
-log "Installing local GBrain MCP integrations..."
-bash ops/hermes/install-gbrain-cursor.sh || warn "Cursor GBrain MCP setup warning."
-bash ops/hermes/install-gbrain-antigravity.sh || warn "Antigravity GBrain MCP setup warning."
+# Update local .env with local repo path
+if [ -f "${HERMES_DIR}/.env" ]; then
+  sed -i "s|GOALCHAIN_REPO_PATH=.*|GOALCHAIN_REPO_PATH=\"${REPO_PATH_WIN}\"|g" "${HERMES_DIR}/.env"
+fi
+
+# 10. Install GBrain local MCP integration
+log "Installing local GBrain context database..."
+bun install -g github:garrytan/gbrain || warn "Failed to install gbrain globally."
 
 # Initialize local context DB
-log "Initializing local context database..."
-gbrain import ai_context docs/intake || warn "Initial intake import skipped."
-gbrain embed --stale || warn "Context embedding skipped."
+if ! gbrain doctor --fast >/dev/null 2>&1; then
+  gbrain init --pglite --no-embedding || gbrain init --pglite || true
+fi
 
-# 12. Configure Antigravity identical to Mac
-log "Configuring Antigravity settings..."
-for path_cand in "${USERPROFILE_PATH}/.gemini/config" "${USERPROFILE_PATH}/.gemini/antigravity"; do
+# Import GoalChain docs and code context
+log "Importing GoalChain docs into local gbrain..."
+for sub in ai_context docs/intake docs/proposals; do
+  if [ -d "${REPO_PATH}/${sub}" ]; then
+    gbrain import "${REPO_PATH}/${sub}" --no-embed || true
+  fi
+done
+
+# Seed environment variables for embedding if available in .env
+VOYAGE_KEY=""
+if [ -f ".env" ]; then
+  VOYAGE_KEY=$(grep -E "^VOYAGE_API_KEY=" .env | cut -d'=' -f2- | tr -d '"' | tr -d "'")
+fi
+if [ -z "${VOYAGE_KEY}" ]; then
+  VOYAGE_KEY="pa-7szM-wkWDNtPyMYkOtGPa41R0t-6wZnVHVa5S1lEOg2" # Default team key
+fi
+
+# 11. Configure Antigravity identical to Mac
+log "Configuring Antigravity settings & MCP config..."
+for path_cand in "${USERPROFILE_PATH}/.gemini/config" "${USERPROFILE_PATH}/.gemini/antigravity" "${USERPROFILE_PATH}/.gemini/antigravity-ide"; do
   mkdir -p "${path_cand}"
-  # Write dark theme configuration
+  # Write dark theme configuration & permissions
   cat <<EOF > "${path_cand}/config.json"
 {
   "userSettings": {
@@ -177,6 +217,10 @@ for path_cand in "${USERPROFILE_PATH}/.gemini/config" "${USERPROFILE_PATH}/.gemi
         "command(git status)",
         "command(git add)",
         "command(git commit)",
+        "command(ssh)",
+        "command(scp)",
+        "command(git push)",
+        "command(git pull)",
         "read_url(https://goalchain.fun/)",
         "read_url(hermes-agent.nousresearch.com)",
         "read_url(yanxbt.substack.com)",
@@ -185,6 +229,7 @@ for path_cand in "${USERPROFILE_PATH}/.gemini/config" "${USERPROFILE_PATH}/.gemi
         "read_url(x.com)",
         "mcp(gbrain/query)",
         "mcp(gbrain/list_pages)",
+        "mcp(goalchain-ops/*)",
         "read_url(github.com)"
       ]
     },
@@ -193,7 +238,8 @@ for path_cand in "${USERPROFILE_PATH}/.gemini/config" "${USERPROFILE_PATH}/.gemi
   }
 }
 EOF
-  # Write MCP gbrain server settings
+
+  # Write MCP configuration mapping both gbrain and goalchain-ops natively for Windows
   cat <<EOF > "${path_cand}/mcp_config.json"
 {
   "mcpServers": {
@@ -205,22 +251,36 @@ EOF
       "command": "npx"
     },
     "gbrain": {
-      "command": "${USERPROFILE_PATH//\\//\\\\}/.bun/bin/bun.exe",
+      "command": "bun",
       "args": [
-        "${USERPROFILE_PATH//\\//\\\\}/.bun/bin/gbrain",
+        "x",
+        "gbrain",
         "serve"
       ],
       "env": {
-        "PATH": "${USERPROFILE_PATH//\\//\\\\}/.bun/bin;${USERPROFILE_PATH//\\//\\\\}/.local/bin",
-        "VOYAGE_API_KEY": "pa-7szM-wkWDNtPyMYkOtGPa41R0t-6wZnVHVa5S1lEOg2"
+        "PATH": "${USERPROFILE_WIN}\\\\.bun\\\\bin;${USERPROFILE_WIN}\\\\.local\\\\bin",
+        "VOYAGE_API_KEY": "${VOYAGE_KEY}"
       }
+    },
+    "goalchain-ops": {
+      "command": "python",
+      "args": [
+        "${REPO_PATH_WIN}\\\\ops\\\\hermes\\\\mcp-goalchain-ops.py"
+      ],
+      "env": {
+        "GOALCHAIN_API_BASE": "https://crm.goalchain.fun/goalchain-api",
+        "RPC_URL": "https://api.devnet.solana.com",
+        "PROGRAM_ID": "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg",
+        "GOALCHAIN_REPO_PATH": "${REPO_PATH_WIN}"
+      },
+      "timeout": 90
     }
   }
 }
 EOF
 done
 
-# 13. Download and Configure Obsidian community plugins
+# 12. Download and Configure Obsidian community plugins
 log "Installing Obsidian community plugins (Git Sync & Dataview)..."
 download_obsidian_plugin() {
   local repo="$1"
@@ -246,7 +306,7 @@ echo "  Bun:      $(bun --version 2>/dev/null || echo 'Not configured in current
 echo "--------------------------------------------------------"
 echo "  Please restart Git Bash (or run 'source ~/.bashrc') to refresh PATH."
 echo "  Official team keypair goalchain_program-keypair.json copied successfully."
-echo "  Antigravity mirrored and configured in dark mode with GBrain."
+echo "  Antigravity mirrored and configured in dark mode with GBrain and GoalChain Ops."
 echo "  Obsidian is installed and preloaded with Obsidian Git & Dataview."
 echo "  Open Obsidian and select this repository folder as a Vault."
 echo "--------------------------------------------------------"
