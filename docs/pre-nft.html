@@ -894,6 +894,18 @@
             </div>
           </div>
 
+          <!-- Financial stats block -->
+          <div class="stat-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: -0.5rem; background: rgba(20, 241, 149, 0.02); border-color: rgba(20, 241, 149, 0.1);">
+            <div class="stat-grid-item">
+              <span style="color: var(--primary-neon);">Valor Neto (Transfermarkt)</span>
+              <strong id="modal-market-value" style="color: #fff;">€0</strong>
+            </div>
+            <div class="stat-grid-item">
+              <span style="color: var(--primary-neon);">Salario por Partido</span>
+              <strong id="modal-match-salary" style="color: var(--primary-neon);">0 GCH</strong>
+            </div>
+          </div>
+
           <!-- Attributes progress block -->
           <div class="attribute-bar-group">
             <h6>Atributos Básicos</h6>
@@ -1147,6 +1159,10 @@
             <div class="player-info">
               <h4>${player.name}</h4>
               <div class="player-real-name">${player.real_name}</div>
+              <div style="font-size: 0.7rem; color: var(--primary-neon); margin: 0.15rem 0; display: flex; justify-content: space-between; font-weight: 600;">
+                <span>€${player.market_value_eur ? (player.market_value_eur / 1000000).toFixed(1) + 'M' : 'N/A'}</span>
+                <span>${player.match_salary_gch ? player.match_salary_gch.toLocaleString('de-DE') + ' GCH' : 'N/A'}</span>
+              </div>
               <div class="player-footer">
                 <span>${player.country}</span>
                 <span><strong>${player.stats.hype}</strong> Hype</span>
@@ -1222,6 +1238,10 @@
         modalPhysicalDesc.textContent = player.physical.t;
         modalParodyClub.textContent = player.meta.parody_club;
         modalVisualEffect.textContent = player.meta.visual_effect;
+
+        // Financials
+        document.getElementById('modal-market-value').textContent = player.market_value_eur ? '€' + Number(player.market_value_eur).toLocaleString('de-DE') : 'N/A';
+        document.getElementById('modal-match-salary').textContent = player.match_salary_gch ? Number(player.match_salary_gch).toLocaleString('de-DE') + ' GCH' : 'N/A';
 
         // Attributes Progress bars
         valAtk.textContent = player.stats.atk;

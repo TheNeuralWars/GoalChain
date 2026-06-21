@@ -40,7 +40,7 @@
   },
   {
     "id": 2,
-    "name": "Dibu De-Fi",
+    "name": "Dibu DeFi",
     "country": "Argentina",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -79,7 +79,7 @@
   },
   {
     "id": 3,
-    "name": "Julian Bull-varez",
+    "name": "La Araña Bullish",
     "country": "Argentina",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -116,7 +116,7 @@
   },
   {
     "id": 4,
-    "name": "Enzo E-Transfer",
+    "name": "Enzo Gas-Fees",
     "country": "Argentina",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -153,7 +153,7 @@
   },
   {
     "id": 5,
-    "name": "Rodrigo De-Pool",
+    "name": "Rodrigo HODL-Paul",
     "country": "Argentina",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -191,7 +191,7 @@
   },
   {
     "id": 6,
-    "name": "Lautaro Bull-tinez",
+    "name": "Lautaro Liquidity",
     "country": "Argentina",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -228,7 +228,7 @@
   },
   {
     "id": 7,
-    "name": "Alexis Mac-Chain",
+    "name": "Alexis Yield-Allister",
     "country": "Argentina",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -266,7 +266,7 @@
   },
   {
     "id": 8,
-    "name": "Cuti Crypt",
+    "name": "Cuti Crypto",
     "country": "Argentina",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -303,11 +303,11 @@
   },
   {
     "id": 9,
-    "name": "Lisandro Butcher-DAO",
+    "name": "Lisandro DAO-Butcher",
     "country": "Argentina",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
-    "position": "GK",
+    "position": "DEF",
     "stats": {
       "atk": 36,
       "def": 86,
@@ -362,7 +362,7 @@
       "Recovery Pace"
     ],
     "meta": {
-      "parody_club": "Amsterdam Ajax Logic",
+      "parody_club": "Madrid Mattress Makers",
       "visual_effect": "Subtle Cyber Outline",
       "narrative": "A world-class DEF verified as a rare asset. Known globally for being a Recovery Pace, this player is a cornerstone of the GoalChain ecosystem"
     },
@@ -377,7 +377,7 @@
   },
   {
     "id": 11,
-    "name": "Nico Taglia-Token",
+    "name": "Nico Token-fico",
     "country": "Argentina",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -409,7 +409,7 @@
   },
   {
     "id": 12,
-    "name": "Kylian M-Bypass-pé",
+    "name": "Kylian Moon-bappé",
     "country": "Francia",
     "rarity": "mythic",
     "bg_type": "BG-MYT",
@@ -448,7 +448,7 @@
   },
   {
     "id": 13,
-    "name": "Antoine G-ZkSync",
+    "name": "Antoine Griez-Gwei",
     "country": "Francia",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -485,7 +485,7 @@
   },
   {
     "id": 14,
-    "name": "Ousmane De-Shard",
+    "name": "Ousmane Dem-Block",
     "country": "Francia",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -522,7 +522,7 @@
   },
   {
     "id": 15,
-    "name": "Eduardo Cama-Logic",
+    "name": "Eduardo Cama-Yield",
     "country": "Francia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -544,7 +544,7 @@
       "Playmaker"
     ],
     "meta": {
-      "parody_club": "Manchester Red Devils",
+      "parody_club": "Madrid Royal White",
       "visual_effect": "Holographic Glitch & Silver Spark",
       "narrative": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, this player is a cornerstone of the GoalChain ecosystem"
     },
@@ -559,7 +559,7 @@
   },
   {
     "id": 16,
-    "name": "Theo Shiller",
+    "name": "Theo HODL-nández",
     "country": "Francia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -597,7 +597,7 @@
   },
   {
     "id": 17,
-    "name": "Mike Maignan-Admin",
+    "name": "Mike Mainnet-nan",
     "country": "Francia",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -634,7 +634,7 @@
   },
   {
     "id": 18,
-    "name": "Aurélien Buffer-Tch",
+    "name": "Aurélien Tchou-Mainnet",
     "country": "Francia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -671,7 +671,7 @@
   },
   {
     "id": 19,
-    "name": "William Sali-Struct",
+    "name": "William Sali-Block",
     "country": "Francia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -709,7 +709,7 @@
   },
   {
     "id": 20,
-    "name": "Dayot Upame-Kernel",
+    "name": "Dayot Upa-Staking",
     "country": "Francia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -747,7 +747,7 @@
   },
   {
     "id": 21,
-    "name": "Jules Koun-DEX",
+    "name": "Jules Koun-DAO",
     "country": "Francia",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -784,7 +784,7 @@
   },
   {
     "id": 22,
-    "name": "Adrien Rabi-Protocol",
+    "name": "Adrien Rabi-Gas",
     "country": "Francia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -899,7 +899,7 @@
   },
   {
     "id": 25,
-    "name": "Phil Fod-Phantom",
+    "name": "Phil Gwei-den",
     "country": "Inglaterra",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -937,7 +937,7 @@
   },
   {
     "id": 26,
-    "name": "Bukayo Solana",
+    "name": "Bukayo Swap-ka",
     "country": "Inglaterra",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -975,7 +975,7 @@
   },
   {
     "id": 27,
-    "name": "Declan Rice-Validator",
+    "name": "Declan Yield-Rice",
     "country": "Inglaterra",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -1012,7 +1012,7 @@
   },
   {
     "id": 28,
-    "name": "Kyle Gas-Walker",
+    "name": "Kyle Block-Walker",
     "country": "Inglaterra",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -1036,7 +1036,7 @@
       "Recovery Pace"
     ],
     "meta": {
-      "parody_club": "Milan Devil Core",
+      "parody_club": "Manchester Sky Blue",
       "visual_effect": "Holographic Glitch & Silver Spark",
       "narrative": "A world-class DEF verified as a legendary asset. Known globally for being a The Rock, Physical Powerhouse, Recovery Pace, this player is a cornerstone of the GoalChain ecosystem"
     },
@@ -1051,7 +1051,7 @@
   },
   {
     "id": 29,
-    "name": "Jordan Pick-Safe",
+    "name": "Jordan Pick-Ledger",
     "country": "Inglaterra",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -1088,7 +1088,7 @@
   },
   {
     "id": 30,
-    "name": "John Stone-Base",
+    "name": "John Stone-Chain",
     "country": "Inglaterra",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -1110,7 +1110,7 @@
       "Interceptor"
     ],
     "meta": {
-      "parody_club": "Turin Zebra Stripes",
+      "parody_club": "Manchester Sky Blue",
       "visual_effect": "Subtle Cyber Outline",
       "narrative": "A world-class DEF verified as a rare asset. Known globally for being a Interceptor, this player is a cornerstone of the GoalChain ecosystem"
     },
@@ -1125,7 +1125,7 @@
   },
   {
     "id": 31,
-    "name": "Trent Cross-Arnold",
+    "name": "Trent Cross-Network",
     "country": "Inglaterra",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -1162,7 +1162,7 @@
   },
   {
     "id": 32,
-    "name": "Luke Vector",
+    "name": "Luke Shard-Shaw",
     "country": "Inglaterra",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -1199,7 +1199,7 @@
   },
   {
     "id": 33,
-    "name": "Cole Cold-Coin",
+    "name": "Cole Cold-Wallet",
     "country": "Inglaterra",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -1237,7 +1237,7 @@
   },
   {
     "id": 34,
-    "name": "Neymar-NFT",
+    "name": "Neymar NFT",
     "country": "Brasil",
     "rarity": "mythic",
     "bg_type": "BG-MYT",
@@ -1268,7 +1268,7 @@
   },
   {
     "id": 35,
-    "name": "Vinicius Jpeg Jr",
+    "name": "Vinícius JPEG Jr.",
     "country": "Brasil",
     "rarity": "mythic",
     "bg_type": "BG-MYT",
@@ -1301,7 +1301,7 @@
   },
   {
     "id": 36,
-    "name": "Alisson Vault-son",
+    "name": "Alisson Vault-er",
     "country": "Brasil",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -1332,7 +1332,7 @@
   },
   {
     "id": 37,
-    "name": "Rodrygo-Yield",
+    "name": "Rodrygo Yield-Goes",
     "country": "Brasil",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -1400,11 +1400,11 @@
   },
   {
     "id": 39,
-    "name": "Casemiro-Mint",
+    "name": "Casemiro Staking",
     "country": "Brasil",
     "rarity": "rare",
     "bg_type": "BG-RAR",
-    "position": "DEF",
+    "position": "MID",
     "stats": {
       "atk": 44,
       "def": 67,
@@ -1422,7 +1422,7 @@
       "Physical Powerhouse"
     ],
     "meta": {
-      "parody_club": "Munich Cyber-Bayer",
+      "parody_club": "Manchester Red Devils",
       "visual_effect": "Subtle Cyber Outline",
       "narrative": "A world-class DEF verified as a rare asset. Known globally for being a Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem"
     },
@@ -1437,7 +1437,7 @@
   },
   {
     "id": 40,
-    "name": "Marquinhos-Server",
+    "name": "Marqui-Node",
     "country": "Brasil",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -1474,7 +1474,7 @@
   },
   {
     "id": 41,
-    "name": "Eder Mili-Pixel",
+    "name": "Éder Liquidity-ão",
     "country": "Brasil",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -1511,7 +1511,7 @@
   },
   {
     "id": 42,
-    "name": "Danilo-Legacy",
+    "name": "Danilo Ledger",
     "country": "Brasil",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -1548,7 +1548,7 @@
   },
   {
     "id": 43,
-    "name": "Lucas Paque-Frame",
+    "name": "Lucas Paque-Swap",
     "country": "Brasil",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -1623,7 +1623,7 @@
   },
   {
     "id": 45,
-    "name": "Lamine Ya-Alpha",
+    "name": "Lamine Moon-mal",
     "country": "España",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -1662,7 +1662,7 @@
   },
   {
     "id": 46,
-    "name": "Pedri-Script",
+    "name": "Pedri Liquidity",
     "country": "España",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -1739,7 +1739,7 @@
   },
   {
     "id": 48,
-    "name": "Gavi-Gas",
+    "name": "Gavi Gas-Limit",
     "country": "España",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -1813,7 +1813,7 @@
   },
   {
     "id": 50,
-    "name": "Unai Simon-Key",
+    "name": "Unai Simón-Key",
     "country": "España",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -1850,7 +1850,7 @@
   },
   {
     "id": 51,
-    "name": "Dani Carva-Hard",
+    "name": "Dani Carva-Halving",
     "country": "España",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -1881,7 +1881,7 @@
   },
   {
     "id": 52,
-    "name": "Aymeric Lap-Object",
+    "name": "Aymeric La-Port",
     "country": "España",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -1919,7 +1919,7 @@
   },
   {
     "id": 53,
-    "name": "Robin Le-Normal-DEX",
+    "name": "Robin Le Network",
     "country": "España",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -1956,7 +1956,7 @@
   },
   {
     "id": 54,
-    "name": "Alejandro Bal-Slide",
+    "name": "Alejandro Blockchain",
     "country": "España",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -1993,7 +1993,7 @@
   },
   {
     "id": 55,
-    "name": "Dani Olmo-View",
+    "name": "Dani Yield-Olmo",
     "country": "España",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -2031,7 +2031,7 @@
   },
   {
     "id": 56,
-    "name": "Joshua Kim-Chip",
+    "name": "Joshua Kimm-Node",
     "country": "Alemania",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -2068,7 +2068,7 @@
   },
   {
     "id": 57,
-    "name": "Florian Wirtz-Byte",
+    "name": "Florian Web3-Wirtz",
     "country": "Alemania",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -2142,7 +2142,7 @@
   },
   {
     "id": 59,
-    "name": "Kai Havertz-Class",
+    "name": "Kai Hype-ertz",
     "country": "Alemania",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -2179,7 +2179,7 @@
   },
   {
     "id": 60,
-    "name": "Ilkay Gundo-Main",
+    "name": "İlkay Gündo-DAO",
     "country": "Alemania",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -2216,7 +2216,7 @@
   },
   {
     "id": 61,
-    "name": "Antonio Rudi-Force",
+    "name": "Antonio Rüdi-Shield",
     "country": "Alemania",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -2253,7 +2253,7 @@
   },
   {
     "id": 62,
-    "name": "Marc Ter-Save",
+    "name": "Marc-André ter Staking",
     "country": "Alemania",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -2290,7 +2290,7 @@
   },
   {
     "id": 63,
-    "name": "Niclas Full-Heavy",
+    "name": "Niclas Füll-Stack",
     "country": "Alemania",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -2327,7 +2327,7 @@
   },
   {
     "id": 64,
-    "name": "Leroy Shard-né",
+    "name": "Leroy Sa-Node",
     "country": "Alemania",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -2364,7 +2364,7 @@
   },
   {
     "id": 65,
-    "name": "Jonathan Tah-Shield",
+    "name": "Jonathan T-Asset",
     "country": "Alemania",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -2478,7 +2478,7 @@
   },
   {
     "id": 68,
-    "name": "Bruno Bit-Fernandes",
+    "name": "Bruno Fee-nandes",
     "country": "Portugal",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -2516,7 +2516,7 @@
   },
   {
     "id": 69,
-    "name": "Bernardo Loop",
+    "name": "Bernardo Shard-va",
     "country": "Portugal",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -2554,7 +2554,7 @@
   },
   {
     "id": 70,
-    "name": "Rafael Leao-Dash",
+    "name": "Rafael Ledger-ão",
     "country": "Portugal",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -2591,7 +2591,7 @@
   },
   {
     "id": 71,
-    "name": "Ruben Dias-Base",
+    "name": "Rúben Block-Dias",
     "country": "Portugal",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -2666,7 +2666,7 @@
   },
   {
     "id": 73,
-    "name": "Diogo Costa-Gate",
+    "name": "Diogo Cold-Costa",
     "country": "Portugal",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -2779,7 +2779,7 @@
   },
   {
     "id": 76,
-    "name": "Vitinha-Cycle",
+    "name": "Vitinha Validator",
     "country": "Portugal",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -2853,7 +2853,7 @@
   },
   {
     "id": 78,
-    "name": "Virgil Van-Hash",
+    "name": "Virgil van DEX",
     "country": "Países bajos",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -2892,7 +2892,7 @@
   },
   {
     "id": 79,
-    "name": "Frenkie De-Stream",
+    "name": "Frenkie de Gwei",
     "country": "Países bajos",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -2930,7 +2930,7 @@
   },
   {
     "id": 80,
-    "name": "Xavi Simon-Web3",
+    "name": "Xavi Smart-Simons",
     "country": "Países bajos",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -2967,7 +2967,7 @@
   },
   {
     "id": 81,
-    "name": "Memphis Depay-Raw",
+    "name": "Memphis De-Pay",
     "country": "Países bajos",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3004,7 +3004,7 @@
   },
   {
     "id": 82,
-    "name": "Cody Gakpo-Scan",
+    "name": "Cody Gas-po",
     "country": "Países bajos",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3041,7 +3041,7 @@
   },
   {
     "id": 83,
-    "name": "Nathan Ake-Lock",
+    "name": "Nathan A-Key",
     "country": "Países bajos",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -3078,7 +3078,7 @@
   },
   {
     "id": 84,
-    "name": "Denzel Dum-Push",
+    "name": "Denzel Double-Spend",
     "country": "Países bajos",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -3115,7 +3115,7 @@
   },
   {
     "id": 85,
-    "name": "Bart Verbru-Secure",
+    "name": "Bart Ver-Block-en",
     "country": "Países bajos",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -3153,7 +3153,7 @@
   },
   {
     "id": 86,
-    "name": "Matthijs De-Ligt-Root",
+    "name": "Matthijs de Ledger",
     "country": "Países bajos",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -3190,7 +3190,7 @@
   },
   {
     "id": 87,
-    "name": "Jeremie Frim-Sprint",
+    "name": "Jeremie Fee-pong",
     "country": "Países bajos",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -3264,7 +3264,7 @@
   },
   {
     "id": 89,
-    "name": "Christian Puli-Star",
+    "name": "Christian Puli-Swap",
     "country": "Ee.uu.",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -3303,7 +3303,7 @@
   },
   {
     "id": 90,
-    "name": "Weston McK-Air",
+    "name": "Weston McKen-Gwei",
     "country": "Ee.uu.",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3411,7 +3411,7 @@
   },
   {
     "id": 93,
-    "name": "Tyler Adams-Guard",
+    "name": "Tyler Admin-Adams",
     "country": "Ee.uu.",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -3450,7 +3450,7 @@
   },
   {
     "id": 94,
-    "name": "Matt Turner-Gloves",
+    "name": "Matt Free-gas",
     "country": "Ee.uu.",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3483,7 +3483,7 @@
   },
   {
     "id": 95,
-    "name": "Sergiño Dest-Dribble",
+    "name": "Sergiño DEX-t",
     "country": "Ee.uu.",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3521,7 +3521,7 @@
   },
   {
     "id": 96,
-    "name": "Antonee Robin-Turbo",
+    "name": "Antonee Rob-Node",
     "country": "Ee.uu.",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3597,7 +3597,7 @@
   },
   {
     "id": 98,
-    "name": "Yunus Musah-Motor",
+    "name": "Yunus Multichain",
     "country": "Ee.uu.",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3667,7 +3667,7 @@
   },
   {
     "id": 100,
-    "name": "Memo Vault-choa",
+    "name": "Raúl Rangel-Key",
     "country": "México",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3700,7 +3700,7 @@
   },
   {
     "id": 101,
-    "name": "Santiago Gim-Shot",
+    "name": "Santiago Gas-menez",
     "country": "México",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -3732,7 +3732,7 @@
   },
   {
     "id": 102,
-    "name": "Edson Alva-Mach",
+    "name": "Edson Asset-Alvarez",
     "country": "México",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -3771,7 +3771,7 @@
   },
   {
     "id": 103,
-    "name": "Chucky Lozan-Bolt",
+    "name": "Chucky Chucky-JPEG",
     "country": "México",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -3809,7 +3809,7 @@
   },
   {
     "id": 104,
-    "name": "Luis Chavez-Bomb",
+    "name": "Luis Chain-Chavez",
     "country": "México",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3847,7 +3847,7 @@
   },
   {
     "id": 105,
-    "name": "Johan Vasquez-Rock",
+    "name": "Johan Validator-Vasquez",
     "country": "México",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3885,7 +3885,7 @@
   },
   {
     "id": 106,
-    "name": "Cesar Montes-Tower",
+    "name": "César Mint-Montes",
     "country": "México",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3923,7 +3923,7 @@
   },
   {
     "id": 107,
-    "name": "Jorge Sanchez-Rail",
+    "name": "Jorge Sánchgas",
     "country": "México",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -4070,7 +4070,7 @@
   },
   {
     "id": 111,
-    "name": "Alphonso Shard-Davies",
+    "name": "Alphonso DEX-Davies",
     "country": "Canadá",
     "rarity": "mythic",
     "bg_type": "BG-MYT",
@@ -4109,7 +4109,7 @@
   },
   {
     "id": 112,
-    "name": "Jonathan David-Bit",
+    "name": "Jonathan Double-David",
     "country": "Canadá",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -4147,7 +4147,7 @@
   },
   {
     "id": 113,
-    "name": "Cyle Larin-Tank",
+    "name": "Cyle Ledger-Larin",
     "country": "Canadá",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -4185,7 +4185,7 @@
   },
   {
     "id": 114,
-    "name": "Stephen Esta-Hub",
+    "name": "Stephen E-Staking",
     "country": "Canadá",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -4223,7 +4223,7 @@
   },
   {
     "id": 115,
-    "name": "Tajon Bucha-Wing",
+    "name": "Tajon Bull-chanan",
     "country": "Canadá",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -4261,7 +4261,7 @@
   },
   {
     "id": 116,
-    "name": "Maxime Crepeau-Grip",
+    "name": "Maxime Crypto-Crepeau",
     "country": "Canadá",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -4299,7 +4299,7 @@
   },
   {
     "id": 117,
-    "name": "Alistair John-Grit",
+    "name": "Alistair Yield-Johnston",
     "country": "Canadá",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -4337,7 +4337,7 @@
   },
   {
     "id": 118,
-    "name": "Kamal Miller-Slide",
+    "name": "Kamal Mint-Miller",
     "country": "Canadá",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -4375,7 +4375,7 @@
   },
   {
     "id": 119,
-    "name": "Ismael Kone-Rise",
+    "name": "Ismaël Krypto-Kone",
     "country": "Canadá",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -4484,7 +4484,7 @@
   },
   {
     "id": 122,
-    "name": "Achraf Hakimi-Rocket",
+    "name": "Achraf Hashing-mi",
     "country": "Marruecos",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -4521,7 +4521,7 @@
   },
   {
     "id": 123,
-    "name": "Yassine Bounou-Safe",
+    "name": "Yassine Bono-DAO",
     "country": "Marruecos",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -4559,7 +4559,7 @@
   },
   {
     "id": 124,
-    "name": "Hakim Ziyech-Magic",
+    "name": "Hakim Zk-yech",
     "country": "Marruecos",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -4596,7 +4596,7 @@
   },
   {
     "id": 125,
-    "name": "Sofyan Amra-Base",
+    "name": "Sofyan Amra-Bit",
     "country": "Marruecos",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -4670,7 +4670,7 @@
   },
   {
     "id": 127,
-    "name": "Nayef Aguerd-Peak",
+    "name": "Nayef Asset-Aguerd",
     "country": "Marruecos",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -4745,7 +4745,7 @@
   },
   {
     "id": 129,
-    "name": "Azzedine Ouna-Drift",
+    "name": "Azzedine Oun-Hype",
     "country": "Marruecos",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -4782,7 +4782,7 @@
   },
   {
     "id": 130,
-    "name": "Youssef En-Air",
+    "name": "Youssef En-Node-syri",
     "country": "Marruecos",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -4930,7 +4930,7 @@
   },
   {
     "id": 134,
-    "name": "Take Kubo-Jewel",
+    "name": "Takefusa Krypto-Kubo",
     "country": "Japón",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -4967,7 +4967,7 @@
   },
   {
     "id": 135,
-    "name": "Kaoru Mitoma-Dribble",
+    "name": "Kaoru Mint-oma",
     "country": "Japón",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -5116,7 +5116,7 @@
   },
   {
     "id": 139,
-    "name": "Zion Suzuki-Reflex",
+    "name": "Zion Satoshi-Suzuki",
     "country": "Japón",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -5301,7 +5301,7 @@
   },
   {
     "id": 144,
-    "name": "Kalidou Kouli-Rock",
+    "name": "Kalidou Krypto-Koulibaly",
     "country": "Senegal",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -5340,7 +5340,7 @@
   },
   {
     "id": 145,
-    "name": "Sadio Mane-Jet",
+    "name": "Sadio Mint-é",
     "country": "Senegal",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -5379,7 +5379,7 @@
   },
   {
     "id": 146,
-    "name": "Edouard Mendy-Stop",
+    "name": "Edouard Mint-y",
     "country": "Senegal",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -5417,7 +5417,7 @@
   },
   {
     "id": 147,
-    "name": "Idrissa Gueye-Sweep",
+    "name": "Idrissa Gas-Gueye",
     "country": "Senegal",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -5487,7 +5487,7 @@
   },
   {
     "id": 149,
-    "name": "Nicolas Jack-Hit",
+    "name": "Nicolas Ledger-Jackson",
     "country": "Senegal",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -5601,7 +5601,7 @@
   },
   {
     "id": 152,
-    "name": "Abdou Diallo-Guard",
+    "name": "Abdou DAO-Diallo",
     "country": "Senegal",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -5715,7 +5715,7 @@
   },
   {
     "id": 155,
-    "name": "Son Heung-Star",
+    "name": "Son Heung-Mint",
     "country": "Corea del sur",
     "rarity": "mythic",
     "bg_type": "BG-MYT",
@@ -5748,7 +5748,7 @@
   },
   {
     "id": 156,
-    "name": "Kim Min-Tank",
+    "name": "Kim Min-DAO",
     "country": "Corea del sur",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -5781,7 +5781,7 @@
   },
   {
     "id": 157,
-    "name": "Lee Kang-Silk",
+    "name": "Lee Kang-Token",
     "country": "Corea del sur",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -5813,7 +5813,7 @@
   },
   {
     "id": 158,
-    "name": "Hwang Hee-Bolt",
+    "name": "Hwang Hee-Chain",
     "country": "Corea del sur",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -6029,7 +6029,7 @@
   },
   {
     "id": 164,
-    "name": "Hyeon-woo-Save",
+    "name": "Hyeon-woo JPEG-Jo",
     "country": "Corea del sur",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -6290,7 +6290,7 @@
   },
   {
     "id": 171,
-    "name": "Ajdin Hrustic-Art",
+    "name": "Ajdin Hrustcoin",
     "country": "Australia",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -6438,7 +6438,7 @@
   },
   {
     "id": 175,
-    "name": "Nath Atkinson-Power",
+    "name": "Nathaniel Atkinledger",
     "country": "Australia",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -6909,7 +6909,7 @@
   },
   {
     "id": 188,
-    "name": "Erling Haal-Hard",
+    "name": "Erling Hype-land",
     "country": "Noruega",
     "rarity": "mythic",
     "bg_type": "BG-MYT",
@@ -6943,7 +6943,7 @@
   },
   {
     "id": 189,
-    "name": "Martin Ode-Gate",
+    "name": "Martin Øde-Gas",
     "country": "Noruega",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -7142,7 +7142,7 @@
   },
   {
     "id": 195,
-    "name": "Julian Rye-Run",
+    "name": "Julian Ryerledger",
     "country": "Noruega",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -7532,7 +7532,7 @@
   },
   {
     "id": 206,
-    "name": "Ricardo Rodri-Wrap",
+    "name": "Ricardo Rodrígugas",
     "country": "Suiza",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -7684,7 +7684,7 @@
   },
   {
     "id": 210,
-    "name": "Luka Modric-Ledger",
+    "name": "Luka Modri-Coin",
     "country": "Croacia",
     "rarity": "mythic",
     "bg_type": "BG-MYT",
@@ -8679,7 +8679,7 @@
   },
   {
     "id": 238,
-    "name": "Robin Ol-Stake",
+    "name": "Robin Olsgwei",
     "country": "Suecia",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -8717,7 +8717,7 @@
   },
   {
     "id": 239,
-    "name": "Isak Hien-Yield",
+    "name": "Isak Higwei",
     "country": "Suecia",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -9284,7 +9284,7 @@
   },
   {
     "id": 254,
-    "name": "Andrew Robert-Cap",
+    "name": "Andrew Robertledger",
     "country": "Escocia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -9704,7 +9704,7 @@
   },
   {
     "id": 265,
-    "name": "Kevin De-Playmaker",
+    "name": "Kevin De Blockchain",
     "country": "Bélgica",
     "rarity": "mythic",
     "bg_type": "BG-MYT",
@@ -9743,7 +9743,7 @@
   },
   {
     "id": 266,
-    "name": "Romelu Lu-Crash",
+    "name": "Romelu Lu-Crypto",
     "country": "Bélgica",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -10543,7 +10543,7 @@
   },
   {
     "id": 287,
-    "name": "James-Magic",
+    "name": "James Rodri-DAO",
     "country": "Colombia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -10582,7 +10582,7 @@
   },
   {
     "id": 288,
-    "name": "Lucho Di-Dash",
+    "name": "Lucho Diaz-JPEG",
     "country": "Colombia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -10773,7 +10773,7 @@
   },
   {
     "id": 293,
-    "name": "Davinson San-Store",
+    "name": "Davinson Sánchgas",
     "country": "Colombia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -11117,7 +11117,7 @@
   },
   {
     "id": 302,
-    "name": "Kendry Paez-Gem",
+    "name": "Kendry Págas",
     "country": "Ecuador",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -11156,7 +11156,7 @@
   },
   {
     "id": 303,
-    "name": "Hernan Galin-Shield",
+    "name": "Hernán Galíndgas",
     "country": "Ecuador",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -11461,7 +11461,7 @@
   },
   {
     "id": 311,
-    "name": "Gustavo Gomez-Cap",
+    "name": "Gustavo Gómgas",
     "country": "Paraguay",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -11538,7 +11538,7 @@
   },
   {
     "id": 313,
-    "name": "Gatito Fern-Save",
+    "name": "Gatito Fernándgas",
     "country": "Paraguay",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -11652,7 +11652,7 @@
   },
   {
     "id": 316,
-    "name": "Diego Gomez-Rise",
+    "name": "Diego Gómgas",
     "country": "Paraguay",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -12218,7 +12218,7 @@
   },
   {
     "id": 331,
-    "name": "Federico Val-Power",
+    "name": "Fede Val-Verde-Gas",
     "country": "Uruguay",
     "rarity": "mythic",
     "bg_type": "BG-MYT",
@@ -12257,7 +12257,7 @@
   },
   {
     "id": 332,
-    "name": "Darwin Nu-Genesis",
+    "name": "Darwin Nu-NFT",
     "country": "Uruguay",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -12296,7 +12296,7 @@
   },
   {
     "id": 333,
-    "name": "Ronald Arau-Wall",
+    "name": "Ronald Arau-HODL",
     "country": "Uruguay",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -12329,7 +12329,7 @@
   },
   {
     "id": 334,
-    "name": "Jose Gime-Shield",
+    "name": "José María Giméngas",
     "country": "Uruguay",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -13012,7 +13012,7 @@
   },
   {
     "id": 353,
-    "name": "Riyad Mahrez-Loop",
+    "name": "Riyad Mahrgas",
     "country": "Argelia",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -15276,7 +15276,7 @@
   },
   {
     "id": 413,
-    "name": "Aymen Dahm-Save",
+    "name": "Aymen Dahmgwei",
     "country": "Túnez",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -16254,7 +16254,7 @@
   },
   {
     "id": 439,
-    "name": "Jose Rodri-Silk",
+    "name": "José Rodrígugas",
     "country": "Panamá",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -17729,7 +17729,7 @@
   },
   {
     "id": 478,
-    "name": "Alex Paulsen-Reflex",
+    "name": "Alex Paulsgwei",
     "country": "Nueva zelanda",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -17989,7 +17989,7 @@
   },
   {
     "id": 485,
-    "name": "Mo Salah-King",
+    "name": "Mohamed Satoshi-Salah",
     "country": "Egipto",
     "rarity": "mythic",
     "bg_type": "BG-MYT",
@@ -19208,7 +19208,7 @@
   },
   {
     "id": 518,
-    "name": "Eldor Shomu-Strike",
+    "name": "Eldor Shomurodoff-chain",
     "country": "Uzbekistán",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -19286,7 +19286,7 @@
   },
   {
     "id": 520,
-    "name": "Otkir Yusu-Wall",
+    "name": "O'tkir Yusupoff-chain",
     "country": "Uzbekistán",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -19318,7 +19318,7 @@
   },
   {
     "id": 521,
-    "name": "Rustam Ashur-Logic",
+    "name": "Rustam Ashurmatoff-chain",
     "country": "Uzbekistán",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -19464,7 +19464,7 @@
   },
   {
     "id": 525,
-    "name": "Jakhongir Sidi-Limit",
+    "name": "Jakhongir Sidikoff-chain",
     "country": "Uzbekistán",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -19496,7 +19496,7 @@
   },
   {
     "id": 526,
-    "name": "Jamshid Iskan-Sprint",
+    "name": "Jamshid Iskanderoff-chain",
     "country": "Uzbekistán",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -19534,7 +19534,7 @@
   },
   {
     "id": 527,
-    "name": "Alijon Ibra-Leader",
+    "name": "Alijon Ibragimoff-chain",
     "country": "Uzbekistán",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -19566,7 +19566,7 @@
   },
   {
     "id": 528,
-    "name": "Asilbek Kari-Run",
+    "name": "Asilbek Karimoff-chain",
     "country": "Uzbekistán",
     "rarity": "rare",
     "bg_type": "BG-RAR",
