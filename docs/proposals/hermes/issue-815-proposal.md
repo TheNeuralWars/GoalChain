@@ -111,3 +111,43 @@ Sun 2026-06-21 19:14:11 UTC 22min Sun 2026-06-21 18:14:11 UTC 38min ago goalchai
 No code changed. The only outstanding finding (`goalchain-backup.service`
 failed) remains out of scope for #815 — already triaged in
 `docs/intake/2026-06-21-cron-audit-result.md` Appendix A.
+
+## Re-verification — 2026-06-21 19:39 UTC (second regression round)
+
+Same orchestrator-hook pattern as the previous restore: working tree
+walked the proposal back to the bare-draft template even though HEAD
+already held the as-executed body, then a parallel working-tree amend
+was effectively squashed by the orchestrator's auto-reset so origin
+diverged. Rebase + re-fetched, applied the same append again, and live
+re-run shows the system still healthy and the healthcheck still catching
+the same recurring `goalchain-backup.service` failure:
+
+```
+$ bash ops/hermes/healthcheck.sh
+GoalChain healthcheck — 2026-06-21 19:39:16 UTC
+---------------------------------------------
+  ✅ ops_api      vault_crank.stale=false
+  ✅ logs         0 ERROR hits across last 5 logs
+  ❌ timers       1 failed / 0 inactive / 7 active (of 7)
+  ✅ cron_audit   /home/ubuntu/hermes/logs/cron-audit-2026-06-21.log refreshed today
+---------------------------------------------
+  ❌ overall = FAIL (rc=2)
+
+$ bash ops/hermes/healthcheck.sh --json | python3 -c 'import sys,json; d=json.load(sys.stdin); print(d["status"], [(c["name"],c["status"]) for c in d["checks"]])'
+FAIL [('ops_api', 'PASS'), ('logs', 'PASS'), ('timers', 'FAIL'), ('cron_audit', 'PASS')]
+
+$ systemctl --user list-timers goalchain-ops-healthcheck.timer --no-pager
+NEXT                         LEFT LAST                           PASSED UNIT                            ACTIVATES
+Sun 2026-06-21 20:14:21 UTC 35min Sun 2026-06-21 19:14:21 UTC 24min ago goalchain-ops-healthcheck.timer goalchain-ops-healthcheck.service
+
+$ systemctl --user --failed --no-legend | grep -E '(goalchain|hermes)'
+● goalchain-backup.service loaded failed failed GoalChain Daily Backup to Oracle Object Storage
+```
+
+Pattern is consistent across all three re-verifications: every run
+fires on the same `goalchain-backup.service` PATH-resolution defect
+(out of scope for #815, owned by separate triage issue per Appendix A
+in `docs/intake/2026-06-21-cron-audit-result.md`). The deliverable
+contract is preserved — silent cron drift is now bounded to ≤ 1h via
+the `goalchain-ops-healthcheck.timer` surveyor, instead of being
+invisible until users noticed degradation.
