@@ -6,7 +6,7 @@
     <title>GoalChain Pre-NFT Portal de Revisión</title>
     <meta
       name="description"
-      content="Portal interactivo para revisar retratos, estadísticas e información de las cartas de GoalChain."
+      content="Portal interactivo 3D para revisar retratos, estadísticas e información de las cartas de GoalChain."
     />
     <link rel="stylesheet" href="assets/css/style.css?v=4.2" />
     <link
@@ -165,444 +165,327 @@
         border-color: var(--primary-neon);
       }
 
-      /* Main Grid */
+      /* Grid of 3D Cards */
       .player-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
         margin-top: 1.5rem;
       }
 
-      /* Player Cards */
-      .player-card {
-        background: rgba(13, 13, 20, 0.6);
-        border: 1px solid var(--border-color);
-        border-radius: 14px;
-        padding: 0.75rem;
+      /* 3D Card Flip Container */
+      .card-3d-container {
+        perspective: 1000px;
+        height: 400px;
         cursor: pointer;
+      }
+
+      .card-3d-inner {
         position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform-style: preserve-3d;
+      }
+
+      .card-3d-container.flipped .card-3d-inner {
+        transform: rotateY(180deg);
+      }
+
+      /* Common Card Sides Styles */
+      .card-front, .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 18px;
+        border: 2px solid var(--border-color);
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         display: flex;
         flex-direction: column;
-        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s;
-        overflow: hidden;
+        background: #090912;
       }
 
-      .player-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      /* Front Side styles */
+      .card-front {
+        z-index: 2;
+        transform: rotateY(0deg);
       }
 
-      /* Card Overlay Review Badge */
-      .review-badge {
+      /* Back Side styles */
+      .card-back {
+        transform: rotateY(180deg);
+        background: linear-gradient(135deg, #090912 0%, #121225 100%);
+        padding: 1.25rem;
+        box-sizing: border-box;
+      }
+
+      /* Background layers and compositing */
+      .stadium-layer-bg {
         position: absolute;
-        top: 0.6rem;
-        right: 0.6rem;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        opacity: 0.65;
+      }
+
+      .player-layer-silhouette {
+        position: absolute;
+        top: 0%;
+        left: 0;
+        width: 100%;
+        height: 80%;
+        object-fit: contain;
+        z-index: 2;
+        mix-blend-mode: multiply; /* Dynamically blend out white background! */
+      }
+
+      .card-overlay-details {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to top, rgba(3, 7, 18, 0.95) 70%, rgba(3, 7, 18, 0) 100%);
+        z-index: 3;
+        padding: 1.25rem;
+        box-sizing: border-box;
+      }
+
+      .rarity-frame-glow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid transparent;
+        border-radius: 18px;
+        pointer-events: none;
+        z-index: 4;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      .card-3d-container:hover .rarity-frame-glow {
+        box-shadow: 0 0 25px currentColor;
+      }
+
+      /* Rarity Classes definitions */
+      .rarity-mythic { color: #c084fc; border-color: rgba(192, 132, 252, 0.3); }
+      .rarity-legendary { color: #f59e0b; border-color: rgba(245, 158, 11, 0.3); }
+      .rarity-epic { color: #3b82f6; border-color: rgba(59, 130, 246, 0.3); }
+      .rarity-rare { color: #10b981; border-color: rgba(16, 185, 129, 0.3); }
+      .rarity-common { color: #94a3b8; border-color: rgba(148, 163, 184, 0.3); }
+
+      /* GoalChain sponsor logo overlay */
+      .jersey-sponsor-overlay-logo {
+        position: absolute;
+        top: 10%;
+        right: 1.25rem;
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        z-index: 3;
+        opacity: 0.85;
+      }
+
+      .card-overlay-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 5;
+        padding: 0.25rem 0.6rem;
+        border-radius: 6px;
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        background: rgba(0, 0, 0, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .jersey-num-overlay {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 5;
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.35);
+        font-family: 'Outfit', sans-serif;
+      }
+
+      .card-front-title {
+        font-size: 1.25rem;
+        font-weight: 900;
+        margin: 0;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+      }
+
+      .card-front-real-name {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin: 0.15rem 0 0.5rem 0;
+      }
+
+      .card-front-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 0.4rem;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+      }
+
+      .card-front-stat-val {
+        font-weight: 900;
+        font-size: 0.95rem;
+      }
+
+      .card-front-stat-lbl {
+        font-size: 0.55rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+
+      /* Review feedback overlays */
+      .card-status-pill {
+        position: absolute;
+        bottom: 1.25rem;
+        right: 1.25rem;
         z-index: 5;
         padding: 0.25rem 0.5rem;
         border-radius: 6px;
         font-size: 0.65rem;
         font-weight: 800;
-        letter-spacing: 0.5px;
-        background: rgba(71, 85, 105, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        color: #fff;
-        backdrop-filter: blur(4px);
       }
 
-      .review-badge.approved {
-        background: rgba(20, 241, 149, 0.85);
-        color: #000;
-      }
+      .card-status-pill.approved { background: var(--primary-neon); color: #000; }
+      .card-status-pill.adjustment { background: #fbbf24; color: #000; }
+      .card-status-pill.pending { background: rgba(71,85,105,0.7); color: #fff; }
 
-      .review-badge.adjustment {
-        background: rgba(245, 158, 11, 0.85);
-        color: #fff;
-      }
-
-      .player-rarity {
-        font-size: 0.65rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        margin-bottom: 0.35rem;
-      }
-
-      .rarity-mythic { color: #c084fc; }
-      .rarity-legendary { color: #f59e0b; }
-      .rarity-epic { color: #3b82f6; }
-      .rarity-rare { color: #10b981; }
-      .rarity-common { color: #94a3b8; }
-
-      .player-img-frame {
-        width: 100%;
-        aspect-ratio: 3/4;
-        background: #08080f;
-        border-radius: 8px;
-        overflow: hidden;
-        position: relative;
-        border: 1px solid rgba(255, 255, 255, 0.03);
-        margin-bottom: 0.65rem;
-      }
-
-      .player-img-frame img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.4s ease;
-      }
-
-      .player-card:hover .player-img-frame img {
-        transform: scale(1.03);
-      }
-
-      .player-number-overlay {
-        position: absolute;
-        bottom: 0.3rem;
-        left: 0.3rem;
-        background: rgba(0, 0, 0, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 0.15rem 0.4rem;
-        border-radius: 4px;
-        font-size: 0.65rem;
-        font-weight: 600;
-      }
-
-      .player-info h4 {
-        margin: 0;
-        font-size: 0.95rem;
-        font-weight: 800;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .player-real-name {
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        margin: 0.15rem 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .player-footer {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.7rem;
-        color: var(--text-muted);
-        margin-top: 0.35rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.03);
-        padding-top: 0.35rem;
-      }
-
-      .player-footer strong {
-        color: #fff;
-      }
-
-      /* Inspector Modal */
-      .inspector-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        z-index: 10000;
-        background: rgba(3, 7, 18, 0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1.5rem;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.25s ease;
-      }
-
-      .inspector-overlay.active {
-        opacity: 1;
-        pointer-events: all;
-      }
-
-      .inspector-window {
-        background: #090910;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        width: 100%;
-        max-width: 850px;
-        max-height: 90vh;
-        overflow-y: auto;
-        position: relative;
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        padding: 0;
-      }
-
-      .inspector-close {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: rgba(30, 41, 59, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        color: #fff;
-        width: 2.2rem;
-        height: 2.2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 10;
-        font-size: 0.95rem;
-        transition: background 0.2s;
-      }
-
-      .inspector-close:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
-
-      .inspector-left {
-        padding: 2rem;
-        background: rgba(15, 23, 42, 0.3);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-right: 1px solid rgba(255, 255, 255, 0.05);
-      }
-
-      .inspector-right {
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-      }
-
-      /* Premium Card Frame in Inspector */
-      .premium-frame {
-        width: 100%;
-        max-width: 260px;
-        aspect-ratio: 3/4;
-        background: #030712;
-        border-radius: 16px;
-        padding: 0.5rem;
-        position: relative;
-        overflow: hidden;
-        border: 2px solid #555;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-        transition: border-color 0.3s, box-shadow 0.3s;
-      }
-
-      .premium-frame img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-      }
-
-      .premium-frame-overlay {
-        position: absolute;
-        bottom: 1rem;
-        left: 1rem;
-        right: 1rem;
-        background: rgba(3, 7, 18, 0.85);
-        backdrop-filter: blur(4px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        padding: 0.5rem;
-        text-align: center;
-      }
-
-      .premium-frame-overlay h5 {
-        margin: 0;
-        font-size: 0.9rem;
-        font-weight: 900;
-        color: #fff;
-      }
-
-      .premium-frame-overlay span {
-        font-size: 0.6rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-top: 0.15rem;
-        display: inline-block;
-      }
-
-      .premium-frame-id {
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        background: rgba(0, 0, 0, 0.85);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        padding: 0.2rem 0.5rem;
-        border-radius: 6px;
-        font-size: 0.7rem;
-        font-weight: bold;
-      }
-
-      /* Inspector Controls / Stats */
-      .inspector-title {
-        margin-bottom: 1rem;
-      }
-
-      .inspector-title h3 {
-        margin: 0;
-        font-size: 1.45rem;
-        font-weight: 900;
-      }
-
-      .inspector-title span {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-      }
-
-      /* Stat rows */
-      .stat-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.75rem;
-        margin-bottom: 1.25rem;
-        background: rgba(255, 255, 255, 0.02);
-        padding: 0.75rem;
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.04);
-        text-align: center;
-      }
-
-      .stat-grid-item span {
-        font-size: 0.6rem;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        display: block;
-      }
-
-      .stat-grid-item strong {
-        font-size: 0.8rem;
-        font-weight: 700;
-        margin-top: 0.15rem;
-        display: block;
-      }
-
-      /* Progress attributes */
-      .attribute-bar-group {
-        margin-bottom: 1.25rem;
-      }
-
-      .attribute-bar-group h6 {
-        margin: 0 0 0.65rem 0;
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-
-      .attribute-row {
-        margin-bottom: 0.5rem;
-      }
-
-      .attribute-info {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.75rem;
-        margin-bottom: 0.2rem;
-      }
-
-      .attribute-track {
-        width: 100%;
-        height: 6px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 3px;
-        overflow: hidden;
-      }
-
-      .attribute-fill {
-        height: 100%;
-        border-radius: 3px;
-        width: 0;
-        transition: width 0.3s ease;
-      }
-
-      /* Review feedback block */
-      .critique-section {
-        background: rgba(30, 41, 59, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 1rem;
-        margin-top: auto;
-      }
-
-      .critique-section h6 {
-        margin: 0 0 0.65rem 0;
-        font-size: 0.8rem;
-        color: var(--text-light);
-        font-weight: bold;
-      }
-
-      .critique-actions {
-        display: flex;
-        gap: 0.5rem;
+      /* Back card styling details */
+      .card-back-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.5rem;
         margin-bottom: 0.75rem;
       }
 
-      .btn-feedback {
-        flex: 1;
-        padding: 0.5rem 0.75rem;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 0.8rem;
-        font-family: inherit;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.3rem;
-        transition: all 0.2s;
-        border: 1px solid transparent;
+      .card-back-header h4 {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 900;
       }
 
-      .btn-feedback.approve {
-        background: rgba(20, 241, 149, 0.08);
-        border: 1px solid rgba(20, 241, 149, 0.3);
+      .card-back-body {
+        font-size: 0.75rem;
+        color: #cbd5e1;
+        line-height: 1.4;
+        flex-grow: 1;
+        overflow-y: auto;
+      }
+
+      .traits-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .trait-tag {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.6rem;
+      }
+
+      .financial-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        background: rgba(20, 241, 149, 0.02);
+        border: 1px solid rgba(20, 241, 149, 0.08);
+        padding: 0.5rem;
+        border-radius: 8px;
+        margin-bottom: 0.75rem;
+        text-align: center;
+      }
+
+      .financial-val {
+        font-weight: 800;
+        color: var(--primary-neon);
+        font-size: 0.85rem;
+      }
+
+      .critique-card-section {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 0.75rem;
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .critique-card-actions {
+        display: flex;
+        gap: 0.4rem;
+      }
+
+      .critique-btn {
+        flex: 1;
+        padding: 0.35rem;
+        font-size: 0.7rem;
+        border-radius: 6px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        font-weight: bold;
+        font-family: inherit;
+        transition: all 0.2s;
+      }
+
+      .critique-btn.approve {
+        background: rgba(20, 241, 149, 0.05);
+        border-color: rgba(20, 241, 149, 0.2);
         color: var(--primary-neon);
       }
 
-      .btn-feedback.approve.active {
+      .critique-btn.approve.active {
         background: var(--primary-neon);
         color: #000;
-        border-color: var(--primary-neon);
       }
 
-      .btn-feedback.adjust {
-        background: rgba(245, 158, 11, 0.08);
-        border: 1px solid rgba(245, 158, 11, 0.3);
+      .critique-btn.adjust {
+        background: rgba(245, 158, 11, 0.05);
+        border-color: rgba(245, 158, 11, 0.2);
         color: #fbbf24;
       }
 
-      .btn-feedback.adjust.active {
+      .critique-btn.adjust.active {
         background: #d97706;
         color: #fff;
-        border-color: #d97706;
       }
 
-      .critique-notes {
+      .critique-card-notes {
         width: 100%;
-        min-height: 80px;
-        background: rgba(6, 6, 10, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        padding: 0.5rem;
+        height: 50px;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 6px;
         color: #fff;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         font-family: inherit;
-        resize: vertical;
-        outline: none;
+        padding: 0.35rem;
         box-sizing: border-box;
+        resize: none;
+        outline: none;
       }
 
-      .critique-notes:focus {
-        border-color: rgba(255, 255, 255, 0.3);
+      .critique-card-notes:focus {
+        border-color: rgba(255, 255, 255, 0.2);
       }
 
       /* Export buttons */
@@ -652,81 +535,6 @@
         border-color: #fff;
         background: rgba(255, 255, 255, 0.05);
       }
-
-      /* Modal Navigation */
-      .modal-nav-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 3.5rem;
-        height: 3.5rem;
-        background: rgba(13, 13, 20, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-size: 1.25rem;
-        transition: background-color 0.2s, border-color 0.2s;
-        z-index: 10005;
-        backdrop-filter: blur(4px);
-      }
-
-      .modal-nav-arrow:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: #fff;
-      }
-
-      .modal-nav-prev { left: 1rem; }
-      .modal-nav-next { right: 1rem; }
-
-      @media (max-width: 900px) {
-        .modal-nav-arrow {
-          position: static;
-          transform: none;
-          margin: 0.5rem;
-        }
-        .modal-nav-container {
-          display: flex;
-          justify-content: center;
-          margin-top: 1rem;
-          width: 100%;
-        }
-      }
-
-      /* Spinner */
-      .loading-spinner {
-        display: inline-block;
-        width: 2rem;
-        height: 2rem;
-        border: 3px solid rgba(20, 241, 149, 0.1);
-        border-top-color: var(--primary-neon);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin-bottom: 1rem;
-      }
-
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-
-      .traits-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem;
-        margin-top: 0.5rem;
-      }
-
-      .trait-tag {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 0.25rem 0.5rem;
-        border-radius: 6px;
-        font-size: 0.65rem;
-      }
     </style>
   </head>
   <body>
@@ -746,9 +554,9 @@
       <!-- Title Block -->
       <div class="glass-panel portal-header">
         <div class="title-section">
-          <h1>🎴 Panel de Revisión de Arte Pre-NFT</h1>
+          <h1>🎴 Panel de Revisión 3D Pre-NFT</h1>
           <p>
-            Portal de evaluación para los 528 retratos titulares de la colección. Aprueba cartas o solicita correcciones.
+            Retratos integrados sobre capas de Estadios con unificación de Stats. Haz clic sobre cualquier carta para girarla.
           </p>
         </div>
         <div class="stats-badge-group">
@@ -836,7 +644,7 @@
           Mostrando <strong id="visible-count" style="color: #fff;">0</strong> de 528 jugadores
         </div>
         <div style="font-size: 0.75rem; font-style: italic;">
-          Consejo: Usa las flechas ⬅️ y ➡️ de tu teclado para navegar entre jugadores en el visor detallado.
+          Consejo: Haz clic en una carta para girarla en 3D y dejar tu crítica directamente atrás.
         </div>
       </div>
 
@@ -846,150 +654,11 @@
       </div>
     </div>
 
-    <!-- Inspector Modal Detail View Overlay -->
-    <div id="inspector-overlay" class="inspector-overlay">
-      <div class="inspector-window" id="inspector-window">
-        <!-- Close button inside window -->
-        <button class="inspector-close" id="btn-close-modal">✕</button>
-
-        <!-- Left half: Portrait image preview frame -->
-        <div class="inspector-left">
-          <div class="premium-frame" id="modal-frame">
-            <img src="" id="modal-img" alt="Player Portrait" />
-            <div class="premium-frame-overlay">
-              <h5 id="modal-card-name">PLAYER NAME</h5>
-              <span id="modal-card-rarity-badge">RARITY • POSITION</span>
-            </div>
-            <div class="premium-frame-id" id="modal-card-id">ID #001</div>
-          </div>
-          <!-- Traits tag list -->
-          <div style="margin-top: 1.25rem; width: 100%; max-width: 260px;">
-            <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: bold; margin-bottom: 0.25rem;">Traits / Características</div>
-            <div class="traits-list" id="modal-traits-list">
-              <!-- Tags populated dynamically -->
-            </div>
-          </div>
-        </div>
-
-        <!-- Right half: stats progress values + critique commentary block -->
-        <div class="inspector-right">
-          <div class="inspector-title">
-            <h3 id="modal-title-name">PLAYER NAME</h3>
-            <span>Nombre real: <strong id="modal-real-name">REAL NAME</strong> • <span id="modal-country">PAIS</span></span>
-          </div>
-
-          <!-- Physical stats block -->
-          <div class="stat-grid">
-            <div class="stat-grid-item">
-              <span>Edad/Fecha Nac.</span>
-              <strong id="modal-dob">DOB</strong>
-            </div>
-            <div class="stat-grid-item">
-              <span>Altura</span>
-              <strong id="modal-height">HEIGHT</strong>
-            </div>
-            <div class="stat-grid-item">
-              <span>Peso</span>
-              <strong id="modal-weight">WEIGHT</strong>
-            </div>
-          </div>
-
-          <!-- Financial stats block -->
-          <div class="stat-grid" style="grid-template-columns: repeat(2, 1fr); margin-top: -0.5rem; background: rgba(20, 241, 149, 0.02); border-color: rgba(20, 241, 149, 0.1);">
-            <div class="stat-grid-item">
-              <span style="color: var(--primary-neon);">Valor Neto (Transfermarkt)</span>
-              <strong id="modal-market-value" style="color: #fff;">€0</strong>
-            </div>
-            <div class="stat-grid-item">
-              <span style="color: var(--primary-neon);">Salario por Partido</span>
-              <strong id="modal-match-salary" style="color: var(--primary-neon);">0 GCH</strong>
-            </div>
-          </div>
-
-          <!-- Attributes progress block -->
-          <div class="attribute-bar-group">
-            <h6>Atributos Básicos</h6>
-            
-            <div class="attribute-row">
-              <div class="attribute-info">
-                <span>ATAQUE (ATK)</span>
-                <strong id="val-atk" style="color: var(--primary-neon);">0</strong>
-              </div>
-              <div class="attribute-track">
-                <div class="attribute-fill" id="fill-atk" style="background: var(--primary-neon);"></div>
-              </div>
-            </div>
-
-            <div class="attribute-row">
-              <div class="attribute-info">
-                <span>DEFENSA (DEF)</span>
-                <strong id="val-def" style="color: #3b82f6;">0</strong>
-              </div>
-              <div class="attribute-track">
-                <div class="attribute-fill" id="fill-def" style="background: #3b82f6;"></div>
-              </div>
-            </div>
-
-            <div class="attribute-row">
-              <div class="attribute-info">
-                <span>HYPE COMUNITARIO</span>
-                <strong id="val-hype" style="color: #fbbf24;">0</strong>
-              </div>
-              <div class="attribute-track">
-                <div class="attribute-fill" id="fill-hype" style="background: #fbbf24;"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Narrative description block -->
-          <div style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.4; margin-bottom: 1.5rem;">
-            <div style="font-weight: bold; color: var(--text-light); margin-bottom: 0.25rem;">Descripción Física (Prompt de IA)</div>
-            <p id="modal-physical-desc" style="margin: 0; color: var(--text-muted); font-style: italic; background: rgba(0,0,0,0.25); padding: 0.5rem 0.75rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03);">
-              Prompt text
-            </p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem;">
-              <div>
-                <span style="color: var(--text-muted); display: block; font-size: 0.7rem;">Club Parodia</span>
-                <span id="modal-parody-club" style="font-size: 0.75rem; font-weight: 600;">Club</span>
-              </div>
-              <div>
-                <span style="color: var(--text-muted); display: block; font-size: 0.7rem;">Efecto Especial NFT</span>
-                <span id="modal-visual-effect" style="font-size: 0.75rem; font-weight: 600;">Efecto</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Review Critiques Feedback Interface -->
-          <div class="critique-section">
-            <h6>✍️ CRÍTICA Y FEEDBACK PRE-NFT</h6>
-            <div class="critique-actions">
-              <button class="btn-feedback approve" id="btn-approve">
-                👍 Aprobar Carta
-              </button>
-              <button class="btn-feedback adjust" id="btn-adjust">
-                ⚠️ Solicitar Ajuste
-              </button>
-            </div>
-            <textarea
-              class="critique-notes"
-              id="critique-notes-input"
-              placeholder="Detalla los ajustes necesarios (ej. colores del jersey, detalles faciales, accesorios)..."
-            ></textarea>
-          </div>
-        </div>
-      </div>
-
-      <!-- Navigation Arrows when inside inspector -->
-      <button class="modal-nav-arrow modal-nav-prev" id="btn-prev-player">◀</button>
-      <button class="modal-nav-arrow modal-nav-next" id="btn-next-player">▶</button>
-    </div>
-
     <!-- Logic Script -->
     <script>
       let allPlayers = [];
       let filteredPlayers = [];
       let reviews = {};
-      let selectedPlayerIndex = -1;
 
       // DOM Elements
       const gridContainer = document.getElementById('grid-container');
@@ -1004,34 +673,6 @@
       const approvedCountEl = document.getElementById('count-approved');
       const adjustmentCountEl = document.getElementById('count-adjustment');
       const percentEl = document.getElementById('count-percent');
-
-      // Modal elements
-      const inspectorOverlay = document.getElementById('inspector-overlay');
-      const modalImg = document.getElementById('modal-img');
-      const modalCardName = document.getElementById('modal-card-name');
-      const modalCardRarityBadge = document.getElementById('modal-card-rarity-badge');
-      const modalCardId = document.getElementById('modal-card-id');
-      const modalTraitsList = document.getElementById('modal-traits-list');
-      const modalTitleName = document.getElementById('modal-title-name');
-      const modalRealName = document.getElementById('modal-real-name');
-      const modalCountry = document.getElementById('modal-country');
-      const modalDob = document.getElementById('modal-dob');
-      const modalHeight = document.getElementById('modal-height');
-      const modalWeight = document.getElementById('modal-weight');
-      const modalPhysicalDesc = document.getElementById('modal-physical-desc');
-      const modalParodyClub = document.getElementById('modal-parody-club');
-      const modalVisualEffect = document.getElementById('modal-visual-effect');
-
-      const valAtk = document.getElementById('val-atk');
-      const valDef = document.getElementById('val-def');
-      const valHype = document.getElementById('val-hype');
-      const fillAtk = document.getElementById('fill-atk');
-      const fillDef = document.getElementById('fill-def');
-      const fillHype = document.getElementById('fill-hype');
-
-      const btnApprove = document.getElementById('btn-approve');
-      const btnAdjust = document.getElementById('btn-adjust');
-      const critiqueNotesInput = document.getElementById('critique-notes-input');
 
       // Initialize
       window.addEventListener('DOMContentLoaded', () => {
@@ -1113,13 +754,13 @@
         return 'rarity-common';
       }
 
-      function getRarityHexColor(rarity) {
+      function getStadiumBg(rarity) {
         const r = rarity.toLowerCase();
-        if (r === 'mythic') return '#c084fc';
-        if (r === 'legendary') return '#f59e0b';
-        if (r === 'epic') return '#3b82f6';
-        if (r === 'rare') return '#10b981';
-        return '#94a3b8';
+        if (r === 'mythic') return 'assets/img/nfts/bg/bg_mythic_golden.png';
+        if (r === 'legendary') return 'assets/img/nfts/bg/bg_legendary_purple.png';
+        if (r === 'epic') return 'assets/img/nfts/bg/bg_epic_cyber.png';
+        if (r === 'rare') return 'assets/img/nfts/bg/bg_rare_solana.png';
+        return 'assets/img/nfts/bg/bg_common_grass.png';
       }
 
       // Render the player cards inside the grid container
@@ -1130,51 +771,155 @@
           return;
         }
 
-        filteredPlayers.forEach((player, index) => {
+        filteredPlayers.forEach((player) => {
           const paddedId = String(player.id).padStart(3, '0');
           const imageUrl = `https://api.goalchain.fun/pilot/v4/${paddedId}.jpg`;
           const review = reviews[player.id] || { status: 'pending', notes: '' };
           const rarityClass = getRarityClass(player.rarity);
+          const stadiumBg = getStadiumBg(player.rarity);
 
-          const card = document.createElement('div');
-          card.className = 'player-card';
-          
-          let statusBadgeText = '⚪ S/R';
-          let badgeClass = '';
+          const cardContainer = document.createElement('div');
+          cardContainer.className = 'card-3d-container';
+          cardContainer.id = `card-container-${player.id}`;
+
+          let statusBadgeText = '⚪ SIN REVISAR';
+          let badgeClass = 'pending';
           if (review.status === 'approved') {
-            statusBadgeText = '👍 OK';
+            statusBadgeText = '👍 APROBADO';
             badgeClass = 'approved';
           } else if (review.status === 'adjustment') {
             statusBadgeText = '⚠️ AJUSTE';
             badgeClass = 'adjustment';
           }
 
-          card.innerHTML = `
-            <div class="review-badge ${badgeClass}">${statusBadgeText}</div>
-            <div class="player-rarity ${rarityClass}">${player.rarity} • ${player.position}</div>
-            <div class="player-img-frame">
-              <img src="${imageUrl}" alt="${player.name}" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/300x400/0f172a/10f195?text=Pre-NFT+Art';"/>
-              <div class="player-number-overlay">#${paddedId}</div>
-            </div>
-            <div class="player-info">
-              <h4>${player.name}</h4>
-              <div class="player-real-name">${player.real_name}</div>
-              <div style="font-size: 0.7rem; color: var(--primary-neon); margin: 0.15rem 0; display: flex; justify-content: space-between; font-weight: 600;">
-                <span>€${player.market_value_eur ? (player.market_value_eur / 1000000).toFixed(1) + 'M' : 'N/A'}</span>
-                <span>${player.match_salary_gch ? player.match_salary_gch.toLocaleString('de-DE') + ' GCH' : 'N/A'}</span>
+          // Generate trait tags
+          const traitsHtml = player.traits.map(t => `<span class="trait-tag">✨ ${t}</span>`).join('');
+
+          cardContainer.innerHTML = `
+            <div class="card-3d-inner" id="inner-${player.id}">
+              
+              <!-- FRONT OF THE CARD (ART + GENERAL STATS) -->
+              <div class="card-front">
+                <div class="rarity-frame-glow ${rarityClass}"></div>
+                <div class="card-overlay-badge">${player.position}</div>
+                <div class="jersey-num-overlay">#${player.jersey_number || paddedId}</div>
+                
+                <!-- layered composite -->
+                <img class="stadium-layer-bg" src="${stadiumBg}" alt="Stadium background" />
+                <img class="player-layer-silhouette" src="${imageUrl}" alt="${player.name}" onerror="this.onerror=null; this.src='https://placehold.co/300x400/0f172a/10f195?text=Pre-NFT+Art';" />
+                
+                <!-- Sponsor Overlay GoalChain logo -->
+                <img class="jersey-sponsor-overlay-logo" src="assets/img/logo_3d_clean.png?v=2.0" alt="GoalChain Logo" />
+
+                <!-- Bottom details bar -->
+                <div class="card-overlay-details">
+                  <h4 class="card-front-title">${player.name}</h4>
+                  <div class="card-front-real-name">${player.real_name} • ${player.country}</div>
+                  
+                  <div class="card-front-stats">
+                    <div>
+                      <div class="card-front-stat-val" style="color: var(--primary-neon);">${player.stats.atk}</div>
+                      <div class="card-front-stat-lbl">ATK</div>
+                    </div>
+                    <div>
+                      <div class="card-front-stat-val" style="color: #3b82f6;">${player.stats.def}</div>
+                      <div class="card-front-stat-lbl">DEF</div>
+                    </div>
+                    <div>
+                      <div class="card-front-stat-val" style="color: #fbbf24;">${player.stats.hype}</div>
+                      <div class="card-front-stat-lbl">HYPE</div>
+                    </div>
+                  </div>
+                  
+                  <div class="card-status-pill ${badgeClass}">${statusBadgeText}</div>
+                </div>
               </div>
-              <div class="player-footer">
-                <span>${player.country}</span>
-                <span><strong>${player.stats.hype}</strong> Hype</span>
+
+              <!-- BACK OF THE CARD (BIO + TRAITS + REVIEW EDITOR) -->
+              <div class="card-back">
+                <div class="rarity-frame-glow ${rarityClass}"></div>
+                
+                <div class="card-back-header">
+                  <h4>${player.name}</h4>
+                  <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">Detalles de Contrato Pre-NFT</span>
+                </div>
+
+                <div class="card-back-body">
+                  <div class="traits-container">
+                    ${traitsHtml}
+                  </div>
+
+                  <div class="financial-grid">
+                    <div>
+                      <span style="font-size: 0.55rem; color: var(--text-muted); display: block;">VALOR NETO</span>
+                      <strong class="financial-val">€${player.market_value_eur ? (player.market_value_eur / 1000000).toFixed(1) + 'M' : 'N/A'}</strong>
+                    </div>
+                    <div>
+                      <span style="font-size: 0.55rem; color: var(--text-muted); display: block;">SALARIO / PARTIDO</span>
+                      <strong class="financial-val">${player.match_salary_gch ? player.match_salary_gch.toLocaleString('de-DE') + ' GCH' : 'N/A'}</strong>
+                    </div>
+                  </div>
+
+                  <p style="margin: 0 0 0.5rem 0; font-size: 0.7rem; font-style: italic; color: var(--text-muted); background: rgba(0,0,0,0.2); padding: 0.35rem; border-radius: 6px; line-height: 1.3;">
+                    "${player.meta.narrative || 'Cornerstone player in the GoalChain meta ecosystem.'}"
+                  </p>
+
+                  <div style="font-size: 0.65rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+                    <strong>Club de parodia:</strong> ${player.meta.parody_club}<br/>
+                    <strong>Altura:</strong> ${player.physical.h} | <strong>Peso:</strong> ${player.physical.w}
+                  </div>
+                </div>
+
+                <!-- Critique Form inline -->
+                <div class="critique-card-section" onclick="event.stopPropagation();">
+                  <div class="critique-card-actions">
+                    <button class="critique-btn approve ${review.status === 'approved' ? 'active' : ''}" id="btn-approve-${player.id}">
+                      👍 Aprobar
+                    </button>
+                    <button class="critique-btn adjust ${review.status === 'adjustment' ? 'active' : ''}" id="btn-adjust-${player.id}">
+                      ⚠️ Ajustar
+                    </button>
+                  </div>
+                  <textarea 
+                    class="critique-card-notes" 
+                    id="notes-${player.id}" 
+                    placeholder="Escribe los ajustes necesarios aquí..."
+                  >${review.notes || ''}</textarea>
+                </div>
+
               </div>
+
             </div>
           `;
 
-          card.addEventListener('click', () => {
-            openInspector(index);
+          // Flip card on click
+          cardContainer.addEventListener('click', (e) => {
+            // Avoid flipping when clicking input fields inside back card
+            if (e.target.tagName.toLowerCase() === 'textarea' || e.target.tagName.toLowerCase() === 'button') {
+              return;
+            }
+            cardContainer.classList.toggle('flipped');
           });
 
-          gridContainer.appendChild(card);
+          gridContainer.appendChild(cardContainer);
+
+          // Add events to back card buttons
+          const approveBtn = cardContainer.querySelector(`#btn-approve-${player.id}`);
+          const adjustBtn = cardContainer.querySelector(`#btn-adjust-${player.id}`);
+          const notesText = cardContainer.querySelector(`#notes-${player.id}`);
+
+          approveBtn.addEventListener('click', () => {
+            setPlayerStatus(player.id, 'approved', notesText.value, cardContainer);
+          });
+
+          adjustBtn.addEventListener('click', () => {
+            setPlayerStatus(player.id, 'adjustment', notesText.value, cardContainer);
+          });
+
+          notesText.addEventListener('input', () => {
+            const currentStatus = reviews[player.id]?.status || 'pending';
+            saveReview(player.id, currentStatus, notesText.value);
+          });
         });
       }
 
@@ -1197,110 +942,30 @@
         percentEl.textContent = `${percentage}%`;
       }
 
-      // Open detail view inspector
-      function openInspector(index) {
-        if (index < 0 || index >= filteredPlayers.length) return;
-        selectedPlayerIndex = index;
-        const player = filteredPlayers[index];
-        const paddedId = String(player.id).padStart(3, '0');
-        const imageUrl = `https://api.goalchain.fun/pilot/v4/${paddedId}.jpg`;
-        const review = reviews[player.id] || { status: 'pending', notes: '' };
-
-        // Populate detail metrics
-        modalImg.src = imageUrl;
-        modalCardName.textContent = player.name;
-        modalCardRarityBadge.textContent = `${player.rarity} • ${player.position}`;
-        modalCardRarityBadge.className = getRarityClass(player.rarity);
-        modalCardId.textContent = `ID #${paddedId}`;
-
-        // Glow color frame matching rarity
-        const rarityHexColor = getRarityHexColor(player.rarity);
-        const modalFrame = document.getElementById('modal-frame');
-        modalFrame.style.borderColor = rarityHexColor;
-        modalFrame.style.boxShadow = `0 0 25px ${rarityHexColor}33`;
-
-        // Traits
-        modalTraitsList.innerHTML = '';
-        player.traits.forEach(t => {
-          const span = document.createElement('span');
-          span.className = 'trait-tag';
-          span.textContent = `✨ ${t}`;
-          modalTraitsList.appendChild(span);
-        });
-
-        // Bio descriptors
-        modalTitleName.textContent = player.name;
-        modalRealName.textContent = player.real_name;
-        modalCountry.textContent = player.country;
-        modalDob.textContent = player.physical.dob;
-        modalHeight.textContent = player.physical.h;
-        modalWeight.textContent = player.physical.w;
-        modalPhysicalDesc.textContent = player.physical.t;
-        modalParodyClub.textContent = player.meta.parody_club;
-        modalVisualEffect.textContent = player.meta.visual_effect;
-
-        // Financials
-        document.getElementById('modal-market-value').textContent = player.market_value_eur ? '€' + Number(player.market_value_eur).toLocaleString('de-DE') : 'N/A';
-        document.getElementById('modal-match-salary').textContent = player.match_salary_gch ? Number(player.match_salary_gch).toLocaleString('de-DE') + ' GCH' : 'N/A';
-
-        // Attributes Progress bars
-        valAtk.textContent = player.stats.atk;
-        valDef.textContent = player.stats.def;
-        valHype.textContent = player.stats.hype;
-        
-        // Use timeout to trigger CSS transition animation
-        setTimeout(() => {
-          fillAtk.style.width = `${player.stats.atk}%`;
-          fillDef.style.width = `${player.stats.def}%`;
-          fillHype.style.width = `${player.stats.hype}%`;
-        }, 50);
-
-        // Feedback buttons status styling
-        updateFeedbackButtonState(review.status);
-        critiqueNotesInput.value = review.notes || '';
-
-        // Show Modal
-        inspectorOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Lock background scrolling
-      }
-
-      // Close modal
-      function closeInspector() {
-        inspectorOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Release background scrolling
-        // Re-render in case status badges changed inside modal
-        renderGrid();
-        updateStatsSummary();
-      }
-
-      // Feedback button UI update helper
-      function updateFeedbackButtonState(status) {
-        btnApprove.classList.remove('active');
-        btnAdjust.classList.remove('active');
-
-        if (status === 'approved') {
-          btnApprove.classList.add('active');
-        } else if (status === 'adjustment') {
-          btnAdjust.classList.add('active');
-        }
-      }
-
-      // Save critique vote
-      function setPlayerStatus(status) {
-        if (selectedPlayerIndex < 0) return;
-        const player = filteredPlayers[selectedPlayerIndex];
-        const notes = critiqueNotesInput.value;
-
-        reviews[player.id] = {
-          status: status,
-          notes: notes
-        };
-
-        // Save immediately to localstorage
+      // Save critique
+      function saveReview(playerId, status, notes) {
+        reviews[playerId] = { status, notes };
         localStorage.setItem('goalchain_player_reviews', JSON.stringify(reviews));
-
-        updateFeedbackButtonState(status);
         updateStatsSummary();
+      }
+
+      function setPlayerStatus(playerId, status, notes, cardContainer) {
+        saveReview(playerId, status, notes);
+
+        // Update button active classes inside container
+        const approveBtn = cardContainer.querySelector(`#btn-approve-${playerId}`);
+        const adjustBtn = cardContainer.querySelector(`#btn-adjust-${playerId}`);
+        
+        approveBtn.classList.remove('active');
+        adjustBtn.classList.remove('active');
+
+        if (status === 'approved') approveBtn.classList.add('active');
+        if (status === 'adjustment') adjustBtn.classList.add('active');
+
+        // Update front card badge label and class
+        const statusPill = cardContainer.querySelector(`.card-status-pill`);
+        statusPill.className = `card-status-pill ${status === 'approved' ? 'approved' : status === 'adjustment' ? 'adjustment' : 'pending'}`;
+        statusPill.textContent = status === 'approved' ? '👍 APROBADO' : status === 'adjustment' ? '⚠️ AJUSTE' : '⚪ SIN REVISAR';
       }
 
       // Event listeners for filters
@@ -1309,52 +974,6 @@
       raritySelect.addEventListener('change', updateFilters);
       positionSelect.addEventListener('change', updateFilters);
       statusSelect.addEventListener('change', updateFilters);
-
-      // Close modal events
-      document.getElementById('btn-close-modal').addEventListener('click', closeInspector);
-      inspectorOverlay.addEventListener('click', (e) => {
-        if (e.target === inspectorOverlay) closeInspector();
-      });
-
-      // Feedback Click Events
-      btnApprove.addEventListener('click', () => setPlayerStatus('approved'));
-      btnAdjust.addEventListener('click', () => setPlayerStatus('adjustment'));
-      critiqueNotesInput.addEventListener('input', () => {
-        if (selectedPlayerIndex < 0) return;
-        const player = filteredPlayers[selectedPlayerIndex];
-        const currentStatus = reviews[player.id]?.status || 'pending';
-        reviews[player.id] = {
-          status: currentStatus,
-          notes: critiqueNotesInput.value
-        };
-        localStorage.setItem('goalchain_player_reviews', JSON.stringify(reviews));
-      });
-
-      // Next / Previous navigation within modal
-      document.getElementById('btn-prev-player').addEventListener('click', () => {
-        if (selectedPlayerIndex > 0) {
-          openInspector(selectedPlayerIndex - 1);
-        }
-      });
-
-      document.getElementById('btn-next-player').addEventListener('click', () => {
-        if (selectedPlayerIndex < filteredPlayers.length - 1) {
-          openInspector(selectedPlayerIndex + 1);
-        }
-      });
-
-      // Keyboard arrow shortcuts inside inspector modal
-      document.addEventListener('keydown', (e) => {
-        if (!inspectorOverlay.classList.contains('active')) return;
-
-        if (e.key === 'ArrowLeft') {
-          if (selectedPlayerIndex > 0) openInspector(selectedPlayerIndex - 1);
-        } else if (e.key === 'ArrowRight') {
-          if (selectedPlayerIndex < filteredPlayers.length - 1) openInspector(selectedPlayerIndex + 1);
-        } else if (e.key === 'Escape') {
-          closeInspector();
-        }
-      });
 
       // Export JSON reviews handler
       document.getElementById('btn-export').addEventListener('click', () => {
