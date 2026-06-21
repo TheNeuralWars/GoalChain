@@ -133,6 +133,14 @@ scp -o BatchMode=yes -q \
   "goalchain_program/target/deploy/goalchain_program-keypair.json" || \
   warn "Could not download program keypair from VPS. If required, copy it manually to goalchain_program/target/deploy/goalchain_program-keypair.json."
 
+# 8b. Copy .env file from VPS
+log "Downloading repository secrets (.env) from VPS..."
+scp -o BatchMode=yes -q \
+  "${GOALCHAIN_SSH}:/data/apps/GoalChain/.env" \
+  ".env" || \
+  warn "Could not download .env file from VPS. If required, copy it manually to the repository root."
+
+
 # 9. Mirror Configuration from VPS
 log "Mirroring Hermes profile config from VPS..."
 # Ensure Python packages like pyyaml are present for the patch process
