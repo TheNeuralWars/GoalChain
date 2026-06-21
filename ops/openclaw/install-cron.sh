@@ -25,3 +25,8 @@ openclaw cron add \
 
 openclaw cron list
 echo "Done."
+
+# --- GoalChain economy crank dry-run refresh (issue #811) ---
+# Re-source this installer to register the periodic dry-run that refreshes
+# docs/data/burn_tracker.json. Idempotent.
+(cd "$(dirname "${BASH_SOURCE[0]}")" && bash ./install-economy-crank-cron.sh) || echo "WARN: economy-crank cron installer skipped"
