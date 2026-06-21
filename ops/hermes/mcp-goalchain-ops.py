@@ -42,6 +42,17 @@ REPO = os.environ.get(
     "GOALCHAIN_REPO_PATH",
     str(Path.home() / "hermes/workspace/GoalChain"),
 )
+HEALTHCHECK_SCRIPT = Path(REPO) / "ops/hermes/healthcheck.sh"
+
+
+def _run_healthcheck() -> str:
+    """Fallback when the bash call fails: return a JSON 'unavailable' envelope."""
+    import datetime as _dt
+    return json.dumps({
+        "status": "unavailable",
+        "reason": "healthcheck_failed",
+        "timestamp": _dt.datetime.now(_dt.timezone.utc).isoformat(),
+    })
 
 
 def _get(path: str) -> dict:
@@ -89,6 +100,37 @@ def goalchain_onchain_program_info() -> str:
         "recent_commits": commits or "(none)",
     }
     return json.dumps(payload, indent=2)
+
+
+# === CENTRALIZED HEALTH CHECK RESOURCE (issue #815) ===
+#
+# Exposes the bash healthcheck output via the MCP resource protocol.
+# Returns a JSON envelope from `ops/hermes/healthcheck.sh --json`.
+# Falls back to a degraded "unavailable" envelope if the script fails
+# (e.g. file not found, permission denied, MCP server source owned by
+# another user). Issue #815 §4.
+
+
+@mcp.resource("goalchain-ops://.health")
+def goalchain_ops_health() -> str:
+    """Latest centralized health envelope (PASS/WARN/FAIL + per-check detail)."""
+    if not HEALTHCHECK_SCRIPT.exists():
+        return _run_healthcheck()
+    try:
+        out = subprocess.check_output(
+            [str(HEALTHCHECK_SCRIPT), "--json"],
+            text=True,
+            timeout=60,
+        ).strip()
+    except subprocess.CalledProcessError as e:
+        # Script ran but exited non-zero (WARN/FAIL). Still return its output
+        # so callers see the per-check detail rather than a black box.
+        if e.output:
+            return e.output.decode("utf-8", errors="replace") if isinstance(e.output, bytes) else e.output
+        return _run_healthcheck()
+    except Exception:
+        return _run_healthcheck()
+    return out or _run_healthcheck()
 
 
 # === IMAGE & VIDEO GENERATION ORCHESTRATION TOOLS ===

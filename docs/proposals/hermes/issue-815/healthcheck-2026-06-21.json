@@ -1,0 +1,11 @@
+{
+  "status": "FAIL",
+  "checks": [
+    {"name":"ops_api","status":"PASS","detail":"vault_crank.stale=false"},
+    {"name":"logs","status":"PASS","detail":"0 ERROR hits across last 5 logs"},
+    {"name":"timers","status":"FAIL","detail":"1 failed / 0 inactive / 7 active (of 7)"},
+    {"name":"cron_audit","status":"PASS","detail":"/home/ubuntu/hermes/logs/cron-audit-2026-06-21.log refreshed today"}
+  ],
+  "audit_log": "/home/ubuntu/hermes/logs/cron-audit-2026-06-21.log",
+  "timestamp": "2026-06-21T14:41:18Z"
+}
