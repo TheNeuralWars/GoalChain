@@ -255,8 +255,8 @@
         height: 80%;
         object-fit: contain;
         z-index: 2;
-        mix-blend-mode: multiply; /* Dynamically blend out white background! */
-        filter: brightness(1.05) contrast(1.05);
+        /* Removed multiply to guarantee 100% opacity of the player portrait */
+        filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
       }
 
       .card-overlay-details {
@@ -821,9 +821,7 @@
                 <div class="jersey-num-overlay">#${player.jersey_number || paddedId}</div>
                 
                 <!-- layered composite -->
-                <img class="stadium-layer-bg" src="${stadiumBg}" alt="Stadium background" />
-                <div class="player-backing-highlight"></div>
-                <img class="player-layer-silhouette" src="${imageUrl}" alt="${player.name}" onerror="this.onerror=null; this.src='https://placehold.co/300x400/0f172a/10f195?text=Pre-NFT+Art';" />
+                <img class="player-layer-silhouette" src="${imageUrl}" alt="${player.name}" onerror="this.onerror=null; this.src='https://placehold.co/300x400/0f172a/10f195?text=Pre-NFT+Art';" style="height: 100%; top: 0;" />
                 
                 <!-- Sponsor Overlay GoalChain logo -->
                 <img class="jersey-sponsor-overlay-logo" src="assets/img/logo_3d_clean.png?v=2.0" alt="GoalChain Logo" />
