@@ -1,725 +1,724 @@
 # ⚽ GoalChain: Diccionario Maestro de los 11 Titulares (Génesis Squad 528)
-
 Este documento contiene la alineación titular completa (11 jugadores) de cada una de las 48 naciones participantes, con sus nombres Web3 parodiados y descripciones precisas para la generación de imágenes.
-
 ---
-
-### 🇦🇷 ARGENTINA (The Champions)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Lionel Satoshi** | Dedos al cielo | Barba castaña, pelo corto, 1.70m. | Celeste / Blanco |
-| **Dibu De-Fi** | Parada acrobática | Pelo corto atlético, mirada intensa. | Verde Neón (GK) |
-| **Julian Bull-varez** | Brazos en cruz | Sonrisa energética, complexión ágil. | Celeste / Blanco |
-| **Enzo Ether** | Postura de pase | Corte fade, mirada centrada. | Celeste / Blanco |
-| **Rodrigo De-Pool** | Postura agresiva | Pelo rubio platino, tatuajes. | Celeste / Blanco |
-| **Angel Di Merkle** | Corazón con manos | Complexión delgada, rasgos finos. | Celeste / Blanco |
-| **Alexis Mac-Chain** | Control de balón | Pelo castaño-rojizo corto, barba. | Celeste / Blanco |
-| **Cuti Crypt** | Entrada fuerte | Pelo oscuro corto, expresión feroz. | Celeste / Blanco |
-| **Lisandro Butcher-DAO**| Salto defensivo | Bajo pero muy fuerte, pelo oscuro. | Celeste / Blanco |
-| **Nahuel Mo-Wallet** | Sprint por banda | Pelo oscuro corto, delgado. | Celeste / Blanco |
-| **Nico Taglia-Token** | Deslizarse (tackle) | Pelo castaño corto, cara de lucha. | Celeste / Blanco |
-
-### 🇫🇷 FRANCIA (The Powerhouse)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Kylian M-Bypass-pé** | Brazos cruzados | Corte buzz, atlético, 1.78m. | Azul Marino |
-| **Antoine G-ZkSync** | Baile teléfono | Pelo teñido (rosa o rubio). | Azul Marino |
-| **Ousmane De-Shard** | Regate rápido | Muy delgado, extremidades largas. | Azul Marino |
-| **Eduardo Cama-Logic** | Control de balón | Dreadlocks recogidos, elástico. | Azul Marino |
-| **Theo Shiller** | Carrera veloz | Pelo rubio corto, defensa rápido. | Azul Marino |
-| **Mike Maignan-Admin** | Gesto de mando | Pelo corto, mirada imponente, alto. | Negro (GK) |
-| **Aurélien Buffer-Tch** | Intercepción | Pelo oscuro corto, muy fuerte. | Azul Marino |
-| **William Sali-Struct** | Defensa sólida | Alto, peinado corto, imponente. | Azul Marino |
-| **Dayot Upame-Kernel** | Salto de cabeza | Musculoso, peinado corto, defensa. | Azul Marino |
-| **Jules Koun-DEX** | Pose de moda | Peinado variado, muy atlético. | Azul Marino |
-| **Adrien Rabi-Protocol** | Postura elegante | Pelo largo ondulado castaño. | Azul Marino |
-
-### 🏴󠁧󠁢󠁥󠁮󠁧󠁿 INGLATERRA (The Lions)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Harry Stake** | Brazos abiertos | Rubio, barba cuidada, 1.88m. | Blanco / Marino |
-| **Jude Belling-Swap** | Celebración icónica | Porte elegante, figura alta, 1.86m. | Blanco / Marino |
-| **Phil Fod-Phantom** | Control orientado | Pelo rubio platino buzz cut, joven. | Blanco / Marino |
-| **Bukayo Solana** | Sprint eléctrico | Joven, corte fade, sonrisa. | Blanco / Marino |
-| **Declan Rice-Validator**| Corte de balón | Pelo oscuro corto, fuerte. | Blanco / Marino |
-| **Kyle Gas-Walker** | Sprint máximo | Muy veloz, musculado, corte fade. | Blanco / Marino |
-| **Jordan Pick-Safe** | Salto de parada | Pelo rubio corto, vocal y activo. | Amarillo (GK) |
-| **John Stone-Base** | Salida con balón | Pelo castaño corto, mirada técnica. | Blanco / Marino |
-| **Trent Cross-Arnold** | Pase largo | Pelo oscuro rizado/corto, técnico. | Blanco / Marino |
-| **Luke Vector** | Centro al área | Pelo castaño corto, fuerte. | Blanco / Marino |
-| **Cole Cold-Coin** | Gesto de frío | Pelo rubio corto, muy técnico. | Blanco / Marino |
-
-### 🇧🇷 BRASIL (The Joga Bonito)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Neymar-NFT** | Gesto técnico | Cinta de pelo, tatuajes, 1.75m. | Amarillo / Verde |
-| **Vinicius Jpeg Jr** | Baile de Samba | Sonrisa enorme, muy ágil. | Amarillo / Verde |
-| **Alisson Vault-son** | Gesto de mando | Barba poblada, imponente, 1.91m. | Negro (GK) |
-| **Rodrygo-Yield** | Celebración gol | Joven, rápido, rasgos finos. | Amarillo / Verde |
-| **Bruno Guima-Liquid** | Postura de pase | Pelo castaño corto, barba ligera. | Amarillo / Verde |
-| **Casemiro-Mint** | Intercepción dura | Pelo oscuro corto, físico fuerte. | Amarillo / Verde |
-| **Marquinhos-Server** | Grito defensivo | Pelo oscuro corto, barba corta. | Amarillo / Verde |
-| **Eder Mili-Pixel** | Salto de cabeza | Pelo corto con patrones, atlético. | Amarillo / Verde |
-| **Danilo-Legacy** | Orden táctico | Pelo muy corto, expresión seria. | Amarillo / Verde |
-| **Lucas Paque-Frame** | Regate de baile | Pelo castaño corto, técnico. | Amarillo / Verde |
-| **Endrick Moon** | Festejo de fuerza | Muy joven, explosivo, pelo corto. | Amarillo / Verde |
-
-### 🇪🇸 ESPAÑA (The Armada)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Lamine Ya-Alpha** | Gesto 304 | Muy joven, pelo afro corto. | Rojo / Amarillo |
-| **Pedri-Script** | Pase precisión | Delgado, pelo oscuro, técnico. | Rojo / Amarillo |
-| **Rodri Proof-of-Stake**| Señalando táctica | Alto, peinado profesional, 1.91m. | Rojo / Amarillo |
-| **Gavi-Gas** | Grito de gol intenso | Pelo castaño, expresión de lucha. | Rojo / Amarillo |
-| **Nico Shard-Williams** | Sprint por banda | Corte fade con patrones, veloz. | Rojo / Amarillo |
-| **Unai Simon-Key** | Parada de reflejos | Pelo castaño corto, serio. | Negro (GK) |
-| **Dani Carva-Hard** | Salto de alegría | Pelo oscuro, barba poblada, fuerte. | Rojo / Amarillo |
-| **Aymeric Lap-Object** | Salida de balón | Pelo castaño corto, elegante. | Rojo / Amarillo |
-| **Robin Le-Normal-DEX** | Cabezazo defensa | Pelo castaño corto, serio. | Rojo / Amarillo |
-| **Alejandro Bal-Slide** | Carrera veloz | Joven, pelo corto rizado, rápido. | Rojo / Amarillo |
-| **Dani Olmo-View** | Control elegante | Pelo castaño corto, técnico. | Rojo / Amarillo |
 
 ### 🇩🇪 ALEMANIA (The Machine)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Joshua Kim-Chip** | Grito de mando | Pelo castaño corto, mirada intensa. | Blanco / Negro |
-| **Florian Wirtz-Byte** | Regate técnico | Pelo castaño claro, cara joven. | Blanco / Negro |
-| **Jamal Moon-siala** | Dribbling slalom | Pelo rizado corto, ágil. | Blanco / Negro |
-| **Kai Havertz-Class** | Cabezazo gol | Pelo castaño corto, alto y elegante. | Blanco / Negro |
-| **Ilkay Gundo-Main** | Pase de primera | Pelo oscuro corto, barba ligera. | Blanco / Negro |
-| **Antonio Rudi-Force** | Grito defensivo | Pelo muy corto, agresivo. | Blanco / Negro |
-| **Marc Ter-Save** | Parada estirada | Pelo rubio corto, enfocado. | Amarillo (GK) |
-| **Niclas Full-Heavy** | Festejo de fuerza | Pelo rubio corto, fuerte. | Blanco / Negro |
-| **Leroy Shard-né** | Sprint veloz | Pelo afro corto, muy rápido. | Blanco / Negro |
-| **Jonathan Tah-Shield** | Intercepción | Pelo muy corto, físico masivo. | Blanco / Negro |
-| **Maxim Mittel-Wing** | Centro al área | Pelo rubio corto, incansable. | Blanco / Negro |
-
-### 🇵🇹 PORTUGAL (The Navigators)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Cristiano Siu-toshi** | Salto SIUUU | Musculatura máxima, engominado. | Rojo / Verde |
-| **Bruno Bit-Fernandes** | Pase filtrado | Pelo oscuro corto, enfocado. | Rojo / Verde |
-| **Bernardo Loop** | Dribbling técnico | Pelo castaño corto, barba ligera. | Rojo / Verde |
-| **Rafael Leao-Dash** | Carrera potente | Pelo con rastas cortas, sonrisa. | Rojo / Verde |
-| **Ruben Dias-Base** | Mando defensivo | Pelo castaño corto, físico fuerte. | Rojo / Verde |
-| **Joao Joao-Link** | Centro al área | Pelo oscuro corto, técnico. | Rojo / Verde |
-| **Diogo Costa-Gate** | Parada estirada | Pelo oscuro corto, serio. | Negro (GK) |
-| **Goncalo Inacio-Array** | Salida de balón | Pelo castaño corto, joven. | Rojo / Verde |
-| **Nuno Mendes-Flow** | Sprint por banda | Pelo corto rizado, muy veloz. | Rojo / Verde |
-| **Vitinha-Cycle** | Distribución | Pelo largo castaño recogido. | Rojo / Verde |
-| **Joao Neves-Seed** | Intercepción | Pelo castaño corto, cara juvenil. | Rojo / Verde |
-
-### 🇳🇱 PAÍSES BAJOS (The Oranje)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Virgil Van-Hash** | Gesto de mando | Pelo largo recogido, imponente. | Naranja |
-| **Frenkie De-Stream** | Giro técnico | Pelo rubio corto, mirada técnica. | Naranja |
-| **Xavi Simon-Web3** | Regate rápido | Pelo rizado rubio, cara joven. | Naranja |
-| **Memphis Depay-Raw** | Dedos en oídos | Pelo corto, tatuajes, musculoso. | Naranja |
-| **Cody Gakpo-Scan** | Disparo cruzado | Pelo oscuro corto, alto y rápido. | Naranja |
-| **Nathan Ake-Lock** | Cabezazo defensa | Dreadlocks cortos, fuerte. | Naranja |
-| **Denzel Dum-Push** | Sprint potencia | Pelo corto, físico muy potente. | Naranja |
-| **Bart Verbru-Secure** | Parada estirada | Pelo rubio corto, joven. | Verde (GK) |
-| **Matthijs De-Ligt-Root** | Intercepción | Pelo rubio corto, muy fuerte. | Naranja |
-| **Jeremie Frim-Sprint** | Carrera veloz | Muy rápido, pequeño, pelo corto. | Naranja |
-| **Teun Koop-Core** | Pase estratégico | Pelo rubio corto, elegante. | Naranja |
-
-### 🇺🇸 EE.UU. (The Stars & Stripes)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Christian Puli-Star** | Beso al escudo | Pelo castaño corto, cara joven. | Blanco / Azul / Rojo|
-| **Weston McK-Air** | Salto de cabeza | Pelo afro con mecha rubia, fuerte. | Blanco / Azul / Rojo|
-| **Gio Reyna-Pass** | Pase técnico | Pelo castaño corto, elegante. | Blanco / Azul / Rojo|
-| **Folarin Balogun-Drive** | Disparo a gol | Pelo corto, rápido y ágil. | Blanco / Azul / Rojo|
-| **Tyler Adams-Guard** | Intercepción | Pelo oscuro corto, incansable. | Blanco / Azul / Rojo|
-| **Matt Turner-Gloves** | Parada felina | Pelo castaño corto, muy ágil. | Gris (GK) |
-| **Sergiño Dest-Dribble** | Regate en banda | Pelo oscuro corto, muy técnico. | Blanco / Azul / Rojo|
-| **Antonee Robin-Turbo** | Sprint lateral | Pelo corto, muy veloz. | Blanco / Azul / Rojo|
-| **Chris Richards-Wall** | Cabezazo defensa | Pelo corto oscuro, alto. | Blanco / Azul / Rojo|
-| **Yunus Musah-Motor** | Conducción potente | Pelo corto, musculoso, dinámico. | Blanco / Azul / Rojo|
-| **Tim Weah-Flash** | Carrera explosiva | Pelo corto, muy veloz y elástico. | Blanco / Azul / Rojo|
-
-### 🇲🇽 MÉXICO (The Tricolor)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Memo Vault-choa** | Parada legendaria | Pelo rizado largo, cinta de pelo. | Verde / Blanco |
-| **Santiago Gim-Shot** | Grito de gol | Pelo castaño corto, fuerte. | Verde / Blanco |
-| **Edson Alva-Mach** | Mando defensivo | Pelo oscuro corto, imponente. | Verde / Blanco |
-| **Chucky Lozan-Bolt** | Carrera eléctrica | Pelo oscuro corto, cara pícara. | Verde / Blanco |
-| **Luis Chavez-Bomb** | Disparo de falta | Pelo castaño corto, técnico. | Verde / Blanco |
-| **Johan Vasquez-Rock** | Intercepción | Pelo oscuro corto, serio. | Verde / Blanco |
-| **Cesar Montes-Tower** | Cabezazo defensa | Muy alto, pelo corto oscuro. | Verde / Blanco |
-| **Jorge Sanchez-Rail** | Sprint por banda | Pelo oscuro corto, agresivo. | Verde / Blanco |
-| **Gerardo Artea-Edge** | Centro al área | Pelo castaño corto, técnico. | Verde / Blanco |
-| **Orbelin Pine-Mag** | Festejo baile | Pequeño, ágil, pelo oscuro. | Verde / Blanco |
-| **Luis Romo-Fix** | Pase estratégico | Pelo oscuro corto, fuerte. | Verde / Blanco |
-
-### 🇨🇦 CANADÁ (The Maple Leafs)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Alphonso Shard-Davies**| Sprint luz | Pelo corto, expresión alegre. | Rojo / Blanco |
-| **Jonathan David-Bit** | Definición técnica | Pelo corto oscuro, mirada fría. | Rojo / Blanco |
-| **Cyle Larin-Tank** | Cabezazo gol | Pelo muy corto, físico potente. | Rojo / Blanco |
-| **Stephen Esta-Hub** | Pase de mando | Pelo oscuro corto, técnico. | Rojo / Blanco |
-| **Tajon Bucha-Wing** | Regate en banda | Pelo con rastas cortas, veloz. | Rojo / Blanco |
-| **Maxime Crepeau-Grip** | Parada segura | Pelo castaño corto, barba. | Negro (GK) |
-| **Alistair John-Grit** | Entrada fuerte | Pelo rubio corto, muy físico. | Rojo / Blanco |
-| **Kamal Miller-Slide** | Intercepción | Pelo oscuro corto, robusto. | Rojo / Blanco |
-| **Ismael Kone-Rise** | Conducción técnica | Pelo corto, alto y elegante. | Rojo / Blanco |
-| **Liam Millar-Cross** | Carrera por banda | Pelo castaño corto, rápido. | Rojo / Blanco |
-| **Dayne St-Clair-Net** | Gesto de portero | Alto, pelo corto, atlético. | Negro (GK) |
-
-### 🇲🇦 MARRUECOS (The Atlas Lions)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Achraf Hakimi-Rocket** | Señalando grada | Pelo corto, rasgos marroquíes. | Rojo / Verde |
-| **Yassine Bounou-Safe** | Parada de reflejos | Pelo castaño corto, sonrisa calma. | Amarillo (GK) |
-| **Hakim Ziyech-Magic** | Centro con rosca | Pelo oscuro corto, barba delgada. | Rojo / Verde |
-| **Sofyan Amra-Base** | Intercepción dura | Calvo, barba poblada, físico masivo. | Rojo / Verde |
-| **Brahim Diaz-Silk** | Regate corto | Pelo oscuro, pequeño y ágil. | Rojo / Verde |
-| **Nayef Aguerd-Peak** | Cabezazo defensa | Pelo castaño corto, alto. | Rojo / Verde |
-| **Romain Saiss-Chief** | Mando defensivo | Barba, pelo corto, líder. | Rojo / Verde |
-| **Azzedine Ouna-Drift** | Conducción elegante | Muy delgado, pelo corto, técnico. | Rojo / Verde |
-| **Youssef En-Air** | Salto masivo | Pelo corto, muy alto, atlético. | Rojo / Verde |
-| **Noussair Mazra-Side** | Pase lateral | Pelo oscuro corto, técnico. | Rojo / Verde |
-| **Amine Adli-Fly** | Sprint veloz | Joven, pelo corto, muy rápido. | Rojo / Verde |
-
-### 🇯🇵 JAPÓN (The Samurai Blue)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Wataru En-Pivot** | Intercepción | Pelo oscuro corto, centrado. | Azul Samurai |
-| **Take Kubo-Jewel** | Regate técnico | Joven, pelo oscuro, muy ágil. | Azul Samurai |
-| **Kaoru Mitoma-Dribble** | Dribbling pausado | Pelo oscuro liso, expresión calma. | Azul Samurai |
-| **Junya Ito-Volt** | Carrera eléctrica | Pelo teñido rubio, muy veloz. | Azul Samurai |
-| **Ko Itakura-Stone** | Mando defensivo | Pelo oscuro corto, alto. | Azul Samurai |
-| **Takehiro Tomi-Shield** | Bloqueo férreo | Pelo oscuro corto, físico fuerte. | Azul Samurai |
-| **Zion Suzuki-Reflex** | Parada de puños | Pelo corto, físico atlético, alto. | Negro (GK) |
-| **Hidemasa Mori-Brain** | Pase estratégico | Pelo oscuro corto, técnico. | Azul Samurai |
-| **Ritsu Doan-Bang** | Disparo potente | Pelo oscuro corto, zurdo, fuerte. | Azul Samurai |
-| **Kyogo Furu-Sprint** | Desmarque rápido | Pelo castaño corto, pequeño. | Azul Samurai |
-| **Ayase Ueda-Target** | Cabezazo gol | Pelo oscuro corto, potente. | Azul Samurai |
-
-### 🇸🇳 SENEGAL (The Lions of Teranga)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Kalidou Kouli-Rock** | Mando defensivo | Físico masivo, pelo muy corto. | Blanco / Verde |
-| **Sadio Mane-Jet** | Carrera explosiva | Pequeño, veloz, pelo corto. | Blanco / Verde |
-| **Edouard Mendy-Stop** | Parada segura | Muy alto, pelo corto, serio. | Amarillo (GK) |
-| **Idrissa Gueye-Sweep** | Intercepción | Pelo corto, dinámico y fuerte. | Blanco / Verde |
-| **Ismaila Sarr-Zoom** | Sprint por banda | Pelo corto, muy rápido. | Blanco / Verde |
-| **Nicolas Jack-Hit** | Definición gol | Pelo corto, atlético, joven. | Blanco / Verde |
-| **Pape Sarr-Flow** | Conducción balón | Pelo corto, delgado y técnico. | Blanco / Verde |
-| **Niakhate-Wall** | Cabezazo defensa | Pelo corto, fuerte, alto. | Blanco / Verde |
-| **Abdou Diallo-Guard** | Salida con balón | Pelo corto, elegante, técnico. | Blanco / Verde |
-| **Youssouf Sabaly-Rail** | Centro al área | Pelo corto, rápido y fuerte. | Blanco / Verde |
-| **Boulaye Dia-Poach** | Giro en el área | Pelo corto, ágil y técnico. | Blanco / Verde |
-
-### 🇰🇷 COREA DEL SUR (The Taegeuk Warriors)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Son Heung-Star** | Cámara fotos | Pelo engominado, carismático. | Rojo / Azul |
-| **Kim Min-Tank** | Bloqueo férreo | Muy alto, fuerte, pelo corto. | Rojo / Azul |
-| **Lee Kang-Silk** | Pase de magia | Joven, pelo oscuro, técnico. | Rojo / Azul |
-| **Hwang Hee-Bolt** | Carrera potente | Pelo corto, musculoso, veloz. | Rojo / Azul |
-| **Cho Gue-Air** | Cabezazo gol | Pelo corto, rasgos atractivos, alto. | Rojo / Azul |
-| **In-beom-Mind** | Distribución | Pelo oscuro corto, cerebral. | Rojo / Azul |
-| **Woo-young-Core** | Intercepción | Pelo corto, experimentado. | Rojo / Azul |
-| **Young-woo-Side** | Sprint por banda | Joven, pelo corto, rápido. | Rojo / Azul |
-| **Young-gwon-Stay** | Mando defensivo | Pelo corto, veterano serio. | Rojo / Azul |
-| **Hyeon-woo-Save** | Parada de reflejos | Pelo castaño con estilo, ágil. | Negro (GK) |
-| **Jae-sung-Drive** | Presión alta | Pelo oscuro corto, incansable. | Rojo / Azul |
-
-### 🇦🇺 AUSTRALIA (The Socceroos)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Mat Ryan-Hands** | Salida de puños | Pelo castaño corto, portero. | Amarillo / Verde |
-| **Harry Souttar-Tall** | Cabezazo defensa | Muy alto (1.98m), pelo corto. | Amarillo / Verde |
-| **Jackson Irvine-Head** | Salto de cabeza | Pelo largo con coleta, tatuajes. | Amarillo / Verde |
-| **Craig Goodwin-Cross** | Centro con rosca | Pelo castaño corto, técnico. | Amarillo / Verde |
-| **Mitchell Duke-Strike** | Grito de gol | Pelo corto, fuerte, delantero. | Amarillo / Verde |
-| **Ajdin Hrustic-Art** | Pase técnico | Pelo oscuro corto, elegante. | Amarillo / Verde |
-| **Riley McGree-Flash** | Disparo lejano | Pelo rubio corto, dinámico. | Amarillo / Verde |
-| **Aziz Behich-Lane** | Sprint por banda | Pelo oscuro corto, barba. | Amarillo / Verde |
-| **Kye Rowles-Solid** | Intercepción | Pelo castaño corto, sólido. | Amarillo / Verde |
-| **Nath Atkinson-Power** | Carrera lateral | Pelo corto, joven y fuerte. | Amarillo / Verde |
-| **Martin Boyle-Fast** | Sprint veloz | Pelo corto, muy rápido. | Amarillo / Verde |
+| **Joshua Kim-Chip** | Grito de mando | Short dark hair with side-part, clean-shaven, athletic build, fair skin tone, intense expression | Blanco / Negro |
+| **Florian Wirtz-Byte** | Regate técnico | Fresh textured dark crop hair, clean-shaven, slender athletic build, fair skin tone, creative expression | Blanco / Negro |
+| **Jamal Moon-siala** | Dribbling slalom | Short dark hair with clean fade, clean-shaven, tall athletic build, light skin tone, dynamic expression | Blanco / Negro |
+| **Kai Havertz-Class** | Cabezazo gol | Short dark hair, clean-shaven, tall elegant build, fair skin tone, composed expression | Blanco / Negro |
+| **Ilkay Gundo-Main** | Pase de primera | Short dark hair, light stubble, athletic build, fair-tanned skin tone, leadership expression | Blanco / Negro |
+| **Antonio Rudi-Force** | Grito defensivo | Short black hair with precise fade, well-groomed beard, tall powerful muscular build, deep dark skin tone, intense focused expression | Blanco / Negro |
+| **Marc Ter-Save** | Parada estirada | Medium-length dark hair in structured quiff, clean shaven, tall athletic build, fair skin tone, focused professional expression | Amarillo (GK) |
+| **Niclas Full-Heavy** | Festejo de fuerza | Short brown hair styled upward, well-groomed beard, powerful athletic build, fair skin tone, determined gap-toothed expression | Blanco / Negro |
+| **Leroy Shard-né** | Sprint veloz | Short dark hair with sharp fade, clean shaven, explosive athletic build, mixed tanned skin tone, dynamic expression | Blanco / Negro |
+| **Jonathan Tah-Shield** | Intercepción | Short dark hair with precision fade, clean shaven, tall powerful muscular build, dark skin tone, focused leadership expression | Blanco / Negro |
+| **Maxim Mittel-Wing** | Centro al área | Short blonde-brown hair with clean fade, clean shaven, energetic athletic build, fair skin tone, professional expression | Blanco / Negro |
 
 ### 🇸🇦 ARABIA SAUDÍ (The Green Falcons)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Salem Al-Icon** | Salto mortal | Pelo corto, rasgos árabes. | Verde / Blanco |
-| **Firas Al-Dash** | Grito de gol | Pelo corto, joven y rápido. | Verde / Blanco |
-| **Saleh Al-Gift** | Definición técnica | Pelo corto, ágil. | Verde / Blanco |
-| **Abdul Al-Stone** | Intercepción | Pelo corto, fuerte. | Verde / Blanco |
-| **Moh Al-Wall** | Parada estirada | Pelo corto, reflejos rápidos. | Negro (GK) |
-| **Saud Abdul-Rail** | Sprint por banda | Pelo corto, muy veloz. | Verde / Blanco |
-| **Ali Al-Chief** | Mando defensivo | Barba corta, serio. | Verde / Blanco |
-| **Sultan Al-Curve** | Centro al área | Pelo corto, técnico. | Verde / Blanco |
-| **Hassan Al-High** | Cabezazo defensa | Pelo corto, alto. | Verde / Blanco |
-| **Abdu Al-Mind** | Pase estratégico | Pelo corto, dinámico. | Verde / Blanco |
-| **Moh Kanno-Pivot** | Conducción balón | Muy alto, delgado, elegante. | Verde / Blanco |
-
-### 🇩🇰 DINAMARCA (The Danish Dynamite)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Christian Erik-Seed** | Control de pecho | Pelo castaño claro, calva incipiente. | Rojo / Blanco |
-| **Kasper Vault-ichel** | Grito de mando | Pelo rubio corto, mirada fiera. | Amarillo (GK) |
-| **Rasmus Hoj-Power** | Sprint potente | Pelo rubio corto, joven, fuerte. | Rojo / Blanco |
-| **Pierre Hoj-Hard** | Intercepción | Pelo oscuro corto, barba. | Rojo / Blanco |
-| **Joachim Ander-Bridge** | Salida con balón | Pelo rubio corto, alto. | Rojo / Blanco |
-| **Andreas Chris-Safe** | Anticipación | Pelo castaño corto, elegante. | Rojo / Blanco |
-| **Alexander Bah-Quick** | Carrera veloz | Pelo corto, rápido. | Rojo / Blanco |
-| **Victor Krist-Edge** | Centro al área | Pelo rubio corto, joven. | Rojo / Blanco |
-| **Morten Hjul-Core** | Pase largo | Pelo castaño corto, fuerte. | Rojo / Blanco |
-| **Jonas Wind-Draft** | Aguante de balón | Pelo castaño corto, alto. | Rojo / Blanco |
-| **Eriksen-Oracle** | Pase de gol | Pelo rubio corto, cerebro. | Rojo / Blanco |
-
-### 🇨🇭 SUIZA (The Nati)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Granit Xha-Firm** | Mirada desafiante | Pelo corto oscuro, atlético, líder. | Rojo / Blanco |
-| **Yann Sommer-Lock** | Parada de reflejos | Pelo castaño con media melena, ágil. | Amarillo (GK) |
-| **Manuel Akanji-Hub** | Mando defensivo | Pelo muy corto, físico imponente. | Rojo / Blanco |
-| **Xherdan Sha-Zoom** | Disparo de rosca | Pequeño, muy musculado, técnico. | Rojo / Blanco |
-| **Breel Embolo-Rush** | Carrera de potencia | Muy fuerte, pelo corto, veloz. | Rojo / Blanco |
-| **Remo Freuler-Link** | Intercepción | Pelo castaño corto, incansable. | Rojo / Blanco |
-| **Denis Zakaria-Range** | Conducción larga | Muy alto y zancada larga, pelo corto. | Rojo / Blanco |
-| **Ricardo Rodri-Wrap** | Centro al área | Pelo oscuro, barba, técnico. | Rojo / Blanco |
-| **Fabian Schar-Guard** | Cabezazo defensa | Pelo castaño corto, elegante. | Rojo / Blanco |
-| **Ruben Vargas-Slide** | Regate en banda | Pelo corto, muy rápido y ágil. | Rojo / Blanco |
-| **Silvan Widmer-Wing** | Sprint por banda | Pelo rubio corto, incansable. | Rojo / Blanco |
-
-### 🇷🇸 SERBIA (The Eagles)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Dusan Ta-Play** | Pase filtrado | Pelo oscuro, cara técnica, líder. | Rojo profundo |
-| **Aleks Mitro-Hulk** | Grito de gol fiero | Pelo oscuro corto, muy fuerte. | Rojo profundo |
-| **Dusan Vla-Storm** | Disparo potente | Pelo oscuro, alto and atlético. | Rojo profundo |
-| **Sergej Milin-Ace** | Cabezazo gol | Muy alto, pelo corto castaño. | Rojo profundo |
-| **Filip Kostic-Lane** | Centro al área | Pelo oscuro corto, incansable. | Rojo profundo |
-| **Vanja Milin-Post** | Parada imponente | Gigante (2.02m), barba, pelo corto. | Verde (GK) |
-| **Nikola Milen-Base** | Intercepción | Pelo oscuro corto, muy alto. | Rojo profundo |
-| **Strahinja Pav-Iron** | Entrada agresiva | Pelo rubio corto, físico de guerrero. | Rojo profundo |
-| **Sasa Lukic-Shift** | Distribución | Pelo castaño corto, técnico. | Rojo profundo |
-| **Nemanja Gudelj-Weld** | Mando en medio | Pelo oscuro, muchos tatuajes. | Rojo profundo |
-| **Andrija Zivko-Fast** | Regate corto | Pequeño, ágil, pelo oscuro. | Rojo profundo |
-
-### 🇵🇱 POLONIA (The Orly)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Robert Lewan-Goal-ski**| Puños cerrados | Mandíbula cuadrada, delantero potente. | Blanco / Rojo |
-| **Wojciech Vault-sny** | Parada de penalti | Pelo rubio corto, mirada cínica. | Negro (GK) |
-| **Piotr Zielin-Art** | Control técnico | Pelo castaño corto, muy técnico. | Blanco / Rojo |
-| **Matty Cash-Coin** | Carrera veloz | Pelo castaño corto, dinámico. | Blanco / Rojo |
-| **Jakub Kiwior-Line** | Salida de balón | Pelo oscuro corto, elegante. | Blanco / Rojo |
-| **Seba Szyma-Left** | Disparo de falta | Pelo rubio corto, zurdo técnico. | Blanco / Rojo |
-| **Nicola Zalew-Skill** | Dribbling en banda | Joven, pelo oscuro, muy ágil. | Blanco / Rojo |
-| **Karol Swider-Tap** | Festejo de gol | Pelo rubio corto, rápido. | Blanco / Rojo |
-| **Jan Bednarek-Hold** | Cabezazo defensa | Pelo castaño corto, fuerte. | Blanco / Rojo |
-| **Przem Franko-Rail** | Sprint por banda | Pelo castaño corto, incansable. | Blanco / Rojo |
-| **Pawel Dawid-Fix** | Intercepción | Pelo oscuro corto, sólido. | Blanco / Rojo |
-
-### 🇺🇦 UCRANIA (The Blue and Yellow)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Oleks Zinchen-Lead** | Aplauso afición | Pelo rubio corto, expresivo. | Amarillo / Azul |
-| **Mykhailo Mu-Flash** | Sprint veloz | Tatuajes cuello, pelo platino. | Amarillo / Azul |
-| **Artem Dov-Size** | Grito de gol | Pelo castaño corto, masivo. | Amarillo / Azul |
-| **Viktor Tsyg-Cut** | Disparo cruzado | Pelo pelirrojo corto, técnico. | Amarillo / Azul |
-| **Andriy Lunin-Hands** | Parada felina | Pelo castaño corto, enfocado. | Negro (GK) |
-| **Vitaliy Myko-Back** | Mando defensivo | Pelo castaño corto, serio. | Amarillo / Azul |
-| **Illia Zabar-High** | Intercepción | Pelo oscuro corto, alto. | Amarillo / Azul |
-| **Heorhiy Sudak-Play** | Pase de magia | Pelo castaño corto, joven. | Amarillo / Azul |
-| **Myko Shapa-Fine** | Conducción balón | Pelo castaño corto, elegante. | Amarillo / Azul |
-| **Taras Step-Hard** | Corte de balón | Pelo oscuro corto, veterano. | Amarillo / Azul |
-| **Yukhym Kono-Side** | Carrera por banda | Pelo castaño corto, dinámico. | Amarillo / Azul |
-
-### 🇹🇷 TURQUÍA (The Crescent-Stars)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Hakan Calha-Curve** | Disparo lejano | Barba cuidada, rasgos turcos. | Rojo / Blanco |
-| **Arda Gu-Star** | Beso al escudo | Joven talento, pelo oscuro, técnico. | Rojo / Blanco |
-| **Kenan Yil-Gift** | Festejo de lengua | Muy joven, pelo oscuro, veloz. | Rojo / Blanco |
-| **Baris Al-Muscle** | Carrera de potencia | Musculoso, pelo castaño, fuerte. | Rojo / Blanco |
-| **Ferdi Kad-Engine** | Sprint por banda | Pelo castaño corto, muy dinámico. | Rojo / Blanco |
-| **Mert Gunok-Post** | Parada de seguridad | Barba, pelo corto, serio. | Verde (GK) |
-| **Abdul Bardak-Stone** | Cabezazo defensa | Pelo oscuro corto, barba. | Rojo / Blanco |
-| **Samet Akay-Grip** | Intercepción | Pelo oscuro corto, agresivo. | Rojo / Blanco |
-| **Kaan Ayhan-Mind** | Orden defensivo | Pelo oscuro corto, experimentado. | Rojo / Blanco |
-| **Orkun Kokcu-Vision** | Pase estratégico | Pelo castaño corto, técnico. | Rojo / Blanco |
-| **Kerem Aktur-Sparks** | Sprint por banda | Pelo oscuro corto, cara pícara. | Rojo / Blanco |
-
-### 🏴󠁧󠁢󠁳󠁣󠁴󠁿 ESCOCIA (The Tartan Army)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Andrew Robert-Cap** | Sprint total | Pelo castaño corto, guerrero. | Azul oscuro |
-| **Scott McTo-Strong** | Grito de gol fiero | Muy alto, fuerte, pelo castaño. | Azul oscuro |
-| **John McGi-Brave** | Protegiendo balón | Pelo castaño corto, complexión fuerte. | Azul oscuro |
-| **Billy Gil-Clean** | Distribución | Pequeño, pelo rubio, técnico. | Azul oscuro |
-| **Che Ad-Target** | Salto de cabeza | Musculoso, pelo corto, potente. | Azul oscuro |
-| **Angus Gunn-Stay** | Parada segura | Pelo castaño corto, serio. | Amarillo (GK) |
-| **Ryan Port-Tough** | Entrada fuerte | Pelo castaño corto, agresivo. | Azul oscuro |
-| **Jack Hendry-Tall** | Intercepción | Pelo rubio corto, muy alto. | Azul oscuro |
-| **Kieran Tier-Wrap** | Sprint por banda | Pelo castaño corto, incansable. | Azul oscuro |
-| **Callum McG-Heart** | Mando en medio | Pelo castaño corto, líder. | Azul oscuro |
-| **Lawrence Shank-Hit** | Definición gol | Pelo castaño corto, rematador. | Azul oscuro |
-
-### 🇭🇺 HUNGRÍA (The Magyars)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Dominik Szobo-Kick** | Disparo de falta | Pelo castaño corto, atlético. | Rojo / Verde |
-| **Barnabas Var-Header** | Cabezazo gol | Pelo oscuro corto, fuerte. | Rojo / Verde |
-| **Roland Sal-Quick** | Regate rápido | Pelo castaño corto, ágil. | Rojo / Verde |
-| **Willi Or-Wall** | Mando defensivo | Pelo castaño corto, imponente. | Rojo / Verde |
-| **Peter Gula-Stop** | Parada de reflejos | Pelo castaño corto, serio. | Verde (GK) |
-| **Adam Nagy-Keep** | Intercepción | Pelo oscuro corto, incansable. | Rojo / Verde |
-| **Loic Nego-Race** | Sprint por banda | Pelo corto, muy veloz. | Rojo / Verde |
-| **Milos Kerkez-Young** | Carrera eléctrica | Joven, pelo rubio corto, rápido. | Rojo / Verde |
-| **Bendeguz Bol-Cross** | Centro al área | Pelo castaño corto, dinámico. | Rojo / Verde |
-| **Martin Adam-Beast** | Festejo de fuerza | Muy masivo, barba vikinga, calvo. | Rojo / Verde |
-| **Callum Styles-Smooth** | Pase técnico | Pelo castaño corto, técnico. | Rojo / Verde |
-
-### 🇦🇹 AUSTRIA (The Das Team)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **David Ala-Boss** | Pase de mando | Pelo corto oscuro, elegante. | Blanco / Rojo |
-| **Marcel Sabi-Shoot** | Disparo potente | Pelo castaño largo (moño), técnico. | Blanco / Rojo |
-| **Chris Baum-Luck** | Grito de gol | Pelo rubio corto, cara joven. | Blanco / Rojo |
-| **Konrad Lai-Press** | Presión alta | Pelo rubio corto, incansable. | Blanco / Rojo |
-| **Marko Arnau-King** | Gesto desafiante | Pelo corto, barba, imponente. | Blanco / Rojo |
-| **Alex Schlager-Hold** | Parada estirada | Pelo rubio corto, serio. | Amarillo (GK) |
-| **Kevin Danso-Bulk** | Intercepción | Pelo muy corto, físico masivo. | Blanco / Rojo |
-| **Phil Lienhart-Solid** | Cabezazo defensa | Pelo castaño corto, sólido. | Blanco / Rojo |
-| **Stefan Laim-Run** | Sprint total | Pelo rubio corto, dinámico. | Blanco / Rojo |
-| **Nico Seiwald-Pass** | Distribución | Pelo castaño corto, técnico. | Blanco / Rojo |
-| **Mich Gregoritsch-Air**| Remate de cabeza | Pelo rubio corto, muy alto. | Blanco / Rojo |
-
-### 🇨🇴 COLOMBIA (The Coffee Growers)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **James-Magic** | Pase de magia | Pelo oscuro corto, mirada técnica. | Amarillo / Azul |
-| **Lucho Di-Dash** | Regate eléctrico | Pelo oscuro, rasgos marcados, ágil. | Amarillo / Azul |
-| **Jefferson Shield-ma** | Intercepción | Pelo muy corto, físico fuerte. | Amarillo / Azul |
-| **Richard Rios-Stream** | Conducción balón | Pelo castaño con mechas, técnico. | Amarillo / Azul |
-| **Daniel Munoz-Link** | Sprint por banda | Pelo oscuro corto, guerrero. | Amarillo / Azul |
-| **Camilo Vargas-Cache** | Parada segura | Pelo castaño corto, serio. | Naranja (GK) |
-| **Davinson San-Store** | Cabezazo defensa | Pelo corto oscuro, masivo. | Amarillo / Azul |
-| **Carlos Cuest-Watch** | Orden defensivo | Pelo oscuro corto, elegante. | Amarillo / Azul |
-| **Jhon Arias-Flow** | Giro técnico | Pequeño, pelo oscuro, muy móvil. | Amarillo / Azul |
-| **Jhon Cordoba-Load** | Festejo de fuerza | Muy fuerte, pelo corto, potente. | Amarillo / Azul |
-| **Yaser Asprilla-Git** | Regate corto | Joven, pelo afro corto, muy ágil. | Amarillo / Azul |
-
-### 🇪🇨 ECUADOR (The Tri)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Enner Valen-Pipe** | Remate de cabeza | Pelo corto, complexión fuerte. | Amarillo / Azul |
-| **Moises Cai-Core** | Intercepción | Pelo oscuro corto, dinámico. | Amarillo / Azul |
-| **Pervis Estu-Base** | Sprint por banda | Pelo corto, muy fuerte and rápido. | Amarillo / Azul |
-| **Piero Hincap-Head** | Mando defensivo | Pelo castaño corto, elegante. | Amarillo / Azul |
-| **Alex Domin-Wall** | Parada imponente | Muy alto, pelo corto, veterano. | Blanco (GK) |
-| **Willian Pach-Route** | Salida de balón | Pelo corto, alto, zurdo técnico. | Amarillo / Azul |
-| **Kendry Paez-SDK** | Dribbling joven | Pelo corto, cara de niño, técnico. | Amarillo / Azul |
-| **Angelo Prec-Sync** | Carrera veloz | Pelo corto, muy elástico and rápido. | Amarillo / Azul |
-| **Jeremy Sar-API** | Regate en banda | Pelo corto, muy hábil. | Amarillo / Azul |
-| **Kevin Rodri-Pack** | Carrera de potencia | Muy musculoso, pelo corto. | Amarillo / Azul |
-| **Felix Torres-Zip** | Cabezazo defensa | Pelo corto oscuro, muy alto. | Amarillo / Azul |
-
-### 🇵🇾 PARAGUAY (The Albirroja)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Miguel Almi-Dash** | Sprint incansable | Pelo oscuro, sonrisa grande. | Rojo / Blanco |
-| **Julio Enciso-Loop** | Disparo lejano | Joven, pelo castaño, atrevido. | Rojo / Blanco |
-| **Adam Bareiro-Post** | Festejo de gol | Pelo oscuro corto, aguerrido. | Rojo / Blanco |
-| **Gustavo Go-Safe** | Mando defensivo | Barba corta, pelo oscuro, líder. | Rojo / Blanco |
-| **Matias Rojas-Query** | Tiro libre técnico | Pelo castaño corto, zurdo. | Rojo / Blanco |
-| **Gati Fernandez-Vault** | Parada felina | Pelo castaño corto, ágil. | Azul (GK) |
-| **Fabian Balb-Branch** | Cabezazo defensa | Pelo corto oscuro, fuerte. | Rojo / Blanco |
-| **Omar Alde-Merge** | Entrada dura | Pelo castaño corto, serio. | Rojo / Blanco |
-| **Math Villas-Push** | Recuperación | Pelo oscuro corto, dinámico. | Rojo / Blanco |
-| **Diego Gomez-Pull** | Pase estratégico | Pelo castaño corto, joven. | Rojo / Blanco |
-| **Ramon Sosa-Diff** | Carrera explosiva | Pelo oscuro corto, muy veloz. | Rojo / Blanco |
-
-### 🇻🇪 VENEZUELA (La Vinotinto)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Salomón Ron-Trek** | Tanque del área | Musculoso, barba corta, potente. | Vinotinto |
-| **Yangel Her-Bit** | Mando en medio | Pelo castaño corto, fuerte. | Vinotinto |
-| **Yeferson Sote-Tiny** | Regate corto | Muy pequeño, pelo rubio teñido. | Vinotinto |
-| **Darwin Machis-Bolt** | Disparo potente | Pelo oscuro corto, rápido. | Vinotinto |
-| **Nahuel Ferr-Port** | Intercepción | Pelo castaño corto, técnico. | Vinotinto |
-| **Rafael Romo-Secure** | Parada segura | Muy alto, pelo corto, barba. | Negro (GK) |
-| **Wilker Angel-Key** | Cabezazo defensa | Pelo corto oscuro, fuerte. | Vinotinto |
-| **Jon Aramb-Host** | Sprint lateral | Joven, pelo corto, intenso. | Vinotinto |
-| **Jose Mart-Ping** | Recuperación | Pelo corto oscuro, guerrero. | Vinotinto |
-| **Cris Casseres-Trace** | Distribución | Pelo corto, dinámico. | Vinotinto |
-| **Eduard Bello-Clip** | Chilena / Gol | Pelo castaño corto, ágil. | Vinotinto |
-
-### 🇨🇱 CHILE (La Roja)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Alexis San-Dribble** | Puntas de los pies | Pelo corto, musculoso, 1.69m. | Rojo / Azul |
-| **Eduardo Var-Shot** | Definición técnica | Pelo corto, muchos tatuajes. | Rojo / Azul |
-| **Ben Brere-Run** | Carrera de potencia | Pelo castaño largo, barba. | Rojo / Azul |
-| **Gary Medel-Bite** | Grito desafiante | Pelo corto oscuro, feroz. | Rojo / Azul |
-| **Claudio Bra-Net** | Mando de portero | Veterano, pelo corto, barba. | Amarillo (GK) |
-| **Guille Marip-Tower** | Cabezazo defensa | Pelo corto castaño, muy alto. | Rojo / Azul |
-| **Paulo Diaz-Block** | Intercepción | Pelo oscuro corto, sólido. | Rojo / Azul |
-| **Victor Dav-Strike** | Disparo cruzado | Pelo castaño corto, técnico. | Rojo / Azul |
-| **Dario Osorio-Wing** | Regate joven | Pelo castaño corto, zurdo veloz. | Rojo / Azul |
-| **Gabriel Suazo-Track** | Sprint por banda | Pelo castaño corto, incansable. | Rojo / Azul |
-| **Erick Pulgar-Pivot** | Pase largo | Pelo corto, tatuajes cuello. | Rojo / Azul |
-
-### 🇵🇪 PERÚ (La Blanquirroja)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Luis Advin-Turbo** | Carrera veloz | Pelo muy corto, potente. | Blanco / Franja Roja|
-| **Gian Lapadu-Mask** | Grito de gol | Pelo oscuro con máscara. | Blanco / Franja Roja|
-| **Paolo Guer-Hero** | Protegiendo balón | Pelo corto, tatuajes, veterano. | Blanco / Franja Roja|
-| **Pedro Gall-Spider** | Parada de reflejos | Pelo oscuro corto, muy ágil. | Amarillo (GK) |
-| **Alex Callens-Rock** | Intercepción | Pelo castaño corto, barba. | Blanco / Franja Roja|
-| **Carlos Zam-Kaiser** | Entrada dura | Pelo oscuro corto, serio. | Blanco / Franja Roja|
-| **Sergio Pena-Style** | Pase técnico | Pelo castaño corto, elegante. | Blanco / Franja Roja|
-| **Bryan Reyna-Flash** | Regate explosivo | Pelo oscuro corto, ágil. | Blanco / Franja Roja|
-| **Wilder Cart-Tank** | Corte de balón | Pelo corto, dinámico. | Blanco / Franja Roja|
-| **Piero Quispe-Kid** | Dribbling corto | Pequeño, joven, pelo oscuro. | Blanco / Franja Roja|
-| **Andy Polo-Edge** | Carrera por banda | Pelo corto, veloz. | Blanco / Franja Roja|
+| **Salem Al-Icon** | Salto mortal | Neat short dark hair, well-groomed short beard, athletic build, olive skin tone, charismatic expression | Verde / Blanco |
+| **Firas Al-Dash** | Grito de gol | Neat short dark hair, clean-shaven, athletic build, olive skin tone, focused gaze | Verde / Blanco |
+| **Saleh Al-Gift** | Definición técnica | Short dark hair with clean fade, well-groomed short beard, athletic build, olive skin tone, focused look | Verde / Blanco |
+| **Abdul Al-Stone** | Intercepción | Short dark hair, clean-shaven, strong muscular build, olive skin tone, professional look | Verde / Blanco |
+| **Moh Al-Wall** | Parada estirada | Short dark hair with precision fade, clean-shaven, tall athletic build, olive skin tone, focused expression | Negro (GK) |
+| **Saud Abdul-Rail** | Sprint por banda | Short dark hair with sharp fade, clean-shaven, agile athletic build, olive skin tone, dynamic expression | Verde / Blanco |
+| **Ali Al-Chief** | Mando defensivo | Short dark hair with clean fade, well-groomed beard, strong muscular build, olive skin tone, fierce expression | Verde / Blanco |
+| **Sultan Al-Curve** | Centro al área | Short dark hair with clean fade, well-groomed short beard, athletic build, olive skin tone, focused expression | Verde / Blanco |
+| **Hassan Al-High** | Cabezazo defensa | Short dark hair with sharp fade, clean-shaven, strong athletic build, olive skin tone, focused expression | Verde / Blanco |
+| **Abdu Al-Mind** | Pase estratégico | Short dark hair with clean fade, clean-shaven, athletic build, olive skin tone, dynamic expression | Verde / Blanco |
+| **Moh Kanno-Pivot** | Conducción balón | Short dark hair with sharp fade, clean-shaven, tall powerful build, olive skin tone, intense expression | Verde / Blanco |
 
 ### 🇩🇿 ARGELIA (The Fennecs)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Riyad Mah-Silk** | Regate técnico | Pelo oscuro, barba delgada. | Blanco / Verde |
-| **Ismael Ben-Core** | Recuperación | Pelo corto rizado, dinámico. | Blanco / Verde |
-| **Said Benra-Skill** | Dribbling en banda | Pelo oscuro, barba, técnico. | Blanco / Verde |
-| **Amine Gouri-Shot** | Definición técnica | Pelo castaño corto, ágil. | Blanco / Verde |
-| **Ramy Bense-Head** | Cabezazo defensa | Pelo oscuro corto, imponente. | Blanco / Verde |
-| **Anth Mandrea-Net** | Parada segura | Pelo castaño corto, serio. | Amarillo (GK) |
-| **Aissa Mandi-Chief** | Orden defensivo | Pelo corto oscuro, veterano. | Blanco / Verde |
-| **Rayan Ait-Speed** | Sprint lateral | Joven, pelo corto, veloz. | Blanco / Verde |
-| **Ramiz Zerro-Link** | Distribución | Pelo castaño corto, técnico. | Blanco / Verde |
-| **Baghdad Boun-Goal** | Grito de gol | Pelo oscuro corto, delantero. | Blanco / Verde |
-| **Houssem Aouar-Touch** | Pase de magia | Pelo castaño corto, técnico. | Blanco / Verde |
+| **Riyad Mahrez-Loop** | Celebración de gol | Short dark hair with precision fade, well-groomed beard, lean athletic build, olive skin tone, creative expression | Blanco / Verde |
+| **Said Benrah-Silk** | Celebración de gol | Short dark hair with textured fade, well-groomed beard, lean athletic build, olive skin tone, technical expression | Blanco / Verde |
+| **Amine Gouiri-Goal** | Celebración de gol | Short dark hair with precision fade, well-groomed short beard, athletic build, olive skin tone, focused expression | Blanco / Verde |
+| **Ismael Ben-Hub** | Postura de pase | Short dark hair with clean fade, light stubble, athletic build, olive skin tone, tactical focused expression | Blanco / Verde |
+| **Ramy Bense-Block** | Sprint por banda | Short dark hair with sharp fade, well-groomed short beard, strong muscular build, olive skin tone, focused expression | Blanco / Verde |
+| **Anthony Mand-Grip** | Parada de reflejos | Short dark hair, clean shaven, tall build, light-tanned skin, focused expression | Blanco / Verde |
+| **Aissa Mandi-Cap** | Sprint por banda | Short dark hair, well-groomed beard, strong muscular build, olive skin tone, leadership expression | Blanco / Verde |
+| **Youcef Atal-Rail** | Sprint por banda | Short dark hair with clean fade, light stubble, muscular build, olive skin tone, energetic expression | Blanco / Verde |
+| **Rayan Ait-Nouri-Flow** | Sprint por banda | Textured short dark hair with fade, well-groomed beard, athletic muscular build, olive skin tone, dynamic expression | Blanco / Verde |
+| **Houssem Aouar-Star** | Postura de pase | Short dark hair styled upward with texture, clean shaven, elegant agile build, olive skin tone, creative expression | Blanco / Verde |
+| **Baghdad Bou-Hit** | Celebración de gol | Short dark hair, well-maintained beardstache, powerful athletic build, olive skin tone, determined gaze | Blanco / Verde |
 
-### 🇬🇭 GHANA (The Black Stars)
+### 🇦🇷 ARGENTINA (The Champions)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Mohamed Ku-Star** | Dribbling potente | Pelo muy corto, explosivo. | Blanco / Negro |
-| **Inaki Will-Bolt** | Sprint veloz | Pelo corto, atlético, veloz. | Blanco / Negro |
-| **Thomas Par-Core** | Pase de mando | Pelo corto, imponente. | Blanco / Negro |
-| **Jordan Ayew-Hold** | Protegiendo balón | Pelo corto, mirada técnica. | Blanco / Negro |
-| **Moh Salisu-Wall** | Intercepción dura | Pelo oscuro corto, fuerte. | Blanco / Negro |
-| **Law Ati-Zigi-Hands** | Parada de reflejos | Pelo corto, muy ágil. | Verde (GK) |
-| **Alidu Seidu-Grit** | Entrada defensiva | Pequeño pero muy fuerte. | Blanco / Negro |
-| **Alex Djiku-Rock** | Cabezazo defensa | Pelo corto oscuro, serio. | Blanco / Negro |
-| **Ernest Nuam-Fly** | Carrera por banda | Joven, pelo corto, veloz. | Blanco / Negro |
-| **Anto Semenyo-Hit** | Disparo potente | Pelo corto, fuerte. | Blanco / Negro |
-| **Tariq Lamp-Small** | Sprint bajo | Muy pequeño and rápido. | Blanco / Negro |
+| **Lionel Satoshi** | Dedos al cielo | Short brown hair in neat textured crop, thick well-groomed reddish-brown beard, intense gaze, lean muscular athletic build, light-tanned skin tone, sleeve tattoos on right arm and legs | Celeste / Blanco |
+| **Dibu De-Fi** | Parada acrobática | Short dark hair with clean fade and green-yellow-red stripes on side, clean shaven, tall commanding build, fair skin tone, alert expression, World Cup tattoo on left leg | Verde Neón (GK) |
+| **Julian Bull-varez** | Brazos en cruz | Short dark hair with classic fade, clean shaven, compact muscular build, fair skin tone, focused look | Celeste / Blanco |
+| **Enzo E-Transfer** | Postura de pase | Short platinum blonde hair with fade, clean shaven, strong athletic build, fair skin tone, chest and arm tattoos, intense gaze | Colores oficiales |
+| **Rodrigo De-Pool** | Postura agresiva | Short dark hair styled back with texture, light stubble, many tattoos, strong build, fair-tanned skin, passionate expression, sleeve tattoos on arms | Celeste / Blanco |
+| **Lautaro Bull-tinez** | Celebración de gol | Short dark styled hair with side fade, clean shaven, strong athletic build, olive skin tone, passionate focused gaze | Colores oficiales |
+| **Alexis Mac-Chain** | Control de balón | Very short dark buzz cut, distinctive reddish well-kept beard, technical build, fair skin tone, intelligent expression, sleeve tattoos on arms | Celeste / Blanco |
+| **Cuti Crypt** | Entrada fuerte | Short dark hair with clean fade, short well-groomed beard, intimidating expression, strong robust build, fair-tanned skin, sleeve tattoos on arms | Celeste / Blanco |
+| **Lisandro Butcher-DAO** | Salto defensivo | Shaggier loose dark hairstyle, clean shaven, aggressive expression, compact strong build, fair skin tone, sleeve tattoos on arms | Celeste / Blanco |
+| **Nahuel Mo-Wallet** | Sprint por banda | Short dark hair with clean professional fade, clean shaven, agile fast build, fair skin tone, focused look, sleeve tattoos on arms | Celeste / Blanco |
+| **Nico Taglia-Token** | Deslizarse (tackle) | Short dark hair, clean shaven, versatile strong build, fair skin tone, professional look, sleeve tattoos on arms | Celeste / Blanco |
 
-### 🇳🇬 NIGERIA (The Super Eagles)
+### 🇦🇺 AUSTRALIA (The Socceroos)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Victor Osi-Mask** | Salto con máscara | Máscara negra, pelo rubio corto. | Verde / Blanco |
-| **Ademola Look-Speed** | Regate rápido | Pelo corto, ágil and veloz. | Verde / Blanco |
-| **Alex Iwobi-Link** | Pase técnico | Pelo con trenzas cortas, dinámico. | Verde / Blanco |
-| **Wilfred Ndidi-Force** | Intercepción | Pelo corto, físico fuerte. | Verde / Blanco |
-| **Troost-Ekong-Base** | Mando defensivo | Tatuajes, pelo corto, líder. | Verde / Blanco |
-| **Stan Nwabali-Net** | Parada segura | Pelo corto, mirada intensa, alto. | Amarillo (GK) |
-| **Calvin Bassey-Tank** | Cuerpo a cuerpo | Pelo corto, físico muy potente. | Verde / Blanco |
-| **Semi Ajayi-Tall** | Cabezazo defensa | Pelo corto, muy alto. | Verde / Blanco |
-| **Kelechi Ihean-Skill** | Disparo técnico | Pelo corto, zurdo habilidoso. | Verde / Blanco |
-| **Sam Chukwueze-Dribble** | Carrera eléctrica | Pelo corto, muy veloz. | Verde / Blanco |
-| **Moses Simon-Zoom** | Sprint por banda | Pequeño, muy rápido, pelo corto. | Verde / Blanco |
+| **Mat Ryan-Hands** | Salida de puños | Short dark hair, clean-shaven, tall athletic goalkeeper build, fair skin tone, focused expression | Amarillo / Verde |
+| **Harry Souttar-Tall** | Cabezazo defensa | Short dark hair, clean-shaven, tall strong muscular build, fair skin tone, commanding presence | Amarillo / Verde |
+| **Jackson Irvine-Head** | Salto de cabeza | Long dark hair in a man-bun, thick full beard, athletic build, fair-tanned skin, charismatic expression | Amarillo / Verde |
+| **Craig Goodwin-Cross** | Centro con rosca | Short dark hair, clean-shaven, athletic winger build, fair skin tone, focused expression | Amarillo / Verde |
+| **Mitchell Duke-Strike** | Grito de gol | Short dark hair, clean-shaven, powerful athletic build, fair skin tone, determined gaze | Amarillo / Verde |
+| **Ajdin Hrustic-Art** | Pase técnico | Short textured dark hair, clean-shaven, elegant athletic build, light-tanned skin, focused expression | Amarillo / Verde |
+| **Riley McGree-Flash** | Disparo lejano | Short dark hair with clean fade, clean-shaven, energetic athletic build, fair skin tone, dynamic expression | Amarillo / Verde |
+| **Aziz Behich-Lane** | Sprint por banda | Short dark hair, clean-shaven, strong muscular build, tanned skin, focused look | Amarillo / Verde |
+| **Kye Rowles-Solid** | Intercepción | Short dark hair, clean-shaven, tall solid build, fair skin tone, focused look | Amarillo / Verde |
+| **Nath Atkinson-Power** | Carrera lateral | Short dark hair, clean-shaven, fast athletic build, fair skin tone, professional look | Amarillo / Verde |
+| **Martin Boyle-Fast** | Sprint veloz | Short dark hair, light stubble, fast athletic build, fair skin tone, dynamic expression | Amarillo / Verde |
 
-### 🇨🇲 CAMERÚN (The Indomitable Lions)
+### 🇦🇹 AUSTRIA (The Das Team)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Vincent Abou-Tank** | Disparo potente | Pelo muy corto, físico de tanque. | Verde / Rojo |
-| **Zambo Anguissa-Boss** | Conducción balón | Pelo corto, alto and elegante. | Verde / Rojo |
-| **Bryan Mbeumo-Curve** | Regate hacia adentro | Barba poblada, pelo corto, zurdo. | Verde / Rojo |
-| **Karl Toko-Goal** | Carrera veloz | Pelo corto, atlético. | Verde / Rojo |
-| **Andre Onana-Hands** | Salida con pies | Pelo corto, atlético, seguro. | Negro (GK) |
-| **Chris Wooh-Wall** | Intercepción | Pelo corto, físico imponente. | Verde / Rojo |
-| **Harol Mouk-Bulk** | Cabezazo defensa | Pelo corto, barba, masivo. | Verde / Rojo |
-| **Olivier Kemen-Drive** | Recuperación | Pelo corto, dinámico. | Verde / Rojo |
-| **Frank Magri-Hit** | Festejo de gol | Pelo castaño corto, ágil. | Verde / Rojo |
-| **Faris Moum-Rush** | Sprint de potencia | Muy fuerte, pelo corto. | Verde / Rojo |
-| **Nkoudou-Edge** | Dribbling veloz | Pelo corto, rápido. | Verde / Rojo |
+| **David Ala-Boss** | Pase de mando | Short dark hair with fade, clean-shaven, versatile athletic build, mixed skin tone, leadership expression | Blanco / Rojo |
+| **Marcel Sabi-Shoot** | Disparo potente | Short dark hair, light stubble, energetic athletic build, fair skin tone, intense look | Blanco / Rojo |
+| **Chris Baum-Luck** | Grito de gol | Short dark hair with texture, clean-shaven, strong athletic build, fair skin tone, focused expression | Blanco / Rojo |
+| **Konrad Lai-Press** | Presión alta | Short dark hair, clean-shaven, athletic midfield build, fair skin tone, intense competitive expression | Blanco / Rojo |
+| **Marko Arnau-King** | Gesto desafiante | Short dark hair, well-groomed beard, tall powerful build, fair skin tone, charismatic expression | Blanco / Rojo |
+| **Alex Schlager-Hold** | Parada estirada | Short dark hair, clean-shaven, tall athletic build, fair skin tone, focused expression | Amarillo (GK) |
+| **Kevin Danso-Bulk** | Intercepción | Short dark afro, clean-shaven, tall powerful build, dark skin tone, commanding expression | Blanco / Rojo |
+| **Phil Lienhart-Solid** | Cabezazo defensa | Short dark hair, clean-shaven, composed athletic build, fair skin tone, focused expression | Blanco / Rojo |
+| **Stefan Laim-Run** | Sprint total | Short dark hair, clean-shaven, agile athletic build, fair skin tone, focused expression | Blanco / Rojo |
+| **Nico Seiwald-Pass** | Distribución | Short dark hair, clean-shaven, dynamic athletic build, fair skin tone, energetic expression | Blanco / Rojo |
+| **Mich Gregoritsch-Air** | Remate de cabeza | Short dark hair, clean-shaven, tall athletic build, fair skin tone, determined expression, powerful muscular build. | Blanco / Rojo |
+
+### 🇧🇦 BOSNIA Y HERZEGOVINA (The Dragons)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Edin Dze-GOAT** | Celebración de gol | Short dark hair, well-groomed beard, tall powerful build, fair skin, commanding expression. | Colores oficiales |
+| **Sead Kola-Tank** | Sprint por banda | Short dark hair, well-groomed beard, powerful muscular build, fair skin, aggressive expression. | Colores oficiales |
+| **Amar De-Satoshi** | Sprint por banda | Short dark hair with fade, clean-shaven, agile muscular build, fair skin, dynamic focused expression. | Colores oficiales |
+| **Nermin Zolo-Logic** | Sprint por banda | Short dark hair, clean-shaven, solid muscular build, fair skin, focused defensive expression. | Colores oficiales |
+| **Ermedin Demi-Bull** | Celebración de gol | Short dark hair, clean shaven, powerful muscular build, fair skin tone, determined expression | Colores oficiales |
+| **Benjamin Tahi-Flow** | Postura de pase | Short dark hair, clean shaven, tall athletic build, fair skin tone, intense focused expression | Colores oficiales |
+| **Armin Gigo-Swap** | Postura de pase | Short dark hair, clean shaven, athletic build, fair skin tone, alert expression | Colores oficiales |
+| **Vedran Graho-Taker** | Postura de pase | Short dark hair, light stubble, athletic build, fair skin tone, composed expression | Colores oficiales |
+| **Srdjan Graho-Shield** | Postura de pase | Short dark hair, light beard, athletic build, fair skin tone, composed expression | Colores oficiales |
+| **Nikola Vasi-Key** | Parada de reflejos | Short dark hair, clean shaven, tall build, fair skin tone, focused expression | Verde Neón (GK) |
+| **Esmir Bajrak-Quantum** | Postura de pase | Short dark hair with fade, clean shaven, athletic build, fair skin tone, dynamic expression | Colores oficiales |
+
+### 🇧🇷 BRASIL (The Joga Bonito)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Neymar-NFT** | Gesto técnico | Short curly dyed blonde hair with high fade, light stubble, lean agile athletic build, warm sand skin tone, extensive tattoos on neck chest and arms | Amarillo / Verde |
+| **Vinicius Jpeg Jr** | Baile de Samba | Short black curly hair with high fade, clean-shaven, athletic explosive build, deep dark skin tone, energetic focused look, sleeve tattoos on arms | Amarillo / Verde |
+| **Alisson Vault-son** | Gesto de mando | Short dark hair, thick well-groomed beard, tall commanding build, fair-tanned skin, calm focused look, sleeve tattoos on arms | Negro (GK) |
+| **Rodrygo-Yield** | Celebración gol | Slickback burst fade dark hair, clean-shaven, agile lean build, tanned skin, focused expression, sleeve tattoos on arms | Amarillo / Verde |
+| **Bruno Guima-Liquid** | Postura de pase | Slickback burst fade dark hair, clean-shaven, strong box-to-box build, tanned skin, energetic expression, sleeve tattoos on arms | Amarillo / Verde |
+| **Casemiro-Mint** | Intercepción dura | Short dark hair with clean fade, clean-shaven, powerful commanding build, tanned skin, leadership look, sleeve tattoos on arms | Amarillo / Verde |
+| **Marquinhos-Server** | Grito defensivo | Short dark hair with precision fade, clean-shaven or light stubble, elegant build, tanned skin, leadership look, sleeve tattoos on arms | Amarillo / Verde |
+| **Eder Mili-Pixel** | Salto de cabeza | Short dark hair with sharp fade or short braids, clean-shaven, athletic strong build, dark skin tone, determined expression, sleeve tattoos on arms | Amarillo / Verde |
+| **Danilo-Legacy** | Orden táctico | Short dark hair with clean fade, well-groomed beard, strong experienced build, dark skin tone, leadership expression, sleeve tattoos on arms | Amarillo / Verde |
+| **Lucas Paque-Frame** | Regate de baile | Textured dark crop hair with clean fade, clean-shaven, technical build, tanned skin, creative expression, sleeve tattoos on arms | Amarillo / Verde |
+| **Endrick Moon** | Festejo de fuerza | Styled natural dark curls with sharp mid-skin fade, clean-shaven, powerful muscular build, dark skin tone, determined expression, sleeve tattoos on arms | Amarillo / Verde |
+
+### 🇧🇪 BÉLGICA (The Red Devils)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Kevin De-Playmaker** | Postura de pase | Short blonde hair, clean-shaven, athletic build, fair skin tone, sharp focused expression | Rojo / Negro |
+| **Romelu Lu-Crash** | Celebración de gol | Very short black hair, clean-shaven, massive muscular build, dark skin tone, powerful expression | Rojo / Negro |
+| **Thibaut Wall-Shield** | Parada de reflejos | Short dark hair, clean-shaven, very tall build, fair skin tone, composed expression | Rojo / Negro |
+| **Jérémy Do-Quantum** | Celebración de gol | Short black hair with fade, clean-shaven, lean muscular build, dark skin tone, dynamic expression, arm tattoos | Rojo / Negro |
+| **Youri Tiele-Master** | Postura de pase | Short dark hair, clean-shaven, athletic build, fair skin tone, calm expression | Rojo / Negro |
+| **Leandro Tros-Slippage** | Celebración de gol | Short dark hair, clean-shaven, lean athletic build, fair skin tone, focused expression | Rojo / Negro |
+| **Arthur Thea-Tek** | Sprint por banda | Short dark hair with fade, clean-shaven, tall athletic build, fair skin tone, intense expression | Rojo / Negro |
+| **Timothy Casta-Gas** | Sprint por banda | Short dark hair, clean-shaven, energetic athletic build, fair skin tone, determined expression | Rojo / Negro |
+| **Axel Wit-Shield** | Postura de pase | Short dark hair, well-groomed beard, powerful muscular build, fair skin tone, commanding expression | Rojo / Negro |
+| **Brandon Mech-Miner** | Sprint por banda | Short dark hair, well-groomed beard, strong muscular build, fair skin tone, focused expression | Rojo / Negro |
+| **Maxim De-Cuyper-Swap** | Sprint por banda | Short dark hair with fade, clean-shaven, athletic defender build, fair skin tone, dynamic expression | Rojo / Negro |
+
+### 🇨🇻 CABO VERDE (Blue Sharks)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Ryan Mende-Leader** | Celebración de gol | Short black hair, clean-shaven face, agile athletic build, dark-tanned skin, determined expression | Colores oficiales |
+| **Logan Cost-Wall** | Sprint por banda | Short black hair with fade, clean-shaven face, strong muscular build, dark-tanned skin, composed expression | Colores oficiales |
+| **Dailon Livra-Run** | Celebración de gol | Short black hair with fade, clean-shaven face, pacy lean build, dark-tanned skin, sharp expression | Colores oficiales |
+| **Vozinha-Gate** | Parada de reflejos | Short black hair, light beard, tall commanding build, dark-tanned skin, strong leadership expression | Verde Neón (GK) |
+| **Jovane Cabra-Speed** | Celebración de gol | Short black hair, clean-shaven face, dynamic athletic build, dark-tanned skin, creative focused expression | Colores oficiales |
+| **Roberto Lope-Safe** | Sprint por banda | Short dark hair, clean-shaven, solid muscular build, dark-tanned skin tone, composed expression | Colores oficiales |
+| **Steven Morei-Swap** | Sprint por banda | Short dark hair, clean-shaven, agile athletic build, dark-tanned skin tone, dynamic expression | Colores oficiales |
+| **Jamiro Monte-Flow** | Postura de pase | Short dark hair with fade, clean-shaven, athletic midfield build, dark-tanned skin tone, creative expression | Colores oficiales |
+| **Wagner Pina-Limit** | Sprint por banda | Short dark hair, clean-shaven, strong muscular build, dark-tanned skin tone, focused expression | Colores oficiales |
+| **Deroy Duar-Logic** | Postura de pase | Short dark hair, clean-shaven, energetic athletic build, dark-tanned skin tone, competitive expression | Colores oficiales |
+| **Nuno Da-Crash** | Celebración de gol | Short dark hair, light beard, tall powerful build, dark-tanned skin tone, determined expression | Colores oficiales |
+
+### 🇨🇦 CANADÁ (The Maple Leafs)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Alphonso Shard-Davies** | Sprint luz | Short dark afro fade, clean-shaven, athletic build with arm tattoos, dark skin tone, joyful expression | Rojo / Blanco |
+| **Jonathan David-Bit** | Definición técnica | Short dark hair, clean-shaven, athletic build, dark skin tone, sharp expression | Rojo / Blanco |
+| **Cyle Larin-Tank** | Cabezazo gol | Short dark hair, well-groomed beard, tall muscular build, dark skin tone, determined expression | Rojo / Blanco |
+| **Stephen Esta-Hub** | Pase de mando | Short dark hair, clean-shaven, athletic build, fair skin tone, competitive expression | Rojo / Blanco |
+| **Tajon Bucha-Wing** | Regate en banda | Short dark afro fade, clean-shaven, athletic build, dark skin tone, dynamic expression | Rojo / Blanco |
+| **Maxime Crepeau-Grip** | Parada segura | Short dark hair, well-groomed beard, tall build, fair skin tone, focused expression | Negro (GK) |
+| **Alistair John-Grit** | Entrada fuerte | Short dark hair, well-groomed beard, athletic build, fair skin tone, focused expression | Rojo / Blanco |
+| **Kamal Miller-Slide** | Intercepción | Short dark hair, clean-shaven, tall athletic build, dark skin tone, focused expression | Rojo / Blanco |
+| **Ismael Kone-Rise** | Conducción técnica | Short dark afro fade, clean-shaven, tall athletic build, dark skin tone, intense expression | Rojo / Blanco |
+| **Liam Millar-Cross** | Carrera por banda | Short dark hair, clean-shaven, strong athletic build, fair skin tone, focused expression | Rojo / Blanco |
+| **Dayne St-Clair-Net** | Gesto de portero | Short curly black hair, clean-shaven, athletic muscular build, dark skin tone, agile stance. | Negro (GK) |
+
+### 🇨🇴 COLOMBIA (The Coffee Growers)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **James-Magic** | Pase de magia | Short light brown hair, well-groomed light beard, athletic build, fair skin tone, charismatic composed expression. | Amarillo / Azul |
+| **Lucho Di-Dash** | Regate eléctrico | Short dark dreadlocks, clean-shaven, athletic build, dark-tanned skin, fierce dynamic expression, sleeve tattoos on arms. | Amarillo / Azul |
+| **Jefferson Shield-ma** | Intercepción | Short dark hair, well-groomed beard, powerful muscular build, dark-tanned skin, intense expression. | Amarillo / Azul |
+| **Richard Rios-Stream** | Conducción balón | Short dark hair, clean-shaven, athletic build, dark-tanned skin, competitive expression. | Amarillo / Azul |
+| **Daniel Munoz-Link** | Sprint por banda | Short dark hair, well-groomed beard, strong muscular build, dark-tanned skin, energetic expression. | Amarillo / Azul |
+| **Camilo Vargas-Cache** | Parada segura | Short dark hair, well-groomed beard, tall build, fair-tanned skin, focused expression. | Naranja (GK) |
+| **Davinson San-Store** | Cabezazo defensa | Short dark hair, clean-shaven, strong muscular build, dark-tanned skin, fierce defensive expression. | Amarillo / Azul |
+| **Carlos Cuest-Watch** | Orden defensivo | Short dark hair, clean-shaven, strong muscular build, dark-tanned skin, focused expression. | Amarillo / Azul |
+| **Jhon Arias-Flow** | Giro técnico | Short dark hair, clean-shaven, athletic build, dark-tanned skin, dynamic expression. | Amarillo / Azul |
+| **Jhon Cordoba-Load** | Festejo de fuerza | Short dark hair, well-groomed beard, powerful muscular build, dark-tanned skin, determined expression. | Amarillo / Azul |
+| **Yaser Asprilla-Git** | Regate corto | Short dark afro fade, clean-shaven, athletic build, dark-tanned skin, dynamic expression. | Amarillo / Azul |
+
+### 🇨🇩 CONGO RD (The Leopards)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Yoane Wis-Speed** | Celebración de gol | Short dark hair with fade, clean shaven, agile explosive build, dark skin tone, fierce expression, sleeve tattoos | Colores oficiales |
+| **Chancel Mbem-Wall** | Sprint por banda | Short black hair, trimmed beard, tall muscular build, dark skin tone, intense focused expression | Colores oficiales |
+| **Cédric Baka-Run** | Celebración de gol | Short black hair, clean-shaven face, athletic muscular build, dark skin tone, determined expression | Colores oficiales |
+| **Ngal'ayel Muka-Logic** | Postura de pase | Short black hair, clean-shaven face, lean athletic build, dark skin tone, intelligent expression | Colores oficiales |
+| **Aaron Wan-Spider** | Sprint por banda | Short black hair with fade, clean-shaven face, agile muscular build, dark skin tone, focused expression | Colores oficiales |
+| **Samuel Moutou-Flow** | Postura de pase | Short black hair with fade, clean-shaven face, strong athletic build, dark skin tone, intense expression | Colores oficiales |
+| **Gaël Kaku-Swap** | Celebración de gol | Short black hair, clean-shaven face, agile lean build, dark skin tone, creative focused expression | Colores oficiales |
+| **Arthur Masu-Limit** | Sprint por banda | Short black hair, clean-shaven face, dynamic muscular build, dark skin tone, competitive expression | Colores oficiales |
+| **Theo Bongo-Flash** | Postura de pase | Short black hair with fade, clean-shaven face, quick agile build, dark skin tone, dynamic expression | Colores oficiales |
+| **Meschack Elia-Sprint** | Celebración de gol | Short black hair, clean-shaven face, explosive athletic build, dark skin tone, fierce expression | Colores oficiales |
+| **Mpasi Lio-Shield** | Parada de reflejos | Short black hair, clean-shaven face, tall commanding build, dark skin tone, alert focused expression | Verde Neón (GK) |
+
+### 🇰🇷 COREA DEL SUR (The Taegeuk Warriors)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Son Heung-Star** | Cámara fotos | Short black hair, clean-shaven, athletic pacy build, fair Asian skin tone, fierce competitive expression | Rojo / Azul |
+| **Kim Min-Tank** | Bloqueo férreo | Short black hair, clean-shaven, very tall commanding build, fair Asian skin tone, fierce defensive expression, muscular frame | Rojo / Azul |
+| **Lee Kang-Silk** | Pase de magia | Short black hair, clean-shaven, agile creative build, fair Asian skin tone, dynamic expression, athletic frame, sleeve tattoos | Rojo / Azul |
+| **Hwang Hee-Bolt** | Carrera potente | Short black hair, clean-shaven, energetic direct build, fair Asian skin tone, intense expression, athletic frame | Rojo / Azul |
+| **Cho Gue-Air** | Cabezazo gol | Short black hair, clean-shaven, tall powerful build, fair Asian skin tone, determined expression, athletic frame | Rojo / Azul |
+| **In-beom-Mind** | Distribución | Short black hair, clean-shaven, dynamic box-to-box build, fair Asian skin tone, energetic expression, athletic frame | Rojo / Azul |
+| **Woo-young-Core** | Intercepción | Short black hair, clean-shaven, dynamic technical build, fair Asian skin tone, creative expression, athletic frame | Rojo / Azul |
+| **Young-woo-Side** | Sprint por banda | Short black hair, clean-shaven, composed lean build, fair Asian skin tone, focused expression, strong muscular frame | Rojo / Azul |
+| **Young-gwon-Stay** | Mando defensivo | Short black hair, clean-shaven, agile attacking build, fair Asian skin tone, dynamic expression, strong muscular frame | Rojo / Azul |
+| **Hyeon-woo-Save** | Parada de reflejos | Short black hair, clean-shaven, commanding tall build, fair Asian skin tone, focused expression, goalkeeper frame | Negro (GK) |
+| **Jae-sung-Drive** | Presión alta | Short black hair, clean-shaven, technical creative build, fair Asian skin tone, focused expression, athletic frame | Rojo / Azul |
 
 ### 🇨🇮 COSTA DE MARFIL (The Elephants)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Seba Hal-Tall** | Festejo elegante | Muy alto, pelo corto, imponente. | Naranja / Blanco |
-| **Franck Kessie-Force** | Saludo militar | Pelo corto, barba, físico masivo. | Naranja / Blanco |
-| **Simon Adingra-Sprint** | Sprint por banda | Pelo corto, joven and veloz. | Naranja / Blanco |
-| **Seko Fofana-Power** | Disparo lejano | Pelo corto, muy potente. | Naranja / Blanco |
-| **Yahia Fofana-Hands** | Parada estirada | Pelo corto, ágil. | Amarillo (GK) |
-| **Evan Ndicka-Hub** | Salida de balón | Pelo corto, alto, elegante. | Naranja / Blanco |
-| **Ousmane Diom-Rock** | Intercepción | Joven, pelo corto, muy fuerte. | Naranja / Blanco |
-| **Ibra Sangare-Shield** | Mando en medio | Muy alto, pelo corto, fuerte. | Naranja / Blanco |
-| **Max Gradel-Legend** | Centro técnico | Pelo corto, veterano veloz. | Naranja / Blanco |
-| **Nicolas Pepe-Silk** | Regate de rosca | Pelo corto, zurdo habilidoso. | Naranja / Blanco |
-| **Karim Konate-Kid** | Grito de gol | Joven, explosivo, pelo corto. | Naranja / Blanco |
+| **Seb Hall-Legend** | Celebración de gol | Short dark hair, clean-shaven, tall powerful build, dark skin tone, determined expression | Colores oficiales |
+| **Franck Kessi-Main** | Postura de pase | Short dark hair, clean-shaven, powerful muscular build, dark skin tone, commanding expression | Colores oficiales |
+| **Simon Adingra-Magic** | Celebración de gol | Short dark hair, clean-shaven, agile athletic build, dark skin tone, dynamic expression | Colores oficiales |
+| **Ousmane Dioman-Wall** | Sprint por banda | Short dark hair, clean-shaven, tall muscular build, dark skin tone, fierce expression | Colores oficiales |
+| **Evan Ndicka-Iron** | Sprint por banda | Short dark hair, clean-shaven, very tall muscular build, dark skin tone, powerful expression | Colores oficiales |
+| **Wilfried Singo-Rail** | Sprint por banda | Short dark hair, clean-shaven, tall athletic build, dark skin tone, dynamic expression | Colores oficiales |
+| **Seko Fofana-Engine** | Postura de pase | Short dark hair, clean-shaven, tall athletic build, dark skin tone, energetic expression | Colores oficiales |
+| **Ibrahim Sang-Pivot** | Postura de pase | Short dark hair, clean-shaven, tall powerful build, dark skin tone, commanding expression | Colores oficiales |
+| **Yahia Fofana-Safe** | Parada de reflejos | Short dark hair, clean-shaven, tall athletic build, dark skin tone, focused expression | Verde Neón (GK) |
+| **Nicolas Pepe-Silk** | Regate de rosca | Short black hair in low fade, trimmed beard, muscular athletic build, dark skin tone, intense expression | Naranja / Blanco |
+| **Oumar Diaki-Flash** | Celebración de gol | Short black hair, clean-shaven, slim athletic build, dark skin tone, alert expression | Colores oficiales |
 
-### 🇹🇳 TÚNEZ (The Eagles of Carthage)
+### 🇭🇷 CROACIA (Vatreni)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Youssef Msakni-Brain** | Pase técnico | Pelo oscuro corto, creativo. | Rojo / Blanco |
-| **Elias Skhiri-Mind** | Intercepción | Pelo castaño corto, cerebral. | Rojo / Blanco |
-| **Aissa Laidouni-Heart** | Grito de lucha | Barba, pelo corto, intenso. | Rojo / Blanco |
-| **Montassar Talbi-Shield** | Cabezazo defensa | Pelo oscuro corto, alto. | Rojo / Blanco |
-| **Bechir Said-Safe** | Parada segura | Pelo oscuro corto, serio. | Blanco (GK) |
-| **Ali Maaloul-Cross** | Centro al área | Pelo castaño corto, técnico. | Rojo / Blanco |
-| **Wajdi Kech-Rail** | Sprint lateral | Pelo oscuro corto, rápido. | Rojo / Blanco |
-| **Hamza Rafia-Play** | Distribución | Pelo castaño corto, ágil. | Rojo / Blanco |
-| **Hannibal Mejb-Hair** | Conducción balón | Pelo afro largo rubio, joven. | Rojo / Blanco |
-| **Wahbi Khazri-Boss** | Disparo potente | Pelo oscuro corto, robusto. | Rojo / Blanco |
-| **Saif Khaoui-Skill** | Regate corto | Pelo oscuro corto, técnico. | Rojo / Blanco |
+| **Luka Modric-Ledger** | Postura de pase | Medium-length wavy light brown hair with headband, light stubble, lean wiry build, fair skin tone, focused expression | Damero Rojo/Blanco |
+| **Mateo Kova-Yield** | Postura de pase | Short dark hair, clean-shaven, athletic box-to-box build, fair skin tone, intense competitive expression | Damero Rojo/Blanco |
+| **Josko Gvardiol-Chain** | Sprint por banda | Short dark hair with fade, thick well-groomed dark beard, strong athletic build, fair skin tone, confident look | Damero Rojo/Blanco |
+| **Andrej Kramaric-Hash** | Celebración de gol | Short dark hair, light stubble, clinical athletic build, fair skin tone, sharp tactical gaze | Damero Rojo/Blanco |
+| **Dominik Liva-Key** | Parada de reflejos | Short dark hair, clean-shaven, tall agile goalkeeper build, fair skin tone, focused determined expression | Damero Rojo/Blanco |
+| **Ivan Peri-Swap** | Celebración de gol | Short dark hair, light beard, tall powerful build, fair skin tone, determined expression | Damero Rojo/Blanco |
+| **Nikola Vla-Slip** | Postura de pase | Short dark brown hair, clean-shaven, technical athletic build, fair skin tone, creative expression | Damero Rojo/Blanco |
+| **Josip Suta-Logic** | Sprint por banda | Short dark hair with fade, clean-shaven, tall strong build, fair skin tone, focused expression | Damero Rojo/Blanco |
+| **Josip Stani-Stake** | Sprint por banda | Short dark hair, clean-shaven, strong muscular build, fair skin tone, alert expression | Damero Rojo/Blanco |
+| **Martin Batu-Rarity** | Postura de pase | Short dark curly hair, clean-shaven, athletic build, fair skin tone, dynamic expression | Damero Rojo/Blanco |
+| **Ante Budi-Bull** | Celebración de gol | Short dark hair, well-groomed beard, strong forward build, fair skin tone, determined expression | Damero Rojo/Blanco |
 
-### 🇨🇷 COSTA RICA (Los Ticos)
+### 🇨🇼 CURAZAO (Blue Seastar)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Keylor Na-Safe** | Vuelo felino | Pelo corto oscuro, muy ágil. | Rojo / Azul |
-| **Joel Camp-Left** | Regate en banda | Pelo corto, zurdo técnico. | Rojo / Azul |
-| **Manfred Ugal-Fox** | Grito de gol | Pequeño, pelo castaño, veloz. | Rojo / Azul |
-| **Fran Calvo-Chief** | Mando defensivo | Pelo oscuro corto, serio. | Rojo / Azul |
-| **Bran Aguilera-View** | Pase técnico | Joven, pelo castaño, elegante. | Rojo / Azul |
-| **Juan Vargas-Hold** | Cabezazo defensa | Pelo corto oscuro, alto. | Rojo / Azul |
-| **Ron Matarrita-Run** | Sprint por banda | Pelo oscuro corto, incansable. | Rojo / Azul |
-| **Jeff Brenes-Mark** | Intercepción | Pelo corto, dinámico. | Rojo / Azul |
-| **Josimar Alco-Zoom** | Carrera veloz | Joven, pelo corto, rápido. | Rojo / Azul |
-| **Ken Vargas-Power** | Definición | Pelo corto, atlético. | Rojo / Azul |
-| **Alvaro Zamo-Wave** | Dribbling | Pelo castaño corto, ágil. | Rojo / Azul |
+| **Leandro Bacu-Bull** | Postura de pase | Short dark hair with fade, clean-shaven, versatile athletic build, dark tan skin tone, confident expression | Colores oficiales |
+| **Tahith Chong-Charge** | Celebración de gol | Short dark hair high fade, clean-shaven, quick slim build, dark tan skin tone, focused expression | Colores oficiales |
+| **Eloy Room-Secure** | Parada de reflejos | Short dark hair, well-groomed beard, tall commanding build, dark tan skin tone, intense gaze | Verde Neón (GK) |
+| **Riechedly Baz-Blocker** | Postura de pase | Short dark hair with fade, clean-shaven, powerful muscular build, dark tan skin tone, intense expression | Colores oficiales |
+| **Armando Obis-Oracle** | Sprint por banda | Short dark hair, clean-shaven, strong broad build, dark tan skin tone, focused expression | Colores oficiales |
+| **Jürgen Loca-Liquid** | Celebración de gol | Short dark hair, clean-shaven, powerful athletic build, dark tan skin tone, determined expression | Colores oficiales |
+| **Juninho Bacu-Bear** | Postura de pase | Short dark hair, clean-shaven, dynamic athletic build, dark tan skin tone, creative expression | Colores oficiales |
+| **Joshua Bre-Net** | Sprint por banda | Short dark hair with fade, clean-shaven, agile muscular build, dark tan skin tone, focused expression | Colores oficiales |
+| **Sherel Flora-Flow** | Sprint por banda | Short dark hair, clean-shaven, solid muscular build, dark tan skin tone, determined expression | Colores oficiales |
+| **Gervane Kasta-Run** | Celebración de gol | Short dark hair with fade, clean-shaven, quick athletic build, dark tan skin tone, dynamic expression | Colores oficiales |
+| **Shurandy Sam-Boost** | Sprint por banda | Short dark hair, clean-shaven, strong defensive build, dark tan skin tone, focused expression | Colores oficiales |
 
-### 🇵🇦 PANAMÁ (Los Canaleros)
+### 🇪🇨 ECUADOR (The Tri)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Anibal Go-Pivot** | Mando en medio | Pelo corto, complexión media. | Rojo / Blanco |
-| **Adal Carra-Brain** | Pase filtrado | Pelo rizado corto, muy técnico. | Rojo / Blanco |
-| **Jose Fajardo-Hit** | Festejo de gol | Pelo corto, fuerte, delantero. | Rojo / Blanco |
-| **Ismael Diaz-Move** | Regate rápido | Pelo corto, ágil and técnico. | Rojo / Blanco |
-| **Orlan Mosq-Grip** | Parada de reflejos | Pelo corto, atlético. | Gris (GK) |
-| **Fidel Esco-Base** | Salida con balón | Pelo corto, imponente. | Rojo / Blanco |
-| **Eric Davis-Cross** | Centro con rosca | Pelo corto, zurdo técnico. | Rojo / Blanco |
-| **Mich Murillo-Rail** | Sprint por banda | Pelo corto, muy veloz and fuerte. | Rojo / Blanco |
-| **Jose Rodri-Flash** | Carrera eléctrica | Pelo corto, rápido. | Rojo / Blanco |
-| **Abdiel Ayar-Tough** | Intercepción | Pelo corto, dinámico. | Rojo / Blanco |
-| **Alber Quintero-Old** | Regate corto | Pequeño, ágil, veterano. | Rojo / Blanco |
+| **Moises Caice-DAO** | Postura de pase | Short dark hair with fade, clean-shaven, athletic build, dark skin tone, intense competitive expression. | Amarillo / Azul |
+| **Enner Valen-Goal** | Celebración de gol | Short dark hair, light stubble, athletic build, dark-tanned skin, competitive expression. | Amarillo / Azul |
+| **Piero Hinca-Block** | Sprint por banda | Short dark hair, clean-shaven, strong muscular build, dark-tanned skin, focused expression. | Amarillo / Azul |
+| **Pervis Estu-Turbo** | Sprint por banda | Short dark hair with fade, clean-shaven, muscular athletic build, dark skin tone, dynamic expression | Amarillo / Azul |
+| **Kendry Paez-Gem** | Postura de pase | Short dark hair, clean-shaven, compact athletic build, dark-tanned skin, creative expression | Amarillo / Azul |
+| **Hernan Galin-Shield** | Parada de reflejos | Short dark hair, well-groomed beard, tall athletic build, fair-tanned skin, focused expression | Amarillo / Azul |
+| **Willian Pacho-Wall** | Sprint por banda | Short dark hair, clean-shaven, muscular athletic build, dark-tanned skin, composed expression | Amarillo / Azul |
+| **Felix Torres-Rise** | Sprint por banda | Short dark hair, clean-shaven, muscular athletic build, dark-tanned skin, focused expression | Amarillo / Azul |
+| **Angelo Precia-Rail** | Sprint por banda | Short dark hair, clean-shaven, muscular athletic build, dark-tanned skin, energetic expression | Amarillo / Azul |
+| **Alan Franco-Hub** | Postura de pase | Short dark hair, clean-shaven, muscular athletic build, dark-tanned skin, focused expression | Amarillo / Azul |
+| **Jeremy Sarmien-Byte** | Celebración de gol | Short dark hair, clean-shaven, athletic build, dark-tanned skin, dynamic expression | Amarillo / Azul |
 
-### 🇮🇷 IRÁN (Team Melli)
+### 🇺🇸 EE.UU. (The Stars & Stripes)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Mehdi Tare-Shot** | Control de área | Pelo oscuro, barba corta. | Blanco / Rojo |
-| **Sardar Az-Air** | Salto de cabeza | Pelo oscuro corto, atlético. | Blanco / Rojo |
-| **Alireza Ja-Flash** | Disparo lejano | Pelo oscuro corto, barba. | Blanco / Rojo |
-| **Saman Ghod-Brain** | Pase estratégico | Pelo castaño corto, técnico. | Blanco / Rojo |
-| **Ali Beiran-Hands** | Saque de mano largo | Muy alto, rasgos marcados. | Verde (GK) |
-| **Shojae Khal-Wall** | Mando defensivo | Barba poblada, pelo corto. | Blanco / Rojo |
-| **Hossein Kan-Base** | Intercepción | Pelo oscuro corto, fuerte. | Blanco / Rojo |
-| **Milad Mohamm-Rail** | Sprint por banda | Pelo corto, muy incansable. | Blanco / Rojo |
-| **Ramin Reza-Cross** | Centro al área | Pelo teñido o con estilo, técnico. | Blanco / Rojo |
-| **Mehdi Ghayedi-Skill** | Regate corto | Muy pequeño and ágil, pelo oscuro. | Blanco / Rojo |
-| **Omid Ebrah-Mind** | Recuperación | Pelo oscuro corto, veterano. | Blanco / Rojo |
-
-### 🇮🇶 IRAQ (Lions of Mesopotamia)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Ayman Huss-Goal** | Cabezazo gol | Muy alto, pelo oscuro, potente. | Blanco / Verde |
-| **Ali Jasim-Jewel** | Dribbling joven | Pelo oscuro corto, muy habilidoso. | Blanco / Verde |
-| **Ibra Bayesh-Volt** | Carrera por banda | Pelo oscuro corto, dinámico. | Blanco / Verde |
-| **Amir Ammari-Mind** | Distribución | Pelo castaño corto, técnico. | Blanco / Verde |
-| **Jalal Hass-Hands** | Parada segura | Pelo oscuro corto, experimentado. | Amarillo (GK) |
-| **Rebin Sula-Wall** | Intercepción | Pelo castaño corto, alto. | Blanco / Verde |
-| **Saad Natiq-Base** | Mando defensivo | Pelo oscuro corto, fuerte. | Blanco / Verde |
-| **Bashar Resan-Silk** | Pase de magia | Pelo oscuro corto, creativo. | Blanco / Verde |
-| **Mohanad Ali-Sprint** | Giro en el área | Pelo oscuro corto, ágil. | Blanco / Verde |
-| **Zidane Iqbal-Flow** | Conducción elegante | Pelo rizado oscuro, joven. | Blanco / Verde |
-| **Osama Rash-Pivot** | Control de juego | Pelo oscuro corto, técnico. | Blanco / Verde |
-
-### 🇶🇦 QATAR (The Maroons)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Akram Afif-Silk** | Festejo gafas | Pelo afro grande, técnico. | Granate / Blanco |
-| **Almoez Ali-Bolt** | Sprint and disparo | Pelo muy corto, veloz and letal. | Granate / Blanco |
-| **Has Al-Hayd-Brain** | Pase de mando | Pelo oscuro corto, leyenda. | Granate / Blanco |
-| **Ah Fatehi-Shield** | Intercepción | Pelo oscuro corto, fuerte. | Granate / Blanco |
-| **Mesh Barsh-Hands** | Parada de reflejos | Pelo corto, muy ágil. | Amarillo (GK) |
-| **Lucas Mend-Wall** | Cabezazo defensa | Pelo corto, alto, fuerte. | Granate / Blanco |
-| **Bou Khoukhi-Base** | Orden defensivo | Pelo oscuro corto, polivalente. | Granate / Blanco |
-| **Pedro Mig-Power** | Carrera veloz | Pelo corto, atlético and fuerte. | Granate / Blanco |
-| **Moh Waad-Mind** | Recuperación | Pelo oscuro corto, dinámico. | Granate / Blanco |
-| **Jas Gaber-Young** | Intercepción joven | Pelo oscuro corto, alto. | Granate / Blanco |
-| **Yus Abduri-Side** | Regate en banda | Pelo corto, muy rápido. | Granate / Blanco |
-
-### 🇳🇿 N. ZELANDA (All Whites)
-| Jugador | Pose | Descripción Física | Colores Kit |
-| :--- | :--- | :--- | :--- |
-| **Chris Wood-Target** | Cabezazo fuerte | Alto, pelo castaño, fuerte. | Blanco / Negro |
-| **Sarp Singh-Silk** | Pase técnico | Pelo oscuro corto, habilidoso. | Blanco / Negro |
-| **Libby Caca-Side** | Sprint por banda | Pelo castaño corto, incansable. | Blanco / Negro |
-| **Mar Stamen-Core** | Distribución | Pelo oscuro corto, técnico. | Blanco / Negro |
-| **Alex Paul-Hands** | Parada estirada | Pelo rubio corto, joven. | Negro (GK) |
-| **Mich Boxall-Wall** | Mando defensivo | Barba, pelo corto, veterano. | Blanco / Negro |
-| **Tyler Bind-Base** | Intercepción | Joven, pelo castaño, alto. | Blanco / Negro |
-| **Matt Garb-Drive** | Conducción balón | Pelo castaño corto, dinámico. | Blanco / Negro |
-| **Ben Waine-Goal** | Desmarque rápido | Pelo rubio corto, ágil. | Blanco / Negro |
-| **Elijah Just-Skill** | Regate corto | Pelo castaño corto, habilidoso. | Blanco / Negro |
-| **Kosta Barb-Old** | Carrera veloz | Pelo oscuro corto, veterano. | Blanco / Negro |
+| **Christian Puli-Star** | Beso al escudo | Short dark hair, clean-shaven, athletic build with arm tattoos, fair skin tone, determined expression | Blanco / Azul / Rojo |
+| **Weston McK-Air** | Salto de cabeza | Short dark hair with fade, clean-shaven, athletic build, fair skin tone, intense expression | Blanco / Azul / Rojo |
+| **Gio Reyna-Pass** | Pase técnico | Short wavy blonde-brown hair, clean-shaven, slim athletic build, fair skin tone, focused expression | Blanco / Azul / Rojo |
+| **Folarin Balogun-Drive** | Disparo a gol | Short dark afro fade, clean-shaven, muscular athletic build, dark skin tone, determined expression | Blanco / Azul / Rojo |
+| **Tyler Adams-Guard** | Intercepción | Short dark hair with fade, clean-shaven, compact athletic build, dark skin tone, intense expression | Blanco / Azul / Rojo |
+| **Matt Turner-Gloves** | Parada felina | Short light brown hair, clean-shaven, tall athletic build, fair skin tone, focused expression | Gris (GK) |
+| **Sergiño Dest-Dribble** | Regate en banda | Short dark hair with fade, clean-shaven, agile athletic build, tanned skin tone, dynamic expression | Blanco / Azul / Rojo |
+| **Antonee Robin-Turbo** | Sprint lateral | Short dark hair, clean-shaven, strong athletic build, dark skin tone, energetic expression | Blanco / Azul / Rojo |
+| **Chris Richards-Wall** | Cabezazo defensa | Short dark hair, clean-shaven, tall muscular build, dark skin tone, composed expression | Blanco / Azul / Rojo |
+| **Yunus Musah-Motor** | Conducción potente | Short dark curly hair, clean-shaven, athletic build, tanned skin tone, energetic expression | Blanco / Azul / Rojo |
+| **Tim Weah-Flash** | Carrera explosiva | Short dark hair with fade, clean-shaven, athletic build, dark skin tone, dynamic expression | Blanco / Azul / Rojo |
 
 ### 🇪🇬 EGIPTO (The Pharaohs)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Mo Satoshi-Salah** | Pose Yoga | Pelo rizado, barba poblada, 1.75m. | Rojo / Blanco |
-| **Mostafa Mo-Goal** | Festejo de fuerza | Pelo oscuro corto, muy fuerte. | Rojo / Blanco |
-| **Omar Mar-Dash** | Carrera veloz | Pelo oscuro corto, ágil. | Rojo / Blanco |
-| **Treze-Run** | Sprint por banda | Pelo oscuro corto, dinámico. | Rojo / Blanco |
-| **Mohamed El-Safe** | Parada segura | Pelo oscuro corto, serio, alto. | Amarillo (GK) |
-| **Abdelmonem-Base** | Intercepción | Pelo oscuro corto, elegante. | Rojo / Blanco |
-| **Ahmed Heg-Wall** | Cabezazo defensa | Muy alto, pelo corto, imponente. | Rojo / Blanco |
-| **Hamdi Fathi-Sweep** | Recuperación | Pelo corto oscuro, guerrero. | Rojo / Blanco |
-| **Emam Ashour-Shoot** | Disparo lejano | Pelo corto teñido, técnico. | Rojo / Blanco |
-| **Mohamed Hany-Rail** | Centro al área | Pelo oscuro corto, rápido. | Rojo / Blanco |
-| **Omar Kamal-Flow** | Sprint lateral | Pelo oscuro corto, incansable. | Rojo / Blanco |
+| **Mo Salah-King** | Celebración de gol | Short curly black hair with fade, clean-shaven, lean muscular build, dark skin tone, fierce expression, sleeve tattoos on arms | Rojo / Blanco |
+| **Mostafa Moh-Goal** | Celebración de gol | Short black hair, clean-shaven, tall powerful build, olive skin tone, determined expression | Rojo / Blanco |
+| **Omar Marm-Silk** | Celebración de gol | Short dark hair, clean-shaven, agile athletic build, olive skin tone, intense expression | Rojo / Blanco |
+| **Trézéguet-Flash** | Postura de pase | Short dark hair, clean-shaven, athletic build, olive skin tone, focused expression | Rojo / Blanco |
+| **Moh Elneny-Core** | Postura de pase | Short dark hair, clean-shaven, solid athletic build, olive skin tone, composed expression | Rojo / Blanco |
+| **Ahmed Hegazi-Wall** | Sprint por banda | Short dark hair, clean-shaven, tall strong build, olive skin tone, focused expression | Rojo / Blanco |
+| **Moh El-Shen-Safe** | Parada de reflejos | Short dark hair, well-groomed beard, tall athletic build, olive skin tone, concentrated expression | Rojo / Blanco |
+| **Moh Abdelm-Iron** | Sprint por banda | Short dark hair, clean-shaven, muscular build, olive skin tone, serious expression | Rojo / Blanco |
+| **Moh Hany-Side** | Sprint por banda | Short dark hair, clean-shaven, agile build, olive skin tone, alert expression | Rojo / Blanco |
+| **Hamdi Fathi-Sweep** | Recuperación | Short dark hair, clean-shaven, athletic build, olive skin tone, energetic expression | Rojo / Blanco |
+| **Omar Kamal-Wing** | Celebración de gol | Short dark hair, clean-shaven, slim athletic build, olive skin tone, dynamic expression | Rojo / Blanco |
+
+### 🏴󠁧󠁢󠁳󠁣󠁴󠁿 ESCOCIA (The Tartan Army)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Andrew Robert-Cap** | Sprint total | Short dark hair, clean-shaven, strong muscular build, fair skin tone, intense expression. | Azul oscuro |
+| **Scott McTo-Strong** | Grito de gol fiero | Short dark hair, clean-shaven, tall powerful build, fair skin tone, intense expression. | Azul oscuro |
+| **John McGi-Brave** | Protegiendo balón | Short dark hair neatly styled, clean-shaven, stocky athletic build, fair skin tone, determined expression | Azul oscuro |
+| **Billy Gil-Clean** | Distribución | Short light brown hair, clean-shaven, slim athletic build, fair skin tone, focused expression | Azul oscuro |
+| **Che Ad-Target** | Salto de cabeza | Short black hair with fade, clean-shaven, muscular compact build, dark skin tone, energetic expression | Azul oscuro |
+| **Angus Gunn-Stay** | Parada segura | Short dark hair, clean-shaven, tall lean build, fair skin tone, concentrated expression | Amarillo (GK) |
+| **Ryan Port-Tough** | Entrada fuerte | Short dark hair, clean-shaven, tall muscular build, fair skin tone, intense expression | Azul oscuro |
+| **Jack Hendry-Tall** | Intercepción | Short dark hair, clean-shaven, tall strong build, fair skin tone, serious expression | Azul oscuro |
+| **Kieran Tier-Wrap** | Sprint por banda | Short dark hair, clean-shaven, athletic muscular build, fair skin tone, energetic expression | Azul oscuro |
+| **Callum McG-Heart** | Mando en medio | Short dark hair, clean-shaven, lean athletic build, fair skin tone, calm expression | Azul oscuro |
+| **Lawrence Shank-Hit** | Definición gol | Short dark hair, clean-shaven, tall powerful build, fair skin tone, focused expression | Azul oscuro |
+
+### 🇪🇸 ESPAÑA (The Armada)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Lamine Ya-Alpha** | Gesto 304 | Short dark curly hair with high fade, clean-shaven, lean agile build, olive-dark skin tone, energetic expression | Rojo / Amarillo |
+| **Pedri-Script** | Pase precisión | Short dark hair, clean-shaven, slim athletic build, fair skin tone, focused expression | Rojo / Amarillo |
+| **Rodri Proof-of-Stake** | Señalando táctica | Short dark hair, clean-shaven, tall strong build, tanned skin tone, focused expression | Rojo / Amarillo |
+| **Gavi-Gas** | Grito de gol intenso | Short dark hair, clean-shaven, compact athletic build, fair skin tone, intense expression | Rojo / Amarillo |
+| **Nico Shard-Williams** | Sprint por banda | Short dark hair with blonde highlights, clean-shaven, athletic build, dark skin tone, dynamic expression | Rojo / Amarillo |
+| **Unai Simon-Key** | Parada de reflejos | Short dark hair, clean-shaven, tall athletic build, fair skin tone, focused expression | Negro (GK) |
+| **Dani Carva-Hard** | Salto de alegría | Short dark hair, well-kept beard, athletic build, fair skin tone, intense expression | Rojo / Amarillo |
+| **Aymeric Lap-Object** | Salida de balón | Well-groomed short dark hair, clean-shaven, tall strong build, fair skin tone, focused expression | Rojo / Amarillo |
+| **Robin Le-Normal-DEX** | Cabezazo defensa | Short dark hair, clean-shaven, tall solid build, fair skin tone, focused expression | Rojo / Amarillo |
+| **Alejandro Bal-Slide** | Carrera veloz | Short dark curly hair, clean-shaven, agile athletic build, dark skin tone, focused expression | Rojo / Amarillo |
+| **Dani Olmo-View** | Control elegante | Short dark hair, clean-shaven, athletic build, fair skin tone, creative expression | Rojo / Amarillo |
+
+### 🇫🇷 FRANCIA (The Powerhouse)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Kylian M-Bypass-pé** | Brazos cruzados | Very short buzz cut black hair, clean shaven, lean athletic build, dark skin tone, confident smile | Azul Marino |
+| **Antoine G-ZkSync** | Baile teléfono | Short blonde hair or creative braids, light well-kept beard, agile build, fair skin tone, charismatic look | Azul Marino |
+| **Ousmane De-Shard** | Regate rápido | Short black hair with side fade, clean shaven, lean elastic build, deep dark skin tone, dynamic expression | Azul Marino |
+| **Eduardo Cama-Logic** | Control de balón | Short black dreadlocks, clean shaven, versatile strong build, dark skin tone, intense look, sleeve tattoos on arms | Azul Marino |
+| **Theo Shiller** | Carrera veloz | Short bleached blonde hair with fade, clean-shaven, explosive muscular build, fair skin tone, dynamic expression | Azul Marino |
+| **Mike Maignan-Admin** | Gesto de mando | Very short dark buzz cut hair, clean-shaven, tall powerful build, deep dark skin tone, focused expression | Negro (GK) |
+| **Aurélien Buffer-Tch** | Intercepción | Short black hair with fade, clean-shaven, commanding muscular build, dark skin tone, determined expression, sleeve tattoos | Azul Marino |
+| **William Sali-Struct** | Defensa sólida | Crisp dark fade haircut, clean-shaven, tall elegant build, dark skin tone, calm focused expression | Azul Marino |
+| **Dayot Upame-Kernel** | Salto de cabeza | Short dark hair with clean fade, clean-shaven, powerful build, dark skin tone, focused expression | Azul Marino |
+| **Jules Koun-DEX** | Pose de moda | Short black braids with fade, well-groomed light beard, agile athletic build, dark-tanned skin, stylish expression | Azul Marino |
+| **Adrien Rabi-Protocol** | Postura elegante | Short-to-medium dark textured hair, clean-shaven, tall elegant build, fair skin tone, composed expression, sleeve tattoos | Azul Marino |
+
+### 🇬🇭 GHANA (The Black Stars)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Mohammed Kudu-Star** | Celebración de gol | Short dark afro fade, clean shaven, agile athletic build, dark skin tone, dynamic expression, sleeve tattoos | Blanco / Negro |
+| **Inaki Willia-Flash** | Celebración de gol | Short dark afro fade, clean shaven, tall powerful muscular build, dark skin tone, energetic expression, sleeve tattoos | Blanco / Negro |
+| **Thomas Partey-Root** | Postura de pase | Short dark afro fade, clean shaven, powerful muscular build, dark skin tone, intense expression | Blanco / Negro |
+| **Jordan Ayew-Hold** | Protegiendo balón | Short dark hair, clean shaven, athletic build, dark skin tone, determined expression | Blanco / Negro |
+| **Lawrence Ati-Save** | Parada de reflejos | Short dark hair, clean shaven, tall commanding build, dark skin tone, focused expression | Blanco / Negro |
+| **Mohammed Salis-Wall** | Sprint por banda | Short dark hair, clean shaven, tall powerful muscular build, dark skin tone, focused expression | Blanco / Negro |
+| **Tariq Lampte-Quick** | Sprint por banda | Short dark hair, clean shaven, compact muscular build, dark skin tone, dynamic expression | Blanco / Negro |
+| **Alidu Seidu-Hard** | Sprint por banda | Short dark hair, clean shaven, athletic muscular build, dark skin tone, focused expression | Blanco / Negro |
+| **Ernest Nuamah-Byte** | Celebración de gol | Short dark hair, clean shaven, agile athletic build, dark skin tone, dynamic expression | Blanco / Negro |
+| **Antoine Sem-Drive** | Celebración de gol | Short dark hair, clean shaven, athletic direct build, dark skin tone, energetic expression | Blanco / Negro |
+| **Gideon Mensah-Side** | Sprint por banda | Short dark hair, clean shaven, dynamic muscular build, dark skin tone, focused expression | Blanco / Negro |
+
+### 🇭🇹 HAITÍ (Les Grenadiers)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Duckens Nazo-Strike** | Celebración de gol | Short black hair, clean-shaven, muscular athletic build, dark skin tone, sharp expression | Colores oficiales |
+| **Johny Placi-Wall** | Parada de reflejos | Short black hair, well-groomed beard, tall sturdy build, dark skin tone, commanding expression | Verde Neón (GK) |
+| **Frantzdy Pier-Run** | Celebración de gol | Short dark hair with fade, clean-shaven, athletic muscular build, dark skin tone, fierce expression, sleeve tattoos on arms | Colores oficiales |
+| **Wilson Isido-Logic** | Celebración de gol | Short dark hair with fade, clean-shaven, powerful muscular build, dark skin tone, determined expression | Colores oficiales |
+| **Ricardo Ade-Shield** | Sprint por banda | Short dark hair, clean-shaven, strong muscular build, dark skin tone, focused expression | Colores oficiales |
+| **Carlens Arcu-Safe** | Sprint por banda | Short dark hair, clean-shaven, solid muscular build, dark skin tone, composed expression | Colores oficiales |
+| **Leverton Pier-Swap** | Postura de pase | Short dark hair, clean-shaven, athletic build, dark skin tone, intelligent focused expression | Colores oficiales |
+| **Danley Jean-Limit** | Postura de pase | Short dark hair, clean-shaven, athletic build, dark skin tone, competitive alert expression | Colores oficiales |
+| **Derrick Etien-Flash** | Celebración de gol | Short dark hair with fade, clean-shaven, agile athletic build, dark skin tone, dynamic expression | Colores oficiales |
+| **Lenny Jose-Sprint** | Celebración de gol | Short dark hair, clean-shaven, quick agile build, dark skin tone, focused competitive expression | Colores oficiales |
+| **Dominique Simo-Flow** | Postura de pase | Short dark hair, clean-shaven, energetic athletic build, dark skin tone, focused alert expression | Colores oficiales |
+
+### 🏴󠁧󠁢󠁥󠁮󠁧󠁿 INGLATERRA (The Lions)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Harry Stake** | Brazos abiertos | Short blonde-brown hair, well-kept light beard, powerful build, fair skin tone, focused expression | Blanco / Marino |
+| **Jude Belling-Swap** | Celebración icónica | Short dark afro fade haircut, clean-shaven, tall athletic build, dark skin tone, confident expression | Blanco / Marino |
+| **Phil Fod-Phantom** | Control orientado | Short dark hair with sharp skin fade, clean-shaven, neck tattoo, compact fast build, fair skin tone, focused expression | Blanco / Marino |
+| **Bukayo Solana** | Sprint eléctrico | High-top dark fade with sharp lines, clean-shaven, agile fast build, dark skin tone, energetic expression | Blanco / Marino |
+| **Declan Rice-Validator** | Corte de balón | Classic flow dark hair with taper, light stubble, tall strong build, fair skin tone, commanding expression, sleeve tattoos | Blanco / Marino |
+| **Kyle Gas-Walker** | Sprint máximo | Buzz cut dark hair with precision fade, well-groomed short beard, powerful fast build, tanned skin, intense expression | Blanco / Marino |
+| **Jordan Pick-Safe** | Salto de parada | Short blonde-brown hair with texture, clean-shaven, agile high-energy build, fair skin tone, expressive gaze | Amarillo (GK) |
+| **John Stone-Base** | Salida con balón | Short brown hair styled neatly, clean-shaven, elegant lean build, fair skin tone, composed expression | Blanco / Marino |
+| **Trent Cross-Arnold** | Pase largo | Short dark curly hair, clean-shaven, lean athletic build, mixed skin tone, focused expression | Blanco / Marino |
+| **Luke Vector** | Centro al área | Short brown hair, clean-shaven, robust powerful build, fair skin tone, intense expression | Blanco / Marino |
+| **Cole Cold-Coin** | Gesto de frío | Short light brown messy crop hair, clean-shaven, slender wiry build, fair skin tone, relaxed cold gaze, sleeve tattoo on left arm | Blanco / Marino |
+
+### 🇮🇶 IRAQ (Lions of Mesopotamia)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Ayman Huss-Target** | Celebración de gol | Short dark hair, clean-shaven, athletic forward build, olive skin tone, determined expression | Colores oficiales |
+| **Ali Jasim-Star** | Celebración de gol | Short dark hair, clean-shaven, lean agile build, olive skin tone, dynamic expression | Colores oficiales |
+| **Zidane Iqbal-Silk** | Postura de pase | Short dark hair, clean-shaven, slim creative build, olive skin tone, concentrated expression | Colores oficiales |
+| **Jalal Hassan-Save** | Parada de reflejos | Short dark hair, well-groomed beard, tall sturdy build, olive skin tone, focused expression | Verde Neón (GK) |
+| **Rebin Sulaka-Wall** | Sprint por banda | Short dark hair, clean-shaven, muscular defender build, olive skin tone, serious expression | Colores oficiales |
+| **Moha Ali-Hit** | Celebración de gol | Short dark hair, clean-shaven, compact athletic build, olive skin tone, energetic expression | Colores oficiales |
+| **Hussein Ali-Side** | Celebración de gol | Short dark hair, clean-shaven, agile winger build, olive skin tone, intense expression | Colores oficiales |
+| **Saad Natiq-Iron** | Sprint por banda | Short dark hair, clean-shaven, robust muscular build, olive skin tone, focused expression | Colores oficiales |
+| **Amir Al-Ammari-Hub** | Postura de pase | Short dark hair, clean-shaven, technical athletic build, olive skin tone, calm expression | Colores oficiales |
+| **Ibrahim Bay-Drive** | Postura de pase | Short dark hair, clean-shaven, dynamic athletic build, olive skin tone, energetic expression | Colores oficiales |
+| **Youssef Amyn-Flash** | Sprint por banda | Short dark hair, clean-shaven, strong centre-back build, olive skin tone, focused expression | Colores oficiales |
+
+### 🇮🇷 IRÁN (Team Melli)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Mehdi Tare-Goal** | Celebración de gol | Short dark hair, well-groomed beard, tall athletic build, olive skin tone, intense expression | Blanco / Rojo |
+| **Sardar Azm-Air** | Celebración de gol | Short dark hair, trimmed beard, tall strong build, fair olive skin tone, determined expression | Blanco / Rojo |
+| **Alireza Jahan-Flash** | Celebración de gol | Short dark hair, clean-shaven, agile slim build, olive skin tone, energetic expression | Blanco / Rojo |
+| **Alireza Beir-Vault** | Parada de reflejos | Short dark hair, full beard, very tall broad build, olive skin tone, focused expression | Blanco / Rojo |
+| **Shoja Khalil-Wall** | Sprint por banda | Short dark hair, clean-shaven, muscular stocky build, olive skin tone, stern expression | Blanco / Rojo |
+| **Milad Mohamm-Rail** | Sprint por banda | Short dark hair, clean-shaven, lean athletic build, olive skin tone, alert expression | Blanco / Rojo |
+| **Ramin Reza-Bolt** | Sprint por banda | Short dark hair, trimmed beard, athletic sturdy build, olive skin tone, composed expression | Blanco / Rojo |
+| **Saeid Ezat-Base** | Postura de pase | Short dark hair, clean-shaven, tall athletic build, olive skin tone, intense expression | Blanco / Rojo |
+| **Saman Ghod-Art** | Postura de pase | Short dark hair, clean-shaven, slim athletic build, olive skin tone, focused expression | Blanco / Rojo |
+| **Ali Gholi-Silk** | Celebración de gol | Short dark hair, clean-shaven, agile lean build, olive skin tone, sharp expression | Blanco / Rojo |
+| **Morteza Pour-Iron** | Sprint por banda | Short dark hair, well-groomed beard, tall muscular build, olive skin tone, focused expression | Blanco / Rojo |
+
+### 🇯🇵 JAPÓN (The Samurai Blue)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Wataru En-Pivot** | Intercepción | Short dark hair styled neatly, clean-shaven, tenacious athletic build, tanned Asian skin tone. | Azul Samurai |
+| **Take Kubo-Jewel** | Regate técnico | Textured dark hair with clean sides, clean-shaven, lean technical build, light-tanned Asian skin tone. | Azul Samurai |
+| **Kaoru Mitoma-Dribble** | Dribbling pausado | Short dark hair styled naturally, clean-shaven, lean agile build, tanned Asian skin tone. | Azul Samurai |
+| **Junya Ito-Volt** | Carrera eléctrica | Short dark hair with blonde highlights, clean-shaven, lean athletic winger build, tanned skin tone, dynamic expression | Azul Samurai |
+| **Ko Itakura-Stone** | Mando defensivo | Short dark hair with clean fade, clean-shaven, tall strong centre-back build, tanned skin tone, focused expression | Azul Samurai |
+| **Takehiro Tomi-Shield** | Bloqueo férreo | Short dark hair with clean-cut fade, clean-shaven, strong disciplined centre-back build, light skin tone, focused expression | Azul Samurai |
+| **Zion Suzuki-Reflex** | Parada de puños | Short dark hair with sharp fade, clean-shaven, tall athletic goalkeeper build, mixed skin tone, focused expression | Negro (GK) |
+| **Hidemasa Mori-Brain** | Pase estratégico | Short dark hair with textured styling, clean-shaven, hardworking athletic midfield build, tanned skin tone, professional expression | Azul Samurai |
+| **Ritsu Doan-Bang** | Disparo potente | Short dark hair with sharp fade, clean-shaven, agile technical winger build, light skin tone, focused expression | Azul Samurai |
+| **Kyogo Furu-Sprint** | Desmarque rápido | Short dark hair with textured styling, clean-shaven, small agile fast forward build, tanned skin tone, goal-oriented gaze | Azul Samurai |
+| **Ayase Ueda-Target** | Cabezazo gol | Short dark hair with clean fade, clean-shaven, clinical athletic forward build, tanned skin tone, determined gaze | Azul Samurai |
+
+### 🇯🇴 JORDANIA (The Chivalrous)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Musa Al-Taam-Flash** | Celebración de gol | Short styled black hair, clean-shaven, lean athletic build, olive skin tone, sharp focused look | Colores oficiales |
+| **Yazeed Abul-Wall** | Parada de reflejos | Short trimmed black hair, clean-shaven, tall broad build, olive skin tone, alert gaze | Verde Neón (GK) |
+| **Ihsan Hadda-Leader** | Sprint por banda | Short dark hair, well-groomed beard, strong muscular build, olive skin tone, leadership expression | Colores oficiales |
+| **Ali Olwa-Strike** | Celebración de gol | Short thick black hair, clean-shaven, athletic forward build, olive skin tone, intense expression | Colores oficiales |
+| **Yazan Al-Ara-Safe** | Sprint por banda | Short dark hair, well-groomed beard, tall athletic build, olive skin tone, composed expression, strong muscular frame | Colores oficiales |
+| **Noor Al-Rawa-Flow** | Postura de pase | Short dark hair, clean-shaven, energetic athletic build, olive skin tone, alert focused expression | Colores oficiales |
+| **Rajaei Aye-Swap** | Postura de pase | Short dark hair, clean-shaven, disciplined athletic build, olive skin tone, composed expression | Colores oficiales |
+| **Mahmoud Al-Mar-Limit** | Postura de pase | Short dark hair, clean-shaven, technical athletic build, olive skin tone, intelligent expression | Colores oficiales |
+| **Baha'a Fais-Sprint** | Sprint por banda | Short dark hair, clean-shaven, solid muscular build, olive skin tone, focused competitive expression | Colores oficiales |
+| **Aws Khasa-Logic** | Sprint por banda | Short dark hair, clean-shaven, solid muscular build, olive skin tone, focused defensive expression | Colores oficiales |
+| **Ahmad Nasse-Run** | Celebración de gol | Short dark hair, clean-shaven, quick athletic build, olive skin tone, dynamic alert expression | Colores oficiales |
+
+### 🇲🇦 MARRUECOS (The Atlas Lions)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Achraf Hakimi-Rocket** | Señalando grada | Very short buzzed dark hair with sharp fade, clean-shaven, explosive muscular build, olive skin tone. | Rojo / Verde |
+| **Yassine Bounou-Safe** | Parada de reflejos | Short dark hair with clean fade, light stubble, tall commanding build, olive skin tone. | Amarillo (GK) |
+| **Hakim Ziyech-Magic** | Centro con rosca | Short dark hair with precision fade, well-groomed light beard, athletic build, olive skin tone. | Rojo / Verde |
+| **Sofyan Amra-Base** | Intercepción dura | Short dark hair or shaved head, clean-shaven, strong athletic build, olive skin tone. | Rojo / Verde |
+| **Brahim Diaz-Silk** | Regate corto | Short dark hair textured upward, clean-shaven, lean technical build, light-tanned skin tone. | Rojo / Verde |
+| **Nayef Aguerd-Peak** | Cabezazo defensa | Short dark hair with clean fade, clean-shaven, tall strong build, olive skin tone. | Rojo / Verde |
+| **Romain Saiss-Chief** | Mando defensivo | Short dark hair styled classically, well-groomed beard, solid muscular build, olive skin tone. | Rojo / Verde |
+| **Azzedine Ouna-Drift** | Conducción elegante | Short dark hair with natural texture, clean-shaven, lean agile build, olive skin tone. | Rojo / Verde |
+| **Youssef En-Air** | Salto masivo | Short dark hair, clean-shaven, tall powerful build, olive skin tone. | Rojo / Verde |
+| **Noussair Mazra-Side** | Pase lateral | Short dark hair with sharp fade, clean-shaven, fast technical build, olive skin tone. | Rojo / Verde |
+| **Amine Adli-Fly** | Sprint veloz | Short dark hair with texture, clean-shaven, fast agile build, olive skin tone. | Rojo / Verde |
+
+### 🇲🇽 MÉXICO (The Tricolor)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Memo Vault-choa** | Parada legendaria | Short dark hair, clean-shaven, tall athletic build, tanned skin tone, focused expression | Verde / Blanco |
+| **Santiago Gim-Shot** | Grito de gol | Short dark hair, clean-shaven, tall athletic build, tanned skin tone, intense expression | Verde / Blanco |
+| **Edson Alva-Mach** | Mando defensivo | Short dark hair with fade, clean-shaven, powerful athletic build, tanned skin tone, commanding expression | Verde / Blanco |
+| **Chucky Lozan-Bolt** | Carrera eléctrica | Short dark hair with high fade, clean-shaven, explosive athletic build, tanned skin tone, dynamic expression | Verde / Blanco |
+| **Luis Chavez-Bomb** | Disparo de falta | Short dark hair, clean-shaven, athletic build, tanned skin tone, focused expression | Verde / Blanco |
+| **Johan Vasquez-Rock** | Intercepción | Short dark hair, clean-shaven, strong muscular build, tanned skin tone, focused expression | Verde / Blanco |
+| **Cesar Montes-Tower** | Cabezazo defensa | Short dark hair, well-groomed beard, tall athletic build, tan skin tone, intense expression | Verde / Blanco |
+| **Jorge Sanchez-Rail** | Sprint por banda | Short dark hair, clean-shaven, agile athletic build, tan skin tone, focused expression | Verde / Blanco |
+| **Gerardo Artea-Edge** | Centro al área | Short dark hair, clean-shaven, athletic build, tan skin tone, energetic expression | Verde / Blanco |
+| **Orbelin Pine-Mag** | Festejo baile | Short dark hair, light stubble, compact athletic build, tan skin tone, focused expression | Verde / Blanco |
+| **Luis Romo-Fix** | Pase estratégico | Short dark afro, clean-shaven, athletic build, dark skin tone, dynamic expression | Verde / Blanco |
+
+### 🇳🇴 NORUEGA (Lions)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Erling Haal-Hard** | Celebración de gol | Blonde hair in tight top knot with shaved sides, clean-shaven, powerful muscular build, fair skin tone, intense focused gaze | Rojo / Azul |
+| **Martin Ode-Gate** | Postura de pase | Medium dark blonde hair, light stubble, athletic build, fair skin tone, calm intelligent expression, sleeve tattoos on arms | Rojo / Azul |
+| **Alexander Sor-Lotto** | Celebración de gol | Short dark hair, clean-shaven, tall powerful build, fair skin tone, determined expression | Rojo / Azul |
+| **Sander Bear-ge** | Postura de pase | Short dark hair, light beard, tall athletic build, fair skin tone, composed expression | Rojo / Azul |
+| **Kristoffer Arbit-Ajer** | Sprint por banda | Short light brown hair, clean-shaven, tall strong build, fair skin tone, focused expression | Rojo / Azul |
+| **Oscar Bobb-Slippage** | Postura de pase | Short dark hair with fade, clean-shaven, agile athletic build, mixed skin tone, creative expression | Rojo / Azul |
+| **Orjan Ny-Land** | Parada de reflejos | Short dark hair, light beard, tall athletic build, fair skin tone, focused expression | Rojo / Azul |
+| **Julian Rye-Run** | Sprint por banda | Short dark hair with fade, clean-shaven, strong athletic build, fair skin tone, intense expression | Rojo / Azul |
+| **David Wolfe-Pack** | Sprint por banda | Short blonde hair, clean-shaven, solid athletic build, fair skin tone, composed expression | Rojo / Azul |
+| **Antonio Nu-Satoshi** | Celebración de gol | Short dark hair with high fade, clean-shaven, athletic build, dark skin tone, dynamic expression | Rojo / Azul |
+| **Leo Osti-Gas** | Sprint por banda | Short dark hair, light stubble, muscular build, fair skin tone, composed expression | Rojo / Azul |
+
+### 🇳🇿 N. ZELANDA (All Whites)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Chris Wood-Tower** | Celebración de gol | Short dark hair, well-groomed beard, tall powerful build, fair skin tone, experienced expression | Colores oficiales |
+| **Liberato Cac-Flow** | Sprint por banda | Short dark hair, clean shaven, strong muscular build, fair skin tone, dynamic expression | Colores oficiales |
+| **Sarpreet Sin-Skill** | Postura de pase | Short dark hair, clean shaven, athletic build, olive-fair skin tone, focused expression | Colores oficiales |
+| **Joe Bell-Base** | Postura de pase | Short dark hair, clean shaven, athletic build, fair skin tone, energetic expression | Colores oficiales |
+| **Alex Paulsen-Reflex** | Parada de reflejos | Short dark hair, clean shaven, tall athletic build, fair skin tone, focused expression | Verde Neón (GK) |
+| **Michael Boxall-Iron** | Sprint por banda | Short dark hair, clean shaven, tall strong muscular build, fair skin tone, commanding expression | Colores oficiales |
+| **Nando Pijnaker-Wall** | Sprint por banda | Short dark hair, clean shaven, tall strong muscular build, fair skin tone, focused expression | Colores oficiales |
+| **Matt Garbett-Drive** | Postura de pase | Short dark brown hair neatly trimmed, clean-shaven, lean athletic build, fair skin tone, energetic expression | Colores oficiales |
+| **Ben Waine-Flash** | Celebración de gol | Short dark hair with fade, clean-shaven, tall athletic build, fair skin tone, dynamic expression | Colores oficiales |
+| **Kosta Barbar-Fast** | Celebración de gol | Short dark hair, clean-shaven, compact muscular build, olive skin tone, focused expression | Colores oficiales |
+| **Tyler Bindon-Rise** | Sprint por banda | Short dark hair, clean-shaven, strong muscular build, fair skin tone, intense expression | Colores oficiales |
+
+### 🇵🇦 PANAMÁ (Los Canaleros)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Adal Carras-Wall** | Postura de pase | Short dark hair, clean-shaven, athletic build, dark-tanned skin, focused expression | Colores oficiales |
+| **Coco Carras-Link** | Celebración de gol | Short dark afro, clean-shaven, athletic build, dark skin tone, dynamic expression | Colores oficiales |
+| **Ismael Diaz-Goal** | Celebración de gol | Short dark hair, clean-shaven, agile athletic build, dark skin tone, dynamic expression | Colores oficiales |
+| **Orlando Mosq-Save** | Parada de reflejos | Short dark hair, clean-shaven, tall athletic build, dark-tanned skin, focused expression | Verde Neón (GK) |
+| **Michael Am-Hit** | Sprint por banda | Short dark hair, clean-shaven, agile muscular build, dark-tanned skin, dynamic expression | Colores oficiales |
+| **Jose Cordoba-Iron** | Sprint por banda | Short dark hair, clean-shaven, strong muscular build, dark-tanned skin, focused expression | Colores oficiales |
+| **Edgardo Far-Rail** | Sprint por banda | Short black hair, clean-shaven, athletic muscular build, dark tanned skin tone, focused expression | Colores oficiales |
+| **Eric Davis-Cross** | Centro con rosca | Short black hair, trimmed beard, tall commanding build, dark tanned skin tone, serious expression | Rojo / Blanco |
+| **Anibal God-Cap** | Postura de pase | Short black hair, clean-shaven, compact athletic build, dark tanned skin tone, determined expression | Colores oficiales |
+| **Jose Rodri-Silk** | Postura de pase | Short black hair, clean-shaven, lean athletic build, dark tanned skin tone, concentrated expression | Colores oficiales |
+| **Jose Fajardo-Tank** | Celebración de gol | Short black hair, clean-shaven, agile lean build, dark tanned skin tone, dynamic expression | Colores oficiales |
+
+### 🇵🇾 PARAGUAY (The Albirroja)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Julio Enciso-Moon** | Postura de pase | Short dark hair, clean-shaven, athletic build, fair-tanned skin, dynamic expression | Rojo / Blanco |
+| **Miguel Almi-Bolt** | Celebración de gol | Short dark hair with fade, clean-shaven, athletic build, fair-tanned skin, dynamic expression | Rojo / Blanco |
+| **Gustavo Gomez-Cap** | Sprint por banda | Short dark hair, well-groomed beard, muscular athletic build, fair-tanned skin, leadership expression | Rojo / Blanco |
+| **Omar Alder-Iron** | Sprint por banda | Short dark hair, clean-shaven, muscular athletic build, fair-tanned skin, focused expression | Rojo / Blanco |
+| **Gatito Fern-Save** | Parada de reflejos | Short dark hair, light stubble, tall athletic build, fair-tanned skin, focused expression | Rojo / Blanco |
+| **Fabian Balbu-Base** | Sprint por banda | Short dark hair, well-groomed beard, muscular athletic build, fair-tanned skin, focused expression | Rojo / Blanco |
+| **Mathias Villa-Core** | Postura de pase | Short dark hair, clean-shaven, athletic build, fair-tanned skin, focused expression | Rojo / Blanco |
+| **Diego Gomez-Rise** | Postura de pase | Short straight black hair, clean-shaven, lean athletic build, olive skin tone, focused expression | Rojo / Blanco |
+| **Ramon Sosa-Wing** | Celebración de gol | Short dark hair with slight wave, clean-shaven, agile slim build, dark tan skin tone, dynamic expression | Rojo / Blanco |
+| **Adam Bareiro-Tank** | Celebración de gol | Short cropped black hair, clean-shaven, muscular striker build, fair tan skin tone, determined expression | Rojo / Blanco |
+| **Junior Alonso-Slide** | Sprint por banda | Short dark hair, clean-shaven, strong muscular build, olive skin tone, focused expression | Rojo / Blanco |
+
+### 🇳🇱 PAÍSES BAJOS (The Oranje)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Virgil Van-Hash** | Gesto de mando | Short dark hair, well-groomed beard, tall muscular build, dark skin tone, commanding expression | Naranja |
+| **Frenkie De-Stream** | Giro técnico | Naturally curly light brown hair, clean-shaven, tall elegant build, fair skin tone, composed expression, arm tattoos | Naranja |
+| **Xavi Simon-Web3** | Regate rápido | Curly brown hair, clean-shaven, athletic build, fair skin tone, energetic expression | Naranja |
+| **Memphis Depay-Raw** | Dedos en oídos | Short dark hair with fade, light beard, muscular athletic build, mixed skin tone, confident expression, arm tattoos | Naranja |
+| **Cody Gakpo-Scan** | Disparo cruzado | Short dark hair, clean-shaven, tall athletic build, mixed skin tone, focused expression | Naranja |
+| **Nathan Ake-Lock** | Cabezazo defensa | Short dark hair in twists, clean-shaven, strong muscular build, dark skin tone, intense expression | Naranja |
+| **Denzel Dum-Push** | Sprint potencia | Short dark hair with sharp fade, clean-shaven, powerful athletic build, dark skin tone, focused expression | Naranja |
+| **Bart Verbru-Secure** | Parada estirada | Short blonde hair, clean-shaven, tall agile build, fair skin tone, focused expression | Verde (GK) |
+| **Matthijs De-Ligt-Root** | Intercepción | Short blonde hair, clean-shaven, strong muscular build, fair skin tone, intense expression | Naranja |
+| **Jeremie Frim-Sprint** | Carrera veloz | Short black hair with sharp fade, clean-shaven, explosive athletic build, dark skin tone, dynamic expression | Naranja |
+| **Teun Koop-Core** | Pase estratégico | Short blonde hair, clean-shaven, strong athletic build, fair skin tone, tactical expression | Naranja |
+
+### 🇵🇹 PORTUGAL (The Navigators)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Cristiano Siu-toshi** | Salto SIUUU | Short dark hair in modern side-swept crop, clean shaven, highly defined chiseled physique, olive skin tone, confident expression | Rojo / Verde |
+| **Bruno Bit-Fernandes** | Pase filtrado | Short dark hair, light well-kept beard, athletic build, fair-tanned skin, passionate expression, modern arm tattoos | Rojo / Verde |
+| **Bernardo Loop** | Dribbling técnico | Short dark hair, clean shaven, compact athletic build, tanned skin, intelligent expression, modern sleeve tattoos | Rojo / Verde |
+| **Rafael Leao-Dash** | Carrera potente | Very short dark buzzcut, clean shaven, tall explosive athletic build, deep dark skin tone, dynamic expression | Rojo / Verde |
+| **Ruben Dias-Base** | Mando defensivo | Short dark buzzcut, clean shaven, strong muscular build, tanned skin, leadership expression, visible right arm tattoo | Rojo / Verde |
+| **Joao Joao-Link** | Centro al área | Completely shaven head, well-groomed short beard, athletic build, dark skin tone, composed expression | Rojo / Verde |
+| **Diogo Costa-Gate** | Parada estirada | Short dark hair classically styled, clean shaven, tall agile athletic build, fair skin tone, focused expression | Negro (GK) |
+| **Goncalo Inacio-Array** | Salida de balón | Short dark hair with clean fade, clean shaven, tall strong muscular build, fair skin tone, focused expression | Rojo / Verde |
+| **Nuno Mendes-Flow** | Sprint por banda | Short dark hair with sharp fade, clean shaven, fast agile athletic build, dark skin tone, dynamic expression | Rojo / Verde |
+| **Vitinha-Cycle** | Distribución | Short textured dark hair, clean-shaven, slim athletic build, olive skin tone, focused expression | Rojo / Verde |
+| **Joao Neves-Seed** | Intercepción | Short dark hair, clean-shaven, agile athletic build, fair skin tone, determined expression | Rojo / Verde |
+
+### 🇶🇦 QATAR (The Maroons)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Akram Afif-Magic** | Celebración de gol | Short dark hair, well-groomed beard, agile creative build, olive skin tone, dynamic expression | Colores oficiales |
+| **Almoez Ali-Goal** | Celebración de gol | Short dark hair, well-groomed beard, athletic forward build, olive skin tone, determined expression | Colores oficiales |
+| **Meshaal Barsh-Save** | Parada de reflejos | Short dark hair, clean-shaven, tall commanding build, olive skin tone, focused expression | Verde Neón (GK) |
+| **Hassan Al-Hay-Chief** | Celebración de gol | Short dark hair, well-groomed beard, athletic build, olive skin tone, composed expression | Colores oficiales |
+| **Lucas Mendes-Block** | Sprint por banda | Short dark hair, well-groomed beard, strong muscular build, olive-dark skin tone, focused expression | Colores oficiales |
+| **Pedro Miguel-Rail** | Sprint por banda | Short dark hair, clean shaven, strong muscular build, olive-dark skin tone, focused expression | Colores oficiales |
+| **Boualem Khou-Wall** | Sprint por banda | Short dark hair, well-groomed beard, strong muscular build, olive skin tone, commanding expression | Colores oficiales |
+| **Jassem Gaber-Link** | Postura de pase | Short dark hair, clean shaven, athletic build, olive skin tone, energetic expression | Colores oficiales |
+| **Ahmed Fathi-Base** | Sprint por banda | Short dark hair, well-groomed beard, strong muscular build, olive skin tone, experienced expression | Colores oficiales |
+| **Yusuf Abdur-Flash** | Celebración de gol | Short dark hair, clean shaven, athletic build, olive skin tone, dynamic expression | Colores oficiales |
+| **Bassam Al-Rawi-Shot** | Sprint por banda | Short dark hair, clean shaven, strong muscular build, olive skin tone, focused expression | Colores oficiales |
+
+### 🇨🇿 REPÚBLICA CHECA (The Narodny Tym)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Tomas Sou-Check** | Postura de pase | Short dark hair, clean-shaven, tall powerful build, fair skin tone, intense gaze | Colores oficiales |
+| **Patrik Slick-Schick** | Celebración de gol | Short dark hair, light stubble, elegant athletic build, fair skin tone, sharp expression | Colores oficiales |
+| **Matej Kova-Stake** | Parada de reflejos | Short dark hair, clean-shaven, tall goalkeeper build, fair skin tone, calm focused expression | Verde Neón (GK) |
+| **Adam Hlo-zk** | Postura de pase | Short dark hair, clean-shaven, tall agile build, fair skin tone, creative expression | Colores oficiales |
+| **Ladislav Krej-Crypto** | Sprint por banda | Short dark hair with fade, clean-shaven, solid muscular build, fair skin tone, composed expression | Colores oficiales |
+| **Vladimir Cou-Fees** | Sprint por banda | Short dark hair, light beard, athletic muscular build, fair skin tone, focused determined expression | Colores oficiales |
+| **Robin Hran-Halving** | Sprint por banda | Short dark hair with fade, clean shaven, strong muscular build, fair skin tone, commanding expression | Colores oficiales |
+| **Pavel Sulc-Swap** | Postura de pase | Short dark hair, clean shaven, athletic build, fair skin tone, creative alert expression | Colores oficiales |
+| **Michal Sadi-Ledger** | Postura de pase | Short dark hair, clean shaven, athletic build, fair skin tone, composed expression | Colores oficiales |
+| **David Zi-Mining** | Sprint por banda | Short dark hair, clean shaven, tall muscular build, fair skin tone, focused determined expression | Colores oficiales |
+| **Lukas Pro-Vault** | Postura de pase | Short dark hair, clean shaven, athletic build, fair skin tone, dynamic alert expression | Colores oficiales |
+
+### 🇸🇳 SENEGAL (The Lions of Teranga)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Kalidou Kouli-Rock** | Mando defensivo | Short dark hair, clean-shaven, commanding powerful centre-back build, dark skin tone, legendary expression | Blanco / Verde |
+| **Sadio Mane-Jet** | Carrera explosiva | Short dark hair with fade, clean-shaven, compact explosive forward build, dark skin tone, charismatic fierce expression, sleeve tattoos | Blanco / Verde |
+| **Edouard Mendy-Stop** | Parada segura | Short dark hair, clean-shaven, very tall commanding goalkeeper build, dark skin tone, focused expression | Amarillo (GK) |
+| **Idrissa Gueye-Sweep** | Intercepción | Short dark hair, clean-shaven, energetic defensive midfield build, dark skin tone, intense focused expression | Blanco / Verde |
+| **Ismaila Sarr-Zoom** | Sprint por banda | Short dark hair, clean-shaven, tall athletic winger build, dark skin tone, dynamic expression | Blanco / Verde |
+| **Nicolas Jack-Hit** | Definición gol | Short dark afro fade, clean-shaven, tall energetic striker build, dark skin tone, fierce competitive expression, sleeve tattoos | Blanco / Verde |
+| **Pape Sarr-Flow** | Conducción balón | Short dark hair, clean-shaven, dynamic box-to-box midfield build, dark skin tone, focused expression | Blanco / Verde |
+| **Niakhate-Wall** | Cabezazo defensa | Short black hair, well-groomed beard, tall commanding build, dark skin tone, focused expression, strong muscular frame | Blanco / Verde |
+| **Abdou Diallo-Guard** | Salida con balón | Short black hair, clean-shaven, versatile athletic build, dark skin tone, focused expression, strong muscular frame | Blanco / Verde |
+| **Youssouf Sabaly-Rail** | Centro al área | Short black hair, clean-shaven, agile lean build, dark skin tone, focused expression, strong muscular frame | Blanco / Verde |
+| **Boulaye Dia-Poach** | Giro en el área | Short black hair, clean-shaven, agile pacy build, dark skin tone, dynamic expression, athletic frame | Blanco / Verde |
 
 ### 🇿🇦 SUDÁFRICA (Bafana Bafana)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Percy Tau-Jet** | Regate rápido | Pequeño, pelo muy corto, veloz. | Amarillo / Verde |
-| **Themba Zwa-Brain** | Pase técnico | Pelo corto, creativo, veterano. | Amarillo / Verde |
-| **Teboho Moko-Bomb** | Disparo de falta | Pelo corto, potente, técnico. | Amarillo / Verde |
-| **Mothobi Mva-Wall** | Intercepción | Pelo corto, físico fuerte. | Amarillo / Verde |
-| **Ron Williams-Hands** | Parada de penalti | Pelo corto, mirada calma, ágil. | Gris (GK) |
-| **Aubrey Modi-Rail** | Sprint por banda | Pelo corto, dinámico. | Amarillo / Verde |
-| **Grant Keka-Base** | Mando defensivo | Pelo corto, serio, sólido. | Amarillo / Verde |
-| **Sphephelo-Pivot** | Recuperación | Pelo corto, físico fuerte. | Amarillo / Verde |
-| **Evid Makgo-Target** | Festejo gol | Pelo corto, muy alto, potente. | Amarillo / Verde |
-| **Thap Morena-Bolt** | Carrera veloz | Pelo corto, muy rápido. | Amarillo / Verde |
-| **Khul Mudau-Side** | Sprint lateral | Pelo corto, intenso. | Amarillo / Verde |
+| **Percy Tau-Lion** | Celebración de gol | Short curly black hair, clean-shaven, slim athletic build, dark skin tone, intense expression | Colores oficiales |
+| **Ronwen Will-Safe** | Parada de reflejos | Short cropped black hair, clean-shaven, tall commanding build, dark skin tone, focused gaze | Verde Neón (GK) |
+| **Teboho Mo-Pivot** | Postura de pase | Short faded black hair, clean-shaven, muscular athletic build, dark skin tone, energetic expression | Colores oficiales |
+| **Themba Zwane-Magic** | Celebración de gol | Short textured black hair, clean-shaven, lean agile build, dark skin tone, sharp expression | Colores oficiales |
+| **Khuliso Mudau-Rail** | Sprint por banda | Short neat black hair, clean-shaven, strong muscular build, dark skin tone, determined gaze | Colores oficiales |
+| **Mothobi Mva-Iron** | Sprint por banda | Short cropped black hair, clean-shaven, powerful stocky build, dark skin tone, intense expression | Colores oficiales |
+| **Grant Kekana-Wall** | Sprint por banda | Short straight black hair, clean-shaven, tall solid build, dark skin tone, calm focused look | Colores oficiales |
+| **Aubrey Modiba-Flow** | Postura de pase | Short wavy black hair, clean-shaven, lean athletic build, dark skin tone, quick expression | Colores oficiales |
+| **Evidence Mak-Hit** | Celebración de gol | Short tight black hair, clean-shaven, tall powerful build, dark skin tone, resolute gaze | Colores oficiales |
+| **Sphephelo Si-Motor** | Postura de pase | Short dense black hair, clean-shaven, compact muscular build, dark skin tone, alert expression | Colores oficiales |
+| **Thapelo More-Flash** | Sprint por banda | Short faded black hair, clean-shaven, agile strong build, dark skin tone, dynamic expression | Colores oficiales |
 
-### 🇲🇱 MALI (The Eagles)
+### 🇸🇪 SUECIA (Blågult)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Yves Bis-Core** | Conducción balón | Pelo corto, elegante, fuerte. | Blanco / Amarillo |
-| **Amadou Haid-Link** | Distribución | Pelo corto, dinámico. | Blanco / Amarillo |
-| **Hamari Tra-Cap** | Sprint por banda | Pelo corto, rápido, líder. | Blanco / Amarillo |
-| **Falaye Sac-Side** | Intercepción | Pelo corto, versátil. | Blanco / Amarillo |
-| **Djigui Diar-Hands** | Parada segura | Pelo corto, atlético. | Negro (GK) |
-| **Bouba Kouy-Wall** | Cabezazo defensa | Pelo corto, alto and fuerte. | Blanco / Amarillo |
-| **Sikou Niak-Base** | Orden defensivo | Pelo corto, joven, sólido. | Blanco / Amarillo |
-| **Lassine Sin-Fast** | Regate veloz | Pelo corto, ágil. | Blanco / Amarillo |
-| **Kamory Doum-Play** | Pase técnico | Pequeño, pelo corto, creativo. | Blanco / Amarillo |
-| **Nene Dorg-Kid** | Carrera eléctrica | Joven, veloz, pelo corto. | Blanco / Amarillo |
-| **Diadie Sama-Hold** | Recuperación | Pelo corto, experimentado. | Blanco / Amarillo |
+| **Alexander I-Satoshi** | Celebración de gol | Short dark afro fade, clean shaven, tall athletic build, dark skin tone, sharp expression, sleeve tattoos on arms | Colores oficiales |
+| **Viktor Gyo-Genesis** | Celebración de gol | Short blonde hair, light stubble, powerful muscular build, fair skin tone, intense focused expression | Colores oficiales |
+| **Anthony E-Liquidation** | Celebración de gol | Short dark hair with fade, clean shaven, athletic build, dark skin tone, dynamic expression | Colores oficiales |
+| **Dejan Kulu-Slippage** | Postura de pase | Short blonde hair, light stubble, athletic build, fair skin tone, creative expression, sleeve tattoos on arms | Colores oficiales |
+| **Yasin Aya-Run** | Postura de pase | Short dark hair, clean shaven, athletic build, olive skin tone, alert competitive expression | Colores oficiales |
+| **Lucas Berg-Bull** | Postura de pase | Short blonde hair, clean shaven, athletic build, fair skin tone, composed expression, sleeve tattoos on arms | Colores oficiales |
+| **Robin Ol-Stake** | Parada de reflejos | Short dark hair, well-groomed beard, tall commanding build, fair skin tone, focused leadership gaze | Verde Neón (GK) |
+| **Isak Hien-Yield** | Sprint por banda | Short dark hair, clean shaven, strong muscular build, dark skin tone, focused defensive expression | Colores oficiales |
+| **Emil Kraft-Mint** | Sprint por banda | Short dark hair, clean shaven, strong muscular build, fair skin tone, determined competitive expression | Colores oficiales |
+| **Mattias Svan-Bear** | Postura de pase | Short dark hair, clean-shaven, strong athletic build, fair skin tone, composed expression. | Colores oficiales |
+| **Jesper Karls-Swap** | Celebración de gol | Short blonde hair, clean-shaven, agile athletic build, fair skin tone, focused expression. | Colores oficiales |
 
-### 🇧🇫 BURKINA FASO (The Stallions)
+### 🇨🇭 SUIZA (The Nati)
 | Jugador | Pose | Descripción Física | Colores Kit |
 | :--- | :--- | :--- | :--- |
-| **Edm Tapsoba-Wall** | Salida de balón | Pelo corto, alto, elegante. | Blanco / Verde |
-| **Bert Traore-Silk** | Regate de rosca | Pelo corto, zurdo muy técnico. | Blanco / Verde |
-| **Issa Kabore-Bolt** | Sprint por banda | Pelo corto, extremadamente rápido. | Blanco / Verde |
-| **Blati Tour-Mind** | Mando en medio | Pelo corto, dinámico. | Blanco / Verde |
-| **Herve Koffi-Hands** | Parada felina | Pelo corto, muy ágil, reflejos. | Amarillo (GK) |
-| **Issouf Dayo-Base** | Cabezazo defensa | Barba, pelo corto, imponente. | Blanco / Verde |
-| **Steeve Yago-Hard** | Entrada dura | Pelo corto, veterano serio. | Blanco / Verde |
-| **Dango Ouatt-Flash** | Carrera explosiva | Pelo corto, muy veloz. | Blanco / Verde |
-| **Lass Traore-Goal** | Definición gol | Pelo corto, fuerte, delantero. | Blanco / Verde |
-| **Cedric Bad-Touch** | Pase técnico | Pelo corto, habilidoso. | Blanco / Verde |
-| **Mady Bangre-Skill** | Regate corto | Pelo corto, ágil. | Blanco / Verde |
+| **Granit Xha-Firm** | Mirada desafiante | Short dark hair with fade, well-groomed beard, athletic build with sleeve tattoos, fair skin tone, intense expression | Rojo / Blanco |
+| **Yann Sommer-Lock** | Parada de reflejos | Short dark hair, clean-shaven, tall athletic build, fair skin tone, focused expression | Amarillo (GK) |
+| **Manuel Akanji-Hub** | Mando defensivo | Short dark hair in fade style, clean-shaven, tall powerful build, dark skin tone, composed expression | Rojo / Blanco |
+| **Xherdan Sha-Zoom** | Disparo de rosca | Short dark hair, light beard, stocky athletic build, fair skin tone, experienced expression | Rojo / Blanco |
+| **Breel Embolo-Rush** | Carrera de potencia | Short dark afro fade, clean-shaven, tall powerful build, dark skin tone, determined expression | Rojo / Blanco |
+| **Remo Freuler-Link** | Intercepción | Short dark hair, clean-shaven, athletic midfield build, fair skin tone, competitive expression | Rojo / Blanco |
+| **Denis Zakaria-Range** | Conducción larga | Short dark afro, clean-shaven, tall athletic build, dark skin tone, dynamic expression | Rojo / Blanco |
+| **Ricardo Rodri-Wrap** | Centro al área | Short dark hair, clean-shaven, athletic defender build, fair skin tone, composed expression | Rojo / Blanco |
+| **Fabian Schar-Guard** | Cabezazo defensa | Short dark hair, clean-shaven, strong muscular build, fair skin tone, focused expression | Rojo / Blanco |
+| **Ruben Vargas-Slide** | Regate en banda | Short dark afro, clean-shaven, athletic striker build, dark skin tone, determined expression | Rojo / Blanco |
+| **Silvan Widmer-Wing** | Sprint por banda | Short dark hair, well-groomed beard, athletic defender build, fair skin tone, focused expression | Rojo / Blanco |
+
+### 🇹🇷 TURQUÍA (The Crescent-Stars)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Hakan Calha-Curve** | Disparo lejano | Short dark hair, clean-shaven, elegant athletic build, olive skin tone, commanding expression. | Rojo / Blanco |
+| **Arda Gu-Star** | Beso al escudo | Short dark hair, clean-shaven, agile build, olive skin tone, intense expression, sleeve tattoos on arms. | Rojo / Blanco |
+| **Kenan Yil-Gift** | Festejo de lengua | Short dark hair, clean-shaven, tall athletic build, olive skin tone, dynamic expression. | Rojo / Blanco |
+| **Baris Al-Muscle** | Carrera de potencia | Short dark hair, clean-shaven, agile athletic build, olive skin tone, dynamic expression. | Rojo / Blanco |
+| **Ferdi Kad-Engine** | Sprint por banda | Short dark hair, clean-shaven, agile muscular build, olive skin tone, dynamic expression. | Rojo / Blanco |
+| **Mert Gunok-Post** | Parada de seguridad | Short dark hair, well-groomed beard, tall commanding build, olive skin tone, focused expression. | Verde (GK) |
+| **Abdul Bardak-Stone** | Cabezazo defensa | Short dark hair, clean-shaven, tall muscular build, olive skin tone, focused expression. | Rojo / Blanco |
+| **Samet Akay-Grip** | Intercepción | Short dark hair, well-groomed beard, strong muscular build, olive skin tone, focused expression. | Rojo / Blanco |
+| **Kaan Ayhan-Mind** | Orden defensivo | Short dark hair, clean-shaven, energetic muscular build, olive skin tone, dynamic expression. | Rojo / Blanco |
+| **Orkun Kokcu-Vision** | Pase estratégico | Short dark hair, clean-shaven, elegant athletic build, olive skin tone, creative expression. | Rojo / Blanco |
+| **Kerem Aktur-Sparks** | Sprint por banda | Short dark hair, clean-shaven, agile athletic build, olive skin tone, energetic expression. | Rojo / Blanco |
+
+### 🇹🇳 TÚNEZ (The Eagles of Carthage)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Aissa Laid-Shield** | Postura de pase | Short dark hair, clean-shaven, compact athletic build, olive skin tone, concentrated expression | Colores oficiales |
+| **Hannibal Mejb-Cloud** | Postura de pase | Short black hair, clean-shaven, slender athletic build, olive skin tone, fierce expression | Colores oficiales |
+| **Ellyes Skhiri-Core** | Postura de pase | Short dark hair, neatly trimmed beard, tall muscular build, olive skin tone, authoritative expression | Colores oficiales |
+| **Youssef Msak-Skill** | Celebración de gol | Short dark hair, clean-shaven, agile athletic build, olive skin tone, composed expression | Colores oficiales |
+| **Montassar Tal-Wall** | Sprint por banda | Short dark hair, clean-shaven, tall sturdy build, olive skin tone, vigilant expression | Colores oficiales |
+| **Aymen Dahm-Save** | Parada de reflejos | Short dark hair, trimmed beard, tall athletic build, olive skin tone, attentive expression | Verde Neón (GK) |
+| **Wajdi Kech-Rail** | Sprint lateral | Short dark hair, clean-shaven, lean muscular build, olive skin tone, energetic expression | Rojo / Blanco |
+| **Ali Maaloul-Curve** | Sprint por banda | Short dark hair, clean-shaven, athletic defender build, olive skin tone, focused expression | Colores oficiales |
+| **Moh Ali-Ben-Link** | Postura de pase | Short dark hair, clean-shaven, robust athletic build, olive skin tone, intense expression | Colores oficiales |
+| **Elias Achou-Flash** | Celebración de gol | Short dark hair, clean-shaven, slim agile build, olive skin tone, dynamic expression | Colores oficiales |
+| **Seif Jaziri-Hit** | Celebración de gol | Short dark hair, clean-shaven, tall athletic build, olive skin tone, resolute expression | Colores oficiales |
+
+### 🇺🇾 URUGUAY (La Celeste)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Federico Val-Power** | Postura de pase | Short dark hair styled back, clean-shaven, athletic explosive build, fair skin tone, fierce competitive expression, sleeve tattoos on arms. | Celeste Cielo |
+| **Darwin Nu-Genesis** | Celebración de gol | Short dark hair with high fade, clean-shaven, tall powerful build, dark-tanned skin, fierce expression, sleeve tattoos on arms. | Celeste Cielo |
+| **Ronald Arau-Wall** | Sprint por banda | Short dark hair with clean fade, clean-shaven, powerful muscular build, dark-tanned skin, intense defensive gaze, sleeve tattoos on arms. | Celeste Cielo |
+| **Jose Gime-Shield** | Sprint por banda | Short dark hair styled naturally, light stubble, strong muscular build, tanned skin, focused leadership expression, sleeve tattoos on arms. | Celeste Cielo |
+| **Manuel Ugar-Taker** | Postura de pase | Short dark hair, clean-shaven, aggressive athletic build, tanned skin, intense focused expression, sleeve tattoos on arms. | Celeste Cielo |
+| **Rodrigo Bentan-Logic** | Postura de pase | Short dark hair, well-groomed stubble, tall elegant build, tanned skin, composed intelligent expression, sleeve tattoos on arms. | Celeste Cielo |
+| **Sergio Roch-Secure** | Parada de reflejos | Short dark hair, clean-shaven, tall commanding build, tanned skin, focused intense expression, sleeve tattoos on arms. | Celeste Cielo |
+| **Mathias Olive-Run** | Sprint por banda | Short dark hair with fade, clean-shaven, agile muscular build, tanned skin, dynamic expression, sleeve tattoos on arms. | Celeste Cielo |
+| **Agustin Canob-Boost** | Celebración de gol | Short dark hair with fade, clean-shaven, agile athletic build, tanned skin, creative expression, sleeve tattoos on arms. | Celeste Cielo |
+| **Brian Rodri-Swap** | Celebración de gol | Short dark hair, clean-shaven, agile quick build, dark-tanned skin, dynamic competitive expression, sleeve tattoos on arms. | Celeste Cielo |
+| **Guillermo Vare-Limit** | Sprint por banda | Short dark hair, clean-shaven, strong muscular build, tanned skin, focused determined expression, sleeve tattoos on arms. | Celeste Cielo |
+
+### 🇺🇿 UZBEKISTÁN (White Wolves)
+| Jugador | Pose | Descripción Física | Colores Kit |
+| :--- | :--- | :--- | :--- |
+| **Eldor Shomu-Strike** | Celebración de gol | Short dark hair, clean-shaven, tall powerful build, light Asian skin tone, focused determined expression | Colores oficiales |
+| **Abbosbek Fayzu-Flash** | Postura de pase | Short dark hair, clean-shaven, agile athletic build, light Asian skin tone, dynamic expression | Colores oficiales |
+| **Otkir Yusu-Wall** | Parada de reflejos | Short dark hair, clean-shaven, tall commanding build, light Asian skin tone, focused gaze | Verde Neón (GK) |
+| **Rustam Ashur-Logic** | Sprint por banda | Short dark hair, clean-shaven, strong muscular build, light Asian skin tone, focused expression | Colores oficiales |
+| **Farrukh Sayfi-Safe** | Sprint por banda | Short dark hair, clean-shaven, solid muscular build, light Asian skin tone, competitive expression | Colores oficiales |
+| **Sherzod Nasru-Flow** | Postura de pase | Short dark hair, clean-shaven, technical agile build, light Asian skin tone, creative expression | Colores oficiales |
+| **Dostonbek Kham-Swap** | Celebración de gol | Short dark hair, clean-shaven, agile athletic build, light Asian skin tone, sharp focused expression | Colores oficiales |
+| **Jakhongir Sidi-Limit** | Postura de pase | Short dark hair, clean-shaven, dynamic athletic build, light Asian skin tone, intense expression | Colores oficiales |
+| **Jamshid Iskan-Sprint** | Sprint por banda | Short dark hair, clean-shaven, solid muscular build, light Asian skin tone, focused expression | Colores oficiales |
+| **Alijon Ibra-Leader** | Sprint por banda | Short dark hair, clean-shaven, strong muscular build, light Asian skin tone, determined expression | Colores oficiales |
+| **Asilbek Kari-Run** | Celebración de gol | Short dark hair, clean-shaven, athletic build, light Asian skin tone, dynamic expression | Colores oficiales |
+

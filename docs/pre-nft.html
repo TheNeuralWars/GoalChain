@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GoalChain Pre-NFT Portal de Revisión</title>
+    <meta
+      name="description"
+      content="Portal interactivo para revisar retratos, estadísticas e información de las cartas de GoalChain."
+    />
+    <link rel="stylesheet" href="assets/css/style.css?v=4.2" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/img/logo_3d_clean.png?v=2.0"
+    />
+
+    <style>
+      :root {
+        --bg-dark: #06060a;
+        --bg-surface: #0c0c14;
+        --card-bg: rgba(255, 255, 255, 0.02);
+        --primary-neon: #14f195;
+        --secondary-neon: #9945ff;
+        --border-color: rgba(255, 255, 255, 0.06);
+        --text-muted: #94a3b8;
+        --text-light: #f8fafc;
+      }
+
+      body {
+        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-light);
+        margin: 0;
+        padding-top: 80px; /* Offset for main navigation bar */
+        min-height: 100vh;
+      }
+
+      /* Container spacing */
+      .app-container {
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+      }
+
+      /* Glassmorphism utility */
+      .glass-panel {
+        background: rgba(13, 13, 20, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        margin-bottom: 2rem;
+      }
+
+      /* Header Layout */
+      .portal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+
+      .title-section h1 {
+        font-size: 1.8rem;
+        font-weight: 900;
+        margin: 0;
+        letter-spacing: -0.5px;
+        background: linear-gradient(135deg, #fff 0%, var(--primary-neon) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .title-section p {
+        margin: 0.35rem 0 0 0;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      /* Statistics Display */
+      .stats-badge-group {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .stats-badge {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-color);
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        text-align: center;
+        min-width: 100px;
+      }
+
+      .stats-badge.approved {
+        background: rgba(20, 241, 149, 0.05);
+        border-color: rgba(20, 241, 149, 0.2);
+        color: var(--primary-neon);
+      }
+
+      .stats-badge.adjustments {
+        background: rgba(245, 158, 11, 0.05);
+        border-color: rgba(245, 158, 11, 0.2);
+        color: #fbbf24;
+      }
+
+      .stats-label {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        letter-spacing: 0.5px;
+      }
+
+      .stats-val {
+        font-size: 1.15rem;
+        font-weight: 800;
+        margin-top: 0.15rem;
+      }
+
+      /* Filter Grid */
+      .filters-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .filter-group label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        letter-spacing: 0.5px;
+      }
+
+      .filter-input {
+        background: rgba(6, 6, 10, 0.7);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 0.65rem;
+        color: var(--text-light);
+        font-family: inherit;
+        font-size: 0.85rem;
+        transition: border-color 0.2s;
+        outline: none;
+      }
+
+      .filter-input:focus {
+        border-color: var(--primary-neon);
+      }
+
+      /* Main Grid */
+      .player-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      /* Player Cards */
+      .player-card {
+        background: rgba(13, 13, 20, 0.6);
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 0.75rem;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s;
+        overflow: hidden;
+      }
+
+      .player-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Card Overlay Review Badge */
+      .review-badge {
+        position: absolute;
+        top: 0.6rem;
+        right: 0.6rem;
+        z-index: 5;
+        padding: 0.25rem 0.5rem;
+        border-radius: 6px;
+        font-size: 0.65rem;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        background: rgba(71, 85, 105, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        color: #fff;
+        backdrop-filter: blur(4px);
+      }
+
+      .review-badge.approved {
+        background: rgba(20, 241, 149, 0.85);
+        color: #000;
+      }
+
+      .review-badge.adjustment {
+        background: rgba(245, 158, 11, 0.85);
+        color: #fff;
+      }
+
+      .player-rarity {
+        font-size: 0.65rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.35rem;
+      }
+
+      .rarity-mythic { color: #c084fc; }
+      .rarity-legendary { color: #f59e0b; }
+      .rarity-epic { color: #3b82f6; }
+      .rarity-rare { color: #10b981; }
+      .rarity-common { color: #94a3b8; }
+
+      .player-img-frame {
+        width: 100%;
+        aspect-ratio: 3/4;
+        background: #08080f;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        margin-bottom: 0.65rem;
+      }
+
+      .player-img-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .player-card:hover .player-img-frame img {
+        transform: scale(1.03);
+      }
+
+      .player-number-overlay {
+        position: absolute;
+        bottom: 0.3rem;
+        left: 0.3rem;
+        background: rgba(0, 0, 0, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.65rem;
+        font-weight: 600;
+      }
+
+      .player-info h4 {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 800;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .player-real-name {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin: 0.15rem 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .player-footer {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        margin-top: 0.35rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.03);
+        padding-top: 0.35rem;
+      }
+
+      .player-footer strong {
+        color: #fff;
+      }
+
+      /* Inspector Modal */
+      .inspector-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 10000;
+        background: rgba(3, 7, 18, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+
+      .inspector-overlay.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .inspector-window {
+        background: #090910;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        width: 100%;
+        max-width: 850px;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        padding: 0;
+      }
+
+      .inspector-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(30, 41, 59, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: #fff;
+        width: 2.2rem;
+        height: 2.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        font-size: 0.95rem;
+        transition: background 0.2s;
+      }
+
+      .inspector-close:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .inspector-left {
+        padding: 2rem;
+        background: rgba(15, 23, 42, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .inspector-right {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Premium Card Frame in Inspector */
+      .premium-frame {
+        width: 100%;
+        max-width: 260px;
+        aspect-ratio: 3/4;
+        background: #030712;
+        border-radius: 16px;
+        padding: 0.5rem;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #555;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+
+      .premium-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      .premium-frame-overlay {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        background: rgba(3, 7, 18, 0.85);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 0.5rem;
+        text-align: center;
+      }
+
+      .premium-frame-overlay h5 {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 900;
+        color: #fff;
+      }
+
+      .premium-frame-overlay span {
+        font-size: 0.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 0.15rem;
+        display: inline-block;
+      }
+
+      .premium-frame-id {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background: rgba(0, 0, 0, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 0.2rem 0.5rem;
+        border-radius: 6px;
+        font-size: 0.7rem;
+        font-weight: bold;
+      }
+
+      /* Inspector Controls / Stats */
+      .inspector-title {
+        margin-bottom: 1rem;
+      }
+
+      .inspector-title h3 {
+        margin: 0;
+        font-size: 1.45rem;
+        font-weight: 900;
+      }
+
+      .inspector-title span {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      /* Stat rows */
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 0.75rem;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        text-align: center;
+      }
+
+      .stat-grid-item span {
+        font-size: 0.6rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        display: block;
+      }
+
+      .stat-grid-item strong {
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-top: 0.15rem;
+        display: block;
+      }
+
+      /* Progress attributes */
+      .attribute-bar-group {
+        margin-bottom: 1.25rem;
+      }
+
+      .attribute-bar-group h6 {
+        margin: 0 0 0.65rem 0;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .attribute-row {
+        margin-bottom: 0.5rem;
+      }
+
+      .attribute-info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .attribute-track {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 3px;
+        overflow: hidden;
+      }
+
+      .attribute-fill {
+        height: 100%;
+        border-radius: 3px;
+        width: 0;
+        transition: width 0.3s ease;
+      }
+
+      /* Review feedback block */
+      .critique-section {
+        background: rgba(30, 41, 59, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: auto;
+      }
+
+      .critique-section h6 {
+        margin: 0 0 0.65rem 0;
+        font-size: 0.8rem;
+        color: var(--text-light);
+        font-weight: bold;
+      }
+
+      .critique-actions {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .btn-feedback {
+        flex: 1;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 0.8rem;
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        transition: all 0.2s;
+        border: 1px solid transparent;
+      }
+
+      .btn-feedback.approve {
+        background: rgba(20, 241, 149, 0.08);
+        border: 1px solid rgba(20, 241, 149, 0.3);
+        color: var(--primary-neon);
+      }
+
+      .btn-feedback.approve.active {
+        background: var(--primary-neon);
+        color: #000;
+        border-color: var(--primary-neon);
+      }
+
+      .btn-feedback.adjust {
+        background: rgba(245, 158, 11, 0.08);
+        border: 1px solid rgba(245, 158, 11, 0.3);
+        color: #fbbf24;
+      }
+
+      .btn-feedback.adjust.active {
+        background: #d97706;
+        color: #fff;
+        border-color: #d97706;
+      }
+
+      .critique-notes {
+        width: 100%;
+        min-height: 80px;
+        background: rgba(6, 6, 10, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 0.5rem;
+        color: #fff;
+        font-size: 0.8rem;
+        font-family: inherit;
+        resize: vertical;
+        outline: none;
+        box-sizing: border-box;
+      }
+
+      .critique-notes:focus {
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      /* Export buttons */
+      .action-buttons-group {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .btn-green {
+        background: var(--primary-neon);
+        color: #000;
+        border: none;
+        padding: 0.55rem 1.1rem;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 0.85rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: transform 0.2s, background-color 0.2s;
+        font-family: inherit;
+      }
+
+      .btn-green:hover {
+        background: #11d483;
+        transform: translateY(-1px);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 0.55rem 1.1rem;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 0.85rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: border-color 0.2s, background-color 0.2s;
+        font-family: inherit;
+      }
+
+      .btn-outline:hover {
+        border-color: #fff;
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      /* Modal Navigation */
+      .modal-nav-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3.5rem;
+        height: 3.5rem;
+        background: rgba(13, 13, 20, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.25rem;
+        transition: background-color 0.2s, border-color 0.2s;
+        z-index: 10005;
+        backdrop-filter: blur(4px);
+      }
+
+      .modal-nav-arrow:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #fff;
+      }
+
+      .modal-nav-prev { left: 1rem; }
+      .modal-nav-next { right: 1rem; }
+
+      @media (max-width: 900px) {
+        .modal-nav-arrow {
+          position: static;
+          transform: none;
+          margin: 0.5rem;
+        }
+        .modal-nav-container {
+          display: flex;
+          justify-content: center;
+          margin-top: 1rem;
+          width: 100%;
+        }
+      }
+
+      /* Spinner */
+      .loading-spinner {
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        border: 3px solid rgba(20, 241, 149, 0.1);
+        border-top-color: var(--primary-neon);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 1rem;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .traits-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 0.5rem;
+      }
+
+      .trait-tag {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 0.25rem 0.5rem;
+        border-radius: 6px;
+        font-size: 0.65rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Standard Main Navigation Bar matching index.html -->
+    <nav class="main-nav">
+      <div class="logo" onclick="window.location.href='/'">
+        Goal<span>Chain</span>
+      </div>
+      <div class="nav-right">
+        <a href="/" class="btn-outline" style="text-decoration: none; padding: 0.4rem 0.8rem; font-size: 0.75rem;">
+          ⬅️ Volver a Inicio
+        </a>
+      </div>
+    </nav>
+
+    <div class="app-container">
+      <!-- Title Block -->
+      <div class="glass-panel portal-header">
+        <div class="title-section">
+          <h1>🎴 Panel de Revisión de Arte Pre-NFT</h1>
+          <p>
+            Portal de evaluación para los 528 retratos titulares de la colección. Aprueba cartas o solicita correcciones.
+          </p>
+        </div>
+        <div class="stats-badge-group">
+          <div class="stats-badge">
+            <div class="stats-label">Total Colección</div>
+            <div class="stats-val" id="count-total">528</div>
+          </div>
+          <div class="stats-badge approved">
+            <div class="stats-label">Aprobadas</div>
+            <div class="stats-val" id="count-approved">0</div>
+          </div>
+          <div class="stats-badge adjustments">
+            <div class="stats-label">Con Ajustes</div>
+            <div class="stats-val" id="count-adjustment">0</div>
+          </div>
+          <div class="stats-badge">
+            <div class="stats-label">Revisión %</div>
+            <div class="stats-val" id="count-percent">0%</div>
+          </div>
+          <div style="align-self: center; margin-left: 0.5rem;">
+            <button class="btn-green" id="btn-export">
+              📥 Exportar Críticas JSON
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters Panel -->
+      <div class="glass-panel">
+        <div style="font-size: 0.85rem; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.5rem; margin-bottom: 1rem; letter-spacing: 0.5px; color: var(--text-muted);">
+          🔍 PANEL DE CONTROL Y FILTROS
+        </div>
+        <div class="filters-grid">
+          <div class="filter-group">
+            <label>Buscar jugador</label>
+            <input
+              type="text"
+              id="search-input"
+              class="filter-input"
+              placeholder="Nombre o ID..."
+            />
+          </div>
+          <div class="filter-group">
+            <label>Selección / País</label>
+            <select id="country-select" class="filter-input">
+              <option value="All">Todos los países</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Rareza</label>
+            <select id="rarity-select" class="filter-input">
+              <option value="All">Todas las rarezas</option>
+              <option value="mythic">Mythic</option>
+              <option value="legendary">Legendary</option>
+              <option value="epic">Epic</option>
+              <option value="rare">Rare</option>
+              <option value="common">Common</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Posición</label>
+            <select id="position-select" class="filter-input">
+              <option value="All">Todas las posiciones</option>
+              <option value="GK">GK (Portero)</option>
+              <option value="DEF">DEF (Defensa)</option>
+              <option value="MID">MID (Centrocampista)</option>
+              <option value="FWD">FWD (Delantero)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Estado Crítica</label>
+            <select id="status-select" class="filter-input">
+              <option value="All">Todos los estados</option>
+              <option value="pending">Sin revisar (S/R)</option>
+              <option value="approved">Aprobados (👍)</option>
+              <option value="adjustment">Con Ajustes (⚠️)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result summary line -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding: 0 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
+        <div>
+          Mostrando <strong id="visible-count" style="color: #fff;">0</strong> de 528 jugadores
+        </div>
+        <div style="font-size: 0.75rem; font-style: italic;">
+          Consejo: Usa las flechas ⬅️ y ➡️ de tu teclado para navegar entre jugadores en el visor detallado.
+        </div>
+      </div>
+
+      <!-- Player grid area -->
+      <div id="grid-container" class="player-grid">
+        <!-- Javascript renders cards here -->
+      </div>
+    </div>
+
+    <!-- Inspector Modal Detail View Overlay -->
+    <div id="inspector-overlay" class="inspector-overlay">
+      <div class="inspector-window" id="inspector-window">
+        <!-- Close button inside window -->
+        <button class="inspector-close" id="btn-close-modal">✕</button>
+
+        <!-- Left half: Portrait image preview frame -->
+        <div class="inspector-left">
+          <div class="premium-frame" id="modal-frame">
+            <img src="" id="modal-img" alt="Player Portrait" />
+            <div class="premium-frame-overlay">
+              <h5 id="modal-card-name">PLAYER NAME</h5>
+              <span id="modal-card-rarity-badge">RARITY • POSITION</span>
+            </div>
+            <div class="premium-frame-id" id="modal-card-id">ID #001</div>
+          </div>
+          <!-- Traits tag list -->
+          <div style="margin-top: 1.25rem; width: 100%; max-width: 260px;">
+            <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: bold; margin-bottom: 0.25rem;">Traits / Características</div>
+            <div class="traits-list" id="modal-traits-list">
+              <!-- Tags populated dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right half: stats progress values + critique commentary block -->
+        <div class="inspector-right">
+          <div class="inspector-title">
+            <h3 id="modal-title-name">PLAYER NAME</h3>
+            <span>Nombre real: <strong id="modal-real-name">REAL NAME</strong> • <span id="modal-country">PAIS</span></span>
+          </div>
+
+          <!-- Physical stats block -->
+          <div class="stat-grid">
+            <div class="stat-grid-item">
+              <span>Edad/Fecha Nac.</span>
+              <strong id="modal-dob">DOB</strong>
+            </div>
+            <div class="stat-grid-item">
+              <span>Altura</span>
+              <strong id="modal-height">HEIGHT</strong>
+            </div>
+            <div class="stat-grid-item">
+              <span>Peso</span>
+              <strong id="modal-weight">WEIGHT</strong>
+            </div>
+          </div>
+
+          <!-- Attributes progress block -->
+          <div class="attribute-bar-group">
+            <h6>Atributos Básicos</h6>
+            
+            <div class="attribute-row">
+              <div class="attribute-info">
+                <span>ATAQUE (ATK)</span>
+                <strong id="val-atk" style="color: var(--primary-neon);">0</strong>
+              </div>
+              <div class="attribute-track">
+                <div class="attribute-fill" id="fill-atk" style="background: var(--primary-neon);"></div>
+              </div>
+            </div>
+
+            <div class="attribute-row">
+              <div class="attribute-info">
+                <span>DEFENSA (DEF)</span>
+                <strong id="val-def" style="color: #3b82f6;">0</strong>
+              </div>
+              <div class="attribute-track">
+                <div class="attribute-fill" id="fill-def" style="background: #3b82f6;"></div>
+              </div>
+            </div>
+
+            <div class="attribute-row">
+              <div class="attribute-info">
+                <span>HYPE COMUNITARIO</span>
+                <strong id="val-hype" style="color: #fbbf24;">0</strong>
+              </div>
+              <div class="attribute-track">
+                <div class="attribute-fill" id="fill-hype" style="background: #fbbf24;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Narrative description block -->
+          <div style="font-size: 0.8rem; color: #cbd5e1; line-height: 1.4; margin-bottom: 1.5rem;">
+            <div style="font-weight: bold; color: var(--text-light); margin-bottom: 0.25rem;">Descripción Física (Prompt de IA)</div>
+            <p id="modal-physical-desc" style="margin: 0; color: var(--text-muted); font-style: italic; background: rgba(0,0,0,0.25); padding: 0.5rem 0.75rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03);">
+              Prompt text
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem;">
+              <div>
+                <span style="color: var(--text-muted); display: block; font-size: 0.7rem;">Club Parodia</span>
+                <span id="modal-parody-club" style="font-size: 0.75rem; font-weight: 600;">Club</span>
+              </div>
+              <div>
+                <span style="color: var(--text-muted); display: block; font-size: 0.7rem;">Efecto Especial NFT</span>
+                <span id="modal-visual-effect" style="font-size: 0.75rem; font-weight: 600;">Efecto</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review Critiques Feedback Interface -->
+          <div class="critique-section">
+            <h6>✍️ CRÍTICA Y FEEDBACK PRE-NFT</h6>
+            <div class="critique-actions">
+              <button class="btn-feedback approve" id="btn-approve">
+                👍 Aprobar Carta
+              </button>
+              <button class="btn-feedback adjust" id="btn-adjust">
+                ⚠️ Solicitar Ajuste
+              </button>
+            </div>
+            <textarea
+              class="critique-notes"
+              id="critique-notes-input"
+              placeholder="Detalla los ajustes necesarios (ej. colores del jersey, detalles faciales, accesorios)..."
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Arrows when inside inspector -->
+      <button class="modal-nav-arrow modal-nav-prev" id="btn-prev-player">◀</button>
+      <button class="modal-nav-arrow modal-nav-next" id="btn-next-player">▶</button>
+    </div>
+
+    <!-- Logic Script -->
+    <script>
+      let allPlayers = [];
+      let filteredPlayers = [];
+      let reviews = {};
+      let selectedPlayerIndex = -1;
+
+      // DOM Elements
+      const gridContainer = document.getElementById('grid-container');
+      const searchInput = document.getElementById('search-input');
+      const countrySelect = document.getElementById('country-select');
+      const raritySelect = document.getElementById('rarity-select');
+      const positionSelect = document.getElementById('position-select');
+      const statusSelect = document.getElementById('status-select');
+      const visibleCountEl = document.getElementById('visible-count');
+
+      // Stats counters
+      const approvedCountEl = document.getElementById('count-approved');
+      const adjustmentCountEl = document.getElementById('count-adjustment');
+      const percentEl = document.getElementById('count-percent');
+
+      // Modal elements
+      const inspectorOverlay = document.getElementById('inspector-overlay');
+      const modalImg = document.getElementById('modal-img');
+      const modalCardName = document.getElementById('modal-card-name');
+      const modalCardRarityBadge = document.getElementById('modal-card-rarity-badge');
+      const modalCardId = document.getElementById('modal-card-id');
+      const modalTraitsList = document.getElementById('modal-traits-list');
+      const modalTitleName = document.getElementById('modal-title-name');
+      const modalRealName = document.getElementById('modal-real-name');
+      const modalCountry = document.getElementById('modal-country');
+      const modalDob = document.getElementById('modal-dob');
+      const modalHeight = document.getElementById('modal-height');
+      const modalWeight = document.getElementById('modal-weight');
+      const modalPhysicalDesc = document.getElementById('modal-physical-desc');
+      const modalParodyClub = document.getElementById('modal-parody-club');
+      const modalVisualEffect = document.getElementById('modal-visual-effect');
+
+      const valAtk = document.getElementById('val-atk');
+      const valDef = document.getElementById('val-def');
+      const valHype = document.getElementById('val-hype');
+      const fillAtk = document.getElementById('fill-atk');
+      const fillDef = document.getElementById('fill-def');
+      const fillHype = document.getElementById('fill-hype');
+
+      const btnApprove = document.getElementById('btn-approve');
+      const btnAdjust = document.getElementById('btn-adjust');
+      const critiqueNotesInput = document.getElementById('critique-notes-input');
+
+      // Initialize
+      window.addEventListener('DOMContentLoaded', () => {
+        // Load reviews from localStorage
+        const saved = localStorage.getItem('goalchain_player_reviews');
+        if (saved) {
+          try {
+            reviews = JSON.parse(saved);
+          } catch (e) {
+            reviews = {};
+          }
+        }
+
+        // Fetch player data
+        fetch('assets/data/players.json')
+          .then(res => {
+            if (!res.ok) throw new Error("No se pudo cargar la base de datos");
+            return res.json();
+          })
+          .then(data => {
+            allPlayers = data;
+            
+            // Build unique country list
+            const countries = new Set();
+            allPlayers.forEach(p => countries.add(p.country));
+            Array.from(countries).sort().forEach(country => {
+              const opt = document.createElement('option');
+              opt.value = country;
+              opt.textContent = country;
+              countrySelect.appendChild(opt);
+            });
+
+            // Update visible list & render
+            updateFilters();
+            updateStatsSummary();
+          })
+          .catch(err => {
+            gridContainer.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--accent-red); padding: 3rem 0;">Error al cargar la base de datos de jugadores titular.</div>`;
+            console.error(err);
+          });
+      });
+
+      // Filter and render update
+      function updateFilters() {
+        const query = searchInput.value.toLowerCase();
+        const country = countrySelect.value;
+        const rarity = raritySelect.value;
+        const position = positionSelect.value;
+        const reviewStatus = statusSelect.value;
+
+        filteredPlayers = allPlayers.filter(p => {
+          const paddedId = String(p.id).padStart(3, '0');
+          const matchesSearch = p.name.toLowerCase().includes(query) || 
+                                p.real_name.toLowerCase().includes(query) ||
+                                paddedId.includes(query) ||
+                                String(p.id) === query;
+          
+          const matchesCountry = country === 'All' || p.country === country;
+          const matchesRarity = rarity === 'All' || p.rarity.toLowerCase() === rarity.toLowerCase();
+          const matchesPosition = position === 'All' || p.position === position;
+
+          const pReview = reviews[p.id] || { status: 'pending', notes: '' };
+          const matchesReview = reviewStatus === 'All' || pReview.status === reviewStatus;
+
+          return matchesSearch && matchesCountry && matchesRarity && matchesPosition && matchesReview;
+        });
+
+        visibleCountEl.textContent = filteredPlayers.length;
+        renderGrid();
+      }
+
+      // Rarity helper styling
+      function getRarityClass(rarity) {
+        const r = rarity.toLowerCase();
+        if (r === 'mythic') return 'rarity-mythic';
+        if (r === 'legendary') return 'rarity-legendary';
+        if (r === 'epic') return 'rarity-epic';
+        if (r === 'rare') return 'rarity-rare';
+        return 'rarity-common';
+      }
+
+      function getRarityHexColor(rarity) {
+        const r = rarity.toLowerCase();
+        if (r === 'mythic') return '#c084fc';
+        if (r === 'legendary') return '#f59e0b';
+        if (r === 'epic') return '#3b82f6';
+        if (r === 'rare') return '#10b981';
+        return '#94a3b8';
+      }
+
+      // Render the player cards inside the grid container
+      function renderGrid() {
+        gridContainer.innerHTML = '';
+        if (filteredPlayers.length === 0) {
+          gridContainer.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 3rem 0;">Ningún jugador coincide con los filtros aplicados.</div>`;
+          return;
+        }
+
+        filteredPlayers.forEach((player, index) => {
+          const paddedId = String(player.id).padStart(3, '0');
+          const imageUrl = `https://api.goalchain.fun/pilot/v4/${paddedId}.jpg`;
+          const review = reviews[player.id] || { status: 'pending', notes: '' };
+          const rarityClass = getRarityClass(player.rarity);
+
+          const card = document.createElement('div');
+          card.className = 'player-card';
+          
+          let statusBadgeText = '⚪ S/R';
+          let badgeClass = '';
+          if (review.status === 'approved') {
+            statusBadgeText = '👍 OK';
+            badgeClass = 'approved';
+          } else if (review.status === 'adjustment') {
+            statusBadgeText = '⚠️ AJUSTE';
+            badgeClass = 'adjustment';
+          }
+
+          card.innerHTML = `
+            <div class="review-badge ${badgeClass}">${statusBadgeText}</div>
+            <div class="player-rarity ${rarityClass}">${player.rarity} • ${player.position}</div>
+            <div class="player-img-frame">
+              <img src="${imageUrl}" alt="${player.name}" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/300x400/0f172a/10f195?text=Pre-NFT+Art';"/>
+              <div class="player-number-overlay">#${paddedId}</div>
+            </div>
+            <div class="player-info">
+              <h4>${player.name}</h4>
+              <div class="player-real-name">${player.real_name}</div>
+              <div class="player-footer">
+                <span>${player.country}</span>
+                <span><strong>${player.stats.hype}</strong> Hype</span>
+              </div>
+            </div>
+          `;
+
+          card.addEventListener('click', () => {
+            openInspector(index);
+          });
+
+          gridContainer.appendChild(card);
+        });
+      }
+
+      // Stats calculations & visual summary updates
+      function updateStatsSummary() {
+        let approved = 0;
+        let adjustment = 0;
+
+        allPlayers.forEach(p => {
+          const status = reviews[p.id]?.status || 'pending';
+          if (status === 'approved') approved++;
+          else if (status === 'adjustment') adjustment++;
+        });
+
+        approvedCountEl.textContent = approved;
+        adjustmentCountEl.textContent = adjustment;
+        
+        const totalReviewed = approved + adjustment;
+        const percentage = allPlayers.length > 0 ? Math.round((totalReviewed / allPlayers.length) * 100) : 0;
+        percentEl.textContent = `${percentage}%`;
+      }
+
+      // Open detail view inspector
+      function openInspector(index) {
+        if (index < 0 || index >= filteredPlayers.length) return;
+        selectedPlayerIndex = index;
+        const player = filteredPlayers[index];
+        const paddedId = String(player.id).padStart(3, '0');
+        const imageUrl = `https://api.goalchain.fun/pilot/v4/${paddedId}.jpg`;
+        const review = reviews[player.id] || { status: 'pending', notes: '' };
+
+        // Populate detail metrics
+        modalImg.src = imageUrl;
+        modalCardName.textContent = player.name;
+        modalCardRarityBadge.textContent = `${player.rarity} • ${player.position}`;
+        modalCardRarityBadge.className = getRarityClass(player.rarity);
+        modalCardId.textContent = `ID #${paddedId}`;
+
+        // Glow color frame matching rarity
+        const rarityHexColor = getRarityHexColor(player.rarity);
+        const modalFrame = document.getElementById('modal-frame');
+        modalFrame.style.borderColor = rarityHexColor;
+        modalFrame.style.boxShadow = `0 0 25px ${rarityHexColor}33`;
+
+        // Traits
+        modalTraitsList.innerHTML = '';
+        player.traits.forEach(t => {
+          const span = document.createElement('span');
+          span.className = 'trait-tag';
+          span.textContent = `✨ ${t}`;
+          modalTraitsList.appendChild(span);
+        });
+
+        // Bio descriptors
+        modalTitleName.textContent = player.name;
+        modalRealName.textContent = player.real_name;
+        modalCountry.textContent = player.country;
+        modalDob.textContent = player.physical.dob;
+        modalHeight.textContent = player.physical.h;
+        modalWeight.textContent = player.physical.w;
+        modalPhysicalDesc.textContent = player.physical.t;
+        modalParodyClub.textContent = player.meta.parody_club;
+        modalVisualEffect.textContent = player.meta.visual_effect;
+
+        // Attributes Progress bars
+        valAtk.textContent = player.stats.atk;
+        valDef.textContent = player.stats.def;
+        valHype.textContent = player.stats.hype;
+        
+        // Use timeout to trigger CSS transition animation
+        setTimeout(() => {
+          fillAtk.style.width = `${player.stats.atk}%`;
+          fillDef.style.width = `${player.stats.def}%`;
+          fillHype.style.width = `${player.stats.hype}%`;
+        }, 50);
+
+        // Feedback buttons status styling
+        updateFeedbackButtonState(review.status);
+        critiqueNotesInput.value = review.notes || '';
+
+        // Show Modal
+        inspectorOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Lock background scrolling
+      }
+
+      // Close modal
+      function closeInspector() {
+        inspectorOverlay.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Release background scrolling
+        // Re-render in case status badges changed inside modal
+        renderGrid();
+        updateStatsSummary();
+      }
+
+      // Feedback button UI update helper
+      function updateFeedbackButtonState(status) {
+        btnApprove.classList.remove('active');
+        btnAdjust.classList.remove('active');
+
+        if (status === 'approved') {
+          btnApprove.classList.add('active');
+        } else if (status === 'adjustment') {
+          btnAdjust.classList.add('active');
+        }
+      }
+
+      // Save critique vote
+      function setPlayerStatus(status) {
+        if (selectedPlayerIndex < 0) return;
+        const player = filteredPlayers[selectedPlayerIndex];
+        const notes = critiqueNotesInput.value;
+
+        reviews[player.id] = {
+          status: status,
+          notes: notes
+        };
+
+        // Save immediately to localstorage
+        localStorage.setItem('goalchain_player_reviews', JSON.stringify(reviews));
+
+        updateFeedbackButtonState(status);
+        updateStatsSummary();
+      }
+
+      // Event listeners for filters
+      searchInput.addEventListener('input', updateFilters);
+      countrySelect.addEventListener('change', updateFilters);
+      raritySelect.addEventListener('change', updateFilters);
+      positionSelect.addEventListener('change', updateFilters);
+      statusSelect.addEventListener('change', updateFilters);
+
+      // Close modal events
+      document.getElementById('btn-close-modal').addEventListener('click', closeInspector);
+      inspectorOverlay.addEventListener('click', (e) => {
+        if (e.target === inspectorOverlay) closeInspector();
+      });
+
+      // Feedback Click Events
+      btnApprove.addEventListener('click', () => setPlayerStatus('approved'));
+      btnAdjust.addEventListener('click', () => setPlayerStatus('adjustment'));
+      critiqueNotesInput.addEventListener('input', () => {
+        if (selectedPlayerIndex < 0) return;
+        const player = filteredPlayers[selectedPlayerIndex];
+        const currentStatus = reviews[player.id]?.status || 'pending';
+        reviews[player.id] = {
+          status: currentStatus,
+          notes: critiqueNotesInput.value
+        };
+        localStorage.setItem('goalchain_player_reviews', JSON.stringify(reviews));
+      });
+
+      // Next / Previous navigation within modal
+      document.getElementById('btn-prev-player').addEventListener('click', () => {
+        if (selectedPlayerIndex > 0) {
+          openInspector(selectedPlayerIndex - 1);
+        }
+      });
+
+      document.getElementById('btn-next-player').addEventListener('click', () => {
+        if (selectedPlayerIndex < filteredPlayers.length - 1) {
+          openInspector(selectedPlayerIndex + 1);
+        }
+      });
+
+      // Keyboard arrow shortcuts inside inspector modal
+      document.addEventListener('keydown', (e) => {
+        if (!inspectorOverlay.classList.contains('active')) return;
+
+        if (e.key === 'ArrowLeft') {
+          if (selectedPlayerIndex > 0) openInspector(selectedPlayerIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+          if (selectedPlayerIndex < filteredPlayers.length - 1) openInspector(selectedPlayerIndex + 1);
+        } else if (e.key === 'Escape') {
+          closeInspector();
+        }
+      });
+
+      // Export JSON reviews handler
+      document.getElementById('btn-export').addEventListener('click', () => {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(reviews, null, 2));
+        const downloadAnchor = document.createElement('a');
+        downloadAnchor.setAttribute("href", dataStr);
+        downloadAnchor.setAttribute("download", "goalchain_pre_nft_critiques.json");
+        document.body.appendChild(downloadAnchor);
+        downloadAnchor.click();
+        downloadAnchor.remove();
+      });
+    </script>
+  </body>
+</html>
