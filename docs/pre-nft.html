@@ -789,7 +789,10 @@
 
         filteredPlayers.forEach((player) => {
           const paddedId = String(player.id).padStart(3, '0');
-          const imageUrl = `https://api.goalchain.fun/pilot/v4/${paddedId}.jpg`;
+          // For Argentina pilot players (1-11), load the new v5 images with unified jerseys and logos
+          const imageUrl = player.id <= 11 
+            ? `./assets/img/pilot_v5/${paddedId}.jpg`
+            : `https://api.goalchain.fun/pilot/v4/${paddedId}.jpg`;
           const review = reviews[player.id] || { status: 'pending', notes: '' };
           const rarityClass = getRarityClass(player.rarity);
           const stadiumBg = getStadiumBg(player.rarity);
