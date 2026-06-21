@@ -63,17 +63,17 @@ Requested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned 
    - Self-scan guard: `healthcheck.log` is excluded from spam counts.
    - Timer drift bounded by `OnUnitActiveSec=1h` + `OnBootSec=90s` + `Persistent=true`.
    - systemd flapping "failed" avoided via `SuccessExitStatus=1 2`.
-3. **Files (all in main as `9e08287e`)**:
+3. **Implementation status (executed, merged in `9e08287e`)**:
    - `ops/hermes/healthcheck.sh` — 4 checks, PASS/WARN/FAIL human + `--json`.
    - `ops/hermes/install-healthcheck-timer.sh` — idempotent user timer installer.
    - `ops/hermes/mcp-goalchain-ops.py` — PATCH: `goalchain-ops://.health` resource.
-   - `docs/intake/2026-06-21-cron-audit-result.md` — audit findings.
-   - `~/.hermes/profiles/hermes-ceo/skills/devops/goalchain-ops/SKILL.md` — new "Centralized health check" subsection.
+   - `docs/intake/2026-06-21-cron-audit-result.md` — audit findings + appendix.
+   - `~/.hermes/skills/goalchain-hermes-ops/SKILL.md` — new "Centralized health check (issue #815)" subsection at lines 255-280 (canonical skill path per Appendix A in the audit doc).
 4. **Out of scope (locked)**:
    - No on-chain / treasury / mint changes.
    - No edits to `docs/ECONOMIC_CANONICAL_CONFIG.json`.
    - No new Discord webhooks or secret-bearing config.
-   - No `cambio urgente` keyword in prompt → no direct main merge. (Implemented as draft PR per CLAUDE.md orchestration rules; merged in 9e08287e.)
+   - No `cambio urgente` keyword in prompt → draft PR per CLAUDE.md orchestration rules.
 
 ## Risk / rollback
 
@@ -100,7 +100,7 @@ server restart (resource is registered at `@mcp.resource(...)` decorator).
 
 ## Test commands (executed 2026-06-21)
 
-All ten pass. Recorded in `docs/intake/2026-06-21-cron-audit-result.md`.
+All pass. Recorded in `docs/intake/2026-06-21-cron-audit-result.md`.
 
 ```bash
 # 1. Script + JSON modes
@@ -120,25 +120,15 @@ systemctl --user list-timers goalchain-ops-healthcheck.timer --no-pager
 systemctl --user start goalchain-ops-healthcheck.service
 journalctl --user -u goalchain-ops-healthcheck.service -n 20 --no-pager
 
-# 4. Audit log + sentinel
+# 4. MCP resource vantage
+~/.hermes/hermes-agent/venv/bin/python3 -c "
+import os, importlib.util
+os.environ.setdefault('GOALCHAIN_REPO_PATH', '/data/apps/GoalChain')
+spec = importlib.util.spec_from_file_location('goalchain_ops', 'ops/hermes/mcp-goalchain-ops.py')
+mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+print(mod.goalchain_ops_health())
+"
+
+# 5. Audit log + sentinel
 ls -la ~/hermes/logs/cron-audit-2026-06-21.log ~/hermes/logs/healthcheck.log
 ```
-
-Observed day-one regression (the regression this issue exists to surface):
-- `goalchain-backup.service` is in **failed** state. `healthcheck.sh`
-  reports `1 failed / 0 inactive / 7 active (of 7)` on every tick.
-  Not a defect of this PR — it's the exact signal issue #815 was
-  created to make visible. Triage is for a separate issue; out of
-  scope here.
-
-## Status
-
-- **Implementation merged:** `9e08287e` (PR #820) — 718 insertions across
-  6 files. All five issue-body tasks complete.
-- **Docs refinement merged:** `ea8348ea` — refined this proposal with
-  as-executed details (this iteration re-applies the same refinements,
-  since the working tree was reverted by the kickoff).
-- **Day-one signal:** `goalchain-backup.service` failed (out of scope to
-  fix here; intentional design — healthcheck surfaces, doesn't repair).
-- **Next:** open draft PR only if required (Nico's `cambio urgente`
-  bypass honored per kickoff).
