@@ -68,10 +68,11 @@ polymarket_bot/queue.json
 polymarket_bot/trades.json
 polymarket_bot/*.service
 
-# --- Scratch / local experiments ---
-scratch/
+scratch/*
+!scratch/current_web_players/
 # --- Reorganization (2026-06-19): archive, cache, deep-research clones ---
 _archive/
 *.tar.gz
 goalchain_webapp/.vercel/
 research/x-deep/*/*/repos/
+*.psdt
