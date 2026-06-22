@@ -75,6 +75,25 @@ function Ensure-GBrain {
     }
 }
 
+function Ensure-RepoPath {
+    # Try $env:GOALCHAIN_REPO_PATH first, then USERPROFILE\hermes\workspace\GoalChain,
+    # then C:\GoalChain (rsync from her user-clone of the repo).
+    if ($env:GOALCHAIN_REPO_PATH -and (Test-Path $env:GOALCHAIN_REPO_PATH)) {
+        return $env:GOALCHAIN_REPO_PATH
+    }
+    foreach ($candidate in @(
+        (Join-Path $env:USERPROFILE 'hermes\workspace\GoalChain'),
+        (Join-Path $env:USERPROFILE 'workspace\GoalChain'),
+        'C:\GoalChain',
+        'D:\GoalChain'
+    )) {
+        if (Test-Path (Join-Path $candidate '.git')) {
+            return $candidate
+        }
+    }
+    return $null
+}
+
 function Pre-Flight {
     if ($env:OS -ne 'Windows_NT') {
         Err "this installer targets Windows only"
@@ -82,9 +101,19 @@ function Pre-Flight {
     }
     Ensure-Tailscale
     Ensure-GBrain
-    if (-not (Test-Path $RepoPath)) {
-        Err "GoalChain repo not found at $RepoPath (set env:GOALCHAIN_REPO_PATH)."
-        exit 2
+
+    $found = Ensure-RepoPath
+    if ($found) {
+        $script:RepoPath = $found
+        Log "repo detected at $RepoPath"
+    } else {
+        # Repo is OPTIONAL: the polling client works without it (it'll try
+        # `git pull` later if the repo shows up). We just log and move on.
+        Log "WARN: no local GoalChain repo found."
+        Log "WARN: polling will still work (git pull will be skipped)."
+        Log "WARN: clone the repo later if you also want the brain to ingest edited docs:"
+        Log "WARN:   cd ~\hermes\workspace && git clone https://github.com/TheNeuralWars/GoalChain.git"
+        $script:RepoPath = $null
     }
 }
 
@@ -117,7 +146,8 @@ $ClientScriptContent = @"
 `$env:PATH = '$(($BunPath -replace '\\','\\'))' + ';' + `$env:PATH
 `$VPS_TS_IP     = '$VPS_TS_IP'
 `$VPS_SYNC_PORT = '$VPS_SYNC_PORT'
-`$RepoPath      = '$($RepoPath -replace '\\','\\')'
+`$RepoPath      = if (-not '$RepoPath') { '' } else { '$($RepoPath -replace '\\','\\')' }
+`$HaveRepo      = `$RepoPath -and (Test-Path `$RepoPath)
 `$LogFile       = '$($LogFile -replace '\\','\\')'
 `$StateFile     = Join-Path (Split-Path `$LogFile) 'last-sync.ts'
 `$SubDirs       = @('ai_context','docs/intake')
@@ -145,15 +175,24 @@ if (-not `$resp -or `$resp.Count -eq 0) {
     exit 0
 }
 Add-Content -Path `$LogFile -Value ('fetched ' + `$resp.Count + ' change-records — running gbrain import')
-Set-Location `$RepoPath
-try {
-    `$out = git pull --ff-only 2>&1
-} catch {
-    Add-Content -Path `$LogFile -Value 'git pull skipped (offline/diverged)'
+if (`$HaveRepo) {
+    Set-Location `$RepoPath
+    try {
+        `$out = git pull --ff-only 2>&1
+    } catch {
+        Add-Content -Path `$LogFile -Value 'git pull skipped (offline/diverged)'
+    }
+} else {
+    Add-Content -Path `$LogFile -Value 'no local repo; skipping git pull (run import on its own)'
 }
 try {
-    gbrain import `$SubDirs 2>&1 | Out-Null
-    Add-Content -Path `$LogFile -Value 'ok'
+    if (`$HaveRepo) {
+        gbrain import `$SubDirs 2>&1 | Out-Null
+        Add-Content -Path `$LogFile -Value 'ok'
+    } else {
+        # Without repo, just record the sync timestamp — nothing to import.
+        Add-Content -Path `$LogFile -Value 'ok (no repo)'
+    }
 } catch {
     Add-Content -Path `$LogFile -Value ('gbrain import failed (pglite lock?): ' + `$_.Exception.Message)
 }
@@ -217,11 +256,15 @@ Start-ScheduledTask -TaskName 'GBrainSync' -TaskPath $TaskPath | Out-Null
 Log "kick-off trigger fired — check $LogFile in 5s"
 
 #--- first import (best effort) -----------------------------------------
-try {
-    & gbrain import "$RepoPath\ai_context","$RepoPath\docs\intake" 2>&1
-    Log "first import of $(hostname) into local gbrain ✓"
-} catch {
-    Warn "first gbrain import skipped: $($_.Exception.Message)"
+if ($RepoPath) {
+    try {
+        & gbrain import "$RepoPath\ai_context","$RepoPath\docs\intake" 2>&1 | Out-Null
+        Log "first import of $(hostname) into local gbrain ✓"
+    } catch {
+        Warn "first gbrain import skipped: $($_.Exception.Message)"
+    }
+} else {
+    Log "skipping first import — no repo detected. task will run anyway."
 }
 
 exit 0
