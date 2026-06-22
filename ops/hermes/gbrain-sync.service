@@ -1,0 +1,22 @@
+[Unit]
+Description=gbrain live-sync server (Tailscale-bound on :8648)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+Environment=GBRAIN_SYNC_HOST=0.0.0.0
+Environment=GBRAIN_SYNC_PORT=8648
+Environment=GBRAIN_SYNC_DIR=%h/.gbrain/sync
+ExecStart=%h/hermes/workspace/GoalChain/ops/hermes/gbrain-sync-server.py
+Restart=always
+RestartSec=3
+StandardOutput=append:%h/.gbrain/sync/server.log
+StandardError=append:%h/.gbrain/sync/server.log
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=%h/.gbrain/sync
+
+[Install]
+WantedBy=default.target
