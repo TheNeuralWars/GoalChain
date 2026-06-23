@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { apiBaseUrl } from '../lib/opsClient';
 
 interface Comment {
   timestamp: string;
@@ -35,7 +36,7 @@ interface DaemonStatus {
 }
 
 export function MarketingControlCenter() {
-  const apiBase = import.meta.env.VITE_API_BASE_URL || '';
+  const apiBase = apiBaseUrl();
   
   const [runs, setRuns] = useState<MarketingRun[]>([]);
   const [daemon, setDaemon] = useState<DaemonStatus>({ status: 'offline', is_online: false });
