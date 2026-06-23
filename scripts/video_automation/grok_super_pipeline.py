@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import time
 import urllib.request
 import urllib.parse
 import subprocess
@@ -16,6 +17,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # Load configs
 sys.path.append(str(BASE_DIR / "scripts" / "video_automation"))
 from config import ACCOUNTS
+try:
+    from schedule_optimizer import get_scheduled_at, CHANNEL_SERVICES
+    SCHEDULER_AVAILABLE = True
+except ImportError:
+    SCHEDULER_AVAILABLE = False
+    print("[Aviso] schedule_optimizer no disponible, usando addToQueue")
 
 BUFFER_TOKEN = "VB1d1PaKlkyQA-Q97Go4k7SIbk9kQcBxy8pVaRAYJta"
 VPS_HOST = "ubuntu@89.168.20.135"
@@ -344,8 +351,24 @@ def generate_video_on_vps(video_prompt: str, image_filename: str) -> str:
         
     return res.split("SUCCESS:")[1].strip()
 
-def post_to_buffer(channel_id: str, text: str, video_url: str) -> dict:
-    """Create a scheduled/automatic post in Buffer using GraphQL API"""
+def post_to_buffer(channel_id: str, text: str, video_url: str, all_channels: list = None) -> dict:
+    """Create a smart-scheduled post in Buffer using GraphQL API.
+    Uses schedule_optimizer to find optimal posting time for maximum LATAM audience impact.
+    Falls back to addToQueue if scheduler unavailable.
+    """
+    from datetime import timezone
+    all_channels = all_channels or [channel_id]
+    
+    # ── Calculate optimal scheduled time ──────────────────────────────────
+    scheduled_at = None
+    if SCHEDULER_AVAILABLE:
+        try:
+            scheduled_at = get_scheduled_at(channel_id, all_channels)
+            svc = CHANNEL_SERVICES.get(channel_id, channel_id)
+            print(f"  [{svc}] Publicación programada para: {scheduled_at} UTC")
+        except Exception as e:
+            print(f"  [Aviso] Optimizer falló ({e}), usando addToQueue")
+    
     print(f"Enviando publicación a Buffer para el canal {channel_id}...")
     
     mutation = """
@@ -355,6 +378,7 @@ def post_to_buffer(channel_id: str, text: str, video_url: str) -> dict:
           post {
             id
             text
+            scheduledAt
           }
         }
         ... on MutationError {
@@ -364,6 +388,17 @@ def post_to_buffer(channel_id: str, text: str, video_url: str) -> dict:
     }
     """
     
+    if scheduled_at:
+        scheduling = {
+            "schedulingType": "scheduled",
+            "scheduledAt": scheduled_at,
+        }
+    else:
+        scheduling = {
+            "schedulingType": "automatic",
+            "mode": "addToQueue",
+        }
+    
     variables = {
       "input": {
         "channelId": channel_id,
@@ -371,12 +406,11 @@ def post_to_buffer(channel_id: str, text: str, video_url: str) -> dict:
         "assets": [
           { "video": { "url": video_url } }
         ],
-        "schedulingType": "automatic",
-        "mode": "addToQueue"
+        **scheduling
       }
     }
     
-    # YouTube channel (6a283a4d8f1d11f9b26b0068) requires title and categoryId metadata
+    # YouTube channel requires title and categoryId metadata
     if channel_id == "6a283a4d8f1d11f9b26b0068":
         title = (text.split("\n")[0][:60] if text else "GoalChain Short").replace("¿", "").replace("?", "").strip()
         if not title:
@@ -387,7 +421,7 @@ def post_to_buffer(channel_id: str, text: str, video_url: str) -> dict:
                 "categoryId": "28"  # Science & Technology
             }
         }
-    # Instagram channel requires type (post, story, or reel)
+    # Instagram requires reel type
     elif channel_id == "6a283a328f1d11f9b26aff82":
         variables["input"]["metadata"] = {
             "instagram": {
@@ -416,6 +450,8 @@ def post_to_buffer(channel_id: str, text: str, video_url: str) -> dict:
         response_data = json.loads(r.read().decode("utf-8"))
         if "errors" in response_data:
             raise RuntimeError(f"Error de GraphQL en Buffer: {response_data['errors']}")
+        # Attach scheduled_at to response for storage
+        response_data["_scheduled_at"] = scheduled_at
         return response_data
 
 def run_pipeline(topic: str, account_name: str, run_id: str, auto_topic: bool = False):
@@ -515,24 +551,44 @@ def run_pipeline(topic: str, account_name: str, run_id: str, auto_topic: bool = 
     print(f"¡Video animado listo en pilot!: {video_url}")
     update_run_state(run_id, {"video_url": video_url})
     
-    # 5. Post to Buffer Channels
+    # 5. Post to Buffer Channels (with smart scheduling)
     buffer_post_ids = []
+    platform_slots = {}
+    earliest_scheduled_at = None
+    
     for channel_id in channels:
         try:
-            buffer_res = post_to_buffer(channel_id, prompts["post_text"], video_url)
+            buffer_res = post_to_buffer(channel_id, prompts["post_text"], video_url, all_channels=channels)
             print(f"✅ Publicado en Buffer canal {channel_id}: {buffer_res}")
             
-            # Extract post id if available
+            # Extract post id
             p_id = buffer_res.get("data", {}).get("createPost", {}).get("post", {}).get("id")
             if p_id:
                 buffer_post_ids.append(p_id)
+            
+            # Track scheduled time per channel
+            sched = buffer_res.get("_scheduled_at")
+            if not sched:
+                # Try to get scheduledAt from the returned post
+                sched = buffer_res.get("data", {}).get("createPost", {}).get("post", {}).get("scheduledAt")
+            
+            from schedule_optimizer import CHANNEL_SERVICES
+            svc = CHANNEL_SERVICES.get(channel_id, channel_id)
+            if sched:
+                platform_slots[svc] = sched
+                if earliest_scheduled_at is None or sched < earliest_scheduled_at:
+                    earliest_scheduled_at = sched
+                    
         except Exception as buffer_err:
             print(f"❌ Error publicando en canal {channel_id}: {buffer_err}")
             
     update_run_state(run_id, {
         "status": "published",
-        "buffer_post_ids": buffer_post_ids
+        "buffer_post_ids": buffer_post_ids,
+        "scheduled_at": earliest_scheduled_at,
+        "platform_slots": platform_slots,
     })
+
     
     print(f"\n✅ PIPELINE GROK SUPER FINALIZADO CON ÉXITO PARA {account_name}!")
 

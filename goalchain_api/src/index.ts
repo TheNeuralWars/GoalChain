@@ -6,6 +6,7 @@ import { Connection, PublicKey } from "@solana/web3.js";
 import { AnchorProvider, Program } from "@coral-xyz/anchor";
 import { idl, PROGRAM_ID, GoalchainProgram, retryRpcCall } from "@goalchain/sdk";
 import fs from "fs";
+import { exec } from "child_process";
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
@@ -1423,6 +1424,31 @@ app.get("/api/marketing/daemon-status", (req, res) => {
     console.error("Error reading daemon status:", err);
     res.status(500).json({ error: `Failed to read status: ${err.message}` });
   }
+});
+
+// 6. Get schedule preview
+app.get("/api/marketing/schedule-preview", (req: any, res: any) => {
+  const scriptPath = path.resolve(__dirname, "../../scripts/video_automation/schedule_optimizer.py");
+  const cmd = process.platform === "win32" ? `python "${scriptPath}" --preview` : `python3 "${scriptPath}" --preview`;
+  
+  exec(cmd, (error: any, stdout: string, stderr: string) => {
+    if (error) {
+      console.error(`[API] Error running schedule_optimizer:`, error, stderr);
+      return res.status(500).json({ error: `Failed to fetch schedule preview: ${error.message}` });
+    }
+    try {
+      const jsonStart = stdout.indexOf("{");
+      if (jsonStart === -1) {
+        throw new Error("No JSON object found in stdout");
+      }
+      const jsonStr = stdout.substring(jsonStart);
+      const data = JSON.parse(jsonStr);
+      res.json(data);
+    } catch (parseErr: any) {
+      console.error(`[API] Failed to parse schedule_optimizer output:`, parseErr, stdout);
+      res.status(500).json({ error: `Failed to parse schedule preview: ${parseErr.message}` });
+    }
+  });
 });
 
 app.listen(port, () => {

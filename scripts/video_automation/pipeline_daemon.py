@@ -5,15 +5,18 @@ import time
 import subprocess
 import threading
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 # Setup paths relative to the project base
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+sys.path.append(str(BASE_DIR / "scripts" / "video_automation"))
+
 PIPELINE_DIR = BASE_DIR / "data" / "marketing_pipeline"
 TRIGGER_FILE = PIPELINE_DIR / "trigger.json"
 RUNS_FILE = PIPELINE_DIR / "runs.json"
 LOGS_DIR = PIPELINE_DIR / "logs"
 STATUS_FILE = PIPELINE_DIR / "daemon_status.json"
+LAST_AUTO_QUEUE_FILE = PIPELINE_DIR / "last_auto_queue_date.txt"
 
 # Create directories
 PIPELINE_DIR.mkdir(parents=True, exist_ok=True)
@@ -215,6 +218,66 @@ def run_research_subprocess():
         stop_hb.set()
         hb.join(timeout=2)
 
+def check_and_refill_queue():
+    """Daily check: if Buffer queue has < 5 pending posts, run research + generation to refill it"""
+    try:
+        from schedule_optimizer import get_pending_scheduled_times, CHANNEL_SERVICES
+        from grok_super_pipeline import CHANNEL_IDS
+    except ImportError as ie:
+        print(f"[{datetime.now()}] Warning: Auto-refill import failed: {ie}", file=sys.stderr)
+        return
+
+    print(f"[{datetime.now()}] Running daily auto-queue refill check...")
+    
+    # Check each channel's Buffer queue count
+    channels_to_refill = {}
+    for account, cids in CHANNEL_IDS.items():
+        for cid in cids:
+            service = CHANNEL_SERVICES.get(cid, "instagram")
+            try:
+                pending = get_pending_scheduled_times(cid)
+                pending_count = len(pending)
+                print(f"  Channel {cid} ({service} for {account}) has {pending_count} pending posts.")
+                if pending_count < 5:
+                    needed = 5 - pending_count
+                    channels_to_refill[account] = max(channels_to_refill.get(account, 0), needed)
+            except Exception as e:
+                print(f"Error checking pending posts for {cid}: {e}", file=sys.stderr)
+                
+    if not channels_to_refill:
+        print("All channels have >= 5 pending posts. No refill needed.")
+        return
+        
+    print(f"Refill needed for accounts: {channels_to_refill}")
+    
+    # 1. Run trend researcher to generate new plans
+    print("Running trend researcher to gather new topics...")
+    run_research_subprocess()
+    
+    # 2. Trigger generation of the planned runs for the accounts that need it
+    try:
+        if RUNS_FILE.exists():
+            with open(RUNS_FILE, "r", encoding="utf-8") as f:
+                runs = json.load(f)
+        else:
+            runs = []
+            
+        for account, needed in channels_to_refill.items():
+            # Find planned runs for this account
+            account_plans = [r for r in runs if r.get("account_name") == account and r.get("status") == "planned"]
+            # Take the first `needed` plans
+            plans_to_generate = account_plans[:needed]
+            print(f"Account {account} needs {needed} posts. Found {len(account_plans)} plans, generating {len(plans_to_generate)}")
+            
+            for plan in plans_to_generate:
+                run_id = plan["id"]
+                print(f"Auto-refill: generating post for {account} (Run ID: {run_id})")
+                run_pipeline_subprocess(account, topic=None, run_id=run_id)
+                # Sleep briefly between pipeline executions
+                time.sleep(5)
+    except Exception as e:
+        print(f"Error in auto-queue refill generation: {e}", file=sys.stderr)
+
 def main():
     print(f"Hermes Video Automation Daemon started (PID: {os.getpid()})")
     print(f"Watching trigger file: {TRIGGER_FILE}")
@@ -224,6 +287,24 @@ def main():
     while True:
         try:
             update_status("idle")
+            
+            # Daily check: after 6am UTC, run refill if not already run today
+            now_utc = datetime.now(timezone.utc)
+            if now_utc.hour >= 6:
+                today_str = now_utc.date().isoformat()
+                last_run_date = ""
+                if LAST_AUTO_QUEUE_FILE.exists():
+                    try:
+                        last_run_date = LAST_AUTO_QUEUE_FILE.read_text().strip()
+                    except Exception:
+                        pass
+                
+                if last_run_date != today_str:
+                    check_and_refill_queue()
+                    try:
+                        LAST_AUTO_QUEUE_FILE.write_text(today_str)
+                    except Exception as e:
+                        print(f"Error saving last auto-queue date: {e}", file=sys.stderr)
             
             if TRIGGER_FILE.exists():
                 print(f"[{datetime.now()}] Trigger detected!")
