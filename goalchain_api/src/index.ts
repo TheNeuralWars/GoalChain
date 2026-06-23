@@ -1378,7 +1378,7 @@ app.get("/api/marketing/daemon-status", (req, res) => {
     
     const lastCheck = new Date(status.last_check).getTime();
     const now = Date.now();
-    const isOnline = (now - lastCheck) < 15000; // 15s heartbeat window
+    const isOnline = (now - lastCheck) < 300000; // 5 min heartbeat window (video gen takes time)
     
     res.json({
       ...status,

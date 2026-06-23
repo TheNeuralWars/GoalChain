@@ -3,6 +3,7 @@ import sys
 import json
 import time
 import subprocess
+import threading
 from pathlib import Path
 from datetime import datetime
 
@@ -32,6 +33,12 @@ def update_status(status_str, current_run=None):
     except Exception as e:
         print(f"Error writing status file: {e}", file=sys.stderr)
 
+def heartbeat_thread(stop_event, status_str, current_run=None, interval=10):
+    """Background thread that keeps daemon_status.json fresh every `interval` seconds"""
+    while not stop_event.is_set():
+        update_status(status_str, current_run)
+        stop_event.wait(interval)
+
 def run_pipeline_subprocess(account, topic=None, run_id=None):
     """Execute the pipeline script as a subprocess and stream logs to a file"""
     if not run_id:
@@ -56,7 +63,13 @@ def run_pipeline_subprocess(account, topic=None, run_id=None):
         
     cmd.extend(["--run-id", run_id])
 
-    update_status("running", current_run={"account": account, "run_id": run_id, "started_at": datetime.utcnow().isoformat() + "Z"})
+    current_run_info = {"account": account, "run_id": run_id, "started_at": datetime.utcnow().isoformat() + "Z"}
+    update_status("running", current_run=current_run_info)
+
+    # Start heartbeat thread so daemon_status.json stays fresh during long video generation
+    stop_hb = threading.Event()
+    hb = threading.Thread(target=heartbeat_thread, args=(stop_hb, "running", current_run_info), daemon=True)
+    hb.start()
 
     # Run and write logs
     try:
@@ -91,6 +104,9 @@ def run_pipeline_subprocess(account, topic=None, run_id=None):
         mark_run_failed(run_id, error_msg)
         with open(log_file_path, "a", encoding="utf-8") as log_file:
             log_file.write(f"\nCRITICAL DAEMON ERROR: {error_msg}\n")
+    finally:
+        stop_hb.set()
+        hb.join(timeout=2)
 
 def init_run_entry(run_id, account, topic):
     """Insert a placeholder run entry into runs.json"""
@@ -171,6 +187,9 @@ def run_research_subprocess():
     ]
     
     update_status("researching")
+    stop_hb = threading.Event()
+    hb = threading.Thread(target=heartbeat_thread, args=(stop_hb, "researching"), daemon=True)
+    hb.start()
     
     try:
         with open(log_file_path, "w", encoding="utf-8", buffering=1) as log_file:
@@ -192,6 +211,9 @@ def run_research_subprocess():
                 print(f"[{datetime.now()}] Trend research failed with code {res.returncode}")
     except Exception as e:
         print(f"[{datetime.now()}] Error running research: {e}")
+    finally:
+        stop_hb.set()
+        hb.join(timeout=2)
 
 def main():
     print(f"Hermes Video Automation Daemon started (PID: {os.getpid()})")
