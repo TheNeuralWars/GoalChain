@@ -21,7 +21,7 @@ REPO="${GOALCHAIN_REPO_PATH:-$HERMES_HOME/workspace/GoalChain}"
 PROPOSALS_DIR="${REPO}/docs/proposals/hermes"
 OA_MODEL="${OA_MODEL:-xai/grok-4.3}"
 OA_CODE_ENGINE="${OA_CODE_ENGINE:-fcc}"
-OA_CODE_MODEL="opencode/nemotron-3-ultra-free" # locked exclusively to the free promo model
+OA_CODE_MODEL="${OA_CODE_MODEL:-nvidia/nemotron-3-super-120b-a12b}" # Issue #832: NVIDIA NIM (was: opencode/nemotron-3-ultra-free, provider=Nous)
 OA_CODE_CMD="${OA_CODE_CMD:-}"
 RUN_CODE="${HERMES_HOME}/scripts/oa-run-code.sh"
 RESEARCH_PUBLISHER="${HERMES_HOME}/scripts/oa-discord-research-publisher.py"

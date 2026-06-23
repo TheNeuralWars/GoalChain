@@ -41,7 +41,10 @@ ISSUE_URL="${OA_TASK_ISSUE_URL:-}"
 TASK_TITLE="${OA_TASK_TITLE:-}"
 TASK_OBJECTIVE="${OA_TASK_OBJECTIVE:-}"
 MODEL="${OA_MODEL:-xai/grok-4.3}"
-OA_CODE_MODEL="opencode/nemotron-3-ultra-free"
+# Issue #832: switched from opencode/nemotron-3-ultra-free (provider=Nous)
+# to NVIDIA NIM provider running nvidia/nemotron-3-super-120b-a12b.
+# Set NVIDIA_NIM_API_KEY in ~/hermes/config.env to enable.
+OA_CODE_MODEL="${OA_CODE_MODEL:-nvidia/nemotron-3-super-120b-a12b}"
 RUN_CODE="${HERMES_HOME}/scripts/oa-run-code.sh"
 GITHUB_REPO="${GITHUB_REPO:-TheNeuralWars/GoalChain}"
 RUN_LOG="${LOG_DIR}/runner-${OWNER}-issue-${ISSUE_NUMBER:-unknown}.log"

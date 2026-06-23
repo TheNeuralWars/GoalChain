@@ -168,7 +168,9 @@ case "${cmd}" in
     if tmux has-session -t "${AUTH_SESSION}" 2>/dev/null; then
       echo "auth: session already running (tmux attach -t ${AUTH_SESSION})"
     else
-      tmux new-session -d -s "${AUTH_SESSION}" "cd '${HERMES_HOME}/workspace/GoalChain' && opencode providers login"
+      # Issue #832: provider for code issues is "nvidia" (NVIDIA NIM);
+      # use -p nvidia -m <method> when the script prompts.
+      tmux new-session -d -s "${AUTH_SESSION}" "cd '${HERMES_HOME}/workspace/GoalChain' && opencode providers login -p nvidia"
       echo "auth: started interactive provider login in tmux session ${AUTH_SESSION}"
       echo "attach with: tmux attach -t ${AUTH_SESSION}"
     fi

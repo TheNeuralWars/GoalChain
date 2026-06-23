@@ -56,7 +56,7 @@ REPO="${WORKTREE_DIR}"
 PROPOSALS_DIR="${REPO}/docs/proposals/hermes"
 OA_MODEL="${OA_MODEL:-xai/grok-4.3}"
 OA_CODE_ENGINE="${OA_CODE_ENGINE:-hermes}"
-OA_CODE_MODEL="${OA_CODE_MODEL:-nvidia/nemotron-3-ultra}"
+OA_CODE_MODEL="${OA_CODE_MODEL:-nvidia/nemotron-3-super-120b-a12b}" # Issue #832: NVIDIA NIM (was: nvidia/nemotron-3-ultra, provider=Nous)
 OA_CODE_CMD="${OA_CODE_CMD:-}"
 RUN_CODE="${HERMES_HOME}/scripts/oa-run-code.sh"
 RESEARCH_PUBLISHER="${HERMES_HOME}/scripts/oa-discord-research-publisher.py"
