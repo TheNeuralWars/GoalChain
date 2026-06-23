@@ -1160,6 +1160,237 @@ app.post("/api/solana/jupiter/quote", async (req, res) => {
   }
 });
 
+// ============================================
+// Hermes Video Marketing Pipeline Endpoints
+// ============================================
+
+const runsPath = path.resolve(__dirname, "../../data/marketing_pipeline/runs.json");
+const logsDir = path.resolve(__dirname, "../../data/marketing_pipeline/logs");
+const triggerPath = path.resolve(__dirname, "../../data/marketing_pipeline/trigger.json");
+const daemonStatusPath = path.resolve(__dirname, "../../data/marketing_pipeline/daemon_status.json");
+
+// Helper to ensure directories exist
+function ensurePipelineDirs() {
+  const dir = path.dirname(runsPath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+  if (!fs.existsSync(logsDir)) {
+    fs.mkdirSync(logsDir, { recursive: true });
+  }
+}
+
+// 1. Get all runs
+app.get("/api/marketing/runs", (req, res) => {
+  try {
+    ensurePipelineDirs();
+    if (!fs.existsSync(runsPath)) {
+      return res.json([]);
+    }
+    const content = fs.readFileSync(runsPath, "utf-8");
+    const runs = JSON.parse(content);
+    res.json(runs);
+  } catch (err: any) {
+    console.error("Error reading marketing runs:", err);
+    res.status(500).json({ error: `Failed to load runs: ${err.message}` });
+  }
+});
+
+// 2. Add comment to a run (feedback loop)
+app.post("/api/marketing/runs/:id/comment", (req, res) => {
+  try {
+    const { id } = req.params;
+    const { text } = req.body;
+    if (!text) {
+      return res.status(400).json({ error: "Comment text is required" });
+    }
+
+    ensurePipelineDirs();
+    let runs = [];
+    if (fs.existsSync(runsPath)) {
+      const content = fs.readFileSync(runsPath, "utf-8");
+      runs = JSON.parse(content);
+    }
+
+    const run = runs.find((r: any) => r.id === id);
+    if (!run) {
+      return res.status(404).json({ error: "Run not found" });
+    }
+
+    if (!run.comments) {
+      run.comments = [];
+    }
+
+    run.comments.push({
+      timestamp: new Date().toISOString(),
+      text: text.trim()
+    });
+
+    fs.writeFileSync(runsPath, JSON.stringify(runs, null, 2), "utf-8");
+    res.json({ success: true, run });
+  } catch (err: any) {
+    console.error("Error adding comment to run:", err);
+    res.status(500).json({ error: `Failed to add comment: ${err.message}` });
+  }
+});
+
+
+// 3. Trigger Hermes manually (Wake Hermes)
+app.post("/api/marketing/trigger", (req, res) => {
+  try {
+    const { account_name, topic } = req.body;
+    const payload = {
+      action: "generate",
+      account_name: account_name || "both",
+      topic: topic || null,
+      timestamp: new Date().toISOString()
+    };
+
+    ensurePipelineDirs();
+    fs.writeFileSync(triggerPath, JSON.stringify(payload, null, 2), "utf-8");
+    console.log(`[API] Hermes marketing trigger written for account: ${payload.account_name}`);
+    res.json({ success: true, message: "Hermes pipeline trigger registered successfully" });
+  } catch (err: any) {
+    console.error("Error writing trigger:", err);
+    res.status(500).json({ error: `Failed to write trigger file: ${err.message}` });
+  }
+});
+
+// 3a. Trigger trend research
+app.post("/api/marketing/research", (req, res) => {
+  try {
+    const payload = {
+      action: "research",
+      timestamp: new Date().toISOString()
+    };
+
+    ensurePipelineDirs();
+    fs.writeFileSync(triggerPath, JSON.stringify(payload, null, 2), "utf-8");
+    console.log("[API] Hermes trend research trigger written");
+    res.json({ success: true, message: "Hermes trend research trigger written successfully" });
+  } catch (err: any) {
+    console.error("Error writing research trigger:", err);
+    res.status(500).json({ error: `Failed to write research trigger: ${err.message}` });
+  }
+});
+
+// 3b. Edit planned run details
+app.put("/api/marketing/runs/:id", (req, res) => {
+  try {
+    const { id } = req.params;
+    const { topic, post_text, image_prompt, video_prompt } = req.body;
+
+    ensurePipelineDirs();
+    if (!fs.existsSync(runsPath)) {
+      return res.status(404).json({ error: "Runs database not found" });
+    }
+
+    const content = fs.readFileSync(runsPath, "utf-8");
+    const runs = JSON.parse(content);
+    const run = runs.find((r: any) => r.id === id);
+    if (!run) {
+      return res.status(404).json({ error: "Run not found" });
+    }
+
+    if (topic !== undefined) run.topic = topic;
+    if (post_text !== undefined) run.post_text = post_text;
+    if (image_prompt !== undefined) run.image_prompt = image_prompt;
+    if (video_prompt !== undefined) run.video_prompt = video_prompt;
+
+    fs.writeFileSync(runsPath, JSON.stringify(runs, null, 2), "utf-8");
+    res.json({ success: true, run });
+  } catch (err: any) {
+    console.error("Error updating planned run:", err);
+    res.status(500).json({ error: `Failed to update run: ${err.message}` });
+  }
+});
+
+// 3c. Delete planned run
+app.delete("/api/marketing/runs/:id", (req, res) => {
+  try {
+    const { id } = req.params;
+
+    ensurePipelineDirs();
+    if (!fs.existsSync(runsPath)) {
+      return res.status(404).json({ error: "Runs database not found" });
+    }
+
+    const content = fs.readFileSync(runsPath, "utf-8");
+    const runs = JSON.parse(content);
+    const newRuns = runs.filter((r: any) => r.id !== id);
+
+    fs.writeFileSync(runsPath, JSON.stringify(newRuns, null, 2), "utf-8");
+    res.json({ success: true, message: "Run deleted successfully" });
+  } catch (err: any) {
+    console.error("Error deleting run:", err);
+    res.status(500).json({ error: `Failed to delete run: ${err.message}` });
+  }
+});
+
+// 3d. Trigger generation of a specific planned run
+app.post("/api/marketing/runs/:id/trigger", (req, res) => {
+  try {
+    const { id } = req.params;
+
+    ensurePipelineDirs();
+    const payload = {
+      action: "generate_planned",
+      run_id: id,
+      timestamp: new Date().toISOString()
+    };
+
+    fs.writeFileSync(triggerPath, JSON.stringify(payload, null, 2), "utf-8");
+    console.log(`[API] Hermes trigger written for planned run: ${id}`);
+    res.json({ success: true, message: `Trigger for planned run ${id} written successfully` });
+  } catch (err: any) {
+    console.error("Error writing planned run trigger:", err);
+    res.status(500).json({ error: `Failed to write planned run trigger: ${err.message}` });
+  }
+});
+
+
+// 4. Stream log file
+app.get("/api/marketing/runs/:id/log", (req, res) => {
+  try {
+    const { id } = req.params;
+    const logPath = path.join(logsDir, `${id}.log`);
+    
+    if (!fs.existsSync(logPath)) {
+      return res.status(404).json({ error: "Log file not found for this run" });
+    }
+    
+    const content = fs.readFileSync(logPath, "utf-8");
+    res.type("text/plain").send(content);
+  } catch (err: any) {
+    console.error("Error reading run log:", err);
+    res.status(500).json({ error: `Failed to read log: ${err.message}` });
+  }
+});
+
+// 5. Get daemon status
+app.get("/api/marketing/daemon-status", (req, res) => {
+  try {
+    if (!fs.existsSync(daemonStatusPath)) {
+      return res.json({ status: "offline", message: "Daemon is not running or status not initialized" });
+    }
+    const content = fs.readFileSync(daemonStatusPath, "utf-8");
+    const status = JSON.parse(content);
+    
+    const lastCheck = new Date(status.last_check).getTime();
+    const now = Date.now();
+    const isOnline = (now - lastCheck) < 15000; // 15s heartbeat window
+    
+    res.json({
+      ...status,
+      is_online: isOnline,
+      status: isOnline ? status.status : "offline"
+    });
+  } catch (err: any) {
+    console.error("Error reading daemon status:", err);
+    res.status(500).json({ error: `Failed to read status: ${err.message}` });
+  }
+});
+
 app.listen(port, () => {
   console.log(`GoalChain API listening at http://localhost:${port}`);
 });

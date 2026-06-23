@@ -17,6 +17,7 @@ import { ClubPortal } from './ClubPortal';
 import { CreateUser } from './CreateUser';
 import { UserProfile } from './UserProfile';
 import { ClassicHub } from './ClassicHub';
+import { MarketingControlCenter } from './MarketingControlCenter';
 const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
 
 function PlayPage({
@@ -96,6 +97,14 @@ function App() {
                           <StakingBurnDashboard />
                         </PlayPage>
                       </React.Suspense>
+                    }
+                  />
+                  <Route
+                    path="/marketing-control"
+                    element={
+                      <PlayPage title="Hermes Pilot" align="left">
+                        <MarketingControlCenter />
+                      </PlayPage>
                     }
                   />
                   <Route path="/hub" element={<ClassicHub />} />
