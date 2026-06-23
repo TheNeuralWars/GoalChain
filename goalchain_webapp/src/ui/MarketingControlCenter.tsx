@@ -192,10 +192,12 @@ function VideoCard({
             {run.video_url ? (
               <video
                 src={run.video_url}
+                autoPlay
                 controls
                 loop
                 muted
                 playsInline
+                preload="auto"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
             ) : (

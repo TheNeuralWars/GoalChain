@@ -52,7 +52,7 @@ export function apiBaseUrl(): string {
   const raw = import.meta.env.VITE_API_BASE_URL?.trim();
   if (raw) {
     const base = raw.replace(/\/$/, '');
-    if (import.meta.env.PROD && STALE_VERCEL_API_URLS.has(base)) {
+    if (STALE_VERCEL_API_URLS.has(base)) {
       return DEFAULT_API_PROD;
     }
     return base;
