@@ -15,9 +15,11 @@ def main():
     parser.add_argument("--eventText", default="Messi anotó (82')", help="Oracle event description text")
     parser.add_argument("--yieldChange", default="+15.4%", help="Yield boost change percentage")
     parser.add_argument("-v", "--voice", default="ef_dora", help="Kokoro voice ID (default: ef_dora for Spanish Enzo Bit)")
+    parser.add_argument("--aspect", choices=["1x1", "9x16"], default="9x16", help="Output aspect ratio. Defaults to 9:16 (vertical Shorts/TikTok/X).")
+    parser.add_argument("--dry-run", action="store_true", help="Skip ffmpeg/Buffer; print plan only.")
     parser.add_argument("-o", "--output", default="scripts/marketing/video-automation/assets/reel_output.mp4", help="Final output MP4 path")
     parser.add_argument("--text", help="Override speech commentary narrative text")
-    parser.add_argument("--caption", default="⚽ ¡LIVE ORACLE UPDATE! Enzo Bit reporta los últimos rendimientos impulsados en GoalChain! 💎🚀", help="Caption for social media posting")
+    parser.add_argument("--caption", default="GoalChain oracle live update: Enzo Bit fires the latest yield alert. Diamond hands only. #GoalChain #Solana", help="Caption for social media posting")
     parser.add_argument("--publish", action="store_true", help="Post to X (Twitter) and Discord after compilation")
     parser.add_argument("--discord-only", action="store_true", help="Publish only to Discord")
     parser.add_argument("--twitter-only", action="store_true", help="Publish only to Twitter")
@@ -31,10 +33,32 @@ def main():
     comp_dir = os.path.join(script_dir, "marketing", "video-automation")
     bg_music_path = os.path.join(comp_dir, "assets", "crowd_ambience.ogg")
 
+    # Speech narrative (English Max Law compliance).
+    if args.text:
+        narrative_text = args.text
+    else:
+        narrative_text = (
+            f"GoalChain oracle alert: in the clash between {args.teamA} and "
+            f"{args.teamB}, {args.eventText}. Yields moved {args.yieldChange}. "
+            f"Stay sharp, the on-chain market reacts fast."
+        )
+
     # Output path absolute
     output_abs_path = os.path.abspath(args.output)
     output_dir = os.path.dirname(output_abs_path)
     os.makedirs(output_dir, exist_ok=True)
+
+    # Aspect-conditioned composition (9x16 portrait vs 1x1 square)
+    index_html_name = "index_916.html" if args.aspect == "9x16" else "index.html"
+
+    if args.dry_run:
+        print("\n--- DRY RUN: skipping render, TTS, ffmpeg, and publish ---")
+        print(f"  aspect={args.aspect} composition={index_html_name}")
+        print(f"  output={output_abs_path}")
+        print(f"  narrative={narrative_text}")
+        if args.publish:
+            print("  publish requested via --publish (still skipped in dry-run)")
+        return
 
     print("=== GoalChain Video Post-Production & Automation Engine ===")
     print(f"Team A:      {args.teamA} ({args.scoreA})")
@@ -45,17 +69,7 @@ def main():
     print(f"Final Reel:  {output_abs_path}")
     print("==========================================================")
 
-    # Determine speech narrative
-    if args.text:
-        narrative_text = args.text
-    else:
-        narrative_text = (
-            f"¡Atención fanáticos de GoalChain! Enzo Bit reporta desde el oráculo. "
-            f"En el emocionante partido entre {args.teamA} y {args.teamB}, {args.eventText}. "
-            f"¡Esto ha provocado que los rendimientos aumenten un {args.yieldChange}! "
-            f"¡Una locura total en el mercado de derivados de GoalChain!"
-        )
-    
+    # Speech narrative already resolved above (English Max Law compliance).
     print(f"Narrative Speech Text: \"{narrative_text}\"")
 
     # Use a temporary directory for raw files
