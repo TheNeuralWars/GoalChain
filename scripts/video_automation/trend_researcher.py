@@ -17,19 +17,18 @@ from config import ACCOUNTS
 RUNS_FILE = BASE_DIR / "data" / "marketing_pipeline" / "runs.json"
 
 def ssh_run(cmd_string: str) -> str:
-    """Run command locally on VPS or via SSH from Windows"""
-    is_local = (os.name != "nt")
-    if is_local:
-        res = subprocess.run(cmd_string, shell=True, capture_output=True, encoding="utf-8", check=True)
-        return res.stdout.strip()
-    else:
-        # For local testing from Windows
-        VPS_HOST = "ubuntu@89.168.20.135"
-        ssh_cmd = ["ssh", "-o", "BatchMode=yes", VPS_HOST, cmd_string]
-        res = subprocess.run(ssh_cmd, capture_output=True, encoding="utf-8", check=True)
-        return res.stdout.strip()
+    """Run command locally on this host. (Hetzner legacy SSH path removed 2026-06-23.)"""
+    res = subprocess.run(cmd_string, shell=True, capture_output=True, encoding="utf-8", check=True)
+    return res.stdout.strip()
 
-# World Cup 2026 player stories for GoalChainSol content
+# Cost guard is enforced upstream by grok_super_pipeline._cost_guard_check_and_increment
+# for image+video generations. For Grok text calls (trend_researcher), we apply
+# MAX_GROK_TEXT_CALLS_PER_DAY independently.
+def _get_env_int(key: str, default: int) -> int:
+    try:
+        return int(os.getenv(key, str(default)))
+    except Exception:
+        return default
 WORLD_CUP_2026_PLAYERS = """
 CONTEXTO DEL MUNDIAL 2026 — usa historias de estos jugadores/momentos REALES para construir narrativas:
 - Lionel Messi (Argentina): Posiblemente su último mundial. ¿Los que apostaron CONTRA él en 2014 o A FAVOR en 2022?

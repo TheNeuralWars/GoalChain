@@ -70,6 +70,21 @@ polymarket_bot/*.service
 
 scratch/*
 !scratch/current_web_players/
+
+# --- Marketing pipeline runtime artifacts (rebuilt by reconstruct_runs.py from scratch) ---
+data/marketing_pipeline/*.mp4
+data/marketing_pipeline/*.jpg
+data/marketing_pipeline/*.jpeg
+data/marketing_pipeline/*.png
+data/marketing_pipeline/*_metadata.json
+data/marketing_pipeline/daemon_status.json
+data/marketing_pipeline/schedule_preview.json
+data/marketing_pipeline/trigger.json
+data/marketing_pipeline/logs/
+!data/marketing_pipeline/runs.json
+!data/marketing_pipeline/last_auto_queue_date.txt
+!data/marketing_pipeline/cost_guard.json
+!data/marketing_pipeline/.gitkeep
 # --- Reorganization (2026-06-19): archive, cache, deep-research clones ---
 _archive/
 *.tar.gz

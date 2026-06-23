@@ -24,8 +24,32 @@ except ImportError:
     SCHEDULER_AVAILABLE = False
     print("[Aviso] schedule_optimizer no disponible, usando addToQueue")
 
-BUFFER_TOKEN = "VB1d1PaKlkyQA-Q97Go4k7SIbk9kQcBxy8pVaRAYJta"
-VPS_HOST = "ubuntu@89.168.20.135"
+# Buffer token required (loaded from .env via config OR schedule_optimizer).
+try:
+    from schedule_optimizer import BUFFER_TOKEN as _BUF_INDIRECT  # type: ignore
+    BUFFER_TOKEN = _BUF_INDIRECT
+except Exception:
+    # Direct .env fallback if schedule_optimizer wasn't importable
+    from dotenv import load_dotenv
+    load_dotenv(BASE_DIR / ".env")
+    BUFFER_TOKEN = os.getenv("BUFFER_TOKEN")
+    if not BUFFER_TOKEN:
+        raise RuntimeError(
+            "Missing BUFFER_TOKEN in .env. Add BUFFER_TOKEN=..."
+        )
+
+# --- Session-scoped image lock ---
+# Bug: clear_cmd at line ~315 used to nuke every .jpg/.png in
+# ~/.grok/sessions/ before each generation, which could clobber an
+# in-flight generation from a parallel run. Now we drop a per-session
+# marker immediately before clearing — and verify our own marker survives
+# the find — so concurrent processes don't step on each other.
+import uuid as _uuid
+SESSION_LOCK_DIR = Path("/home/ubuntu/.grok/sessions") / ".hermes_locks"
+
+# --- Cost guard (per-day generation budget from .env) ---
+MAX_GROK_GENERATIONS_PER_DAY = int(os.getenv("MAX_GROK_GENERATIONS_PER_DAY", "40"))
+COST_GUARD_FILE = BASE_DIR / "data" / "marketing_pipeline" / "cost_guard.json"
 
 # Multi-channel routing per account
 CHANNEL_IDS = {
@@ -39,17 +63,9 @@ CHANNEL_IDS = {
 }
 
 def ssh_run(cmd_string: str) -> str:
-    """Run command locally on VPS or via SSH from Windows"""
-    is_local = (os.name != "nt")
-    if is_local:
-        # Run directly on the host (VPS)
-        res = subprocess.run(cmd_string, shell=True, capture_output=True, encoding="utf-8", check=True)
-        return res.stdout.strip()
-    else:
-        # Run via SSH from Windows developer machine
-        ssh_cmd = ["ssh", "-o", "BatchMode=yes", VPS_HOST, cmd_string]
-        res = subprocess.run(ssh_cmd, capture_output=True, encoding="utf-8", check=True)
-        return res.stdout.strip()
+    """Run command locally on this host. (Hetzner legacy SSH path removed 2026-06-23.)"""
+    res = subprocess.run(cmd_string, shell=True, capture_output=True, encoding="utf-8", check=True)
+    return res.stdout.strip()
 
 def normalize_prompts(data: dict) -> dict:
     if not isinstance(data, dict):
@@ -307,29 +323,50 @@ def generate_visual_prompts(topic: str, account_name: str, feedback_str: str) ->
     return normalize_prompts(json.loads(cleaned))
 
 def generate_image_on_vps(image_prompt: str) -> str:
-    """Generate image on VPS using Grok CLI and return its filename in pilot.
+    """Generate image on host using Grok CLI and return its filename in pilot.
     Clears Grok image cache first to ensure each run gets a fresh, unique image.
+    Uses a per-invocation session lock so concurrent pipeline runs don't
+    clobber each other's image generations.
     """
+    if not image_prompt or not image_prompt.strip():
+        raise RuntimeError("image_prompt is empty — refusing to call Grok with empty prompt.")
+
     print("Limpiando caché de imágenes de Grok para garantizar variedad...")
-    # Clear previous images from Grok sessions to avoid contamination between runs
+    # Drop a per-invocation marker FIRST so concurrent runs can distinguish.
+    SESSION_LOCK_DIR.mkdir(parents=True, exist_ok=True)
+    my_lock = SESSION_LOCK_DIR / f"{os.getpid()}_{_uuid.uuid4().hex[:8]}.lock"
+    my_lock.write_text(datetime.utcnow().isoformat() + "Z")
+    
+    # Clear only image files older than our lock's mtime — leave newer ones
+    # (they belong to a concurrent generation that started after us).
     clear_cmd = (
-        "find /home/ubuntu/.grok/sessions/ -maxdepth 4 -name '*.jpg' -o -name '*.png' "
-        "2>/dev/null | xargs rm -f 2>/dev/null || true"
+        f"find /home/ubuntu/.grok/sessions/ -maxdepth 4 \\( -name '*.jpg' -o -name '*.png' \\) "
+        f"! -newer {shlex.quote(str(my_lock))} "
+        f"2>/dev/null -exec rm -f {{}} + 2>/dev/null || true"
     )
     try:
         ssh_run(clear_cmd)
-        print("  Caché limpiada.")
-    except Exception:
-        pass  # Non-fatal
+        print("  Caché limpiada (preservando archivos posteriores al lock).")
+    except Exception as e:
+        print(f"  Aviso: clear_cmd falló ({e}); continuando.")
+    finally:
+        try:
+            my_lock.unlink()
+        except Exception:
+            pass
     
-    print("Generando imagen de inicio en el VPS con Grok CLI...")
+    print("Generando imagen de inicio en el host con Grok CLI...")
     grok_prompt = f"Genera una imagen con el modelo de alta calidad (grok-imagine-image-quality): {image_prompt}"
     
     cmd = f"/home/ubuntu/.local/bin/grok --single {shlex.quote(grok_prompt)}"
     output = ssh_run(cmd)
     
+    # Wait 1s to let mkdir/fs sync the new file
+    time.sleep(1)
+
     copy_cmd = (
-        "img_path=$(find /home/ubuntu/.grok/sessions/ -maxdepth 4 -name '*.jpg' -o -name '*.png' -printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
+        "img_path=$(find /home/ubuntu/.grok/sessions/ -maxdepth 4 \\( -name '*.jpg' -o -name '*.png' \\) "
+        "-printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
         "if [ -f \"$img_path\" ]; then "
         "  fname=$(basename \"$img_path\"); "
         "  ts=$(date +%s); "
@@ -346,14 +383,22 @@ def generate_image_on_vps(image_prompt: str) -> str:
         
     return res.split("SUCCESS:")[1].strip()
 
+
 def generate_video_on_vps(video_prompt: str, image_filename: str) -> str:
-    """Animate image to video on VPS using Grok CLI and return video filename in pilot"""
-    print("Animando imagen a video en el VPS con Grok CLI...")
+    """Animate image to video on host using Grok CLI and return video filename in pilot.
+    Refuses to run if video_prompt is empty (would produce a no-op video).
+    """
+    if not video_prompt or not video_prompt.strip():
+        raise RuntimeError("video_prompt is empty — refusing to call Grok with empty prompt.")
+
+    print("Animando imagen a video en el host con Grok CLI...")
     grok_prompt = f"Genera un video vertical en formato 9:16 (grok-imagine-video) a partir de la imagen '{image_filename}' usando este prompt de animación: {video_prompt}"
     
     cmd = f"/home/ubuntu/.local/bin/grok --single {shlex.quote(grok_prompt)}"
     output = ssh_run(cmd)
     
+    time.sleep(1)
+
     copy_cmd = (
         "vid_path=$(find /home/ubuntu/.grok/sessions/ -maxdepth 4 -name '*.mp4' -printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
         "if [ -f \"$vid_path\" ]; then "
@@ -371,6 +416,38 @@ def generate_video_on_vps(video_prompt: str, image_filename: str) -> str:
         raise RuntimeError(f"Error localizando o copiando el video generado por Grok CLI: {res}")
         
     return res.split("SUCCESS:")[1].strip()
+
+
+# --- Cost guard helpers ---
+def _cost_guard_state() -> dict:
+    """Read today's generation counter for the cost guard."""
+    today = datetime.utcnow().date().isoformat()
+    try:
+        if COST_GUARD_FILE.exists():
+            data = json.loads(COST_GUARD_FILE.read_text())
+            if data.get("date") == today:
+                return data
+    except Exception:
+        pass
+    return {"date": today, "count": 0}
+
+
+def _cost_guard_check_and_increment(action: str) -> bool:
+    """Returns True if we can proceed with this generation (and increments).
+    Returns False if daily budget is exhausted.
+    """
+    state = _cost_guard_state()
+    if state["count"] >= MAX_GROK_GENERATIONS_PER_DAY:
+        print(f"[CostGuard] Bloqueado: {state['count']}/{MAX_GROK_GENERATIONS_PER_DAY} generaciones hoy ({action}).")
+        return False
+    state["count"] += 1
+    try:
+        COST_GUARD_FILE.parent.mkdir(parents=True, exist_ok=True)
+        COST_GUARD_FILE.write_text(json.dumps(state, indent=2))
+    except Exception as e:
+        print(f"[CostGuard] Aviso: no pude persistir estado: {e}")
+    print(f"[CostGuard] {state['count']}/{MAX_GROK_GENERATIONS_PER_DAY} usadas hoy ({action}).")
+    return True
 
 def post_to_buffer(channel_id: str, text: str, video_url: str, all_channels: list = None) -> dict:
     """Create a smart-scheduled post in Buffer using GraphQL API.

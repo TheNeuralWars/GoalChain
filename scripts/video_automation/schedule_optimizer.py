@@ -16,11 +16,28 @@ import json
 import urllib.request
 from datetime import datetime, timezone, timedelta
 import sys
+import os
 from typing import Optional
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load .env from /data/apps/GoalChain/.env regardless of cwd
+_BASE_DIR = Path(__file__).resolve().parent.parent.parent
+load_dotenv(_BASE_DIR / ".env")
 
 # ── Constants ────────────────────────────────────────────────────────────────
 
-BUFFER_TOKEN = "VB1d1PaKlkyQA-Q97Go4k7SIbk9kQcBxy8pVaRAYJta"
+def _get_required(key: str) -> str:
+    val = os.getenv(key)
+    if not val:
+        raise RuntimeError(
+            f"Missing required env var {key}. Add it to { _BASE_DIR / '.env' }"
+        )
+    return val
+
+# ── Constants ────────────────────────────────────────────────────────────────
+BUFFER_TOKEN = _get_required("BUFFER_TOKEN")
+BUFFER_ORG_ID = os.getenv("BUFFER_ORG_ID", "6a2816a912de31678241942c")
 BUFFER_API = "https://api.buffer.com"
 
 # LATAM target timezone: Argentina/Buenos Aires UTC-3 (no DST)
@@ -89,7 +106,7 @@ def get_pending_scheduled_times(channel_id: str) -> list[datetime]:
     """
     variables = {
         "input": {
-            "organizationId": "6a2816a912de31678241942c",
+            "organizationId": BUFFER_ORG_ID,
             "filter": {
                 "channelIds": [channel_id],
                 "status": ["scheduled", "needs_approval"]

@@ -197,6 +197,42 @@ def get_account_for_run(run_id):
         print(f"Error looking up account for run: {e}", file=sys.stderr)
     return None
 
+
+def _prune_stuck_generating(max_age_hours: float = 6.0):
+    """Reclassify any run stuck in 'generating' longer than max_age_hours as 'failed'.
+    Safe to call repeatedly. Returns count of reclassified runs.
+    """
+    if not RUNS_FILE.exists():
+        return 0
+    try:
+        with open(RUNS_FILE, "r", encoding="utf-8") as f:
+            runs = json.load(f)
+    except Exception as e:
+        print(f"[prune] could not read runs.json: {e}", file=sys.stderr)
+        return 0
+    cutoff = datetime.now(timezone.utc).timestamp() - (max_age_hours * 3600)
+    fixed = 0
+    for r in runs:
+        if r.get("status") == "generating":
+            ts = r.get("timestamp", "")
+            try:
+                ts_dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+                if ts_dt.timestamp() < cutoff:
+                    r["status"] = "failed"
+                    r["error_message"] = r.get("error_message") or f"Aborted by daemon: stuck in generating > {max_age_hours}h"
+                    fixed += 1
+            except Exception:
+                r["status"] = "failed"
+                fixed += 1
+    if fixed:
+        try:
+            with open(RUNS_FILE, "w", encoding="utf-8") as f:
+                json.dump(runs, f, indent=2, ensure_ascii=False)
+            print(f"[prune] {fixed} runs reclassified from generating -> failed")
+        except Exception as e:
+            print(f"[prune] could not write runs.json: {e}", file=sys.stderr)
+    return fixed
+
 def run_research_subprocess():
     """Execute the trend researcher script as a subprocess"""
     log_file_path = LOGS_DIR / "research.log"
@@ -299,6 +335,20 @@ def check_and_refill_queue():
 def main():
     print(f"Hermes Video Automation Daemon started (PID: {os.getpid()})")
     print(f"Watching trigger file: {TRIGGER_FILE}")
+    
+    # Self-heal on startup: prune runs stuck in 'generating' and rebuild
+    # missing video file records from filesystem via reconstruct_runs.py.
+    try:
+        from reconstruct_runs import main as reconstruct_main
+        print(f"[{datetime.now()}] Startup self-heal: reconstruct_runs.run()")
+        reconstruct_main()
+    except Exception as e:
+        print(f"[{datetime.now()}] Aviso: reconstruct_runs falló al arrancar: {e}")
+    
+    try:
+        _prune_stuck_generating()
+    except Exception as e:
+        print(f"[{datetime.now()}] Aviso: prune_stuck_generating falló al arrancar: {e}")
     
     update_status("idle")
     last_preview_update = 0.0
