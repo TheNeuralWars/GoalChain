@@ -51,6 +51,27 @@ def ssh_run(cmd_string: str) -> str:
         res = subprocess.run(ssh_cmd, capture_output=True, encoding="utf-8", check=True)
         return res.stdout.strip()
 
+def normalize_prompts(data: dict) -> dict:
+    if not isinstance(data, dict):
+        return {}
+    
+    def safe_get(keys, default=""):
+        for k in keys:
+            if k in data and data[k]:
+                return str(data[k]).strip()
+            for dk in data.keys():
+                if dk.lower() == k.lower() and data[dk]:
+                    return str(data[dk]).strip()
+        return default
+        
+    return {
+        "topic": safe_get(["topic", "title", "tema", "titulo"]),
+        "narrative_angle": safe_get(["narrative_angle", "narrativeAngle", "narrative-angle", "angle", "angulo"]),
+        "post_text": safe_get(["post_text", "postText", "post-text", "copy", "caption", "text", "post_copy", "texto"]),
+        "image_prompt": safe_get(["image_prompt", "imagePrompt", "image-prompt", "image", "prompt_image", "prompt-image"]),
+        "video_prompt": safe_get(["video_prompt", "videoPrompt", "video-prompt", "video", "prompt_video", "prompt-video", "animation_prompt", "animation-prompt"]),
+    }
+
 def get_previous_comments(account_name: str) -> str:
     """Load the runs.json database and return recent user comments for steering style"""
     try:
@@ -147,7 +168,7 @@ def refine_planned_prompts(account_name: str, topic: str, image_prompt: str, vid
     if not json_match:
         raise RuntimeError(f"No se pudo extraer JSON refinado de Grok CLI: {raw}")
     
-    return json.loads(json_match.group(0).strip())
+    return normalize_prompts(json.loads(json_match.group(0).strip()))
 
 def update_run_state(run_id: str, updates: dict):
     """Update a specific run entry in runs.json"""
@@ -283,7 +304,7 @@ def generate_visual_prompts(topic: str, account_name: str, feedback_str: str) ->
         raise RuntimeError(f"No se pudo extraer JSON de la respuesta de Grok CLI: {raw}")
     
     cleaned = json_match.group(0).strip()
-    return json.loads(cleaned)
+    return normalize_prompts(json.loads(cleaned))
 
 def generate_image_on_vps(image_prompt: str) -> str:
     """Generate image on VPS using Grok CLI and return its filename in pilot.
@@ -308,7 +329,7 @@ def generate_image_on_vps(image_prompt: str) -> str:
     output = ssh_run(cmd)
     
     copy_cmd = (
-        "img_path=$(find /home/ubuntu/.grok/sessions/ /home/ubuntu/scratch/ /home/ubuntu/ -maxdepth 4 -name '*.jpg' -o -name '*.png' -printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
+        "img_path=$(find /home/ubuntu/.grok/sessions/ -maxdepth 4 -name '*.jpg' -o -name '*.png' -printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
         "if [ -f \"$img_path\" ]; then "
         "  fname=$(basename \"$img_path\"); "
         "  ts=$(date +%s); "
@@ -334,7 +355,7 @@ def generate_video_on_vps(video_prompt: str, image_filename: str) -> str:
     output = ssh_run(cmd)
     
     copy_cmd = (
-        "vid_path=$(find /home/ubuntu/.grok/sessions/ /home/ubuntu/scratch/ /home/ubuntu/ -maxdepth 4 -name '*.mp4' -printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
+        "vid_path=$(find /home/ubuntu/.grok/sessions/ -maxdepth 4 -name '*.mp4' -printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
         "if [ -f \"$vid_path\" ]; then "
         "  fname=$(basename \"$vid_path\"); "
         "  ts=$(date +%s); "
@@ -494,21 +515,24 @@ def run_pipeline(topic: str, account_name: str, run_id: str, auto_topic: bool = 
                     planned_run.get("post_text"), 
                     comments
                 )
-                prompts["image_prompt"] = refined.get("image_prompt")
-                prompts["video_prompt"] = refined.get("video_prompt")
-                prompts["post_text"] = refined.get("post_text")
+                norm_planned = normalize_prompts(planned_run)
+                prompts["image_prompt"] = refined.get("image_prompt") or norm_planned["image_prompt"]
+                prompts["video_prompt"] = refined.get("video_prompt") or norm_planned["video_prompt"]
+                prompts["post_text"] = refined.get("post_text") or norm_planned["post_text"]
                 topic = refined.get("topic", topic)
                 print(f"[Steering Loop] Prompts refinados con éxito usando comentarios.")
             except Exception as e:
                 print(f"[Advertencia] Error al refinar prompts planificados: {e}. Usando originales.")
-                prompts["image_prompt"] = planned_run.get("image_prompt")
-                prompts["video_prompt"] = planned_run.get("video_prompt")
-                prompts["post_text"] = planned_run.get("post_text")
+                norm_planned = normalize_prompts(planned_run)
+                prompts["image_prompt"] = norm_planned["image_prompt"]
+                prompts["video_prompt"] = norm_planned["video_prompt"]
+                prompts["post_text"] = norm_planned["post_text"]
         else:
             print(f"[Queue] Usando prompts y copy originales del plan.")
-            prompts["image_prompt"] = planned_run.get("image_prompt")
-            prompts["video_prompt"] = planned_run.get("video_prompt")
-            prompts["post_text"] = planned_run.get("post_text")
+            norm_planned = normalize_prompts(planned_run)
+            prompts["image_prompt"] = norm_planned["image_prompt"]
+            prompts["video_prompt"] = norm_planned["video_prompt"]
+            prompts["post_text"] = norm_planned["post_text"]
             
         # Update run state to generating
         update_run_state(run_id, {

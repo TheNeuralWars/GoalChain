@@ -118,6 +118,27 @@ def get_recent_topics(account_name: str, limit: int = 10) -> list:
         pass
     return TOPICS_TO_AVOID
 
+def normalize_prompts(data: dict) -> dict:
+    if not isinstance(data, dict):
+        return {}
+    
+    def safe_get(keys, default=""):
+        for k in keys:
+            if k in data and data[k]:
+                return str(data[k]).strip()
+            for dk in data.keys():
+                if dk.lower() == k.lower() and data[dk]:
+                    return str(data[dk]).strip()
+        return default
+        
+    return {
+        "topic": safe_get(["topic", "title", "tema", "titulo"]),
+        "narrative_angle": safe_get(["narrative_angle", "narrativeAngle", "narrative-angle", "angle", "angulo"]),
+        "post_text": safe_get(["post_text", "postText", "post-text", "copy", "caption", "text", "post_copy", "texto"]),
+        "image_prompt": safe_get(["image_prompt", "imagePrompt", "image-prompt", "image", "prompt_image", "prompt-image"]),
+        "video_prompt": safe_get(["video_prompt", "videoPrompt", "video-prompt", "video", "prompt_video", "prompt-video", "animation_prompt", "animation-prompt"]),
+    }
+
 def research_and_queue():
     print(f"[{datetime.now()}] Iniciando investigación de tendencias de Hermes...")
     
@@ -149,18 +170,20 @@ def research_and_queue():
                 ts = int(time.time()) + (idx * 60) # Unique timestamps
                 plan_id = f"run_{ts}_{account_name.lower()}_planned"
                 
+                norm_idea = normalize_prompts(idea)
+                
                 planned_run = {
                     "id": plan_id,
                     "timestamp": (datetime.utcnow() + timedelta(minutes=idx)).isoformat() + "Z",
                     "account_name": account_name,
-                    "topic": idea.get("topic", "Tema de Tendencia"),
-                    "narrative_angle": idea.get("narrative_angle", ""),
+                    "topic": norm_idea["topic"] or "Tema de Tendencia",
+                    "narrative_angle": norm_idea["narrative_angle"],
                     "status": "planned",
                     "image_url": "",
                     "video_url": "",
-                    "post_text": idea.get("post_text", ""),
-                    "image_prompt": idea.get("image_prompt", ""),
-                    "video_prompt": idea.get("video_prompt", ""),
+                    "post_text": norm_idea["post_text"],
+                    "image_prompt": norm_idea["image_prompt"],
+                    "video_prompt": norm_idea["video_prompt"],
                     "comments": []
                 }
                 new_planned_runs.append(planned_run)
