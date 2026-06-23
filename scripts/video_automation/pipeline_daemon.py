@@ -36,6 +36,24 @@ def update_status(status_str, current_run=None):
     except Exception as e:
         print(f"Error writing status file: {e}", file=sys.stderr)
 
+def update_schedule_preview():
+    """Run schedule_optimizer to update schedule_preview.json"""
+    preview_file = PIPELINE_DIR / "schedule_preview.json"
+    print(f"[{datetime.now()}] Updating schedule preview file: {preview_file}")
+    try:
+        from schedule_optimizer import get_schedule_preview
+        all_ids = [
+            "6a283a868f1d11f9b26b0226",
+            "6a283a4d8f1d11f9b26b0068",
+            "6a283a328f1d11f9b26aff82",
+        ]
+        preview_data = get_schedule_preview(all_ids)
+        with open(preview_file, "w", encoding="utf-8") as f:
+            json.dump(preview_data, f, indent=2)
+        print(f"[{datetime.now()}] Schedule preview file updated successfully.")
+    except Exception as e:
+        print(f"Error updating schedule preview file: {e}", file=sys.stderr)
+
 def heartbeat_thread(stop_event, status_str, current_run=None, interval=10):
     """Background thread that keeps daemon_status.json fresh every `interval` seconds"""
     while not stop_event.is_set():
@@ -283,10 +301,17 @@ def main():
     print(f"Watching trigger file: {TRIGGER_FILE}")
     
     update_status("idle")
+    last_preview_update = 0.0
     
     while True:
         try:
             update_status("idle")
+            
+            # Update schedule preview file periodically (every 5 min)
+            now_time = time.time()
+            if now_time - last_preview_update > 300:
+                update_schedule_preview()
+                last_preview_update = now_time
             
             # Daily check: after 6am UTC, run refill if not already run today
             now_utc = datetime.now(timezone.utc)
@@ -351,6 +376,10 @@ def main():
                         run_pipeline_subprocess("GoalChainSol", topic, run_id=run_id2)
                     else:
                         run_pipeline_subprocess(account, topic)
+                
+                # Update schedule preview immediately after processing a trigger
+                update_schedule_preview()
+                last_preview_update = time.time()
                     
             time.sleep(2)
         except KeyboardInterrupt:

@@ -1428,27 +1428,18 @@ app.get("/api/marketing/daemon-status", (req, res) => {
 
 // 6. Get schedule preview
 app.get("/api/marketing/schedule-preview", (req: any, res: any) => {
-  const scriptPath = path.resolve(__dirname, "../../scripts/video_automation/schedule_optimizer.py");
-  const cmd = process.platform === "win32" ? `python "${scriptPath}" --preview` : `python3 "${scriptPath}" --preview`;
-  
-  exec(cmd, (error: any, stdout: string, stderr: string) => {
-    if (error) {
-      console.error(`[API] Error running schedule_optimizer:`, error, stderr);
-      return res.status(500).json({ error: `Failed to fetch schedule preview: ${error.message}` });
+  try {
+    const previewPath = path.resolve(__dirname, "../../data/marketing_pipeline/schedule_preview.json");
+    if (!fs.existsSync(previewPath)) {
+      return res.json({});
     }
-    try {
-      const jsonStart = stdout.indexOf("{");
-      if (jsonStart === -1) {
-        throw new Error("No JSON object found in stdout");
-      }
-      const jsonStr = stdout.substring(jsonStart);
-      const data = JSON.parse(jsonStr);
-      res.json(data);
-    } catch (parseErr: any) {
-      console.error(`[API] Failed to parse schedule_optimizer output:`, parseErr, stdout);
-      res.status(500).json({ error: `Failed to parse schedule preview: ${parseErr.message}` });
-    }
-  });
+    const content = fs.readFileSync(previewPath, "utf-8");
+    const data = JSON.parse(content);
+    res.json(data);
+  } catch (err: any) {
+    console.error("Error reading schedule preview:", err);
+    res.status(500).json({ error: `Failed to load schedule preview: ${err.message}` });
+  }
 });
 
 app.listen(port, () => {
