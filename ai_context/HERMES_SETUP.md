@@ -81,7 +81,7 @@ Qué hace el push:
 | `BLOCKED_BRIEFS` | Briefs en cola hasta tu OK |
 | `SLACK_*` | Vacío hasta Fase 2 |
 | `OA_CODE_ENGINE` | `hermes` (motor unificado Hermes CEO) |
-| `OA_CODE_MODEL` | `nemotron-3-ultra-free` (único modelo para P0/P1/P2) |
+| `OA_CODE_MODEL` | `nvidia/nemotron-3-super-120b-a12b` (issue #832; único modelo para P0/P1/P2 vía NVIDIA NIM) |
 
 ## Cron sugerido (servidor)
 
@@ -120,9 +120,12 @@ systemctl --user restart hermes-hermes-ceo
 
 Flujo dev (Discord/WhatsApp): Manager crea issue `agent:opencode` → `oa-run-code.sh` ejecuta Hermes CEO en `exp/opencode-issue-*` (máx 4 concurrentes) → draft PR → revisión Antigravity/Nico.
 
-### Hermes CEO — motor unificado (Nemotron-3-Ultra-free)
+### Hermes CEO — motor unificado (NVIDIA NIM)
 
-- **Config:** sin `fcc.secrets.env` ni `configure-fcc-env.sh` — usa keys directas de `~/hermes/config.env` (NVIDIA_NIM_API_KEY, OPENROUTER_API_KEY, etc.)
+- **Provider (issue #832):** `nvidia` en `https://integrate.api.nvidia.com/v1`,
+  modelo `nvidia/nemotron-3-super-120b-a12b`. Antes: provider `nous`.
+- **Config:** sin `fcc.secrets.env` ni `configure-fcc-env.sh` — usa keys
+  directas en `~/hermes/config.env`. **Requerido:** `NVIDIA_NIM_API_KEY`.
 - **Ejecución:** `bash ~/hermes/scripts/oa-run-code.sh --workdir <repo> --prompt-file <file> --log <log>` (sin `--tier`)
 - **Concurrencia:** semáforo 4 slots (`worker_1.lock`–`worker_4.lock`) — evita sobrecarga del VPS
 - **Skills:** `CLAUDE.md` (repo root) + `~/.claude/skills/{frontend-design,gstack}` — instalar:

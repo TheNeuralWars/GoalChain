@@ -10,7 +10,7 @@
 | Componente | Antes (FCC) | Ahora (Hermes CEO) |
 |------------|-------------|-------------------|
 | **Motor de código** | `fcc-claude` + `fcc-server` proxy | **Hermes Agent** (Grok gateway) + `oa-run-code.sh` |
-| **Modelo** | Tier mapping: opus/sonnet/haiku (NIM, OpenRouter, Groq) | **Nemotron-3-Ultra-free** único para P0/P1/P2 |
+| **Modelo** | Tier mapping: opus/sonnet/haiku (NIM, OpenRouter, Groq) | **NVIDIA NIM** único para P0/P1/P2 (`nvidia/nemotron-3-super-120b-a12b`, issue #832) |
 | **Concurrencia** | 1 worker por perfil griego (25 perfiles) | **Semáforo 4 slots** (`worker_1.lock`–`worker_4.lock`) |
 | **Perfiles** | 25 perfiles griegos + `default` | **Único: `hermes-ceo`** |
 | **Configuración** | `fcc.secrets.env` → `configure-fcc-env.sh` → `~/.fcc/.env` | Keys directas en `~/hermes/config.env` |
@@ -41,7 +41,8 @@ bash ~/hermes/scripts/oa-run-code.sh \
 ```bash
 # Motor de código
 OA_CODE_ENGINE=hermes
-OA_CODE_MODEL=nemotron-3-ultra-free
+# Issue #832: NVIDIA NIM provider (was: nemotron-3-ultra-free via Nous)
+OA_CODE_MODEL=nvidia/nemotron-3-super-120b-a12b
 
 # Keys usadas por Hermes CEO (ya en config.env)
 NVIDIA_NIM_API_KEY=...

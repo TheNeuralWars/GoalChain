@@ -51,7 +51,7 @@ ensure_key "GIT_AUTHOR_NAME" "Hermes"
 ensure_key "GIT_AUTHOR_EMAIL" "hermes@goalchain.local"
 ensure_key "OA_MODEL" "xai/grok-4.3"
 ensure_key "OA_CODE_ENGINE" "hermes"
-ensure_key "OA_CODE_MODEL" "nemotron-3-ultra-free"
+ensure_key "OA_CODE_MODEL" "nvidia/nemotron-3-super-120b-a12b"  # Issue #832: NVIDIA NIM
 ensure_key "OA_CODE_CMD" "${HOME}/.hermes/hermes-agent/venv/bin/python -m hermes_cli.main"
 ensure_key "OA_RESEARCH_PUBLISHER_ENABLED" "false"
 

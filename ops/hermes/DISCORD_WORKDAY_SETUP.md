@@ -5,7 +5,7 @@
 | Agente | Qué hace | Modelo |
 |--------|----------|--------|
 | **Hermes** (Manager) | Chat Discord/WhatsApp, issues, priorización | `xai/grok-4.3` (rápido, barato para conversación) |
-| **Hermes CEO** (Código) | `oa-run-code.sh` → branches, PRs draft | **Nemotron-3-Ultra-free** (único para P0/P1/P2) |
+| **Hermes CEO** (Código) | `oa-run-code.sh` → branches, PRs draft | **NVIDIA NIM** (único para P0/P1/P2): `nvidia/nemotron-3-super-120b-a12b` (issue #832) |
 
 ---
 
@@ -14,7 +14,7 @@
 ```bash
 # Motor de código unificado
 OA_CODE_ENGINE=hermes
-OA_CODE_MODEL=nemotron-3-u........  # Nemotron-3-Ultra-free (NVIDIA NIM)
+OA_CODE_MODEL=nvidia/nemotron-3-super-120b-a12b  # Issue #832: NVIDIA NIM (was: Nemotron-3-Ultra-free)
 
 # Manager (conversación)
 OA_MODEL=xai/grok-4.3
