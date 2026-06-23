@@ -184,28 +184,47 @@ def update_run_state(run_id: str, updates: dict):
         print(f"Error actualizando runs.json: {e}")
 
 def generate_trending_topic(account_name: str, feedback_str: str) -> str:
-    """Ask Grok to choose an engaging football / World Cup / betting psychology topic"""
+    """Ask Grok to choose an engaging football / World Cup 2026 / betting psychology topic"""
     niche = ACCOUNTS[account_name]["niche"]
+    
+    # Load recent topics to avoid repetition
+    wc2026_context = ""
+    if account_name == "GoalChainSol":
+        wc2026_context = """
+CONTEXTO DEL MUNDIAL 2026 — basa el video en UNO de estos jugadores/momentos REALES:
+- Messi (Argentina): Último mundial. Apostadores a favor vs. en contra.
+- Mbappé (Francia): Real Madrid + presión mundial = expectativa vs. realidad.
+- CR7 (Portugal): Promesas de fanáticos ("si gana el mundial dejo de fumar/beber").
+- Haaland: Noruega NO clasificó. El mejor goleador del mundo se quedó afuera.
+- Vinicius Jr. (Brasil): Favoritismo perpetuo. Brasil cayó en cuartos Qatar 2022.
+- Bellingham (Inglaterra): "Football's coming home" — el meme eterno de los apostadores británicos.
+- Julián Álvarez: El héroe que nadie apostaba en Qatar 2022.
+- Lamine Yamal: 17 años, y ya el mejor de España. ¿Apuestás en un adolescente?
+- VAR: Goles anulados por milímetros. Apuestas destruidas por tecnología.
+- Marruecos 2022: Primer africano en semifinales. Los que apostaron vs. los que no.
+Selecciona UNO y construye la narrativa."""
     
     prompt = f"""
     Eres Hermes, estratega de contenido estrella de GoalChain. Decide un tema de video vertical corto (Tiktok/Shorts) altamente viral sobre fútbol.
     Nicho de la cuenta ({account_name}): "{niche}".
     
     Requisitos del tema:
-    - Debe estar centrado en el fútbol mundial, la Copa del Mundo (anécdotas bizarras, estadísticas locas, tácticas insólitas) o en la psicología de las predicciones deportivas y los malos hábitos financieros (ej. apostar borracho o con el corazón, promesas imposibles si gana tu equipo).
-    - Conecta el tema con la solución de GoalChain (bóvedas/contratos inteligentes en Solana para retener fondos y regular tus malos hábitos).
-    - Evita temas genéricos. Busca historias y datos oscuros que la gente no conozca.
+    - Debe estar centrado en el Mundial 2026, con un jugador o momento REAL y específico como protagonista.
+    - Conecta la historia con la psicología de apostar con el corazón vs. la razón fría.
+    - Conecta con GoalChain (bóvedas/contratos inteligentes en Solana).
+    - Evita el Maracanazo de 1950 y temas de estadios genéricos — ya los cubrimos.
+    {wc2026_context}
     
     {feedback_str}
     
     Devuelve la respuesta estrictamente en formato JSON con esta estructura exacta:
     {{
-        "topic": "Título corto y adictivo del tema en español",
+        "topic": "Título corto y adictivo del tema en español (mencionando al jugador)",
         "narrative_angle": "Por qué este gancho generará retención extrema en los primeros 3 segundos"
     }}
     """
     
-    print(f"[{account_name}] Generando tema de tendencia de fútbol usando Grok CLI...")
+    print(f"[{account_name}] Generando tema de tendencia de Mundial 2026 usando Grok CLI...")
     cmd = f"/home/ubuntu/.local/bin/grok --single {shlex.quote(prompt)}"
     raw = ssh_run(cmd)
     
@@ -215,7 +234,7 @@ def generate_trending_topic(account_name: str, feedback_str: str) -> str:
     
     data = json.loads(json_match.group(0).strip())
     topic = data.get("topic", "Misterios de la Copa del Mundo")
-    print(f"Tema seleccionado: '{topic}' (Ángulo: {data.get('narrative_angle')})")
+    print(f"Tema seleccionado: '{topic}' (\u00c1ngulo: {data.get('narrative_angle')})")
     return topic
 
 def generate_visual_prompts(topic: str, account_name: str, feedback_str: str) -> dict:
@@ -260,7 +279,21 @@ def generate_visual_prompts(topic: str, account_name: str, feedback_str: str) ->
     return json.loads(cleaned)
 
 def generate_image_on_vps(image_prompt: str) -> str:
-    """Generate image on VPS using Grok CLI and return its filename in pilot"""
+    """Generate image on VPS using Grok CLI and return its filename in pilot.
+    Clears Grok image cache first to ensure each run gets a fresh, unique image.
+    """
+    print("Limpiando caché de imágenes de Grok para garantizar variedad...")
+    # Clear previous images from Grok sessions to avoid contamination between runs
+    clear_cmd = (
+        "find /home/ubuntu/.grok/sessions/ -maxdepth 4 -name '*.jpg' -o -name '*.png' "
+        "2>/dev/null | xargs rm -f 2>/dev/null || true"
+    )
+    try:
+        ssh_run(clear_cmd)
+        print("  Caché limpiada.")
+    except Exception:
+        pass  # Non-fatal
+    
     print("Generando imagen de inicio en el VPS con Grok CLI...")
     grok_prompt = f"Genera una imagen con el modelo de alta calidad (grok-imagine-image-quality): {image_prompt}"
     

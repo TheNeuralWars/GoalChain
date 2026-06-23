@@ -1169,6 +1169,9 @@ const logsDir = path.resolve(__dirname, "../../data/marketing_pipeline/logs");
 const triggerPath = path.resolve(__dirname, "../../data/marketing_pipeline/trigger.json");
 const daemonStatusPath = path.resolve(__dirname, "../../data/marketing_pipeline/daemon_status.json");
 
+const runsBackupPath = path.resolve(__dirname, "../../data/marketing_pipeline/runs.json.bak");
+const runsHistoryPath = path.resolve(__dirname, "../../data/marketing_pipeline/runs_history.jsonl");
+
 // Helper to ensure directories exist
 function ensurePipelineDirs() {
   const dir = path.dirname(runsPath);
@@ -1178,6 +1181,37 @@ function ensurePipelineDirs() {
   if (!fs.existsSync(logsDir)) {
     fs.mkdirSync(logsDir, { recursive: true });
   }
+}
+
+/**
+ * Safe write: saves runs.json + keeps a .bak backup + appends IDs to history log.
+ * This ensures runs are never lost due to container restarts or repo resets.
+ */
+function safeWriteRuns(runs: any[]) {
+  ensurePipelineDirs();
+  const json = JSON.stringify(runs, null, 2);
+  // 1. Backup existing file before overwriting
+  if (fs.existsSync(runsPath)) {
+    try { fs.copyFileSync(runsPath, runsBackupPath); } catch (_) {}
+  }
+  // 2. Write new content
+  fs.writeFileSync(runsPath, json, "utf-8");
+  // 3. Append any new run IDs to the immutable history log
+  try {
+    const existingIds = new Set<string>();
+    if (fs.existsSync(runsHistoryPath)) {
+      const lines = fs.readFileSync(runsHistoryPath, "utf-8").trim().split("\n").filter(Boolean);
+      for (const line of lines) {
+        try { existingIds.add(JSON.parse(line).id); } catch (_) {}
+      }
+    }
+    const newEntries = runs
+      .filter((r: any) => r.id && !existingIds.has(r.id))
+      .map((r: any) => JSON.stringify({ id: r.id, timestamp: r.timestamp, account_name: r.account_name, topic: r.topic, status: r.status, video_url: r.video_url, image_url: r.image_url }));
+    if (newEntries.length > 0) {
+      fs.appendFileSync(runsHistoryPath, newEntries.join("\n") + "\n", "utf-8");
+    }
+  } catch (_) {}
 }
 
 // 1. Get all runs
@@ -1226,7 +1260,7 @@ app.post("/api/marketing/runs/:id/comment", (req, res) => {
       text: text.trim()
     });
 
-    fs.writeFileSync(runsPath, JSON.stringify(runs, null, 2), "utf-8");
+    safeWriteRuns(runs);
     res.json({ success: true, run });
   } catch (err: any) {
     console.error("Error adding comment to run:", err);
@@ -1297,7 +1331,7 @@ app.put("/api/marketing/runs/:id", (req, res) => {
     if (image_prompt !== undefined) run.image_prompt = image_prompt;
     if (video_prompt !== undefined) run.video_prompt = video_prompt;
 
-    fs.writeFileSync(runsPath, JSON.stringify(runs, null, 2), "utf-8");
+    safeWriteRuns(runs);
     res.json({ success: true, run });
   } catch (err: any) {
     console.error("Error updating planned run:", err);
@@ -1319,7 +1353,7 @@ app.delete("/api/marketing/runs/:id", (req, res) => {
     const runs = JSON.parse(content);
     const newRuns = runs.filter((r: any) => r.id !== id);
 
-    fs.writeFileSync(runsPath, JSON.stringify(newRuns, null, 2), "utf-8");
+    safeWriteRuns(newRuns);
     res.json({ success: true, message: "Run deleted successfully" });
   } catch (err: any) {
     console.error("Error deleting run:", err);
