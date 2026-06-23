@@ -60,19 +60,12 @@ def get_research_prompt(account_name: str, niche: str, count: int = 5, recent_to
     if recent_topics:
         avoid_str = f"\n    EVITA ESTOS TEMAS (ya fueron cubiertos recientemente): {', '.join(recent_topics[:8])}\n"
     
-    if account_name == "GoalChainSol":
+    if account_name in ("GoalChainSol", "NicoPezDorado"):
         focus = (
             f"Enfócate EXCLUSIVAMENTE en la Copa del Mundo FIFA 2026 y los jugadores que están participando. "
             f"Cada video debe contar la historia de UN jugador específico del Mundial 2026 y conectarlo con "
             f"la psicología de apostar con el corazón, promesas absurdas de fanáticos, y la disciplina de GoalChain.\n"
             f"\n{WORLD_CUP_2026_PLAYERS}"
-        )
-    else:  # NicoPezDorado
-        focus = (
-            "Enfócate en productividad extrema, sesgos cognitivos en el desarrollo de software (Build in Public), "
-            "filosofía estoica aplicada a la programación, hábitos de enfoque y cómo un desarrollador / creador "
-            "puede evitar postergar y stakear su palabra contra sí mismo. "
-            "Conecta con figuras reales de la tecnología (Pieter Levels, DHH, Linus Torvalds) y sus historias de disciplina."
         )
 
     return f"""

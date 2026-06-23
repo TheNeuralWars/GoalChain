@@ -38,7 +38,7 @@ ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY")
 # Configuration for Account Types
 ACCOUNTS = {
     "NicoPezDorado": {
-        "niche": "Desarrollo personal, productividad extrema, motivación y hábitos de desarrollo (Build in Public).",
+        "niche": "Gamificación de metas con Blockchain en Solana, apuestas a uno mismo, contratos inteligentes y recompensas.",
         "voice_preset": "adam", # ElevenLabs voice preset
         "color_palette": "Oscuro con acentos dorados y blancos de alto contraste",
     },

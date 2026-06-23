@@ -51,6 +51,12 @@ crm.goalchain.fun {
 }
 
 api.goalchain.fun {
+    handle /pilot/* {
+        uri strip_prefix /pilot
+        file_server {
+            root /srv/pilot
+        }
+    }
     reverse_proxy goalchain-api:3001
 }
 EOF
