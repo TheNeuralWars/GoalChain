@@ -1441,6 +1441,36 @@ app.get("/api/marketing/schedule-preview", (req: any, res: any) => {
   }
 });
 
+// 7. Pipeline healthcheck (Manager 2026-06-24). Uses pipeline_health.py.
+const { execFileSync } = require("child_process");
+app.get("/api/marketing/pipeline/health", (_req, res) => {
+  try {
+    const pipelineHealthScript = path.resolve(
+      __dirname,
+      "../../scripts/video_automation/pipeline_health.py"
+    );
+    if (!fs.existsSync(pipelineHealthScript)) {
+      return res.status(503).json({ error: "pipeline_health.py missing" });
+    }
+    const out = execFileSync("python3", [pipelineHealthScript], {
+      encoding: "utf-8",
+      timeout: 8,
+      maxBuffer: 1024 * 256,
+    });
+    const data = JSON.parse(out);
+    // surface a fragile / healthy verdict based on heartbeat + cost
+    const hb = data.heartbeat_seconds;
+    const healthy =
+      hb !== null &&
+      hb < 300 &&
+      (data.cost_guard_used === undefined || data.cost_guard_used < data.cost_guard_cap);
+    res.json({ healthy, ...data });
+  } catch (err: any) {
+    console.error("Error reading pipeline health:", err);
+    res.status(500).json({ error: `Failed to read pipeline health: ${err.message}` });
+  }
+});
+
 app.listen(port, () => {
   console.log(`GoalChain API listening at http://localhost:${port}`);
 });
