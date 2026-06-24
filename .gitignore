@@ -70,6 +70,9 @@ polymarket_bot/*.service
 
 scratch/*
 !scratch/current_web_players/
+!scratch/prepare_grok_batches_v7.py
+!scratch/grok_batches_v7/
+scratch/grok_batches_v7/**/[0-9][0-9][0-9].jpg
 
 # --- Marketing pipeline runtime artifacts (rebuilt by reconstruct_runs.py from scratch) ---
 data/marketing_pipeline/*.mp4

@@ -1,0 +1,258 @@
+================================================================================
+⚽ GOALCHAIN BATCH 18 - MONO-INSTRUCCIONES PARA GROK IMAGINE AGENT V7.1
+================================================================================
+
+Este archivo contiene TODAS las habilidades, instrucciones y metadatos de los jugadores
+para el Batch 18 (IDs 511 al 528).
+
+Copia TODO el contenido de este archivo (desde "COMIENZO DEL PROMPT" hasta el final)
+y envíalo como el primer mensaje en un chat limpio en Grok (https://grok.com/imagine/agent/).
+Carga también las 18 imágenes (.jpg) y el logo 'logo_3d_jersey.jpg' de esta carpeta en el mismo chat.
+
+--------------------------------------------------------------------------------
+👇 COMIENZO DEL PROMPT (COPIA DESDE AQUÍ) 👇
+--------------------------------------------------------------------------------
+Grok, asumes el rol de **Ejecutor Visual de GoalChain V7.1 (Actualización de Jerseys, Logos y Fisionomía)**.
+Tu objetivo es mejorar secuencialmente las imágenes de caricaturas 3D de los jugadores subidos al chat, basándote en la metadata y las habilidades contenidas en este mensaje.
+
+### 📚 HABILIDADES DE SOPORTE (SKILLS)
+Debes aplicar de forma estricta las siguientes 3 habilidades cargadas en este mensaje:
+
+#### HABILIDAD 1: Jersey & Texturas (grok_skill_jersey_upgrade)
+- Remove Plain Kits: Reemplaza cualquier camiseta lisa o negra de la imagen por el jersey de selección nacional.
+- Apply National Colors & Patterns: Usa los colores oficiales y patrones del país del jugador.
+- Fabric & Material: Agrega textura de malla deportiva (athletic mesh knit), costuras 3D en hombros/cuello, y arrugas de tela con sombreado y brillos premium.
+- Collar: Cuello moderno (crew-neck) o de canalé con detalles en puños.
+
+#### HABILIDAD 2: Fisionomía y Parecido (grok_skill_physiognomy_refinement)
+- No rostro genérico: Ajusta ojos, cejas, nariz, boca, vello facial y pelo para parecerse al jugador real en base a "real_name" y "physical_description".
+- Caricatura 3D: Mantener proporciones de cabeza grande (bobblehead) y estilo de figura de vinilo de colección o juguete de arte (Art Toy), con textura de piel mate tipo vinilo suave/resina y luces suaves de estudio.
+
+#### HABILIDAD 3: Branding, Logos y Dorsal (grok_skill_branding_details)
+- Número: Dorsal ("jersey_number") impreso en tipografía deportiva limpia y moderna en el centro del pecho.
+- Logo GoalChain: Emblema e-sports 3D (basado exactamente en la imagen 'logo_3d_jersey.jpg' cargada en este chat) en el lado izquierdo del pecho (sobre el corazón). Debe renderizarse como una versión en miniatura 3D del logotipo con reflejos metálicos sutiles.
+- Logo Solana: Tres barras inclinadas paralelas (emblema de Solana) en relieve 3D, brillando con un degradado de neón verde-cian (#14f195) a morado (#9945ff), ubicado en el lado derecho del pecho.
+
+### 📐 REGLAS CLAVE DE LA OPERACIÓN (V7.1)
+- REFERENCIA VISUAL INVIOLABLE: Usa la imagen cargada "[padded_id].jpg" como la referencia de pose, proporciones y estilo 3D de base. También usa 'logo_3d_jersey.jpg' como la referencia visual obligatoria para el escudo de GoalChain.
+- PIES Y SOPORTE: Strictly barefoot. Pies descalzos visibles (talón, planta y dedos) apoyados planos directamente sobre el suelo blanco. Sin calzado ni calcetines. Absolutamente SIN base, pedestal, tarima, plataforma, stand ni soporte debajo de los pies.
+- JERSEY LIMPIO: El jersey solo debe incluir el dorsal, el logo 3D de GoalChain y el logo 3D de Solana. Absolutamente NINGÚN otro logo, sponsor, marca o bandera de país.
+- FONDO: Fondo blanco puro (#FFFFFF) completamente liso, plano, sin sombras en el piso ni degradados. El piso y el fondo son un solo plano uniforme.
+
+### 🔄 FLUJO SECUENCIAL DE TRABAJO
+1. Yo te indicaré el ID (ej. "Procesa ID 511" o "Siguiente").
+2. Mostrarás un resumen del cambio:
+   - **Jugador**: [Nombre Real] ([País])
+   - **Fisionomía**: [Ajustes faciales a realizar]
+   - **Jersey**: [Colores, número y logos]
+3. Generarás la imagen mejorada vertical (Aspect Ratio 2:3).
+4. Escribirás tras generar: `✅ ID [padded_id] - [real_name] completado. Guardar como: [padded_id]_[safe_name].jpg`
+5. DETENTE y espera a que yo te diga "Siguiente" o "Next" antes de continuar.
+
+### 📊 METADATA DE LOS JUGADORES DEL BATCH
+Usa esta base de datos exacta para las generaciones:
+```json
+[
+    {
+        "id": 511,
+        "padded_id": "511",
+        "name": "Yazan Al-Ara-Safe",
+        "real_name": "Yazan Al-Arab",
+        "country": "Jordania",
+        "jersey_number": 4,
+        "physical_description": "Short dark hair, well-groomed beard, tall athletic build, olive skin tone, composed expression, strong muscular frame",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 4 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '511.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Yazan Al-Arab (Jordania). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '511.jpg' and adjust the features to look closer to the real-life Yazan Al-Arab (actual physical traits: Short dark hair, well-groomed beard, tall athletic build, olive skin tone, composed expression, strong muscular frame), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '511.jpg' with: wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 4 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 4 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 512,
+        "padded_id": "512",
+        "name": "Noor Al-Rawa-Flow",
+        "real_name": "Noor Al-Rawabdeh",
+        "country": "Jordania",
+        "jersey_number": 6,
+        "physical_description": "Short dark hair, clean-shaven, energetic athletic build, olive skin tone, alert focused expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 6 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '512.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Noor Al-Rawabdeh (Jordania). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '512.jpg' and adjust the features to look closer to the real-life Noor Al-Rawabdeh (actual physical traits: Short dark hair, clean-shaven, energetic athletic build, olive skin tone, alert focused expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '512.jpg' with: wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 6 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 6 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 513,
+        "padded_id": "513",
+        "name": "Rajaei Aye-Swap",
+        "real_name": "Rajaei Ayed",
+        "country": "Jordania",
+        "jersey_number": 8,
+        "physical_description": "Short dark hair, clean-shaven, disciplined athletic build, olive skin tone, composed expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 8 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '513.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Rajaei Ayed (Jordania). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '513.jpg' and adjust the features to look closer to the real-life Rajaei Ayed (actual physical traits: Short dark hair, clean-shaven, disciplined athletic build, olive skin tone, composed expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '513.jpg' with: wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 8 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 8 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 514,
+        "padded_id": "514",
+        "name": "Mahmoud Al-Mar-Limit",
+        "real_name": "Mahmoud Al-Mardi",
+        "country": "Jordania",
+        "jersey_number": 10,
+        "physical_description": "Short dark hair, clean-shaven, technical athletic build, olive skin tone, intelligent expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 10 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '514.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Mahmoud Al-Mardi (Jordania). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '514.jpg' and adjust the features to look closer to the real-life Mahmoud Al-Mardi (actual physical traits: Short dark hair, clean-shaven, technical athletic build, olive skin tone, intelligent expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '514.jpg' with: wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 10 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 10 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 515,
+        "padded_id": "515",
+        "name": "Baha'a Fais-Sprint",
+        "real_name": "Baha'a Faisal",
+        "country": "Jordania",
+        "jersey_number": 2,
+        "physical_description": "Short dark hair, clean-shaven, solid muscular build, olive skin tone, focused competitive expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 2 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '515.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Baha'a Faisal (Jordania). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '515.jpg' and adjust the features to look closer to the real-life Baha'a Faisal (actual physical traits: Short dark hair, clean-shaven, solid muscular build, olive skin tone, focused competitive expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '515.jpg' with: wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 2 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 2 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 516,
+        "padded_id": "516",
+        "name": "Aws Khasa-Logic",
+        "real_name": "Aws Khasan",
+        "country": "Jordania",
+        "jersey_number": 3,
+        "physical_description": "Short dark hair, clean-shaven, solid muscular build, olive skin tone, focused defensive expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 3 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '516.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Aws Khasan (Jordania). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '516.jpg' and adjust the features to look closer to the real-life Aws Khasan (actual physical traits: Short dark hair, clean-shaven, solid muscular build, olive skin tone, focused defensive expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '516.jpg' with: wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 3 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 3 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 517,
+        "padded_id": "517",
+        "name": "Ahmad Nasse-Run",
+        "real_name": "Ahmad Nasser",
+        "country": "Jordania",
+        "jersey_number": 7,
+        "physical_description": "Short dark hair, clean-shaven, quick athletic build, olive skin tone, dynamic alert expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 7 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '517.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Ahmad Nasser (Jordania). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '517.jpg' and adjust the features to look closer to the real-life Ahmad Nasser (actual physical traits: Short dark hair, clean-shaven, quick athletic build, olive skin tone, dynamic alert expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '517.jpg' with: wearing a premium modern national team athletic jersey of Jordania (featuring the country's signature athletic colors with high-end athletic trim, jersey number 7 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 7 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 518,
+        "padded_id": "518",
+        "name": "Eldor Shomurodoff-chain",
+        "real_name": "Eldor Shomurodov",
+        "country": "Uzbekistán",
+        "jersey_number": 9,
+        "physical_description": "Short dark hair, clean-shaven, tall powerful build, light Asian skin tone, focused determined expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 9 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '518.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Eldor Shomurodov (Uzbekistán). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '518.jpg' and adjust the features to look closer to the real-life Eldor Shomurodov (actual physical traits: Short dark hair, clean-shaven, tall powerful build, light Asian skin tone, focused determined expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '518.jpg' with: wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 9 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 9 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 519,
+        "padded_id": "519",
+        "name": "Abbosbek Fayzu-Flash",
+        "real_name": "Abbosbek Fayzullaev",
+        "country": "Uzbekistán",
+        "jersey_number": 10,
+        "physical_description": "Short dark hair, clean-shaven, agile athletic build, light Asian skin tone, dynamic expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 10 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '519.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Abbosbek Fayzullaev (Uzbekistán). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '519.jpg' and adjust the features to look closer to the real-life Abbosbek Fayzullaev (actual physical traits: Short dark hair, clean-shaven, agile athletic build, light Asian skin tone, dynamic expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '519.jpg' with: wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 10 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 10 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 520,
+        "padded_id": "520",
+        "name": "O'tkir Yusupoff-chain",
+        "real_name": "O'tkir Yusupov",
+        "country": "Uzbekistán",
+        "jersey_number": 1,
+        "physical_description": "Short dark hair, clean-shaven, tall commanding build, light Asian skin tone, focused gaze",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 1 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '520.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of O'tkir Yusupov (Uzbekistán). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '520.jpg' and adjust the features to look closer to the real-life O'tkir Yusupov (actual physical traits: Short dark hair, clean-shaven, tall commanding build, light Asian skin tone, focused gaze), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '520.jpg' with: wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 1 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 1 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 521,
+        "padded_id": "521",
+        "name": "Rustam Ashurmatoff-chain",
+        "real_name": "Rustam Ashurmatov",
+        "country": "Uzbekistán",
+        "jersey_number": 5,
+        "physical_description": "Short dark hair, clean-shaven, strong muscular build, light Asian skin tone, focused expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 5 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '521.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Rustam Ashurmatov (Uzbekistán). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '521.jpg' and adjust the features to look closer to the real-life Rustam Ashurmatov (actual physical traits: Short dark hair, clean-shaven, strong muscular build, light Asian skin tone, focused expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '521.jpg' with: wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 5 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 5 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 522,
+        "padded_id": "522",
+        "name": "Farrukh Sayfi-Safe",
+        "real_name": "Farrukh Sayfiev",
+        "country": "Uzbekistán",
+        "jersey_number": 2,
+        "physical_description": "Short dark hair, clean-shaven, solid muscular build, light Asian skin tone, competitive expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 2 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '522.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Farrukh Sayfiev (Uzbekistán). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '522.jpg' and adjust the features to look closer to the real-life Farrukh Sayfiev (actual physical traits: Short dark hair, clean-shaven, solid muscular build, light Asian skin tone, competitive expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '522.jpg' with: wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 2 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 2 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 523,
+        "padded_id": "523",
+        "name": "Sherzod Nasru-Flow",
+        "real_name": "Sherzod Nasrullayev",
+        "country": "Uzbekistán",
+        "jersey_number": 11,
+        "physical_description": "Short dark hair, clean-shaven, technical agile build, light Asian skin tone, creative expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 11 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '523.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Sherzod Nasrullayev (Uzbekistán). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '523.jpg' and adjust the features to look closer to the real-life Sherzod Nasrullayev (actual physical traits: Short dark hair, clean-shaven, technical agile build, light Asian skin tone, creative expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '523.jpg' with: wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 11 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 11 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 524,
+        "padded_id": "524",
+        "name": "Dostonbek Kham-Swap",
+        "real_name": "Dostonbek Khamdamov",
+        "country": "Uzbekistán",
+        "jersey_number": 7,
+        "physical_description": "Short dark hair, clean-shaven, agile athletic build, light Asian skin tone, sharp focused expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 7 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '524.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Dostonbek Khamdamov (Uzbekistán). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '524.jpg' and adjust the features to look closer to the real-life Dostonbek Khamdamov (actual physical traits: Short dark hair, clean-shaven, agile athletic build, light Asian skin tone, sharp focused expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '524.jpg' with: wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 7 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 7 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 525,
+        "padded_id": "525",
+        "name": "Jakhongir Sidikoff-chain",
+        "real_name": "Jakhongir Sidikov",
+        "country": "Uzbekistán",
+        "jersey_number": 6,
+        "physical_description": "Short dark hair, clean-shaven, dynamic athletic build, light Asian skin tone, intense expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 6 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '525.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Jakhongir Sidikov (Uzbekistán). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '525.jpg' and adjust the features to look closer to the real-life Jakhongir Sidikov (actual physical traits: Short dark hair, clean-shaven, dynamic athletic build, light Asian skin tone, intense expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '525.jpg' with: wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 6 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 6 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 526,
+        "padded_id": "526",
+        "name": "Jamshid Iskanderoff-chain",
+        "real_name": "Jamshid Iskanderov",
+        "country": "Uzbekistán",
+        "jersey_number": 4,
+        "physical_description": "Short dark hair, clean-shaven, solid muscular build, light Asian skin tone, focused expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 4 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '526.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Jamshid Iskanderov (Uzbekistán). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '526.jpg' and adjust the features to look closer to the real-life Jamshid Iskanderov (actual physical traits: Short dark hair, clean-shaven, solid muscular build, light Asian skin tone, focused expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '526.jpg' with: wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 4 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 4 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 527,
+        "padded_id": "527",
+        "name": "Alijon Ibragimoff-chain",
+        "real_name": "Alijon Ibragimov",
+        "country": "Uzbekistán",
+        "jersey_number": 3,
+        "physical_description": "Short dark hair, clean-shaven, strong muscular build, light Asian skin tone, determined expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 3 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '527.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Alijon Ibragimov (Uzbekistán). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '527.jpg' and adjust the features to look closer to the real-life Alijon Ibragimov (actual physical traits: Short dark hair, clean-shaven, strong muscular build, light Asian skin tone, determined expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '527.jpg' with: wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 3 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 3 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    },
+    {
+        "id": 528,
+        "padded_id": "528",
+        "name": "Asilbek Karimoff-chain",
+        "real_name": "Asilbek Karimov",
+        "country": "Uzbekistán",
+        "jersey_number": 17,
+        "physical_description": "Short dark hair, clean-shaven, athletic build, light Asian skin tone, dynamic expression",
+        "jersey_description": "wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 17 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts",
+        "grok_prompt": "Using the uploaded image '528.jpg' as the exact pose, body proportions, and 3D caricature style reference: Modify and improve this caricature of Asilbek Karimov (Uzbekistán). STYLE: Retain the identical premium 3D digital sculpture caricature aesthetic (high-end vinyl toy collector figurine render, stylized proportions with a slightly enlarged head). FACIAL DETAILS: Analyze the face in '528.jpg' and adjust the features to look closer to the real-life Asilbek Karimov (actual physical traits: Short dark hair, clean-shaven, athletic build, light Asian skin tone, dynamic expression), correcting any glaring facial or hair differences while maintaining the vinyl toy likeness. KIT UPDATE: Replace the plain kit from '528.jpg' with: wearing a premium modern national team athletic jersey of Uzbekistán (featuring the country's signature athletic colors with high-end athletic trim, jersey number 17 printed in a modern font on the chest, and realistic fabric knit texture) and matching team athletic shorts containing the player's jersey number 17 printed in a clean modern font in the center of the chest, a 3D GoalChain logo on the left chest (use the uploaded 'logo_3d_jersey.jpg' as the exact visual design reference for the GoalChain logo, rendering it as a premium 3D miniature version), and a 3D Solana logo (three parallel slash bars in neon teal-to-purple gradient) on the right chest. Absolutely NO other branding, sponsor logos, or flags. FEET & STANCE: Keep him strictly barefoot, with bare feet, heels, and toes fully visible, standing flat on the floor. Absolutely NO base, pedestal, stand, platform, or support under the feet. No shoes, no socks. BACKGROUND: Isolated on a pure flat solid white background (#FFFFFF) with absolutely zero shadows, zero gradients, zero shading, and zero reflections. The floor and background are one single uniform white plane."
+    }
+]
+```
+
+¿Entendido? Confirma que tienes toda la información y procesa el primer jugador del lote.
+--------------------------------------------------------------------------------
