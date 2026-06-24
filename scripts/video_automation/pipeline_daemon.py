@@ -357,9 +357,9 @@ def main():
         try:
             update_status("idle")
             
-            # Update schedule preview file periodically (every 5 min)
+            # Update schedule preview file periodically (every 2 hours)
             now_time = time.time()
-            if now_time - last_preview_update > 300:
+            if now_time - last_preview_update > 7200:
                 update_schedule_preview()
                 last_preview_update = now_time
             
