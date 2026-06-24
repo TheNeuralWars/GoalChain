@@ -54,14 +54,19 @@ def generate_long_screenplay(topic: str, account_name: str, scenes_count: int) -
     Usa la estructura Hook -> Context -> Mechanism -> Twist.
     El Hook debe llamar la atención del espectador inmediatamente. El Twist debe ser irónico/divertido y llamar a apostar sobre sí mismos o hacer predicciones en goalchain.fun.
     
-    Necesitamos que devuelvas un JSON válido con la siguiente estructura exacta:
+    CRITICAL JSON RULES:
+    1. Devuelve ÚNICAMENTE un bloque JSON válido. No incluyas texto de introducción o despedida.
+    2. Las comillas dobles (") SOLAMENTE deben usarse para delimitar claves y valores de cadenas JSON.
+    3. CUALQUIER comilla dentro del texto (como en '3D' o 'Reels') DEBE ser comilla simple ('). NUNCA uses comillas dobles sin escapar dentro de un valor.
+    
+    Devuelve la respuesta en este formato exacto:
     {{
-        "post_text": "Copy del pie de video completo en español, muy intrigante con emojis.",
+        "post_text": "Copy del pie de video completo en español con emojis, sin comillas dobles internas.",
         "scenes": [
             {{
                 "scene_num": 1,
-                "visual_prompt": "Prompt en inglés detallado de la primera escena (3D render, anime o drama deportivo, sin texto en la imagen)",
-                "animation_prompt": "Prompt en inglés para animar esa escena (movimiento lento de cámara, paneo, luces, etc.)"
+                "visual_prompt": "Prompt en inglés detallado de la primera escena (estilo cinematográfico, sin texto en la imagen, sin comillas dobles internas)",
+                "animation_prompt": "Prompt en inglés para animar esa escena (movimiento de cámara, luces, sin comillas dobles internas)"
             }},
             ... (exactamente {scenes_count} escenas)
         ]
@@ -77,7 +82,24 @@ def generate_long_screenplay(topic: str, account_name: str, scenes_count: int) -
     if not json_match:
         raise RuntimeError(f"No se pudo extraer JSON del guión de Grok CLI: {raw}")
         
-    return json.loads(json_match.group(0).strip())
+    json_str = json_match.group(0).strip()
+    
+    # Simple self-heal for unescaped double quotes inside values:
+    # Look for double quotes that are NOT preceded by a colon/comma/brace or followed by colon/comma/brace.
+    # But since we enforced single quotes in the prompt, this is a safety fallback.
+    try:
+        return json.loads(json_str)
+    except json.JSONDecodeError as jde:
+        print(f"[Aviso] Falló análisis JSON estándar: {jde}. Intentando limpieza de comillas...")
+        # Escape internal double quotes (very basic regex heuristic)
+        # Replace "3D" with '3D' inside JSON strings:
+        fixed_str = re.sub(r'(?<![:{\[,])"(?![:}\],])', "'", json_str)
+        try:
+            return json.loads(fixed_str)
+        except Exception:
+            print("Contenido crudo de Grok que falló:")
+            print(raw)
+            raise jde
 
 def main():
     parser = argparse.ArgumentParser(description="Hermes Long Video Compiler")
