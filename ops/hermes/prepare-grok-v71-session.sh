@@ -24,4 +24,8 @@ else
   fi
 fi
 
+# 4. Optional sync tip:
+# If you need to sync all sources/ images from your local PC to the VPS, you can run from your local Windows PowerShell:
+# rsync -avz --exclude="outputs/" scratch/grok_batches_v7/ ubuntu@<vps-ip>:/data/apps/GoalChain/scratch/grok_batches_v7/
+
 log "Grok V7.1 session preparation finished. You can now prompt Hermes."
