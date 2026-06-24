@@ -17,6 +17,27 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # Load configs
 sys.path.append(str(BASE_DIR / "scripts" / "video_automation"))
 from config import ACCOUNTS
+
+# Marketing smarts (added 2026-06-24 by Hermes Manager — Bloque C).
+# Each module is independently optional so a single missing import only
+# disables one capability without taking down the whole run.
+try:
+    from ab_tester import pick_variants as pick_variants, get_prompt_injection as get_prompt_injection  # type: ignore
+    from story_arc import assign_arc as assign_arc  # type: ignore
+    from hashtag_researcher import choose as choose_hashtags  # type: ignore
+    from quality_scorer import score_run as score_quality  # type: ignore
+    import captions_burnin as captions_burnin_module  # type: ignore
+    MARKETING_STACK_AVAILABLE = True
+except ImportError as _me:
+    pick_variants = None  # type: ignore
+    get_prompt_injection = None  # type: ignore
+    assign_arc = None  # type: ignore
+    choose_hashtags = None  # type: ignore
+    score_quality = None  # type: ignore
+    captions_burnin_module = None  # type: ignore
+    MARKETING_STACK_AVAILABLE = False
+    print(f"[Aviso] módulos de marketing no disponibles: {_me}")
+
 try:
     from schedule_optimizer import get_scheduled_at, CHANNEL_SERVICES
     SCHEDULER_AVAILABLE = True
@@ -624,33 +645,121 @@ def run_pipeline(topic: str, account_name: str, run_id: str, auto_topic: bool = 
         feedback_str = get_previous_comments(account_name)
         if feedback_str:
             print("[Steering Loop] Inyectando comentarios previos en Grok.")
-        
+
+        # Build A/B + arc + hashtag injection for the Grok prompt (Bloque C).
+        ab_block = ""
+        if MARKETING_STACK_AVAILABLE and get_prompt_injection is not None:
+            try:
+                ab_block = get_prompt_injection(account_name)
+            except Exception as _e:
+                print(f"[Aviso] ab_tester no inyectó: {_e}")
+
         # 1. Topic (Generate if auto)
         if auto_topic or not topic:
-            topic = generate_trending_topic(account_name, feedback_str)
+            topic = generate_trending_topic(account_name, feedback_str + ab_block)
             update_run_state(run_id, {"topic": topic, "account_name": account_name})
-            
+
         # 2. Prompts
-        prompts = generate_visual_prompts(topic, account_name, feedback_str)
+        prompts = generate_visual_prompts(topic, account_name, feedback_str + ab_block)
         print(f"Prompts generados:\n- Imagen: {prompts['image_prompt']}\n- Video: {prompts['video_prompt']}\n- Copy: {prompts['post_text']}")
-        
+
         update_run_state(run_id, {
             "image_prompt": prompts["image_prompt"],
             "video_prompt": prompts["video_prompt"],
             "post_text": prompts["post_text"]
         })
-    
+
+    # ── 2b. Marketing-stack enrichment (A/B variants, story arcs, hashtags) ──
+    enrichment = {}
+    if MARKETING_STACK_AVAILABLE:
+        try:
+            if pick_variants is not None:
+                variants = pick_variants(account_name)
+                enrichment.update(variants)
+            if assign_arc is not None:
+                arc = assign_arc(account_name, topic or "Untitled")
+                enrichment.update(arc)
+            if choose_hashtags is not None:
+                existing_tags = set(re.findall(r"#\w+", prompts["post_text"]))
+                hashtags = choose_hashtags(topic or account_name, account_name)
+                new_tags = [t for t in hashtags if t not in existing_tags]
+                if new_tags:
+                    prompts["post_text"] = (prompts["post_text"].rstrip() + "\n\n" + " ".join(new_tags)).strip()
+                enrichment["hashtags"] = hashtags
+            print(f"[Marketing] {enrichment.get('hook_variant','?')} + {enrichment.get('cta_variant','?')} | arc ep{enrichment.get('episode','?')}")
+        except Exception as _e:
+            print(f"[Aviso] marketing enrichment partial-failed: {_e}")
+
+    # ── 2c. Quality scoring (warn-only, never blocks) ──
+    quality_in = {
+        "post_text": prompts.get("post_text", ""),
+        "image_prompt": prompts.get("image_prompt", ""),
+        "video_prompt": prompts.get("video_prompt", ""),
+    }
+    if MARKETING_STACK_AVAILABLE and score_quality is not None:
+        try:
+            qs = score_quality(quality_in)
+            enrichment["quality_score"] = qs
+            if not qs["passes"]:
+                print(f"[Quality] {qs['score']}/100 - issues: {qs['issues']}")
+            else:
+                print(f"[Quality] {qs['score']}/100 PASS")
+        except Exception as _e:
+            print(f"[Aviso] quality scorer falló: {_e}")
+
+    if enrichment:
+        update_run_state(run_id, enrichment)
+
+    # ── 2d. Per-generations cost-guard (image + video). ──
+    if not _cost_guard_check_and_increment("image-generation"):
+        raise RuntimeError(
+            f"Cost guard bloqueó la generación (límite {MAX_GROK_GENERATIONS_PER_DAY}/día)."
+        )
     # 3. Image
     img_name = generate_image_on_vps(prompts["image_prompt"])
     img_url = f"https://api.goalchain.fun/pilot/{img_name}"
     print(f"Imagen lista en pilot: {img_url}")
     update_run_state(run_id, {"image_url": img_url})
     
+    if not _cost_guard_check_and_increment("video-generation"):
+        raise RuntimeError(
+            f"Cost guard bloqueó la generación de video (límite {MAX_GROK_GENERATIONS_PER_DAY}/día)."
+        )
+
     # 4. Video
     vid_name = generate_video_on_vps(prompts["video_prompt"], img_name)
     video_url = f"https://api.goalchain.fun/pilot/{vid_name}"
     print(f"¡Video animado listo en pilot!: {video_url}")
     update_run_state(run_id, {"video_url": video_url})
+
+    # ── 4b. Burn-in captions (Optional, OFF by default). Requires ffmpeg. ──
+    if (
+        os.getenv("CAPTIONS_ENABLED", "false").lower() == "true"
+        and MARKETING_STACK_AVAILABLE
+        and captions_burnin_module is not None
+        and captions_burnin_module.is_ffmpeg_available()
+        and prompts.get("post_text", "").strip()
+    ):
+        try:
+            in_path = Path("/home/ubuntu/scratch/grok_batches/batch_01/outputs") / vid_name
+            out_path = in_path.with_name(in_path.stem + "_capped" + in_path.suffix)
+            cap = captions_burnin_module.render(in_path, prompts["post_text"], out_path)
+            update_run_state(run_id, {"captions_render": cap})
+            print(f"[Captions] {cap}")
+            if cap.get("status") == "ok" and cap.get("out_path"):
+                video_url = f"https://api.goalchain.fun/pilot/{Path(cap['out_path']).name}"
+                update_run_state(run_id, {"video_url": video_url})
+        except Exception as _e:
+            update_run_state(run_id, {"captions_render": {"status": "failed", "error": str(_e)}})
+            print(f"[Captions] failed: {_e}")
+    else:
+        update_run_state(run_id, {
+            "captions_render": {
+                "status": "disabled_or_unavailable",
+                "ffmpeg": MARKETING_STACK_AVAILABLE and captions_burnin_module is not None
+                          and captions_burnin_module.is_ffmpeg_available(),
+            }
+        })
     
     # 5. Post to Buffer Channels (with smart scheduling)
     buffer_post_ids = []
