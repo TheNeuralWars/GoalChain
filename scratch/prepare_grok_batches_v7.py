@@ -161,6 +161,12 @@ def prepare_batches_v7_mono():
         # Format JSON metadata as string for inclusion
         json_data_str = json.dumps(batch_metadata, indent=4, ensure_ascii=False)
         
+        # Write separate JSON file per batch for Hermes
+        batch_json_path = os.path.join(batches_dir, f"batch_{batch_num:02d}_players.json")
+        with open(batch_json_path, 'w', encoding='utf-8') as jf:
+            json.dump(batch_metadata, jf, indent=4, ensure_ascii=False)
+        print(f"[GoalChain] Guardado {batch_json_path}")
+        
         # Build the final Mono-LEEME text content
         mono_readme_content = f"""================================================================================
 ⚽ GOALCHAIN BATCH {batch_num:02d} - MONO-INSTRUCCIONES PARA GROK IMAGINE AGENT V7.1
