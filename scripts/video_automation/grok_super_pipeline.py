@@ -340,7 +340,7 @@ def generate_image_on_vps(image_prompt: str) -> str:
     # Clear only image files older than our lock's mtime — leave newer ones
     # (they belong to a concurrent generation that started after us).
     clear_cmd = (
-        f"find /home/ubuntu/.grok/sessions/ -maxdepth 4 \\( -name '*.jpg' -o -name '*.png' \\) "
+        f"find /home/ubuntu/.grok/sessions/ -maxdepth 8 \\( -name '*.jpg' -o -name '*.png' \\) "
         f"! -newer {shlex.quote(str(my_lock))} "
         f"2>/dev/null -exec rm -f {{}} + 2>/dev/null || true"
     )
@@ -365,7 +365,7 @@ def generate_image_on_vps(image_prompt: str) -> str:
     time.sleep(1)
 
     copy_cmd = (
-        "img_path=$(find /home/ubuntu/.grok/sessions/ -maxdepth 4 \\( -name '*.jpg' -o -name '*.png' \\) "
+        "img_path=$(find /home/ubuntu/.grok/sessions/ -maxdepth 8 \\( -name '*.jpg' -o -name '*.png' \\) "
         "-printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
         "if [ -f \"$img_path\" ]; then "
         "  fname=$(basename \"$img_path\"); "
@@ -400,7 +400,7 @@ def generate_video_on_vps(video_prompt: str, image_filename: str) -> str:
     time.sleep(1)
 
     copy_cmd = (
-        "vid_path=$(find /home/ubuntu/.grok/sessions/ -maxdepth 4 -name '*.mp4' -printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
+        "vid_path=$(find /home/ubuntu/.grok/sessions/ -maxdepth 8 -name '*.mp4' -printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
         "if [ -f \"$vid_path\" ]; then "
         "  fname=$(basename \"$vid_path\"); "
         "  ts=$(date +%s); "
