@@ -162,6 +162,10 @@
             transform: rotate(90deg) scale(1.1);
             border-color: var(--primary);
         }
+
+        /* Bilingual dual-DOM toggle */
+        [lang="es"] .lang-en { display: none !important; }
+        [lang="en"] .lang-es { display: none !important; }
     </style>
 </head>
 <body class="pitch-mode">
@@ -171,13 +175,14 @@
     </div>
 
     <!-- Botón de Salida -->
-    <a href="index.html" class="exit-pitch" title="Volver al Inicio (ESC)">
-        <span>&times;</span>
+    <a href="index.html" class="exit-pitch">
+        <span class="lang-en" title="Back to Home (ESC)">&times;</span>
+        <span class="lang-es" title="Volver al Inicio (ESC)">&times;</span>
     </a>
 
     <!-- Botón de Salida Flotante Inferior -->
-    <a href="index.html" class="exit-portal-btn" title="Salir">
-        <span>🚪</span> Salir
+    <a href="index.html" class="exit-portal-btn">
+        <span>🚪</span> <span class="lang-en">Exit</span><span class="lang-es">Salir</span>
     </a>
 
     <style>
@@ -212,8 +217,8 @@
     </div>
 
     <div class="controls">
-        <button class="btn-control" onclick="prevSlide()">← Anterior</button>
-        <button class="btn-control" onclick="nextSlide()">Siguiente →</button>
+        <button class="btn-control" onclick="prevSlide()"><span class="lang-en">← Previous</span><span class="lang-es">← Anterior</span></button>
+        <button class="btn-control" onclick="nextSlide()"><span class="lang-en">Next →</span><span class="lang-es">Siguiente →</span></button>
     </div>
 
     <div class="progress-bar" id="progressBar"></div>
@@ -244,7 +249,7 @@
             ]
         };
 
-        let currentLang = 'en';
+        let currentLang = localStorage.getItem('gc_lang') || 'en';
         let currentSlide = 0;
 
         function renderSlides() {
@@ -275,6 +280,8 @@
 
         function toggleLanguage() {
             currentLang = currentLang === 'es' ? 'en' : 'es';
+            localStorage.setItem('gc_lang', currentLang);
+            document.documentElement.lang = currentLang;
             renderSlides();
         }
 
@@ -289,6 +296,8 @@
             if (e.key === 'Escape') window.location.href = 'index.html';
         });
 
+        // Sync html lang with the persisted language on first paint.
+        document.documentElement.lang = currentLang;
         renderSlides();
     </script>
 </body>
