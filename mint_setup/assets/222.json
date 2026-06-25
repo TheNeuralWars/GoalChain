@@ -1,41 +1,58 @@
 {
-    "name": "EEUU Star 15 Wallet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - EEUU Star 15 Wallet (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #223 \u2014 Matej Kova-Stake",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Shot Stopper, Command Post, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "222.png",
+    "external_url": "https://goalchain.fun/nft/223",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "EEUU"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Rep\u00fablica Checa"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "15"
+            "trait_type": "Real Name",
+            "value": "Mat\u011bj Kov\u00e1\u0159"
         },
         {
-            "trait_type": "Ataque",
-            "value": 52
+            "trait_type": "ATK",
+            "value": 15
         },
         {
-            "trait_type": "Defensa",
-            "value": 45
+            "trait_type": "DEF",
+            "value": 82
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "HYPE",
             "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Leverkusen Pill Builders"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Guardian Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Command Post"
         }
     ],
     "properties": {

@@ -1,41 +1,58 @@
 {
-    "name": "Jap\u00f3n Star 12 Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jap\u00f3n Star 12 Chain (Jap\u00f3n). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #350 \u2014 Srdjan Graho-Shield",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Defensive Shield, Captain Leader, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "349.png",
+    "external_url": "https://goalchain.fun/nft/350",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Jap\u00f3n"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "12"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 72
+            "trait_type": "Country",
+            "value": "Bosnia y Herzegovina"
         },
         {
-            "trait_type": "Defensa",
-            "value": 67
+            "trait_type": "Real Name",
+            "value": "Srdjan Grahovac"
         },
         {
-            "trait_type": "Hype",
-            "value": 36
+            "trait_type": "ATK",
+            "value": 64
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 55
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "18"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Mostar Bridge Guard"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Shield Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
         }
     ],
     "properties": {

@@ -1,48 +1,65 @@
 {
-    "name": "Jordan Ayew-Hold",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jordan Ayew-Hold (Ghana). undefined",
+    "name": "GoalChain Genesis #367 — Jordan Ayew-Hold",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a rare asset. Known globally for being a Clinical Finisher, Work Rate, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/367_jordan_ayew-hold.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/367_jordan_ayew-hold.webp",
+    "external_url": "https://goalchain.fun/nft/367",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Ghana"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Ghana"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Jordan Ayew"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 68
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "DEF",
+            "value": 22
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Work Rate"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/367_jordan_ayew-hold.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/367_jordan_ayew-hold.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

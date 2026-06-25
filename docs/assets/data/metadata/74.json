@@ -1,48 +1,65 @@
 {
-    "name": "Goncalo Inacio-Array",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Goncalo Inacio-Array (Portugal). undefined",
+    "name": "GoalChain Genesis #074 — Goncalo Inacio-Array",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Aerial Master, Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/074_goncalo_inacio-array.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/074_goncalo_inacio-array.webp",
+    "external_url": "https://goalchain.fun/nft/74",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Portugal"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "Country",
+            "value": "Portugal"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Gonçalo Inácio"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 13
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 64
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 78
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "25"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Master"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Powerhouse"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/074_goncalo_inacio-array.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/074_goncalo_inacio-array.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

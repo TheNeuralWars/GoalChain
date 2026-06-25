@@ -1,41 +1,58 @@
 {
-    "name": "Gonzalo Pla-Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Gonzalo Pla-Token (Ecuador). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #525 \u2014 Jakhongir Sidikoff-chain",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Engine Room, Pressing Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "524.png",
+    "external_url": "https://goalchain.fun/nft/525",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Ecuador"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Uzbekist\u00e1n"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "5"
+            "trait_type": "Real Name",
+            "value": "Jakhongir Sidikov"
         },
         {
-            "trait_type": "Ataque",
-            "value": 48
+            "trait_type": "ATK",
+            "value": 65
         },
         {
-            "trait_type": "Defensa",
-            "value": 95
+            "trait_type": "DEF",
+            "value": 50
         },
         {
-            "trait_type": "Hype",
-            "value": 78
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Tashkent Cotton Field"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Iron Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Pressing Master"
         }
     ],
     "properties": {

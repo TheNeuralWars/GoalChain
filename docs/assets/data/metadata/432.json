@@ -1,48 +1,65 @@
 {
-    "name": "Ismael Diaz-Goal",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ismael Diaz-Goal (Panamá). undefined",
+    "name": "GoalChain Genesis #432 — Ismael Diaz-Goal",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Clinical Finisher, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/432_ismael_diaz-goal.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/432_ismael_diaz-goal.webp",
+    "external_url": "https://goalchain.fun/nft/432",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Panamá"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Panamá"
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "Real Name",
+            "value": "Ismael Díaz"
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "ATK",
+            "value": 70
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 18
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 65
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Paris Sapphire PSG"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/432_ismael_diaz-goal.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/432_ismael_diaz-goal.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

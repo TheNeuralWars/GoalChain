@@ -1,48 +1,65 @@
 {
-    "name": "Wilder Carta-Hard",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Wilder Carta-Hard (Perú). undefined",
+    "name": "GoalChain Genesis #349 — Vedran Graho-Taker",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Defensive Shield, Engine Room, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/349_wilder_carta-hard.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/349_vedran_graho-taker.webp",
+    "external_url": "https://goalchain.fun/nft/349",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Perú"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "Country",
+            "value": "Bosnia y Herzegovina"
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "Real Name",
+            "value": "Vedran Grahovac"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 55
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "16"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rizespor Chain"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Iron Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/349_wilder_carta-hard.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/349_vedran_graho-taker.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

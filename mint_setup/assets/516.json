@@ -1,41 +1,58 @@
 {
-    "name": "Australia Pro 23 Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Australia Pro 23 Node (Australia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #517 \u2014 Ahmad Nasse-Run",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a rare asset. Known globally for being a Speed Winger, Dribble Flash, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "516.png",
+    "external_url": "https://goalchain.fun/nft/517",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Australia"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Jordania"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "23"
+            "trait_type": "Real Name",
+            "value": "Ahmad Nasser"
         },
         {
-            "trait_type": "Ataque",
-            "value": 79
+            "trait_type": "ATK",
+            "value": 68
         },
         {
-            "trait_type": "Defensa",
-            "value": 40
+            "trait_type": "DEF",
+            "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 56
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Amman Desert Dunes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Neon Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
         }
     ],
     "properties": {

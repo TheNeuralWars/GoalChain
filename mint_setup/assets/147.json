@@ -1,41 +1,58 @@
 {
-    "name": "Alemania Player 18",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alemania Player 18 (Alemania). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #148 \u2014 Ismaila Sarr-Zoom",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Winger, Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "147.png",
+    "external_url": "https://goalchain.fun/nft/148",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Alemania"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Senegal"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "18"
+            "trait_type": "Real Name",
+            "value": "Ismaila Sarr"
         },
         {
-            "trait_type": "Ataque",
-            "value": 59
+            "trait_type": "ATK",
+            "value": 78
         },
         {
-            "trait_type": "Defensa",
-            "value": 80
+            "trait_type": "DEF",
+            "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 71
+            "trait_type": "HYPE",
+            "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "19"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {

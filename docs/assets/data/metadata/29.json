@@ -1,48 +1,61 @@
 {
-    "name": "Jordan Pick-Safe",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jordan Pick-Safe (Inglaterra). undefined",
+    "name": "GoalChain Genesis #029 — Jordan Pick-Ledger",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a rare asset. Known globally for being a Quick Reflexes, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/029_jordan_pick-safe.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/029_jordan_pick-ledger.webp",
+    "external_url": "https://goalchain.fun/nft/29",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Inglaterra"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
+            "trait_type": "Country",
+            "value": "Inglaterra"
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "Real Name",
+            "value": "Jordan Pickford"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 10
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 73
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 73
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Paris Sapphire PSG"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Quick Reflexes"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/029_jordan_pick-safe.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/029_jordan_pick-ledger.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

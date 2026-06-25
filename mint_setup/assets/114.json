@@ -1,41 +1,58 @@
 {
-    "name": "Espa\u00f1a Player 11",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Espa\u00f1a Player 11 (Espa\u00f1a). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #115 \u2014 Tajon Bull-chanan",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Winger, Dribble Flash, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "114.png",
+    "external_url": "https://goalchain.fun/nft/115",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Espa\u00f1a"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Canad\u00e1"
         },
         {
-            "trait_type": "N\u00famero",
+            "trait_type": "Real Name",
+            "value": "Tajon Buchanan"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 76
+        },
+        {
+            "trait_type": "DEF",
+            "value": 22
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 72
+        },
+        {
+            "trait_type": "Jersey Number",
             "value": "11"
         },
         {
-            "trait_type": "Ataque",
-            "value": 92
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
         },
         {
-            "trait_type": "Defensa",
-            "value": 49
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
         },
         {
-            "trait_type": "Hype",
-            "value": 61
+            "trait_type": "Trait",
+            "value": "Speed Winger"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
         }
     ],
     "properties": {

@@ -1,41 +1,58 @@
 {
-    "name": "Marruecos Star 17 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Marruecos Star 17 Mint (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #329 \u2014 Gervane Kasta-Run",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Winger, Dribble Flash, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "328.png",
+    "external_url": "https://goalchain.fun/nft/329",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Marruecos"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Curazao"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "17"
+            "trait_type": "Real Name",
+            "value": "Gervane Kastaneer"
         },
         {
-            "trait_type": "Ataque",
-            "value": 86
+            "trait_type": "ATK",
+            "value": 70
         },
         {
-            "trait_type": "Defensa",
-            "value": 73
+            "trait_type": "DEF",
+            "value": 28
         },
         {
-            "trait_type": "Hype",
-            "value": 72
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "NEC Nijmegen Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Lightning Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
         }
     ],
     "properties": {

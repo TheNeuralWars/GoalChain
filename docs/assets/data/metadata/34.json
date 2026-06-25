@@ -1,48 +1,61 @@
 {
-    "name": "Neymar-NFT",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Neymar-NFT (Brasil). undefined",
+    "name": "GoalChain Genesis #034 — Neymar NFT",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/034_neymar-nft.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/034_neymar_nft.webp",
+    "external_url": "https://goalchain.fun/nft/34",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Brasil"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Mythic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Brasil"
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "Real Name",
+            "value": "Neymar Jr."
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "ATK",
+            "value": 97
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 26
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 92
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Riyadh Crescent Chain"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/034_neymar-nft.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/034_neymar_nft.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

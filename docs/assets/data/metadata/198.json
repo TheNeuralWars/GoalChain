@@ -1,48 +1,65 @@
 {
-    "name": "Eriksen-Oracle",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Eriksen-Oracle (Dinamarca). undefined",
+    "name": "GoalChain Genesis #198 — Leo Osti-Gas",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Aerial Duelist, Defensive Wall, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/198_eriksen-oracle.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/198_leo_osti-gas.webp",
+    "external_url": "https://goalchain.fun/nft/198",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Dinamarca"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "Country",
+            "value": "Noruega"
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "Real Name",
+            "value": "Leo Østigård"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 32
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 74
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Naples Blue Volcano"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Iron Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/198_eriksen-oracle.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/198_leo_osti-gas.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

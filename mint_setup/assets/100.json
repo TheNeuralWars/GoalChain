@@ -1,41 +1,58 @@
 {
-    "name": "Inglaterra Player 23",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Inglaterra Player 23 (Inglaterra). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #101 \u2014 Santiago Gas-menez",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Clinical Finisher, Goal Machine, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "100.png",
+    "external_url": "https://goalchain.fun/nft/101",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Inglaterra"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "M\u00e9xico"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "23"
+            "trait_type": "Real Name",
+            "value": "Santiago Gim\u00e9nez"
         },
         {
-            "trait_type": "Ataque",
-            "value": 98
+            "trait_type": "ATK",
+            "value": 82
         },
         {
-            "trait_type": "Defensa",
-            "value": 71
+            "trait_type": "DEF",
+            "value": 22
         },
         {
-            "trait_type": "Hype",
-            "value": 70
+            "trait_type": "HYPE",
+            "value": 84
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Machine"
         }
     ],
     "properties": {

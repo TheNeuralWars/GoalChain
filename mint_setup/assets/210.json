@@ -1,41 +1,62 @@
 {
-    "name": "Weston Mac-Chainie",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Weston Mac-Chainie (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #211 \u2014 Mateo Kova-Yield",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Engine Room, Pressing Master, Box To Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "210.png",
+    "external_url": "https://goalchain.fun/nft/211",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "EEUU"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Croacia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "3"
+            "trait_type": "Real Name",
+            "value": "Mateo Kova\u010di\u0107"
         },
         {
-            "trait_type": "Ataque",
-            "value": 72
+            "trait_type": "ATK",
+            "value": 80
         },
         {
-            "trait_type": "Defensa",
-            "value": 98
+            "trait_type": "DEF",
+            "value": 50
         },
         {
-            "trait_type": "Hype",
-            "value": 96
+            "trait_type": "HYPE",
+            "value": 83
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Sky Blue"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Pressing Master"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box To Box"
         }
     ],
     "properties": {

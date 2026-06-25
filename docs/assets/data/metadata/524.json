@@ -1,48 +1,65 @@
 {
-    "name": "Issoufou Dayo-Chief",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Issoufou Dayo-Chief (Burkina faso). undefined",
+    "name": "GoalChain Genesis #524 — Dostonbek Kham-Swap",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Winger, Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/524_issoufou_dayo-chief.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/524_dostonbek_kham-swap.webp",
+    "external_url": "https://goalchain.fun/nft/524",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Burkina faso"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Uzbekistán"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Dostonbek Khamdamov"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "ATK",
+            "value": 72
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "DEF",
+            "value": 28
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 63
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Tashkent Cotton Field"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Lightning Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/524_issoufou_dayo-chief.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/524_dostonbek_kham-swap.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,41 +1,58 @@
 {
-    "name": "M\u00e9xico Star 26 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - M\u00e9xico Star 26 Token (M\u00e9xico). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #208 \u2014 Ruben Vargas-Slide",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Clinical Finisher, Physical Titan, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "207.png",
+    "external_url": "https://goalchain.fun/nft/208",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "M\u00e9xico"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Suiza"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "26"
+            "trait_type": "Real Name",
+            "value": "Kwadwo Duah"
         },
         {
-            "trait_type": "Ataque",
-            "value": 97
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 70
-        },
-        {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
             "value": 74
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 20
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 65
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Nuremberg Gingerbread"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
         }
     ],
     "properties": {

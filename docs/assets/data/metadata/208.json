@@ -1,48 +1,65 @@
 {
-    "name": "Ruben Vargas-Slide",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ruben Vargas-Slide (Suiza). undefined",
+    "name": "GoalChain Genesis #208 — Ruben Vargas-Slide",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Clinical Finisher, Physical Titan, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/208_ruben_vargas-slide.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/208_ruben_vargas-slide.webp",
+    "external_url": "https://goalchain.fun/nft/208",
     "attributes": [
         {
-            "trait_type": "País",
+            "trait_type": "Rarity",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Position",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Country",
             "value": "Suiza"
         },
         {
-            "trait_type": "Posición",
-            "value": "GK"
+            "trait_type": "Real Name",
+            "value": "Kwadwo Duah"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "ATK",
+            "value": 74
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "DEF",
+            "value": 20
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "Jersey Number",
+            "value": "9"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "Parody Club",
+            "value": "Nuremberg Gingerbread"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/208_ruben_vargas-slide.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/208_ruben_vargas-slide.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

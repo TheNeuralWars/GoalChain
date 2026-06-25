@@ -1,48 +1,65 @@
 {
-    "name": "Jon Arambu-Side",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jon Arambu-Side (Venezuela). undefined",
+    "name": "GoalChain Genesis #325 — Jürgen Loca-Liquid",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Physical Titan, Goal Machine, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/325_jon_arambu-side.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/325_jrgen_loca-liquid.webp",
+    "external_url": "https://goalchain.fun/nft/325",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Venezuela"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Curazao"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Jürgen Locadia"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "ATK",
+            "value": 72
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "DEF",
+            "value": 26
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Bochum Deep Coal"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Machine"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/325_jon_arambu-side.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/325_jrgen_loca-liquid.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

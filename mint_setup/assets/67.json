@@ -1,41 +1,58 @@
 {
-    "name": "Francia Player 16",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Francia Player 16 (Francia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #068 \u2014 Bruno Fee-nandes",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, Visionary, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "67.png",
+    "external_url": "https://goalchain.fun/nft/68",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Francia"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Portugal"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "16"
+            "trait_type": "Real Name",
+            "value": "Bruno Fernandes"
         },
         {
-            "trait_type": "Ataque",
-            "value": 57
+            "trait_type": "ATK",
+            "value": 91
         },
         {
-            "trait_type": "Defensa",
-            "value": 78
+            "trait_type": "DEF",
+            "value": 88
         },
         {
-            "trait_type": "Hype",
-            "value": 87
+            "trait_type": "HYPE",
+            "value": 91
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Visionary"
         }
     ],
     "properties": {

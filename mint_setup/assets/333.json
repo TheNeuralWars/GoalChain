@@ -1,41 +1,62 @@
 {
-    "name": "Marruecos Star 22 Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Marruecos Star 22 Chain (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #334 \u2014 Jos\u00e9 Mar\u00eda Gim\u00e9ngas",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a legendary asset. Known globally for being a Defensive Titan, Captain Leader, Aerial Duelist, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "333.png",
+    "external_url": "https://goalchain.fun/nft/334",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Marruecos"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Uruguay"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "22"
+            "trait_type": "Real Name",
+            "value": "Jos\u00e9 Mar\u00eda Gim\u00e9nez"
         },
         {
-            "trait_type": "Ataque",
-            "value": 51
+            "trait_type": "ATK",
+            "value": 42
         },
         {
-            "trait_type": "Defensa",
-            "value": 98
+            "trait_type": "DEF",
+            "value": 82
         },
         {
-            "trait_type": "Hype",
-            "value": 50
+            "trait_type": "HYPE",
+            "value": 78
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "2"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Mattress Makers"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Shield Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
         }
     ],
     "properties": {

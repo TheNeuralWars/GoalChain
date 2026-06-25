@@ -1,41 +1,54 @@
 {
-    "name": "Alemania Player 9",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alemania Player 9 (Alemania). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #139 \u2014 Zion Satoshi-Suzuki",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a rare asset. Known globally for being a Aerial Commander, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "138.png",
+    "external_url": "https://goalchain.fun/nft/139",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Alemania"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Jap\u00f3n"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "9"
+            "trait_type": "Real Name",
+            "value": "Zion Suzuki"
         },
         {
-            "trait_type": "Ataque",
-            "value": 44
+            "trait_type": "ATK",
+            "value": 28
         },
         {
-            "trait_type": "Defensa",
-            "value": 83
+            "trait_type": "DEF",
+            "value": 64
         },
         {
-            "trait_type": "Hype",
-            "value": 48
+            "trait_type": "HYPE",
+            "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "31"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Commander"
         }
     ],
     "properties": {

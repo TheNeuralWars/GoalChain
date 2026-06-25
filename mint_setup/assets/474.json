@@ -1,41 +1,58 @@
 {
-    "name": "Ghana Pro 7 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ghana Pro 7 Mint (Ghana). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #475 \u2014 Liberato Cac-Flow",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Wing Overlap, Speed Defender, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "474.png",
+    "external_url": "https://goalchain.fun/nft/475",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Ghana"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Nueva zelanda"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "7"
+            "trait_type": "Real Name",
+            "value": "Liberato Cacace"
         },
         {
-            "trait_type": "Ataque",
-            "value": 44
+            "trait_type": "ATK",
+            "value": 50
         },
         {
-            "trait_type": "Defensa",
-            "value": 79
+            "trait_type": "DEF",
+            "value": 65
         },
         {
-            "trait_type": "Hype",
-            "value": 80
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
         }
     ],
     "properties": {

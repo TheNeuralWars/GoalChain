@@ -1,41 +1,58 @@
 {
-    "name": "Espa\u00f1a Player 4",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Espa\u00f1a Player 4 (Espa\u00f1a). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #108 \u2014 Gerardo Artea-Edge",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Wing Overlap, Speed Defender, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "107.png",
+    "external_url": "https://goalchain.fun/nft/108",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Espa\u00f1a"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "4"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 46
+            "trait_type": "Country",
+            "value": "M\u00e9xico"
         },
         {
-            "trait_type": "Defensa",
-            "value": 80
+            "trait_type": "Real Name",
+            "value": "Gerardo Arteaga"
         },
         {
-            "trait_type": "Hype",
-            "value": 30
+            "trait_type": "ATK",
+            "value": 50
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 66
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "23"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
         }
     ],
     "properties": {

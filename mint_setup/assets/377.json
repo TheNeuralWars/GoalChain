@@ -1,41 +1,62 @@
 {
-    "name": "Senegal Star 14 Coin",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Senegal Star 14 Coin (Senegal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #378 \u2014 Ngal'ayel Muka-Logic",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Vision Master, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "377.png",
+    "external_url": "https://goalchain.fun/nft/378",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Senegal"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Congo RD"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "14"
+            "trait_type": "Real Name",
+            "value": "Ngal'ayel Mukau"
         },
         {
-            "trait_type": "Ataque",
-            "value": 42
+            "trait_type": "ATK",
+            "value": 74
         },
         {
-            "trait_type": "Defensa",
-            "value": 91
+            "trait_type": "DEF",
+            "value": 35
         },
         {
-            "trait_type": "Hype",
-            "value": 62
+            "trait_type": "HYPE",
+            "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Lille Mastiff Pack"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Neon Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {

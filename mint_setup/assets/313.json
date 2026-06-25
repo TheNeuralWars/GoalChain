@@ -1,41 +1,58 @@
 {
-    "name": "Hakim Zi-Yield",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Hakim Zi-Yield (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #314 \u2014 Fabian Balbu-Base",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Aerial Duelist, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "313.png",
+    "external_url": "https://goalchain.fun/nft/314",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Marruecos"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Paraguay"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "2"
+            "trait_type": "Real Name",
+            "value": "Fabi\u00e1n Balbuena"
         },
         {
-            "trait_type": "Ataque",
-            "value": 71
+            "trait_type": "ATK",
+            "value": 28
         },
         {
-            "trait_type": "Defensa",
-            "value": 43
+            "trait_type": "DEF",
+            "value": 72
         },
         {
-            "trait_type": "Hype",
-            "value": 98
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Barcelona Garnet Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
         }
     ],
     "properties": {

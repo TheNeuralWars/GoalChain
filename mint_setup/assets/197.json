@@ -1,41 +1,58 @@
 {
-    "name": "M\u00e9xico Star 16 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - M\u00e9xico Star 16 Token (M\u00e9xico). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #198 \u2014 Leo Osti-Gas",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Aerial Duelist, Defensive Wall, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "197.png",
+    "external_url": "https://goalchain.fun/nft/198",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "M\u00e9xico"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "16"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 63
+            "trait_type": "Country",
+            "value": "Noruega"
         },
         {
-            "trait_type": "Defensa",
-            "value": 65
+            "trait_type": "Real Name",
+            "value": "Leo \u00d8stig\u00e5rd"
         },
         {
-            "trait_type": "Hype",
-            "value": 73
+            "trait_type": "ATK",
+            "value": 32
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 74
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Naples Blue Volcano"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Iron Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
         }
     ],
     "properties": {

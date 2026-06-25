@@ -1,41 +1,58 @@
 {
-    "name": "Colombia Star 6 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Colombia Star 6 Token (Colombia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #396 \u2014 Nuno Da-Crash",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a rare asset. Known globally for being a Aerial Threat, Physical Titan, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "395.png",
+    "external_url": "https://goalchain.fun/nft/396",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Colombia"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Cabo Verde"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "6"
+            "trait_type": "Real Name",
+            "value": "Nuno Da Costa"
         },
         {
-            "trait_type": "Ataque",
-            "value": 92
+            "trait_type": "ATK",
+            "value": 70
         },
         {
-            "trait_type": "Defensa",
-            "value": 40
+            "trait_type": "DEF",
+            "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 80
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Istanbul Owl Owls"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Threat"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
         }
     ],
     "properties": {

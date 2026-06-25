@@ -1,48 +1,61 @@
 {
-    "name": "Nahuel Mo-Wallet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nahuel Mo-Wallet (Argentina). undefined",
+    "name": "GoalChain Genesis #010 — Nahuel Mo-Wallet",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Recovery Pace, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/5VJOb.jpg",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/010_nahuel_mo-wallet.webp",
+    "external_url": "https://goalchain.fun/nft/10",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Argentina"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "Country",
+            "value": "Argentina"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Nahuel Molina"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 38
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 66
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 63
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "16"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Mattress Makers"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Recovery Pace"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/5VJOb.jpg",
-                "type": "image/jpeg"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/010_nahuel_mo-wallet.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

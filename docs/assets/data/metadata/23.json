@@ -1,48 +1,69 @@
 {
-    "name": "Harry Stake",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Harry Stake (Inglaterra). undefined",
+    "name": "GoalChain Genesis #023 — Harry Stake",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a Elite Sniper, Playmaking Striker, Target Man, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/023_harry_stake.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/023_harry_stake.webp",
+    "external_url": "https://goalchain.fun/nft/23",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Inglaterra"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Mythic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "Country",
+            "value": "Inglaterra"
+        },
+        {
+            "trait_type": "Real Name",
+            "value": "Harry Kane"
+        },
+        {
+            "trait_type": "ATK",
             "value": 98
         },
         {
-            "trait_type": "Defensa",
-            "value": 28
+            "trait_type": "DEF",
+            "value": 20
         },
         {
-            "trait_type": "Hype",
-            "value": 98
+            "trait_type": "HYPE",
+            "value": 90
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Bavarian Cyber-Machine"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Elite Sniper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaking Striker"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Target Man"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/023_harry_stake.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/023_harry_stake.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

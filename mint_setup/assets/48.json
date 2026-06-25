@@ -1,41 +1,54 @@
 {
-    "name": "Brasil Player 23",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Brasil Player 23 (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #049 \u2014 Nico Shard-Williams",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Goal Hunter, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "48.png",
+    "external_url": "https://goalchain.fun/nft/49",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Brasil"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Espa\u00f1a"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "23"
+            "trait_type": "Real Name",
+            "value": "Nico Williams"
         },
         {
-            "trait_type": "Ataque",
-            "value": 95
+            "trait_type": "ATK",
+            "value": 82
         },
         {
-            "trait_type": "Defensa",
-            "value": 83
+            "trait_type": "DEF",
+            "value": 22
         },
         {
-            "trait_type": "Hype",
-            "value": 58
+            "trait_type": "HYPE",
+            "value": 80
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Hunter"
         }
     ],
     "properties": {

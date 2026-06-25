@@ -1,48 +1,65 @@
 {
-    "name": "Pedro Gall-Save",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Pedro Gall-Save (Perú). undefined",
+    "name": "GoalChain Genesis #345 — Nermin Zolo-Logic",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Hustle, Positional Read, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/345_pedro_gall-save.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/345_nermin_zolo-logic.webp",
+    "external_url": "https://goalchain.fun/nft/345",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Perú"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
+            "trait_type": "Country",
+            "value": "Bosnia y Herzegovina"
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "Real Name",
+            "value": "Nermin Zolotić"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 38
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 74
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Stuttgart Engine City"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Shield Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Hustle"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Positional Read"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/345_pedro_gall-save.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/345_nermin_zolo-logic.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

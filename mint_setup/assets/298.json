@@ -1,41 +1,58 @@
 {
-    "name": "B\u00e9lgica Star 13 Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - B\u00e9lgica Star 13 Node (B\u00e9lgica). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #299 \u2014 Enner Valen-Goal",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Clinical Finisher, Captain Leader, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "298.png",
+    "external_url": "https://goalchain.fun/nft/299",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "B\u00e9lgica"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Ecuador"
         },
         {
-            "trait_type": "N\u00famero",
+            "trait_type": "Real Name",
+            "value": "Enner Valencia"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 78
+        },
+        {
+            "trait_type": "DEF",
+            "value": 22
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 72
+        },
+        {
+            "trait_type": "Jersey Number",
             "value": "13"
         },
         {
-            "trait_type": "Ataque",
-            "value": 46
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
         },
         {
-            "trait_type": "Defensa",
-            "value": 59
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
         },
         {
-            "trait_type": "Hype",
-            "value": 85
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Trait",
+            "value": "Captain Leader"
         }
     ],
     "properties": {

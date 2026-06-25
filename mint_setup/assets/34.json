@@ -1,41 +1,62 @@
 {
-    "name": "Vinicius Burner Jr",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Vinicius Burner Jr (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #035 \u2014 Vin\u00edcius JPEG Jr.",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a Dribbling Wizard, Speedster, Electric Winger, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "34.png",
+    "external_url": "https://goalchain.fun/nft/35",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Brasil"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "Country",
+            "value": "Brasil"
         },
         {
-            "trait_type": "N\u00famero",
+            "trait_type": "Real Name",
+            "value": "Vin\u00edcius J\u00fanior"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 95
+        },
+        {
+            "trait_type": "DEF",
+            "value": 37
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 97
+        },
+        {
+            "trait_type": "Jersey Number",
             "value": "7"
         },
         {
-            "trait_type": "Ataque",
-            "value": 94
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
         },
         {
-            "trait_type": "Defensa",
-            "value": 35
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
         },
         {
-            "trait_type": "Hype",
-            "value": 98
+            "trait_type": "Trait",
+            "value": "Dribbling Wizard"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Trait",
+            "value": "Speedster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Electric Winger"
         }
     ],
     "properties": {

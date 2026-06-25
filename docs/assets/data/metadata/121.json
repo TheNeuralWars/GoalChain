@@ -1,48 +1,65 @@
 {
-    "name": "Dayne St-Clair-Net",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Dayne St-Clair-Net (Canadá). undefined",
+    "name": "GoalChain Genesis #121 — Dayne St-Clair-Net",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Wing Overlap, Speed Defender, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/121_dayne_st-clair-net.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/121_dayne_st-clair-net.webp",
+    "external_url": "https://goalchain.fun/nft/121",
     "attributes": [
         {
-            "trait_type": "País",
+            "trait_type": "Rarity",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Position",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Country",
             "value": "Canadá"
         },
         {
-            "trait_type": "Posición",
-            "value": "GK"
+            "trait_type": "Real Name",
+            "value": "Richie Laryea"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "ATK",
+            "value": 55
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "DEF",
+            "value": 65
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "Jersey Number",
+            "value": "22"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "Parody Club",
+            "value": "Toronto Maple Syrup"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Visual Effect",
+            "value": "Chain Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/121_dayne_st-clair-net.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/121_dayne_st-clair-net.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

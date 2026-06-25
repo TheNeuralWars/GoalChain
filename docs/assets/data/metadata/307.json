@@ -1,48 +1,65 @@
 {
-    "name": "Alan Franco-Hub",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alan Franco-Hub (Ecuador). undefined",
+    "name": "GoalChain Genesis #307 — Alan Franco-Hub",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Defensive Shield, Physical Titan, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/307_alan_franco-hub.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/307_alan_franco-hub.webp",
+    "external_url": "https://goalchain.fun/nft/307",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Ecuador"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "Country",
+            "value": "Ecuador"
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "Real Name",
+            "value": "Alan Franco"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 45
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 62
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 55
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "20"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Blue Lions"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/307_alan_franco-hub.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/307_alan_franco-hub.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

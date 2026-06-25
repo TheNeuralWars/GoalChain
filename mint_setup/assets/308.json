@@ -1,41 +1,62 @@
 {
-    "name": "B\u00e9lgica Star 23 Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - B\u00e9lgica Star 23 Node (B\u00e9lgica). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #309 \u2014 Julio Enciso-Moon",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Rising Star, Dribble Flash, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "308.png",
+    "external_url": "https://goalchain.fun/nft/309",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "B\u00e9lgica"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Paraguay"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "23"
+            "trait_type": "Real Name",
+            "value": "Julio Enciso"
         },
         {
-            "trait_type": "Ataque",
-            "value": 84
+            "trait_type": "ATK",
+            "value": 74
         },
         {
-            "trait_type": "Defensa",
-            "value": 63
+            "trait_type": "DEF",
+            "value": 32
         },
         {
-            "trait_type": "Hype",
-            "value": 63
+            "trait_type": "HYPE",
+            "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "17"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
         }
     ],
     "properties": {

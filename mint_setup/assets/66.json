@@ -1,41 +1,62 @@
 {
-    "name": "Francia Player 15",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Francia Player 15 (Francia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #067 \u2014 Cristiano Siu-toshi",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a Clutch Finisher, Physical Specimen, Aerial Threat, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "66.png",
+    "external_url": "https://goalchain.fun/nft/67",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Francia"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Portugal"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "15"
+            "trait_type": "Real Name",
+            "value": "Cristiano Ronaldo"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "ATK",
             "value": 94
         },
         {
-            "trait_type": "Defensa",
-            "value": 41
+            "trait_type": "DEF",
+            "value": 13
         },
         {
-            "trait_type": "Hype",
-            "value": 35
+            "trait_type": "HYPE",
+            "value": 90
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Riyadh Victory Nodes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clutch Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Specimen"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Threat"
         }
     ],
     "properties": {

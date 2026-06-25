@@ -1,41 +1,62 @@
 {
-    "name": "Italia Star 8 Gas",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Italia Star 8 Gas (Italia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #268 \u2014 J\u00e9r\u00e9my Do-Quantum",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Speed Monster, Dribbling God, Speed Winger, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "267.png",
+    "external_url": "https://goalchain.fun/nft/268",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Italia"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "B\u00e9lgica"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "8"
+            "trait_type": "Real Name",
+            "value": "J\u00e9r\u00e9my Doku"
         },
         {
-            "trait_type": "Ataque",
-            "value": 58
+            "trait_type": "ATK",
+            "value": 82
         },
         {
-            "trait_type": "Defensa",
-            "value": 85
+            "trait_type": "DEF",
+            "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 45
+            "trait_type": "HYPE",
+            "value": 82
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Sky Blue"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Lightning Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Monster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
         }
     ],
     "properties": {

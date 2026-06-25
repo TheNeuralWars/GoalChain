@@ -1,41 +1,58 @@
 {
-    "name": "M\u00e9xico Star 22 Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - M\u00e9xico Star 22 Chain (M\u00e9xico). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #204 \u2014 Remo Freuler-Link",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Engine Room, Defensive Shield, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "203.png",
+    "external_url": "https://goalchain.fun/nft/204",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "M\u00e9xico"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Suiza"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "22"
+            "trait_type": "Real Name",
+            "value": "Remo Freuler"
         },
         {
-            "trait_type": "Ataque",
-            "value": 53
+            "trait_type": "ATK",
+            "value": 55
         },
         {
-            "trait_type": "Defensa",
-            "value": 72
+            "trait_type": "DEF",
+            "value": 65
         },
         {
-            "trait_type": "Hype",
-            "value": 94
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Barcelona Garnet Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
         }
     ],
     "properties": {

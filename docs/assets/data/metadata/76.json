@@ -1,48 +1,61 @@
 {
-    "name": "Vitinha-Cycle",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Vitinha-Cycle (Portugal). undefined",
+    "name": "GoalChain Genesis #076 — Vitinha Validator",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Technical Maestro, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/076_vitinha-cycle.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/076_vitinha_validator.webp",
+    "external_url": "https://goalchain.fun/nft/76",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Portugal"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "Country",
+            "value": "Portugal"
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "Real Name",
+            "value": "Vitinha"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 63
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 78
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 63
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "17"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Technical Maestro"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/076_vitinha-cycle.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/076_vitinha_validator.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,41 +1,58 @@
 {
-    "name": "Nigeria Pro 20 Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nigeria Pro 20 Block (Nigeria). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #462 \u2014 Youssef Amyn-Flash",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "461.png",
+    "external_url": "https://goalchain.fun/nft/462",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Nigeria"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Irak"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "20"
+            "trait_type": "Real Name",
+            "value": "Youssef Ayman"
         },
         {
-            "trait_type": "Ataque",
-            "value": 40
+            "trait_type": "ATK",
+            "value": 22
         },
         {
-            "trait_type": "Defensa",
-            "value": 87
+            "trait_type": "DEF",
+            "value": 62
         },
         {
-            "trait_type": "Hype",
-            "value": 77
+            "trait_type": "HYPE",
+            "value": 48
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {

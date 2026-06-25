@@ -1,41 +1,54 @@
 {
-    "name": "Alemania Player 8",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alemania Player 8 (Alemania). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #138 \u2014 Takehiro Tomi-Shield",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "137.png",
+    "external_url": "https://goalchain.fun/nft/138",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Alemania"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "8"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 76
+            "trait_type": "Country",
+            "value": "Jap\u00f3n"
         },
         {
-            "trait_type": "Defensa",
-            "value": 40
+            "trait_type": "Real Name",
+            "value": "Takehiro Tomiyasu"
         },
         {
-            "trait_type": "Hype",
-            "value": 85
+            "trait_type": "ATK",
+            "value": 45
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 66
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 64
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "32"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Powerhouse"
         }
     ],
     "properties": {

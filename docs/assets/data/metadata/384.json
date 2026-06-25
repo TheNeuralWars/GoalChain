@@ -1,48 +1,65 @@
 {
-    "name": "Kelechi Ihea-View",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Kelechi Ihea-View (Nigeria). undefined",
+    "name": "GoalChain Genesis #384 — Meschack Elia-Sprint",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Winger, Lightning Dash, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/384_kelechi_ihea-view.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/384_meschack_elia-sprint.webp",
+    "external_url": "https://goalchain.fun/nft/384",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Nigeria"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Congo RD"
         },
         {
-            "trait_type": "Defensa",
+            "trait_type": "Real Name",
+            "value": "Meschack Elia"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 74
+        },
+        {
+            "trait_type": "DEF",
             "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "17"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Alanya Banana Bulls"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Lightning Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Lightning Dash"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/384_kelechi_ihea-view.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/384_meschack_elia-sprint.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

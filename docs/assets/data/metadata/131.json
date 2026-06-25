@@ -1,48 +1,61 @@
 {
-    "name": "Noussair Mazra-Side",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Noussair Mazra-Side (Marruecos). undefined",
+    "name": "GoalChain Genesis #131 — Noussair Mazra-Side",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Recovery Pace, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/131_jamal_moon-siala.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/131_jamal_moon-siala.webp",
+    "external_url": "https://goalchain.fun/nft/131",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Marruecos"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "Country",
+            "value": "Marruecos"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Noussair Mazraoui"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
+            "value": 11
+        },
+        {
+            "trait_type": "DEF",
+            "value": 61
+        },
+        {
+            "trait_type": "HYPE",
             "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Recovery Pace"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/131_jamal_moon-siala.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/131_jamal_moon-siala.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

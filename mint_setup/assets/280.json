@@ -1,41 +1,58 @@
 {
-    "name": "Italia Star 21 Swap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Italia Star 21 Swap (Italia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #281 \u2014 Alex Schlager-Hold",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Shot Stopper, Command Post, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "280.png",
+    "external_url": "https://goalchain.fun/nft/281",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Italia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Austria"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "21"
+            "trait_type": "Real Name",
+            "value": "Patrick Pentz"
         },
         {
-            "trait_type": "Ataque",
-            "value": 41
+            "trait_type": "ATK",
+            "value": 12
         },
         {
-            "trait_type": "Defensa",
-            "value": 71
+            "trait_type": "DEF",
+            "value": 76
         },
         {
-            "trait_type": "Hype",
-            "value": 39
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Vienna Waltz Symphony"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Guardian Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Command Post"
         }
     ],
     "properties": {

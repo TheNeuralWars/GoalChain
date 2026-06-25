@@ -1,48 +1,69 @@
 {
-    "name": "James-Magic",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - James-Magic (Colombia). undefined",
+    "name": "GoalChain Genesis #287 — James Rodri-DAO",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker Maestro, Creative Spark, Vision Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/287_james-magic.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/287_james_rodri-dao.webp",
+    "external_url": "https://goalchain.fun/nft/287",
     "attributes": [
         {
-            "trait_type": "País",
+            "trait_type": "Rarity",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Position",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Country",
             "value": "Colombia"
         },
         {
-            "trait_type": "Posición",
-            "value": "FWD"
+            "trait_type": "Real Name",
+            "value": "James Rodríguez"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
-        },
-        {
-            "trait_type": "Número",
-            "value": "0"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 89
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 25
-        },
-        {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
             "value": 82
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 25
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 85
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker Maestro"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/287_james-magic.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/287_james_rodri-dao.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,41 +1,54 @@
 {
-    "name": "Espa\u00f1a Player 25",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Espa\u00f1a Player 25 (Espa\u00f1a). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #129 \u2014 Azzedine Oun-Hype",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Box-to-Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "128.png",
+    "external_url": "https://goalchain.fun/nft/129",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Espa\u00f1a"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Marruecos"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "25"
+            "trait_type": "Real Name",
+            "value": "Azzedine Ounahi"
         },
         {
-            "trait_type": "Ataque",
-            "value": 57
-        },
-        {
-            "trait_type": "Defensa",
+            "trait_type": "ATK",
             "value": 64
         },
         {
-            "trait_type": "Hype",
-            "value": 32
+            "trait_type": "DEF",
+            "value": 66
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "HYPE",
+            "value": 69
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "18"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box-to-Box"
         }
     ],
     "properties": {

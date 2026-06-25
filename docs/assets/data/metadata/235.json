@@ -1,48 +1,69 @@
 {
-    "name": "Viktor Tsyg-Cut",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Viktor Tsyg-Cut (Ucrania). undefined",
+    "name": "GoalChain Genesis #235 — Dejan Kulu-Slippage",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Creative Spark, Dribbling God, Box To Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/235_viktor_tsyg-cut.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/235_dejan_kulu-slippage.webp",
+    "external_url": "https://goalchain.fun/nft/235",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Ucrania"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posición",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Suecia"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Dejan Kulusevski"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 80
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "DEF",
+            "value": 32
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "HYPE",
             "value": 82
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Cockerel Spurs"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Neon Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box To Box"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/235_viktor_tsyg-cut.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/235_dejan_kulu-slippage.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

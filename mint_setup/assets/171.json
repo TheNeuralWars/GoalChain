@@ -1,41 +1,54 @@
 {
-    "name": "Portugal Player 16",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 16 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #172 \u2014 Riley McGree-Flash",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Box-to-Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "171.png",
+    "external_url": "https://goalchain.fun/nft/172",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Australia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "16"
+            "trait_type": "Real Name",
+            "value": "Riley McGree"
         },
         {
-            "trait_type": "Ataque",
-            "value": 67
+            "trait_type": "ATK",
+            "value": 78
         },
         {
-            "trait_type": "Defensa",
-            "value": 53
+            "trait_type": "DEF",
+            "value": 73
         },
         {
-            "trait_type": "Hype",
-            "value": 77
+            "trait_type": "HYPE",
+            "value": 74
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box-to-Box"
         }
     ],
     "properties": {

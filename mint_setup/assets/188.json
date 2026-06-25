@@ -1,41 +1,62 @@
 {
-    "name": "M\u00e9xico Star 7 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - M\u00e9xico Star 7 Mint (M\u00e9xico). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #189 \u2014 Martin \u00d8de-Gas",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, Vision Master, Captain Leader, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "188.png",
+    "external_url": "https://goalchain.fun/nft/189",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "M\u00e9xico"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Noruega"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "7"
+            "trait_type": "Real Name",
+            "value": "Martin \u00d8degaard"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 82
         },
         {
-            "trait_type": "Defensa",
-            "value": 48
+            "trait_type": "DEF",
+            "value": 35
         },
         {
-            "trait_type": "Hype",
-            "value": 80
+            "trait_type": "HYPE",
+            "value": 87
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Cannon Fire"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
         }
     ],
     "properties": {

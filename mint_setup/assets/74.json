@@ -1,41 +1,54 @@
 {
-    "name": "Francia Player 23",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Francia Player 23 (Francia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #075 \u2014 Nuno Mendes-Flow",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Recovery Pace, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "74.png",
+    "external_url": "https://goalchain.fun/nft/75",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Francia"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Portugal"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "23"
+            "trait_type": "Real Name",
+            "value": "Nuno Mendes"
         },
         {
-            "trait_type": "Ataque",
-            "value": 84
+            "trait_type": "ATK",
+            "value": 44
         },
         {
-            "trait_type": "Defensa",
-            "value": 68
+            "trait_type": "DEF",
+            "value": 75
         },
         {
-            "trait_type": "Hype",
-            "value": 74
+            "trait_type": "HYPE",
+            "value": 77
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "25"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Recovery Pace"
         }
     ],
     "properties": {

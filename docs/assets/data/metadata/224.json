@@ -1,48 +1,65 @@
 {
-    "name": "Matty Cash-Coin",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Matty Cash-Coin (Polonia). undefined",
+    "name": "GoalChain Genesis #224 — Adam Hlo-zk",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Goal Threat, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/224_matty_cash-coin.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/224_adam_hlo-zk.webp",
+    "external_url": "https://goalchain.fun/nft/224",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Polonia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "República Checa"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Adam Hložek"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "ATK",
+            "value": 74
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "DEF",
+            "value": 32
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 73
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Leverkusen Pill Builders"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Neon Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Threat"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/224_matty_cash-coin.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/224_adam_hlo-zk.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,48 +1,65 @@
 {
-    "name": "Xherdan Sha-Zoom",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Xherdan Sha-Zoom (Suiza). undefined",
+    "name": "GoalChain Genesis #202 — Xherdan Sha-Zoom",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Creative Spark, Dribble Flash, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/202_xherdan_sha-zoom.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/202_xherdan_sha-zoom.webp",
+    "external_url": "https://goalchain.fun/nft/202",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Suiza"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Suiza"
         },
         {
-            "trait_type": "Defensa",
+            "trait_type": "Real Name",
+            "value": "Xherdan Shaqiri"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 72
+        },
+        {
+            "trait_type": "DEF",
             "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "23"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Barcelona Garnet Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/202_xherdan_sha-zoom.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/202_xherdan_sha-zoom.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

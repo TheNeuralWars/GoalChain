@@ -1,48 +1,69 @@
 {
-    "name": "Akram Afif-Magic",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Akram Afif-Magic (Qatar). undefined",
+    "name": "GoalChain Genesis #463 — Akram Afif-Magic",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Winger, Dribble Flash, Technical Maestro, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/463_akram_afif-magic.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/463_akram_afif-magic.webp",
+    "external_url": "https://goalchain.fun/nft/463",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Qatar"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Qatar"
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "Real Name",
+            "value": "Akram Afif"
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "ATK",
+            "value": 78
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 20
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 72
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Technical Maestro"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/463_akram_afif-magic.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/463_akram_afif-magic.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

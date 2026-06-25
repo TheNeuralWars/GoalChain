@@ -1,48 +1,65 @@
 {
-    "name": "Joel Camp-Legend",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Joel Camp-Legend (Costa rica). undefined",
+    "name": "GoalChain Genesis #421 — Frantzdy Pier-Run",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Monster, Pressing Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/421_joel_camp-legend.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/421_frantzdy_pier-run.webp",
+    "external_url": "https://goalchain.fun/nft/421",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Costa rica"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Haití"
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "Real Name",
+            "value": "Frantzdy Pierrot"
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "ATK",
+            "value": 70
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 28
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 65
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Atlanta Peach State"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Lightning Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Monster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Pressing Master"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/421_joel_camp-legend.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/421_frantzdy_pier-run.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

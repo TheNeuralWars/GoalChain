@@ -1,48 +1,61 @@
 {
-    "name": "Mike Maignan-Admin",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Mike Maignan-Admin (Francia). undefined",
+    "name": "GoalChain Genesis #017 — Mike Mainnet-nan",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a rare asset. Known globally for being a Aerial Commander, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/tRJVF.jpg",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/017_darwin_nunft.webp",
+    "external_url": "https://goalchain.fun/nft/17",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Francia"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
+            "trait_type": "Country",
+            "value": "Francia"
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "Real Name",
+            "value": "Mike Maignan"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 25
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 73
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 64
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "16"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Commander"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/tRJVF.jpg",
-                "type": "image/jpeg"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/017_darwin_nunft.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

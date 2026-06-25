@@ -1,41 +1,54 @@
 {
-    "name": "Julian Alva-Swap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Julian Alva-Swap (Argentina). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #003 \u2014 La Ara\u00f1a Bullish",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Goal Hunter, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "2.png",
+    "external_url": "https://goalchain.fun/nft/3",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Argentina"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "3"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 91
+            "trait_type": "Country",
+            "value": "Argentina"
         },
         {
-            "trait_type": "Defensa",
-            "value": 95
+            "trait_type": "Real Name",
+            "value": "Juli\u00e1n \u00c1lvarez"
         },
         {
-            "trait_type": "Hype",
-            "value": 87
+            "trait_type": "ATK",
+            "value": 76
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 12
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 86
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Mattress Makers"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Hunter"
         }
     ],
     "properties": {

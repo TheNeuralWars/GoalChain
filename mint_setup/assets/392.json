@@ -1,41 +1,58 @@
 {
-    "name": "Luis Mu-Yield",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Luis Mu-Yield (Colombia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #393 \u2014 Jamiro Monte-Flow",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Engine Room, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "392.png",
+    "external_url": "https://goalchain.fun/nft/393",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Colombia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Cabo Verde"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "3"
+            "trait_type": "Real Name",
+            "value": "Jamiro Monteiro"
         },
         {
-            "trait_type": "Ataque",
-            "value": 51
+            "trait_type": "ATK",
+            "value": 68
         },
         {
-            "trait_type": "Defensa",
-            "value": 41
+            "trait_type": "DEF",
+            "value": 40
         },
         {
-            "trait_type": "Hype",
-            "value": 70
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Zwolle Blue Fingers"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
         }
     ],
     "properties": {

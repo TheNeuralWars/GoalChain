@@ -1,41 +1,58 @@
 {
-    "name": "Nigeria Pro 7 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nigeria Pro 7 Mint (Nigeria). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #449 \u2014 Saman Ghod-Art",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Creative Spark, Technical Maestro, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "448.png",
+    "external_url": "https://goalchain.fun/nft/449",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Nigeria"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "7"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "Country",
+            "value": "Ir\u00e1n"
+        },
+        {
+            "trait_type": "Real Name",
+            "value": "Saman Ghoddos"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 65
+        },
+        {
+            "trait_type": "DEF",
+            "value": 40
+        },
+        {
+            "trait_type": "HYPE",
             "value": 60
         },
         {
-            "trait_type": "Defensa",
-            "value": 84
+            "trait_type": "Jersey Number",
+            "value": "8"
         },
         {
-            "trait_type": "Hype",
-            "value": 78
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Technical Maestro"
         }
     ],
     "properties": {

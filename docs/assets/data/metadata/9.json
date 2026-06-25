@@ -1,48 +1,61 @@
 {
-    "name": "Lisandro Butcher-DAO",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Lisandro Butcher-DAO (Argentina). undefined",
+    "name": "GoalChain Genesis #009 — Lisandro DAO-Butcher",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a legendary asset. Known globally for being a Shot Stopper, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/UP3Bf.jpg",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/009_lisandro_dao-butcher.webp",
+    "external_url": "https://goalchain.fun/nft/9",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Argentina"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Legendary"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 37
+            "trait_type": "Country",
+            "value": "Argentina"
         },
         {
-            "trait_type": "Defensa",
-            "value": 93
+            "trait_type": "Real Name",
+            "value": "Lisandro Martínez"
         },
         {
-            "trait_type": "Hype",
-            "value": 92
+            "trait_type": "ATK",
+            "value": 36
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 86
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 91
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "25"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/UP3Bf.jpg",
-                "type": "image/jpeg"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/009_lisandro_dao-butcher.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

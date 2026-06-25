@@ -1,48 +1,61 @@
 {
-    "name": "Nico Shard-Williams",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nico Shard-Williams (España). undefined",
+    "name": "GoalChain Genesis #049 — Nico Shard-Williams",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Goal Hunter, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/hBGll.jpg",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/049_nico_shard-williams.webp",
+    "external_url": "https://goalchain.fun/nft/49",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "España"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "España"
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "Real Name",
+            "value": "Nico Williams"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
             "value": 82
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 22
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 80
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Hunter"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/hBGll.jpg",
-                "type": "image/jpeg"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/049_nico_shard-williams.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,41 +1,58 @@
 {
-    "name": "Senegal Star 23 Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Senegal Star 23 Node (Senegal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #387 \u2014 Logan Cost-Wall",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Defensive Titan, Aerial Duelist, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "386.png",
+    "external_url": "https://goalchain.fun/nft/387",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Senegal"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Cabo Verde"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "23"
+            "trait_type": "Real Name",
+            "value": "Logan Costa"
         },
         {
-            "trait_type": "Ataque",
-            "value": 43
+            "trait_type": "ATK",
+            "value": 42
         },
         {
-            "trait_type": "Defensa",
-            "value": 49
+            "trait_type": "DEF",
+            "value": 80
         },
         {
-            "trait_type": "Hype",
-            "value": 36
+            "trait_type": "HYPE",
+            "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Villarreal Yellow Submarine"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Steel Aura"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
         }
     ],
     "properties": {

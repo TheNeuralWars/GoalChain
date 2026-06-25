@@ -1,48 +1,65 @@
 {
-    "name": "Ali Jasim-Star",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ali Jasim-Star (Irak). undefined",
+    "name": "GoalChain Genesis #453 — Ali Jasim-Star",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Winger, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/453_ali_jasim-star.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/453_ali_jasim-star.webp",
+    "external_url": "https://goalchain.fun/nft/453",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Irak"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Irak"
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "Real Name",
+            "value": "Ali Jasim"
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "ATK",
+            "value": 70
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 18
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 62
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/453_ali_jasim-star.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/453_ali_jasim-star.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

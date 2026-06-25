@@ -1,48 +1,65 @@
 {
-    "name": "Seif Jaziri-Hit",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Seif Jaziri-Hit (Túnez). undefined",
+    "name": "GoalChain Genesis #418 — Seif Jaziri-Hit",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a rare asset. Known globally for being a Aerial Threat, Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/418_seif_jaziri-hit.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/418_seif_jaziri-hit.webp",
+    "external_url": "https://goalchain.fun/nft/418",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Túnez"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Túnez"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Seif Jaziri"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 70
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "DEF",
+            "value": 18
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Threat"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/418_seif_jaziri-hit.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/418_seif_jaziri-hit.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

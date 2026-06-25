@@ -1,41 +1,58 @@
 {
-    "name": "Pa\u00edses Bajos Star 25 Wallet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Pa\u00edses Bajos Star 25 Wallet (Pa\u00edses Bajos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #259 \u2014 Angus Gunn-Stay",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a rare asset. Known globally for being a Shot Stopper, Command Post, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "258.png",
+    "external_url": "https://goalchain.fun/nft/259",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Pa\u00edses Bajos"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "25"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Ataque",
-            "value": 90
+            "trait_type": "Country",
+            "value": "Escocia"
         },
         {
-            "trait_type": "Defensa",
-            "value": 94
+            "trait_type": "Real Name",
+            "value": "Angus Gunn"
         },
         {
-            "trait_type": "Hype",
-            "value": 95
+            "trait_type": "ATK",
+            "value": 12
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 74
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Command Post"
         }
     ],
     "properties": {

@@ -1,41 +1,62 @@
 {
-    "name": "B\u00e9lgica Star 25 Wallet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - B\u00e9lgica Star 25 Wallet (B\u00e9lgica). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #311 \u2014 Gustavo G\u00f3mgas",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Defensive Titan, Captain Leader, Aerial Duelist, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "310.png",
+    "external_url": "https://goalchain.fun/nft/311",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "B\u00e9lgica"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Paraguay"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "25"
+            "trait_type": "Real Name",
+            "value": "Gustavo G\u00f3mez"
         },
         {
-            "trait_type": "Ataque",
-            "value": 87
+            "trait_type": "ATK",
+            "value": 35
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "DEF",
+            "value": 78
         },
         {
-            "trait_type": "Hype",
-            "value": 77
+            "trait_type": "HYPE",
+            "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Blue Lions"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
         }
     ],
     "properties": {

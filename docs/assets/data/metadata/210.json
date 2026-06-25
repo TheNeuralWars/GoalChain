@@ -1,48 +1,69 @@
 {
-    "name": "Dusan Ta-Play",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Dusan Ta-Play (Serbia). undefined",
+    "name": "GoalChain Genesis #210 — Luka Modri-Coin",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a mythic asset. Known globally for being a Legend Aura, Vision Master, Dribbling God, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/210_dusan_ta-play.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/210_luka_modri-coin.webp",
+    "external_url": "https://goalchain.fun/nft/210",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Serbia"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posición",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Croacia"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Luka Modrić"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 85
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "DEF",
+            "value": 45
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 92
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Timeless Aura"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Legend Aura"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/210_dusan_ta-play.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/210_luka_modri-coin.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

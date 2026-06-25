@@ -1,41 +1,54 @@
 {
-    "name": "Portugal Player 21",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 21 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #177 \u2014 Salem Al-Icon",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "176.png",
+    "external_url": "https://goalchain.fun/nft/177",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Arabia saud\u00ed"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "21"
+            "trait_type": "Real Name",
+            "value": "Salem Al-Dawsari"
         },
         {
-            "trait_type": "Ataque",
-            "value": 74
+            "trait_type": "ATK",
+            "value": 86
         },
         {
-            "trait_type": "Defensa",
-            "value": 69
+            "trait_type": "DEF",
+            "value": 31
         },
         {
-            "trait_type": "Hype",
-            "value": 46
+            "trait_type": "HYPE",
+            "value": 86
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "29"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {

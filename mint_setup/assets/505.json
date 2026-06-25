@@ -1,41 +1,58 @@
 {
-    "name": "Australia Pro 12 Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Australia Pro 12 Chain (Australia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #506 \u2014 Thapelo More-Flash",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Wing Overlap, Speed Defender, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "505.png",
+    "external_url": "https://goalchain.fun/nft/506",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Australia"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "12"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 65
+            "trait_type": "Country",
+            "value": "Sud\u00e1frica"
         },
         {
-            "trait_type": "Defensa",
-            "value": 41
+            "trait_type": "Real Name",
+            "value": "Thapelo Morena"
         },
         {
-            "trait_type": "Hype",
-            "value": 43
+            "trait_type": "ATK",
+            "value": 45
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 62
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 55
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
         }
     ],
     "properties": {

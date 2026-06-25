@@ -1,48 +1,65 @@
 {
-    "name": "Yassine Bounou-Safe",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Yassine Bounou-Safe (Marruecos). undefined",
+    "name": "GoalChain Genesis #123 — Yassine Bono-DAO",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a rare asset. Known globally for being a Quick Reflexes, Aerial Commander, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/123_yassine_bounou-safe.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/123_yassine_bono-dao.webp",
+    "external_url": "https://goalchain.fun/nft/123",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Marruecos"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
+            "trait_type": "Country",
+            "value": "Marruecos"
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "Real Name",
+            "value": "Yassine Bounou"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 21
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 67
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 61
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "37"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Blue Lions"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Quick Reflexes"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Commander"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/123_yassine_bounou-safe.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/123_yassine_bono-dao.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

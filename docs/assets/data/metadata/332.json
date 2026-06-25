@@ -1,48 +1,69 @@
 {
-    "name": "Edu Vargas-Shot",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Edu Vargas-Shot (Chile). undefined",
+    "name": "GoalChain Genesis #332 — Darwin Nu-NFT",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Speed Monster, Physical Titan, Goal Machine, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/332_edu_vargas-shot.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/332_darwin_nu-nft.webp",
+    "external_url": "https://goalchain.fun/nft/332",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Chile"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Uruguay"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Darwin Núñez"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 86
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "DEF",
+            "value": 20
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 87
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Liverpool Crimson Kop"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Monster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Machine"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/332_edu_vargas-shot.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/332_darwin_nu-nft.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

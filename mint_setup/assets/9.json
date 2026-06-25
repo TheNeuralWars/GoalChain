@@ -1,41 +1,54 @@
 {
-    "name": "Argentina Player 10",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Argentina Player 10 (Argentina). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #010 \u2014 Nahuel Mo-Wallet",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Recovery Pace, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "9.png",
+    "external_url": "https://goalchain.fun/nft/10",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
+            "trait_type": "Rarity",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Position",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Country",
             "value": "Argentina"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Real Name",
+            "value": "Nahuel Molina"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "ATK",
+            "value": 38
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "10"
-        },
-        {
-            "trait_type": "Ataque",
-            "value": 98
-        },
-        {
-            "trait_type": "Defensa",
+            "trait_type": "DEF",
             "value": 66
         },
         {
-            "trait_type": "Hype",
-            "value": 46
+            "trait_type": "HYPE",
+            "value": 63
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "16"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Mattress Makers"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Recovery Pace"
         }
     ],
     "properties": {

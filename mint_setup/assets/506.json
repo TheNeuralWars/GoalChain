@@ -1,41 +1,62 @@
 {
-    "name": "Australia Pro 13 Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Australia Pro 13 Node (Australia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #507 \u2014 Musa Al-Taam-Flash",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Winger, Dribble Flash, Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "506.png",
+    "external_url": "https://goalchain.fun/nft/507",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Australia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Jordania"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "13"
+            "trait_type": "Real Name",
+            "value": "Musa Al-Taamari"
         },
         {
-            "trait_type": "Ataque",
-            "value": 46
-        },
-        {
-            "trait_type": "Defensa",
+            "trait_type": "ATK",
             "value": 76
         },
         {
-            "trait_type": "Hype",
-            "value": 51
+            "trait_type": "DEF",
+            "value": 28
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "HYPE",
+            "value": 72
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Montpellier Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Lightning Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {

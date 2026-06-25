@@ -1,48 +1,65 @@
 {
-    "name": "Ismael Kone-Rise",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ismael Kone-Rise (Canadá). undefined",
+    "name": "GoalChain Genesis #119 — Ismaël Krypto-Kone",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Engine Room, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/119_ismael_kone-rise.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/119_ismal_krypto-kone.webp",
+    "external_url": "https://goalchain.fun/nft/119",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Canadá"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Canadá"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Ismaël Koné"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "ATK",
+            "value": 60
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "DEF",
+            "value": 55
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 68
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "18"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/119_ismael_kone-rise.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/119_ismal_krypto-kone.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

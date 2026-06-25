@@ -1,41 +1,58 @@
 {
-    "name": "EEUU Star 16 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - EEUU Star 16 Token (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #224 \u2014 Adam Hlo-zk",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Goal Threat, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "223.png",
+    "external_url": "https://goalchain.fun/nft/224",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "EEUU"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "16"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 57
+            "trait_type": "Country",
+            "value": "Rep\u00fablica Checa"
         },
         {
-            "trait_type": "Defensa",
-            "value": 50
+            "trait_type": "Real Name",
+            "value": "Adam Hlo\u017eek"
         },
         {
-            "trait_type": "Hype",
-            "value": 46
+            "trait_type": "ATK",
+            "value": 74
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 32
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 73
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Leverkusen Pill Builders"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Neon Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Threat"
         }
     ],
     "properties": {

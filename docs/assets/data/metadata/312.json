@@ -1,48 +1,65 @@
 {
-    "name": "Omar Alder-Iron",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Omar Alder-Iron (Paraguay). undefined",
+    "name": "GoalChain Genesis #312 — Omar Alder-Iron",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Defensive Wall, Aerial Duelist, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/312_omar_alder-iron.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/312_omar_alder-iron.webp",
+    "external_url": "https://goalchain.fun/nft/312",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Paraguay"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Paraguay"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Omar Alderete"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "ATK",
+            "value": 30
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "DEF",
+            "value": 72
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Blue Lions"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/312_omar_alder-iron.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/312_omar_alder-iron.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

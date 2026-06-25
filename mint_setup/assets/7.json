@@ -1,41 +1,54 @@
 {
-    "name": "Argentina Player 8",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Argentina Player 8 (Argentina). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #008 \u2014 Cuti Crypto",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "7.png",
+    "external_url": "https://goalchain.fun/nft/8",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Argentina"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "8"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 42
+            "trait_type": "Country",
+            "value": "Argentina"
         },
         {
-            "trait_type": "Defensa",
-            "value": 60
+            "trait_type": "Real Name",
+            "value": "Cristian Romero"
         },
         {
-            "trait_type": "Hype",
-            "value": 73
+            "trait_type": "ATK",
+            "value": 29
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 72
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 74
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "13"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Cockerel Spurs"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Powerhouse"
         }
     ],
     "properties": {

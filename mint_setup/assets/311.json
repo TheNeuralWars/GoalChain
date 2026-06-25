@@ -1,41 +1,58 @@
 {
-    "name": "B\u00e9lgica Star 26 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - B\u00e9lgica Star 26 Token (B\u00e9lgica). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #312 \u2014 Omar Alder-Iron",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Defensive Wall, Aerial Duelist, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "311.png",
+    "external_url": "https://goalchain.fun/nft/312",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "B\u00e9lgica"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Paraguay"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "26"
+            "trait_type": "Real Name",
+            "value": "Omar Alderete"
         },
         {
-            "trait_type": "Ataque",
-            "value": 54
+            "trait_type": "ATK",
+            "value": 30
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "DEF",
+            "value": 72
         },
         {
-            "trait_type": "Hype",
-            "value": 61
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Blue Lions"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
         }
     ],
     "properties": {

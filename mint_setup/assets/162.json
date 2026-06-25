@@ -1,41 +1,58 @@
 {
-    "name": "Portugal Player 7",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 7 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #163 \u2014 Young-gwon-Stay",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Wing Overlap, Speed Defender, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "162.png",
+    "external_url": "https://goalchain.fun/nft/163",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Corea del sur"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "7"
+            "trait_type": "Real Name",
+            "value": "Cho Yu-min"
         },
         {
-            "trait_type": "Ataque",
-            "value": 92
+            "trait_type": "ATK",
+            "value": 45
         },
         {
-            "trait_type": "Defensa",
-            "value": 52
+            "trait_type": "DEF",
+            "value": 66
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 55
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "15"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Sharjah King Court"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Chain Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
         }
     ],
     "properties": {

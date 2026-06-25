@@ -1,41 +1,58 @@
 {
-    "name": "Pa\u00edses Bajos Star 6 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Pa\u00edses Bajos Star 6 Token (Pa\u00edses Bajos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #240 \u2014 Emil Kraft-Mint",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Wing Overlap, Defensive Hustle, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "239.png",
+    "external_url": "https://goalchain.fun/nft/240",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Pa\u00edses Bajos"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "6"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 49
+            "trait_type": "Country",
+            "value": "Suecia"
         },
         {
-            "trait_type": "Defensa",
-            "value": 58
+            "trait_type": "Real Name",
+            "value": "Emil Krafth"
         },
         {
-            "trait_type": "Hype",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 50
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 68
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "2"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Newcastle Magpie Nest"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Chain Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Hustle"
         }
     ],
     "properties": {

@@ -1,48 +1,69 @@
 {
-    "name": "Granit Xha-Firm",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Granit Xha-Firm (Suiza). undefined",
+    "name": "GoalChain Genesis #199 — Granit Xha-Firm",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Engine Room, Captain Leader, Playmaker, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/199_granit_xha-firm.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/199_granit_xha-firm.webp",
+    "external_url": "https://goalchain.fun/nft/199",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Suiza"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Suiza"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Granit Xhaka"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "ATK",
+            "value": 68
+        },
+        {
+            "trait_type": "DEF",
             "value": 70
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "HYPE",
+            "value": 82
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "Jersey Number",
+            "value": "10"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/199_granit_xha-firm.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/199_granit_xha-firm.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,41 +1,58 @@
 {
-    "name": "Marruecos Star 14 Coin",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Marruecos Star 14 Coin (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #326 \u2014 Juninho Bacu-Bear",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Engine Room, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "325.png",
+    "external_url": "https://goalchain.fun/nft/326",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Marruecos"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Curazao"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "14"
+            "trait_type": "Real Name",
+            "value": "Juninho Bacuna"
         },
         {
-            "trait_type": "Ataque",
-            "value": 43
+            "trait_type": "ATK",
+            "value": 70
         },
         {
-            "trait_type": "Defensa",
-            "value": 69
+            "trait_type": "DEF",
+            "value": 40
         },
         {
-            "trait_type": "Hype",
-            "value": 50
+            "trait_type": "HYPE",
+            "value": 63
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Middlesbrough Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Neon Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
         }
     ],
     "properties": {

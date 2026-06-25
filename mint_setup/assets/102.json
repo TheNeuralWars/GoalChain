@@ -1,41 +1,58 @@
 {
-    "name": "Inglaterra Player 25",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Inglaterra Player 25 (Inglaterra). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #103 \u2014 Chucky Chucky-JPEG",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Speed Winger, Dribble Flash, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "102.png",
+    "external_url": "https://goalchain.fun/nft/103",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Inglaterra"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "M\u00e9xico"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "25"
+            "trait_type": "Real Name",
+            "value": "Hirving Lozano"
         },
         {
-            "trait_type": "Ataque",
-            "value": 95
+            "trait_type": "ATK",
+            "value": 78
         },
         {
-            "trait_type": "Defensa",
-            "value": 85
+            "trait_type": "DEF",
+            "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 97
+            "trait_type": "HYPE",
+            "value": 78
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "16"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
         }
     ],
     "properties": {

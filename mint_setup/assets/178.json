@@ -1,41 +1,54 @@
 {
-    "name": "Portugal Player 23",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 23 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #179 \u2014 Saleh Al-Gift",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Goal Hunter, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "178.png",
+    "external_url": "https://goalchain.fun/nft/179",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Arabia saud\u00ed"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "23"
+            "trait_type": "Real Name",
+            "value": "Saleh Al-Shehri"
         },
         {
-            "trait_type": "Ataque",
-            "value": 57
+            "trait_type": "ATK",
+            "value": 76
         },
         {
-            "trait_type": "Defensa",
-            "value": 79
+            "trait_type": "DEF",
+            "value": 24
         },
         {
-            "trait_type": "Hype",
-            "value": 63
+            "trait_type": "HYPE",
+            "value": 81
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Amsterdam Ajax Logic"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Hunter"
         }
     ],
     "properties": {

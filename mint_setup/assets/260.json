@@ -1,41 +1,58 @@
 {
-    "name": "Capit\u00e1n TEAM_11",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Capit\u00e1n TEAM_11 (Italia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #261 \u2014 Jack Hendry-Tall",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Aerial Duelist, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "260.png",
+    "external_url": "https://goalchain.fun/nft/261",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Italia"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "Country",
+            "value": "Escocia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "1"
+            "trait_type": "Real Name",
+            "value": "Jack Hendry"
         },
         {
-            "trait_type": "Ataque",
-            "value": 67
+            "trait_type": "ATK",
+            "value": 28
         },
         {
-            "trait_type": "Defensa",
-            "value": 61
+            "trait_type": "DEF",
+            "value": 68
         },
         {
-            "trait_type": "Hype",
-            "value": 42
+            "trait_type": "HYPE",
+            "value": 55
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
         }
     ],
     "properties": {

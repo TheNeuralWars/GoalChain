@@ -1,41 +1,58 @@
 {
-    "name": "EEUU Star 8 Gas",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - EEUU Star 8 Gas (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #216 \u2014 Nikola Vla-Slip",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Goal Threat, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "215.png",
+    "external_url": "https://goalchain.fun/nft/216",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "EEUU"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Croacia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "8"
+            "trait_type": "Real Name",
+            "value": "Nikola Vla\u0161i\u0107"
         },
         {
-            "trait_type": "Ataque",
-            "value": 61
+            "trait_type": "ATK",
+            "value": 72
         },
         {
-            "trait_type": "Defensa",
-            "value": 80
+            "trait_type": "DEF",
+            "value": 40
         },
         {
-            "trait_type": "Hype",
-            "value": 94
+            "trait_type": "HYPE",
+            "value": 68
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Iron Bulls"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Neon Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Threat"
         }
     ],
     "properties": {

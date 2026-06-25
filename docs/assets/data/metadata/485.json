@@ -1,48 +1,69 @@
 {
-    "name": "Mo Salah-King",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Mo Salah-King (Egipto). undefined",
+    "name": "GoalChain Genesis #485 — Mohamed Satoshi-Salah",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a Speed Monster, Clinical Finisher, Dribbling God, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/485_mo_salah-king.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/485_mohamed_satoshi-salah.webp",
+    "external_url": "https://goalchain.fun/nft/485",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Egipto"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Mythic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 98
+            "trait_type": "Country",
+            "value": "Egipto"
         },
         {
-            "trait_type": "Defensa",
+            "trait_type": "Real Name",
+            "value": "Mohamed Salah"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 92
+        },
+        {
+            "trait_type": "DEF",
             "value": 28
         },
         {
-            "trait_type": "Hype",
-            "value": 98
+            "trait_type": "HYPE",
+            "value": 95
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Liverpool Crimson Kop"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Monster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/485_mo_salah-king.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/485_mohamed_satoshi-salah.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

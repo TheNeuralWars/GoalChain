@@ -1,48 +1,61 @@
 {
-    "name": "Amine Adli-Fly",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Amine Adli-Fly (Marruecos). undefined",
+    "name": "GoalChain Genesis #132 — Amine Adli-Fly",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speedster, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/132_amine_adli-fly.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/132_amine_adli-fly.webp",
+    "external_url": "https://goalchain.fun/nft/132",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Marruecos"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Marruecos"
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "Real Name",
+            "value": "Amine Adli"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
+            "value": 84
+        },
+        {
+            "trait_type": "DEF",
+            "value": 39
+        },
+        {
+            "trait_type": "HYPE",
             "value": 82
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "21"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speedster"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/132_amine_adli-fly.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/132_amine_adli-fly.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

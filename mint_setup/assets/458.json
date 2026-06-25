@@ -1,41 +1,58 @@
 {
-    "name": "Nigeria Pro 17 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nigeria Pro 17 Mint (Nigeria). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #459 \u2014 Saad Natiq-Iron",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Aerial Duelist, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "458.png",
+    "external_url": "https://goalchain.fun/nft/459",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Nigeria"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Irak"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "17"
+            "trait_type": "Real Name",
+            "value": "Saad Natiq"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "ATK",
+            "value": 25
         },
         {
-            "trait_type": "Defensa",
-            "value": 83
+            "trait_type": "DEF",
+            "value": 62
         },
         {
-            "trait_type": "Hype",
-            "value": 92
+            "trait_type": "HYPE",
+            "value": 48
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Blue Lions"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
         }
     ],
     "properties": {

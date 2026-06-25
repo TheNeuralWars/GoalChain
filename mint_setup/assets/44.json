@@ -1,41 +1,62 @@
 {
-    "name": "Brasil Player 19",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Brasil Player 19 (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #045 \u2014 Lamine Moon-mal",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Future Star, Dribbling Prodigy, Technical Wizard, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "44.png",
+    "external_url": "https://goalchain.fun/nft/45",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Brasil"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Espa\u00f1a"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "19"
+            "trait_type": "Real Name",
+            "value": "Lamine Yamal"
         },
         {
-            "trait_type": "Ataque",
-            "value": 98
+            "trait_type": "ATK",
+            "value": 88
         },
         {
-            "trait_type": "Defensa",
-            "value": 55
+            "trait_type": "DEF",
+            "value": 32
         },
         {
-            "trait_type": "Hype",
-            "value": 30
+            "trait_type": "HYPE",
+            "value": 92
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Future Star"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling Prodigy"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Technical Wizard"
         }
     ],
     "properties": {

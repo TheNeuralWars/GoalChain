@@ -1,48 +1,61 @@
 {
-    "name": "Jackson Irvine-Head",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jackson Irvine-Head (Australia). undefined",
+    "name": "GoalChain Genesis #168 — Jackson Irvine-Head",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Box-to-Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/168_jackson_irvine-head.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/168_jackson_irvine-head.webp",
+    "external_url": "https://goalchain.fun/nft/168",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Australia"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "Country",
+            "value": "Australia"
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "Real Name",
+            "value": "Jackson Irvine"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
+            "value": 65
+        },
+        {
+            "trait_type": "DEF",
+            "value": 68
+        },
+        {
+            "trait_type": "HYPE",
             "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Barcelona Garnet Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box-to-Box"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/168_jackson_irvine-head.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/168_jackson_irvine-head.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

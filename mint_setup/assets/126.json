@@ -1,41 +1,58 @@
 {
-    "name": "Espa\u00f1a Player 23",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Espa\u00f1a Player 23 (Espa\u00f1a). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #127 \u2014 Nayef Asset-Aguerd",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Aerial Master, Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "126.png",
+    "external_url": "https://goalchain.fun/nft/127",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Espa\u00f1a"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Marruecos"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "23"
+            "trait_type": "Real Name",
+            "value": "Nayef Aguerd"
         },
         {
-            "trait_type": "Ataque",
-            "value": 48
+            "trait_type": "ATK",
+            "value": 39
         },
         {
-            "trait_type": "Defensa",
-            "value": 49
+            "trait_type": "DEF",
+            "value": 71
         },
         {
-            "trait_type": "Hype",
-            "value": 57
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "21"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Master"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Powerhouse"
         }
     ],
     "properties": {

@@ -1,48 +1,69 @@
 {
-    "name": "Thomas Partey-Root",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Thomas Partey-Root (Ghana). undefined",
+    "name": "GoalChain Genesis #366 — Thomas Partey-Root",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Defensive Shield, Engine Room, Physical Titan, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/366_thomas_partey-root.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/366_thomas_partey-root.webp",
+    "external_url": "https://goalchain.fun/nft/366",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Ghana"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Ghana"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Thomas Partey"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "ATK",
+            "value": 58
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
-        },
-        {
-            "trait_type": "Hype",
+            "trait_type": "DEF",
             "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "HYPE",
+            "value": 78
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/366_thomas_partey-root.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/366_thomas_partey-root.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

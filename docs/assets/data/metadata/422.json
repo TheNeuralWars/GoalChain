@@ -1,48 +1,65 @@
 {
-    "name": "Francisco Cal-Wall",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Francisco Cal-Wall (Costa rica). undefined",
+    "name": "GoalChain Genesis #422 — Wilson Isido-Logic",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Physical Titan, Goal Machine, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/422_francisco_cal-wall.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/422_wilson_isido-logic.webp",
+    "external_url": "https://goalchain.fun/nft/422",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Costa rica"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Haití"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Wilson Isidor"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "ATK",
+            "value": 72
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "DEF",
+            "value": 26
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Reims Prince Park"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Machine"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/422_francisco_cal-wall.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/422_wilson_isido-logic.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

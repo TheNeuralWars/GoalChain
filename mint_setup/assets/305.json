@@ -1,41 +1,58 @@
 {
-    "name": "B\u00e9lgica Star 20 Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - B\u00e9lgica Star 20 Block (B\u00e9lgica). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #306 \u2014 Angelo Precia-Rail",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Wing Overlap, Defensive Hustle, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "305.png",
+    "external_url": "https://goalchain.fun/nft/306",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "B\u00e9lgica"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "20"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 60
+            "trait_type": "Country",
+            "value": "Ecuador"
         },
         {
-            "trait_type": "Defensa",
-            "value": 42
+            "trait_type": "Real Name",
+            "value": "\u00c1ngelo Preciado"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
+            "value": 50
+        },
+        {
+            "trait_type": "DEF",
             "value": 66
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "22"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Paris Sapphire PSG"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Hustle"
         }
     ],
     "properties": {

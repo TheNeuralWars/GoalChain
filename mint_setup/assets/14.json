@@ -1,41 +1,54 @@
 {
-    "name": "Pedri Protocol",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Pedri Protocol (Espa\u00f1a). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #015 \u2014 Eduardo Cama-Yield",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "14.png",
+    "external_url": "https://goalchain.fun/nft/15",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Espa\u00f1a"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Francia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "8"
+            "trait_type": "Real Name",
+            "value": "Eduardo Camavinga"
         },
         {
-            "trait_type": "Ataque",
-            "value": 82
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 70
-        },
-        {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
             "value": 92
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 85
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 91
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
         }
     ],
     "properties": {

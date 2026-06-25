@@ -1,41 +1,54 @@
 {
-    "name": "Brasil Player 18",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Brasil Player 18 (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #044 \u2014 Endrick Moon",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Goal Hunter, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "43.png",
+    "external_url": "https://goalchain.fun/nft/44",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
+            "trait_type": "Rarity",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Position",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Country",
             "value": "Brasil"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Real Name",
+            "value": "Endrick"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "ATK",
+            "value": 82
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "18"
+            "trait_type": "DEF",
+            "value": 32
         },
         {
-            "trait_type": "Ataque",
-            "value": 71
+            "trait_type": "HYPE",
+            "value": 79
         },
         {
-            "trait_type": "Defensa",
-            "value": 59
+            "trait_type": "Jersey Number",
+            "value": "9"
         },
         {
-            "trait_type": "Hype",
-            "value": 47
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Hunter"
         }
     ],
     "properties": {

@@ -1,48 +1,65 @@
 {
-    "name": "Alexander Cal-Wall",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alexander Cal-Wall (Perú). undefined",
+    "name": "GoalChain Genesis #350 — Srdjan Graho-Shield",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Defensive Shield, Captain Leader, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/350_alexander_cal-wall.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/350_srdjan_graho-shield.webp",
+    "external_url": "https://goalchain.fun/nft/350",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Perú"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "Country",
+            "value": "Bosnia y Herzegovina"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Srdjan Grahovac"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 64
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 55
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "18"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Mostar Bridge Guard"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Shield Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/350_alexander_cal-wall.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/350_srdjan_graho-shield.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

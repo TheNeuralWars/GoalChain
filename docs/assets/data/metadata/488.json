@@ -1,48 +1,65 @@
 {
-    "name": "Trézéguet-Flash",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Trézéguet-Flash (Egipto). undefined",
+    "name": "GoalChain Genesis #488 — Trézéguet-Flash",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Engine Room, Creative Spark, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/488_trzguet-flash.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/488_trzguet-flash.webp",
+    "external_url": "https://goalchain.fun/nft/488",
     "attributes": [
         {
-            "trait_type": "País",
+            "trait_type": "Rarity",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Position",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Country",
             "value": "Egipto"
         },
         {
-            "trait_type": "Posición",
-            "value": "FWD"
+            "trait_type": "Real Name",
+            "value": "Emam Ashour"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "ATK",
+            "value": 60
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "DEF",
+            "value": 55
         },
         {
-            "trait_type": "Ataque",
-            "value": 93
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Defensa",
-            "value": 26
+            "trait_type": "Jersey Number",
+            "value": "6"
         },
         {
-            "trait_type": "Hype",
-            "value": 88
+            "trait_type": "Parody Club",
+            "value": "Cairo White Knight"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/488_trzguet-flash.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/488_trzguet-flash.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

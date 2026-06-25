@@ -1,48 +1,65 @@
 {
-    "name": "Lassine Sina-Hit",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Lassine Sina-Hit (Malí). undefined",
+    "name": "GoalChain Genesis #517 — Ahmad Nasse-Run",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a rare asset. Known globally for being a Speed Winger, Dribble Flash, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/517_lassine_sina-hit.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/517_ahmad_nasse-run.webp",
+    "external_url": "https://goalchain.fun/nft/517",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Malí"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "Country",
+            "value": "Jordania"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Ahmad Nasser"
         },
         {
-            "trait_type": "Ataque",
-            "value": 93
+            "trait_type": "ATK",
+            "value": 68
         },
         {
-            "trait_type": "Defensa",
-            "value": 26
+            "trait_type": "DEF",
+            "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 88
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Amman Desert Dunes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Neon Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/517_lassine_sina-hit.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/517_ahmad_nasse-run.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

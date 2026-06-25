@@ -1,48 +1,61 @@
 {
-    "name": "Take Kubo-Jewel",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Take Kubo-Jewel (Japón). undefined",
+    "name": "GoalChain Genesis #134 — Takefusa Krypto-Kubo",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Dribbling Wizard, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/134_take_kubo-jewel.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/134_takefusa_krypto-kubo.webp",
+    "external_url": "https://goalchain.fun/nft/134",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Japón"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Japón"
         },
         {
-            "trait_type": "Defensa",
+            "trait_type": "Real Name",
+            "value": "Takefusa Kubo"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 83
+        },
+        {
+            "trait_type": "DEF",
             "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "14"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling Wizard"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/134_take_kubo-jewel.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/134_takefusa_krypto-kubo.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

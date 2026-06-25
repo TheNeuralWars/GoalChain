@@ -1,48 +1,65 @@
 {
-    "name": "Orkun Kokcu-Vision",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Orkun Kokcu-Vision (Turquía). undefined",
+    "name": "GoalChain Genesis #252 — Orkun Kokcu-Vision",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Vision Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/252_orkun_kokcu-vision.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/252_orkun_kokcu-vision.webp",
+    "external_url": "https://goalchain.fun/nft/252",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Turquía"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Turquía"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Orkun Kökçü"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "ATK",
+            "value": 68
+        },
+        {
+            "trait_type": "DEF",
+            "value": 50
+        },
+        {
+            "trait_type": "HYPE",
             "value": 70
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "Jersey Number",
+            "value": "6"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "Parody Club",
+            "value": "Barcelona Garnet Block"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/252_orkun_kokcu-vision.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/252_orkun_kokcu-vision.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

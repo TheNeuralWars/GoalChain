@@ -1,41 +1,54 @@
 {
-    "name": "Francia Player 18",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Francia Player 18 (Francia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #070 \u2014 Rafael Ledger-\u00e3o",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Aerial Threat, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "69.png",
+    "external_url": "https://goalchain.fun/nft/70",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Francia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Portugal"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "18"
+            "trait_type": "Real Name",
+            "value": "Rafael Le\u00e3o"
         },
         {
-            "trait_type": "Ataque",
-            "value": 43
+            "trait_type": "ATK",
+            "value": 81
         },
         {
-            "trait_type": "Defensa",
-            "value": 63
+            "trait_type": "DEF",
+            "value": 23
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "HYPE",
             "value": 80
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Threat"
         }
     ],
     "properties": {

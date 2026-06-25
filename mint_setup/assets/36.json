@@ -1,41 +1,54 @@
 {
-    "name": "Neymar Swap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Neymar Swap (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #037 \u2014 Rodrygo Yield-Goes",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Goal Hunter, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "36.png",
+    "external_url": "https://goalchain.fun/nft/37",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
+            "trait_type": "Rarity",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Position",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Country",
             "value": "Brasil"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Real Name",
+            "value": "Rodrygo Goes"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "ATK",
+            "value": 77
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "10"
+            "trait_type": "DEF",
+            "value": 13
         },
         {
-            "trait_type": "Ataque",
-            "value": 91
+            "trait_type": "HYPE",
+            "value": 81
         },
         {
-            "trait_type": "Defensa",
-            "value": 30
+            "trait_type": "Jersey Number",
+            "value": "11"
         },
         {
-            "trait_type": "Hype",
-            "value": 99
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Hunter"
         }
     ],
     "properties": {

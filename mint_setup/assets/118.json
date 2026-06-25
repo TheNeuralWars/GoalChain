@@ -1,41 +1,58 @@
 {
-    "name": "Espa\u00f1a Player 15",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Espa\u00f1a Player 15 (Espa\u00f1a). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #119 \u2014 Isma\u00ebl Krypto-Kone",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Engine Room, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "118.png",
+    "external_url": "https://goalchain.fun/nft/119",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Espa\u00f1a"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Canad\u00e1"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "15"
+            "trait_type": "Real Name",
+            "value": "Isma\u00ebl Kon\u00e9"
         },
         {
-            "trait_type": "Ataque",
-            "value": 97
+            "trait_type": "ATK",
+            "value": 60
         },
         {
-            "trait_type": "Defensa",
-            "value": 84
+            "trait_type": "DEF",
+            "value": 55
         },
         {
-            "trait_type": "Hype",
-            "value": 36
+            "trait_type": "HYPE",
+            "value": 68
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "18"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {

@@ -1,41 +1,58 @@
 {
-    "name": "Portugal Player 5",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 5 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #161 \u2014 Woo-young-Core",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Engine Room, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "160.png",
+    "external_url": "https://goalchain.fun/nft/161",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Corea del sur"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "5"
+            "trait_type": "Real Name",
+            "value": "Woo-yeong Jeong"
         },
         {
-            "trait_type": "Ataque",
-            "value": 42
-        },
-        {
-            "trait_type": "Defensa",
+            "trait_type": "ATK",
             "value": 68
         },
         {
-            "trait_type": "Hype",
-            "value": 44
+            "trait_type": "DEF",
+            "value": 40
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "HYPE",
+            "value": 68
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "14"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Amsterdam Ajax Logic"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
         }
     ],
     "properties": {

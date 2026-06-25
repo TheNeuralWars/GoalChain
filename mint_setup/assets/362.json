@@ -1,41 +1,54 @@
 {
-    "name": "Jap\u00f3n Star 25 Wallet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jap\u00f3n Star 25 Wallet (Jap\u00f3n). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #363 \u2014 Baghdad Bou-Hit",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Goal Hunter, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "362.png",
+    "external_url": "https://goalchain.fun/nft/363",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Jap\u00f3n"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Argelia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "25"
+            "trait_type": "Real Name",
+            "value": "Baghdad Bounedjah"
         },
         {
-            "trait_type": "Ataque",
-            "value": 42
+            "trait_type": "ATK",
+            "value": 81
         },
         {
-            "trait_type": "Defensa",
-            "value": 77
+            "trait_type": "DEF",
+            "value": 31
         },
         {
-            "trait_type": "Hype",
-            "value": 40
+            "trait_type": "HYPE",
+            "value": 85
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Hunter"
         }
     ],
     "properties": {

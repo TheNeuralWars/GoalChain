@@ -1,48 +1,69 @@
 {
-    "name": "Dominik Szobo-Kick",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Dominik Szobo-Kick (Hungría). undefined",
+    "name": "GoalChain Genesis #265 — Kevin De Blockchain",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a mythic asset. Known globally for being a Vision Master, Playmaker Maestro, Passing God, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/265_dominik_szobo-kick.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/265_kevin_de_blockchain.webp",
+    "external_url": "https://goalchain.fun/nft/265",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Hungría"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posición",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Bélgica"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Kevin De Bruyne"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 90
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "DEF",
+            "value": 35
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 92
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "17"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Sky Blue"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker Maestro"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Passing God"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/265_dominik_szobo-kick.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/265_kevin_de_blockchain.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

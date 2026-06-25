@@ -1,41 +1,58 @@
 {
-    "name": "Suiza Star 7 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Suiza Star 7 Mint (Suiza). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #423 \u2014 Ricardo Ade-Shield",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Aerial Duelist, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "422.png",
+    "external_url": "https://goalchain.fun/nft/423",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Suiza"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "7"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Hait\u00ed"
         },
         {
-            "trait_type": "Defensa",
-            "value": 76
+            "trait_type": "Real Name",
+            "value": "Ricardo Ad\u00e9"
         },
         {
-            "trait_type": "Hype",
-            "value": 63
+            "trait_type": "ATK",
+            "value": 40
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 72
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dijon Mustard FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Steel Aura"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
         }
     ],
     "properties": {

@@ -1,48 +1,69 @@
 {
-    "name": "Kylian M-Bypass-pé",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Kylian M-Bypass-pé (Francia). undefined",
+    "name": "GoalChain Genesis #012 — Kylian Moon-bappé",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a Sonic Speed, Elite Striker, Golden Boy, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/OBw9D.jpg",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/012_kylian_moon-bapp.webp",
+    "external_url": "https://goalchain.fun/nft/12",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Francia"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Mythic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "Country",
+            "value": "Francia"
+        },
+        {
+            "trait_type": "Real Name",
+            "value": "Kylian Mbappé"
+        },
+        {
+            "trait_type": "ATK",
             "value": 98
         },
         {
-            "trait_type": "Defensa",
-            "value": 28
+            "trait_type": "DEF",
+            "value": 30
         },
         {
-            "trait_type": "Hype",
-            "value": 98
+            "trait_type": "HYPE",
+            "value": 95
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Sonic Speed"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Elite Striker"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Golden Boy"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/OBw9D.jpg",
-                "type": "image/jpeg"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/012_kylian_moon-bapp.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

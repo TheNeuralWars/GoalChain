@@ -1,41 +1,62 @@
 {
-    "name": "Daichi Kama-Swap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Daichi Kama-Swap (Jap\u00f3n). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #342 \u2014 Edin Dze-GOAT",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Physical Titan, Aerial Threat, Captain Leader, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "341.png",
+    "external_url": "https://goalchain.fun/nft/342",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Jap\u00f3n"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Bosnia y Herzegovina"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "4"
+            "trait_type": "Real Name",
+            "value": "Edin D\u017eeko"
         },
         {
-            "trait_type": "Ataque",
-            "value": 86
+            "trait_type": "ATK",
+            "value": 80
         },
         {
-            "trait_type": "Defensa",
-            "value": 54
+            "trait_type": "DEF",
+            "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 90
+            "trait_type": "HYPE",
+            "value": 82
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Istanbul Yellow Canaries"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Threat"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
         }
     ],
     "properties": {

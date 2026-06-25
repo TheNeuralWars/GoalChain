@@ -1,48 +1,65 @@
 {
-    "name": "Aubrey Modiba-Flow",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Aubrey Modiba-Flow (Sudáfrica). undefined",
+    "name": "GoalChain Genesis #503 — Aubrey Modiba-Flow",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Engine Room, Work Rate, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/503_aubrey_modiba-flow.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/503_aubrey_modiba-flow.webp",
+    "external_url": "https://goalchain.fun/nft/503",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Sudáfrica"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "Country",
+            "value": "Sudáfrica"
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "Real Name",
+            "value": "Aubrey Modiba"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 48
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 55
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 55
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Paris Sapphire PSG"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Work Rate"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/503_aubrey_modiba-flow.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/503_aubrey_modiba-flow.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

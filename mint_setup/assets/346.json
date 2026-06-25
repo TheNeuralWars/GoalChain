@@ -1,41 +1,58 @@
 {
-    "name": "Jap\u00f3n Star 9 Ledger",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jap\u00f3n Star 9 Ledger (Jap\u00f3n). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #347 \u2014 Benjamin Tahi-Flow",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Engine Room, Defensive Shield, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "346.png",
+    "external_url": "https://goalchain.fun/nft/347",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Jap\u00f3n"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Bosnia y Herzegovina"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "9"
+            "trait_type": "Real Name",
+            "value": "Benjamin Tahirovi\u0107"
         },
         {
-            "trait_type": "Ataque",
-            "value": 54
+            "trait_type": "ATK",
+            "value": 68
         },
         {
-            "trait_type": "Defensa",
-            "value": 91
+            "trait_type": "DEF",
+            "value": 52
         },
         {
-            "trait_type": "Hype",
-            "value": 94
+            "trait_type": "HYPE",
+            "value": 68
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Amsterdam Ajax Logic"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Iron Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
         }
     ],
     "properties": {

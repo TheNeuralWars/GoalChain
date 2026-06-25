@@ -1,41 +1,54 @@
 {
-    "name": "Brasil Player 25",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Brasil Player 25 (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #051 \u2014 Dani Carva-Halving",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Interceptor, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "50.png",
+    "external_url": "https://goalchain.fun/nft/51",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Brasil"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Espa\u00f1a"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "25"
+            "trait_type": "Real Name",
+            "value": "Dani Carvajal"
         },
         {
-            "trait_type": "Ataque",
-            "value": 67
+            "trait_type": "ATK",
+            "value": 40
         },
         {
-            "trait_type": "Defensa",
-            "value": 81
+            "trait_type": "DEF",
+            "value": 74
         },
         {
-            "trait_type": "Hype",
-            "value": 39
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "2"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Interceptor"
         }
     ],
     "properties": {

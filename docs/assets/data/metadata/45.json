@@ -1,48 +1,69 @@
 {
-    "name": "Lamine Ya-Alpha",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Lamine Ya-Alpha (España). undefined",
+    "name": "GoalChain Genesis #045 — Lamine Moon-mal",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Future Star, Dribbling Prodigy, Technical Wizard, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/3FFHd.jpg",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/045_lamine_moon-mal.webp",
+    "external_url": "https://goalchain.fun/nft/45",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "España"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Legendary"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 93
+            "trait_type": "Country",
+            "value": "España"
         },
         {
-            "trait_type": "Defensa",
-            "value": 26
+            "trait_type": "Real Name",
+            "value": "Lamine Yamal"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
+            "value": 88
+        },
+        {
+            "trait_type": "DEF",
+            "value": 32
+        },
+        {
+            "trait_type": "HYPE",
             "value": 92
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Future Star"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling Prodigy"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Technical Wizard"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/3FFHd.jpg",
-                "type": "image/jpeg"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/045_lamine_moon-mal.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

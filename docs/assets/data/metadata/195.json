@@ -1,48 +1,65 @@
 {
-    "name": "Victor Krist-Edge",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Victor Krist-Edge (Dinamarca). undefined",
+    "name": "GoalChain Genesis #195 — Julian Ryerledger",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Wing Overlap, Defensive Hustle, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/195_victor_krist-edge.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/195_julian_ryerledger.webp",
+    "external_url": "https://goalchain.fun/nft/195",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Dinamarca"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "Country",
+            "value": "Noruega"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Julian Ryerson"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 45
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 72
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "2"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Gladbach Foal Stable"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Chain Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Hustle"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/195_victor_krist-edge.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/195_julian_ryerledger.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

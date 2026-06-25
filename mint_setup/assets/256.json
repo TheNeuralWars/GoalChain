@@ -1,41 +1,58 @@
 {
-    "name": "Pa\u00edses Bajos Star 23 Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Pa\u00edses Bajos Star 23 Node (Pa\u00edses Bajos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #257 \u2014 Billy Gil-Clean",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Technical Maestro, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "256.png",
+    "external_url": "https://goalchain.fun/nft/257",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Pa\u00edses Bajos"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Escocia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "23"
+            "trait_type": "Real Name",
+            "value": "Billy Gilmour"
         },
         {
-            "trait_type": "Ataque",
-            "value": 67
+            "trait_type": "ATK",
+            "value": 60
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "DEF",
+            "value": 55
         },
         {
-            "trait_type": "Hype",
-            "value": 30
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Technical Maestro"
         }
     ],
     "properties": {

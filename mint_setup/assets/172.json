@@ -1,41 +1,54 @@
 {
-    "name": "Portugal Player 17",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 17 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #173 \u2014 Aziz Behich-Lane",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Interceptor, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "172.png",
+    "external_url": "https://goalchain.fun/nft/173",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Australia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "17"
+            "trait_type": "Real Name",
+            "value": "Aziz Behich"
         },
         {
-            "trait_type": "Ataque",
-            "value": 68
+            "trait_type": "ATK",
+            "value": 29
         },
         {
-            "trait_type": "Defensa",
-            "value": 80
+            "trait_type": "DEF",
+            "value": 64
         },
         {
-            "trait_type": "Hype",
-            "value": 38
+            "trait_type": "HYPE",
+            "value": 63
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "16"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Interceptor"
         }
     ],
     "properties": {

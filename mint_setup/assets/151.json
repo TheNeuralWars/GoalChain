@@ -1,41 +1,58 @@
 {
-    "name": "Alemania Player 22",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alemania Player 22 (Alemania). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #152 \u2014 Abdou DAO-Diallo",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Wing Overlap, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "151.png",
+    "external_url": "https://goalchain.fun/nft/152",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Alemania"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Senegal"
         },
         {
-            "trait_type": "N\u00famero",
+            "trait_type": "Real Name",
+            "value": "Abdou Diallo"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 30
+        },
+        {
+            "trait_type": "DEF",
+            "value": 68
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
             "value": "22"
         },
         {
-            "trait_type": "Ataque",
-            "value": 62
+            "trait_type": "Parody Club",
+            "value": "Amsterdam Ajax Logic"
         },
         {
-            "trait_type": "Defensa",
-            "value": 77
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
         },
         {
-            "trait_type": "Hype",
-            "value": 37
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
         }
     ],
     "properties": {

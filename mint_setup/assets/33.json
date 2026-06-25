@@ -1,41 +1,54 @@
 {
-    "name": "Gabriel Crypto-Jesus",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Gabriel Crypto-Jesus (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #034 \u2014 Neymar NFT",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "33.png",
+    "external_url": "https://goalchain.fun/nft/34",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Brasil"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Brasil"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "9"
+            "trait_type": "Real Name",
+            "value": "Neymar Jr."
         },
         {
-            "trait_type": "Ataque",
-            "value": 84
+            "trait_type": "ATK",
+            "value": 97
         },
         {
-            "trait_type": "Defensa",
-            "value": 40
+            "trait_type": "DEF",
+            "value": 26
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 92
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Riyadh Crescent Chain"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {

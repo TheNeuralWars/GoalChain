@@ -1,48 +1,69 @@
 {
-    "name": "Yves Bissou-Hub",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Yves Bissou-Hub (Malí). undefined",
+    "name": "GoalChain Genesis #507 — Musa Al-Taam-Flash",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Winger, Dribble Flash, Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/507_yves_bissou-hub.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/507_musa_al-taam-flash.webp",
+    "external_url": "https://goalchain.fun/nft/507",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Malí"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Jordania"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Musa Al-Taamari"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "ATK",
+            "value": 76
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "DEF",
+            "value": 28
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Montpellier Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Lightning Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/507_yves_bissou-hub.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/507_musa_al-taam-flash.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

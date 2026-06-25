@@ -1,41 +1,58 @@
 {
-    "name": "Pa\u00edses Bajos Star 7 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Pa\u00edses Bajos Star 7 Mint (Pa\u00edses Bajos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #241 \u2014 Mattias Svan-Bear",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Engine Room, Defensive Shield, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "240.png",
+    "external_url": "https://goalchain.fun/nft/241",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Pa\u00edses Bajos"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Suecia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "7"
+            "trait_type": "Real Name",
+            "value": "Mattias Svanberg"
         },
         {
-            "trait_type": "Ataque",
-            "value": 59
+            "trait_type": "ATK",
+            "value": 65
         },
         {
-            "trait_type": "Defensa",
-            "value": 68
+            "trait_type": "DEF",
+            "value": 52
         },
         {
-            "trait_type": "Hype",
-            "value": 78
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Wolfsburg Green Wolf"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Iron Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
         }
     ],
     "properties": {

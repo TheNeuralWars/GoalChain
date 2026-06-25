@@ -1,41 +1,54 @@
 {
-    "name": "Francia Player 5",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Francia Player 5 (Francia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #057 \u2014 Florian Web3-Wirtz",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Box-to-Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "56.png",
+    "external_url": "https://goalchain.fun/nft/57",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Francia"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "5"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 47
+            "trait_type": "Country",
+            "value": "Alemania"
         },
         {
-            "trait_type": "Defensa",
-            "value": 83
+            "trait_type": "Real Name",
+            "value": "Florian Wirtz"
         },
         {
-            "trait_type": "Hype",
-            "value": 92
+            "trait_type": "ATK",
+            "value": 64
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 75
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 74
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Amsterdam Ajax Logic"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box-to-Box"
         }
     ],
     "properties": {

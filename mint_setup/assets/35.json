@@ -1,41 +1,54 @@
 {
-    "name": "Rodrygo Ledger",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Rodrygo Ledger (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #036 \u2014 Alisson Vault-er",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Aerial Commander, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "35.png",
+    "external_url": "https://goalchain.fun/nft/36",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Brasil"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "11"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Ataque",
-            "value": 88
+            "trait_type": "Country",
+            "value": "Brasil"
         },
         {
-            "trait_type": "Defensa",
-            "value": 42
+            "trait_type": "Real Name",
+            "value": "Alisson Becker"
         },
         {
-            "trait_type": "Hype",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 38
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 82
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 84
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Commander"
         }
     ],
     "properties": {

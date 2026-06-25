@@ -1,48 +1,65 @@
 {
-    "name": "Vitaliy Myko-Back",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Vitaliy Myko-Back (Ucrania). undefined",
+    "name": "GoalChain Genesis #237 — Lucas Berg-Bull",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Vision Master, Playmaker, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/237_vitaliy_myko-back.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/237_lucas_berg-bull.webp",
+    "external_url": "https://goalchain.fun/nft/237",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Ucrania"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Suecia"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Lucas Bergvall"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "ATK",
+            "value": 71
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "DEF",
+            "value": 38
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 70
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Cockerel Spurs"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cyber Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/237_vitaliy_myko-back.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/237_lucas_berg-bull.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

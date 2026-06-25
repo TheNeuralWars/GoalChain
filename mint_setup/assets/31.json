@@ -1,41 +1,54 @@
 {
-    "name": "Casemiro-Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Casemiro-Chain (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #032 \u2014 Luke Shard-Shaw",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "31.png",
+    "external_url": "https://goalchain.fun/nft/32",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Brasil"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Inglaterra"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "5"
+            "trait_type": "Real Name",
+            "value": "Luke Shaw"
         },
         {
-            "trait_type": "Ataque",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 35
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "DEF",
+            "value": 74
         },
         {
-            "trait_type": "Hype",
-            "value": 86
+            "trait_type": "HYPE",
+            "value": 76
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "23"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Powerhouse"
         }
     ],
     "properties": {

@@ -1,48 +1,65 @@
 {
-    "name": "Edgardo Far-Rail",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Edgardo Far-Rail (Panamá). undefined",
+    "name": "GoalChain Genesis #436 — Edgardo Far-Rail",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Hustle, Wing Overlap, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/436_edgardo_far-rail.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/436_edgardo_far-rail.webp",
+    "external_url": "https://goalchain.fun/nft/436",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Panamá"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "Country",
+            "value": "Panamá"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Edgardo Fariña"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 35
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 62
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 50
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Hustle"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/436_edgardo_far-rail.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/436_edgardo_far-rail.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

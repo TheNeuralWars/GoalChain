@@ -1,41 +1,58 @@
 {
-    "name": "M\u00e9xico Star 15 Wallet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - M\u00e9xico Star 15 Wallet (M\u00e9xico). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #197 \u2014 Antonio Nu-Satoshi",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Winger, Dribble Flash, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "196.png",
+    "external_url": "https://goalchain.fun/nft/197",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "M\u00e9xico"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Noruega"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "15"
+            "trait_type": "Real Name",
+            "value": "Antonio Nusa"
         },
         {
-            "trait_type": "Ataque",
-            "value": 85
+            "trait_type": "ATK",
+            "value": 76
         },
         {
-            "trait_type": "Defensa",
-            "value": 52
+            "trait_type": "DEF",
+            "value": 28
         },
         {
-            "trait_type": "Hype",
-            "value": 84
+            "trait_type": "HYPE",
+            "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Bruges Canal Boat"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Lightning Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
         }
     ],
     "properties": {

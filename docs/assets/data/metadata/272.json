@@ -1,48 +1,65 @@
 {
-    "name": "Milos Kerkez-Young",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Milos Kerkez-Young (Hungría). undefined",
+    "name": "GoalChain Genesis #272 — Timothy Casta-Gas",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Wing Overlap, Defensive Hustle, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/272_milos_kerkez-young.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/272_timothy_casta-gas.webp",
+    "external_url": "https://goalchain.fun/nft/272",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Hungría"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Bélgica"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Timothy Castagne"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "ATK",
+            "value": 60
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "DEF",
+            "value": 70
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 70
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "2"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Cottage Garden"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Chain Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Hustle"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/272_milos_kerkez-young.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/272_timothy_casta-gas.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

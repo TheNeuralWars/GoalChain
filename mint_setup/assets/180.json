@@ -1,41 +1,54 @@
 {
-    "name": "Portugal Player 25",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 25 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #181 \u2014 Moh Al-Wall",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a rare asset. Known globally for being a Quick Reflexes, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "180.png",
+    "external_url": "https://goalchain.fun/nft/181",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Arabia saud\u00ed"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "25"
+            "trait_type": "Real Name",
+            "value": "Mohammed Al-Owais"
         },
         {
-            "trait_type": "Ataque",
-            "value": 57
+            "trait_type": "ATK",
+            "value": 13
         },
         {
-            "trait_type": "Defensa",
-            "value": 78
+            "trait_type": "DEF",
+            "value": 74
         },
         {
-            "trait_type": "Hype",
-            "value": 78
+            "trait_type": "HYPE",
+            "value": 68
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "20"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Quick Reflexes"
         }
     ],
     "properties": {

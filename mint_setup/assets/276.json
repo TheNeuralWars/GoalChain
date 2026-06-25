@@ -1,41 +1,54 @@
 {
-    "name": "Italia Star 17 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Italia Star 17 Mint (Italia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #277 \u2014 Marcel Sabi-Shoot",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Box-to-Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "276.png",
+    "external_url": "https://goalchain.fun/nft/277",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Italia"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Austria"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "17"
+            "trait_type": "Real Name",
+            "value": "Marcel Sabitzer"
         },
         {
-            "trait_type": "Ataque",
-            "value": 57
+            "trait_type": "ATK",
+            "value": 71
         },
         {
-            "trait_type": "Defensa",
-            "value": 93
+            "trait_type": "DEF",
+            "value": 67
         },
         {
-            "trait_type": "Hype",
-            "value": 77
+            "trait_type": "HYPE",
+            "value": 64
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "20"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box-to-Box"
         }
     ],
     "properties": {

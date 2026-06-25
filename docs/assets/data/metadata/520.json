@@ -1,48 +1,65 @@
 {
-    "name": "Dango Ouat-Flash",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Dango Ouat-Flash (Burkina faso). undefined",
+    "name": "GoalChain Genesis #520 — O'tkir Yusupoff-chain",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Shot Stopper, Command Post, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/520_dango_ouat-flash.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/520_otkir_yusupoff-chain.webp",
+    "external_url": "https://goalchain.fun/nft/520",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Burkina faso"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "Country",
+            "value": "Uzbekistán"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "O'tkir Yusupov"
         },
         {
-            "trait_type": "Ataque",
-            "value": 93
+            "trait_type": "ATK",
+            "value": 15
         },
         {
-            "trait_type": "Defensa",
-            "value": 26
+            "trait_type": "DEF",
+            "value": 80
         },
         {
-            "trait_type": "Hype",
-            "value": 88
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Tashkent Cotton Field"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Guardian Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Command Post"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/520_dango_ouat-flash.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/520_otkir_yusupoff-chain.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

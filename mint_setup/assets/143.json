@@ -1,41 +1,62 @@
 {
-    "name": "Alemania Player 14",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alemania Player 14 (Alemania). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #144 \u2014 Kalidou Krypto-Koulibaly",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a legendary asset. Known globally for being a Defensive Titan, Aerial Duelist, Captain Leader, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "143.png",
+    "external_url": "https://goalchain.fun/nft/144",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Alemania"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Senegal"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "14"
+            "trait_type": "Real Name",
+            "value": "Kalidou Koulibaly"
         },
         {
-            "trait_type": "Ataque",
-            "value": 78
+            "trait_type": "ATK",
+            "value": 35
         },
         {
-            "trait_type": "Defensa",
-            "value": 55
+            "trait_type": "DEF",
+            "value": 84
         },
         {
-            "trait_type": "Hype",
-            "value": 93
+            "trait_type": "HYPE",
+            "value": 80
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
         }
     ],
     "properties": {

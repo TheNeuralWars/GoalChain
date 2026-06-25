@@ -1,48 +1,65 @@
 {
-    "name": "Jan Bednarek-Hold",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jan Bednarek-Hold (Polonia). undefined",
+    "name": "GoalChain Genesis #229 — Michal Sadi-Ledger",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Defensive Shield, Engine Room, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/229_jan_bednarek-hold.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/229_michal_sadi-ledger.webp",
+    "external_url": "https://goalchain.fun/nft/229",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Polonia"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "Country",
+            "value": "República Checa"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Michal Sadílek"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 58
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Twente Red Horse"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Iron Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/229_jan_bednarek-hold.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/229_michal_sadi-ledger.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

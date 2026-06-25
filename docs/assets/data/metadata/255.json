@@ -1,48 +1,69 @@
 {
-    "name": "Scott McTo-Strong",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Scott McTo-Strong (Escocia). undefined",
+    "name": "GoalChain Genesis #255 — Scott McTo-Strong",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Box To Box, Physical Titan, Goal Threat, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/255_scott_mcto-strong.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/255_scott_mcto-strong.webp",
+    "external_url": "https://goalchain.fun/nft/255",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Escocia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Escocia"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Scott McTominay"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "ATK",
             "value": 70
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "DEF",
+            "value": 62
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "HYPE",
             "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box To Box"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Threat"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/255_scott_mcto-strong.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/255_scott_mcto-strong.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

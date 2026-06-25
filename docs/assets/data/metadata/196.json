@@ -1,48 +1,65 @@
 {
-    "name": "Morten Hjul-Core",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Morten Hjul-Core (Dinamarca). undefined",
+    "name": "GoalChain Genesis #196 — David Wolfe-Pack",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Positional Read, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/196_morten_hjul-core.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/196_david_wolfe-pack.webp",
+    "external_url": "https://goalchain.fun/nft/196",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Dinamarca"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "Country",
+            "value": "Noruega"
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "Real Name",
+            "value": "David Møller Wolfe"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
+            "value": 35
+        },
+        {
+            "trait_type": "DEF",
             "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "HYPE",
+            "value": 58
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Stockholm Green Bay"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Shield Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Positional Read"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/196_morten_hjul-core.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/196_david_wolfe-pack.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

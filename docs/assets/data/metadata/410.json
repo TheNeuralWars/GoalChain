@@ -1,48 +1,65 @@
 {
-    "name": "Ellyes Skhiri-Core",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ellyes Skhiri-Core (Túnez). undefined",
+    "name": "GoalChain Genesis #410 — Ellyes Skhiri-Core",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Defensive Shield, Physical Titan, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/410_ellyes_skhiri-core.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/410_ellyes_skhiri-core.webp",
+    "external_url": "https://goalchain.fun/nft/410",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Túnez"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Túnez"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Ellyes Skhiri"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "ATK",
+            "value": 58
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "DEF",
+            "value": 65
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 68
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/410_ellyes_skhiri-core.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/410_ellyes_skhiri-core.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,41 +1,58 @@
 {
-    "name": "Suiza Star 22 Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Suiza Star 22 Chain (Suiza). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #438 \u2014 Anibal God-Cap",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Defensive Shield, Work Rate, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "437.png",
+    "external_url": "https://goalchain.fun/nft/438",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Suiza"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Panam\u00e1"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "22"
+            "trait_type": "Real Name",
+            "value": "An\u00edbal Godoy"
         },
         {
-            "trait_type": "Ataque",
-            "value": 71
+            "trait_type": "ATK",
+            "value": 42
         },
         {
-            "trait_type": "Defensa",
-            "value": 57
+            "trait_type": "DEF",
+            "value": 62
         },
         {
-            "trait_type": "Hype",
-            "value": 48
+            "trait_type": "HYPE",
+            "value": 55
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Work Rate"
         }
     ],
     "properties": {

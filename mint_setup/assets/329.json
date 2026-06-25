@@ -1,41 +1,58 @@
 {
-    "name": "Marruecos Star 18 Gas",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Marruecos Star 18 Gas (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #330 \u2014 Shurandy Sam-Boost",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Positional Read, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "329.png",
+    "external_url": "https://goalchain.fun/nft/330",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Marruecos"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "18"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 61
+            "trait_type": "Country",
+            "value": "Curazao"
         },
         {
-            "trait_type": "Defensa",
-            "value": 57
+            "trait_type": "Real Name",
+            "value": "Shurandy Sambo"
         },
         {
-            "trait_type": "Hype",
-            "value": 38
+            "trait_type": "ATK",
+            "value": 40
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 70
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 58
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Eindhoven Light Bulbs"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Steel Aura"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Positional Read"
         }
     ],
     "properties": {

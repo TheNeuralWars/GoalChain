@@ -1,41 +1,62 @@
 {
-    "name": "Alemania Player 15",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alemania Player 15 (Alemania). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #145 \u2014 Sadio Mint-\u00e9",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Speed Monster, Clinical Finisher, Dribbling God, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "144.png",
+    "external_url": "https://goalchain.fun/nft/145",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Alemania"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Senegal"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "15"
+            "trait_type": "Real Name",
+            "value": "Sadio Man\u00e9"
         },
         {
-            "trait_type": "Ataque",
-            "value": 56
+            "trait_type": "ATK",
+            "value": 88
         },
         {
-            "trait_type": "Defensa",
-            "value": 62
+            "trait_type": "DEF",
+            "value": 32
         },
         {
-            "trait_type": "Hype",
-            "value": 47
+            "trait_type": "HYPE",
+            "value": 88
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Monster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
         }
     ],
     "properties": {

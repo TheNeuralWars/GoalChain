@@ -1,41 +1,58 @@
 {
-    "name": "Pervis Estupi-Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Pervis Estupi-Node (Ecuador). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #523 \u2014 Sherzod Nasru-Flow",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Speed Dribbler, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "522.png",
+    "external_url": "https://goalchain.fun/nft/523",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Ecuador"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Uzbekist\u00e1n"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "3"
+            "trait_type": "Real Name",
+            "value": "Sherzod Nasrullayev"
         },
         {
-            "trait_type": "Ataque",
-            "value": 54
-        },
-        {
-            "trait_type": "Defensa",
+            "trait_type": "ATK",
             "value": 70
         },
         {
-            "trait_type": "Hype",
-            "value": 38
+            "trait_type": "DEF",
+            "value": 42
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "HYPE",
+            "value": 65
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Tashkent Cotton Field"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Neon Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Dribbler"
         }
     ],
     "properties": {

@@ -1,41 +1,54 @@
 {
-    "name": "Portugal Player 18",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 18 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #174 \u2014 Kye Rowles-Solid",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Aerial Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "173.png",
+    "external_url": "https://goalchain.fun/nft/174",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Australia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "18"
+            "trait_type": "Real Name",
+            "value": "Kye Rowles"
         },
         {
-            "trait_type": "Ataque",
-            "value": 78
+            "trait_type": "ATK",
+            "value": 10
         },
         {
-            "trait_type": "Defensa",
-            "value": 55
+            "trait_type": "DEF",
+            "value": 76
         },
         {
-            "trait_type": "Hype",
-            "value": 51
+            "trait_type": "HYPE",
+            "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "15"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Master"
         }
     ],
     "properties": {

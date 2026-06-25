@@ -1,41 +1,58 @@
 {
-    "name": "Yassine Bo-Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Yassine Bo-Node (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #315 \u2014 Mathias Villa-Core",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Defensive Shield, Engine Room, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "314.png",
+    "external_url": "https://goalchain.fun/nft/315",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Marruecos"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Paraguay"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "3"
+            "trait_type": "Real Name",
+            "value": "Math\u00edas Villasanti"
         },
         {
-            "trait_type": "Ataque",
-            "value": 63
+            "trait_type": "ATK",
+            "value": 55
         },
         {
-            "trait_type": "Defensa",
+            "trait_type": "DEF",
+            "value": 65
+        },
+        {
+            "trait_type": "HYPE",
             "value": 62
         },
         {
-            "trait_type": "Hype",
-            "value": 46
+            "trait_type": "Jersey Number",
+            "value": "16"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
         }
     ],
     "properties": {

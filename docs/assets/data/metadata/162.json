@@ -1,48 +1,65 @@
 {
-    "name": "Young-woo-Side",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Young-woo-Side (Corea del sur). undefined",
+    "name": "GoalChain Genesis #162 — Young-woo-Side",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Hustle, Wing Overlap, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/162_young-woo-side.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/162_young-woo-side.webp",
+    "external_url": "https://goalchain.fun/nft/162",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Corea del sur"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "Country",
+            "value": "Corea del sur"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Kim Tae-hyeon"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 30
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 65
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 50
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "22"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Kashima Deer Horns"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Chain Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Hustle"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/162_young-woo-side.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/162_young-woo-side.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

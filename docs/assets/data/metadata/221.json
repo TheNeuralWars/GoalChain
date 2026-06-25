@@ -1,48 +1,69 @@
 {
-    "name": "Robert Lewan-Goal-ski",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Robert Lewan-Goal-ski (Polonia). undefined",
+    "name": "GoalChain Genesis #221 — Tomas Sou-Check",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Engine Room, Aerial Dynamo, Physical Titan, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/221_robert_lewan-goal-ski.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/221_tomas_sou-check.webp",
+    "external_url": "https://goalchain.fun/nft/221",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Polonia"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posición",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Mythic"
+            "trait_type": "Country",
+            "value": "República Checa"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Tomáš Souček"
         },
         {
-            "trait_type": "Ataque",
-            "value": 98
+            "trait_type": "ATK",
+            "value": 72
         },
         {
-            "trait_type": "Defensa",
-            "value": 28
+            "trait_type": "DEF",
+            "value": 60
         },
         {
-            "trait_type": "Hype",
-            "value": 98
+            "trait_type": "HYPE",
+            "value": 83
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Iron Hammer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Iron Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Dynamo"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/221_robert_lewan-goal-ski.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/221_tomas_sou-check.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,41 +1,62 @@
 {
-    "name": "EEUU Star 25 Wallet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - EEUU Star 25 Wallet (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #233 \u2014 Viktor Gyo-Genesis",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Goal Machine, Physical Titan, Press Trigger, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "232.png",
+    "external_url": "https://goalchain.fun/nft/233",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "EEUU"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Suecia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "25"
+            "trait_type": "Real Name",
+            "value": "Viktor Gy\u00f6keres"
         },
         {
-            "trait_type": "Ataque",
-            "value": 51
+            "trait_type": "ATK",
+            "value": 86
         },
         {
-            "trait_type": "Defensa",
-            "value": 41
+            "trait_type": "DEF",
+            "value": 20
         },
         {
-            "trait_type": "Hype",
-            "value": 89
+            "trait_type": "HYPE",
+            "value": 86
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Lisbon Green Lion"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Machine"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Press Trigger"
         }
     ],
     "properties": {

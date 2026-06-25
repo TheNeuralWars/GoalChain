@@ -1,48 +1,61 @@
 {
-    "name": "Declan Rice-Validator",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Declan Rice-Validator (Inglaterra). undefined",
+    "name": "GoalChain Genesis #027 — Declan Yield-Rice",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/027_vini_burner_jr.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/027_vini_burner_jr.webp",
+    "external_url": "https://goalchain.fun/nft/27",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Inglaterra"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Legendary"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 76
+            "trait_type": "Country",
+            "value": "Inglaterra"
         },
         {
-            "trait_type": "Defensa",
-            "value": 72
+            "trait_type": "Real Name",
+            "value": "Declan Rice"
         },
         {
-            "trait_type": "Hype",
-            "value": 92
+            "trait_type": "ATK",
+            "value": 87
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 91
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 89
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "41"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Cannon Fire"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/027_vini_burner_jr.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/027_vini_burner_jr.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

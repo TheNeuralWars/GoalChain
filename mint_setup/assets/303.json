@@ -1,41 +1,58 @@
 {
-    "name": "B\u00e9lgica Star 18 Gas",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - B\u00e9lgica Star 18 Gas (B\u00e9lgica). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #304 \u2014 Willian Pacho-Wall",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Defensive Wall, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "303.png",
+    "external_url": "https://goalchain.fun/nft/304",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "B\u00e9lgica"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Ecuador"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "18"
+            "trait_type": "Real Name",
+            "value": "Willian Pacho"
         },
         {
-            "trait_type": "Ataque",
-            "value": 93
+            "trait_type": "ATK",
+            "value": 30
         },
         {
-            "trait_type": "Defensa",
-            "value": 67
+            "trait_type": "DEF",
+            "value": 76
         },
         {
-            "trait_type": "Hype",
-            "value": 71
+            "trait_type": "HYPE",
+            "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "26"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Blue Lions"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {

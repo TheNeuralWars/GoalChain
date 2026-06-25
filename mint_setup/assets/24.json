@@ -1,41 +1,58 @@
 {
-    "name": "Alvaro Morata-DAO",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alvaro Morata-DAO (Espa\u00f1a). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #025 \u2014 Phil Gwei-den",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Clinical Finisher, Speedster, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "24.png",
+    "external_url": "https://goalchain.fun/nft/25",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Espa\u00f1a"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Inglaterra"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "7"
+            "trait_type": "Real Name",
+            "value": "Phil Foden"
         },
         {
-            "trait_type": "Ataque",
-            "value": 84
+            "trait_type": "ATK",
+            "value": 90
         },
         {
-            "trait_type": "Defensa",
-            "value": 45
+            "trait_type": "DEF",
+            "value": 36
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 89
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "47"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Sky Blue"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speedster"
         }
     ],
     "properties": {

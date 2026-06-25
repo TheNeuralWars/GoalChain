@@ -1,48 +1,65 @@
 {
-    "name": "Lee Kang-Silk",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Lee Kang-Silk (Corea del sur). undefined",
+    "name": "GoalChain Genesis #157 — Lee Kang-Token",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Creative Spark, Dribbling God, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/157_cristiano_holdaldo.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/157_cristiano_holdaldo.webp",
+    "external_url": "https://goalchain.fun/nft/157",
     "attributes": [
         {
-            "trait_type": "País",
+            "trait_type": "Rarity",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Position",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Country",
             "value": "Corea del sur"
         },
         {
-            "trait_type": "Posición",
-            "value": "FWD"
+            "trait_type": "Real Name",
+            "value": "Lee Kang-in"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "ATK",
+            "value": 78
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "DEF",
+            "value": 35
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 25
-        },
-        {
-            "trait_type": "Hype",
+            "trait_type": "HYPE",
             "value": 82
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/157_cristiano_holdaldo.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/157_cristiano_holdaldo.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

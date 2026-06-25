@@ -1,41 +1,58 @@
 {
-    "name": "Colombia Star 26 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Colombia Star 26 Token (Colombia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #416 \u2014 Moh Ali-Ben-Link",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Engine Room, Creative Spark, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "415.png",
+    "external_url": "https://goalchain.fun/nft/416",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Colombia"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "26"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "Country",
+            "value": "T\u00fanez"
+        },
+        {
+            "trait_type": "Real Name",
+            "value": "Mohamed Ali Ben Romdhane"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 60
+        },
+        {
+            "trait_type": "DEF",
             "value": 45
         },
         {
-            "trait_type": "Defensa",
-            "value": 47
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Hype",
-            "value": 49
+            "trait_type": "Jersey Number",
+            "value": "14"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Parody Club",
+            "value": "Amsterdam Ajax Logic"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
         }
     ],
     "properties": {

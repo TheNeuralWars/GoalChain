@@ -1,41 +1,58 @@
 {
-    "name": "Inglaterra Player 13",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Inglaterra Player 13 (Inglaterra). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #091 \u2014 Gio Reyna-Pass",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Vision Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "90.png",
+    "external_url": "https://goalchain.fun/nft/91",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Inglaterra"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Ee.uu."
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "13"
+            "trait_type": "Real Name",
+            "value": "Gio Reyna"
         },
         {
-            "trait_type": "Ataque",
-            "value": 52
+            "trait_type": "ATK",
+            "value": 74
         },
         {
-            "trait_type": "Defensa",
-            "value": 54
+            "trait_type": "DEF",
+            "value": 35
         },
         {
-            "trait_type": "Hype",
-            "value": 61
+            "trait_type": "HYPE",
+            "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
         }
     ],
     "properties": {

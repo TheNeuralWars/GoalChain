@@ -1,48 +1,69 @@
 {
-    "name": "Christian Erik-Seed",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Christian Erik-Seed (Dinamarca). undefined",
+    "name": "GoalChain Genesis #188 — Erling Hype-land",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a Goal Machine, Physical Titan, Speed Monster, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/188_christian_erik-seed.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/188_erling_hype-land.webp",
+    "external_url": "https://goalchain.fun/nft/188",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Dinamarca"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posición",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Noruega"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Erling Haaland"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "ATK",
+            "value": 92
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "DEF",
+            "value": 20
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 95
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Sky Blue"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Machine"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Monster"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/188_christian_erik-seed.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/188_erling_hype-land.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

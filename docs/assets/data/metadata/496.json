@@ -1,48 +1,65 @@
 {
-    "name": "Percy Tau-Lion",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Percy Tau-Lion (Sudáfrica). undefined",
+    "name": "GoalChain Genesis #496 — Percy Tau-Lion",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Winger, Dribble Flash, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/496_percy_tau-lion.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/496_percy_tau-lion.webp",
+    "external_url": "https://goalchain.fun/nft/496",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Sudáfrica"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "Country",
+            "value": "Sudáfrica"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Percy Tau"
         },
         {
-            "trait_type": "Ataque",
-            "value": 93
+            "trait_type": "ATK",
+            "value": 76
         },
         {
-            "trait_type": "Defensa",
-            "value": 26
+            "trait_type": "DEF",
+            "value": 22
         },
         {
-            "trait_type": "Hype",
-            "value": 88
+            "trait_type": "HYPE",
+            "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/496_percy_tau-lion.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/496_percy_tau-lion.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

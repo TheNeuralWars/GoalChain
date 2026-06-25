@@ -1,48 +1,65 @@
 {
-    "name": "Cyle Larin-Tank",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Cyle Larin-Tank (Canadá). undefined",
+    "name": "GoalChain Genesis #113 — Cyle Ledger-Larin",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Physical Titan, Aerial Threat, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/113_cyle_larin-tank.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/113_cyle_ledger-larin.webp",
+    "external_url": "https://goalchain.fun/nft/113",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Canadá"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Canadá"
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "Real Name",
+            "value": "Cyle Larin"
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "ATK",
+            "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 20
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 68
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "17"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Paris Sapphire PSG"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Threat"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/113_cyle_larin-tank.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/113_cyle_ledger-larin.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

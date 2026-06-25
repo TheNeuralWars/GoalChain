@@ -1,41 +1,58 @@
 {
-    "name": "Australia Pro 7 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Australia Pro 7 Mint (Australia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #501 \u2014 Mothobi Mva-Iron",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "500.png",
+    "external_url": "https://goalchain.fun/nft/501",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Australia"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "7"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 57
+            "trait_type": "Country",
+            "value": "Sud\u00e1frica"
         },
         {
-            "trait_type": "Defensa",
-            "value": 73
+            "trait_type": "Real Name",
+            "value": "Mothobi Mvala"
         },
         {
-            "trait_type": "Hype",
-            "value": 81
+            "trait_type": "ATK",
+            "value": 28
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 68
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 58
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Paris Sapphire PSG"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Powerhouse"
         }
     ],
     "properties": {

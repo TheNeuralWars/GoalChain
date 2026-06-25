@@ -1,41 +1,58 @@
 {
-    "name": "Italia Star 14 Coin",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Italia Star 14 Coin (Italia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #274 \u2014 Brandon Mech-Miner",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Defensive Wall, Positional Read, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "273.png",
+    "external_url": "https://goalchain.fun/nft/274",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Italia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "B\u00e9lgica"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "14"
+            "trait_type": "Real Name",
+            "value": "Brandon Mechele"
         },
         {
-            "trait_type": "Ataque",
-            "value": 52
+            "trait_type": "ATK",
+            "value": 35
         },
         {
-            "trait_type": "Defensa",
-            "value": 78
+            "trait_type": "DEF",
+            "value": 74
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 63
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Bruges Canal Boat"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Shield Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Positional Read"
         }
     ],
     "properties": {

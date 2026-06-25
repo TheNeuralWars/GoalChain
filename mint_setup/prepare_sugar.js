@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const PROJECT_ROOT = '/Users/NicoPez/GoalChain';
+const PROJECT_ROOT = path.resolve(__dirname, '..');
 const ASSETS_DIR = path.join(PROJECT_ROOT, 'mint_setup/assets');
 const SOURCE_META = path.join(PROJECT_ROOT, 'docs/assets/data/metadata');
 const SOURCE_IMG = path.join(PROJECT_ROOT, 'docs/assets/img/nfts');
@@ -18,6 +18,26 @@ async function prepare() {
         const players = JSON.parse(fs.readFileSync(PLAYERS_FILE, 'utf8'));
         const images = fs.readdirSync(SOURCE_IMG);
 
+        // 0. Limpieza previa de archivos antiguos de Sugar mayores o iguales al total de jugadores
+        console.log(`🧹 Limpiando archivos obsoletos en ${ASSETS_DIR}...`);
+        const existingFiles = fs.readdirSync(ASSETS_DIR);
+        let deletedCount = 0;
+        existingFiles.forEach(file => {
+            const ext = path.extname(file);
+            if (ext === '.json' || ext === '.png') {
+                const name = path.basename(file, ext);
+                const num = parseInt(name, 10);
+                if (!isNaN(num) && num >= players.length) {
+                    fs.unlinkSync(path.join(ASSETS_DIR, file));
+                    deletedCount++;
+                }
+            }
+        });
+        if (deletedCount > 0) {
+            console.log(`🗑️ Se eliminaron ${deletedCount} archivos obsoletos.`);
+        }
+
+        // 1. Copiar y procesar parejas de activos
         players.forEach((p, index) => {
             // Renombrar a formato Sugar: 0, 1, 2...
             const targetJson = path.join(ASSETS_DIR, `${index}.json`);
@@ -30,27 +50,31 @@ async function prepare() {
                 meta.image = `${index}.png`;
                 meta.properties.files = [{ uri: `${index}.png`, type: "image/png" }];
                 fs.writeFileSync(targetJson, JSON.stringify(meta, null, 4));
+            } else {
+                console.warn(`⚠️ No se encontró metadato origen para jugador ID ${p.id} en ${oldJsonPath}`);
             }
 
             // 2. Procesar Imagen
             // Buscamos la imagen que empiece por el ID (ej: "001_")
             const idPrefix = String(p.id).padStart(3, '0');
-            const imageName = images.find(img => img.startsWith(idPrefix));
+            const imageName = images.find(img => img.startsWith(idPrefix) && (img.endsWith('.png') || img.endsWith('.webp')));
 
             if (imageName) {
                 fs.copyFileSync(path.join(SOURCE_IMG, imageName), targetImg);
             } else {
-                // Fallback a imagen por defecto
-                const fallback = path.join(SOURCE_IMG, '001_lionel_bitcoin.png');
+                // Fallback a imagen por defecto (placeholder premium de Coming Soon)
+                const fallback = path.join(SOURCE_IMG, 'card_placeholder_soon.png');
                 if (fs.existsSync(fallback)) {
                     fs.copyFileSync(fallback, targetImg);
+                } else {
+                    console.error(`❌ No se encontró la imagen placeholder en ${fallback}`);
                 }
             }
             
             if (index % 100 === 0) console.log(`📦 Procesados ${index} jugadores...`);
         });
 
-        console.log(`\n✅ ¡Éxito! 1,248 parejas (json/png) listas en mint_setup/assets/`);
+        console.log(`\n✅ ¡Éxito! ${players.length} parejas (json/png) listas en mint_setup/assets/`);
     } catch (err) {
         console.error("❌ Error preparando activos:", err);
     }

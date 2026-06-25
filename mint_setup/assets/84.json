@@ -1,41 +1,58 @@
 {
-    "name": "Inglaterra Player 7",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Inglaterra Player 7 (Inglaterra). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #085 \u2014 Bart Ver-Block-en",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a rare asset. Known globally for being a Quick Reflexes, Aerial Commander, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "84.png",
+    "external_url": "https://goalchain.fun/nft/85",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Inglaterra"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Pa\u00edses bajos"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "7"
+            "trait_type": "Real Name",
+            "value": "Bart Verbruggen"
         },
         {
-            "trait_type": "Ataque",
-            "value": 44
+            "trait_type": "ATK",
+            "value": 37
         },
         {
-            "trait_type": "Defensa",
-            "value": 97
+            "trait_type": "DEF",
+            "value": 62
         },
         {
-            "trait_type": "Hype",
-            "value": 30
+            "trait_type": "HYPE",
+            "value": 74
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Amsterdam Ajax Logic"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Quick Reflexes"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Commander"
         }
     ],
     "properties": {

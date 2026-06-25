@@ -1,41 +1,62 @@
 {
-    "name": "Brasil Player 21",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Brasil Player 21 (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #047 \u2014 Rodri Proof-of-Stake",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a mythic asset. Known globally for being a Tactical Mastermind, The Anchor, Midfield Wall, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "46.png",
+    "external_url": "https://goalchain.fun/nft/47",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Brasil"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Espa\u00f1a"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "21"
+            "trait_type": "Real Name",
+            "value": "Rodri"
         },
         {
-            "trait_type": "Ataque",
-            "value": 65
+            "trait_type": "ATK",
+            "value": 97
         },
         {
-            "trait_type": "Defensa",
+            "trait_type": "DEF",
+            "value": 94
+        },
+        {
+            "trait_type": "HYPE",
             "value": 92
         },
         {
-            "trait_type": "Hype",
-            "value": 37
+            "trait_type": "Jersey Number",
+            "value": "16"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Parody Club",
+            "value": "Manchester Sky Blue"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Tactical Mastermind"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "The Anchor"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Midfield Wall"
         }
     ],
     "properties": {

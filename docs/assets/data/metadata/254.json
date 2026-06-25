@@ -1,48 +1,69 @@
 {
-    "name": "Andrew Robert-Cap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Andrew Robert-Cap (Escocia). undefined",
+    "name": "GoalChain Genesis #254 — Andrew Robertledger",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a legendary asset. Known globally for being a Wing Overlap, Captain Leader, Speed Defender, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/254_andrew_robert-cap.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/254_andrew_robertledger.webp",
+    "external_url": "https://goalchain.fun/nft/254",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Escocia"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Legendary"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 37
+            "trait_type": "Country",
+            "value": "Escocia"
         },
         {
-            "trait_type": "Defensa",
-            "value": 93
+            "trait_type": "Real Name",
+            "value": "Andrew Robertson"
         },
         {
-            "trait_type": "Hype",
-            "value": 92
+            "trait_type": "ATK",
+            "value": 58
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 76
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 80
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/254_andrew_robert-cap.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/254_andrew_robertledger.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

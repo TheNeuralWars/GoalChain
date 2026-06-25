@@ -1,41 +1,58 @@
 {
-    "name": "Senegal Star 25 Wallet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Senegal Star 25 Wallet (Senegal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #389 \u2014 Vozinha-Gate",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Shot Stopper, Command Post, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "388.png",
+    "external_url": "https://goalchain.fun/nft/389",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Senegal"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Cabo Verde"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "25"
+            "trait_type": "Real Name",
+            "value": "Vozinha"
         },
         {
-            "trait_type": "Ataque",
-            "value": 77
+            "trait_type": "ATK",
+            "value": 15
         },
         {
-            "trait_type": "Defensa",
-            "value": 72
+            "trait_type": "DEF",
+            "value": 78
         },
         {
-            "trait_type": "Hype",
-            "value": 83
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Chaves Key Holders"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Guardian Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Command Post"
         }
     ],
     "properties": {

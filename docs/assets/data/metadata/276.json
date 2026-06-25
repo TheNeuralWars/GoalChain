@@ -1,48 +1,61 @@
 {
-    "name": "David Ala-Boss",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - David Ala-Boss (Austria). undefined",
+    "name": "GoalChain Genesis #276 — David Ala-Boss",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/276_david_ala-boss.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/276_david_ala-boss.webp",
+    "external_url": "https://goalchain.fun/nft/276",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Austria"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "Country",
+            "value": "Austria"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "David Alaba"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
+            "value": 26
+        },
+        {
+            "trait_type": "DEF",
+            "value": 68
+        },
+        {
+            "trait_type": "HYPE",
             "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Barcelona Garnet Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Powerhouse"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/276_david_ala-boss.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/276_david_ala-boss.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

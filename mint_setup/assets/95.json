@@ -1,41 +1,58 @@
 {
-    "name": "Inglaterra Player 18",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Inglaterra Player 18 (Inglaterra). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #096 \u2014 Antonee Rob-Node",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Wing Overlap, Speed Defender, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "95.png",
+    "external_url": "https://goalchain.fun/nft/96",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Inglaterra"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Ee.uu."
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "18"
+            "trait_type": "Real Name",
+            "value": "Antonee Robinson"
         },
         {
-            "trait_type": "Ataque",
-            "value": 90
+            "trait_type": "ATK",
+            "value": 55
         },
         {
-            "trait_type": "Defensa",
-            "value": 69
+            "trait_type": "DEF",
+            "value": 70
         },
         {
-            "trait_type": "Hype",
-            "value": 86
+            "trait_type": "HYPE",
+            "value": 68
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
         }
     ],
     "properties": {

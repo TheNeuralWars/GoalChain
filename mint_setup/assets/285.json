@@ -1,41 +1,58 @@
 {
-    "name": "Italia Star 26 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Italia Star 26 Token (Italia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #286 \u2014 Mich Gregoritsch-Air",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Aerial Threat, Physical Titan, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "285.png",
+    "external_url": "https://goalchain.fun/nft/286",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Italia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Austria"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "26"
+            "trait_type": "Real Name",
+            "value": "Michael Gregoritsch"
         },
         {
-            "trait_type": "Ataque",
-            "value": 96
+            "trait_type": "ATK",
+            "value": 72
         },
         {
-            "trait_type": "Defensa",
-            "value": 50
+            "trait_type": "DEF",
+            "value": 18
         },
         {
-            "trait_type": "Hype",
-            "value": 84
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Threat"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
         }
     ],
     "properties": {

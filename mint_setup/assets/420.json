@@ -1,41 +1,58 @@
 {
-    "name": "Xherdan Sha-Coin",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Xherdan Sha-Coin (Suiza). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #421 \u2014 Frantzdy Pier-Run",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speed Monster, Pressing Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "420.png",
+    "external_url": "https://goalchain.fun/nft/421",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Suiza"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Hait\u00ed"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "5"
+            "trait_type": "Real Name",
+            "value": "Frantzdy Pierrot"
         },
         {
-            "trait_type": "Ataque",
-            "value": 85
+            "trait_type": "ATK",
+            "value": 70
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "DEF",
+            "value": 28
         },
         {
-            "trait_type": "Hype",
-            "value": 91
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Atlanta Peach State"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Lightning Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Monster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Pressing Master"
         }
     ],
     "properties": {

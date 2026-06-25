@@ -1,48 +1,69 @@
 {
-    "name": "Sadio Mane-Jet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Sadio Mane-Jet (Senegal). undefined",
+    "name": "GoalChain Genesis #145 — Sadio Mint-é",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Speed Monster, Clinical Finisher, Dribbling God, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/145_sadio_mane-jet.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/145_sadio_mint-.webp",
+    "external_url": "https://goalchain.fun/nft/145",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Senegal"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Legendary"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 93
+            "trait_type": "Country",
+            "value": "Senegal"
         },
         {
-            "trait_type": "Defensa",
-            "value": 26
+            "trait_type": "Real Name",
+            "value": "Sadio Mané"
         },
         {
-            "trait_type": "Hype",
-            "value": 92
+            "trait_type": "ATK",
+            "value": 88
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 32
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 88
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Monster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/145_sadio_mane-jet.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/145_sadio_mint-.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

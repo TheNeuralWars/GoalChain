@@ -1,48 +1,69 @@
 {
-    "name": "Roland Sal-Quick",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Roland Sal-Quick (Hungría). undefined",
+    "name": "GoalChain Genesis #267 — Thibaut Wall-Shield",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a legendary asset. Known globally for being a Shot Stopper, Penalty Wall, Command Post, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/267_roland_sal-quick.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/267_thibaut_wall-shield.webp",
+    "external_url": "https://goalchain.fun/nft/267",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Hungría"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posición",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Bélgica"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Thibaut Courtois"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 20
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "DEF",
+            "value": 90
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 88
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Real Madrid Token"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Guardian Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Penalty Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Command Post"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/267_roland_sal-quick.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/267_thibaut_wall-shield.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

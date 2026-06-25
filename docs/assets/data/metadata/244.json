@@ -1,48 +1,69 @@
 {
-    "name": "Arda Gu-Star",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Arda Gu-Star (Turquía). undefined",
+    "name": "GoalChain Genesis #244 — Arda Gu-Star",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Creative Spark, Dribbling God, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/244_arda_gu-star.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/244_arda_gu-star.webp",
+    "external_url": "https://goalchain.fun/nft/244",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Turquía"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Legendary"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 93
+            "trait_type": "Country",
+            "value": "Turquía"
         },
         {
-            "trait_type": "Defensa",
-            "value": 26
+            "trait_type": "Real Name",
+            "value": "Arda Güler"
         },
         {
-            "trait_type": "Hype",
-            "value": 92
+            "trait_type": "ATK",
+            "value": 82
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 28
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 85
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Amsterdam Ajax Logic"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/244_arda_gu-star.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/244_arda_gu-star.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,41 +1,58 @@
 {
-    "name": "Gianluigi Ledger-umma",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Gianluigi Ledger-umma (Italia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #263 \u2014 Callum McG-Heart",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Engine Room, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "262.png",
+    "external_url": "https://goalchain.fun/nft/263",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Italia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Escocia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "3"
+            "trait_type": "Real Name",
+            "value": "Callum McGregor"
         },
         {
-            "trait_type": "Ataque",
-            "value": 88
+            "trait_type": "ATK",
+            "value": 60
         },
         {
-            "trait_type": "Defensa",
-            "value": 58
+            "trait_type": "DEF",
+            "value": 55
         },
         {
-            "trait_type": "Hype",
-            "value": 85
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
         }
     ],
     "properties": {

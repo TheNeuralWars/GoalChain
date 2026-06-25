@@ -1,41 +1,58 @@
 {
-    "name": "Raul Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Raul Node (M\u00e9xico). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #186 \u2014 Abdu Al-Mind",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speedster, Dribbling Wizard, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "185.png",
+    "external_url": "https://goalchain.fun/nft/186",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "M\u00e9xico"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Arabia saud\u00ed"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "4"
+            "trait_type": "Real Name",
+            "value": "Abdulrahman Al-Oboud"
         },
         {
-            "trait_type": "Ataque",
-            "value": 83
+            "trait_type": "ATK",
+            "value": 75
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "DEF",
+            "value": 36
         },
         {
-            "trait_type": "Hype",
-            "value": 79
+            "trait_type": "HYPE",
+            "value": 77
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "24"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speedster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling Wizard"
         }
     ],
     "properties": {

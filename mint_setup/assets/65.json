@@ -1,41 +1,54 @@
 {
-    "name": "Francia Player 14",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Francia Player 14 (Francia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #066 \u2014 Maxim Mittel-Wing",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Recovery Pace, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "65.png",
+    "external_url": "https://goalchain.fun/nft/66",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Francia"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "14"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 94
+            "trait_type": "Country",
+            "value": "Alemania"
         },
         {
-            "trait_type": "Defensa",
-            "value": 73
+            "trait_type": "Real Name",
+            "value": "Maximilian Mittelst\u00e4dt"
         },
         {
-            "trait_type": "Hype",
-            "value": 56
+            "trait_type": "ATK",
+            "value": 33
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 67
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 68
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Recovery Pace"
         }
     ],
     "properties": {

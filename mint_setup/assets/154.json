@@ -1,41 +1,62 @@
 {
-    "name": "Alemania Player 25",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alemania Player 25 (Alemania). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #155 \u2014 Son Heung-Mint",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a Speed Winger, Clinical Finisher, Captain Leader, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "154.png",
+    "external_url": "https://goalchain.fun/nft/155",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Alemania"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Corea del sur"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "25"
+            "trait_type": "Real Name",
+            "value": "Son Heung-min"
         },
         {
-            "trait_type": "Ataque",
-            "value": 77
+            "trait_type": "ATK",
+            "value": 90
         },
         {
-            "trait_type": "Defensa",
-            "value": 71
+            "trait_type": "DEF",
+            "value": 28
         },
         {
-            "trait_type": "Hype",
-            "value": 76
+            "trait_type": "HYPE",
+            "value": 92
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Barcelona Garnet Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
         }
     ],
     "properties": {

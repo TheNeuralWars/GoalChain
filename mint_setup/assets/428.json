@@ -1,41 +1,58 @@
 {
-    "name": "Suiza Star 13 Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Suiza Star 13 Node (Suiza). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #429 \u2014 Dominique Simo-Flow",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Engine Room, Creative Spark, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "428.png",
+    "external_url": "https://goalchain.fun/nft/429",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Suiza"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Hait\u00ed"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "13"
+            "trait_type": "Real Name",
+            "value": "Dominique Simon"
         },
         {
-            "trait_type": "Ataque",
-            "value": 42
+            "trait_type": "ATK",
+            "value": 65
         },
         {
-            "trait_type": "Defensa",
-            "value": 59
+            "trait_type": "DEF",
+            "value": 45
         },
         {
-            "trait_type": "Hype",
-            "value": 87
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "16"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Mechelen Yellow Tower"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
         }
     ],
     "properties": {

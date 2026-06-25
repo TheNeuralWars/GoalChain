@@ -1,41 +1,58 @@
 {
-    "name": "Jude Whale-ingham",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jude Whale-ingham (Inglaterra). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #079 \u2014 Frenkie de Gwei",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, Technical Maestro, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "78.png",
+    "external_url": "https://goalchain.fun/nft/79",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Inglaterra"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Legendary"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "1"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 96
+            "trait_type": "Country",
+            "value": "Pa\u00edses bajos"
         },
         {
-            "trait_type": "Defensa",
-            "value": 76
+            "trait_type": "Real Name",
+            "value": "Frenkie de Jong"
         },
         {
-            "trait_type": "Hype",
-            "value": 43
+            "trait_type": "ATK",
+            "value": 88
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 90
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 85
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "21"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Technical Maestro"
         }
     ],
     "properties": {

@@ -1,41 +1,54 @@
 {
-    "name": "Mo Solana",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Mo Solana (Egipto). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #014 \u2014 Ousmane Dem-Block",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Goal Hunter, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "13.png",
+    "external_url": "https://goalchain.fun/nft/14",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Egipto"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "11"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 91
+            "trait_type": "Country",
+            "value": "Francia"
         },
         {
-            "trait_type": "Defensa",
-            "value": 40
+            "trait_type": "Real Name",
+            "value": "Ousmane Demb\u00e9l\u00e9"
         },
         {
-            "trait_type": "Hype",
-            "value": 95
+            "trait_type": "ATK",
+            "value": 83
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 31
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 77
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Hunter"
         }
     ],
     "properties": {

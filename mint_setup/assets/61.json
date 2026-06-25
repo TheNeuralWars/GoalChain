@@ -1,41 +1,54 @@
 {
-    "name": "Francia Player 10",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Francia Player 10 (Francia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #062 \u2014 Marc-Andr\u00e9 ter Staking",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Aerial Commander, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "61.png",
+    "external_url": "https://goalchain.fun/nft/62",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Francia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Alemania"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "10"
+            "trait_type": "Real Name",
+            "value": "Marc-Andr\u00e9 ter Stegen"
         },
         {
-            "trait_type": "Ataque",
-            "value": 62
+            "trait_type": "ATK",
+            "value": 16
         },
         {
-            "trait_type": "Defensa",
-            "value": 75
+            "trait_type": "DEF",
+            "value": 82
         },
         {
-            "trait_type": "Hype",
-            "value": 63
+            "trait_type": "HYPE",
+            "value": 83
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "22"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Commander"
         }
     ],
     "properties": {

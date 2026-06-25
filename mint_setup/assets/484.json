@@ -1,41 +1,62 @@
 {
-    "name": "Ghana Pro 17 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ghana Pro 17 Mint (Ghana). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #485 \u2014 Mohamed Satoshi-Salah",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a Speed Monster, Clinical Finisher, Dribbling God, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "484.png",
+    "external_url": "https://goalchain.fun/nft/485",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Ghana"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Egipto"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "17"
+            "trait_type": "Real Name",
+            "value": "Mohamed Salah"
         },
         {
-            "trait_type": "Ataque",
-            "value": 50
+            "trait_type": "ATK",
+            "value": 92
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "DEF",
+            "value": 28
         },
         {
-            "trait_type": "Hype",
-            "value": 68
+            "trait_type": "HYPE",
+            "value": 95
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Liverpool Crimson Kop"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Monster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
         }
     ],
     "properties": {

@@ -1,41 +1,62 @@
 {
-    "name": "Sergi\u00f1o Decentralized",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Sergi\u00f1o Decentralized (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #212 \u2014 Josko Gvardiol-Chain",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a legendary asset. Known globally for being a Defensive Titan, Modern Libero, Speed Defender, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "211.png",
+    "external_url": "https://goalchain.fun/nft/212",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "EEUU"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Croacia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "4"
+            "trait_type": "Real Name",
+            "value": "Jo\u0161ko Gvardiol"
         },
         {
-            "trait_type": "Ataque",
-            "value": 48
+            "trait_type": "ATK",
+            "value": 50
         },
         {
-            "trait_type": "Defensa",
+            "trait_type": "DEF",
+            "value": 85
+        },
+        {
+            "trait_type": "HYPE",
             "value": 88
         },
         {
-            "trait_type": "Hype",
-            "value": 33
+            "trait_type": "Jersey Number",
+            "value": "6"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Parody Club",
+            "value": "Manchester Sky Blue"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cyber Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Modern Libero"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
         }
     ],
     "properties": {

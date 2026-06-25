@@ -1,48 +1,65 @@
 {
-    "name": "Modibo Sagn-Iron",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Modibo Sagn-Iron (Malí). undefined",
+    "name": "GoalChain Genesis #514 — Mahmoud Al-Mar-Limit",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Creative Spark, Vision Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/514_modibo_sagn-iron.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/514_mahmoud_al-mar-limit.webp",
+    "external_url": "https://goalchain.fun/nft/514",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Malí"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "Country",
+            "value": "Jordania"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Mahmoud Al-Mardi"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 45
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 58
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Salt Rock Miners"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/514_modibo_sagn-iron.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/514_mahmoud_al-mar-limit.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

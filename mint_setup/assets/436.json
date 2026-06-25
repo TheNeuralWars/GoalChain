@@ -1,41 +1,58 @@
 {
-    "name": "Suiza Star 21 Swap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Suiza Star 21 Swap (Suiza). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #437 \u2014 Eric Davis-Cross",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Captain Leader, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "436.png",
+    "external_url": "https://goalchain.fun/nft/437",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Suiza"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Panam\u00e1"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "21"
+            "trait_type": "Real Name",
+            "value": "Eric Davis"
         },
         {
-            "trait_type": "Ataque",
-            "value": 80
+            "trait_type": "ATK",
+            "value": 25
         },
         {
-            "trait_type": "Defensa",
-            "value": 84
+            "trait_type": "DEF",
+            "value": 68
         },
         {
-            "trait_type": "Hype",
-            "value": 49
+            "trait_type": "HYPE",
+            "value": 55
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Barcelona Garnet Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
         }
     ],
     "properties": {

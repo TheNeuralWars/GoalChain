@@ -1,41 +1,58 @@
 {
-    "name": "Suiza Star 18 Gas",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Suiza Star 18 Gas (Suiza). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #434 \u2014 Michael Am-Hit",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Wing Overlap, Speed Defender, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "433.png",
+    "external_url": "https://goalchain.fun/nft/434",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Suiza"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Panam\u00e1"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "18"
+            "trait_type": "Real Name",
+            "value": "Michael Amir Murillo"
         },
         {
-            "trait_type": "Ataque",
-            "value": 68
+            "trait_type": "ATK",
+            "value": 45
         },
         {
-            "trait_type": "Defensa",
-            "value": 89
+            "trait_type": "DEF",
+            "value": 65
         },
         {
-            "trait_type": "Hype",
-            "value": 78
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "2"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
         }
     ],
     "properties": {

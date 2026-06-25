@@ -1,41 +1,54 @@
 {
-    "name": "Jap\u00f3n Star 24 Coin",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jap\u00f3n Star 24 Coin (Jap\u00f3n). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #362 \u2014 Houssem Aouar-Star",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Box-to-Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "361.png",
+    "external_url": "https://goalchain.fun/nft/362",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Jap\u00f3n"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "24"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 77
+            "trait_type": "Country",
+            "value": "Argelia"
         },
         {
-            "trait_type": "Defensa",
-            "value": 67
+            "trait_type": "Real Name",
+            "value": "Houssem Aouar"
         },
         {
-            "trait_type": "Hype",
-            "value": 45
+            "trait_type": "ATK",
+            "value": 64
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 64
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 73
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box-to-Box"
         }
     ],
     "properties": {

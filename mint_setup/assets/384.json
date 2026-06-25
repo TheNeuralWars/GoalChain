@@ -1,41 +1,58 @@
 {
-    "name": "Senegal Star 21 Swap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Senegal Star 21 Swap (Senegal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #385 \u2014 Mpasi Lio-Shield",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Shot Stopper, Command Post, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "384.png",
+    "external_url": "https://goalchain.fun/nft/385",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Senegal"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Congo RD"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "21"
+            "trait_type": "Real Name",
+            "value": "Mpasi Lionel"
         },
         {
-            "trait_type": "Ataque",
-            "value": 66
+            "trait_type": "ATK",
+            "value": 15
         },
         {
-            "trait_type": "Defensa",
-            "value": 98
+            "trait_type": "DEF",
+            "value": 78
         },
         {
-            "trait_type": "Hype",
-            "value": 50
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Havre Sky Blue"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Guardian Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Command Post"
         }
     ],
     "properties": {

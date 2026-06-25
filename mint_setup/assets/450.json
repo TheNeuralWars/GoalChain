@@ -1,41 +1,58 @@
 {
-    "name": "Nigeria Pro 9 Ledger",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nigeria Pro 9 Ledger (Nigeria). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #451 \u2014 Morteza Pour-Iron",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Positional Read, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "450.png",
+    "external_url": "https://goalchain.fun/nft/451",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Nigeria"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Ir\u00e1n"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "9"
+            "trait_type": "Real Name",
+            "value": "Morteza Pouraliganji"
         },
         {
-            "trait_type": "Ataque",
-            "value": 46
+            "trait_type": "ATK",
+            "value": 28
         },
         {
-            "trait_type": "Defensa",
-            "value": 92
+            "trait_type": "DEF",
+            "value": 68
         },
         {
-            "trait_type": "Hype",
-            "value": 95
+            "trait_type": "HYPE",
+            "value": 55
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Paris Sapphire PSG"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Positional Read"
         }
     ],
     "properties": {

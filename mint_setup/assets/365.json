@@ -1,41 +1,62 @@
 {
-    "name": "Kalidou Kouli-Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Kalidou Kouli-Block (Senegal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #366 \u2014 Thomas Partey-Root",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Defensive Shield, Engine Room, Physical Titan, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "365.png",
+    "external_url": "https://goalchain.fun/nft/366",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Senegal"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Ghana"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "2"
+            "trait_type": "Real Name",
+            "value": "Thomas Partey"
         },
         {
-            "trait_type": "Ataque",
-            "value": 54
+            "trait_type": "ATK",
+            "value": 58
         },
         {
-            "trait_type": "Defensa",
-            "value": 53
+            "trait_type": "DEF",
+            "value": 75
         },
         {
-            "trait_type": "Hype",
-            "value": 76
+            "trait_type": "HYPE",
+            "value": 78
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
         }
     ],
     "properties": {

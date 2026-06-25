@@ -1,48 +1,69 @@
 {
-    "name": "El Bilal Tou-Goal",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - El Bilal Tou-Goal (Malí). undefined",
+    "name": "GoalChain Genesis #509 — Ihsan Hadda-Leader",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Defensive Titan, Captain Leader, Aerial Duelist, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/509_el_bilal_tou-goal.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/509_ihsan_hadda-leader.webp",
+    "external_url": "https://goalchain.fun/nft/509",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Malí"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "Country",
+            "value": "Jordania"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Ihsan Haddad"
         },
         {
-            "trait_type": "Ataque",
-            "value": 93
+            "trait_type": "ATK",
+            "value": 40
         },
         {
-            "trait_type": "Defensa",
-            "value": 26
+            "trait_type": "DEF",
+            "value": 76
         },
         {
-            "trait_type": "Hype",
-            "value": 88
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Amman Desert Dunes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Steel Aura"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/509_el_bilal_tou-goal.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/509_ihsan_hadda-leader.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

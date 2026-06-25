@@ -1,41 +1,58 @@
 {
-    "name": "Federico Chain-sa",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Federico Chain-sa (Italia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #262 \u2014 Kieran Tier-Wrap",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Wing Overlap, Speed Defender, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "261.png",
+    "external_url": "https://goalchain.fun/nft/262",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Italia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Escocia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "2"
+            "trait_type": "Real Name",
+            "value": "Kieran Tierney"
         },
         {
-            "trait_type": "Ataque",
-            "value": 71
+            "trait_type": "ATK",
+            "value": 52
         },
         {
-            "trait_type": "Defensa",
+            "trait_type": "DEF",
+            "value": 70
+        },
+        {
+            "trait_type": "HYPE",
             "value": 65
         },
         {
-            "trait_type": "Hype",
-            "value": 47
+            "trait_type": "Jersey Number",
+            "value": "2"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Parody Club",
+            "value": "Amsterdam Ajax Logic"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
         }
     ],
     "properties": {

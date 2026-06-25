@@ -1,41 +1,58 @@
 {
-    "name": "Capit\u00e1n TEAM_20",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Capit\u00e1n TEAM_20 (Australia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #495 \u2014 Omar Kamal-Wing",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a rare asset. Known globally for being a Speed Winger, Technical Maestro, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "494.png",
+    "external_url": "https://goalchain.fun/nft/495",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Australia"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "Country",
+            "value": "Egipto"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "1"
+            "trait_type": "Real Name",
+            "value": "Ahmed Sayed Zizo"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "ATK",
+            "value": 68
+        },
+        {
+            "trait_type": "DEF",
+            "value": 18
+        },
+        {
+            "trait_type": "HYPE",
             "value": 58
         },
         {
-            "trait_type": "Defensa",
-            "value": 52
+            "trait_type": "Jersey Number",
+            "value": "7"
         },
         {
-            "trait_type": "Hype",
-            "value": 54
+            "trait_type": "Parody Club",
+            "value": "Cairo White Knight"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Visual Effect",
+            "value": "Lightning Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Technical Maestro"
         }
     ],
     "properties": {

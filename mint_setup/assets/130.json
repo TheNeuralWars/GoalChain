@@ -1,41 +1,54 @@
 {
-    "name": "Jamal Moon-siala",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jamal Moon-siala (Alemania). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #131 \u2014 Noussair Mazra-Side",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Recovery Pace, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "130.png",
+    "external_url": "https://goalchain.fun/nft/131",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Alemania"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "Country",
+            "value": "Marruecos"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "1"
+            "trait_type": "Real Name",
+            "value": "Noussair Mazraoui"
         },
         {
-            "trait_type": "Ataque",
-            "value": 93
+            "trait_type": "ATK",
+            "value": 11
         },
         {
-            "trait_type": "Defensa",
-            "value": 84
+            "trait_type": "DEF",
+            "value": 61
         },
         {
-            "trait_type": "Hype",
-            "value": 49
+            "trait_type": "HYPE",
+            "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Recovery Pace"
         }
     ],
     "properties": {

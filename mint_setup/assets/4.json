@@ -1,41 +1,58 @@
 {
-    "name": "Argentina Player 5",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Argentina Player 5 (Argentina). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #005 \u2014 Rodrigo HODL-Paul",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, Visionary, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "4.png",
+    "external_url": "https://goalchain.fun/nft/5",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
+            "trait_type": "Rarity",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Position",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Country",
             "value": "Argentina"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Real Name",
+            "value": "Rodrigo De Paul"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "ATK",
+            "value": 88
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "5"
+            "trait_type": "DEF",
+            "value": 90
         },
         {
-            "trait_type": "Ataque",
-            "value": 57
+            "trait_type": "HYPE",
+            "value": 89
         },
         {
-            "trait_type": "Defensa",
-            "value": 84
+            "trait_type": "Jersey Number",
+            "value": "7"
         },
         {
-            "trait_type": "Hype",
-            "value": 92
+            "trait_type": "Parody Club",
+            "value": "Madrid Mattress Makers"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Visionary"
         }
     ],
     "properties": {

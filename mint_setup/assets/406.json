@@ -1,41 +1,58 @@
 {
-    "name": "Colombia Star 17 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Colombia Star 17 Mint (Colombia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #407 \u2014 Oumar Diaki-Flash",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a rare asset. Known globally for being a Speed Winger, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "406.png",
+    "external_url": "https://goalchain.fun/nft/407",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Colombia"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Costa de marfil"
         },
         {
-            "trait_type": "N\u00famero",
+            "trait_type": "Real Name",
+            "value": "Oumar Diakit\u00e9"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 68
+        },
+        {
+            "trait_type": "DEF",
+            "value": 18
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
             "value": "17"
         },
         {
-            "trait_type": "Ataque",
-            "value": 67
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
         },
         {
-            "trait_type": "Defensa",
-            "value": 47
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
         },
         {
-            "trait_type": "Hype",
-            "value": 64
+            "trait_type": "Trait",
+            "value": "Speed Winger"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {

@@ -1,48 +1,69 @@
 {
-    "name": "Kasper Vault-ichel",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Kasper Vault-ichel (Dinamarca). undefined",
+    "name": "GoalChain Genesis #189 — Martin Øde-Gas",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, Vision Master, Captain Leader, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/189_kasper_vault-ichel.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/189_martin_de-gas.webp",
+    "external_url": "https://goalchain.fun/nft/189",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Dinamarca"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posición",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Noruega"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Martin Ødegaard"
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
+            "trait_type": "ATK",
+            "value": 82
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "DEF",
+            "value": 35
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 87
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Cannon Fire"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/189_kasper_vault-ichel.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/189_martin_de-gas.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

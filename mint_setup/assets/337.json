@@ -1,41 +1,58 @@
 {
-    "name": "Marruecos Star 26 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Marruecos Star 26 Token (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #338 \u2014 Mathias Olive-Run",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Wing Overlap, Speed Defender, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "337.png",
+    "external_url": "https://goalchain.fun/nft/338",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Marruecos"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Uruguay"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "26"
+            "trait_type": "Real Name",
+            "value": "Math\u00edas Olivera"
         },
         {
-            "trait_type": "Ataque",
-            "value": 62
+            "trait_type": "ATK",
+            "value": 60
         },
         {
-            "trait_type": "Defensa",
-            "value": 59
+            "trait_type": "DEF",
+            "value": 70
         },
         {
-            "trait_type": "Hype",
-            "value": 49
+            "trait_type": "HYPE",
+            "value": 70
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Naples Blue Volcano"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Chain Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
         }
     ],
     "properties": {

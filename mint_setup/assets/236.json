@@ -1,41 +1,58 @@
 {
-    "name": "Memphis Moon-phis",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Memphis Moon-phis (Pa\u00edses Bajos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #237 \u2014 Lucas Berg-Bull",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Vision Master, Playmaker, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "236.png",
+    "external_url": "https://goalchain.fun/nft/237",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Pa\u00edses Bajos"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Suecia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "3"
+            "trait_type": "Real Name",
+            "value": "Lucas Bergvall"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 71
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "DEF",
+            "value": 38
         },
         {
-            "trait_type": "Hype",
-            "value": 31
+            "trait_type": "HYPE",
+            "value": 70
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Cockerel Spurs"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cyber Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
         }
     ],
     "properties": {

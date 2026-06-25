@@ -1,41 +1,58 @@
 {
-    "name": "Alemania Player 19",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alemania Player 19 (Alemania). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #149 \u2014 Nicolas Ledger-Jackson",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Clinical Finisher, Speed Monster, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "148.png",
+    "external_url": "https://goalchain.fun/nft/149",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Alemania"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Senegal"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "19"
+            "trait_type": "Real Name",
+            "value": "Nicolas Jackson"
         },
         {
-            "trait_type": "Ataque",
-            "value": 79
+            "trait_type": "ATK",
+            "value": 80
         },
         {
-            "trait_type": "Defensa",
-            "value": 51
+            "trait_type": "DEF",
+            "value": 20
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 78
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Monster"
         }
     ],
     "properties": {

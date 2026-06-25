@@ -1,41 +1,58 @@
 {
-    "name": "EEUU Star 19 Ledger",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - EEUU Star 19 Ledger (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #227 \u2014 Robin Hran-Halving",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Aerial Duelist, Positional Read, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "226.png",
+    "external_url": "https://goalchain.fun/nft/227",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "EEUU"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Rep\u00fablica Checa"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "19"
+            "trait_type": "Real Name",
+            "value": "Robin Hran\u00e1\u010d"
         },
         {
-            "trait_type": "Ataque",
-            "value": 52
+            "trait_type": "ATK",
+            "value": 38
         },
         {
-            "trait_type": "Defensa",
-            "value": 98
+            "trait_type": "DEF",
+            "value": 76
         },
         {
-            "trait_type": "Hype",
-            "value": 77
+            "trait_type": "HYPE",
+            "value": 63
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Eindhoven Light Bulbs"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Shield Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Positional Read"
         }
     ],
     "properties": {

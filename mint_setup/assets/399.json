@@ -1,41 +1,62 @@
 {
-    "name": "Colombia Star 10 Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Colombia Star 10 Block (Colombia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #400 \u2014 Ousmane Dioman-Wall",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Defensive Wall, Aerial Duelist, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "399.png",
+    "external_url": "https://goalchain.fun/nft/400",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Colombia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Costa de marfil"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "10"
+            "trait_type": "Real Name",
+            "value": "Ousmane Diomande"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 30
         },
         {
-            "trait_type": "Defensa",
-            "value": 88
+            "trait_type": "DEF",
+            "value": 78
         },
         {
-            "trait_type": "Hype",
-            "value": 52
+            "trait_type": "HYPE",
+            "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {

@@ -142,7 +142,7 @@ def search_trending_match() -> str:
 # ─────────────────────────────────────────────
 
 def _call_nvidia_nim(prompt: str) -> str:
-    """Call NVIDIA NIM API (Llama 3.1 Nemotron 70B) via REST."""
+    """Call NVIDIA NIM API (Llama 3.3 70B) via REST."""
     from config import NVIDIA_API_KEY
     import urllib.request, urllib.error
     if not NVIDIA_API_KEY:
@@ -150,10 +150,10 @@ def _call_nvidia_nim(prompt: str) -> str:
     
     url = "https://integrate.api.nvidia.com/v1/chat/completions"
     payload = json.dumps({
-        "model": "nvidia/llama-3.1-nemotron-70b-instruct",
+        "model": "meta/llama-3.3-70b-instruct",
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.3,
-        "max_tokens": 1024
+        "max_tokens": 2048
     }).encode("utf-8")
     
     req = urllib.request.Request(
@@ -606,18 +606,16 @@ def _get_youtube_service():
             if app_type == "web":
                 # Patch to 'installed' format so InstalledAppFlow works
                 secrets_data["installed"] = secrets_data.pop("web")
-                secrets_data["installed"].setdefault(
-                    "redirect_uris", ["urn:ietf:wg:oauth:2.0:oob", "http://localhost"]
-                )
+                secrets_data["installed"]["redirect_uris"] = ["http://localhost:8080/"]
                 patched_path = YT_CLIENT_SECRETS_FILE.parent / "_yt_secrets_patched.json"
                 patched_path.write_text(_json.dumps(secrets_data), encoding="utf-8")
                 secrets_file = str(patched_path)
-                print("[YouTube] Web-type credentials patched to 'installed' for local flow.")
+                print("[YouTube] Web-type credentials patched to 'installed' with strict port 8080 redirect.")
             else:
                 secrets_file = str(YT_CLIENT_SECRETS_FILE)
 
             flow = InstalledAppFlow.from_client_secrets_file(secrets_file, YT_SCOPES)
-            creds = flow.run_local_server(port=0)
+            creds = flow.run_local_server(port=8080)
 
             # Cleanup patched file if created
             patched = YT_CLIENT_SECRETS_FILE.parent / "_yt_secrets_patched.json"

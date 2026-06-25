@@ -1,41 +1,58 @@
 {
-    "name": "Suiza Star 12 Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Suiza Star 12 Chain (Suiza). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #428 \u2014 Lenny Jose-Sprint",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a rare asset. Known globally for being a Speed Winger, Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "427.png",
+    "external_url": "https://goalchain.fun/nft/428",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Suiza"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Hait\u00ed"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "12"
+            "trait_type": "Real Name",
+            "value": "Lenny Joseph"
         },
         {
-            "trait_type": "Ataque",
-            "value": 72
+            "trait_type": "ATK",
+            "value": 66
         },
         {
-            "trait_type": "Defensa",
-            "value": 76
+            "trait_type": "DEF",
+            "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 32
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "17"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dijon Mustard FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Lightning Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {

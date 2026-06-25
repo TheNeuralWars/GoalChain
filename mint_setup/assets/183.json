@@ -1,41 +1,54 @@
 {
-    "name": "Memo Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Memo Block (M\u00e9xico). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #184 \u2014 Sultan Al-Curve",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Recovery Pace, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "183.png",
+    "external_url": "https://goalchain.fun/nft/184",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "M\u00e9xico"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Arabia saud\u00ed"
         },
         {
-            "trait_type": "N\u00famero",
+            "trait_type": "Real Name",
+            "value": "Sultan Al-Ghannam"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 23
+        },
+        {
+            "trait_type": "DEF",
+            "value": 70
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 62
+        },
+        {
+            "trait_type": "Jersey Number",
             "value": "2"
         },
         {
-            "trait_type": "Ataque",
-            "value": 76
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
         },
         {
-            "trait_type": "Defensa",
-            "value": 85
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
         },
         {
-            "trait_type": "Hype",
-            "value": 60
-        },
-        {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Trait",
+            "value": "Recovery Pace"
         }
     ],
     "properties": {

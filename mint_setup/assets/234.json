@@ -1,41 +1,62 @@
 {
-    "name": "Capit\u00e1n TEAM_10",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Capit\u00e1n TEAM_10 (Pa\u00edses Bajos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #235 \u2014 Dejan Kulu-Slippage",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Creative Spark, Dribbling God, Box To Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "234.png",
+    "external_url": "https://goalchain.fun/nft/235",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Pa\u00edses Bajos"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Legendary"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "1"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 98
+            "trait_type": "Country",
+            "value": "Suecia"
         },
         {
-            "trait_type": "Defensa",
-            "value": 77
+            "trait_type": "Real Name",
+            "value": "Dejan Kulusevski"
         },
         {
-            "trait_type": "Hype",
-            "value": 90
+            "trait_type": "ATK",
+            "value": 80
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 32
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 82
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Cockerel Spurs"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Neon Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box To Box"
         }
     ],
     "properties": {

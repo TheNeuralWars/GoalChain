@@ -1,41 +1,62 @@
 {
-    "name": "Marruecos Star 8 Gas",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Marruecos Star 8 Gas (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #320 \u2014 Leandro Bacu-Bull",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Captain Leader, Creative Spark, Vision Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "319.png",
+    "external_url": "https://goalchain.fun/nft/320",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Marruecos"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Curazao"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "8"
+            "trait_type": "Real Name",
+            "value": "Leandro Bacuna"
         },
         {
-            "trait_type": "Ataque",
-            "value": 51
+            "trait_type": "ATK",
+            "value": 72
         },
         {
-            "trait_type": "Defensa",
-            "value": 58
+            "trait_type": "DEF",
+            "value": 45
         },
         {
-            "trait_type": "Hype",
-            "value": 53
+            "trait_type": "HYPE",
+            "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Cardiff Blue Dragons"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
         }
     ],
     "properties": {

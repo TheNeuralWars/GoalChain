@@ -1,41 +1,54 @@
 {
-    "name": "Brasil Player 24",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Brasil Player 24 (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #050 \u2014 Unai Sim\u00f3n-Key",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a rare asset. Known globally for being a Aerial Commander, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "49.png",
+    "external_url": "https://goalchain.fun/nft/50",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Brasil"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Espa\u00f1a"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "24"
+            "trait_type": "Real Name",
+            "value": "Unai Sim\u00f3n"
         },
         {
-            "trait_type": "Ataque",
-            "value": 69
+            "trait_type": "ATK",
+            "value": 36
         },
         {
-            "trait_type": "Defensa",
-            "value": 93
+            "trait_type": "DEF",
+            "value": 78
         },
         {
-            "trait_type": "Hype",
-            "value": 43
+            "trait_type": "HYPE",
+            "value": 74
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Commander"
         }
     ],
     "properties": {

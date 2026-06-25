@@ -1,41 +1,58 @@
 {
-    "name": "Aaron Mooy-Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Aaron Mooy-Chain (Australia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #497 \u2014 Ronwen Will-Safe",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Shot Stopper, Command Post, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "496.png",
+    "external_url": "https://goalchain.fun/nft/497",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Australia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Sud\u00e1frica"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "3"
+            "trait_type": "Real Name",
+            "value": "Ronwen Williams"
         },
         {
-            "trait_type": "Ataque",
-            "value": 88
+            "trait_type": "ATK",
+            "value": 12
         },
         {
-            "trait_type": "Defensa",
-            "value": 53
+            "trait_type": "DEF",
+            "value": 76
         },
         {
-            "trait_type": "Hype",
-            "value": 46
+            "trait_type": "HYPE",
+            "value": 68
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Command Post"
         }
     ],
     "properties": {

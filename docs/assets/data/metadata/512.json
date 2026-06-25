@@ -1,48 +1,65 @@
 {
-    "name": "Djigui Diar-Safe",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Djigui Diar-Safe (Malí). undefined",
+    "name": "GoalChain Genesis #512 — Noor Al-Rawa-Flow",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Engine Room, Pressing Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/512_djigui_diar-safe.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/512_noor_al-rawa-flow.webp",
+    "external_url": "https://goalchain.fun/nft/512",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Malí"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Jordania"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Noor Al-Rawabdeh"
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
+            "trait_type": "ATK",
+            "value": 66
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "DEF",
+            "value": 48
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Amman Green Oasis"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Iron Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Pressing Master"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/512_djigui_diar-safe.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/512_noor_al-rawa-flow.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

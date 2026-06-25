@@ -1,41 +1,54 @@
 {
-    "name": "Portugal Player 10",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 10 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #166 \u2014 Mat Ryan-Hands",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a rare asset. Known globally for being a Quick Reflexes, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "165.png",
+    "external_url": "https://goalchain.fun/nft/166",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Australia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "10"
+            "trait_type": "Real Name",
+            "value": "Mathew Ryan"
         },
         {
-            "trait_type": "Ataque",
-            "value": 69
+            "trait_type": "ATK",
+            "value": 33
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "DEF",
+            "value": 75
         },
         {
-            "trait_type": "Hype",
-            "value": 74
+            "trait_type": "HYPE",
+            "value": 77
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "13"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Paris Sapphire PSG"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Quick Reflexes"
         }
     ],
     "properties": {

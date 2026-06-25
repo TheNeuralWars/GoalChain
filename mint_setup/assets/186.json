@@ -1,41 +1,54 @@
 {
-    "name": "Edson Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Edson Mint (M\u00e9xico). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #187 \u2014 Moh Kanno-Pivot",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Box-to-Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "186.png",
+    "external_url": "https://goalchain.fun/nft/187",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "M\u00e9xico"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Arabia saud\u00ed"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "5"
+            "trait_type": "Real Name",
+            "value": "Mohammed Kanno"
         },
         {
-            "trait_type": "Ataque",
-            "value": 66
+            "trait_type": "ATK",
+            "value": 70
         },
         {
-            "trait_type": "Defensa",
-            "value": 71
+            "trait_type": "DEF",
+            "value": 64
         },
         {
-            "trait_type": "Hype",
-            "value": 51
+            "trait_type": "HYPE",
+            "value": 76
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "28"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Barcelona Garnet Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box-to-Box"
         }
     ],
     "properties": {

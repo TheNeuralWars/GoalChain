@@ -1,48 +1,65 @@
 {
-    "name": "Abdu Al-Mind",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Abdu Al-Mind (Arabia saudí). undefined",
+    "name": "GoalChain Genesis #186 — Abdu Al-Mind",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speedster, Dribbling Wizard, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/186_abdu_al-mind.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/186_abdu_al-mind.webp",
+    "external_url": "https://goalchain.fun/nft/186",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Arabia saudí"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Arabia saudí"
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "Real Name",
+            "value": "Abdulrahman Al-Oboud"
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "ATK",
+            "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 36
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 77
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "24"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speedster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling Wizard"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/186_abdu_al-mind.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/186_abdu_al-mind.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

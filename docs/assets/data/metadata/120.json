@@ -1,48 +1,65 @@
 {
-    "name": "Liam Millar-Cross",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Liam Millar-Cross (Canadá). undefined",
+    "name": "GoalChain Genesis #120 — Liam Millar-Cross",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Positional Read, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/120_liam_millar-cross.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/120_liam_millar-cross.webp",
+    "external_url": "https://goalchain.fun/nft/120",
     "attributes": [
         {
-            "trait_type": "País",
+            "trait_type": "Rarity",
+            "value": "Rare"
+        },
+        {
+            "trait_type": "Position",
+            "value": "DEF"
+        },
+        {
+            "trait_type": "Country",
             "value": "Canadá"
         },
         {
-            "trait_type": "Posición",
-            "value": "FWD"
+            "trait_type": "Real Name",
+            "value": "Derek Cornelius"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "ATK",
+            "value": 28
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "DEF",
+            "value": 68
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "HYPE",
+            "value": 58
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "Jersey Number",
+            "value": "6"
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "Parody Club",
+            "value": "Brussels Waffle Bakers"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Visual Effect",
+            "value": "Steel Aura"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Positional Read"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/120_liam_millar-cross.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/120_liam_millar-cross.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

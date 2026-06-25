@@ -1,41 +1,58 @@
 {
-    "name": "Nigeria Pro 18 Gas",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nigeria Pro 18 Gas (Nigeria). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #460 \u2014 Amir Al-Ammari-Hub",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Creative Spark, Engine Room, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "459.png",
+    "external_url": "https://goalchain.fun/nft/460",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Nigeria"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "18"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 72
+            "trait_type": "Country",
+            "value": "Irak"
         },
         {
-            "trait_type": "Defensa",
+            "trait_type": "Real Name",
+            "value": "Amir Al-Ammari"
+        },
+        {
+            "trait_type": "ATK",
             "value": 55
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "DEF",
+            "value": 52
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "HYPE",
+            "value": 55
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
         }
     ],
     "properties": {

@@ -1,41 +1,54 @@
 {
-    "name": "Neymar HODL",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Neymar HODL (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #029 \u2014 Jordan Pick-Ledger",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a rare asset. Known globally for being a Quick Reflexes, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "28.png",
+    "external_url": "https://goalchain.fun/nft/29",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Brasil"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Inglaterra"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "3"
+            "trait_type": "Real Name",
+            "value": "Jordan Pickford"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "ATK",
+            "value": 10
+        },
+        {
+            "trait_type": "DEF",
             "value": 73
         },
         {
-            "trait_type": "Defensa",
-            "value": 74
+            "trait_type": "HYPE",
+            "value": 73
         },
         {
-            "trait_type": "Hype",
-            "value": 60
+            "trait_type": "Jersey Number",
+            "value": "1"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Parody Club",
+            "value": "Paris Sapphire PSG"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Quick Reflexes"
         }
     ],
     "properties": {

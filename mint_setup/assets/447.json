@@ -1,41 +1,58 @@
 {
-    "name": "Nigeria Pro 6 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nigeria Pro 6 Token (Nigeria). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #448 \u2014 Saeid Ezat-Base",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Defensive Shield, Engine Room, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "447.png",
+    "external_url": "https://goalchain.fun/nft/448",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Nigeria"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
+            "trait_type": "Position",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Country",
+            "value": "Ir\u00e1n"
+        },
+        {
+            "trait_type": "Real Name",
+            "value": "Saeid Ezatolahi"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 55
+        },
+        {
+            "trait_type": "DEF",
+            "value": 62
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
             "value": "6"
         },
         {
-            "trait_type": "Ataque",
-            "value": 77
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
         },
         {
-            "trait_type": "Defensa",
-            "value": 89
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
         },
         {
-            "trait_type": "Hype",
-            "value": 32
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Trait",
+            "value": "Engine Room"
         }
     ],
     "properties": {

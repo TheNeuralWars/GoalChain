@@ -1,41 +1,58 @@
 {
-    "name": "Pedri P2P",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Pedri P2P (Espa\u00f1a). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #106 \u2014 C\u00e9sar Mint-Montes",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Defensive Wall, Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "105.png",
+    "external_url": "https://goalchain.fun/nft/106",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Espa\u00f1a"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "2"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 64
+            "trait_type": "Country",
+            "value": "M\u00e9xico"
         },
         {
-            "trait_type": "Defensa",
-            "value": 47
+            "trait_type": "Real Name",
+            "value": "C\u00e9sar Montes"
         },
         {
-            "trait_type": "Hype",
-            "value": 81
+            "trait_type": "ATK",
+            "value": 30
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 74
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 68
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Powerhouse"
         }
     ],
     "properties": {

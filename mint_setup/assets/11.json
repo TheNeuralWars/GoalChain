@@ -1,41 +1,62 @@
 {
-    "name": "Robert Lewan-DAO-ski",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Robert Lewan-DAO-ski (Polonia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #012 \u2014 Kylian Moon-bapp\u00e9",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a Sonic Speed, Elite Striker, Golden Boy, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "11.png",
+    "external_url": "https://goalchain.fun/nft/12",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Polonia"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "Country",
+            "value": "Francia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "9"
+            "trait_type": "Real Name",
+            "value": "Kylian Mbapp\u00e9"
         },
         {
-            "trait_type": "Ataque",
-            "value": 92
+            "trait_type": "ATK",
+            "value": 98
         },
         {
-            "trait_type": "Defensa",
-            "value": 40
+            "trait_type": "DEF",
+            "value": 30
         },
         {
-            "trait_type": "Hype",
-            "value": 90
+            "trait_type": "HYPE",
+            "value": 95
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Sonic Speed"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Elite Striker"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Golden Boy"
         }
     ],
     "properties": {

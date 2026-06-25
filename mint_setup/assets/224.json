@@ -1,41 +1,58 @@
 {
-    "name": "EEUU Star 17 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - EEUU Star 17 Mint (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #225 \u2014 Ladislav Krej-Crypto",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Defensive Wall, Captain Leader, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "224.png",
+    "external_url": "https://goalchain.fun/nft/225",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "EEUU"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Rep\u00fablica Checa"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "17"
+            "trait_type": "Real Name",
+            "value": "Ladislav Krej\u010d\u00ed"
         },
         {
-            "trait_type": "Ataque",
-            "value": 56
+            "trait_type": "ATK",
+            "value": 40
         },
         {
-            "trait_type": "Defensa",
-            "value": 73
+            "trait_type": "DEF",
+            "value": 75
         },
         {
-            "trait_type": "Hype",
-            "value": 91
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Catalan Girona Red"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Steel Aura"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
         }
     ],
     "properties": {

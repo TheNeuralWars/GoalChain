@@ -1,41 +1,58 @@
 {
-    "name": "Australia Pro 16 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Australia Pro 16 Token (Australia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #510 \u2014 Ali Olwa-Strike",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Clinical Finisher, Goal Machine, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "509.png",
+    "external_url": "https://goalchain.fun/nft/510",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Australia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Jordania"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "16"
+            "trait_type": "Real Name",
+            "value": "Ali Olwan"
         },
         {
-            "trait_type": "Ataque",
-            "value": 40
+            "trait_type": "ATK",
+            "value": 73
         },
         {
-            "trait_type": "Defensa",
-            "value": 48
+            "trait_type": "DEF",
+            "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 51
+            "trait_type": "HYPE",
+            "value": 68
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Abu Dhabi Sand Storm"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Machine"
         }
     ],
     "properties": {

@@ -1,48 +1,65 @@
 {
-    "name": "Paulo Diaz-Lock",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Paulo Diaz-Lock (Chile). undefined",
+    "name": "GoalChain Genesis #336 — Rodrigo Bentan-Logic",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Vision Master, Defensive Shield, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/336_paulo_diaz-lock.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/336_rodrigo_bentan-logic.webp",
+    "external_url": "https://goalchain.fun/nft/336",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Chile"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Uruguay"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Rodrigo Bentancur"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "ATK",
+            "value": 72
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "DEF",
+            "value": 55
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "HYPE",
             "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Cockerel Spurs"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/336_paulo_diaz-lock.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/336_rodrigo_bentan-logic.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

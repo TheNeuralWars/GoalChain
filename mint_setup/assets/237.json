@@ -1,41 +1,58 @@
 {
-    "name": "Cody Gak-P2P",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Cody Gak-P2P (Pa\u00edses Bajos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #238 \u2014 Robin Olsgwei",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Shot Stopper, Command Post, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "237.png",
+    "external_url": "https://goalchain.fun/nft/238",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Pa\u00edses Bajos"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Suecia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "4"
+            "trait_type": "Real Name",
+            "value": "Robin Olsen"
         },
         {
-            "trait_type": "Ataque",
-            "value": 43
+            "trait_type": "ATK",
+            "value": 18
         },
         {
-            "trait_type": "Defensa",
-            "value": 83
+            "trait_type": "DEF",
+            "value": 82
         },
         {
-            "trait_type": "Hype",
-            "value": 74
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Bergamo Goddess Guild"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Guardian Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Command Post"
         }
     ],
     "properties": {

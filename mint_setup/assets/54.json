@@ -1,41 +1,58 @@
 {
-    "name": "Francia Player 3",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Francia Player 3 (Francia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #055 \u2014 Dani Yield-Olmo",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, Technical Maestro, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "54.png",
+    "external_url": "https://goalchain.fun/nft/55",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Francia"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Espa\u00f1a"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "3"
+            "trait_type": "Real Name",
+            "value": "Dani Olmo"
         },
         {
-            "trait_type": "Ataque",
-            "value": 55
+            "trait_type": "ATK",
+            "value": 89
         },
         {
-            "trait_type": "Defensa",
-            "value": 81
+            "trait_type": "DEF",
+            "value": 88
         },
         {
-            "trait_type": "Hype",
-            "value": 57
+            "trait_type": "HYPE",
+            "value": 85
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "20"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Blue Lions"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Technical Maestro"
         }
     ],
     "properties": {

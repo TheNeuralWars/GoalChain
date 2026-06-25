@@ -1,41 +1,54 @@
 {
-    "name": "Portugal Player 12",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 12 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #168 \u2014 Jackson Irvine-Head",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Box-to-Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "167.png",
+    "external_url": "https://goalchain.fun/nft/168",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Australia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "12"
+            "trait_type": "Real Name",
+            "value": "Jackson Irvine"
         },
         {
-            "trait_type": "Ataque",
-            "value": 52
+            "trait_type": "ATK",
+            "value": 65
         },
         {
-            "trait_type": "Defensa",
-            "value": 53
+            "trait_type": "DEF",
+            "value": 68
         },
         {
-            "trait_type": "Hype",
-            "value": 92
+            "trait_type": "HYPE",
+            "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Barcelona Garnet Block"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box-to-Box"
         }
     ],
     "properties": {

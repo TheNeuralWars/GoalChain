@@ -1,48 +1,61 @@
 {
-    "name": "Nuno Mendes-Flow",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nuno Mendes-Flow (Portugal). undefined",
+    "name": "GoalChain Genesis #075 — Nuno Mendes-Flow",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Recovery Pace, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/075_nuno_mendes-flow.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/075_nuno_mendes-flow.webp",
+    "external_url": "https://goalchain.fun/nft/75",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Portugal"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "Country",
+            "value": "Portugal"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Nuno Mendes"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
+            "value": 44
+        },
+        {
+            "trait_type": "DEF",
             "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "HYPE",
+            "value": 77
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "25"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Recovery Pace"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/075_nuno_mendes-flow.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/075_nuno_mendes-flow.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

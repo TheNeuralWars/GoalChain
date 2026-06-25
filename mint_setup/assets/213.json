@@ -1,41 +1,58 @@
 {
-    "name": "EEUU Star 6 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - EEUU Star 6 Token (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #214 \u2014 Dominik Liva-Key",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Shot Stopper, Penalty Wall, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "213.png",
+    "external_url": "https://goalchain.fun/nft/214",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "EEUU"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Croacia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "6"
+            "trait_type": "Real Name",
+            "value": "Dominik Livakovi\u0107"
         },
         {
-            "trait_type": "Ataque",
-            "value": 55
+            "trait_type": "ATK",
+            "value": 18
         },
         {
-            "trait_type": "Defensa",
-            "value": 42
+            "trait_type": "DEF",
+            "value": 84
         },
         {
-            "trait_type": "Hype",
-            "value": 45
+            "trait_type": "HYPE",
+            "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Zagreb Blue Dynamo"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Guardian Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Penalty Wall"
         }
     ],
     "properties": {

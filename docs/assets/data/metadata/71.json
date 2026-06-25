@@ -1,48 +1,65 @@
 {
-    "name": "Ruben Dias-Base",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ruben Dias-Base (Portugal). undefined",
+    "name": "GoalChain Genesis #071 — Rúben Block-Dias",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a legendary asset. Known globally for being a The Rock, Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/071_ruben_dias-base.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/071_rben_block-dias.webp",
+    "external_url": "https://goalchain.fun/nft/71",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Portugal"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Legendary"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "Country",
+            "value": "Portugal"
+        },
+        {
+            "trait_type": "Real Name",
+            "value": "Rúben Dias"
+        },
+        {
+            "trait_type": "ATK",
             "value": 37
         },
         {
-            "trait_type": "Defensa",
-            "value": 93
+            "trait_type": "DEF",
+            "value": 91
         },
         {
-            "trait_type": "Hype",
-            "value": 92
+            "trait_type": "HYPE",
+            "value": 90
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "The Rock"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Powerhouse"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/071_ruben_dias-base.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/071_rben_block-dias.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

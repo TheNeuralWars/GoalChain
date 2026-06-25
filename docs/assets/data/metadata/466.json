@@ -1,48 +1,69 @@
 {
-    "name": "Hassan Al-Hay-Chief",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Hassan Al-Hay-Chief (Qatar). undefined",
+    "name": "GoalChain Genesis #466 — Hassan Al-Hay-Chief",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Captain Leader, Technical Maestro, Creative Spark, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/466_hassan_al-hay-chief.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/466_hassan_al-hay-chief.webp",
+    "external_url": "https://goalchain.fun/nft/466",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Qatar"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Qatar"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Hassan Al-Haydos"
         },
         {
-            "trait_type": "Ataque",
-            "value": 98
+            "trait_type": "ATK",
+            "value": 68
         },
         {
-            "trait_type": "Defensa",
-            "value": 28
+            "trait_type": "DEF",
+            "value": 20
         },
         {
-            "trait_type": "Hype",
-            "value": 95
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Technical Maestro"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/466_hassan_al-hay-chief.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/466_hassan_al-hay-chief.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

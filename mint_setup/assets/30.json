@@ -1,41 +1,54 @@
 {
-    "name": "Richarlison-NFT",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Richarlison-NFT (Brasil). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #031 \u2014 Trent Cross-Network",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a legendary asset. Known globally for being a The Rock, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "30.png",
+    "external_url": "https://goalchain.fun/nft/31",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Brasil"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Inglaterra"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "9"
+            "trait_type": "Real Name",
+            "value": "Trent Alexander-Arnold"
         },
         {
-            "trait_type": "Ataque",
-            "value": 85
+            "trait_type": "ATK",
+            "value": 42
         },
         {
-            "trait_type": "Defensa",
-            "value": 50
+            "trait_type": "DEF",
+            "value": 91
         },
         {
-            "trait_type": "Hype",
-            "value": 87
+            "trait_type": "HYPE",
+            "value": 88
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "12"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "The Rock"
         }
     ],
     "properties": {

@@ -1,41 +1,58 @@
 {
-    "name": "Jeremy Do-Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jeremy Do-Node (B\u00e9lgica). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #290 \u2014 Richard Rios-Stream",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Engine Room, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "289.png",
+    "external_url": "https://goalchain.fun/nft/290",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "B\u00e9lgica"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Colombia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "4"
+            "trait_type": "Real Name",
+            "value": "Richard R\u00edos"
         },
         {
-            "trait_type": "Ataque",
-            "value": 51
+            "trait_type": "ATK",
+            "value": 62
         },
         {
-            "trait_type": "Defensa",
-            "value": 76
+            "trait_type": "DEF",
+            "value": 60
         },
         {
-            "trait_type": "Hype",
-            "value": 85
+            "trait_type": "HYPE",
+            "value": 70
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "18"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Paris Sapphire PSG"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {

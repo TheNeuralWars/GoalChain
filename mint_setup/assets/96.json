@@ -1,41 +1,58 @@
 {
-    "name": "Inglaterra Player 19",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Inglaterra Player 19 (Inglaterra). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #097 \u2014 Chris Richards-Wall",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Defensive Wall, Positional Read, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "96.png",
+    "external_url": "https://goalchain.fun/nft/97",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Inglaterra"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Ee.uu."
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "19"
+            "trait_type": "Real Name",
+            "value": "Chris Richards"
         },
         {
-            "trait_type": "Ataque",
-            "value": 49
+            "trait_type": "ATK",
+            "value": 32
         },
         {
-            "trait_type": "Defensa",
-            "value": 87
+            "trait_type": "DEF",
+            "value": 72
         },
         {
-            "trait_type": "Hype",
-            "value": 96
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Positional Read"
         }
     ],
     "properties": {

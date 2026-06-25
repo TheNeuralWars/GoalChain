@@ -1,48 +1,61 @@
 {
-    "name": "Jeremie Frim-Sprint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jeremie Frim-Sprint (Países bajos). undefined",
+    "name": "GoalChain Genesis #087 — Jeremie Fee-pong",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Recovery Pace, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/087_jeremie_frim-sprint.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/087_jeremie_fee-pong.webp",
+    "external_url": "https://goalchain.fun/nft/87",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Países bajos"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "Country",
+            "value": "Países bajos"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Jeremie Frimpong"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 21
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 77
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 78
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "30"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Recovery Pace"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/087_jeremie_frim-sprint.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/087_jeremie_fee-pong.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

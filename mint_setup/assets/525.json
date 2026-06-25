@@ -1,41 +1,58 @@
 {
-    "name": "Ecuador Pro 6 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ecuador Pro 6 Token (Ecuador). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #526 \u2014 Jamshid Iskanderoff-chain",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Positional Read, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "525.png",
+    "external_url": "https://goalchain.fun/nft/526",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Ecuador"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Uzbekist\u00e1n"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "6"
+            "trait_type": "Real Name",
+            "value": "Jamshid Iskanderov"
         },
         {
-            "trait_type": "Ataque",
-            "value": 40
+            "trait_type": "ATK",
+            "value": 38
         },
         {
-            "trait_type": "Defensa",
-            "value": 73
+            "trait_type": "DEF",
+            "value": 72
         },
         {
-            "trait_type": "Hype",
-            "value": 82
+            "trait_type": "HYPE",
+            "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Tashkent Cotton Field"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Shield Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Positional Read"
         }
     ],
     "properties": {

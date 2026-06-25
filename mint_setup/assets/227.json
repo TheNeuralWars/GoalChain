@@ -1,41 +1,58 @@
 {
-    "name": "EEUU Star 20 Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - EEUU Star 20 Block (EEUU). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #228 \u2014 Pavel Sulc-Swap",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Speed Dribbler, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "227.png",
+    "external_url": "https://goalchain.fun/nft/228",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "EEUU"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Rep\u00fablica Checa"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "20"
+            "trait_type": "Real Name",
+            "value": "Pavel \u0160ulc"
         },
         {
-            "trait_type": "Ataque",
-            "value": 91
+            "trait_type": "ATK",
+            "value": 72
         },
         {
-            "trait_type": "Defensa",
-            "value": 48
+            "trait_type": "DEF",
+            "value": 35
         },
         {
-            "trait_type": "Hype",
-            "value": 50
+            "trait_type": "HYPE",
+            "value": 68
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Leverkusen Pill Builders"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Dribbler"
         }
     ],
     "properties": {

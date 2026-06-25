@@ -1,48 +1,65 @@
 {
-    "name": "Hamdi Fathi-Sweep",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Hamdi Fathi-Sweep (Egipto). undefined",
+    "name": "GoalChain Genesis #494 — Hamdi Fathi-Sweep",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Engine Room, Box To Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/494_hamdi_fathi-sweep.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/494_hamdi_fathi-sweep.webp",
+    "external_url": "https://goalchain.fun/nft/494",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Egipto"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "Country",
+            "value": "Egipto"
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "Real Name",
+            "value": "Hamdi Fathi"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 55
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 55
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 58
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box To Box"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/494_hamdi_fathi-sweep.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/494_hamdi_fathi-sweep.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,41 +1,58 @@
 {
-    "name": "Senegal Star 22 Chain",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Senegal Star 22 Chain (Senegal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #386 \u2014 Ryan Mende-Leader",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Captain Leader, Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "385.png",
+    "external_url": "https://goalchain.fun/nft/386",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Senegal"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Cabo Verde"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "22"
+            "trait_type": "Real Name",
+            "value": "Ryan Mendes"
         },
         {
-            "trait_type": "Ataque",
-            "value": 60
+            "trait_type": "ATK",
+            "value": 75
         },
         {
-            "trait_type": "Defensa",
-            "value": 56
+            "trait_type": "DEF",
+            "value": 28
         },
         {
-            "trait_type": "Hype",
-            "value": 51
+            "trait_type": "HYPE",
+            "value": 72
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Igdir Apricot Valley"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {

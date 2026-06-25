@@ -1,41 +1,58 @@
 {
-    "name": "Suiza Star 16 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Suiza Star 16 Token (Suiza). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #432 \u2014 Ismael Diaz-Goal",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Clinical Finisher, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "431.png",
+    "external_url": "https://goalchain.fun/nft/432",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Suiza"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Panam\u00e1"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "16"
+            "trait_type": "Real Name",
+            "value": "Ismael D\u00edaz"
         },
         {
-            "trait_type": "Ataque",
-            "value": 91
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 60
-        },
-        {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
             "value": 70
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 18
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 65
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Paris Sapphire PSG"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {

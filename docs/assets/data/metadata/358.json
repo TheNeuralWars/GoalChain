@@ -1,48 +1,65 @@
 {
-    "name": "Anthony Mand-Grip",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Anthony Mand-Grip (Argelia). undefined",
+    "name": "GoalChain Genesis #358 — Anthony Mand-Grip",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Quick Reflexes, Aerial Commander, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/358_anthony_mand-grip.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/358_anthony_mand-grip.webp",
+    "external_url": "https://goalchain.fun/nft/358",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Argelia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Argelia"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Anthony Mandréa"
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
+            "trait_type": "ATK",
+            "value": 26
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "DEF",
+            "value": 79
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 77
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Quick Reflexes"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Commander"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/358_anthony_mand-grip.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/358_anthony_mand-grip.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

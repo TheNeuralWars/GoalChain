@@ -1,48 +1,61 @@
 {
-    "name": "Firas Al-Dash",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Firas Al-Dash (Arabia saudí). undefined",
+    "name": "GoalChain Genesis #178 — Firas Al-Dash",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Goal Hunter, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/178_firas_al-dash.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/178_firas_al-dash.webp",
+    "external_url": "https://goalchain.fun/nft/178",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Arabia saudí"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "Country",
+            "value": "Arabia saudí"
         },
         {
-            "trait_type": "Defensa",
-            "value": 25
+            "trait_type": "Real Name",
+            "value": "Firas Al-Buraikan"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
+            "value": 83
+        },
+        {
+            "trait_type": "DEF",
+            "value": 27
+        },
+        {
+            "trait_type": "HYPE",
             "value": 82
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Hunter"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/178_firas_al-dash.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/178_firas_al-dash.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

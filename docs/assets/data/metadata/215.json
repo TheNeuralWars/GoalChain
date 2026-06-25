@@ -1,48 +1,65 @@
 {
-    "name": "Vanja Milin-Post",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Vanja Milin-Post (Serbia). undefined",
+    "name": "GoalChain Genesis #215 — Ivan Peri-Swap",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Wing Titan, Header King, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/215_vanja_milin-post.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/215_ivan_peri-swap.webp",
+    "external_url": "https://goalchain.fun/nft/215",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Serbia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Croacia"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Ivan Perišić"
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
+            "trait_type": "ATK",
+            "value": 78
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "DEF",
+            "value": 38
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "HYPE",
             "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Eindhoven Light Bulbs"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Lightning Dash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Header King"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/215_vanja_milin-post.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/215_ivan_peri-swap.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,48 +1,69 @@
 {
-    "name": "Lionel Satoshi",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Lionel Satoshi (Argentina). undefined",
+    "name": "GoalChain Genesis #001 — Lionel Satoshi",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a GOAT Aura, Playmaker Maestro, Dribbling God, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/DxjaQ.jpg",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/001_lionel_satoshi.webp",
+    "external_url": "https://goalchain.fun/nft/1",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Argentina"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Mythic"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 98
+            "trait_type": "Country",
+            "value": "Argentina"
         },
         {
-            "trait_type": "Defensa",
-            "value": 28
+            "trait_type": "Real Name",
+            "value": "Lionel Messi"
         },
         {
-            "trait_type": "Hype",
-            "value": 98
+            "trait_type": "ATK",
+            "value": 95
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 25
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 99
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Miami Pink Nodes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "GOAT Aura"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker Maestro"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/DxjaQ.jpg",
-                "type": "image/jpeg"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/001_lionel_satoshi.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

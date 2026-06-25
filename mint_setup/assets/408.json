@@ -1,41 +1,62 @@
 {
-    "name": "Colombia Star 19 Ledger",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Colombia Star 19 Ledger (Colombia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #409 \u2014 Hannibal Mejb-Cloud",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Rising Star, Engine Room, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "408.png",
+    "external_url": "https://goalchain.fun/nft/409",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Colombia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "T\u00fanez"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "19"
+            "trait_type": "Real Name",
+            "value": "Hannibal Mejbri"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "ATK",
+            "value": 68
+        },
+        {
+            "trait_type": "DEF",
+            "value": 42
+        },
+        {
+            "trait_type": "HYPE",
             "value": 70
         },
         {
-            "trait_type": "Defensa",
-            "value": 79
+            "trait_type": "Jersey Number",
+            "value": "10"
         },
         {
-            "trait_type": "Hype",
-            "value": 33
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
         }
     ],
     "properties": {

@@ -1,48 +1,65 @@
 {
-    "name": "Yusuf Abdur-Flash",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Yusuf Abdur-Flash (Qatar). undefined",
+    "name": "GoalChain Genesis #472 — Yusuf Abdur-Flash",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a rare asset. Known globally for being a Clinical Finisher, Rising Star, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/472_yusuf_abdur-flash.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/472_yusuf_abdur-flash.webp",
+    "external_url": "https://goalchain.fun/nft/472",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Qatar"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 98
+            "trait_type": "Country",
+            "value": "Qatar"
         },
         {
-            "trait_type": "Defensa",
-            "value": 28
+            "trait_type": "Real Name",
+            "value": "Yusuf Abdurisag"
         },
         {
-            "trait_type": "Hype",
-            "value": 95
+            "trait_type": "ATK",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 18
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 55
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Rising Star"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/472_yusuf_abdur-flash.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/472_yusuf_abdur-flash.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,41 +1,62 @@
 {
-    "name": "Marruecos Star 20 Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Marruecos Star 20 Block (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #332 \u2014 Darwin Nu-NFT",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Speed Monster, Physical Titan, Goal Machine, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "331.png",
+    "external_url": "https://goalchain.fun/nft/332",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Marruecos"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Uruguay"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "20"
+            "trait_type": "Real Name",
+            "value": "Darwin N\u00fa\u00f1ez"
         },
         {
-            "trait_type": "Ataque",
-            "value": 68
+            "trait_type": "ATK",
+            "value": 86
         },
         {
-            "trait_type": "Defensa",
-            "value": 50
+            "trait_type": "DEF",
+            "value": 20
         },
         {
-            "trait_type": "Hype",
-            "value": 66
+            "trait_type": "HYPE",
+            "value": 87
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Liverpool Crimson Kop"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Monster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Machine"
         }
     ],
     "properties": {

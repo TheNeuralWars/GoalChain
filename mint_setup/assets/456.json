@@ -1,41 +1,58 @@
 {
-    "name": "Nigeria Pro 15 Wallet",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nigeria Pro 15 Wallet (Nigeria). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #457 \u2014 Moha Ali-Hit",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a rare asset. Known globally for being a Speed Winger, Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "456.png",
+    "external_url": "https://goalchain.fun/nft/457",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Nigeria"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "15"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 78
+            "trait_type": "Country",
+            "value": "Irak"
         },
         {
-            "trait_type": "Defensa",
-            "value": 84
+            "trait_type": "Real Name",
+            "value": "Mohanad Ali"
         },
         {
-            "trait_type": "Hype",
-            "value": 32
+            "trait_type": "ATK",
+            "value": 68
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 18
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 58
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Winger"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {

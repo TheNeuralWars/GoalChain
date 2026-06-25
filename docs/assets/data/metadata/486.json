@@ -1,48 +1,65 @@
 {
-    "name": "Mostafa Moh-Goal",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Mostafa Moh-Goal (Egipto). undefined",
+    "name": "GoalChain Genesis #486 — Mostafa Moh-Goal",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Physical Titan, Aerial Threat, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/486_mostafa_moh-goal.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/486_mostafa_moh-goal.webp",
+    "external_url": "https://goalchain.fun/nft/486",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Egipto"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "Country",
+            "value": "Egipto"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Mostafa Mohamed"
         },
         {
-            "trait_type": "Ataque",
-            "value": 93
+            "trait_type": "ATK",
+            "value": 76
         },
         {
-            "trait_type": "Defensa",
-            "value": 26
+            "trait_type": "DEF",
+            "value": 18
         },
         {
-            "trait_type": "Hype",
-            "value": 88
+            "trait_type": "HYPE",
+            "value": 70
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Blue Lions"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Threat"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/486_mostafa_moh-goal.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/486_mostafa_moh-goal.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

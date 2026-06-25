@@ -1,41 +1,58 @@
 {
-    "name": "Jap\u00f3n Star 10 Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jap\u00f3n Star 10 Block (Jap\u00f3n). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #348 \u2014 Armin Gigo-Swap",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Vision Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "347.png",
+    "external_url": "https://goalchain.fun/nft/348",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Jap\u00f3n"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Bosnia y Herzegovina"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "10"
+            "trait_type": "Real Name",
+            "value": "Armin Gigovi\u0107"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "ATK",
+            "value": 65
+        },
+        {
+            "trait_type": "DEF",
             "value": 45
         },
         {
-            "trait_type": "Defensa",
-            "value": 92
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Hype",
-            "value": 35
+            "trait_type": "Jersey Number",
+            "value": "8"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Parody Club",
+            "value": "Freiburg Black Forest"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
         }
     ],
     "properties": {

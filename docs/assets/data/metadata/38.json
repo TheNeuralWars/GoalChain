@@ -1,48 +1,61 @@
 {
-    "name": "Bruno Guima-Liquid",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Bruno Guima-Liquid (Brasil). undefined",
+    "name": "GoalChain Genesis #038 — Bruno Guima-Liquid",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/zfItP.jpg",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/038_bruno_guima-liquid.webp",
+    "external_url": "https://goalchain.fun/nft/38",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Brasil"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Legendary"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 76
+            "trait_type": "Country",
+            "value": "Brasil"
         },
         {
-            "trait_type": "Defensa",
-            "value": 72
+            "trait_type": "Real Name",
+            "value": "Bruno Guimarães"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
             "value": 88
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 89
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 90
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "39"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/zfItP.jpg",
-                "type": "image/jpeg"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/038_bruno_guima-liquid.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

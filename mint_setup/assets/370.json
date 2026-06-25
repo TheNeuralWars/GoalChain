@@ -1,41 +1,58 @@
 {
-    "name": "Senegal Star 7 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Senegal Star 7 Mint (Senegal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #371 \u2014 Alidu Seidu-Hard",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Speed Defender, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "370.png",
+    "external_url": "https://goalchain.fun/nft/371",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Senegal"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "7"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 87
+            "trait_type": "Country",
+            "value": "Ghana"
         },
         {
-            "trait_type": "Defensa",
-            "value": 67
+            "trait_type": "Real Name",
+            "value": "Alidu Seidu"
         },
         {
-            "trait_type": "Hype",
-            "value": 74
+            "trait_type": "ATK",
+            "value": 28
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 70
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 58
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
         }
     ],
     "properties": {

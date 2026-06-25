@@ -1,41 +1,54 @@
 {
-    "name": "Darwin Nu-NFT",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Darwin Nu-NFT (Uruguay). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #017 \u2014 Mike Mainnet-nan",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a rare asset. Known globally for being a Aerial Commander, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "16.png",
+    "external_url": "https://goalchain.fun/nft/17",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Uruguay"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Francia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "9"
+            "trait_type": "Real Name",
+            "value": "Mike Maignan"
         },
         {
-            "trait_type": "Ataque",
-            "value": 86
+            "trait_type": "ATK",
+            "value": 25
         },
         {
-            "trait_type": "Defensa",
-            "value": 40
+            "trait_type": "DEF",
+            "value": 73
         },
         {
-            "trait_type": "Hype",
-            "value": 85
+            "trait_type": "HYPE",
+            "value": 64
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "16"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Commander"
         }
     ],
     "properties": {

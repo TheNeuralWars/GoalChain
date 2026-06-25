@@ -1,41 +1,54 @@
 {
-    "name": "Portugal Player 20",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 20 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #176 \u2014 Martin Boyle-Fast",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speedster, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "175.png",
+    "external_url": "https://goalchain.fun/nft/176",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Australia"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "20"
+            "trait_type": "Real Name",
+            "value": "Martin Boyle"
         },
         {
-            "trait_type": "Ataque",
-            "value": 72
+            "trait_type": "ATK",
+            "value": 79
         },
         {
-            "trait_type": "Defensa",
-            "value": 96
+            "trait_type": "DEF",
+            "value": 33
         },
         {
-            "trait_type": "Hype",
-            "value": 46
+            "trait_type": "HYPE",
+            "value": 76
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speedster"
         }
     ],
     "properties": {

@@ -1,41 +1,58 @@
 {
-    "name": "Senegal Star 6 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Senegal Star 6 Token (Senegal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #370 \u2014 Tariq Lampte-Quick",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Speed Defender, Wing Overlap, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "369.png",
+    "external_url": "https://goalchain.fun/nft/370",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Senegal"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Ghana"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "6"
+            "trait_type": "Real Name",
+            "value": "Tariq Lamptey"
         },
         {
-            "trait_type": "Ataque",
-            "value": 81
+            "trait_type": "ATK",
+            "value": 55
         },
         {
-            "trait_type": "Defensa",
-            "value": 92
+            "trait_type": "DEF",
+            "value": 65
         },
         {
-            "trait_type": "Hype",
-            "value": 96
+            "trait_type": "HYPE",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "2"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Defender"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
         }
     ],
     "properties": {

@@ -1,41 +1,58 @@
 {
-    "name": "Ritsu Do-Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ritsu Do-Block (Jap\u00f3n). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #343 \u2014 Sead Kola-Tank",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Physical Titan, Wing Overlap, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "342.png",
+    "external_url": "https://goalchain.fun/nft/343",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Jap\u00f3n"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Bosnia y Herzegovina"
         },
         {
-            "trait_type": "N\u00famero",
+            "trait_type": "Real Name",
+            "value": "Sead Kola\u0161inac"
+        },
+        {
+            "trait_type": "ATK",
+            "value": 52
+        },
+        {
+            "trait_type": "DEF",
+            "value": 74
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 72
+        },
+        {
+            "trait_type": "Jersey Number",
             "value": "5"
         },
         {
-            "trait_type": "Ataque",
-            "value": 64
+            "trait_type": "Parody Club",
+            "value": "Bergamo Goddess Guild"
         },
         {
-            "trait_type": "Defensa",
-            "value": 94
+            "trait_type": "Visual Effect",
+            "value": "Iron Surge"
         },
         {
-            "trait_type": "Hype",
-            "value": 36
+            "trait_type": "Trait",
+            "value": "Physical Titan"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Trait",
+            "value": "Wing Overlap"
         }
     ],
     "properties": {

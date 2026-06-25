@@ -1,41 +1,58 @@
 {
-    "name": "Italia Star 11 Swap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Italia Star 11 Swap (Italia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #271 \u2014 Arthur Thea-Tek",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a epic asset. Known globally for being a Defensive Wall, Aerial Duelist, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "270.png",
+    "external_url": "https://goalchain.fun/nft/271",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Italia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "B\u00e9lgica"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "11"
+            "trait_type": "Real Name",
+            "value": "Arthur Theate"
         },
         {
-            "trait_type": "Ataque",
-            "value": 60
+            "trait_type": "ATK",
+            "value": 42
         },
         {
-            "trait_type": "Defensa",
-            "value": 44
+            "trait_type": "DEF",
+            "value": 76
         },
         {
-            "trait_type": "Hype",
-            "value": 54
+            "trait_type": "HYPE",
+            "value": 68
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Frankfurt Eagle Wings"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Steel Aura"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Duelist"
         }
     ],
     "properties": {

@@ -1,41 +1,58 @@
 {
-    "name": "Thomas Par-Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Thomas Par-Token (Ghana). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #471 \u2014 Ahmed Fathi-Base",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Wall, Work Rate, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "470.png",
+    "external_url": "https://goalchain.fun/nft/471",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Ghana"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "3"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 96
+            "trait_type": "Country",
+            "value": "Qatar"
         },
         {
-            "trait_type": "Defensa",
-            "value": 48
+            "trait_type": "Real Name",
+            "value": "Ahmed Fathi"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
+            "value": 22
+        },
+        {
+            "trait_type": "DEF",
             "value": 60
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "HYPE",
+            "value": 48
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "4"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Work Rate"
         }
     ],
     "properties": {

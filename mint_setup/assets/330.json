@@ -1,41 +1,62 @@
 {
-    "name": "Marruecos Star 19 Ledger",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Marruecos Star 19 Ledger (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #331 \u2014 Fede Val-Verde-Gas",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a mythic asset. Known globally for being a Engine Room, Goal Threat, Pressing Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "330.png",
+    "external_url": "https://goalchain.fun/nft/331",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Marruecos"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Uruguay"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "19"
+            "trait_type": "Real Name",
+            "value": "Federico Valverde"
         },
         {
-            "trait_type": "Ataque",
-            "value": 92
+            "trait_type": "ATK",
+            "value": 88
         },
         {
-            "trait_type": "Defensa",
-            "value": 41
+            "trait_type": "DEF",
+            "value": 40
         },
         {
-            "trait_type": "Hype",
-            "value": 43
+            "trait_type": "HYPE",
+            "value": 90
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "14"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Real Madrid Token"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Golden Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Threat"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Pressing Master"
         }
     ],
     "properties": {

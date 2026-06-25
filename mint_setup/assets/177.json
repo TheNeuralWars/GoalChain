@@ -1,41 +1,54 @@
 {
-    "name": "Portugal Player 22",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 22 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #178 \u2014 Firas Al-Dash",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Goal Hunter, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "177.png",
+    "external_url": "https://goalchain.fun/nft/178",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Arabia saud\u00ed"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "22"
+            "trait_type": "Real Name",
+            "value": "Firas Al-Buraikan"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
+            "trait_type": "ATK",
+            "value": 83
         },
         {
-            "trait_type": "Defensa",
-            "value": 92
+            "trait_type": "DEF",
+            "value": 27
         },
         {
-            "trait_type": "Hype",
-            "value": 50
+            "trait_type": "HYPE",
+            "value": 82
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Rio Samba Digital"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Hunter"
         }
     ],
     "properties": {

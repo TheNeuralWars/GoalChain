@@ -1,48 +1,65 @@
 {
-    "name": "Nemanja Gudelj-Weld",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Nemanja Gudelj-Weld (Serbia). undefined",
+    "name": "GoalChain Genesis #219 — Martin Batu-Rarity",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Dribble Flash, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/219_nemanja_gudelj-weld.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/219_martin_batu-rarity.webp",
+    "external_url": "https://goalchain.fun/nft/219",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Serbia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Croacia"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Martin Baturina"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "ATK",
+            "value": 73
+        },
+        {
+            "trait_type": "DEF",
+            "value": 38
+        },
+        {
+            "trait_type": "HYPE",
             "value": 70
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "Jersey Number",
+            "value": "20"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "Parody Club",
+            "value": "Lake Como Villas"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/219_nemanja_gudelj-weld.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/219_martin_batu-rarity.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

@@ -1,48 +1,65 @@
 {
-    "name": "Santiago Gim-Shot",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Santiago Gim-Shot (México). undefined",
+    "name": "GoalChain Genesis #101 — Santiago Gas-menez",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Clinical Finisher, Goal Machine, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/101_santiago_gim-shot.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/101_santiago_gas-menez.webp",
+    "external_url": "https://goalchain.fun/nft/101",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "México"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "México"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Santiago Giménez"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 25
-        },
-        {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
             "value": 82
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 22
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 84
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "11"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Buenos Aires Pampa FC"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Machine"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/101_santiago_gim-shot.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/101_santiago_gas-menez.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

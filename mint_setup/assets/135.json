@@ -1,41 +1,54 @@
 {
-    "name": "Alemania Player 6",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Alemania Player 6 (Alemania). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #136 \u2014 Junya Ito-Volt",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Speedster, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "135.png",
+    "external_url": "https://goalchain.fun/nft/136",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Alemania"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Jap\u00f3n"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "6"
+            "trait_type": "Real Name",
+            "value": "Junya It\u014d"
         },
         {
-            "trait_type": "Ataque",
-            "value": 74
+            "trait_type": "ATK",
+            "value": 80
         },
         {
-            "trait_type": "Defensa",
-            "value": 65
+            "trait_type": "DEF",
+            "value": 39
         },
         {
-            "trait_type": "Hype",
-            "value": 67
+            "trait_type": "HYPE",
+            "value": 85
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "17"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Munich Cyber-Bayer"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speedster"
         }
     ],
     "properties": {

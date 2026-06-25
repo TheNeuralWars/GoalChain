@@ -1,41 +1,62 @@
 {
-    "name": "Australia Pro 24 Coin",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Australia Pro 24 Coin (Australia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #518 \u2014 Eldor Shomurodoff-chain",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Physical Titan, Goal Machine, Captain Leader, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "517.png",
+    "external_url": "https://goalchain.fun/nft/518",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Australia"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Uzbekist\u00e1n"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "24"
+            "trait_type": "Real Name",
+            "value": "Eldor Shomurodov"
         },
         {
-            "trait_type": "Ataque",
-            "value": 71
+            "trait_type": "ATK",
+            "value": 80
         },
         {
-            "trait_type": "Defensa",
-            "value": 97
+            "trait_type": "DEF",
+            "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 98
+            "trait_type": "HYPE",
+            "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Sardinian Island Chiefs"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Machine"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
         }
     ],
     "properties": {

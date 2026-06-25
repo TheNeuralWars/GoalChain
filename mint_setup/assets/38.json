@@ -1,41 +1,54 @@
 {
-    "name": "Robert Lewan-DAO-ski",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Robert Lewan-DAO-ski (Polonia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #039 \u2014 Casemiro Staking",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Physical Powerhouse, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "38.png",
+    "external_url": "https://goalchain.fun/nft/39",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Polonia"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "Country",
+            "value": "Brasil"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "9"
+            "trait_type": "Real Name",
+            "value": "Casemiro"
         },
         {
-            "trait_type": "Ataque",
-            "value": 93
+            "trait_type": "ATK",
+            "value": 44
         },
         {
-            "trait_type": "Defensa",
-            "value": 40
+            "trait_type": "DEF",
+            "value": 67
         },
         {
-            "trait_type": "Hype",
-            "value": 92
+            "trait_type": "HYPE",
+            "value": 73
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "18"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Powerhouse"
         }
     ],
     "properties": {

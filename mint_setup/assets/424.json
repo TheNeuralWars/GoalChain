@@ -1,41 +1,58 @@
 {
-    "name": "Suiza Star 9 Ledger",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Suiza Star 9 Ledger (Suiza). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #425 \u2014 Leverton Pier-Swap",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Engine Room, Defensive Shield, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "424.png",
+    "external_url": "https://goalchain.fun/nft/425",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Suiza"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "9"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 45
+            "trait_type": "Country",
+            "value": "Hait\u00ed"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Leverton Pierre"
         },
         {
-            "trait_type": "Hype",
-            "value": 85
+            "trait_type": "ATK",
+            "value": 62
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 52
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 60
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "6"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Frankfurt Eagle Wings"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Iron Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
         }
     ],
     "properties": {

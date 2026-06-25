@@ -1,41 +1,62 @@
 {
-    "name": "Dibu Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Dibu Block (Argentina). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #002 \u2014 Dibu DeFi",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Penalty Specialist, Iron Wall, Mind Games Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "1.png",
+    "external_url": "https://goalchain.fun/nft/2",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
+            "trait_type": "Rarity",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Position",
+            "value": "GK"
+        },
+        {
+            "trait_type": "Country",
             "value": "Argentina"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Real Name",
+            "value": "Emiliano Mart\u00ednez"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "ATK",
+            "value": 30
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "2"
+            "trait_type": "DEF",
+            "value": 86
         },
         {
-            "trait_type": "Ataque",
-            "value": 94
+            "trait_type": "HYPE",
+            "value": 79
         },
         {
-            "trait_type": "Defensa",
-            "value": 70
+            "trait_type": "Jersey Number",
+            "value": "23"
         },
         {
-            "trait_type": "Hype",
-            "value": 71
+            "trait_type": "Parody Club",
+            "value": "Birmingham Lion Core"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Penalty Specialist"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Iron Wall"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Mind Games Master"
         }
     ],
     "properties": {

@@ -1,41 +1,54 @@
 {
-    "name": "Argentina Player 6",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Argentina Player 6 (Argentina). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #006 \u2014 Lautaro Liquidity",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Goal Hunter, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "5.png",
+    "external_url": "https://goalchain.fun/nft/6",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
+            "trait_type": "Rarity",
+            "value": "Epic"
+        },
+        {
+            "trait_type": "Position",
+            "value": "FWD"
+        },
+        {
+            "trait_type": "Country",
             "value": "Argentina"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Real Name",
+            "value": "Lautaro Mart\u00ednez"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "ATK",
+            "value": 89
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "6"
+            "trait_type": "DEF",
+            "value": 35
         },
         {
-            "trait_type": "Ataque",
-            "value": 66
+            "trait_type": "HYPE",
+            "value": 85
         },
         {
-            "trait_type": "Defensa",
-            "value": 49
+            "trait_type": "Jersey Number",
+            "value": "9"
         },
         {
-            "trait_type": "Hype",
-            "value": 63
+            "trait_type": "Parody Club",
+            "value": "Milan Devil Core"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Goal Hunter"
         }
     ],
     "properties": {

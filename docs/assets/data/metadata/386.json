@@ -1,48 +1,65 @@
 {
-    "name": "Andre Onana-Admin",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Andre Onana-Admin (Camerún). undefined",
+    "name": "GoalChain Genesis #386 — Ryan Mende-Leader",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Captain Leader, Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/386_andre_onana-admin.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/386_ryan_mende-leader.webp",
+    "external_url": "https://goalchain.fun/nft/386",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Camerún"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Cabo Verde"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Ryan Mendes"
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 90
-        },
-        {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
             "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 28
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 72
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Igdir Apricot Valley"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/386_andre_onana-admin.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/386_ryan_mende-leader.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

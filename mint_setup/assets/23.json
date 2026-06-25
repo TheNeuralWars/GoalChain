@@ -1,41 +1,62 @@
 {
-    "name": "Rodri Protocol",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Rodri Protocol (Espa\u00f1a). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #024 \u2014 Jude Belling-Swap",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a mythic asset. Known globally for being a The Engine, Box-to-Box King, Generational Talent, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "23.png",
+    "external_url": "https://goalchain.fun/nft/24",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Espa\u00f1a"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Legendary"
+            "trait_type": "Country",
+            "value": "Inglaterra"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "16"
+            "trait_type": "Real Name",
+            "value": "Jude Bellingham"
         },
         {
-            "trait_type": "Ataque",
-            "value": 80
+            "trait_type": "ATK",
+            "value": 99
         },
         {
-            "trait_type": "Defensa",
-            "value": 92
-        },
-        {
-            "trait_type": "Hype",
+            "trait_type": "DEF",
             "value": 96
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "HYPE",
+            "value": 96
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "5"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "The Engine"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box-to-Box King"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Generational Talent"
         }
     ],
     "properties": {

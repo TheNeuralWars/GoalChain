@@ -1,48 +1,61 @@
 {
-    "name": "Unai Simon-Key",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Unai Simon-Key (España). undefined",
+    "name": "GoalChain Genesis #050 — Unai Simón-Key",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a rare asset. Known globally for being a Aerial Commander, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/aoFsV.jpg",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/050_unai_simn-key.webp",
+    "external_url": "https://goalchain.fun/nft/50",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "España"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
+            "trait_type": "Country",
+            "value": "España"
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "Real Name",
+            "value": "Unai Simón"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "ATK",
+            "value": 36
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 78
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 74
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Turin Zebra Stripes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Commander"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/aoFsV.jpg",
-                "type": "image/jpeg"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/050_unai_simn-key.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

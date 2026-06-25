@@ -1,48 +1,61 @@
 {
-    "name": "Florian Wirtz-Byte",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Florian Wirtz-Byte (Alemania). undefined",
+    "name": "GoalChain Genesis #057 — Florian Web3-Wirtz",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Box-to-Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/057_florian_wirtz-byte.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/057_florian_web3-wirtz.webp",
+    "external_url": "https://goalchain.fun/nft/57",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Alemania"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 70
+            "trait_type": "Country",
+            "value": "Alemania"
         },
         {
-            "trait_type": "Defensa",
-            "value": 66
+            "trait_type": "Real Name",
+            "value": "Florian Wirtz"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
+            "value": 64
+        },
+        {
+            "trait_type": "DEF",
             "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "HYPE",
+            "value": 74
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Amsterdam Ajax Logic"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box-to-Box"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/057_florian_wirtz-byte.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/057_florian_web3-wirtz.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

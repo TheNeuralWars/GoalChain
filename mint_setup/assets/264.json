@@ -1,41 +1,62 @@
 {
-    "name": "Ciro Im-Block-ile",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ciro Im-Block-ile (Italia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #265 \u2014 Kevin De Blockchain",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a mythic asset. Known globally for being a Vision Master, Playmaker Maestro, Passing God, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "264.png",
+    "external_url": "https://goalchain.fun/nft/265",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Italia"
+            "trait_type": "Rarity",
+            "value": "Mythic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "B\u00e9lgica"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "5"
+            "trait_type": "Real Name",
+            "value": "Kevin De Bruyne"
         },
         {
-            "trait_type": "Ataque",
-            "value": 62
+            "trait_type": "ATK",
+            "value": 90
         },
         {
-            "trait_type": "Defensa",
-            "value": 87
+            "trait_type": "DEF",
+            "value": 35
         },
         {
-            "trait_type": "Hype",
-            "value": 97
+            "trait_type": "HYPE",
+            "value": 92
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "17"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Sky Blue"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker Maestro"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Passing God"
         }
     ],
     "properties": {

@@ -1,48 +1,69 @@
 {
-    "name": "Mohammed Kudu-Star",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Mohammed Kudu-Star (Ghana). undefined",
+    "name": "GoalChain Genesis #364 — Mohammed Kudu-Star",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Dribbling God, Creative Spark, Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/364_mohammed_kudu-star.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/364_mohammed_kudu-star.webp",
+    "external_url": "https://goalchain.fun/nft/364",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Ghana"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Epic"
+            "trait_type": "Country",
+            "value": "Ghana"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Mohammed Kudus"
         },
         {
-            "trait_type": "Ataque",
-            "value": 89
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 25
-        },
-        {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
             "value": 82
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 30
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 82
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/364_mohammed_kudu-star.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/364_mohammed_kudu-star.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

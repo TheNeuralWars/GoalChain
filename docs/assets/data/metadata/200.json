@@ -1,48 +1,69 @@
 {
-    "name": "Yann Sommer-Lock",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Yann Sommer-Lock (Suiza). undefined",
+    "name": "GoalChain Genesis #200 — Yann Sommer-Lock",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a legendary asset. Known globally for being a Shot Stopper, Command Post, Sweeper Keeper, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/200_yann_sommer-lock.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/200_yann_sommer-lock.webp",
+    "external_url": "https://goalchain.fun/nft/200",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Suiza"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posición",
+            "trait_type": "Position",
             "value": "GK"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Suiza"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Gregor Kobel"
         },
         {
-            "trait_type": "Ataque",
-            "value": 19
+            "trait_type": "ATK",
+            "value": 15
         },
         {
-            "trait_type": "Defensa",
-            "value": 90
+            "trait_type": "DEF",
+            "value": 82
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "HYPE",
+            "value": 78
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Guardian Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Command Post"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Sweeper Keeper"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/200_yann_sommer-lock.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/200_yann_sommer-lock.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

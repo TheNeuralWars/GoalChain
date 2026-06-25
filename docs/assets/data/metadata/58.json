@@ -1,48 +1,61 @@
 {
-    "name": "Jamal Moon-siala",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Jamal Moon-siala (Alemania). undefined",
+    "name": "GoalChain Genesis #058 — Jamal Moon-siala",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Playmaker, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/058_jamal_moon-siala.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/058_jamal_moon-siala.webp",
+    "external_url": "https://goalchain.fun/nft/58",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Alemania"
-        },
-        {
-            "trait_type": "Posición",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Legendary"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 76
+            "trait_type": "Country",
+            "value": "Alemania"
         },
         {
-            "trait_type": "Defensa",
-            "value": 72
+            "trait_type": "Real Name",
+            "value": "Jamal Musiala"
         },
         {
-            "trait_type": "Hype",
-            "value": 92
+            "trait_type": "ATK",
+            "value": 86
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 89
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 89
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Blue Lions"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Holographic Glitch & Silver Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/058_jamal_moon-siala.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/058_jamal_moon-siala.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

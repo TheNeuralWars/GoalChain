@@ -1,41 +1,62 @@
 {
-    "name": "Senegal Star 11 Swap",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Senegal Star 11 Swap (Senegal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #375 \u2014 Yoane Wis-Speed",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a legendary asset. Known globally for being a Speed Monster, Clinical Finisher, Dribble Flash, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "374.png",
+    "external_url": "https://goalchain.fun/nft/375",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Senegal"
+            "trait_type": "Rarity",
+            "value": "Legendary"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Congo RD"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "11"
+            "trait_type": "Real Name",
+            "value": "Yoane Wissa"
         },
         {
-            "trait_type": "Ataque",
-            "value": 74
+            "trait_type": "ATK",
+            "value": 82
         },
         {
-            "trait_type": "Defensa",
-            "value": 83
+            "trait_type": "DEF",
+            "value": 25
         },
         {
-            "trait_type": "Hype",
-            "value": 53
+            "trait_type": "HYPE",
+            "value": 78
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "9"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Newcastle Magpie Nest"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Lightning Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Monster"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribble Flash"
         }
     ],
     "properties": {

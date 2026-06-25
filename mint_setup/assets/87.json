@@ -1,41 +1,54 @@
 {
-    "name": "Inglaterra Player 10",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Inglaterra Player 10 (Inglaterra). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #088 \u2014 Teun Koop-Core",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Technical Maestro, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "87.png",
+    "external_url": "https://goalchain.fun/nft/88",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Inglaterra"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Pa\u00edses bajos"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "10"
+            "trait_type": "Real Name",
+            "value": "Teun Koopmeiners"
         },
         {
-            "trait_type": "Ataque",
-            "value": 68
+            "trait_type": "ATK",
+            "value": 63
         },
         {
-            "trait_type": "Defensa",
-            "value": 89
+            "trait_type": "DEF",
+            "value": 69
         },
         {
-            "trait_type": "Hype",
-            "value": 49
+            "trait_type": "HYPE",
+            "value": 64
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Red Devils"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Technical Maestro"
         }
     ],
     "properties": {

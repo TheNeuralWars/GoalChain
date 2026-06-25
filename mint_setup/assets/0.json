@@ -1,41 +1,62 @@
 {
-    "name": "Lionel Bitcoin",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Lionel Bitcoin (Argentina). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #001 \u2014 Lionel Satoshi",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a mythic asset. Known globally for being a GOAT Aura, Playmaker Maestro, Dribbling God, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "0.png",
+    "external_url": "https://goalchain.fun/nft/1",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Argentina"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "FWD"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Mythic"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "1"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Ataque",
-            "value": 96
+            "trait_type": "Country",
+            "value": "Argentina"
         },
         {
-            "trait_type": "Defensa",
-            "value": 45
+            "trait_type": "Real Name",
+            "value": "Lionel Messi"
         },
         {
-            "trait_type": "Hype",
-            "value": 64
+            "trait_type": "ATK",
+            "value": 95
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 25
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 99
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Miami Pink Nodes"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Cosmic Aura & Golden Supernova"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "GOAT Aura"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Playmaker Maestro"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Dribbling God"
         }
     ],
     "properties": {

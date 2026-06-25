@@ -1,48 +1,65 @@
 {
-    "name": "Andreas Chris-Safe",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Andreas Chris-Safe (Dinamarca). undefined",
+    "name": "GoalChain Genesis #193 — Oscar Bobb-Slippage",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Winger Flash, Speed Dribbler, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/193_andreas_chris-safe.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/193_oscar_bobb-slippage.webp",
+    "external_url": "https://goalchain.fun/nft/193",
     "attributes": [
         {
-            "trait_type": "País",
-            "value": "Dinamarca"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posición",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "Country",
+            "value": "Noruega"
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "Real Name",
+            "value": "Oscar Bobb"
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
-        },
-        {
-            "trait_type": "Defensa",
-            "value": 86
-        },
-        {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
             "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "DEF",
+            "value": 30
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 70
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Manchester Sky Blue"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Neon Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Winger Flash"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Speed Dribbler"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/193_andreas_chris-safe.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/193_oscar_bobb-slippage.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

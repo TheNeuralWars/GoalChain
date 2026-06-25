@@ -1,41 +1,58 @@
 {
-    "name": "Sofyan Amra-Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Sofyan Amra-Block (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #316 \u2014 Diego G\u00f3mgas",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a epic asset. Known globally for being a Creative Spark, Box To Box, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "315.png",
+    "external_url": "https://goalchain.fun/nft/316",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Marruecos"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Paraguay"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "4"
+            "trait_type": "Real Name",
+            "value": "Diego G\u00f3mez"
         },
         {
-            "trait_type": "Ataque",
-            "value": 67
+            "trait_type": "ATK",
+            "value": 62
         },
         {
-            "trait_type": "Defensa",
-            "value": 88
+            "trait_type": "DEF",
+            "value": 48
         },
         {
-            "trait_type": "Hype",
-            "value": 50
+            "trait_type": "HYPE",
+            "value": 65
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "8"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Madrid Royal White"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Box To Box"
         }
     ],
     "properties": {

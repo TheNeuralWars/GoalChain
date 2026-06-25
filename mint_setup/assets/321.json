@@ -1,41 +1,58 @@
 {
-    "name": "Marruecos Star 10 Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Marruecos Star 10 Block (Marruecos). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #322 \u2014 Eloy Room-Secure",
+    "symbol": "GCG",
+    "description": "A world-class GK verified as a epic asset. Known globally for being a Shot Stopper, Command Post, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "321.png",
+    "external_url": "https://goalchain.fun/nft/322",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Marruecos"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Epic"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "10"
+            "trait_type": "Position",
+            "value": "GK"
         },
         {
-            "trait_type": "Ataque",
-            "value": 88
+            "trait_type": "Country",
+            "value": "Curazao"
         },
         {
-            "trait_type": "Defensa",
-            "value": 55
+            "trait_type": "Real Name",
+            "value": "Eloy Room"
         },
         {
-            "trait_type": "Hype",
-            "value": 87
+            "trait_type": "ATK",
+            "value": 15
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 80
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 68
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "1"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Columbus Yellow Jackets"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Guardian Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Shot Stopper"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Command Post"
         }
     ],
     "properties": {

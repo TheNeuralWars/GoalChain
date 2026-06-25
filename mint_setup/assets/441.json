@@ -1,41 +1,58 @@
 {
-    "name": "Suiza Star 26 Token",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Suiza Star 26 Token (Suiza). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #442 \u2014 Sardar Azm-Air",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Aerial Threat, Clinical Finisher, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "441.png",
+    "external_url": "https://goalchain.fun/nft/442",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Suiza"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
+            "trait_type": "Position",
             "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Ir\u00e1n"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "26"
+            "trait_type": "Real Name",
+            "value": "Sardar Azmoun"
         },
         {
-            "trait_type": "Ataque",
-            "value": 97
+            "trait_type": "ATK",
+            "value": 80
         },
         {
-            "trait_type": "Defensa",
-            "value": 98
+            "trait_type": "DEF",
+            "value": 18
         },
         {
-            "trait_type": "Hype",
-            "value": 98
+            "trait_type": "HYPE",
+            "value": 75
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "7"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "London Blue Lions"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Neon Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Aerial Threat"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
         }
     ],
     "properties": {

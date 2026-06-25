@@ -1,41 +1,54 @@
 {
-    "name": "Portugal Player 15",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Portugal Player 15 (Portugal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #171 \u2014 Ajdin Hrustcoin",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Technical Maestro, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "170.png",
+    "external_url": "https://goalchain.fun/nft/171",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Portugal"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "15"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Ataque",
-            "value": 41
+            "trait_type": "Country",
+            "value": "Australia"
         },
         {
-            "trait_type": "Defensa",
-            "value": 83
+            "trait_type": "Real Name",
+            "value": "Ajdin Hrustic"
         },
         {
-            "trait_type": "Hype",
-            "value": 83
+            "trait_type": "ATK",
+            "value": 67
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 65
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 78
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "70"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Dortmund Yellow Hive"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Technical Maestro"
         }
     ],
     "properties": {

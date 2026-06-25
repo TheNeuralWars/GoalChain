@@ -1,48 +1,69 @@
 {
-    "name": "Tyler Adams-Guard",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Tyler Adams-Guard (Ee.uu.). undefined",
+    "name": "GoalChain Genesis #093 — Tyler Admin-Adams",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a legendary asset. Known globally for being a Defensive Shield, Engine Room, Captain Leader, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
-    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/093_tyler_adams-guard.png",
+    "image": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/093_tyler_admin-adams.webp",
+    "external_url": "https://goalchain.fun/nft/93",
     "attributes": [
         {
-            "trait_type": "País",
+            "trait_type": "Rarity",
+            "value": "Legendary"
+        },
+        {
+            "trait_type": "Position",
+            "value": "MID"
+        },
+        {
+            "trait_type": "Country",
             "value": "Ee.uu."
         },
         {
-            "trait_type": "Posición",
-            "value": "DEF"
+            "trait_type": "Real Name",
+            "value": "Tyler Adams"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Rare"
+            "trait_type": "ATK",
+            "value": 55
         },
         {
-            "trait_type": "Número",
-            "value": "0"
+            "trait_type": "DEF",
+            "value": 72
         },
         {
-            "trait_type": "Ataque",
-            "value": 34
+            "trait_type": "HYPE",
+            "value": 78
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Jersey Number",
+            "value": "4"
         },
         {
-            "trait_type": "Hype",
-            "value": 75
+            "trait_type": "Parody Club",
+            "value": "London Blue Lions"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "Pending"
+            "trait_type": "Visual Effect",
+            "value": "Subtle Cyber Outline"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Shield"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Engine Room"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Captain Leader"
         }
     ],
     "properties": {
         "files": [
             {
-                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/093_tyler_adams-guard.png",
-                "type": "image/png"
+                "uri": "https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/093_tyler_admin-adams.webp",
+                "type": "image/webp"
             }
         ],
         "category": "image",

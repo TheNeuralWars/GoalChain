@@ -1,41 +1,58 @@
 {
-    "name": "Ecuador Pro 7 Mint",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Ecuador Pro 7 Mint (Ecuador). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #527 \u2014 Alijon Ibragimoff-chain",
+    "symbol": "GCG",
+    "description": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Hustle, Positional Read, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "526.png",
+    "external_url": "https://goalchain.fun/nft/527",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Ecuador"
-        },
-        {
-            "trait_type": "Posici\u00f3n",
-            "value": "GK"
-        },
-        {
-            "trait_type": "Rareza",
+            "trait_type": "Rarity",
             "value": "Rare"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "7"
+            "trait_type": "Position",
+            "value": "DEF"
         },
         {
-            "trait_type": "Ataque",
-            "value": 47
+            "trait_type": "Country",
+            "value": "Uzbekist\u00e1n"
         },
         {
-            "trait_type": "Defensa",
-            "value": 86
+            "trait_type": "Real Name",
+            "value": "Alijon Ibragimov"
         },
         {
-            "trait_type": "Hype",
+            "trait_type": "ATK",
             "value": 40
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "DEF",
+            "value": 68
+        },
+        {
+            "trait_type": "HYPE",
+            "value": 58
+        },
+        {
+            "trait_type": "Jersey Number",
+            "value": "3"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Tashkent Cotton Field"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Shield Pulse"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Defensive Hustle"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Positional Read"
         }
     ],
     "properties": {

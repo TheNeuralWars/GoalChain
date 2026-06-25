@@ -1,41 +1,58 @@
 {
-    "name": "Australia Pro 20 Block",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Australia Pro 20 Block (Australia). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #514 \u2014 Mahmoud Al-Mar-Limit",
+    "symbol": "GCG",
+    "description": "A world-class MID verified as a rare asset. Known globally for being a Creative Spark, Vision Master, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "513.png",
+    "external_url": "https://goalchain.fun/nft/514",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Australia"
+            "trait_type": "Rarity",
+            "value": "Rare"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "DEF"
+            "trait_type": "Position",
+            "value": "MID"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Jordania"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "20"
+            "trait_type": "Real Name",
+            "value": "Mahmoud Al-Mardi"
         },
         {
-            "trait_type": "Ataque",
-            "value": 43
+            "trait_type": "ATK",
+            "value": 62
         },
         {
-            "trait_type": "Defensa",
-            "value": 53
+            "trait_type": "DEF",
+            "value": 45
         },
         {
-            "trait_type": "Hype",
-            "value": 52
+            "trait_type": "HYPE",
+            "value": 58
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Jersey Number",
+            "value": "10"
+        },
+        {
+            "trait_type": "Parody Club",
+            "value": "Salt Rock Miners"
+        },
+        {
+            "trait_type": "Visual Effect",
+            "value": "Electric Arc"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Creative Spark"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Vision Master"
         }
     ],
     "properties": {

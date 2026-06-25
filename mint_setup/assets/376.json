@@ -1,41 +1,58 @@
 {
-    "name": "Senegal Star 13 Node",
-    "symbol": "GCH",
-    "description": "GoalChain Genesis Squad - Senegal Star 13 Node (Senegal). Contrato profesional activo para el Mundial 2026.",
+    "name": "GoalChain Genesis #377 \u2014 C\u00e9dric Baka-Run",
+    "symbol": "GCG",
+    "description": "A world-class FWD verified as a epic asset. Known globally for being a Clinical Finisher, Physical Titan, this player is a cornerstone of the GoalChain ecosystem",
     "seller_fee_basis_points": 100,
     "image": "376.png",
+    "external_url": "https://goalchain.fun/nft/377",
     "attributes": [
         {
-            "trait_type": "Pa\u00eds",
-            "value": "Senegal"
+            "trait_type": "Rarity",
+            "value": "Epic"
         },
         {
-            "trait_type": "Posici\u00f3n",
-            "value": "MID"
+            "trait_type": "Position",
+            "value": "FWD"
         },
         {
-            "trait_type": "Rareza",
-            "value": "Common"
+            "trait_type": "Country",
+            "value": "Congo RD"
         },
         {
-            "trait_type": "N\u00famero",
-            "value": "13"
+            "trait_type": "Real Name",
+            "value": "C\u00e9dric Bakambu"
         },
         {
-            "trait_type": "Ataque",
+            "trait_type": "ATK",
+            "value": 78
+        },
+        {
+            "trait_type": "DEF",
+            "value": 25
+        },
+        {
+            "trait_type": "HYPE",
             "value": 72
         },
         {
-            "trait_type": "Defensa",
-            "value": 74
+            "trait_type": "Jersey Number",
+            "value": "11"
         },
         {
-            "trait_type": "Hype",
-            "value": 85
+            "trait_type": "Parody Club",
+            "value": "Real Betis Block"
         },
         {
-            "trait_type": "Oracle Sync",
-            "value": "active"
+            "trait_type": "Visual Effect",
+            "value": "Flame Surge"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Clinical Finisher"
+        },
+        {
+            "trait_type": "Trait",
+            "value": "Physical Titan"
         }
     ],
     "properties": {
