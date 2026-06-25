@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
@@ -10,8 +10,10 @@ import { useTranslation } from '../i18n';
 
 export function PlayLayout() {
   const { t } = useTranslation();
+  const [ugcMode, setUgcMode] = useState(false);
+
   return (
-    <div className="play-shell play-shell--grid">
+    <div className={`play-shell play-shell--grid ${ugcMode ? 'ugc-active' : ''}`}>
       {/* Sidebar / icon-rail (desktop + tablet) */}
       <PlayNav />
 
@@ -25,6 +27,28 @@ export function PlayLayout() {
             </span>
           </div>
           <div className="play-header-actions">
+            <button 
+              onClick={() => setUgcMode(true)}
+              style={{
+                background: 'rgba(20, 241, 149, 0.1)',
+                border: '1px solid var(--primary-neon)',
+                color: 'var(--primary-neon)',
+                padding: '6px 12px',
+                borderRadius: '8px',
+                fontSize: '0.75rem',
+                fontWeight: 'bold',
+                marginRight: '10px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                transition: 'background 0.2s, transform 0.1s'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(20, 241, 149, 0.2)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(20, 241, 149, 0.1)'}
+            >
+              📱 Modo UGC (9:16)
+            </button>
             <a
               href={MARKETING_BASE}
               className="play-header-marketing-link"
@@ -44,6 +68,33 @@ export function PlayLayout() {
 
       {/* Bottom-tab bar (móvil) */}
       <PlayBottomTab />
+
+      {/* Floating Exit Button for UGC Mode */}
+      {ugcMode && (
+        <button
+          onClick={() => setUgcMode(false)}
+          style={{
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            zIndex: 999999,
+            background: 'var(--primary-neon)',
+            border: 'none',
+            color: '#000',
+            padding: '10px 18px',
+            borderRadius: '20px',
+            fontSize: '0.78rem',
+            fontWeight: 800,
+            cursor: 'pointer',
+            boxShadow: '0 4px 15px rgba(20, 241, 149, 0.4)',
+            transition: 'transform 0.2s'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+        >
+          ❌ Salir Modo UGC
+        </button>
+      )}
 
       {/* Modales de arcade anclados al layout */}
       <ModalRoot />

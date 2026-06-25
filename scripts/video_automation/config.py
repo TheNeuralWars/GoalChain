@@ -17,7 +17,8 @@ def load_dotenv():
                     key, value = line.split('=', 1)
                     key = key.strip()
                     value = value.strip().strip('"').strip("'")
-                    os.environ[key] = value
+                    if key not in os.environ:
+                        os.environ[key] = value
 
 # Load the environment variables
 load_dotenv()

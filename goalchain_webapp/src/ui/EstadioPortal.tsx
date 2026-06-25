@@ -3,14 +3,16 @@ import { LiveEventFeed } from './LiveEventFeed';
 
 const FixturesPanel = lazy(() => import('./FixturesPanel').then(m => ({ default: m.FixturesPanel })));
 const AICommentator = lazy(() => import('./AICommentator').then(m => ({ default: m.AICommentator })));
+const WorldCupPredictor = lazy(() => import('./WorldCupPredictor').then(m => ({ default: m.WorldCupPredictor })));
 
 export function EstadioPortal() {
-  const [activeSubTab, setActiveSubTab] = useState<'fixtures' | 'commentator' | 'feed'>('fixtures');
+  const [activeSubTab, setActiveSubTab] = useState<'fixtures' | 'commentator' | 'feed' | 'predictor'>('fixtures');
 
   const tabs = [
     { id: 'fixtures', label: '🏟️ Partidos y Apuestas', desc: 'Mercados on-chain de la Copa del Mundo' },
     { id: 'commentator', label: '📻 Cronista IA', desc: 'Narración inteligente en vivo generada por IA' },
     { id: 'feed', label: '⚡ Eventos en Vivo', desc: 'Feed de actividades y transacciones en tiempo real' },
+    { id: 'predictor', label: '🔮 Centro de Predicciones', desc: 'Simulaciones, H2H y Pick\'em del Mundial 2026' },
   ] as const;
 
   return (
@@ -55,6 +57,13 @@ export function EstadioPortal() {
         {activeSubTab === 'feed' && (
           <div className="portal-fade-in">
             <LiveEventFeed />
+          </div>
+        )}
+        {activeSubTab === 'predictor' && (
+          <div className="portal-fade-in">
+            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Cargando predicciones...</div>}>
+              <WorldCupPredictor />
+            </Suspense>
           </div>
         )}
       </div>

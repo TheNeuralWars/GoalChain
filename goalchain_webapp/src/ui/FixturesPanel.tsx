@@ -12,6 +12,7 @@ import {
   type UserBetView,
 } from '../lib/goalchainClient';
 import { useTranslation } from '../i18n';
+import type { TranslationKeys } from '../i18n/translations';
 import wcFixtureData from '../config/wc2026_fixture.json';
 
 type Fixture = FixtureView;
@@ -217,7 +218,7 @@ export const FixturesPanel: React.FC = () => {
             onClick={() => setView('list')}
           >
             <span aria-hidden>📋</span>
-            {t('fix_view_list' as never)}
+            {t('fix_view_list')}
           </button>
           <button
             role="tab"
@@ -226,18 +227,18 @@ export const FixturesPanel: React.FC = () => {
             onClick={() => setView('bracket')}
           >
             <span aria-hidden>🌳</span>
-            {t('fix_view_bracket' as never)}
+            {t('fix_view_bracket')}
           </button>
         </div>
         <div className="gc-fixtures-legend">
           <span className="gc-legend-chip gc-legend-chip--live">
-            <span className="gc-live-dot" aria-hidden /> {t('fix_legend_live' as never)}
+            <span className="gc-live-dot" aria-hidden /> {t('fix_legend_live')}
           </span>
           <span className="gc-legend-chip gc-legend-chip--upcoming">
-            <span className="gc-legend-dot gc-legend-dot--purple" aria-hidden /> {t('fix_legend_upcoming' as never)}
+            <span className="gc-legend-dot gc-legend-dot--purple" aria-hidden /> {t('fix_legend_upcoming')}
           </span>
           <span className="gc-legend-chip gc-legend-chip--done">
-            <span className="gc-legend-dot gc-legend-dot--grey" aria-hidden /> {t('fix_legend_done' as never)}
+            <span className="gc-legend-dot gc-legend-dot--grey" aria-hidden /> {t('fix_legend_done')}
           </span>
         </div>
       </div>
@@ -247,11 +248,11 @@ export const FixturesPanel: React.FC = () => {
       ) : (
         <>
           {loading ? (
-            <div className="gc-fixtures-loading">{t('fix_loading' as never)}</div>
+            <div className="gc-fixtures-loading">{t('fix_loading')}</div>
           ) : (
             <div className="fixtures-container gc-fixtures-list">
               <h2 className="gc-fixtures-heading">
-                {t('fix_list_heading' as never)}
+                {t('fix_list_heading')}
               </h2>
               {error && <div className="gc-fixtures-error">{error}</div>}
               {fixtures.map((f) => {
@@ -378,13 +379,22 @@ export const FixturesPanel: React.FC = () => {
 const KnockoutBracket: React.FC = () => {
   const { t } = useTranslation();
 
+  // Mapa tipado ronda → clave i18n (evita cast dinámico de string).
+  const ROUND_LABEL_KEY: Record<RoundKey, keyof TranslationKeys> = {
+    round_of_32: 'fix_round_round_of_32',
+    round_of_16: 'fix_round_round_of_16',
+    quarterfinal: 'fix_round_quarterfinal',
+    semifinal: 'fix_round_semifinal',
+    final: 'fix_round_final',
+  };
+
   const rounds = useMemo(() => {
     return ROUND_ORDER.map((key) => ({
       key,
-      label: t(`fix_round_${key}` as never),
+      label: t(ROUND_LABEL_KEY[key]),
       matches: LOCAL_FIXTURES.filter((fx) => fx.phase === key),
     }));
-  }, [t]);
+  }, [t, ROUND_LABEL_KEY]);
 
   return (
     <div className="gc-bracket-scroll">
@@ -428,7 +438,7 @@ const BracketCard: React.FC<{ match: LocalFixture }> = ({ match }) => {
 
       <div className={`gc-bcard-row ${homeWins ? 'gc-bcard-row--winner' : ''}`}>
         <span className="gc-bcard-flag" aria-hidden>{flagFor(match.home)}</span>
-        <span className="gc-bcard-name">{homeIsTbd ? t('fix_tbd' as never) : match.home}</span>
+        <span className="gc-bcard-name">{homeIsTbd ? t('fix_tbd') : match.home}</span>
         <span className={`gc-bcard-score ${homeWins ? 'gc-bcard-score--winner' : ''}`}>
           {isDone || isLive ? (match.scoreHome ?? 0) : '–'}
         </span>
@@ -440,7 +450,7 @@ const BracketCard: React.FC<{ match: LocalFixture }> = ({ match }) => {
 
       <div className={`gc-bcard-row ${awayWins ? 'gc-bcard-row--winner' : ''}`}>
         <span className="gc-bcard-flag" aria-hidden>{flagFor(match.away)}</span>
-        <span className="gc-bcard-name">{awayIsTbd ? t('fix_tbd' as never) : match.away}</span>
+        <span className="gc-bcard-name">{awayIsTbd ? t('fix_tbd') : match.away}</span>
         <span className={`gc-bcard-score ${awayWins ? 'gc-bcard-score--winner' : ''}`}>
           {isDone || isLive ? (match.scoreAway ?? 0) : '–'}
         </span>
@@ -449,10 +459,10 @@ const BracketCard: React.FC<{ match: LocalFixture }> = ({ match }) => {
       <div className="gc-bcard-foot">
         {isLive ? (
           <span className="gc-bcard-minute">
-            <span className="gc-live-dot" aria-hidden /> {t('fix_live' as never)}
+            <span className="gc-live-dot" aria-hidden /> {t('fix_live')}
           </span>
         ) : isDone ? (
-          <span className="gc-bcard-foot-label">{t('fix_ft' as never)}</span>
+          <span className="gc-bcard-foot-label">{t('fix_ft')}</span>
         ) : (
           <span className="gc-bcard-foot-label gc-bcard-foot-label--muted">
             {fmtDate(match.date)} · {match.city ?? ''}

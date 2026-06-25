@@ -125,6 +125,65 @@ def run_pipeline_subprocess(account, topic=None, run_id=None):
         mark_run_failed(run_id, error_msg)
         with open(log_file_path, "a", encoding="utf-8") as log_file:
             log_file.write(f"\nCRITICAL DAEMON ERROR: {error_msg}\n")
+        stop_hb.set()
+        hb.join(timeout=2)
+
+def run_match_highlights_subprocess(account, match=None, run_id=None):
+    """Execute the match highlights generator script as a subprocess and stream logs"""
+    if not run_id:
+        run_id = f"run_{int(time.time())}_match_{account.lower()}"
+    
+    log_file_path = LOGS_DIR / f"{run_id}.log"
+    print(f"[{datetime.now()}] Starting match highlights generator for {account}. Log: {log_file_path}")
+    
+    init_run_entry(run_id, account, f"Highlights: {match}" if match else "Generando partido...")
+    
+    cmd = [
+        sys.executable,
+        str(BASE_DIR / "scripts" / "video_automation" / "match_highlights_generator.py"),
+        "--account", account,
+        "--run-id", run_id
+    ]
+    if match:
+        cmd.extend(["--match", match])
+        
+    current_run_info = {"account": account, "run_id": run_id, "started_at": datetime.utcnow().isoformat() + "Z"}
+    update_status("running_match", current_run=current_run_info)
+    
+    stop_hb = threading.Event()
+    hb = threading.Thread(target=heartbeat_thread, args=(stop_hb, "running_match", current_run_info), daemon=True)
+    hb.start()
+    
+    try:
+        with open(log_file_path, "w", encoding="utf-8", buffering=1) as log_file:
+            log_file.write(f"=== HERMES MATCH HIGHLIGHTS START: {datetime.now()} ===\n")
+            log_file.write(f"Account: {account}\n")
+            log_file.write(f"Command: {' '.join(cmd)}\n")
+            log_file.write(f"============================================\n\n")
+            log_file.flush()
+            
+            res = subprocess.run(
+                cmd,
+                stdout=log_file,
+                stderr=subprocess.STDOUT,
+                cwd=str(BASE_DIR),
+                encoding="utf-8"
+            )
+            
+            log_file.write(f"\n============================================\n")
+            log_file.write(f"=== HERMES MATCH HIGHLIGHTS END: {datetime.now()} (Exit Code: {res.returncode}) ===\n")
+            
+            if res.returncode == 0:
+                print(f"[{datetime.now()}] Match highlights finished successfully for {account}")
+            else:
+                print(f"[{datetime.now()}] Match highlights failed for {account} with code {res.returncode}")
+                mark_run_failed(run_id, f"Process exited with non-zero code {res.returncode}")
+    except Exception as e:
+        error_msg = f"Exception executing match highlights subprocess: {str(e)}"
+        print(f"[{datetime.now()}] Error: {error_msg}")
+        mark_run_failed(run_id, error_msg)
+        with open(log_file_path, "a", encoding="utf-8") as log_file:
+            log_file.write(f"\nCRITICAL DAEMON ERROR: {error_msg}\n")
     finally:
         stop_hb.set()
         hb.join(timeout=2)
@@ -400,6 +459,11 @@ def main():
                 
                 if action == "research":
                     run_research_subprocess()
+                elif action == "generate_match":
+                    account = trigger_data.get("account_name", "GoalChainSol")
+                    match = trigger_data.get("match")
+                    run_id = trigger_data.get("run_id")
+                    run_match_highlights_subprocess(account, match, run_id)
                 elif action == "generate_planned":
                     run_id = trigger_data.get("run_id")
                     if run_id:
