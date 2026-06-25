@@ -128,16 +128,16 @@ def run_pipeline_subprocess(account, topic=None, run_id=None):
         stop_hb.set()
         hb.join(timeout=2)
 
-def run_match_highlights_subprocess(account, match=None, run_id=None):
-    """Execute the match highlights generator script as a subprocess and stream logs"""
+def run_match_highlights_subprocess(account, match=None, run_id=None, skip_youtube=False, skip_buffer=False):
+    """Execute the match highlights generator v2 as a subprocess and stream logs"""
     if not run_id:
         run_id = f"run_{int(time.time())}_match_{account.lower()}"
-    
+
     log_file_path = LOGS_DIR / f"{run_id}.log"
-    print(f"[{datetime.now()}] Starting match highlights generator for {account}. Log: {log_file_path}")
-    
-    init_run_entry(run_id, account, f"Highlights: {match}" if match else "Generando partido...")
-    
+    print(f"[{datetime.now()}] Starting match highlights v2 for {account}. Log: {log_file_path}")
+
+    init_run_entry(run_id, account, f"Highlights: {match}" if match else "Auto-detecting trending match...")
+
     cmd = [
         sys.executable,
         str(BASE_DIR / "scripts" / "video_automation" / "match_highlights_generator.py"),
@@ -146,6 +146,10 @@ def run_match_highlights_subprocess(account, match=None, run_id=None):
     ]
     if match:
         cmd.extend(["--match", match])
+    if skip_youtube:
+        cmd.append("--skip-youtube")
+    if skip_buffer:
+        cmd.append("--skip-buffer")
         
     current_run_info = {"account": account, "run_id": run_id, "started_at": datetime.utcnow().isoformat() + "Z"}
     update_status("running_match", current_run=current_run_info)
@@ -463,7 +467,11 @@ def main():
                     account = trigger_data.get("account_name", "GoalChainSol")
                     match = trigger_data.get("match")
                     run_id = trigger_data.get("run_id")
-                    run_match_highlights_subprocess(account, match, run_id)
+                    skip_youtube = trigger_data.get("skip_youtube", False)
+                    skip_buffer = trigger_data.get("skip_buffer", False)
+                    run_match_highlights_subprocess(account, match, run_id,
+                                                   skip_youtube=skip_youtube,
+                                                   skip_buffer=skip_buffer)
                 elif action == "generate_planned":
                     run_id = trigger_data.get("run_id")
                     if run_id:
