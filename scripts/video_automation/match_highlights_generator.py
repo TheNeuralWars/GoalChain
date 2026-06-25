@@ -366,18 +366,22 @@ def compile_match_video(screenplay: dict, account_name: str, run_id: str, dry_ru
     else:
         video_map = "0:v"
         
-    mix_cmd = ["ffmpeg", "-y"] + inputs
-    if filters:
-        mix_cmd += ["-filter_complex", ";".join(filters)]
-    mix_cmd += ["-map", video_map, "-map", audio_map]
-    
-    # In dry-run, just copy or skip re-encoding
     if dry_run:
-        mix_cmd += ["-c", "copy"]
+        # In dry-run, bypass filters to allow safe stream copy of dummy videos
+        mix_cmd = [
+            "ffmpeg", "-y",
+            "-i", str(raw_output),
+            "-c", "copy",
+            str(final_output)
+        ]
     else:
+        # Normal run: apply all video overlays and audio mixing filters
+        mix_cmd = ["ffmpeg", "-y"] + inputs
+        if filters:
+            mix_cmd += ["-filter_complex", ";".join(filters)]
+        mix_cmd += ["-map", video_map, "-map", audio_map]
         mix_cmd += ["-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac"]
-        
-    mix_cmd.append(str(final_output))
+        mix_cmd.append(str(final_output))
     
     print("Aplicando efectos de post-producción final...")
     subprocess.run(mix_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
