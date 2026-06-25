@@ -1,0 +1,29 @@
+{
+  "network": "solana-devnet",
+  "timestamp": "2026-06-25T23:57:00Z",
+  "program": {
+    "program_id": "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg",
+    "config_pda": "HiLxBU8d2a5qQKDchxfnYJkxvyyAwaatXRxcTKA8AFhb"
+  },
+  "token": {
+    "symbol": "GCH",
+    "mint": "HfrVPeaRRLBKj6kg5G41X3vBLZZTQq5f72npVyVgjQF",
+    "decimals": 6,
+    "initial_supply": 10000000.0,
+    "treasury_ata": "FB7ttQ1NDMx3n8cByV2qQWwf96VCmVtfvPxTRuuTvXsT",
+    "jackpot_ata": "FB7ttQ1NDMx3n8cByV2qQWwf96VCmVtfvPxTRuuTvXsT"
+  },
+  "wallets": {
+    "admin": "E4hdW2ba7B6x2rPdNd9msmPFv86UtAUgGQuPePTHL2Ra",
+    "oracle_authority": "D6AabfJnF6sxuAymDz7JMbB4r2i2FaQVzPb7G7nhMMxo"
+  },
+  "on_chain_parameters": {
+    "fee_bps": 100,
+    "fee_burn_bps": 4000,
+    "fee_jackpot_bps": 4000,
+    "max_starters_per_manager": 11,
+    "cutoff_buffer_seconds": 900,
+    "max_sol_per_user": 77359400,
+    "presale_active": true
+  }
+}

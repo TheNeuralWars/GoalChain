@@ -150,9 +150,30 @@ export class OracleService {
   async syncOracleAuthority(
     treasuryAta: PublicKey,
     jackpotAta?: PublicKey,
-  ): Promise<string> {
+  ): Promise<string | null> {
     const effectiveJackpotAta = jackpotAta ?? treasuryAta;
     const configInfo = await this.connection.getAccountInfo(this.configPda);
+    
+    if (configInfo) {
+      try {
+        const configData = await (this.program.account as any).globalConfig.fetch(this.configPda);
+        const onChainOracle = configData.oracleAuthority.toBase58();
+        const onChainTreasury = configData.treasuryTokenAccount.toBase58();
+        const onChainJackpot = configData.jackpotTokenAccount.toBase58();
+        
+        if (
+          onChainOracle === this.wallet.publicKey.toBase58() &&
+          onChainTreasury === treasuryAta.toBase58() &&
+          onChainJackpot === effectiveJackpotAta.toBase58()
+        ) {
+          console.log(`[Oracle] 🛡️ Oracle authority and treasury settings already match on-chain. Skipping update.`);
+          return null;
+        }
+      } catch (fetchErr) {
+        console.warn(`[Oracle] ⚠️ Could not fetch or deserialize config PDA data:`, fetchErr);
+      }
+    }
+
     let method: any;
 
     if (!configInfo) {
