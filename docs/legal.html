@@ -15,57 +15,90 @@
         p, li { color: #a0a0a0; }
         .back-link { display: block; margin-bottom: 20px; color: #00ffa3; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; }
+
+        /* Bilingual dual-DOM toggle (driven by docs/assets/js/lang-toggle.js). */
+        [lang="es"] .lang-en { display: none !important; }
+        [lang="en"] .lang-es { display: none !important; }
+
+        /* Language switcher */
+        .lang-toggle { display: flex; gap: 8px; justify-content: center; margin-bottom: 24px; }
+        .lang-toggle button { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: #a0a0a0; padding: 6px 18px; border-radius: 999px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; }
+        .lang-toggle button.active { background: #00ffa3; color: #030307; border-color: #00ffa3; }
+        .lang-toggle button:hover { transform: translateY(-1px); }
     </style>
 </head>
 <body>
     <div class="legal-container">
-        <a href="index.html" class="back-link">← Back to Stadium</a>
-        <h1>Legal Notices</h1>
+        <div class="lang-toggle">
+            <button data-lang="en" class="active">EN</button>
+            <button data-lang="es">ES</button>
+        </div>
+
+        <a href="index.html" class="back-link"><span class="lang-en">← Back to Stadium</span><span class="lang-es">← Volver al Estadio</span></a>
+        <h1><span class="lang-en">Legal Notices</span><span class="lang-es">Avisos Legales</span></h1>
 
         <section id="tos">
-            <h2>Terms of Service</h2>
-            <p><strong>Effective Date:</strong> May 14, 2026</p>
-            <p>Welcome to GoalChain (the "Platform"). By accessing our website (goalchain.fun), using our DApp, or purchasing GoalChain NFTs, you agree to these Terms.</p>
-            
-            <h3>1. The Service</h3>
-            <p>GoalChain provides a decentralized ecosystem for football fans, including digital collectibles (NFTs) and a sports performance oracle. All transactions are conducted on the Solana blockchain.</p>
+            <h2><span class="lang-en">Terms of Service</span><span class="lang-es">Términos de Servicio</span></h2>
+            <p><strong><span class="lang-en">Effective Date:</span><span class="lang-es">Fecha de Vigencia:</span></strong> May 14, 2026</p>
+            <p class="lang-en">Welcome to GoalChain (the "Platform"). By accessing our website (goalchain.fun), using our DApp, or purchasing GoalChain NFTs, you agree to these Terms.</p>
+            <p class="lang-es">Bienvenido a GoalChain (la "Plataforma"). Al acceder a nuestro sitio web (goalchain.fun), usar nuestra DApp o comprar NFTs de GoalChain, aceptas estos Términos.</p>
 
-            <h3>2. Assumption of Risk</h3>
+            <h3><span class="lang-en">1. The Service</span><span class="lang-es">1. El Servicio</span></h3>
+            <p class="lang-en">GoalChain provides a decentralized ecosystem for football fans, including digital collectibles (NFTs) and a sports performance oracle. All transactions are conducted on the Solana blockchain.</p>
+            <p class="lang-es">GoalChain ofrece un ecosistema descentralizado para fanáticos del fútbol, que incluye coleccionables digitales (NFTs) y un oráculo de rendimiento deportivo. Todas las transacciones se realizan en la blockchain de Solana.</p>
+
+            <h3><span class="lang-en">2. Assumption of Risk</span><span class="lang-es">2. Aceptación de Riesgo</span></h3>
             <ul>
-                <li><strong>Blockchain Technology:</strong> You understand that blockchain transactions are irreversible. GoalChain is not responsible for lost funds due to user error.</li>
-                <li><strong>NFT Value:</strong> The value of GoalChain NFTs is subjective and can be volatile. Purchase only what you can afford to lose.</li>
-                <li><strong>Not Financial Advice:</strong> Content on the Platform is for entertainment purposes only.</li>
+                <li>
+                    <strong><span class="lang-en">Blockchain Technology:</span><span class="lang-es">Tecnología Blockchain:</span></strong>
+                    <span class="lang-en">You understand that blockchain transactions are irreversible. GoalChain is not responsible for lost funds due to user error.</span>
+                    <span class="lang-es">Entiendes que las transacciones blockchain son irreversibles. GoalChain no se responsabiliza por fondos perdidos debido a errores del usuario.</span>
+                </li>
+                <li>
+                    <strong><span class="lang-en">NFT Value:</span><span class="lang-es">Valor de los NFTs:</span></strong>
+                    <span class="lang-en">The value of GoalChain NFTs is subjective and can be volatile. Purchase only what you can afford to lose.</span>
+                    <span class="lang-es">El valor de los NFTs de GoalChain es subjetivo y puede ser volátil. Compra solo lo que puedas permitirte perder.</span>
+                </li>
+                <li>
+                    <strong><span class="lang-en">Not Financial Advice:</span><span class="lang-es">No es Asesoramiento Financiero:</span></strong>
+                    <span class="lang-en">Content on the Platform is for entertainment purposes only.</span>
+                    <span class="lang-es">El contenido de la Plataforma es únicamente con fines de entretenimiento.</span>
+                </li>
             </ul>
 
-            <h3>3. Intellectual Property</h3>
-            <p>GoalChain grants NFT owners a limited, personal license to use the artwork associated with their NFT. Commercial use is restricted unless explicitly stated.</p>
-            
-            <h3>4. Parody, Satire, and Non-Affiliation Disclaimer / Exención de Responsabilidad por Parodia y Sátira</h3>
-            <p><strong>[ENGLISH]</strong> GoalChain is a decentralized, creative, and satirical sports-fi fan application. 
-            All digital trading cards (cNFTs) and characters featured on this Platform are works of <strong>pure parody, fan art, and satire</strong>. 
-            The names used (such as "Lionel Satoshi", "Cristiano HODLdo", etc.) and the AI-generated illustrations are fictional crypto-parodies. 
-            GoalChain is <strong>not affiliated with, associated with, sponsored by, or endorsed by</strong> FIFA, UEFA, any national football federation, any professional football club, or any professional athlete. 
+            <h3><span class="lang-en">3. Intellectual Property</span><span class="lang-es">3. Propiedad Intelectual</span></h3>
+            <p class="lang-en">GoalChain grants NFT owners a limited, personal license to use the artwork associated with their NFT. Commercial use is restricted unless explicitly stated.</p>
+            <p class="lang-es">GoalChain otorga a los propietarios de NFTs una licencia personal y limitada para usar el arte asociado a su NFT. El uso comercial está restringido a menos que se indique explícitamente.</p>
+
+            <h3><span class="lang-en">4. Parody, Satire, and Non-Affiliation Disclaimer</span><span class="lang-es">4. Exención de Responsabilidad por Parodia, Sátira y No Afiliación</span></h3>
+            <p class="lang-en">GoalChain is a decentralized, creative, and satirical sports-fi fan application.
+            All digital trading cards (cNFTs) and characters featured on this Platform are works of <strong>pure parody, fan art, and satire</strong>.
+            The names used (such as "Lionel Satoshi", "Cristiano HODLdo", etc.) and the AI-generated illustrations are fictional crypto-parodies.
+            GoalChain is <strong>not affiliated with, associated with, sponsored by, or endorsed by</strong> FIFA, UEFA, any national football federation, any professional football club, or any professional athlete.
             No real athlete's image has been directly copied, reproduced, or licensed. Any resemblance to real-world players, trademarks, or official kits is purely a product of creative parody and artistic expression protected under satirical and free-speech doctrines.</p>
-            
-            <p><strong>[ESPAÑOL]</strong> GoalChain es una aplicación descentralizada, creativa y satírica para fanáticos de SportsFi. 
-            Todos los cromos digitales (cNFTs) y personajes que aparecen en esta Plataforma son obras de <strong>pura parodia, fan art y sátira</strong>. 
-            Los nombres utilizados (como "Lionel Satoshi", "Cristiano HODLdo", etc.) y las ilustraciones generadas por Inteligencia Artificial son cripto-parodias de ficción. 
-            GoalChain <strong>no está afiliada, asociada, patrocinada, ni respaldada por</strong> la FIFA, la UEFA, ninguna federación nacional de fútbol, ningún club de fútbol profesional, ni ningún atleta profesional. 
+            <p class="lang-es">GoalChain es una aplicación descentralizada, creativa y satírica para fanáticos de SportsFi.
+            Todos los cromos digitales (cNFTs) y personajes que aparecen en esta Plataforma son obras de <strong>pura parodia, fan art y sátira</strong>.
+            Los nombres utilizados (como "Lionel Satoshi", "Cristiano HODLdo", etc.) y las ilustraciones generadas por Inteligencia Artificial son cripto-parodias de ficción.
+            GoalChain <strong>no está afiliada, asociada, patrocinada, ni respaldada por</strong> la FIFA, la UEFA, ninguna federación nacional de fútbol, ningún club de fútbol profesional, ni ningún atleta profesional.
             Ninguna imagen real de ningún atleta ha sido copiada directamente, reproducida o licenciada. Cualquier similitud con jugadores del mundo real, marcas comerciales o camisetas oficiales es puramente producto de la parodia creativa y la expresión artística protegida bajo las doctrinas de sátira y libertad de expresión.</p>
         </section>
 
         <section id="privacy">
-            <h2>Privacy Policy</h2>
-            <h3>1. Data Collection</h3>
-            <p>GoalChain is a decentralized platform. We <strong>do not</strong> collect real names, emails, or physical addresses. We only process your <strong>Public Wallet Address</strong> to facilitate blockchain interactions.</p>
+            <h2><span class="lang-en">Privacy Policy</span><span class="lang-es">Política de Privacidad</span></h2>
+            <h3><span class="lang-en">1. Data Collection</span><span class="lang-es">1. Recopilación de Datos</span></h3>
+            <p class="lang-en">GoalChain is a decentralized platform. We <strong>do not</strong> collect real names, emails, or physical addresses. We only process your <strong>Public Wallet Address</strong> to facilitate blockchain interactions.</p>
+            <p class="lang-es">GoalChain es una plataforma descentralizada. <strong>No</strong> recopilamos nombres reales, correos electrónicos ni direcciones físicas. Solo procesamos tu <strong>Dirección Pública de Wallet</strong> para facilitar las interacciones en la blockchain.</p>
 
-            <h3>2. Data Sovereignty</h3>
-            <p>Your data is stored on the Solana blockchain, which is public and permanent. GoalChain has no power to delete or modify on-chain data.</p>
+            <h3><span class="lang-en">2. Data Sovereignty</span><span class="lang-es">2. Soberanía de los Datos</span></h3>
+            <p class="lang-en">Your data is stored on the Solana blockchain, which is public and permanent. GoalChain has no power to delete or modify on-chain data.</p>
+            <p class="lang-es">Tus datos se almacenan en la blockchain de Solana, que es pública y permanente. GoalChain no tiene la capacidad de eliminar ni modificar los datos on-chain.</p>
         </section>
 
         <footer style="margin-top: 60px; text-align: center; font-size: 0.8rem; color: #555;">
-            &copy; 2026 GoalChain Protocol. All rights reserved.
+            &copy; 2026 GoalChain Protocol. <span class="lang-en">All rights reserved.</span><span class="lang-es">Todos los derechos reservados.</span>
         </footer>
     </div>
+
+    <script src="assets/js/lang-toggle.js?v=1.0"></script>
 </body>
 </html>
