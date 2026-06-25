@@ -1,5 +1,5 @@
 /**
- * marketplace.js - Lógica del Mercado de Transferencias GoalChain
+ * marketplace.js - Lógica del Mercado de Transferencias GoalChain 4.0 (3D NFT Update)
  */
 
 const marketState = {
@@ -15,12 +15,56 @@ const RARITY_PRICES = {
     common: "0.2 SOL"
 };
 
+const BG_IMAGE_MAP = {
+    "BG-MYT": "bg_mythic_golden.png",
+    "BG-LEG": "bg_legendary_purple.png",
+    "BG-EPI": "bg_epic_cyber.png",
+    "BG-RAR": "bg_rare_solana.png",
+    "BG-COM": "bg_common_street.png"
+};
+
+const BG_VIDEO_MAP = {
+    "BG-MYT": "neo_olympus_vertical.mp4",
+    "BG-LEG": "titanium_coliseum.mp4",
+    "BG-EPI": "aether_dome.mp4",
+    "BG-RAR": "obsidian_arena.mp4",
+    "BG-COM": "dome_kronos_vertical.mp4"
+};
+
+const FLAG_MAP = {
+    "Argentina": "🇦🇷",
+    "Brasil": "🇧🇷",
+    "Francia": "🇫🇷",
+    "España": "🇪🇸",
+    "Inglaterra": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Alemania": "🇩🇪",
+    "México": "🇲🇽",
+    "Uruguay": "🇺🇾",
+    "Egipto": "🇪🇬",
+    "Polonia": "🇵🇱",
+    "Croacia": "🇭🇷",
+    "Corea del Sur": "🇰🇷",
+    "Portugal": "🇵🇹",
+    "Italia": "🇮🇹",
+    "Países Bajos": "🇳🇱",
+    "Bélgica": "🇧🇪",
+    "EEUU": "🇺🇸"
+};
+
+function getCountryFlag(country) {
+    return FLAG_MAP[country] || "🏳️";
+}
+
+function getPlayerImagePath(player) {
+    const formattedName = player.name.replace(/ /g, '_').replace(/'/g, '_').replace(/\.+$/, '');
+    return `assets/img/nfts/composed/${String(player.id).padStart(3, '0')}_${formattedName}.webp`;
+}
+
 async function initMarketplace() {
     try {
         const response = await fetch('assets/data/players.json');
         marketState.players = await response.json();
         
-        // Simular ofertas iniciales si el mercado está vacío
         generateSimulatedListings();
         renderMarket();
     } catch (error) {
@@ -29,7 +73,7 @@ async function initMarketplace() {
 }
 
 function generateSimulatedListings() {
-    // Tomamos 6 jugadores aleatorios para el mercado
+    // Tomamos 8 jugadores aleatorios para el mercado
     const shuffled = [...marketState.players].sort(() => 0.5 - Math.random());
     marketState.listings = shuffled.slice(0, 8).map(player => ({
         ...player,
@@ -41,6 +85,8 @@ function generateSimulatedListings() {
 function renderMarket(filter = 'all') {
     const grid = document.getElementById('marketGrid');
     if (!grid) return;
+
+    grid.innerHTML = '';
 
     const filtered = filter === 'all' 
         ? marketState.listings 
@@ -56,36 +102,139 @@ function renderMarket(filter = 'all') {
         return;
     }
 
-    grid.innerHTML = filtered.map(item => {
-        const imgPath = `assets/img/nfts/${item.filename}`;
-        return `
-            <div class="glass-card market-item reveal" data-rarity="${item.rarity}" style="padding: 0; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
-                <div style="position: relative; height: 320px; overflow: hidden;">
-                    <img src="${imgPath}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='assets/img/nfts/card_placeholder_soon.png'">
-                    <div style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.8); padding: 5px 12px; border-radius: 20px; font-weight: 900; color: #14f195; border: 1px solid #14f195;">
-                        ${item.price}
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('in-view');
+            else entry.target.classList.remove('in-view');
+        });
+    }, { threshold: 0.1 });
+
+    const activeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('is-active');
+            else entry.target.classList.remove('is-active');
+        });
+    }, { 
+        threshold: 0.8,
+        root: grid.parentElement
+    });
+
+    filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'nft-card-3d';
+        card.setAttribute('data-rarity', item.rarity);
+
+        const imgPath = getPlayerImagePath(item);
+        const flag = getCountryFlag(item.country);
+
+        card.innerHTML = `
+            <div class="glare"></div>
+            
+            <!-- Price badge on top right -->
+            <div class="yield-badge-card" style="border-color: #00e0ff; box-shadow: 0 4px 15px rgba(0, 224, 255, 0.2);">
+                <span class="y-icon">🏷️</span>
+                <span class="y-val">${item.price}</span>
+            </div>
+
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="layer layer-bg" style="position: relative; overflow: hidden; width: 100%; height: 100%;">
+                        <img src="assets/img/stadiums/${BG_IMAGE_MAP[item.bg_type] || 'dome_kronos.jpg'}" alt="Stadium Background" class="bg-img" style="width: 100%; height: 100%; object-fit: cover;">
+                        <video class="bg-video-hover" src="assets/video/stadiums/${BG_VIDEO_MAP[item.bg_type] || 'dome_kronos.mp4'}" muted playsinline preload="none" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.4s ease; z-index: 1; pointer-events: none;"></video>
+                    </div>
+                    <div class="layer layer-base">
+                        <img src="${imgPath}" alt="${item.name}" loading="lazy" onerror="this.parentElement.classList.add('no-image'); this.style.display='none';">
+                        <div class="placeholder-icon">⚽</div>
+                    </div>
+                    <div class="layer layer-frame rarity-${item.rarity}"></div>
+                    <div class="layer layer-ui">
+                        <div class="top-row">
+                            <span class="player-num">#${String(item.id).padStart(3, '0')}</span>
+                            <span class="player-flag">${flag}</span>
+                        </div>
+                        <div class="bottom-info">
+                            <h3 class="player-name-text">${item.name}</h3>
+                            <div class="player-real-identity">${item.real_name || 'Verified Athlete'}</div>
+                            <div class="biometric-strip">
+                                <span>📏 ${item.physical?.h || '1.80m'}</span>
+                                <span>⚖️ ${item.physical?.w || '75kg'}</span>
+                            </div>
+                            <div class="mini-stats">
+                                <span>ATK ${item.stats.atk}</span>
+                                <span>DEF ${item.stats.def}</span>
+                                <span>HYP ${item.stats.hype}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div style="padding: 20px;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-                        <span style="font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase;">Seller: ${item.seller}</span>
-                        <span style="font-size: 0.7rem; color: #fff; font-weight: 900;">#${item.number}</span>
+                <div class="card-back">
+                    <div class="back-content">
+                        <div class="back-header">GOALCHAIN TRANSFER OFFER</div>
+                        <div class="back-body">
+                            <div class="back-id">SELLER: <code>${item.seller}</code></div>
+                            <div class="back-salary">
+                                <span class="label">PRICE</span>
+                                <span class="value" style="color:#00e0ff;">${item.price}</span>
+                            </div>
+                            <div class="clauses-list" style="margin-bottom: 12px;">
+                                <div class="clause-item">✓ Instantly transfer to inventory</div>
+                                <div class="clause-item">✓ Yield begins emitting immediately</div>
+                            </div>
+                            
+                            <!-- Action buttons -->
+                            <button class="btn-buy" style="margin-bottom: 8px; font-size: 0.8rem; background: linear-gradient(90deg, #14f195, #9945ff); color: #000;" onclick="buyPlayer(${item.id})">⚡ BUY NOW</button>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                                <button class="btn-buy" style="font-size: 0.65rem; background: #0b0e11; color: #00e676; border: 1px solid #00e676; box-shadow: none;" onclick="openMarketSimulator(marketState.listings.find(p => p.id === ${item.id}), 'tensor')">📈 TENSOR</button>
+                                <button class="btn-buy" style="font-size: 0.65rem; background: #120c1f; color: #e91e63; border: 1px solid #e91e63; box-shadow: none;" onclick="openMarketSimulator(marketState.listings.find(p => p.id === ${item.id}), 'magic_eden')">🪄 M. EDEN</button>
+                            </div>
+                        </div>
                     </div>
-                    <h4 style="margin-bottom: 15px; font-size: 1.1rem;">${item.name}</h4>
-                    <button class="btn btn-primary w-100" onclick="buyPlayer(${item.id})" style="background: linear-gradient(90deg, #14f195, #9945ff); color: #000; font-weight: 900; border: none; padding: 10px;">
-                        BUY NOW
-                    </button>
                 </div>
             </div>
         `;
-    }).join('');
+
+        // Glare tilt effect on mouse move
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            card.style.setProperty('--x', `${x}%`);
+            card.style.setProperty('--y', `${y}%`);
+        });
+
+        // Click-to-flip handler
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('.btn-buy')) return;
+            card.classList.toggle('is-flipped');
+        });
+
+        // Hover video player logic for card backgrounds
+        const video = card.querySelector('.bg-video-hover');
+        if (video) {
+            if (window.makeVideoYoyo) {
+                window.makeVideoYoyo(video);
+            }
+            card.addEventListener('mouseenter', () => {
+                video.style.opacity = '1';
+                video.play().catch(() => {});
+            });
+            card.addEventListener('mouseleave', () => {
+                video.style.opacity = '0';
+                video.pause();
+                video.currentTime = 0;
+            });
+        }
+
+        grid.appendChild(card);
+        cardObserver.observe(card);
+        activeObserver.observe(card);
+    });
 }
 
 window.filterMarket = (rarity) => {
-    // UI Update
     document.querySelectorAll('#marketplace .filter-btn').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.innerText.toLowerCase() === rarity) btn.classList.add('active');
+        if (btn.innerText.toLowerCase() === rarity.toLowerCase()) btn.classList.add('active');
     });
     renderMarket(rarity);
 };
@@ -97,6 +246,7 @@ window.buyPlayer = async (id) => {
     const walletAddress = localStorage.getItem('goalchain_wallet');
     if (!walletAddress) {
         if (window.notifier) window.notifier.show('ERROR', 'Debes conectar tu wallet para comprar.', 'error');
+        else alert('Debes conectar tu wallet para comprar.');
         return;
     }
 
@@ -127,7 +277,6 @@ window.buyPlayer = async (id) => {
         const fromPubkey = new solanaWeb3.PublicKey(walletAddress);
         const toPubkey = new solanaWeb3.PublicKey("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg"); // Tesorería de GoalChain
 
-        // El precio real del jugador se divide por 1000 para que sea razonable en devnet (ej: 1.5 SOL -> 0.0015 SOL)
         const priceStr = player.price.split(' ')[0];
         const priceSol = parseFloat(priceStr) || 0.1;
         const lamports = Math.floor(priceSol * 1000000); // 1,000,000 lamports = 0.001 SOL por cada 1 SOL de precio listado
@@ -165,7 +314,6 @@ window.buyPlayer = async (id) => {
         
         if (window.renderInventory) window.renderInventory();
 
-        // Enlace a Solana Explorer
         setTimeout(() => {
             alert(`¡COMPRA CONFIRMADA EN SOLANA! 🎉\n\nEl jugador ${player.name} ha sido transferido.\n\nTx ID: ${signature.substring(0, 10)}...\n\nPuedes ver tu transacción en Solana Explorer.`);
             window.open(`https://explorer.solana.com/tx/${signature}?cluster=devnet`, '_blank');
