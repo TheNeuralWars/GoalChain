@@ -141,32 +141,68 @@ def search_trending_match() -> str:
 # STEP 2 — SCRIPT GENERATION (Gemini)
 # ─────────────────────────────────────────────
 
-def _call_gemini_raw(prompt: str) -> str:
-    """Call Gemini 2.0 Flash via REST API (no SDK needed)."""
+def _call_nvidia_nim(prompt: str) -> str:
+    """Call NVIDIA NIM API (Llama 3.1 Nemotron 70B) via REST."""
+    from config import NVIDIA_API_KEY
     import urllib.request, urllib.error
-    if not GEMINI_API_KEY:
-        raise RuntimeError("GEMINI_API_KEY not set in .env")
-    model = "gemini-2.0-flash"
-    url = (
-        f"https://generativelanguage.googleapis.com/v1beta/models/"
-        f"{model}:generateContent?key={GEMINI_API_KEY}"
-    )
+    if not NVIDIA_API_KEY:
+        raise RuntimeError("NVIDIA_API_KEY not set in .env")
+    
+    url = "https://integrate.api.nvidia.com/v1/chat/completions"
     payload = json.dumps({
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"responseMimeType": "application/json"}
+        "model": "nvidia/llama-3.1-nemotron-70b-instruct",
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.3,
+        "max_tokens": 1024
     }).encode("utf-8")
+    
     req = urllib.request.Request(
         url, data=payload,
-        headers={"Content-Type": "application/json"},
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {NVIDIA_API_KEY}"
+        },
         method="POST"
     )
+    # 120 seconds timeout
+    with urllib.request.urlopen(req, timeout=120) as resp:
+        data = json.loads(resp.read().decode())
+    return data["choices"][0]["message"]["content"]
+
+
+def _call_gemini_raw(prompt: str) -> str:
+    """Call Gemini 2.0 Flash via REST API (no SDK needed) with NVIDIA fallback."""
+    import urllib.request, urllib.error
+    
+    # Try Gemini first
+    if GEMINI_API_KEY:
+        try:
+            model = "gemini-2.0-flash"
+            url = (
+                f"https://generativelanguage.googleapis.com/v1beta/models/"
+                f"{model}:generateContent?key={GEMINI_API_KEY}"
+            )
+            payload = json.dumps({
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {"responseMimeType": "application/json"}
+            }).encode("utf-8")
+            req = urllib.request.Request(
+                url, data=payload,
+                headers={"Content-Type": "application/json"},
+                method="POST"
+            )
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read().decode())
+            return data["candidates"][0]["content"]["parts"][0]["text"]
+        except Exception as e:
+            print(f"[LLM] Gemini request failed or quota exceeded ({e}).")
+    
+    print("[LLM] Falling back to NVIDIA NIM...")
     try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            data = json.loads(resp.read().decode())
-        return data["candidates"][0]["content"]["parts"][0]["text"]
-    except urllib.error.HTTPError as e:
-        body = e.read().decode()
-        raise RuntimeError(f"Gemini API error {e.code}: {body[:300]}")
+        return _call_nvidia_nim(prompt)
+    except Exception as e:
+        print(f"[LLM] NVIDIA NIM request failed ({e}).")
+        raise RuntimeError(f"All LLM services failed. Gemini/NVIDIA error: {e}")
 
 
 def generate_match_screenplay(matchup: str, account_name: str, dry_run: bool = False) -> dict:
