@@ -1,5 +1,5 @@
 import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
-import { PROGRAM_ID } from './index';
+
 
 export type ClusterName = 'localnet' | 'devnet' | 'mainnet';
 
@@ -56,7 +56,7 @@ const DEFAULT_RPC =
         ? 'http://127.0.0.1:8899'
         : clusterApiUrl(CLUSTER === "mainnet" ? "mainnet-beta" : (CLUSTER === "devnet" ? "devnet" : "testnet"));
 const RPC_URL: string = readEnv('RPC_URL', DEFAULT_RPC);
-const PROGRAM_ID_BASE58: string = readEnv('PROGRAM_ID', PROGRAM_ID.toBase58());
+const PROGRAM_ID_BASE58: string = readEnv('PROGRAM_ID', 'FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg');
 const GCH_TOKEN_MINT_BASE58: string = readEnv('GCH_TOKEN_MINT', '');
 const PLACEHOLDER_MINT = '<PENDING_MINT_BASE58>';
 
