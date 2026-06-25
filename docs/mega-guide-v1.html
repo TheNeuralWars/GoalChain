@@ -627,12 +627,12 @@
             }
             
             // Persist setting
-            localStorage.setItem('goalchain_language', lang);
+            localStorage.setItem('gc_lang', lang);
         }
 
         // Initialize language from storage or default to English
         document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('goalchain_language') || 'en';
+            const savedLang = localStorage.getItem('gc_lang') || 'en';
             setLanguage(savedLang);
         });
     </script>
