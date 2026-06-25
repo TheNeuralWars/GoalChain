@@ -136,6 +136,22 @@ export function DashboardGrid() {
             <span className="launcher-card-btn text-neon-red">Ver Mi Club →</span>
           </div>
         </div>
+
+        {/* Hub Completo Card */}
+        <div className="launcher-card glass-card card-hover-hub" onClick={() => navigate('/hub')}>
+          <div className="launcher-card-header">
+            <div className="launcher-card-icon">🗂️</div>
+            <div className="launcher-card-badge" style={{ background: 'rgba(20,241,149,0.15)', color: '#14f195' }}>HUB ALPHA</div>
+          </div>
+          <h3>Hub Completo</h3>
+          <p>
+            Vista de navegación rápida hacia todos los módulos del protocolo: fixtures, trading, squad, vaults, cronista IA y más.
+          </p>
+          <div className="launcher-card-footer">
+            <span className="launcher-card-status text-neon-green">Todos los módulos</span>
+            <span className="launcher-card-btn text-neon-green">Explorar Hub →</span>
+          </div>
+        </div>
       </div>
 
       {/* X-Scout Active Research Stream (Mock feed de Twitter AI Explorer) */}
