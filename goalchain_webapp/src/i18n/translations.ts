@@ -316,6 +316,22 @@ export type TranslationKeys = {
   toast_goal: string;
   toast_save: string;
   toast_pack: string;
+  /* ---- Cuadro de Desarrollo (Knockout Bracket) + Fixtures v2 ---- */
+  fix_view_list: string;
+  fix_view_bracket: string;
+  fix_legend_live: string;
+  fix_legend_upcoming: string;
+  fix_legend_done: string;
+  fix_loading: string;
+  fix_list_heading: string;
+  fix_round_round_of_32: string;
+  fix_round_round_of_16: string;
+  fix_round_quarterfinal: string;
+  fix_round_semifinal: string;
+  fix_round_final: string;
+  fix_tbd: string;
+  fix_ft: string;
+  fix_live: string;
 };
 
 export type Translations = Record<Language, TranslationKeys>;

@@ -18,6 +18,7 @@ import { CreateUser } from './CreateUser';
 import { UserProfile } from './UserProfile';
 import { ClassicHub } from './ClassicHub';
 import { MarketingControlCenter } from './MarketingControlCenter';
+import { PressKit } from './PressKit';
 const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
 
 function PlayPage({
@@ -104,6 +105,14 @@ function App() {
                     element={
                       <PlayPage title="Hermes Pilot" align="left">
                         <MarketingControlCenter />
+                      </PlayPage>
+                    }
+                  />
+                  <Route
+                    path="/presskit"
+                    element={
+                      <PlayPage title="Clipper & Creator Kit" align="left">
+                        <PressKit />
                       </PlayPage>
                     }
                   />

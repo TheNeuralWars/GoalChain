@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import path from "path";
 import { Connection, PublicKey } from "@solana/web3.js";
 import { AnchorProvider, Program } from "@coral-xyz/anchor";
-import { idl, PROGRAM_ID, GoalchainProgram, retryRpcCall } from "@goalchain/sdk";
+import { idl, PROGRAM_ID, GoalchainProgram, retryRpcCall, getConnection, getRpcUrl } from "@goalchain/sdk";
 import fs from "fs";
 import { exec } from "child_process";
 
@@ -12,12 +12,11 @@ dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
 const app = express();
 const port = process.env.PORT || 3001;
-const rpcUrl = process.env.RPC_URL || "https://api.devnet.solana.com";
 
 app.use(cors());
 app.use(express.json());
 
-const connection = new Connection(rpcUrl, "confirmed");
+const connection = getConnection("confirmed");
 // Provider placeholder (readonly)
 const provider = new AnchorProvider(connection, {} as any, {
   commitment: "confirmed",
@@ -794,7 +793,7 @@ app.get("/api/economy/config", async (req, res) => {
     res.json({
       source: {
         canonicalPath: canonicalPath,
-        rpcUrl,
+        rpcUrl: getRpcUrl(),
       },
       canonicalConfig,
       onchainConfig,

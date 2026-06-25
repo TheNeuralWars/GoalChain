@@ -4,6 +4,7 @@ export declare const PROGRAM_ID: PublicKey;
 export { idl };
 export type { GoalchainProgram } from './goalchain_program';
 export * from './utils/retry';
+export * from './goalchain_program_environment';
 export declare const SEEDS: {
     CONFIG: string;
     STAKE: string;

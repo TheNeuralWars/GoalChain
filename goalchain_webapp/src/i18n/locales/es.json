@@ -313,5 +313,21 @@
 
   "toast_goal": "GOL",
   "toast_save": "¡Atajada!",
-  "toast_pack": "Nueva carta"
+  "toast_pack": "Nueva carta",
+
+  "fix_view_list": "Vista Lista",
+  "fix_view_bracket": "Cuadro de Desarrollo",
+  "fix_legend_live": "En Vivo",
+  "fix_legend_upcoming": "Próximos",
+  "fix_legend_done": "Finalizados",
+  "fix_loading": "Cargando partidos del Mundial...",
+  "fix_list_heading": "Próximos Partidos (devnet on-chain)",
+  "fix_round_round_of_32": "Dieciseisavos",
+  "fix_round_round_of_16": "Octavos de Final",
+  "fix_round_quarterfinal": "Cuartos de Final",
+  "fix_round_semifinal": "Semifinales",
+  "fix_round_final": "Final",
+  "fix_tbd": "POR DEFINIR",
+  "fix_ft": "Tiempo Completo",
+  "fix_live": "EN VIVO"
 }

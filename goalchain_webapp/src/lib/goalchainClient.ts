@@ -2,11 +2,13 @@ import { AnchorProvider, BN, Idl, Program } from '@coral-xyz/anchor';
 import { getAssociatedTokenAddressSync, getMint, TOKEN_PROGRAM_ID } from '@solana/spl-token';
 import idl from '@goalchain/sdk/src/goalchain_program.json';
 import { Connection, PublicKey } from '@solana/web3.js';
+import { getProgramId } from '@goalchain/sdk';
 
-const PROGRAM_ID = new PublicKey('FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg');
+const PROGRAM_ID = getProgramId();
 const SEEDS = {
   CONFIG: 'config',
   FIXTURE_VAULT: 'fixture_vault',
+  LIVE_STATE: 'live_state',
 } as const;
 
 export type FixtureStatus = 'upcoming' | 'live' | 'completed' | 'cancelled' | 'unknown';
@@ -41,6 +43,16 @@ export interface FixtureView {
   round?: string;
   venue?: string;
   matchDate?: number;
+  /** Marcador on-chain del equipo A (LiveMatchState.scoreA). */
+  scoreA?: number;
+  /** Marcador on-chain del equipo B (LiveMatchState.scoreB). */
+  scoreB?: number;
+  /** Minuto de juego actual reportado por el oráculo (LiveMatchState.minute). */
+  minute?: number;
+  /** true si el partido terminó (full-time) según el oráculo. */
+  isFt?: boolean;
+  /** true si el partido está en entretiempo (half-time) según el oráculo. */
+  isHt?: boolean;
 }
 
 export interface UserBetView {
@@ -154,8 +166,61 @@ function parseAmountToBaseUnits(amountUi: string, decimals: number): BN {
 export async function fetchFixtures(connection: Connection): Promise<FixtureView[]> {
   const program = createProgram(connection);
   const rows: Array<{ publicKey: PublicKey; account: any }> = await (program as any).account.fixture.all();
-  return rows
-    .map((row) => toUiFixture(row.publicKey, row.account))
+
+  // Base UI views (sin estado en vivo todavía).
+  const base = rows.map((row) => toUiFixture(row.publicKey, row.account));
+
+  // Enriquecer cada fixture con su LiveMatchState on-chain (si existe).
+  // El oráculo publica una cuenta LiveMatchState por partido, direccionada por:
+  //   PDA = ["live_state", <fixture_pubkey>]
+  const liveStates = await Promise.all(
+    base.map(async (fx) => {
+      try {
+        const fixtureKey = new PublicKey(fx.pubkey);
+        const [livePda] = PublicKey.findProgramAddressSync(
+          [Buffer.from(SEEDS.LIVE_STATE), fixtureKey.toBuffer()],
+          PROGRAM_ID,
+        );
+        // fetchNullable → null si el partido aún no abrió cuenta de live_state.
+        const live = await (program as any).account.liveMatchState.fetchNullable(livePda);
+        return live ?? null;
+      } catch (err) {
+        // Un fallo de lectura aislado no debe romper todo el listado de fixtures.
+        console.warn('fetchFixtures: live state miss for', fx.pubkey, err);
+        return null;
+      }
+    }),
+  );
+
+  const asU8 = (value: unknown): number | undefined => {
+    if (value === null || value === undefined) return undefined;
+    if (typeof value === 'number') return value;
+    if (typeof (value as any).toNumber === 'function') return (value as any).toNumber();
+    return undefined;
+  };
+
+  return base
+    .map((fx, idx) => {
+      const live = liveStates[idx];
+      if (!live) return fx;
+      const scoreA = asU8(live.score_a);
+      const scoreB = asU8(live.score_b);
+      const minute = asU8(live.minute);
+      return {
+        ...fx,
+        scoreA,
+        scoreB,
+        minute,
+        isFt: Boolean(live.is_ft),
+        isHt: Boolean(live.is_ht),
+        // El estado on-chain (ft/ht) tiene prioridad sobre el estado estático.
+        status: live.is_ft
+          ? 'completed'
+          : live.is_ht || (minute !== undefined && minute > 0)
+          ? 'live'
+          : fx.status,
+      } as FixtureView;
+    })
     .sort((a, b) => b.poolA + b.poolB + b.poolDraw - (a.poolA + a.poolB + a.poolDraw));
 }
 

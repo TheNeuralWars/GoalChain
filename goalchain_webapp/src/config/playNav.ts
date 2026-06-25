@@ -142,6 +142,12 @@ const ARCADE_ITEMS: PlayNavItem[] = [
    ============================================================ */
 export const RESOURCE_LINKS: PlayNavItem[] = [
   {
+    id: 'presskit',
+    label: 'Clipper & Creator Kit',
+    i18n: 'nav_res_presskit',
+    to: '/presskit',
+  },
+  {
     id: 'pitch-page',
     label: 'Pitch & Motivation',
     i18n: 'nav_res_pitch',

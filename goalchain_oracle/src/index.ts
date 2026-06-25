@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import * as fs from "fs";
 import { spawn } from "child_process";
 import * as path from "path";
+import { getRpcUrl, getProgramId } from "@goalchain/sdk";
 
 dotenv.config();
 
@@ -249,11 +250,10 @@ async function runMatchSimulation(oracle: OracleService, gchMint: PublicKey) {
 
 async function main() {
   const nodeEnv = process.env.NODE_ENV || "development";
-  const rpcUrl = process.env.RPC_URL || "http://127.0.0.1:8899";
+  const rpcUrl = getRpcUrl();
   const keypairPath =
     process.env.ORACLE_KEYPAIR_PATH || "~/.config/solana/id.json";
-  const programId =
-    process.env.PROGRAM_ID || "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg";
+  const programId = getProgramId().toBase58();
 
   console.log(`📡 Oracle Configuration:`);
   console.log(`   - Environment: ${nodeEnv.toUpperCase()}`);

@@ -1,0 +1,42 @@
+[
+  {"id": 1, "phase": "group", "group": "A", "date": "2026-06-11", "home": "México", "away": "Ee.uu.", "scoreHome": 2, "scoreAway": 1, "status": "completed", "venue": "Estadio Azteca", "city": "Ciudad de México"},
+  {"id": 2, "phase": "group", "group": "A", "date": "2026-06-11", "home": "Canadá", "away": "Argentina", "scoreHome": 1, "scoreAway": 3, "status": "completed", "venue": "BMO Field", "city": "Toronto"},
+  {"id": 3, "phase": "group", "group": "B", "date": "2026-06-12", "home": "Brasil", "away": "Alemania", "scoreHome": 3, "scoreAway": 0, "status": "completed", "venue": "MetLife Stadium", "city": "Nueva York"},
+  {"id": 4, "phase": "group", "group": "B", "date": "2026-06-12", "home": "Japón", "away": "España", "scoreHome": 0, "scoreAway": 2, "status": "completed", "venue": "AT&T Stadium", "city": "Dallas"},
+  {"id": 5, "phase": "group", "group": "C", "date": "2026-06-13", "home": "Francia", "away": "Marruecos", "scoreHome": 2, "scoreAway": 1, "status": "completed", "venue": "Rose Bowl", "city": "Los Ángeles"},
+  {"id": 6, "phase": "group", "group": "C", "date": "2026-06-13", "home": "Portugal", "away": "Países Bajos", "scoreHome": 3, "scoreAway": 1, "status": "completed", "venue": "SoFi Stadium", "city": "Los Ángeles"},
+  {"id": 7, "phase": "group", "group": "D", "date": "2026-06-14", "home": "Inglaterra", "away": "Senegal", "scoreHome": 3, "scoreAway": 0, "status": "completed", "venue": "Lincoln Financial Field", "city": "Filadelfia"},
+  {"id": 8, "phase": "group", "group": "D", "date": "2026-06-14", "home": "Australia", "away": "Colombia", "scoreHome": 1, "scoreAway": 2, "status": "completed", "venue": "NRG Stadium", "city": "Houston"},
+  {"id": 9, "phase": "group", "group": "E", "date": "2026-06-15", "home": "Uruguay", "away": "Corea del Sur", "scoreHome": 2, "scoreAway": 1, "status": "completed", "venue": "Lumen Field", "city": "Seattle"},
+  {"id": 10, "phase": "group", "group": "E", "date": "2026-06-15", "home": "Italia", "away": "Suiza", "scoreHome": 3, "scoreAway": 1, "status": "completed", "venue": "Gillette Stadium", "city": "Boston"},
+  {"id": 11, "phase": "group", "group": "F", "date": "2026-06-16", "home": "Argentina", "away": "Ecuador", "scoreHome": 4, "scoreAway": 0, "status": "completed", "venue": "MetLife Stadium", "city": "Nueva York"},
+  {"id": 12, "phase": "group", "group": "F", "date": "2026-06-16", "home": "Canadá", "away": "Bolivia", "scoreHome": 2, "scoreAway": 1, "status": "completed", "venue": "Arrowhead Stadium", "city": "Kansas City"},
+  {"id": 13, "phase": "group", "group": "G", "date": "2026-06-17", "home": "Ee.uu.", "away": "Ghana", "scoreHome": 2, "scoreAway": 1, "status": "completed", "venue": "AT&T Stadium", "city": "Dallas"},
+  {"id": 14, "phase": "group", "group": "G", "date": "2026-06-17", "home": "Túnez", "away": "México", "scoreHome": 0, "scoreAway": 3, "status": "completed", "venue": "Estadio Azteca", "city": "Ciudad de México"},
+  {"id": 15, "phase": "group", "group": "H", "date": "2026-06-18", "home": "España", "away": "Argelia", "scoreHome": 5, "scoreAway": 0, "status": "completed", "venue": "Levi's Stadium", "city": "San Francisco"},
+  {"id": 16, "phase": "group", "group": "H", "date": "2026-06-18", "home": "Japón", "away": "Croacia", "scoreHome": 2, "scoreAway": 1, "status": "completed", "venue": "Allegiant Stadium", "city": "Las Vegas"},
+  {"id": 17, "phase": "group", "group": "I", "date": "2026-06-19", "home": "Alemania", "away": "Nueva Zelanda", "scoreHome": 4, "scoreAway": 1, "status": "completed", "venue": "SoFi Stadium", "city": "Los Ángeles"},
+  {"id": 18, "phase": "group", "group": "I", "date": "2026-06-19", "home": "Brasil", "away": "Congo", "scoreHome": 5, "scoreAway": 0, "status": "completed", "venue": "Hard Rock Stadium", "city": "Miami"},
+  {"id": 19, "phase": "group", "group": "J", "date": "2026-06-20", "home": "Portugal", "away": "Qatar", "scoreHome": 6, "scoreAway": 0, "status": "completed", "venue": "Rose Bowl", "city": "Los Ángeles"},
+  {"id": 20, "phase": "group", "group": "J", "date": "2026-06-20", "home": "Francia", "away": "Bélgica", "scoreHome": 2, "scoreAway": 1, "status": "completed", "venue": "BC Place", "city": "Vancouver"},
+  {"id": 21, "phase": "group", "group": "K", "date": "2026-06-21", "home": "Inglaterra", "away": "Argelia", "scoreHome": 3, "scoreAway": 0, "status": "completed", "venue": "Gillette Stadium", "city": "Boston"},
+  {"id": 22, "phase": "group", "group": "K", "date": "2026-06-21", "home": "Colombia", "away": "Nigeria", "scoreHome": 2, "scoreAway": 0, "status": "completed", "venue": "Lincoln Financial Field", "city": "Filadelfia"},
+  {"id": 23, "phase": "group", "group": "L", "date": "2026-06-22", "home": "Italia", "away": "Paraguay", "scoreHome": 2, "scoreAway": 1, "status": "completed", "venue": "Estadio Guadalajara", "city": "Guadalajara"},
+  {"id": 24, "phase": "group", "group": "L", "date": "2026-06-22", "home": "Uruguay", "away": "Irak", "scoreHome": 3, "scoreAway": 0, "status": "completed", "venue": "BC Place", "city": "Vancouver"},
+
+  {"id": 64, "phase": "round_of_32", "group": null, "date": "2026-06-28", "home": "Argentina", "away": "España", "status": "upcoming", "venue": "MetLife Stadium", "city": "Nueva York", "qualifierNote": "1A vs 2B"},
+  {"id": 65, "phase": "round_of_32", "group": null, "date": "2026-06-29", "home": "Brasil", "away": "México", "status": "upcoming", "venue": "SoFi Stadium", "city": "Los Ángeles", "qualifierNote": "1B vs 2A"},
+
+  {"id": 96, "phase": "round_of_16", "group": null, "date": "2026-07-05", "home": "TBD-W64", "away": "TBD-W65", "status": "upcoming", "venue": "AT&T Stadium", "city": "Dallas"},
+
+  {"id": 112, "phase": "quarterfinal", "group": null, "date": "2026-07-10", "home": "TBD", "away": "TBD", "status": "upcoming", "venue": "MetLife Stadium", "city": "Nueva York"},
+  {"id": 113, "phase": "quarterfinal", "group": null, "date": "2026-07-11", "home": "TBD", "away": "TBD", "status": "upcoming", "venue": "AT&T Stadium", "city": "Dallas"},
+  {"id": 114, "phase": "quarterfinal", "group": null, "date": "2026-07-12", "home": "TBD", "away": "TBD", "status": "upcoming", "venue": "Rose Bowl", "city": "Los Ángeles"},
+  {"id": 115, "phase": "quarterfinal", "group": null, "date": "2026-07-13", "home": "TBD", "away": "TBD", "status": "upcoming", "venue": "SoFi Stadium", "city": "Los Ángeles"},
+
+  {"id": 124, "phase": "semifinal", "group": null, "date": "2026-07-15", "home": "TBD-QF1", "away": "TBD-QF2", "status": "upcoming", "venue": "MetLife Stadium", "city": "Nueva York"},
+  {"id": 125, "phase": "semifinal", "group": null, "date": "2026-07-16", "home": "TBD-QF3", "away": "TBD-QF4", "status": "upcoming", "venue": "Rose Bowl", "city": "Los Ángeles"},
+
+  {"id": 126, "phase": "third_place", "group": null, "date": "2026-07-18", "home": "TBD-SF-L1", "away": "TBD-SF-L2", "status": "upcoming", "venue": "Hard Rock Stadium", "city": "Miami"},
+  {"id": 127, "phase": "final", "group": null, "date": "2026-07-19", "home": "TBD-SF-W1", "away": "TBD-SF-W2", "status": "upcoming", "venue": "MetLife Stadium", "city": "Nueva York"}
+]

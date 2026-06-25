@@ -8,6 +8,7 @@ export type { GoalchainProgram } from './goalchain_program';
 
 // Retry and timeout utilities
 export * from './utils/retry';
+export * from './goalchain_program_environment';
 
 export const SEEDS = {
     CONFIG: "config",

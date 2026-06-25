@@ -313,5 +313,21 @@
 
   "toast_goal": "GOAL",
   "toast_save": "Saved!",
-  "toast_pack": "New card"
+  "toast_pack": "New card",
+
+  "fix_view_list": "List View",
+  "fix_view_bracket": "Knockout Bracket",
+  "fix_legend_live": "Live",
+  "fix_legend_upcoming": "Upcoming",
+  "fix_legend_done": "Completed",
+  "fix_loading": "Loading World Cup matches...",
+  "fix_list_heading": "Upcoming Matches (devnet on-chain)",
+  "fix_round_round_of_32": "Round of 32",
+  "fix_round_round_of_16": "Round of 16",
+  "fix_round_quarterfinal": "Quarterfinals",
+  "fix_round_semifinal": "Semifinals",
+  "fix_round_final": "Final",
+  "fix_tbd": "TBD",
+  "fix_ft": "Full-time",
+  "fix_live": "LIVE"
 }

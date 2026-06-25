@@ -10,7 +10,7 @@ import {
   VersionedTransaction,
   sendAndConfirmTransaction,
 } from "@solana/web3.js";
-import { fetchWithTimeout, retrySendAndConfirm } from "@goalchain/sdk";
+import { fetchWithTimeout, retrySendAndConfirm, getRpcUrl, getProgramId } from "@goalchain/sdk";
 import {
   executeVaultCrankBundle,
   PriorityTier,
@@ -130,9 +130,9 @@ async function main() {
         dotenv.config();
       } catch (e) {}
 
-      const rpcUrl = process.env.RPC_URL || "https://api.devnet.solana.com";
+      const rpcUrl = getRpcUrl();
       const keypairPath = process.env.ORACLE_KEYPAIR_PATH || "~/.config/solana/id.json";
-      const programId = process.env.PROGRAM_ID || "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg";
+      const programId = getProgramId().toBase58();
 
       notes.push(`Connecting to Solana RPC: ${rpcUrl}`);
 

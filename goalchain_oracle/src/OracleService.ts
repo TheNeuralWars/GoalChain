@@ -15,6 +15,7 @@ import * as path from "path";
 import { fileURLToPath } from "url";
 // @ts-ignore
 import { GoalchainProgram } from "../../goalchain_program/target/types/goalchain_program";
+import { getConnection, getProgramId } from "@goalchain/sdk";
 import { getPriorityFeeInstructions } from "./priorityFees.js";
 import { MarketsService, createMarketsService } from "./markets/index.js";
 import { PlayersService } from "./players/index.js";
@@ -36,11 +37,11 @@ export class OracleService {
   public players: PlayersService;
 
   constructor(
-    rpcUrl: string,
+    rpcUrl: string | undefined | null,
     keypairPathOrWallet: string | anchor.Wallet,
-    programIdStr: string = "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg",
+    programIdStr?: string,
   ) {
-    this.connection = new Connection(rpcUrl, "confirmed");
+    this.connection = rpcUrl ? new Connection(rpcUrl, "confirmed") : getConnection("confirmed");
 
     // Load oracle wallet (file path fallback or secure custom wallet injection)
     if (typeof keypairPathOrWallet === "string") {
@@ -59,6 +60,12 @@ export class OracleService {
     this.provider = new anchor.AnchorProvider(this.connection, this.wallet, {
       commitment: "confirmed",
     });
+
+    const activeProgramId = programIdStr ? new PublicKey(programIdStr) : getProgramId();
+    this.configPda = PublicKey.findProgramAddressSync(
+      [Buffer.from("config")],
+      activeProgramId,
+    )[0];
     anchor.setProvider(this.provider);
 
     // Load IDL and Program (requires the IDL JSON or TS type from the Rust build)
@@ -71,7 +78,7 @@ export class OracleService {
         "utf8",
       ),
     );
-    const programId = new PublicKey(programIdStr);
+    const programId = activeProgramId;
     this.program = new anchor.Program(
       idl,
       this.provider,
