@@ -280,6 +280,16 @@
         .toast.show {
             opacity: 1;
         }
+
+        /* Bilingual dual-DOM toggle (driven by docs/assets/js/lang-toggle.js). */
+        [lang="es"] .lang-en { display: none !important; }
+        [lang="en"] .lang-es { display: none !important; }
+
+        /* Language switcher */
+        .lang-toggle { display: flex; gap: 6px; align-items: center; }
+        .lang-toggle button { background: #1f1f2e; border: 1px solid #3a3a48; color: #94a3b8; padding: 6px 12px; border-radius: 8px; font-weight: 700; font-size: 0.75rem; cursor: pointer; transition: all 0.2s ease; }
+        .lang-toggle button.active { background: #a78bfa; color: #0a0a0f; border-color: #a78bfa; }
+        .lang-toggle button:hover { transform: translateY(-1px); }
     </style>
 </head>
 <body>
@@ -288,18 +298,22 @@
             <div class="title">
                 <div class="icon">🤖</div>
                 <div>
-                    <h1>Agente CEO</h1>
+                    <h1><span class="lang-es">Agente CEO</span><span class="lang-en">CEO Agent</span></h1>
                     <div style="display:flex; align-items:center; gap:6px; margin-top:2px;">
                         <span class="live">LIVE</span>
                         <span style="font-size:0.7rem; color:#64748b;">GoalChain</span>
                     </div>
                 </div>
             </div>
-            
+
             <div class="actions">
+                <div class="lang-toggle">
+                    <button data-lang="en">EN</button>
+                    <button data-lang="es" class="active">ES</button>
+                </div>
                 <a href="https://discord.com/channels/@me" target="_blank" class="btn btn-discord">💬 Discord</a>
-                <button onclick="copyCommand()" class="btn btn-copy">📤 Copiar</button>
-                <button onclick="refreshChat()" class="btn btn-refresh">↻</button>
+                <button onclick="copyCommand()" class="btn btn-copy"><span class="lang-es">📤 Copiar</span><span class="lang-en">📤 Copy</span></button>
+                <button onclick="refreshChat()" class="btn btn-refresh" title="Refresh">↻</button>
             </div>
         </div>
     </div>
@@ -307,12 +321,12 @@
     <!-- Panel de Control Integrado (emulación de los botones del Discord Manager) -->
     <div style="max-width: 980px; margin: 0 auto; padding: 0 16px 12px;">
         <div style="background: #111116; border: 1px solid #3a3a48; border-radius: 16px; padding: 16px; margin-bottom: 16px;">
-            <div style="font-weight: 800; margin-bottom: 10px; color: #a78bfa;">🧠 Panel de Control Integrado GoalChain</div>
-            <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 12px;">Emulación web de los botones del @GoalChain Manager</div>
+            <div style="font-weight: 800; margin-bottom: 10px; color: #a78bfa;"><span class="lang-es">🧠 Panel de Control Integrado GoalChain</span><span class="lang-en">🧠 GoalChain Integrated Control Panel</span></div>
+            <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 12px;"><span class="lang-es">Emulación web de los botones del @GoalChain Manager</span><span class="lang-en">Web emulation of the @GoalChain Manager buttons</span></div>
 
             <!-- Fila 1: Grok Agents -->
             <div style="margin-bottom: 10px;">
-                <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 4px;">🤖 Agentes Inteligentes (Grok)</div>
+                <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 4px;"><span class="lang-es">🤖 Agentes Inteligentes (Grok)</span><span class="lang-en">🤖 Intelligent Agents (Grok)</span></div>
                 <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                     <button onclick="triggerControlAction('grok_btn_ceo')" class="panel-btn" style="background:#3b82f6;">💼 CEO (Grok)</button>
                     <button onclick="triggerControlAction('grok_btn_growth')" class="panel-btn" style="background:#22c55e;">📈 Growth (Grok)</button>
@@ -333,10 +347,10 @@
 
             <!-- Fila 3: System -->
             <div>
-                <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 4px;">🛠️ Herramientas de Sistema</div>
+                <div style="font-size: 0.7rem; color: #64748b; margin-bottom: 4px;"><span class="lang-es">🛠️ Herramientas de Sistema</span><span class="lang-en">🛠️ System Tools</span></div>
                 <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                    <button onclick="triggerControlAction('sys_btn_cancel')" class="panel-btn" style="background:#ef4444;">🛑 Cancelar Run</button>
-                    <button onclick="triggerControlAction('sys_btn_reset')" class="panel-btn" style="background:#eab308;">🔄 Limpiar</button>
+                    <button onclick="triggerControlAction('sys_btn_cancel')" class="panel-btn" style="background:#ef4444;"><span class="lang-es">🛑 Cancelar Run</span><span class="lang-en">🛑 Cancel Run</span></button>
+                    <button onclick="triggerControlAction('sys_btn_reset')" class="panel-btn" style="background:#eab308;"><span class="lang-es">🔄 Limpiar</span><span class="lang-en">🔄 Clear</span></button>
                     <button onclick="triggerControlAction('sys_btn_solana')" class="panel-btn" style="background:#22c55e;">📦 Solana Build</button>
                     <button onclick="triggerControlAction('sys_btn_restart_ceo')" class="panel-btn" style="background:#22c55e;">🟢 Restart CEO</button>
                     <button onclick="triggerControlAction('sys_btn_force_post')" class="panel-btn" style="background:#3b82f6;">🚀 Force Post</button>
@@ -348,18 +362,53 @@
     <div class="chat-container">
         <div id="chatWindow" class="chat-window">
             <div id="messages"></div>
-            <div id="loading" class="empty">Cargando conversación...</div>
+            <div id="loading" class="empty"><span class="lang-es">Cargando conversación...</span><span class="lang-en">Loading conversation...</span></div>
         </div>
     </div>
 
     <div class="footer">
-        Fuente: ceo-log.txt (actualizado desde el repo) • <a href="https://github.com/TheNeuralWars/GoalChain/blob/main/Talks/Grok-CEO.md" target="_blank">Ver en GitHub</a>
+        <span class="lang-es">Fuente: ceo-log.txt (actualizado desde el repo) •</span><span class="lang-en">Source: ceo-log.txt (updated from the repo) •</span> <a href="https://github.com/TheNeuralWars/GoalChain/blob/main/Talks/Grok-CEO.md" target="_blank"><span class="lang-es">Ver en GitHub</span><span class="lang-en">View on GitHub</span></a>
     </div>
 
     <!-- Toast notification -->
     <div id="toast" class="toast"></div>
 
     <script>
+        // Mini i18n following gc_lang / <html lang> (shared with lang-toggle.js).
+        const CEO_I18N = {
+            es: {
+                loading_error: 'Error cargando el log.<br>Intenta refrescar.',
+                copy_cmd: 'Agente CEO: [Escribe tu instrucción aquí]',
+                copied: '¡Copiado!',
+                toast_panel: "✅ Copiado 'panel'. Pégalo en Discord para ver los botones del Manager.",
+                prompt_panel: 'Copia este comando y pégalo en Discord:',
+                status_running: 'Ejecutando...',
+                toast_hot: (l) => `🔥 ${l} ejecutado en caliente`,
+                toast_intake: (l) => `⚠️ ${l} → Intake generado (el Manager lo ejecutará)`,
+                toast_copied_agent: (a) => `✅ Copiado: "Agente ${a}: "`,
+                action_labels: { 'grok_btn_ceo':'CEO (Grok)', 'grok_btn_growth':'Growth (Grok)', 'grok_btn_developer':'Dev (Grok)', 'grok_btn_xscout':'X-Scout', 'fcc_btn_sonnet':'FCC Sonnet', 'fcc_btn_opus':'FCC Opus', 'fcc_btn_haiku':'FCC Haiku', 'sys_btn_cancel':'Cancelar Run', 'sys_btn_reset':'Limpiar', 'sys_btn_solana':'Solana Build', 'sys_btn_restart_ceo':'Restart CEO', 'sys_btn_force_post':'Force Post' },
+                time_locale: 'es-AR',
+                intake_obj: (l) => `Ejecutar la misma acción que el botón "${l}" en Discord.`,
+                intake_ctx: 'Disparado desde la página CEO (https://goalchain.fun/ceo.html).\nDebe comportarse igual que la interacción de Discord.'
+            },
+            en: {
+                loading_error: 'Error loading the log.<br>Try refreshing.',
+                copy_cmd: 'CEO Agent: [Type your instruction here]',
+                copied: 'Copied!',
+                toast_panel: "✅ Copied 'panel'. Paste it in Discord to see the Manager buttons.",
+                prompt_panel: 'Copy this command and paste it in Discord:',
+                status_running: 'Running...',
+                toast_hot: (l) => `🔥 ${l} executed hot`,
+                toast_intake: (l) => `⚠️ ${l} → Intake generated (the Manager will run it)`,
+                toast_copied_agent: (a) => `✅ Copied: "Agent ${a}: "`,
+                action_labels: { 'grok_btn_ceo':'CEO (Grok)', 'grok_btn_growth':'Growth (Grok)', 'grok_btn_developer':'Dev (Grok)', 'grok_btn_xscout':'X-Scout', 'fcc_btn_sonnet':'FCC Sonnet', 'fcc_btn_opus':'FCC Opus', 'fcc_btn_haiku':'FCC Haiku', 'sys_btn_cancel':'Cancel Run', 'sys_btn_reset':'Clear', 'sys_btn_solana':'Solana Build', 'sys_btn_restart_ceo':'Restart CEO', 'sys_btn_force_post':'Force Post' },
+                time_locale: 'en-US',
+                intake_obj: (l) => `Run the same action as the "${l}" button in Discord.`,
+                intake_ctx: 'Triggered from the CEO page (https://goalchain.fun/ceo.html).\nShould behave the same as the Discord interaction.'
+            }
+        };
+        function tr() { return (document.documentElement.lang === 'es') ? CEO_I18N.es : CEO_I18N.en; }
+
         let lastContent = '';
 
         async function loadChat() {
@@ -435,7 +484,7 @@
                 }, 80);
 
             } catch (e) {
-                loading.innerHTML = 'Error cargando el log.<br>Intenta refrescar.';
+                loading.innerHTML = tr().loading_error;
             }
         }
 
@@ -494,24 +543,26 @@
         }
 
         function copyCommand() {
-            const cmd = "Agente CEO: [Escribe tu instrucción aquí]";
+            const i18n = tr();
+            const cmd = i18n.copy_cmd;
             navigator.clipboard.writeText(cmd).then(() => {
                 const btns = document.querySelectorAll('.btn-copy');
                 if (btns.length) {
-                    const original = btns[0].innerText;
-                    btns[0].innerText = '¡Copiado!';
-                    setTimeout(() => btns[0].innerText = original, 1200);
+                    const original = btns[0].innerHTML;
+                    btns[0].innerText = i18n.copied;
+                    setTimeout(() => btns[0].innerHTML = original, 1200);
                 }
             });
         }
 
         function copyInstructionToBot() {
-            // Copia el comando que hace que el @GoalChain Manager muestre el panel de acciones rápidas (incluyendo las del CEO Log)
+            // Copies the command that makes @GoalChain Manager show the quick-action panel.
             const command = "panel";
+            const i18n = tr();
             navigator.clipboard.writeText(command).then(() => {
-                showToast("✅ Copiado 'panel'. Pégalo en Discord para ver los botones del Manager.");
+                showToast(i18n.toast_panel);
             }).catch(() => {
-                prompt("Copia este comando y pégalo en Discord:", command);
+                prompt(i18n.prompt_panel, command);
             });
         }
 
@@ -519,11 +570,12 @@
         let ceoControlLog = [];
 
         function triggerControlAction(customId) {
+            const i18n = tr();
             const label = getActionLabel(customId);
             const now = new Date();
             const ts = now.toISOString().replace(/[:.]/g, '-').slice(0,19);
 
-            const action = { id: Date.now(), customId, label, time: now.toLocaleTimeString('es-AR'), status: 'Ejecutando...' };
+            const action = { id: Date.now(), customId, label, time: now.toLocaleTimeString(i18n.time_locale), status: i18n.status_running };
             ceoControlLog.unshift(action);
 
             // Generate proper intake (same as Discord)
@@ -537,14 +589,11 @@
         }
 
         function getActionLabel(id) {
-            const m = { 'grok_btn_ceo':'CEO (Grok)', 'grok_btn_growth':'Growth (Grok)', 'grok_btn_developer':'Dev (Grok)', 'grok_btn_xscout':'X-Scout',
-                        'fcc_btn_sonnet':'FCC Sonnet', 'fcc_btn_opus':'FCC Opus', 'fcc_btn_haiku':'FCC Haiku',
-                        'sys_btn_cancel':'Cancelar Run', 'sys_btn_reset':'Limpiar', 'sys_btn_solana':'Solana Build',
-                        'sys_btn_restart_ceo':'Restart CEO', 'sys_btn_force_post':'Force Post' };
-            return m[id] || id;
+            return tr().action_labels[id] || id;
         }
 
         function generateIntake(customId, label, ts) {
+            const i18n = tr();
             return `---
 title: "[WEB] ${label}"
 date: ${new Date().toISOString()}
@@ -553,15 +602,15 @@ custom_id: ${customId}
 ---
 
 ## Objective
-Ejecutar la misma acción que el botón "${label}" en Discord.
+${i18n.intake_obj(label)}
 
 ## Context
-Disparado desde la página CEO (https://goalchain.fun/ceo.html).
-Debe comportarse igual que la interacción de Discord.
+${i18n.intake_ctx}
 `;
         }
 
         async function executeHot(customId, label) {
+            const i18n = tr();
             const payload = { action: customId, source: "ceo-page", timestamp: new Date().toISOString() };
             const urls = ["http://127.0.0.1:8790/control", "http://127.0.0.1:8080/api/control-action"];
 
@@ -569,12 +618,12 @@ Debe comportarse igual que la interacción de Discord.
                 try {
                     const r = await fetch(u, { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(payload) });
                     if (r.ok) {
-                        showToast(`🔥 ${label} ejecutado en caliente`);
+                        showToast(i18n.toast_hot(label));
                         return;
                     }
                 } catch(e){}
             }
-            showToast(`⚠️ ${label} → Intake generado (el Manager lo ejecutará)`);
+            showToast(i18n.toast_intake(label));
         }
 
         function downloadTextFile(name, content) {
@@ -590,9 +639,10 @@ Debe comportarse igual que la interacción de Discord.
 
         // Legacy copy functions kept for the small header buttons
         function copyAgentCommand(agent) {
+            const i18n = tr();
             const command = `Agente ${agent}: `;
             navigator.clipboard.writeText(command).then(() => {
-                showToast(`✅ Copiado: "Agente ${agent}: "`);
+                showToast(i18n.toast_copied_agent(agent));
             });
         }
 
@@ -614,5 +664,6 @@ Debe comportarse igual que la interacción de Discord.
             loadChat();
         }, 12000);
     </script>
+    <script src="assets/js/lang-toggle.js?v=1.0"></script>
 </body>
 </html>
