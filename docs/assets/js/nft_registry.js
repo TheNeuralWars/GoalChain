@@ -15,33 +15,7 @@ const PRICE_MAP = {
 };
 
 // Manual image map for generated NFTs (overrides auto-generated paths)
-const NFT_IMAGE_MAP = {
-    1: "001_lionel_satoshi.png",
-    2: "002_dibu_block.png",
-    3: "020_julian_alvaswap.png",
-    14: "014_mo_solana.png",
-    15: "015_pedri_protocol.png",
-    16: "016_fede_valweb3.png",
-    17: "017_darwin_nunft.png",
-    18: "018_bukayo_stock.png",
-    19: "019_phil_fod_ether.png",
-    20: "020_enzo_ledger.png",
-    21: "021_luis_swaswap.png",
-    22: "022_bernardo_solana.png",
-    24: "024_rodri_protocol.png",
-    26: "026_joshua_bit_mmi.png",
-    27: "027_vini_burner_jr.png",
-    28: "028_endrick_chain.png",
-    30: "030_kai_havests.png",
-    33: "033_allison_block.png",
-    53: "053_kylian_m-bag-pé.png",
-    79: "079_jude_whale-ingham.png",
-    80: "080_harry_chain.png",
-    105: "105_lamine_ya-hype.png",
-    106: "106_pedri_p2p.png",
-    131: "131_jamal_moon-siala.png",
-    157: "157_cristiano_holdaldo.png"
-};
+const NFT_IMAGE_MAP = {};
 
 // Background Image Map (Updated to use premium vertical RWA stadiums)
 const BG_IMAGE_MAP = {
@@ -62,17 +36,8 @@ const BG_VIDEO_MAP = {
 };
 
 function getPlayerImagePath(player) {
-    // Check manual map first, pointing to composed folder
-    if (NFT_IMAGE_MAP[player.id]) {
-        let mapped = NFT_IMAGE_MAP[player.id];
-        if (mapped.endsWith('.png')) {
-            mapped = mapped.replace('.png', '.webp');
-        }
-        // Force correct capitalized name if manual mapping is used (optional, but safer to match exact capitalization)
-        return `assets/img/nfts/composed/${mapped}`;
-    }
-    // Auto-generate path pointing to the composed folder, maintaining original capitalization
-    const formattedName = player.name.replace(/ /g, '_');
+    // Auto-generate path pointing to the composed folder, maintaining original capitalization and cleaning special characters
+    const formattedName = player.name.replace(/ /g, '_').replace(/'/g, '_').replace(/\.+$/, '');
     return `assets/img/nfts/composed/${String(player.id).padStart(3, '0')}_${formattedName}.webp`;
 }
 
@@ -153,7 +118,7 @@ function renderPlayers() {
         return;
     }
 
-    const displayLimit = 100;
+    const displayLimit = 528;
 
     // Observer para rendimiento y visibilidad básica
     const cardObserver = new IntersectionObserver((entries) => {

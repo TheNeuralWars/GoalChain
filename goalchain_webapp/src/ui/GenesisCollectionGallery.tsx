@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 
 type PlayerRow = {
   id: number;
@@ -13,167 +13,270 @@ type PlayerRow = {
   traits?: string[];
 };
 
-type ManifestPlayer = {
-  id: number;
-  urls?: { grok_jpg?: string; player_cutout?: string; composed_card?: string };
+const BG_IMAGE_MAP: Record<string, string> = {
+  'BG-MYT': 'bg_mythic_golden.png',
+  'BG-LEG': 'bg_legendary_purple.png',
+  'BG-EPI': 'bg_epic_cyber.png',
+  'BG-RAR': 'bg_rare_solana.png',
+  'BG-COM': 'bg_common_street.png',
 };
 
-const BG_IMG: Record<string, string> = {
-  'BG-MYT': '/assets/img/stadiums/bg_mythic_golden.png',
-  'BG-LEG': '/assets/img/stadiums/bg_legendary_purple.png',
-  'BG-EPI': '/assets/img/stadiums/bg_epic_cyber.png',
-  'BG-RAR': '/assets/img/stadiums/bg_rare_solana.png',
-  'BG-COM': '/assets/img/stadiums/bg_common_street.png',
+const BG_VIDEO_MAP: Record<string, string> = {
+  'BG-MYT': 'neo_olympus_vertical.mp4',
+  'BG-LEG': 'titanium_coliseum.mp4',
+  'BG-EPI': 'aether_dome.mp4',
+  'BG-RAR': 'obsidian_arena.mp4',
+  'BG-COM': 'dome_kronos_vertical.mp4',
 };
 
-const RARITY_BORDER: Record<string, string> = {
-  mythic: '#ffcc00',
-  legendary: '#14f195',
-  epic: '#9945ff',
-  rare: '#00c8ff',
-  common: '#c8c8c8',
+const FLAG_MAP: Record<string, string> = {
+  "Argentina": "🇦🇷",
+  "Brasil": "🇧🇷",
+  "Francia": "🇫🇷",
+  "España": "🇪🇸",
+  "Inglaterra": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  "Alemania": "🇩🇪",
+  "México": "🇲🇽",
+  "Uruguay": "🇺🇾",
+  "Egipto": "🇪🇬",
+  "Polonia": "🇵🇱",
+  "Croacia": "🇭🇷",
+  "Corea del Sur": "🇰🇷",
+  "Portugal": "🇵🇹",
+  "Italia": "🇮🇹",
+  "Países Bajos": "🇳🇱",
+  "Bélgica": "🇧🇪",
+  "EEUU": "🇺🇸"
 };
 
-function playerArtUrl(player: PlayerRow, manifest: Map<number, ManifestPlayer>): string {
-  const m = manifest.get(player.id);
-  if (m?.urls?.player_cutout) return m.urls.player_cutout;
-  if (m?.urls?.grok_jpg) return m.urls.grok_jpg;
-  const safe = player.name.toLowerCase().replace(/ /g, '_').replace(/[^a-z0-9_-]/g, '');
-  return `https://api.goalchain.fun/pilot/v71_grok/${String(player.id).padStart(3, '0')}_${safe}.jpg`;
+function getCountryFlag(country: string) {
+  return FLAG_MAP[country] || "🏳️";
 }
 
-const LayeredNftCard: React.FC<{ player: PlayerRow; manifest: Map<number, ManifestPlayer> }> = ({
-  player,
-  manifest,
-}) => {
-  const border = RARITY_BORDER[player.rarity] || '#fff';
-  const bg = BG_IMG[player.bg_type || 'BG-RAR'] || BG_IMG['BG-RAR'];
-  const art = playerArtUrl(player, manifest);
-  const composed = manifest.get(player.id)?.urls?.composed_card;
+function getPlayerImagePath(player: PlayerRow): string {
+  const formattedName = player.name.replace(/ /g, '_').replace(/'/g, '_').replace(/\.+$/, '');
+  return `https://goalchain.fun/assets/img/nfts/composed/${String(player.id).padStart(3, '0')}_${formattedName}.webp`;
+}
+
+const LayeredNftCard: React.FC<{
+  player: PlayerRow;
+  isFav: boolean;
+  onToggleFav: (id: number) => void;
+}> = ({ player, isFav, onToggleFav }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [coords, setCoords] = useState({ x: 50, y: 50 });
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const imgPath = getPlayerImagePath(player);
+  
+  const yieldMap: Record<string, string> = {
+    mythic: "25.4 SOL/mo",
+    legendary: "12.1 SOL/mo",
+    epic: "5.8 SOL/mo",
+    rare: "2.1 SOL/mo",
+    common: "0.5 SOL/mo"
+  };
+  const estimatedYield = yieldMap[player.rarity] || "0.1 SOL/mo";
+  
+  const priceMap: Record<string, string> = {
+    mythic: "10,000 $GCH",
+    legendary: "5,000 $GCH",
+    epic: "1,000 $GCH",
+    rare: "500 $GCH",
+    common: "100 $GCH"
+  };
+  const nftPrice = priceMap[player.rarity] || "100 $GCH";
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+    if (isHovered && !isFlipped) {
+      videoRef.current.play().catch(() => {});
+    } else {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  }, [isHovered, isFlipped]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setCoords({ x, y });
+  };
+
+  const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    if (target.closest('.favorite-heart') || target.closest('.btn-buy')) {
+      return;
+    }
+    setIsFlipped(!isFlipped);
+  };
 
   return (
-    <article
-      className="genesis-nft-card"
-      style={{
-        position: 'relative',
-        aspectRatio: '2/3',
-        borderRadius: 16,
-        overflow: 'hidden',
-        boxShadow: `0 12px 40px rgba(0,0,0,0.45), 0 0 0 2px ${border}55`,
-        background: '#06060a',
+    <div 
+      className={`nft-card-3d ${isFlipped ? 'is-flipped' : ''}`}
+      data-rarity={player.rarity}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => {
+        setIsHovered(false);
+        setCoords({ x: 50, y: 50 });
       }}
+      onClick={handleCardClick}
+      style={{
+        '--x': `${coords.x}%`,
+        '--y': `${coords.y}%`
+      } as React.CSSProperties}
     >
-      {/* Layer 0: fondo rareza */}
-      <img
-        src={bg}
-        alt=""
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0 }}
-        onError={(e) => {
-          (e.target as HTMLImageElement).style.display = 'none';
+      <div 
+        className="favorite-heart is-fav" 
+        onClick={(e) => {
+          e.stopPropagation();
+          onToggleFav(player.id);
         }}
-      />
-      {/* Layer 1: jugador (cutout o grok) */}
-      <img
-        src={art}
-        alt={player.name}
-        loading="lazy"
         style={{
-          position: 'absolute',
-          inset: '8% 5% 22% 5%',
-          width: '90%',
-          height: '70%',
-          objectFit: 'contain',
-          zIndex: 2,
-          filter: 'drop-shadow(0 12px 18px rgba(0,0,0,0.55))',
-        }}
-      />
-      {/* Layer 2: marco */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          border: `3px solid ${border}`,
-          borderRadius: 16,
-          boxShadow: `inset 0 0 24px ${border}33`,
-          zIndex: 3,
-          pointerEvents: 'none',
-        }}
-      />
-      {/* Layer 3: atributos */}
-      <div
-        style={{
-          position: 'absolute',
-          left: 0,
-          right: 0,
-          bottom: 0,
-          padding: '10px 12px',
-          background: 'linear-gradient(transparent, rgba(6,8,14,0.92))',
-          zIndex: 4,
+          filter: isFav ? 'grayscale(0) opacity(1)' : 'grayscale(1) opacity(0.5)'
         }}
       >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <span style={{ fontWeight: 900, color: '#fff', fontSize: '0.75rem' }}>#{String(player.id).padStart(3, '0')}</span>
-          <span
-            style={{
-              fontSize: '0.55rem',
-              fontWeight: 800,
-              textTransform: 'uppercase',
-              color: '#000',
-              background: border,
-              padding: '2px 6px',
-              borderRadius: 4,
-            }}
-          >
-            {player.rarity}
-          </span>
+        ❤️
+      </div>
+      <div className="glare"></div>
+      
+      <div className="yield-badge-card">
+        <span className="y-icon">💎</span>
+        <span className="y-val">{estimatedYield}</span>
+      </div>
+
+      <div className="card-inner">
+        <div className="card-front">
+          <div className="layer layer-bg" style={{ position: 'relative', overflow: 'hidden', width: '100%', height: '100%' }}>
+            <img 
+              src={`https://goalchain.fun/assets/img/stadiums/${BG_IMAGE_MAP[player.bg_type || ''] || 'bg_common_street.png'}`} 
+              alt="Stadium Background" 
+              className="bg-img" 
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <video 
+              ref={videoRef}
+              className="bg-video-hover" 
+              src={`https://goalchain.fun/assets/video/stadiums/${BG_VIDEO_MAP[player.bg_type || ''] || 'dome_kronos_vertical.mp4'}`} 
+              muted 
+              playsInline 
+              preload="none" 
+              style={{ 
+                position: 'absolute', 
+                inset: 0, 
+                width: '100%', 
+                height: '100%', 
+                objectFit: 'cover', 
+                opacity: 0, 
+                transition: 'opacity 0.4s ease', 
+                zIndex: 1, 
+                pointerEvents: 'none' 
+              }}
+            />
+          </div>
+          <div className="layer layer-base">
+            <img 
+              src={imgPath} 
+              alt={player.name} 
+              loading="lazy" 
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+                const baseEl = (e.target as HTMLImageElement).parentElement;
+                if (baseEl) baseEl.classList.add('no-image');
+              }}
+            />
+            <div className="placeholder-icon">⚽</div>
+          </div>
+          <div className={`layer layer-frame rarity-${player.rarity}`}></div>
+          <div className="layer layer-ui">
+            <div className="top-row">
+              <span className="player-num">#{String(player.id).padStart(3, '0')}</span>
+              <span className="player-flag">{getCountryFlag(player.country)}</span>
+            </div>
+            <div className="bottom-info">
+              <h3 className="player-name-text">{player.name}</h3>
+              <div className="player-real-identity">{player.real_name || 'Verified Athlete'}</div>
+              <div className="biometric-strip">
+                <span>📏 {player.physical?.h || '1.80m'}</span>
+                <span>⚖️ {player.physical?.w || '75kg'}</span>
+              </div>
+              <div className="mini-stats">
+                <span>ATK {player.stats.atk}</span>
+                <span>DEF {player.stats.def}</span>
+                <span>HYP {player.stats.hype}</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <h3 style={{ margin: '4px 0 0', fontSize: '0.9rem', color: '#fff', fontWeight: 900 }}>{player.name}</h3>
-        <p style={{ margin: 0, fontSize: '0.6rem', color: border, fontWeight: 700 }}>{player.real_name}</p>
-        <div style={{ display: 'flex', gap: 8, marginTop: 6, fontSize: '0.65rem', color: '#cbd5e1' }}>
-          <span>ATK {player.stats.atk}</span>
-          <span>DEF {player.stats.def}</span>
-          <span>HYP {player.stats.hype}</span>
+        
+        <div className="card-back">
+          <div className="back-content">
+            <div className="back-header">GOALCHAIN MASTER CONTRACT</div>
+            <div className="back-body">
+              <div className="back-id">COLLECTION ID: GC-{String(player.id).padStart(4, '0')}</div>
+              <div className="back-salary">
+                <span className="label" style={{ display: 'block', fontSize: '0.65rem', opacity: 0.6, letterSpacing: '1px' }}>ESTIMATED YIELD</span>
+                <span className="value" style={{ display: 'block', fontSize: '1.4rem', fontWeight: 900, color: '#14f195' }}>{estimatedYield}</span>
+              </div>
+              <div className="clauses-list">
+                <div className="clause-item">✓ Real Salary Linked Yield</div>
+                <div className="clause-item">✓ Stadium Attendance Multiplier</div>
+                <div className="clause-item">✓ Transfer Fee Revenue Sharing</div>
+              </div>
+              <div className="back-mint">
+                <code>SOL_PENDING...</code>
+              </div>
+              <button 
+                className="btn-buy"
+                onClick={() => {
+                  alert(`Minteo de ${player.name} simulado.`);
+                }}
+              >
+                COMPRAR: {nftPrice}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-      {composed && (
-        <a
-          href={composed}
-          target="_blank"
-          rel="noreferrer"
-          style={{ position: 'absolute', top: 8, right: 8, zIndex: 5, fontSize: '0.55rem', color: '#14f195' }}
-        >
-          HD
-        </a>
-      )}
-    </article>
+    </div>
   );
 };
 
 export const GenesisCollectionGallery: React.FC = () => {
   const [players, setPlayers] = useState<PlayerRow[]>([]);
-  const [manifest, setManifest] = useState<Map<number, ManifestPlayer>>(new Map());
+  const [favorites, setFavorites] = useState<number[]>(() => {
+    try {
+      return JSON.parse(localStorage.getItem('gch_favorites') || '[]');
+    } catch {
+      return [];
+    }
+  });
   const [rarity, setRarity] = useState<string>('all');
+  const [showOnlyFavs, setShowOnlyFavs] = useState<boolean>(false);
   const [q, setQ] = useState('');
 
   useEffect(() => {
     (async () => {
-      const [pRes, mRes] = await Promise.all([
-        fetch('/assets/data/players.json'),
-        fetch('/assets/data/nft_gallery_manifest.json'),
-      ]);
+      const pRes = await fetch('/assets/data/players.json');
       if (pRes.ok) setPlayers(await pRes.json());
-      if (mRes.ok) {
-        const data = await mRes.json();
-        const map = new Map<number, ManifestPlayer>();
-        for (const row of data.players || []) map.set(row.id, row);
-        setManifest(map);
-      }
     })();
   }, []);
+
+  const toggleFav = (id: number) => {
+    setFavorites((prev) => {
+      const next = prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id];
+      localStorage.setItem('gch_favorites', JSON.stringify(next));
+      return next;
+    });
+  };
 
   const filtered = useMemo(() => {
     let list = [...players];
     if (rarity !== 'all') list = list.filter((p) => p.rarity === rarity);
+    if (showOnlyFavs) list = list.filter((p) => favorites.includes(p.id));
     if (q.trim()) {
       const s = q.toLowerCase();
       list = list.filter(
@@ -184,49 +287,87 @@ export const GenesisCollectionGallery: React.FC = () => {
       );
     }
     return list.sort((a, b) => a.id - b.id);
-  }, [players, rarity, q]);
+  }, [players, rarity, showOnlyFavs, favorites, q]);
 
   return (
-    <div style={{ width: '100%', maxWidth: 1400, margin: '0 auto' }}>
-      <p style={{ color: '#94a3b8', marginBottom: '1rem', fontSize: '0.9rem' }}>
-        Galería Genesis Squad — capas: fondo de rareza, jugador V7.1, marco y atributos on-chain.
+    <div style={{ width: '100%', maxWidth: 1400, margin: '0 auto', padding: '0 20px' }}>
+      <p style={{ color: '#94a3b8', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
+        Galería Genesis Squad — capas: fondo de rareza vertical, jugador transparente, marco y atributos on-chain.
       </p>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 16 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginBottom: 24, alignItems: 'center' }}>
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Buscar jugador o país…"
           style={{
-            flex: '1 1 200px',
-            padding: '8px 12px',
+            flex: '1 1 250px',
+            padding: '10px 14px',
             borderRadius: 8,
             border: '1px solid #334155',
             background: '#0f172a',
             color: '#fff',
+            outline: 'none',
+            fontSize: '0.9rem'
           }}
         />
         <select
           value={rarity}
           onChange={(e) => setRarity(e.target.value)}
-          style={{ padding: '8px 12px', borderRadius: 8, background: '#0f172a', color: '#fff', border: '1px solid #334155' }}
+          style={{ 
+            padding: '10px 14px', 
+            borderRadius: 8, 
+            background: '#0f172a', 
+            color: '#fff', 
+            border: '1px solid #334155',
+            outline: 'none',
+            fontSize: '0.9rem',
+            cursor: 'pointer'
+          }}
         >
           <option value="all">Todas las rarezas</option>
           <option value="mythic">Mítico</option>
           <option value="legendary">Legendario</option>
           <option value="epic">Épico</option>
           <option value="rare">Raro</option>
+          <option value="common">Común</option>
         </select>
-        <span style={{ alignSelf: 'center', color: '#14f195', fontWeight: 700 }}>{filtered.length} / 528</span>
+        <button
+          onClick={() => setShowOnlyFavs(!showOnlyFavs)}
+          style={{
+            padding: '10px 16px',
+            borderRadius: 8,
+            background: showOnlyFavs ? '#14f195' : '#0f172a',
+            color: showOnlyFavs ? '#000' : '#fff',
+            border: showOnlyFavs ? '1px solid #14f195' : '1px solid #334155',
+            fontWeight: 700,
+            fontSize: '0.9rem',
+            cursor: 'pointer',
+            transition: 'all 0.3s'
+          }}
+        >
+          ❤️ {showOnlyFavs ? 'Todos' : 'Favoritos'}
+        </button>
+        <span style={{ alignSelf: 'center', color: '#14f195', fontWeight: 700, marginLeft: 'auto' }}>
+          {filtered.length} / 528
+        </span>
       </div>
+      
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-          gap: 16,
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gap: '40px 20px',
+          justifyContent: 'center',
+          padding: '20px 0'
         }}
       >
         {filtered.map((p) => (
-          <LayeredNftCard key={p.id} player={p} manifest={manifest} />
+          <LayeredNftCard 
+            key={p.id} 
+            player={p} 
+            isFav={favorites.includes(p.id)} 
+            onToggleFav={toggleFav} 
+          />
         ))}
       </div>
     </div>

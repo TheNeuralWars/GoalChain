@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 remove_bg_and_compose.py
 ========================
@@ -25,6 +25,8 @@ import argparse
 import os
 import sys
 import time
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from collections import deque
@@ -42,7 +44,7 @@ SRC_DIR   = REPO_ROOT / "docs" / "assets" / "img" / "nfts" / "transparent"
 DST_DIR   = REPO_ROOT / "docs" / "assets" / "img" / "nfts" / "composed"
 
 # Tuning
-WHITE_THRESHOLD = 235  # R,G,B all >= this -> candidate background pixel
+WHITE_THRESHOLD = 220  # R,G,B all >= this -> candidate background pixel
 HALO_ERODE_PX   = 2   # shrink kept mask by N pixels to erase halo
 WEBP_QUALITY    = 90
 
@@ -56,7 +58,7 @@ def remove_white_bg(src_path: Path, dst_path: Path) -> str:
 
     near_white = (r >= WHITE_THRESHOLD) & (g >= WHITE_THRESHOLD) & (b >= WHITE_THRESHOLD)
 
-    # BFS flood-fill from border
+    # BFS flood-fill from border (only top, left, right to prevent bottom clothes bleed)
     visited = np.zeros((H, W), dtype=bool)
     q = deque()
 
@@ -66,9 +68,10 @@ def remove_white_bg(src_path: Path, dst_path: Path) -> str:
             q.append((y, x))
 
     for x in range(W):
-        enq(0, x); enq(H - 1, x)
+        enq(0, x)  # Top border
     for y in range(H):
-        enq(y, 0); enq(y, W - 1)
+        enq(y, 0)  # Left border
+        enq(y, W - 1)  # Right border
 
     while q:
         cy, cx = q.popleft()
