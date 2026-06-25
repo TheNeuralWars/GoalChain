@@ -18,7 +18,7 @@ const PRICE_MAP = {
 const NFT_IMAGE_MAP = {};
 
 // Background Image Map (Updated to use premium vertical RWA stadiums)
-const BG_IMAGE_MAP = {
+var BG_IMAGE_MAP = window.BG_IMAGE_MAP || {
     "BG-MYT": "bg_mythic_golden.png",
     "BG-LEG": "bg_legendary_purple.png",
     "BG-EPI": "bg_epic_cyber.png",
@@ -27,7 +27,7 @@ const BG_IMAGE_MAP = {
 };
 
 // Background Video Map
-const BG_VIDEO_MAP = {
+var BG_VIDEO_MAP = window.BG_VIDEO_MAP || {
     "BG-MYT": "neo_olympus_vertical.mp4",
     "BG-LEG": "titanium_coliseum.mp4",
     "BG-EPI": "aether_dome.mp4",
@@ -42,7 +42,7 @@ function getPlayerImagePath(player) {
 }
 
 // Mapeo de banderas para reconocimiento rápido
-const FLAG_MAP = {
+var FLAG_MAP = window.FLAG_MAP || {
     "Argentina": "🇦🇷",
     "Brasil": "🇧🇷",
     "Francia": "🇫🇷",

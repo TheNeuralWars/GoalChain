@@ -820,9 +820,13 @@ input:checked + .slider-red:before {
   display: grid;
   grid-template-columns: var(--gc-rail-expanded) 1fr;
   align-items: start;
+  transition: grid-template-columns var(--gc-dur-base) var(--gc-ease);
 }
-.play-shell--grid .gc-rail--collapsed ~ .play-main {
-  /* El rail colapsado reduce su ancho vía grid del propio .gc-rail. */
+.play-shell--grid.play-shell--collapsed {
+  grid-template-columns: var(--gc-rail-collapsed) 1fr;
+}
+.play-shell--grid.play-shell--expanded {
+  grid-template-columns: var(--gc-rail-expanded) 1fr;
 }
 
 /* --- Columna principal --- */
@@ -1257,28 +1261,81 @@ input:checked + .slider-red:before {
    RESPONSIVE — Chasis
    ============================================================ */
 @media (max-width: 1280px) {
-  /* Tablet: el rail colapsa automáticamente a icon-rail si el usuario
-     no ha forzado manualmente la expansión. */
-  .play-shell--grid { grid-template-columns: var(--gc-rail-collapsed) 1fr; }
-  .gc-rail--expanded { width: var(--gc-rail-collapsed); }
+  /* Tablet: el rail colapsa en la estructura de rejilla */
+  .play-shell--grid.play-shell--collapsed,
+  .play-shell--grid.play-shell--expanded {
+    grid-template-columns: var(--gc-rail-collapsed) 1fr;
+  }
+  
+  /* Cuando está expandido, se convierte en un cajón flotante (overlay drawer) */
+  .gc-rail--expanded {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 500;
+    width: var(--gc-rail-expanded) !important;
+    background: #0f0a1c !important; /* Fondo opaco oscuro para legibilidad sobre el contenido */
+    box-shadow: 10px 0 35px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Mostrar textos y elementos del sidebar expandido en tablet */
   .gc-rail--expanded .gc-rail-brand-text,
   .gc-rail--expanded .gc-nav-group-label,
   .gc-rail--expanded .gc-nav-link-label,
   .gc-rail--expanded .gc-nav-group-chevron,
   .gc-rail--expanded .gc-nav-group-items,
   .gc-rail--expanded .gc-rail-resources,
-  .gc-rail--expanded .gc-rail-footer-lang { display: none; }
+  .gc-rail--expanded .gc-rail-footer-lang {
+    display: block !important;
+  }
+  .gc-rail--expanded .gc-nav-group-items {
+    display: flex !important;
+  }
   .gc-rail--expanded .gc-nav-group-head,
-  .gc-rail--expanded .gc-nav-link { justify-content: center; }
+  .gc-rail--expanded .gc-nav-link {
+    justify-content: flex-start !important;
+  }
 }
 
 @media (max-width: 767px) {
   /* Móvil: ocultar el rail, mostrar bottom-tab bar. */
-  .play-shell--grid { grid-template-columns: 1fr; }
-  .gc-rail { display: none; }
-  .gc-bottom-tab { display: flex; }
-  .play-body { padding-bottom: calc(var(--gc-space-7) + var(--gc-bottom-tab-h)); }
-  .gc-modal { width: 100%; max-height: 94vh; border-radius: var(--gc-radius-lg); }
+  .play-shell--grid {
+    grid-template-columns: 1fr;
+  }
+  .play-shell {
+    overflow-x: hidden;
+  }
+  .gc-rail {
+    display: none;
+  }
+  .gc-bottom-tab {
+    display: flex;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+  .play-body {
+    padding-bottom: calc(var(--gc-space-7) + var(--gc-bottom-tab-h));
+  }
+  .gc-modal {
+    width: 100%;
+    max-height: 94vh;
+    border-radius: var(--gc-radius-lg);
+  }
+
+  /* Ocultar botones innecesarios en la cabecera móvil para prevenir desborde */
+  .play-header-marketing-link,
+  .play-header-ugc-btn {
+    display: none !important;
+  }
+  .play-header {
+    padding: 0 var(--gc-space-3);
+  }
+  .play-header-brand-text {
+    font-size: 0.9rem;
+  }
 }
 
 /* Mantener compatibilidad con .play-page* heredado (paneles existentes) */

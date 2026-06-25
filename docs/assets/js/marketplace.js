@@ -15,7 +15,7 @@ const RARITY_PRICES = {
     common: "0.2 SOL"
 };
 
-const BG_IMAGE_MAP = {
+var BG_IMAGE_MAP = window.BG_IMAGE_MAP || {
     "BG-MYT": "bg_mythic_golden.png",
     "BG-LEG": "bg_legendary_purple.png",
     "BG-EPI": "bg_epic_cyber.png",
@@ -23,7 +23,7 @@ const BG_IMAGE_MAP = {
     "BG-COM": "bg_common_street.png"
 };
 
-const BG_VIDEO_MAP = {
+var BG_VIDEO_MAP = window.BG_VIDEO_MAP || {
     "BG-MYT": "neo_olympus_vertical.mp4",
     "BG-LEG": "titanium_coliseum.mp4",
     "BG-EPI": "aether_dome.mp4",
@@ -31,7 +31,7 @@ const BG_VIDEO_MAP = {
     "BG-COM": "dome_kronos_vertical.mp4"
 };
 
-const FLAG_MAP = {
+var FLAG_MAP = window.FLAG_MAP || {
     "Argentina": "🇦🇷",
     "Brasil": "🇧🇷",
     "Francia": "🇫🇷",

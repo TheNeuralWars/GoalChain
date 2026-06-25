@@ -316,7 +316,7 @@ const styleSheet = document.createElement("style");
 styleSheet.innerText = SIMULATOR_STYLES;
 document.head.appendChild(styleSheet);
 
-const BG_IMAGE_MAP = {
+var BG_IMAGE_MAP = window.BG_IMAGE_MAP || {
     "BG-MYT": "bg_mythic_golden.png",
     "BG-LEG": "bg_legendary_purple.png",
     "BG-EPI": "bg_epic_cyber.png",
@@ -324,7 +324,7 @@ const BG_IMAGE_MAP = {
     "BG-COM": "bg_common_street.png"
 };
 
-const FLAG_MAP = {
+var FLAG_MAP = window.FLAG_MAP || {
     "Argentina": "🇦🇷",
     "Brasil": "🇧🇷",
     "Francia": "🇫🇷",

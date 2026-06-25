@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
@@ -11,11 +11,19 @@ import { useTranslation } from '../i18n';
 export function PlayLayout() {
   const { t } = useTranslation();
   const [ugcMode, setUgcMode] = useState(false);
+  const [collapsed, setCollapsed] = useState<boolean>(() => {
+    const saved = localStorage.getItem('gc_nav_collapsed');
+    return saved === null ? window.innerWidth < 1280 : saved === '1';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('gc_nav_collapsed', collapsed ? '1' : '0');
+  }, [collapsed]);
 
   return (
-    <div className={`play-shell play-shell--grid ${ugcMode ? 'ugc-active' : ''}`}>
+    <div className={`play-shell play-shell--grid ${collapsed ? 'play-shell--collapsed' : 'play-shell--expanded'} ${ugcMode ? 'ugc-active' : ''}`}>
       {/* Sidebar / icon-rail (desktop + tablet) */}
-      <PlayNav />
+      <PlayNav collapsed={collapsed} setCollapsed={setCollapsed} />
 
       {/* Columna principal: header + contenido + footer móvil */}
       <div className="play-main">
@@ -28,6 +36,7 @@ export function PlayLayout() {
           </div>
           <div className="play-header-actions">
             <button 
+              className="play-header-ugc-btn"
               onClick={() => setUgcMode(true)}
               style={{
                 background: 'rgba(20, 241, 149, 0.1)',

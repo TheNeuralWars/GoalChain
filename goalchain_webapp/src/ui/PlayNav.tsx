@@ -160,16 +160,16 @@ function NavGroup({
 /* ================================================
    SIDEBAR / ICON-RAIL (desktop + tablet)
    ================================================ */
-export function PlayNav() {
+export function PlayNav({
+  collapsed,
+  setCollapsed,
+}: {
+  collapsed: boolean;
+  setCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const { t } = useTranslation();
   const location = useLocation();
   const userNav = useStoredUserLink();
-
-  // Estado del rail (plegado/desplegado). Persistente.
-  const [collapsed, setCollapsed] = useState<boolean>(() => {
-    const saved = localStorage.getItem('gc_nav_collapsed');
-    return saved === null ? window.innerWidth < 1280 : saved === '1';
-  });
 
   // Grupo expandido en el acordeón. Persistente.
   const [openGroup, setOpenGroup] = useState<string>(() => {
@@ -178,11 +178,6 @@ export function PlayNav() {
 
   // Dropdown de Recursos (sólo modo expandido).
   const [resourcesOpen, setResourcesOpen] = useState(false);
-
-  // Persistencia del estado del rail.
-  useEffect(() => {
-    localStorage.setItem('gc_nav_collapsed', collapsed ? '1' : '0');
-  }, [collapsed]);
 
   useEffect(() => {
     localStorage.setItem('gc_nav_open', openGroup);
@@ -193,8 +188,14 @@ export function PlayNav() {
     setResourcesOpen(false);
   }, [location.pathname]);
 
-  const toggleGroup = (id: string) =>
-    setOpenGroup((cur) => (cur === id ? '' : id));
+  const toggleGroup = (id: string) => {
+    if (collapsed) {
+      setCollapsed(false);
+      setOpenGroup(id);
+    } else {
+      setOpenGroup((cur) => (cur === id ? '' : id));
+    }
+  };
 
   return (
     <nav
