@@ -552,6 +552,16 @@
         border-color: #fff;
         background: rgba(255, 255, 255, 0.05);
       }
+
+      /* Bilingual dual-DOM toggle (driven by docs/assets/js/lang-toggle.js). */
+      [lang="es"] .lang-en { display: none !important; }
+      [lang="en"] .lang-es { display: none !important; }
+
+      /* Language switcher */
+      .lang-toggle { display: flex; gap: 8px; align-items: center; }
+      .lang-toggle button { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: var(--text-muted); padding: 6px 16px; border-radius: 999px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; font-family: inherit; }
+      .lang-toggle button.active { background: var(--primary-neon); color: #030307; border-color: var(--primary-neon); }
+      .lang-toggle button:hover { transform: translateY(-1px); }
     </style>
   </head>
   <body>
@@ -561,8 +571,12 @@
         Goal<span>Chain</span>
       </div>
       <div class="nav-right">
+        <div class="lang-toggle">
+          <button data-lang="en">EN</button>
+          <button data-lang="es" class="active">ES</button>
+        </div>
         <a href="/" class="btn-outline" style="text-decoration: none; padding: 0.4rem 0.8rem; font-size: 0.75rem;">
-          ⬅️ Volver a Inicio
+          <span class="lang-es">⬅️ Volver a Inicio</span><span class="lang-en">⬅️ Back to Home</span>
         </a>
       </div>
     </nav>
@@ -571,31 +585,32 @@
       <!-- Title Block -->
       <div class="glass-panel portal-header">
         <div class="title-section">
-          <h1>🎴 Panel de Revisión 3D Pre-NFT</h1>
+          <h1><span class="lang-es">🎴 Panel de Revisión 3D Pre-NFT</span><span class="lang-en">🎴 3D Pre-NFT Review Panel</span></h1>
           <p>
-            Retratos integrados sobre capas de Estadios con unificación de Stats. Haz clic sobre cualquier carta para girarla.
+            <span class="lang-es">Retratos integrados sobre capas de Estadios con unificación de Stats. Haz clic sobre cualquier carta para girarla.</span>
+            <span class="lang-en">Portraits layered over Stadium backgrounds with unified Stats. Click any card to flip it.</span>
           </p>
         </div>
         <div class="stats-badge-group">
           <div class="stats-badge">
-            <div class="stats-label">Total Colección</div>
+            <div class="stats-label"><span class="lang-es">Total Colección</span><span class="lang-en">Total Collection</span></div>
             <div class="stats-val" id="count-total">528</div>
           </div>
           <div class="stats-badge approved">
-            <div class="stats-label">Aprobadas</div>
+            <div class="stats-label"><span class="lang-es">Aprobadas</span><span class="lang-en">Approved</span></div>
             <div class="stats-val" id="count-approved">0</div>
           </div>
           <div class="stats-badge adjustments">
-            <div class="stats-label">Con Ajustes</div>
+            <div class="stats-label"><span class="lang-es">Con Ajustes</span><span class="lang-en">With Adjustments</span></div>
             <div class="stats-val" id="count-adjustment">0</div>
           </div>
           <div class="stats-badge">
-            <div class="stats-label">Revisión %</div>
+            <div class="stats-label"><span class="lang-es">Revisión %</span><span class="lang-en">Review %</span></div>
             <div class="stats-val" id="count-percent">0%</div>
           </div>
           <div style="align-self: center; margin-left: 0.5rem;">
             <button class="btn-green" id="btn-export">
-              📥 Exportar Críticas JSON
+              <span class="lang-es">📥 Exportar Críticas JSON</span><span class="lang-en">📥 Export Critiques JSON</span>
             </button>
           </div>
         </div>
@@ -604,11 +619,11 @@
       <!-- Filters Panel -->
       <div class="glass-panel">
         <div style="font-size: 0.85rem; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 0.5rem; margin-bottom: 1rem; letter-spacing: 0.5px; color: var(--text-muted);">
-          🔍 PANEL DE CONTROL Y FILTROS
+          <span class="lang-es">🔍 PANEL DE CONTROL Y FILTROS</span><span class="lang-en">🔍 CONTROL PANEL & FILTERS</span>
         </div>
         <div class="filters-grid">
           <div class="filter-group">
-            <label>Buscar jugador</label>
+            <label><span class="lang-es">Buscar jugador</span><span class="lang-en">Search player</span></label>
             <input
               type="text"
               id="search-input"
@@ -617,13 +632,13 @@
             />
           </div>
           <div class="filter-group">
-            <label>Selección / País</label>
+            <label><span class="lang-es">Selección / País</span><span class="lang-en">National Team / Country</span></label>
             <select id="country-select" class="filter-input">
               <option value="All">Todos los países</option>
             </select>
           </div>
           <div class="filter-group">
-            <label>Rareza</label>
+            <label><span class="lang-es">Rareza</span><span class="lang-en">Rarity</span></label>
             <select id="rarity-select" class="filter-input">
               <option value="All">Todas las rarezas</option>
               <option value="mythic">Mythic</option>
@@ -634,7 +649,7 @@
             </select>
           </div>
           <div class="filter-group">
-            <label>Posición</label>
+            <label><span class="lang-es">Posición</span><span class="lang-en">Position</span></label>
             <select id="position-select" class="filter-input">
               <option value="All">Todas las posiciones</option>
               <option value="GK">GK (Portero)</option>
@@ -644,7 +659,7 @@
             </select>
           </div>
           <div class="filter-group">
-            <label>Estado Crítica</label>
+            <label><span class="lang-es">Estado Crítica</span><span class="lang-en">Critique Status</span></label>
             <select id="status-select" class="filter-input">
               <option value="All">Todos los estados</option>
               <option value="pending">Sin revisar (S/R)</option>
@@ -658,10 +673,12 @@
       <!-- Result summary line -->
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding: 0 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
         <div>
-          Mostrando <strong id="visible-count" style="color: #fff;">0</strong> de 528 jugadores
+          <span class="lang-es">Mostrando <strong id="visible-count" style="color: #fff;">0</strong> de 528 jugadores</span>
+          <span class="lang-en">Showing <strong style="color: #fff;" id="visible-count-en">0</strong> of 528 players</span>
         </div>
         <div style="font-size: 0.75rem; font-style: italic;">
-          Consejo: Haz clic en una carta para girarla en 3D y dejar tu crítica directamente atrás.
+          <span class="lang-es">Consejo: Haz clic en una carta para girarla en 3D y dejar tu crítica directamente atrás.</span>
+          <span class="lang-en">Tip: Click a card to flip it in 3D and leave your critique on the back.</span>
         </div>
       </div>
 
@@ -673,6 +690,49 @@
 
     <!-- Logic Script -->
     <script>
+      // Mini i18n for JS-rendered strings; follows the gc_lang / <html lang> state
+      // shared with docs/assets/js/lang-toggle.js.
+      const PRENFT_I18N = {
+        es: {
+          load_error: 'Error al cargar la base de datos de jugadores titular.',
+          no_results: 'Ningún jugador coincide con los filtros aplicados.',
+          contract_details: 'Detalles del Contrato Pre-NFT',
+          net_value: 'VALOR DE MERCADO',
+          match_salary: 'SALARIO POR PARTIDO',
+          narrative_default: 'Pilar fundamental del meta ecosistema de GoalChain.',
+          parody_club: 'Club Parodia:',
+          height: 'Altura:',
+          weight: 'Peso:',
+          approve: '👍 Aprobar',
+          adjust: '⚠️ Ajustar',
+          notes_ph: 'Detalla aquí los ajustes necesarios (camiseta, peinado, pose, rostro)...',
+          status_approved: '👍 APROBADO',
+          status_adjustment: '⚠️ AJUSTE',
+          status_pending: '⚪ SIN REVISAR'
+        },
+        en: {
+          load_error: 'Error loading the official player database.',
+          no_results: 'No player matches the applied filters.',
+          contract_details: 'Pre-NFT Contract Details',
+          net_value: 'NET VALUE',
+          match_salary: 'MATCH SALARY',
+          narrative_default: 'Cornerstone player in the GoalChain meta ecosystem.',
+          parody_club: 'Parody Club:',
+          height: 'Height:',
+          weight: 'Weight:',
+          approve: '👍 Approve',
+          adjust: '⚠️ Adjust',
+          notes_ph: 'Detail required adjustments here (jersey, hair, pose, face)...',
+          status_approved: '👍 APPROVED',
+          status_adjustment: '⚠️ ADJUSTMENT',
+          status_pending: '⚪ UNREVIEWED'
+        }
+      };
+      function tr() {
+        const lang = (document.documentElement.lang === 'es') ? 'es' : 'en';
+        return PRENFT_I18N[lang];
+      }
+
       let allPlayers = [];
       let filteredPlayers = [];
       let reviews = {};
@@ -685,6 +745,7 @@
       const positionSelect = document.getElementById('position-select');
       const statusSelect = document.getElementById('status-select');
       const visibleCountEl = document.getElementById('visible-count');
+      const visibleCountEnEl = document.getElementById('visible-count-en');
 
       // Stats counters
       const approvedCountEl = document.getElementById('count-approved');
@@ -727,7 +788,7 @@
             updateStatsSummary();
           })
           .catch(err => {
-            gridContainer.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--accent-red); padding: 3rem 0;">Error al cargar la base de datos de jugadores titular.</div>`;
+            gridContainer.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--accent-red); padding: 3rem 0;">${tr().load_error}</div>`;
             console.error(err);
           });
       });
@@ -758,6 +819,7 @@
         });
 
         visibleCountEl.textContent = filteredPlayers.length;
+        if (visibleCountEnEl) visibleCountEnEl.textContent = filteredPlayers.length;
         renderGrid();
       }
 
@@ -784,7 +846,7 @@
       function renderGrid() {
         gridContainer.innerHTML = '';
         if (filteredPlayers.length === 0) {
-          gridContainer.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 3rem 0;">Ningún jugador coincide con los filtros aplicados.</div>`;
+          gridContainer.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 3rem 0;">${tr().no_results}</div>`;
           return;
         }
 
@@ -800,13 +862,14 @@
           cardContainer.className = 'card-3d-container';
           cardContainer.id = `card-container-${player.id}`;
 
-          let statusBadgeText = '⚪ UNREVIEWED';
+          const i18n = tr();
+          let statusBadgeText = i18n.status_pending;
           let badgeClass = 'pending';
           if (review.status === 'approved') {
-            statusBadgeText = '👍 APPROVED';
+            statusBadgeText = i18n.status_approved;
             badgeClass = 'approved';
           } else if (review.status === 'adjustment') {
-            statusBadgeText = '⚠️ ADJUSTMENT';
+            statusBadgeText = i18n.status_adjustment;
             badgeClass = 'adjustment';
           }
 
@@ -858,7 +921,7 @@
                 
                 <div class="card-back-header">
                   <h4>${player.name}</h4>
-                  <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">Pre-NFT Contract Details</span>
+                  <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">${i18n.contract_details}</span>
                 </div>
 
                 <div class="card-back-body">
@@ -868,22 +931,22 @@
 
                   <div class="financial-grid">
                     <div>
-                      <span style="font-size: 0.55rem; color: var(--text-muted); display: block;">NET VALUE</span>
+                      <span style="font-size: 0.55rem; color: var(--text-muted); display: block;">${i18n.net_value}</span>
                       <strong class="financial-val">€${player.market_value_eur ? (player.market_value_eur / 1000000).toFixed(1) + 'M' : 'N/A'}</strong>
                     </div>
                     <div>
-                      <span style="font-size: 0.55rem; color: var(--text-muted); display: block;">MATCH SALARY</span>
+                      <span style="font-size: 0.55rem; color: var(--text-muted); display: block;">${i18n.match_salary}</span>
                       <strong class="financial-val">${player.match_salary_gch ? player.match_salary_gch.toLocaleString('de-DE') + ' GCH' : 'N/A'}</strong>
                     </div>
                   </div>
 
                   <p style="margin: 0 0 0.5rem 0; font-size: 0.7rem; font-style: italic; color: var(--text-muted); background: rgba(0,0,0,0.2); padding: 0.35rem; border-radius: 6px; line-height: 1.3;">
-                    "${player.meta.narrative || 'Cornerstone player in the GoalChain meta ecosystem.'}"
+                    "${player.meta.narrative || i18n.narrative_default}"
                   </p>
 
                   <div style="font-size: 0.65rem; color: var(--text-muted); margin-bottom: 0.5rem;">
-                    <strong>Parody Club:</strong> ${player.meta.parody_club}<br/>
-                    <strong>Height:</strong> ${player.physical.h} | <strong>Weight:</strong> ${player.physical.w}
+                    <strong>${i18n.parody_club}</strong> ${player.meta.parody_club}<br/>
+                    <strong>${i18n.height}</strong> ${player.physical.h} | <strong>${i18n.weight}</strong> ${player.physical.w}
                   </div>
                 </div>
 
@@ -891,16 +954,16 @@
                 <div class="critique-card-section" onclick="event.stopPropagation();">
                   <div class="critique-card-actions">
                     <button class="critique-btn approve ${review.status === 'approved' ? 'active' : ''}" id="btn-approve-${player.id}">
-                      👍 Approve
+                      ${i18n.approve}
                     </button>
                     <button class="critique-btn adjust ${review.status === 'adjustment' ? 'active' : ''}" id="btn-adjust-${player.id}">
-                      ⚠️ Adjust
+                      ${i18n.adjust}
                     </button>
                   </div>
                   <textarea 
                     class="critique-card-notes" 
                     id="notes-${player.id}" 
-                    placeholder="Detail required adjustments here (jersey, hair, pose, face)..."
+                    placeholder="${i18n.notes_ph}"
                   >${review.notes || ''}</textarea>
                 </div>
 
@@ -980,9 +1043,10 @@
         if (status === 'adjustment') adjustBtn.classList.add('active');
 
         // Update front card badge label and class
+        const i18n = tr();
         const statusPill = cardContainer.querySelector(`.card-status-pill`);
         statusPill.className = `card-status-pill ${status === 'approved' ? 'approved' : status === 'adjustment' ? 'adjustment' : 'pending'}`;
-        statusPill.textContent = status === 'approved' ? '👍 APPROVED' : status === 'adjustment' ? '⚠️ ADJUSTMENT' : '⚪ UNREVIEWED';
+        statusPill.textContent = status === 'approved' ? i18n.status_approved : status === 'adjustment' ? i18n.status_adjustment : i18n.status_pending;
       }
 
       // Event listeners for filters
@@ -1002,6 +1066,14 @@
         downloadAnchor.click();
         downloadAnchor.remove();
       });
+
+      // Re-render cards when the language changes so dynamic strings update.
+      new MutationObserver(() => {
+        renderGrid();
+        const lang = (document.documentElement.lang === 'es') ? 'es' : 'en';
+        searchInput.placeholder = lang === 'es' ? 'Nombre o ID...' : 'Name or ID...';
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
     </script>
+    <script src="assets/js/lang-toggle.js?v=1.0"></script>
   </body>
 </html>
