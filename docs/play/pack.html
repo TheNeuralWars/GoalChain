@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-game="pack">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoalChain — Pack Opener</title>
+    <!--
+      Wrapper dedicado para embeber el Pack Opener dentro del modal de
+      ARCADE de goalchain_webapp (via <VanillaMount> iframe).
+
+      Nota técnica: <base href="../"> reescribe las rutas relativas del
+      script (fetch('assets/data/players.json'), img src="assets/...")
+      hacia la raíz de docs/, evitando reescribir pack_opener.js.
+    -->
+    <base href="../">
+    <link rel="stylesheet" href="assets/css/tokens.css?v=1.0">
+    <link rel="stylesheet" href="assets/css/style.css?v=4.3">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--gc-bg);
+            color: var(--gc-text);
+            font-family: var(--gc-font);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .pack-frame {
+            max-width: 560px;
+            margin: 0 auto;
+            padding: var(--gc-space-5, 1.5rem);
+            text-align: center;
+        }
+        /* Reaprovecha las clases de la landing (pack-sealed, reveal-modal, etc.)
+           definidas en style.css para idéntica apariencia. */
+    </style>
+</head>
+<body>
+    <div class="pack-frame">
+        <div class="section-header">
+            <span class="hero-badge" data-i18n="pack_badge">MARKETPLACE</span>
+            <h2 class="section-title" data-i18n="pack_title">Open your Genesis Packs</h2>
+            <p class="section-subtitle" data-i18n="pack_sub">
+                Try your luck and get the captains of the 2026 World Cup.
+            </p>
+        </div>
+
+        <div class="pack-container">
+            <div id="mysteryPack" class="pack-sealed">
+                <img
+                    src="assets/img/logo.svg"
+                    alt="Pack Logo"
+                    class="pack-logo-inner"
+                    onerror="this.src = 'assets/img/logo.png'"
+                />
+                <div class="pack-glow"></div>
+            </div>
+
+            <div class="pack-controls">
+                <button
+                    id="openPackBtn"
+                    class="btn btn-primary btn-glow"
+                    style="padding: 15px 40px; font-size: 1.1rem"
+                    data-i18n="pack_open_btn"
+                >
+                    OPEN PACK (100 $GCH)
+                </button>
+                <p class="pack-odds" style="margin-top: 15px; color: var(--text-dim); font-size: 0.8rem;" data-i18n="pack_odds_text">
+                    Mythic chance: 0.1% | Legendary: 0.9% | Epic: 9%
+                </p>
+            </div>
+        </div>
+
+        <!-- Modal de Revelación -->
+        <div id="revealModal" class="reveal-modal">
+            <div class="reveal-content">
+                <div id="revealedCardContainer"></div>
+                <button
+                    id="closeRevealBtn"
+                    class="btn btn-secondary"
+                    style="margin-top: 2rem; display: none"
+                    data-i18n="pack_save_btn"
+                >
+                    SAVE TO COLLECTION
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/i18n.js?v=3.0"></script>
+    <script src="assets/js/pack_opener.js?v=3.0"></script>
+    <!-- Puente postMessage hacia la webapp de React (eventos de juego). -->
+    <script src="assets/js/arcade_bridge.js?v=1.0"></script>
+</body>
+</html>

@@ -1,20 +1,25 @@
+/* ===== GoalChain Design System — Canonical Tokens =====
+   Las variables --gc-* y los alias legacy se definen en tokens.css,
+   que se carga ANTES que este archivo. Este bloque reafirma la
+   delegación para mantener style.css autocontenido y legible.
+   La paleta canónica vive en tokens.css (única fuente de verdad). */
 :root {
-    --bg-dark: #06060a;
-    --bg-surface: #0d0d14;
-    --card-bg: rgba(255, 255, 255, 0.04);
-    --primary: #14f195;
-    --primary-dim: rgba(20, 241, 149, 0.15);
-    --secondary: #9945ff;
-    --secondary-dim: rgba(153, 69, 255, 0.15);
-    --accent: #00ffbd;
+    --bg-dark: var(--gc-bg);
+    --bg-surface: var(--gc-bg-elev);
+    --card-bg: var(--gc-glass-bg);
+    --primary: var(--gc-green);
+    --primary-dim: var(--gc-green-a15);
+    --secondary: var(--gc-purple);
+    --secondary-dim: var(--gc-purple-a15);
+    --accent: var(--gc-green);
     --gold: #ffd700;
-    --text-main: #f0f0f5;
-    --text-dim: #8a8a9a;
-    --glass: rgba(255, 255, 255, 0.03);
-    --glass-strong: rgba(255, 255, 255, 0.06);
-    --border: rgba(255, 255, 255, 0.08);
-    --border-glow: rgba(20, 241, 149, 0.25);
-    --danger: #ff4d6a;
+    --text-main: var(--gc-text);
+    --text-dim: var(--gc-text-dim);
+    --glass: var(--gc-glass-bg);
+    --glass-strong: var(--gc-glass-strong-bg);
+    --border: var(--gc-border);
+    --border-glow: var(--gc-border-hover);
+    --danger: var(--gc-red);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }

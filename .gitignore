@@ -90,7 +90,20 @@ data/marketing_pipeline/logs/
 !data/marketing_pipeline/.gitkeep
 # --- Reorganization (2026-06-19): archive, cache, deep-research clones ---
 _archive/
-*.tar.gz
+*.t_archive/
 goalchain_webapp/.vercel/
 research/x-deep/*/*/repos/
 *.psdt
+
+# --- ZCode & local temporary / installation files ---
+.zcode/
+agave-install-init.exe
+msilog.txt
+nul
+or
+solana-install.bat
+tailscale-install.msi
+tailscale-setup.exe
+goalchain-sdk/bun.lock
+goalchain_api/bun.lock
+scripts/video_automation/output/

@@ -285,6 +285,37 @@ export type TranslationKeys = {
   zealy_q2: string;
   zealy_q3: string;
   zealy_season: string;
+  /* ---- Fase 1: Puerto de Mando — navegación ---- */
+  nav_main: string;
+  nav_app_title: string;
+  nav_full_site: string;
+  nav_zone_matchday: string;
+  nav_zone_trading: string;
+  nav_zone_defi: string;
+  nav_zone_club: string;
+  nav_zone_arcade: string;
+  nav_zone_resources: string;
+  nav_dashboard: string;
+  nav_fixtures: string;
+  nav_live: string;
+  nav_terminal: string;
+  nav_swarm: string;
+  nav_staking: string;
+  nav_hermes: string;
+  nav_myclub: string;
+  nav_stadium: string;
+  nav_arcade_penalty: string;
+  nav_arcade_pack: string;
+  nav_arcade_modifiers: string;
+  nav_arcade_hub: string;
+  nav_res_pitch: string;
+  nav_res_guide: string;
+  nav_res_colabs: string;
+  nav_res_legal: string;
+  /* ---- Fase 4: Toasts de eventos de arcade ---- */
+  toast_goal: string;
+  toast_save: string;
+  toast_pack: string;
 };
 
 export type Translations = Record<Language, TranslationKeys>;

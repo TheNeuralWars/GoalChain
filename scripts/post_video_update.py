@@ -4,6 +4,10 @@ import sys
 import time
 import argparse
 import requests
+
+# Forzar codificación UTF-8 en salida estándar para consolas Windows (evita errores con emojis)
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 from requests_oauthlib import OAuth1
 from dotenv import load_dotenv
 

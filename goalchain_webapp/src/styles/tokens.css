@@ -1,0 +1,178 @@
+/**
+ * GoalChain Design System — Canonical Tokens (Fase 1 refactor)
+ * ------------------------------------------------------------
+ * Única fuente de verdad visual para goalchain_webapp (y, en fases
+ * posteriores, docs/). Promueve los neones Solana a primarios y
+ * define la escala de cristal, glows y tipografía del sistema.
+ *
+ * Convención de nombres: --gc-* (GoalChain).
+ * Los alias --primary-neon / --card-bg etc. mantienen la compatibilidad
+ * con el CSS heredado mientras se migra gradualmente.
+ */
+
+:root {
+  /* ==========================================
+     1. FONDO ATMOSFÉRICO
+     ========================================== */
+  --gc-bg: #030307;
+  --gc-bg-elev: #0a0a14;
+  --gc-bg-deep: #000000;
+
+  /* Rejilla sutil + gradientes radiales (reutilizables) */
+  --gc-grid-line: rgba(255, 255, 255, 0.015);
+  --gc-radial-purple: rgba(153, 69, 255, 0.12);
+  --gc-radial-green: rgba(20, 241, 149, 0.12);
+
+  /* ==========================================
+     2. NEONES SOLANA (PRIMARIOS)
+     ========================================== */
+  --gc-green: #14f195; /* éxito, goles, depósitos, acción primaria */
+  --gc-purple: #9945ff; /* branding secundario, staking, DeFi */
+  --gc-red: #ff4b4b; /* alertas, retiros, cancelaciones */
+
+  /* Variantes alpha derivadas */
+  --gc-green-a08: rgba(20, 241, 149, 0.08);
+  --gc-green-a12: rgba(20, 241, 149, 0.12);
+  --gc-green-a20: rgba(20, 241, 149, 0.20);
+  --gc-green-a45: rgba(20, 241, 149, 0.45);
+
+  --gc-purple-a08: rgba(153, 69, 255, 0.08);
+  --gc-purple-a12: rgba(153, 69, 255, 0.12);
+  --gc-purple-a20: rgba(153, 69, 255, 0.20);
+  --gc-purple-a45: rgba(153, 69, 255, 0.45);
+
+  --gc-red-a08: rgba(255, 75, 75, 0.08);
+  --gc-red-a12: rgba(255, 75, 75, 0.12);
+  --gc-red-a25: rgba(255, 75, 75, 0.25);
+
+  /* ==========================================
+     3. TEXTO
+     ========================================== */
+  --gc-text: #e8ecf3; /* texto principal */
+  --gc-text-dim: #8b93a7; /* texto secundario/muted */
+  --gc-text-faint: #6b7a99; /* labels, placeholders */
+  --gc-text-inverse: #030307; /* texto sobre superficies neón */
+
+  /* ==========================================
+     4. BORDES
+     ========================================== */
+  --gc-border: rgba(255, 255, 255, 0.05);
+  --gc-border-strong: rgba(255, 255, 255, 0.12);
+  --gc-border-hover: rgba(20, 241, 149, 0.25);
+  --gc-border-purple: rgba(153, 69, 255, 0.35);
+
+  /* ==========================================
+     5. SUPERFICIES DE CRISTAL (3 niveles)
+     ========================================== */
+  --gc-glass-bg: rgba(255, 255, 255, 0.03);
+  --gc-glass-blur: blur(8px) saturate(160%);
+
+  --gc-glass-strong-bg: rgba(10, 10, 20, 0.55);
+  --gc-glass-strong-blur: blur(16px) saturate(180%);
+
+  --gc-glass-frost-bg: rgba(255, 255, 255, 0.06);
+  --gc-glass-frost-blur: blur(24px) saturate(200%);
+
+  /* Highlight interno superior (simula borde de luz) */
+  --gc-glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  /* ==========================================
+     6. SOMBRAS Y GLOWS NEÓN
+     ========================================== */
+  --gc-shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --gc-shadow-elev: 0 16px 45px rgba(0, 0, 0, 0.55);
+
+  --gc-glow-green: 0 0 20px var(--gc-green-a20), 0 0 40px rgba(20, 241, 149, 0.10);
+  --gc-glow-green-soft: 0 0 15px var(--gc-green-a20);
+  --gc-glow-purple: 0 0 20px var(--gc-purple-a12), 0 0 40px rgba(153, 69, 255, 0.10);
+  --gc-glow-purple-soft: 0 0 15px var(--gc-purple-a45);
+  --gc-glow-red: 0 0 18px var(--gc-red-a25);
+
+  /* Focus ring accesible */
+  --gc-focus-ring: 0 0 0 2px var(--gc-purple);
+
+  /* ==========================================
+     7. TIPOGRAFÍA
+     ========================================== */
+  --gc-font: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --gc-font-mono: 'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
+
+  --gc-fs-xs: 0.8rem;
+  --gc-fs-sm: 0.9rem;
+  --gc-fs-base: 1rem;
+  --gc-fs-lg: 1.25rem;
+  --gc-fs-xl: 1.75rem;
+  --gc-fs-2xl: 2.5rem;
+  --gc-fs-3xl: 3.5rem;
+
+  --gc-fw-regular: 400;
+  --gc-fw-semibold: 600;
+  --gc-fw-bold: 700;
+  --gc-fw-black: 800;
+
+  /* ==========================================
+     8. ESPACIADO Y RADIOS
+     ========================================== */
+  --gc-space-1: 0.25rem;
+  --gc-space-2: 0.5rem;
+  --gc-space-3: 0.75rem;
+  --gc-space-4: 1rem;
+  --gc-space-5: 1.5rem;
+  --gc-space-6: 2rem;
+  --gc-space-7: 3rem;
+
+  --gc-radius-sm: 8px;
+  --gc-radius-md: 12px;
+  --gc-radius-lg: 16px;
+  --gc-radius-xl: 20px;
+  --gc-radius-pill: 999px;
+
+  /* ==========================================
+     9. CHASIS (layout del puerto de mando)
+     ========================================== */
+  --gc-header-h: 64px;
+  --gc-rail-collapsed: 72px; /* icon-rail plegado */
+  --gc-rail-expanded: 260px; /* sidebar desplegado */
+  --gc-bottom-tab-h: 64px; /* barra móvil */
+
+  /* ==========================================
+     10. ANIMACIONES
+     ========================================== */
+  --gc-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --gc-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --gc-dur-fast: 150ms;
+  --gc-dur-base: 200ms;
+  --gc-dur-slow: 400ms;
+
+  /* ==========================================
+     ALIAS DE COMPATIBILIDAD (heredado → canónico)
+     Evitan romper el CSS existente que usa los
+     nombres viejos. Se eliminan cuando la migración
+     esté completa.
+     ========================================== */
+  --primary-neon: var(--gc-green);
+  --primary-neon-glow: var(--gc-green-a45);
+  --secondary-neon: var(--gc-purple);
+  --secondary-neon-glow: var(--gc-purple-a45);
+  --accent-red: var(--gc-red);
+  --accent-red-glow: var(--gc-red-a25);
+  --bg-dark: var(--gc-bg);
+  --card-bg: var(--gc-glass-strong-bg);
+  --card-border: var(--gc-border);
+  --card-border-hover: var(--gc-border-hover);
+  --glow-shadow-primary: var(--gc-glow-green-soft);
+  --glow-shadow-secondary: var(--gc-glow-purple-soft);
+}
+
+/* ==========================================
+   ACCESIBILIDAD — Movimiento reducido
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --gc-dur-fast: 0ms;
+    --gc-dur-base: 0ms;
+    --gc-dur-slow: 0ms;
+    --gc-ease: linear;
+    --gc-ease-out: linear;
+  }
+}

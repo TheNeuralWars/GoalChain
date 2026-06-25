@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-game="penalty">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoalChain — Penalty Shootout</title>
+    <!--
+      Wrapper dedicado para embeber el PenaltyGame dentro del modal de
+      ARCADE de goalchain_webapp (via <VanillaMount> iframe).
+      Aísla el juego de la landing: sólo carga tokens + el canvas + el script.
+    -->
+    <link rel="stylesheet" href="../assets/css/tokens.css?v=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css?v=4.3">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Layout limpio para el iframe embebido. */
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--gc-bg);
+            color: var(--gc-text);
+            font-family: var(--gc-font);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: var(--gc-space-4, 1rem);
+            overflow-x: hidden;
+        }
+        .game-frame {
+            width: 100%;
+            max-width: 720px;
+            padding: var(--gc-space-4, 1rem);
+            box-sizing: border-box;
+        }
+        /* El penalty_game.js espera un <canvas id="gameCanvas"> con tamaño fijo. */
+        #gameCanvas {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--gc-radius-lg, 16px);
+            background: #050509;
+            box-shadow: var(--gc-glow-green);
+            touch-action: none;
+        }
+        .game-hint {
+            font-size: var(--gc-fs-sm, 0.9rem);
+            color: var(--gc-text-dim);
+            text-align: center;
+            padding: 0 var(--gc-space-4, 1rem) var(--gc-space-5, 1.5rem);
+        }
+    </style>
+</head>
+<body>
+    <div class="game-frame">
+        <canvas id="gameCanvas" width="800" height="420"></canvas>
+    </div>
+    <p class="game-hint">Tap a zone of the goal to shoot.</p>
+
+    <!-- i18n se carga por consistencia (algunos textos del juego lo usan). -->
+    <script src="../assets/js/i18n.js?v=3.0"></script>
+    <script src="../assets/js/penalty_game.js?v=4.0"></script>
+    <!-- Puente postMessage hacia la webapp de React (eventos de juego). -->
+    <script src="../assets/js/arcade_bridge.js?v=1.0"></script>
+</body>
+</html>
