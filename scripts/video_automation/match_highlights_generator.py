@@ -563,10 +563,31 @@ def _get_youtube_service():
                     f"YouTube client_secrets.json not found at:\n{YT_CLIENT_SECRETS_FILE}\n"
                     "Download it from Google Cloud Console → APIs & Services → Credentials."
                 )
-            flow = InstalledAppFlow.from_client_secrets_file(
-                str(YT_CLIENT_SECRETS_FILE), YT_SCOPES
-            )
+            # Support both 'installed' (Desktop) and 'web' app types
+            import json as _json
+            secrets_data = _json.loads(YT_CLIENT_SECRETS_FILE.read_text(encoding="utf-8"))
+            app_type = list(secrets_data.keys())[0]  # 'installed' or 'web'
+            if app_type == "web":
+                # Patch to 'installed' format so InstalledAppFlow works
+                secrets_data["installed"] = secrets_data.pop("web")
+                secrets_data["installed"].setdefault(
+                    "redirect_uris", ["urn:ietf:wg:oauth:2.0:oob", "http://localhost"]
+                )
+                patched_path = YT_CLIENT_SECRETS_FILE.parent / "_yt_secrets_patched.json"
+                patched_path.write_text(_json.dumps(secrets_data), encoding="utf-8")
+                secrets_file = str(patched_path)
+                print("[YouTube] Web-type credentials patched to 'installed' for local flow.")
+            else:
+                secrets_file = str(YT_CLIENT_SECRETS_FILE)
+
+            flow = InstalledAppFlow.from_client_secrets_file(secrets_file, YT_SCOPES)
             creds = flow.run_local_server(port=0)
+
+            # Cleanup patched file if created
+            patched = YT_CLIENT_SECRETS_FILE.parent / "_yt_secrets_patched.json"
+            if patched.exists():
+                try: patched.unlink()
+                except: pass
 
         YT_CREDENTIALS_FILE.parent.mkdir(parents=True, exist_ok=True)
         YT_CREDENTIALS_FILE.write_text(creds.to_json(), encoding="utf-8")
