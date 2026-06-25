@@ -181,7 +181,7 @@ function executeReveal() {
     modal.classList.add('is-active');
     
     const imgPath = `assets/img/nfts/${player.filename}`;
-    const flag = FLAG_MAP[player.country] || "🏳️";
+    const flag = PACK_FLAG_MAP[player.country] || "🏳️";
 
     container.innerHTML = `
         <div class="nft-card-3d in-view active reveal-animation" data-rarity="${player.rarity}" id="revealedCard">
@@ -291,7 +291,7 @@ function triggerExplosion(rarity) {
     animate();
 }
 
-const FLAG_MAP = {
+const PACK_FLAG_MAP = {
     "Argentina": "🇦🇷", "Brasil": "🇧🇷", "Francia": "🇫🇷", "España": "🇪🇸",
     "Inglaterra": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "Alemania": "🇩🇪", "México": "🇲🇽", "Uruguay": "🇺🇾",
     "Portugal": "🇵🇹", "Italia": "🇮🇹", "Bélgica": "🇧🇪", "EEUU": "🇺🇸"

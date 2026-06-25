@@ -575,44 +575,41 @@ const TRANSLATIONS = {
   }
 };
 
-;
+let currentLang = localStorage.getItem('gc_lang') || 'en';
 
-;
+function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('gc_lang', lang);
+    const btnEs = document.getElementById('langEs');
+    const btnEn = document.getElementById('langEn');
+    if(btnEs) btnEs.classList.toggle('active', lang === 'es');
+    if(btnEn) btnEn.classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    applyTranslations();
+}
 
-;
+function t(key) {
+    return (TRANSLATIONS[currentLang] && TRANSLATIONS[currentLang][key]) || key;
+}
 
-;
+function applyTranslations() {
+    const dict = TRANSLATIONS[currentLang];
+    if (!dict) return;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key]) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const key = el.getAttribute('data-i18n-ph');
+        if (dict[key]) el.placeholder = dict[key];
+    });
+}
 
-;
-
-;
-
-;
-
-;
-
-;
-
-;
-
-;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-;
+// Apply on load
+document.addEventListener('DOMContentLoaded', () => {
+    setLang(currentLang);
+});

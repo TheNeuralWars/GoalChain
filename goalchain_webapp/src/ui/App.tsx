@@ -19,6 +19,7 @@ import { UserProfile } from './UserProfile';
 import { ClassicHub } from './ClassicHub';
 import { MarketingControlCenter } from './MarketingControlCenter';
 import { PressKit } from './PressKit';
+import { GenesisCollectionGallery } from './GenesisCollectionGallery';
 const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
 
 function PlayPage({
@@ -113,6 +114,22 @@ function App() {
                     element={
                       <PlayPage title="Clipper & Creator Kit" align="left">
                         <PressKit />
+                      </PlayPage>
+                    }
+                  />
+                  <Route
+                    path="/coleccion"
+                    element={
+                      <PlayPage title="Genesis Squad — Colección NFT" align="left">
+                        <GenesisCollectionGallery />
+                      </PlayPage>
+                    }
+                  />
+                  <Route
+                    path="/collection"
+                    element={
+                      <PlayPage title="Genesis Squad — Colección NFT" align="left">
+                        <GenesisCollectionGallery />
                       </PlayPage>
                     }
                   />

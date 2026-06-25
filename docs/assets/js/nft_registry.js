@@ -62,25 +62,18 @@ const BG_VIDEO_MAP = {
 };
 
 function getPlayerImagePath(player) {
-    // Check player object for direct filename first
-    if (player.filename) {
-        let filename = player.filename;
-        if (filename.endsWith('.png')) {
-            filename = filename.replace('.png', '.webp');
-        }
-        return `assets/img/nfts/${filename}`;
-    }
-    // Check manual map first
+    // Check manual map first, pointing to composed folder
     if (NFT_IMAGE_MAP[player.id]) {
         let mapped = NFT_IMAGE_MAP[player.id];
         if (mapped.endsWith('.png')) {
             mapped = mapped.replace('.png', '.webp');
         }
-        return `assets/img/nfts/${mapped}`;
+        // Force correct capitalized name if manual mapping is used (optional, but safer to match exact capitalization)
+        return `assets/img/nfts/composed/${mapped}`;
     }
-    // Auto-generate path (for future players)
-    const safeName = player.name.toLowerCase().replace(/ /g, '_').replace(/[^a-z0-9_\-]/g, '');
-    return `assets/img/nfts/${String(player.id).padStart(3, '0')}_${safeName}.webp`;
+    // Auto-generate path pointing to the composed folder, maintaining original capitalization
+    const formattedName = player.name.replace(/ /g, '_');
+    return `assets/img/nfts/composed/${String(player.id).padStart(3, '0')}_${formattedName}.webp`;
 }
 
 // Mapeo de banderas para reconocimiento rápido
