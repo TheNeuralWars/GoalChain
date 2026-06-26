@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { fetchUserChainStats } from '../lib/goalchainClient';
+import { useUser } from '../contexts/UserContext';
 
 interface UserProfileProps {
   username?: string;
@@ -57,11 +58,21 @@ const ACTIVITY_COLORS: Record<string, string> = {
 };
 
 export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername }) => {
+  const { user: currentUser } = useUser();
   const { connection } = useConnection();
   const { publicKey } = useWallet();
   const urlUsername = window.location.pathname.split('/perfil/')[1];
   const username = propUsername || urlUsername || 'demo_user';
   const profile = getMockProfile(username);
+
+  if (currentUser && currentUser.username.toLowerCase() === username.toLowerCase()) {
+    profile.avatar = currentUser.avatar || profile.avatar;
+    profile.role = currentUser.role || profile.role;
+    if (currentUser.wallet) {
+      profile.wallet = `${currentUser.wallet.slice(0, 4)}...${currentUser.wallet.slice(-4)}`;
+    }
+  }
+
   const [chainStats, setChainStats] = useState<null | {
     totalBets: number;
     totalVolumeBaseUnits: number;
@@ -70,23 +81,6 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
     stakedAmountBaseUnits: number;
     unclaimedRewardsBaseUnits: number;
   }>(null);
-
-  // Load from localStorage if username matches
-  const storedUserRaw = localStorage.getItem('goalchain_user');
-  if (storedUserRaw) {
-    try {
-      const storedUser = JSON.parse(storedUserRaw);
-      if (storedUser.username && storedUser.username.toLowerCase() === username.toLowerCase()) {
-        profile.avatar = storedUser.avatar || profile.avatar;
-        profile.role = storedUser.role || profile.role;
-        if (storedUser.wallet) {
-          profile.wallet = `${storedUser.wallet.slice(0, 4)}...${storedUser.wallet.slice(-4)}`;
-        }
-      }
-    } catch (e) {
-      console.error('Error parsing stored user:', e);
-    }
-  }
 
   useEffect(() => {
     let mounted = true;

@@ -1,39 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { SimulationBadge } from '../components/SimulationBadge';
 import { SquadGallery } from './SquadGallery';
 import { UserProfile } from './UserProfile';
 import { CreateUser } from './CreateUser';
 import { NFTMarketplace } from './NFTMarketplace';
 import { AICoach } from './AICoach';
+import { useUser } from '../contexts/UserContext';
 
 export function ClubPortal() {
   const [activeSubTab, setActiveSubTab] = useState<'squad' | 'market' | 'coach' | 'profile'>('squad');
-  const [hasAccount, setHasAccount] = useState(false);
-  const [username, setUsername] = useState('demo_user');
-
-  const checkAccount = () => {
-    const raw = localStorage.getItem('goalchain_user');
-    if (raw) {
-      try {
-        const user = JSON.parse(raw);
-        if (user.username) {
-          setHasAccount(true);
-          setUsername(user.username);
-          return;
-        }
-      } catch {
-        /* ignore */
-      }
-    }
-    setHasAccount(false);
-  };
-
-  useEffect(() => {
-    checkAccount();
-    // Listen for account changes (e.g. if one is created in the tab)
-    window.addEventListener('storage', checkAccount);
-    return () => window.removeEventListener('storage', checkAccount);
-  }, []);
+  const { user, isLoggedIn } = useUser();
 
   const tabs = [
     { id: 'squad', label: '👕 My Squad (NFTs)', desc: 'Collection of players and stamina' },
@@ -88,8 +64,8 @@ export function ClubPortal() {
         )}
         {activeSubTab === 'profile' && (
           <div className="portal-fade-in">
-            {hasAccount ? (
-              <UserProfile username={username} />
+            {isLoggedIn ? (
+              <UserProfile username={user?.username} />
             ) : (
               <div className="registration-wrapper glass-card">
                 <div className="registration-promo">
@@ -100,7 +76,6 @@ export function ClubPortal() {
                   </p>
                 </div>
                 <CreateUser onUserCreated={() => {
-                  checkAccount();
                   setActiveSubTab('profile');
                 }} />
               </div>
