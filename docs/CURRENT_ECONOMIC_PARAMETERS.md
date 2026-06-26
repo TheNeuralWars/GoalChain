@@ -35,7 +35,7 @@ Estado auditado de parámetros económicos y rutas de captura detectadas.
 - `sellerFeeBasisPoints = 100` (1% royalties secundarios).
 - `creators` distribuidos:
   - Founder: 1%
-  - Builder Fund: 10% (incluye financiación de APIs/modelos/infra y marketing)
+  - Stripe Agent Fund: 10% (financiamiento directo para operaciones de agentes, APIs/modelos y SaaS)
   - Community Treasury: 89%
 - `solPayment.destination` movido a treasury comunitaria.
 
@@ -47,4 +47,4 @@ Estado auditado de parámetros económicos y rutas de captura detectadas.
 
 1. Validar ownership real de wallets en entornos activos (devnet/mainnet).
 2. `BuilderFund` on-chain ya existe; pendiente: validación operativa en entorno objetivo y runbook de uso.
-3. Enlazar gastos de APIs/modelos/marketing al sub-ledger operativo del Builder Fund (10%) con reporte periódico.
+3. Enlazar gastos de APIs/modelos/marketing al sub-ledger operativo del Stripe Agent Fund (10%) con reporte periódico.

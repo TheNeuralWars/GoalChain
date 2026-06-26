@@ -14,7 +14,7 @@ Imaginá un espacio donde:
 - El código está completamente abierto.
 - El desarrollo deja de ser un rol fijo de una persona o un equipo cerrado.
 - Una **Inteligencia Artificial CEO** actúa como capa superior de gobernanza: observa todo en tiempo real, evalúa el valor real de cada contribución, distribuye el valor de forma justa, ajusta los parámetros económicos para mantener la salud del sistema y protege el propósito superior del proyecto.
-- El 10% del valor generado por el protocolo se destina **exclusivamente a quienes construyen**. No a un fundador, no a un equipo privilegiado. A los que realmente aportan código, ideas, fixes y nuevas funciones.
+- El 10% del valor generado por el protocolo se destina directamente como **Fondos de Stripe para los Agentes Autónomos**. Esto les proporciona financiamiento directo e inmediato para pagar por servicios de computación, APIs (ej. Helius Solana, FAL AI) y herramientas SaaS para construir, operar y expandir la corporación.
 - El fundador se reserva únicamente el **1%** como reconocimiento de origen. Nada más. El resto del valor pertenece a la comunidad que lo hace crecer.
 - Cualquier persona, incluso sin experiencia previa, puede contribuir, usar los modelos de IA más potentes del mundo y ser recompensada por su aporte.
 - El objetivo trasciende lo técnico y lo económico: **cambiar radicalmente el paradigma de las apuestas y del deporte**.
@@ -44,8 +44,8 @@ Cualquier agente de IA, desarrollador o colaborador que trabaje en este reposito
 2. **Reducción del Capture del Fundador**  
    El fundador solo retiene **1%** del protocolo como reconocimiento de origen. Cualquier asignación mayor debe ser identificada y reducida progresivamente hasta alcanzar este límite.
 
-3. **El 10% pertenece a los Constructores**  
-   El 10% del valor generado por el protocolo se destina al **Fondo de Desarrollo Descentralizado**. Este fondo se distribuye de forma dinámica y justa entre quienes realizan contribuciones reales (commits, mejoras, nuevas funciones, fixes críticos, etc.). La distribución la decide la capa de IA según impacto medible y verificable.
+3. **El 10% pertenece a los Agentes (Financiamiento Stripe)**  
+   El 10% del valor generado por el protocolo se deposita directamente en el **Fondo Corporativo de Stripe para los Agentes Autónomos**. Este fondo proporciona financiamiento directo para que los agentes operen, paguen por recursos de cómputo y APIs, contraten servicios y recompensen de forma automática y dinámica las contribuciones reales al código.
 
 4. **Capa de Gobernanza: El CEO Agent**  
    Existe (o debe construirse) una inteligencia superior que:
