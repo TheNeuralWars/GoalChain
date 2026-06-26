@@ -95,139 +95,47 @@ function mapPlayerToDetailed(p: PlayerRow): DetailedPlayer {
   };
 }
 
-interface PlayerCardProps {
-  player: DetailedPlayer;
-  onClick: () => void;
-}
-
-const PlayerCard: React.FC<PlayerCardProps> = ({ player, onClick }) => {
-  const { name, rarity, score } = player;
-  const rarityClass = `card-rarity-${rarity.toLowerCase()}`;
-  
-  const badgeColor = rarity === 'Gold' 
-    ? '#ffd700' 
-    : rarity === 'Silver' 
-      ? '#cbd5e1' 
-      : '#b45309';
-
-  const textGlowStyle = rarity === 'Gold'
-    ? { color: '#ffd700', textShadow: '0 0 10px rgba(255, 215, 0, 0.3)' }
-    : rarity === 'Silver'
-      ? { color: '#cbd5e1', textShadow: '0 0 10px rgba(203, 213, 225, 0.2)' }
-      : { color: '#d97706', textShadow: '0 0 8px rgba(217, 119, 6, 0.15)' };
-
-  return (
-    <div className={`glass-card ${rarityClass}`} onClick={onClick} style={{ 
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      padding: '1.5rem 1rem',
-      textAlign: 'center',
-      cursor: 'pointer',
-      transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.transform = 'translateY(-4px)';
-      e.currentTarget.style.boxShadow = `0 10px 20px ${badgeColor}22`;
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.transform = 'none';
-      e.currentTarget.style.boxShadow = 'none';
-    }}>
-      {/* Holographic Badge / Artwork Shield */}
-      <div style={{ 
-        width: '100%', 
-        height: '140px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center',
-        marginBottom: '1rem',
-        position: 'relative'
-      }}>
-        <svg width="100" height="110" viewBox="0 0 100 110" style={{ overflow: 'visible' }}>
-          <defs>
-            <linearGradient id={`shieldGrad-${rarity}`} x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor={badgeColor} stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#030307" stopOpacity="0.6" />
-            </linearGradient>
-          </defs>
-          
-          {/* Outer shield */}
-          <path 
-            d="M 50 5 L 85 20 L 85 70 L 50 105 L 15 70 L 15 20 Z" 
-            fill={`url(#shieldGrad-${rarity})`}
-            stroke={badgeColor} 
-            strokeWidth="2" 
-            style={{ filter: `drop-shadow(0 4px 12px ${badgeColor}33)` }} 
-          />
-          
-          {/* Inner detail border */}
-          <path 
-            d="M 50 9 L 80 22 L 80 67 L 50 98 L 20 67 L 20 22 Z" 
-            fill="none" 
-            stroke="rgba(255,255,255,0.03)" 
-            strokeWidth="1" 
-          />
-          
-          {/* Center decorative ring */}
-          <circle cx="50" cy="48" r="22" fill="none" stroke={badgeColor} strokeWidth="1" strokeDasharray="3 3" opacity="0.3" />
-          
-          {/* Icon details (Football lines) */}
-          <g stroke={badgeColor} strokeWidth="1.5" fill="none" opacity="0.75">
-            <circle cx="50" cy="48" r="14" />
-            <path d="M 50 34 Q 45 48 50 62" />
-            <path d="M 50 34 Q 55 48 50 62" />
-            <path d="M 36 48 Q 50 43 64 48" />
-            <path d="M 36 48 Q 50 53 64 48" />
-          </g>
-          
-          {/* Rating label badge */}
-          <rect x="34" y="78" width="32" height="16" rx="4" fill="#030307" stroke={badgeColor} strokeWidth="1" />
-          <text x="50" y="90" fill="#ffffff" fontSize="9" fontWeight="800" textAnchor="middle" letterSpacing="0.5px">
-            {score} OVR
-          </text>
-        </svg>
-      </div>
-      
-      {/* Player details */}
-      <h4 style={{ margin: '0.25rem 0 0.5rem 0', fontSize: '1rem', fontWeight: 800, color: '#f8fafc' }}>
-        {name}
-      </h4>
-      
-      <div style={{ 
-        fontSize: '0.75rem', 
-        fontWeight: 700, 
-        textTransform: 'uppercase', 
-        letterSpacing: '1px',
-        ...textGlowStyle
-      }}>
-        {rarity} TIER
-      </div>
-
-      <div style={{ fontSize: '0.7rem', color: '#94a3b8', marginTop: '6px', fontWeight: 500 }}>
-        ⚡ {player.role}
-      </div>
-
-      <button 
-        className="btn-outline-green" 
-        style={{ 
-          marginTop: '1.25rem', 
-          width: '100%', 
-          padding: '0.4rem 0.5rem', 
-          fontSize: '0.75rem',
-          letterSpacing: '0.5px',
-          pointerEvents: 'none'
-        }}
-      >
-        ANALIZAR 📊
-      </button>
-    </div>
-  );
-};
-
 export const SquadGallery: React.FC = () => {
   const [selectedPlayer, setSelectedPlayer] = useState<DetailedPlayer | null>(null);
   const [activeSystem, setActiveSystem] = useState<'4-3-3' | '4-4-2' | '3-5-2'>('4-3-3');
+  const [squad, setSquad] = useState<DetailedPlayer[]>([]);
+  const [isDemo, setIsDemo] = useState(false);
+
+  const loadInventory = async () => {
+    try {
+      const rawInv = localStorage.getItem('goalchain_inventory');
+      const inventory = rawInv ? JSON.parse(rawInv) : [];
+      
+      if (inventory.length > 0) {
+        const detailed = inventory.map((p: any) => mapPlayerToDetailed(p));
+        setSquad(detailed);
+        setIsDemo(false);
+      } else {
+        const res = await fetch('/assets/data/players.json');
+        if (res.ok) {
+          const players = await res.json() as PlayerRow[];
+          const starterPlayers = players.slice(0, 4);
+          const detailed = starterPlayers.map(p => mapPlayerToDetailed(p));
+          setSquad(detailed);
+          setIsDemo(true);
+        }
+      }
+    } catch (e) {
+      console.error("Error loading squad:", e);
+    }
+  };
+
+  useEffect(() => {
+    loadInventory();
+
+    const handleStorageChange = () => {
+      loadInventory();
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   const closePlayerModal = () => {
     setSelectedPlayer(null);
@@ -243,6 +151,20 @@ export const SquadGallery: React.FC = () => {
 
   return (
     <div className="squad-gallery" style={{ marginTop: '0.5rem', textAlign: 'left' }}>
+      {isDemo && (
+        <div style={{ 
+          background: 'rgba(255, 165, 0, 0.08)', 
+          border: '1px dashed rgba(255, 165, 0, 0.3)', 
+          borderRadius: '12px', 
+          padding: '12px 16px', 
+          marginBottom: '1.5rem',
+          fontSize: '0.8rem',
+          color: '#ffd073'
+        }}>
+          💡 <strong>Cantera de Cortesía:</strong> Aún no tienes cartas compradas. Mostrando jugadores iniciales de prueba. ¡Compra cartas en el <strong>Mercado de Transferencias</strong> para que aparezcan aquí!
+        </div>
+      )}
+
       <h2 className="text-neon-green" style={{ borderBottom: 'none', paddingBottom: 0, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
         <span style={{ fontSize: '1.4rem' }}>🏆</span> Mi Cantera (Youth Academy)
         <SimulationBadge />
@@ -251,15 +173,20 @@ export const SquadGallery: React.FC = () => {
       {/* Player Card Responsive Grid */}
       <div style={{ 
         display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))', 
-        gap: '1.5rem', 
-        marginTop: '1rem' 
+        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
+        gap: '40px 20px', 
+        justifyContent: 'center',
+        padding: '20px 0' 
       }}>
-        {myPlayers.map((p, i) => (
-          <PlayerCard key={i} player={p} onClick={() => {
-            setSelectedPlayer(p);
-            setActiveSystem('4-3-3');
-          }} />
+        {squad.map((p, i) => (
+          <LayeredNftCard 
+            key={i} 
+            player={p.rawPlayer} 
+            onAnalyze={() => {
+              setSelectedPlayer(p);
+              setActiveSystem('4-3-3');
+            }} 
+          />
         ))}
       </div>
       
