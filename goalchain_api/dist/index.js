@@ -14,10 +14,9 @@ const fs_1 = __importDefault(require("fs"));
 dotenv_1.default.config({ path: path_1.default.resolve(__dirname, "../../.env") });
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3001;
-const rpcUrl = process.env.RPC_URL || "https://api.devnet.solana.com";
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
-const connection = new web3_js_1.Connection(rpcUrl, "confirmed");
+const connection = (0, sdk_1.getConnection)("confirmed");
 // Provider placeholder (readonly)
 const provider = new anchor_1.AnchorProvider(connection, {}, {
     commitment: "confirmed",
@@ -568,7 +567,7 @@ app.get("/api/economy/config", async (req, res) => {
         res.json({
             source: {
                 canonicalPath: canonicalPath,
-                rpcUrl,
+                rpcUrl: (0, sdk_1.getRpcUrl)(),
             },
             canonicalConfig,
             onchainConfig,
@@ -886,6 +885,316 @@ app.post("/api/solana/jupiter/quote", async (req, res) => {
         res.status(500).json({
             error: "Failed to get Jupiter quote: " + error.message,
         });
+    }
+});
+// ============================================
+// Hermes Video Marketing Pipeline Endpoints
+// ============================================
+const runsPath = path_1.default.resolve(__dirname, "../../data/marketing_pipeline/runs.json");
+const logsDir = path_1.default.resolve(__dirname, "../../data/marketing_pipeline/logs");
+const triggerPath = path_1.default.resolve(__dirname, "../../data/marketing_pipeline/trigger.json");
+const daemonStatusPath = path_1.default.resolve(__dirname, "../../data/marketing_pipeline/daemon_status.json");
+const runsBackupPath = path_1.default.resolve(__dirname, "../../data/marketing_pipeline/runs.json.bak");
+const runsHistoryPath = path_1.default.resolve(__dirname, "../../data/marketing_pipeline/runs_history.jsonl");
+// Helper to ensure directories exist
+function ensurePipelineDirs() {
+    const dir = path_1.default.dirname(runsPath);
+    if (!fs_1.default.existsSync(dir)) {
+        fs_1.default.mkdirSync(dir, { recursive: true });
+    }
+    if (!fs_1.default.existsSync(logsDir)) {
+        fs_1.default.mkdirSync(logsDir, { recursive: true });
+    }
+}
+/**
+ * Safe write: saves runs.json + keeps a .bak backup + appends IDs to history log.
+ * This ensures runs are never lost due to container restarts or repo resets.
+ */
+function safeWriteRuns(runs) {
+    ensurePipelineDirs();
+    const json = JSON.stringify(runs, null, 2);
+    // 1. Backup existing file before overwriting
+    if (fs_1.default.existsSync(runsPath)) {
+        try {
+            fs_1.default.copyFileSync(runsPath, runsBackupPath);
+        }
+        catch (_) { }
+    }
+    // 2. Write new content
+    fs_1.default.writeFileSync(runsPath, json, "utf-8");
+    // 3. Append any new run IDs to the immutable history log
+    try {
+        const existingIds = new Set();
+        if (fs_1.default.existsSync(runsHistoryPath)) {
+            const lines = fs_1.default.readFileSync(runsHistoryPath, "utf-8").trim().split("\n").filter(Boolean);
+            for (const line of lines) {
+                try {
+                    existingIds.add(JSON.parse(line).id);
+                }
+                catch (_) { }
+            }
+        }
+        const newEntries = runs
+            .filter((r) => r.id && !existingIds.has(r.id))
+            .map((r) => JSON.stringify({ id: r.id, timestamp: r.timestamp, account_name: r.account_name, topic: r.topic, status: r.status, video_url: r.video_url, image_url: r.image_url }));
+        if (newEntries.length > 0) {
+            fs_1.default.appendFileSync(runsHistoryPath, newEntries.join("\n") + "\n", "utf-8");
+        }
+    }
+    catch (_) { }
+}
+// 1. Get all runs
+app.get("/api/marketing/runs", (req, res) => {
+    try {
+        ensurePipelineDirs();
+        if (!fs_1.default.existsSync(runsPath)) {
+            return res.json([]);
+        }
+        const content = fs_1.default.readFileSync(runsPath, "utf-8");
+        const runs = JSON.parse(content);
+        res.json(runs);
+    }
+    catch (err) {
+        console.error("Error reading marketing runs:", err);
+        res.status(500).json({ error: `Failed to load runs: ${err.message}` });
+    }
+});
+// 2. Add comment to a run (feedback loop)
+app.post("/api/marketing/runs/:id/comment", (req, res) => {
+    try {
+        const { id } = req.params;
+        const { text } = req.body;
+        if (!text) {
+            return res.status(400).json({ error: "Comment text is required" });
+        }
+        ensurePipelineDirs();
+        let runs = [];
+        if (fs_1.default.existsSync(runsPath)) {
+            const content = fs_1.default.readFileSync(runsPath, "utf-8");
+            runs = JSON.parse(content);
+        }
+        const run = runs.find((r) => r.id === id);
+        if (!run) {
+            return res.status(404).json({ error: "Run not found" });
+        }
+        if (!run.comments) {
+            run.comments = [];
+        }
+        run.comments.push({
+            timestamp: new Date().toISOString(),
+            text: text.trim()
+        });
+        safeWriteRuns(runs);
+        res.json({ success: true, run });
+    }
+    catch (err) {
+        console.error("Error adding comment to run:", err);
+        res.status(500).json({ error: `Failed to add comment: ${err.message}` });
+    }
+});
+// 3. Trigger Hermes manually (Wake Hermes)
+app.post("/api/marketing/trigger", (req, res) => {
+    try {
+        const { account_name, topic } = req.body;
+        const payload = {
+            action: "generate",
+            account_name: account_name || "both",
+            topic: topic || null,
+            timestamp: new Date().toISOString()
+        };
+        ensurePipelineDirs();
+        fs_1.default.writeFileSync(triggerPath, JSON.stringify(payload, null, 2), "utf-8");
+        console.log(`[API] Hermes marketing trigger written for account: ${payload.account_name}`);
+        res.json({ success: true, message: "Hermes pipeline trigger registered successfully" });
+    }
+    catch (err) {
+        console.error("Error writing trigger:", err);
+        res.status(500).json({ error: `Failed to write trigger file: ${err.message}` });
+    }
+});
+// 3a. Trigger trend research
+app.post("/api/marketing/research", (req, res) => {
+    try {
+        const payload = {
+            action: "research",
+            timestamp: new Date().toISOString()
+        };
+        ensurePipelineDirs();
+        fs_1.default.writeFileSync(triggerPath, JSON.stringify(payload, null, 2), "utf-8");
+        console.log("[API] Hermes trend research trigger written");
+        res.json({ success: true, message: "Hermes trend research trigger written successfully" });
+    }
+    catch (err) {
+        console.error("Error writing research trigger:", err);
+        res.status(500).json({ error: `Failed to write research trigger: ${err.message}` });
+    }
+});
+// 3b. Edit planned run details
+app.put("/api/marketing/runs/:id", (req, res) => {
+    try {
+        const { id } = req.params;
+        const { topic, post_text, image_prompt, video_prompt } = req.body;
+        ensurePipelineDirs();
+        if (!fs_1.default.existsSync(runsPath)) {
+            return res.status(404).json({ error: "Runs database not found" });
+        }
+        const content = fs_1.default.readFileSync(runsPath, "utf-8");
+        const runs = JSON.parse(content);
+        const run = runs.find((r) => r.id === id);
+        if (!run) {
+            return res.status(404).json({ error: "Run not found" });
+        }
+        if (topic !== undefined)
+            run.topic = topic;
+        if (post_text !== undefined)
+            run.post_text = post_text;
+        if (image_prompt !== undefined)
+            run.image_prompt = image_prompt;
+        if (video_prompt !== undefined)
+            run.video_prompt = video_prompt;
+        safeWriteRuns(runs);
+        res.json({ success: true, run });
+    }
+    catch (err) {
+        console.error("Error updating planned run:", err);
+        res.status(500).json({ error: `Failed to update run: ${err.message}` });
+    }
+});
+// 3c. Delete planned run
+app.delete("/api/marketing/runs/:id", (req, res) => {
+    try {
+        const { id } = req.params;
+        ensurePipelineDirs();
+        if (!fs_1.default.existsSync(runsPath)) {
+            return res.status(404).json({ error: "Runs database not found" });
+        }
+        const content = fs_1.default.readFileSync(runsPath, "utf-8");
+        const runs = JSON.parse(content);
+        const newRuns = runs.filter((r) => r.id !== id);
+        safeWriteRuns(newRuns);
+        res.json({ success: true, message: "Run deleted successfully" });
+    }
+    catch (err) {
+        console.error("Error deleting run:", err);
+        res.status(500).json({ error: `Failed to delete run: ${err.message}` });
+    }
+});
+// 3d. Trigger generation of a specific planned run
+app.post("/api/marketing/runs/:id/trigger", (req, res) => {
+    try {
+        const { id } = req.params;
+        ensurePipelineDirs();
+        const payload = {
+            action: "generate_planned",
+            run_id: id,
+            timestamp: new Date().toISOString()
+        };
+        fs_1.default.writeFileSync(triggerPath, JSON.stringify(payload, null, 2), "utf-8");
+        console.log(`[API] Hermes trigger written for planned run: ${id}`);
+        res.json({ success: true, message: `Trigger for planned run ${id} written successfully` });
+    }
+    catch (err) {
+        console.error("Error writing planned run trigger:", err);
+        res.status(500).json({ error: `Failed to write planned run trigger: ${err.message}` });
+    }
+});
+// 4. Stream log file
+app.get("/api/marketing/runs/:id/log", (req, res) => {
+    try {
+        const { id } = req.params;
+        const logPath = path_1.default.join(logsDir, `${id}.log`);
+        if (!fs_1.default.existsSync(logPath)) {
+            return res.status(404).json({ error: "Log file not found for this run" });
+        }
+        const content = fs_1.default.readFileSync(logPath, "utf-8");
+        res.type("text/plain").send(content);
+    }
+    catch (err) {
+        console.error("Error reading run log:", err);
+        res.status(500).json({ error: `Failed to read log: ${err.message}` });
+    }
+});
+// 5. Get daemon status
+app.get("/api/marketing/daemon-status", (req, res) => {
+    try {
+        if (!fs_1.default.existsSync(daemonStatusPath)) {
+            return res.json({ status: "offline", message: "Daemon is not running or status not initialized" });
+        }
+        const content = fs_1.default.readFileSync(daemonStatusPath, "utf-8");
+        const status = JSON.parse(content);
+        const lastCheck = new Date(status.last_check).getTime();
+        const now = Date.now();
+        const isOnline = (now - lastCheck) < 300000; // 5 min heartbeat window (video gen takes time)
+        res.json({
+            ...status,
+            is_online: isOnline,
+            status: isOnline ? status.status : "offline"
+        });
+    }
+    catch (err) {
+        console.error("Error reading daemon status:", err);
+        res.status(500).json({ error: `Failed to read status: ${err.message}` });
+    }
+});
+// 6. Get schedule preview
+app.get("/api/marketing/schedule-preview", (req, res) => {
+    try {
+        const previewPath = path_1.default.resolve(__dirname, "../../data/marketing_pipeline/schedule_preview.json");
+        if (!fs_1.default.existsSync(previewPath)) {
+            return res.json({});
+        }
+        const content = fs_1.default.readFileSync(previewPath, "utf-8");
+        const data = JSON.parse(content);
+        res.json(data);
+    }
+    catch (err) {
+        console.error("Error reading schedule preview:", err);
+        res.status(500).json({ error: `Failed to load schedule preview: ${err.message}` });
+    }
+});
+// 7. Pipeline healthcheck (Manager 2026-06-24). Uses pipeline_health.py.
+const { execFileSync } = require("child_process");
+app.get("/api/marketing/pipeline/health", (_req, res) => {
+    try {
+        const pipelineHealthScript = path_1.default.resolve(__dirname, "../../scripts/video_automation/pipeline_health.py");
+        if (!fs_1.default.existsSync(pipelineHealthScript)) {
+            return res.status(503).json({ error: "pipeline_health.py missing" });
+        }
+        const out = execFileSync("python3", [pipelineHealthScript], {
+            encoding: "utf-8",
+            timeout: 8,
+            maxBuffer: 1024 * 256,
+        });
+        const data = JSON.parse(out);
+        // surface a fragile / healthy verdict based on heartbeat + cost
+        const hb = data.heartbeat_seconds;
+        const healthy = hb !== null &&
+            hb < 300 &&
+            (data.cost_guard_used === undefined || data.cost_guard_used < data.cost_guard_cap);
+        res.json({ healthy, ...data });
+    }
+    catch (err) {
+        console.error("Error reading pipeline health:", err);
+        res.status(500).json({ error: `Failed to read pipeline health: ${err.message}` });
+    }
+});
+// 8. NoahAI Commentary Endpoint (Sprint 1)
+app.post("/api/noahai/commentary", (req, res) => {
+    try {
+        const { query, player_id } = req.body;
+        // Simulate NoahAI dynamic commentary or statistics response
+        const responses = [
+            `[NoahAI] Analizando base de datos on-chain para ${player_id || "el jugador"}. Stamina: 92%, Hype de mercado: Alto. Predicción: Alta probabilidad de gol si se coloca en la banda derecha.`,
+            `[NoahAI] Reporte de rendimiento: Basado en el último bloque de Solana, el rendimiento de ${player_id || "este activo"} ha subido un +12.4% debido a su sinergia en tácticas 4-3-3.`,
+            `[NoahAI] Análisis táctico: El oponente presenta debilidad en la banda izquierda. Recomendación: Forzar desbordes con ${player_id || "tu delantero estrella"}.`,
+            `[NoahAI] Oráculo predictivo: La probabilidad de victoria en este parimutuel aumenta a 68.4% si habilitas el Starter XI actual en el bloque actual.`
+        ];
+        const text = responses[Math.floor(Math.random() * responses.length)];
+        res.json({ success: true, text });
+    }
+    catch (err) {
+        console.error("Error in NoahAI Commentary:", err);
+        res.status(500).json({ error: `NoahAI failed: ${err.message}` });
     }
 });
 app.listen(port, () => {

@@ -1,10 +1,10 @@
 import { PublicKey } from '@solana/web3.js';
-import idl from './goalchain_program.json';
+import idl from './goalchain_program.json' with { type: 'json' };
 export const PROGRAM_ID = new PublicKey("FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg");
 export { idl };
 // Retry and timeout utilities
-export * from './utils/retry';
-export * from './goalchain_program_environment';
+export * from './utils/retry.js';
+export * from './goalchain_program_environment.js';
 export const SEEDS = {
     CONFIG: "config",
     STAKE: "stake",

@@ -20,6 +20,7 @@ try:
         generate_image_on_vps,
         generate_video_on_vps,
         ssh_run,
+        run_grok_with_prompt_file,
         normalize_prompts,
         update_run_state,
         _cost_guard_check_and_increment,
@@ -107,9 +108,7 @@ def generate_long_screenplay(topic: str, account_name: str, scenes_count: int, c
     """
     
     print(f"[{account_name}] Generando guión para video compilado de {scenes_count} escenas usando Grok CLI...")
-    cmd = f"/home/ubuntu/.local/bin/grok --single {shlex.quote(prompt)}"
-    
-    raw = ssh_run(cmd)
+    raw = run_grok_with_prompt_file(prompt)
     
     json_match = re.search(r"\{.*\}", raw, re.DOTALL)
     if not json_match:

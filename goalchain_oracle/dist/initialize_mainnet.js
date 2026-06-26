@@ -7,12 +7,13 @@ import * as path from "path";
 import * as dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import { getPriorityFeeInstructions } from "./priorityFees.js";
+import { getRpcUrl, getProgramId } from "@goalchain/sdk";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config();
 async function main() {
-    const rpcUrl = process.env.RPC_URL || "https://api.mainnet-beta.solana.com";
-    const programIdStr = process.env.PROGRAM_ID || "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg";
+    const rpcUrl = getRpcUrl();
+    const programIdStr = getProgramId().toBase58();
     const adminKeypairPath = process.env.ADMIN_KEYPAIR_PATH || "~/.config/solana/id.json";
     // Config Parameters
     const oraclePubkeyStr = process.env.ORACLE_AUTHORITY_PUBKEY;

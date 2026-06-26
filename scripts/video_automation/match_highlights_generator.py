@@ -153,7 +153,7 @@ def _call_nvidia_nim(prompt: str) -> str:
         "model": "meta/llama-3.3-70b-instruct",
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.3,
-        "max_tokens": 2048
+        "max_tokens": 4096
     }).encode("utf-8")
     
     req = urllib.request.Request(
@@ -207,7 +207,7 @@ def _call_gemini_raw(prompt: str) -> str:
 
 def generate_match_screenplay(matchup: str, account_name: str, dry_run: bool = False) -> dict:
     """
-    Use Gemini to write a 4-scene short-video screenplay in ENGLISH
+    Use Gemini to write a 6-scene short-video screenplay in ENGLISH
     for the given World Cup 2026 matchup.
     Voice/narration will be handled natively by Grok Imagine inside the video.
     """
@@ -218,24 +218,26 @@ def generate_match_screenplay(matchup: str, account_name: str, dry_run: bool = F
     niche = ACCOUNTS.get(account_name, {}).get("niche", "World Cup 2026 sports betting on Solana")
 
     prompt = f"""You are Hermes, GoalChain's world-class content director.
-Write a high-retention, addictive 4-scene screenplay in ENGLISH for a vertical 9:16 video
-(TikTok / Instagram Reels / YouTube Shorts) about the World Cup 2026 match: "{matchup}".
+Write a high-retention, addictive 6-scene screenplay in ENGLISH for a horizontal 16:9 YouTube video
+about the World Cup 2026 match: "{matchup}".
 Account niche: "{niche}".
 
 IMPORTANT:
 - Language: ENGLISH only (narration, captions, post text)
-- Each scene is ~4 seconds. Total ~16 seconds.
+- Each scene is ~4.5 seconds. Total ~27 seconds.
 - The video_prompt for each scene MUST include a voice-over instruction at the end:
   Format: '... [English sports narrator voice says: "<narration text>"]'
   This tells Grok Imagine to generate the video with spoken audio.
-- visual_prompt: describe dramatic photorealistic football action, cinematic, vertical 9:16, no text in image
+- visual_prompt: describe dramatic photorealistic football action, cinematic, horizontal 16:9, no text in image
 - animation_prompt: describe camera movement + narration voice instruction
 
 Scene structure:
-1. HOOK (0-4s): Dramatic opening line about the match moment
-2. CONTEXT (4-8s): The critical play — penalty, goal, save, red card
-3. MECHANISM (8-12s): Connect to GoalChain on Solana — betting on-chain
-4. CTA (12-16s): Call to action — goalchain.fun, link in bio
+1. HOOK (0-4.5s): Dramatic opening line about the match matchup/hype.
+2. BUILD-UP (4.5-9s): Midfield tension, pressure building up.
+3. THE ACTION (9-13.5s): The defining moment (e.g. goal, tackle, penalty).
+4. THE CELEBRATION (13.5-18s): Crowd or player reaction, pure emotion.
+5. GOALCHAIN MECHANISM (18-22.5s): Explain how GoalChain allows on-chain sports betting on Solana.
+6. CTA (22.5-27s): Call to action — visit goalchain.fun, link in bio.
 
 Return ONLY valid JSON, no markdown, no extra text:
 {{
@@ -246,7 +248,7 @@ Return ONLY valid JSON, no markdown, no extra text:
         {{
             "scene_num": 1,
             "narration": "Short punchy English narration (max 12 words)",
-            "visual_prompt": "Detailed English image prompt, photorealistic football action, vertical 9:16, no text",
+            "visual_prompt": "Detailed English image prompt, photorealistic football action, horizontal 16:9, no text",
             "animation_prompt": "Camera movement description. [English sports narrator voice says: \\"<same narration text>\\"]"
         }},
         {{
@@ -263,6 +265,18 @@ Return ONLY valid JSON, no markdown, no extra text:
         }},
         {{
             "scene_num": 4,
+            "narration": "Short punchy English narration (max 12 words)",
+            "visual_prompt": "Detailed English image prompt",
+            "animation_prompt": "Camera movement. [English sports narrator voice says: \\"<narration>\\"]"
+        }},
+        {{
+            "scene_num": 5,
+            "narration": "Short punchy English narration (max 12 words)",
+            "visual_prompt": "Detailed English image prompt",
+            "animation_prompt": "Camera movement. [English sports narrator voice says: \\"<narration>\\"]"
+        }},
+        {{
+            "scene_num": 6,
             "narration": "Short punchy English narration (max 12 words)",
             "visual_prompt": "Detailed English image prompt",
             "animation_prompt": "Camera movement. [English sports narrator voice says: \\"<narration>\\"]"
@@ -317,18 +331,24 @@ def _mock_screenplay(matchup: str) -> dict:
             "Visit goalchain.fun #WorldCup2026 #Solana #SportsBetting"
         ),
         "scenes": [
-            {"scene_num": 1, "narration": "Ninety-three minutes — absolute chaos on the pitch!",
-             "visual_prompt": "Dramatic football player celebrating goal, stadium lights, slow motion, vertical 9:16",
-             "animation_prompt": "Camera zooms in smoothly on celebrating player. [English sports narrator voice says: \"Ninety-three minutes — absolute chaos on the pitch!\"]"},
-            {"scene_num": 2, "narration": "Penalty. The crowd holds its breath.",
-             "visual_prompt": "Close-up player placing ball on penalty spot, cinematic, low-angle, vertical 9:16",
-             "animation_prompt": "Slow pan around player face. [English sports narrator voice says: \"Penalty. The crowd holds its breath.\"]"},
-            {"scene_num": 3, "narration": "On GoalChain, you bet on-chain. You control your stake.",
-             "visual_prompt": "Glowing Solana coin inside digital vault, soccer ball pattern, vertical 9:16",
-             "animation_prompt": "Vault opens revealing Solana coin. [English sports narrator voice says: \"On GoalChain, you bet on-chain. You control your stake.\"]"},
-            {"scene_num": 4, "narration": "Play your prediction now. Link in bio.",
-             "visual_prompt": "3D render of smartphone showing goalchain.fun dashboard, white glow, vertical 9:16",
-             "animation_prompt": "Camera slides down to CTA button. [English sports narrator voice says: \"Play your prediction now. Link in bio.\"]"},
+            {"scene_num": 1, "narration": "The stadium is electric as the World Cup stage is set!",
+             "visual_prompt": "Epic wide shot of a massive football stadium filled with cheering fans, night, glowing lights, cinematic, horizontal 16:9",
+             "animation_prompt": "Slow aerial zoom out over stadium. [English sports narrator voice says: \"The stadium is electric as the World Cup stage is set!\"]"},
+            {"scene_num": 2, "narration": "Ninety-three minutes on the clock — absolute tension in the air.",
+             "visual_prompt": "Midfielder passing ball under intense pressure, defenders closing in, motion blur, photorealistic, horizontal 16:9",
+             "animation_prompt": "Tracking shot following the ball. [English sports narrator voice says: \"Ninety-three minutes on the clock — absolute tension in the air.\"]"},
+            {"scene_num": 3, "narration": "He strikes! A beautiful shot into the top-right corner!",
+             "visual_prompt": "Close-up action shot of a soccer ball hitting the net, goalkeeper diving in vain, dramatic lighting, horizontal 16:9",
+             "animation_prompt": "Slow-motion camera pan following the ball's impact. [English sports narrator voice says: \"He strikes! A beautiful shot into the top-right corner!\"]"},
+            {"scene_num": 4, "narration": "Pure chaos and celebration erupts across the pitch!",
+             "visual_prompt": "Dramatic football player celebrating goal on knees, sliding on grass, stadium lights, horizontal 16:9",
+             "animation_prompt": "Camera zooms in smoothly on celebrating player. [English sports narrator voice says: \"Pure chaos and celebration erupts across the pitch!\"]"},
+            {"scene_num": 5, "narration": "On GoalChain, you bet on-chain. Decisive smart contracts, instant payouts.",
+             "visual_prompt": "Glowing Solana coin inside digital vault, soccer ball pattern, high-tech interface, horizontal 16:9",
+             "animation_prompt": "Vault opens revealing Solana coin. [English sports narrator voice says: \"On GoalChain, you bet on-chain. Decisive smart contracts, instant payouts.\"]"},
+            {"scene_num": 6, "narration": "Make your play now. Visit goalchain.fun to predict.",
+             "visual_prompt": "3D render of smartphone showing goalchain.fun dashboard, premium betting interface, white glow, horizontal 16:9",
+             "animation_prompt": "Camera slides down to prediction button. [English sports narrator voice says: \"Make your play now. Visit goalchain.fun to predict.\"]"},
         ]
     }
 
@@ -405,7 +425,7 @@ def compile_highlights_video(
             # Create a silent 4s black clip as placeholder
             subprocess.run([
                 "ffmpeg", "-y",
-                "-f", "lavfi", "-i", "color=c=black:s=720x1280:r=24",
+                "-f", "lavfi", "-i", "color=c=black:s=1280x720:r=24",
                 "-f", "lavfi", "-i", "anullsrc=r=44100:cl=mono",
                 "-t", "4.0", "-pix_fmt", "yuv420p",
                 str(subvideo_path)
@@ -417,13 +437,32 @@ def compile_highlights_video(
         try:
             img_name = generate_image_on_vps(visual_prompt)
             print(f"    Image: {img_name}")
+            # If running on Windows client, download image from VPS via scp
+            if platform.system() == "Windows" and img_name:
+                local_img_path = OUTPUT_DIR / img_name
+                print(f"    Downloading image from VPS...")
+                subprocess.run([
+                    "scp", "-o", "StrictHostKeyChecking=no",
+                    f"ubuntu@89.168.20.135:/home/ubuntu/scratch/grok_batches/batch_01/outputs/{img_name}",
+                    str(local_img_path)
+                ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         except Exception as e:
             print(f"    ⚠️  Image generation failed: {e}. Using color fallback.")
             img_name = None
 
         # 2. Generate video WITH narration audio via Grok Imagine
         try:
-            vid_name = generate_video_on_vps(animation_prompt, img_name)
+            vid_name = generate_video_on_vps(animation_prompt, img_name, aspect_ratio="16:9")
+            # If running on Windows client, download video from VPS via scp
+            if platform.system() == "Windows" and vid_name:
+                local_vid_path = OUTPUT_DIR / vid_name
+                print(f"    Downloading video from VPS...")
+                subprocess.run([
+                    "scp", "-o", "StrictHostKeyChecking=no",
+                    f"ubuntu@89.168.20.135:/home/ubuntu/scratch/grok_batches/batch_01/outputs/{vid_name}",
+                    str(local_vid_path)
+                ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            
             vid_path = Path("/home/ubuntu/scratch/grok_batches/batch_01/outputs") / vid_name
             if not vid_path.exists():
                 local = OUTPUT_DIR / vid_name
@@ -437,20 +476,20 @@ def compile_highlights_video(
             vid_path = temp_dir / f"fallback_{scene_num}.mp4"
             subprocess.run([
                 "ffmpeg", "-y",
-                "-f", "lavfi", "-i", "color=c=0x030307:s=720x1280:r=24",
+                "-f", "lavfi", "-i", "color=c=0x030307:s=1280x720:r=24",
                 "-f", "lavfi", "-i", "anullsrc=r=44100:cl=mono",
                 "-t", "4.5", "-pix_fmt", "yuv420p",
                 str(vid_path)
             ], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             print(f"    Using fallback clip: {vid_path.name}")
 
-        # 3. Scale to 720x1280 + burn English subtitle (white text, semi-transparent bg)
+        # 3. Scale to 1280x720 + burn English subtitle (white text, semi-transparent bg)
         vf = (
-            f"[0:v]scale=720:1280:force_original_aspect_ratio=increase,"
-            f"crop=720:1280,"
+            f"[0:v]scale=1280:720:force_original_aspect_ratio=increase,"
+            f"crop=1280:720,"
             f"drawtext=fontfile='{font_path}':"
             f"text='{subtitle_text}':"
-            f"fontcolor=white:fontsize=40:x=(w-text_w)/2:y=h-text_h-80:"
+            f"fontcolor=white:fontsize=36:x=(w-text_w)/2:y=h-text_h-60:"
             f"box=1:boxcolor=black@0.55:boxborderw=12[v]"
         )
         subprocess.run([
@@ -503,7 +542,7 @@ def compile_highlights_video(
     idx = 1
 
     if has_crowd:
-        inputs += ["-i", str(crowd_path)]
+        inputs += ["-stream_loop", "-1", "-i", str(crowd_path)]
         filters.append(
             f"[0:a]volume=1.0[orig];[{idx}:a]volume=0.12[bg];"
             f"[orig][bg]amix=inputs=2:duration=first[outa]"
@@ -718,6 +757,7 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Simulate all steps, no API calls")
     parser.add_argument("--skip-youtube", action="store_true", help="Skip YouTube long-form upload")
     parser.add_argument("--skip-buffer",  action="store_true", help="Skip Buffer scheduling")
+    parser.add_argument("--force-buffer", action="store_true", help="Force Buffer scheduling even for horizontal 16:9 videos")
     args = parser.parse_args()
 
     run_id  = args.run_id or f"match_{int(time.time())}_{args.account.lower()}"
@@ -763,11 +803,14 @@ def main():
     })
 
     # ── Step 4a: Buffer (TikTok + IG + YT Shorts) ────────────
-    if not args.skip_buffer and not dry_run:
+    if args.force_buffer and not args.skip_buffer and not dry_run:
         print(f"\n[Step 4a] Scheduling via Buffer (TikTok / IG / YouTube Shorts)...")
         publish_to_buffer(args.account, final_path, screenplay.get("post_text", ""))
     else:
-        print(f"\n[Step 4a] Buffer: {'DRY-RUN skip' if dry_run else 'skipped by flag'}")
+        if not args.force_buffer:
+            print(f"\n[Step 4a] Buffer: skipped by default (horizontal video; use --force-buffer to override)")
+        else:
+            print(f"\n[Step 4a] Buffer: {'DRY-RUN skip' if dry_run else 'skipped by flag'}")
 
     # ── Step 4b: YouTube long-form upload ─────────────────────
     if not args.skip_youtube:

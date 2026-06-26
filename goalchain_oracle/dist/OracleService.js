@@ -5,6 +5,7 @@ import { Connection, Keypair, PublicKey, SystemProgram, Transaction, } from "@so
 import * as fs from "fs";
 import * as path from "path";
 import { fileURLToPath } from "url";
+import { getConnection, getProgramId } from "@goalchain/sdk";
 import { getPriorityFeeInstructions } from "./priorityFees.js";
 import { createMarketsService } from "./markets/index.js";
 import { PlayersService } from "./players/index.js";
@@ -20,8 +21,8 @@ export class OracleService {
     // Services
     markets;
     players;
-    constructor(rpcUrl, keypairPathOrWallet, programIdStr = "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg") {
-        this.connection = new Connection(rpcUrl, "confirmed");
+    constructor(rpcUrl, keypairPathOrWallet, programIdStr) {
+        this.connection = rpcUrl ? new Connection(rpcUrl, "confirmed") : getConnection("confirmed");
         // Load oracle wallet (file path fallback or secure custom wallet injection)
         if (typeof keypairPathOrWallet === "string") {
             const resolvedPath = keypairPathOrWallet.startsWith("~")
@@ -37,10 +38,12 @@ export class OracleService {
         this.provider = new anchor.AnchorProvider(this.connection, this.wallet, {
             commitment: "confirmed",
         });
+        const activeProgramId = programIdStr ? new PublicKey(programIdStr) : getProgramId();
+        this.configPda = PublicKey.findProgramAddressSync([Buffer.from("config")], activeProgramId)[0];
         anchor.setProvider(this.provider);
         // Load IDL and Program (requires the IDL JSON or TS type from the Rust build)
         const idl = JSON.parse(fs.readFileSync(path.join(__dirname, "../../goalchain_program/target/idl/goalchain_program.json"), "utf8"));
-        const programId = new PublicKey(programIdStr);
+        const programId = activeProgramId;
         this.program = new anchor.Program(idl, this.provider);
         [this.configPda] = PublicKey.findProgramAddressSync([Buffer.from("config")], this.program.programId);
         this.markets = createMarketsService({
@@ -84,6 +87,23 @@ export class OracleService {
     async syncOracleAuthority(treasuryAta, jackpotAta) {
         const effectiveJackpotAta = jackpotAta ?? treasuryAta;
         const configInfo = await this.connection.getAccountInfo(this.configPda);
+        if (configInfo) {
+            try {
+                const configData = await this.program.account.globalConfig.fetch(this.configPda);
+                const onChainOracle = configData.oracleAuthority.toBase58();
+                const onChainTreasury = configData.treasuryTokenAccount.toBase58();
+                const onChainJackpot = configData.jackpotTokenAccount.toBase58();
+                if (onChainOracle === this.wallet.publicKey.toBase58() &&
+                    onChainTreasury === treasuryAta.toBase58() &&
+                    onChainJackpot === effectiveJackpotAta.toBase58()) {
+                    console.log(`[Oracle] 🛡️ Oracle authority and treasury settings already match on-chain. Skipping update.`);
+                    return null;
+                }
+            }
+            catch (fetchErr) {
+                console.warn(`[Oracle] ⚠️ Could not fetch or deserialize config PDA data:`, fetchErr);
+            }
+        }
         let method;
         if (!configInfo) {
             method = this.program.methods

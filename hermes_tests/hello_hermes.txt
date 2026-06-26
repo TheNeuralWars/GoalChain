@@ -1,1 +1,0 @@
-Hello, Hermes! This is issue #806.

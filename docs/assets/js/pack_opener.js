@@ -2,16 +2,34 @@
  * pack_opener.js - Lógica de Apertura de Sobres GoalChain (v3.1 - Epic Reveal)
  */
 
-const packState = {
+var packState = window.packState || {
     isOpening: false,
     players: [],
     inventory: JSON.parse(localStorage.getItem('goalchain_inventory')) || []
 };
 
+var SURVIVOR_COUNTRIES = [
+    "Argentina", "Brasil", "Francia", "España", "Inglaterra", "Alemania", "México", "Uruguay", 
+    "Portugal", "Italia", "Países Bajos", "Bélgica", "EEUU", "Canadá", "Colombia", "Croacia"
+];
+
 async function initPackOpener() {
     try {
         const response = await fetch(`assets/data/players.json?v=${new Date().getTime()}`);
         packState.players = await response.json();
+        
+        // Override UI texts dynamically for the Survivor Pack launch
+        const openBtn = document.getElementById('openPackBtn');
+        if (openBtn) {
+            openBtn.innerHTML = '<span>ABRIR SOBRE SURVIVOR (250 $GCH)</span>';
+        }
+        const title = document.querySelector('.section-title');
+        if (title) title.innerText = "Survivor Pack Opener (Eliminatorias)";
+        const sub = document.querySelector('.section-subtitle');
+        if (sub) sub.innerText = "Exclusivo early adopters. Solo selecciones clasificadas. ¡Probabilidades aumentadas de cartas Legendarias y Míticas!";
+        const oddsText = document.querySelector('.pack-odds');
+        if (oddsText) oddsText.innerText = "Mythic chance: 1.0% | Legendary: 4.0% | Epic: 10.0% | Rare: 25.0%";
+
         setupPackEvents();
         renderInventory();
     } catch (error) {
@@ -167,13 +185,18 @@ function executeReveal() {
 
     const rand = Math.random() * 100;
     let rarity = "common";
-    if (rand < 1) rarity = "mythic";
-    else if (rand < 5) rarity = "legendary";
-    else if (rand < 15) rarity = "epic";
-    else if (rand < 40) rarity = "rare";
+    if (rand < 1) rarity = "mythic"; // 1%
+    else if (rand < 5) rarity = "legendary"; // 4%
+    else if (rand < 15) rarity = "epic"; // 10%
+    else if (rand < 40) rarity = "rare"; // 25%
 
-    const pool = packState.players.filter(p => p.rarity === rarity);
-    const player = pool[Math.floor(Math.random() * pool.length)];
+    // Filter pool to survivor countries
+    const survivorPool = packState.players.filter(p => SURVIVOR_COUNTRIES.includes(p.country));
+    const pool = survivorPool.filter(p => p.rarity === rarity);
+    
+    // Fallback in case a specific rarity doesn't exist in survivor pool
+    const finalPool = pool.length > 0 ? pool : packState.players.filter(p => p.rarity === rarity);
+    const player = finalPool[Math.floor(Math.random() * finalPool.length)];
 
     packState.inventory.push(player);
     localStorage.setItem('goalchain_inventory', JSON.stringify(packState.inventory));

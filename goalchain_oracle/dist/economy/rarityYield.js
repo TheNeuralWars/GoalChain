@@ -52,3 +52,15 @@ export function tieredPotionBurnGch(baseYieldLamports) {
     const baseGch = baseYieldLamports / GCH_LAMPORTS;
     return Math.max(25, Math.floor(baseGch * 0.05));
 }
+/** Calculates dynamic NFT pack price based on aggregate yield of pool */
+export function calculateDynamicPackPrice(players, multiplier = 0.05) {
+    if (!players || players.length === 0)
+        return 100; // default 100 GCH
+    let totalYield = 0;
+    for (const player of players) {
+        totalYield += baseYieldForRarityName(player.rarity) / GCH_LAMPORTS;
+    }
+    const avgYield = totalYield / players.length;
+    // Cost proportional to average yield in the pack pool
+    return Math.max(100, Math.round(avgYield * multiplier));
+}

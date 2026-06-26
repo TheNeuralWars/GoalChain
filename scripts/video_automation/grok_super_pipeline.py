@@ -84,9 +84,95 @@ CHANNEL_IDS = {
 }
 
 def ssh_run(cmd_string: str) -> str:
-    """Run command locally on this host. (Hetzner legacy SSH path removed 2026-06-23.)"""
-    res = subprocess.run(cmd_string, shell=True, capture_output=True, encoding="utf-8", check=True)
-    return res.stdout.strip()
+    """Run command locally on this host, or via SSH if running on Windows."""
+    import platform
+    if platform.system() == "Windows":
+        # Run via SSH to the VPS
+        ssh_cmd = [
+            "ssh", "-o", "StrictHostKeyChecking=no", "-T", "-n",
+            "ubuntu@89.168.20.135",
+            cmd_string
+        ]
+        res = subprocess.run(ssh_cmd, capture_output=True, encoding="utf-8")
+        if res.returncode != 0:
+            raise RuntimeError(
+                f"SSH Command failed with code {res.returncode}.\n"
+                f"Command: {cmd_string}\n"
+                f"STDOUT:\n{res.stdout}\n"
+                f"STDERR:\n{res.stderr}"
+            )
+        return res.stdout.strip()
+    else:
+        res = subprocess.run(cmd_string, shell=True, capture_output=True, encoding="utf-8")
+        if res.returncode != 0:
+            raise RuntimeError(
+                f"Command failed with code {res.returncode}.\n"
+                f"Command: {cmd_string}\n"
+                f"STDOUT:\n{res.stdout}\n"
+                f"STDERR:\n{res.stderr}"
+            )
+        return res.stdout.strip()
+
+def run_grok_with_prompt_file(grok_prompt: str) -> str:
+    """Writes the prompt to a temporary file and runs Grok CLI using --prompt-file to bypass shell escaping traps."""
+    import platform
+    import uuid as _uuid
+    temp_filename = f"temp_prompt_{_uuid.uuid4().hex[:12]}.txt"
+    
+    if platform.system() == "Windows":
+        # Remote execution on VPS
+        remote_temp_path = f"/home/ubuntu/scratch/{temp_filename}"
+        
+        # 1. Write the prompt to the remote VPS file using stdin redirection
+        write_cmd = [
+            "ssh", "-o", "StrictHostKeyChecking=no", "-T",
+            "ubuntu@89.168.20.135",
+            f"cat > {remote_temp_path}"
+        ]
+        try:
+            subprocess.run(write_cmd, input=grok_prompt, encoding="utf-8", check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except Exception as e:
+            raise RuntimeError(f"Failed to write remote prompt file to VPS: {e}")
+            
+        # 2. Run grok on VPS referencing the remote prompt file
+        grok_cmd = f"/home/ubuntu/.local/bin/grok --prompt-file {remote_temp_path}"
+        try:
+            output = ssh_run(grok_cmd)
+            return output
+        finally:
+            # 3. Clean up remote temp file
+            try:
+                ssh_cmd = [
+                    "ssh", "-o", "StrictHostKeyChecking=no", "-T", "-n",
+                    "ubuntu@89.168.20.135",
+                    f"rm -f {remote_temp_path}"
+                ]
+                subprocess.run(ssh_cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            except Exception:
+                pass
+    else:
+        # Local execution on VPS
+        local_temp_path = Path("/home/ubuntu/scratch") / temp_filename
+        local_temp_path.parent.mkdir(parents=True, exist_ok=True)
+        local_temp_path.write_text(grok_prompt, encoding="utf-8")
+        
+        grok_cmd = f"/home/ubuntu/.local/bin/grok --prompt-file {local_temp_path}"
+        try:
+            res = subprocess.run(grok_cmd, shell=True, capture_output=True, encoding="utf-8")
+            if res.returncode != 0:
+                raise RuntimeError(
+                    f"Local Grok execution failed with code {res.returncode}.\n"
+                    f"Command: {grok_cmd}\n"
+                    f"STDOUT:\n{res.stdout}\n"
+                    f"STDERR:\n{res.stderr}"
+                )
+            return res.stdout.strip()
+        finally:
+            try:
+                local_temp_path.unlink(missing_ok=True)
+            except Exception:
+                pass
+
 
 def normalize_prompts(data: dict) -> dict:
     if not isinstance(data, dict):
@@ -198,8 +284,7 @@ def refine_planned_prompts(account_name: str, topic: str, image_prompt: str, vid
     """
     
     print(f"[{account_name}] Refinando prompts de plan '{topic}' según feedback...")
-    cmd = f"/home/ubuntu/.local/bin/grok --single {shlex.quote(prompt)}"
-    raw = ssh_run(cmd)
+    raw = run_grok_with_prompt_file(prompt)
     
     json_match = re.search(r"\{.*\}", raw, re.DOTALL)
     if not json_match:
@@ -290,8 +375,7 @@ Selecciona UNO y construye la narrativa."""
     """
     
     print(f"[{account_name}] Generando tema de tendencia de Mundial 2026 usando Grok CLI...")
-    cmd = f"/home/ubuntu/.local/bin/grok --single {shlex.quote(prompt)}"
-    raw = ssh_run(cmd)
+    raw = run_grok_with_prompt_file(prompt)
     
     json_match = re.search(r"\{.*\}", raw, re.DOTALL)
     if not json_match:
@@ -333,8 +417,7 @@ def generate_visual_prompts(topic: str, account_name: str, feedback_str: str) ->
     """
     
     print(f"[{account_name}] Diseñando prompts creativos para: '{topic}'...")
-    cmd = f"/home/ubuntu/.local/bin/grok --single {shlex.quote(prompt)}"
-    raw = ssh_run(cmd)
+    raw = run_grok_with_prompt_file(prompt)
     
     json_match = re.search(r"\{.*\}", raw, re.DOTALL)
     if not json_match:
@@ -379,14 +462,13 @@ def generate_image_on_vps(image_prompt: str) -> str:
     print("Generando imagen de inicio en el host con Grok CLI...")
     grok_prompt = f"Genera una imagen con el modelo de alta calidad (grok-imagine-image-quality): {image_prompt}"
     
-    cmd = f"/home/ubuntu/.local/bin/grok --single {shlex.quote(grok_prompt)}"
-    output = ssh_run(cmd)
+    output = run_grok_with_prompt_file(grok_prompt)
     
     # Wait 1s to let mkdir/fs sync the new file
     time.sleep(1)
 
     copy_cmd = (
-        "img_path=$(find /home/ubuntu/.grok/sessions/ -maxdepth 8 \\( -name '*.jpg' -o -name '*.png' \\) "
+        "img_path=$(find /home/ubuntu/.grok/sessions/ /home/ubuntu/scratch/generated_images/ /data/apps/GoalChain/scratch/generated_images/ -maxdepth 8 \\( -name '*.jpg' -o -name '*.png' \\) "
         "-printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
         "if [ -f \"$img_path\" ]; then "
         "  fname=$(basename \"$img_path\"); "
@@ -405,23 +487,45 @@ def generate_image_on_vps(image_prompt: str) -> str:
     return res.split("SUCCESS:")[1].strip()
 
 
-def generate_video_on_vps(video_prompt: str, image_filename: str) -> str:
+def generate_video_on_vps(video_prompt: str, image_filename: str, aspect_ratio: str = "9:16") -> str:
     """Animate image to video on host using Grok CLI and return video filename in pilot.
     Refuses to run if video_prompt is empty (would produce a no-op video).
     """
     if not video_prompt or not video_prompt.strip():
         raise RuntimeError("video_prompt is empty — refusing to call Grok with empty prompt.")
 
-    print("Animando imagen a video en el host con Grok CLI...")
-    grok_prompt = f"Genera un video vertical en formato 9:16 (grok-imagine-video) a partir de la imagen '{image_filename}' usando este prompt de animación: {video_prompt}"
+    print("Limpiando caché de videos de Grok para garantizar variedad...")
+    SESSION_LOCK_DIR.mkdir(parents=True, exist_ok=True)
+    my_lock = SESSION_LOCK_DIR / f"vid_{os.getpid()}_{_uuid.uuid4().hex[:8]}.lock"
+    my_lock.write_text(datetime.utcnow().isoformat() + "Z")
     
-    cmd = f"/home/ubuntu/.local/bin/grok --single {shlex.quote(grok_prompt)}"
-    output = ssh_run(cmd)
+    clear_cmd = (
+        f"find /home/ubuntu/.grok/sessions/ -maxdepth 8 -name '*.mp4' "
+        f"! -newer {shlex.quote(str(my_lock))} "
+        f"2>/dev/null -exec rm -f {{}} + 2>/dev/null || true"
+    )
+    try:
+        ssh_run(clear_cmd)
+        print("  Caché de videos limpiada.")
+    except Exception as e:
+        print(f"  Aviso: clear_cmd de videos falló ({e}); continuando.")
+    finally:
+        try:
+            my_lock.unlink()
+        except Exception:
+            pass
+
+    print(f"Animando imagen a video ({aspect_ratio}) en el host con Grok CLI...")
+    orient = "horizontal en formato 16:9" if aspect_ratio == "16:9" else "vertical en formato 9:16"
+    image_path = f"/home/ubuntu/scratch/grok_batches/batch_01/outputs/{image_filename}" if image_filename else ""
+    grok_prompt = f"Genera un video {orient} (grok-imagine-video) a partir de la imagen '{image_path}' usando este prompt de animación: {video_prompt}"
+    
+    output = run_grok_with_prompt_file(grok_prompt)
     
     time.sleep(1)
 
     copy_cmd = (
-        "vid_path=$(find /home/ubuntu/.grok/sessions/ -maxdepth 8 -name '*.mp4' -printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
+        "vid_path=$(find /home/ubuntu/.grok/sessions/ /home/ubuntu/scratch/generated_images/ /data/apps/GoalChain/scratch/generated_images/ -maxdepth 8 -name '*.mp4' -printf '%T@ %p\\n' 2>/dev/null | sort -n | tail -1 | cut -f2- -d' ') && "
         "if [ -f \"$vid_path\" ]; then "
         "  fname=$(basename \"$vid_path\"); "
         "  ts=$(date +%s); "

@@ -23,6 +23,59 @@ export const AICommentator: React.FC = () => {
     const [broadcastCount, setBroadcastCount] = useState<number>(0);
     const wsRef = useRef<WebSocket | null>(null);
 
+    // NoahAI integration state
+    const [noahQuery, setNoahQuery] = useState('');
+    const [isQueryingNoah, setIsQueryingNoah] = useState(false);
+
+    const queryNoahAi = async () => {
+        if (!noahQuery.trim()) return;
+        setIsQueryingNoah(true);
+        try {
+            const apiBaseUrl = (import.meta as any).env?.VITE_API_BASE_URL || 'http://localhost:3001';
+            const res = await fetch(`${apiBaseUrl}/api/noahai/commentary`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ query: noahQuery, player_id: 'LIONEL_SATOSHI' })
+            });
+            const data = await res.json();
+            if (data.success) {
+                speak(data.text);
+                setCommentaryHistory(prev => [
+                    {
+                        id: Date.now(),
+                        text: `🤖 NoahAI Analista: "${data.text}"`,
+                        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+                    },
+                    ...prev
+                ]);
+                setNoahQuery('');
+            }
+        } catch (err) {
+            console.warn("Error querying NoahAI API, using offline simulator:", err);
+            const mockResponses = [
+                `[NoahAI] Analizando base de datos on-chain para LIONEL_SATOSHI. Stamina: 92%, Hype de mercado: Alto. Predicción: Alta probabilidad de gol si se coloca en la banda derecha.`,
+                `[NoahAI] Reporte de rendimiento: Basado en el último bloque de Solana, el rendimiento de LIONEL_SATOSHI ha subido un +12.4% debido a su sinergia en tácticas 4-3-3.`,
+                `[NoahAI] Análisis táctico: El oponente presenta debilidad en la banda izquierda. Recomendación: Forzar desbordes con tu delantero estrella.`,
+                `[NoahAI] Oráculo predictivo: La probabilidad de victoria en este parimutuel aumenta a 68.4% si habilitas el Starter XI actual en el bloque actual.`
+            ];
+            const fallbackText = mockResponses[Math.floor(Math.random() * mockResponses.length)];
+            speak(fallbackText);
+            setCommentaryHistory(prev => [
+                {
+                    id: Date.now(),
+                    text: `🤖 NoahAI Analista (Simulado): "${fallbackText}"`,
+                    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+                },
+                ...prev
+            ]);
+            setNoahQuery('');
+        } finally {
+            setIsQueryingNoah(false);
+        }
+    };
+
     // Simular el proceso de descarga y compilación
     useEffect(() => {
         if (loadingPhase === 'downloading') {
@@ -556,6 +609,49 @@ export const AICommentator: React.FC = () => {
                     </div>
                 </div>
             )}
+
+            {/* NoahAI Query Panel */}
+            <div style={{ marginTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.05)', paddingTop: '12px' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#14f195', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: '8px' }}>
+                    ⚡ Consultar a NoahAI (Mundial 2026 Predictivo)
+                </span>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                    <input
+                        type="text"
+                        placeholder="Ej. ¿Qué probabilidad de gol tiene Lionel Satoshi?"
+                        value={noahQuery}
+                        onChange={(e) => setNoahQuery(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && queryNoahAi()}
+                        style={{
+                            flex: 1,
+                            background: 'rgba(0, 0, 0, 0.2)',
+                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                            borderRadius: '8px',
+                            padding: '8px 12px',
+                            color: 'white',
+                            fontSize: '0.85rem',
+                            outline: 'none'
+                        }}
+                    />
+                    <button
+                        onClick={queryNoahAi}
+                        disabled={isQueryingNoah}
+                        style={{
+                            background: '#14f195',
+                            color: 'black',
+                            border: 'none',
+                            borderRadius: '8px',
+                            padding: '8px 16px',
+                            fontWeight: 700,
+                            fontSize: '0.85rem',
+                            cursor: 'pointer',
+                            transition: 'opacity 0.2s'
+                        }}
+                    >
+                        {isQueryingNoah ? 'Analizando...' : 'Consultar'}
+                    </button>
+                </div>
+            </div>
         </div>
     );
 };

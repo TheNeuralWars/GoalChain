@@ -1471,6 +1471,27 @@ app.get("/api/marketing/pipeline/health", (_req, res) => {
   }
 });
 
+// 8. NoahAI Commentary Endpoint (Sprint 1)
+app.post("/api/noahai/commentary", (req, res) => {
+  try {
+    const { query, player_id } = req.body;
+    
+    // Simulate NoahAI dynamic commentary or statistics response
+    const responses = [
+      `[NoahAI] Analizando base de datos on-chain para ${player_id || "el jugador"}. Stamina: 92%, Hype de mercado: Alto. Predicción: Alta probabilidad de gol si se coloca en la banda derecha.`,
+      `[NoahAI] Reporte de rendimiento: Basado en el último bloque de Solana, el rendimiento de ${player_id || "este activo"} ha subido un +12.4% debido a su sinergia en tácticas 4-3-3.`,
+      `[NoahAI] Análisis táctico: El oponente presenta debilidad en la banda izquierda. Recomendación: Forzar desbordes con ${player_id || "tu delantero estrella"}.`,
+      `[NoahAI] Oráculo predictivo: La probabilidad de victoria en este parimutuel aumenta a 68.4% si habilitas el Starter XI actual en el bloque actual.`
+    ];
+    
+    const text = responses[Math.floor(Math.random() * responses.length)];
+    res.json({ success: true, text });
+  } catch (err: any) {
+    console.error("Error in NoahAI Commentary:", err);
+    res.status(500).json({ error: `NoahAI failed: ${err.message}` });
+  }
+});
+
 app.listen(port, () => {
   console.log(`GoalChain API listening at http://localhost:${port}`);
 });
