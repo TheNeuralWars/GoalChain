@@ -65,7 +65,11 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
       wallet: walletAddress,
       avatar: selectedAvatarObj.emoji,
       role: selectedRoleObj.label,
-      joinedDate: 'Mayo 2026',
+      joinedDate: 'Junio 2026',
+      bio: `GoalChain ${selectedRoleObj.label} listo para conquistar la Copa.`,
+      location: 'Argentina',
+      following: [],
+      accentColor: '#14f195',
     };
     setUser(userData);
 

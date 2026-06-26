@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SimulationBadge } from '../components/SimulationBadge';
+import { LayeredNftCard, PlayerRow } from './LayeredNftCard';
 
 interface PlayerStatsBreakdown {
   fisico: number;
@@ -25,68 +26,74 @@ interface TacticalWeights {
 
 interface DetailedPlayer {
   name: string;
-  rarity: 'Gold' | 'Silver' | 'Bronze' | string;
+  rarity: string;
   score: number;
-  role: 'Delantero' | 'Centrocampista' | 'Defensa';
+  role: string;
   breakdown: PlayerStatsBreakdown;
   history: MatchPerformance[];
   tacticalWeights: TacticalWeights;
+  rawPlayer: PlayerRow;
 }
 
-const myPlayers: DetailedPlayer[] = [
-  {
-    name: "Julian Satoshi",
-    rarity: "Gold",
-    score: 92,
-    role: "Delantero",
-    breakdown: { fisico: 94, defensa: 45, ofensivo: 96, creacion: 88 },
-    history: [
-      { opponent: "Solana FC", rating: 9.2, minutes: 90, effectiveMinutes: 62, stoppageReason: "Faltas tacticas y saques de banda", contribution: "⚽ 1 Gol, 👟 1 Asist" },
-      { opponent: "Phantom United", rating: 8.5, minutes: 82, effectiveMinutes: 55, stoppageReason: "Revisiones VAR e hidratacion", contribution: "⚽ 1 Gol" },
-      { opponent: "Ledger Athletic", rating: 7.8, minutes: 90, effectiveMinutes: 60, stoppageReason: "Sustituciones y corners", contribution: "👟 1 Asist" },
-    ],
-    tacticalWeights: { '4-3-3': 1.03, '4-4-2': 1.00, '3-5-2': 0.92 }
-  },
-  {
-    name: "Enzo Bit",
-    rarity: "Silver",
-    score: 84,
-    role: "Centrocampista",
-    breakdown: { fisico: 82, defensa: 76, ofensivo: 78, creacion: 89 },
-    history: [
-      { opponent: "Solana FC", rating: 8.0, minutes: 90, effectiveMinutes: 62, stoppageReason: "Faltas tacticas y saques de banda", contribution: "👟 1 Asist" },
-      { opponent: "Phantom United", rating: 8.4, minutes: 90, effectiveMinutes: 59, stoppageReason: "Faltas y corners", contribution: "👟 2 Asist" },
-      { opponent: "Ledger Athletic", rating: 7.5, minutes: 74, contribution: "🟨 Tarjeta Amarilla", effectiveMinutes: 48, stoppageReason: "Pausa de hidratacion" },
-    ],
-    tacticalWeights: { '4-3-3': 1.00, '4-4-2': 1.02, '3-5-2': 1.06 }
-  },
-  {
-    name: "Alexis Chain",
-    rarity: "Bronze",
-    score: 78,
-    role: "Defensa",
-    breakdown: { fisico: 85, defensa: 84, ofensivo: 48, creacion: 72 },
-    history: [
-      { opponent: "Solana FC", rating: 7.2, minutes: 90, effectiveMinutes: 62, stoppageReason: "Faltas tacticas", contribution: "Ninguna" },
-      { opponent: "Phantom United", rating: 7.9, minutes: 90, effectiveMinutes: 59, stoppageReason: "Corners y saques de meta", contribution: "🚫 3 Intercepciones" },
-      { opponent: "Ledger Athletic", rating: 8.1, minutes: 90, effectiveMinutes: 60, stoppageReason: "Faltas y saques de meta", contribution: "🚫 5 Despejes" },
-    ],
-    tacticalWeights: { '4-3-3': 0.94, '4-4-2': 1.03, '3-5-2': 1.01 }
-  },
-  {
-    name: "Lisandro Ledger",
-    rarity: "Silver",
-    score: 81,
-    role: "Defensa",
-    breakdown: { fisico: 88, defensa: 86, ofensivo: 52, creacion: 75 },
-    history: [
-      { opponent: "Solana FC", rating: 7.5, minutes: 90, effectiveMinutes: 62, stoppageReason: "Faltas tacticas", contribution: "🚫 2 Intercepciones" },
-      { opponent: "Phantom United", rating: 8.2, minutes: 90, effectiveMinutes: 59, stoppageReason: "Corners y saques de meta", contribution: "🚫 4 Despejes" },
-      { opponent: "Ledger Athletic", rating: 8.0, minutes: 90, effectiveMinutes: 60, stoppageReason: "🟨 Amarilla por protestar", contribution: "🟨 Tarjeta Amarilla" },
-    ],
-    tacticalWeights: { '4-3-3': 0.95, '4-4-2': 1.04, '3-5-2': 1.02 }
-  }
-];
+function mapPlayerToDetailed(p: PlayerRow): DetailedPlayer {
+  let role = 'Delantero';
+  if (p.position === 'MID') role = 'Centrocampista';
+  else if (p.position === 'DEF') role = 'Defensa';
+  else if (p.position === 'GK') role = 'Portero';
+
+  const score = Math.round((p.stats.atk + p.stats.def + p.stats.hype) / 3);
+
+  const breakdown = {
+    fisico: p.stats.hype,
+    defensa: p.stats.def,
+    ofensivo: p.stats.atk,
+    creacion: Math.round((p.stats.atk + p.stats.hype) / 2)
+  };
+
+  const history = [
+    { 
+      opponent: "Solana FC", 
+      rating: Number((score / 10 + (Math.random() * 0.4 - 0.2)).toFixed(1)), 
+      minutes: 90, 
+      effectiveMinutes: Math.round(55 + Math.random() * 15), 
+      stoppageReason: "Faltas tácticas y saques de banda", 
+      contribution: p.position === 'FWD' ? "⚽ 1 Gol, 👟 1 Asist" : p.position === 'MID' ? "👟 1 Asist" : "🚫 3 Intercepciones" 
+    },
+    { 
+      opponent: "Phantom United", 
+      rating: Number((score / 10 + (Math.random() * 0.4 - 0.2)).toFixed(1)), 
+      minutes: 90, 
+      effectiveMinutes: Math.round(50 + Math.random() * 20), 
+      stoppageReason: "Revisiones VAR e hidratación", 
+      contribution: p.position === 'FWD' ? "⚽ 1 Gol" : p.position === 'GK' ? "🧤 4 Paradas Clave" : "🚫 5 Despejes" 
+    },
+    { 
+      opponent: "Ledger Athletic", 
+      rating: Number((score / 10 - Math.random() * 0.4).toFixed(1)), 
+      minutes: 85, 
+      effectiveMinutes: Math.round(52 + Math.random() * 12), 
+      stoppageReason: "Faltas y corners", 
+      contribution: "Ninguna" 
+    }
+  ];
+
+  const tacticalWeights = {
+    '4-3-3': p.position === 'FWD' ? 1.05 : p.position === 'GK' ? 1.00 : 0.97,
+    '4-4-2': p.position === 'MID' ? 1.04 : 1.00,
+    '3-5-2': p.position === 'DEF' ? 1.06 : 0.98
+  };
+
+  return {
+    name: p.name,
+    rarity: p.rarity,
+    score,
+    role,
+    breakdown,
+    history,
+    tacticalWeights,
+    rawPlayer: p
+  };
+}
 
 interface PlayerCardProps {
   player: DetailedPlayer;

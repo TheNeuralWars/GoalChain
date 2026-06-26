@@ -6,13 +6,15 @@ import { CreateUser } from './CreateUser';
 import { NFTMarketplace } from './NFTMarketplace';
 import { AICoach } from './AICoach';
 import { useUser } from '../contexts/UserContext';
+import { MatchSimulator } from './MatchSimulator';
 
 export function ClubPortal() {
-  const [activeSubTab, setActiveSubTab] = useState<'squad' | 'market' | 'coach' | 'profile'>('squad');
+  const [activeSubTab, setActiveSubTab] = useState<'squad' | 'market' | 'coach' | 'profile' | 'arena'>('squad');
   const { user, isLoggedIn } = useUser();
 
   const tabs = [
     { id: 'squad', label: '👕 My Squad (NFTs)', desc: 'Collection of players and stamina' },
+    { id: 'arena', label: '🏟️ Tactical Arena', desc: 'Play simulation matches with 50 $GCH stakes' },
     { id: 'market', label: '🛒 Transfer Market', desc: 'Buy cards in SOL or Cash' },
     { id: 'coach', label: '🤖 AI Assistant (Eliza)', desc: 'Tactical advice and intelligence' },
     { id: 'profile', label: '👤 Manager Profile', desc: 'Your reputation and identity' },
@@ -32,7 +34,7 @@ export function ClubPortal() {
         </p>
 
         {/* Glassmorphic Tabs Navigation */}
-        <div className="portal-tabs" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '8px' }}>
+        <div className="portal-tabs" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '8px' }}>
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -50,6 +52,11 @@ export function ClubPortal() {
         {activeSubTab === 'squad' && (
           <div className="portal-fade-in">
             <SquadGallery />
+          </div>
+        )}
+        {activeSubTab === 'arena' && (
+          <div className="portal-fade-in">
+            <MatchSimulator />
           </div>
         )}
         {activeSubTab === 'market' && (

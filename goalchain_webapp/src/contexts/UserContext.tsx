@@ -6,6 +6,16 @@ export interface GoalChainUser {
   avatar: string;      // Emoji del avatar (ej: '🦅', '🦁')
   role: string;        // 'manager' | 'scout' | 'trader'
   joinedDate?: string; // Fecha de creación o unión
+  bio?: string;
+  location?: string;
+  twitter?: string;
+  telegram?: string;
+  discord?: string;
+  github?: string;
+  forwardingEmail?: string;
+  accentColor?: string; // e.g. '#14f195'
+  following?: string[]; // list of followed usernames
+  customPhotoUrl?: string; // base64 string
 }
 
 interface UserContextType {
