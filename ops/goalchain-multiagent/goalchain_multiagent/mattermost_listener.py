@@ -151,6 +151,7 @@ class MattermostListener:
                             clean_msg,
                             source="mattermost",
                             actor=post.get("props", {}).get("from_users", "user"),
+                            thread_id=post.get("root_id") or post_id,
                         )
                         reply = result.get("summary") or "Completo sin reporte."
                     except Exception as e:

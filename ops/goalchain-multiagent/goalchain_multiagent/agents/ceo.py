@@ -23,8 +23,12 @@ def ceo_node(state: GraphState) -> GraphState:
     trace = list(state.get("route_trace") or [])
     trace.append("ceo")
 
+    messages = list(state.get("messages") or [])
+    if hop == 1:
+        messages.append({"role": "user", "content": state.get("objective") or ""})
+
     if state.get("finished"):
-        return {"hop": hop, "route_trace": trace, "next_agent": "finish"}
+        return {"hop": hop, "route_trace": trace, "next_agent": "finish", "messages": messages}
 
     max_hops = int(state.get("max_hops") or 6)
     if hop >= max_hops:
@@ -35,6 +39,7 @@ def ceo_node(state: GraphState) -> GraphState:
             "next_agent": "finish",
             "finished": True,
             "summary": summary,
+            "messages": messages,
         }
 
     # Second CEO pass: synthesize and finish after a worker spoke.
@@ -46,6 +51,7 @@ def ceo_node(state: GraphState) -> GraphState:
             "next_agent": "finish",
             "finished": True,
             "summary": summary,
+            "messages": messages,
         }
 
     delegate = _pick_delegate(state.get("objective") or "")
@@ -62,7 +68,7 @@ def ceo_node(state: GraphState) -> GraphState:
         "hop": hop,
         "route_trace": trace,
         "next_agent": delegate,
-        "messages": (state.get("messages") or []) + [{"role": "ceo", "content": msg}],
+        "messages": messages + [{"role": "ceo", "content": msg}],
     }
 
 

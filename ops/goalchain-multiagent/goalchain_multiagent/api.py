@@ -74,6 +74,7 @@ class RunRequest(BaseModel):
     source: str = "api"
     actor: str = "unknown"
     context: dict[str, Any] = Field(default_factory=dict)
+    thread_id: str | None = None
 
 
 class RunResponse(BaseModel):
@@ -127,6 +128,7 @@ def v1_run(
         source=body.source,
         actor=body.actor,
         context=body.context,
+        thread_id=body.thread_id,
     )
     summary = (result.get("summary") or "").strip()
     if not summary:

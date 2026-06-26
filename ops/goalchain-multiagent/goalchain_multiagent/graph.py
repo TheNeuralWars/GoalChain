@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from langgraph.graph import END, START, StateGraph
+from langgraph.checkpoint.memory import MemorySaver
 
 from goalchain_multiagent.agents import (
     ceo_node,
@@ -34,7 +35,7 @@ def build_graph():
     g.add_edge("dev", "ceo")
     g.add_edge("growth", "ceo")
     g.add_edge("ops", "ceo")
-    return g.compile()
+    return g.compile(checkpointer=MemorySaver())
 
 
 _compiled = None
@@ -53,6 +54,7 @@ def run_objective(
     source: str = "api",
     actor: str = "unknown",
     context: dict | None = None,
+    thread_id: str | None = None,
 ) -> GraphState:
     settings = get_settings()
     initial: GraphState = {
@@ -63,9 +65,11 @@ def run_objective(
         "hop": 0,
         "max_hops": settings.goalchain_ma_max_hops,
         "route_trace": [],
-        "messages": [],
-        "artifacts": [],
         "finished": False,
+        "summary": "",
     }
     graph = get_compiled_graph()
-    return graph.invoke(initial)
+    config = {}
+    if thread_id:
+        config["configurable"] = {"thread_id": thread_id}
+    return graph.invoke(initial, config=config)
