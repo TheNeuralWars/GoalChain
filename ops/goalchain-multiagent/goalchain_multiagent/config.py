@@ -48,6 +48,9 @@ class Settings(BaseSettings):
     goalchain_ma_slack_webhook: str = ""
     goalchain_ma_slack_bot_token: str = ""
     goalchain_ma_slack_app_token: str = ""
+    goalchain_ma_mattermost_url: str = ""
+    goalchain_ma_mattermost_bot_token: str = ""
+    goalchain_ma_mattermost_webhook: str = ""
     github_repo: str = "TheNeuralWars/GoalChain"
     hermes_home: str = "/home/goalchain/hermes"
 

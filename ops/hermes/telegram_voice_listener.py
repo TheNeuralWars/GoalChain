@@ -39,9 +39,53 @@ if not GEMINI_API_KEY:
 def log(msg):
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [TELEGRAM-BOT] {msg}", flush=True)
 
-def chat_with_hermes(text):
-    """Llama a la CLI de Hermes de forma síncrona para interactuar conversacionalmente"""
-    log(f"Routing chat query to Hermes: '{text}'")
+# === HISTORY & CONTEXT MEMORY ===
+HISTORY_FILE = os.path.join(HERMES_HOME, "session_voice_history.json")
+
+def load_history(chat_id):
+    """Loads chat history for a specific chat ID from the JSON file"""
+    if os.path.exists(HISTORY_FILE):
+        try:
+            with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                return data.get(str(chat_id), [])
+        except Exception as e:
+            log(f"Error loading history: {e}")
+    return []
+
+def save_history(chat_id, history):
+    """Saves chat history for a specific chat ID, keeping only the last 6 turns"""
+    data = {}
+    if os.path.exists(HISTORY_FILE):
+        try:
+            with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            pass
+    # Keep last 6 messages (3 turns)
+    data[str(chat_id)] = history[-6:]
+    try:
+        with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        log(f"Error saving history: {e}")
+
+def chat_with_hermes(text, chat_id=None):
+    """Llama a la CLI de Hermes de forma síncrona con memoria de conversación (continuidad)"""
+    # Build context from history if chat_id is provided
+    context = ""
+    history = []
+    if chat_id is not None:
+        history = load_history(chat_id)
+        if history:
+            context += "Historical Context:\n"
+            for speaker, msg in history:
+                context += f"{speaker}: {msg}\n"
+            context += "\nNew Request:\n"
+
+    query_text = f"{context}User: {text}"
+    log(f"Routing chat query to Hermes: '{query_text}'")
+    
     try:
         env = os.environ.copy()
         local_bin = os.path.expanduser("~/.local/bin")
@@ -49,12 +93,18 @@ def chat_with_hermes(text):
             env["PATH"] = f"{local_bin}:{env.get('PATH', '')}"
 
         # Ejecuta la CLI de Hermes con el perfil hermes-ceo y la query del usuario
-        cmd = ["hermes", "-p", "hermes-ceo", "chat", "-q", text]
+        cmd = ["hermes", "-p", "hermes-ceo", "chat", "-q", query_text]
         log(f"Running command: {' '.join(cmd)}")
         result = subprocess.run(cmd, capture_output=True, text=True, env=env, timeout=180)
         
         if result.returncode == 0:
-            return result.stdout.strip()
+            reply = result.stdout.strip()
+            # Update history
+            if chat_id is not None:
+                history.append(("User", text))
+                history.append(("Assistant", reply))
+                save_history(chat_id, history)
+            return reply
         else:
             log(f"ERROR: Hermes CLI returned code {result.returncode}. Stderr: {result.stderr}")
             return f"❌ **Error de Hermes CLI:**\n{result.stderr.strip() or 'Código de salida no cero'}"
@@ -212,8 +262,10 @@ def handle_voice_message(voice_data, file_id):
         else:
             # Route as conversational query to Hermes CLI
             send_message(chat_id, "⏳ *Hermes está procesando tu consulta de voz...*")
-            reply = chat_with_hermes(transcription)
+            reply = chat_with_hermes(transcription, chat_id=chat_id)
             send_message(chat_id, reply)
+            # Continuity follow-up listening prompt
+            send_message(chat_id, "🎤 _Te escucho..._")
         
     except Exception as e:
         log(f"ERROR during transcription/ingestion: {e}")
@@ -275,8 +327,10 @@ def main_loop():
                     else:
                         # Process as direct chat with Hermes
                         send_message(chat_id, "⏳ *Hermes está procesando...*")
-                        reply = chat_with_hermes(text)
+                        reply = chat_with_hermes(text, chat_id=chat_id)
                         send_message(chat_id, reply)
+                        # Continuity follow-up listening prompt
+                        send_message(chat_id, "🎤 _Te escucho..._")
                         
         except Exception as e:
             log(f"Exception in polling loop: {e}")

@@ -35,14 +35,34 @@ app = FastAPI(
 
 @app.on_event("startup")
 def startup_event() -> None:
-    from goalchain_multiagent.slack_listener import start_slack_listener
-    start_slack_listener()
+    # Try importing and starting Slack listener defensively
+    try:
+        from goalchain_multiagent.slack_listener import start_slack_listener
+        start_slack_listener()
+    except ImportError:
+        logger.warning("Slack listener module not found, skipping startup.")
+
+    # Try importing and starting Mattermost listener defensively
+    try:
+        from goalchain_multiagent.mattermost_listener import start_mattermost_listener
+        start_mattermost_listener()
+    except ImportError:
+        logger.warning("Mattermost listener module not found, skipping startup.")
 
 
 @app.on_event("shutdown")
 def shutdown_event() -> None:
-    from goalchain_multiagent.slack_listener import stop_slack_listener
-    stop_slack_listener()
+    try:
+        from goalchain_multiagent.slack_listener import stop_slack_listener
+        stop_slack_listener()
+    except ImportError:
+        pass
+
+    try:
+        from goalchain_multiagent.mattermost_listener import stop_mattermost_listener
+        stop_mattermost_listener()
+    except ImportError:
+        pass
 
 
 
