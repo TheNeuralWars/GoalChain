@@ -17,8 +17,24 @@ def test_llm_not_available_when_mock():
 
 def test_llm_available_with_key():
     s = Settings(goalchain_ma_mock_llm=False, anthropic_api_key="sk-test")
-    assert llm.llm_available(s) is True
     assert llm.resolve_provider(s) == "anthropic"
+    assert llm.llm_available(s) is True
+
+
+def test_llm_nvidia_resolves_with_key():
+    s = Settings(
+        goalchain_ma_mock_llm=False,
+        goalchain_ma_provider="nvidia",
+        nvidia_nim_api_key="nvapi-test",
+    )
+    assert llm.resolve_provider(s) == "nvidia"
+    assert llm.llm_available(s) is True
+    
+    # Test instantiation of the chat model
+    model = llm.get_chat_model(s)
+    assert model is not None
+    assert model.model_name == "nvidia/nemotron-3-super-120b-a12b"
+
 
 
 def test_llm_auto_uses_fcc_openrouter(tmp_path, monkeypatch):

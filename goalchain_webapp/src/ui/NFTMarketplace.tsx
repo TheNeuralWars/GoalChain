@@ -2,24 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import * as solanaWeb3 from '@solana/web3.js';
 import { SimulationBadge } from '../components/SimulationBadge';
-
-interface PlayerNFT {
-  id: number;
-  name: string;
-  country: string;
-  rarity: string;
-  position: string;
-  price: string;
-  seller: string;
-  filename?: string;
-  stats?: {
-    atk: number;
-    def: number;
-    hype: number;
-  };
-  market_value_eur?: number;
-  current_club?: string;
-}
+import { LayeredNftCard, PlayerRow } from './LayeredNftCard';
 
 const RARITY_PRICES: Record<string, string> = {
   mythic: '25.0 SOL',
@@ -40,7 +23,7 @@ const RARITY_COLORS: Record<string, string> = {
 export function NFTMarketplace() {
   const { connection } = useConnection();
   const { publicKey, sendTransaction } = useWallet();
-  const [listings, setListings] = useState<PlayerNFT[]>([]);
+  const [listings, setListings] = useState<PlayerRow[]>([]);
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [loadingId, setLoadingId] = useState<number | null>(null);
   const [treasuryAddress, setTreasuryAddress] = useState<string | null>(null);
@@ -71,7 +54,7 @@ export function NFTMarketplace() {
       try {
         const response = await fetch('/assets/data/players.json');
         if (response.ok) {
-          const players = await response.json() as PlayerNFT[];
+          const players = await response.json() as PlayerRow[];
           
           // Pick 8 random players to display as listings
           const shuffled = [...players].sort(() => 0.5 - Math.random());
@@ -89,7 +72,7 @@ export function NFTMarketplace() {
     fetchPlayers();
   }, []);
 
-  const handleBuy = async (player: PlayerNFT, mode: 'cash' | 'solana') => {
+  const handleBuy = async (player: PlayerRow, mode: 'cash' | 'solana') => {
     setLoadingId(player.id);
     const walletAddress = publicKey ? publicKey.toBase58() : localStorage.getItem('goalchain_wallet');
 
@@ -130,7 +113,7 @@ export function NFTMarketplace() {
         return;
       }
       const destination = new solanaWeb3.PublicKey(treasuryAddress);
-      const priceStr = player.price.split(' ')[0];
+      const priceStr = player.price ? player.price.split(' ')[0] : '1.0';
       const priceSol = parseFloat(priceStr) || 0.1;
       const lamports = Math.floor(priceSol * 1_000_000); // Scaled for devnet testing (0.001 SOL per listed SOL)
 
@@ -225,88 +208,23 @@ export function NFTMarketplace() {
           </button>
         </div>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.25rem' }}>
-          {filteredListings.map(player => {
-            const rarityCol = RARITY_COLORS[player.rarity.toLowerCase()] || '#fff';
-            return (
-              <div 
-                key={player.id} 
-                className="glass-card" 
-                style={{ 
-                  padding: 0, 
-                  overflow: 'hidden', 
-                  border: '1px solid rgba(255,255,255,0.06)', 
-                  display: 'flex', 
-                  flexDirection: 'column',
-                  background: 'rgba(10, 10, 20, 0.4)'
-                }}
-              >
-                {/* Visual Header / Avatar Banner */}
-                <div style={{ 
-                  height: '140px', 
-                  background: `linear-gradient(135deg, rgba(13,13,21,0.9), rgba(153,69,255,0.15))`,
-                  position: 'relative', 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center',
-                  borderBottom: '1px solid rgba(255,255,255,0.04)'
-                }}>
-                  <div style={{ fontSize: '4.5rem', filter: 'drop-shadow(0 0 12px rgba(255,255,255,0.15))' }}>⚽</div>
-                  
-                  {/* Price Tag */}
-                  <div style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(0,0,0,0.85)', padding: '4px 10px', borderRadius: '20px', fontWeight: 900, color: 'var(--primary-neon)', border: '1px solid var(--primary-neon)', fontSize: '0.75rem', fontFamily: 'monospace' }}>
-                    {player.price}
-                  </div>
-                </div>
-
-                {/* Details Body */}
-                <div style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', flex: 1 }}>
-                  <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.62rem', color: 'var(--text-dim)', textTransform: 'uppercase', marginBottom: '4px' }}>
-                      <span>Seller: {player.seller}</span>
-                      <span style={{ fontWeight: 'bold', color: rarityCol }}>{player.rarity}</span>
-                    </div>
-                    <h4 style={{ margin: 0, color: '#fff', fontSize: '1rem', fontWeight: 800 }}>{player.name}</h4>
-                    <span style={{ fontSize: '0.68rem', color: 'var(--text-dim)' }}>📍 Club: {player.current_club || 'Agente Libre'} · Val: {(player.market_value_eur || 1000000).toLocaleString()} EUR</span>
-                  </div>
-
-                  {/* Player Stats */}
-                  <div style={{ display: 'flex', justifyContent: 'space-between', background: 'rgba(255,255,255,0.02)', padding: '6px 10px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.03)', fontSize: '0.7rem', fontFamily: 'monospace' }}>
-                    <span style={{ color: 'var(--accent-red)' }}>ATK: {player.stats?.atk || 50}</span>
-                    <span style={{ color: 'var(--primary-neon)' }}>DEF: {player.stats?.def || 50}</span>
-                    <span style={{ color: '#ffcc00' }}>HYPE: {player.stats?.hype || 50}</span>
-                  </div>
-
-                  {/* Buy Buttons */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: 'auto' }}>
-                    <button 
-                      onClick={() => handleBuy(player, 'cash')} 
-                      className="btn-outline-green"
-                      style={{ padding: '8px', fontSize: '0.78rem', fontWeight: 900, borderRadius: '8px', cursor: 'pointer' }}
-                      disabled={loadingId === player.id}
-                    >
-                      {loadingId === player.id ? 'PROCESANDO...' : '💵 COMPRAR EN CASH'}
-                    </button>
-                    <button 
-                      onClick={() => handleBuy(player, 'solana')} 
-                      className="btn-neon-green"
-                      style={{ padding: '8px', fontSize: '0.78rem', fontWeight: 900, borderRadius: '8px', cursor: 'pointer', opacity: treasuryAddress ? 1 : 0.4 }}
-                      disabled={loadingId === player.id || !treasuryAddress}
-                      title={treasuryAddress ? undefined : 'Tesorería no disponible — compra en SOL deshabilitada'}
-                    >
-                      {loadingId === player.id ? 'PROCESANDO...' : '⚡ COMPRAR CON SOL'}
-                    </button>
-                    {!treasuryAddress && (
-                      <span style={{ fontSize: '0.65rem', color: 'var(--accent-red)', textAlign: 'center' }}>
-                        ⚠️ Tesorería no disponible — solo compra en Cash
-                      </span>
-                    )}
-                  </div>
-
-                </div>
-              </div>
-            );
-          })}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
+          gap: '40px 20px', 
+          justifyContent: 'center',
+          padding: '20px 0' 
+        }}>
+          {filteredListings.map(player => (
+            <LayeredNftCard 
+              key={player.id} 
+              player={player}
+              isMarketplace={true}
+              onBuyCash={() => handleBuy(player, 'cash')}
+              onBuySol={() => handleBuy(player, 'solana')}
+              isSolOffline={!treasuryAddress}
+            />
+          ))}
         </div>
       )}
     </div>

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SimulationBadge } from '../components/SimulationBadge';
+import { LayeredNftCard, PlayerRow } from './LayeredNftCard';
 
 interface PlayerStatsBreakdown {
   fisico: number;
@@ -25,202 +26,116 @@ interface TacticalWeights {
 
 interface DetailedPlayer {
   name: string;
-  rarity: 'Gold' | 'Silver' | 'Bronze' | string;
+  rarity: string;
   score: number;
-  role: 'Delantero' | 'Centrocampista' | 'Defensa';
+  role: string;
   breakdown: PlayerStatsBreakdown;
   history: MatchPerformance[];
   tacticalWeights: TacticalWeights;
+  rawPlayer: PlayerRow;
 }
 
-const myPlayers: DetailedPlayer[] = [
-  {
-    name: "Julian Satoshi",
-    rarity: "Gold",
-    score: 92,
-    role: "Delantero",
-    breakdown: { fisico: 94, defensa: 45, ofensivo: 96, creacion: 88 },
-    history: [
-      { opponent: "Solana FC", rating: 9.2, minutes: 90, effectiveMinutes: 62, stoppageReason: "Faltas tacticas y saques de banda", contribution: "⚽ 1 Gol, 👟 1 Asist" },
-      { opponent: "Phantom United", rating: 8.5, minutes: 82, effectiveMinutes: 55, stoppageReason: "Revisiones VAR e hidratacion", contribution: "⚽ 1 Gol" },
-      { opponent: "Ledger Athletic", rating: 7.8, minutes: 90, effectiveMinutes: 60, stoppageReason: "Sustituciones y corners", contribution: "👟 1 Asist" },
-    ],
-    tacticalWeights: { '4-3-3': 1.03, '4-4-2': 1.00, '3-5-2': 0.92 }
-  },
-  {
-    name: "Enzo Bit",
-    rarity: "Silver",
-    score: 84,
-    role: "Centrocampista",
-    breakdown: { fisico: 82, defensa: 76, ofensivo: 78, creacion: 89 },
-    history: [
-      { opponent: "Solana FC", rating: 8.0, minutes: 90, effectiveMinutes: 62, stoppageReason: "Faltas tacticas y saques de banda", contribution: "👟 1 Asist" },
-      { opponent: "Phantom United", rating: 8.4, minutes: 90, effectiveMinutes: 59, stoppageReason: "Faltas y corners", contribution: "👟 2 Asist" },
-      { opponent: "Ledger Athletic", rating: 7.5, minutes: 74, contribution: "🟨 Tarjeta Amarilla", effectiveMinutes: 48, stoppageReason: "Pausa de hidratacion" },
-    ],
-    tacticalWeights: { '4-3-3': 1.00, '4-4-2': 1.02, '3-5-2': 1.06 }
-  },
-  {
-    name: "Alexis Chain",
-    rarity: "Bronze",
-    score: 78,
-    role: "Defensa",
-    breakdown: { fisico: 85, defensa: 84, ofensivo: 48, creacion: 72 },
-    history: [
-      { opponent: "Solana FC", rating: 7.2, minutes: 90, effectiveMinutes: 62, stoppageReason: "Faltas tacticas", contribution: "Ninguna" },
-      { opponent: "Phantom United", rating: 7.9, minutes: 90, effectiveMinutes: 59, stoppageReason: "Corners y saques de meta", contribution: "🚫 3 Intercepciones" },
-      { opponent: "Ledger Athletic", rating: 8.1, minutes: 90, effectiveMinutes: 60, stoppageReason: "Faltas y saques de meta", contribution: "🚫 5 Despejes" },
-    ],
-    tacticalWeights: { '4-3-3': 0.94, '4-4-2': 1.03, '3-5-2': 1.01 }
-  },
-  {
-    name: "Lisandro Ledger",
-    rarity: "Silver",
-    score: 81,
-    role: "Defensa",
-    breakdown: { fisico: 88, defensa: 86, ofensivo: 52, creacion: 75 },
-    history: [
-      { opponent: "Solana FC", rating: 7.5, minutes: 90, effectiveMinutes: 62, stoppageReason: "Faltas tacticas", contribution: "🚫 2 Intercepciones" },
-      { opponent: "Phantom United", rating: 8.2, minutes: 90, effectiveMinutes: 59, stoppageReason: "Corners y saques de meta", contribution: "🚫 4 Despejes" },
-      { opponent: "Ledger Athletic", rating: 8.0, minutes: 90, effectiveMinutes: 60, stoppageReason: "🟨 Amarilla por protestar", contribution: "🟨 Tarjeta Amarilla" },
-    ],
-    tacticalWeights: { '4-3-3': 0.95, '4-4-2': 1.04, '3-5-2': 1.02 }
-  }
-];
+function mapPlayerToDetailed(p: PlayerRow): DetailedPlayer {
+  let role = 'Delantero';
+  if (p.position === 'MID') role = 'Centrocampista';
+  else if (p.position === 'DEF') role = 'Defensa';
+  else if (p.position === 'GK') role = 'Portero';
 
-interface PlayerCardProps {
-  player: DetailedPlayer;
-  onClick: () => void;
+  const score = Math.round((p.stats.atk + p.stats.def + p.stats.hype) / 3);
+
+  const breakdown = {
+    fisico: p.stats.hype,
+    defensa: p.stats.def,
+    ofensivo: p.stats.atk,
+    creacion: Math.round((p.stats.atk + p.stats.hype) / 2)
+  };
+
+  const history = [
+    { 
+      opponent: "Solana FC", 
+      rating: Number((score / 10 + (Math.random() * 0.4 - 0.2)).toFixed(1)), 
+      minutes: 90, 
+      effectiveMinutes: Math.round(55 + Math.random() * 15), 
+      stoppageReason: "Faltas tácticas y saques de banda", 
+      contribution: p.position === 'FWD' ? "⚽ 1 Gol, 👟 1 Asist" : p.position === 'MID' ? "👟 1 Asist" : "🚫 3 Intercepciones" 
+    },
+    { 
+      opponent: "Phantom United", 
+      rating: Number((score / 10 + (Math.random() * 0.4 - 0.2)).toFixed(1)), 
+      minutes: 90, 
+      effectiveMinutes: Math.round(50 + Math.random() * 20), 
+      stoppageReason: "Revisiones VAR e hidratación", 
+      contribution: p.position === 'FWD' ? "⚽ 1 Gol" : p.position === 'GK' ? "🧤 4 Paradas Clave" : "🚫 5 Despejes" 
+    },
+    { 
+      opponent: "Ledger Athletic", 
+      rating: Number((score / 10 - Math.random() * 0.4).toFixed(1)), 
+      minutes: 85, 
+      effectiveMinutes: Math.round(52 + Math.random() * 12), 
+      stoppageReason: "Faltas y corners", 
+      contribution: "Ninguna" 
+    }
+  ];
+
+  const tacticalWeights = {
+    '4-3-3': p.position === 'FWD' ? 1.05 : p.position === 'GK' ? 1.00 : 0.97,
+    '4-4-2': p.position === 'MID' ? 1.04 : 1.00,
+    '3-5-2': p.position === 'DEF' ? 1.06 : 0.98
+  };
+
+  return {
+    name: p.name,
+    rarity: p.rarity,
+    score,
+    role,
+    breakdown,
+    history,
+    tacticalWeights,
+    rawPlayer: p
+  };
 }
-
-const PlayerCard: React.FC<PlayerCardProps> = ({ player, onClick }) => {
-  const { name, rarity, score } = player;
-  const rarityClass = `card-rarity-${rarity.toLowerCase()}`;
-  
-  const badgeColor = rarity === 'Gold' 
-    ? '#ffd700' 
-    : rarity === 'Silver' 
-      ? '#cbd5e1' 
-      : '#b45309';
-
-  const textGlowStyle = rarity === 'Gold'
-    ? { color: '#ffd700', textShadow: '0 0 10px rgba(255, 215, 0, 0.3)' }
-    : rarity === 'Silver'
-      ? { color: '#cbd5e1', textShadow: '0 0 10px rgba(203, 213, 225, 0.2)' }
-      : { color: '#d97706', textShadow: '0 0 8px rgba(217, 119, 6, 0.15)' };
-
-  return (
-    <div className={`glass-card ${rarityClass}`} onClick={onClick} style={{ 
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      padding: '1.5rem 1rem',
-      textAlign: 'center',
-      cursor: 'pointer',
-      transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.transform = 'translateY(-4px)';
-      e.currentTarget.style.boxShadow = `0 10px 20px ${badgeColor}22`;
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.transform = 'none';
-      e.currentTarget.style.boxShadow = 'none';
-    }}>
-      {/* Holographic Badge / Artwork Shield */}
-      <div style={{ 
-        width: '100%', 
-        height: '140px', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center',
-        marginBottom: '1rem',
-        position: 'relative'
-      }}>
-        <svg width="100" height="110" viewBox="0 0 100 110" style={{ overflow: 'visible' }}>
-          <defs>
-            <linearGradient id={`shieldGrad-${rarity}`} x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor={badgeColor} stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#030307" stopOpacity="0.6" />
-            </linearGradient>
-          </defs>
-          
-          {/* Outer shield */}
-          <path 
-            d="M 50 5 L 85 20 L 85 70 L 50 105 L 15 70 L 15 20 Z" 
-            fill={`url(#shieldGrad-${rarity})`}
-            stroke={badgeColor} 
-            strokeWidth="2" 
-            style={{ filter: `drop-shadow(0 4px 12px ${badgeColor}33)` }} 
-          />
-          
-          {/* Inner detail border */}
-          <path 
-            d="M 50 9 L 80 22 L 80 67 L 50 98 L 20 67 L 20 22 Z" 
-            fill="none" 
-            stroke="rgba(255,255,255,0.03)" 
-            strokeWidth="1" 
-          />
-          
-          {/* Center decorative ring */}
-          <circle cx="50" cy="48" r="22" fill="none" stroke={badgeColor} strokeWidth="1" strokeDasharray="3 3" opacity="0.3" />
-          
-          {/* Icon details (Football lines) */}
-          <g stroke={badgeColor} strokeWidth="1.5" fill="none" opacity="0.75">
-            <circle cx="50" cy="48" r="14" />
-            <path d="M 50 34 Q 45 48 50 62" />
-            <path d="M 50 34 Q 55 48 50 62" />
-            <path d="M 36 48 Q 50 43 64 48" />
-            <path d="M 36 48 Q 50 53 64 48" />
-          </g>
-          
-          {/* Rating label badge */}
-          <rect x="34" y="78" width="32" height="16" rx="4" fill="#030307" stroke={badgeColor} strokeWidth="1" />
-          <text x="50" y="90" fill="#ffffff" fontSize="9" fontWeight="800" textAnchor="middle" letterSpacing="0.5px">
-            {score} OVR
-          </text>
-        </svg>
-      </div>
-      
-      {/* Player details */}
-      <h4 style={{ margin: '0.25rem 0 0.5rem 0', fontSize: '1rem', fontWeight: 800, color: '#f8fafc' }}>
-        {name}
-      </h4>
-      
-      <div style={{ 
-        fontSize: '0.75rem', 
-        fontWeight: 700, 
-        textTransform: 'uppercase', 
-        letterSpacing: '1px',
-        ...textGlowStyle
-      }}>
-        {rarity} TIER
-      </div>
-
-      <div style={{ fontSize: '0.7rem', color: '#94a3b8', marginTop: '6px', fontWeight: 500 }}>
-        ⚡ {player.role}
-      </div>
-
-      <button 
-        className="btn-outline-green" 
-        style={{ 
-          marginTop: '1.25rem', 
-          width: '100%', 
-          padding: '0.4rem 0.5rem', 
-          fontSize: '0.75rem',
-          letterSpacing: '0.5px',
-          pointerEvents: 'none'
-        }}
-      >
-        ANALIZAR 📊
-      </button>
-    </div>
-  );
-};
 
 export const SquadGallery: React.FC = () => {
   const [selectedPlayer, setSelectedPlayer] = useState<DetailedPlayer | null>(null);
   const [activeSystem, setActiveSystem] = useState<'4-3-3' | '4-4-2' | '3-5-2'>('4-3-3');
+  const [squad, setSquad] = useState<DetailedPlayer[]>([]);
+  const [isDemo, setIsDemo] = useState(false);
+
+  const loadInventory = async () => {
+    try {
+      const rawInv = localStorage.getItem('goalchain_inventory');
+      const inventory = rawInv ? JSON.parse(rawInv) : [];
+      
+      if (inventory.length > 0) {
+        const detailed = inventory.map((p: any) => mapPlayerToDetailed(p));
+        setSquad(detailed);
+        setIsDemo(false);
+      } else {
+        const res = await fetch('/assets/data/players.json');
+        if (res.ok) {
+          const players = await res.json() as PlayerRow[];
+          const starterPlayers = players.slice(0, 4);
+          const detailed = starterPlayers.map(p => mapPlayerToDetailed(p));
+          setSquad(detailed);
+          setIsDemo(true);
+        }
+      }
+    } catch (e) {
+      console.error("Error loading squad:", e);
+    }
+  };
+
+  useEffect(() => {
+    loadInventory();
+
+    const handleStorageChange = () => {
+      loadInventory();
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   const closePlayerModal = () => {
     setSelectedPlayer(null);
@@ -236,6 +151,20 @@ export const SquadGallery: React.FC = () => {
 
   return (
     <div className="squad-gallery" style={{ marginTop: '0.5rem', textAlign: 'left' }}>
+      {isDemo && (
+        <div style={{ 
+          background: 'rgba(255, 165, 0, 0.08)', 
+          border: '1px dashed rgba(255, 165, 0, 0.3)', 
+          borderRadius: '12px', 
+          padding: '12px 16px', 
+          marginBottom: '1.5rem',
+          fontSize: '0.8rem',
+          color: '#ffd073'
+        }}>
+          💡 <strong>Cantera de Cortesía:</strong> Aún no tienes cartas compradas. Mostrando jugadores iniciales de prueba. ¡Compra cartas en el <strong>Mercado de Transferencias</strong> para que aparezcan aquí!
+        </div>
+      )}
+
       <h2 className="text-neon-green" style={{ borderBottom: 'none', paddingBottom: 0, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
         <span style={{ fontSize: '1.4rem' }}>🏆</span> Mi Cantera (Youth Academy)
         <SimulationBadge />
@@ -244,15 +173,20 @@ export const SquadGallery: React.FC = () => {
       {/* Player Card Responsive Grid */}
       <div style={{ 
         display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))', 
-        gap: '1.5rem', 
-        marginTop: '1rem' 
+        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
+        gap: '40px 20px', 
+        justifyContent: 'center',
+        padding: '20px 0' 
       }}>
-        {myPlayers.map((p, i) => (
-          <PlayerCard key={i} player={p} onClick={() => {
-            setSelectedPlayer(p);
-            setActiveSystem('4-3-3');
-          }} />
+        {squad.map((p, i) => (
+          <LayeredNftCard 
+            key={i} 
+            player={p.rawPlayer} 
+            onAnalyze={() => {
+              setSelectedPlayer(p);
+              setActiveSystem('4-3-3');
+            }} 
+          />
         ))}
       </div>
       

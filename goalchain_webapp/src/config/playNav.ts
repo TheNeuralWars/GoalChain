@@ -59,8 +59,7 @@ const MATCHDAY_ITEMS: PlayNavItem[] = [
     label: 'Fixtures',
     i18n: 'nav_fixtures',
     icon: '📅',
-    href: `${MARKETING_BASE}/#fixture`,
-    external: true,
+    to: '/estadio',
   },
   {
     id: 'live',
@@ -105,7 +104,14 @@ const DEFI_ITEMS: PlayNavItem[] = [
     icon: '📡',
     to: '/marketing-control',
   },
+  {
+    id: 'autopilot',
+    label: 'Autopilot Corp',
+    icon: '🤖',
+    to: '/autopilot',
+  },
 ];
+
 
 /* ============================================================
    ZONA 4 — 🛡 CLUB

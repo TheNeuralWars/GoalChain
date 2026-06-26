@@ -92,6 +92,9 @@ export interface WorkerMessageMap {
   'STOP': void;
   'SET_SPEED': { multiplier: number };
   'GET_STATE': void;
+  'SET_TACTIC': { tactic: 'normal' | 'defense_total' | 'attack_total' };
+  'ENERGY_BOOST': { playerId: string };
+  'SUBSTITUTE': { playerOutId: string; playerIn: PlayerStats };
 }
 
 export interface WorkerResponseMap {
@@ -109,7 +112,10 @@ export type WorkerIncomingMessage =
   | { type: 'RESUME'; payload: WorkerMessageMap['RESUME'] }
   | { type: 'STOP'; payload: WorkerMessageMap['STOP'] }
   | { type: 'SET_SPEED'; payload: WorkerMessageMap['SET_SPEED'] }
-  | { type: 'GET_STATE'; payload: WorkerMessageMap['GET_STATE'] };
+  | { type: 'GET_STATE'; payload: WorkerMessageMap['GET_STATE'] }
+  | { type: 'SET_TACTIC'; payload: WorkerMessageMap['SET_TACTIC'] }
+  | { type: 'ENERGY_BOOST'; payload: WorkerMessageMap['ENERGY_BOOST'] }
+  | { type: 'SUBSTITUTE'; payload: WorkerMessageMap['SUBSTITUTE'] };
 
 export type WorkerOutgoingMessage = 
   | { type: 'STATE'; payload: WorkerResponseMap['STATE'] }

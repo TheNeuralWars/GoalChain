@@ -38,6 +38,8 @@ class Settings(BaseSettings):
     goalchain_ma_openai_model: str = "gpt-4o-mini"
     goalchain_ma_openrouter_model: str = "openai/gpt-4o-mini"
     goalchain_ma_openrouter_base_url: str = "https://openrouter.ai/api/v1"
+    goalchain_ma_nvidia_model: str = "nvidia/nemotron-3-super-120b-a12b"
+    goalchain_ma_nvidia_base_url: str = "https://integrate.api.nvidia.com/v1"
     goalchain_ma_max_hops: int = 6
     goalchain_ma_ops_live: bool = True
     goalchain_ma_dev_write_github: bool = False
@@ -56,7 +58,11 @@ class Settings(BaseSettings):
     anthropic_api_key: str = ""
     openai_api_key: str = ""
     openrouter_api_key: str = ""
+    nvidia_nim_api_key: str = ""
+    stripe_api_key: str = ""
 
 
 def get_settings() -> Settings:
+
     return Settings()
+

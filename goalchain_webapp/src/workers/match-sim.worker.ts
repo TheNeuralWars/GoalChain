@@ -93,6 +93,34 @@ function handleMessage(event: MessageEvent<WorkerIncomingMessage>): void {
         send('STATE', engine.getState());
       }
       break;
+
+    case 'SET_TACTIC':
+      if (engine) {
+        const comm = engine.setTactic(msg.payload.tactic);
+        send('COMMENTARY', comm);
+        send('STATE', engine.getState());
+      }
+      break;
+
+    case 'ENERGY_BOOST':
+      if (engine) {
+        const comm = engine.applyEnergyBoost(msg.payload.playerId);
+        if (comm) {
+          send('COMMENTARY', comm);
+          send('STATE', engine.getState());
+        }
+      }
+      break;
+
+    case 'SUBSTITUTE':
+      if (engine) {
+        const comm = engine.substitutePlayer(msg.payload.playerOutId, msg.payload.playerIn);
+        if (comm) {
+          send('COMMENTARY', comm);
+          send('STATE', engine.getState());
+        }
+      }
+      break;
   }
 }
 

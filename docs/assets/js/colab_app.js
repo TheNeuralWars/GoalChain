@@ -14,7 +14,7 @@ let colabState = {
     ],
     equity: [
         { name: 'Founder (Origin Recognition)', share: '1.0%', points: '250' },
-        { name: 'Builder Fund (Contributors + APIs + Marketing)', share: '10.0%', points: '2,500' },
+        { name: 'Stripe Agent Fund (Operations + SaaS + Compute)', share: '10.0%', points: '2,500' },
         { name: 'Community Treasury / DAO', share: '89.0%', points: '8,900' }
     ]
 };

@@ -1,33 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { EconomyConfigBanner } from './EconomyConfigBanner';
 import { OpsStatusPanel } from './OpsStatusPanel';
 import { SimulationBadge } from '../components/SimulationBadge';
-
-interface UserData {
-  username: string;
-  avatar: string;
-  role: string;
-}
+import { useUser } from '../contexts/UserContext';
 
 export function DashboardGrid() {
   const navigate = useNavigate();
-  const [user, setUser] = useState<UserData | null>(null);
+  const { user } = useUser();
   const [showOpsConsole, setShowOpsConsole] = useState(false);
-
-  useEffect(() => {
-    const raw = localStorage.getItem('goalchain_user');
-    if (raw) {
-      try {
-        const parsed = JSON.parse(raw);
-        if (parsed.username) {
-          setUser(parsed);
-        }
-      } catch {
-        /* ignore */
-      }
-    }
-  }, []);
 
   return (
     <div className="inicio-portal">

@@ -206,6 +206,15 @@ export type TranslationKeys = {
   presale_softcap: string;
   presale_sub: string;
   presale_title: string;
+  route_autopilot: string;
+  route_club: string;
+  route_collection: string;
+  route_defi: string;
+  route_estadio: string;
+  route_home: string;
+  route_marketing: string;
+  route_presskit: string;
+  route_staking: string;
   reveal_add: string;
   rm_q1_title: string;
   rm_q2_title: string;

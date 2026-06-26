@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { useUser } from '../contexts/UserContext';
 
 interface CreateUserProps {
   onUserCreated?: (user: { username: string; wallet: string; avatar: string }) => void;
@@ -24,6 +25,7 @@ const ROLES = [
 ];
 
 export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
+  const { setUser } = useUser();
   const { publicKey, connected } = useWallet();
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [username, setUsername] = useState('');
@@ -63,9 +65,13 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
       wallet: walletAddress,
       avatar: selectedAvatarObj.emoji,
       role: selectedRoleObj.label,
-      joinedDate: 'Mayo 2026',
+      joinedDate: 'Junio 2026',
+      bio: `GoalChain ${selectedRoleObj.label} listo para conquistar la Copa.`,
+      location: 'Argentina',
+      following: [],
+      accentColor: '#14f195',
     };
-    localStorage.setItem('goalchain_user', JSON.stringify(userData));
+    setUser(userData);
 
     setIsSubmitting(false);
     setSuccess(true);

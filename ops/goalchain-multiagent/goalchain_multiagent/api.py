@@ -10,12 +10,27 @@ from goalchain_multiagent.config import Settings, get_settings
 from goalchain_multiagent import llm
 from goalchain_multiagent.graph import run_objective
 from goalchain_multiagent.fcc_dispatch import run_dispatch_cycle
+from goalchain_multiagent.stripe_ops import (
+    get_stripe_balance,
+    get_agent_wallet,
+    fund_agent_wallet_from_nft_sale,
+    pay_contributor,
+    create_stripe_checkout,
+)
+from goalchain_multiagent.player_quorum import (
+    classify_risk_level,
+    compute_governance_power,
+    evaluate_quorum,
+    PlayerStats,
+    DEMO_SQUAD,
+)
 
 app = FastAPI(
     title="GoalChain Multi-Agent",
-    description="LangGraph orchestration API for Hermes CEO (loopback only).",
+    description="LangGraph orchestration API for Hermes CEO — GoalChain Autonomous Agent Corporation (GC-AAC).",
     version=__version__,
 )
+
 
 
 @app.on_event("startup")
@@ -139,6 +154,129 @@ def v1_dispatch(
         results=summary["results"],
     )
 
+
+# ─────────────────────────────────────────────────────────────────────────────
+# STRIPE SKILLS API — Financial layer for the Autonomous Agent Corporation
+# ─────────────────────────────────────────────────────────────────────────────
+
+@app.get("/api/ops/stripe/balance")
+def stripe_balance_endpoint(settings: Settings = Depends(get_settings)) -> dict:
+    """Returns live Stripe corporate balance + agent wallet balance."""
+    return get_stripe_balance(settings)
+
+
+@app.get("/api/ops/agent-wallet")
+def agent_wallet_endpoint(settings: Settings = Depends(get_settings)) -> dict:
+    """Returns the Agent Wallet state: balance, funding history (NFT 10%), spend history."""
+    return get_agent_wallet(settings)
+
+
+class NFTFundRequest(BaseModel):
+    nft_name: str
+    sale_price_cents: int
+
+
+@app.post("/api/ops/stripe/fund-agent")
+def fund_agent_endpoint(
+    body: NFTFundRequest,
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    """Called when an NFT is sold — routes 10% to the Agent Wallet automatically."""
+    return fund_agent_wallet_from_nft_sale(body.nft_name, body.sale_price_cents, settings)
+
+
+class CheckoutRequest(BaseModel):
+    item: str
+    amount: int  # cents
+
+
+@app.post("/api/ops/stripe/checkout")
+def checkout_endpoint(
+    body: CheckoutRequest,
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    """Creates a Stripe Checkout session for manager subscriptions or NFT packs."""
+    return create_stripe_checkout(
+        item_name=body.item,
+        amount_cents=body.amount,
+        success_url="https://play.goalchain.fun/success",
+        cancel_url="https://play.goalchain.fun/cancel",
+        settings=settings,
+    )
+
+
+class PayoutRequest(BaseModel):
+    contributor: str
+    amount_cents: int
+    issue_url: str = ""
+
+
+@app.post("/api/ops/stripe/pay-contributor")
+def pay_contributor_endpoint(
+    body: PayoutRequest,
+    _: None = Depends(_auth),
+    settings: Settings = Depends(get_settings),
+) -> dict:
+    """CEO agent → Stripe payout to a verified contributor (<=\$500 auto-approved)."""
+    return pay_contributor(body.contributor, body.amount_cents, body.issue_url, settings)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PLAYER-GATED COMMANDS — NemoClaw × Genesis Squad Quorum System
+# ─────────────────────────────────────────────────────────────────────────────
+
+class QuorumRequest(BaseModel):
+    operation: str  # The agent's intended action (natural language or command string)
+    player_ids: list[int] = []  # Optional: subset of player IDs from squad to use
+
+
+@app.post("/api/ops/quorum/evaluate")
+def quorum_evaluate_endpoint(body: QuorumRequest) -> dict:
+    """Evaluate whether a squad meets quorum for a given operation.
+
+    NemoClaw classifies the operation risk (LOW/MEDIUM/HIGH/CRITICAL) and
+    checks if the combined Governance Power of the provided squad meets
+    the required threshold. If no player_ids provided, uses the full demo squad.
+    """
+    squad = DEMO_SQUAD
+    if body.player_ids:
+        squad = [p for p in DEMO_SQUAD if p.id in body.player_ids]
+
+    result = evaluate_quorum(body.operation, squad)
+    return {
+        "risk_level":     result.risk_level,
+        "gp_threshold":   result.gp_threshold,
+        "min_players":    result.min_players,
+        "quorum_label":   result.quorum_label,
+        "squad_gp":       result.squad_gp,
+        "squad_players":  result.squad_players,
+        "quorum_reached": result.quorum_reached,
+        "gp_deficit":     result.gp_deficit,
+        "players_deficit":result.players_deficit,
+        "message":        result.message,
+    }
+
+
+@app.get("/api/ops/quorum/demo-squad")
+def quorum_demo_squad_endpoint() -> dict:
+    """Returns the demo squad with pre-computed Governance Power for the frontend."""
+    players = [
+        {
+            "id":       p.id,
+            "name":     p.name,
+            "rarity":   p.rarity,
+            "country":  p.country,
+            "position": p.position,
+            "stats":    {"atk": p.atk, "def": p.def_, "hype": p.hype},
+            "gp":       compute_governance_power(p),
+        }
+        for p in DEMO_SQUAD
+    ]
+    players.sort(key=lambda x: x["gp"], reverse=True)
+    return {"squad": players, "total_gp": round(sum(p["gp"] for p in players), 2)}
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 
 def main() -> None:
     import uvicorn

@@ -51,13 +51,20 @@
             text-align: center;
             padding: 0 var(--gc-space-4, 1rem) var(--gc-space-5, 1.5rem);
         }
+        .lang-toggle { display: flex; gap: 6px; justify-content: center; margin-top: 0.5rem; }
+        .lang-toggle button { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: var(--gc-text-dim, #94a3b8); padding: 4px 12px; border-radius: 999px; font-weight: 800; font-size: 0.72rem; cursor: pointer; }
+        .lang-toggle button.active { background: var(--primary, #14f195); color: #030307; border-color: var(--primary, #14f195); }
     </style>
 </head>
 <body>
     <div class="game-frame">
         <canvas id="gameCanvas" width="800" height="420"></canvas>
     </div>
-    <p class="game-hint">Tap a zone of the goal to shoot.</p>
+    <p class="game-hint" data-i18n="penalty_hint">Tap a zone of the goal to shoot.</p>
+    <div class="lang-toggle">
+        <button id="langEs" onclick="setLang('es')">ES</button>
+        <button id="langEn" class="active" onclick="setLang('en')">EN</button>
+    </div>
 
     <!-- i18n se carga por consistencia (algunos textos del juego lo usan). -->
     <script src="../assets/js/i18n.js?v=3.0"></script>

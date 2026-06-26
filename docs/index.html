@@ -2090,8 +2090,7 @@
           <span data-i18n-html="econ_flow_desc"
             >Apostadores → Pools Parimutuel (Solana) → 99% Ganadores / 1% Fee
             (hard-cap) <br />
-            Builder Fund (10%) financia contributors + APIs/modelos +
-            marketing.</span
+            El Fondo de Agentes en Stripe (10%) financia directamente las operaciones autónomas, SaaS y cómputo de los agentes.</span
           >
         </div>
         <div class="carousel-wrapper">
@@ -4369,80 +4368,83 @@
       </button>
     </div>
 
-    <!-- DASHBOARD DE COLECCIÓN -->
-    <div
-      id="userCollection"
-      style="text-align: center; margin: 4rem 0"
-      class="reveal"
-    >
-      <h2 class="section-title" data-i18n="coll_title">
-        Tu Galería Genesis Squad
-      </h2>
-      <p class="section-subtitle" data-i18n="coll_sub">
-        Gestioná tus jugadores y prepará tu alineación para el World Cup 2026.
-      </p>
+    <!-- DASHBOARD DE COLECCIÓN & DREAM XI -->
+    <section id="my-collection" class="section container reveal" style="margin-top: 80px">
+      <!-- DASHBOARD DE COLECCIÓN -->
+      <div
+        id="userCollection"
+        style="text-align: center; margin: 2rem 0"
+        class="reveal"
+      >
+        <h2 class="section-title" data-i18n="coll_title">
+          Tu Galería Genesis Squad
+        </h2>
+        <p class="section-subtitle" data-i18n="coll_sub">
+          Gestioná tus jugadores y prepará tu alineación para el World Cup 2026.
+        </p>
 
-      <!-- Filtros -->
-      <div class="filter-bar mt-4">
-        <button class="filter-btn active" onclick="filterCollection('all')">
-          TODOS
-        </button>
-        <button class="filter-btn" onclick="filterCollection('mythic')">
-          MYTHIC
-        </button>
-        <button class="filter-btn" onclick="filterCollection('legendary')">
-          LEGENDARY
-        </button>
-        <button class="filter-btn" onclick="filterCollection('epic')">
-          EPIC
-        </button>
-        <button class="filter-btn" onclick="filterCollection('rare')">
-          RARE
-        </button>
-      </div>
+        <!-- Filtros -->
+        <div class="filter-bar mt-4">
+          <button class="filter-btn active" onclick="filterCollection('all')">
+            TODOS
+          </button>
+          <button class="filter-btn" onclick="filterCollection('mythic')">
+            MYTHIC
+          </button>
+          <button class="filter-btn" onclick="filterCollection('legendary')">
+            LEGENDARY
+          </button>
+          <button class="filter-btn" onclick="filterCollection('epic')">
+            EPIC
+          </button>
+          <button class="filter-btn" onclick="filterCollection('rare')">
+            RARE
+          </button>
+        </div>
 
-      <!-- Grid Dinámico -->
-      <div id="collectionGrid" class="collection-grid mt-5">
-        <div class="empty-inventory">
-          <p data-i18n="coll_empty">Tu inventario está vacío.</p>
-          <p
-            style="font-size: 0.9rem; color: var(--text-dim)"
-            data-i18n="coll_empty_hint"
-          >
-            Los jugadores que obtengas en el Mystery Pack aparecerán aquí.
-          </p>
+        <!-- Grid Dinámico -->
+        <div id="collectionGrid" class="collection-grid mt-5">
+          <div class="empty-inventory">
+            <p data-i18n="coll_empty">Tu inventario está vacío.</p>
+            <p
+              style="font-size: 0.9rem; color: var(--text-dim)"
+              data-i18n="coll_empty_hint"
+            >
+              Los jugadores que obtengas en el Mystery Pack aparecerán aquí.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Paso 5: Mi Dream XI Preview -->
-    <div class="glass-card reveal" style="margin-top: 3rem; padding: 20px">
-      <h3
-        style="text-align: center; margin-bottom: 15px"
-        data-i18n="nft_dream_title"
-      >
-        Arma tu Dream XI
-      </h3>
-      <div
-        id="dreamXI"
-        style="
-          display: flex;
-          gap: 15px;
-          justify-content: center;
-          flex-wrap: wrap;
-          min-height: 180px;
-          border: 2px dashed var(--primary);
-          border-radius: 16px;
-          padding: 15px;
-        "
-      >
-        <!-- Arrastra aquí tus cartas simuladas -->
+      <!-- Paso 5: Mi Dream XI Preview -->
+      <div class="glass-card reveal" style="margin-top: 2rem; padding: 20px; width: 100%">
+        <h3
+          style="text-align: center; margin-bottom: 15px"
+          data-i18n="nft_dream_title"
+        >
+          Arma tu Dream XI
+        </h3>
+        <div
+          id="dreamXI"
+          style="
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            min-height: 180px;
+            border: 2px dashed var(--primary);
+            border-radius: 16px;
+            padding: 15px;
+          "
+        >
+          <!-- Arrastra aquí tus cartas simuladas -->
+        </div>
+        <p style="text-align: center; margin-top: 15px; color: var(--primary)">
+          <span data-i18n="nft_dream_yield">Yield estimado:</span>
+          <strong>+4,820 $GCH / partido</strong>
+        </p>
       </div>
-      <p style="text-align: center; margin-top: 15px; color: var(--primary)">
-        <span data-i18n="nft_dream_yield">Yield estimado:</span>
-        <strong>+4,820 $GCH / partido</strong>
-      </p>
-    </div>
+    </section>
     <!-- TRANSFER MARKET (MARKETPLACE) -->
     <section
       id="marketplace"
@@ -4877,7 +4879,7 @@
                   <div
                     style="font-size: 0.65rem; font-weight: 800; color: #00e0ff"
                   >
-                    BUILDER FUND (DEV + APIs + MARKETING): 10%
+                    STRIPE AGENT FUND (OPERATIONS + SaaS + COMPUTE): 10%
                   </div>
                   <div
                     style="
@@ -5528,6 +5530,7 @@
     </script>
 
     <script src="assets/js/i18n.js?v=3.0"></script>
+    <script src="assets/js/play_url.js?v=1.0"></script>
     <script src="assets/js/app.js?v=3.0"></script>
     <script src="assets/js/market_simulators.js?v=1.0"></script>
     <script src="assets/js/marketplace.js?v=3.0"></script>
@@ -5680,7 +5683,7 @@
           <button
             onclick="
               closeAlphaModal();
-              location.href = '/go/';
+              goToPlay('/go/');
             "
             class="btn btn-primary btn-glow"
             style="width: 100%"
@@ -6223,29 +6226,6 @@
           });
         }
       });
-    </script>
-
-    <!-- Force enable scrolling on landing page as a failsafe against aggressive CSS cache -->
-    <script>
-      (function () {
-        function forceScroll() {
-          document.documentElement.style.setProperty(
-            "overflow",
-            "auto",
-            "important",
-          );
-          document.documentElement.style.setProperty(
-            "height",
-            "auto",
-            "important",
-          );
-          document.body.style.setProperty("overflow", "auto", "important");
-          document.body.style.setProperty("height", "auto", "important");
-        }
-        forceScroll();
-        window.addEventListener("DOMContentLoaded", forceScroll);
-        window.addEventListener("load", forceScroll);
-      })();
     </script>
   </body>
 </html>

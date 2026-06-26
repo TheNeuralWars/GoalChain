@@ -9,34 +9,7 @@ import {
 import { LanguageToggle } from '../components/LanguageToggle';
 import { useTranslation } from '../i18n';
 import { gameBus } from '../hooks/useGameBus';
-
-/* ----------------------------------
-   Hook: link de cuenta (localStorage)
-   ---------------------------------- */
-function useStoredUserLink(): { to: string; label: string } {
-  const [userNav, setUserNav] = useState({
-    to: '/crear-usuario',
-    label: '✨ Create account',
-  });
-
-  useEffect(() => {
-    const raw = localStorage.getItem('goalchain_user');
-    if (!raw) return;
-    try {
-      const user = JSON.parse(raw) as { username?: string; avatar?: string };
-      if (user.username) {
-        setUserNav({
-          to: `/perfil/${user.username}`,
-          label: `${user.avatar || '👤'} @${user.username}`,
-        });
-      }
-    } catch {
-      /* ignore */
-    }
-  }, []);
-
-  return userNav;
-}
+import { useUser } from '../contexts/UserContext';
 
 /* ----------------------------------
    Render de un item de navegación
@@ -169,7 +142,10 @@ export function PlayNav({
 }) {
   const { t } = useTranslation();
   const location = useLocation();
-  const userNav = useStoredUserLink();
+  const { user, isLoggedIn } = useUser();
+
+  const accountTo = isLoggedIn && user ? `/perfil/${user.username}` : '/crear-usuario';
+  const accountLabel = isLoggedIn && user ? `${user.avatar} @${user.username}` : '✨ Create account';
 
   // Grupo expandido en el acordeón. Persistente.
   const [openGroup, setOpenGroup] = useState<string>(() => {
@@ -266,9 +242,9 @@ export function PlayNav({
       <div className="gc-rail-footer">
         {!collapsed ? (
           <>
-            <NavLink to={userNav.to} className="gc-nav-link gc-nav-link--account">
+            <NavLink to={accountTo} className="gc-nav-link gc-nav-link--account">
               <span className="gc-nav-link-icon" aria-hidden>👤</span>
-              <span className="gc-nav-link-label">{userNav.label}</span>
+              <span className="gc-nav-link-label">{accountLabel}</span>
             </NavLink>
             <div className="gc-rail-footer-lang">
               <LanguageToggle />
@@ -276,7 +252,7 @@ export function PlayNav({
           </>
         ) : (
           <>
-            <NavLink to={userNav.to} className="gc-nav-link gc-nav-link--icon" title={userNav.label}>
+            <NavLink to={accountTo} className="gc-nav-link gc-nav-link--icon" title={accountLabel}>
               <span className="gc-nav-link-icon" aria-hidden>👤</span>
             </NavLink>
           </>
@@ -291,6 +267,7 @@ export function PlayNav({
    ================================================ */
 export function PlayBottomTab() {
   const { t } = useTranslation();
+  const { user, isLoggedIn } = useUser();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const location = useLocation();
 
