@@ -4501,80 +4501,83 @@
       </button>
     </div>
 
-    <!-- DASHBOARD DE COLECCIÓN -->
-    <div
-      id="userCollection"
-      style="text-align: center; margin: 4rem 0"
-      class="reveal"
-    >
-      <h2 class="section-title" data-i18n="coll_title">
-        Tu Galería Genesis Squad
-      </h2>
-      <p class="section-subtitle" data-i18n="coll_sub">
-        Gestioná tus jugadores y prepará tu alineación para el World Cup 2026.
-      </p>
+    <!-- DASHBOARD DE COLECCIÓN & DREAM XI -->
+    <section id="my-collection" class="section container reveal" style="margin-top: 80px">
+      <!-- DASHBOARD DE COLECCIÓN -->
+      <div
+        id="userCollection"
+        style="text-align: center; margin: 2rem 0"
+        class="reveal"
+      >
+        <h2 class="section-title" data-i18n="coll_title">
+          Tu Galería Genesis Squad
+        </h2>
+        <p class="section-subtitle" data-i18n="coll_sub">
+          Gestioná tus jugadores y prepará tu alineación para el World Cup 2026.
+        </p>
 
-      <!-- Filtros -->
-      <div class="filter-bar mt-4">
-        <button class="filter-btn active" onclick="filterCollection('all')">
-          TODOS
-        </button>
-        <button class="filter-btn" onclick="filterCollection('mythic')">
-          MYTHIC
-        </button>
-        <button class="filter-btn" onclick="filterCollection('legendary')">
-          LEGENDARY
-        </button>
-        <button class="filter-btn" onclick="filterCollection('epic')">
-          EPIC
-        </button>
-        <button class="filter-btn" onclick="filterCollection('rare')">
-          RARE
-        </button>
-      </div>
+        <!-- Filtros -->
+        <div class="filter-bar mt-4">
+          <button class="filter-btn active" onclick="filterCollection('all')">
+            TODOS
+          </button>
+          <button class="filter-btn" onclick="filterCollection('mythic')">
+            MYTHIC
+          </button>
+          <button class="filter-btn" onclick="filterCollection('legendary')">
+            LEGENDARY
+          </button>
+          <button class="filter-btn" onclick="filterCollection('epic')">
+            EPIC
+          </button>
+          <button class="filter-btn" onclick="filterCollection('rare')">
+            RARE
+          </button>
+        </div>
 
-      <!-- Grid Dinámico -->
-      <div id="collectionGrid" class="collection-grid mt-5">
-        <div class="empty-inventory">
-          <p data-i18n="coll_empty">Tu inventario está vacío.</p>
-          <p
-            style="font-size: 0.9rem; color: var(--text-dim)"
-            data-i18n="coll_empty_hint"
-          >
-            Los jugadores que obtengas en el Mystery Pack aparecerán aquí.
-          </p>
+        <!-- Grid Dinámico -->
+        <div id="collectionGrid" class="collection-grid mt-5">
+          <div class="empty-inventory">
+            <p data-i18n="coll_empty">Tu inventario está vacío.</p>
+            <p
+              style="font-size: 0.9rem; color: var(--text-dim)"
+              data-i18n="coll_empty_hint"
+            >
+              Los jugadores que obtengas en el Mystery Pack aparecerán aquí.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Paso 5: Mi Dream XI Preview -->
-    <div class="glass-card reveal" style="margin-top: 3rem; padding: 20px">
-      <h3
-        style="text-align: center; margin-bottom: 15px"
-        data-i18n="nft_dream_title"
-      >
-        Arma tu Dream XI
-      </h3>
-      <div
-        id="dreamXI"
-        style="
-          display: flex;
-          gap: 15px;
-          justify-content: center;
-          flex-wrap: wrap;
-          min-height: 180px;
-          border: 2px dashed var(--primary);
-          border-radius: 16px;
-          padding: 15px;
-        "
-      >
-        <!-- Arrastra aquí tus cartas simuladas -->
+      <!-- Paso 5: Mi Dream XI Preview -->
+      <div class="glass-card reveal" style="margin-top: 2rem; padding: 20px; width: 100%">
+        <h3
+          style="text-align: center; margin-bottom: 15px"
+          data-i18n="nft_dream_title"
+        >
+          Arma tu Dream XI
+        </h3>
+        <div
+          id="dreamXI"
+          style="
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            min-height: 180px;
+            border: 2px dashed var(--primary);
+            border-radius: 16px;
+            padding: 15px;
+          "
+        >
+          <!-- Arrastra aquí tus cartas simuladas -->
+        </div>
+        <p style="text-align: center; margin-top: 15px; color: var(--primary)">
+          <span data-i18n="nft_dream_yield">Yield estimado:</span>
+          <strong>+4,820 $GCH / partido</strong>
+        </p>
       </div>
-      <p style="text-align: center; margin-top: 15px; color: var(--primary)">
-        <span data-i18n="nft_dream_yield">Yield estimado:</span>
-        <strong>+4,820 $GCH / partido</strong>
-      </p>
-    </div>
+    </section>
     <!-- TRANSFER MARKET (MARKETPLACE) -->
     <section
       id="marketplace"
