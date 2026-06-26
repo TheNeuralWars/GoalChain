@@ -6225,26 +6225,230 @@
       });
     </script>
 
-    <!-- Force enable scrolling on landing page as a failsafe against aggressive CSS cache -->
+    <!-- PREMIUM FULLPAGE SCREEN SNAPPING CONTROLLER -->
     <script>
       (function () {
-        function forceScroll() {
-          document.documentElement.style.setProperty(
-            "overflow",
-            "auto",
-            "important",
-          );
-          document.documentElement.style.setProperty(
-            "height",
-            "auto",
-            "important",
-          );
-          document.body.style.setProperty("overflow", "auto", "important");
-          document.body.style.setProperty("height", "auto", "important");
+        const MIN_WIDTH = 1024;
+        let activeIndex = 0;
+        let isAnimating = false;
+        let sections = [];
+
+        function applyBodyStyles() {
+          if (window.innerWidth < MIN_WIDTH) {
+            document.documentElement.style.setProperty("overflow", "auto", "important");
+            document.documentElement.style.setProperty("height", "auto", "important");
+            document.body.style.setProperty("overflow", "auto", "important");
+            document.body.style.setProperty("height", "auto", "important");
+          } else {
+            document.documentElement.style.removeProperty("overflow");
+            document.documentElement.style.removeProperty("height");
+            document.body.style.removeProperty("overflow");
+            document.body.style.removeProperty("height");
+          }
         }
-        forceScroll();
-        window.addEventListener("DOMContentLoaded", forceScroll);
-        window.addEventListener("load", forceScroll);
+
+        function initFullPage() {
+          applyBodyStyles();
+
+          const selector = 'header.hero, section.section, section.xscout-live-section, section.whitelist-section, section.cta-banner, footer.site-footer';
+          sections = Array.from(document.querySelectorAll(selector)).filter(el => {
+            return el.parentElement === document.body;
+          });
+
+          if (window.innerWidth < MIN_WIDTH) {
+            document.body.classList.remove('fullpage-enabled');
+            sections.forEach(sec => {
+              sec.classList.remove('active', 'prev-slide');
+            });
+            removePagination();
+            return;
+          }
+
+          if (sections.length === 0) return;
+
+          document.body.classList.add('fullpage-enabled');
+          
+          // Read hash from URL if present
+          const hash = window.location.hash;
+          if (hash) {
+            const targetSec = document.querySelector(hash);
+            const idx = sections.indexOf(targetSec);
+            if (idx !== -1) activeIndex = idx;
+          }
+
+          updateSlides();
+          createPagination();
+        }
+
+        function updateSlides() {
+          sections.forEach((sec, idx) => {
+            sec.classList.remove('active', 'prev-slide');
+            if (idx === activeIndex) {
+              sec.classList.add('active');
+              sec.scrollTop = 0; // reset scroll inside slide
+            } else if (idx < activeIndex) {
+              sec.classList.add('prev-slide');
+            }
+          });
+
+          // Update pagination dots
+          const dots = document.querySelectorAll('.fullpage-dot');
+          dots.forEach((dot, idx) => {
+            if (idx === activeIndex) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+
+          // Sync header navigation links active state
+          const activeSec = sections[activeIndex];
+          if (activeSec && activeSec.id) {
+            history.replaceState(null, '', '#' + activeSec.id);
+          }
+        }
+
+        function goToSlide(index) {
+          if (index < 0 || index >= sections.length || isAnimating) return;
+          isAnimating = true;
+          activeIndex = index;
+          updateSlides();
+          setTimeout(() => {
+            isAnimating = false;
+          }, 950); // match transition duration (0.9s + 50ms buffer)
+        }
+
+        function handleWheel(e) {
+          if (window.innerWidth < MIN_WIDTH) return;
+          
+          const activeSec = sections[activeIndex];
+          if (activeSec) {
+            const isScrollable = activeSec.scrollHeight > activeSec.clientHeight;
+            if (isScrollable) {
+              if (e.deltaY > 0) {
+                const atBottom = activeSec.scrollTop + activeSec.clientHeight >= activeSec.scrollHeight - 15;
+                if (!atBottom) return; // Allow normal scroll inside section
+              } else {
+                const atTop = activeSec.scrollTop <= 15;
+                if (!atTop) return; // Allow normal scroll inside section
+              }
+            }
+          }
+
+          e.preventDefault();
+          if (isAnimating) return;
+
+          if (e.deltaY > 10) {
+            goToSlide(activeIndex + 1);
+          } else if (e.deltaY < -10) {
+            goToSlide(activeIndex - 1);
+          }
+        }
+
+        function handleKeydown(e) {
+          if (window.innerWidth < MIN_WIDTH) return;
+          if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+            e.preventDefault();
+            goToSlide(activeIndex + 1);
+          } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+            e.preventDefault();
+            goToSlide(activeIndex - 1);
+          } else if (e.key === 'Home') {
+            e.preventDefault();
+            goToSlide(0);
+          } else if (e.key === 'End') {
+            e.preventDefault();
+            goToSlide(sections.length - 1);
+          }
+        }
+
+        let touchStartY = 0;
+        function handleTouchStart(e) {
+          if (window.innerWidth < MIN_WIDTH) return;
+          touchStartY = e.touches[0].clientY;
+        }
+        function handleTouchMove(e) {
+          if (window.innerWidth < MIN_WIDTH || isAnimating) return;
+          const touchEndY = e.touches[0].clientY;
+          const diff = touchStartY - touchEndY;
+          
+          const activeSec = sections[activeIndex];
+          if (activeSec) {
+            const isScrollable = activeSec.scrollHeight > activeSec.clientHeight;
+            if (isScrollable) {
+              if (diff > 0) {
+                const atBottom = activeSec.scrollTop + activeSec.clientHeight >= activeSec.scrollHeight - 15;
+                if (!atBottom) return; // Allow scroll inside section
+              } else {
+                const atTop = activeSec.scrollTop <= 15;
+                if (!atTop) return; // Allow scroll inside section
+              }
+            }
+          }
+
+          if (Math.abs(diff) > 50) {
+            e.preventDefault();
+            if (diff > 0) {
+              goToSlide(activeIndex + 1);
+            } else {
+              goToSlide(activeIndex - 1);
+            }
+          }
+        }
+
+        function createPagination() {
+          removePagination();
+          const pag = document.createElement('div');
+          pag.className = 'fullpage-pagination';
+          sections.forEach((sec, idx) => {
+            const dot = document.createElement('button');
+            dot.className = 'fullpage-dot';
+            dot.title = sec.id || `Sección ${idx + 1}`;
+            dot.addEventListener('click', () => goToSlide(idx));
+            pag.appendChild(dot);
+          });
+          document.body.appendChild(pag);
+          const activeDot = pag.children[activeIndex];
+          if (activeDot) activeDot.classList.add('active');
+        }
+
+        function removePagination() {
+          const existing = document.querySelector('.fullpage-pagination');
+          if (existing) existing.remove();
+        }
+
+        // Intercept navigation links
+        document.addEventListener('click', function(e) {
+          if (window.innerWidth < MIN_WIDTH) return;
+          const link = e.target.closest('a[href^="#"]');
+          if (!link) return;
+          
+          const targetId = link.getAttribute('href');
+          if (targetId === '#') {
+            e.preventDefault();
+            goToSlide(0);
+            return;
+          }
+          const targetSec = document.querySelector(targetId);
+          const idx = sections.indexOf(targetSec);
+          if (idx !== -1) {
+            e.preventDefault();
+            goToSlide(idx);
+          }
+        });
+
+        window.addEventListener('wheel', handleWheel, { passive: false });
+        window.addEventListener('keydown', handleKeydown);
+        window.addEventListener('touchstart', handleTouchStart);
+        window.addEventListener('touchmove', handleTouchMove, { passive: false });
+        window.addEventListener('resize', initFullPage);
+        
+        // Initial setup on DOMContentLoaded and load
+        window.addEventListener('DOMContentLoaded', initFullPage);
+        window.addEventListener('load', initFullPage);
+        
+        // Failsafe backup
+        setTimeout(initFullPage, 200);
       })();
     </script>
   </body>
