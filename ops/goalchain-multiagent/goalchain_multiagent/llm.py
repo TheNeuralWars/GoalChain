@@ -8,7 +8,7 @@ from goalchain_multiagent.config import Settings, get_settings
 from goalchain_multiagent.fcc_env import load_fcc_env
 from goalchain_multiagent.state import AgentName, GraphState
 
-Provider = Literal["mock", "openrouter", "anthropic", "openai", "none"]
+Provider = Literal["mock", "openrouter", "anthropic", "openai", "nvidia", "none"]
 
 
 def resolve_provider(settings: Settings | None = None) -> Provider:
@@ -19,6 +19,8 @@ def resolve_provider(settings: Settings | None = None) -> Provider:
     mode = (s.goalchain_ma_provider or "auto").lower().strip()
     fcc = load_fcc_env() if s.goalchain_ma_use_fcc_keys else {}
 
+    if mode == "nvidia":
+        return "nvidia" if s.nvidia_nim_api_key.strip() else "none"
     if mode == "openrouter":
         key = s.openrouter_api_key.strip() or fcc.get("OPENROUTER_API_KEY", "").strip()
         return "openrouter" if key else "none"
@@ -28,7 +30,9 @@ def resolve_provider(settings: Settings | None = None) -> Provider:
         key = s.openai_api_key.strip()
         return "openai" if key else "none"
 
-    # auto: prefer explicit multiagent keys, then FCC OpenRouter (no extra billing)
+    # auto: prefer explicit multiagent keys
+    if s.nvidia_nim_api_key.strip():
+        return "nvidia"
     if s.anthropic_api_key.strip():
         return "anthropic"
     if s.openai_api_key.strip():
@@ -51,6 +55,16 @@ def get_chat_model(settings: Settings | None = None):
     s = settings or get_settings()
     provider = resolve_provider(s)
 
+    if provider == "nvidia":
+        from langchain_openai import ChatOpenAI
+        return ChatOpenAI(
+            model=s.goalchain_ma_nvidia_model,
+            api_key=s.nvidia_nim_api_key.strip(),
+            base_url=s.goalchain_ma_nvidia_base_url,
+            max_tokens=1024,
+            temperature=0.2,
+        )
+
     if provider == "openrouter":
         from langchain_openai import ChatOpenAI
 
@@ -64,6 +78,7 @@ def get_chat_model(settings: Settings | None = None):
             max_tokens=1024,
             temperature=0.2,
         )
+
 
     if provider == "anthropic":
         from langchain_anthropic import ChatAnthropic

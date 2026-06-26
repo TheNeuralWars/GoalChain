@@ -6,7 +6,15 @@ import subprocess
 from goalchain_multiagent.config import Settings, get_settings
 
 
+from goalchain_multiagent.nemoclaw import run_nemoclaw_guardrail
+
+
 def _run(cmd: list[str], timeout: int = 25) -> str:
+    cmd_str = " ".join(cmd)
+    is_safe, reason = run_nemoclaw_guardrail(cmd_str)
+    if not is_safe:
+        return f"NemoClaw Blocked: {reason}"
+
     try:
         proc = subprocess.run(
             cmd,
@@ -24,6 +32,7 @@ def _run(cmd: list[str], timeout: int = 25) -> str:
         return f"$ {' '.join(cmd)}\n(timeout after {timeout}s)"
     except FileNotFoundError:
         return f"$ {' '.join(cmd)}\n(command not found)"
+
 
 
 def collect_ops_snapshot(objective: str, settings: Settings | None = None) -> str:
