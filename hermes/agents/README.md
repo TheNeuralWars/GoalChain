@@ -37,4 +37,4 @@ This folder contains all tokenizable agents for GoalChain.
 ## Deployment
 
 When ready, copy this entire structure to:
-`/opt/hermes/agents/` on the Hetzner server.
+`/opt/hermes/agents/` on the Oracle Cloud server.

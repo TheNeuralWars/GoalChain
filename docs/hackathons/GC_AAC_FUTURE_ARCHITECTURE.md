@@ -43,7 +43,7 @@ This document outlines the heavy, comprehensive business tooling architecture bu
   - Scale hosting resources dynamically (Render/AWS billing).
 
 ### 3. The Operational Safety Tier (NVIDIA NemoClaw)
-- **Command Injection Guardrail**: Before any agent-generated bash script or database migration runs on the production Hetzner VPS, the instructions pass through a NemoClaw wrapper.
+- **Command Injection Guardrail**: Before any agent-generated bash script or database migration runs on the production Oracle Cloud VPS, the instructions pass through a NemoClaw wrapper.
 - **Exfiltration Audit**: Inspects data payloads for keys, tokens, or system configurations to prevent leaks.
 - **Deterministic & LLM Layer**: Combines regex filters (P0 blocks) with deep model reasoning (NIM) to return a safety score and reason.
 

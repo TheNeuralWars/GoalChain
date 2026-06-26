@@ -70,7 +70,7 @@ const INITIAL_SWARM_NODES: SwarmNode[] = [
 
 const SCENARIOS: Record<string, { labelEn: string; labelEs: string; subEn: string; subEs: string; color: string; icon: string }> = {
   rpc_depletion:     { labelEn: 'Solana RPC Recharge',    labelEs: 'Recarga de RPC de Solana',        subEn: 'Quota alert → auto Stripe payment',       subEs: 'Alerta de cuota → pago automático con Stripe',         color: '#9945ff', icon: '🔌' },
-  exploit_prevention:{ labelEn: 'NemoClaw Audit',          labelEs: 'Auditoría NemoClaw',              subEn: 'Script injection → blocked on Hetzner',   subEs: 'Inyección de script → bloqueado en Hetzner',     color: '#ef4444', icon: '🛡️' },
+  exploit_prevention:{ labelEn: 'NemoClaw Audit',          labelEs: 'Auditoría NemoClaw',              subEn: 'Script injection → blocked on Oracle Cloud',   subEs: 'Inyección de script → bloqueado en Oracle Cloud',     color: '#ef4444', icon: '🛡️' },
   jersey_gen:        { labelEn: 'FAL.ai NFT Generation',   labelEs: 'Generación de NFT FAL.ai',        subEn: 'New player card → buy AI credits',        subEs: 'Nueva carta de jugador → compra de créditos de IA',          color: '#14f195', icon: '🎁' },
   pay_contributor:   { labelEn: 'Contributor Payout',      labelEs: 'Pago a Colaborador',              subEn: 'Issue resolved → Stripe transfer',        subEs: 'Incidencia resuelta → transferencia de Stripe',          color: '#00e0ff', icon: '💸' },
   nft_sale_cycle:    { labelEn: 'NFT Sale → Agent Fund',   labelEs: 'Venta de NFT → Fondo del Agente',  subEn: 'Pack sold → 10% auto-routes to agents',  subEs: 'Sobre vendido → 10% redirigido a agentes',    color: '#fbbf24', icon: '⚽' },
@@ -244,14 +244,14 @@ export function CorporateAutopilot() {
   const [swarmHops, setSwarmHops]   = useState(0);
 
   const getInitialLogs = useCallback((lang: string) => lang === 'es' ? [
-    'GC-AAC v1.0 inicializado. Conexión Hetzner VPS: ACTIVA.',
+    'GC-AAC v1.0 inicializado. Conexión Oracle Cloud VPS: ACTIVA.',
     'Proveedor de NVIDIA NIM: nvidia/nemotron-3-super-120b-a12b ✓',
     'Restricciones NemoClaw cargadas. Pipeline de comandos: VIGILANDO.',
     'Stripe Skills conectado. Balance del monedero del agente: $312.48 USD.',
     'Enjambre LangGraph: Nodos CEO + Dev + Growth + Ops listos.',
     'Esperando eventos empresariales o activadores manuales de escenarios...',
   ] : [
-    'GC-AAC v1.0 initialized. Hetzner VPS connection: ACTIVE.',
+    'GC-AAC v1.0 initialized. Oracle Cloud VPS connection: ACTIVE.',
     'NVIDIA NIM provider: nvidia/nemotron-3-super-120b-a12b ✓',
     'NemoClaw guardrails loaded. Command pipeline: WATCHING.',
     'Stripe Skills connected. Agent Wallet balance: $312.48 USD.',
@@ -837,7 +837,7 @@ export function CorporateAutopilot() {
             { labelEn: 'Stripe Skills', labelEs: 'Stripe Skills', descEn: 'Agents earn (checkout), spend (SaaS), and pay contributors autonomously', descEs: 'Los agentes ganan (pago), gastan (SaaS) y pagan a colaboradores de forma autónoma', color: '#9945ff', icon: '💳' },
             { labelEn: 'Agent Wallet', labelEs: 'Monedero del Agente', descEn: '10% of every NFT/pack sale auto-routes to fund agent operations perpetually', descEs: 'El 10% de cada venta de sobre/NFT se redirige automáticamente para financiar operaciones de agentes de por vida', color: '#fbbf24', icon: '⚽' },
             { labelEn: 'LangGraph Swarm', labelEs: 'Enjambre LangGraph', descEn: 'CEO → Dev/Growth/Ops → CEO multi-hop graph with max 6 routing hops', descEs: 'CEO → Dev/Growth/Ops → CEO grafo multisalto con un máximo de 6 saltos de enrutamiento', color: '#00e0ff', icon: '🔀' },
-            { labelEn: 'Hetzner VPS', labelEs: 'VPS Hetzner', descEn: 'Production server running FastAPI + Python multi-agent engine in systemd', descEs: 'Servidor de producción que ejecuta el motor multiagente FastAPI + Python en systemd', color: '#ef4444', icon: '🖥️' },
+            { labelEn: 'Oracle Cloud VPS', labelEs: 'VPS Oracle Cloud', descEn: 'Production server running FastAPI + Python multi-agent engine in systemd', descEs: 'Servidor de producción que ejecuta el motor multiagente FastAPI + Python en systemd', color: '#ef4444', icon: '🖥️' },
           ].map(item => (
             <div key={item.labelEn} style={{
               display: 'flex', gap: '12px', alignItems: 'flex-start',
