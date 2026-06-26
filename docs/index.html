@@ -261,6 +261,139 @@
           text-align: center;
         }
       }
+
+      /* --- FULLPAGE SCROLL SNAP STYLES (Desktop Only) --- */
+      @media (min-width: 1024px) {
+        body.fullpage-enabled {
+          overflow: hidden !important;
+          height: 100vh !important;
+          width: 100vw !important;
+          position: relative !important;
+        }
+
+        /* Set all main elements as absolute full-screen slides */
+        body.fullpage-enabled > header.hero,
+        body.fullpage-enabled > section,
+        body.fullpage-enabled > footer.site-footer {
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100vh !important;
+          margin: 0 !important;
+          padding: 6rem 2rem 2rem 2rem !important; /* accommodate top navbar space */
+          box-sizing: border-box !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: center !important;
+          align-items: center !important;
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transform: translateY(30px) scale(0.97);
+          transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease, visibility 0.9s;
+          z-index: 10;
+          overflow-y: auto !important; /* allow content scroll if layout overflows */
+          background-color: #06060a; /* solid dark background for transitions */
+        }
+
+        /* Active slide */
+        body.fullpage-enabled > header.hero.active,
+        body.fullpage-enabled > section.active,
+        body.fullpage-enabled > footer.site-footer.active {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          transform: translateY(0) scale(1);
+          z-index: 20;
+        }
+
+        /* Slide above active (exiting to top) */
+        body.fullpage-enabled > header.hero.prev-slide,
+        body.fullpage-enabled > section.prev-slide,
+        body.fullpage-enabled > footer.site-footer.prev-slide {
+          transform: translateY(-30px) scale(0.97);
+        }
+
+        /* Adjust internal container widths to look aligned and neat */
+        body.fullpage-enabled > header.hero > *,
+        body.fullpage-enabled > section > *,
+        body.fullpage-enabled > footer.site-footer > * {
+          width: 100%;
+          max-width: 1200px;
+        }
+
+        /* Hide elements that are animations/backgrounds from interfering with slide clicks */
+        #solanaParticles {
+          z-index: 5 !important;
+        }
+
+        /* Desktop Navigation adjustments */
+        body.fullpage-enabled nav {
+          position: fixed !important;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 100 !important;
+          background: rgba(6, 6, 10, 0.8) !important;
+          backdrop-filter: blur(12px) !important;
+          -webkit-backdrop-filter: blur(12px) !important;
+        }
+
+        /* Pagination Side Dots */
+        .fullpage-pagination {
+          position: fixed;
+          right: 30px;
+          top: 50%;
+          transform: translateY(-50%);
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          z-index: 150;
+        }
+
+        .fullpage-dot {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.2);
+          border: 2px solid transparent;
+          cursor: pointer;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+          padding: 0;
+          outline: none;
+        }
+
+        .fullpage-dot:hover {
+          background: rgba(20, 241, 149, 0.6);
+          transform: scale(1.2);
+        }
+
+        .fullpage-dot.active {
+          background: var(--primary-neon, #14f195);
+          border-color: #06060a;
+          box-shadow: 0 0 12px var(--primary-neon, #14f195);
+          transform: scale(1.4);
+        }
+
+        /* Prevent double scrollbars inside active slides */
+        body.fullpage-enabled > header.hero::-webkit-scrollbar,
+        body.fullpage-enabled > section::-webkit-scrollbar,
+        body.fullpage-enabled > footer.site-footer::-webkit-scrollbar {
+          width: 6px;
+        }
+        body.fullpage-enabled > header.hero::-webkit-scrollbar-track,
+        body.fullpage-enabled > section::-webkit-scrollbar-track,
+        body.fullpage-enabled > footer.site-footer::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.1);
+        }
+        body.fullpage-enabled > header.hero::-webkit-scrollbar-thumb,
+        body.fullpage-enabled > section::-webkit-scrollbar-thumb,
+        body.fullpage-enabled > footer.site-footer::-webkit-scrollbar-thumb {
+          background: rgba(20, 241, 149, 0.3);
+          border-radius: 3px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -6250,7 +6383,7 @@
         function initFullPage() {
           applyBodyStyles();
 
-          const selector = 'header.hero, section.section, section.xscout-live-section, section.whitelist-section, section.cta-banner, footer.site-footer';
+          const selector = 'body > header.hero, body > section, body > footer.site-footer';
           sections = Array.from(document.querySelectorAll(selector)).filter(el => {
             return el.parentElement === document.body;
           });
