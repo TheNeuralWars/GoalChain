@@ -269,7 +269,16 @@ export function CorporateAutopilot() {
 
   const [activeScenario, setActiveScenario] = useState<string | null>(null);
   const [loadingCheckout, setLoadingCheckout] = useState(false);
-  const [activeTab, setActiveTab]             = useState<'ledger' | 'wallet' | 'safety'>('wallet');
+  const [activeTab, setActiveTab]             = useState<'ledger' | 'wallet' | 'safety' | 'threads'>('wallet');
+
+  // Threads Cockpit State
+  const [threads, setThreads] = useState<any[]>([]);
+  const [selectedThreadId, setSelectedThreadId] = useState<string | null>(null);
+  const [selectedThreadState, setSelectedThreadState] = useState<any | null>(null);
+  const [newThreadObjective, setNewThreadObjective] = useState('');
+  const [replyText, setReplyText] = useState('');
+  const [loadingThreads, setLoadingThreads] = useState(false);
+  const [sendingThread, setSendingThread] = useState(false);
   const [economyPulse, setEconomyPulse]       = useState(false);
   const [showQuorumPanel, setShowQuorumPanel] = useState(false);
   const [quorumOperation, setQuorumOperation] = useState('');
@@ -289,6 +298,107 @@ export function CorporateAutopilot() {
     const t = setInterval(poll, 10000);
     return () => clearInterval(t);
   }, [apiBase]);
+
+  const fetchThreads = useCallback(async () => {
+    setLoadingThreads(true);
+    try {
+      const r = await fetch(`${apiBase}/api/ops/threads`);
+      if (r.ok) {
+        const d = await r.json();
+        setThreads(d);
+      }
+    } catch (e) {
+      console.error("Failed to fetch threads:", e);
+    } finally {
+      setLoadingThreads(false);
+    }
+  }, [apiBase]);
+
+  const fetchThreadState = useCallback(async (id: string) => {
+    try {
+      const r = await fetch(`${apiBase}/api/ops/threads/${id}`);
+      if (r.ok) {
+        const d = await r.json();
+        setSelectedThreadState(d);
+      }
+    } catch (e) {
+      console.error("Failed to fetch thread state:", e);
+    }
+  }, [apiBase]);
+
+  useEffect(() => {
+    if (activeTab === 'threads') {
+      fetchThreads();
+    }
+  }, [activeTab, fetchThreads]);
+
+  useEffect(() => {
+    if (selectedThreadId) {
+      fetchThreadState(selectedThreadId);
+      const interval = setInterval(() => fetchThreadState(selectedThreadId), 5000);
+      return () => clearInterval(interval);
+    }
+    return () => {};
+  }, [selectedThreadId, fetchThreadState]);
+
+  const handleSendThread = async (e: React.FormEvent, isReply: boolean) => {
+    e.preventDefault();
+    const objective = isReply ? replyText : newThreadObjective;
+    if (!objective.trim()) return;
+    
+    setSendingThread(true);
+    addLog(`[Client] Sending prompt to Swarm: "${objective.substring(0, 50)}..."`, 'info');
+    
+    try {
+      const r = await fetch(`${apiBase}/api/ops/run`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          objective: objective.trim(),
+          source: 'manager_cockpit',
+          actor: 'manager',
+          thread_id: isReply ? selectedThreadId : undefined,
+        }),
+      });
+      
+      if (r.ok) {
+        const d = await r.json();
+        addLog(`[CEO] Response: ${d.summary}`, 'success');
+        if (d.route_trace && d.route_trace.length > 0) {
+          addLog(`[Route Trace] ${d.route_trace.join(' → ')}`, 'info');
+        }
+        
+        // If dangerous command blocked
+        if (d.summary.startsWith('Blocked:')) {
+          setSafetyLogs(prev => [
+            {
+              id: `sl_${Date.now()}`,
+              timestamp: new Date().toISOString(),
+              command: objective,
+              status: 'blocked',
+              reason: d.summary
+            },
+            ...prev
+          ]);
+        }
+        
+        if (isReply) {
+          setReplyText('');
+          if (selectedThreadId) fetchThreadState(selectedThreadId);
+        } else {
+          setNewThreadObjective('');
+          fetchThreads();
+        }
+      } else {
+        const err = await r.text();
+        addLog(`[Error] Swarm execution failed: ${err}`, 'error');
+      }
+    } catch (err: any) {
+      addLog(`[Error] Network error sending request: ${err.message}`, 'error');
+    } finally {
+      setSendingThread(false);
+    }
+  };
 
   const addLog = useCallback((msg: string, color?: 'error' | 'success' | 'info') => {
     const time = new Date().toLocaleTimeString('en-US', { hour12: false });
@@ -636,7 +746,7 @@ export function CorporateAutopilot() {
         }}>
           {/* Tab bar */}
           <div style={{ display: 'flex', gap: '8px', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '12px' }}>
-            {([['wallet', tText('💳 Agent Wallet', '💳 Monedero Agente')], ['ledger', tText('📊 Corp Ledger', '📊 Libro Corp')], ['safety', tText('🛡️ NemoClaw', '🛡️ NemoClaw')]] as const).map(([tab, label]) => (
+            {([['wallet', tText('💳 Agent Wallet', '💳 Monedero Agente')], ['ledger', tText('📊 Corp Ledger', '📊 Libro Corp')], ['safety', tText('🛡️ NemoClaw', '🛡️ NemoClaw')], ['threads', tText('📟 Swarm Threads', '📟 Hilos Swarm')]] as const).map(([tab, label]) => (
               <button key={tab} onClick={() => setActiveTab(tab)} style={{
                 padding: '6px 14px', borderRadius: '8px', fontSize: '0.72rem', fontWeight: 700, cursor: 'pointer',
                 background: activeTab === tab ? 'rgba(153,69,255,0.2)' : 'transparent',
@@ -816,6 +926,167 @@ export function CorporateAutopilot() {
                   );
                 })}
               </div>
+            </div>
+          )}
+
+          {/* SWARM THREADS TAB */}
+          {activeTab === 'threads' && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {selectedThreadId === null ? (
+                <>
+                  {/* Threads List */}
+                  <div style={{ fontSize: '0.65rem', color: '#94a3b8', fontWeight: 700, marginBottom: '4px' }}>
+                    {tText('ACTIVE SWARM SESSIONS', 'SESIONES ACTIVAS DEL ENJAMBRE')}
+                  </div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', maxHeight: '240px', overflowY: 'auto' }}>
+                    {loadingThreads && (
+                      <div style={{ fontSize: '0.7rem', color: '#64748b', textAlign: 'center', padding: '10px' }}>
+                        {tText('Loading threads...', 'Cargando hilos...')}
+                      </div>
+                    )}
+                    {!loadingThreads && threads.length === 0 && (
+                      <div style={{ fontSize: '0.7rem', color: '#64748b', textAlign: 'center', padding: '10px', background: 'rgba(255,255,255,0.01)', border: '1px dashed rgba(255,255,255,0.08)', borderRadius: '8px' }}>
+                        {tText('No active threads. Launch a new swarm node below.', 'Sin hilos activos. Inicia un nuevo nodo de enjambre abajo.')}
+                      </div>
+                    )}
+                    {threads.map(t => (
+                      <div
+                        key={t.thread_id}
+                        onClick={() => setSelectedThreadId(t.thread_id)}
+                        style={{
+                          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                          background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)',
+                          borderRadius: '8px', padding: '8px 10px', fontSize: '0.7rem', cursor: 'pointer',
+                          transition: 'all 0.2s',
+                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#9945ff'; e.currentTarget.style.background = 'rgba(153,69,255,0.02)'; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
+                      >
+                        <div style={{ flex: 1, marginRight: '8px' }}>
+                          <div style={{ fontWeight: 700, color: '#e2e8f0', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '200px' }}>
+                            {t.objective}
+                          </div>
+                          <div style={{ fontSize: '0.58rem', color: '#64748b', marginTop: '2px' }}>
+                            ID: <code style={{ color: '#94a3b8' }}>{t.thread_id.substring(0, 8)}</code> · {t.message_count} {tText('messages', 'mensajes')}
+                          </div>
+                        </div>
+                        <span style={{
+                          fontSize: '0.55rem', fontWeight: 800, padding: '2px 6px', borderRadius: '4px',
+                          background: t.finished ? 'rgba(20,241,149,0.12)' : 'rgba(251,191,36,0.12)',
+                          color: t.finished ? '#14f195' : '#fbbf24',
+                        }}>
+                          {t.finished ? tText('FINISHED', 'FINALIZADO') : tText('ACTIVE', 'ACTIVO')}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Launch New Swarm Node */}
+                  <form onSubmit={(e) => handleSendThread(e, false)} style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '8px', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '12px' }}>
+                    <div style={{ fontSize: '0.65rem', color: '#94a3b8', fontWeight: 700 }}>
+                      {tText('LAUNCH NEW SWARM OBJECTIVE', 'INICIAR NUEVO OBJETIVO DEL ENJAMBRE')}
+                    </div>
+                    <textarea
+                      value={newThreadObjective}
+                      onChange={(e) => setNewThreadObjective(e.target.value)}
+                      placeholder={tText("Enter swarm objective (e.g. 'audita solana anchor program')...", "Introduce el objetivo del enjambre (ej: 'audita programa anchor solana')...")}
+                      style={{
+                        width: '100%', height: '54px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.08)',
+                        borderRadius: '8px', padding: '8px', color: '#fff', fontSize: '0.72rem', fontFamily: 'inherit', resize: 'none',
+                        outline: 'none', transition: 'border-color 0.2s',
+                      }}
+                      onFocus={(e) => e.target.style.borderColor = '#9945ff'}
+                      onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
+                    />
+                    <button
+                      type="submit"
+                      disabled={sendingThread || !newThreadObjective.trim()}
+                      style={{
+                        padding: '8px 16px', borderRadius: '8px', fontSize: '0.72rem', fontWeight: 700,
+                        background: newThreadObjective.trim() ? 'linear-gradient(90deg, #9945ff, #00e0ff)' : 'rgba(255,255,255,0.05)',
+                        border: 'none', color: newThreadObjective.trim() ? '#fff' : '#64748b', cursor: newThreadObjective.trim() && !sendingThread ? 'pointer' : 'not-allowed',
+                        transition: 'opacity 0.2s',
+                      }}
+                    >
+                      {sendingThread ? tText('Launching Swarm Node...', 'Iniciando enjambre...') : tText('👑 Launch Swarm Node', '👑 Iniciar Nodo de Enjambre')}
+                    </button>
+                  </form>
+                </>
+              ) : (
+                <>
+                  {/* Thread chat history */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '8px' }}>
+                    <button
+                      onClick={() => { setSelectedThreadId(null); setSelectedThreadState(null); }}
+                      style={{ background: 'transparent', border: 'none', color: '#00e0ff', fontSize: '0.7rem', fontWeight: 700, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', padding: 0 }}
+                    >
+                      ← {tText('Back to List', 'Volver a la Lista')}
+                    </button>
+                    <span style={{ fontSize: '0.58rem', color: '#64748b' }}>
+                      ID: <code style={{ color: '#94a3b8' }}>{selectedThreadId.substring(0, 12)}</code>
+                    </span>
+                  </div>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxHeight: '200px', overflowY: 'auto', paddingRight: '4px' }}>
+                    {selectedThreadState && selectedThreadState.messages && selectedThreadState.messages.map((m: any, idx: number) => {
+                      const isUser = m.role === 'user';
+                      const isNemoClaw = m.role === 'nemoclaw';
+                      return (
+                        <div
+                          key={idx}
+                          style={{
+                            alignSelf: isUser ? 'flex-end' : 'flex-start',
+                            maxWidth: '85%',
+                            background: isUser ? 'rgba(0, 224, 255, 0.08)' : isNemoClaw ? 'rgba(239, 68, 68, 0.12)' : 'rgba(255, 255, 255, 0.03)',
+                            border: `1px solid ${isUser ? 'rgba(0, 224, 255, 0.2)' : isNemoClaw ? 'rgba(239, 68, 68, 0.3)' : 'rgba(255, 255, 255, 0.07)'}`,
+                            borderRadius: '8px', padding: '6px 10px', fontSize: '0.7rem',
+                          }}
+                        >
+                          <div style={{ fontSize: '0.58rem', fontWeight: 800, color: isUser ? '#00e0ff' : isNemoClaw ? '#ef4444' : '#9945ff', textTransform: 'uppercase', marginBottom: '2px' }}>
+                            {m.role}
+                          </div>
+                          <div style={{ color: isNemoClaw ? '#fca5a5' : '#e2e8f0', whiteSpace: 'pre-wrap' }}>
+                            {m.content}
+                          </div>
+                        </div>
+                      );
+                    })}
+                    {!selectedThreadState && (
+                      <div style={{ fontSize: '0.7rem', color: '#64748b', textAlign: 'center', padding: '10px' }}>
+                        {tText('Loading thread state...', 'Cargando estado del hilo...')}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Thread reply form */}
+                  <form onSubmit={(e) => handleSendThread(e, true)} style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '8px', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '12px' }}>
+                    <textarea
+                      value={replyText}
+                      onChange={(e) => setReplyText(e.target.value)}
+                      placeholder={tText('Type your response to this thread...', 'Escribe tu respuesta a este hilo...')}
+                      style={{
+                        width: '100%', height: '54px', background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.08)',
+                        borderRadius: '8px', padding: '8px', color: '#fff', fontSize: '0.72rem', fontFamily: 'inherit', resize: 'none',
+                        outline: 'none', transition: 'border-color 0.2s',
+                      }}
+                      onFocus={(e) => e.target.style.borderColor = '#9945ff'}
+                      onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.08)'}
+                    />
+                    <button
+                      type="submit"
+                      disabled={sendingThread || !replyText.trim()}
+                      style={{
+                        padding: '8px 16px', borderRadius: '8px', fontSize: '0.72rem', fontWeight: 700,
+                        background: replyText.trim() ? 'linear-gradient(90deg, #9945ff, #00e0ff)' : 'rgba(255,255,255,0.05)',
+                        border: 'none', color: replyText.trim() ? '#fff' : '#64748b', cursor: replyText.trim() && !sendingThread ? 'pointer' : 'not-allowed',
+                        transition: 'opacity 0.2s',
+                      }}
+                    >
+                      {sendingThread ? tText('Sending reply...', 'Enviando respuesta...') : tText('✉️ Send Reply', '✉️ Enviar Respuesta')}
+                    </button>
+                  </form>
+                </>
+              )}
             </div>
           )}
         </section>

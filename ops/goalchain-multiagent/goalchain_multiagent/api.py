@@ -301,6 +301,106 @@ def quorum_demo_squad_endpoint() -> dict:
     return {"squad": players, "total_gp": round(sum(p["gp"] for p in players), 2)}
 
 
+@app.get("/api/ops/threads")
+def list_threads(
+    settings: Settings = Depends(get_settings),
+) -> list[dict[str, Any]]:
+    """Lists all active agent threads and their latest status summary."""
+    if not settings.goalchain_multiagent_enabled:
+        raise HTTPException(status_code=503, detail="GOALCHAIN_MULTIAGENT_ENABLED=0")
+    
+    from goalchain_multiagent.graph import get_compiled_graph
+    graph = get_compiled_graph()
+    
+    # Query checkpointer configurations
+    unique_thread_ids = set()
+    try:
+        for cp in graph.checkpointer.list(None):
+            tid = cp.config["configurable"].get("thread_id")
+            if tid:
+                unique_thread_ids.add(tid)
+    except Exception as exc:
+        logger.error(f"Failed to list checkpoints: {exc}")
+        return []
+
+    threads = []
+    for tid in sorted(unique_thread_ids):
+        try:
+            state = graph.get_state({"configurable": {"thread_id": tid}})
+            if state and state.values:
+                val = state.values
+                threads.append({
+                    "thread_id": tid,
+                    "objective": val.get("objective") or "",
+                    "actor": val.get("actor") or "unknown",
+                    "finished": val.get("finished") or False,
+                    "hop": val.get("hop") or 0,
+                    "route_trace": val.get("route_trace") or [],
+                    "summary": val.get("summary") or "",
+                    "message_count": len(val.get("messages") or []),
+                })
+        except Exception as exc:
+            logger.error(f"Failed to get state for thread {tid}: {exc}")
+            continue
+            
+    return threads
+
+
+@app.get("/api/ops/threads/{thread_id}")
+def get_thread_state(
+    thread_id: str,
+    settings: Settings = Depends(get_settings),
+) -> dict[str, Any]:
+    """Returns the full conversation logs and state for a specific thread."""
+    if not settings.goalchain_multiagent_enabled:
+        raise HTTPException(status_code=503, detail="GOALCHAIN_MULTIAGENT_ENABLED=0")
+        
+    from goalchain_multiagent.graph import get_compiled_graph
+    graph = get_compiled_graph()
+    
+    try:
+        state = graph.get_state({"configurable": {"thread_id": thread_id}})
+        if not state or not state.values:
+            raise HTTPException(status_code=404, detail="Thread not found")
+        return state.values
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Error reading thread state: {exc}")
+
+
+@app.post("/api/ops/run", response_model=RunResponse)
+def ops_run(
+    body: RunRequest,
+    settings: Settings = Depends(get_settings),
+) -> RunResponse:
+    """Public Swarm execution endpoint with NemoClaw guardrail protection."""
+    if not settings.goalchain_multiagent_enabled:
+        raise HTTPException(
+            status_code=503,
+            detail="GOALCHAIN_MULTIAGENT_ENABLED=0",
+        )
+    result = run_objective(
+        body.objective,
+        source=body.source,
+        actor=body.actor,
+        context=body.context,
+        thread_id=body.thread_id,
+    )
+    summary = (result.get("summary") or "").strip()
+    if not summary:
+        trace = " → ".join(result.get("route_trace") or [])
+        summary = f"Completed route {trace}. See logs."
+        
+    return RunResponse(
+        status="ok",
+        summary=summary,
+        route_trace=list(result.get("route_trace") or []),
+        artifacts=list(result.get("artifacts") or []),
+        messages=list(result.get("messages") or []),
+    )
+
+
 # ─────────────────────────────────────────────────────────────────────────────
 
 def main() -> None:

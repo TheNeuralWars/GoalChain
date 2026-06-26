@@ -57,6 +57,25 @@ def run_objective(
     thread_id: str | None = None,
 ) -> GraphState:
     settings = get_settings()
+
+    # Run NemoClaw safety guardrail
+    from goalchain_multiagent.nemoclaw import run_nemoclaw_guardrail
+    is_safe, reason = run_nemoclaw_guardrail(objective, settings)
+    if not is_safe:
+        return {
+            "objective": objective.strip(),
+            "source": source,
+            "actor": actor,
+            "context": context or {},
+            "hop": 1,
+            "max_hops": settings.goalchain_ma_max_hops,
+            "route_trace": ["nemoclaw"],
+            "messages": [{"role": "nemoclaw", "content": reason}],
+            "artifacts": [],
+            "summary": f"Blocked: {reason}",
+            "finished": True,
+        }
+
     initial: GraphState = {
         "objective": objective.strip(),
         "source": source,
