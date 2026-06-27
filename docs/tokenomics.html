@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>GoalChain Tokenomics | Burn Tracker & Economy Observability</title>
+    <meta name="description" content="GoalChain tokenomics dashboard: live $GCH burn tracker and Infinity Engine economy observability." />
+    <meta name="theme-color" content="#06060a" />
+    <link rel="stylesheet" href="assets/css/tokens.css?v=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css?v=4.4" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/img/logo_3d_clean.png?v=2.0" />
+    <style>
+      body {
+        background: #030307;
+        color: #f3f4f6;
+        font-family: 'Outfit', sans-serif;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      /* Hero design */
+      .tokenomics-hero {
+        padding: 80px 20px 40px;
+        text-align: center;
+        background: radial-gradient(circle at center, rgba(20, 241, 149, 0.08) 0%, rgba(3, 3, 7, 0) 70%);
+      }
+      .tokenomics-hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 900;
+        margin: 0 0 10px;
+        background: linear-gradient(135deg, #ffffff 0%, #14f195 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 40px rgba(20, 241, 149, 0.2);
+      }
+      .tokenomics-hero p {
+        color: #9ca3af;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Dashboard Grid */
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 40px;
+      }
+
+      /* Card layout */
+      .metric-card {
+        background: rgba(13, 13, 27, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 24px;
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+      .metric-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(20, 241, 149, 0.2);
+      }
+      .metric-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(153, 69, 255, 0.2), transparent);
+      }
+
+      .metric-title {
+        font-size: 0.85rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        color: #9ca3af;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .metric-value {
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        font-weight: 900;
+        color: #ffffff;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+      .metric-value.highlight {
+        background: linear-gradient(135deg, #14f195, #9945ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .metric-subtitle {
+        font-size: 0.8rem;
+        color: #6b7280;
+      }
+
+      /* Indicator badge */
+      .status-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      .status-healthy {
+        background: rgba(20, 241, 149, 0.1);
+        color: #14f195;
+      }
+      .status-warning {
+        background: rgba(245, 158, 11, 0.1);
+        color: #f59e0b;
+      }
+      .status-offline {
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+      }
+
+      /* Glow background elements */
+      .glow-sphere {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(153, 69, 255, 0.15) 0%, transparent 70%);
+        top: -50px;
+        right: -50px;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav (glassmórfico) -->
+    <nav class="gc-site-nav" aria-label="Main">
+      <a href="index.html" class="gc-site-nav-brand">⚽ Goal<span style="color:var(--gc-green,#14f195)">Chain</span></a>
+      <div class="gc-site-nav-links" style="display:flex; align-items:center; gap:20px;">
+        <a href="index.html">Home</a>
+        <a href="arcade.html">Arcade</a>
+        <a href="tokenomics.html" aria-current="page">Tokenomics</a>
+        <a href="agents.html">Agents</a>
+        
+        <!-- Wallet button circular (optional aesthetic sync) -->
+        <button
+          id="connectWalletBtn"
+          class="btn-wallet btn-glow"
+          style="
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(20, 241, 149, 0.1);
+            border: 1px solid var(--primary, #14f195);
+            color: var(--primary, #14f195);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+          "
+          title="Connect Wallet"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
+            <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path>
+            <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="tokenomics-hero">
+      <h1>🔥 Tokenomics & Observability</h1>
+      <p>Monitorea en tiempo real la deflación de $GCH, la liquidez y las variables económicas del Infinity Engine.</p>
+    </header>
+
+    <!-- Main Dashboard Section -->
+    <main class="dashboard-grid">
+      
+      <!-- live GCH burn tracker -->
+      <section class="metric-card" style="grid-column: 1 / -1;">
+        <div class="glow-sphere" style="background: radial-gradient(circle, rgba(20, 241, 149, 0.2) 0%, transparent 70%);"></div>
+        <div class="metric-title">
+          <span>Live GCH Burn Tracker</span>
+          <span style="color:#14f195;">● REAL-TIME</span>
+        </div>
+        <div class="metric-value highlight" id="liveBurnVal">--</div>
+        <div class="metric-subtitle">
+          Total de tokens $GCH sacados de circulación permanentemente. Actualizado por última vez: <span id="burnTrackerTs" style="color:#fff;">--</span>
+        </div>
+      </section>
+
+      <!-- Staking & MCAP -->
+      <section class="metric-card">
+        <div class="metric-title">
+          <span>Total Sol Staked</span>
+          <span>◎ SOL</span>
+        </div>
+        <div class="metric-value" id="statStaked">--</div>
+        <div class="metric-subtitle">Fondos bloqueados en contratos inteligentes de staking de GoalChain.</div>
+      </section>
+
+      <section class="metric-card">
+        <div class="metric-title">
+          <span>Synthetic Market Cap</span>
+          <span>USD</span>
+        </div>
+        <div class="metric-value" id="statMarketCap">--</div>
+        <div class="metric-subtitle">Valor de capitalización de mercado sintética calculada sobre tokens quemados.</div>
+      </section>
+
+      <!-- Economy Observability KPIs -->
+      <section class="metric-card">
+        <div class="metric-title">
+          <span>Emit / Burn Ratio (7d)</span>
+          <span>Ratio</span>
+        </div>
+        <div class="metric-value" id="kpiEmitBurnRatio" style="color: #a5b4fc;">--</div>
+        <div class="metric-subtitle">Relación entre la emisión de tokens y la quema durante los últimos 7 días.</div>
+      </section>
+
+      <section class="metric-card">
+        <div class="metric-title">
+          <span>On-chain Sink Coverage</span>
+          <span>Porcentaje</span>
+        </div>
+        <div class="metric-value" id="kpiSinkCoverage" style="color: #14f195;">--</div>
+        <div class="metric-subtitle">Porcentaje de sumideros de tokens cubiertos e implementados en la red.</div>
+      </section>
+
+      <section class="metric-card">
+        <div class="metric-title">
+          <span>Configuration Drift</span>
+          <span>Drift</span>
+        </div>
+        <div class="metric-value" id="kpiConfigDrift" style="color: #ff9a33;">--</div>
+        <div class="metric-subtitle">Desviación detectada respecto a los parámetros óptimos del Infinity Engine.</div>
+      </section>
+
+      <section class="metric-card">
+        <div class="metric-title">
+          <span>Net Emission (24h)</span>
+          <span>Flujo GCH</span>
+        </div>
+        <div class="metric-value" id="kpiNetEmission24h">--</div>
+        <div class="metric-subtitle">Variación neta del suministro en circulación durante las últimas 24 horas.</div>
+      </section>
+
+      <!-- System Health -->
+      <section class="metric-card" style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <div class="metric-title" style="margin-bottom: 5px;">Infinity Engine Health Status</div>
+          <div style="font-size: 0.9rem; color: #9ca3af;">Verificación automatizada de consistencia y estabilidad económica.</div>
+        </div>
+        <div style="text-align: right;">
+          <div id="kpiHealthStatus" class="status-indicator status-offline">Checking...</div>
+          <div style="font-size: 0.75rem; color: #6b7280; margin-top: 5px;">Último chequeo: <span id="kpiUpdatedAt">--</span></div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Scripts: load in correct order for proper DOMContentLoaded execution -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script src="assets/js/solana_integration.js?v=3.0"></script>
+    <script src="assets/js/tokenomics.js?v=1.0"></script>
+    <script src="assets/js/burn_tracker.js?v=1.1"></script>
+    <script src="assets/js/economy_observability.js?v=1.1"></script>
+  </body>
+</html>

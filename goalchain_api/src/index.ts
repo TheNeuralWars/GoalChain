@@ -848,6 +848,27 @@ app.get("/api/ops/status", async (req, res) => {
   }
 });
 
+app.post("/api/ops/crank", async (req, res) => {
+  try {
+    const oracleDir = path.resolve(__dirname, "../../goalchain_oracle");
+    exec("npm run vault-crank", { cwd: oracleDir }, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`[Crank trigger] Error executing: ${error.message}`);
+        return;
+      }
+      console.log(`[Crank trigger] Output:\n${stdout}`);
+      if (stderr) {
+        console.warn(`[Crank trigger] Stderr:\n${stderr}`);
+      }
+    });
+    res.json({ success: true, message: "Vault crank triggered in background." });
+  } catch (err: any) {
+    console.error("Trigger crank endpoint error:", err);
+    res.status(500).json({ error: `Failed to trigger crank: ${err.message}` });
+  }
+});
+
+
 // Triggerable alert endpoint for cron/monitors.
 app.post("/api/economy/health/alert", async (req, res) => {
   try {

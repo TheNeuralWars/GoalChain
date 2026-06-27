@@ -67,3 +67,13 @@ export async function fetchOpsStatus(signal?: AbortSignal): Promise<OpsStatus> {
   }
   return res.json() as Promise<OpsStatus>;
 }
+
+export async function triggerVaultCrank(): Promise<{ success: boolean; message: string }> {
+  const res = await fetch(`${apiBaseUrl()}/api/ops/crank`, {
+    method: 'POST',
+  });
+  if (!res.ok) {
+    throw new Error(`Crank trigger HTTP ${res.status}`);
+  }
+  return res.json();
+}
