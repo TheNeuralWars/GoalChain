@@ -15,15 +15,65 @@ export function PlayLayout() {
     const saved = localStorage.getItem('gc_nav_collapsed');
     return saved === null ? window.innerWidth < 1280 : saved === '1';
   });
+  // drawerOpen sólo activa el overlay flotante (scrim + drawer fijo) en tablet.
+  // NO controla el modo de rejilla — eso queda en CSS vía --gc-shell-cols (D1).
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('gc_nav_collapsed', collapsed ? '1' : '0');
   }, [collapsed]);
 
+  // Listener de resize con debounce: mantiene `collapsed` coherente al cambiar
+  // de breakpoint (hoy sólo se inicializa desde innerWidth y nunca se actualiza).
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    const onResize = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        if (window.innerWidth < 1280) {
+          setCollapsed(true);
+          setDrawerOpen(false);
+        } else {
+          setDrawerOpen(false);
+        }
+      }, 120);
+    };
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  // Wrapper: al expandir el rail por debajo de 1280px, abrir también el overlay.
+  const handleToggleCollapse = (next: boolean | ((prev: boolean) => boolean)) => {
+    setCollapsed((prev) => {
+      const resolved = typeof next === 'function' ? next(prev) : next;
+      if (!resolved && window.innerWidth < 1280) {
+        setDrawerOpen(true); // rail abierto en tablet → mostrar scrim + drawer
+      } else if (resolved) {
+        setDrawerOpen(false); // rail colapsado → cerrar overlay
+      }
+      return resolved;
+    });
+  };
+
   return (
-    <div className={`play-shell play-shell--grid ${collapsed ? 'play-shell--collapsed' : 'play-shell--expanded'} ${ugcMode ? 'ugc-active' : ''}`}>
+    <div className={`play-shell play-shell--grid ${collapsed ? 'play-shell--collapsed' : 'play-shell--expanded'} ${drawerOpen ? 'play-shell--drawer-open' : ''} ${ugcMode ? 'ugc-active' : ''}`}>
       {/* Sidebar / icon-rail (desktop + tablet) */}
-      <PlayNav collapsed={collapsed} setCollapsed={setCollapsed} />
+      <PlayNav collapsed={collapsed} setCollapsed={handleToggleCollapse} />
+
+      {/* Scrim: cortina bajo el cajón flotante (click para cerrar) */}
+      {drawerOpen && (
+        <div
+          className="gc-rail-scrim"
+          onClick={() => {
+            setDrawerOpen(false);
+            setCollapsed(true);
+          }}
+          aria-hidden
+        />
+      )}
 
       {/* Columna principal: header + contenido + footer móvil */}
       <div className="play-main">
