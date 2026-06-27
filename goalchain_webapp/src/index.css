@@ -831,6 +831,7 @@ input:checked + .slider-red:before {
 
 /* --- Columna principal --- */
 .play-main {
+  grid-column: 2;
   min-width: 0;
   min-height: 100vh;
   display: flex;
@@ -1302,6 +1303,9 @@ input:checked + .slider-red:before {
   /* Móvil: ocultar el rail, mostrar bottom-tab bar. */
   .play-shell--grid {
     grid-template-columns: 1fr;
+  }
+  .play-shell--grid .play-main {
+    grid-column: 1;
   }
   .play-shell {
     overflow-x: hidden;
