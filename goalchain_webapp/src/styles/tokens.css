@@ -135,6 +135,11 @@
   --gc-rail-expanded: 260px; /* sidebar desplegado */
   --gc-bottom-tab-h: 64px; /* barra móvil */
 
+  /* Template de rejilla del shell (D4 — fuente única de verdad).
+     Desktop lo define; tablet/móvil lo sobreescriben en sus media queries
+     dentro de index.css. Valor por defecto = escritorio expandido. */
+  --gc-shell-cols: var(--gc-rail-expanded) 1fr;
+
   /* ==========================================
      10. ANIMACIONES
      ========================================== */
