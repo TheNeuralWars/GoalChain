@@ -629,7 +629,8 @@ Responde en español de forma extremadamente concisa (1-3 oraciones), con emojis
                 stadium,
                 balance
             };
-            const backendRes = await fetch('http://localhost:3001/api/coach/chat', {
+            var apiBase = window.location.origin.includes('goalchain.fun') ? 'https://api.goalchain.fun' : 'http://localhost:3001';
+            const backendRes = await fetch(apiBase + '/api/coach/chat', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ context, userText })

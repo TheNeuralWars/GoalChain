@@ -171,7 +171,8 @@ Responde en español de forma extremadamente concisa (1-3 oraciones), con emojis
     // 2. Try Local API backend proxy
     if (!reply) {
       try {
-        const backendRes = await fetch('http://localhost:3001/api/coach/chat', {
+        const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
+        const backendRes = await fetch(`${apiBase}/api/coach/chat`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

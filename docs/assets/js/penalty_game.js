@@ -7,8 +7,15 @@ class PenaltyGame {
         this.canvas = document.getElementById(canvasId);
         if (!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
-        this.width = this.canvas.width;
-        this.height = this.canvas.height;
+        // Coordenadas lógicas (espacio de dibujo 800×500). Se mantienen fijas;
+        // el backing-store escala con devicePixelRatio para nitidez, sin alterar
+        // el mapeo de input (que usa getBoundingClientRect — ver handleInput).
+        this.width = 800;
+        this.height = 500;
+        const dpr = Math.max(1, window.devicePixelRatio || 1);
+        this.canvas.width = this.width * dpr;
+        this.canvas.height = this.height * dpr;
+        this.ctx.scale(dpr, dpr);
 
         this.goals = 0; 
         this.saves = 0; 

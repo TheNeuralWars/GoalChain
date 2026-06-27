@@ -898,6 +898,71 @@ input:checked + .slider-red:before {
   box-sizing: border-box;
 }
 
+/* --- Floating AI Coach Button & Drawer --- */
+.gc-floating-coach-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 450;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gc-purple, #9945ff) 0%, var(--gc-green, #14f195) 100%);
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(153, 69, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, bottom 0.2s;
+}
+.gc-floating-coach-btn:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 767px) {
+  .gc-floating-coach-btn {
+    bottom: 84px; /* Elevate above mobile bottom tab bar */
+  }
+}
+
+.gc-coach-drawer {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 380px;
+  height: 500px;
+  max-height: 70vh;
+  z-index: 440;
+  background: rgba(13, 13, 27, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(153, 69, 255, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease, visibility 0.3s;
+}
+.gc-coach-drawer.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 480px) {
+  .gc-coach-drawer {
+    width: calc(100% - 40px);
+    right: 20px;
+    left: 20px;
+    bottom: 150px;
+  }
+}
+
 /* --- Panel grids (TradingTerminal y similares) --- */
 .tt-grid {
   display: grid;

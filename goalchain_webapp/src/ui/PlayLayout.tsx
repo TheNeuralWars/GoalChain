@@ -7,10 +7,12 @@ import { ModalRoot } from './ModalRoot';
 import { Toaster } from './Toaster';
 import { MARKETING_BASE } from '../config/playNav';
 import { useTranslation } from '../i18n';
+import { AICoach } from './AICoach';
 
 export function PlayLayout() {
   const { t } = useTranslation();
   const [ugcMode, setUgcMode] = useState(false);
+  const [coachOpen, setCoachOpen] = useState(false);
   const [collapsed, setCollapsed] = useState<boolean>(() => {
     const saved = localStorage.getItem('gc_nav_collapsed');
     return saved === null ? window.innerWidth < 1280 : saved === '1';
@@ -160,6 +162,44 @@ export function PlayLayout() {
       {/* Notificaciones de eventos de juego */}
       <Toaster />
       <Analytics />
+
+      {/* Floating Eliza chatbot button & drawer */}
+      <button
+        onClick={() => setCoachOpen(!coachOpen)}
+        className="gc-floating-coach-btn"
+        title="Consultar Eliza AI Coach"
+      >
+        🤖
+      </button>
+
+      <div className={`gc-coach-drawer ${coachOpen ? 'open' : ''}`}>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '12px 16px',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          background: 'rgba(153, 69, 255, 0.1)'
+        }}>
+          <span style={{ fontWeight: 800, fontSize: '0.9rem', color: '#fff' }}>🤖 Asistente Táctico AI Eliza</span>
+          <button
+            onClick={() => setCoachOpen(false)}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#94a3b8',
+              fontSize: '1.25rem',
+              cursor: 'pointer',
+              padding: 0
+            }}
+          >
+            ×
+          </button>
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', padding: '10px' }}>
+          <AICoach />
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>GoalChain Arcade | Penalty Shootout & Pack Opener</title>
+    <meta name="description" content="GoalChain Arcade: play the penalty shootout minigame, open NFT packs on Solana, and view your squad gallery." />
+    <meta name="theme-color" content="#06060a" />
+    <link rel="stylesheet" href="assets/css/tokens.css?v=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css?v=4.4" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/img/logo_3d_clean.png?v=2.0" />
+    <style>
+      body {
+        background: #030307;
+        color: #f3f4f6;
+        font-family: 'Outfit', sans-serif;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      /* Hero design */
+      .arcade-hero {
+        padding: 80px 20px 40px;
+        text-align: center;
+        background: radial-gradient(circle at center, rgba(153, 69, 255, 0.1) 0%, rgba(3, 3, 7, 0) 70%);
+      }
+      .arcade-hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 900;
+        margin: 0 0 10px;
+        background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 40px rgba(153, 69, 255, 0.2);
+      }
+      .arcade-hero p {
+        color: #9ca3af;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      
+      /* Grid adjustments */
+      .arcade-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      @media (max-width: 1024px) {
+        .arcade-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      /* Card styles */
+      .arcade-section {
+        background: rgba(13, 13, 27, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 24px;
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+      }
+      .arcade-section::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(20, 241, 149, 0.2), transparent);
+      }
+      
+      /* Betting buttons styling */
+      .bet-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+      }
+      .bet-btn {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #e5e7eb;
+        padding: 8px 16px;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .bet-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .bet-btn.active {
+        background: rgba(20, 241, 149, 0.15);
+        border-color: #14f195;
+        color: #14f195;
+        box-shadow: 0 0 15px rgba(20, 241, 149, 0.25);
+      }
+      
+      /* Pack display overrides */
+      .pack-sealed {
+        width: 220px;
+        height: 310px;
+        margin: 20px auto;
+        position: relative;
+        background: linear-gradient(145deg, #1f1f38 0%, #0d0d18 100%);
+        border: 2px solid rgba(153, 69, 255, 0.3);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+      }
+      .pack-sealed:hover {
+        transform: translateY(-8px) scale(1.03);
+        border-color: #9945ff;
+        box-shadow: 0 20px 45px rgba(153, 69, 255, 0.25);
+      }
+      .pack-logo-inner {
+        width: 80px;
+        height: 80px;
+        opacity: 0.8;
+      }
+      .pack-glow {
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        background: radial-gradient(circle at center, rgba(153, 69, 255, 0.2) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .pack-sealed:hover .pack-glow {
+        opacity: 1;
+      }
+      .pack-sealed.is-shaking {
+        animation: shake 0.5s infinite;
+      }
+      @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(0px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        55% { transform: translate(-1px, 2px) rotate(-1deg); }
+        70% { transform: translate(-3px, 1px) rotate(0deg); }
+        85% { transform: translate(2px, 1px) rotate(-1deg); }
+        100% { transform: translate(1px, -2px) rotate(0deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav (glassmórfico) -->
+    <nav class="gc-site-nav" aria-label="Main">
+      <a href="index.html" class="gc-site-nav-brand">⚽ Goal<span style="color:var(--gc-green,#14f195)">Chain</span></a>
+      <div class="gc-site-nav-links" style="display:flex; align-items:center; gap:20px;">
+        <a href="index.html">Home</a>
+        <a href="arcade.html" aria-current="page">Arcade</a>
+        <a href="tokenomics.html">Tokenomics</a>
+        <a href="agents.html">Agents</a>
+        
+        <!-- Wallet Connect Button circular, compatible con solana_integration.js -->
+        <button
+          id="connectWalletBtn"
+          class="btn-wallet btn-glow"
+          style="
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(20, 241, 149, 0.1);
+            border: 1px solid var(--primary, #14f195);
+            color: var(--primary, #14f195);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+          "
+          title="Connect Wallet"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
+            <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path>
+            <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="arcade-hero">
+      <h1>🎮 GoalChain Arcade</h1>
+      <p>Patea penales para multiplicar tus $GCH, y abre sobres NFT para armar tu plantilla.</p>
+    </header>
+
+    <!-- Main Grid -->
+    <main class="arcade-grid">
+      <!-- Penalty Card -->
+      <section class="arcade-section">
+        <h2 style="margin: 0 0 10px; font-weight: 800; font-size: 1.5rem;">⚽ Penalty Shootout</h2>
+        
+        <!-- Panel superior de apuestas y bolsa -->
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px; margin-bottom:15px;">
+          <div class="bet-bar">
+            <span style="font-size:0.75rem; font-weight:800; color:#14f195; letter-spacing:1px; margin-right:5px;">APUESTA POR TIRO:</span>
+            <button class="bet-btn active" data-amount="10">10 $GCH</button>
+            <button class="bet-btn" data-amount="50">50 $GCH</button>
+            <button class="bet-btn" data-amount="100">100 $GCH</button>
+          </div>
+          
+          <div style="font-weight:900; color:#fff; font-size:0.9rem; display:flex; align-items:center; gap:15px;">
+            <div>
+              <span>TU BOLSA:</span>
+              <span id="userGCH" style="color:#14f195">1,000</span> $GCH
+            </div>
+            <button
+              id="claimGCHBtn"
+              onclick="claimTokens()"
+              class="btn-glow"
+              style="
+                background: rgba(153, 69, 255, 0.2);
+                border: 1px solid #9945ff;
+                color: #fff;
+                padding: 6px 12px;
+                border-radius: 8px;
+                font-size: 0.7rem;
+                cursor: pointer;
+                font-weight: 900;
+                transition: all 0.3s;
+              "
+            >
+              RECLAMAR AIRDROP
+            </button>
+          </div>
+        </div>
+
+        <!-- Desafío Diario -->
+        <div style="background: rgba(20, 241, 149, 0.08); border: 1px solid rgba(20, 241, 149, 0.25); border-radius: 12px; padding: 12px; margin-bottom: 20px; text-align: center;">
+          <strong>🔥 DESAFÍO DIARIO:</strong> Meté 5 goles seguidos hoy para ganar <span style="color:#14f195; font-weight:700;">+250 $GCH</span>
+        </div>
+
+        <!-- Canvas Container -->
+        <div style="text-align: center; margin-bottom: 20px;">
+          <div id="playerOnField" style="display:inline-block; margin-bottom:10px; background:rgba(0,0,0,0.5); padding:6px 16px; border-radius:999px; border:1px solid rgba(20, 241, 149, 0.25); font-size:0.8rem;">
+            <span>En el campo:</span>
+            <span id="activePlayerName" style="font-weight:900; color:#fff; margin-left:5px;">Rookie</span>
+          </div>
+          
+          <div style="position:relative; width:100%; border:2px solid rgba(255,255,255,0.08); border-radius:16px; overflow:hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+            <canvas id="gameCanvas" width="800" height="500" style="width:100%; height:auto; display:block; cursor:crosshair;"></canvas>
+          </div>
+        </div>
+
+        <!-- Marcadores -->
+        <div style="display:flex; justify-content:space-around; background:rgba(255,255,255,0.02); border-radius:16px; padding:15px; border:1px solid rgba(255,255,255,0.04);">
+          <div style="text-align:center;">
+            <div style="font-size:0.75rem; color:#9ca3af; text-transform:uppercase;">Goles</div>
+            <div id="statGoals" style="font-size:1.8rem; font-weight:900; color:#14f195;">0</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-size:0.75rem; color:#9ca3af; text-transform:uppercase;">Atajadas</div>
+            <div id="statSaves" style="font-size:1.8rem; font-weight:900; color:#ff4d6a;">0</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-size:0.75rem; color:#9ca3af; text-transform:uppercase;">Racha</div>
+            <div id="statStreak" style="font-size:1.8rem; font-weight:900; color:#ffd700;">0</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pack Opener Card -->
+      <section class="arcade-section" style="display:flex; flex-direction:column; justify-content:space-between;">
+        <div>
+          <span style="font-size:0.7rem; font-weight:800; background:rgba(153, 69, 255, 0.15); color:#a5b4fc; padding:4px 10px; border-radius:999px; letter-spacing:1px;" class="section-title-badge">MARKETPLACE</span>
+          <h2 class="section-title" style="margin:10px 0 5px; font-weight:800; font-size:1.5rem;">Mystery Pack Opener</h2>
+          <p class="section-subtitle" style="color:#9ca3af; font-size:0.85rem; margin:0 0 20px;">Consigue capitanes de la Copa Mundial. Requiere transacción de Sol en Devnet para cNFT acuñado.</p>
+        </div>
+
+        <div id="mysteryPack" class="pack-sealed">
+          <img src="assets/img/logo_3d_clean.png" alt="Pack Logo" class="pack-logo-inner" onerror="this.src = 'assets/img/logo.png'" />
+          <div class="pack-glow"></div>
+        </div>
+
+        <div style="text-align:center; margin-top:20px;">
+          <button
+            id="openPackBtn"
+            class="btn btn-primary btn-glow"
+            style="width:100%; padding:15px; font-weight:900; border-radius:12px; border:none; background:linear-gradient(135deg, #9945ff 0%, #14f195 100%); color:#fff; cursor:pointer;"
+          >
+            ABRIR SOBRE (250 $GCH)
+          </button>
+          <p class="pack-odds" style="color:#6b7280; font-size:0.75rem; margin:10px 0 0;">
+            Mythic: 1.0% | Legendary: 4.0% | Epic: 10.0% | Rare: 25.0%
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Collection Gallery Section -->
+    <section class="arcade-section" style="max-width:1200px; margin:40px auto; padding:30px 20px; border-radius:24px; text-align:center;">
+      <h2 style="font-weight:900; font-size:1.8rem; margin:0 0 5px;">Tu Plantilla Genesis Squad</h2>
+      <p style="color:#9ca3af; font-size:0.9rem; margin:0 0 25px;">Tus cartas obtenidas en la apertura de sobres aparecerán aquí.</p>
+
+      <!-- Filter buttons -->
+      <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:30px;">
+        <button class="filter-btn active" onclick="filterCollection('all')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#fff; cursor:pointer; font-weight:600;">TODOS</button>
+        <button class="filter-btn" onclick="filterCollection('mythic')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#ffd700; cursor:pointer; font-weight:600;">MYTHIC</button>
+        <button class="filter-btn" onclick="filterCollection('legendary')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#9945ff; cursor:pointer; font-weight:600;">LEGENDARY</button>
+        <button class="filter-btn" onclick="filterCollection('epic')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#00e5ff; cursor:pointer; font-weight:600;">EPIC</button>
+        <button class="filter-btn" onclick="filterCollection('rare')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#14f195; cursor:pointer; font-weight:600;">RARE</button>
+      </div>
+
+      <!-- Collection Grid -->
+      <div id="collectionGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:20px; padding:20px 0;">
+        <div class="empty-inventory" style="grid-column:1/-1; padding:40px; color:#6b7280;">
+          <p>Tu inventario está vacío.</p>
+          <p style="font-size:0.8rem;">Los jugadores que obtengas en los sobres aparecerán en esta sección.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full Screen Reveal Overlay (Hidden by default, styled in style.css) -->
+    <div id="revealModal" class="reveal-overlay">
+      <canvas id="revealParticles" class="particle-canvas"></canvas>
+      <div id="revealedCardContainer" class="revealed-card-container">
+        <!-- Injected dynamically by pack_opener.js -->
+      </div>
+      <button
+        id="closeRevealBtn"
+        class="btn-solana mt-5"
+        style="
+          display: none;
+          padding: 12px 40px;
+          font-weight: 900;
+          letter-spacing: 2px;
+          background: #9945ff;
+          border: none;
+          color: white;
+          border-radius: 8px;
+          cursor: pointer;
+        "
+      >
+        <span>AGREGAR A MI COLECCIÓN</span>
+      </button>
+    </div>
+
+    <!-- Scripts: load in correct order for proper DOMContentLoaded execution -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script src="assets/js/solana_integration.js?v=3.0"></script>
+    <script src="assets/js/arcade.js?v=1.0"></script>
+    <script src="assets/js/penalty_game.js?v=4.1"></script>
+    <script src="assets/js/pack_opener.js?v=3.1"></script>
+  </body>
+</html>

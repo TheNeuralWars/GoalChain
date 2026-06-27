@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>GoalChain Genesis Agents | AI Agent Tokenization</title>
+    <meta name="description" content="GoalChain Genesis Agents Portal: explore tokenized AI agents that power the GoalChain economy." />
+    <meta name="theme-color" content="#06060a" />
+    <link rel="stylesheet" href="assets/css/tokens.css?v=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css?v=4.4" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/img/logo_3d_clean.png?v=2.0" />
+    <style>
+      body {
+        background: #030307;
+        color: #f3f4f6;
+        font-family: 'Outfit', sans-serif;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      /* Hero design */
+      .agents-hero {
+        padding: 80px 20px 40px;
+        text-align: center;
+        background: radial-gradient(circle at center, rgba(153, 69, 255, 0.08) 0%, rgba(3, 3, 7, 0) 70%);
+      }
+      .agents-hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 900;
+        margin: 0 0 10px;
+        background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 40px rgba(153, 69, 255, 0.2);
+      }
+      .agents-hero p {
+        color: #9ca3af;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        max-width: 650px;
+        margin: 0 auto;
+      }
+
+      /* Grid for Agents */
+      .agents-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 40px;
+      }
+
+      /* Card layouts */
+      .metric-card {
+        background: rgba(13, 13, 27, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 24px;
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+      .metric-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(153, 69, 255, 0.3);
+      }
+      .metric-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(20, 241, 149, 0.2), transparent);
+      }
+
+      .metric-title {
+        font-size: 0.85rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        color: #9ca3af;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Indicator badge */
+      .status-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+      .status-healthy {
+        background: rgba(20, 241, 149, 0.1);
+        color: #14f195;
+      }
+      .status-offline {
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+      }
+
+      /* Glow background elements */
+      .glow-sphere {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(153, 69, 255, 0.1) 0%, transparent 70%);
+        top: -50px;
+        right: -50px;
+        pointer-events: none;
+      }
+
+      /* Ledger/Split styling */
+      .ledger-section {
+        max-width: 1200px;
+        margin: 0 auto 60px;
+        padding: 0 20px;
+      }
+      .ledger-card {
+        background: rgba(13, 13, 27, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        padding: 40px;
+      }
+      .ledger-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 20px;
+      }
+      .agent-selector {
+        background: #0d0d18;
+        border: 1px solid rgba(255,255,255,0.1);
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 14px;
+        font-size: 1rem;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 600;
+        cursor: pointer;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .agent-selector:focus {
+        border-color: #9945ff;
+      }
+
+      .ledger-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+      }
+      .ledger-item {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid rgba(255,255,255,0.04);
+        padding: 20px;
+        border-radius: 16px;
+      }
+      .ledger-label {
+        font-size: 0.75rem;
+        color: #9ca3af;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .ledger-value {
+        font-size: 2rem;
+        font-weight: 900;
+        color: #fff;
+        margin-bottom: 12px;
+      }
+      .progress-bar-container {
+        width: 100%;
+        height: 6px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 99px;
+        overflow: hidden;
+      }
+      .progress-bar-fill {
+        height: 100%;
+        border-radius: 99px;
+        transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav (glassmórfico) -->
+    <nav class="gc-site-nav" aria-label="Main">
+      <a href="index.html" class="gc-site-nav-brand">⚽ Goal<span style="color:var(--gc-green,#14f195)">Chain</span></a>
+      <div class="gc-site-nav-links" style="display:flex; align-items:center; gap:20px;">
+        <a href="index.html">Home</a>
+        <a href="arcade.html">Arcade</a>
+        <a href="tokenomics.html">Tokenomics</a>
+        <a href="agents.html" aria-current="page">Agents</a>
+        
+        <!-- Wallet button circular circular, compatible con solana_integration.js -->
+        <button
+          id="connectWalletBtn"
+          class="btn-wallet btn-glow"
+          style="
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(20, 241, 149, 0.1);
+            border: 1px solid var(--primary, #14f195);
+            color: var(--primary, #14f195);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+          "
+          title="Connect Wallet"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
+            <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path>
+            <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="agents-hero">
+      <h1>🔮 Genesis Agents Portal</h1>
+      <p>Explora y adquiere los agentes de IA que impulsan el Infinity Engine y las operaciones de GoalChain.</p>
+    </header>
+
+    <!-- Grid of Agents -->
+    <main class="agents-grid" id="agentsGrid">
+      <!-- Los agentes se inyectan dinámicamente aquí por agents.js -->
+    </main>
+
+    <!-- Revenue Split Ledger Section -->
+    <section class="ledger-section">
+      <div class="ledger-card">
+        <div class="ledger-header">
+          <div>
+            <h2 style="margin:0; font-weight:900; font-size:1.8rem; color:#fff;">📊 Ledger de Distribución de Ingresos</h2>
+            <p style="margin:5px 0 0; color:#9ca3af; font-size:0.9rem;">El modelo económico Zero Value Loss garantiza que cada operación de agente alimente la economía del token.</p>
+          </div>
+          <select id="agentSelector" class="agent-selector">
+            <!-- Opciones pobladas dinámicamente -->
+          </select>
+        </div>
+
+        <div class="ledger-grid">
+          
+          <div class="ledger-item">
+            <div class="ledger-label">Participación de Holders</div>
+            <div id="ledgerHolder" class="ledger-value">--</div>
+            <div class="progress-bar-container">
+              <div id="barHolder" class="progress-bar-fill" style="width: 0%; background: #14f195;"></div>
+            </div>
+          </div>
+
+          <div class="ledger-item">
+            <div class="ledger-label">Recompra y Quema (Vault)</div>
+            <div id="ledgerVault" class="ledger-value">--</div>
+            <div class="progress-bar-container">
+              <div id="barVault" class="progress-bar-fill" style="width: 0%; background: #9945ff;"></div>
+            </div>
+          </div>
+
+          <div class="ledger-item">
+            <div class="ledger-label">Fondo de Tesorería</div>
+            <div id="ledgerTreasury" class="ledger-value">--</div>
+            <div class="progress-bar-container">
+              <div id="barTreasury" class="progress-bar-fill" style="width: 0%; background: #00e5ff;"></div>
+            </div>
+          </div>
+
+          <div class="ledger-item">
+            <div class="ledger-label">Soporte y Mantenimiento</div>
+            <div id="ledgerMaint" class="ledger-value">--</div>
+            <div class="progress-bar-container">
+              <div id="barMaint" class="progress-bar-fill" style="width: 0%; background: #6b7280;"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Scripts: load in correct order for proper DOMContentLoaded execution -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script src="assets/js/solana_integration.js?v=3.0"></script>
+    <script src="assets/js/agents.js?v=1.0"></script>
+  </body>
+</html>
