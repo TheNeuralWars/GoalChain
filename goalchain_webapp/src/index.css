@@ -818,15 +818,15 @@ input:checked + .slider-red:before {
 
 .play-shell--grid {
   display: grid;
-  grid-template-columns: var(--gc-rail-expanded) 1fr;
+  grid-template-columns: var(--gc-shell-cols);
   align-items: start;
   transition: grid-template-columns var(--gc-dur-base) var(--gc-ease);
 }
 .play-shell--grid.play-shell--collapsed {
-  grid-template-columns: var(--gc-rail-collapsed) 1fr;
+  --gc-shell-cols: var(--gc-rail-collapsed) 1fr;
 }
 .play-shell--grid.play-shell--expanded {
-  grid-template-columns: var(--gc-rail-expanded) 1fr;
+  --gc-shell-cols: var(--gc-rail-expanded) 1fr;
 }
 
 /* --- Columna principal --- */
@@ -1261,22 +1261,32 @@ input:checked + .slider-red:before {
 /* ============================================================
    RESPONSIVE — Chasis
    ============================================================ */
-@media (max-width: 1280px) {
-  /* Tablet: el rail colapsa en la estructura de rejilla */
+@media (max-width: 1279px) {
+  /* Tablet: la rejilla SIEMPRE es 72px 1fr, sin importar el estado del rail.
+     El rail colapsado ocupa los 72px in-flow; el expandido flota como overlay. */
+  .play-shell--grid,
   .play-shell--grid.play-shell--collapsed,
   .play-shell--grid.play-shell--expanded {
-    grid-template-columns: var(--gc-rail-collapsed) 1fr;
+    --gc-shell-cols: var(--gc-rail-collapsed) 1fr;
   }
-  
-  /* Cuando está expandido, se convierte en un cajón flotante (overlay drawer) */
+
+  /* Rail colapsado: gutter in-flow de 72px (sin cambios de comportamiento). */
+  .gc-rail--collapsed {
+    position: sticky;
+    width: var(--gc-rail-collapsed);
+  }
+
+  /* Rail expandido en tablet: cajón flotante (overlay). NO participa en la rejilla. */
   .gc-rail--expanded {
-    position: fixed !important;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     z-index: 500;
-    width: var(--gc-rail-expanded) !important;
-    background: #0f0a1c !important; /* Fondo opaco oscuro para legibilidad sobre el contenido */
+    width: var(--gc-rail-expanded);
+    background: var(--gc-glass-strong-bg);
+    backdrop-filter: var(--gc-glass-strong-blur);
+    -webkit-backdrop-filter: var(--gc-glass-strong-blur);
     box-shadow: 10px 0 35px rgba(0, 0, 0, 0.7);
   }
 
@@ -1288,15 +1298,34 @@ input:checked + .slider-red:before {
   .gc-rail--expanded .gc-nav-group-items,
   .gc-rail--expanded .gc-rail-resources,
   .gc-rail--expanded .gc-rail-footer-lang {
-    display: block !important;
+    display: block;
   }
   .gc-rail--expanded .gc-nav-group-items {
-    display: flex !important;
+    display: flex;
   }
   .gc-rail--expanded .gc-nav-group-head,
   .gc-rail--expanded .gc-nav-link {
-    justify-content: flex-start !important;
+    justify-content: flex-start;
   }
+}
+
+/* Scrim overlay (cortina que oscurece el contenido bajo el cajón flotante).
+   Toggled vía la clase .play-shell--drawer-open añadida por PlayLayout.tsx. */
+.gc-rail-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 490;
+  background: rgba(3, 3, 7, 0.6);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--gc-dur-base) var(--gc-ease),
+              visibility var(--gc-dur-base) var(--gc-ease);
+}
+.play-shell--drawer-open .gc-rail-scrim {
+  opacity: 1;
+  visibility: visible;
 }
 
 @media (max-width: 767px) {
