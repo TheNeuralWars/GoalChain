@@ -898,6 +898,19 @@ input:checked + .slider-red:before {
   box-sizing: border-box;
 }
 
+/* --- Panel grids (TradingTerminal y similares) --- */
+.tt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--gc-space-5);
+}
+@media (max-width: 900px) {
+  .tt-grid { grid-template-columns: 1fr; gap: var(--gc-space-4); }
+}
+@media (max-width: 600px) {
+  .tt-grid { gap: var(--gc-space-3); }
+}
+
 /* ============================================================
    ICON-RAIL / SIDEBAR
    ============================================================ */
