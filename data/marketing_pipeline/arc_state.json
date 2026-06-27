@@ -1,0 +1,168 @@
+{
+  "accounts": {
+    "NicoPezDorado": {
+      "active": [
+        {
+          "id": "arc_nicopezdorado_1782469839",
+          "seed_topic": "Jude Belling-Swap y el sesgo \"Football's Coming Home\": Build in Public sin humillarte",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:30:39.384884Z",
+          "last_episode_at": "2026-06-26T10:30:39.384884Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Jude Belling-Swap y el sesgo \"Football's Coming Home\": Build in Public sin humillarte"
+            }
+          ]
+        },
+        {
+          "id": "arc_nicopezdorado_1782469849",
+          "seed_topic": "Cristiano Siu-toshi: stakeá tu palabra como Pieter Levels apostó $1M contra sí",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:30:49.948078Z",
+          "last_episode_at": "2026-06-26T10:30:49.948078Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Cristiano Siu-toshi: stakeá tu palabra como Pieter Levels apostó $1M contra sí"
+            }
+          ]
+        }
+      ],
+      "archived": [
+        {
+          "id": "arc_nicopezdorado_1782469807",
+          "seed_topic": "Lamine Ya-Alpha a los 17 vs Pieter Levels: ¿prodigio o quien shippea feo?",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:30:07.471819Z",
+          "last_episode_at": "2026-06-26T10:30:07.471819Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Lamine Ya-Alpha a los 17 vs Pieter Levels: ¿prodigio o quien shippea feo?"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-06-26T10:30:28.796105Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782469817",
+          "seed_topic": "Pedri-Script lesionado: la lección estoica que DHH le hubiera dado",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:30:17.969684Z",
+          "last_episode_at": "2026-06-26T10:30:17.969684Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Pedri-Script lesionado: la lección estoica que DHH le hubiera dado"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-06-26T10:30:39.384916Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782469828",
+          "seed_topic": "Erling Haal-Hard sin Mundial: Linus Torvalds tenía razón sobre el hype",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:30:28.796071Z",
+          "last_episode_at": "2026-06-26T10:30:28.796071Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Erling Haal-Hard sin Mundial: Linus Torvalds tenía razón sobre el hype"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-06-26T10:30:49.948110Z"
+        }
+      ]
+    },
+    "GoalChainSol": {
+      "active": [
+        {
+          "id": "arc_goalchainsol_1782469891",
+          "seed_topic": "VAR: Centímetros Que Costaron Millones",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:31:31.751254Z",
+          "last_episode_at": "2026-06-26T10:31:31.751254Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "VAR: Centímetros Que Costaron Millones"
+            }
+          ]
+        },
+        {
+          "id": "arc_goalchainsol_1782469902",
+          "seed_topic": "Julián Álvarez: El Héroe Que Nadie Apostó",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:31:42.563564Z",
+          "last_episode_at": "2026-06-26T10:31:42.563564Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Julián Álvarez: El Héroe Que Nadie Apostó"
+            }
+          ]
+        }
+      ],
+      "archived": [
+        {
+          "id": "arc_goalchainsol_1782469860",
+          "seed_topic": "Yamal a los 17: ¿Apostaste al Futuro o al Hype?",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:31:00.483974Z",
+          "last_episode_at": "2026-06-26T10:31:00.483974Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Yamal a los 17: ¿Apostaste al Futuro o al Hype?"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-06-26T10:31:20.922218Z"
+        },
+        {
+          "id": "arc_goalchainsol_1782469870",
+          "seed_topic": "Haaland Sin Mundial: La Apuesta Que Nadie Vio Venir",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:31:10.421022Z",
+          "last_episode_at": "2026-06-26T10:31:10.421022Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Haaland Sin Mundial: La Apuesta Que Nadie Vio Venir"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-06-26T10:31:31.751288Z"
+        },
+        {
+          "id": "arc_goalchainsol_1782469880",
+          "seed_topic": "Bellingham y el Meme Que Nunca Muere",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:31:20.922175Z",
+          "last_episode_at": "2026-06-26T10:31:20.922175Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Bellingham y el Meme Que Nunca Muere"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-06-26T10:31:42.563610Z"
+        }
+      ]
+    }
+  }
+}
