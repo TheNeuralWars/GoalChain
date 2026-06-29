@@ -109,6 +109,7 @@ goalchain_api/bun.lock
 scripts/video_automation/output/
 agentic-inbox/
 
-# YouTube OAuth2 credentials (sensitive — never commit)
+# YouTube OAuth2 credentials (sensitive ï¿½ never commit)
 data/marketing_pipeline/youtube_client_secrets.json
 data/marketing_pipeline/youtube_oauth_token.json
+.vercel
