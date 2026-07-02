@@ -3,30 +3,30 @@
     "NicoPezDorado": {
       "active": [
         {
-          "id": "arc_nicopezdorado_1782469839",
-          "seed_topic": "Jude Belling-Swap y el sesgo \"Football's Coming Home\": Build in Public sin humillarte",
+          "id": "arc_nicopezdorado_1782886348",
+          "seed_topic": "Marruecos 2022: El Outsider Que Hizo Millonarios y Quebró Bancas",
           "episode": 1,
           "total_episodes": 4,
-          "started_at": "2026-06-26T10:30:39.384884Z",
-          "last_episode_at": "2026-06-26T10:30:39.384884Z",
+          "started_at": "2026-07-01T06:12:28.116792Z",
+          "last_episode_at": "2026-07-01T06:12:28.116792Z",
           "episode_history": [
             {
               "episode": 1,
-              "topic": "Jude Belling-Swap y el sesgo \"Football's Coming Home\": Build in Public sin humillarte"
+              "topic": "Marruecos 2022: El Outsider Que Hizo Millonarios y Quebró Bancas"
             }
           ]
         },
         {
-          "id": "arc_nicopezdorado_1782469849",
-          "seed_topic": "Cristiano Siu-toshi: stakeá tu palabra como Pieter Levels apostó $1M contra sí",
+          "id": "arc_nicopezdorado_1782886856",
+          "seed_topic": "El VAR Te Robó El Mundial (Y Tu Apuesta)",
           "episode": 1,
           "total_episodes": 4,
-          "started_at": "2026-06-26T10:30:49.948078Z",
-          "last_episode_at": "2026-06-26T10:30:49.948078Z",
+          "started_at": "2026-07-01T06:20:56.272593Z",
+          "last_episode_at": "2026-07-01T06:20:56.272593Z",
           "episode_history": [
             {
               "episode": 1,
-              "topic": "Cristiano Siu-toshi: stakeá tu palabra como Pieter Levels apostó $1M contra sí"
+              "topic": "El VAR Te Robó El Mundial (Y Tu Apuesta)"
             }
           ]
         }
@@ -79,36 +79,116 @@
           ],
           "status": "archived",
           "archived_at": "2026-06-26T10:30:49.948110Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782469839",
+          "seed_topic": "Jude Belling-Swap y el sesgo \"Football's Coming Home\": Build in Public sin humillarte",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:30:39.384884Z",
+          "last_episode_at": "2026-06-26T10:30:39.384884Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Jude Belling-Swap y el sesgo \"Football's Coming Home\": Build in Public sin humillarte"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-01T06:02:18.663293Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782469849",
+          "seed_topic": "Cristiano Siu-toshi: stakeá tu palabra como Pieter Levels apostó $1M contra sí",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:30:49.948078Z",
+          "last_episode_at": "2026-06-26T10:30:49.948078Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Cristiano Siu-toshi: stakeá tu palabra como Pieter Levels apostó $1M contra sí"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-01T06:05:35.443962Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782885738",
+          "seed_topic": "Messi 2026: La Apuesta Que Te Rompió el Corazón Dos Veces",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-01T06:02:18.663259Z",
+          "last_episode_at": "2026-07-01T06:02:18.663259Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Messi 2026: La Apuesta Que Te Rompió el Corazón Dos Veces"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-01T06:09:21.762455Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782885935",
+          "seed_topic": "Haaland: El Mejor Goleador Del Mundo… Sin Mundial",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-01T06:05:35.443929Z",
+          "last_episode_at": "2026-07-01T06:05:35.443929Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Haaland: El Mejor Goleador Del Mundo… Sin Mundial"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-01T06:12:28.116828Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782886161",
+          "seed_topic": "Yamal Tiene 17 Años: ¿Apostaste En Un Adolescente?",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-01T06:09:21.762425Z",
+          "last_episode_at": "2026-07-01T06:09:21.762425Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Yamal Tiene 17 Años: ¿Apostaste En Un Adolescente?"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-01T06:20:56.272626Z"
         }
       ]
     },
     "GoalChainSol": {
       "active": [
         {
-          "id": "arc_goalchainsol_1782469891",
-          "seed_topic": "VAR: Centímetros Que Costaron Millones",
+          "id": "arc_goalchainsol_1782887870",
+          "seed_topic": "Yamal: ¿Apostaste en un Adolescente?",
           "episode": 1,
           "total_episodes": 4,
-          "started_at": "2026-06-26T10:31:31.751254Z",
-          "last_episode_at": "2026-06-26T10:31:31.751254Z",
+          "started_at": "2026-07-01T06:37:50.850215Z",
+          "last_episode_at": "2026-07-01T06:37:50.850215Z",
           "episode_history": [
             {
               "episode": 1,
-              "topic": "VAR: Centímetros Que Costaron Millones"
+              "topic": "Yamal: ¿Apostaste en un Adolescente?"
             }
           ]
         },
         {
-          "id": "arc_goalchainsol_1782469902",
-          "seed_topic": "Julián Álvarez: El Héroe Que Nadie Apostó",
+          "id": "arc_goalchainsol_1782888106",
+          "seed_topic": "Bellingham: Football's Coming Home... Otra Vez",
           "episode": 1,
           "total_episodes": 4,
-          "started_at": "2026-06-26T10:31:42.563564Z",
-          "last_episode_at": "2026-06-26T10:31:42.563564Z",
+          "started_at": "2026-07-01T06:41:46.204250Z",
+          "last_episode_at": "2026-07-01T06:41:46.204250Z",
           "episode_history": [
             {
               "episode": 1,
-              "topic": "Julián Álvarez: El Héroe Que Nadie Apostó"
+              "topic": "Bellingham: Football's Coming Home... Otra Vez"
             }
           ]
         }
@@ -161,6 +241,86 @@
           ],
           "status": "archived",
           "archived_at": "2026-06-26T10:31:42.563610Z"
+        },
+        {
+          "id": "arc_goalchainsol_1782469891",
+          "seed_topic": "VAR: Centímetros Que Costaron Millones",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:31:31.751254Z",
+          "last_episode_at": "2026-06-26T10:31:31.751254Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "VAR: Centímetros Que Costaron Millones"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-01T06:25:13.756503Z"
+        },
+        {
+          "id": "arc_goalchainsol_1782469902",
+          "seed_topic": "Julián Álvarez: El Héroe Que Nadie Apostó",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-06-26T10:31:42.563564Z",
+          "last_episode_at": "2026-06-26T10:31:42.563564Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Julián Álvarez: El Héroe Que Nadie Apostó"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-01T06:28:34.308367Z"
+        },
+        {
+          "id": "arc_goalchainsol_1782887113",
+          "seed_topic": "Messi 2026: La Apuesta de Tu Vida",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-01T06:25:13.756471Z",
+          "last_episode_at": "2026-07-01T06:25:13.756471Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Messi 2026: La Apuesta de Tu Vida"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-01T06:31:50.976904Z"
+        },
+        {
+          "id": "arc_goalchainsol_1782887314",
+          "seed_topic": "Mbappé: Cuando el Favorito Te Quiebra",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-01T06:28:34.308338Z",
+          "last_episode_at": "2026-07-01T06:28:34.308338Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Mbappé: Cuando el Favorito Te Quiebra"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-01T06:37:50.850243Z"
+        },
+        {
+          "id": "arc_goalchainsol_1782887510",
+          "seed_topic": "CR7: La Promesa Que Nunca Cumpliste",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-01T06:31:50.976873Z",
+          "last_episode_at": "2026-07-01T06:31:50.976873Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "CR7: La Promesa Que Nunca Cumpliste"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-01T06:41:46.204281Z"
         }
       ]
     }

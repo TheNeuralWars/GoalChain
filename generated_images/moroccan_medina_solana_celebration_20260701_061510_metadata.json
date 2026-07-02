@@ -1,0 +1,10 @@
+{
+  "prompt": "Explosive street celebration scene in Moroccan medina at night, fans on rooftops waving flags, center foreground shows holographic Solana blockchain nodes rising from a football like digital fire, opposite corner shadowy figure clutching crumpled betting tickets, rich red-green-gold color grading, cinematic 3D render with anime energy lines, no photorealistic faces, no readable text",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "16:9",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/moroccan_medina_solana_celebration_20260701_061510.jpg",
+  "size_kb": 419,
+  "endpoint": "generate_image_tool",
+  "generated_at": "2026-07-01T06:15:10.000000"
+}

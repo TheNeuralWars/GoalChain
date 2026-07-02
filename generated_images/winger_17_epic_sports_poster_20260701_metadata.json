@@ -1,0 +1,10 @@
+{
+  "prompt": "Epic animated sports poster 3D render of youthful winger silhouette mid-dribble with electric blue and red energy trails, giant stylized number 17 floating as holographic element behind figure, Spanish stadium crowd as abstract color waves not faces, locker room tunnel lighting with dramatic backlight, premium anime sports movie key visual, no photorealistic face, no text",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "9:16",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/winger_17_epic_sports_poster_20260701.jpg",
+  "size_kb": 333,
+  "endpoint": "generate_image_tool",
+  "generated_at": "2026-07-01T06:38:33.410074Z"
+}

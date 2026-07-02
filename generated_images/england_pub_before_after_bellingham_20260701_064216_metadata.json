@@ -1,0 +1,10 @@
+{
+  "prompt": "Moody split-screen before-after 3D render: top half shows cozy English pub interior with cheering fan silhouettes and pint glasses raised before kickoff, bottom half shows same pub devastated with heads on tables and spilled drinks after defeat, central Jude Bellingham-inspired midfielder silhouette in white England kit standing between both worlds, St George cross as subtle ambient red glow, cinematic anime style, no photorealistic faces, no text",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "9:16",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/england_pub_before_after_bellingham_20260701_064216.jpg",
+  "size_kb": 5408,
+  "endpoint": "xai_api_images_generations",
+  "generated_at": "2026-07-01T06:42:28.536529Z"
+}

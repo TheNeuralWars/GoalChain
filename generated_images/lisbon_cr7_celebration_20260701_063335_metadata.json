@@ -1,0 +1,10 @@
+{
+  "prompt": "Vibrant street celebration scene in 3D anime-cinematic style, crowd of fan silhouettes holding handmade cardboard signs with beer bottles crossed out and Portugal flags, one fan kneeling dramatically toward giant ghostly CR7 poster mural on brick wall, confetti and green-red smoke flares, nighttime Lisbon alley aesthetic, stylized non-photorealistic characters, no legible text on signs",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "16:9",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/lisbon_cr7_celebration_20260701_063335.jpg",
+  "size_kb": 342,
+  "endpoint": "grok_cli",
+  "generated_at": "2026-07-01T06:33:35.000000"
+}

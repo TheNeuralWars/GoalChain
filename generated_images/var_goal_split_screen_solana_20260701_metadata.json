@@ -1,0 +1,10 @@
+{
+  "prompt": "Dramatic split-screen before-after: left panel fans erupting in stadium celebration with green GOAL lighting, right panel same moment frozen in red with translucent VAR grid lines and millimeter measurement hologram over offside line, floating crypto contract document materializing between panels glowing Solana-purple, dark cinematic 3D render, tension-heavy composition, no faces, no legible text or scoreboards",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "16:9",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/var_goal_split_screen_solana_20260701.jpg",
+  "size_kb": 314,
+  "endpoint": "generate_image_tool",
+  "generated_at": "2026-07-01T06:21:00.000000"
+}

@@ -1,5 +1,458 @@
 [
   {
+    "id": "run_1782885626_nicopezdorado_planned",
+    "timestamp": "2026-07-01T06:00:26.167258Z",
+    "account_name": "NicoPezDorado",
+    "topic": "Messi 2026: La Apuesta Que Te Rompi\u00f3 el Coraz\u00f3n Dos Veces",
+    "narrative_angle": "Abre con la paradoja emocional m\u00e1s viral del f\u00fatbol moderno: el mismo jugador destruy\u00f3 apuestas en 2014 y las redimi\u00f3 en 2022 \u2014 el espectador siente que SU historia personal con Messi es la del video.",
+    "status": "published",
+    "image_url": "https://api.goalchain.fun/pilot/grok_img_1782885832_1.jpg",
+    "video_url": "https://api.goalchain.fun/pilot/grok_vid_1782885929_austrian_goalkeeper_penalty_save_20260625_123331.mp4",
+    "post_text": "\ud83c\udde6\ud83c\uddf7 \u00bfApostaste CONTRA Messi en 2014\u2026 o A FAVOR en 2022?\n\n**HOOK:** En 2014, millones juraron que Argentina no ganar\u00eda nada con Messi. Perdieron. En 2022, los mismos juraron que S\u00cd ganar\u00eda. Tambi\u00e9n perdieron \u2014 hasta el \u00faltimo minuto.\n\n**CONTEXTO:** Dos mundiales. Dos apuestas opuestas. Mismo coraz\u00f3n roto. Los fan\u00e1ticos no apostaban con datos: apostaban con l\u00e1grimas, con la camiseta puesta, con la promesa de que \"esta vez s\u00ed es la \u00faltima.\"\n\n**MECANISMO:** En GoalChain, tu promesa emocional se convierte en contrato inteligente en Solana: \"Si Messi no levanta la Copa en 2026, corro 5km diarios durante 30 d\u00edas.\" Sin excusas. Sin ghosting. On-chain.\n\n**TWIST:** Spoiler: probablemente sea su \u00faltimo mundial. \u00bfVas a apostar con el coraz\u00f3n otra vez\u2026 o vas a ponerle disciplina a tu locura?\n\n\ud83d\udc49 goalchain.fun \u2014 convierte tu fanatismo en un contrato que no puedes romper.\n\n#Messi2026 #GoalChain #Solana #ApuestaEmocional #FIFAWorldCup",
+    "image_prompt": "Intimate locker room scene at dawn, lone Argentina jersey with number 10 draped over a wooden bench, golden World Cup trophy reflection visible in a cracked mirror, scattered betting slips on the floor torn in half, one half showing 2014 and other 2022, cinematic 3D render, moody blue-gold lighting, no faces, no text, premium anime-meets-Pixar style, shallow depth of field",
+    "video_prompt": "Slow push-in camera through steam-filled locker room, betting slips flutter gently from bench as if blown by unseen wind, trophy reflection pulses with soft golden light, jersey fabric ripples subtly, dust particles float in dramatic side lighting, 9:16 vertical framing, cinematic 24fps feel",
+    "comments": [],
+    "hook_variant": "A_prohibition",
+    "cta_variant": "C_social_proof",
+    "generated_for_run_at": "2026-07-01",
+    "story_arc_id": "arc_nicopezdorado_1782885738",
+    "episode": 1,
+    "total_episodes": 4,
+    "hashtags": [
+      "#MataGoles",
+      "#PromesaCumplida",
+      "#Messi",
+      "#F\u00fatbol",
+      "#DeLaCalleAlGol"
+    ],
+    "quality_score": {
+      "post_text_chars": 990,
+      "image_prompt_present": true,
+      "video_prompt_present": true,
+      "hook_chars": 53,
+      "score": 64,
+      "issues": [
+        "post_text too long (>700)",
+        "hook too long (> 50) \u2014 split it"
+      ],
+      "passes": false
+    },
+    "captions_render": {
+      "status": "disabled_or_unavailable",
+      "ffmpeg": true
+    },
+    "buffer_post_ids": [],
+    "scheduled_at": null,
+    "platform_slots": {}
+  },
+  {
+    "id": "run_1782885686_nicopezdorado_planned",
+    "timestamp": "2026-07-01T06:01:26.167296Z",
+    "account_name": "NicoPezDorado",
+    "topic": "Haaland: El Mejor Goleador Del Mundo\u2026 Sin Mundial",
+    "narrative_angle": "Contradicci\u00f3n brutal en 3 segundos: el hombre que rompe r\u00e9cords en la Premier no existe en la Copa \u2014 genera shock cognitivo instant\u00e1neo y retenci\u00f3n por injusticia compartida.",
+    "status": "published",
+    "image_url": "https://api.goalchain.fun/pilot/grok_img_1782885976_1.jpg",
+    "video_url": "https://api.goalchain.fun/pilot/grok_vid_1782886155_austrian_goalkeeper_penalty_save_20260625_123331.mp4",
+    "post_text": "\ud83c\uddf3\ud83c\uddf4 Haaland marca goles en sue\u00f1os. Pero en 2026\u2026 no juega ning\u00fan partido.\n\n**HOOK:** El mejor goleador del planeta. Cero minutos en el Mundial. Noruega no clasific\u00f3.\n\n**CONTEXTO:** Millones apostaron que \"con Haaland Noruega s\u00ed llega.\" Perdieron todo. Fan\u00e1ticos prometieron afeitarse la cabeza, dejar el alcohol, vender la camiseta\u2026 si Noruega clasificaba. No clasific\u00f3. Las promesas quedaron flotando en el aire como sus apuestas fallidas.\n\n**MECANISMO:** GoalChain no te deja huir de tu promesa. Creas un contrato en Solana: \"Si Noruega no clasifica, dono 50\u20ac a caridad.\" El smart contract ejecuta. Tu coraz\u00f3n apost\u00f3, la blockchain cobra.\n\n**TWIST:** Haaland ver\u00e1 el Mundial desde el sof\u00e1. T\u00fa puedes verlo desde el sof\u00e1 tambi\u00e9n\u2026 o convertir tu decepci\u00f3n en disciplina real.\n\n\ud83c\udfaf La emoci\u00f3n sin consecuencia es solo ruido. GoalChain le pone precio.\n\n#Haaland #Noruega #GoalChain #WorldCup2026 #Solana",
+    "image_prompt": "Surreal split-scene: left side shows Haaland silhouette scoring in Premier League stadium explosion of green light, right side empty Norwegian national stadium under grey rain with abandoned betting kiosk screens showing red X marks, floating ghost-like football between both halves, cinematic 3D anime render, melancholic teal-orange contrast, no photorealistic faces, no text",
+    "video_prompt": "Split-screen slowly widens gap between vibrant left and desolate right, ghost football rotates and dissolves into pixels, rain intensifies on empty stadium side, betting kiosk screens flicker red then die, subtle camera drift upward revealing vast empty stands, vertical 9:16 composition",
+    "comments": [],
+    "hook_variant": "A_question",
+    "cta_variant": "C_social_proof",
+    "generated_for_run_at": "2026-07-01",
+    "story_arc_id": "arc_nicopezdorado_1782885935",
+    "episode": 1,
+    "total_episodes": 4,
+    "hashtags": [
+      "#MataGoles",
+      "#PromesaCumplida",
+      "#F\u00fatbol",
+      "#Yamal",
+      "#PromesaDeBar"
+    ],
+    "quality_score": {
+      "post_text_chars": 956,
+      "image_prompt_present": true,
+      "video_prompt_present": true,
+      "hook_chars": 32,
+      "score": 82,
+      "issues": [
+        "post_text too long (>700)"
+      ],
+      "passes": false
+    },
+    "captions_render": {
+      "status": "disabled_or_unavailable",
+      "ffmpeg": true
+    },
+    "buffer_post_ids": [],
+    "scheduled_at": null,
+    "platform_slots": {}
+  },
+  {
+    "id": "run_1782885746_nicopezdorado_planned",
+    "timestamp": "2026-07-01T06:02:26.167306Z",
+    "account_name": "NicoPezDorado",
+    "topic": "Yamal Tiene 17 A\u00f1os: \u00bfApostaste En Un Adolescente?",
+    "narrative_angle": "La tensi\u00f3n generacional es irresistible: un ni\u00f1o de 17 a\u00f1os cargando las esperanzas de una naci\u00f3n entera \u2014 el espectador se pregunta al instante si \u00e9l habr\u00eda apostado por eso.",
+    "status": "published",
+    "image_url": "https://api.goalchain.fun/pilot/grok_img_1782886191_1.jpg",
+    "video_url": "https://api.goalchain.fun/pilot/grok_vid_1782886342_austrian_goalkeeper_penalty_save_20260625_123331.mp4",
+    "post_text": "\ud83c\uddea\ud83c\uddf8 Lamine Yamal tiene 17 a\u00f1os. Espa\u00f1a le puso el 10 del futuro encima.\n\n**HOOK:** \u00bfApostar\u00edas tu dinero\u2026 en un adolescente que a\u00fan no puede votar?\n\n**CONTEXTO:** En Qatar 2022, Pedri brill\u00f3 siendo joven. Ahora Yamal llega al Mundial 2026 como el prodigio m\u00e1s joven en hacer temblar Europa. Los fan\u00e1ticos espa\u00f1oles prometen tatuarse su nombre, renunciar a redes sociales, correr maratones\u2026 \"si Yamal mete 3 goles.\" Apuesta emocional pura: fe ciega en un chico.\n\n**MECANISMO:** GoalChain canaliza esa fe loca: contrato inteligente \u2014 \"Si Yamal no es MVP del grupo, entreno f\u00fatbol 1h diaria todo julio.\" Tu apuesta al prodigio se vuelve tu entrenamiento. Solana no negocia con la excusa del fan\u00e1tico.\n\n**TWIST:** Pedri y Yamal son el presente y el futuro. Tu apuesta emocional es del pasado. Tu contrato en GoalChain es del futuro que S\u00cd controlas.\n\n\u26a1 Apuesta en ti, no solo en ellos.\n\n#Yamal #Pedri #Espa\u00f1a #GoalChain #Mundial2026",
+    "image_prompt": "Heroic anime-style poster composition: giant stylized teenage footballer silhouette with flowing cape made of Spanish flag colors, smaller veteran midfielder silhouette beside him in mentoring pose, background of futuristic Barcelona street party with fans holding phones showing crypto wallet glow, confetti frozen mid-air, premium 3D cel-shaded render, electric purple-gold palette, no realistic faces, no text overlays",
+    "video_prompt": "Heroic silhouettes pulse with energy aura, confetti unfreezes and cascades downward, phone screens in crowd glow sequentially like domino effect, camera orbits slowly around the two figures, cape fabric flows in dramatic wind, subtle lens flare on golden accents, 9:16 vertical hero framing",
+    "comments": [],
+    "hook_variant": "A_contrarian",
+    "cta_variant": "C_urgency",
+    "generated_for_run_at": "2026-07-01",
+    "story_arc_id": "arc_nicopezdorado_1782886161",
+    "episode": 1,
+    "total_episodes": 4,
+    "hashtags": [
+      "#MataGoles",
+      "#PromesaCumplida",
+      "#Yamal",
+      "#Espa\u00f1a2026",
+      "#F\u00fatbol"
+    ],
+    "quality_score": {
+      "post_text_chars": 976,
+      "image_prompt_present": true,
+      "video_prompt_present": true,
+      "hook_chars": 29,
+      "score": 82,
+      "issues": [
+        "post_text too long (>700)"
+      ],
+      "passes": false
+    },
+    "captions_render": {
+      "status": "disabled_or_unavailable",
+      "ffmpeg": true
+    },
+    "buffer_post_ids": [],
+    "scheduled_at": null,
+    "platform_slots": {}
+  },
+  {
+    "id": "run_1782885806_nicopezdorado_planned",
+    "timestamp": "2026-07-01T06:03:26.167315Z",
+    "account_name": "NicoPezDorado",
+    "topic": "Marruecos 2022: El Outsider Que Hizo Millonarios y Quebr\u00f3 Bancas",
+    "narrative_angle": "David vs Goliat en formato apuesta: el primer africano en semis es la historia de underdog m\u00e1s compartible del siglo \u2014 activa FOMO y arrepentimiento simult\u00e1neo en 3 segundos.",
+    "status": "published",
+    "image_url": "https://api.goalchain.fun/pilot/grok_img_1782886668_1.jpg",
+    "video_url": "https://api.goalchain.fun/pilot/grok_vid_1782886850_austrian_goalkeeper_penalty_save_20260625_123331.mp4",
+    "post_text": "\ud83c\uddf2\ud83c\udde6 Marruecos hizo historia en Qatar 2022. \u00bfT\u00fa apostaste a favor\u2026 o en contra?\n\n**HOOK:** Primer equipo africano en semifinales de un Mundial. Las casas de apuestas no lo vieron venir.\n\n**CONTEXTO:** Los fan\u00e1ticos marroqu\u00edes prometieron ayunar, donar salarios, caminar descalzos si llegaban a semis. Los apostadores europeos perdieron fortunas apostando \"\u00c1frica no puede.\" Unos lloraron de alegr\u00eda. Otros de ruina. Mismo partido. Dos realidades.\n\n**MECANISMO:** En GoalChain, el outsider tambi\u00e9n merece contrato: \"Si un equipo africano llega a semis en 2026, publico mi historia de fe cada d\u00eda de diciembre.\" Tu apuesta al imposible queda grabada en Solana. Si pasa, cumples. Si no, igual ganaste disciplina.\n\n**TWIST:** En 2026, \u00bfhabr\u00e1 otro Marruecos? Nadie lo sabe. Pero tu promesa de fan\u00e1tico\u2026 eso s\u00ed lo puedes saber si la pones on-chain.\n\n\ud83d\udd25 Los outsiders no avisan. Tus contratos s\u00ed.\n\n#Marruecos #Qatar2022 #GoalChain #Solana #Underdog",
+    "image_prompt": "Explosive street celebration scene in Moroccan medina at night, fans on rooftops waving flags, center foreground shows holographic Solana blockchain nodes rising from a football like digital fire, opposite corner shadowy figure clutching crumpled betting tickets, rich red-green-gold color grading, cinematic 3D render with anime energy lines, no photorealistic faces, no readable text",
+    "video_prompt": "Celebration energy builds with flags waving in rhythmic waves, holographic blockchain nodes spiral upward from football, camera cranes from street level to rooftop reveal, shadowy betting figure slowly backs into darkness, lanterns swing gently, particle embers float upward, dynamic 9:16 vertical movement",
+    "comments": [],
+    "hook_variant": "A_prohibition",
+    "cta_variant": "C_urgency",
+    "generated_for_run_at": "2026-07-01",
+    "story_arc_id": "arc_nicopezdorado_1782886348",
+    "episode": 1,
+    "total_episodes": 4,
+    "hashtags": [
+      "#MataGoles",
+      "#PromesaCumplida",
+      "#F\u00fatbol",
+      "#ApuestasDelMundo",
+      "#Mundial2026"
+    ],
+    "quality_score": {
+      "post_text_chars": 1006,
+      "image_prompt_present": true,
+      "video_prompt_present": true,
+      "hook_chars": 40,
+      "score": 82,
+      "issues": [
+        "post_text too long (>700)"
+      ],
+      "passes": false
+    },
+    "captions_render": {
+      "status": "disabled_or_unavailable",
+      "ffmpeg": true
+    },
+    "buffer_post_ids": [],
+    "scheduled_at": null,
+    "platform_slots": {}
+  },
+  {
+    "id": "run_1782885866_nicopezdorado_planned",
+    "timestamp": "2026-07-01T06:04:26.167323Z",
+    "account_name": "NicoPezDorado",
+    "topic": "El VAR Te Rob\u00f3 El Mundial (Y Tu Apuesta)",
+    "narrative_angle": "Enemigo universal del apostador moderno: el VAR anula goles por mil\u00edmetros \u2014 cualquier fan\u00e1tico ha gritado contra una pantalla; identificaci\u00f3n instant\u00e1nea en el primer frame.",
+    "status": "published",
+    "image_url": "https://api.goalchain.fun/pilot/grok_img_1782886920_1.jpg",
+    "video_url": "https://api.goalchain.fun/pilot/grok_vid_1782887107_austrian_goalkeeper_penalty_save_20260625_123331.mp4",
+    "post_text": "\ud83d\udcfa Un gol. Celebraci\u00f3n. Euforia. Y entonces\u2026 el VAR.\n\n**HOOK:** Cent\u00edmetros. Milisegundos. Millones de apuestas destruidas en una pantalla.\n\n**CONTEXTO:** Qatar 2022 fue el mundial del VAR. Goles anulados por un hombro, un dedo, un offside que el ojo humano jam\u00e1s vio. Fan\u00e1ticos prometieron cosas absurdas SI ese gol contaba. El gol no cont\u00f3. La promesa qued\u00f3 en limbo. La apuesta, en cenizas. Coraz\u00f3n vs tecnolog\u00eda. Coraz\u00f3n perdi\u00f3.\n\n**MECANISMO:** GoalChain no anula goles \u2014 ejecuta consecuencias. Tu contrato en Solana no depende del VAR: \"Si mi equipo pierde en octavos, hago 100 flexiones.\" Pierde \u2192 flexiones. Sin revisi\u00f3n. Sin mil\u00edmetros. Sin excusas.\n\n**TWIST:** El VAR decide partidos. GoalChain decide si eres fan\u00e1tico de verdad o solo de palabra.\n\n\u26d3\ufe0f En Solana, lo que prometes\u2026 se cumple.\n\n#VAR #Apuestas #GoalChain #Solana #WorldCup2026",
+    "image_prompt": "Dramatic split-screen before-after: left panel fans erupting in stadium celebration with green GOAL lighting, right panel same moment frozen in red with translucent VAR grid lines and millimeter measurement hologram over offside line, floating crypto contract document materializing between panels glowing Solana-purple, dark cinematic 3D render, tension-heavy composition, no faces, no legible text or scoreboards",
+    "video_prompt": "Left panel celebration plays in slow motion then hard cuts to frozen right panel with scanning VAR grid lines animating across pitch, measurement hologram ticks incrementally, crypto contract document fades in between panels pulsing with purple light, camera shakes subtly on cut then stabilizes, vertical 9:16 split-screen tension build",
+    "comments": [],
+    "hook_variant": "A_question",
+    "cta_variant": "C_urgency",
+    "generated_for_run_at": "2026-07-01",
+    "story_arc_id": "arc_nicopezdorado_1782886856",
+    "episode": 1,
+    "total_episodes": 4,
+    "hashtags": [
+      "#MataGoles",
+      "#PromesaCumplida",
+      "#F\u00fatbol",
+      "#PromesaDeBar",
+      "#ApuestaConConciencia"
+    ],
+    "quality_score": {
+      "post_text_chars": 920,
+      "image_prompt_present": true,
+      "video_prompt_present": true,
+      "hook_chars": 8,
+      "score": 82,
+      "issues": [
+        "post_text too long (>700)"
+      ],
+      "passes": false
+    },
+    "captions_render": {
+      "status": "disabled_or_unavailable",
+      "ffmpeg": true
+    },
+    "buffer_post_ids": [],
+    "scheduled_at": null,
+    "platform_slots": {}
+  },
+  {
+    "id": "run_1782885738_goalchainsol_planned",
+    "timestamp": "2026-07-01T06:02:18.559250Z",
+    "account_name": "GoalChainSol",
+    "topic": "Messi 2026: La Apuesta de Tu Vida",
+    "narrative_angle": "Abre con la palabra '\u00faltimo' + el nombre Messi en el segundo 1: activa nostalgia millennial y la herida colectiva de quienes apostaron CONTRA Argentina en 2014 vs los que se hicieron ricos en 2022. El contraste temporal genera curiosidad inmediata.",
+    "status": "published",
+    "image_url": "https://api.goalchain.fun/pilot/grok_img_1782887142_1.jpg",
+    "video_url": "https://api.goalchain.fun/pilot/grok_vid_1782887308_austrian_goalkeeper_penalty_save_20260625_123331.mp4",
+    "post_text": "\ud83c\udfaf HOOK: Lionel Messi en 2026. Su \u00faltimo Mundial. Y t\u00fa... \u00bfapostaste CONTRA \u00e9l en 2014 o A FAVOR en 2022?\n\n\ud83d\udcd6 CONTEXTO: En Brasil 2014, millones juraron que Messi nunca levantar\u00eda la Copa. Perdieron fortunas. En Qatar 2022, los que apostaron con el coraz\u00f3n lloraron de alegr\u00eda. Los que apostaron con la raz\u00f3n fr\u00eda... tambi\u00e9n ganaron. Pero nadie sabe qu\u00e9 pasa en 2026.\n\n\u2699\ufe0f MECANISMO: En GoalChain conviertes tu promesa emocional en un contrato inteligente en Solana. 'Si Messi levanta la Copa, corro 10km diario durante 30 d\u00edas.' No es una apuesta a ciegas: es disciplina verificable on-chain.\n\n\ud83d\udd04 TWIST: Spoiler: Messi ya gan\u00f3 todo. Tu excusa de 'esperar al pr\u00f3ximo mundial' se acab\u00f3. \u00bfVas a apostar con el coraz\u00f3n otra vez sin contrato? \ud83d\udc47\n\n#Messi2026 #GoalChain #Solana #ApuestaConDisciplina #FIFA2026",
+    "image_prompt": "Intimate cinematic 3D render of an aging football locker room at golden hour, single worn Argentina #10 jersey hanging on a wooden hook, cracked mirror reflecting empty stadium lights in background, dust particles floating in warm amber light, melancholic last-dance atmosphere, premium anime-meets-Pixar style, no photorealistic faces, no text overlays",
+    "video_prompt": "Slow dolly-in toward the hanging jersey, gentle fabric sway from unseen breeze, dust motes drifting through golden light beams, mirror reflection subtly shifts showing ghostly stadium silhouette, soft emotional orchestral swell implied through visual pacing, 9:16 vertical framing",
+    "comments": [],
+    "hook_variant": "A_prohibition",
+    "cta_variant": "C_urgency",
+    "generated_for_run_at": "2026-07-01",
+    "story_arc_id": "arc_goalchainsol_1782887113",
+    "episode": 1,
+    "total_episodes": 4,
+    "hashtags": [
+      "#GoalChain",
+      "#StakeYourWord",
+      "#Mundial2026",
+      "#Haaland",
+      "#ContratoInteligente"
+    ],
+    "quality_score": {
+      "post_text_chars": 858,
+      "image_prompt_present": true,
+      "video_prompt_present": true,
+      "hook_chars": 28,
+      "score": 82,
+      "issues": [
+        "post_text too long (>700)"
+      ],
+      "passes": false
+    },
+    "captions_render": {
+      "status": "disabled_or_unavailable",
+      "ffmpeg": true
+    },
+    "buffer_post_ids": [],
+    "scheduled_at": null,
+    "platform_slots": {}
+  },
+  {
+    "id": "run_1782885798_goalchainsol_planned",
+    "timestamp": "2026-07-01T06:03:18.559270Z",
+    "account_name": "GoalChainSol",
+    "topic": "Mbapp\u00e9: Cuando el Favorito Te Quiebra",
+    "narrative_angle": "Nombre Mbapp\u00e9 + 'Real Madrid' en los primeros 3 segundos dispara el algoritmo de f\u00fatbol elite y crypto-bros. La tensi\u00f3n expectativa vs realidad post-transferencia es el drama #1 del verano 2026.",
+    "status": "published",
+    "image_url": "https://api.goalchain.fun/pilot/grok_img_1782887337_1.jpg",
+    "video_url": "https://api.goalchain.fun/pilot/grok_vid_1782887504_austrian_goalkeeper_penalty_save_20260625_123331.mp4",
+    "post_text": "\u26a1 HOOK: Kylian Mbapp\u00e9 lleg\u00f3 al Real Madrid con TODO el mundo apostando que dominar\u00eda el Mundial 2026.\n\n\ud83d\udcd6 CONTEXTO: Las casas de apuestas lo ten\u00edan como m\u00e1ximo goleador. Los fans prometieron tatuarse su nombre si met\u00eda 5 goles. Pero la presi\u00f3n del Bernab\u00e9u + la Copa del Mundo = receta para explotar emocionalmente. \u00bfApostaste en sus expectativas o en su realidad?\n\n\u2699\ufe0f MECANISMO: GoalChain te deja fijar metas verificables: 'Si Mbapp\u00e9 mete menos de 3 goles en fase de grupos, dono 50 $GCH al pool comunitario.' Contrato en Solana. Sin excusas. Sin ghosting.\n\n\ud83d\udd04 TWIST: El favorito siempre pierde a quien apuesta con el coraz\u00f3n sin plan. Mbapp\u00e9 no te debe nada. Tu wallet s\u00ed te la debe. \ud83d\udd17 goalchain.fun\n\n#Mbappe #RealMadrid #GoalChain #Solana #Mundial2026",
+    "image_prompt": "Dramatic split-screen 3D cinematic scene: left side shows holographic crypto betting dashboard with rising green Mbapp\u00e9 stats and fan celebration silhouettes, right side shows same dashboard crashing red with shattered glass effect, central silhouette of athletic forward in white kit from behind walking through neon Madrid street rain, premium anime sports poster aesthetic, no photorealistic faces, no readable text",
+    "video_prompt": "Split-screen divider pulses with heartbeat rhythm, left side stats animate upward then right side crashes downward with glitch effects, rain droplets on neon signs, central figure walks forward slowly with cape-like jacket billowing, camera subtle push-in, tension-building visual rhythm for 9:16",
+    "comments": [],
+    "hook_variant": "A_question",
+    "cta_variant": "C_urgency",
+    "generated_for_run_at": "2026-07-01",
+    "story_arc_id": "arc_goalchainsol_1782887314",
+    "episode": 1,
+    "total_episodes": 4,
+    "hashtags": [
+      "#GoalChain",
+      "#StakeYourWord",
+      "#Mundial2026",
+      "#Haaland",
+      "#ApuestaConConciencia"
+    ],
+    "quality_score": {
+      "post_text_chars": 799,
+      "image_prompt_present": true,
+      "video_prompt_present": true,
+      "hook_chars": 100,
+      "score": 64,
+      "issues": [
+        "post_text too long (>700)",
+        "hook too long (> 50) \u2014 split it"
+      ],
+      "passes": false
+    },
+    "captions_render": {
+      "status": "disabled_or_unavailable",
+      "ffmpeg": true
+    },
+    "buffer_post_ids": [],
+    "scheduled_at": null,
+    "platform_slots": {}
+  },
+  {
+    "id": "run_1782885858_goalchainsol_planned",
+    "timestamp": "2026-07-01T06:04:18.559279Z",
+    "account_name": "GoalChainSol",
+    "topic": "CR7: La Promesa Que Nunca Cumpliste",
+    "narrative_angle": "La frase meme 'si CR7 gana dejo de beber' es reconocimiento instant\u00e1neo universal. Ronaldo + promesa absurda = scroll-stop garantizado en 2 segundos.",
+    "status": "published",
+    "image_url": "https://api.goalchain.fun/pilot/grok_img_1782887685_1.jpg",
+    "video_url": "https://api.goalchain.fun/pilot/grok_vid_1782887864_austrian_goalkeeper_penalty_save_20260625_123331.mp4",
+    "post_text": "\ud83c\udf7a HOOK: 'Si Cristiano Ronaldo gana el Mundial 2026, dejo de beber.' \u00bfCu\u00e1ntas veces dijiste eso?\n\n\ud83d\udcd6 CONTEXTO: Portugal 2026. \u00daltima oportunidad hist\u00f3rica de CR7. Fans en todo el mundo hicieron promesas absurdas: afeitarse la cabeza, vender el auto, renunciar al trabajo. Qatar 2022 casi lo logr\u00f3. \u00bfY si esta vez s\u00ed?\n\n\u2699\ufe0f MECANISMO: En GoalChain tu promesa deja de ser un meme y se convierte en contrato inteligente en Solana. Stake $GCH. Si CR7 levanta la Copa \u2192 cumples. Si no \u2192 pierdes stake. La blockchain no acepta 'era broma'.\n\n\ud83d\udd04 TWIST: Llevas 3 mundiales prometiendo dejar de beber. CR7 tiene 41 a\u00f1os. Tu h\u00edgado te est\u00e1 pidiendo que uses GoalChain YA. \ud83c\udfc6\n\n#CR7 #Ronaldo #GoalChain #Solana #Portugal2026",
+    "image_prompt": "Vibrant street celebration scene in 3D anime-cinematic style, crowd of fan silhouettes holding handmade cardboard signs with beer bottles crossed out and Portugal flags, one fan kneeling dramatically toward giant ghostly CR7 poster mural on brick wall, confetti and green-red smoke flares, nighttime Lisbon alley aesthetic, stylized non-photorealistic characters, no legible text on signs",
+    "video_prompt": "Confetti rains continuously, smoke flares pulse orange and green, kneeling fan figure raises arms in slow motion, mural poster subtly glows with golden aura, crowd silhouettes bounce rhythmically, handheld documentary-style subtle camera shake, energetic 9:16 vertical energy",
+    "comments": [],
+    "hook_variant": "A_contrarian",
+    "cta_variant": "C_link_bio",
+    "generated_for_run_at": "2026-07-01",
+    "story_arc_id": "arc_goalchainsol_1782887510",
+    "episode": 1,
+    "total_episodes": 4,
+    "hashtags": [
+      "#GoalChain",
+      "#StakeYourWord",
+      "#Mundial2026",
+      "#Mbapp\u00e9",
+      "#Yamal"
+    ],
+    "quality_score": {
+      "post_text_chars": 749,
+      "image_prompt_present": true,
+      "video_prompt_present": true,
+      "hook_chars": 65,
+      "score": 64,
+      "issues": [
+        "post_text too long (>700)",
+        "hook too long (> 50) \u2014 split it"
+      ],
+      "passes": false
+    },
+    "captions_render": {
+      "status": "disabled_or_unavailable",
+      "ffmpeg": true
+    },
+    "buffer_post_ids": [],
+    "scheduled_at": null,
+    "platform_slots": {}
+  },
+  {
+    "id": "run_1782885918_goalchainsol_planned",
+    "timestamp": "2026-07-01T06:05:18.559286Z",
+    "account_name": "GoalChainSol",
+    "topic": "Yamal: \u00bfApostaste en un Adolescente?",
+    "narrative_angle": "Un chico de 17 a\u00f1os como protagonista de apuestas mundialistas genera controversia instant\u00e1nea. Yamal + edad num\u00e9rica = retenci\u00f3n extrema por polarizaci\u00f3n.",
+    "status": "published",
+    "image_url": "https://api.goalchain.fun/pilot/grok_img_1782887952_1.jpg",
+    "video_url": "https://api.goalchain.fun/pilot/grok_vid_1782888099_austrian_goalkeeper_penalty_save_20260625_123331.mp4",
+    "post_text": "\ud83d\udc76 HOOK: Lamine Yamal tiene 17 a\u00f1os. \u00bfApostaste tus tokens a que un adolescente brillar\u00eda en el Mundial 2026?\n\n\ud83d\udcd6 CONTEXTO: Espa\u00f1a llega con Pedri recuperado y Yamal como la sensaci\u00f3n m\u00e1s joven del torneo. Los veteranos dicen 'es muy verde'. Los degen apostaron su coraz\u00f3n a que repetir\u00eda la magia de la Euro 2024. \u00bfRaz\u00f3n fr\u00eda o fanatismo puro?\n\n\u2699\ufe0f MECANISMO: GoalChain convierte esa fe emocional en disciplina: 'Si Yamal mete 2+ asistencias en fase de grupos, entreno 5 d\u00edas/semana durante 1 mes.' Verificado on-chain en Solana. Tu fanatismo con consecuencias reales.\n\n\ud83d\udd04 TWIST: Tu mam\u00e1 te dijo que no apostaras en menores. La blockchain no tiene mam\u00e1. Pero s\u00ed tiene contratos. \ud83d\ude0f\n\n#LamineYamal #Espa\u00f1a2026 #GoalChain #Solana #MundialFIFA",
+    "image_prompt": "Epic animated sports poster 3D render of youthful winger silhouette mid-dribble with electric blue and red energy trails, giant stylized number 17 floating as holographic element behind figure, Spanish stadium crowd as abstract color waves not faces, locker room tunnel lighting with dramatic backlight, premium anime sports movie key visual, no photorealistic face, no text",
+    "video_prompt": "Silhouette figure dribbles with electric energy trails spiraling outward, holographic number 17 rotates slowly behind, stadium crowd waves pulse as abstract light, camera orbits 15 degrees around subject, speed lines accentuate movement, youthful explosive energy in 9:16 vertical",
+    "comments": [],
+    "hook_variant": "A_prohibition",
+    "cta_variant": "C_link_bio",
+    "generated_for_run_at": "2026-07-01",
+    "story_arc_id": "arc_goalchainsol_1782887870",
+    "episode": 1,
+    "total_episodes": 4,
+    "hashtags": [
+      "#GoalChain",
+      "#StakeYourWord",
+      "#Yamal",
+      "#Haaland",
+      "#ApuestaConConciencia"
+    ],
+    "quality_score": {
+      "post_text_chars": 789,
+      "image_prompt_present": true,
+      "video_prompt_present": true,
+      "hook_chars": 34,
+      "score": 82,
+      "issues": [
+        "post_text too long (>700)"
+      ],
+      "passes": false
+    },
+    "captions_render": {
+      "status": "disabled_or_unavailable",
+      "ffmpeg": true
+    },
+    "buffer_post_ids": [],
+    "scheduled_at": null,
+    "platform_slots": {}
+  },
+  {
+    "id": "run_1782885978_goalchainsol_planned",
+    "timestamp": "2026-07-01T06:06:18.559293Z",
+    "account_name": "GoalChainSol",
+    "topic": "Bellingham: Football's Coming Home... Otra Vez",
+    "narrative_angle": "El meme cultural ingl\u00e9s 'Football's coming home' es el ciclo de trauma colectivo m\u00e1s compartido del f\u00fatbol. Bellingham + Inglaterra + apuestas perdidas = identificaci\u00f3n viral inmediata.",
+    "status": "published",
+    "image_url": "https://api.goalchain.fun/pilot/grok_img_1782888177_football_player_bet_20260625_140630.jpg",
+    "video_url": "https://api.goalchain.fun/pilot/grok_vid_1782888339_austrian_goalkeeper_penalty_save_20260625_123331.mp4",
+    "post_text": "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f HOOK: Jude Bellingham. Inglaterra. 'Football's coming home.' \u00bfCu\u00e1ntas veces apostaste y perdiste con esa frase?\n\n\ud83d\udcd6 CONTEXTO: Desde 1966, cada generaci\u00f3n inglesa jura que ESTE es el a\u00f1o. Bellingham es la gran esperanza 2026. Fans prometieron recorrer Londres desnudos si ganan. Casas de apuestas ya cobraron millones en 2018 y 2022. El meme es m\u00e1s fuerte que la realidad.\n\n\u2699\ufe0f MECANISMO: En GoalChain blindas tu coraz\u00f3n ingl\u00e9s con contratos inteligentes: 'Si Inglaterra cae antes de semis, hago 100 flexiones diarias por 2 semanas.' Stake en Solana. El VAR de la vida no anula tu compromiso.\n\n\ud83d\udd04 TWIST: Football's NOT coming home. Pero tu disciplina s\u00ed puede llegar a la blockchain. It's GoalChain now. \u26bd\ud83d\udd17\n\n#Bellingham #Inglaterra #GoalChain #Solana #WorldCup2026",
+    "image_prompt": "Moody split-screen before-after 3D render: top half shows cozy English pub interior with cheering fan silhouettes and pint glasses raised before kickoff, bottom half shows same pub devastated with heads on tables and spilled drinks after defeat, central Jude Bellingham-inspired midfielder silhouette in white England kit standing between both worlds, St George cross as subtle ambient red glow, cinematic anime style, no photorealistic faces, no text",
+    "video_prompt": "Top pub scene erupts in silent cheer motion then cuts to bottom scene with slow head-drops, spilled liquid physics simulation, central figure stands still while environments shift around him, subtle English flag light flicker, camera slow vertical pan connecting both halves, bittersweet comedic timing for 9:16",
+    "comments": [],
+    "hook_variant": "A_question",
+    "cta_variant": "C_link_bio",
+    "generated_for_run_at": "2026-07-01",
+    "story_arc_id": "arc_goalchainsol_1782888106",
+    "episode": 1,
+    "total_episodes": 4,
+    "hashtags": [
+      "#GoalChain",
+      "#StakeYourWord",
+      "#Mundial2026",
+      "#ApuestaConConciencia",
+      "#PromesaDeBar"
+    ],
+    "quality_score": {
+      "post_text_chars": 833,
+      "image_prompt_present": true,
+      "video_prompt_present": true,
+      "hook_chars": 29,
+      "score": 82,
+      "issues": [
+        "post_text too long (>700)"
+      ],
+      "passes": false
+    },
+    "captions_render": {
+      "status": "disabled_or_unavailable",
+      "ffmpeg": true
+    },
+    "buffer_post_ids": [],
+    "scheduled_at": null,
+    "platform_slots": {}
+  },
+  {
     "id": "run_1782396605_goalchainsol_reconstructed",
     "timestamp": "2026-06-25T14:10:05Z",
     "account_name": "GoalChainSol",
@@ -131,7 +584,7 @@
     "id": "run_1782391255_goalchainsol_reconstructed",
     "timestamp": "2026-06-25T12:40:55Z",
     "account_name": "GoalChainSol",
-    "topic": "GoalChain: El Protocolo del Fútbol Inteligente",
+    "topic": "GoalChain: El Protocolo del F\u00fatbol Inteligente",
     "narrative_angle": "",
     "status": "published",
     "image_url": "",
@@ -387,7 +840,7 @@
     "id": "run_1782260768_goalchainsol_reconstructed",
     "timestamp": "2026-06-24T00:26:08Z",
     "account_name": "GoalChainSol",
-    "topic": "GoalChain: El Protocolo del Fútbol Inteligente",
+    "topic": "GoalChain: El Protocolo del F\u00fatbol Inteligente",
     "narrative_angle": "",
     "status": "published",
     "image_url": "",
@@ -611,7 +1064,7 @@
     "id": "run_1782223609_goalchainsol_reconstructed",
     "timestamp": "2026-06-23T14:06:49Z",
     "account_name": "GoalChainSol",
-    "topic": "GoalChain: El Protocolo del Fútbol Inteligente",
+    "topic": "GoalChain: El Protocolo del F\u00fatbol Inteligente",
     "narrative_angle": "",
     "status": "published",
     "image_url": "https://api.goalchain.fun/pilot/grok_img_1782223480_goalchainsol_yamal_locker_20260623.png",
@@ -627,7 +1080,7 @@
     "id": "run_1782222170_goalchainsol_reconstructed",
     "timestamp": "2026-06-23T13:42:50Z",
     "account_name": "GoalChainSol",
-    "topic": "La Bóveda del Fútbol: GoalChain Vault",
+    "topic": "La B\u00f3veda del F\u00fatbol: GoalChain Vault",
     "narrative_angle": "",
     "status": "published",
     "image_url": "https://api.goalchain.fun/pilot/grok_img_1782222125_goalchainsol_football_vault_20260623.png",
@@ -755,7 +1208,7 @@
     "id": "run_1782215460_nicopezdorado_reconstructed",
     "timestamp": "2026-06-23T11:51:00Z",
     "account_name": "NicoPezDorado",
-    "topic": "La División del Desarrollador: Build vs. Apostar",
+    "topic": "La Divisi\u00f3n del Desarrollador: Build vs. Apostar",
     "narrative_angle": "",
     "status": "published",
     "image_url": "https://api.goalchain.fun/pilot/grok_img_1782215282_developer_solana_split_scene_20260623_114736.png",
@@ -803,7 +1256,7 @@
     "id": "run_1782214964_nicopezdorado_reconstructed",
     "timestamp": "2026-06-23T11:42:44Z",
     "account_name": "NicoPezDorado",
-    "topic": "La División del Desarrollador: Build vs. Apostar",
+    "topic": "La Divisi\u00f3n del Desarrollador: Build vs. Apostar",
     "narrative_angle": "",
     "status": "published",
     "image_url": "https://api.goalchain.fun/pilot/grok_img_1782213166_developer_split_scene_20260623_111224.png",
@@ -867,7 +1320,7 @@
     "id": "run_1782213338_nicopezdorado_reconstructed",
     "timestamp": "2026-06-23T11:15:38Z",
     "account_name": "NicoPezDorado",
-    "topic": "La División del Desarrollador: Build vs. Apostar",
+    "topic": "La Divisi\u00f3n del Desarrollador: Build vs. Apostar",
     "narrative_angle": "",
     "status": "published",
     "image_url": "https://api.goalchain.fun/pilot/grok_img_1782213166_developer_split_scene_20260623_111224.png",

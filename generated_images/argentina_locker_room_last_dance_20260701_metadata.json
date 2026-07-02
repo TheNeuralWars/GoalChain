@@ -1,0 +1,10 @@
+{
+  "prompt": "Intimate cinematic 3D render of an aging football locker room at golden hour, single worn Argentina #10 jersey hanging on a wooden hook, cracked mirror reflecting empty stadium lights in background, dust particles floating in warm amber light, melancholic last-dance atmosphere, premium anime-meets-Pixar style, no photorealistic faces, no text overlays",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "auto",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/argentina_locker_room_last_dance_20260701.jpg",
+  "size_kb": 257,
+  "endpoint": "generate_image_tool",
+  "generated_at": "2026-07-01T06:25:00.000000"
+}
