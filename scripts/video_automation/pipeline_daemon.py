@@ -336,7 +336,7 @@ def run_research_subprocess():
         hb.join(timeout=2)
 
 def check_and_refill_queue():
-    """Daily check: if Buffer queue has < 5 pending posts, run research + generation to refill it"""
+    """Daily check: if Buffer queue has < 3 pending posts, run research + generation to refill it"""
     try:
         from schedule_optimizer import get_pending_scheduled_times, CHANNEL_SERVICES
         from grok_super_pipeline import CHANNEL_IDS
@@ -355,14 +355,14 @@ def check_and_refill_queue():
                 pending = get_pending_scheduled_times(cid)
                 pending_count = len(pending)
                 print(f"  Channel {cid} ({service} for {account}) has {pending_count} pending posts.")
-                if pending_count < 5:
-                    needed = 5 - pending_count
+                if pending_count < 3:
+                    needed = 3 - pending_count
                     channels_to_refill[account] = max(channels_to_refill.get(account, 0), needed)
             except Exception as e:
                 print(f"Error checking pending posts for {cid}: {e}", file=sys.stderr)
                 
     if not channels_to_refill:
-        print("All channels have >= 5 pending posts. No refill needed.")
+        print("All channels have >= 3 pending posts. No refill needed.")
         return
         
     print(f"Refill needed for accounts: {channels_to_refill}")

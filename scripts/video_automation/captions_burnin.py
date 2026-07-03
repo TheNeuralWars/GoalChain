@@ -83,11 +83,16 @@ def render(video_path: Path, post_text: str, out_path: Path) -> dict:
 
     # For each cue, render an ffmpeg drawtext filter and concat. Kept minimal
     # here — production wiring can use ffmpeg-python for readability.
+    import textwrap
+
     filter_parts = []
     for c in cues:
+        # Wrap text to max 22 characters per line
+        wrapped_text = "\n".join(textwrap.wrap(c["text"], width=22))
+        
         # ffmpeg drawtext escape rules: backslash, single quote, colon, percent
         safe = (
-            c["text"]
+            wrapped_text
             .replace("\\", "\\\\")
             .replace("'", r"\'")
             .replace(":", "\\:")
@@ -95,8 +100,8 @@ def render(video_path: Path, post_text: str, out_path: Path) -> dict:
         )
         filter_parts.append(
             f"drawtext=text='{safe}':"
-            "fontsize=42:fontcolor=yellow:box=1:boxcolor=black@0.4:boxborderw=12:"
-            "x=(w-text_w)/2:y=h*0.78:"
+            "fontsize=32:fontcolor=yellow:box=1:boxcolor=black@0.6:boxborderw=8:"
+            "x=(w-text_w)/2:y=h*0.75:"
             f"enable='between(t,{c['start']},{c['end']})'"
         )
     vf = ",".join(filter_parts)

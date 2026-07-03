@@ -45,6 +45,8 @@ except ImportError:
     SCHEDULER_AVAILABLE = False
     print("[Aviso] schedule_optimizer no disponible, usando addToQueue")
 
+from script_generator import call_llm
+
 # Buffer token required (loaded from .env via config OR schedule_optimizer).
 try:
     from schedule_optimizer import BUFFER_TOKEN as _BUF_INDIRECT  # type: ignore
@@ -284,7 +286,11 @@ def refine_planned_prompts(account_name: str, topic: str, image_prompt: str, vid
     """
     
     print(f"[{account_name}] Refinando prompts de plan '{topic}' según feedback...")
-    raw = run_grok_with_prompt_file(prompt)
+    try:
+        raw = call_llm(prompt, json_mode=True, skip_grok=True)
+    except Exception as e:
+        print(f"Fallback to Grok CLI: {e}")
+        raw = run_grok_with_prompt_file(prompt)
     
     json_match = re.search(r"\{.*\}", raw, re.DOTALL)
     if not json_match:
@@ -375,7 +381,11 @@ Selecciona UNO y construye la narrativa."""
     """
     
     print(f"[{account_name}] Generando tema de tendencia de Mundial 2026 usando Grok CLI...")
-    raw = run_grok_with_prompt_file(prompt)
+    try:
+        raw = call_llm(prompt, json_mode=True, skip_grok=True)
+    except Exception as e:
+        print(f"Fallback to Grok CLI: {e}")
+        raw = run_grok_with_prompt_file(prompt)
     
     json_match = re.search(r"\{.*\}", raw, re.DOTALL)
     if not json_match:
@@ -417,7 +427,11 @@ def generate_visual_prompts(topic: str, account_name: str, feedback_str: str) ->
     """
     
     print(f"[{account_name}] Diseñando prompts creativos para: '{topic}'...")
-    raw = run_grok_with_prompt_file(prompt)
+    try:
+        raw = call_llm(prompt, json_mode=True, skip_grok=True)
+    except Exception as e:
+        print(f"Fallback to Grok CLI: {e}")
+        raw = run_grok_with_prompt_file(prompt)
     
     json_match = re.search(r"\{.*\}", raw, re.DOTALL)
     if not json_match:
@@ -601,7 +615,6 @@ def post_to_buffer(channel_id: str, text: str, video_url: str, all_channels: lis
           post {
             id
             text
-            scheduledAt
           }
         }
         ... on MutationError {

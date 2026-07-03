@@ -29,7 +29,30 @@ RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY")
 RAPIDAPI_HOST_TWITTER = "twitter241.p.rapidapi.com"
 
 # More LLM Providers
-XAI_API_KEY = os.getenv("XAI_API_KEY")
+def get_oauth_xai_token():
+    auth_file = Path('/data/hermes-home/auth.json')
+    if auth_file.exists():
+        try:
+            import json
+            with open(auth_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            token = data.get("providers", {}).get("xai-oauth", {}).get("tokens", {}).get("access_token")
+            if token:
+                return token
+            token = data.get("xai-oauth", {}).get("access")
+            if token:
+                return token
+        except Exception:
+            pass
+    return None
+
+oauth_token = get_oauth_xai_token()
+if oauth_token:
+    XAI_API_KEY = oauth_token
+    os.environ["XAI_API_KEY"] = oauth_token
+else:
+    XAI_API_KEY = os.getenv("XAI_API_KEY")
+
 NVIDIA_API_KEY = os.getenv("NVIDIA_API_KEY")
 
 # Media Generation API Keys (user can add these to their .env file)

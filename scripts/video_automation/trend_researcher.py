@@ -13,6 +13,7 @@ from datetime import datetime, timedelta
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 sys.path.append(str(BASE_DIR / "scripts" / "video_automation"))
 from config import ACCOUNTS
+from script_generator import call_llm
 
 RUNS_FILE = BASE_DIR / "data" / "marketing_pipeline" / "runs.json"
 
@@ -150,9 +151,8 @@ def research_and_queue():
         print(f"  Evitando temas recientes: {recent_topics[:5]}")
         prompt = get_research_prompt(account_name, details["niche"], count=5, recent_topics=recent_topics)
         
-        cmd = f"/home/ubuntu/.local/bin/grok --single {shlex.quote(prompt)}"
         try:
-            raw = ssh_run(cmd)
+            raw = call_llm(prompt, json_mode=True, skip_grok=True)
             json_match = re.search(r"\[\s*\{.*\}\s*\]", raw, re.DOTALL)
             if not json_match:
                 print(f"⚠️ No se pudo extraer array JSON de Grok para {account_name}. Intento alternativo buscando llaves...")

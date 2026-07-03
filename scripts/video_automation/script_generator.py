@@ -89,12 +89,12 @@ def call_gemini(prompt: str, json_mode: bool = False) -> str:
         res_json = json.loads(res_data)
         return res_json["candidates"][0]["content"]["parts"][0]["text"]
 
-def call_llm(prompt: str, json_mode: bool = False) -> str:
+def call_llm(prompt: str, json_mode: bool = False, skip_grok: bool = False) -> str:
     """Fallback orchestrator to call LLM using available API keys (Grok, Nvidia, Gemini)"""
     errors = []
     
     # 1. Try Grok
-    if XAI_API_KEY:
+    if XAI_API_KEY and not skip_grok:
         try:
             return call_grok(prompt, json_mode)
         except Exception as e:
