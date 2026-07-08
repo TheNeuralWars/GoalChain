@@ -113,6 +113,9 @@ agent_command_for_owner() {
 
 ensure_issue_labels() {
   gh label create "status:in_progress" --repo "${GITHUB_REPO}" --color "fbca04" --description "Task is running" >/dev/null 2>&1 || true
+  gh label create "status:done" --repo "${GITHUB_REPO}" --color "0e8a16" --description "Task completed" >/dev/null 2>&1 || true
+  gh label create "status:blocked" --repo "${GITHUB_REPO}" --color "b60205" --description "Task failed or blocked" >/dev/null 2>&1 || true
+  gh label create "status:ready" --repo "${GITHUB_REPO}" --color "0e8a16" --description "Ready for OA/FCC worker" >/dev/null 2>&1 || true
 }
 
 dispatch_issue_to_waiting_agent() {
@@ -331,7 +334,7 @@ EOF
   if [[ ${run_status} -ne 0 ]]; then
     has_error="1"
   elif [[ -f "${run_log}" ]]; then
-    if grep -q -E "model_not_supported|Error:|FCC run failed" "${run_log}"; then
+    if grep -q -i -E "model_not_supported|model not supported|not supported.*model|unsupported.*model|Error:|FCC run failed" "${run_log}"; then
       has_error="1"
     fi
   fi
@@ -398,11 +401,11 @@ EOF
     # Failure handling: DO NOT touch done marker. model_not_supported -> requeue ready for retry (different tier/config external).
     # Other errors -> blocked to prevent loops.
     local fail_reason="FCC execution failed"
-    if grep -q "model_not_supported" "${run_log}" 2>/dev/null; then
+    if grep -q -i -E 'model_not_supported|model not supported|not supported.*model|unsupported.*model' "${run_log}" 2>/dev/null; then
       fail_reason="Model not supported"
     fi
 
-    if grep -q "model_not_supported" "${run_log}" 2>/dev/null; then
+    if grep -q -i -E 'model_not_supported|model not supported|not supported.*model|unsupported.*model' "${run_log}" 2>/dev/null; then
       # Special retry for model_not_supported: re-add ready (no .done, allow pick_next to reprocess)
       local comment_body="Automated FCC/Hermes run failed for issue #${number} (model_not_supported).\n\n- **Reason:** ${fail_reason}\n- **Tier Attempted:** \`${fcc_tier}\`\n- **Action:** Re-queued as status:ready for retry (update MODEL_* / FCC config outside this repo). Run log: \`/tmp/oa-hermes-${number}.log\`."
       gh issue comment --repo "${GITHUB_REPO}" "${number}" --body "$(printf "${comment_body}")" >/dev/null 2>&1 || true

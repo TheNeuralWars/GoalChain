@@ -91,16 +91,18 @@ for issue in issues:
         except Exception:
             pass
             
-        # Check main commits or comments
-        try:
-            res = subprocess.run(
-                ["git", "-C", str(repo_path), "log", "origin/main", "--grep", f"issue #{number}", "--oneline"],
-                capture_output=True, text=True, check=False
-            )
-            if res.stdout.strip():
-                has_main_commit = True
-        except Exception:
-            pass
+        # Check main commits or comments (origin/main + local main/HEAD for ahead-of-remote cases during test/cambio urgente)
+        for ref in ["origin/main", "main", "HEAD"]:
+            try:
+                res = subprocess.run(
+                    ["git", "-C", str(repo_path), "log", ref, "--grep", f"issue #{number}", "--oneline", "-10"],
+                    capture_output=True, text=True, check=False
+                )
+                if res.stdout.strip():
+                    has_main_commit = True
+                    break
+            except Exception:
+                pass
             
         work_done = has_branch or has_pr or has_main_commit
         
