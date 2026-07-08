@@ -10,8 +10,8 @@
 #   - Golden Rule: X = short, unique, public hook (not same as Discord)
 #   - No bulk runs, no retry loops, no scheduler calling this > 1x/day
 #
-# INTEGRATION (issue #844): Postiz support documented in docs/social/POSTIZ_INTEGRATION.md
-# - Optional: use Postiz API/MCP for unified scheduling + AI across platforms.
+# INTEGRATION (issue #844): Postiz support documented in docs/social/POSTIZ_INTEGRATION.md + refined in docs/proposals/hermes/issue-844-proposal.md
+# - Optional: use Postiz API/MCP for unified scheduling + AI across platforms (agent CLI ready).
 # - Current path unchanged (direct budget poster).
 # - Future opt-in via POSTIZ_ENABLED + SDK without breaking rotation invariant.
 # - See also: test_twitter.ts , marketing/video-automation , hermes oa-x scripts.

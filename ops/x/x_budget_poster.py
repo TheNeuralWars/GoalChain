@@ -9,7 +9,7 @@ HARD LIMITS (never exceed without explicit override):
   - Every API call is logged to state file
 
 Why this exists:
-# INTEGRATION (issue #844 Postiz): guard is invariant root. See docs/social/POSTIZ_INTEGRATION.md for thin opt-in in caller (x_daily_post.sh). No change to logic or limits.
+# INTEGRATION (issue #844 Postiz voice task): guard is invariant root. See docs/social/POSTIZ_INTEGRATION.md + docs/proposals/hermes/issue-844-proposal.md for thin opt-in (CLI/SDK future). No change to logic/limits. Current path unchanged.
   The old scheduler had no limits and burned all credits posting
   near-identical content multiple times per day. This replaces it.
 

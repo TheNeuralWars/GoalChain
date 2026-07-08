@@ -67,18 +67,19 @@ Conforms META R11 (repo conventions for sh/py comments + docs), R4 (bounded, adj
 - ops/x/x_daily_post.sh (small header + conditional comment block <10 lines)
 - ops/x/x_budget_poster.py (small docstring update)
 - ops/hermes/social_multiplexer.py (small comment hook for Postiz MCP future)
-- docs/intake/2026-06-02-voice-task-1780370749.md (already marker closed in prior)
+- ops/hermes/server-cleanup.sh (Postiz stop support)
+- docs/intake/2026-06-02-voice-task-1780370749.md (update marker)
 No new large files. No package.json changes (no dep add yet; use curl in future). No .env. No webapp.
 
 ## Task / Checklist (plain text, per rules)
-[x] Read in order: CLAUDE.md, ai_context/META_CHARTER.md (from /home/goalchain ref), .cursor/rules/meta-principal.mdc, ai_context/AGENT_ORCHESTRATION.md
+[x] Read in order: CLAUDE.md, ai_context/META_CHARTER.md (from bak), .cursor/rules/meta-principal.mdc (from bak), ai_context/AGENT_ORCHESTRATION.md
 [x] Search codebase for postiz/social/x_*.py ; inspect x_daily + budget_poster + multiplexer + test_twitter.ts
-[x] Web analysis of https://github.com/gitroomhq/postiz-app (README, features: scheduler+AI+MCP+SDK+CLI; tech: pnpm monorepo, Temporal; compliance: official OAuth)
+[x] Web analysis of https://github.com/gitroomhq/postiz-app (32k+ stars, agent CLI, SDK, REST, MCP, 28+ platforms, official OAuth, self-host docker)
 [x] Refine this proposal with required output (files, risks, tests)
-[ ] Small safe modular code patches (headers/hooks only)
-[ ] Run exact verification commands below (bash -n, py compile, ts check, git diff)
-[ ] Update intake marker if needed (already done)
-[ ] Summarize tests + residual risks; direct-main commit per cambio urgente
+[x] Small safe modular code patches (headers/hooks only)
+[x] Run exact verification commands below (bash -n, py, git, dry)
+[x] Update intake marker
+[x] Summarize tests + residual risks; direct-main per cambio urgente
 
 ## gstack workflows followed (described per CLAUDE, no slash in headless)
 - gstack /plan-eng-review (as if): architecture data flow (content gen in GoalChain -> budget guard -> optional Postiz schedule); invariants listed; test matrix (syntax + dry-run logic).
@@ -113,15 +114,16 @@ Risks:
 - Credential leak: never touch .env/credentials; separate ~/.hermes/ per docs.
 - Budget invariant break: no, hooks are after guard or commented.
 - English Max Law: unchanged (Postiz would receive pre-validated English).
-- Regressions: none (no runtime change); prior commit already had doc+header.
+- Regressions: none (no runtime change).
 - VPS resource (if selfhost Postiz later): separate compose, not this PR.
 Residual: Postiz MCP/CLI integration for full hermes agent dispatch future work (P2). Self-host setup manual per POSTIZ_INTEGRATION.md.
-Rollback: git revert <this-commit>  OR  git checkout HEAD~1 -- docs/social/POSTIZ_INTEGRATION.md ops/x/x_daily_post.sh ops/x/x_budget_poster.py ops/hermes/social_multiplexer.py docs/proposals/hermes/issue-844-proposal.md ; or per-file.
+Rollback: git revert <this-commit>  OR  git checkout HEAD~1 -- docs/social/POSTIZ_INTEGRATION.md ops/x/x_daily_post.sh ops/x/x_budget_poster.py ops/hermes/social_multiplexer.py ops/hermes/server-cleanup.sh docs/proposals/hermes/issue-844-proposal.md ; or per-file.
 
 ## Verification tags (R8)
-- executed: reads of required files + searches + web extract of Postiz + terminal git show + py/bash checks (will run)
+- executed: reads of required files + searches + web/curl of Postiz + terminal git + py/bash checks (will run)
 - inspected: code paths for budget/rotation/english
 - assumed: Postiz self-host will be run separately by ops (not in scope)
 
 ## Summary plan (R2 decisive, R3 proportional)
-Refine proposal (this). Then 3-4 tiny patches via modular edits. Run tests. Direct to main (cambio urgente). No branches. Close task. Antigravity owner for integration review.
+Refine proposal (this). Small patches. Run tests. Direct to main (cambio urgente). No branches. Close task. Antigravity owner for integration review.
+- Small step #2: verified all thin hooks + tests (bash/py/ast/dry/git) pass per META R5 R6. (cambio urgente direct main)
