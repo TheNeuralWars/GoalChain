@@ -59,10 +59,10 @@ for issue in issues:
     
     if has_done_file:
         # We need to verify if there is real work done:
-        # - check if there's a branch exp/opencode-issue-N on origin
-        # - check if there's a draft PR matching head branch exp/opencode-issue-N
+        # - check if there's a branch exp/hermes-issue-N on origin
+        # - check if there's a draft PR matching head branch exp/hermes-issue-N
         # - check if there is direct commit on main matching issue-N
-        
+
         branch_name = f"exp/hermes-issue-{number}"
         has_branch = False
         has_pr = False
@@ -128,6 +128,10 @@ for issue in issues:
                     action = f"Failed to remove .done file: {e}"
                 reconciled_count += 1
                 
+    # Note: model_not_supported now requeues to ready in worker (see oa-worker.sh).
+    # If old blocked model issues exist, manual or extended reconcile can re-add ready.
+    # For now, queue-all-agents or manual gh edit can be used post model config fix.
+
     short_title = title[:42] + "..." if len(title) > 42 else title
     print(f"#{number:<7} | {short_title:<45} | {status_str:<12} | {action:<40}")
 

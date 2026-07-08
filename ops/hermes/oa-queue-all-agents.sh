@@ -24,6 +24,8 @@ for issue in json.load(sys.stdin):
     labs = {x.get("name", "") for x in issue.get("labels") or []}
     if "status:done" in labs:
         continue
+    if "status:blocked" in labs:
+        continue
     if labs & skip:
         continue
     n = issue["number"]

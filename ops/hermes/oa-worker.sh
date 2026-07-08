@@ -234,7 +234,10 @@ process_hermes_issue() {
   [[ -f "${done_marker}" ]] && return 0
 
   log "Processing hermes issue #${number}: ${title}"
+  ensure_issue_labels
+  gh issue edit --repo "${GITHUB_REPO}" "${number}" --remove-label "status:ready" --add-label "status:in_progress" >/dev/null 2>&1 || true
   ensure_branch_clean
+
 
   local urgent_mode="0"
   if is_urgent_text "${title}
@@ -392,22 +395,33 @@ EOF
     touch "${done_marker}"
     log "Finished issue #${number} (normal mode)"
   else
-    # Failure handling: DO NOT touch done marker, remove in_progress, comment + add status:blocked or status:ready for retry
-    # Let's see if it is model_not_supported to mention that explicitly or generally block
+    # Failure handling: DO NOT touch done marker. model_not_supported -> requeue ready for retry (different tier/config external).
+    # Other errors -> blocked to prevent loops.
     local fail_reason="FCC execution failed"
     if grep -q "model_not_supported" "${run_log}" 2>/dev/null; then
       fail_reason="Model not supported"
     fi
 
-    local comment_body="Automated FCC/Hermes run failed for issue #${number}.\n\n- **Reason:** ${fail_reason}\n- **Tier Attempted:** \`${fcc_tier}\`\n- **Status:** marked as \`status:blocked\` for manual review to prevent infinite retries. Run logs are at \`/tmp/oa-hermes-${number}.log\`."
-    gh issue comment --repo "${GITHUB_REPO}" "${number}" --body "$(printf "${comment_body}")" >/dev/null 2>&1 || true
+    if grep -q "model_not_supported" "${run_log}" 2>/dev/null; then
+      # Special retry for model_not_supported: re-add ready (no .done, allow pick_next to reprocess)
+      local comment_body="Automated FCC/Hermes run failed for issue #${number} (model_not_supported).\n\n- **Reason:** ${fail_reason}\n- **Tier Attempted:** \`${fcc_tier}\`\n- **Action:** Re-queued as status:ready for retry (update MODEL_* / FCC config outside this repo). Run log: \`/tmp/oa-hermes-${number}.log\`."
+      gh issue comment --repo "${GITHUB_REPO}" "${number}" --body "$(printf "${comment_body}")" >/dev/null 2>&1 || true
 
-    # Per guidelines, failure should not touch .done, and let's remove status:in_progress, add status:blocked.
-    gh issue edit --repo "${GITHUB_REPO}" "${number}" \
-      --remove-label "status:in_progress" \
-      --add-label "status:blocked" >/dev/null 2>&1 || true
+      gh issue edit --repo "${GITHUB_REPO}" "${number}" \
+        --remove-label "status:in_progress" \
+        --add-label "status:ready" >/dev/null 2>&1 || true
 
-    log "Failed issue #${number}: ${fail_reason}. Done marker NOT touched. Re-labeled status:blocked."
+      log "Failed issue #${number}: ${fail_reason}. Re-queued status:ready for retry. Done marker NOT touched."
+    else
+      local comment_body="Automated FCC/Hermes run failed for issue #${number}.\n\n- **Reason:** ${fail_reason}\n- **Tier Attempted:** \`${fcc_tier}\`\n- **Status:** marked as \`status:blocked\` for manual review to prevent infinite retries. Run logs are at \`/tmp/oa-hermes-${number}.log\`."
+      gh issue comment --repo "${GITHUB_REPO}" "${number}" --body "$(printf "${comment_body}")" >/dev/null 2>&1 || true
+
+      # Other errors: block
+      gh issue edit --repo "${GITHUB_REPO}" "${number}" \
+        --remove-label "status:in_progress" \
+        --add-label "status:blocked" >/dev/null 2>&1 || true
+      log "Failed issue #${number}: ${fail_reason}. Done marker NOT touched. Re-labeled status:blocked."
+    fi
   fi
 }
 
