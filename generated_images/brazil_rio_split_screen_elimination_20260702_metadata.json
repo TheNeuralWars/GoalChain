@@ -1,0 +1,10 @@
+{
+  "prompt": "Split-screen cinematic 3D anime scene: left side ecstatic Brazilian fans in yellow flooding a Rio street with confetti and drums pre-match, right side same street muted and rainy post-elimination with torn betting tickets on wet asphalt, central heroic stylized winger figure in Brazil kit as glowing poster silhouette between both halves, golden stadium lights bleeding through, no photorealistic faces, no text",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "auto",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/brazil_rio_split_screen_elimination_20260702.jpg",
+  "size_kb": 437,
+  "endpoint": "grok_cli",
+  "generated_at": "2026-07-02T06:30:00.000000Z"
+}

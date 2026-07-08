@@ -1,0 +1,10 @@
+{
+  "prompt": "Epic anime-premium 3D poster composition: stylized Brazilian winger with flowing motion trails performing stepover in yellow jersey number 20, behind him a giant cracked golden trophy silhouette shattering into betting chips, Rio favela rooftops at sunset with fans holding flags on one side merging into empty sportsbook screens showing red loss numbers on other side, vibrant green yellow blue palette, no photorealistic faces, no text",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "auto",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/brazilian_winger_favela_trophy_poster_20260702.jpg",
+  "size_kb": 441,
+  "endpoint": "grok_cli",
+  "generated_at": "2026-07-02T06:10:00.000000Z"
+}

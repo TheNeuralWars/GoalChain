@@ -1,0 +1,10 @@
+{
+  "prompt": "Intimate cinematic 3D locker room scene at night, elderly legendary footballer jersey with number 7 draped over wooden bench, empty beer bottles and crumpled betting slips scattered on floor, glowing Solana blockchain hexagon hologram floating above a signed contract parchment, warm amber locker lights mixing with cool blue crypto glow, anime-premium stylized figures without photorealistic faces, no text",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "auto",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/locker_room_solana_contract_7_20260702_060622.jpg",
+  "size_kb": 316,
+  "endpoint": "grok_cli",
+  "generated_at": "2026-07-02T06:06:22.000000Z"
+}

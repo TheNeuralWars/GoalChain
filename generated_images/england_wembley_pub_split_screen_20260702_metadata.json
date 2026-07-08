@@ -1,0 +1,10 @@
+{
+  "prompt": "Cinematic split-screen 3D render: top half shows stylized young English midfielder in white kit roaring in Wembley arch stadium filled with St George cross flags, bottom half shows same fans slumped on pub benches with crumpled betting tickets and spilled pints, floating 1966 ghost trophy fading transparent in background, moody rain-soaked London street reflections, anime-premium style without photorealistic faces, no text",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "9:16",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/england_wembley_pub_split_screen_20260702.jpg",
+  "size_kb": 412,
+  "endpoint": "grok_cli",
+  "generated_at": "2026-07-02T06:15:00.000000Z"
+}

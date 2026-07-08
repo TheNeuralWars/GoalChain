@@ -3,6 +3,7 @@ import sys
 import json
 import time
 import urllib.request
+import urllib.error
 import urllib.parse
 import subprocess
 import shlex
@@ -682,13 +683,17 @@ def post_to_buffer(channel_id: str, text: str, video_url: str, all_channels: lis
         method="POST"
     )
     
-    with urllib.request.urlopen(req, timeout=30) as r:
-        response_data = json.loads(r.read().decode("utf-8"))
-        if "errors" in response_data:
-            raise RuntimeError(f"Error de GraphQL en Buffer: {response_data['errors']}")
-        # Attach scheduled_at to response for storage
-        response_data["_scheduled_at"] = scheduled_at
-        return response_data
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            response_data = json.loads(r.read().decode("utf-8"))
+            if "errors" in response_data:
+                raise RuntimeError(f"Error de GraphQL en Buffer: {response_data['errors']}")
+            # Attach scheduled_at to response for storage
+            response_data["_scheduled_at"] = scheduled_at
+            return response_data
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode("utf-8")
+        raise RuntimeError(f"HTTP Error {e.code} en Buffer: {error_body}")
 
 def run_pipeline(topic: str, account_name: str, run_id: str, auto_topic: bool = False):
     """Execute complete generation and publishing pipeline"""

@@ -1,0 +1,11 @@
+{
+  "prompt": "Futuristic sports command center cinematic 3D render, giant curved VAR review screen showing frozen offside lines slicing through a stylized goal celebration, split-second ghost goal dissolving into red glitch pixels, stressed fan silhouettes gripping crypto-betting tablets, cold cyan and red alert lighting, premium anime tech aesthetic, no photorealistic faces, no text",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "16:9",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/var_command_center_ghost_goal_20260702.jpg",
+  "size_kb": 314,
+  "endpoint": "generate_image_tool",
+  "generated_at": "2026-07-02T06:46:00.000000Z",
+  "note": "xAI API 403 credits exhausted; generated via integrated tool with same prompt"
+}

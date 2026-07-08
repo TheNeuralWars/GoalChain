@@ -1,0 +1,10 @@
+{
+  "prompt": "Cinematic 3D render of a lone Norwegian striker silhouette with fiery red hair standing in an empty modern living room at night, giant World Cup 2026 broadcast glowing on a wall screen he cannot enter, floating holographic betting slips dissolving into ash around him, moody blue-orange contrast, premium sports anime aesthetic, no photorealistic faces, no text",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "16:9",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/norwegian_striker_wc2026_betting_slips_20260702.jpg",
+  "size_kb": 265,
+  "endpoint": "grok_build_generate_image",
+  "generated_at": "2026-07-02T06:26:13.000000Z"
+}

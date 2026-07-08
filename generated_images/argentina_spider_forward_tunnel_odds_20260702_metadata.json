@@ -1,0 +1,10 @@
+{
+  "prompt": "Unique intimate scene: stylized spider-themed Argentine forward in blue-white stripes walking through empty stadium tunnel toward blinding pitch light, ghostly transparent betting odds boards floating on walls showing his name at 0% highlighted while star players names glow bright gold, scattered losing parlay slips on wet concrete floor, cinematic 3D anime-premium render, teal and white Argentina palette, no photorealistic faces, no text",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "16:9",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/argentina_spider_forward_tunnel_odds_20260702.jpg",
+  "size_kb": 324,
+  "endpoint": "grok_build_generate_image",
+  "generated_at": "2026-07-02T06:21:08.000000Z"
+}

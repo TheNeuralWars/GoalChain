@@ -1,0 +1,20 @@
+spawn /home/ubuntu/.local/bin/grok login --oauth
+expect "Open this URL to sign in:"
+expect -re "(https://auth.x.ai/\\S+)"
+set auth_url $expect_out(1,string)
+
+# Print auth url
+send_user "\nURL_FOUND:$auth_url\n"
+
+# Set a very long timeout for the user to login
+set timeout 120
+expect {
+    "Successfully authenticated" {
+        send_user "\nLOGIN_SUCCESS\n"
+    }
+    timeout {
+        send_user "\nLOGIN_TIMEOUT\n"
+        exit 1
+    }
+}
+expect eof

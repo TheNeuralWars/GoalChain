@@ -3,30 +3,38 @@
     "NicoPezDorado": {
       "active": [
         {
-          "id": "arc_nicopezdorado_1782886348",
-          "seed_topic": "Marruecos 2022: El Outsider Que Hizo Millonarios y Quebró Bancas",
+          "id": "arc_nicopezdorado_1782973211",
+          "seed_topic": "Julián Álvarez: El Héroe Que Nadie Puso En Su Parlay",
           "episode": 1,
           "total_episodes": 4,
-          "started_at": "2026-07-01T06:12:28.116792Z",
-          "last_episode_at": "2026-07-01T06:12:28.116792Z",
+          "started_at": "2026-07-02T06:20:11.454013Z",
+          "last_episode_at": "2026-07-02T06:20:11.454013Z",
           "episode_history": [
             {
               "episode": 1,
-              "topic": "Marruecos 2022: El Outsider Que Hizo Millonarios y Quebró Bancas"
+              "topic": "Julián Álvarez: El Héroe Que Nadie Puso En Su Parlay"
             }
           ]
         },
         {
-          "id": "arc_nicopezdorado_1782886856",
-          "seed_topic": "El VAR Te Robó El Mundial (Y Tu Apuesta)",
-          "episode": 1,
+          "id": "arc_nicopezdorado_1783257244",
+          "seed_topic": "Kylian Mbappé no juega este Mundial. Y eso le acaba de salvar a miles de apostadores",
+          "episode": 3,
           "total_episodes": 4,
-          "started_at": "2026-07-01T06:20:56.272593Z",
-          "last_episode_at": "2026-07-01T06:20:56.272593Z",
+          "started_at": "2026-07-05T13:14:04.949617Z",
+          "last_episode_at": "2026-07-05T13:49:02.269522Z",
           "episode_history": [
             {
               "episode": 1,
-              "topic": "El VAR Te Robó El Mundial (Y Tu Apuesta)"
+              "topic": "Kylian Mbappé no juega este Mundial. Y eso le acaba de salvar a miles de apostadores"
+            },
+            {
+              "episode": 2,
+              "topic": "Mbappé no juega este Mundial. Y eso le acaba de salvar a miles de apostadores"
+            },
+            {
+              "episode": 3,
+              "topic": "Nunca más apuesto a Kylian Mbappé en un Mundial. Mirá por qué."
             }
           ]
         }
@@ -159,36 +167,132 @@
           ],
           "status": "archived",
           "archived_at": "2026-07-01T06:20:56.272626Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782886348",
+          "seed_topic": "Marruecos 2022: El Outsider Que Hizo Millonarios y Quebró Bancas",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-01T06:12:28.116792Z",
+          "last_episode_at": "2026-07-01T06:12:28.116792Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Marruecos 2022: El Outsider Que Hizo Millonarios y Quebró Bancas"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-02T06:01:23.642161Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782886856",
+          "seed_topic": "El VAR Te Robó El Mundial (Y Tu Apuesta)",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-01T06:20:56.272593Z",
+          "last_episode_at": "2026-07-01T06:20:56.272593Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "El VAR Te Robó El Mundial (Y Tu Apuesta)"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-02T06:04:46.480729Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782972083",
+          "seed_topic": "Mbappé 2026: Apostaste Al Héroe… O Al Hate",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-02T06:01:23.642129Z",
+          "last_episode_at": "2026-07-02T06:01:23.642129Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Mbappé 2026: Apostaste Al Héroe… O Al Hate"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-02T06:10:32.746672Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782972286",
+          "seed_topic": "CR7: \"Si Gana El Mundial, Dejo De Beber\"",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-02T06:04:46.480692Z",
+          "last_episode_at": "2026-07-02T06:04:46.480692Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "CR7: \"Si Gana El Mundial, Dejo De Beber\""
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-02T06:13:58.566674Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782972632",
+          "seed_topic": "Vinicius Jr.: El Síndrome Del Favorito Eterno",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-02T06:10:32.746638Z",
+          "last_episode_at": "2026-07-02T06:10:32.746638Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Vinicius Jr.: El Síndrome Del Favorito Eterno"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-02T06:20:11.454045Z"
+        },
+        {
+          "id": "arc_nicopezdorado_1782972838",
+          "seed_topic": "Bellingham: \"Football's Coming Home\"… Otra Vez",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-02T06:13:58.566553Z",
+          "last_episode_at": "2026-07-02T06:13:58.566553Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Bellingham: \"Football's Coming Home\"… Otra Vez"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-05T13:14:04.949658Z"
         }
       ]
     },
     "GoalChainSol": {
       "active": [
         {
-          "id": "arc_goalchainsol_1782887870",
-          "seed_topic": "Yamal: ¿Apostaste en un Adolescente?",
+          "id": "arc_goalchainsol_1782974410",
+          "seed_topic": "Cody Gakpo: La Apuesta al Desconocido",
           "episode": 1,
           "total_episodes": 4,
-          "started_at": "2026-07-01T06:37:50.850215Z",
-          "last_episode_at": "2026-07-01T06:37:50.850215Z",
+          "started_at": "2026-07-02T06:40:10.640849Z",
+          "last_episode_at": "2026-07-02T06:40:10.640849Z",
           "episode_history": [
             {
               "episode": 1,
-              "topic": "Yamal: ¿Apostaste en un Adolescente?"
+              "topic": "Cody Gakpo: La Apuesta al Desconocido"
             }
           ]
         },
         {
-          "id": "arc_goalchainsol_1782888106",
-          "seed_topic": "Bellingham: Football's Coming Home... Otra Vez",
+          "id": "arc_goalchainsol_1782974712",
+          "seed_topic": "VAR: El Gol Anulado Que Te Quitó Todo",
           "episode": 1,
           "total_episodes": 4,
-          "started_at": "2026-07-01T06:41:46.204250Z",
-          "last_episode_at": "2026-07-01T06:41:46.204250Z",
+          "started_at": "2026-07-02T06:45:12.098924Z",
+          "last_episode_at": "2026-07-02T06:45:12.098924Z",
           "episode_history": [
             {
               "episode": 1,
-              "topic": "Bellingham: Football's Coming Home... Otra Vez"
+              "topic": "VAR: El Gol Anulado Que Te Quitó Todo"
             }
           ]
         }
@@ -321,6 +425,86 @@
           ],
           "status": "archived",
           "archived_at": "2026-07-01T06:41:46.204281Z"
+        },
+        {
+          "id": "arc_goalchainsol_1782887870",
+          "seed_topic": "Yamal: ¿Apostaste en un Adolescente?",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-01T06:37:50.850215Z",
+          "last_episode_at": "2026-07-01T06:37:50.850215Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Yamal: ¿Apostaste en un Adolescente?"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-02T06:25:15.333484Z"
+        },
+        {
+          "id": "arc_goalchainsol_1782888106",
+          "seed_topic": "Bellingham: Football's Coming Home... Otra Vez",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-01T06:41:46.204250Z",
+          "last_episode_at": "2026-07-01T06:41:46.204250Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Bellingham: Football's Coming Home... Otra Vez"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-02T06:30:17.186551Z"
+        },
+        {
+          "id": "arc_goalchainsol_1782973515",
+          "seed_topic": "Haaland: El Mejor Goleador Sin Mundial",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-02T06:25:15.333453Z",
+          "last_episode_at": "2026-07-02T06:25:15.333453Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Haaland: El Mejor Goleador Sin Mundial"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-02T06:34:57.578621Z"
+        },
+        {
+          "id": "arc_goalchainsol_1782973817",
+          "seed_topic": "Vinicius Jr.: El Síndrome del Favorito Eterno",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-02T06:30:17.186522Z",
+          "last_episode_at": "2026-07-02T06:30:17.186522Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Vinicius Jr.: El Síndrome del Favorito Eterno"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-02T06:40:10.640882Z"
+        },
+        {
+          "id": "arc_goalchainsol_1782974097",
+          "seed_topic": "Julián Álvarez: El Héroe Que Nadie Apostó",
+          "episode": 1,
+          "total_episodes": 4,
+          "started_at": "2026-07-02T06:34:57.578568Z",
+          "last_episode_at": "2026-07-02T06:34:57.578568Z",
+          "episode_history": [
+            {
+              "episode": 1,
+              "topic": "Julián Álvarez: El Héroe Que Nadie Apostó"
+            }
+          ],
+          "status": "archived",
+          "archived_at": "2026-07-02T06:45:12.098956Z"
         }
       ]
     }

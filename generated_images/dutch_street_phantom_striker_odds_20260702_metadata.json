@@ -1,0 +1,10 @@
+{
+  "prompt": "Dutch street celebration scene at dusk in cinematic 3D anime style, orange-clad fans erupting around a rising phantom striker emerging from smoke like a holographic dark horse, crypto statistics orbs floating showing unknown player odds spiking upward, cobblestone café tables with abandoned celebrity player cards, warm orange floodlights, no photorealistic faces, no text",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "16:9",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/dutch_street_phantom_striker_odds_20260702.jpg",
+  "size_kb": 381,
+  "endpoint": "grok_build_generate_image",
+  "generated_at": "2026-07-02T06:41:00.000000Z"
+}

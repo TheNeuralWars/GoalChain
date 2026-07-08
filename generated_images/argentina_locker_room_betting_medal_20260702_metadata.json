@@ -1,0 +1,10 @@
+{
+  "prompt": "Intimate locker room cinematic 3D render, young Argentine forward in shadow sitting alone on bench while blurred silhouettes celebrate behind frosted glass door, single spotlight on his boots and medal reflection on floor, scattered betting app screens on a cracked phone showing wrong player picks, teal and white moody lighting, premium anime sports poster style, no photorealistic faces, no text",
+  "model": "grok-imagine-image-quality",
+  "aspect_ratio": "auto",
+  "resolution": "2k",
+  "output": "/data/apps/GoalChain/generated_images/argentina_locker_room_betting_medal_20260702.jpg",
+  "size_kb": 280,
+  "endpoint": "grok_build_generate_image",
+  "generated_at": "2026-07-02T06:35:00.000000Z"
+}
