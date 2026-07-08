@@ -1,6 +1,6 @@
 # Implementation Status (docs ↔ code reconciliation)
 
-**Updated:** 2026-05-26  
+**Updated:** 2026-07-08 (#843 direct-main verified: build/smoke pass, claim+badge+config wired, oracle hook ok; FCC re-audit + proposal refine + tests executed)  
 **Purpose:** Single map of what is implemented in code vs operational/frontend work.
 
 Source of truth for parameters: `docs/ECONOMIC_CANONICAL_CONFIG.json`.
