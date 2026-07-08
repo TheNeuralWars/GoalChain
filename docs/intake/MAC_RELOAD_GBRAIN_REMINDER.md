@@ -1,6 +1,6 @@
 # MAC_RELOAD_GBRAIN_REMINDER — Recargar Cursor y Antigravity (Mac)
 
-**Status:** ready
+**Status:** done
 **Priority:** P1
 **Date:** 2026-06-21
 **Owner:** hermes → Nico
@@ -92,6 +92,7 @@ alias refresh-gbrain="bash ~/Path/GoalChain/ops/hermes/sync-gbrain.sh mac-cursor
 
 ## 7. Estado y cierre
 
-- **Status actual:** `ready`.
+- **Status actual:** `done` (via #842 FCC implementation).
 - **Cierre:** cuando Nico confirme que Cursor **y** Antigravity devuelven resultados recientes en `gbrain query "GoalChain Mundial 2026 scope"`. Marcamos `done` con el comentario de Nico en este archivo o en #814.
 - **Owner del cierre:** hermes (vuelve a verificar gbrain y, si lo confirmás, cambia `Status: ready → done`).
+- **Post #842 note (hermes):** Scripts verified + tested on VPS (sync, installers). Proposal refined per META/CLAUDE. Reminder doc is the canonical reference. Mac reload action remains with Nico (per §2). Intake marker closed. See proposal for full log/tests. Direct-main (cambio urgente).

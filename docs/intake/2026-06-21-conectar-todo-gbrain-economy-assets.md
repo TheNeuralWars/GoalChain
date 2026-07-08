@@ -94,8 +94,8 @@ Antes de que el CEO arranque, fijate esto:
 
 1. `P0` — Diagnóstico y fix del economy daemon (vault_crank + mint_gate).
 2. `P0` — Confirmar/configurar cron de asset generation + reanudar cola hasta cubrir gap.
-3. `P1` — Crear `ops/hermes/sync-gbrain.sh` (Mac + VPS) y actualizar skill.
-4. `P1` — Crear brief `docs/intake/MAC_RELOAD_GBRAIN_REMINDER.md` para que Nico recargue Cursor/Antigravity.
+3. `P1` — Crear `ops/hermes/sync-gbrain.sh` (Mac + VPS) y actualizar skill. **(closed)**
+4. `P1` — Crear brief `docs/intake/MAC_RELOAD_GBRAIN_REMINDER.md` para que Nico recargue Cursor/Antigravity. **(closed via issue #842 — reminder canonical, scripts verified, status=done)**
 5. `P2` — Auditar otros timers/cron (`goalchain-ops` MCP list) y centralizar health check en `goalchain-ops:.health` resource.
 
 ---
@@ -112,4 +112,6 @@ Una vez ejecutado todo:
 
 ---
 
-**End of brief.** Listo para abrir issues P0/P1/P2.
+**Update #842 (item #4 closed):** See docs/proposals/hermes/issue-842-proposal.md for full verification, tests, risks, file list. Reminder doc updated to done. Scripts (sync-gbrain, installers) inspected/executed successfully on VPS. Mac-side reload by Nico required to activate. Other P0/P1/P2 tracked in separate issues.
+
+**End of brief.** Listo para abrir issues P0/P1/P2. (item #4 closed by #842)
