@@ -5,6 +5,7 @@ Parses local git commits, milestones, and project structure to generate target-s
 public updates (English Max Law) for X, Indie Hackers, Hacker News, Reddit, and DevTo.
 """
 
+# Postiz integration hook (issue #844): for future agent-driven scheduling via MCP/CLI. Always enforce English Max + budget. Thin for now. See docs/social/POSTIZ_INTEGRATION.md
 import os
 import sys
 import argparse

@@ -15,6 +15,13 @@
 # - Current path unchanged (direct budget poster).
 # - Future opt-in via POSTIZ_ENABLED + SDK without breaking rotation invariant.
 # - See also: test_twitter.ts , marketing/video-automation , hermes oa-x scripts.
+#
+# Thin hook (modular, no behavior change):
+# if [ "${POSTIZ_ENABLED:-false}" = "true" ]; then
+#   echo "[x_daily] Would delegate to Postiz (MCP/SDK) instead of direct; content pre-validated."
+#   # e.g. curl -H "Auth:..." https://postiz-host/api/posts -d '{"content":"'"$tweet"'","platforms":["x"]}'
+# fi
+# (Per proposal: keep budget guard + rotation first.)
 
 set -euo pipefail
 

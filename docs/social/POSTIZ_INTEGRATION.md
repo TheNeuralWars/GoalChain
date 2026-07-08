@@ -55,3 +55,7 @@ Integration owner: Antigravity after FCC draft.
 - https://github.com/gitroomhq/postiz-app (README, docs)
 - https://docs.postiz.com (MCP, API)
 - GoalChain social surface analysis.
+
+
+## Agent CLI note (from Postiz)
+Postiz provides agent CLI perfect for hermes/opencode (see repo README). Future: integrate CLI calls for schedule from hermes agents (thin hook prepared in multiplexer + daily scripts per #844).

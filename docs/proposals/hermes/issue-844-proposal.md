@@ -47,103 +47,81 @@ hermes
 P1
 
 ## Context
+Requested by Nico via Manager. Linked to #276 voice note. Per CLAUDE.md (read first: skills gstack review/investigate/plan-eng for ops; frontend-design only if webapp touched — none here; no /ship/browser/qa). Direct main enabled by 'cambio urgente'. One implementer. Manage tasks/checklist in this text file (no todowrite per Nemotron compat).
 
-## Analysis (first-principles per META_CHARTER R1, read CLAUDE + META + meta-principal + AGENT_ORCHESTRATION)
-Postiz (gitroomhq/postiz-app, AGPL-3, ~active 2026): open-source self-hosted agentic social media scheduler (Buffer/Hypefury alt).
-- Supports 30+ platforms incl. X/Twitter, Instagram, LinkedIn, TikTok, Bluesky, Discord, Threads, etc.
-- AI-native: post generation, copilots, auto-complete, Canva-like editor, UGC video via agent-media.
-- Agentic: dedicated MCP server (/mcp or /mcp/:key) for Hermes/OpenClaw/Claude/Codex agents; also Node SDK (@postiz/node), REST API, N8N/Make/Zapier nodes, CLI.
-- Stack: pnpm monorepo, Next.js (UI calendar), NestJS (backend), Prisma+PostgreSQL, Temporal (workflows), Redis, Resend.
-- Compliance note: uses official OAuth, no scraping/keys proxy; self-host = no limits.
-- Fit for GoalChain/GoalWorld: unifies current fragmented social (x_daily_post.sh + x_budget_poster.py + test_twitter.ts + video-automation buffer_publisher + hermes oa-x-*.py + marketing rules in CLAUDE.md). Enables scheduling with AI gen for English-only CTAs, player spotlights, presale (per intake/MUNDIAL rules), cross-post without duplicating scheduler. MCP perfect for hermes-ceo/social agent workflows. Matches "agentic" voice intake.
+## Analysis (first-principles per META R1, R3)
+Postiz (gitroomhq/postiz-app): AGPL-3 self-hostable (docker-compose: NextJS/NestJS/Prisma/Temporal/Postgres/Redis) agentic social scheduler + AI content gen + analytics. Supports X/Twitter primary + 30+ platforms via official OAuth (no scrape). Key for GoalChain: Node SDK (@postiz/node), Public REST API, MCP server (for Hermes agents/OpenClaw), new "Postiz agent CLI". Matches hermes social orchestration, ops/x scripts, English Max Law (content gen stays here), 1-post/day budget invariant.
+Root invariants (from x_budget_poster.py, x_daily_post.sh, social_multiplexer.py, CLAUDE marketing): 
+- Hard 1 post/day on @GoalChainSOL
+- 100% English public copy
+- Rotation avoids duplicates
+- No secrets in repo
+- Content angles: zealy, vault, spotlight, presale, wc2026 etc.
+- Ops in /ops/hermes/ /ops/x/ /scripts/ allowed per scope.
+No on-chain/economy change. Thin integration: document + opt-in comment hooks (current behavior 100% unchanged). Future: POSTIZ_ENABLED + curl/SDK wrapper without breaking budget guard.
+Conforms META R11 (repo conventions for sh/py comments + docs), R4 (bounded, adjacent to existing social), R5 (execution verify), R10 (reversible).
 
-Constraints (CLAUDE.md, META R3/R4/R10/R11):
-- Scope tight: no full Postiz deploy, no on-chain/treasury/economy changes, no secrets touch, no large writes (>50l single write), no todowrite.
-- Use frontend-design intent only if webapp UI (not here; social is ops/scripts/docs).
-- gstack intent: review/investigate/plan-eng (described below; no /ship, no browser/qa in headless VPS).
-- Allowed: ops/, scripts/, docs/, goalchain_api/ (small), hermes profiles indirect.
-- Direct main enabled (cambio urgente in prompt + prior #843 pattern); no feature branch; one implementer (FCC/opencode).
-- Reversible, test-covered, proportional: add thin integration doc + header comments + optional hook; no dep installs unless verified.
-- Conventions: match bash/python/ts style, English marketing copy, 1-post/day budget.
+## Proposed file list (modular small edits only)
+- docs/proposals/hermes/issue-844-proposal.md (this file: refine + checklist)
+- docs/social/POSTIZ_INTEGRATION.md (small modular append for sources + agent CLI note)
+- ops/x/x_daily_post.sh (small header + conditional comment block <10 lines)
+- ops/x/x_budget_poster.py (small docstring update)
+- ops/hermes/social_multiplexer.py (small comment hook for Postiz MCP future)
+- docs/intake/2026-06-02-voice-task-1780370749.md (already marker closed in prior)
+No new large files. No package.json changes (no dep add yet; use curl in future). No .env. No webapp.
 
-Root invariants: current posting is direct (twitter-api-v2 or xurl equiv), rate-limited by custom budget/rotation. Postiz adds unified queue/calendar/analytics/agent control without breaking existing.
+## Task / Checklist (plain text, per rules)
+[x] Read in order: CLAUDE.md, ai_context/META_CHARTER.md (from /home/goalchain ref), .cursor/rules/meta-principal.mdc, ai_context/AGENT_ORCHESTRATION.md
+[x] Search codebase for postiz/social/x_*.py ; inspect x_daily + budget_poster + multiplexer + test_twitter.ts
+[x] Web analysis of https://github.com/gitroomhq/postiz-app (README, features: scheduler+AI+MCP+SDK+CLI; tech: pnpm monorepo, Temporal; compliance: official OAuth)
+[x] Refine this proposal with required output (files, risks, tests)
+[ ] Small safe modular code patches (headers/hooks only)
+[ ] Run exact verification commands below (bash -n, py compile, ts check, git diff)
+[ ] Update intake marker if needed (already done)
+[ ] Summarize tests + residual risks; direct-main commit per cambio urgente
 
-## Refined OA Plan (text checklist in proposal per Nemotron compat; gstack /plan-eng intent)
-1. Read required in order (done): CLAUDE.md, ai_context/META_CHARTER.md (bak + refs), .cursor/rules/meta-principal.mdc (bak), ai_context/AGENT_ORCHESTRATION.md.
-2. Analyze Postiz (web/docs extracts + README) + current GoalChain social surface (x_daily_post.sh, test_twitter.ts, marketing scripts, intake).
-3. Refine this proposal.md (small patch).
-4. Minimal integration artifacts (small modular):
-   - New small doc <50l: docs/social/POSTIZ_INTEGRATION.md (how to self-host + use API/SDK/MCP for GoalChain posts; map angles; example curl/TS; self-host note).
-   - Patch x_daily_post.sh : add header comment referencing integration + Postiz option (no logic change).
-   - Patch intake voice file : mark implemented, add link to proposal/PR.
-   - Minor: update proposal with executed list.
-5. gstack /investigate intent simulation: trace posting flow (content gen -> budget poster -> X); failure modes (rate limit, auth, rotation state); no breakage.
-6. Verify by execution (R5): shell checks, ts type check, dry python exec, git diff scoped.
-7. Commit direct main (cambio urgente), update .done marker, summarize tests + risks (this proposal).
-8. (Post) close intake marker; optional draft PR note.
+## gstack workflows followed (described per CLAUDE, no slash in headless)
+- gstack /plan-eng-review (as if): architecture data flow (content gen in GoalChain -> budget guard -> optional Postiz schedule); invariants listed; test matrix (syntax + dry-run logic).
+- gstack /investigate (as if): traced from daily_post -> budget_poster (enforcer); no prior Postiz code besides this intake.
+- gstack /review (as if): bugs/edges: budget must stay first (no bypass); english check remains; rollback easy (revert doc+2 comments).
 
-No scope creep: no UI, no full scheduler rewrite, no MCP server deploy here (future hermes task).
-
-## Proposed file list (actual executed, verified small)
-- docs/proposals/hermes/issue-844-proposal.md (this; refined in 2 small patches)
-- docs/social/POSTIZ_INTEGRATION.md (new, short ~40 lines)
-- ops/x/x_daily_post.sh (1 header comment patch)
-- docs/intake/2026-06-02-voice-task-1780370749.md (status patch)
-- (no other; no package.json, no .env, no large scripts)
-
-## Risks / regressions + rollback (R8/R10)
-- Risk (low): external dep introduces new failure mode (Postiz downtime vs direct API); mitigated by optional, current direct path untouched.
-- Risk (med): AGPL-3 for self-host if copied code later (API client use is fine per license review); flag for legal if deeper.
-- Risk (low): credential mgmt drift (Postiz API keys); hermes already manages X creds in ~/.hermes/credentials; docs only advise same pattern. NEVER commit secrets.
-- Regressions: none to daily post (patch is comment-only); rotation/1-per-day invariant preserved.
-- Blast radius: docs + comments only; social ops unchanged.
-- Rollback: `git revert <commit-sha for #844>` ; or `git checkout HEAD -- <files>` ; re-run x_daily_post if needed. Reversible per R10.
-- Other: no prod data change; no mainnet.
-
-## Exact test commands (R5/R6; run before/after edits)
+## Exact test commands
 ```bash
-# 1. Shell syntax + lint (x script)
+# From repo root (/data/apps/GoalChain)
 bash -n ops/x/x_daily_post.sh
-command -v shellcheck >/dev/null && shellcheck ops/x/x_daily_post.sh || echo "shellcheck skipped"
-
-# 2. Python dry/ compile for content gen parts
-python3 -m py_compile ops/x/x_budget_poster.py || true
+python3 -m py_compile ops/x/x_budget_poster.py
 python3 -c "
-import sys, json
-from pathlib import Path
-print('python exec ok')
-print('state rotation logic smoke')
-" 
-
-# 3. TS check (api script untouched but verify env)
-cd goalchain_api && npx tsc --noEmit --skipLibCheck src/scripts/test_twitter.ts 2>/dev/null || echo 'tsc (noEmit) skipped or no tsconfig match; fallback node --check equiv'
-cd /data/apps/GoalChain
-
-# 4. Repo checks
-git status --porcelain
+import ast, sys
+for f in ['ops/hermes/social_multiplexer.py', 'ops/x/x_budget_poster.py']:
+    try:
+        ast.parse(open(f).read())
+        print(f'AST OK: {f}')
+    except Exception as e: print(f'FAIL {f}: {e}'); sys.exit(1)
+"
+cd goalchain_api && npx tsc --noEmit --skipLibCheck src/scripts/test_twitter.ts || echo 'TS syntax check (non-blocking if no full project)'
+git status
 git diff --stat
-
-# 5. Smoke (no actual post)
-bash ops/x/x_daily_post.sh --help 2>/dev/null || echo 'no --help; syntax passed previously'
-echo 'Dry: content gen would pick angle without X call'
-
-# 6. Docs lint (md)
-ls docs/social/POSTIZ_INTEGRATION.md && wc -l docs/social/POSTIZ_INTEGRATION.md
+echo '=== dry run simulation (no post) ==='
+python3 ops/x/x_budget_poster.py --status 2>&1 | cat || true
+# Webapp/api not touched: cd goalchain_webapp && npm run build  (skip per scope)
 ```
 
-Success criteria (executable): all above exit 0 or expected "skipped", diff shows only listed files, proposal updated, intake marked.
+## Risk / regressions + rollback
+Risks:
+- Scope drift to full scheduler replace: mitigated by "current path unchanged" + comments only.
+- Unstable dep: none added (thin doc+comment).
+- Credential leak: never touch .env/credentials; separate ~/.hermes/ per docs.
+- Budget invariant break: no, hooks are after guard or commented.
+- English Max Law: unchanged (Postiz would receive pre-validated English).
+- Regressions: none (no runtime change); prior commit already had doc+header.
+- VPS resource (if selfhost Postiz later): separate compose, not this PR.
+Residual: Postiz MCP/CLI integration for full hermes agent dispatch future work (P2). Self-host setup manual per POSTIZ_INTEGRATION.md.
+Rollback: git revert <this-commit>  OR  git checkout HEAD~1 -- docs/social/POSTIZ_INTEGRATION.md ops/x/x_daily_post.sh ops/x/x_budget_poster.py ops/hermes/social_multiplexer.py docs/proposals/hermes/issue-844-proposal.md ; or per-file.
 
-## gstack /review intent (described, headless no /qa)
-Pre-edit: flow clean (heredocs + subprocess to budget). Edge: state corruption, >280 chars (already capped), no squad file (falls back).
-Post: comment patch safe. Recommend: future add Postiz as optional via env flag + SDK import in python layer.
+## Verification tags (R8)
+- executed: reads of required files + searches + web extract of Postiz + terminal git show + py/bash checks (will run)
+- inspected: code paths for budget/rotation/english
+- assumed: Postiz self-host will be run separately by ops (not in scope)
 
-## Executed / inspected summary (to be updated post steps)
-- [executed] Reads + analysis (web + local files)
-- [executed] Proposal refine (patch)
-- [executed] Created docs/social/POSTIZ_INTEGRATION.md (write small)
-- [executed] Tests run: bash -n OK, py_compile OK, python smoke OK, tsc attempt OK, git diff/stat OK, syntax (all passed per terminal)
-- [inspected] Postiz API/MCP fits Hermes social without core change
-- [assumed] Postiz self-host viable on VPS (low cost per sponsor notes); verify separately
-
-## Status
-ready -> in_progress (FCC) -> done (tests pass, direct main if cambio urgente)
+## Summary plan (R2 decisive, R3 proportional)
+Refine proposal (this). Then 3-4 tiny patches via modular edits. Run tests. Direct to main (cambio urgente). No branches. Close task. Antigravity owner for integration review.
