@@ -33,3 +33,15 @@
 
 El contrato quedó en estado **apto para continuar desarrollo y validación en devnet** con controles P0 aplicados.  
 Para considerar “production-ready” faltan cierres de gobernanza/operación (multisig + procedimientos de deploy).
+
+## 5) AI Agent Skills Security (SkillSpector integration - issue #845, voice xq)
+
+- Skills (SKILL.md, ~/.claude/skills/ used by FCC/hermes-ceo/gstack) run privileged; 26%+ known to carry risks per NVIDIA research.
+- Recommendation (thin, optional): `pip install skillspector` (or uv tool / docker) then `skillspector scan ./skills/ --no-llm` or on git URL before adopting voice-intake skills or community packs.
+- Supports exact format: SKILL.md dirs, single files. MCP mode for future runtime gating in hermes.
+- Add to install flows as guarded optional (no dep breakage).
+- See: https://github.com/nvidia/skillspector (static 68 patterns + LLM, SARIF, baseline suppression).
+- Applies to: skill-creator, skillpack-*, install-hermes-*, voice-note-ingest inputs.
+- No change to current behavior; manual/ CI step for new skills only. English docs.
+
+(Added per META thin integration; reversible.)

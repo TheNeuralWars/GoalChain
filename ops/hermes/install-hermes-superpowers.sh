@@ -269,7 +269,16 @@ main() {
     bash "${SCRIPT_DIR}/install-ecc-optimizations.sh"
   fi
 
+  # Skill security hook (issue #845, xq tweet): optional guarded no-dep.
+  # skillspector scan "${REPO}/skills" --no-llm || true
+  # (or docker run). Scan new voice-intake/community skills before use.
+  # See docs/SECURITY_AUDIT.md#5
+  if command -v skillspector > /dev/null 2>&1; then
+    log "SkillSpector present — consider scan for skills/"
+  fi
+
   restart_gateway
+  cat <<EOF
   cat <<EOF
 
 === Listo para esta noche ===

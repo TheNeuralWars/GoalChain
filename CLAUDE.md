@@ -20,11 +20,11 @@ Headless FCC cannot rely on interactive `/commands`. **Describe the workflow in 
 | Intent | Skill / workflow | What to do |
 |--------|------------------|------------|
 | Web UI in `goalchain_webapp/` | **frontend-design** | Distinctive, production-grade UI; avoid generic AI aesthetics; match existing glass/Solana patterns |
-| Review before PR | **gstack /review** | Staff-engineer pass: bugs, edge cases, test gaps; fix critical issues |
-| Root cause / regressions | **gstack /investigate** | Trace data flow; max 3 fix attempts; document failure modes |
-| Architecture / large change | **gstack /plan-eng-review** | Data flow, invariants, test matrix before coding |
-| Security-sensitive paths | **gstack /cso** (light) | OWASP-style pass on touched auth/API/on-chain surfaces |
-
+ | Review before PR | **gstack /review** | Staff-engineer pass: bugs, edge cases, test gaps; fix critical issues |
+ | Root cause / regressions | **gstack /investigate** | Trace data flow; max 3 fix attempts; document failure modes |
+ | Architecture / large change | **gstack /plan-eng-review** | Data flow, invariants, test matrix before coding |
+ | Security-sensitive paths | **gstack /cso** (light) | OWASP-style pass on touched auth/API/on-chain surfaces |
+ | AI agent skill security | **SkillSpector** (NVIDIA) + gstack | Scan SKILL.md / skills/ dirs / git URLs with `skillspector scan` (static + optional LLM) before adopting voice-intake or community skills. See docs/SECURITY_AUDIT.md#5 and #845. |
 **Do not** use gstack `/ship`, `/land-and-deploy`, or browser `/qa` in headless VPS runs — Antigravity merges; QA with browser is for local Mac sessions.
 
 ## Scope rules

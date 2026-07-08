@@ -138,9 +138,7 @@ Each migration must ship in its own PR after a successful `anchor test` and the 
 - `ai_context/AGENT_ORCHESTRATION.md` — who merges what.
 - `docs/ECONOMIC_CANONICAL_CONFIG.json` — economy canonical config.
 - `WORKFLOW.md` — task workflow rules.
-- `CLAUDE.md` — FCC-specific instructions.
-- `AGENT_TOOLS_GUIDE.md` — tools cheat sheet.
-
----
+## 🔒 Skill Security (from voice #845)
+Before installing or using new skills (SKILL.md, ~/.claude/skills/ packs from intake/voice), scan with NVIDIA SkillSpector: `skillspector scan <path-or-git-url> --no-llm`. See docs/SECURITY_AUDIT.md §5 for patterns (prompt inj, exfil, MCP abuse etc). Thin, optional, no dep.
 
 **Last updated:** 2026-06-19 (Reorganization v1.0 — merged AGENTS.md + old AGENT_GUIDE.md into this single root file).

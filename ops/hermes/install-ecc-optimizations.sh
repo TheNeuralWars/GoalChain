@@ -124,7 +124,12 @@ main() {
   if [[ -x "${SCRIPT_DIR}/install-fcc-skills.sh" ]]; then
     SKIP_GSTACK_BROWSER=1 bash "${SCRIPT_DIR}/install-fcc-skills.sh"
   fi
-  
+
+  # SkillSpector hook (issue #845): after skills install, recommend scan for ~/.claude/skills or repo skills/
+  # pip install skillspector && skillspector scan "$HOME/.claude/skills" --no-llm || true
+  # See docs/SECURITY_AUDIT.md . Guarded comment only.
+  command -v skillspector >/dev/null && echo "[ecc] SkillSpector available for post-skill scan" || true
+
   log "ECC optimizations successfully applied."
 }
 
