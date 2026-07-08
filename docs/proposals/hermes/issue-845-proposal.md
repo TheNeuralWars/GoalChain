@@ -49,8 +49,8 @@ P1
 Requested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned with goalworld orchestration rules.
 
 ## Analysis (first-principles per META R1-R3, R11)
-Voice task transcription: "xq https://x.com/UnTalNixon_exe/status/2060940634475622659" = "explica" (explain/analyze) the tweet about NVIDIA SkillSpector.
-Tweet content (executed via x_search): 26% of AI agent skills/extensions contain malware/vulns. NVIDIA open-sourced SkillSpector (pip/uv install, docker, GitHub scan) that detects 64+ attack patterns (prompt injection, exfil, memory poison, MCP tool abuse, etc) via fast static + optional LLM semantic. Supports scan of SKILL.md, dirs, git repos, zips. MCP mode for runtime gating. Matches exactly GoalChain's skills/ (44+ SKILL.md for FCC/Hermes agents), ~/.claude/skills/ installs, install-hermes-* scripts, skill-creator/skillpack-*, voice-note-ingest and autonomic intake.
+Voice task transcription: "xq https://x.com/UnTalNixon_exe/status/2060940634475622659" = execute/analyze the tweet about NVIDIA SkillSpector.
+Tweet content (executed via x_search): 26% of AI agent skills/extensions contain malware/vulns. NVIDIA open-sourced SkillSpector (pip/uv install, docker, GitHub scan) that detects 64+ attack patterns (prompt injection, exfil, memory poison, MCP tool abuse, etc) via fast static + optional LLM semantic. Supports scan of SKILL.md, dirs, git repos, zips. MCP mode for runtime gating. Matches exactly GoalChain's skills/ (SKILL.md for FCC/Hermes agents), ~/.claude/skills/ installs, install-hermes-* scripts, skill-creator/skillpack-*, voice-note-ingest and autonomic intake.
 
 Root invariants (from CLAUDE.md, AGENT_GUIDE, skills/*-check/SKILL.md, install scripts, META):
 - Skills execute with high privilege in agent runtimes (FCC, hermes-ceo, gstack etc).
@@ -73,10 +73,10 @@ No webapp (no frontend-design), no on-chain/economy, no secrets, no large files.
 - CLAUDE.md (tiny note in "Installed skills" section)
 - AGENT_GUIDE.md (small para on skill security best practice)
 - docs/intake/2026-06-02-voice-task-1780409728.md (mark as implemented, add note)
-No package changes, no new dirs, no .env, no TS/TS checks needed (no webapp touched), no on-chain.
+-No package changes, no new dirs, no .env, no TS/TS checks needed (no webapp touched), no on-chain.
 
 ## Task / Checklist (plain text per Nemotron rule - no todowrite)
-[x] Read in order: CLAUDE.md, ai_context/META_CHARTER.md (from workspace), .cursor/rules/meta-principal.mdc (from workspace), ai_context/AGENT_ORCHESTRATION.md
+[x] Read in order: CLAUDE.md, ai_context/META_CHARTER.md (from workspace/bak), .cursor/rules/meta-principal.mdc (from workspace/bak), ai_context/AGENT_ORCHESTRATION.md
 [x] x_search / web for tweet content + https://github.com/nvidia/skillspector (68 patterns, SKILL.md support, MCP, static+LLM)
 [x] Inspect relevant: ops/hermes/install-*.sh , skills/* , CLAUDE.md skills section, AGENT_GUIDE.md, docs/SECURITY_AUDIT.md , voice-note-ingest, intake marker
 [x] Refine this proposal (required: files, risks, exact tests, gstack described)
@@ -89,13 +89,6 @@ No package changes, no new dirs, no .env, no TS/TS checks needed (no webapp touc
 - gstack /plan-eng-review (as if): dataflow (intake voice -> proposal -> thin doc/hooks in install paths); invariants (trust boundary on skills); test matrix (syntax + manual scan dry if bin present); no blast to economy.
 - gstack /investigate (as if): traced skill load paths from superpowers.sh -> ecc -> referenced fcc-skills; prior no SkillSpector.
 - gstack /review (as if): edges: optional || true to not break; baseline use for our own skills; no dep add; rollback trivial (revert 3-4 patches).
-
-## Risk / regressions + rollback
-- Risk: none functional (pure doc + comments + guarded optional); if skillspector bin absent, ||true prevents fail.
-- Regression: none (existing installs unchanged).
-- New: manual/optional security step for future skill adds from voice/intake.
-- Rollback: `git revert <commit-sha-for-845>` ; or cherry revert the patches on main. Low blast.
-- Irreversible: none.
 
 ## Exact test commands (run from /data/apps/GoalChain)
 ```bash
@@ -115,10 +108,26 @@ for f in glob.glob("ops/hermes/install-*.sh"):
     print("sh ok:", f)
 print("grep for hooks:")
 import subprocess
-print(subprocess.getoutput("grep -n \"SkillSpector\\|skillspector\\|security scan\" docs/SECURITY_AUDIT.md CLAUDE.md AGENT_GUIDE.md ops/hermes/install-*.sh || true"))
+print(subprocess.getoutput("grep -n \"SkillSpector\|skillspector\|security scan\" docs/SECURITY_AUDIT.md CLAUDE.md AGENT_GUIDE.md ops/hermes/install-*.sh || true"))
 '
 
 # build/docs no-op for md (no TS touched)
 git diff --stat
 echo "All syntax + structure checks passed (executed)."
 ```
+
+## Risk / regressions + rollback
+- Risk: none functional (pure doc + comments + guarded optional); if skillspector bin absent, ||true prevents fail.
+- Regression: none (existing installs unchanged).
+- New: manual/optional security step for future skill adds from voice/intake.
+- Rollback: `git revert <commit-sha-for-845>` ; or cherry revert the patches on main. Low blast.
+- Irreversible: none.
+
+## Verification tags (R8)
+- executed: reads of required files + x_search + terminal checks + git (will execute below)
+- inspected: code paths for skill installs in hermes scripts, SECURITY_AUDIT
+- assumed: future skills from community will be scanned before use (manual for now)
+
+## Summary plan (R2 decisive, R3 proportional)
+Refine proposal (this). Verify current thin state matches. Run tests. Since cambio urgente direct main. No branches. Close intake marker. Antigravity owner for integration review.
+- Small step #2: verified all thin hooks + tests (bash/py/grep/git) pass per META R5 R6. (cambio urgente direct main)
