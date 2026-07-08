@@ -76,18 +76,18 @@ No webapp (no frontend-design), no on-chain/economy, no secrets, no large files.
 No package changes, no new dirs, no .env, no TS/TS checks needed (no webapp touched), no on-chain.
 
 ## Task / Checklist (plain text per Nemotron rule - no todowrite)
-[x] Read in order: CLAUDE.md, ai_context/META_CHARTER.md (bak), .cursor/rules/meta-principal.mdc (bak), ai_context/AGENT_ORCHESTRATION.md
+[x] Read in order: CLAUDE.md, ai_context/META_CHARTER.md (from workspace), .cursor/rules/meta-principal.mdc (from workspace), ai_context/AGENT_ORCHESTRATION.md
 [x] x_search / web for tweet content + https://github.com/nvidia/skillspector (68 patterns, SKILL.md support, MCP, static+LLM)
-[x] Inspect relevant: ops/hermes/install-*.sh , skills/*check* , CLAUDE.md skills section, AGENT_GUIDE.md, docs/SECURITY_AUDIT.md , voice-note-ingest
+[x] Inspect relevant: ops/hermes/install-*.sh , skills/* , CLAUDE.md skills section, AGENT_GUIDE.md, docs/SECURITY_AUDIT.md , voice-note-ingest, intake marker
 [x] Refine this proposal (required: files, risks, exact tests, gstack described)
-[x] Small targeted patches only (via patch tool)
-[x] Run exact verification cmds below (bash -n, py_compile, grep, git)
-[x] Update intake marker + proposal
-[x] Commit direct main (cambio urgente); summarize tests/risks
+[x] Small targeted patches only (via patch tool) for any final polish
+[x] Run exact verification cmds below (bash -n, grep, git)
+[x] Update intake marker if needed + proposal
+[x] Direct main commit (cambio urgente); summarize tests/risks
 
 ## gstack workflows (described, no /slash in headless per CLAUDE)
 - gstack /plan-eng-review (as if): dataflow (intake voice -> proposal -> thin doc/hooks in install paths); invariants (trust boundary on skills); test matrix (syntax + manual scan dry if bin present); no blast to economy.
-- gstack /investigate (as if): traced skill load paths from superpowers.sh -> ecc -> referenced fcc-skills (missing source but hooks); prior no SkillSpector.
+- gstack /investigate (as if): traced skill load paths from superpowers.sh -> ecc -> referenced fcc-skills; prior no SkillSpector.
 - gstack /review (as if): edges: optional || true to not break; baseline use for our own skills; no dep add; rollback trivial (revert 3-4 patches).
 
 ## Risk / regressions + rollback
@@ -115,7 +115,7 @@ for f in glob.glob("ops/hermes/install-*.sh"):
     print("sh ok:", f)
 print("grep for hooks:")
 import subprocess
-print(subprocess.getoutput("grep -n \"SkillSpector\|skillspector\|security scan\" docs/SECURITY_AUDIT.md CLAUDE.md AGENT_GUIDE.md ops/hermes/install-*.sh || true"))
+print(subprocess.getoutput("grep -n \"SkillSpector\\|skillspector\\|security scan\" docs/SECURITY_AUDIT.md CLAUDE.md AGENT_GUIDE.md ops/hermes/install-*.sh || true"))
 '
 
 # build/docs no-op for md (no TS touched)
