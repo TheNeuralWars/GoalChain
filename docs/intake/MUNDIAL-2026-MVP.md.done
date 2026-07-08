@@ -1,0 +1,5 @@
+# MUNDIAL-2026-MVP done marker
+Implemented via issue #843 direct-main (cambio urgente).
+AC met: bet+claim wired, SimulationBadge on mocks, EconomyConfigBanner /api/economy/config, oracle hook, rarity canonical, smoke+build pass.
+FCC audit + refine proposal + tests 2026-07 (per CLAUDE/META).
+See docs/proposals/hermes/issue-843-proposal.md and IMPLEMENTATION_STATUS.md

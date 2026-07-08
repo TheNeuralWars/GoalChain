@@ -6,8 +6,9 @@ HERMES_HOME="${HERMES_HOME:-$HOME/hermes}"
 # shellcheck disable=SC1090
 source "${HERMES_HOME}/config.env" 2>/dev/null || true
 REPO="${GITHUB_REPO:-TheNeuralWars/GoalChain}"
-GOALCHAIN_REPO_PATH="${GOALCHAIN_REPO_PATH:-$HERMES_HOME/workspace/GoalChain}"
-STATE_DIR="${HERMES_HOME}/oa/state"
+GOALCHAIN_REPO_PATH="${GOALCHAIN_REPO_PATH:-${HERMES_HOME}/workspace/GoalChain}"
+OA_HOME="${OA_HOME:-${HERMES_HOME}/oa}"
+STATE_DIR="${STATE_DIR:-${OA_HOME}/state}"
 DRY_RUN="${DRY_RUN:-1}"
 
 log() { printf '[%s] %s\n' "$(date -u '+%F %T UTC')" "$*"; }
@@ -58,39 +59,40 @@ for issue in issues:
     status_str = "READY"
     
     if has_done_file:
-        # We need to verify if there is real work done:
-        # - check if there's a branch exp/hermes-issue-N on origin
-        # - check if there's a draft PR matching head branch exp/hermes-issue-N
-        # - check if there is direct commit on main matching issue-N
-
-        branch_name = f"exp/hermes-issue-{number}"
+        # We need to verify if there is real work done (per AGENT_ORCHESTRATION.md label contract for #841):
+        # - branch containing "issue-N" (supports hermes-/antigravity-/grok- etc naming)
+        # - PR head containing issue-N (any state)
+        # - main git log grep "issue #N"
+        # If evidence -> label status:done ; else rm stale .done (re-enable pick)
         has_branch = False
         has_pr = False
         has_main_commit = False
-        
-        # Check remote branches
+
+        # Broader remote branch check (grep for issue-N in ls-remote output)
         try:
             res = subprocess.run(
-                ["git", "-C", str(repo_path), "ls-remote", "--heads", "origin", branch_name],
+                ["git", "-C", str(repo_path), "ls-remote", "--heads", "origin"],
                 capture_output=True, text=True, check=False
             )
-            if branch_name in res.stdout:
+            if f"issue-{number}" in res.stdout or f"-{number}" in res.stdout:
                 has_branch = True
         except Exception:
             pass
-            
-        # Check PRs
+
+        # Check PRs broader (list all, scan headRefName)
         try:
             res = subprocess.run(
-                ["gh", "pr", "list", "--repo", github_repo, "--head", branch_name, "--state", "all", "--json", "number"],
+                ["gh", "pr", "list", "--repo", github_repo, "--state", "all", "--json", "number,headRefName"],
                 capture_output=True, text=True, check=False
             )
             prs = json.loads(res.stdout) if res.stdout.strip() else []
-            if prs:
-                has_pr = True
+            for p in prs:
+                if f"issue-{number}" in (p.get("headRefName","") or "") or f"-{number}" in (p.get("headRefName","") or ""):
+                    has_pr = True
+                    break
         except Exception:
             pass
-            
+
         # Check main commits or comments (origin/main + local main/HEAD for ahead-of-remote cases during test/cambio urgente)
         for ref in ["origin/main", "main", "HEAD"]:
             try:
@@ -103,9 +105,9 @@ for issue in issues:
                     break
             except Exception:
                 pass
-            
+
         work_done = has_branch or has_pr or has_main_commit
-        
+
         if work_done:
             status_str = "DONE"
             if dry_run:
@@ -129,11 +131,6 @@ for issue in issues:
                 except Exception as e:
                     action = f"Failed to remove .done file: {e}"
                 reconciled_count += 1
-                
-    # Note: model_not_supported now requeues to ready in worker (see oa-worker.sh).
-    # If old blocked model issues exist, manual or extended reconcile can re-add ready.
-    # For now, queue-all-agents or manual gh edit can be used post model config fix.
-
     short_title = title[:42] + "..." if len(title) > 42 else title
     print(f"#{number:<7} | {short_title:<45} | {status_str:<12} | {action:<40}")
 

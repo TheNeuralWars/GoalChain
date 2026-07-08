@@ -330,16 +330,18 @@ EOF
   fi
 
   # Check run log for indicators of failure even if exit status is 0
+  # Success definition (per intake #841 + AGENT_ORCHESTRATION): oa-run-code exit==0 AND log does NOT contain model_not_supported / Error: / FCC run failed (tuned regex from logs)
   local has_error="0"
   if [[ ${run_status} -ne 0 ]]; then
     has_error="1"
   elif [[ -f "${run_log}" ]]; then
-    if grep -q -i -E "model_not_supported|model not supported|not supported.*model|unsupported.*model|Error:|FCC run failed" "${run_log}"; then
+    if grep -q -i -E "model_not_supported|model not supported|not supported.*model|unsupported.*model|Error:|FCC run failed|run failed" "${run_log}"; then
       has_error="1"
     fi
   fi
 
   if [[ "${has_error}" == "0" ]]; then
+    ensure_issue_labels
     if [[ "${urgent_mode}" == "1" ]]; then
       if [[ -n "$(git -C "${REPO}" status --porcelain)" ]]; then
         git -C "${REPO}" add -A
@@ -398,7 +400,7 @@ EOF
     touch "${done_marker}"
     log "Finished issue #${number} (normal mode)"
   else
-    # Failure handling: DO NOT touch done marker. model_not_supported -> requeue ready for retry (different tier/config external).
+    # Failure handling (per #841 AGENT_ORCH contract): DO NOT touch done marker. model_not_supported -> requeue ready (retry no .done); other->blocked (no .done).
     # Other errors -> blocked to prevent loops.
     local fail_reason="FCC execution failed"
     if grep -q -i -E 'model_not_supported|model not supported|not supported.*model|unsupported.*model' "${run_log}" 2>/dev/null; then
