@@ -93,7 +93,7 @@ if [[ $USE_TUNNEL -eq 1 ]]; then
     log ""
     log "==========================================="
     log "RUN THIS ON YOUR LOCAL MAC (keep open):"
-    log "  ssh -L 56121:127.0.0.1:56121 ubuntu@89.168.20.135"
+    log "  ssh -L 56121:127.0.0.1:56121 ubuntu@<VPS_IP>"
     log "==========================================="
     log ""
     log "Press Enter when tunnel is active..."

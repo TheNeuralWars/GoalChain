@@ -39,13 +39,16 @@ clear instructions for both VPS and local-Mac scenarios.
 - [x] Remove insecure stubs
 - [x] Create .done marker
 - [x] Commit to main (cambio urgente)
+- [x] Fix hardcoded VPS IP in xai-oauth-reauth.sh (security)
 
 ## Test commands
 ```bash
-# Verify no secrets leaked
-grep -rn "access_token\|refresh_token\|api_key" docs/intake/2026-06-13-xai-oauth-reauth-runbook.md
-# Verify markdown renders
-cat docs/intake/2026-06-13-xai-oauth-reauth-runbook.md
+# Verify no secrets/IPs leaked
+grep -rn "access_token\|refresh_token\|api_key\|89\.168" docs/intake/ ops/hermes/scripts/
+# Verify bash syntax
+bash -n ops/hermes/scripts/xai-oauth-reauth.sh
+# Verify python syntax
+python3 -m py_compile ops/hermes/hermes-xai-oauth-refresh.py
 # Verify deleted files are gone
 test ! -f scripts/hermes-xai-oauth-exchange.py && echo OK
 test ! -f scripts/xai-oauth-reauth.sh && echo OK
