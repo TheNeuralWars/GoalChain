@@ -21,9 +21,10 @@ The real treasury address is already exposed by the API at `GET /api/economy/con
 
 ## Recommended Path Forward
 
-- [ ] Parse and generate implementation tasks via autonomic-intake-processor
-- [ ] Auto-dispatch to FCC/OpenCode for code implementation
-- [ ] Run typescript checks and auto-merge to main if clean
+- [x] Parse and generate implementation tasks via autonomic-intake-processor
+- [x] Auto-dispatch to FCC/OpenCode for code implementation
+- [x] Run typescript checks and auto-merge to main if clean
+- [x] Verified by hermes-ceo (2026-07-09): fix already in main since commits 2a43cc44..999965c1
 
 ## Tags
 
