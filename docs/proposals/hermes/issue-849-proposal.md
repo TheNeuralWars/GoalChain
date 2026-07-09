@@ -4,52 +4,47 @@
 [HERMES] [intake] xAI OAuth Re-Authentication Runbook
 
 ## Source
-GitHub issue #849 (intake: docs/intake/2026-06-13-xai-oauth-reauth-runbook.md)
+GitHub issue #849
+
+## Status
+COMPLETED — direct main (cambio urgente), 2 commits
 
 ## Objective
-Document and harden the xAI OAuth re-authentication procedure so that when
-xAI revokes the refresh token, recovery is a single-command operation with
-clear instructions for both VPS and local-Mac scenarios.
+Create a production runbook and automated script for re-authenticating
+xAI OAuth when the refresh token is revoked by xAI (SuperGrok / X Premium+).
 
-## Scope
-- docs/intake/2026-06-13-xai-oauth-reauth-runbook.md — full runbook rewrite
-- Remove stale/insecure stubs from previous attempt (scripts/ duplicates)
-- No runtime code changes, no secret access, no new dependencies
+## Problem
+xAI periodically revokes refresh tokens for security reasons. When this
+happens, `hermes-xai-oauth-refresh.py` fails with `relogin_required: true`
+and the `credential-maintain` cron job logs `WARN xai-oauth refresh: exit 1`.
+Downstream systems (X-Scout, OA workers) lose xAI/Grok access.
 
-## File list
-| File | Action |
-|------|--------|
-| docs/intake/2026-06-13-xai-oauth-reauth-runbook.md | rewrite |
-| docs/proposals/hermes/issue-849-proposal.md | rewrite (this file) |
-| scripts/hermes-xai-oauth-exchange.py | DELETE (prints tokens, no PKCE) |
-| scripts/xai-oauth-reauth.sh | DELETE (stale repo copy, reads .env) |
-| docs/proposals/hermes/issue-849-manager-commands.md | DELETE (stub) |
-| docs/intake/issue-849.done | CREATE (close marker) |
+## Files Implemented
 
-## Risks / regressions
-- Zero runtime risk — only documentation + cleanup
-- The deleted scripts were untracked and not referenced by any CI/CD or cron
-- Rollback: `git revert <commit>` restores entire change
+| File | Purpose |
+|------|---------|
+| `ops/hermes/scripts/xai-oauth-reauth.sh` | Interactive re-auth script (PKCE flow + SSH tunnel) |
+| `docs/intake/2026-06-13-xai-oauth-reauth-runbook.md` | Production runbook (VPS, local, Manager flows) |
+| `docs/intake/issue-849.done` | Intake marker (closed) |
+| `ops/hermes/hermes-xai-oauth-refresh.py` | Pre-existing proactive refresh script (no changes) |
 
-## Checklist
-- [x] Read CLAUDE.md, META_CHARTER.md, AGENT_ORCHESTRATION.md
-- [x] Identify real Hermes scripts (~/hermes/scripts/)
-- [x] Identify stale/insecure stubs in repo
-- [x] Rewrite runbook with production-accurate commands
-- [x] Remove insecure stubs
-- [x] Create .done marker
-- [x] Commit to main (cambio urgente)
-- [x] Fix hardcoded VPS IP in xai-oauth-reauth.sh (security)
+## Security Checklist
+- [x] No hardcoded IPs — `<VPS_IP>` placeholder used
+- [x] No credentials, tokens, or secrets in committed files
+- [x] No `.env` files created or leaked
+- [x] Script uses `set -euo pipefail` for safe execution
+- [x] Token preview limited to first 8 chars in logs
 
-## Test commands
-```bash
-# Verify no secrets/IPs leaked
-grep -rn "access_token\|refresh_token\|api_key\|89\.168" docs/intake/ ops/hermes/scripts/
-# Verify bash syntax
-bash -n ops/hermes/scripts/xai-oauth-reauth.sh
-# Verify python syntax
-python3 -m py_compile ops/hermes/hermes-xai-oauth-refresh.py
-# Verify deleted files are gone
-test ! -f scripts/hermes-xai-oauth-exchange.py && echo OK
-test ! -f scripts/xai-oauth-reauth.sh && echo OK
-```
+## Tests Executed
+- `bash -n ops/hermes/scripts/xai-oauth-reauth.sh` — PASS (syntax)
+- `python3 -m py_compile ops/hermes/hermes-xai-oauth-refresh.py` — PASS
+- Grep for leaked secrets — CLEAN
+
+## Risk / Rollback
+- Risk: Script requires interactive TTY; cannot run in headless CI
+- Rollback: `git revert 6fd53ea 96f7b6c` reverts both commits
+- No webapp, API, or on-chain code touched — zero regression risk
+
+## Commits
+1. `96f7b6ce` — docs(intake): runbook + intake closure
+2. `6fd53eaf` — fix(security): remove hardcoded VPS IP
