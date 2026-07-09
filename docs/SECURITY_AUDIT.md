@@ -45,3 +45,14 @@ Para considerar “production-ready” faltan cierres de gobernanza/operación (
 - No change to current behavior; manual/ CI step for new skills only. English docs.
 
 (Added per META thin integration; reversible.)
+
+## 6) On-chain Program Verification via Solana Explorer (issue #847, voice xq)
+
+- The official Solana Explorer now supports **verified program builds** and interactive **Codama IDL** browsing (announced by @SolPlay_jonas, Solana Foundation DevRel).
+- GoalChain should pursue `solana-verify` reproducible builds before mainnet to earn the "Verified" badge on explorer.solana.com.
+- Webapp explorer links now support program/account views (not just TX) via `explorerLinks.ts`.
+- IDL published by Anchor is already synced (`scripts/sync-idl.sh`); once verified, it becomes interactable in the explorer.
+- Roadmap: CI dry-run on devnet → verify-from-repo on mainnet release.
+- See: `docs/VERIFIED_BUILD_GUIDE.md` for full workflow.
+
+(Added per META thin integration; docs-only, reversible.)
