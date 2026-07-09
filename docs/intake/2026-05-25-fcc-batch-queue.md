@@ -1,9 +1,9 @@
 # FCC batch queue — Nico dispatch 2026-05-25
 
 - **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/255
-- **Task Status:** ready
+- **Task Status:** closed
 
-**Status:** **FROZEN** (2026-05-26) — use [`MUNDIAL-2026-MVP.md`](MUNDIAL-2026-MVP.md) as the single `agent:opencode` track until Mundial demo ships. See [`2026-05-26-mundial-fcc-queue-freeze.md`](2026-05-26-mundial-fcc-queue-freeze.md).
+**Status:** **CLOSED** (2026-07-09) — batch was FROZEN on 2026-05-26 per [`2026-05-26-mundial-fcc-queue-freeze.md`](2026-05-26-mundial-fcc-queue-freeze.md); Mundial MVP track completed. Intake closed by issue #852.
 
 **Owner:** FCC (`agent:opencode`) via `oa-worker`  
 **Order:** worker picks `status:ready` issues one at a time; prefer this sequence.
