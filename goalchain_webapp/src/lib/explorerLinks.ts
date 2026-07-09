@@ -1,28 +1,26 @@
-/*
- * Solana Explorer Links Helper
- * Provides cluster-aware explorer URLs for programs and transactions
- */
-
-import { Connection } from '@solana/web3.js';
-
-/**
- * Get cluster-aware explorer URL for a transaction
- * @param txId Transaction ID
- * @param connection Solana connection
- * @returns Explorer URL
- */
-export function explorerTxUrl(txId: string, connection: Connection): string {
-  const cluster = connection.rpcEndpoint.includes('devnet') ? 'devnet' : 'mainnet';
-  return `https://explorer.solana.com/tx/${txId}?cluster=${cluster}`;
+export function explorerTxUrl(txId: string, cluster: string = 'devnet'): string {
+  const baseUrls = {
+    devnet: 'https://explorer.solana.com/tx',
+    testnet: 'https://explorer.solana.com/tx',
+    mainnet: 'https://explorer.solana.com/tx'
+  };
+  return `${baseUrls[cluster]}/${txId}`;
 }
 
-/**
- * Get cluster-aware explorer URL for a program
- * @param programId Program ID
- * @param connection Solana connection
- * @returns Explorer URL
- */
-export function explorerProgramUrl(programId: string, connection: Connection): string {
-  const cluster = connection.rpcEndpoint.includes('devnet') ? 'devnet' : 'mainnet';
-  return `https://explorer.solana.com/address/${programId}?cluster=${cluster}`;
+export function explorerAccountUrl(accountId: string, cluster: string = 'devnet'): string {
+  const baseUrls = {
+    devnet: 'https://explorer.solana.com/address',
+    testnet: 'https://explorer.solana.com/address',
+    mainnet: 'https://explorer.solana.com/address'
+  };
+  return `${baseUrls[cluster]}/${accountId}`;
+}
+
+export function explorerProgramUrl(programId: string, cluster: string = 'devnet'): string {
+  const baseUrls = {
+    devnet: 'https://explorer.solana.com/address',
+    testnet: 'https://explorer.solana.com/address',
+    mainnet: 'https://explorer.solana.com/address'
+  };
+  return `${baseUrls[cluster]}/${programId}`;
 }

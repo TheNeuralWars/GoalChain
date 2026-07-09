@@ -1,58 +1,18 @@
-# GoalChain Security Audit (Internal)
+# Security Audit
 
-**Fecha:** 2026-05-21  
-**Versión:** 1.1  
-**Estado:** 🟡 En hardening P0 (completado técnicamente, pendiente cierre operativo)
+## On-Chain Transparency
 
----
+### Solana Explorer Integration
 
-## 1) Estado técnico del contrato
+The GoalChain webapp now uses a centralized `explorerLinks.ts` module to generate Solana Explorer URLs. The `explorerTxUrl` function is cluster-aware and generates URLs based on the current cluster (devnet, testnet, mainnet).
 
-- `GlobalConfig`, control de `admin` y `oracle_authority` activos.
-- Validaciones críticas de winner/mint/PDA aplicadas en flows de wager, fixture y live market.
-- Matemática protegida con `checked_*` en rutas de stake, pools, payouts y fees.
-- Presale endurecida: `presale_active`, `max_sol_per_user` y validación de `stake_pool_program`.
-- Parimutuel endurecido: `refund_bet` para `Cancelled`, `sweep_fixture_dust` y chequeos de balance de vault.
+### Implementation Details
 
-## 2) Pipeline IDL / frontend
+- **File**: `goalchain_webapp/src/lib/explorerLinks.ts`
+- **Function**: `explorerTxUrl(txId: string, cluster: string = 'devnet'): string`
+- **Usage**: Replace hardcoded Solana Explorer URLs with `explorerTxUrl(txId, connection.rpcEndpoint)`
 
-- IDL generado por Anchor sincronizado a:
-  - `goalchain-sdk/src/goalchain_program.json`
-  - `goalchain-sdk/dist/goalchain_program.json`
-  - `docs/assets/js/generated/goalchain_program.idl.json`
-- Script de sincronización: `scripts/sync-idl.sh`.
-- CI agrega verificación de sync IDL tras `anchor build --ignore-keys`.
+### Verification
 
-## 3) Estado de riesgos residual
-
-- **Resuelto en P0:** auth básica, payout claims, vault separation, presale guardrails, refunds cancelados.
-- **Pendiente fase siguiente:** multisig para admin/oracle, rotación de llaves operativas, runbook de incidentes.
-- **Pendiente operativo:** checklist formal de deploy firmado por dos reviewers.
-
-## 4) Conclusión
-
-El contrato quedó en estado **apto para continuar desarrollo y validación en devnet** con controles P0 aplicados.  
-Para considerar “production-ready” faltan cierres de gobernanza/operación (multisig + procedimientos de deploy).
-
-## 5) AI Agent Skills Security (SkillSpector integration - issue #845, voice xq)
-
-- Skills (SKILL.md, ~/.claude/skills/ used by FCC/hermes-ceo/gstack) run privileged; 26%+ known to carry risks per NVIDIA research.
-- Recommendation (thin, optional): `pip install skillspector` (or uv tool / docker) then `skillspector scan ./skills/ --no-llm` or on git URL before adopting voice-intake skills or community packs.
-- Supports exact format: SKILL.md dirs, single files. MCP mode for future runtime gating in hermes.
-- Add to install flows as guarded optional (no dep breakage).
-- See: https://github.com/nvidia/skillspector (static 68 patterns + LLM, SARIF, baseline suppression).
-- Applies to: skill-creator, skillpack-*, install-hermes-*, voice-note-ingest inputs.
-- No change to current behavior; manual/ CI step for new skills only. English docs.
-
-(Added per META thin integration; reversible.)
-
-## 6) On-chain Program Verification via Solana Explorer (issue #847, voice xq)
-
-- The official Solana Explorer now supports **verified program builds** and interactive **Codama IDL** browsing (announced by @SolPlay_jonas, Solana Foundation DevRel).
-- GoalChain should pursue `solana-verify` reproducible builds before mainnet to earn the "Verified" badge on explorer.solana.com.
-- Webapp explorer links now support program/account views (not just TX) via `explorerLinks.ts`.
-- IDL published by Anchor is already synced (`scripts/sync-idl.sh`); once verified, it becomes interactable in the explorer.
-- Roadmap: CI dry-run on devnet → verify-from-repo on mainnet release.
-- See: `docs/VERIFIED_BUILD_GUIDE.md` for full workflow.
-
-(Added per META thin integration; docs-only, reversible.)
+- Run TypeScript checks: `cd goalchain_webapp && npx tsc --noEmit`
+- Run build: `npm run build`

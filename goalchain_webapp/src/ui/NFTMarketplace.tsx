@@ -89,11 +89,11 @@ export function NFTMarketplace() {
         const inventory = JSON.parse(localStorage.getItem('goalchain_inventory') || '[]');
         inventory.push(player);
         localStorage.setItem('goalchain_inventory', JSON.stringify(inventory));
-        
+
         setListings(prev => prev.filter(p => p.id !== player.id));
         setLoadingId(null);
         alert(`🎉 ¡ÉXITO! Has adquirido a ${player.name} mediante "Compra en Cash" con éxito. Ya puedes ver este cromo en la pestaña "Mi Plantilla".`);
-        
+
         // Trigger local event to notify other sections
         window.dispatchEvent(new Event('storage'));
       }, 1500);
@@ -136,13 +136,13 @@ export function NFTMarketplace() {
       const inventory = JSON.parse(localStorage.getItem('goalchain_inventory') || '[]');
       inventory.push(player);
       localStorage.setItem('goalchain_inventory', JSON.stringify(inventory));
-      
+
       setListings(prev => prev.filter(p => p.id !== player.id));
       setLoadingId(null);
-      
+
       alert(`🎉 ¡COMPRA CONFIRMADA EN SOLANA DEVNET! \n\nHas adquirido a ${player.name}.\n\nTx ID: ${signature.slice(0, 10)}...`);
       window.dispatchEvent(new Event('storage'));
-      window.open(explorerTxUrl(signature, connection), '_blank');
+      window.open(explorerTxUrl(signature, connection.rpcEndpoint), '_blank');
 
     } catch (err) {
       console.error('Solana transaction error:', err);

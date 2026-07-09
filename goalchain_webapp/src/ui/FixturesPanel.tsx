@@ -117,7 +117,7 @@ export const FixturesPanel: React.FC = () => {
     userBets.find((b) => b.fixture === fixturePubkey);
 
   const openExplorerLink = (signature: string) => {
-    const url = explorerTxUrl(signature, connection);
+    const url = explorerTxUrl(signature, connection.rpcEndpoint);
     window.open(url, '_blank', 'noopener,noreferrer');
     return url;
   };
@@ -198,185 +198,11 @@ export const FixturesPanel: React.FC = () => {
     }
   };
 
-  return (
-    <div className="gc-fixtures-root">
-      {/* Toast container */}
-      <div className="gc-toast-stack" aria-live="polite">
-        {toasts.map((tk) => (
-          <div key={tk.id} className={`gc-toast gc-toast--${tk.type}`}>
-            {tk.message}
-          </div>
-        ))}
-      </div>
-
-      {/* Toolbar: switch List ↔ Knockout Bracket */}
-      <div className="gc-fixtures-toolbar">
-        <div className="gc-fixtures-viewswitch" role="tablist" aria-label="Fixture view">
-          <button
-            role="tab"
-            aria-selected={view === 'list'}
-            className={`gc-viewswitch-btn ${view === 'list' ? 'gc-viewswitch-btn--active' : ''}`}
-            onClick={() => setView('list')}
-          >
-            <span aria-hidden>📋</span>
-            {t('fix_view_list')}
-          </button>
-          <button
-            role="tab"
-            aria-selected={view === 'bracket'}
-            className={`gc-viewswitch-btn ${view === 'bracket' ? 'gc-viewswitch-btn--active' : ''}`}
-            onClick={() => setView('bracket')}
-          >
-            <span aria-hidden>🌳</span>
-            {t('fix_view_bracket')}
-          </button>
-        </div>
-        <div className="gc-fixtures-legend">
-          <span className="gc-legend-chip gc-legend-chip--live">
-            <span className="gc-live-dot" aria-hidden /> {t('fix_legend_live')}
-          </span>
-          <span className="gc-legend-chip gc-legend-chip--upcoming">
-            <span className="gc-legend-dot gc-legend-dot--purple" aria-hidden /> {t('fix_legend_upcoming')}
-          </span>
-          <span className="gc-legend-chip gc-legend-chip--done">
-            <span className="gc-legend-dot gc-legend-dot--grey" aria-hidden /> {t('fix_legend_done')}
-          </span>
-        </div>
-      </div>
-
-      {view === 'bracket' ? (
-        <KnockoutBracket />
-      ) : (
-        <>
-          {loading ? (
-            <div className="gc-fixtures-loading">{t('fix_loading')}</div>
-          ) : (
-            <div className="fixtures-container gc-fixtures-list">
-              <h2 className="gc-fixtures-heading">
-                {t('fix_list_heading')}
-              </h2>
-              {error && <div className="gc-fixtures-error">{error}</div>}
-              {fixtures.map((f) => {
-                const mine = betForFixture(f.pubkey);
-                const canBet = f.status === 'upcoming' || f.status === 'live';
-                const canClaim = f.status === 'completed' && mine && !mine.claimed;
-                const canRefund = f.status === 'cancelled' && mine && !mine.claimed;
-
-                return (
-                  <div
-                    key={f.pubkey}
-                    className={`gc-fixture-card glass-card gc-fixture-card--${f.status}`}
-                  >
-                    <div className="gc-fixture-teams">
-                      <span className="gc-team">{f.teamA}</span>
-                      <span className="gc-vs">VS</span>
-                      <span className="gc-team">{f.teamB}</span>
-                    </div>
-
-                    <div className="gc-fixture-meta">
-                      <span>ID: {f.matchId}</span>
-                      <span>·</span>
-                      <span className={`gc-status gc-status--${f.status}`}>{f.status}</span>
-                      <span>·</span>
-                      <span>Pool {(f.poolA + f.poolB + f.poolDraw).toLocaleString()} base</span>
-                    </div>
-
-                    {/* Marcador on-chain (si el oráculo ya publicó LiveMatchState) */}
-                    {(f.scoreA !== undefined || f.scoreB !== undefined) && (
-                      <div className="gc-fixture-score">
-                        <span className="gc-score-num">{f.scoreA ?? 0}</span>
-                        <span className="gc-score-sep">:</span>
-                        <span className="gc-score-num">{f.scoreB ?? 0}</span>
-                        {f.status === 'live' && f.minute !== undefined && (
-                          <span className="gc-live-minute">
-                            <span className="gc-live-dot" aria-hidden />
-                            Min {f.minute}'
-                          </span>
-                        )}
-                      </div>
-                    )}
-
-                    {mine && (
-                      <div className="gc-fixture-mine">
-                        Tu apuesta: {mine.amountBaseUnits} base units · predicción {mine.prediction}
-                        {mine.claimed ? ' · cobrada' : ' · pendiente'}
-                      </div>
-                    )}
-
-                    {canBet && (
-                      <div className="gc-fixture-betinput">
-                        <input
-                          type="text"
-                          placeholder="Monto (ej: 1.5)"
-                          value={betAmounts[f.pubkey] ?? ''}
-                          onChange={(e) => setBetAmounts((prev) => ({ ...prev, [f.pubkey]: e.target.value }))}
-                        />
-                      </div>
-                    )}
-
-                    <div className="bet-actions">
-                      {canBet && (
-                        <>
-                          <button
-                            className="gc-btn gc-btn--green"
-                            disabled={submittingFor === `${f.pubkey}:A`}
-                            onClick={() => handleBet(f.pubkey, 'A')}
-                          >
-                            {submittingFor === `${f.pubkey}:A` ? 'Enviando...' : `Gana ${f.teamA}`}
-                          </button>
-                          <button
-                            className="gc-btn gc-btn--ghost"
-                            disabled={submittingFor === `${f.pubkey}:Draw`}
-                            onClick={() => handleBet(f.pubkey, 'Draw')}
-                          >
-                            {submittingFor === `${f.pubkey}:Draw` ? 'Enviando...' : 'Empate'}
-                          </button>
-                          <button
-                            className="gc-btn gc-btn--green"
-                            disabled={submittingFor === `${f.pubkey}:B`}
-                            onClick={() => handleBet(f.pubkey, 'B')}
-                          >
-                            {submittingFor === `${f.pubkey}:B` ? 'Enviando...' : `Gana ${f.teamB}`}
-                          </button>
-                        </>
-                      )}
-                      {canClaim && (
-                        <button
-                          className="gc-btn gc-btn--purple"
-                          disabled={submittingFor === `${f.pubkey}:claim`}
-                          onClick={() => handleClaim(f.pubkey)}
-                        >
-                          {submittingFor === `${f.pubkey}:claim` ? 'Cobrando...' : 'Cobrar ganancia'}
-                        </button>
-                      )}
-                      {canRefund && (
-                        <button
-                          className="gc-btn gc-btn--amber"
-                          disabled={submittingFor === `${f.pubkey}:refund`}
-                          onClick={() => handleRefund(f.pubkey)}
-                        >
-                          {submittingFor === `${f.pubkey}:refund` ? 'Reembolsando...' : 'Reembolsar apuesta'}
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-        </>
-      )}
-    </div>
-  );
-};
-
-/* ============================================================
-   CUADRO DE DESARROLLO (Knockout Bracket)
-   ------------------------------------------------------------
-   Renderiza el árbol de eliminación directa usando los fixtures
-   locales (wc2026_fixture.json). Las columnas representan las
-   rondas: R32 → R16 → QF → SF → Final.
-   ============================================================ */
+  /* ============================================================
+     Renderiza el árbol de eliminación directa usando los fixtures
+     locales (wc2026_fixture.json). Las columnas representan las
+     rondas: R32 → R16 → QF → SF → Final.
+     ============================================================ */
 const KnockoutBracket: React.FC = () => {
   const { t } = useTranslation();
 
@@ -498,26 +324,3 @@ function flagFor(team: string): string {
   if (/^TBD/i.test(team)) return '⬜';
   return FLAG_MAP[team] ?? '⚽';
 }
-
-function fmtDate(iso: string): string {
-  try {
-    const d = new Date(iso + 'T00:00:00');
-    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-  } catch {
-    return iso;
-  }
-}
-
-/* ============================================================
-   Estilos en línea compartidos (botones). El resto vive en
-   index.css bajo el namespace `.gc-fixtures-*` / `.gc-bracket*`.
-   ============================================================ */
-export const btnStyle: React.CSSProperties = {
-  background: '#14f195',
-  color: '#000',
-  border: 'none',
-  padding: '0.5rem 1rem',
-  borderRadius: '4px',
-  fontWeight: 'bold',
-  cursor: 'pointer',
-};
