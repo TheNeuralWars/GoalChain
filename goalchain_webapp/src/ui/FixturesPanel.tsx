@@ -117,7 +117,7 @@ export const FixturesPanel: React.FC = () => {
     userBets.find((b) => b.fixture === fixturePubkey);
 
   const openExplorerLink = (signature: string) => {
-    const url = explorerTxUrl(signature);
+    const url = explorerTxUrl(signature, connection);
     window.open(url, '_blank', 'noopener,noreferrer');
     return url;
   };

@@ -142,7 +142,7 @@ export function NFTMarketplace() {
       
       alert(`🎉 ¡COMPRA CONFIRMADA EN SOLANA DEVNET! \n\nHas adquirido a ${player.name}.\n\nTx ID: ${signature.slice(0, 10)}...`);
       window.dispatchEvent(new Event('storage'));
-      window.open(explorerTxUrl(signature), '_blank');
+      window.open(explorerTxUrl(signature, connection), '_blank');
 
     } catch (err) {
       console.error('Solana transaction error:', err);
