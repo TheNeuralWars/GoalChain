@@ -1,52 +1,58 @@
 # OA Proposal — Issue #851
 
 ## Title
-[HERMES] [intake] Growth Task 1: Fix Critical NFT Marketplace Treasury Bug (SOL sent to Program ID)
+[HERMES] [intake] Growth Task 1: Fix Critical NFT Marketplace Treasury Bug (SO
 
 ## Source
-GitHub issue #851 (duplicate of #295)
+GitHub issue #851
 
-## Status: VERIFIED — already fixed in main
+## Objective
+## Objective
+# Growth Task 1: Fix Critical NFT Marketplace Treasury Bug (SOL sent to Program ID)
 
-## Verification Summary
+- **Status:** done
+- **Priority:** P0
+- **Owner:** opencode
+- **Created:** 2026-06-04
+- **Source:** GitHub Issue #295 / Manager
 
-The treasury bug described in this issue was **already fully resolved** in prior commits on `main`. No new code changes are required.
+## Objective
 
-### Evidence
+`goalworld_webapp/src/ui/NFTMarketplace.tsx:106` hardcodes the destination for all "Buy with SOL" transactions as `FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg` with the comment `// Tesorería`. Per `AGENTS.md`, that address is the **production program ID**, not a treasury wallet. Every "COMPRAR CON SOL" click is sending lamports to an inert program account — payments will either fail outright or be unrecoverable.
 
-**Git history** (`goalchain_webapp/src/ui/NFTMarketplace.tsx`):
-- `412d62ae` — oa: fix critical NFT marketplace treasury bug (#295)
-- `2656bc00` — fix(webapp): remove incorrect treasury fallback to program ID
-- `999965c1` — fix(marketplace): resolve TypeScript compiler error for optional player price narrowing
+The real treasury address is already exposed by the API at `GET /api/economy/config` → `onchainConfig.treasuryTokenAccount` (built in `goalworld_api/src/index.ts:755-806`).
 
-### All 3 requirements satisfied
+**Action:**
+1. Replace the hardcoded public key with a `useEffect` that fetches `/api/economy/config` and uses `onchainConfig.treasuryTokenAccount` with a hardcoded fallback
+2. Add a `SimulationBadge` check that disables the SOL button when `treasuryTokenAccount` is null
+3. Verify on devnet with a 0.001 SOL transfer and confirm receipt in a wallet the team controls
 
-- [x] **Req 1 — useEffect fetches `/api/economy/config`**: Lines 32-50 of `NFTMarketplace.tsx` fetch `onchainConfig.treasuryTokenAccount` from the API on mount. No hardcoded `FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg` remains as a transaction destination.
-- [x] **Req 2 — SimulationBadge + SOL button disabled when null**: `isSolOffline={!treasuryAddress}` (line 226) propagates to `LayeredNftCard.tsx` which disables the SOL button (line 508) and shows "Tesorería no disponible" tooltip. A `⛔ SOL OFFLINE` badge appears in the header (lines 167-171).
-- [x] **Req 3 — Devnet verification**: The hardcoded program ID fallback was explicitly removed in `2656bc00`. When `treasuryAddress` is null (API down or no validator), the SOL purchase path is completely blocked (lines 111-115), preventing any lamports from being sent to the wrong address.
+---
 
-### Build verification (2026-07-09)
+## Recommended Path Forward
 
-```
-npx tsc --noEmit  → exit 0, zero errors
-npm run build     → exit 0, ✓ built in 7.39s
-```
+- [ ] Parse and generate implementation tasks via autonomic-intake-processor
+- [ ] Auto-dispatch to FCC/OpenCode for code implementation
+- [ ] Run typescript checks and auto-merge to main if clean
 
-### Files touched (by prior commits, not this session)
-- `goalchain_webapp/src/ui/NFTMarketplace.tsx` — treasury fetch + guard
-- `goalchain_webapp/src/ui/LayeredNftCard.tsx` — `isSolOffline` prop
+## Tags
 
-## Risk / Rollback
-- **Residual risk**: None for NFTMarketplace.tsx. The fix is clean and well-guarded.
-- **Note**: Other legacy JS files in `docs/assets/js/` (marketplace.js, pack_opener.js, etc.) still hardcode the program ID as SOL destination. These are static documentation pages, not the production webapp, but should be tracked for future cleanup.
-- **Rollback**: `git revert 412d62ae 2656bc00 999965c1` (unlikely needed)
+#growth-task #nft-marketplace #treasury-bug #sol-payment #critical #humans-0 #autonomous-push
+---
+Source file: docs/intake/2026-06-04-growth-task-1-fix-critical-nft-marketplace-treasury-bug-sol-sent-to-program-id-.md (auto-dispatched by intake_goal_loop.sh). Prioritize according to GoalWorld queue freeze rules. Close the linked intake file marker once implemented.
 
-## Intake marker
-Intake file `docs/intake/2026-06-04-growth-task-1-fix-critical-nft-marketplace-treasury-bug-sol-sent-to-program-id-.md` already shows all tasks `[x]` completed. `.done` marker created.
+## Owner
+hermes
 
-## Test commands
-```bash
-cd goalchain_webapp && npx tsc --noEmit
-cd goalchain_webapp && npm run build
-grep -r "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg" goalchain_webapp/src/  # should return 0 matches
-```
+## Priority
+P1
+
+## OA Plan (draft)
+- Analyze repository constraints and META alignment.
+- Implement minimal safe changes first.
+- Run local checks where feasible.
+- Prepare draft PR for Cursor review.
+
+## Risk / rollback
+- Risk: scope drift or unstable dependencies.
+- Rollback: revert main commit linked to issue #851
