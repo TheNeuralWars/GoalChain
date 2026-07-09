@@ -3,6 +3,7 @@ import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import * as solanaWeb3 from '@solana/web3.js';
 import { SimulationBadge } from '../components/SimulationBadge';
 import { LayeredNftCard, PlayerRow } from './LayeredNftCard';
+import { explorerTxUrl } from '../lib/explorerLinks';
 
 const RARITY_PRICES: Record<string, string> = {
   mythic: '25.0 SOL',
@@ -141,7 +142,7 @@ export function NFTMarketplace() {
       
       alert(`🎉 ¡COMPRA CONFIRMADA EN SOLANA DEVNET! \n\nHas adquirido a ${player.name}.\n\nTx ID: ${signature.slice(0, 10)}...`);
       window.dispatchEvent(new Event('storage'));
-      window.open(`https://explorer.solana.com/tx/${signature}?cluster=devnet`, '_blank');
+      window.open(explorerTxUrl(signature), '_blank');
 
     } catch (err) {
       console.error('Solana transaction error:', err);

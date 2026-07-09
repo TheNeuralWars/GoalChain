@@ -13,6 +13,7 @@ import {
 } from '../lib/goalchainClient';
 import { useTranslation } from '../i18n';
 import type { TranslationKeys } from '../i18n/translations';
+import { explorerTxUrl } from '../lib/explorerLinks';
 import wcFixtureData from '../config/wc2026_fixture.json';
 
 type Fixture = FixtureView;
@@ -115,10 +116,10 @@ export const FixturesPanel: React.FC = () => {
   const betForFixture = (fixturePubkey: string): UserBetView | undefined =>
     userBets.find((b) => b.fixture === fixturePubkey);
 
-  const openExplorer = (signature: string) => {
-    const explorer = `https://explorer.solana.com/tx/${signature}?cluster=devnet`;
-    window.open(explorer, '_blank', 'noopener,noreferrer');
-    return explorer;
+  const openExplorerLink = (signature: string) => {
+    const url = explorerTxUrl(signature);
+    window.open(url, '_blank', 'noopener,noreferrer');
+    return url;
   };
 
   const handleBet = async (fixturePubkey: string, side: PredictionSide) => {
@@ -140,7 +141,7 @@ export const FixturesPanel: React.FC = () => {
         side,
         amountUi,
       });
-      openExplorer(signature);
+      openExplorerLink(signature);
       addToast('success', `Apuesta enviada ✅ — Explorer abierto.`);
       await refresh();
     } catch (e: any) {
@@ -163,7 +164,7 @@ export const FixturesPanel: React.FC = () => {
         wallet,
         fixture: new PublicKey(fixturePubkey),
       });
-      openExplorer(signature);
+      openExplorerLink(signature);
       addToast('success', `Cobro enviado ✅ — Explorer abierto.`);
       await refresh();
     } catch (e: any) {
@@ -186,7 +187,7 @@ export const FixturesPanel: React.FC = () => {
         wallet,
         fixture: new PublicKey(fixturePubkey),
       });
-      openExplorer(signature);
+      openExplorerLink(signature);
       addToast('success', `Reembolso enviado ✅ — Explorer abierto.`);
       await refresh();
     } catch (e: any) {

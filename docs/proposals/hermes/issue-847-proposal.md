@@ -34,16 +34,21 @@ The explorer improvements mean:
 - [x] 3. Add note to SECURITY_AUDIT.md about verified builds as transparency measure
 - [x] 4. Update intake marker as done
 - [x] 5. Refine this proposal with required outputs
+- [x] 6. Wire explorerLinks.ts into FixturesPanel.tsx and NFTMarketplace.tsx (replace hardcoded URLs)
 
 ## Files Changed
 - `goalchain_webapp/src/lib/explorerLinks.ts` — new helper (explorer URL builder for tx/account/program)
+- `goalchain_webapp/src/ui/FixturesPanel.tsx` — use `explorerTxUrl()` instead of hardcoded devnet URL
+- `goalchain_webapp/src/ui/NFTMarketplace.tsx` — use `explorerTxUrl()` instead of hardcoded devnet URL
 - `docs/SECURITY_AUDIT.md` — section 6: program verification via Solana Explorer
 - `docs/VERIFIED_BUILD_GUIDE.md` — standalone guide for verified build workflow
 - `docs/intake/2026-06-02-voice-task-1780404884.md` — close intake marker
 
 ## Risks / Rollback
-- Risk: minimal — docs-only + one utility module (no runtime behavior change)
-- Rollback: `git revert` the single commit linked to issue #847
+- Risk: low — explorerLinks import adds cluster-aware URL logic; previously hardcoded `?cluster=devnet`.
+  If GOALCHAIN_CLUSTER env is unset, SDK defaults to `devnet` (same behavior as before).
+  If set to `mainnet`, explorer links will correctly omit cluster param. No behavior regression.
+- Rollback: `git revert` the commits linked to issue #847
 
 ## Test Commands
 ```bash
