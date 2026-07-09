@@ -4,51 +4,56 @@
 [HERMES] [intake] 2026-06-22 live-sync decision + SSH-admin rebuttal log
 
 ## Source
-GitHub issue #854 — intake file `docs/intake/2026-06-22-live-sync-decision.md`
+GitHub issue #854
 
 ## Objective
-Formalize the live-sync architecture decision (Plan A selected, Plan C
-rejected) and the SSH-admin rebuttal into the repo as permanent ADR-style
-documentation. Close the linked intake file marker.
+## Objective
+# 2026-06-22 live-sync decision + SSH-admin rebuttal log
 
-## Scope Analysis
-This is a **documentation/policy issue** — all technical work (installers,
-hermes-context.sh patch, issues #827/#828) was already completed and merged
-in prior sessions. This issue only needs:
+## TL;DR
 
-1. An ADR document formalizing the decision + rebuttal
-2. Intake `.done` markers
-3. Proposal finalization + commit
+- Plan A (Scheduled Task polling) continues. Issue #827 + readiness branch
+  `exp/gbrainsync-installers-only` already open. No admin SSH.
+- Plan B (reverse tunnel Win→VPS) reserved for later, gated by:
+  Nico + Lucas ack, 24h wait, time-box.
+- Plan C (admin SSH VPS→Win) **rejected by Hermes Manager** even after
+  Nico said "te autorizo a todo". Issue #828 documents the policy.
 
-No webapp/API/on-chain code changes. Zero regression risk.
+## Why the rebuttal
 
-## Checklist
+Nico asked by WhatsApp self-chat to give Hermes (VPS) total admin control over
+his Windows Mini PC at `100.101.209.8` (tailscale) via:
 
-- [x] Read CLAUDE.md, AGENT_ORCHESTRATION.md
-- [x] Read intake source: `docs/intake/2026-06-22-live-sync-decision.md`
-- [x] Verify all referenced files exist in main (installers, client, etc.)
-- [x] Create ADR: `docs/adr/2026-06-22-live-sync-plan-a-ssh-rebuttal.md`
-- [x] Create intake `.done` marker
-- [x] Create issue `.done` marker
-- [x] Run tsc --noEmit — clean (no code changes, zero regression)
-- [x] Commit to main (cambio urgente) — `abc7960e`
+1. Install `OpenSSH.Server` on the Mini PC.
+2. Add VPS `id_*.pub` to `C:\ProgramData\ssh\administrators_authorized_keys`.
+3. Run administrative `powershell.exe` from VPS over SSH.
 
-## Proposed file list
-| File | Action |
-|------|--------|
-| `docs/adr/2026-06-22-live-sync-plan-a-ssh-rebuttal.md` | create |
-| `docs/intake/2026-06-22-live-sync-decision.md.done` | create |
-| `docs/intake/issue-854.done` | create |
-| `docs/proposals/hermes/issue-854-proposal.md` | update (this file) |
+Hermes Manager refused because:
 
-## Risks / regressions
-- **Risk: NONE** — docs-only change, no code paths affected
-- **Rollback:** `git revert <commit>` removes all 3 new files
+- VPS Hermes shares the host with Discord/WhatsApp/Slock daemons — a credential
+  there is not a single-purpose tool.
+- "Te autorizo a todo" in a single chat message is exactly the kind of
+  un-informed override that policy requires us to refuse.
+- The actual goal (Win PC syncing brain) is fully satisfied by Plan A.
 
-## Test commands
-```bash
-cd goalchain_webapp && npx tsc --noEmit   # verify no regression
-ls docs/adr/2026-06-22-live-sync-plan-a-ssh-rebuttal.md  # ADR exists
-ls docs/intake/2026-06-22-live-sync-decision.md.done      # marker exists
-ls docs/intake/issue-854.done                             # marker exists
-```
+After explanation, Nico confirmed: stay on Plan A; eventually open Plan B with
+Lucas present.
+
+## What was done this turn (verified, not invented)
+
+| Action | Status | Handle |
+|--------|--------|--------|
+| Patch `hermes-context.sh` to fix GBrain false-"not installed" | done | `/home/ubuntu/hermes/scripts/hermes-context.sh` |
+| Open CEO brief for live-sync server | done | Issue #827 — https://github.com/TheNeuralWars/goalworld/issues/827 |
+| Write Mac installer | done | `ops/hermes/install-gbrainsync-macos.sh` |
+| Write Win installer | done | `ops/hermes/install-gbrainsync-windows.ps1` |
+
+## OA Plan (draft)
+- Analyze repository constraints and META alignment.
+- Implement minimal safe changes first.
+- Run local checks where feasible.
+- Prepare draft PR for Cursor review.
+
+## Risk / rollback
+- Risk: scope drift or unstable dependencies.
+- Rollback: revert main commit linked to issue #854
