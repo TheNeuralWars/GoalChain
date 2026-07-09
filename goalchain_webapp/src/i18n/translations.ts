@@ -207,6 +207,7 @@ export type TranslationKeys = {
   presale_sub: string;
   presale_title: string;
   route_autopilot: string;
+  route_agents: string;
   route_club: string;
   route_collection: string;
   route_defi: string;
@@ -311,6 +312,7 @@ export type TranslationKeys = {
   nav_swarm: string;
   nav_staking: string;
   nav_hermes: string;
+  nav_agents: string;
   nav_myclub: string;
   nav_stadium: string;
   nav_arcade_penalty: string;

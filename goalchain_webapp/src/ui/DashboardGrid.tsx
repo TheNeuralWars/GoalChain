@@ -133,6 +133,23 @@ export function DashboardGrid() {
             <span className="launcher-card-btn text-neon-green">Explorar Hub →</span>
           </div>
         </div>
+
+        {/* Tokenized Agents Card */}
+        <div className="launcher-card glass-card card-hover-hub" onClick={() => navigate('/agents')}>
+          <div className="launcher-card-header">
+            <div className="launcher-card-icon">🧬</div>
+            <div className="launcher-card-badge" style={{ background: 'rgba(153,69,255,0.15)', color: '#9945ff' }}>AGENT SWARM</div>
+            <SimulationBadge />
+          </div>
+          <h3>Tokenized Agents</h3>
+          <p>
+            Dashboard de los 10 agentes autónomos tokenizados que operan el protocolo GoalWorld: CEO, Dev, Trader, Research y más.
+          </p>
+          <div className="launcher-card-footer">
+            <span className="launcher-card-status text-neon-purple">10 agentes activos</span>
+            <span className="launcher-card-btn text-neon-purple">Ver Agentes →</span>
+          </div>
+        </div>
       </div>
 
       {/* X-Scout Active Research Stream (Mock feed de Twitter AI Explorer) */}

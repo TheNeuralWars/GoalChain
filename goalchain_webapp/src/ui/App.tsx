@@ -24,6 +24,7 @@ import { MarketingControlCenter } from './MarketingControlCenter';
 import { PressKit } from './PressKit';
 import { GenesisCollectionGallery } from './GenesisCollectionGallery';
 import { CorporateAutopilot } from './CorporateAutopilot';
+import { TokenizedAgentsDashboard } from './TokenizedAgentsDashboard';
 const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
 
 
@@ -130,6 +131,14 @@ function App() {
                           <CorporateAutopilot />
                         </PlayPage>
 
+                      }
+                    />
+                    <Route
+                      path="/agents"
+                      element={
+                        <PlayPage titleKey="route_agents" align="left">
+                          <TokenizedAgentsDashboard />
+                        </PlayPage>
                       }
                     />
 

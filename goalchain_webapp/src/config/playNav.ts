@@ -110,6 +110,13 @@ const DEFI_ITEMS: PlayNavItem[] = [
     icon: '🤖',
     to: '/autopilot',
   },
+  {
+    id: 'agents',
+    label: 'Tokenized Agents',
+    i18n: 'nav_agents',
+    icon: '🧬',
+    to: '/agents',
+  },
 ];
 
 
