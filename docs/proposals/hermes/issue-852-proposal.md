@@ -7,10 +7,34 @@
 GitHub issue #852
 
 ## Objective
-Close the FCC batch queue intake marker (2026-05-25-fcc-batch-queue.md).
-The batch (#95→#96→#97→#99) was FROZEN on 2026-05-26 in favor of the
-Mundial 2026 MVP track. The Mundial MVP has since shipped (.done exists).
-This issue is documentation/dispatch closure — no functional code changes.
+## Objective
+# FCC batch queue — Nico dispatch 2026-05-25
+
+- **Task Created:** https://github.com/TheNeuralWars/goalworld/issues/255
+- **Task Status:** ready
+
+**Status:** **FROZEN** (2026-05-26) — use [`MUNDIAL-2026-MVP.md`](MUNDIAL-2026-MVP.md) as the single `agent:opencode` track until Mundial demo ships. See [`2026-05-26-mundial-fcc-queue-freeze.md`](2026-05-26-mundial-fcc-queue-freeze.md).
+
+**Owner:** FCC (`agent:opencode`) via `oa-worker`  
+**Order:** worker picks `status:ready` issues one at a time; prefer this sequence.
+
+| Order | Issue | Priority | Title |
+|-------|-------|----------|-------|
+| 1 | [#95](https://github.com/TheNeuralWars/goalworld/issues/95) | P2 | OAuth remote runbook |
+| 2 | [#96](https://github.com/TheNeuralWars/goalworld/issues/96) | P2 | Simulation badges webapp |
+| 3 | [#97](https://github.com/TheNeuralWars/goalworld/issues/97) | P2 | API health banner webapp |
+| 4 | [#99](https://github.com/TheNeuralWars/goalworld/issues/99) | P1 | smoke-devnet.sh hardening |
+| — | ~~[#93](https://github.com/TheNeuralWars/goalworld/issues/93)~~ | — | **Fuera de cola FCC** — tarea Hermes/Manager (Discord), no `oa-worker` |
+
+**Orden activo del worker:** #95 → #96 → #97 → #99 (por `createdAt`; #93 sin `agent:opencode`).
+
+**Dispatched:** 2026-05-25 by Cursor (Nico request). Labels: `agent:opencode`, `status:ready`, `fcc-batch` en #95–#99.
+
+**Rules for all:** draft PR only, read `CLAUDE.md`, no merge to `main`, Antigravity reviews.
+
+**Hermes:** Do not create duplicate issues for this batch.
+---
+Source file: docs/intake/2026-05-25-fcc-batch-queue.md (auto-dispatched by intake_goal_loop.sh). Prioritize according to GoalWorld queue freeze rules. Close the linked intake file marker once implemented.
 
 ## Owner
 hermes
@@ -19,47 +43,17 @@ hermes
 P1
 
 ## Context
-Requested by Nico via Manager (WhatsApp/OpenClaw). The batch queue was
-dispatched 2026-05-25 by Cursor with labels `agent:opencode`, `status:ready`,
-`fcc-batch` on issues #95–#99. One day later (2026-05-26) the queue was
-frozen to focus all FCC capacity on the Mundial MVP demo.
+Requested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned with goalworld orchestration rules.
 
-## Batch queue (frozen issues)
-| Order | Issue | Priority | Title | Freeze status |
-|-------|-------|----------|-------|---------------|
-| 1 | #95 | P2 | OAuth remote runbook | frozen |
-| 2 | #96 | P2 | Simulation badges webapp | superseded by Mundial MVP |
-| 3 | #97 | P2 | API health banner webapp | superseded by Mundial MVP |
-| 4 | #99 | P1 | smoke-devnet.sh hardening | superseded by Mundial MVP |
-| — | ~~#93~~ | — | Fuera de cola FCC (Discord) | never in FCC queue |
+## Required output
+- Proposed file list
 
-## Implementation checklist
-- [x] Read CLAUDE.md, AGENT_ORCHESTRATION.md
-- [x] Verify intake source file exists (2026-05-25-fcc-batch-queue.md)
-- [x] Verify freeze file exists (2026-05-26-mundial-fcc-queue-freeze.md)
-- [x] Verify Mundial MVP .done exists (MUNDIAL-2026-MVP.md.done)
-- [x] Update intake source: mark status CLOSED (freeze executed)
-- [x] Create intake .done marker: 2026-05-25-fcc-batch-queue.md.done
-- [x] Create issue .done marker: issue-852.done
-- [x] No duplicate issues created
-- [x] No code changes needed
-- [x] Commit direct to main (cambio urgente)
-
-## Files touched
-- `docs/intake/2026-05-25-fcc-batch-queue.md` — status update FROZEN→CLOSED
-- `docs/intake/2026-05-25-fcc-batch-queue.md.done` — intake closure marker
-- `docs/intake/issue-852.done` — issue closure marker
-- `docs/proposals/hermes/issue-852-proposal.md` — this proposal
+## OA Plan (draft)
+- Analyze repository constraints and META alignment.
+- Implement minimal safe changes first.
+- Run local checks where feasible.
+- Prepare draft PR for Cursor review.
 
 ## Risk / rollback
-- Risk: None. Documentation-only changes with no functional impact.
-- Rollback: `git revert <commit-sha>`
-
-## Test commands
-```bash
-# Verify markers exist
-ls -la docs/intake/2026-05-25-fcc-batch-queue.md.done
-ls -la docs/intake/issue-852.done
-# Verify no build regressions (docs only, but sanity check)
-cd goalchain_webapp && npx tsc --noEmit
-```
+- Risk: scope drift or unstable dependencies.
+- Rollback: revert main commit linked to issue #852
