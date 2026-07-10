@@ -4,7 +4,7 @@ import { EconomyConfigBanner } from './EconomyConfigBanner';
 import { OpsStatusPanel } from './OpsStatusPanel';
 import { SimulationBadge } from '../components/SimulationBadge';
 import { useUser } from '../contexts/UserContext';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../i18n/index';
 
 
 export function DashboardGrid() {
@@ -23,33 +23,33 @@ export function DashboardGrid() {
           <h1>
             {user ? (
               <>
-                {t('dashboard.welcome', { avatar: user.avatar, username: user.username })}
+                {t('dashboard_welcome', { avatar: user.avatar, username: user.username })}
               </>
             ) : (
-              t('dashboard.welcome_default')
+              t('dashboard_welcome_default')
             )}
           </h1>
           <p className="welcome-hero-sub">
-            {t('dashboard.description')}
+            {t('dashboard_description')}
           </p>
           {!user && (
             <Link to="/club" className="btn-neon-green welcome-hero-btn">
-              {t('dashboard.setup')}
+              {t('dashboard_setup')}
             </Link>
           )}
         </div>
         <div className="welcome-hero-stats">
           <div className="hero-stat-box">
             <span className="hero-stat-val">1240</span>
-            <span className="hero-stat-label">{t('dashboard.players')}</span>
+            <span className="hero-stat-label">{t('dashboard_players')}</span>
           </div>
           <div className="hero-stat-box">
             <span className="hero-stat-val">1240</span>
-            <span className="hero-stat-label">{t('dashboard.clubs')}</span>
+            <span className="hero-stat-label">{t('dashboard_clubs')}</span>
           </div>
           <div className="hero-stat-box">
             <span className="hero-stat-val">1240</span>
-            <span className="hero-stat-label">{t('dashboard.matches')}</span>
+            <span className="hero-stat-label">{t('dashboard_matches')}</span>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@ export function DashboardGrid() {
           className="btn-neon-purple"
           style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
         >
-          {showOpsConsole ? t('dashboard.hide_console') : t('dashboard.show_console')}
+          {showOpsConsole ? t('dashboard_hide_console') : t('dashboard_show_console')}
           <SimulationBadge />
         </button>
       </div>
@@ -74,23 +74,23 @@ export function DashboardGrid() {
       <div className="quick-access-grid">
         <div className="quick-access-card glass-card" onClick={() => navigate('/club')}>
           <div className="quick-access-icon">🏟️</div>
-          <h3>{t('dashboard.club')}</h3>
-          <p>{t('dashboard.club_description')}</p>
+          <h3>{t('dashboard_club')}</h3>
+          <p>{t('dashboard_club_description')}</p>
         </div>
         <div className="quick-access-card glass-card" onClick={() => navigate('/estadio')}>
           <div className="quick-access-icon">⚽</div>
-          <h3>{t('dashboard.stadium')}</h3>
-          <p>{t('dashboard.stadium_description')}</p>
+          <h3>{t('dashboard_stadium')}</h3>
+          <p>{t('dashboard_stadium_description')}</p>
         </div>
         <div className="quick-access-card glass-card" onClick={() => navigate('/defi')}>
           <div className="quick-access-icon">💰</div>
-          <h3>{t('dashboard.defi')}</h3>
-          <p>{t('dashboard.defi_description')}</p>
+          <h3>{t('dashboard_defi')}</h3>
+          <p>{t('dashboard_defi_description')}</p>
         </div>
         <div className="quick-access-card glass-card" onClick={() => navigate('/staking')}>
           <div className="quick-access-icon">🔄</div>
-          <h3>{t('dashboard.staking')}</h3>
-          <p>{t('dashboard.staking_description')}</p>
+          <h3>{t('dashboard_staking')}</h3>
+          <p>{t('dashboard_staking_description')}</p>
         </div>
       </div>
     </div>

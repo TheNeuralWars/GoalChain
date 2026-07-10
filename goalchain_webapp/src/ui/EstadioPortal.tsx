@@ -12,20 +12,20 @@ export function EstadioPortal() {
   const [activeSubTab, setActiveSubTab] = useState<'fixtures' | 'commentator' | 'feed' | 'predictor' | 'simulator'>('fixtures');
 
   const tabs = [
-    { id: 'fixtures',   label: t('estadio_portal.tabs.fixtures.label'),    desc: t('estadio_portal.tabs.fixtures.desc') },
-    { id: 'simulator', label: t('estadio_portal.tabs.simulator.label'),    desc: t('estadio_portal.tabs.simulator.desc') },
-    { id: 'predictor', label: t('estadio_portal.tabs.predictor.label'),   desc: t('estadio_portal.tabs.predictor.desc') },
-    { id: 'commentator', label: t('estadio_portal.tabs.commentator.label'),            desc: t('estadio_portal.tabs.commentator.desc') },
-    { id: 'feed',      label: t('estadio_portal.tabs.feed.label'),          desc: t('estadio_portal.tabs.feed.desc') },
+    { id: 'fixtures',   label: t('estadio_portal_tabs_fixtures_label'),    desc: t('estadio_portal_tabs_fixtures_desc') },
+    { id: 'simulator', label: t('estadio_portal_tabs_simulator_label'),    desc: t('estadio_portal_tabs_simulator_desc') },
+    { id: 'predictor', label: t('estadio_portal_tabs_predictor_label'),   desc: t('estadio_portal_tabs_predictor_desc') },
+    { id: 'commentator', label: t('estadio_portal_tabs_commentator_label'),            desc: t('estadio_portal_tabs_commentator_desc') },
+    { id: 'feed',      label: t('estadio_portal_tabs_feed_label'),          desc: t('estadio_portal_tabs_feed_desc') },
   ] as const;
 
   return (
     <div className="play-page play-page--portal">
       <div className="portal-header glass-card">
-        <div className="portal-badge">{t('estadio_portal.badge')}</div>
-        <h1>{t('estadio_portal.title')}</h1>
+        <div className="portal-badge">{t('estadio_portal_badge')}</div>
+        <h1>{t('estadio_portal_title')}</h1>
         <p className="portal-subtitle">
-          {t('estadio_portal.subtitle')}
+          {t('estadio_portal_subtitle')}
         </p>
 
         {/* Glassmorphic Tabs Navigation */}
@@ -46,14 +46,14 @@ export function EstadioPortal() {
       <div className="portal-content-wrapper">
         {activeSubTab === 'fixtures' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal.loading.fixtures')}</div>}>
+            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal_loading_fixtures')}</div>}>
               <FixturesPanel />
             </Suspense>
           </div>
         )}
         {activeSubTab === 'commentator' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal.loading.commentator')}</div>}>
+            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal_loading_commentator')}</div>}>
               <AICommentator />
             </Suspense>
           </div>
@@ -65,14 +65,14 @@ export function EstadioPortal() {
         )}
         {activeSubTab === 'predictor' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal.loading.predictor')}</div>}>
+            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal_loading_predictor')}</div>}>
               <WorldCupPredictor />
             </Suspense>
           </div>
         )}
         {activeSubTab === 'simulator' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal.loading.simulator')}</div>}>
+            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal_loading_simulator')}</div>}>
               <MatchSimulator />
             </Suspense>
           </div>

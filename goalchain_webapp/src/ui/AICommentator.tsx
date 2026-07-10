@@ -48,7 +48,7 @@ export const AICommentator: React.FC = () => {
                 setCommentaryHistory(prev => [
                     {
                         id: Date.now(),
-                        text: t('ai_commentator.noah_ai_response', { text: data.text }),
+                        text: t('ai_commentator_noah_ai_response', { text: data.text }),
                         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
                     },
                     ...prev
@@ -56,19 +56,19 @@ export const AICommentator: React.FC = () => {
                 setNoahQuery('');
             }
         } catch (err) {
-            console.warn(t('ai_commentator.noah_ai_error'), err);
+            console.warn(t('ai_commentator_noah_ai_error'), err);
             const mockResponses = [
-                t('ai_commentator.mock_response_1'),
-                t('ai_commentator.mock_response_2'),
-                t('ai_commentator.mock_response_3'),
-                t('ai_commentator.mock_response_4')
+                t('ai_commentator_mock_response_1'),
+                t('ai_commentator_mock_response_2'),
+                t('ai_commentator_mock_response_3'),
+                t('ai_commentator_mock_response_4')
             ];
             const fallbackText = mockResponses[Math.floor(Math.random() * mockResponses.length)];
             speak(fallbackText);
             setCommentaryHistory(prev => [
                 {
                     id: Date.now(),
-                    text: t('ai_commentator.noah_ai_simulated_response', { text: fallbackText }),
+                    text: t('ai_commentator_noah_ai_simulated_response', { text: fallbackText }),
                     time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
                 },
                 ...prev
@@ -119,13 +119,13 @@ export const AICommentator: React.FC = () => {
             wsRef.current = socket;
 
             socket.onopen = () => {
-                console.log(t('ai_commentator.ws_connected', { url: wsUrl }));
+                console.log(t('ai_commentator_ws_connected', { url: wsUrl }));
                 setWsStatus('connected');
                 setWsError(null);
             };
 
             socket.onclose = () => {
-                console.log(t('ai_commentator.ws_disconnected', { url: wsUrl }));
+                console.log(t('ai_commentator_ws_disconnected', { url: wsUrl }));
                 setWsStatus('disconnected');
                 setWsError(null);
                 reconnectTimeout = setTimeout(connect, 5000);
@@ -133,9 +133,9 @@ export const AICommentator: React.FC = () => {
 
             socket.onerror = (err) => {
                 // Downgraded from console.error — WS errors are expected when bridge is offline
-                console.warn(t('ai_commentator.ws_error'), err);
+                console.warn(t('ai_commentator_ws_error'), err);
                 setWsStatus('error');
-                setWsError(t('ai_commentator.ws_retry'));
+                setWsError(t('ai_commentator_ws_retry'));
             };
 
             socket.onmessage = (event) => {
@@ -154,7 +154,7 @@ export const AICommentator: React.FC = () => {
                         setBroadcastCount(prev => prev + 1);
                     }
                 } catch (e) {
-                    console.error(t('ai_commentator.ws_parse_error'), e);
+                    console.error(t('ai_commentator_ws_parse_error'), e);
                 }
             };
         };
@@ -211,8 +211,8 @@ export const AICommentator: React.FC = () => {
             {/* Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                    <h2 style={{ margin: 0, color: '#fff', fontSize: '1.1rem', fontWeight: 800 }}>{t('ai_commentator.title')}</h2>
-                    <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', margin: '4px 0 0 0' }}>{t('ai_commentator.subtitle')}</p>
+                    <h2 style={{ margin: 0, color: '#fff', fontSize: '1.1rem', fontWeight: 800 }}>{t('ai_commentator_title')}</h2>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', margin: '4px 0 0 0' }}>{t('ai_commentator_subtitle')}</p>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -227,14 +227,14 @@ export const AICommentator: React.FC = () => {
                             display: 'inline-block'
                         }}></span>
                         {!wsEnabled
-                            ? t('ai_commentator.bridge_disabled')
+                            ? t('ai_commentator_bridge_disabled')
                             : wsStatus === 'connected'
-                            ? t('ai_commentator.live_cast', { count: broadcastCount })
+                            ? t('ai_commentator_live_cast', { count: broadcastCount })
                             : wsStatus === 'connecting'
-                            ? t('ai_commentator.connecting')
+                            ? t('ai_commentator_connecting')
                             : wsStatus === 'error'
-                            ? t('ai_commentator.bridge_error')
-                            : t('ai_commentator.bridge_offline')}
+                            ? t('ai_commentator_bridge_error')
+                            : t('ai_commentator_bridge_offline')}
                     </div>
 
                     {voices.length > 0 && (
@@ -287,7 +287,7 @@ export const AICommentator: React.FC = () => {
                             transition: 'all 0.2s ease'
                         }}
                     >
-                        {isMuted ? t('ai_commentator.mute') : t('ai_commentator.speak')}
+                        {isMuted ? t('ai_commentator_mute') : t('ai_commentator_speak')}
                     </button>
                 </div>
             </div>
@@ -335,14 +335,14 @@ export const AICommentator: React.FC = () => {
                 <div style={{ flex: 1, background: 'rgba(0, 0, 0, 0.2)', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', padding: '1.25rem', position: 'relative' }}>
                     {loadingPhase === 'downloading' ? (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                            <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>{t('ai_commentator.downloading')}</div>
+                            <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>{t('ai_commentator_downloading')}</div>
                             <div style={{ height: '6px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '3px', overflow: 'hidden' }}>
                                 <div style={{ width: `${downloadProgress}%`, height: '100%', background: 'var(--primary-neon)', transition: 'width 0.3s ease' }}></div>
                             </div>
                         </div>
                     ) : loadingPhase === 'compiling' ? (
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                            <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>{t('ai_commentator.compiling')}</div>
+                            <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>{t('ai_commentator_compiling')}</div>
                             <div style={{ height: '6px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '3px', overflow: 'hidden' }}>
                                 <div style={{ width: '100%', height: '100%', background: 'var(--secondary-neon)', transition: 'width 0.3s ease' }}></div>
                             </div>
@@ -351,7 +351,7 @@ export const AICommentator: React.FC = () => {
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                             {/* Current Commentary */}
                             <div style={{ fontSize: '0.9rem', lineHeight: '1.5', color: '#f1f5f9' }}>
-                                {commentaryHistory.length > 0 ? commentaryHistory[0].text : t('ai_commentator.initial_commentary')}
+                                {commentaryHistory.length > 0 ? commentaryHistory[0].text : t('ai_commentator_initial_commentary')}
                             </div>
 
                             {/* NoahAI Query Form */}
@@ -360,7 +360,7 @@ export const AICommentator: React.FC = () => {
                                     type="text"
                                     value={noahQuery}
                                     onChange={(e) => setNoahQuery(e.target.value)}
-                                    placeholder={t('ai_commentator.query_placeholder')}
+                                    placeholder={t('ai_commentator_query_placeholder')}
                                     style={{ flex: 1, padding: '10px', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(0, 0, 0, 0.3)', color: '#fff' }}
                                     disabled={isQueryingNoah}
                                 />
@@ -370,7 +370,7 @@ export const AICommentator: React.FC = () => {
                                     style={{ padding: '0 16px', borderRadius: '8px', cursor: 'pointer' }}
                                     disabled={isQueryingNoah}
                                 >
-                                    {isQueryingNoah ? '...' : t('ai_commentator.query_button')}
+                                    {isQueryingNoah ? '...' : t('ai_commentator_query_button')}
                                 </button>
                             </form>
 

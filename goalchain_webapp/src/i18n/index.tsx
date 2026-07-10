@@ -8,8 +8,8 @@ const translations: Translations = { en, es };
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: keyof TranslationKeys) => string;
-  tHtml: (key: keyof TranslationKeys) => string;
+  t: (key: string, options?: Record<string, string | number>) => string;
+  tHtml: (key: string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -41,12 +41,18 @@ export function LanguageProvider({ children, initialLanguage = 'en' }: {
 
   const dict = translations[language];
 
-  const t = (key: keyof TranslationKeys): string => {
-    return dict[key] ?? key;
+  const t = (key: string, options?: Record<string, string | number>): string => {
+    let text = (dict as Record<string, string>)[key] ?? key;
+    if (options) {
+      for (const [k, v] of Object.entries(options)) {
+        text = text.replace(new RegExp(`\\{${k}\\}`, 'g'), String(v));
+      }
+    }
+    return text;
   };
 
-  const tHtml = (key: keyof TranslationKeys): string => {
-    return dict[key] ?? key;
+  const tHtml = (key: string): string => {
+    return (dict as Record<string, string>)[key] ?? key;
   };
 
   const value = useMemo(() => ({ language, setLanguage, t, tHtml }), [language, dict]);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { SimulationBadge } from '../components/SimulationBadge';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../i18n/index';
 
 interface Allocation {
     name: string;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../i18n/index';
 
 interface Advisory {
   type: 'success' | 'warning' | 'info';
@@ -17,8 +17,8 @@ interface ChatMessage {
 export function AICoach() {
   const { t } = useTranslation();
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { id: 1, sender: 'system', text: t('ai_coach.initialized') },
-    { id: 2, sender: 'coach', text: t('ai_coach.welcome') }
+    { id: 1, sender: 'system', text: t('ai_coach_initialized') },
+    { id: 2, sender: 'coach', text: t('ai_coach_welcome') }
   ]);
   const [inputVal, setInputVal] = useState('');
   const [loading, setLoading] = useState(false);
@@ -80,10 +80,10 @@ export function AICoach() {
   const saveApiKey = () => {
     if (apiKey.trim()) {
       localStorage.setItem('goalchain_gemini_api_key', apiKey.trim());
-      alert(t('ai_coach.api_key_saved'));
+      alert(t('ai_coach_api_key_saved'));
     } else {
       localStorage.removeItem('goalchain_gemini_api_key');
-      alert(t('ai_coach.api_key_removed'));
+      alert(t('ai_coach_api_key_removed'));
     }
     setShowSettings(false);
   };
@@ -94,15 +94,15 @@ export function AICoach() {
     advisories.push({
       type: 'warning',
       icon: '⚡',
-      title: t('ai_coach.fatigue_penalty_title'),
-      desc: t('ai_coach.fatigue_penalty_desc', { stamina: tacticalState.stamina, penalty: Math.round((1 - (tacticalState.stamina / 100)) * 100) })
+      title: t('ai_coach_fatigue_penalty_title'),
+      desc: t('ai_coach_fatigue_penalty_desc', { stamina: tacticalState.stamina, penalty: Math.round((1 - (tacticalState.stamina / 100)) * 100) })
     });
   } else {
     advisories.push({
       type: 'success',
       icon: '🔋',
-      title: t('ai_coach.excellent_stamina_title'),
-      desc: t('ai_coach.excellent_stamina_desc', { stamina: tacticalState.stamina })
+      title: t('ai_coach_excellent_stamina_title'),
+      desc: t('ai_coach_excellent_stamina_desc', { stamina: tacticalState.stamina })
     });
   }
 
@@ -110,8 +110,8 @@ export function AICoach() {
     advisories.push({
       type: 'info',
       icon: '🇺🇳',
-      title: t('ai_coach.incomplete_country_synergy_title'),
-      desc: t('ai_coach.incomplete_country_synergy_desc', { count: tacticalState.sameCountryCount })
+      title: t('ai_coach_incomplete_country_synergy_title'),
+      desc: t('ai_coach_incomplete_country_synergy_desc', { count: tacticalState.sameCountryCount })
     });
   }
 
@@ -119,8 +119,8 @@ export function AICoach() {
     advisories.push({
       type: 'info',
       icon: '🛡️',
-      title: t('ai_coach.incomplete_club_synergy_title'),
-      desc: t('ai_coach.incomplete_club_synergy_desc', { count: tacticalState.sameClubCount })
+      title: t('ai_coach_incomplete_club_synergy_title'),
+      desc: t('ai_coach_incomplete_club_synergy_desc', { count: tacticalState.sameClubCount })
     });
   }
 
@@ -136,7 +136,7 @@ export function AICoach() {
     setMessages(prev => [...prev, { id: newId, sender: 'user', text: userText }]);
     setLoading(true);
 
-    const systemPrompt = t('ai_coach.system_prompt', {
+    const systemPrompt = t('ai_coach_system_prompt', {
       player: tacticalState.player,
       stats: tacticalState.stats,
       stamina: tacticalState.stamina,
@@ -166,14 +166,14 @@ export function AICoach() {
         if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
           reply = data.candidates[0].content.parts[0].text;
         } else {
-          reply = t('ai_coach.error_response');
+          reply = t('ai_coach_error_response');
         }
       } catch {
-        reply = t('ai_coach.error_response');
+        reply = t('ai_coach_error_response');
       }
     } else {
       // Fallback to mock response
-      reply = t('ai_coach.mock_response', { userText });
+      reply = t('ai_coach_mock_response', { userText });
     }
 
     setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'coach', text: reply }]);
@@ -184,9 +184,9 @@ export function AICoach() {
   const handleBetbotToggle = () => {
     setBetbotActive(!betbotActive);
     if (!betbotActive) {
-      setMessages(prev => [...prev, { id: Date.now(), sender: 'system', text: t('ai_coach.betbot_activated') }]);
+      setMessages(prev => [...prev, { id: Date.now(), sender: 'system', text: t('ai_coach_betbot_activated') }]);
     } else {
-      setMessages(prev => [...prev, { id: Date.now(), sender: 'system', text: t('ai_coach.betbot_deactivated') }]);
+      setMessages(prev => [...prev, { id: Date.now(), sender: 'system', text: t('ai_coach_betbot_deactivated') }]);
     }
   };
 
@@ -194,9 +194,9 @@ export function AICoach() {
   const handleOptimizerToggle = () => {
     setOptimizerActive(!optimizerActive);
     if (!optimizerActive) {
-      setMessages(prev => [...prev, { id: Date.now(), sender: 'system', text: t('ai_coach.optimizer_activated') }]);
+      setMessages(prev => [...prev, { id: Date.now(), sender: 'system', text: t('ai_coach_optimizer_activated') }]);
     } else {
-      setMessages(prev => [...prev, { id: Date.now(), sender: 'system', text: t('ai_coach.optimizer_deactivated') }]);
+      setMessages(prev => [...prev, { id: Date.now(), sender: 'system', text: t('ai_coach_optimizer_deactivated') }]);
     }
   };
 
@@ -205,7 +205,7 @@ export function AICoach() {
       {/* Chat Interface */}
       <div className="glass-card" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-          <h2 style={{ margin: 0, color: '#fff', fontSize: '1.1rem', fontWeight: 800 }}>{t('ai_coach.title')}</h2>
+          <h2 style={{ margin: 0, color: '#fff', fontSize: '1.1rem', fontWeight: 800 }}>{t('ai_coach_title')}</h2>
           <button
             onClick={() => setShowSettings(!showSettings)}
             style={{ background: 'none', border: 'none', color: 'var(--text-dim)', cursor: 'pointer', fontSize: '0.8rem' }}
@@ -217,12 +217,12 @@ export function AICoach() {
         {/* API Key Settings */}
         {showSettings && (
           <div style={{ background: 'rgba(0,0,0,0.2)', padding: '12px', borderRadius: '8px', marginBottom: '10px' }}>
-            <h4 style={{ margin: '0 0 8px 0', fontSize: '0.8rem' }}>{t('ai_coach.api_settings')}</h4>
+            <h4 style={{ margin: '0 0 8px 0', fontSize: '0.8rem' }}>{t('ai_coach_api_settings')}</h4>
             <input
               type="password"
               value={apiKey}
               onChange={(e) => setApiKey(e.target.value)}
-              placeholder={t('ai_coach.api_key_placeholder')}
+              placeholder={t('ai_coach_api_key_placeholder')}
               style={{ width: '100%', padding: '8px', borderRadius: '4px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.3)', color: '#fff', marginBottom: '8px' }}
             />
             <button
@@ -230,7 +230,7 @@ export function AICoach() {
               className="btn-neon-green"
               style={{ padding: '6px 12px', fontSize: '0.7rem', borderRadius: '4px', cursor: 'pointer' }}
             >
-              {t('ai_coach.save_api_key')}
+              {t('ai_coach_save_api_key')}
             </button>
           </div>
         )}
@@ -253,7 +253,7 @@ export function AICoach() {
             type="text"
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
-            placeholder={t('ai_coach.chat_placeholder')}
+            placeholder={t('ai_coach_chat_placeholder')}
             style={{ flex: 1, padding: '10px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.3)', color: '#fff' }}
             disabled={loading}
           />
@@ -263,7 +263,7 @@ export function AICoach() {
             style={{ padding: '0 16px', borderRadius: '8px', cursor: 'pointer' }}
             disabled={loading}
           >
-            {loading ? '...' : t('ai_coach.send')}
+            {loading ? '...' : t('ai_coach_send')}
           </button>
         </form>
       </div>
@@ -273,7 +273,7 @@ export function AICoach() {
         
         {/* Advisories Tácticos */}
         <div className="glass-card" style={{ padding: '1.25rem' }}>
-          <h3 style={{ margin: '0 0 10px 0', color: '#fff', fontSize: '0.92rem', fontWeight: 800 }}>{t('ai_coach.tactical_advisories')}</h3>
+          <h3 style={{ margin: '0 0 10px 0', color: '#fff', fontSize: '0.92rem', fontWeight: 800 }}>{t('ai_coach_tactical_advisories')}</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {advisories.map((adv, idx) => {
               const borderCol = adv.type === 'success' ? 'rgba(20,241,149,0.3)' : adv.type === 'warning' ? 'rgba(255,77,106,0.3)' : 'rgba(153,69,255,0.3)';
@@ -297,14 +297,14 @@ export function AICoach() {
         <div className="glass-card" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
-              <h3 style={{ margin: 0, color: '#fff', fontSize: '0.92rem', fontWeight: 800 }}>{t('ai_coach.rainmaker_title')}</h3>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)' }}>{t('ai_coach.rainmaker_subtitle')}</span>
+              <h3 style={{ margin: 0, color: '#fff', fontSize: '0.92rem', fontWeight: 800 }}>{t('ai_coach_rainmaker_title')}</h3>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)' }}>{t('ai_coach_rainmaker_subtitle')}</span>
             </div>
             <span className="simulation-badge">PYTH LIVE</span>
           </div>
 
           <div style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.04)', borderRadius: '12px', padding: '12px', textAlign: 'center' }}>
-            <span style={{ fontSize: '0.62rem', color: 'var(--text-dim)', display: 'block', marginBottom: '8px' }}>{t('ai_coach.implied_probabilities')}</span>
+            <span style={{ fontSize: '0.62rem', color: 'var(--text-dim)', display: 'block', marginBottom: '8px' }}>{t('ai_coach_implied_probabilities')}</span>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '1rem', fontWeight: 'bold', color: '#fff', marginBottom: '8px' }}>
               <span>Argentina 🇦🇷</span>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-dim)' }}>vs</span>
@@ -319,9 +319,9 @@ export function AICoach() {
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', fontFamily: 'monospace' }}>
-              <span style={{ color: 'var(--primary-neon)', fontWeight: 'bold' }}>{t('ai_coach.home_prob', { prob: matchProb.home })}</span>
-              <span style={{ color: '#ffcc00', fontWeight: 'bold' }}>{t('ai_coach.draw_prob', { prob: matchProb.draw })}</span>
-              <span style={{ color: '#f97316', fontWeight: 'bold' }}>{t('ai_coach.away_prob', { prob: matchProb.away })}</span>
+              <span style={{ color: 'var(--primary-neon)', fontWeight: 'bold' }}>{t('ai_coach_home_prob', { prob: matchProb.home })}</span>
+              <span style={{ color: '#ffcc00', fontWeight: 'bold' }}>{t('ai_coach_draw_prob', { prob: matchProb.draw })}</span>
+              <span style={{ color: '#f97316', fontWeight: 'bold' }}>{t('ai_coach_away_prob', { prob: matchProb.away })}</span>
             </div>
           </div>
 
@@ -332,14 +332,14 @@ export function AICoach() {
               className={betbotActive ? 'btn-neon-green' : 'btn-outline-green'}
               style={{ padding: '10px', fontSize: '0.75rem', fontWeight: 'bold', borderRadius: '8px', cursor: 'pointer' }}
             >
-              {betbotActive ? t('ai_coach.betbot_active') : t('ai_coach.start_betbot')}
+              {betbotActive ? t('ai_coach_betbot_active') : t('ai_coach_start_betbot')}
             </button>
             <button 
               onClick={handleOptimizerToggle} 
               className={optimizerActive ? 'btn-neon-green' : 'btn-outline-green'}
               style={{ padding: '10px', fontSize: '0.75rem', fontWeight: 'bold', borderRadius: '8px', cursor: 'pointer' }}
             >
-              {optimizerActive ? t('ai_coach.auto_manager_on') : t('ai_coach.start_auto_manager')}
+              {optimizerActive ? t('ai_coach_auto_manager_on') : t('ai_coach_start_auto_manager')}
             </button>
           </div>
         </div>

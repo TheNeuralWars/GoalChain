@@ -16,24 +16,24 @@ export function ClubPortal() {
   const { user, isLoggedIn } = useUser();
 
   const tabs = [
-    { id: 'squad', label: t('club_portal.tabs.squad.label'), desc: t('club_portal.tabs.squad.desc') },
-    { id: 'arena', label: t('club_portal.tabs.arena.label'), desc: t('club_portal.tabs.arena.desc') },
-    { id: 'market', label: t('club_portal.tabs.market.label'), desc: t('club_portal.tabs.market.desc') },
-    { id: 'coach', label: t('club_portal.tabs.coach.label'), desc: t('club_portal.tabs.coach.desc') },
-    { id: 'profile', label: t('club_portal.tabs.profile.label'), desc: t('club_portal.tabs.profile.desc') },
+    { id: 'squad', label: t('club_portal_tabs.squad.label'), desc: t('club_portal_tabs.squad.desc') },
+    { id: 'arena', label: t('club_portal_tabs.arena.label'), desc: t('club_portal_tabs.arena.desc') },
+    { id: 'market', label: t('club_portal_tabs.market.label'), desc: t('club_portal_tabs.market.desc') },
+    { id: 'coach', label: t('club_portal_tabs.coach.label'), desc: t('club_portal_tabs.coach.desc') },
+    { id: 'profile', label: t('club_portal_tabs.profile.label'), desc: t('club_portal_tabs.profile.desc') },
   ] as const;
 
   return (
     <div className="play-page play-page--portal">
       <div className="portal-header glass-card">
-        <div className="portal-badge portal-badge--club">{t('club_portal.badge')}</div>
+        <div className="portal-badge portal-badge--club">{t('club_portal_badge')}</div>
         <SimulationBadge />
-        <h1>{t('club_portal.title')}</h1>
+        <h1>{t('club_portal_title')}</h1>
         <p className="portal-honesty-note">
-          {t('club_portal.demo_note')}
+          {t('club_portal_demo_note')}
         </p>
         <p className="portal-subtitle">
-          {t('club_portal.subtitle')}
+          {t('club_portal_subtitle')}
         </p>
 
         {/* Glassmorphic Tabs Navigation */}
@@ -79,9 +79,9 @@ export function ClubPortal() {
             ) : (
               <div className="registration-wrapper glass-card">
                 <div className="registration-promo">
-                  <h2>{t('club_portal.registration.title')}</h2>
+                  <h2>{t('club_portal_registration.title')}</h2>
                   <p>
-                    {t('club_portal.registration.description')}
+                    {t('club_portal_registration.description')}
                   </p>
                 </div>
                 <CreateUser onUserCreated={() => {
