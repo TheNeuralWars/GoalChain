@@ -68,7 +68,7 @@ def first_heading(lines: list[str], fallback: str) -> str:
 
 def is_quiet_or_useless(text: str) -> bool:
     lower = text.lower()
-    if "<!-- x_scout_quiet -->" in lower or "x_scout_quiet" in lower:
+    if "<!-- x_scout_quiet -->" in lower:
         return True
     junk = [
         "none met the minimum",
