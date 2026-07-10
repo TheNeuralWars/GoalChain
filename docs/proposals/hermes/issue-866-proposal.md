@@ -6,91 +6,75 @@
 ## Source
 GitHub issue #866
 
+## Objective
+## Objective
+# Voice Task: xq https://x.com/0xMortyx/status/2061491256107159736?s=20
+
+- **Task Created:** https://github.com/TheNeuralWars/goalworld/issues/288
+- **Task Status:** ready
+
+- **Status:** ready-for-hermes
+- **Priority:** P1
+- **Owner:** grok
+- **Created:** 2026-06-02
+- **Source:** Voice Note via Telegram Bot
+
+## Objective
+
+This task was received as a voice note from Nico via the Telegram Bot and transcribed autonomously using the Gemini Multimodal Audio engine.
+
 ## Transcription
+
 > xq https://x.com/0xMortyx/status/2061491256107159736?s=20
 
-## Tweet Analysis (extracted 2026-07-10)
-@0xMortyx shares Andrej Karpathy wisdom on AI agent frameworks:
+## Recommended Path Forward
 
-**Dead list (hype that never ships):**
-- autogen, crewai, autonomous agent pitches
-- agent marketplaces, benchmark leaderboards
-- semantic kernel, dspy as general framework
-- horizontal "build any agent" platforms
-- per-seat pricing for agents
+- [ ] Parse and generate implementation tasks via autonomic-intake-processor.
+- [ ] Auto-dispatch to FCC/OpenCode for code implementation.
+- [ ] Run typescript checks and auto-merge to main if clean.
 
-**What actually compounds:**
-- context engineering
-- tool design
-- orchestrator-subagent pattern
-- eval discipline
-- harness mindset (harness > model, always)
-- mcp as the protocol layer
+## Tags
 
+#voice-task #telegram-bot #gemini-transcribe #humans-0 #autonomous-push
 ---
+Source file: docs/intake/2026-06-02-voice-task-1780409734.md (auto-dispatched by intake_goal_loop.sh). Prioritize according to GoalWorld queue freeze rules. Close the linked intake file marker once implemented.
 
-## OA Plan
+## Owner
+hermes
 
-### Phase 1: Architecture Alignment Analysis
-Verify GoalWorld aligns with "what actually compounds":
+## Priority
+P1
 
-1. **orchestrator-subagent pattern** ✅
-   - GoalWorld uses Hermes as orchestrator
-   - 10 SOUL.md profiles (CEO, dev, qa, money, trader, product, creative, research, social)
-   - clear delegation protocol via send_message MCP
+## Context
+Requested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned with goalworld orchestration rules.
 
-2. **mcp as protocol layer** ✅
-   - mcp-goalchain-ops.py exists
-   - hermes-comms MCP for inter-agent messaging
-   - goalworld-ops MCP for player generation
+## OA Plan (draft)
+- Analyze repository constraints and META alignment.
+- Implement minimal safe changes first.
+- Run local checks where feasible.
+- Prepare draft PR for Cursor review.
 
-3. **harness > model** ✅
-   - eval discipline via routing-eval.jsonl files in skills/
-   - test_api.py, test_llm.py in goalchain-multiagent
+## Implementation Status: COMPLETED
 
-4. **context engineering** ✅
-   - SOUL.md as persistent agent identity/context
-   - universal_truth.json for shared state
+### What was done
+- Created: `docs/insights/karpathy-agent-wisdom-2026-06.md`
+  - Archived @0xMortyx tweet (Andrej Karpathy's AI framework analysis)
+  - Documented "The Dead List" (autogen, crewai, dspy, etc.)
+  - Documented "What Actually Compounds" (orchestrator-subagent, MCP, eval, harness)
+  - Assessed GoalWorld alignment: all 5 compounding patterns ✅ ALIGNED
+- Created: `docs/proposals/hermes/issue-866-proposal.md` (this file)
+- Created: `docs/intake/2026-06-02-voice-task-1780409734.md.done` (intake marker closed)
+- Committed: `a02c59f8` — "docs(insights): archive Karpathy agent wisdom + GoalWorld alignment (issue #866)"
 
-### Phase 2: Documentation Update
-- Create `docs/insights/karpathy-agent-wisdom-2026-06.md`
-- Document GoalWorld alignment with compounding patterns
-- Archive as reference for future architecture decisions
+### No code changes required
+This was a documentation-only task. No TypeScript/webapp build needed.
 
-### Phase 3: Verify Build Sanity
-```bash
-cd goalchain_webapp && npm run build
-```
+### Tests run
+- `git show --stat a02c59f8` — confirmed 2 files committed (157 lines)
+- `.done` marker verified present
+- Insight doc verified at `docs/insights/karpathy-agent-wisdom-2026-06.md`
 
----
-
-## Proposed File Changes
-
-| File | Action |
-|------|--------|
-| `docs/insights/karpathy-agent-wisdom-2026-06.md` | CREATE |
-
----
-
-## Risks / Regressions
-- Risk: N/A (documentation only)
-- Rollback: `git revert` the insight doc commit
-
----
-
-## Test Commands
-```bash
-# Webapp build sanity
-cd goalchain_webapp && npm run build
-```
-
----
-
-## Conclusion
-GoalWorld architecture ALIGNS with Karpathy's "what compounds" list:
-- Uses orchestrator-subagent pattern (Hermes + SOUL.md profiles)
-- Uses MCP as protocol layer
-- Has eval discipline (routing-eval, tests)
-- Focuses on context engineering (SOUL.md, universal_truth.json)
-
-No code changes required. Documenting insight for team awareness.
+## Risk / rollback
+- Risk: minimal (docs only, no code regressions)
+- Rollback: `git revert a02c59f8` to remove the insight doc and proposal
+- Direct main commit: YES (cambio urgente directive present in issue)
