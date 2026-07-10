@@ -127,35 +127,47 @@ def grok_synthesize(x_context: str, x_hits: int, score_min: int, ts: str) -> str
     if not key:
         raise SystemExit("XAI_API_KEY missing in ~/hermes/config.env")
 
-    model = getenv("OA_SCOUT_GROK_MODEL", "grok-3")
+    # Modelo configurable via env (default: el que Hermes tenga activo)
+    # Nico puede testear distintos modelos sin tocar código:
+    #   OA_SCOUT_SYNTH_MODEL=mistralai/mistral-large-3-675b-instruct-2512
+    #   OA_SCOUT_SYNTH_MODEL=z-ai/glm-5.1
+    #   OA_SCOUT_SYNTH_MODEL=nvidia/nemotron-3-super-120b-a12b
+    model = getenv("OA_SCOUT_SYNTH_MODEL", "grok-3")
     tone = getenv("OA_SCOUT_TONE", "balanced")
+    strategy_depth = getenv("OA_SCOUT_STRATEGY_DEPTH", "expert")
 
-    prompt = f"""You are GoalChain X-Scout (Hermes). Write ONE markdown radar for the Discord **active-research** forum.
+    prompt = f"""You are GoalChain X-Scout (Hermes). Your mission: synthesize a **Grok-scale** radar for the Discord **active-research** forum.
+
+**Constraints Mistral Large 3 (32K tokens)**:
+- Analyze the X snippets as raw market signals.
+- **Structure output as a 3-pass MoA draft**:
+  1. **First pass**: Generate 3 table rows (projects), score 0-40, include ALL evidence from X (cite usernames).
+  2. **Second pass**: Critique each row — what’s missing? (e.g., "Project A lacks a public GitHub").
+  3. **Third pass**: Produce the final markdown with:
+     - Opening thesis (1 paragraph, **bold claims only**).
+     - Table (max 3 rows) with columns: | Project | Score /40 | Strategic Fit | Build Viability | Unique Edge | Links |.
+     - **Why now** section: exactly 3 bullets (timing, tech, or market shifts).
+     - **48h PoC** section: branch name, 5 numbered steps (realistic, testable).
+- **Tone**: {tone} (options: "balanced", "visionary", "skeptical").
+- **Strategy depth**: {strategy_depth} (options: "novice", "expert", "world-class").
 
 UTC: {ts}
-Tone: {tone}
-Minimum candidate score to include in table: {score_min}/40
+Minimum candidate score: {score_min}/40
 X snippets collected: {x_hits}
 
 ## Live X snippets
 {x_context}
 
 ## Output rules (strict)
-1. If there is NO candidate with score >= {score_min}, real https://github.com/ repo (active), AND https://x.com/ proof:
+1. If **no** project meets ALL criteria (score ≥ {score_min}, active GitHub, real X proof):
    - Output ONLY:
      # GoalChain AI Radar — {ts}
      <!-- X_SCOUT_QUIET -->
-     One short paragraph (max 3 sentences) explaining why this cycle is quiet. No table.
-2. If there IS at least one strong candidate:
-   - Title: # GoalChain AI Radar — {ts}
-   - Opening paragraph: thesis for GoalChain (Solana, agents, play webapp, ops) — max 4 sentences.
-   - Markdown table (max 3 rows): | Project | Score /40 | Strategic | Build | Edge | Links |
-     - Links column MUST include full https://github.com/... and https://x.com/... URLs.
-   - ## Why now — exactly 3 bullets.
-   - ## 48h PoC — branch `exp/scout-<slug>` + exactly 5 numbered steps.
-3. NEVER write "none met minimum", "no candidates", or filler scores like 22/40 without a named project.
-4. NEVER repeat boilerplate from prior cycles. Be specific to the X snippets above.
-5. Markdown only. No JSON."""
+     Explain why this cycle is quiet (max 3 sentences).
+2. If candidates exist:
+   - Include **full GitHub/X links** (clickable in Discord).
+   - **Never** repeat boilerplate from prior cycles.
+3. **Markdown only**. No JSON."""
 
     r = requests.post(
         "https://api.x.ai/v1/chat/completions",
