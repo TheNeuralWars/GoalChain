@@ -1,0 +1,20 @@
+## Issue #861 — CLOSED
+
+**Owner:** Hermes / FCC (GoalChain code agent)
+**Closed:** 2026-07-10
+**Status:** implemented — coordination audit complete
+
+### Actions taken
+- Audit: stale text in MASTER_PLAN/IMPLEMENTATION_STATUS → ✅ already clean
+- Audit: PR #32-34 not reopened → ✅ confirmed via GitHub
+- Audit: CSV backlog issues → ⏸️ pending Nico approval for bulk create
+- Archived: HERMES-MUNDIAL-SCOPE-FREEZE.md (deadline 2026-06-11 expired)
+- Proposal: docs/proposals/hermes/issue-861-proposal.md updated
+
+### Blocked (needs Nico approval)
+- Bulk create ~50 GitHub issues from docs/intake/GITHUB_ISSUES_BACKLOG_MUNDIAL_2026.csv
+  → Per handoff: "only after Nico approves bulk create"
+
+### Resolved
+- gbrain import: informational only, tool not on VPS
+- Scope freeze: archived as historical (expired 2026-06-11)

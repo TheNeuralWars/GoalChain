@@ -1,7 +1,10 @@
 # Hermes intake policy — Mundial scope freeze
 
+> **[ARCHIVED 2026-06-11]** — Freeze period expired. Superseded by current Mundial backlog management.
+
 - **Task Created:** https://github.com/TheNeuralWars/GoalChain/issues/270
-- **Task Status:** ready
+- **Task Status:** archived
+- **Archived:** 2026-07-10 (FCC issue #861)
 
 **Effective:** 2026-05-26 until 2026-06-11
 
