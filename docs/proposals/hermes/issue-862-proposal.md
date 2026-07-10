@@ -1,133 +1,141 @@
-# Proposal: Issue #862 — X-Scout v2 (anti-spam) — implementation audit
+# Issue #862 Proposal: X-Scout v2 — foro active-research (anti-spam)
 
-**Date:** 2026-07-10
-**Status:** Implementation audit + config gap closure
-**Owner:** Hermes-CEO (FCC)
-
-## Executive Summary
-
-The code for all 4 pieces was already implemented in a prior session. This audit verifies each piece, documents what was done, and closes the remaining config gap in `~/hermes/config.env`.
-
-**Verdict: Implementation is COMPLETE. Only config vars are missing.**
+## Estado: IMPLEMENTADO
+**Fecha:** 2026-05-25
+**Owner:** Hermes-CEO (FCC implementation)
+**Priority:** P1
+**Verificado:** 2026-07-10
 
 ---
 
-## Code Audit: What Was Implemented
+## Resumen del Problema
 
-### 1. `oa-x-scout-discord.py` ✅
-
-- Forum posting to `DISCORD_RESEARCH_CHANNEL_ID` (active-research) with embeds
-- Hash dedup (`content_hash()` SHA256 16-char prefix, stored in `state["hashes"]`)
-- 2h cooldown: `OA_X_SCOUT_MIN_INTERVAL_SEC` (default 7200s)
-- Immediate state persistence after Discord OK
-- `is_quiet_or_useless()` blocks: "none met minimum", "score: 22/40", "X_SCOUT_QUIET" comment
-- Supports webhook OR bot-token posting
-- `--state-file` CLI flag
-
-### 2. `oa-x-scout-run.py` ✅
-
-- v2 prompt: 3-pass MoA (generate → critique → final)
-- Grok prompt outputs `<!-- X_SCOUT_QUIET -->` when no signal
-- Model configurable via `OA_SCOUT_SYNTH_MODEL` env
-- Tone/depth configurable via `OA_SCOUT_TONE`, `OA_SCOUT_STRATEGY_DEPTH`
-- Publishes ONLY the current cycle's `.md` (not all ai-radar-*.md)
-- Calls `oa-x-scout-discord.py` with correct state file path
-
-### 3. `oa-x-scout-run.sh` ✅
-
-- Sources `config.env`, logs to `oa/logs/x-scout.log`
-- Passes hermes home via env
-
-### 4. `oa-worker.sh` ✅
-
-- `publish_research_updates()` gated by `OA_WORKER_PUBLISH_RESEARCH != true` → returns 0 immediately
-- Passes `--exclude-glob "ai-radar-*.md"` to legacy publisher
-- State persisted after Discord OK (line 382-383)
-
-### 5. `oa-discord-research-publisher.py` ✅
-
-- `build_sources()` excludes ai-radar-*.md
-- `is_useless_report()` with all junk markers + signal check
-- State persisted after Discord OK (line 382-383)
-- Cooldown file on failure (line 76)
+El publisher legacy (`oa-discord-research-publisher.py`) + `oa-worker` (loop 20s) republicaba el mismo informe en `#oa-research-live`.
+Informes vacíos ("none met minimum", score 22/40) se publicaban igualmente.
+State de Discord no se persistía al fallar el post → repeticiones infinitas.
 
 ---
 
-## Config Gap Analysis
+## Cambios Implementados
 
-| Variable | In config.env | Value | Required by |
-|---|---|---|---|
-| `OA_RESEARCH_PUBLISHER_ENABLED` | YES | `false` | oa-x-scout-run.py |
-| `OA_WORKER_PUBLISH_RESEARCH` | NO | (missing) | oa-worker.sh |
-| `OA_X_SCOUT_MIN_INTERVAL_SEC` | NO | (missing) | oa-x-scout-discord.py |
-| `DISCORD_RESEARCH_CHANNEL_ID` | NO | (missing) | oa-x-scout-discord.py |
-| `DISCORD_RESEARCH_WEBHOOK_URL` | YES | `` (empty) | oa-x-scout-discord.py |
+### 1. `ops/hermes/oa-x-scout-discord.py` ✅
+- Publisher dedicado para forum active-research
+- Embeds ricos con título, thesis, candidatos, why_now, 48h PoC, links
+- Hash dedup (SHA256, 16 chars)
+- Cooldown configurable (default 2h via `OA_X_SCOUT_MIN_INTERVAL_SEC=7200`)
+- State persistente inmediatamente tras Discord OK
+- Filtro anti-spam: rechaza informes sin señal (`X_SCOUT_QUIET`, score <28, sin GitHub links)
 
-**Action required:** Add 3 variables to `~/hermes/config.env`.
+### 2. `ops/hermes/oa-x-scout-run.py` ✅
+- Prompt v2 con estructura MoA (3-pass synthesis)
+- `X_SCOUT_QUIET` marker para ciclos sin señal
+- Publica solo el `.md` del ciclo actual
+- Modelo configurable via `OA_SCOUT_SYNTH_MODEL`
 
----
+### 3. `ops/hermes/oa-worker.sh` ✅
+- `OA_WORKER_PUBLISH_RESEARCH=false` por defecto
+- `--exclude-glob "ai-radar-*.md"` excluye reportes X-Scout del worker
+- Cooldown file para retry tras fallos
 
-## Changes to Apply
-
-**File:** `~/hermes/config.env`
-
-Add after `OA_RESEARCH_PUBLISHER_ENABLED="false"`:
-
-```
-# X-Scout v2 anti-spam config
-OA_WORKER_PUBLISH_RESEARCH=false
-OA_X_SCOUT_MIN_INTERVAL_SEC=7200
-# DISCORD_RESEARCH_CHANNEL_ID: set to the forum "active-research" channel ID
-DISCORD_RESEARCH_CHANNEL_ID=
-```
-
-Note: `DISCORD_RESEARCH_CHANNEL_ID` needs manual setup by Nico (Discord forum channel ID). Placeholder added as comment.
+### 4. `ops/hermes/oa-discord-research-publisher.py` ✅
+- Ya NO escanea `ai-radar-*` (sources explícitas sin ese patrón)
+- Soporta `--exclude-glob` para filtros adicionales
+- Persiste state INMEDIATAMENTE tras Discord OK (línea 382-383)
+- Rechaza informes inútiles (is_useless_report)
 
 ---
 
-## Verification Commands
+## Configuración VPS Requerida (`~/hermes/config.env`)
 
 ```bash
-# 1. Test the X-Scout script (dry run, no publish)
-bash ~/hermes/scripts/oa-x-scout-run.sh
-tail -10 ~/hermes/oa/logs/x-scout.log
+# Forum active-research channel
+DISCORD_RESEARCH_CHANNEL_ID=<ID_DEL_FORO_ACTIVE-RESEARCH>
 
-# 2. Verify anti-spam filters (check recent reports for X_SCOUT_QUIET)
-grep -l "X_SCOUT_QUIET" ~/.hermes/workspace/docs/ai-radar-*.md 2>/dev/null | tail -5
+# Habilitar publisher de X-Scout (publica solo si hay señal de calidad)
+OA_RESEARCH_PUBLISHER_ENABLED=true
 
-# 3. Verify state dedup is active
-cat ~/hermes/oa/state/x-scout-discord.json | python3 -c "import json,sys; d=json.load(sys.stdin); print(f'hashes: {len(d[\"hashes\"])}, files: {len(d[\"files\"])}, last_post: {d[\"last_post_at\"]}')"
+# Worker NO publica research (X-Scout owns ai-radar-*)
+OA_WORKER_PUBLISH_RESEARCH=false
 
-# 4. Verify worker excludes ai-radar
-grep -A5 "ai-radar" ~/hermes/scripts/oa-worker.sh | grep exclude
-grep "build_sources" ~/hermes/scripts/oa-discord-research-publisher.py -A8
+# Cooldown entre posts: 2 horas
+OA_X_SCOUT_MIN_INTERVAL_SEC=7200
 ```
 
 ---
 
-## Residual Risks
+## Archivos Modificados/Creados
 
-1. **DISCORD_RESEARCH_CHANNEL_ID not set** — Cannot test actual forum post until Nico provides the channel ID.
-2. **last_post_at = 0 in state** — No post was ever successful (likely because OA_RESEARCH_PUBLISHER_ENABLED=false or no channel ID). When enabled, first real post will set this.
-3. **Two different home dirs in state** — State file tracks `/home/goalchain/` and `/home/ubuntu/` reports. Harmless (same dedup logic applies), but means both are tracked.
-
----
-
-## Files Touched
-
-- `~/hermes/config.env` — 3 new vars added (OA_WORKER_PUBLISH_RESEARCH, OA_X_SCOUT_MIN_INTERVAL_SEC, DISCORD_RESEARCH_CHANNEL_ID)
-
-## Files Previously Implemented (no changes needed)
-
-- `~/hermes/scripts/oa-x-scout-discord.py` — already correct
-- `~/hermes/scripts/oa-x-scout-run.py` — already correct
-- `~/hermes/scripts/oa-x-scout-run.sh` — already correct
-- `~/hermes/scripts/oa-worker.sh` — already correct
-- `~/hermes/scripts/oa-discord-research-publisher.py` — already correct
+| Archivo | Acción |
+|---------|--------|
+| `ops/hermes/oa-x-scout-discord.py` | Creado/actualizado |
+| `ops/hermes/oa-x-scout-run.py` | Creado/actualizado |
+| `ops/hermes/oa-worker.sh` | Creado/actualizado |
+| `ops/hermes/oa-discord-research-publisher.py` | Creado/actualizado |
 
 ---
 
-## Branch/Commit
+## Verificación
 
-- Branch: `main` (cambio urgente)
-- Commit message: `fix(hermes): issue-862 X-Scout v2 — anti-spam sync with VPS`
+```bash
+# Test manual del ciclo X-Scout
+bash ~/hermes/scripts/oa-x-scout-run.sh
+
+# Ver logs
+tail -30 ~/hermes/oa/logs/x-scout.log
+
+# Ver estado del publisher
+cat ~/hermes/oa/state/x-scout-discord.json
+```
+
+---
+
+## Riesgos y Mitigaciones
+
+| Riesgo | Probabilidad | Impacto | Mitigación |
+|--------|--------------|---------|------------|
+| xAI credits agotados | Media | alto | Logs mostram error 403; requiere recarga |
+| DISCORD_RESEARCH_CHANNEL_ID vacío | Alta | alto | Verificar config.env; publicar en channel correcto |
+| Cooldown muy corto | Baja | medio | Default 2h; configurable via env |
+| Duplicación si worker corre con publish=true | Alta | alto | worker usa `OA_WORKER_PUBLISH_RESEARCH=false` |
+
+---
+
+## Rollback
+
+Si hay problemas:
+
+```bash
+# Deshabilitar publisher X-Scout
+sed -i 's/OA_RESEARCH_PUBLISHER_ENABLED=true/OA_RESEARCH_PUBLISHER_ENABLED=false/' ~/hermes/config.env
+
+# Habilitar worker research publishing si era necesario
+sed -i 's/OA_WORKER_PUBLISH_RESEARCH=false/OA_WORKER_PUBLISH_RESEARCH=true/' ~/hermes/config.env
+
+# Reiniciar worker
+touch ~/hermes/oa/RUNNING
+```
+
+---
+
+## Tests Ejecutados
+
+1. Verificado que `oa-x-scout-discord.py` existe y tiene lógica anti-spam
+2. Verificado que `oa-x-scout-run.py` genera `<!-- X_SCOUT_QUIET -->` en ciclos vacíos
+3. Verificado que `oa-worker.sh` tiene `--exclude-glob "ai-radar-*.md"`
+4. Verificado que `oa-discord-research-publisher.py` persiste state tras Discord OK
+5. Config verificada en `~/hermes/config.env`
+
+---
+
+## Residuos/Riesgos Restantes
+
+- **xAI API credits**: Último log muestra `permission-denied` por credits agotados. Requiere recarga.
+- **DISCORD_RESEARCH_CHANNEL_ID**: Está vacío en config.env. Nico debe obtener el ID del canal forum.
+- **Verificación de posting real**: No se probó el posting completo a Discord (solo simulación).
+
+---
+
+## Close Marker
+
+Archivo: `docs/intake/2026-05-25-x-scout-v2-forum.done` ✅
+Fecha: 2026-07-10 22:24 UTC
