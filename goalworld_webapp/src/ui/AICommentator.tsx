@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { TRANSLATIONS } from '../../docs/assets/js/i18n.js';
-import { TRANSLATIONS } from '../../docs/assets/js/i18n.js';
+import React from 'react';
+import { useI18n } from '../i18n';
 
 const AICommentator = () => {
-  const [language, setLanguage] = useState(localStorage.getItem('language') || 'es');
-
-  useEffect(() => {
-    localStorage.setItem('language', language);
-  }, [language]);
-
-  const toggleLanguage = () => {
-    setLanguage(prevLanguage => prevLanguage === 'es' ? 'en' : 'es');
-  };
+  const { t } = useI18n();
   return (
     <div>
-      <h1>{TRANSLATIONS.AICommentator.title}</h1>
-      <p>{TRANSLATIONS.AICommentator.description}</p>
+      <h1>{t('AI_COMMENTATOR_TITLE')}</h1>
+      <p>{t('AI_COMMENTATOR_DESC')}</p>
     </div>
   );
 };

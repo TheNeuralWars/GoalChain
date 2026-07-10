@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { TRANSLATIONS } from '../../docs/assets/js/i18n.js';
-import { TRANSLATIONS } from '../../docs/assets/js/i18n.js';
+import React from 'react';
+import { useI18n } from '../i18n';
 
 const CreateUser = () => {
-  const [language, setLanguage] = useState(localStorage.getItem('language') || 'es');
-
-  useEffect(() => {
-    localStorage.setItem('language', language);
-  }, [language]);
-
-  const toggleLanguage = () => {
-    setLanguage(prevLanguage => prevLanguage === 'es' ? 'en' : 'es');
-  };
+  const { t } = useI18n();
   return (
     <div>
-      <h1>{TRANSLATIONS.CreateUser.title}</h1>
-      <p>{TRANSLATIONS.CreateUser.description}</p>
+      <h1>{t('CREATE_USER_TITLE')}</h1>
+      <p>{t('CREATE_USER_DESC')}</p>
     </div>
   );
 };

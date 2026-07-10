@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { TRANSLATIONS } from '../../docs/assets/js/i18n.js';
-import { TRANSLATIONS } from '../../docs/assets/js/i18n.js';
+import React from 'react';
+import { useI18n } from '../i18n';
 
 const DashboardHub = () => {
-  const [language, setLanguage] = useState(localStorage.getItem('language') || 'es');
-
-  useEffect(() => {
-    localStorage.setItem('language', language);
-  }, [language]);
-
-  const toggleLanguage = () => {
-    setLanguage(prevLanguage => prevLanguage === 'es' ? 'en' : 'es');
-  };
+  const { t } = useI18n();
   return (
     <div>
-      <h1>{TRANSLATIONS.DashboardHub.title}</h1>
-      <p>{TRANSLATIONS.DashboardHub.description}</p>
+      <h1>{t('DASHBOARD_HUB_TITLE')}</h1>
+      <p>{t('DASHBOARD_HUB_DESC')}</p>
     </div>
   );
 };
