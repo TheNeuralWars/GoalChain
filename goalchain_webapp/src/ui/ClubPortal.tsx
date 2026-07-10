@@ -7,7 +7,7 @@ import { NFTMarketplace } from './NFTMarketplace';
 import { AICoach } from './AICoach';
 import { useUser } from '../contexts/UserContext';
 import { MatchSimulator } from './MatchSimulator';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../i18n/index';
 
 
 export function ClubPortal() {

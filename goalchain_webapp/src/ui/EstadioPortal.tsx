@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { LiveEventFeed } from './LiveEventFeed';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../i18n/index';
 
 const FixturesPanel = lazy(() => import('./FixturesPanel').then(m => ({ default: m.FixturesPanel })));
 const AICommentator = lazy(() => import('./AICommentator').then(m => ({ default: m.AICommentator })));

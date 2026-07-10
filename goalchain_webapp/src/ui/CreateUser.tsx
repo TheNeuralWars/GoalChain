@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useUser } from '../contexts/UserContext';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../i18n/index';
 
 interface CreateUserProps {
   onUserCreated?: (user: { username: string; wallet: string; avatar: string }) => void;

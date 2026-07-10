@@ -1,6 +1,4 @@
-import { getQueueStatus } from '../utils/queueUtils';
-
-export const getQueueStatus = async () => {
+export async function getQueueStatus() {
   try {
     // In a real implementation, this would fetch from an API or database
     // For now, we'll return mock data

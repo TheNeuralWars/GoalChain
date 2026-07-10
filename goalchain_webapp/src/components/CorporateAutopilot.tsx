@@ -1,5 +1,5 @@
 import React from 'react';
-import { useQueueStatus } from '../hooks/useQueueStatus';
+import useQueueStatus from '../hooks/useQueueStatus';
 
 interface CorporateAutopilotProps {
   onCommand: (command: string) => void;
