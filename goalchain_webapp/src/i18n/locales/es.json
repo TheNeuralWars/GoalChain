@@ -340,5 +340,10 @@
   "fix_round_final": "Final",
   "fix_tbd": "POR DEFINIR",
   "fix_ft": "Tiempo Completo",
-  "fix_live": "EN VIVO"
+  "fix_live": "EN VIVO",
+
+  "marketplace_buy_cash": "COMPRAR EN CASH",
+  "marketplace_buy_sol": "COMPRAR CON SOL",
+  "marketplace_analyze": "ANALIZAR",
+  "marketplace_treasury_offline": "Tesorería no disponible"
 }

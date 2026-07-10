@@ -340,5 +340,10 @@
   "fix_round_final": "Final",
   "fix_tbd": "TBD",
   "fix_ft": "Full-time",
-  "fix_live": "LIVE"
+  "fix_live": "LIVE",
+
+  "marketplace_buy_cash": "BUY WITH CASH",
+  "marketplace_buy_sol": "BUY WITH SOL",
+  "marketplace_analyze": "ANALYZE",
+  "marketplace_treasury_offline": "Treasury unavailable"
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState, useRef } from 'react';
+import { useTranslation } from '../i18n/index';
 
 export interface PlayerRow {
   id: number;
@@ -85,6 +86,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
   onAnalyze,
   isSolOffline = false,
 }) => {
+  const { t } = useTranslation();
   const [isFlipped, setIsFlipped] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [coords, setCoords] = useState({ x: 50, y: 50 });
@@ -490,7 +492,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
                     }}
                     style={{ padding: '8px 0', fontSize: '0.7rem' }}
                   >
-                    💵 COMPRAR EN CASH: {player.price || nftPriceGch}
+                    💵 {t('marketplace_buy_cash')}: {player.price || nftPriceGch}
                   </button>
                   <button 
                     className="btn-buy btn-buy-sol"
@@ -502,13 +504,13 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
                       padding: '8px 0', 
                       fontSize: '0.7rem', 
                       background: 'var(--secondary)', 
-                      boxShadow: '0 4px 15px rgba(153, 69, 255, 0.3)',
-                      opacity: isSolOffline ? 0.4 : 1
+                      boxShadow: '0 4px 15px rgba(153, 69, 255, 0.3)', 
+                      opacity: isSolOffline ? 0.4 : 1 
                     }}
                     disabled={isSolOffline}
-                    title={isSolOffline ? 'Tesorería no disponible' : undefined}
+                    title={isSolOffline ? t('marketplace_treasury_offline') : undefined}
                   >
-                    ⚡ COMPRAR CON SOL: {player.price || '0.5 SOL'}
+                    ⚡ {t('marketplace_buy_sol')}: {player.price || '0.5 SOL'}
                   </button>
                 </div>
               ) : (
@@ -526,11 +528,11 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
                         border: '1px solid #14f195', 
                         color: '#14f195',
                         fontSize: '0.68rem', 
-                        padding: '6px 0',
+                        padding: '6px 0', 
                         fontWeight: 900
                       }}
                     >
-                      ANALIZAR 📊
+                      {t('marketplace_analyze')} 📊
                     </button>
                   )}
                   <div style={{ 

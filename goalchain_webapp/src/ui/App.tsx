@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
@@ -27,7 +27,6 @@ import { CorporateAutopilot } from './CorporateAutopilot';
 import { TokenizedAgentsDashboard } from './TokenizedAgentsDashboard';
 const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
 
-
 function PlayPage({
   titleKey,
   children,
@@ -48,7 +47,6 @@ function PlayPage({
   );
 }
 
-
 const ProfilePage = () => {
   const { username } = useParams<{ username: string }>();
   return <UserProfile username={username} />;
@@ -59,13 +57,26 @@ function App() {
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
   const wallets = useMemo(() => [new PhantomWalletAdapter()], [network]);
 
+  const [language, setLanguage] = useState<string>(localStorage.getItem('language') || 'en');
+
+  const toggleLanguage = () => {
+    const newLanguage = language === 'en' ? 'es' : 'en';
+    setLanguage(newLanguage);
+    localStorage.setItem('language', newLanguage);
+  };
+
   return (
-    <LanguageProvider initialLanguage="en">
+    <LanguageProvider initialLanguage={language}>
       <UserProvider>
         <BrowserRouter>
           <ConnectionProvider endpoint={endpoint}>
             <WalletProvider wallets={wallets} autoConnect>
               <WalletModalProvider>
+                <div style={{ position: 'fixed', top: '10px', right: '10px', zIndex: 1000 }}>
+                  <button onClick={toggleLanguage} style={{ padding: '8px 16px', background: '#64748b', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+                    {language === 'en' ? 'EN' : 'ES'}
+                  </button>
+                </div>
                 <Routes>
                   <Route element={<PlayLayout />}>
                     <Route
@@ -74,7 +85,6 @@ function App() {
                         <PlayPage titleKey="route_home" align="left">
                           <DashboardGrid />
                         </PlayPage>
-
                       }
                     />
                     <Route
@@ -83,7 +93,6 @@ function App() {
                         <PlayPage titleKey="route_estadio" align="left">
                           <EstadioPortal />
                         </PlayPage>
-
                       }
                     />
                     <Route
@@ -92,7 +101,6 @@ function App() {
                         <PlayPage titleKey="route_defi" align="left">
                           <DeFiPortal />
                         </PlayPage>
-
                       }
                     />
                     <Route
@@ -101,7 +109,6 @@ function App() {
                         <PlayPage titleKey="route_club" align="left">
                           <ClubPortal />
                         </PlayPage>
-
                       }
                     />
                     <Route
@@ -111,7 +118,6 @@ function App() {
                           <PlayPage titleKey="route_staking" align="left">
                             <StakingBurnDashboard />
                           </PlayPage>
-
                         </React.Suspense>
                       }
                     />
@@ -121,7 +127,6 @@ function App() {
                         <PlayPage titleKey="route_marketing" align="left">
                           <MarketingControlCenter />
                         </PlayPage>
-
                       }
                     />
                     <Route
@@ -130,7 +135,6 @@ function App() {
                         <PlayPage titleKey="route_autopilot" align="left">
                           <CorporateAutopilot />
                         </PlayPage>
-
                       }
                     />
                     <Route
@@ -141,14 +145,12 @@ function App() {
                         </PlayPage>
                       }
                     />
-
                     <Route
                       path="/presskit"
                       element={
                         <PlayPage titleKey="route_presskit" align="left">
                           <PressKit />
                         </PlayPage>
-
                       }
                     />
                     <Route
@@ -157,7 +159,6 @@ function App() {
                         <PlayPage titleKey="route_collection" align="left">
                           <GenesisCollectionGallery />
                         </PlayPage>
-
                       }
                     />
                     <Route path="/hub" element={<ClassicHub />} />

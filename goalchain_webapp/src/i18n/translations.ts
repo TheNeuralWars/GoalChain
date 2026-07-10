@@ -343,6 +343,11 @@ export type TranslationKeys = {
   fix_tbd: string;
   fix_ft: string;
   fix_live: string;
+  /* ---- Marketplace buttons ---- */
+  marketplace_buy_cash: string;
+  marketplace_buy_sol: string;
+  marketplace_analyze: string;
+  marketplace_treasury_offline: string;
 };
 
 export type Translations = Record<Language, TranslationKeys>;
