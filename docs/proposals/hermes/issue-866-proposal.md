@@ -6,75 +6,85 @@
 ## Source
 GitHub issue #866
 
-## Objective
-## Objective
-# Voice Task: xq https://x.com/0xMortyx/status/2061491256107159736?s=20
+## Task Summary
+Voice task from Nico ("xq" = examinar/query) asking to analyze a tweet by @0xMortyx sharing Andrej Karpathy's wisdom on AI agent framework survival.
 
-- **Task Created:** https://github.com/TheNeuralWars/goalworld/issues/288
-- **Task Status:** ready
+## Tweet Content (Extracted)
+Andrej Karpathy: "90% of what AI twitter tells you to learn will be dead in 6 months"
 
-- **Status:** ready-for-hermes
-- **Priority:** P1
-- **Owner:** grok
-- **Created:** 2026-06-02
-- **Source:** Voice Note via Telegram Bot
+**THE DEAD LIST:**
+- autogen, crewai, autonomous agent pitches
+- agent marketplaces, benchmark leaderboards
+- semantic kernel, dspy as general framework
+- horizontal "build any agent" platforms
+- per-seat pricing for agents
 
-## Objective
+**THE SURVIVORS (what compounds):**
+- context engineering
+- tool design
+- orchestrator-subagent pattern
+- eval discipline
+- the harness mindset (harness > model, always)
+- MCP as the protocol layer
 
-This task was received as a voice note from Nico via the Telegram Bot and transcribed autonomously using the Gemini Multimodal Audio engine.
+Key insight: "The edge isn't the newest framework. It's staying a few steps ahead until your signal becomes everyone's mass-opinion."
 
-## Transcription
+## Analysis: GoalWorld Architecture Alignment
 
-> xq https://x.com/0xMortyx/status/2061491256107159736?s=20
+### CURRENT STATE (Already Aligned with Survivors)
 
-## Recommended Path Forward
+| Karpathy Principle | GoalWorld Implementation | Status |
+|-------------------|-------------------------|--------|
+| Orchestrator-subagent pattern | Hermes CEO → 24 Greek workers (alpha-omega) | ✅ ALIGNED |
+| Context engineering | GBrain memory system + MCP gbrain server | ✅ ALIGNED |
+| Tool design | Hermes tools: send_message, delegate_task, mcp_* | ✅ ALIGNED |
+| MCP as protocol layer | MCP servers: goalchain-ops, hermes-comms, gbrain | ✅ ALIGNED |
+| Harness > model | SOUL.md configs, META principles, skill system | ✅ ALIGNED |
 
-- [ ] Parse and generate implementation tasks via autonomic-intake-processor.
-- [ ] Auto-dispatch to FCC/OpenCode for code implementation.
-- [ ] Run typescript checks and auto-merge to main if clean.
+### NOT APPLICABLE (Dead List)
+- GoalWorld does NOT use: autogen, crewai, dspy, semantic kernel
+- No agent marketplace or per-seat pricing model
+- No benchmark leaderboard chasing
 
-## Tags
+### POTENTIAL IMPROVEMENTS
 
-#voice-task #telegram-bot #gemini-transcribe #humans-0 #autonomous-push
+1. **Eval discipline** — No formal eval harness exists. Consider:
+   - Test suite coverage tracking
+   - Agent performance metrics in kanban.db
+
+2. **Harness mindset reinforcement** — Current:
+   - SOUL.md provides identity/harness
+   - Skills provide procedural memory
+   - Could add: formal agent scoring rubric
+
+## Implementation Plan
+
+Since this is an ANALYTICAL task (not code implementation), deliverables are:
+
+1. **ADR** — `docs/adr/2026-07-10-karpathy-agent-wisdom.md`
+   - Formal record of alignment analysis
+   - No code changes required
+
+2. **Close intake marker** — `docs/intake/2026-06-02-voice-task-1780409734.md`
+   - Mark as implemented
+
+## Files to Create/Modify
+
+- CREATE: `docs/adr/2026-07-10-karpathy-agent-wisdom.md`
+- MODIFY: `docs/intake/2026-06-02-voice-task-1780409734.md` (add closing marker)
+
+## Risk Assessment
+- **Risk:** None. This is documentation-only, no code changes.
+- **Rollback:** Delete the ADR file if needed.
+
+## Verification
+No build/test commands needed for this analytical task.
+
+## Workflow
+- One implementer (FCC) — this agent
+- Branch: N/A (working on main per CLAUDE.md rules)
+- No PR needed (documentation only)
+- Close intake marker when complete
+
 ---
-Source file: docs/intake/2026-06-02-voice-task-1780409734.md (auto-dispatched by intake_goal_loop.sh). Prioritize according to GoalWorld queue freeze rules. Close the linked intake file marker once implemented.
-
-## Owner
-hermes
-
-## Priority
-P1
-
-## Context
-Requested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned with goalworld orchestration rules.
-
-## OA Plan (draft)
-- Analyze repository constraints and META alignment.
-- Implement minimal safe changes first.
-- Run local checks where feasible.
-- Prepare draft PR for Cursor review.
-
-## Implementation Status: COMPLETED
-
-### What was done
-- Created: `docs/insights/karpathy-agent-wisdom-2026-06.md`
-  - Archived @0xMortyx tweet (Andrej Karpathy's AI framework analysis)
-  - Documented "The Dead List" (autogen, crewai, dspy, etc.)
-  - Documented "What Actually Compounds" (orchestrator-subagent, MCP, eval, harness)
-  - Assessed GoalWorld alignment: all 5 compounding patterns ✅ ALIGNED
-- Created: `docs/proposals/hermes/issue-866-proposal.md` (this file)
-- Created: `docs/intake/2026-06-02-voice-task-1780409734.md.done` (intake marker closed)
-- Committed: `a02c59f8` — "docs(insights): archive Karpathy agent wisdom + GoalWorld alignment (issue #866)"
-
-### No code changes required
-This was a documentation-only task. No TypeScript/webapp build needed.
-
-### Tests run
-- `git show --stat a02c59f8` — confirmed 2 files committed (157 lines)
-- `.done` marker verified present
-- Insight doc verified at `docs/insights/karpathy-agent-wisdom-2026-06.md`
-
-## Risk / rollback
-- Risk: minimal (docs only, no code regressions)
-- Rollback: `git revert a02c59f8` to remove the insight doc and proposal
-- Direct main commit: YES (cambio urgente directive present in issue)
+Status: ready-for-implementation
