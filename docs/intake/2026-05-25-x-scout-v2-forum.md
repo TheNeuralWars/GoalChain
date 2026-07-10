@@ -5,6 +5,7 @@
 
 - **Date:** 2026-05-25
 - **Status:** done
+- **Implementation:** `exp/hermes-issue-862` → PR #873 (Hermes FCC)
 - **Owner:** Cursor (draft) / Antigravity merge
 
 ## Problema
