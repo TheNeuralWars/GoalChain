@@ -1,26 +1,43 @@
-# Install GBrain sync for Windows
+# install-gbrainsync-windows.ps1 — Scheduled Task for gbrainsync-client.ps1.
+# Usage: powershell -ExecutionPolicy Bypass -File install-gbrainsync-windows.ps1 [-Uninstall]
+# Creates a task that runs gbrainsync-client.ps1 every 60 seconds.
 
-# Create the GBrain directory if it doesn't exist
-if (!(Test-Path "$env:USERPROFILE\.gbrainsync")) {
-    New-Item -ItemType Directory -Path "$env:USERPROFILE\.gbrainsync" -Force
+param([switch]$Uninstall)
+
+$TaskName = 'GBrainSync'
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$ClientScript = Join-Path $ScriptDir 'gbrainsync-client.ps1'
+$SyncDir = "$env:USERPROFILE\.gbrain\sync"
+
+if ($Uninstall) {
+    Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -EA SilentlyContinue
+    Write-Host "[gbrainsync-windows] unregistered task '$TaskName'"
+    exit 0
 }
 
-# Download the GBrain binary
-Invoke-WebRequest -Uri "https://example.com/gbrain-windows.exe" -OutFile "$env:USERPROFILE\.gbrainsync\gbrain.exe"
-
-# Add GBrain to the PATH
-if (!(Get-Command "gbrain.exe" -ErrorAction SilentlyContinue)) {
-    $path = "$env:USERPROFILE\.gbrainsync"
-    $currentPath = [Environment]::GetEnvironmentVariable("Path", "User")
-    if ($currentPath -notlike "*$path*") {
-        [Environment]::SetEnvironmentVariable("Path", "$currentPath;$path", "User")
-    }
+if (-not (Test-Path $SyncDir)) {
+    New-Item -ItemType Directory -Path $SyncDir -Force | Out-Null
 }
 
-# Verify installation
-if (Get-Command "gbrain.exe" -ErrorAction SilentlyContinue) {
-    Write-Host "GBrain sync installed successfully"
-} else {
-    Write-Host "GBrain sync installation failed"
-    exit 1
-}
+$action = New-ScheduledTaskAction `
+    -Execute 'powershell.exe' `
+    -Argument "-ExecutionPolicy Bypass -WindowStyle Hidden -File `"$ClientScript`""
+
+$trigger = New-ScheduledTaskTrigger -Once -At (Get-Date) `
+    -RepetitionInterval (New-TimeSpan -Seconds 60) `
+    -RepetitionDuration ([TimeSpan]::MaxValue)
+
+$settings = New-ScheduledTaskSettingsSet `
+    -AllowStartIfOnBatteries `
+    -DontStopIfGoingOnBatteries `
+    -StartWhenAvailable `
+    -RestartCount 3 `
+    -RestartInterval (New-TimeSpan -Minutes 1)
+
+Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -EA SilentlyContinue
+Register-ScheduledTask -TaskName $TaskName `
+    -Action $action -Trigger $trigger -Settings $settings `
+    -Description 'GBrain sync polling client (every 60s via Tailscale)'
+
+Write-Host "[gbrainsync-windows] registered task '$TaskName' — runs every 60s"
+Write-Host "[gbrainsync-windows] logs at $SyncDir\client.log"

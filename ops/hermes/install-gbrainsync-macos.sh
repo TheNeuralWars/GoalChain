@@ -1,25 +1,51 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# install-gbrainsync-macos.sh — LaunchAgent for gbrainsync-client.sh on macOS.
+# Usage: bash install-gbrainsync-macos.sh [install|uninstall|status]
+# Polls every 60s via launchd.
+set -euo pipefail
+ACTION="${1:-install}"
+LABEL="com.goalchain.gbrainsync"
+PLIST="${HOME}/Library/LaunchAgents/${LABEL}.plist"
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CLIENT="${HERE}/gbrainsync-client.sh"
+LOG="${HOME}/.gbrain/sync/client.log"
 
-# Install GBrain sync for macOS
-
-# Create the GBrain directory if it doesn't exist
-mkdir -p ~/.gbrainsync
-
-# Download the GBrain binary
-curl -o ~/.gbrainsync/gbrain https://example.com/gbrain-macos
-
-# Make the binary executable
-chmod +x ~/.gbrainsync/gbrain
-
-# Add GBrain to the PATH
-if ! grep -q "export PATH=\$PATH:~/.gbrainsync" ~/.zshrc; then
-    echo "export PATH=\$PATH:~/.gbrainsync" >> ~/.zshrc
-fi
-
-# Verify installation
-if command -v gbrain &> /dev/null; then
-    echo "GBrain sync installed successfully"
-else
-    echo "GBrain sync installation failed"
-    exit 1
-fi
+case "${ACTION}" in
+  install)
+    mkdir -p "$(dirname "${PLIST}")" "${HOME}/.gbrain/sync"
+    cat > "${PLIST}" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>${LABEL}</string>
+  <key>ProgramArguments</key>
+  <array><string>bash</string><string>${CLIENT}</string></array>
+  <key>StartInterval</key><integer>60</integer>
+  <key>StandardOutPath</key><string>${LOG}</string>
+  <key>StandardErrorPath</key><string>${LOG}</string>
+  <key>RunAtLoad</key><true/>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>VPS_TS_IP</key><string>100.101.211.44</string>
+  </dict>
+</dict>
+</plist>
+EOF
+    launchctl unload "${PLIST}" 2>/dev/null || true
+    launchctl load "${PLIST}"
+    echo "[gbrainsync-macos] installed and loaded ${LABEL}"
+    ;;
+  uninstall)
+    launchctl unload "${PLIST}" 2>/dev/null || true
+    rm -f "${PLIST}"
+    echo "[gbrainsync-macos] uninstalled ${LABEL}"
+    ;;
+  status)
+    launchctl list | grep "${LABEL}" || echo "(not loaded)"
+    ;;
+  *)
+    echo "Usage: $0 [install|uninstall|status]" >&2; exit 1
+    ;;
+esac
