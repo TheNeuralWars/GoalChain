@@ -2,28 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PLAY_SECTIONS } from '../config/playNav';
 import { OpsStatusPanel } from './OpsStatusPanel';
-
-const SECTION_BLURBS: Record<string, string> = {
-  dashboard: 'Paneles glass en dos columnas (fixtures, trading, squad…).',
-  hub: 'Hub completo pre-Vercel: 9 pestañas, sidebar, AI Agent, minigames, 3D gallery.',
-  ops: 'Mint gate, vault crank y estado del protocolo.',
-  fixtures: 'Partidos, mercados y apuestas on-chain.',
-  trading: 'Terminal de trading y cotizaciones.',
-  squad: 'Tu plantilla y colección de jugadores.',
-  vaults: 'Swarm vaults y yield del protocolo.',
-  commentator: 'Comentarista IA en vivo.',
-  feed: 'Eventos en vivo del protocolo.',
-};
+import { useTranslation } from '../i18n/index';
 
 export function DashboardHub() {
+  const { t } = useTranslation();
   const cards = PLAY_SECTIONS.filter((s) => s.to && s.to !== '/');
 
   return (
     <div className="play-page">
       <div className="play-page-hero">
-        <h1>GoalChain Alpha Dashboard</h1>
+        <h1>{t('dashboard_hub_title')}</h1>
         <p className="play-page-sub">
-          Protocolo SportsFi v2.0 — World Cup 2026. Cliente transaccional en devnet.
+          {t('dashboard_hub_subtitle')}
         </p>
       </div>
       <div style={{ marginBottom: '1.5rem' }}>
@@ -32,9 +22,9 @@ export function DashboardHub() {
       <div className="play-hub-grid">
         {cards.map((section) => (
           <Link key={section.id} to={section.to!} className="play-hub-card">
-            <h3>{section.label}</h3>
-            <p>{SECTION_BLURBS[section.id] ?? ''}</p>
-            <span className="play-hub-card-cta">Abrir →</span>
+            <h3>{t(`dashboard_hub_section_${section.id}_label`)}</h3>
+            <p>{t(`dashboard_hub_section_${section.id}_description`)}</p>
+            <span className="play-hub-card-cta">{t('dashboard_hub_open')} →</span>
           </Link>
         ))}
       </div>

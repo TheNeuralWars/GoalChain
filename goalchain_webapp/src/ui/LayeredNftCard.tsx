@@ -412,7 +412,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
                       </span>
                     ))
                   ) : (
-                    <span style={{ color: '#64748b', fontSize: '0.58rem', fontStyle: 'italic' }}>Sin rasgos especiales</span>
+                    <span style={{ color: '#64748b', fontSize: '0.58rem', fontStyle: 'italic' }}>{t('card_no_traits')}</span>
                   )}
                 </div>
               </div>
@@ -439,7 +439,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
                 letterSpacing: '1px', 
                 marginBottom: '4px' 
               }}>
-                📖 LORE &amp; CHISMES (GOSSIPS)
+                📖 {t('card_lore_label')}
               </span>
               <p style={{ 
                 margin: 0, 
@@ -453,7 +453,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
                 WebkitLineClamp: 3,
                 WebkitBoxOrient: 'vertical'
               }}>
-                {player.meta?.narrative || `Fichado en el draft digital de GoalChain. Se rumorea que prefiere entrenar en simuladores Web3 que pisar el césped real.`}
+                {player.meta?.narrative || t('card_narrative_fallback')}
               </p>
             </div>
 

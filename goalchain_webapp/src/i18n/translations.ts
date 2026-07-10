@@ -348,6 +348,32 @@ export type TranslationKeys = {
   marketplace_buy_sol: string;
   marketplace_analyze: string;
   marketplace_treasury_offline: string;
+  /* ---- Card back / narrative fallback ---- */
+  card_no_traits: string;
+  card_narrative_fallback: string;
+  card_lore_label: string;
+  /* ---- Dashboard Hub section descriptions ---- */
+  dashboard_hub_title: string;
+  dashboard_hub_subtitle: string;
+  dashboard_hub_open: string;
+  dashboard_hub_section_dashboard_label: string;
+  dashboard_hub_section_dashboard_description: string;
+  dashboard_hub_section_hub_label: string;
+  dashboard_hub_section_hub_description: string;
+  dashboard_hub_section_ops_label: string;
+  dashboard_hub_section_ops_description: string;
+  dashboard_hub_section_fixtures_label: string;
+  dashboard_hub_section_fixtures_description: string;
+  dashboard_hub_section_trading_label: string;
+  dashboard_hub_section_trading_description: string;
+  dashboard_hub_section_squad_label: string;
+  dashboard_hub_section_squad_description: string;
+  dashboard_hub_section_vaults_label: string;
+  dashboard_hub_section_vaults_description: string;
+  dashboard_hub_section_commentator_label: string;
+  dashboard_hub_section_commentator_description: string;
+  dashboard_hub_section_feed_label: string;
+  dashboard_hub_section_feed_description: string;
 };
 
 export type Translations = Record<Language, TranslationKeys>;

@@ -345,5 +345,31 @@
   "marketplace_buy_cash": "BUY WITH CASH",
   "marketplace_buy_sol": "BUY WITH SOL",
   "marketplace_analyze": "ANALYZE",
-  "marketplace_treasury_offline": "Treasury unavailable"
+  "marketplace_treasury_offline": "Treasury unavailable",
+
+  "card_no_traits": "No special traits",
+  "card_narrative_fallback": "Drafted in GoalChain's digital draft. Rumor has it they prefer training in Web3 simulators over touching real grass.",
+  "card_lore_label": "LORE &amp; GOSSIPS",
+
+  "dashboard_hub_title": "Command Center",
+  "dashboard_hub_subtitle": "Navigate GoalChain's full protocol.",
+  "dashboard_hub_open": "Open",
+  "dashboard_hub_section_dashboard_label": "Dashboard",
+  "dashboard_hub_section_dashboard_description": "Glass panels in two columns (fixtures, trading, squad…).",
+  "dashboard_hub_section_hub_label": "Hub",
+  "dashboard_hub_section_hub_description": "Full pre-Vercel hub: 9 tabs, sidebar, AI Agent, minigames, 3D gallery.",
+  "dashboard_hub_section_ops_label": "Ops Status",
+  "dashboard_hub_section_ops_description": "Mint gate, vault crank, and protocol state.",
+  "dashboard_hub_section_fixtures_label": "Fixtures",
+  "dashboard_hub_section_fixtures_description": "Matches, markets, and on-chain betting.",
+  "dashboard_hub_section_trading_label": "Trading",
+  "dashboard_hub_section_trading_description": "Trading terminal and quotes.",
+  "dashboard_hub_section_squad_label": "Squad",
+  "dashboard_hub_section_squad_description": "Your roster and player collection.",
+  "dashboard_hub_section_vaults_label": "Vaults",
+  "dashboard_hub_section_vaults_description": "Swarm vaults and protocol yield.",
+  "dashboard_hub_section_commentator_label": "AI Commentator",
+  "dashboard_hub_section_commentator_description": "Live AI match commentator.",
+  "dashboard_hub_section_feed_label": "Live Feed",
+  "dashboard_hub_section_feed_description": "Live protocol events."
 }

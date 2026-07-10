@@ -345,5 +345,31 @@
   "marketplace_buy_cash": "COMPRAR EN CASH",
   "marketplace_buy_sol": "COMPRAR CON SOL",
   "marketplace_analyze": "ANALIZAR",
-  "marketplace_treasury_offline": "Tesorería no disponible"
+  "marketplace_treasury_offline": "Tesorería no disponible",
+
+  "card_no_traits": "Sin rasgos especiales",
+  "card_narrative_fallback": "Fichado en el draft digital de GoalChain. Se rumorea que prefiere entrenar en simuladores Web3 que pisar el césped real.",
+  "card_lore_label": "LORE &amp; CHISMES",
+
+  "dashboard_hub_title": "Puerto de Mando",
+  "dashboard_hub_subtitle": "Navegá el protocolo completo de GoalChain.",
+  "dashboard_hub_open": "Abrir",
+  "dashboard_hub_section_dashboard_label": "Panel de Inicio",
+  "dashboard_hub_section_dashboard_description": "Paneles glass en dos columnas (fixtures, trading, squad…).",
+  "dashboard_hub_section_hub_label": "Hub",
+  "dashboard_hub_section_hub_description": "Hub completo pre-Vercel: 9 pestañas, sidebar, AI Agent, minijuegos, galería 3D.",
+  "dashboard_hub_section_ops_label": "Estado Ops",
+  "dashboard_hub_section_ops_description": "Mint gate, vault crank y estado del protocolo.",
+  "dashboard_hub_section_fixtures_label": "Partidos",
+  "dashboard_hub_section_fixtures_description": "Partidos, mercados y apuestas on-chain.",
+  "dashboard_hub_section_trading_label": "Trading",
+  "dashboard_hub_section_trading_description": "Terminal de trading y cotizaciones.",
+  "dashboard_hub_section_squad_label": "Plantilla",
+  "dashboard_hub_section_squad_description": "Tu plantilla y colección de jugadores.",
+  "dashboard_hub_section_vaults_label": "Bóvedas",
+  "dashboard_hub_section_vaults_description": "Swarm vaults y yield del protocolo.",
+  "dashboard_hub_section_commentator_label": "Comentarista IA",
+  "dashboard_hub_section_commentator_description": "Comentarista IA en vivo.",
+  "dashboard_hub_section_feed_label": "Feed en Vivo",
+  "dashboard_hub_section_feed_description": "Eventos en vivo del protocolo."
 }
