@@ -374,6 +374,76 @@ export type TranslationKeys = {
   dashboard_hub_section_commentator_description: string;
   dashboard_hub_section_feed_label: string;
   dashboard_hub_section_feed_description: string;
+  /* ---- NFT Marketplace strings ---- */
+  wallet_connect: string;
+  wallet_connect_phantom: string;
+  treasury_unavailable: string;
+  transaction_confirming: string;
+  transaction_failed: string;
+  marketplace_title: string;
+  sol_offline: string;
+  marketplace_description: string;
+  marketplace_no_listings: string;
+  marketplace_view_all: string;
+  purchase_success: string;
+  purchase_confirmed: string;
+  /* ---- Card back field labels ---- */
+  card_field_real_name: string;
+  card_field_parody_club: string;
+  card_field_dorsal_position: string;
+  card_field_market_value: string;
+  card_field_visual_fx: string;
+  card_field_salary: string;
+  card_field_est_yield: string;
+  card_in_roster: string;
+  /* ---- Tokenized Agents Dashboard ---- */
+  agents_title: string;
+  agents_subtitle: string;
+  /* ---- Swarm Vaults ---- */
+  vault_sentinel_name: string;
+  vault_arb_name: string;
+  vault_orch_name: string;
+  vault_sentinel_desc: string;
+  vault_arb_desc: string;
+  vault_orch_desc: string;
+  vault_log_sentinel_1: string;
+  vault_log_sentinel_2: string;
+  vault_log_sentinel_3: string;
+  vault_log_sentinel_4: string;
+  vault_log_sentinel_5: string;
+  vault_log_arb_1: string;
+  vault_log_arb_2: string;
+  vault_log_arb_3: string;
+  vault_log_arb_4: string;
+  vault_log_arb_5: string;
+  vault_log_orch_1: string;
+  vault_log_orch_2: string;
+  vault_log_orch_3: string;
+  vault_log_orch_4: string;
+  vault_log_orch_5: string;
+  /* ---- Swarm Vaults UI strings ---- */
+  swarm_vaults_system_initializing: string;
+  swarm_vaults_connection_established: string;
+  swarm_vaults_ready_for_allocation: string;
+  swarm_vaults_sentinel_prefix: string;
+  swarm_vaults_arbitrageur_prefix: string;
+  swarm_vaults_orchestrator_prefix: string;
+  swarm_vaults_invalid_amount: string;
+  swarm_vaults_insufficient_funds: string;
+  swarm_vaults_delegation_success: string;
+  swarm_vaults_withdrawal_success: string;
+  swarm_vaults_allocations: string;
+  swarm_vaults_your_balance: string;
+  swarm_vaults_amount_to_delegate: string;
+  swarm_vaults_delegate: string;
+  swarm_vaults_withdraw: string;
+  swarm_vaults_operation_log: string;
+  /* ---- NFT Filter labels ---- */
+  nft_filter_mythic: string;
+  nft_filter_legendary: string;
+  nft_filter_epic: string;
+  nft_filter_rare: string;
+  nft_filter_common: string;
 };
 
 export type Translations = Record<Language, TranslationKeys>;

@@ -77,7 +77,7 @@ function AgentCard({ agent, lang }: { agent: TokenizedAgent; lang: string }) {
 // Main dashboard
 // ─────────────────────────────────────────────────────────────────
 export function TokenizedAgentsDashboard() {
-  const { language } = useTranslation();
+  const { language, t } = useTranslation();
   const totalMarketCap = AGENTS.reduce((s, a) => s + a.tokenPrice * 1000, 0);
   const activeCount = AGENTS.filter(a => a.status === 'active').length;
   const totalTasks = AGENTS.reduce((s, a) => s + a.tasksDone, 0);
@@ -93,12 +93,10 @@ export function TokenizedAgentsDashboard() {
           <SimulationBadge />
         </div>
         <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', margin: '0 0 6px 0' }}>
-          {language === 'es' ? 'Dashboard de Agentes Tokenizados' : 'Tokenized Agents Dashboard'}
+          {t('agents_title')}
         </h2>
         <p style={{ fontSize: '0.82rem', color: '#94a3b8', margin: 0 }}>
-          {language === 'es'
-            ? 'Los 10 agentes autónomos que operan el protocolo GoalWorld. Cada agente tiene un token representativo con métricas de rendimiento en tiempo real.'
-            : 'The 10 autonomous agents operating the GoalWorld protocol. Each agent has a representative token with real-time performance metrics.'}
+          {t('agents_subtitle')}
         </p>
       </div>
 

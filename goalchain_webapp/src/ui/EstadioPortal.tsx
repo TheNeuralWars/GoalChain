@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { LiveEventFeed } from './LiveEventFeed';
+import { useTranslation } from 'react-i18next';
 
 const FixturesPanel = lazy(() => import('./FixturesPanel').then(m => ({ default: m.FixturesPanel })));
 const AICommentator = lazy(() => import('./AICommentator').then(m => ({ default: m.AICommentator })));
@@ -7,23 +8,24 @@ const WorldCupPredictor = lazy(() => import('./WorldCupPredictor').then(m => ({ 
 const MatchSimulator = lazy(() => import('./MatchSimulator').then(m => ({ default: m.MatchSimulator })));
 
 export function EstadioPortal() {
+  const { t } = useTranslation();
   const [activeSubTab, setActiveSubTab] = useState<'fixtures' | 'commentator' | 'feed' | 'predictor' | 'simulator'>('fixtures');
 
   const tabs = [
-    { id: 'fixtures',   label: '🏟️ Partidos y Apuestas',    desc: 'Mercados on-chain de la Copa del Mundo' },
-    { id: 'simulator', label: '⚽ Simulador de Partidos',    desc: 'Simula encuentros con jugadores NFT en tiempo real' },
-    { id: 'predictor', label: '🔮 Centro de Predicciones',   desc: 'Simulaciones, H2H y Pick\'em del Mundial 2026' },
-    { id: 'commentator', label: '📻 Cronista IA',            desc: 'Narración inteligente en vivo generada por IA' },
-    { id: 'feed',      label: '⚡ Eventos en Vivo',          desc: 'Feed de actividades y transacciones en tiempo real' },
+    { id: 'fixtures',   label: t('estadio_portal.tabs.fixtures.label'),    desc: t('estadio_portal.tabs.fixtures.desc') },
+    { id: 'simulator', label: t('estadio_portal.tabs.simulator.label'),    desc: t('estadio_portal.tabs.simulator.desc') },
+    { id: 'predictor', label: t('estadio_portal.tabs.predictor.label'),   desc: t('estadio_portal.tabs.predictor.desc') },
+    { id: 'commentator', label: t('estadio_portal.tabs.commentator.label'),            desc: t('estadio_portal.tabs.commentator.desc') },
+    { id: 'feed',      label: t('estadio_portal.tabs.feed.label'),          desc: t('estadio_portal.tabs.feed.desc') },
   ] as const;
 
   return (
     <div className="play-page play-page--portal">
       <div className="portal-header glass-card">
-        <div className="portal-badge">ESTADIO PORTAL</div>
-        <h1>El Corazón del Juego</h1>
+        <div className="portal-badge">{t('estadio_portal.badge')}</div>
+        <h1>{t('estadio_portal.title')}</h1>
         <p className="portal-subtitle">
-          Sigue los partidos de la Copa del Mundo GoalChain 2026, interactúa con el Cronista IA y haz tus jugadas.
+          {t('estadio_portal.subtitle')}
         </p>
 
         {/* Glassmorphic Tabs Navigation */}
@@ -44,14 +46,14 @@ export function EstadioPortal() {
       <div className="portal-content-wrapper">
         {activeSubTab === 'fixtures' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Cargando partidos...</div>}>
+            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal.loading.fixtures')}</div>}>
               <FixturesPanel />
             </Suspense>
           </div>
         )}
         {activeSubTab === 'commentator' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Cargando comentarista...</div>}>
+            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal.loading.commentator')}</div>}>
               <AICommentator />
             </Suspense>
           </div>
@@ -63,14 +65,14 @@ export function EstadioPortal() {
         )}
         {activeSubTab === 'predictor' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Cargando predicciones...</div>}>
+            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal.loading.predictor')}</div>}>
               <WorldCupPredictor />
             </Suspense>
           </div>
         )}
         {activeSubTab === 'simulator' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Cargando simulador...</div>}>
+            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal.loading.simulator')}</div>}>
               <MatchSimulator />
             </Suspense>
           </div>

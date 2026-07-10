@@ -359,19 +359,27 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
               {/* Bio Attributes Grid */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 10px', fontSize: '0.72rem', marginBottom: '10px' }}>
                 <div>
-                  <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Nombre Real</span>
+                  <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                    {t('card_field_real_name')}
+                  </span>
                   <strong style={{ color: '#ffffff' }}>{player.real_name || 'Verified Athlete'}</strong>
                 </div>
                 <div>
-                  <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Club Parodia</span>
-                  <strong style={{ color: '#14f195' }}>{player.meta?.parody_club || 'Agente Libre'}</strong>
+                  <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                    {t('card_field_parody_club')}
+                  </span>
+                  <strong style={{ color: '#14f195' }}>{player.meta?.parody_club || 'Free Agent'}</strong>
                 </div>
                 <div>
-                  <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Dorsal &amp; Posición</span>
+                  <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                    {t('card_field_dorsal_position')}
+                  </span>
                   <strong style={{ color: '#ffffff' }}>#{player.jersey_number || player.id} · {player.position || 'MID'}</strong>
                 </div>
                 <div>
-                  <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Valor Est.</span>
+                  <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                    {t('card_field_market_value')}
+                  </span>
                   <strong style={{ color: '#ffd700' }}>
                     {player.market_value_eur ? `€${(player.market_value_eur / 1_000_000).toFixed(1)}M` : '€1.5M'}
                   </strong>
@@ -381,7 +389,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
               {/* Traits & Visual Effect */}
               <div style={{ marginBottom: '8px' }}>
                 <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>
-                  Visual FX &amp; Rasgos
+                  {t('card_field_visual_fx')}
                 </span>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
                   {player.meta?.visual_effect && (
@@ -468,13 +476,13 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
                 marginBottom: '8px' 
               }}>
                 <div>
-                  <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.55rem', textTransform: 'uppercase' }}>Ficha / Partido</span>
+                  <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.55rem', textTransform: 'uppercase' }}>{t('card_field_salary')}</span>
                   <strong style={{ color: '#ffffff', fontSize: '0.72rem' }}>
                     💰 {player.match_salary_gch || 100} $GCH
                   </strong>
                 </div>
                 <div style={{ textAlign: 'right' }}>
-                  <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.55rem', textTransform: 'uppercase' }}>Rendimiento Est.</span>
+                  <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.55rem', textTransform: 'uppercase' }}>{t('card_field_est_yield')}</span>
                   <strong style={{ color: '#14f195', fontSize: '0.72rem' }}>
                     💎 {estimatedYield}
                   </strong>
@@ -549,7 +557,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
                     textAlign: 'center',
                     textTransform: 'uppercase'
                   }}>
-                    🟢 En Roster
+                    {t('card_in_roster')}
                   </div>
                 </div>
               )}

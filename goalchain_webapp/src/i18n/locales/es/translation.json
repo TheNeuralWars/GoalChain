@@ -1,0 +1,12 @@
+{
+  "route_home": "Inicio",
+  "route_estadio": "Estadio",
+  "route_defi": "DeFi",
+  "route_club": "Club",
+  "route_staking": "Staking",
+  "route_marketing": "Marketing",
+  "route_autopilot": "Autopilot",
+  "route_agents": "Agentes",
+  "route_presskit": "Kit de Prensa",
+  "route_collection": "Colección"
+}

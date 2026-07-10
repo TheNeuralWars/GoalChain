@@ -22,8 +22,8 @@ export function DashboardHub() {
       <div className="play-hub-grid">
         {cards.map((section) => (
           <Link key={section.id} to={section.to!} className="play-hub-card">
-            <h3>{t(`dashboard_hub_section_${section.id}_label`)}</h3>
-            <p>{t(`dashboard_hub_section_${section.id}_description`)}</p>
+            <h3>{(t as any)(`dashboard_hub_section_${section.id}_label`)}</h3>
+            <p>{(t as any)(`dashboard_hub_section_${section.id}_description`)}</p>
             <span className="play-hub-card-cta">{t('dashboard_hub_open')} →</span>
           </Link>
         ))}

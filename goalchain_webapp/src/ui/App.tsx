@@ -9,7 +9,7 @@ import { clusterApiUrl } from '@solana/web3.js';
 import '@solana/wallet-adapter-react-ui/styles.css';
 
 import { LanguageProvider, useTranslation } from '../i18n/index';
-import type { TranslationKeys } from '../i18n/translations';
+import type { Language, TranslationKeys } from '../i18n/translations';
 import { UserProvider } from '../contexts/UserContext';
 
 import { PlayLayout } from './PlayLayout';
@@ -57,12 +57,12 @@ function App() {
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
   const wallets = useMemo(() => [new PhantomWalletAdapter()], [network]);
 
-  const [language, setLanguage] = useState<string>(localStorage.getItem('language') || 'en');
+  const [language, setLanguage] = useState<Language>(localStorage.getItem('gc_lang') as Language || 'en');
 
   const toggleLanguage = () => {
     const newLanguage = language === 'en' ? 'es' : 'en';
     setLanguage(newLanguage);
-    localStorage.setItem('language', newLanguage);
+    localStorage.setItem('gc_lang', newLanguage);
   };
 
   return (

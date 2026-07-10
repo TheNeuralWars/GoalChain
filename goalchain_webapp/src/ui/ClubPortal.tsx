@@ -7,30 +7,33 @@ import { NFTMarketplace } from './NFTMarketplace';
 import { AICoach } from './AICoach';
 import { useUser } from '../contexts/UserContext';
 import { MatchSimulator } from './MatchSimulator';
+import { useTranslation } from 'react-i18next';
+
 
 export function ClubPortal() {
+  const { t } = useTranslation();
   const [activeSubTab, setActiveSubTab] = useState<'squad' | 'market' | 'coach' | 'profile' | 'arena'>('squad');
   const { user, isLoggedIn } = useUser();
 
   const tabs = [
-    { id: 'squad', label: '👕 My Squad (NFTs)', desc: 'Collection of players and stamina' },
-    { id: 'arena', label: '🏟️ Tactical Arena', desc: 'Play simulation matches with 50 $GCH stakes' },
-    { id: 'market', label: '🛒 Transfer Market', desc: 'Buy cards in SOL or Cash' },
-    { id: 'coach', label: '🤖 AI Assistant (Eliza)', desc: 'Tactical advice and intelligence' },
-    { id: 'profile', label: '👤 Manager Profile', desc: 'Your reputation and identity' },
+    { id: 'squad', label: t('club_portal.tabs.squad.label'), desc: t('club_portal.tabs.squad.desc') },
+    { id: 'arena', label: t('club_portal.tabs.arena.label'), desc: t('club_portal.tabs.arena.desc') },
+    { id: 'market', label: t('club_portal.tabs.market.label'), desc: t('club_portal.tabs.market.desc') },
+    { id: 'coach', label: t('club_portal.tabs.coach.label'), desc: t('club_portal.tabs.coach.desc') },
+    { id: 'profile', label: t('club_portal.tabs.profile.label'), desc: t('club_portal.tabs.profile.desc') },
   ] as const;
 
   return (
     <div className="play-page play-page--portal">
       <div className="portal-header glass-card">
-        <div className="portal-badge portal-badge--club">CLUB PORTAL</div>
+        <div className="portal-badge portal-badge--club">{t('club_portal.badge')}</div>
         <SimulationBadge />
-        <h1>Mi Club &amp; Manager</h1>
+        <h1>{t('club_portal.title')}</h1>
         <p className="portal-honesty-note">
-          Demo squad — on-chain NFTs and yield activate post-World Cup.
+          {t('club_portal.demo_note')}
         </p>
         <p className="portal-subtitle">
-          Manage your digital player squad, improve their stats, and monitor your manager reputation.
+          {t('club_portal.subtitle')}
         </p>
 
         {/* Glassmorphic Tabs Navigation */}
@@ -76,10 +79,9 @@ export function ClubPortal() {
             ) : (
               <div className="registration-wrapper glass-card">
                 <div className="registration-promo">
-                  <h2>🚀 Únete a la Copa GoalChain 2026</h2>
+                  <h2>{t('club_portal.registration.title')}</h2>
                   <p>
-                    Aún no has creado tu identidad de Manager. Configura tu avatar y apodo para empezar a
-                    recibir recompensas, coleccionar jugadores estrella y competir por la gloria global.
+                    {t('club_portal.registration.description')}
                   </p>
                 </div>
                 <CreateUser onUserCreated={() => {

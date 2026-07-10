@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface CommentaryItem {
     id: number;
@@ -6,7 +7,9 @@ interface CommentaryItem {
     time: string;
 }
 
+
 export const AICommentator: React.FC = () => {
+    const { t } = useTranslation();
     const wsUrl = (import.meta as any).env?.VITE_STREAMING_WS_URL as string | undefined;
     const wsEnabled = Boolean(wsUrl);
     const [loadingPhase, setLoadingPhase] = useState<'downloading' | 'compiling' | 'active'>('downloading');
@@ -16,7 +19,7 @@ export const AICommentator: React.FC = () => {
     const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
     const [selectedVoice, setSelectedVoice] = useState<string>('');
     const [commentaryHistory, setCommentaryHistory] = useState<CommentaryItem[]>([]);
-    
+
     // WebSocket Streaming Bridge state
     const [wsStatus, setWsStatus] = useState<'disconnected' | 'connecting' | 'connected' | 'error'>('disconnected');
     const [wsError, setWsError] = useState<string | null>(null);
@@ -45,7 +48,7 @@ export const AICommentator: React.FC = () => {
                 setCommentaryHistory(prev => [
                     {
                         id: Date.now(),
-                        text: `🤖 NoahAI Analista: "${data.text}"`,
+                        text: t('ai_commentator.noah_ai_response', { text: data.text }),
                         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
                     },
                     ...prev
@@ -53,19 +56,19 @@ export const AICommentator: React.FC = () => {
                 setNoahQuery('');
             }
         } catch (err) {
-            console.warn("Error querying NoahAI API, using offline simulator:", err);
+            console.warn(t('ai_commentator.noah_ai_error'), err);
             const mockResponses = [
-                `[NoahAI] Analizando base de datos on-chain para LIONEL_SATOSHI. Stamina: 92%, Hype de mercado: Alto. Predicción: Alta probabilidad de gol si se coloca en la banda derecha.`,
-                `[NoahAI] Reporte de rendimiento: Basado en el último bloque de Solana, el rendimiento de LIONEL_SATOSHI ha subido un +12.4% debido a su sinergia en tácticas 4-3-3.`,
-                `[NoahAI] Análisis táctico: El oponente presenta debilidad en la banda izquierda. Recomendación: Forzar desbordes con tu delantero estrella.`,
-                `[NoahAI] Oráculo predictivo: La probabilidad de victoria en este parimutuel aumenta a 68.4% si habilitas el Starter XI actual en el bloque actual.`
+                t('ai_commentator.mock_response_1'),
+                t('ai_commentator.mock_response_2'),
+                t('ai_commentator.mock_response_3'),
+                t('ai_commentator.mock_response_4')
             ];
             const fallbackText = mockResponses[Math.floor(Math.random() * mockResponses.length)];
             speak(fallbackText);
             setCommentaryHistory(prev => [
                 {
                     id: Date.now(),
-                    text: `🤖 NoahAI Analista (Simulado): "${fallbackText}"`,
+                    text: t('ai_commentator.noah_ai_simulated_response', { text: fallbackText }),
                     time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
                 },
                 ...prev
@@ -116,13 +119,13 @@ export const AICommentator: React.FC = () => {
             wsRef.current = socket;
 
             socket.onopen = () => {
-                console.log(`[Streaming Bridge] Connected to ${wsUrl}`);
+                console.log(t('ai_commentator.ws_connected', { url: wsUrl }));
                 setWsStatus('connected');
                 setWsError(null);
             };
 
             socket.onclose = () => {
-                console.log(`[Streaming Bridge] Disconnected from ${wsUrl}`);
+                console.log(t('ai_commentator.ws_disconnected', { url: wsUrl }));
                 setWsStatus('disconnected');
                 setWsError(null);
                 reconnectTimeout = setTimeout(connect, 5000);
@@ -130,284 +133,93 @@ export const AICommentator: React.FC = () => {
 
             socket.onerror = (err) => {
                 // Downgraded from console.error — WS errors are expected when bridge is offline
-                console.warn('[Streaming Bridge] WebSocket error (will retry in 5s):', err);
+                console.warn(t('ai_commentator.ws_error'), err);
                 setWsStatus('error');
-                setWsError('Bridge offline — reintentando...');
-                socket?.close();
+                setWsError(t('ai_commentator.ws_retry'));
+            };
+
+            socket.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    if (data.type === 'commentary') {
+                        speak(data.text);
+                        setCommentaryHistory(prev => [
+                            {
+                                id: Date.now(),
+                                text: data.text,
+                                time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+                            },
+                            ...prev
+                        ]);
+                        setBroadcastCount(prev => prev + 1);
+                    }
+                } catch (e) {
+                    console.error(t('ai_commentator.ws_parse_error'), e);
+                }
             };
         };
 
         connect();
 
         return () => {
-            if (socket) {
-                socket.onclose = null;
-                socket.close();
-            }
-            if (reconnectTimeout) {
-                clearTimeout(reconnectTimeout);
-            }
+            if (reconnectTimeout) clearTimeout(reconnectTimeout);
+            if (socket) socket.close();
         };
     }, [loadingPhase, wsEnabled, wsUrl]);
 
-    // Broadcast message function
-    const broadcastCommentary = (text: string, eventType: string, emotion: string, duration: number) => {
-        if (!wsEnabled) return;
-        if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
-            const payload = {
-                type: 'commentary',
-                timestamp: new Date().toISOString(),
-                data: {
-                    text,
-                    event_type: eventType,
-                    emotion,
-                    mouth_intensity: eventType === 'GOAL' ? 1.0 : (eventType === 'BET' ? 0.75 : 0.5),
-                    duration,
-                    is_simulated: false
-                }
-            };
-            wsRef.current.send(JSON.stringify(payload));
-            setBroadcastCount(prev => prev + 1);
-        }
-    };
-
-    // Cargar voces del SpeechSynthesis
-    useEffect(() => {
-        if (loadingPhase !== 'active') return;
-
-        const updateVoices = () => {
-            if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-                const availableVoices = window.speechSynthesis.getVoices();
-                setVoices(availableVoices);
-                
-                const defaultVoice = availableVoices.find(voice => 
-                    voice.lang.startsWith('es') || voice.lang.includes('ES')
-                ) || availableVoices.find(voice =>
-                    voice.lang.startsWith('en') || voice.lang.includes('EN')
-                ) || availableVoices[0];
-
-                if (defaultVoice && !selectedVoice) {
-                    setSelectedVoice(defaultVoice.name);
-                }
-            }
-        };
-
-        updateVoices();
-        if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-            window.speechSynthesis.onvoiceschanged = updateVoices;
-        }
-    }, [loadingPhase, selectedVoice]);
-
-    // Función para hablar
+    // Voice synthesis
     const speak = (text: string) => {
-        if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+        if (isMuted || typeof window === 'undefined' || !('speechSynthesis' in window)) return;
 
-        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 1.1;
+        utterance.pitch = 1.2;
 
-        if (isMuted) return;
-
-        const cleanText = text.replace(/🎙️|⚽|🔥|⚡|🎉|💸|📈|🔋|💼|⚖️|💎|🧩|🔔/g, '');
-        const utterance = new SpeechSynthesisUtterance(cleanText);
-        
         if (selectedVoice) {
-            const voiceObj = voices.find(v => v.name === selectedVoice);
-            if (voiceObj) {
-                utterance.voice = voiceObj;
-            }
+            utterance.voice = voices.find(v => v.name === selectedVoice) || null;
         }
 
         utterance.onstart = () => setIsSpeaking(true);
         utterance.onend = () => setIsSpeaking(false);
-        utterance.onerror = () => setIsSpeaking(false);
 
+        window.speechSynthesis.cancel();
         window.speechSynthesis.speak(utterance);
     };
 
-    // Mensaje de bienvenida al estar activo
+    // Load available voices
     useEffect(() => {
-        if (loadingPhase === 'active') {
-            const welcomeMsg = "🎙️ ¡Enzo Bit conectado! Listo para narrar la acción de GoalChain World Cup 2026 en tiempo real.";
-            speak(welcomeMsg);
-            setCommentaryHistory([
-                { id: Date.now(), text: welcomeMsg, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) }
-            ]);
-            
-            // Broadcast welcome message after socket establishes connection
-            setTimeout(() => {
-                broadcastCommentary(welcomeMsg, 'RESOLVE', 'analytical', 5.0);
-            }, 1000);
-        }
-        return () => {
-            if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
+        if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
+
+        const loadVoices = () => {
+            const availableVoices = window.speechSynthesis.getVoices();
+            if (availableVoices.length > 0) {
+                setVoices(availableVoices);
+                setSelectedVoice(availableVoices[0].name);
             }
         };
-    }, [loadingPhase]);
 
-    // Escuchar eventos globales del feed
-    useEffect(() => {
-        if (loadingPhase !== 'active') return;
+        loadVoices();
+        window.speechSynthesis.onvoiceschanged = loadVoices;
 
-        const handleEvent = (e: any) => {
-            const eventData = e.detail;
-            if (!eventData) return;
-
-            const goalPhrases = [
-                `⚽ ¡GOL! ¡GOL! ¡GOLAZO! Enzo Bit reporta: ${eventData.message}. ¡Los mercados predictivos están que arden!`,
-                `🔥 ¡Se mueve el marcador! ${eventData.message}. ¡Los traders de GoalChain están enloqueciendo!`,
-                `⚡ ¡Increíble definición! ${eventData.message}. ¡Los coeficientes de apuesta acaban de recalcularse al instante!`,
-                `🎉 ¡GOL! ${eventData.message}. ¡El oráculo de Chainlink ya está validando la transacción en Solana!`
-            ];
-            
-            const betPhrases = [
-                `💸 ¡Apuesta detectada en el feed! ${eventData.message}. ¡La liquidez de este pool está creciendo exponencialmente!`,
-                `📈 ¡Movimiento estratégico! ${eventData.message}. ¿Quién se llevará la victoria de yield?`,
-                `🔋 ¡Nuevo stake en juego! ${eventData.message}. La tensión sube en la terminal transaccional.`,
-                `💼 ¡Inyección de capital! ${eventData.message}. ¡El mercado de derivados perpetuos se está calentando!`
-            ];
-            
-            const resolvePhrases = [
-                `⚖️ ¡Oráculo ha resuelto! ${eventData.message}. ¡Se están liberando los fondos depositados!`,
-                `💎 ¡Atención! ${eventData.message}. Los smart contracts distribuyen dividendos. ¡Felicitaciones a los ganadores!`,
-                `🧩 ¡Resolución confirmada en la blockchain! ${eventData.message}. ¡Los spreads se han ajustado!`,
-                `🔔 ¡Última hora! ${eventData.message}. ¡Todos los contratos perpetuos liquidados con éxito!`
-            ];
-
-            let pool = goalPhrases;
-            let emotion = 'neutral';
-            if (eventData.type === 'BET') {
-                pool = betPhrases;
-                emotion = 'happy';
-            } else if (eventData.type === 'RESOLVE') {
-                pool = resolvePhrases;
-                emotion = 'analytical';
-            } else if (eventData.type === 'GOAL') {
-                pool = goalPhrases;
-                emotion = 'excited';
-            }
-
-            const commentaryText = pool[Math.floor(Math.random() * pool.length)];
-            
-            speak(commentaryText);
-            setCommentaryHistory(prev => [
-                {
-                    id: Date.now(),
-                    text: commentaryText,
-                    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
-                },
-                ...prev.slice(0, 4)
-            ]);
-
-            // Broadcast to streaming bridge
-            const duration = Math.max(3.5, commentaryText.length / 14);
-            broadcastCommentary(commentaryText, eventData.type, emotion, duration);
-        };
-
-        window.addEventListener('goalchain-event', handleEvent);
         return () => {
-            window.removeEventListener('goalchain-event', handleEvent);
+            window.speechSynthesis.onvoiceschanged = null;
         };
-    }, [loadingPhase, isMuted, selectedVoice, voices]);
-
-
-    if (loadingPhase === 'downloading') {
-        return (
-            <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 800, color: '#ffffff', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span className="pulse-dot" style={{ backgroundColor: 'var(--secondary-neon)', boxShadow: '0 0 10px var(--secondary-neon-glow)' }}></span>
-                    Inicializando Comentarista AI
-                </h3>
-                <p style={{ margin: 0, fontSize: '0.82rem', color: '#94a3b8' }}>
-                    Verificando caché local en IndexedDB y cargando pesos...
-                </p>
-                <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#cbd5e1', marginBottom: '6px', fontFamily: 'monospace' }}>
-                        <span>enzo-bit-v2.bin</span>
-                        <span>{downloadProgress}% ({(downloadProgress * 0.482).toFixed(1)}MB / 48.2MB)</span>
-                    </div>
-                    <div className="progress-container">
-                        <div className="progress-bar-fill" style={{ width: `${downloadProgress}%` }}></div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    if (loadingPhase === 'compiling') {
-        return (
-            <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center', justifyContent: 'center', minHeight: '135px' }}>
-                <div className="pulse-dot" style={{ width: '12px', height: '12px', backgroundColor: 'var(--primary-neon)', boxShadow: '0 0 15px var(--primary-neon-glow)', marginBottom: '8px' }}></div>
-                <h4 style={{ margin: 0, fontSize: '0.9rem', fontWeight: 800, color: '#ffffff', textAlign: 'center' }}>
-                    Compilando red neuronal en WebGPU...
-                </h4>
-                <p style={{ margin: 0, fontSize: '0.75rem', color: '#64748b', textAlign: 'center', fontFamily: 'monospace' }}>
-                    Asignando ejecución de tensores locales en Web Worker
-                </p>
-            </div>
-        );
-    }
+    }, []);
 
     return (
-        <div className="glass-card AICommentator" style={{ textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            {/* Header / Config controls */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
-                <h3 style={{ 
-                    margin: 0, 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '10px',
-                    fontSize: '1.1rem',
-                    fontWeight: 800,
-                    color: '#ffffff'
-                }}>
-                    <span className="pulse-dot" style={{ backgroundColor: isSpeaking ? 'var(--primary-neon)' : 'var(--secondary-neon)', boxShadow: isSpeaking ? '0 0 10px var(--primary-neon-glow)' : '0 0 10px var(--secondary-neon-glow)' }}></span>
-                    Enzo Bit (Comentarista AI)
-                </h3>
-                
-                {/* Voice Controls */}
+        <div className="glass-card" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            {/* Header */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                    <h2 style={{ margin: 0, color: '#fff', fontSize: '1.1rem', fontWeight: 800 }}>{t('ai_commentator.title')}</h2>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--text-dim)', margin: '4px 0 0 0' }}>{t('ai_commentator.subtitle')}</p>
+                </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    {/* Streaming Bridge Badge */}
-                    <div
-                        title={wsError ?? undefined}
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '6px',
-                            background: !wsEnabled
-                                ? 'rgba(100, 116, 139, 0.12)'
-                                : (wsStatus === 'connected'
-                                    ? 'rgba(20, 241, 149, 0.1)'
-                                    : wsStatus === 'connecting'
-                                    ? 'rgba(234, 179, 8, 0.1)'
-                                    : wsStatus === 'error'
-                                    ? 'rgba(255, 75, 75, 0.08)'
-                                    : 'rgba(255, 75, 75, 0.1)'),
-                            border: !wsEnabled
-                                ? '1px solid rgba(100, 116, 139, 0.35)'
-                                : (wsStatus === 'connected'
-                                    ? '1px solid rgba(20, 241, 149, 0.3)'
-                                    : wsStatus === 'connecting'
-                                    ? '1px solid rgba(234, 179, 8, 0.3)'
-                                    : '1px solid rgba(255, 75, 75, 0.3)'),
-                            color: !wsEnabled
-                                ? '#94a3b8'
-                                : (wsStatus === 'connected'
-                                    ? 'var(--primary-neon)'
-                                    : wsStatus === 'connecting'
-                                    ? '#eab308'
-                                    : 'var(--accent-red)'),
-                            padding: '4px 8px',
-                            borderRadius: '6px',
-                            fontSize: '0.65rem',
-                            fontWeight: 800,
-                            textTransform: 'uppercase',
-                            letterSpacing: '0.5px',
-                            cursor: wsError ? 'help' : 'default',
-                        }}
-                    >
-                        <span className="pulse-dot" style={{
-                            width: '6px',
-                            height: '6px',
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <span style={{ 
+                            width: '12px',
+                            height: '12px',
+                            borderRadius: '50%',
                             backgroundColor: !wsEnabled
                                 ? '#94a3b8'
                                 : (wsStatus === 'connected' ? 'var(--primary-neon)' : (wsStatus === 'connecting' ? '#eab308' : 'var(--accent-red)')),
@@ -415,14 +227,14 @@ export const AICommentator: React.FC = () => {
                             display: 'inline-block'
                         }}></span>
                         {!wsEnabled
-                            ? 'BRIDGE DISABLED'
+                            ? t('ai_commentator.bridge_disabled')
                             : wsStatus === 'connected'
-                            ? `🔴 LIVE CAST (${broadcastCount})`
+                            ? t('ai_commentator.live_cast', { count: broadcastCount })
                             : wsStatus === 'connecting'
-                            ? 'CONNECTING...'
+                            ? t('ai_commentator.connecting')
                             : wsStatus === 'error'
-                            ? '⚠ BRIDGE ERROR'
-                            : 'BRIDGE OFFLINE'}
+                            ? t('ai_commentator.bridge_error')
+                            : t('ai_commentator.bridge_offline')}
                     </div>
 
                     {voices.length > 0 && (
@@ -475,7 +287,7 @@ export const AICommentator: React.FC = () => {
                             transition: 'all 0.2s ease'
                         }}
                     >
-                        {isMuted ? '🔇 Mutear' : '🔊 Hablar'}
+                        {isMuted ? t('ai_commentator.mute') : t('ai_commentator.speak')}
                     </button>
                 </div>
             </div>
@@ -498,160 +310,83 @@ export const AICommentator: React.FC = () => {
                         )}
 
                         {/* Body (Striped Referee Collar/Jersey) */}
-                        <path d="M 35 80 L 65 80 L 60 95 L 40 95 Z" fill="#1e1e2e" stroke="rgba(255, 255, 255, 0.1)" strokeWidth="1" />
-                        
-                        {/* Collar */}
-                        <path d="M 30 80 Q 50 90 70 80 L 68 95 L 32 95 Z" fill="#0f0f16" />
-                        
-                        {/* Referee stripes */}
-                        <rect x="42" y="83" width="4" height="12" fill="#ffffff" />
-                        <rect x="54" y="83" width="4" height="12" fill="#ffffff" />
-                        <rect x="36" y="85" width="2" height="10" fill="#ffffff" />
-                        <rect x="62" y="85" width="2" height="10" fill="#ffffff" />
-                        
-                        {/* Whistle (hanging) */}
-                        <path d="M 47 90 L 53 90 L 53 97 L 47 97 Z" fill="var(--secondary-neon)" />
-                        <line x1="50" y1="80" x2="50" y2="90" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="1.5" />
+                        <rect x="35" y="40" width="30" height="40" fill="#1e293b" rx="2" />
+                        <rect x="35" y="40" width="30" height="8" fill="#f1f5f9" />
+                        <rect x="35" y="52" width="30" height="8" fill="#f1f5f9" />
+                        <rect x="35" y="64" width="30" height="8" fill="#f1f5f9" />
 
-                        {/* Head Chassis */}
-                        <rect x="25" y="25" width="50" height="45" rx="15" fill="#141424" stroke="rgba(255, 255, 255, 0.08)" strokeWidth="2" />
-                        
-                        {/* Ears/Bolts */}
-                        <rect x="18" y="38" width="7" height="18" rx="2" fill="var(--secondary-neon)" />
-                        <rect x="75" y="38" width="7" height="18" rx="2" fill="var(--secondary-neon)" />
-                        
-                        {/* Antenna */}
-                        <line x1="50" y1="25" x2="50" y2="12" stroke="rgba(255, 255, 255, 0.3)" strokeWidth="3" />
-                        <circle 
-                            cx="50" 
-                            cy="10" 
-                            r="6" 
-                            fill={isSpeaking ? "var(--primary-neon)" : "var(--secondary-neon)"}
-                            style={{
-                                filter: isSpeaking ? 'drop-shadow(0 0 8px var(--primary-neon-glow))' : 'none',
-                                transition: 'all 0.3s ease'
-                            }}
-                        />
+                        {/* Head */}
+                        <circle cx="50" cy="30" r="18" fill="#1e293b" />
+                        <circle cx="50" cy="30" r="16" fill="#f1f5f9" />
 
-                        {/* Visor Panel */}
-                        <rect x="32" y="34" width="36" height="18" rx="9" fill="#07070f" stroke="rgba(255, 255, 255, 0.05)" strokeWidth="1" />
+                        {/* Eyes */}
+                        <circle cx="45" cy="28" r="3" fill="#1e293b" />
+                        <circle cx="55" cy="28" r="3" fill="#1e293b" />
 
-                        {/* Glowing Eyes/LED bar */}
-                        <rect 
-                            x="38" 
-                            y="40" 
-                            width="24" 
-                            height="6" 
-                            rx="3" 
-                            fill={isSpeaking ? "var(--primary-neon)" : "var(--secondary-neon)"}
-                            style={{
-                                filter: isSpeaking 
-                                    ? 'drop-shadow(0 0 6px var(--primary-neon-glow))' 
-                                    : 'drop-shadow(0 0 3px var(--secondary-neon-glow))',
-                                transition: 'all 0.2s ease',
-                            }}
-                        />
+                        {/* Mouth */}
+                        <path d="M40 35 L60 35" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" />
 
-                        {/* Smiling mouth / audio light */}
-                        <path 
-                            d="M 44 58 Q 50 63 56 58" 
-                            fill="none" 
-                            stroke={isSpeaking ? "var(--primary-neon)" : "rgba(255, 255, 255, 0.3)"} 
-                            strokeWidth="2.5" 
-                            strokeLinecap="round"
-                            style={{
-                                filter: isSpeaking ? 'drop-shadow(0 0 4px var(--primary-neon-glow))' : 'none',
-                                transition: 'all 0.2s ease'
-                            }}
-                        />
+                        {/* Whistle */}
+                        <path d="M65 20 L75 30 L65 40" stroke="#f87171" strokeWidth="4" strokeLinecap="round" />
                     </svg>
-
-                    {/* Soundwave lines underneath avatar */}
-                    <div className="soundwave-container" style={{ marginTop: '8px' }}>
-                        <div className={`soundwave-line ${isSpeaking ? 'active' : ''}`} />
-                        <div className={`soundwave-line ${isSpeaking ? 'active' : ''}`} />
-                        <div className={`soundwave-line ${isSpeaking ? 'active' : ''}`} />
-                        <div className={`soundwave-line ${isSpeaking ? 'active' : ''}`} />
-                        <div className={`soundwave-line ${isSpeaking ? 'active' : ''}`} />
-                    </div>
                 </div>
 
-                {/* Primary speech bubble */}
-                <div style={{ flex: 1, minWidth: 0 }}>
-                    <div className="commentary-bubble" style={{ 
-                        border: isSpeaking ? '1px solid rgba(20, 241, 149, 0.25)' : '1px solid rgba(255, 255, 255, 0.05)',
-                        boxShadow: isSpeaking ? '0 0 15px rgba(20, 241, 149, 0.08)' : 'none'
-                    }}>
-                        {commentaryHistory.length > 0 ? (
-                            <p style={{ margin: 0, fontStyle: isSpeaking ? 'normal' : 'italic' }}>
-                                {commentaryHistory[0].text}
-                            </p>
-                        ) : (
-                            <p style={{ margin: 0, color: '#64748b' }}>Esperando eventos en vivo de Solana (Helius)...</p>
-                        )}
-                    </div>
-                </div>
-            </div>
-
-            {/* Commentary History */}
-            {commentaryHistory.length > 1 && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', borderTop: '1px solid rgba(255, 255, 255, 0.05)', paddingTop: '12px' }}>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                        Historial de Comentarios
-                    </span>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxHeight: '120px', overflowY: 'auto', paddingRight: '4px' }}>
-                        {commentaryHistory.slice(1).map(item => (
-                            <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', color: '#94a3b8', gap: '12px', background: 'rgba(255, 255, 255, 0.015)', padding: '6px 10px', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.02)' }}>
-                                <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item.text}</span>
-                                <span style={{ fontFamily: 'monospace', color: '#64748b', fontSize: '0.7rem', flexShrink: 0 }}>{item.time}</span>
+                {/* Commentary Bubble */}
+                <div style={{ flex: 1, background: 'rgba(0, 0, 0, 0.2)', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', padding: '1.25rem', position: 'relative' }}>
+                    {loadingPhase === 'downloading' ? (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                            <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>{t('ai_commentator.downloading')}</div>
+                            <div style={{ height: '6px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '3px', overflow: 'hidden' }}>
+                                <div style={{ width: `${downloadProgress}%`, height: '100%', background: 'var(--primary-neon)', transition: 'width 0.3s ease' }}></div>
                             </div>
-                        ))}
-                    </div>
-                </div>
-            )}
+                        </div>
+                    ) : loadingPhase === 'compiling' ? (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                            <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>{t('ai_commentator.compiling')}</div>
+                            <div style={{ height: '6px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '3px', overflow: 'hidden' }}>
+                                <div style={{ width: '100%', height: '100%', background: 'var(--secondary-neon)', transition: 'width 0.3s ease' }}></div>
+                            </div>
+                        </div>
+                    ) : (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                            {/* Current Commentary */}
+                            <div style={{ fontSize: '0.9rem', lineHeight: '1.5', color: '#f1f5f9' }}>
+                                {commentaryHistory.length > 0 ? commentaryHistory[0].text : t('ai_commentator.initial_commentary')}
+                            </div>
 
-            {/* NoahAI Query Panel */}
-            <div style={{ marginTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.05)', paddingTop: '12px' }}>
-                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#14f195', textTransform: 'uppercase', letterSpacing: '0.5px', display: 'block', marginBottom: '8px' }}>
-                    ⚡ Consultar a NoahAI (Mundial 2026 Predictivo)
-                </span>
-                <div style={{ display: 'flex', gap: '8px' }}>
-                    <input
-                        type="text"
-                        placeholder="Ej. ¿Qué probabilidad de gol tiene Lionel Satoshi?"
-                        value={noahQuery}
-                        onChange={(e) => setNoahQuery(e.target.value)}
-                        onKeyDown={(e) => e.key === 'Enter' && queryNoahAi()}
-                        style={{
-                            flex: 1,
-                            background: 'rgba(0, 0, 0, 0.2)',
-                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                            borderRadius: '8px',
-                            padding: '8px 12px',
-                            color: 'white',
-                            fontSize: '0.85rem',
-                            outline: 'none'
-                        }}
-                    />
-                    <button
-                        onClick={queryNoahAi}
-                        disabled={isQueryingNoah}
-                        style={{
-                            background: '#14f195',
-                            color: 'black',
-                            border: 'none',
-                            borderRadius: '8px',
-                            padding: '8px 16px',
-                            fontWeight: 700,
-                            fontSize: '0.85rem',
-                            cursor: 'pointer',
-                            transition: 'opacity 0.2s'
-                        }}
-                    >
-                        {isQueryingNoah ? 'Analizando...' : 'Consultar'}
-                    </button>
+                            {/* NoahAI Query Form */}
+                            <form onSubmit={(e) => { e.preventDefault(); queryNoahAi(); }} style={{ display: 'flex', gap: '8px' }}>
+                                <input
+                                    type="text"
+                                    value={noahQuery}
+                                    onChange={(e) => setNoahQuery(e.target.value)}
+                                    placeholder={t('ai_commentator.query_placeholder')}
+                                    style={{ flex: 1, padding: '10px', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(0, 0, 0, 0.3)', color: '#fff' }}
+                                    disabled={isQueryingNoah}
+                                />
+                                <button
+                                    type="submit"
+                                    className="btn-neon-green"
+                                    style={{ padding: '0 16px', borderRadius: '8px', cursor: 'pointer' }}
+                                    disabled={isQueryingNoah}
+                                >
+                                    {isQueryingNoah ? '...' : t('ai_commentator.query_button')}
+                                </button>
+                            </form>
+
+                            {/* Commentary History */}
+                            <div style={{ maxHeight: '200px', overflowY: 'auto', padding: '10px 0' }}>
+                                {commentaryHistory.slice(1).map((item) => (
+                                    <div key={item.id} style={{ marginBottom: '10px', paddingBottom: '10px', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                                        <div style={{ fontSize: '0.75rem', color: 'var(--text-dim)', marginBottom: '4px' }}>{item.time}</div>
+                                        <div style={{ fontSize: '0.85rem', color: '#f1f5f9' }}>{item.text}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
     );
-};
+}

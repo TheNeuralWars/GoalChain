@@ -4,6 +4,8 @@ import * as solanaWeb3 from '@solana/web3.js';
 import { SimulationBadge } from '../components/SimulationBadge';
 import { LayeredNftCard, PlayerRow } from './LayeredNftCard';
 import { explorerTxUrl } from '../lib/explorerLinks';
+import { useTranslation } from '../i18n/index';
+import type { TranslationKeys } from '../i18n/translations';
 
 const RARITY_PRICES: Record<string, string> = {
   mythic: '25.0 SOL',
@@ -22,6 +24,7 @@ const RARITY_COLORS: Record<string, string> = {
 };
 
 export function NFTMarketplace() {
+  const { t } = useTranslation();
   const { connection } = useConnection();
   const { publicKey, sendTransaction } = useWallet();
   const [listings, setListings] = useState<PlayerRow[]>([]);
@@ -78,7 +81,7 @@ export function NFTMarketplace() {
     const walletAddress = publicKey ? publicKey.toBase58() : localStorage.getItem('goalchain_wallet');
 
     if (!walletAddress) {
-      alert('⚠️ Por favor conecta tu wallet Solana para comprar jugadores.');
+      alert(t('wallet_connect'));
       setLoadingId(null);
       return;
     }
@@ -89,11 +92,11 @@ export function NFTMarketplace() {
         const inventory = JSON.parse(localStorage.getItem('goalchain_inventory') || '[]');
         inventory.push(player);
         localStorage.setItem('goalchain_inventory', JSON.stringify(inventory));
-        
+
         setListings(prev => prev.filter(p => p.id !== player.id));
         setLoadingId(null);
-        alert(`🎉 ¡ÉXITO! Has adquirido a ${player.name} mediante "Compra en Cash" con éxito. Ya puedes ver este cromo en la pestaña "Mi Plantilla".`);
-        
+        alert(t('purchase_success') + ' ' + player.name);
+
         // Trigger local event to notify other sections
         window.dispatchEvent(new Event('storage'));
       }, 1500);
@@ -102,14 +105,14 @@ export function NFTMarketplace() {
 
     // Solana Devnet purchase flow
     if (!publicKey) {
-      alert('⚠️ Para pagar con SOL, conecta tu billetera Phantom u otra compatible mediante el adaptador.');
+      alert(t('wallet_connect_phantom'));
       setLoadingId(null);
       return;
     }
 
     try {
       if (!treasuryAddress) {
-        alert('⚠️ Tesorería no disponible en este momento. La compra en SOL está deshabilitada.');
+        alert(t('treasury_unavailable'));
         setLoadingId(null);
         return;
       }
@@ -129,24 +132,24 @@ export function NFTMarketplace() {
       const signature = await sendTransaction(transaction, connection);
       console.log('Solana Tx Sent:', signature);
 
-      alert('⏳ Confirmando transacción en Devnet...');
+      alert(t('transaction_confirming'));
       await connection.confirmTransaction(signature, 'confirmed');
       console.log('Solana Tx Confirmed!');
 
       const inventory = JSON.parse(localStorage.getItem('goalchain_inventory') || '[]');
       inventory.push(player);
       localStorage.setItem('goalchain_inventory', JSON.stringify(inventory));
-      
+
       setListings(prev => prev.filter(p => p.id !== player.id));
       setLoadingId(null);
-      
-      alert(`🎉 ¡COMPRA CONFIRMADA EN SOLANA DEVNET! \n\nHas adquirido a ${player.name}.\n\nTx ID: ${signature.slice(0, 10)}...`);
+
+      alert(t('purchase_confirmed') + ' ' + player.name + ' (' + signature.slice(0, 10) + ')');
       window.dispatchEvent(new Event('storage'));
       window.open(explorerTxUrl(signature, connection), '_blank');
 
     } catch (err) {
       console.error('Solana transaction error:', err);
-      alert('❌ La transacción fue cancelada o falló.');
+      alert(t('transaction_failed'));
       setLoadingId(null);
     }
   };
@@ -162,16 +165,16 @@ export function NFTMarketplace() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '10px' }}>
         <div>
           <h2 className="text-neon-purple" style={{ margin: 0, borderBottom: 'none', paddingBottom: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
-            🛒 Mercado de Transferencias
+            {t('marketplace_title')}
             <SimulationBadge />
             {treasuryAddress === null && (
               <span style={{ fontSize: '0.6rem', color: 'var(--accent-red)', fontWeight: 600 }}>
-                ⛔ SOL OFFLINE
+                {t('sol_offline')}
               </span>
             )}
           </h2>
           <p style={{ opacity: 0.7, fontSize: '0.8rem', marginTop: '4px' }}>
-            Ficha jugadores de otros managers en tiempo real. Soporta compra on-chain en SOL o compra simulada en Cash.
+            {t('marketplace_description')}
           </p>
         </div>
       </div>
@@ -195,7 +198,7 @@ export function NFTMarketplace() {
               transition: 'all 0.2s'
             }}
           >
-            {filter}
+            {t(`nft_filter_${filter}`)}
           </button>
         ))}
       </div>
@@ -203,9 +206,9 @@ export function NFTMarketplace() {
       {/* Grid of Listings */}
       {filteredListings.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '60px' }}>
-          <p style={{ color: 'var(--text-dim)', fontSize: '0.85rem' }}>No hay cartas listadas bajo esta categoría en este momento.</p>
+          <p style={{ color: 'var(--text-dim)', fontSize: '0.85rem' }}>{t('marketplace_no_listings')}</p>
           <button onClick={() => setActiveFilter('all')} className="btn-neon-green" style={{ marginTop: '12px', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer' }}>
-            Ver Todo el Mercado
+            {t('marketplace_view_all')}
           </button>
         </div>
       ) : (
