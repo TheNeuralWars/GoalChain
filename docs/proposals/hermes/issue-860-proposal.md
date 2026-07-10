@@ -30,13 +30,13 @@ from the original issue #827 delivery and verifying the service is functional.
 - [done] Read CLAUDE.md, META_CHARTER.md, AGENT_ORCHESTRATION.md
 - [done] Audit all files from issue #860 manifest
 - [done] Create symlink install-gbrain-sync-service.sh → install-gbrainsync-server.sh
-- [in_progress] Fix gbrain-push.sh (add shebang + header + env vars)
-- [in_progress] Rewrite install-gbrainsync-macos.sh (proper LaunchAgent for client)
-- [in_progress] Create gbrainsync-client.ps1 (Windows polling client)
-- [in_progress] Rewrite install-gbrainsync-windows.ps1 (Scheduled Task for client)
-- [pending] Run server smoke test (health, push, sync/since)
-- [pending] Commit to main (cambio urgente)
-- [pending] Close intake marker
+- [done] Fix gbrain-push.sh (add shebang + header + env vars + brace expansion bug)
+- [done] Rewrite install-gbrainsync-macos.sh (proper LaunchAgent for client)
+- [done] Create gbrainsync-client.ps1 (Windows polling client)
+- [done] Rewrite install-gbrainsync-windows.ps1 (Scheduled Task for client)
+- [done] Run server smoke test (health 200, push 202, sync/since 3 records)
+- [done] Commit to main (cambio urgente) — 748df9eb
+- [done] Close intake marker — aa61ad59
 
 ## Risks / regressions
 - Low blast radius: new service files, nothing depends on port 8648 elsewhere
