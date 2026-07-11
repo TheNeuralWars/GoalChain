@@ -80,7 +80,9 @@ cd goalchain_api && npx tsc --noEmit
 - `goalchain_webapp/src/main.tsx` — SW registration
 
 ## Intake Marker
-- `docs/intake/2026-06-04-growth-agent.md` — to be marked .done after review
+- `docs/intake/2026-06-04-growth-agent.md` — marked .done (commit 03fad181)
+- `.done/issue-869.done` — exists
+- `docs/intake/issue-869.done` — exists
 
 ---
 
