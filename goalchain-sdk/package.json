@@ -12,7 +12,8 @@
     "build": "tsc",
     "lint": "tsc --noEmit",
     "test": "echo \"No automated tests configured\"",
-    "check": "npm run lint && npm run build"
+    "check": "npm run lint && npm run build",
+    "generate-nft-images": "python3 scripts/generate_nft_images/batch_generate.sh"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.30.1",
