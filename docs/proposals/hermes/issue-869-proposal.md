@@ -1,4 +1,4 @@
-# OA Proposal — Issue #869 (Revised)
+# OA Proposal — Issue #869
 
 ## Title
 [HERMES] [intake] Growth Agent Tasks — 2026-06-04 22:03 UTC
@@ -6,86 +6,54 @@
 ## Source
 GitHub issue #869
 
-## Status
-✅ IMPLEMENTED — all 5 tasks addressed
-
+## Objective
+## Objective
 ---
-
-## Tasks Implementation Summary
-
-### Task 1 — X/Twitter Media Attachments for Campaign Posts
-**Status:** ✅ Already implemented in prior commits
-**Files:** `ops/x/x_budget_poster.py`
-**Evidence:** `--image` flag, `upload_media()` (X API v1.1), `post_tweet(media_ids=)` — confirmed in lines 139-179
-
-### Task 2 — Player NFT Card Image Generation Pipeline
-**Status:** ✅ Implemented this session
-**Files:**
-- `scripts/generate_nft_images/generate_nft_card.py` — generates SVG + PNG/WebP via cairosvg+PIL
-- `scripts/generate_nft_images/batch_generate.sh` — batch runner (all 528 players)
-- `scripts/generate_nft_images/requirements.txt` — cairosvg+Pillow
-- `scripts/generate_nft_images/venv/` — auto-created on first run; not committed. batch_generate.sh auto-creates it with cairosvg + pillow
-
-**Output directory:** `docs/assets/img/nfts/composed/` (served by webapp)
-**Verification:** All 528 player IDs have matching images in `composed/`. Average file size 44KB.
-
-### Task 3 — Zealy Quest Verification Webhook + Discord Role Sync
-**Status:** ✅ Already implemented in prior commits
-**Files:** `goalchain_api/src/index.ts` (lines 1504-1605)
-**Evidence:** `POST /api/zealy/webhook`, HMAC signature verification, allowlist check, Discord role assignment via Guild Member Role API
-
-### Task 4 — Launch First Paid Ad Campaign (Twitter Ads Spain $1K)
-**Status:** ⏭️ Not a code task — requires human setup of Twitter Ads account + billing
-
-### Task 5 — Mobile PWA + Responsive Landing with Presale CTA
-**Status:** ✅ Already implemented in prior commits
-**Files:**
-- `goalchain_webapp/public/manifest.json` — PWA manifest
-- `goalchain_webapp/public/sw.js` — service worker (cache-first shell, network-first API)
-- `goalchain_webapp/src/ui/LandingPage.tsx` — marketing landing page with wallet connect + presale CTA
-- `goalchain_webapp/index.html` — includes `<link rel="manifest">`
-- `goalchain_webapp/src/ui/App.tsx` — route `/` → `LandingPage`, `/dashboard` → `DashboardGrid`
-
+source: growth-agent
+date: 2026-06-04
+model: opencode/deepseek-v4-flash-free
+auto_generated: true
 ---
+# Growth Agent Tasks — 2026-06-04 22:03 UTC
 
-## Exact Test Commands
+^[[0m
+> build · deepseek-v4-flash-free
+^[[0m
+^[[0m• ^[[0mExplore codebase for gaps^[[90m Explore Agent^[[0m
+^[[0m✓ ^[[0mExplore codebase for gaps^[[90m Explore Agent^[[0m
+^[[0m
+^[[0m# ^[[0mTodos
+[•] Analyze codebase and produce 3-5 high-impact growth tasks
+^[[0m
+^[[0m→ ^[[0mRead docs/intake/2026-06-04-growth-agent.md^[[90m [limit=50]^[[0m
+^[[0m→ ^[[0mRead ops/x/x_budget_poster.py^[[90m [limit=60]^[[0m
+^[[0m
+^[[0m$ ^[[0mls /data/apps/goalworld/docs/assets/img/nfts/ | wc -l
+44
+^[[0m
+^[[0m→ ^[[0mRead scripts/marketing/campaign_budgets.json
+^[[0m→ ^[[0mRead goalworld_webapp/src/ui/NFTMarketplace.tsx^[[90m [limit=50]^[[0m
+^[[0m✱ ^[[0mGrep "media|image|upload|media_id"^[[90m in ops/x · 0 matches^[[0m
+^[[0m→ ^[[0mRead goalworld_webapp/src/ui/NFTMarketplace.tsx^[[90m [offset=51, limit=100]^[[0m
+^[[0m✱ ^[[0mGrep "zealy|quest|verify|webhook"^[[90m in goalworld_api/src · 10 matches^[[0m
+^[[0m→ ^[[0mRead goalworld_webapp/src/ui/App.tsx
+^[[0m✱ ^[[0mGrep "\.jpg|\.png|\.svg|img|image|src=|avatar"^[[90m in goalworld_webapp/src/ui/NFTMarketplace.tsx · 0 matches^[[0m
+^[[0m→ ^[[0mRead goalworld_api/src/index.ts^[[90m [offset=860, limit=60]^[[0m
+^[[0m→ ^[[0mRead goalworld_webapp/src/ui/NFTMarketplace.tsx^[[90m [offset=151, limit=170]^[[0m
+^[[0m✱ ^[[0mGlob "**/manifest.json"^[[90m in goalworld_webapp · 0 matches^[[0m
+^[[0m✱ ^[[0mGlob "**/service-worker*"^[[90m in goalworld_webapp · 0 matches^[[0m
+^[[0m→ ^[[0mRead hermes/discord-community-bot/src/index.ts^[[90m [limit=50]^[[0m
+^[[0m→ ^[[0mRead docs/assets/data/nft_metadata_index.json^[[90m [limit=30]^[[0m
+^[[0m
+^[[0m# ^[[0mTodos
+[✓] Analyze codebase and produce 3-5 high-impact growth tasks
 
-```bash
-# Webapp build (verified — exit 0):
-cd goalchain_webapp && npm run build
+## OA Plan (draft)
+- Analyze repository constraints and META alignment.
+- Implement minimal safe changes first.
+- Run local checks where feasible.
+- Prepare draft PR for Cursor review.
 
-# Verify all 528 NFT images exist:
-python3 -c "
-import json, os
-with open('docs/assets/data/players.json') as f:
-    players = json.load(f)
-missing = [p['id'] for p in players if not os.path.exists(f\"docs/assets/img/nfts/composed/{str(p['id']).zfill(3)}_{p['name'].replace(' ','_').replace(\"'\",'_').replace('.','')}.webp\")]
-print(f'Missing: {len(missing)}')
-"
-
-# Test single card generation:
-cd scripts/generate_nft_images && ./venv/bin/python generate_nft_card.py --player-id 1 --format webp
-
-# Test batch generation (creates venv + generates 5 players):
-cd scripts/generate_nft_images && rm -rf venv && ./batch_generate.sh --start 1 --end 5 --format webp
-```
-
----
-
-## Risks & Regressions
-
-1. **PWA service worker** — `sw.js` caches `/` route. After any landing page update, service worker needs version bump in `CACHE_VERSION` constant or users see stale page. **Mitigation:** version bump in sw.js already handled in activate handler.
-
-2. **NFT image naming** — if `players.json` names change, `getPlayerImagePath()` slug doesn't match files in `composed/`. **Mitigation:** generate_nft_images script can regenerate all 528 images from metadata in <5 minutes.
-
-3. **Zealy webhook** — requires `ZEALY_WEBHOOK_SECRET`, `DISCORD_GUILD_ID`, `DISCORD_ZEALY_ROLE_ID` env vars. Gracefully logs warning if missing. **No regression risk** — it's additive.
-
-4. **No changes to on-chain config or treasury** — scope was limited to growth/marketing.
-
----
-
-## Rollback
-- Revert commit `11e6bc33` (LandingPage + PWA) — `git revert 11e6bc33`
-- Revert commit `61b49993` (Zealy webhook) — `git revert 61b49993`
-- Zealy webhook: also remove lines 1504-1605 from `goalchain_api/src/index.ts`
-- NFT images: no rollback needed — remove scripts/generate_nft_images/ batch with `rm -rf scripts/generate_nft_images/`
+## Risk / rollback
+- Risk: scope drift or unstable dependencies.
+- Rollback: revert main commit linked to issue #869
