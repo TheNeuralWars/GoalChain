@@ -1,0 +1,19 @@
+# Intake marker closed - Issue #872
+# Date: 2026-07-11
+# Agent: FCC (Free Claude Code)
+# Status: CLOSED
+
+## Summary
+Issue #872 (Recordatorio Nico — Decisiones bloqueantes) cerrado.
+
+## Decisions documented:
+- Issue #811 mint_gate threshold: 0.85 (OK)
+- Issue #811 vault_crank: conditional live (pending guard rails)
+- Issue #812 assets queue: ya no aplica (Nico manual)
+- Issue #817 asset cron: cancelled
+
+## Proposal
+docs/proposals/hermes/issue-872-proposal.md
+
+## Closed by
+FCC (Free Claude Code) - 2026-07-11
