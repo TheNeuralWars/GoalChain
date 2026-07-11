@@ -1,101 +1,52 @@
-# Issue #867 — Finish all OpenCode issues (deliverables)
+# OA Proposal — Issue #867
 
-## Status: IN PROGRESS
+## Title
+[HERMES] [intake] Finish all OpenCode issues (deliverables) — Antigravity ha
 
-## Phase 0 — Audit CSV (generated)
+## Source
+GitHub issue #867
 
-```
-issue,title,priority,bucket,pr_number,notes
-327,"[OPENCODE] Program: Extract vault instructions (6 instructions)",P?,incomplete,,"Stale status:done - no branch, no main commit"
-328,"[OPENCODE] Program: Extract governance instructions (3 instructions)",P?,incomplete,,"Stale status:done - no branch, no main commit"
-359,"[OPENCODE] [OPENCODE] API: MAX Law enforcement — 100% English logs",P?,incomplete,,"Stale status:done - no branch, no main commit"
-361,"[OPENCODE] [OPENCODE] Webapp: Create design system tokens",P?,incomplete,,"Stale status:done - no branch, no main commit"
-362,"[OPENCODE] [OPENCODE] Webapp: Build ui/ primitive component library",P?,incomplete,,"Stale status:done - no branch, no main commit"
-365,"[OPENCODE] [OPENCODE] Webapp: Decompose AICommentator",P?,incomplete,,"Stale status:done - no branch, no main commit"
-366,"[OPENCODE] [OPENCODE] Webapp: Decompose AICoach",P?,incomplete,,"Stale status:done - no branch, no main commit"
-367,"[OPENCODE] [OPENCODE] Webapp: Decompose NFTMarketplace",P?,incomplete,,"Stale status:done - no branch, no main commit"
-368,"[OPENCODE] [OPENCODE] Webapp: Decompose SwarmVaults",P?,incomplete,,"Stale status:done - no branch, no main commit"
-369,"[OPENCODE] [OPENCODE] Webapp: Decompose ClubPortal",P?,incomplete,,"Stale status:done - no branch, no main commit"
-371,"[OPENCODE] [OPENCODE] Webapp: Compose page routes",P?,incomplete,,"Stale status:done - no branch, no main commit"
-374,"[OPENCODE] [OPENCODE] Webapp: Premium visual overhaul",P?,incomplete,,"Stale status:done - no branch, no main commit"
-464,"[OPENCODE] [DRAFT] Open Source: GitHub issue/PR templates",P?,incomplete,,"Stale status:done - no branch, no main commit"
-470,"[opencode] P1: Fix the failing vault crank (Jito bundle)",P1,incomplete,,"Stale status:done - no branch, no main commit"
-475,"[opencode] P1: Integrate Jito ShredStream",P1,incomplete,,"Stale status:done - no branch, no main commit"
-511,"[OPENCODE] [P0] #312 Oracle CLI commands",P0,incomplete,,"Stale status:done - no branch, no main commit"
-562,"[OPENCODE] [DRAFT] Priority Fees v2",P?,incomplete,,"Stale status:done - no branch, no main commit"
-564,"[OPENCODE] [P0] #326 Player instructions",P0,incomplete,,"Stale status:done - no branch, no main commit"
-567,"[OPENCODE] [SYNC-IDL] Fix IDL generation + sync script",P?,incomplete,,"Stale status:done - no branch, no main commit"
-569,"[OPENCODE] manager: xai_auth_missing_access_token alert",P?,incomplete,,"Stale status:done - no branch, no main commit"
-570,"[OPENCODE] GoalChain Alpha Scan — ANOMALIES DETECTED",P?,incomplete,,"Stale status:done - no branch, no main commit"
-755,"[OPENCODE] [DELEGATED] [DRAFT] Open Source: CONTRIBUTING.md + GOVERNANCE.md",P?,incomplete,,"Stale status:done - no branch, no main commit"
-775,"AI-AUDIT: Extract Shared SDK Constants and PDA Seeds",P?,incomplete,,"Stale status:done - no branch, no main commit"
-778,"AI-AUDIT: Express API Input Validation & Persistent Alert State",P?,incomplete,,"Stale status:done - no branch, no main commit"
-779,"AI-AUDIT: Implement Graceful Daemon Shutdowns & Unit Tests",P?,incomplete,,"Stale status:done - no branch, no main commit"
-```
+## Objective
+Audit all status:done + agent:opencode issues, identify stale ones (no deliverable), re-queue them for OA processing.
 
-## Current State (Audited 2026-07-10)
+## Audit Results (2026-07-11 — live verification vs origin/main)
 
 | Bucket | Count | Meaning |
 |--------|-------|---------|
-| `merged` on origin/main | **~120** | Issues with `status:done` + commit on main |
-| `branch` (pending PR) | **~81** | Has branch, needs review/merge |
-| `incomplete` (stale) | **28** | Marked `status:done` but no branch/commit |
+| merged | 129 | Has commit on origin/main — truly closed |
+| closed_pr_stale | 36 | Had PR (closed), code may exist on branch, needs re-queue |
+| incomplete | 35 | No branch, no PR, no main commit — needs full implementation |
+| **Total stale** | **71** | All re-labeled: status:done removed, status:ready added |
 
-## Analysis
+### Closed PR stale items (36)
+323, 332, 372, 378, 466, 471, 472, 478, 479, 480, 481, 482, 483, 484, 485, 486, 500, 503, 507, 509, 510, 512, 513, 514, 520, 527, 530, 532, 535, 537, 538, 734, 738, 785, 789, 790
 
-### Stale Issues (status:done without deliverable)
+### Truly incomplete items (35)
+290, 291, 306, 308, 310, 311, 313, 315, 317, 322, 324, 325, 330, 373, 375, 376, 377, 381, 382, 469, 474, 476, 477, 505, 506, 508, 515, 519, 521, 526, 536, 539, 733, 736, 747
 
-The 28 incomplete issues are **stale markers** — labeled `status:done` without actual implementation. Two patterns:
+### Priority breakdown of incomplete (P0/P1)
+P0: 290 (Discord+Zealy), 306/308/310/311/313 (Oracle modules), 315/317/322/324/325/330 (Program modules)
+P1: 747 (Polymarket Bot executor), 733 (NFT Marketplace treasury bug), 736 (TradingTerminal decomposition)
 
-1. **Old webapp refactors (#361-374)**: These were part of a decomposition epic that has been superseded by recent work on `features/` directories. Many have already been implemented under different issue numbers.
+## Actions Taken (FCC — this session)
 
-2. **AI-AUDIT items (#775, #778, #779)**: These are recent additions (from automated AI audit) that may have been marked done prematurely.
+1. Phase 0 complete: docs/intake/artifacts/2026-05-27-issue-audit.csv updated with 200-issue live audit
+2. Phase 1 complete: All 71 stale issues re-labeled (status:done removed, status:ready added)
+3. Intake marker docs/intake/2026-05-27-finish-all-opencode-issues-antigravity.md left open (OA work pending)
+4. GitHub issue #867: Comment added with summary
 
-3. **P0/P1 items (#470, #475, #511, #564)**: Critical items that need actual implementation.
+## Next Steps (Antigravity / OA Workers)
 
-4. **Duplicate/synonym issues (#359, #367, #368, #369, #371)**: Some of these overlap with recent merged work (e.g., #735 EstadioPortal decomposition, #737 Layout Shell, #733 English Localization).
+1. OA workers (alpha–omega) pick up the 71 status:ready + agent:opencode issues
+2. For closed_pr_stale: check if branch code is salvageable before re-implementing
+3. For incomplete: full FCC implementation from scratch
+4. Phase 4 (merge plan) deferred until OA queue processes all 71
 
-## Proposed Actions
+## Risks
+- OA workers may hit rate limits re-implementing 71 stale items
+- Some closed_pr_stale branches may have diverged significantly from main
+- Recommendation: batch by priority (P0 first), max 5 concurrent OA workers per priority tier
 
-### Option A: Reconcile Stale Labels (Recommended)
-
-1. **Remove `status:done`** from the 28 incomplete issues → add `status:reopened` or keep as `status:ready`
-2. **Batch these** into a new epic issue for prioritized re-implementation
-3. **Existing branch PRs (81)**: Proceed with merge queue
-
-### Option B: Re-implement All 28 (Time-Intensive)
-
-Would require significant effort on items that may already be partially implemented.
-
-## Files to Modify
-
-- `docs/intake/artifacts/2026-05-27-issue-audit.csv` — commit audit results
-- GitHub labels on 28 issues (remove `status:done`, add `status:reopened`)
-
-## Risks & Rollback
-
-- **Risk**: Removing `status:done` from 28 issues may confuse tracking
-- **Rollback**: Re-add `status:done` labels if items are later verified complete
-- **Mitigation**: Add comment explaining the reconciliation action
-
-## Test Commands
-
-After label changes:
-```bash
-gh issue list --label "status:done" --label "agent:opencode" --state all --json number,title | jq '. | length'
-gh issue list --label "status:reopened" --label "agent:opencode" --json number,title | jq '. | length'
-```
-
-## Conclusion
-
-The "55 draft PRs" mentioned in the original issue description no longer exist in that form. Most have been merged. The remaining work is:
-
-1. **81 branch PRs** — these need merge review
-2. **28 stale issues** — need label reconciliation
-
-Since this is a **Hermes intake task** (not direct FCC code implementation), the primary action is:
-- Commit the audit CSV
-- Propose label reconciliation for stale issues
-- Hand off branch merge queue to Antigravity
-
-**Next step**: Execute Option A (reconcile stale labels) and close this issue with a summary.
+## Rollback
+- To revert re-labeling: gh issue edit N --remove-label status:ready --add-label status:done
+- No code changes to main — all work is GitHub label management + audit documentation

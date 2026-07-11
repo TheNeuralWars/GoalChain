@@ -1,26 +1,201 @@
 issue,title,priority,bucket,pr_number,notes
-327,[OPENCODE] Program: Extract vault instructions (6 instructions),P2,incomplete,,Stale status:done - no branch, no main commit
-328,[OPENCODE] Program: Extract governance instructions (3 instructions),P2,incomplete,,Stale status:done - no branch, no main commit
-359,[OPENCODE] API: MAX Law enforcement - 100% English logs,P1,incomplete,,Stale status:done - no branch, no main commit; may overlap with #858 i18n work
-361,[OPENCODE] Webapp: Create design system tokens + styles structure,P1,incomplete,,Stale status:done - superseded by features/ decomposition work
-362,[OPENCODE] Webapp: Build ui/ primitive component library,P1,incomplete,,Stale status:done - no branch; UI primitives may exist elsewhere
-365,[OPENCODE] Webapp: Decompose AICommentator,P2,incomplete,,Stale status:done - no branch
-366,[OPENCODE] Webapp: Decompose AICoach,P2,incomplete,,Stale status:done - no branch
-367,[OPENCODE] Webapp: Decompose NFTMarketplace,P1,incomplete,,Stale status:done - may overlap with #733 localization work
-368,[OPENCODE] Webapp: Decompose SwarmVaults,P2,incomplete,,Stale status:done - no branch
-369,[OPENCODE] Webapp: Decompose ClubPortal,P2,incomplete,,Stale status:done - no branch
-371,[OPENCODE] Webapp: Compose page routes,P1,incomplete,,Stale status:done - routes likely implemented in #737 Layout Shell
-374,[OPENCODE] Webapp: Premium visual overhaul,P2,incomplete,,Stale status:done - no branch; asset work done in Grok batches
-464,[OPENCODE] Open Source: GitHub issue/PR templates,P3,incomplete,,Stale status:done - no branch
-470,[opencode] P1: Fix the failing vault crank (Jito bundle),P1,incomplete,,Stale status:done - no branch; critical item for MEV
-475,[opencode] P1: Integrate Jito ShredStream,P1,incomplete,,Stale status:done - no branch; critical for oracle latency
-511,[OPENCODE] P0: Oracle CLI commands (10 commands),P0,incomplete,,Stale status:done - no branch; critical P0 item
-562,[OPENCODE] Draft: Priority Fees v2,P2,incomplete,,Stale status:done - no branch
-564,[OPENCODE] P0: Player instructions (7 instructions),P0,incomplete,,Stale status:done - no branch; critical P0 item
-567,[OPENCODE] SYNC-IDL: Fix IDL generation + sync script,P1,incomplete,,Stale status:done - no branch
-569,[OPENCODE] manager: xai_auth_missing_access_token alert,P1,incomplete,,Stale status:done - no branch; auth alert
-570,[OPENCODE] GoalChain Alpha Scan anomalies,P2,incomplete,,Stale status:done - no branch; scan/alert item
-755,[OPENCODE] Open Source: CONTRIBUTING.md + GOVERNANCE.md drafts,P2,incomplete,,Stale status:done - no branch
-775,AI-AUDIT: Extract Shared SDK Constants and PDA Seeds,P1,incomplete,,Stale status:done - no branch
-778,AI-AUDIT: Express API Input Validation,P1,incomplete,,Stale status:done - no branch
-779,AI-AUDIT: Implement Graceful Daemon Shutdowns,P1,incomplete,,Stale status:done - no branch
+242,[OPENCODE] Conectar goalchain_webapp a flujos reales en Devnet (MVP),priority:P1,merged,,Has commit on origin/main
+244,[OPENCODE] Handoff Antigravity — Hermes + OpenClaw + Voice (GoalChain),priority:P1,merged,,Has commit on origin/main
+245,[OPENCODE] Antigravity — spikes post-merge (GoalChain),priority:P2,merged,,Has commit on origin/main
+246,[OPENCODE] Hermes: Cloudflare Tunnel + xAI for OA,priority:P1,merged,,Has commit on origin/main
+247,[OPENCODE] Merge stack #26–#34 + convergencia multi-agente,priority:P0,merged,,Has commit on origin/main
+249,[OPENCODE] OpenCode — sesiones post-merge (GoalChain),priority:P2,merged,,Has commit on origin/main
+251,"[OPENCODE] GBrain en Hermes: swap, keys y tus suscripciones",priority:P1,merged,,Has commit on origin/main
+255,[OPENCODE] FCC batch queue — Nico dispatch 2026-05-25,priority:P1,merged,,Has commit on origin/main
+257,[OPENCODE] Prompt para Antigravity (Mac local) — copiar y pegar,priority:P1,merged,,Has commit on origin/main
+274,[OPENCODE] Voice Task: hola,priority:P1,merged,,Has commit on origin/main
+275,[OPENCODE] Voice Task: GCH,priority:P1,merged,,Has commit on origin/main
+276,[OPENCODE] Voice Task: analize and integrate this: https://github.com/gitroomhq/,priority:P1,merged,,Has commit on origin/main
+277,[OPENCODE] Voice Task: programa e inicia a usar esto ; https://crm.goalchain.fun,priority:P1,merged,,Has commit on origin/main
+278,[OPENCODE] Voice Task: programa e inicia a usar esto ; https://crm.goalchain.fun,priority:P1,merged,,Has commit on origin/main
+280,[OPENCODE] Voice Task: /status,priority:P1,merged,,Has commit on origin/main
+281,[OPENCODE] Voice Task: how is the status of the queue of,priority:P1,merged,,Has commit on origin/main
+282,[OPENCODE] Voice Task: xq https://x.com/SolanaFndn/status/2061513116199051595?s=,priority:P1,merged,,Has commit on origin/main
+284,[OPENCODE] Voice Task: integrate this new key on FCC ogw_live_07f829c9817a5e894f,priority:P1,merged,,Has commit on origin/main
+285,[OPENCODE] Voice Task: xq https://x.com/i/status/2056545463713640917 digest this,priority:P1,merged,,Has commit on origin/main
+290,[OPENCODE] [DRAFT] Discord Community Agent + Zealy Leaderboard Integration,priority:P0,incomplete,,"No branch, no PR, no main commit"
+291,[OPENCODE] test,priority:P2,incomplete,,"No branch, no PR, no main commit"
+294,[OPENCODE] Growth Agent Tasks — 2026-06-04 18:04 UTC,priority:P1,merged,,Has commit on origin/main
+295,[OPENCODE] Task 1 - Fix Critical NFT Marketplace Treasury Bug (SOL sent to Progr,priority:P0,merged,,Has commit on origin/main
+297,[OPENCODE] Task 3 - Surface Presale Status & Whitelist Form on Landing,priority:P1,merged,,Has commit on origin/main
+298,[OPENCODE] Task 4 - Prune Stale 1248-Metadata Files & Lock Mint to 528,priority:P1,merged,,Has commit on origin/main
+299,"[OPENCODE] Task 5 - Live ""Trust Badge"" on Landing Showing Real Economy Metrics",priority:P2,merged,,Has commit on origin/main
+305,[OPENCODE] Oracle: Create packages/oracle structure + configs,priority:P0,merged,,Has commit on origin/main
+306,"[OPENCODE] Oracle: Extract core module (connection, wallet, priority fees, secur",priority:P0,incomplete,,"No branch, no PR, no main commit"
+308,"[OPENCODE] Oracle: Extract markets module (create live market, resolve market, u",priority:P0,incomplete,,"No branch, no PR, no main commit"
+310,"[OPENCODE] Oracle: Extract economy module (rarity yield, vault crank, contributo",priority:P0,incomplete,,"No branch, no PR, no main commit"
+311,"[OPENCODE] Oracle: Extract scraper module (run scraper, fixture oracle, provider",priority:P0,incomplete,,"No branch, no PR, no main commit"
+313,"[OPENCODE] Oracle: Create facade services (OracleService, ScraperService, Econom",priority:P0,incomplete,,"No branch, no PR, no main commit"
+315,[OPENCODE] Program: Create packages/program structure + Cargo/Anchor configs,priority:P0,incomplete,,"No branch, no PR, no main commit"
+316,"[OPENCODE] Program: Extract foundation modules (constants, errors, math)",priority:P0,merged,,Has commit on origin/main
+317,[OPENCODE] Program: Extract state module (13 account structs),priority:P0,incomplete,,"No branch, no PR, no main commit"
+318,[OPENCODE] Program: Extract events module (centralized emit! macros),priority:P0,merged,,Has commit on origin/main
+319,[OPENCODE] Program: Extract validators module (reusable require! logic),priority:P0,merged,,Has commit on origin/main
+320,"[OPENCODE] Program: Extract utils module (PDA, time, token, serialization helper",priority:P0,merged,,Has commit on origin/main
+321,"[OPENCODE] Program: Extract config instructions (initialize_config, update_confi",priority:P0,merged,,Has commit on origin/main
+322,[OPENCODE] Program: Extract builder_fund instructions (4 instructions),priority:P0,incomplete,,"No branch, no PR, no main commit"
+323,[OPENCODE] Program: Extract fixture instructions (6 instructions),priority:P0,closed_pr_stale,408,"PR #408 closed, not merged to main"
+324,[OPENCODE] Program: Extract betting instructions (5 instructions),priority:P0,incomplete,,"No branch, no PR, no main commit"
+325,[OPENCODE] Program: Extract live_market instructions (4 instructions),priority:P0,incomplete,,"No branch, no PR, no main commit"
+329,[OPENCODE] Program: Extract contributor instructions (4 instructions),priority:P0,merged,,Has commit on origin/main
+330,[OPENCODE] Program: Rewrite lib.rs as module declarations (~50 lines),priority:P0,incomplete,,"No branch, no PR, no main commit"
+331,[OPENCODE] Program: Update goalchain-sdk IDL generation + sync script,priority:P0,merged,,Has commit on origin/main
+332,[OPENCODE] Program: Full test suite (anchor test + integration),priority:P0,closed_pr_stale,492,"PR #492 closed, not merged to main"
+352,[OPENCODE] SDK: Update goalchain-sdk to match modular Oracle + Program (IDL sync,priority:P0,merged,,Has commit on origin/main
+353,"[OPENCODE] API: Modularize goalchain_api - routes, controllers, services, middle",priority:P0,merged,,Has commit on origin/main
+357,"[OPENCODE] [DRAFT] Dexter Superpowers: GitHub, Hermes/FCC, On-Chain, Superpowers",priority:P0,merged,,Has commit on origin/main
+358,[OPENCODE] [OPENCODE] SDK: Restructure goalchain-sdk modular architecture (const,priority:P0,merged,,Has commit on origin/main
+360,"[OPENCODE] [OPENCODE] Core: Unit tests for onchainService, csvService, pda utils",priority:P1,merged,,Has commit on origin/main
+363,"[OPENCODE] [OPENCODE] Webapp: Build layout/shell (AppShell, Sidebar, Header, Das",priority:P0,merged,,Has commit on origin/main
+364,[OPENCODE] [OPENCODE] Webapp: Decompose TradingTerminal → features/trading (6 co,priority:P0,merged,,Has commit on origin/main
+370,[OPENCODE] [OPENCODE] Webapp: Decompose EstadioPortal+FixturesPanel+LiveEventFee,priority:P0,merged,,Has commit on origin/main
+372,"[OPENCODE] [OPENCODE] Webapp: Legacy cleanup - remove Spanish strings, delete de",priority:P0,closed_pr_stale,557,"PR #557 closed, not merged to main"
+373,"[OPENCODE] [OPENCODE] Webapp: Integration - Storybook, Vitest, E2E, performance ",priority:P0,incomplete,,"No branch, no PR, no main commit"
+375,"[OPENCODE] [GTM] HyperFrames Video Production Pipeline — project setup, template",priority:P0,incomplete,,"No branch, no PR, no main commit"
+376,"[OPENCODE] [OPENCODE] Oracle: Constants single source of truth (program-id, seed",priority:P0,incomplete,,"No branch, no PR, no main commit"
+377,"[OPENCODE] [OPENCODE] Oracle: Priority fees v2 — health monitoring, failover, tr",priority:P0,incomplete,,"No branch, no PR, no main commit"
+378,"[OPENCODE] [OPENCODE] Oracle: Vault crank v2 — GCH_MINT fix, Jupiter integration",priority:P0,closed_pr_stale,391,"PR #391 closed, not merged to main"
+379,"[OPENCODE] [OPENCODE] Oracle: Refactor scraper, economy, CLI onto new foundation",priority:P0,merged,,Has commit on origin/main
+380,[OPENCODE] [OPENCODE] Oracle: Facade services + SDK sync + tests + CI gate,priority:P0,merged,,Has commit on origin/main
+381,"[OPENCODE] [OPENCODE] Oracle & Program: Comment cleanup — dead code, obsolete lo",priority:P0,incomplete,,"No branch, no PR, no main commit"
+382,[OPENCODE] [OPENCODE] Program: Full test suite (anchor test + integration) + SDK,priority:P0,incomplete,,"No branch, no PR, no main commit"
+389,[OPENCODE] [DRAFT] Oracle: Integrate turbovec vector index (IdMapIndex) for play,priority:P2,merged,,Has commit on origin/main
+432,[P0][growth][x-scout] X/Twitter Media Attachments for Campaign Posts,priority:none,merged,,Has commit on origin/main
+447,[P1][growth][hermes-ceo] Zealy Quest Verification Webhook + Discord Role Sync,priority:none,merged,,Has commit on origin/main
+460,[P2][growth][daily-routine] Mobile PWA + Responsive Landing with Presale CTA,priority:none,merged,,Has commit on origin/main
+465,[OPENCODE] [DRAFT] Open Source: CONTRIBUTING.md + COLLABORATORS.md + GOVERNANCE.,priority:P2,merged,,Has commit on origin/main
+466,"[OPENCODE] [DRAFT] Open Source: README.md ""Colabora / Join Us"" section",priority:P2,closed_pr_stale,496,"PR #496 closed, not merged to main"
+469,[manager] P0: Jito/MEV Strategic Positioning & Roadmap,priority:P0,incomplete,,"No branch, no PR, no main commit"
+471,[opencode] P1: Implement Priority Fees v2 module (`goalchain_oracle/src/priority,priority:P1,closed_pr_stale,493,"PR #493 closed, not merged to main"
+472,[opencode] P1: Implement MEV-protected bet settlement via Jito bundles: atomic e,priority:P1,closed_pr_stale,499,"PR #499 closed, not merged to main"
+474,[opencode] P1: Capture JitoSOL yield on treasury SOL holdings by staking via the,priority:P1,incomplete,,"No branch, no PR, no main commit"
+476,[opencode] P1: Build comprehensive Jito/MEV observability dashboard and alerting,priority:P1,incomplete,,"No branch, no PR, no main commit"
+477,[opencode] P1: DontFront.me Integration for User Transaction MEV Protection,priority:P1,incomplete,,"No branch, no PR, no main commit"
+478,[OPENCODE] [IMPL] #331 IDL generation + sync script,priority:P0,closed_pr_stale,491,"PR #491 closed, not merged to main"
+479,[OPENCODE] [IMPL] #323 Fixture instructions (6),priority:P0,closed_pr_stale,495,"PR #495 closed, not merged to main"
+480,[OPENCODE] [IMPL] #326 Player instructions (7),priority:P0,closed_pr_stale,488,"PR #488 closed, not merged to main"
+481,"[OPENCODE] [IMPL] #360 Core unit tests (onchainService, csvService, PDA, failove",priority:P1,closed_pr_stale,497,"PR #497 closed, not merged to main"
+482,"[OPENCODE] [IMPL] #378 Vault crank v2 — Jito bundle, Jupiter, safe burn",priority:P0,closed_pr_stale,498,"PR #498 closed, not merged to main"
+483,"[OPENCODE] [IMPL] #363 Webapp layout/shell (AppShell, Sidebar, Header, Dashboard",priority:P0,closed_pr_stale,487,"PR #487 closed, not merged to main"
+484,[OPENCODE] [IMPL] #364 TradingTerminal → features/trading (6 comps + 4 hooks),priority:P0,closed_pr_stale,489,"PR #489 closed, not merged to main"
+485,[OPENCODE] [IMPL] #370 EstadioPortal → features/stadium (9 comps + 5 hooks),priority:P0,closed_pr_stale,490,"PR #490 closed, not merged to main"
+486,"[OPENCODE] [IMPL] #377 Priority Fees v2 — simulateAndSend, Helius + Jito failove",priority:P0,closed_pr_stale,494,"PR #494 closed, not merged to main"
+500,[OPENCODE] [P0] Fix Vault Crank On-Chain Execution (vault_crank.ts),priority:P0,closed_pr_stale,501,"PR #501 closed, not merged to main"
+502,[OPENCODE] [P0] #413 Fix anchor test runner — surfpool missing breaks program te,priority:P0,merged,,Has commit on origin/main
+503,[OPENCODE] [P0] #412 EconomyConfigBanner reads wrong fields from /api/economy/co,priority:P0,closed_pr_stale,566,"PR #566 closed, not merged to main"
+505,[OPENCODE] [P0] #414 Deploy play.goalchain.fun with VITE_API_BASE_URL production,priority:P0,incomplete,,"No branch, no PR, no main commit"
+506,"[OPENCODE] [P0] #416 Merge Mundial MVP PR — claim UI, simulation badges, oracle ",priority:P0,incomplete,,"No branch, no PR, no main commit"
+507,[OPENCODE] [P0] #370 EstadioPortal → features/stadium (9 comps + 5 hooks),priority:P0,closed_pr_stale,516,"PR #516 closed, not merged to main"
+508,[OPENCODE] [P0] #364 TradingTerminal → features/trading (6 comps + 4 hooks),priority:P0,incomplete,,"No branch, no PR, no main commit"
+509,[OPENCODE] [P0] #331 IDL generation + sync script,priority:P0,closed_pr_stale,553,"PR #553 closed, not merged to main"
+510,[OPENCODE] [P0] #326 Player instructions (7 instructions),priority:P0,closed_pr_stale,517,"PR #517 closed, not merged to main"
+512,"[OPENCODE] [P0] #309 Oracle players module (record match, update stats)",priority:P0,closed_pr_stale,560,"PR #560 closed, not merged to main"
+513,[OPENCODE] [P0] #296 English Localization of Webapp UI (Campaign ↔ Product Misma,priority:P0,closed_pr_stale,551,"PR #551 closed, not merged to main"
+514,"[OPENCODE] [P0] #361 Design System — Tokens + Styles Structure (HSL, glassmorphi",priority:P0,closed_pr_stale,731,"PR #731 closed, not merged to main"
+515,"[OPENCODE] [P0] #362 UI Primitive Component Library (Button, Card, Input, Tabs, ",priority:P0,incomplete,,"No branch, no PR, no main commit"
+519,[MONEY-PRINTER] Script Generation Engine (goalchain-script-gen skill),priority:none,incomplete,,"No branch, no PR, no main commit"
+520,[MONEY-PRINTER] Video Render Pipeline (goalchain-video-render skill),priority:none,closed_pr_stale,559,"PR #559 closed, not merged to main"
+521,[MONEY-PRINTER] Content Scheduler & Orchestrator (hermes-cron job),priority:none,incomplete,,"No branch, no PR, no main commit"
+522,[MONEY-PRINTER] Multi-Platform Publisher (goalchain-publisher skill),priority:none,merged,,Has commit on origin/main
+523,[MONEY-PRINTER] Content Analytics Engine (goalchain-content-analytics skill),priority:none,merged,,Has commit on origin/main
+524,[MONEY-PRINTER] Revenue Layer: Affiliate + Referral Tracking,priority:none,merged,,Has commit on origin/main
+525,[MONEY-PRINTER] Optimization Loop: A/B Testing + Prompt Evolution,priority:none,merged,,Has commit on origin/main
+526,[MONEY-PRINTER] Greek Team Integration: Shared Repo Structure & Collaboration Pr,priority:none,incomplete,,"No branch, no PR, no main commit"
+527,[MONEY-PRINTER] Pexels API Integration for Stock Footage,priority:none,closed_pr_stale,568,"PR #568 closed, not merged to main"
+528,[MONEY-PRINTER] Buffer.com / Hootsuite API Keys for Auto-Publishing,priority:none,merged,,Has commit on origin/main
+529,"[MONEY-PRINTER] Betting Affiliate API Keys (Bet365, 1xBet, etc.)",priority:none,merged,,Has commit on origin/main
+530,[OPENCODE] [P0] Comprehensive Web Refactor,priority:P0,closed_pr_stale,531,"PR #531 closed, not merged to main"
+532,[OPENCODE] [DRAFT] World Cup 2026 — Confirmed Starting XI + Full Player Data Ove,priority:P0,closed_pr_stale,540,"PR #540 closed, not merged to main"
+534,[OPENCODE] [VOXLY] Multi-Platform Generation Pipeline,priority:P1,merged,,Has commit on origin/main
+535,[OPENCODE] [VOXLY] B2B Dashboard + Stripe Billing,priority:P1,closed_pr_stale,558,"PR #558 closed, not merged to main"
+536,[OPENCODE] [VOXLY] Waitlist Landing Page + Analytics,priority:P1,incomplete,,"No branch, no PR, no main commit"
+537,[OPENCODE] [DIRECTOR] Demo Filming Script + Screen Record Plan,priority:P0,closed_pr_stale,541,"PR #541 closed, not merged to main"
+538,[OPENCODE] [VOXLY] Voice Learning Engine,priority:P0,closed_pr_stale,542,"PR #542 closed, not merged to main"
+539,[OPENCODE] [VOXLY] Multi-Platform Generation Pipeline,priority:P1,incomplete,,"No branch, no PR, no main commit"
+573,[OPENCODE] [FCC] #523 Content Analytics Engine,priority:P1,merged,,Has commit on origin/main
+575,[OPENCODE] [P0][oracle] Deprecate migrate_config.ts — migrateConfig instruction ,priority:P0,merged,,Has commit on origin/main
+576,[OPENCODE] [P0][economy][oracle] Block vault_crank execute mode until real Jupit,priority:P0,merged,,Has commit on origin/main
+577,[OPENCODE] [P0][webapp][api] EconomyConfigBanner reads wrong fields from /api/ec,priority:P0,merged,,Has commit on origin/main
+578,[OPENCODE] [P0][smart-contracts] Fix anchor test runner — surfpool missing break,priority:P0,merged,,Has commit on origin/main
+579,[OPENCODE] [P0][webapp][ops] Deploy play.goalchain.fun with VITE_API_BASE_URL pr,priority:P0,merged,,Has commit on origin/main
+580,[OPENCODE] [P0][devnet][webapp] QA — Complete Mundial demo runbook on production,priority:P0,merged,,Has commit on origin/main
+581,[OPENCODE] [P0][integration] Merge Mundial MVP PR — claim UI simulation badges o,priority:P0,merged,,Has commit on origin/main
+582,[OPENCODE] [P1][webapp] UserProfile — label mock data fix balance to chain truth,priority:P1,merged,,Has commit on origin/main
+583,[OPENCODE] [P1][webapp] Add simulation badges to Estadio non-fixture tabs,priority:P1,merged,,Has commit on origin/main
+584,[OPENCODE] [P1][docs][api] Point goalchain.fun JS to production API base,priority:P1,merged,,Has commit on origin/main
+585,[OPENCODE] [P1][webapp][api] Integrate /api/coach/chat in Play via apiBaseUrl,priority:P1,merged,,Has commit on origin/main
+586,[OPENCODE] [P1][oracle][devnet] Seed participantPlayerIds for oracle_record_matc,priority:P1,merged,,Has commit on origin/main
+587,[OPENCODE] [P1][ops] Close duplicate FCC draft PRs #95-99 superseded by Mundial ,priority:P1,merged,,Has commit on origin/main
+588,[OPENCODE] [P1][security][webapp] Address npm audit high severity in goalchain_w,priority:P1,merged,,Has commit on origin/main
+589,[OPENCODE] [P1][webapp] Code-split DeFi/Club routes to reduce main bundle size,priority:P1,merged,,Has commit on origin/main
+590,[OPENCODE] [P1][api][economy] Add drift and config_version to /api/economy/confi,priority:P1,merged,,Has commit on origin/main
+592,[OPENCODE] [P1][hermes][ops] Run sync-hermes-active-profile-discord.sh verify #h,priority:P1,merged,,Has commit on origin/main
+594,[OPENCODE] [P1][hermes][docs] Enforce HERMES-MUNDIAL-SCOPE-FREEZE on new intake,priority:P1,merged,,Has commit on origin/main
+597,[OPENCODE] [P1][grok] Review Mundial MVP EN public copy and prohibited claims,priority:P1,merged,,Has commit on origin/main
+600,[OPENCODE] [P1][grok][economy] Validate canonical parameters vs marketing docs,priority:P1,merged,,Has commit on origin/main
+602,[OPENCODE] [P1][smart-contracts][docs] Document FutureHook instructions as disab,priority:P1,merged,,Has commit on origin/main
+603,[OPENCODE] [P1][tech-debt] Archive goalchain_backend empty package at root,priority:P1,merged,,Has commit on origin/main
+604,[OPENCODE] [P1][ci][devnet] GitHub Action run smoke-devnet.sh on webapp PRs,priority:P1,merged,,Has commit on origin/main
+606,[OPENCODE] [P1][economy][ops] Add scripts/verify-canonical-economy.sh drift dete,priority:P1,merged,,Has commit on origin/main
+608,[OPENCODE] [P1][webapp] AICommentator surface WebSocket errors in UI,priority:P1,merged,,Has commit on origin/main
+609,[OPENCODE] [P1][webapp][devnet] FixturesPanel inline errors instead of alert(),priority:P1,merged,,Has commit on origin/main
+611,[OPENCODE] [P1][hermes][oracle] Audit VPS env video alerts flags OFF,priority:P1,merged,,Has commit on origin/main
+612,[OPENCODE] [P1][webapp][docs] Document CreateUser localStorage-only identity,priority:P1,merged,,Has commit on origin/main
+614,[OPENCODE] [P2][docs] Update docs merge stack merged #26 #35 remove blocked lang,priority:P2,merged,,Has commit on origin/main
+615,[OPENCODE] [P2][webapp] JupiterQuoteWidget integrate or remove orphan,priority:P2,merged,,Has commit on origin/main
+617,[OPENCODE] [P2][webapp] Remove or archive DashboardHub.tsx unrouted,priority:P2,merged,,Has commit on origin/main
+620,[OPENCODE] [P2][docs] Generate audit MATRIX.csv codebase traceability,priority:P2,merged,,Has commit on origin/main
+621,[OPENCODE] [P2][tech-debt] Mark exp/ Dexter fork as non-productive,priority:P2,merged,,Has commit on origin/main
+625,[OPENCODE] [P2][docs][hermes] Add gbrain import ritual to PR template,priority:P2,merged,,Has commit on origin/main
+629,[OPENCODE] [P2][oracle] Replace @ts-ignore in OracleService typed import,priority:P2,merged,,Has commit on origin/main
+632,[OPENCODE] [P2][ops] Add mundial-mvp label filter to check-tasks.sh,priority:P2,merged,,Has commit on origin/main
+633,[OPENCODE] [P2][webapp] Classic Hub deprecate route or fix coach API URL,priority:P2,merged,,Has commit on origin/main
+635,[OPENCODE] [P2][economy] Add fee_burn to tokenomics_simulation S0 scenarios,priority:P2,merged,,Has commit on origin/main
+636,[OPENCODE] [Epic][P1][mundial-mvp] Mundial 2026 release gate,priority:P1,merged,,Has commit on origin/main
+638,[OPENCODE] [P1][ops] Bulk create GitHub issues from GITHUB_ISSUES_BACKLOG CSV,priority:P1,merged,,Has commit on origin/main
+645,[OPENCODE] [P2][economy] Post-Mundial Genesis Agents protocol intake brief,priority:P2,merged,,Has commit on origin/main
+646,[OPENCODE] [P2][oracle][economy] Post-Mundial real vault_crank execute path,priority:P2,merged,,Has commit on origin/main
+648,[OPENCODE] [P2][webapp] Post-Mundial rent_nft read-only UI in Club,priority:P2,merged,,Has commit on origin/main
+649,[OPENCODE] [P2][hermes][ops] Tune alpha-watch Mundial pre-match reminders,priority:P2,merged,,Has commit on origin/main
+650,[OPENCODE] [P2][webapp][oracle] LiveEventFeed optional real-time oracle stream,priority:P2,merged,,Has commit on origin/main
+652,[OPENCODE] [P2][oracle][economy] BuilderFund contributor epoch validation runboo,priority:P2,merged,,Has commit on origin/main
+693,[OPENCODE] [GROWTH-TASK-1] Fix Critical NFT Marketplace Treasury Bug (SOL sent t,priority:P0,merged,,Has commit on origin/main
+698,[OPENCODE] [GROWTH-TASK-2] English Localization of Webapp UI (Campaign-Product M,priority:P0,merged,,Has commit on origin/main
+728,[OPENCODE] 🚨 Credential Alert: xAI OAuth missing access_token. Run: hermes auth,priority:P2,merged,,Has commit on origin/main
+732,[OPENCODE] health check,priority:P2,merged,,Has commit on origin/main
+733,[P0] Fix Critical NFT Marketplace Treasury Bug — SOL sent to Program ID instead ,priority:none,incomplete,,"No branch, no PR, no main commit"
+734,[P0] English Localization of Webapp UI — Full i18n Parity for Growth Campaigns,priority:none,closed_pr_stale,760,"PR #760 closed, not merged to main"
+735,[P0] Webapp: Decompose EstadioPortal+FixturesPanel+LiveEventFeed → features/esta,priority:none,merged,,Has commit on origin/main
+736,[P0] Webapp: Decompose TradingTerminal → features/trading (6 components + 4 hook,priority:none,incomplete,,"No branch, no PR, no main commit"
+737,"[P0] Webapp: Build Layout Shell (AppShell, Sidebar, Header, DashboardGrid, PlayN",priority:none,merged,,Has commit on origin/main
+738,[P0] SDK: Update goalchain-sdk IDL Generation + Sync Script,priority:none,closed_pr_stale,770,"PR #770 closed, not merged to main"
+745,[OPENCODE] [DRAFT] Polymarket Bot: scanner.py - Market scanner with polymarket-c,priority:P1,merged,,Has commit on origin/main
+746,[OPENCODE] [DRAFT] Polymarket Bot: brain.py - Grok reasoning engine for thesis g,priority:P1,merged,,Has commit on origin/main
+747,[OPENCODE] [DRAFT] Polymarket Bot: executor.py - Consensus execution with Kelly ,priority:P1,incomplete,,"No branch, no PR, no main commit"
+748,[OPENCODE] [DRAFT] Polymarket Bot: exit_monitor.py - Three-trigger exit strategy,priority:P1,merged,,Has commit on origin/main
+749,[OPENCODE] [OPENCODE] [P0] #272 Mundial 2026 — Play devnet MVP (bet + claim flow,priority:P0,merged,,Has commit on origin/main
+750,[OPENCODE] [DELEGATED] [P1][tech-debt] Archive goalchain_backend empty package a,priority:P1,merged,,Has commit on origin/main
+751,[OPENCODE] [DELEGATED] [P1][economy][ops] Add scripts/verify-canonical-economy.s,priority:P1,merged,,Has commit on origin/main
+752,[OPENCODE] [DELEGATED] [OPENCODE] [P0] Fix Vault Crank On-Chain Execution (vault,priority:P0,merged,,Has commit on origin/main
+753,[OPENCODE] [DELEGATED] [P1][smart-contracts][docs] Document FutureHook instructi,priority:P1,merged,,Has commit on origin/main
+754,"[OPENCODE] [DELEGATED] [OPENCODE] [IMPL] #378 Vault crank v2 — Jito bundle, Jupi",priority:P0,merged,,Has commit on origin/main
+756,[OPENCODE] [DELEGATED] [OPENCODE] [P0] Comprehensive Web Refactor,priority:P0,merged,,Has commit on origin/main
+757,[OPENCODE] [DELEGATED] [manager] P0: Jito/MEV Strategic Positioning & Roadmap,priority:P0,merged,,Has commit on origin/main
+776,AI-AUDIT: Implement Resilient Staking and Jupiter Swap in Vault Crank,priority:P0,merged,,Has commit on origin/main
+777,"AI-AUDIT: Implement RPC Retries, Priority Fee Caching & Network Timeouts",priority:P0,merged,,Has commit on origin/main
+781,AI-EXPONENTIAL: Jito MEV Bundle Staking Integration,priority:P0,merged,,Has commit on origin/main
+782,AI-EXPONENTIAL: Client-Side WASM/WebGPU Match Simulator & Live Commentary Engine,priority:P1,merged,,Has commit on origin/main
+783,AI-EXPONENTIAL: Premium Glassmorphic Staking & Infinity Burn Dashboard,priority:P0,merged,,Has commit on origin/main
+784,AI-EXPONENTIAL: Consensus-Driven Multi-Source Oracle Scraper,priority:P1,merged,,Has commit on origin/main
+785,AI-EXPONENTIAL: OpenTelemetry & Prometheus Ingestion Metrics,priority:P2,closed_pr_stale,801,"PR #801 closed, not merged to main"
+786,AI-AUDIT: Resilient Vault Crank Jupiter Swaps,priority:P0,merged,,Has commit on origin/main
+787,AI-AUDIT: Minimum Priority Fee Floors & Compute Unit Caching,priority:P1,merged,,Has commit on origin/main
+788,AI-AUDIT: Add Transaction Simulation (simulateTransaction) to Critical Paths,priority:P1,merged,,Has commit on origin/main
+789,AI-AUDIT: Standardize Logging with Winston/Pino across API & Oracle,priority:P2,closed_pr_stale,802,"PR #802 closed, not merged to main"
+790,AI-AUDIT: Document All Environment Variables in .env.example,priority:P2,closed_pr_stale,803,"PR #803 closed, not merged to main"
+791,AI-AUDIT: Fix computeMintGateFromRows & WSOL Fallbacks,priority:P1,merged,,Has commit on origin/main
