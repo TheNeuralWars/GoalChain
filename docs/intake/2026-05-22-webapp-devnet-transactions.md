@@ -4,12 +4,8 @@
 - **Task Status:** ready
 
 - **Status:** done
-- **Priority:** P1
-- **Owner (implementer):** cursor
-- **Reviewers:** grok
-- **Created:** 2026-05-22
-- **PR:** pending merge (`feat/webapp-devnet-mvp`)
-- **Play URL:** `https://play.goalchain.fun` (alias `goalchain.fun/go`) — ver `docs/FRONTEND_ROUTING.md`
+- **PR:** https://github.com/TheNeuralWars/GoalChain/pull/80 (merged)
+- **Duplicate note:** Issue #870 redirected here. Implementation closed via canonical #242.
 
 ## Canonical brief
 
