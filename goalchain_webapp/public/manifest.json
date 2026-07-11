@@ -1,0 +1,24 @@
+{
+  "name": "GoalChain Dashboard",
+  "short_name": "GoalChain",
+  "description": "Solana-powered football manager with DeFi yield and Genesis NFT squad",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#00ffcc",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["games", "finance", "sports"],
+  "screenshots": [],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

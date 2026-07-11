@@ -1,0 +1,10 @@
+# GoalChain NFT Image Generator - Dependencies
+# Install with: pip install -r requirements.txt
+# Or for WebP/PNG output (recommended):
+#   python3 -m venv venv && venv/bin/pip install cairosvg Pillow
+
+# cairosvg: direct SVG->PNG/WebP conversion (no browser needed)
+cairosvg>=2.9.0
+
+# PIL/Pillow: image manipulation and WebP export
+pillow>=10.0.0
