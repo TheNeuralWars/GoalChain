@@ -1,156 +1,199 @@
-# Twitter Ads Setup Guide — GoalChain Spain Football Campaign
-
-**Campaign:** Twitter Ads — Football Fans (Spain), $1,000 budget
-**Owner:** Nico / Marketing
-**Last updated:** 2026-06-11
-
----
+# GoalChain Ads Setup Guide
 
 ## Overview
 
-`scripts/marketing/campaign_budgets.json` allocates $6,500 across 5 campaigns. This guide activates the first ($1,000 Twitter Ads — Spain Football Fans). Once the pipeline is proven, the remaining $5,500 can be deployed following the same steps.
+This document guides the team through activating the first paid ad campaign from `scripts/marketing/campaign_budgets.json`.
 
----
-
-## Prerequisites
-
-- Twitter/X account: **@GoalChainSOL** (must have email verified)
-- Twitter Ads account created at [ads.twitter.com](https://ads.twitter.com)
-- Billing method configured (credit card or prepaid)
-- UTM-parameterised links already exist in the webapp (Vercel Speed Insights is already present in `main.tsx`)
+**Total budget allocated:** $6,500 across 5 campaigns
+**First priority:** Twitter Ads — Football Fans (Spain) @ $1,000
 
 ---
 
 ## Step 1 — Create Twitter Ads Account
 
-1. Go to [ads.twitter.com](https://ads.twitter.com) and sign in as @GoalChainSOL
-2. Click **"Create new ads account"**
-3. Select **"Spain"** as the timezone + country
-4. Set currency: **USD**
-5. Add a billing method (credit card)
-6. Account is ready — note the **Ads Account ID** (found in Account Settings)
+1. Log in to [ads.twitter.com](https://ads.twitter.com) using `@GoalChainSOL`.
+2. If no ad account exists, click **"Create new ad account"** and fill in:
+   - **Account name:** `GoalChain SOL — Spain Football`
+   - **Timezone:** UTC
+   - **Currency:** USD
+3. Note the **Account ID** (shown in the URL or account settings) — store it in `~/.hermes/credentials/ads.env` as `TWITTER_ADS_ACCOUNT_ID`.
+4. Add funding source (credit card or PayPal). Twitter Ads requires a minimum of $10 to start.
 
 ---
 
-## Step 2 — Configure Conversion Tracking
+## Step 2 — UTM Tracking Setup
 
-GoalChain webapp already has Vercel Speed Insights. Add a minimal Twitter conversion pixel to `goalchain_webapp/index.html` inside `<head>`:
+The webapp already has Vercel Speed Insights in `main.tsx`. No code changes needed for UTM passthrough.
 
-```html
-<!-- Twitter Website Tag -->
-<script>
-  !function(e,t,n,s,u,a){e.twq||((a=e.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)}).version='1.1',a.queue=[],(u=t.createElement(n)).src='https://static.ads-twitter.com/uwt.js',u.async=!0,(s=t.getElementsByTagName(n)[0]).parentNode.insertBefore(u,s))}(window,document,'script');
-  twq('init','YOUR_TWITTER_PIXEL_ID');
-  twq('track','PageView');
-</script>
+**UTM parameters for the Spain Football campaign:**
+
+```
+https://goalchain.fun/?utm_source=twitter_ad&utm_medium=promoted_tweet&utm_campaign=spain_football
 ```
 
-Replace `YOUR_TWITTER_PIXEL_ID` with the pixel ID from your Twitter Ads account (Settings → Events → Create pixel).
+Use this URL consistently across all ad creative. Vercel analytics (`/hub`, `/dashboard`, `/staking`) will automatically pick up the `utm_source` and `utm_campaign` params via the existing query-string handler.
 
-**UTM-tagged links** for this campaign are already in use:
-- `https://goalchain.fun/?utm_source=twitter_ad&utm_campaign=spain_football`
+**To add a conversion event (whitelist signup):**
 
-To track whitelist signups as a conversion event, add this to the registration form success handler:
+In `goalchain_webapp/src/ui/hub/` (or the whitelist registration route), add:
+
 ```javascript
-// In hub or registration component
-twq('track', 'CompleteRegistration');
+// Fire conversion when user submits wallet
+if (new URLSearchParams(window.location.search).get('utm_source') === 'twitter_ad') {
+  fetch('/api/analytics/conversion', {
+    method: 'POST',
+    body: JSON.stringify({
+      source: 'twitter_ad',
+      campaign: 'spain_football',
+      event: 'whitelist_signup',
+      wallet: publicKey?.toBase58(),
+      timestamp: new Date().toISOString(),
+    })
+  }).catch(() => {}); // non-blocking
+}
 ```
 
----
-
-## Step 3 — Create Campaign
-
-1. In Twitter Ads, go to **Campaigns → Create campaign**
-2. Choose **"Promote Tweets"** objective
-3. Set **Daily budget:** $30/day (~$1,000 / 30 days = $33/day cap; start at $30 for safety)
-4. Set **Campaign duration:** 30 days
-5. **Bidding:** Automatic (Twitter optimizes delivery)
-6. **Targeting:**
-   - Country: Spain
-   - Interests: Football, Soccer, La Liga, Champions League, Sports Betting, Crypto
-   - Age: 18–45
-   - Language: Spanish
-7. Exclude: Accounts already following @GoalChainSOL (avoid paying for existing followers)
+API endpoint `POST /api/analytics/conversion` needs to be added to `goalchain_api/src/index.ts` if not yet present — logs to `data/conversions.json`.
 
 ---
 
-## Step 4 — Create Promoted Tweet
+## Step 3 — Create the Promoted Tweet
 
-Use the Degen Preseason copy already drafted in `ops/x/x_daily_post.sh` angles. Example tweet:
+1. Go to **Twitter Ads → Creatives → Tweets** and click **"Create new tweet"**.
+2. Use copy from `ops/x/x_daily_post.sh` Degen Preseason angle, e.g.:
 
 ```
-⚽⚽⚽ Degen Preseason is LIVE ⚽⚽⚽
+Degen Preseason is LIVE. ⚽
 
-Staked SOL → Auto-burns $GCH → Real yield.
-528 Genesis NFTs. 10 Mythic. Zero paper hands.
+Stake $GCH, collect Genesis NFT players, and earn yield via Jito on Solana.
 
-Join the whitelist → https://goalchain.fun/?utm_source=twitter_ad&utm_campaign=spain_football
-
-$SOL | @GoalChainSOL
+🚀 Join the whitelist before the 5,000 SOL hard cap fills:
+goalchain.fun/?utm_source=twitter_ad&utm_campaign=spain_football
 ```
 
-**Do NOT include emoji-only or vague copy** — Twitter's algorithm penalises low-engagement promoted tweets. The tweet above has a clear CTA and URL.
+3. Attach a player card image from `docs/assets/img/nfts/composed/` (use `001_Lionel_Satoshi.webp` or similar Mythic card).
+4. Click **"Promote this tweet"** and target:
+   - **Location:** Spain
+   - **Interests:** Football, Soccer, Sports Betting, Cryptocurrency
+   - **Devices:** Mobile preferred (most Zealy traffic is mobile)
+   - **Budget:** $10–20/day, $1,000 total
+   - **Bid strategy:** Automatic (let Twitter optimize)
 
 ---
 
-## Step 5 — Launch + Monitor
+## Step 4 — ROI Audit Logging
 
-1. Launch the campaign from Twitter Ads dashboard
-2. **Day 1–3:** Check impressions, CTR, spend rate
-3. **Day 7:** Review conversion pixel data in Twitter Events
-4. **Day 14:** ROI calculation using `scripts/marketing/roi_audit.py`
+If `scripts/marketing/roi_audit.py` doesn't exist yet, create it:
 
-Expected targets:
-| Metric | Target |
-|--------|--------|
-| CPC | $0.10 – $0.50 |
-| CTR | > 1.5% |
-| Cost per whitelist signup | < $5 |
-| Total clicks (30 days) | 2,000 – 10,000 |
+```python
+#!/usr/bin/env python3
+"""
+roi_audit.py — GoalChain Ad ROI Audit
+Reads conversions from data/conversions.json and reports spend vs. attributed signups.
+"""
+
+import json
+import sys
+from pathlib import Path
+from datetime import datetime, timezone
+
+SPEND = {
+    "spain_football": 1000.0,
+    "latam_crypto":   1800.0,
+    "uk_fantasy":     300.0,
+    "brazil_sports":  1500.0,
+    "argentina_wc":   1900.0,
+}
+
+def audit():
+    conv_file = Path(__file__).parent.parent / "goalchain_api" / "data" / "conversions.json"
+    conversions = []
+    if conv_file.exists():
+        try:
+            conversions = json.loads(conv_file.read_text())
+        except Exception:
+            pass
+
+    twitter = [c for c in conversions if c.get("source") == "twitter_ad"]
+    unique_wallets = set(c.get("wallet") for c in twitter if c.get("wallet"))
+
+    total_spend = sum(SPEND.values())
+    twitter_spend = SPEND.get("spain_football", 0)
+
+    print(f"\n📊 GoalChain Ad ROI Audit — {datetime.now(timezone.utc).strftime('%Y-%m-%d')}")
+    print(f"   Total allocated budget: ${total_spend:,.0f}")
+    print(f"   Spain Football spend:   ${twitter_spend:,.0f}")
+    print(f"   Twitter-attributed conversions: {len(twitter)}")
+    print(f"   Unique wallets:         {len(unique_wallets)}")
+    if unique_wallets:
+        cpa = twitter_spend / len(unique_wallets)
+        print(f"   Cost per acquisition:   ${cpa:.2f}")
+    else:
+        print(f"   ⚠️  No conversions yet — campaign may still be running or UTM not firing.")
+    print(f"\n   Remaining campaigns to activate:")
+    for name, budget in SPEND.items():
+        if name != "spain_football":
+            print(f"   - {name}: ${budget:,.0f}")
+
+if __name__ == "__main__":
+    audit()
+```
+
+Run with: `python3 scripts/marketing/roi_audit.py`
 
 ---
 
-## ROI Audit
+## Step 5 — Activate Remaining Campaigns
 
-After campaign ends (or every 2 weeks), run:
+After the Spain test delivers data (wait 3–5 days or 500+ impressions):
+
+| Campaign | Budget | Target |
+|---|---|---|
+| Twitter Ads — Crypto Degens (LatAm) | $1,800 | Mexico, Brazil, Argentina — crypto, DeFi, sports betting |
+| Twitter Ads — World Cup Trends (Argentina) | $1,900 | Argentina — football, Messi, World Cup trending topics |
+| Meta Ads — Sports Bettors (Brazil) | $1,500 | Brazil — Facebook/Instagram, sports betting, fantasy football |
+| Meta Ads — Fantasy Sports (UK) | $300 | UK — Instagram, fantasy football, Premier League |
+
+For Meta Ads: create account at [business.facebook.com](https://business.facebook.com) → Ads Manager, link Instagram to cross-promote.
+
+---
+
+## Environment Variables
+
+Add to `~/.hermes/credentials/ads.env`:
 
 ```bash
-cd scripts/marketing
-python3 roi_audit.py --campaign spain_football --start-date 2026-06-11
+export TWITTER_ADS_ACCOUNT_ID="your_account_id_here"
+export ADS_SPEND_LOG="/data/apps/goalchain/goalchain_api/data/conversions.json"
 ```
 
-Update `campaign_budgets.json` status field when campaign is complete.
+---
+
+## Verification Commands
+
+```bash
+# Check ROI audit (after conversions accumulate)
+python3 scripts/marketing/roi_audit.py
+
+# Verify UTM passthrough (open in browser)
+open "https://goalchain.fun/?utm_source=twitter_ad&utm_campaign=spain_football"
+# Check browser console for [Zealy] or [Analytics] log messages
+
+# Verify webapp build
+cd goalchain_webapp && npm run build
+
+# Verify API typecheck
+cd goalchain_api && npx tsc --noEmit
+```
 
 ---
 
-## Remaining $5,500 Budget Allocation
+## Rollback
 
-Once this $1,000 campaign proves ROI, deploy:
+If a campaign underperforms (< 0.1% CTR after 1,000 impressions):
 
-| Campaign | Budget | Platform | Notes |
-|----------|--------|----------|-------|
-| Spain Football (Phase 2) | $1,000 | Twitter Ads | Double down if CPC < $0.30 |
-| English-Speaking Markets | $1,500 | Twitter/Reddit | UK, US, LatAm |
-| Crypto Community | $1,500 | Reddit, Discord Promoted | DeFi, Solana, NFT subs |
-| Creator Partnerships | $1,000 |手动 | Micro-influencers on X |
-| Retargeting | $500 | Twitter Retargeting | Visitors who didn't convert |
+1. Pause campaign in Twitter Ads dashboard
+2. Do NOT delete the campaign — keep for A/B comparison
+3. Adjust creative (new image, different copy angle) and re-launch
 
----
-
-## Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| Campaign not approved | Twitter reviews new advertisers for 24–48h. Check "Needs Review" tab |
-| Low impressions | Raise bid or expand targeting interests |
-| High CPC (> $1) | Narrow targeting or switch to automatic bidding |
-| Pixel not firing | Use Twitter Pixel Helper Chrome extension to debug |
-| Billing declined | Check credit card expiry; Twitter Ads requires prepaid credit |
-
----
-
-## Contacts
-
-- Twitter Ads Support: [@TwitterAds](https://x.com/TwitterAds)
-- GoalChain campaign owner: Nico
-- Technical contact for pixel: dev agent
+No code rollback needed — UTM params and the conversion tracking endpoint are additive changes.
