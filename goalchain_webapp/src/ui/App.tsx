@@ -14,6 +14,7 @@ import { UserProvider } from '../contexts/UserContext';
 
 import { PlayLayout } from './PlayLayout';
 import { DashboardGrid } from './DashboardGrid';
+import { LandingPage } from './LandingPage';
 import { EstadioPortal } from './EstadioPortal';
 import { DeFiPortal } from './DeFiPortal';
 import { ClubPortal } from './ClubPortal';
@@ -81,6 +82,10 @@ function App() {
                   <Route element={<PlayLayout />}>
                     <Route
                       path="/"
+                      element={<LandingPage />}
+                    />
+                    <Route
+                      path="/dashboard"
                       element={
                         <PlayPage titleKey="route_home" align="left">
                           <DashboardGrid />

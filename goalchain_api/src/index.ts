@@ -7,6 +7,7 @@ import { AnchorProvider, Program } from "@coral-xyz/anchor";
 import { idl, PROGRAM_ID, GoalchainProgram, retryRpcCall, getConnection, getRpcUrl } from "@goalchain/sdk";
 import fs from "fs";
 import { exec } from "child_process";
+import crypto from "crypto";
 
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
@@ -1498,6 +1499,109 @@ app.post("/api/noahai/commentary", (req, res) => {
     console.error("Error in NoahAI Commentary:", err);
     res.status(500).json({ error: `NoahAI failed: ${err.message}` });
   }
+});
+
+// ─── ZEALY QUEST WEBHOOK ─────────────────────────────────────────────────────
+// POST /api/zealy/webhook
+// Payload: { wallet, user_id, quest_id }
+// Headers: X-Zealy-Signature (HMAC-SHA256 of raw body)
+
+function verifyZealySignature(rawBody: string, signature: string | undefined): boolean {
+  const secret = process.env.ZEALY_WEBHOOK_SECRET;
+  if (!secret || !signature) return false;
+  const expected = crypto.createHmac("sha256", secret).update(rawBody, "utf8").digest("hex");
+  return crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(signature));
+}
+
+async function assignDiscordRole(userId: string, roleId: string): Promise<void> {
+  const token = process.env.DISCORD_COMMUNITY_BOT_TOKEN;
+  const guildId = process.env.DISCORD_GUILD_ID;
+  if (!token || !guildId) {
+    console.warn("[Zealy] DISCORD_COMMUNITY_BOT_TOKEN or DISCORD_GUILD_ID not set — skipping role");
+    return;
+  }
+  const url = `https://discord.com/api/v10/guilds/${guildId}/members/${userId}/roles/${roleId}`;
+  const resp = await fetch(url, {
+    method: "PUT",
+    headers: {
+      "Authorization": `Bot ${token}`,
+      "Content-Type": "application/json",
+    },
+  });
+  if (!resp.ok) {
+    const body = await resp.text();
+    console.error(`[Zealy] Discord role assign failed (${resp.status}): ${body}`);
+  } else {
+    console.log(`[Zealy] Assigned Discord role ${roleId} to user ${userId}`);
+  }
+}
+
+app.post("/api/zealy/webhook", async (req, res) => {
+  // Grab raw body BEFORE express.json() parses it so we can verify HMAC
+  const rawBody = JSON.stringify(req.body);
+  const signature = req.headers["x-zealy-signature"] as string | undefined;
+
+  if (!verifyZealySignature(rawBody, signature)) {
+    return res.status(401).json({ error: "Invalid signature" });
+  }
+
+  const { wallet, user_id, quest_id } = req.body as {
+    wallet?: string;
+    user_id?: string;
+    quest_id?: string;
+  };
+
+  if (!wallet || !user_id || !quest_id) {
+    return res.status(400).json({ error: "wallet, user_id, quest_id are required" });
+  }
+
+  // Allowlist check — wallet must be in whitelist.json
+  const whitelistPath = path.join(__dirname, "../data/whitelist.json");
+  let whitelisted = false;
+  try {
+    if (fs.existsSync(whitelistPath)) {
+      const whitelist = JSON.parse(fs.readFileSync(whitelistPath, "utf-8")) as Array<{ wallet: string }>;
+      whitelisted = whitelist.some((entry) => entry.wallet === wallet);
+    }
+  } catch {
+    // If whitelist is missing/corrupt, proceed with a warning
+    console.warn("[Zealy] whitelist.json not found or corrupt — proceeding without allowlist check");
+    whitelisted = true;
+  }
+
+  if (!whitelisted) {
+    console.warn(`[Zealy] Wallet ${wallet} not in allowlist — ignoring quest completion`);
+    return res.status(403).json({ error: "Wallet not in allowlist" });
+  }
+
+  // Log completion
+  const completionsPath = path.join(__dirname, "../data/zealy_completions.json");
+  const dataDir = path.dirname(completionsPath);
+  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+
+  let completions: Array<Record<string, unknown>> = [];
+  if (fs.existsSync(completionsPath)) {
+    try { completions = JSON.parse(fs.readFileSync(completionsPath, "utf-8")); } catch { /* corrupt file */ }
+  }
+
+  completions.push({
+    wallet,
+    user_id,
+    quest_id,
+    timestamp: new Date().toISOString(),
+    role_assigned: false,
+  });
+  fs.writeFileSync(completionsPath, JSON.stringify(completions, null, 2));
+
+  // Assign Discord role asynchronously (don't block response)
+  const roleId = process.env.DISCORD_ZEALY_ROLE_ID;
+  if (roleId) {
+    assignDiscordRole(user_id, roleId).catch(console.error);
+    completions[completions.length - 1]["role_assigned"] = true;
+  }
+
+  console.log(`[Zealy] Quest completed: ${quest_id} by wallet ${wallet} (user ${user_id})`);
+  return res.json({ success: true, message: "Quest completion recorded" });
 });
 
 app.listen(port, () => {
