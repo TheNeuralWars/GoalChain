@@ -1506,10 +1506,21 @@ app.post("/api/noahai/commentary", (req, res) => {
 // Payload: { wallet, user_id, quest_id }
 // Headers: X-Zealy-Signature (HMAC-SHA256 of raw body)
 
-function verifyZealySignature(rawBody: string, signature: string | undefined): boolean {
+function canonicalJson(obj: unknown): string {
+  if (obj == null) return "null";
+  if (typeof obj !== "object") return JSON.stringify(obj);
+  if (Array.isArray(obj)) {
+    return "[" + obj.map(canonicalJson).join(",") + "]";
+  }
+  const keys = Object.keys(obj as Record<string, unknown>).sort();
+  return "{" + keys.map((k) => JSON.stringify(k) + ":" + canonicalJson((obj as Record<string, unknown>)[k])).join(",") + "}";
+}
+
+function verifyZealySignature(parsedBody: unknown, signature: string | undefined): boolean {
   const secret = process.env.ZEALY_WEBHOOK_SECRET;
   if (!secret || !signature) return false;
-  const expected = crypto.createHmac("sha256", secret).update(rawBody, "utf8").digest("hex");
+  const canonical = canonicalJson(parsedBody);
+  const expected = crypto.createHmac("sha256", secret).update(canonical, "utf8").digest("hex");
   return crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(signature));
 }
 
@@ -1537,11 +1548,9 @@ async function assignDiscordRole(userId: string, roleId: string): Promise<void> 
 }
 
 app.post("/api/zealy/webhook", async (req, res) => {
-  // Grab raw body BEFORE express.json() parses it so we can verify HMAC
-  const rawBody = JSON.stringify(req.body);
   const signature = req.headers["x-zealy-signature"] as string | undefined;
 
-  if (!verifyZealySignature(rawBody, signature)) {
+  if (!verifyZealySignature(req.body, signature)) {
     return res.status(401).json({ error: "Invalid signature" });
   }
 
