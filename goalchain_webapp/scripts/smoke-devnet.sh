@@ -29,7 +29,12 @@ data = json.loads(sys.argv[1])
 if "canonicalConfig" not in data and "canonical_config" not in data and "canonicalConfig" not in str(data):
     # tolerate either casing from API evolution
     pass
-print("economy config ok")
+# Harden: verify config_version (issue #99)
+if "config_version" not in data:
+    raise SystemExit("missing config_version in /api/economy/config response")
+if "drift" not in data:
+    raise SystemExit("missing drift field in /api/economy/config response")
+print(f"economy config ok — version={data.get('config_version','?')} drift={data.get('drift')}")
 PY
 
 echo "==> Webapp exports (claim + economy client)"

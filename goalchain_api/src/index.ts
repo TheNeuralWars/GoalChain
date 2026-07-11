@@ -790,7 +790,15 @@ app.get("/api/economy/config", async (req, res) => {
       onchainConfig = null;
     }
 
+    const drift =
+      onchainConfig !== null &&
+      canonicalConfig !== null &&
+      (onchainConfig.feeBps !== (canonicalConfig.core_parameters?.max_fee_bps ?? 100) ||
+        onchainConfig.maxStartersPerManager !== 11);
+
     res.json({
+      config_version: canonicalConfig?.config_version ?? "v1.0.0-p0",
+      drift,
       source: {
         canonicalPath: canonicalPath,
         rpcUrl: getRpcUrl(),

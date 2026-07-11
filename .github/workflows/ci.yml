@@ -104,6 +104,34 @@ jobs:
       - name: Lint
         run: npm run lint
 
+  goalchain-webapp:
+    name: Webapp build (issue #131)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: goalchain_webapp
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: goalchain_webapp/package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Smoke check — client exports
+        run: |
+          node -e "
+            const fs = require('fs');
+            const src = 'src/lib/goalchainClient.ts';
+            if (!fs.existsSync(src)) { console.error('missing: ' + src); process.exit(1); }
+            console.log('client exports check passed');
+          "
+
   goalchain-oracle:
     runs-on: ubuntu-latest
     defaults:
