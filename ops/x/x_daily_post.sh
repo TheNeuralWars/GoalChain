@@ -59,6 +59,7 @@ SQUAD_PATHS = [
     Path(os.path.expanduser("~/hermes/workspace/GoalChain/docs/assets/data/players.json")),
     Path(os.path.expanduser("~/hermes/workspace/GoalChain/ai_context/03_data/players.json")),
 ]
+NFT_IMG_DIR = Path(os.path.expanduser("~/hermes/workspace/GoalChain/docs/assets/img/nfts/composed"))
 
 # ── Load rotation state ──────────────────────────────────────────────────────
 state = {}
@@ -111,6 +112,7 @@ def pick_player(squad, used):
 
 # ── Build tweet by angle ─────────────────────────────────────────────────────
 tweet = ""
+img_path = None  # Will be set if player_spotlight angle gets a card image
 
 if angle == "player_spotlight" and squad:
     p = pick_player(squad, used_players)
@@ -132,6 +134,14 @@ if angle == "player_spotlight" and squad:
             f"#GoalChain #SolanaFootball #WC2026"
         )
         used_players = (used_players + [name])[-20:]
+        # Pick the NFT card image for this player (graceful: skip if missing)
+        slug = name.replace(" ", "_").replace("'", "_").replace(".", "")
+        candidate = NFT_IMG_DIR / f"{p['id']:03d}_{slug}.webp"
+        if candidate.exists():
+            img_path = str(candidate)
+            print(f"[x_daily] Card image: {img_path}")
+        else:
+            print(f"[x_daily] No card image for {p['id']} — posting text-only")
     else:
         angle = "genesis_depth"
 
@@ -229,10 +239,11 @@ print(f"[x_daily] Length: {len(tweet)} chars")
 print(f"[x_daily] Preview: {tweet[:100]}…")
 
 # ── Call budget poster ───────────────────────────────────────────────────────
-result = subprocess.run(
-    [sys.executable, str(BUDGET_POSTER), "--post", tweet],
-    capture_output=True, text=True
-)
+poster_args = [sys.executable, str(BUDGET_POSTER), "--post", tweet]
+if img_path:
+    poster_args += ["--image", img_path]
+print(f"[x_daily] Poster args: {poster_args[:4]}...")
+result = subprocess.run(poster_args, capture_output=True, text=True)
 print(result.stdout)
 if result.returncode != 0:
     print(f"[x_daily] Budget poster exited {result.returncode}: {result.stderr}")
