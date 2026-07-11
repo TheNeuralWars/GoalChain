@@ -4,7 +4,7 @@ Automated pipeline for generating player card images from NFT metadata.
 
 ## Overview
 
-Generates SVG (and optionally PNG/WebP) player card images for all 528 Genesis NFT players. The cards include:
+Generates WebP (default), PNG, or SVG player card images for all 528 Genesis NFT players. The cards include:
 - Player ID and rarity badge
 - Country flag emoji
 - Player name and position
@@ -13,27 +13,26 @@ Generates SVG (and optionally PNG/WebP) player card images for all 528 Genesis N
 
 ## Files
 
-- `generate_nft_card.py` — Core SVG generator
-- `batch_generate.sh` — Batch processor for all 528 players
-- `render_png.py` — Optional PNG renderer using Playwright
-- `requirements.txt` — Python dependencies
+- `generate_nft_card.py` — Core SVG + WebP/PNG generator (via cairosvg + PIL)
+- `batch_generate.sh` — Batch processor for all 528 players; auto-creates venv on first run
+- `render_png.py` — Optional standalone PNG renderer
+- `requirements.txt` — Python dependencies (cairosvg, pillow)
+- `venv/` — Auto-created virtual environment (not committed to git)
 
 ## Quick Start
 
 ```bash
-# 1. Navigate to script directory
+# Navigate to script directory
 cd scripts/generate_nft_images
 
-# 2. Generate SVG for single player
-python3 generate_nft_card.py --player-id 1
-
-# 3. Generate SVG for all players (528)
+# Generate WebP for all 528 players (auto-creates venv on first run)
 ./batch_generate.sh
 
-# 4. For PNG output (requires Playwright)
-pip install -r requirements.txt
-playwright install chromium
-python3 render_png.py --batch --input-dir . --output-dir ../docs/assets/img/nfts
+# Generate WebP for a single player
+./venv/bin/python generate_nft_card.py --player-id 1 --format webp
+
+# Generate SVG only (no venv needed)
+./venv/bin/python generate_nft_card.py --player-id 1 --format svg
 ```
 
 ## Options
@@ -43,7 +42,7 @@ python3 render_png.py --batch --input-dir . --output-dir ../docs/assets/img/nfts
 --player-id N      Player ID to generate (required)
 --metadata-path    Path to nft_metadata_index.json (default: ../../docs/assets/data/)
 --output-dir       Output directory (default: ../../docs/assets/img/nfts/)
---format           svg or png (default: svg)
+--format           svg, png, or webp (default: webp)
 ```
 
 ### batch_generate.sh
@@ -51,7 +50,7 @@ python3 render_png.py --batch --input-dir . --output-dir ../docs/assets/img/nfts
 --start N          Start player ID (default: 1)
 --end N            End player ID (default: 528)
 --batch-size N     Report progress every N players (default: 50)
---format           svg or png (default: svg)
+--format           svg, png, or webp (default: webp)
 ```
 
 ## Rarity Colors
@@ -68,18 +67,21 @@ python3 render_png.py --batch --input-dir . --output-dir ../docs/assets/img/nfts
 
 Generated files follow the naming convention:
 ```
-{player_id:03d}_{player_slug}.svg
-Example: 001_lionel_satoshi.svg
+{player_id:03d}_{player_slug}.webp
+Example: 001_Lionel_Satoshi.webp
 ```
+
+Output directory: `docs/assets/img/nfts/composed/` (served by the webapp via `getPlayerImagePath()`)
 
 ## Dependencies
 
 - Python 3.8+
-- playwright (for PNG rendering, optional)
+- cairosvg (SVG → PNG conversion)
+- pillow (PNG → WebP export)
+- batch_generate.sh auto-installs these into a local venv on first run
 
 ## Notes
 
-- SVG output is the default and works without additional dependencies
-- PNG rendering requires Playwright with Chromium installed
+- WebP output is the default (800×1120 px, ~30-70KB per file)
 - The 528 players consist of: 10 Mythic, 50 Legendary, and the rest Epic/Rare
-- Existing images in `docs/assets/img/nfts/` will NOT be overwritten by default
+- Existing images in `docs/assets/img/nfts/composed/` will NOT be overwritten by default

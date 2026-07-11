@@ -24,7 +24,7 @@ GitHub issue #869
 - `scripts/generate_nft_images/generate_nft_card.py` — generates SVG + PNG/WebP via cairosvg+PIL
 - `scripts/generate_nft_images/batch_generate.sh` — batch runner (all 528 players)
 - `scripts/generate_nft_images/requirements.txt` — cairosvg+Pillow
-- `scripts/generate_nft_images/venv/` — local venv with cairosvg installed
+- `scripts/generate_nft_images/venv/` — auto-created on first run; not committed. batch_generate.sh auto-creates it with cairosvg + pillow
 
 **Output directory:** `docs/assets/img/nfts/composed/` (served by webapp)
 **Verification:** All 528 player IDs have matching images in `composed/`. Average file size 44KB.
@@ -66,8 +66,8 @@ print(f'Missing: {len(missing)}')
 # Test single card generation:
 cd scripts/generate_nft_images && ./venv/bin/python generate_nft_card.py --player-id 1 --format webp
 
-# Test batch generation (dry run - just verify no errors):
-cd scripts/generate_nft_images && ./batch_generate.sh --start 1 --end 5 --format webp
+# Test batch generation (creates venv + generates 5 players):
+cd scripts/generate_nft_images && rm -rf venv && ./batch_generate.sh --start 1 --end 5 --format webp
 ```
 
 ---
@@ -88,4 +88,4 @@ cd scripts/generate_nft_images && ./batch_generate.sh --start 1 --end 5 --format
 - Revert commit `11e6bc33` (LandingPage + PWA) — `git revert 11e6bc33`
 - Revert commit `61b49993` (Zealy webhook) — `git revert 61b49993`
 - Zealy webhook: also remove lines 1504-1605 from `goalchain_api/src/index.ts`
-- NFT images: no rollback needed — these are new files, remove them with `rm scripts/generate_nft_images/*`
+- NFT images: no rollback needed — remove scripts/generate_nft_images/ batch with `rm -rf scripts/generate_nft_images/`

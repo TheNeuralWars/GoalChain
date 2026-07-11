@@ -22,7 +22,20 @@ cd "$SCRIPT_DIR"
 START=1
 END=528
 BATCH_SIZE=50
-FORMAT="webp"
+ensure_venv() {
+    if [ ! -d "venv" ]; then
+        echo "📦 Creating virtual environment..."
+        python3 -m venv venv
+        echo "📦 Installing dependencies (cairosvg + pillow)..."
+        venv/bin/pip install --upgrade pip cairosvg pillow > /dev/null 2>&1
+        echo "✅ Dependencies installed."
+    fi
+}
+
+if [ ! -d "venv" ]; then
+    ensure_venv
+fi
+
 VENV_PYTHON="$(cd "$(dirname "${BASH_SOURCE[0]}")" && [ -d venv/bin/python3 ] && echo venv/bin/python3 || echo python3)"
 
 # Parse arguments
