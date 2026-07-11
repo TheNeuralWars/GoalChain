@@ -921,6 +921,107 @@ app.post("/api/whitelist", (req, res) => {
   }
 });
 
+// ─── Zealy Quest Verification Webhook + Discord Role Sync ──────────────────
+// POST /api/zealy/webhook
+// Accepts Zealy completion payload, verifies signature, logs completions,
+// and assigns Discord "Degen" role to the completing user.
+app.post("/api/zealy/webhook", async (req, res) => {
+  const signature = req.headers["x-zealy-signature"] as string | undefined;
+  const secret = process.env.ZEALY_WEBHOOK_SECRET;
+
+  // 1. Verify HMAC-SHA256 signature (reject if missing or mismatched)
+  if (!secret) {
+    console.warn("[Zealy] ZEALY_WEBHOOK_SECRET not configured — allowing unsigned (dev mode)");
+  } else if (!signature) {
+    return res.status(401).json({ error: "Missing x-zealy-signature header" });
+  } else {
+    const rawBody = JSON.stringify(req.body);
+    const expectedSig = crypto
+      .createHmac("sha256", secret)
+      .update(rawBody)
+      .digest("hex");
+    if (signature !== expectedSig) {
+      console.warn("[Zealy] Invalid signature received");
+      return res.status(401).json({ error: "Invalid signature" });
+    }
+  }
+
+  const { wallet, user_id: userId, quest_id: questId } = req.body as {
+    wallet?: string;
+    user_id?: string;
+    quest_id?: string;
+  };
+
+  if (!wallet || !userId || !questId) {
+    return res.status(400).json({ error: "wallet, user_id, and quest_id are required" });
+  }
+
+  console.log(`[Zealy] Quest completed: ${questId} by ${wallet} (user: ${userId})`);
+
+  // 2. Log to data/zealy_completions.json (append-only, rotate at 1000 entries)
+  try {
+    const dataDir = path.resolve(__dirname, "../data");
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+    const logPath = path.join(dataDir, "zealy_completions.json");
+
+    let completions: object[] = [];
+    if (fs.existsSync(logPath)) {
+      try { completions = JSON.parse(fs.readFileSync(logPath, "utf-8")); } catch {}
+    }
+
+    completions.push({
+      wallet,
+      user_id: userId,
+      quest_id: questId,
+      timestamp: new Date().toISOString(),
+    });
+
+    // Rotate: keep last 1000 entries
+    if (completions.length > 1000) {
+      completions = completions.slice(-1000);
+    }
+
+    fs.writeFileSync(logPath, JSON.stringify(completions, null, 2));
+    console.log(`[Zealy] Logged completion — total: ${completions.length}`);
+  } catch (logErr) {
+    console.error("[Zealy] Failed to write completion log:", logErr);
+    // Non-fatal — don't block the response
+  }
+
+  // 3. Assign Discord "Degen" role via Discord REST API
+  const discordToken = process.env.DISCORD_COMMUNITY_BOT_TOKEN;
+  const guildId = process.env.DISCORD_GUILD_ID;
+  const degenRoleId = process.env.DISCORD_DEGEN_ROLE_ID;
+
+  if (discordToken && guildId && degenRoleId) {
+    try {
+      const discordRes = await fetch(
+        `https://discord.com/api/v10/guilds/${guildId}/members/${userId}/roles/${degenRoleId}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bot ${discordToken}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (discordRes.ok) {
+        console.log(`[Zealy] Discord role assigned to user ${userId}`);
+      } else {
+        const errText = await discordRes.text();
+        console.warn(`[Zealy] Discord role assign failed (${discordRes.status}): ${errText}`);
+      }
+    } catch (discordErr) {
+      console.error("[Zealy] Discord API call failed:", discordErr);
+    }
+  } else {
+    console.log("[Zealy] Discord role assignment skipped — env vars not set");
+  }
+
+  return res.json({ ok: true });
+});
+
 // Chat Proxy Route for Eliza AI Coach & Advisor (securely hides developer's GEMINI_API_KEY with strict guardrails)
 app.post("/api/coach/chat", async (req, res) => {
   const { userText, context } = req.body;

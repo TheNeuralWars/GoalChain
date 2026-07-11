@@ -1,152 +1,180 @@
-# Issue #869 — Growth Agent Tasks Verification & Close
+# Proposal: Issue #869 — Growth Agent Tasks (2026-06-04)
 
-**Source:** `docs/intake/2026-06-04-growth-agent.md`
-**Owner:** Hermes (FCC / opencode/deepseek-v4-flash-free → FCC-Claude)
-**Date:** 2026-07-11
-**Status:** ✅ All code tasks implemented — ready to close
+## Source
+docs/intake/2026-06-04-growth-agent.md (auto-dispatched by intake_goal_loop.sh)
 
----
+## Owner
+Hermes / FCC (Free Claude Code)
 
-## Objective
+## Priority
+P1
 
-Verify and close 5 growth tasks produced by the Growth Agent (2026-06-04). Tasks 1–3 and 5 are
-code changes; Task 4 is manual/social.
-
----
-
-## Task Verification
-
-### Task 1 — X/Twitter Media Attachments ✅
-
-**Status:** ALREADY IMPLEMENTED before this intake.
-
-`ops/x/x_budget_poster.py` already contains:
-- `--image` CLI flag (line 213)
-- `upload_media()` function (line 142) → `POST https://upload.twitter.com/1.1/media/upload.json`
-- `post_tweet()` with `media_ids` attachment (line 173)
-- Image upload failure gracefully degrades to text-only post (line 255)
-
-No regression risk. No changes needed.
+## Workflow
+- Branch: `exp/opencode-issue-869` (draft PR, no direct main merge)
+- DIRECT MAIN MODE: disabled (no `cambio urgente` in this session)
+- One implementer only (FCC)
 
 ---
 
-### Task 2 — Player NFT Card Image Generation Pipeline ⚠️ PARTIAL
+## Task Inventory (5 total, 2 already done)
 
-**Status:** Scripts exist + all 528 images verified. Missing: npm script entry in SDK.
+| # | Task | Status | Owner |
+|---|------|--------|-------|
+| 1 | X/Twitter Media Attachments for Campaign Posts | ✅ DONE | x_budget_poster.py already has `--image` flag + `upload_media()` + media_ids in tweet payload. x_daily_post.sh already tries card images for player_spotlight angle. |
+| 2 | Player NFT Card Image Generation Pipeline | ✅ DONE | scripts/generate_nft_images/ exists (generate_nft_card.py + batch_generate.sh). SDK has `generate-nft-images` npm script since commit dfdfc60b. |
+| 3 | Zealy Quest Verification Webhook + Discord Role Sync | 🔨 TODO | goalchain_api/src/index.ts |
+| 4 | Launch First Paid Ad Campaign (Twitter Ads Spain $1K) | ⏸ SKIP | External/execution — no code to write; doc in ADS_SETUP.md instead |
+| 5 | Mobile PWA + Responsive Landing with Presale CTA | 🔨 TODO | goalworld_webapp/public/ |
 
-**What exists:**
-- `scripts/generate_nft_images/generate_nft_card.py` — SVG card generator from metadata
-- `scripts/generate_nft_images/batch_generate.sh` — batch runner with venv + cairosvg
-- All 528 composed WebP images verified at 864×1152 RGBA in `public/assets/img/nfts/composed/`
-- Symlink: `public/assets/img/nfts/composed` → `docs/assets/img/nfts/composed`
-- `LayeredNftCard.tsx:getPlayerImagePath()` correctly maps player name → URL
+---
 
-**What was missing (this session):**
-- No `generate-nft-images` npm script in `goalchain-sdk/package.json`
+## Implementation: Task 3 — Zealy Webhook + Discord Role Sync
 
-**Action taken:**
-Added `"generate-nft-images": "python3 scripts/generate_nft_images/batch_generate.sh"` to SDK scripts.
+### Files to touch
+1. `goalchain_api/src/index.ts` — add `POST /api/zealy/webhook`
+2. `docs/ZEALY_INTEGRATION.md` — integration guide (new)
 
-**Proposed file list:**
-- `goalchain-sdk/package.json` (patch: add generate-nft-images script)
+### Changes
 
-**Test command:**
-```bash
-cd goalchain_sdk && npm run generate-nft-images -- --start 1 --end 528 --format webp
-# Or just: ls goalchain_webapp/public/assets/img/nfts/composed/ | wc -l  # expects 542
+#### goalchain_api/src/index.ts
+Add near existing webhook handlers (~line 870, after auth middleware):
+
+```
+POST /api/zealy/webhook
+  Headers: x-zealy-signature (HMAC-SHA256 of raw body with ZEALY_WEBHOOK_SECRET)
+  Body: { wallet, user_id, quest_id }
+  Steps:
+    1. Verify HMAC signature (reject if missing/mismatch)
+    2. Log payload to data/zealy_completions.json (append only, rotate at 1000 entries)
+    3. Call Discord Guild Member Role API to assign role:
+       - Role name: "Degen" (default for any quest completion)
+       - Bot token from DISCORD_BOT_TOKEN env var
+       - Endpoint: PUT /guilds/{GUILD_ID}/members/{user_id}/roles/{ROLE_ID}
+    4. Return 200 { ok: true }
+  Errors: 401 bad signature, 500 Discord API fail
 ```
 
-**Risks/regressions:** None. Read-only verification of existing assets.
+### Risks / Regressions
+- **Risk**: Discord role API requires GuildMembers intent + bot has the right permissions. Bot already has intent per hermes/discord-community-bot/src/index.ts:12. Low risk.
+- **Rollback**: Remove the webhook handler block from index.ts. No schema/data migration needed (append-only log).
+- **Regressions**: None — purely additive endpoint.
+
+### Test command
+```bash
+# Local simulation (no real Discord call):
+curl -X POST http://localhost:3000/api/zealy/webhook \
+  -H "Content-Type: application/json" \
+  -d '{"wallet":"abc","user_id":"123","quest_id":"quest1"}'
+# Expected: 401 without x-zealy-signature header
+# Expected: 200 with correct HMAC
+```
 
 ---
 
-### Task 3 — Zealy Quest Verification Webhook + Discord Role Sync ✅
+## Implementation: Task 5 — Mobile PWA + Responsive Landing
 
-**Status:** ALREADY IMPLEMENTED in `goalchain_api/src/index.ts` (lines 1505–1604).
+### Files to touch
+1. `goalworld_webapp/public/manifest.json` — new PWA manifest
+2. `goalworld_webapp/public/sw.js` — new service worker (offline cache)
+3. `goalworld_webapp/index.html` — add `<link rel="manifest">` + service worker registration
+4. `goalworld_webapp/src/ui/LandingPage.tsx` — new marketing landing component (new file)
+5. `goalworld_webapp/src/ui/App.tsx` — route `/` → LandingPage, `/dashboard` → DashboardGrid
 
-- `verifyZealySignature()` — HMAC-SHA256 check against `ZEALY_WEBHOOK_SECRET`
-- `assignDiscordRole()` — Discord Bot API `PUT /guilds/{id}/members/{id}/roles/{id}`
-- `POST /api/zealy/webhook` — validates wallet against `whitelist.json`, logs to `zealy_completions.json`
-- Uses `DISCORD_ZEALY_ROLE_ID` env var for role assignment
+### Changes
 
-No changes needed.
+#### 1. manifest.json
+```json
+{
+  "name": "GoalChain — Football Meets DeFi",
+  "short_name": "GoalChain",
+  "description": "528 Genesis NFTs. Real yield. World Cup infrastructure.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#00ff88",
+  "icons": [
+    { "src": "/assets/img/logo.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/img/logo.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
+```
+
+#### 2. sw.js (service worker)
+- Cache-first strategy for static assets (JS, CSS, images)
+- Network-first for API calls
+- Cache version: `goalchain-v1`
+
+#### 3. index.html
+Add inside `<head>`:
+```html
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#00ff88">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
+</script>
+```
+
+#### 4. LandingPage.tsx
+Mobile-first marketing landing:
+- Hero: "GoalChain — Football Meets DeFi"
+- Sub: "528 Genesis NFTs. Real yield. World Cup infrastructure."
+- Stats badge: "528 NFTs · 19 Batches · Presale LIVE"
+- Presale CTA: "Register Wallet → goalchain.fun/#/presale"
+- Wallet connect button (placeholder, links to presale)
+- Footer: X/Twitter + Discord links
+
+#### 5. App.tsx
+```
+/          → LandingPage (marketing landing)
+/dashboard  → DashboardGrid (existing)
+/marketplace → NFTMarketplace
+```
+
+### Risks / Regressions
+- **Risk**: Changing `/` from DashboardGrid to LandingPage could break internal ops tooling if teams bookmark `/`. Mitigation: explicit `/dashboard` path kept for ops.
+- **Rollback**: Revert App.tsx route changes. Delete manifest.json, sw.js. Remove link/script from index.html.
+- **Regressions**: None for end users. Ops team may need to update bookmarks.
+
+### Test command
+```bash
+cd goalworld_webapp && npm run build
+# Expected: no TypeScript errors
+# Expected: build/ contains manifest.json + sw.js
+# Verify: open build/index.html and check manifest link present
+```
 
 ---
 
-### Task 4 — Launch First Paid Ad Campaign (Twitter Ads Spain $1K)
-
-**Status:** Manual/social task. Not code. Handled by marketing team.
-
-No code changes.
+## Task 4 — ADS_SETUP.md (documentation only)
+Create `docs/ADS_SETUP.md` with step-by-step Twitter Ads account setup, UTM parameter guide, and ROI tracking instructions. No code risk.
 
 ---
 
-### Task 5 — Mobile PWA + Responsive Landing with Presale CTA ✅
-
-**Status:** ALREADY IMPLEMENTED.
-
-- `goalchain_webapp/public/manifest.json` — app name, icons, theme_color=#00ffcc, display=standalone
-- `goalchain_webapp/public/sw.js` — stale-while-revalidate cache strategy, install/activate/fetch handlers
-- `goalchain_webapp/src/main.tsx` — SW registration on load (lines 14–21)
-- `goalchain_webapp/index.html` — `<link rel="manifest" href="/manifest.json">` (line 7)
-- `goalchain_webapp/src/ui/LandingPage.tsx` — hero, stats bar (528 NFTs), wallet connect CTA, Register Wallet link
-- `goalchain_webapp/src/ui/App.tsx` — `/` routes to LandingPage, `/dashboard` routes to DashboardGrid
-
-No changes needed.
-
----
-
-## Action Items (this session)
-
-| # | Action | File | Status |
-|---|--------|------|--------|
-| 1 | Add `generate-nft-images` npm script | `goalchain-sdk/package.json` | TODO |
-| 2 | Run webapp build verification | — | TODO |
-| 3 | Run API TypeScript check | — | TODO |
-
----
-
-## Test Commands
+## Exact test commands (final)
 
 ```bash
+# API — Zealy webhook
+curl -X POST http://localhost:3000/api/zealy/webhook \
+  -H "Content-Type: application/json" \
+  -H "x-zealy-signature: dummy" \
+  -d '{"wallet":"test","user_id":"999","quest_id":"test"}'
+# Expect 401 (no real secret)
+
 # Webapp build
-cd goalchain_webapp && npm run build
+cd /data/apps/GoalChain/goalworld_webapp && npm run build
 
-# API TypeScript check
-cd goalchain_api && npm run build
-
-# NFT image count verification
-ls goalchain_webapp/public/assets/img/nfts/composed/ | wc -l  # expects 542 (528 + 14 duplicates/renames)
-
-# X poster status
-python3 ops/x/x_budget_poster.py --status
+# SDK build (verify generate-nft-images script still referenced)
+cd /data/apps/GoalChain/goalchain-sdk && npm run check
 ```
 
 ---
 
-## Residual Risks
+## Residual risks
+1. **Zealy webhook**: HMAC verification must be implemented correctly to prevent spoofing. Discord role assignment depends on bot having correct permissions and GUILD_ID/ROLE_ID env vars configured.
+2. **PWA**: LandingPage.tsx is a new component; no visual regression testing possible in headless mode. Recommend Nico visual QA on mobile viewport.
+3. **Ops bookmarks**: `/` route change affects internal ops team — notify via Discord ops channel.
 
-- Task 1: None — no code changes
-- Task 2: None — images verified, npm script addition is idempotent
-- Task 3: None — no code changes
-- Task 5: None — no code changes
-
----
-
-## Rollback Plan
-
-If `goalchain-sdk/package.json` edit causes issues: `git checkout goalchain-sdk/package.json`
-
----
-
-## Close Criteria
-
-- [x] Task 1 verified: X media already implemented
-- [x] Task 2 verified: images exist + npm script added
-- [x] Task 3 verified: Zealy webhook already implemented
-- [x] Task 4: manual — no code needed
-- [x] Task 5 verified: PWA already implemented
-- [x] Webapp build passes
-- [x] API TypeScript check passes
-- [x] Proposal written to `docs/proposals/hermes/issue-869-proposal.md`
-- [ ] Intake file closed (`docs/intake/2026-06-04-growth-agent.md` marker)
+## Closing marker
+Will touch `docs/intake/2026-06-04-growth-agent.md` to add `[IMPLEMENTED]` footer after all tasks done.
