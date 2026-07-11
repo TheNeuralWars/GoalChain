@@ -224,7 +224,7 @@ def main():
     parser = argparse.ArgumentParser(description='GoalChain NFT Card Generator')
     parser.add_argument('--player-id', type=int, required=True, help='Player ID to generate')
     parser.add_argument('--metadata-path', type=str, default='../../docs/assets/data/nft_metadata_index.json', help='Path to metadata JSON')
-    parser.add_argument('--output-dir', type=str, default='../../docs/assets/img/nfts', help='Output directory')
+    parser.add_argument('--output-dir', type=str, default='../../docs/assets/img/nfts/composed', help='Output directory (default: composed/ subdir under nfts/)')
     parser.add_argument('--format', choices=['svg', 'png', 'webp'], default='webp', help='Output format: svg, png, or webp (default: webp)')
     args = parser.parse_args()
 

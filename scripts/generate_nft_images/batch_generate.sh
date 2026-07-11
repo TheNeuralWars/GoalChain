@@ -99,9 +99,18 @@ if ! python3 -c "import json" 2>/dev/null; then
     echo "⚠️  Standard library OK"
 fi
 
-# Create output directory
 OUTPUT_DIR="$(dirname "$SCRIPT_DIR")/../docs/assets/img/nfts"
+VITE_PUBLIC_DIR="$(dirname "$SCRIPT_DIR")/../goalchain_webapp/public/assets/img/nfts"
+
+# Create output directory
 mkdir -p "$OUTPUT_DIR"
+
+# Ensure Vite public symlink exists so images are served at /assets/img/nfts/composed/
+mkdir -p "$(dirname "$VITE_PUBLIC_DIR")"
+if [ ! -e "$VITE_PUBLIC_DIR" ]; then
+  ln -sfn "$OUTPUT_DIR" "$VITE_PUBLIC_DIR"
+  echo "[setup] Created symlink: $VITE_PUBLIC_DIR → $OUTPUT_DIR"
+fi
 
 # Process in batches
 for ((i=START; i<=END; i++)); do
@@ -113,8 +122,8 @@ for ((i=START; i<=END; i++)); do
     if "$VENV_PYTHON" generate_nft_card.py \
         --player-id "$PLAYER_ID" \
         --metadata-path "../../docs/assets/data/nft_metadata_index.json" \
-        --output-dir "../../docs/assets/img/nfts" \
-        --format "$FORMAT" 2>&1 | grep -q "saved"; then
+        --output-dir "../../docs/assets/img/nfts/composed" \
+        --format "${FORMAT:-webp}" 2>&1 | grep -q "saved"; then
         GENERATED=$((GENERATED + 1))
         echo "✅"
     else
