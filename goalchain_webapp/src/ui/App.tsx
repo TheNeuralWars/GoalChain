@@ -26,6 +26,7 @@ import { PressKit } from './PressKit';
 import { GenesisCollectionGallery } from './GenesisCollectionGallery';
 import { CorporateAutopilot } from './CorporateAutopilot';
 import { TokenizedAgentsDashboard } from './TokenizedAgentsDashboard';
+import { GoalWorldPortal } from './GoalWorldPortal';
 const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
 
 function PlayPage({
@@ -114,6 +115,15 @@ function App() {
                         <PlayPage titleKey="route_club" align="left">
                           <ClubPortal />
                         </PlayPage>
+                      }
+                    />
+                    <Route
+                      path="/goalworld"
+                      element={
+                        <PlayPage titleKey="route_goalworld" align="left">
+                          <GoalWorldPortal />
+                        </PlayPage>
+
                       }
                     />
                     <Route

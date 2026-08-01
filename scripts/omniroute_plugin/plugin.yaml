@@ -1,0 +1,5 @@
+name: omniroute
+kind: model-provider
+version: 1.0.0
+description: OmniRoute Model Router Plugin
+author: Antigravity

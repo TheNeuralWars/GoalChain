@@ -216,6 +216,7 @@ export type TranslationKeys = {
   route_marketing: string;
   route_presskit: string;
   route_staking: string;
+  route_goalworld: string;
   reveal_add: string;
   rm_q1_title: string;
   rm_q2_title: string;
@@ -315,6 +316,7 @@ export type TranslationKeys = {
   nav_agents: string;
   nav_myclub: string;
   nav_stadium: string;
+  nav_goalworld: string;
   nav_arcade_penalty: string;
   nav_arcade_pack: string;
   nav_arcade_modifiers: string;
