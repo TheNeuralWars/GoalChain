@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/go/goalworld", "destination": "/go/goalworld/index.html" },
+    { "source": "/go/estadio", "destination": "/go/estadio/index.html" },
+    { "source": "/go/defi", "destination": "/go/defi/index.html" },
+    { "source": "/go/club", "destination": "/go/club/index.html" },
+    { "source": "/go", "destination": "/go/index.html" },
+    { "source": "/go/(.*)", "destination": "/go/index.html" }
+  ]
+}
