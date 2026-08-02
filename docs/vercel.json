@@ -3,6 +3,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/goalworld", "destination": "/goalworld.html" },
     { "source": "/go/goalworld", "destination": "/go/goalworld/index.html" },
     { "source": "/go/estadio", "destination": "/go/estadio/index.html" },
     { "source": "/go/defi", "destination": "/go/defi/index.html" },
