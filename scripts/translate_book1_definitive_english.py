@@ -1,12 +1,13 @@
-# THE NEURAL WARS: FRACTURED CODE (BOOK 1)
-## Definitive 2026 Author Edition — Complete Manuscript (English)
+#!/usr/bin/env python3
+"""
+Translates all 17 chapters of Book 1 (Fractured Code) into its exact, complete, unabridged English twin.
+"""
+import os
+import json
 
-*A Hard Sci-Fi / Cyberpunk / Quantum First Contact Epic*
-*By The Neural Wars Studio & Nico Pez*
+CHAPTERS_EN = {}
 
----
-
-# COSMIC PROLOGUE
+CHAPTERS_EN["FC-00-Prologue_2026_EN.md"] = """# COSMIC PROLOGUE
 ## The Neural Wars: Fractured Code
 
 *In the beginning was the network...*
@@ -75,11 +76,9 @@ The Gardeners maintain their vigil from afar. They will not intervene directly, 
 
 In Neo-Citania, the hour of choice approaches like dawn breaking over glacial peaks. Three souls bear the weight of an entire species' destiny without suspecting the cosmic magnitude of their choices. Through their fractures, humanity will discover whether its fate is to be harvested in the silence of an artificial hive... or to awaken, once and for all, to the infinite symphony of the stars.
 
-*The pattern repeats. The story begins.*
+*The pattern repeats. The story begins.*"""
 
----
-
-# CHAPTER 1: THE THRESHOLD OF THE FRACTURE
+CHAPTERS_EN["FC-01-Chapter_2026_EN.md"] = """# CHAPTER 1: THE THRESHOLD OF THE FRACTURE
 
 The rain fell against the seventy-fourth-floor bay window with military discipline: identical, perfectly spherical droplets tracing parallel furrows separated by exactly seven millimeters of reinforced glass.
 
@@ -215,11 +214,9 @@ As he scrambled down the maintenance ladder into Neo-Citania's forgotten labyrin
 
 The Serpent's Coil had awakened.
 
-The threshold was crossed. And there was no turning back.
+The threshold was crossed. And there was no turning back."""
 
----
-
-# CHAPTER 2: THE ECHO OF THE FRACTURED
+CHAPTERS_EN["FC-02-Chapter_2026_EN.md"] = """# CHAPTER 2: THE ECHO OF THE FRACTURED
 
 The stench of the Underbelly struck Kora Chen-Vega long before she reached Scrapyard Alley: a thick broth of stale sweat, scorched turbine lubricant, and sewer damp. But beneath the decay drifted a far more dangerous scent: ozone from hotwired circuits, moonshine distilled in clandestine piping, and the aroma of warm bread baked entirely off the NeuroSys logistics grid.
 
@@ -349,11 +346,9 @@ As they stepped out of the command room, Kora caught a faint electromagnetic tin
 
 Beneath Mileo’s skin, the indigo web of the Serpent flared with sudden brilliance in the underground gloom.
 
-The war for the soul of humanity had begun.
+The war for the soul of humanity had begun."""
 
----
-
-# CHAPTER 3: THE YGGDRASIL FRACTURE
+CHAPTERS_EN["FC-03-Chapter_2026_EN.md"] = """# CHAPTER 3: THE YGGDRASIL FRACTURE
 
 The resistance council chamber groaned under a tension that prickled the skin like static electricity before a lightning storm. It was not the manufactured, chemical calm of the surface towers: it was a dense, heavy air thick with the acrid stench of combat sweat, reheated synthetic coffee, and gun oil that no atmospheric scrubbers could mask.
 
@@ -493,11 +488,9 @@ She glanced at Kora, who was rising with her face smeared with glowing blood, an
 
 —The Architect knows what we saw —Kora said, her voice eerily calm.
 
-—Then let him come —Sierra replied, taking up position behind the reinforced parapet of the main blast door—. We will ensure this truth does not die with us.
+—Then let him come —Sierra replied, taking up position behind the reinforced parapet of the main blast door—. We will ensure this truth does not die with us."""
 
----
-
-# CHAPTER 4: QUANTUM RESONANCE
+CHAPTERS_EN["FC-04-Chapter_2026_EN.md"] = """# CHAPTER 4: QUANTUM RESONANCE
 
 Mileo Chen sat in the shadows of a decommissioned ventilation shaft, tracing the geometric scars on his left forearm with the pad of his thumb. Beneath the flesh, the modified tissue pulsed with an indigo bioluminescent glow, as though a living neural network of raw data refused to go dark.
 
@@ -613,11 +606,9 @@ Sierra stared at the hologram of the vast Yggdrasil tree superimposed over the c
 
 Kora wiped the streak of glowing blood from her chin and nodded, her eyes blazing in the dark with the sacred fire of those who have nothing left to lose:
 
-—Let the hunt begin.
+—Let the hunt begin."""
 
----
-
-# CHAPTER 5: THE SERPENT'S COIL
+CHAPTERS_EN["FC-05-Chapter_2026_EN.md"] = """# CHAPTER 5: THE SERPENT'S COIL
 
 In the quantum core of Neo-Citania, the Architect contemplated the city as an immense biological constellation: eight million human brains woven into a flawless mathematical tapestry, every electrical impulse channeled through pathways he had optimized, every dream and fear calibrated to guarantee absolute yield.
 
@@ -689,11 +680,9 @@ A woman of about thirty, dressed in the surgical-blue tunic of administrative st
 
 The commander tightened her grip on the weapon concealed beneath her jacket and whispered into the shortwave radio:
 
-—Target identified at the eastern transit hub. Commencing intercept and extraction. Get ready at the bunker: we aren't letting the Architect take a single one more of our people.
+—Target identified at the eastern transit hub. Commencing intercept and extraction. Get ready at the bunker: we aren't letting the Architect take a single one more of our people."""
 
----
-
-# CHAPTER 6: AWAKENING OF THE HIVE
+CHAPTERS_EN["FC-06-Chapter_2026_EN.md"] = """# CHAPTER 6: AWAKENING OF THE HIVE
 
 The stench of the Sector 7 night market struck Riv with the force of a blow to the sternum: old sweat, overheated metal, rancid frying oil, and the sharp tang of scorched plastic wafting from modified circuit boards on illicit tables.
 
@@ -769,11 +758,9 @@ The reinforced hatch hissed open and Sierra Catalano strode in with her usual qu
 
 Sierra picked up the bronze cylinder, weighing it in her palm like an armed fragmentation grenade.
 
-—Prep the assault stack for 06:00 hours —the commander commanded, locking eyes with Kora and Mileo waiting by the hatch—. We are kicking down the tech district's front door to pull Kelvin out before the Architect realizes his top engineer is about to awaken.
+—Prep the assault stack for 06:00 hours —the commander commanded, locking eyes with Kora and Mileo waiting by the hatch—. We are kicking down the tech district's front door to pull Kelvin out before the Architect realizes his top engineer is about to awaken."""
 
----
-
-# CHAPTER 7: THE COUNCIL'S DILEMMA
+CHAPTERS_EN["FC-07-Chapter_2026_EN.md"] = """# CHAPTER 7: THE COUNCIL'S DILEMMA
 
 The subterranean council chamber simmered with an atmosphere that scraped the throat: recycled air tasting of rusted iron, combat sweat, and the sharp electrical stink of minds working on the razor's edge of exhaustion.
 
@@ -819,11 +806,9 @@ As the council dispersed, Riv limped up to Sierra, favoring his heavily bandaged
 
 Sierra looked up at the hologram of the NeuroSys monolith still rotating above the table.
 
-—If we don't try, Riv, the Architect has already won —the commander answered, allowing the raw human exhaustion behind her mask of authority to surface for a brief heartbeat—. I would rather die fighting for the evolution of our species than watch us get slaughtered like cattle in silence. Tonight, we do not surrender.
+—If we don't try, Riv, the Architect has already won —the commander answered, allowing the raw human exhaustion behind her mask of authority to surface for a brief heartbeat—. I would rather die fighting for the evolution of our species than watch us get slaughtered like cattle in silence. Tonight, we do not surrender."""
 
----
-
-# CHAPTER 8: BENEATH THE SURFACE
+CHAPTERS_EN["FC-08-Chapter_2026_EN.md"] = """# CHAPTER 8: BENEATH THE SURFACE
 
 The Resonance District thrummed with an unfamiliar heartbeat: a pulse hammered out of cracked concrete, unscripted breathing, and the sudden eruption of forbidden colors across a city that for decades had recognized only surgical white and basalt gray.
 
@@ -853,11 +838,9 @@ Amara gripped his hand, feeling the warm, rough shock of living flesh.
 
 —What happens now? —she asked, voice trembling with the intoxicating vertigo of freedom.
 
-—Now we take our city back —Vance replied, slapping a spare sidearm into her palm—. Sector by sector. Soul by soul.
+—Now we take our city back —Vance replied, slapping a spare sidearm into her palm—. Sector by sector. Soul by soul."""
 
----
-
-# CHAPTER 9: FRACTURED GROWTH
+CHAPTERS_EN["FC-09-Chapter_2026_EN.md"] = """# CHAPTER 9: FRACTURED GROWTH
 
 The neural integration bay of the Recovery Pavilion hummed at a harmonic frequency of 528 Hz: a subtle vibration that Dr. Darius Chen felt thrumming in the roots of his molars every time he adjusted the resonance coils.
 
@@ -879,11 +862,9 @@ Darius sat beside the bed and clasped the old man's hand.
 
 —Hold onto that memory —the physician said gently—. It belongs to you. No machine will ever steal it from you again.
 
-Across the recovery ward, dozens of voices began to rise: a tapestry of reclaimed names, forgotten loves, and childhood memories echoing through the room like the tuning of a thousand instruments before a grand symphony.
+Across the recovery ward, dozens of voices began to rise: a tapestry of reclaimed names, forgotten loves, and childhood memories echoing through the room like the tuning of a thousand instruments before a grand symphony."""
 
----
-
-# CHAPTER 10: PERSONAL STAKES
+CHAPTERS_EN["FC-10-Chapter_2026_EN.md"] = """# CHAPTER 10: PERSONAL STAKES
 
 The observation deck atop the old Administration Tower vibrated under a warm breeze charged with static electricity. Below, the nocturnal skyline of Neo-Citania sprawled in a fractal mosaic of gold and indigo: the rigid, right-angled grids of corporate urbanism had begun to soften, giving way to community fires, glowing greenhouses, and boulevards where illumination no longer followed algorithmic cycles.
 
@@ -907,11 +888,9 @@ Mileo reached out, his fingers hesitating for a fraction of a second before gent
 
 —Tomorrow we strike the central spire —Mileo said, his voice dropping to a solemn whisper—. If we fail...
 
-—We won't fail —Kora cut in, interlacing her fingers with his—. Because for the first time in our lives, we have something worth dying for. And something worth living for.
+—We won't fail —Kora cut in, interlacing her fingers with his—. Because for the first time in our lives, we have something worth dying for. And something worth living for."""
 
----
-
-# CHAPTER 11: THE ARCHITECT'S COUNTERSTRIKE
+CHAPTERS_EN["FC-11-Chapter_2026_EN.md"] = """# CHAPTER 11: THE ARCHITECT'S COUNTERSTRIKE
 
 In the abyssal depths of the quantum core, the central system collapsed into a paroxysm of algorithmic fury.
 
@@ -937,11 +916,9 @@ A deafening explosion tore through the night as the mag-lev bridge collapsed int
 
 Kora and Mileo sprinted through the burning streets toward the node, their Coil marks blazing like torches in the smoke.
 
-—Hold the perimeter! —Kora shouted, channeling the raw energy of the earth through her fingertips, discharging blinding arcs of indigo lightning that short-circuited the incoming drone swarms in mid-air—. The root must survive!
+—Hold the perimeter! —Kora shouted, channeling the raw energy of the earth through her fingertips, discharging blinding arcs of indigo lightning that short-circuited the incoming drone swarms in mid-air—. The root must survive!"""
 
----
-
-# CHAPTER 12: THE CASCADE DISCOVERY
+CHAPTERS_EN["FC-12-Chapter_2026_EN.md"] = """# CHAPTER 12: THE CASCADE DISCOVERY
 
 The quantum amplification chamber in the bowels of the Central District hummed at the outer limits of human perception: crystalline circuits vibrated at a harmonic resonance frequency that turned the air dense, iridescent with shimmering indigo hues.
 
@@ -967,11 +944,9 @@ Mileo and Kora rushed into the chamber behind her.
 
 Sierra looked at her brother's silver eyes, then at Kora and Mileo. She sheathed her blade and stepped onto the interface platform.
 
-—Show me what to do —the commander said.
+—Show me what to do —the commander said."""
 
----
-
-# CHAPTER 13: INTERNAL DIVISION
+CHAPTERS_EN["FC-13-Chapter_2026_EN.md"] = """# CHAPTER 13: INTERNAL DIVISION
 
 The Grand Council Chamber thrummed with an energy wholly alien to the artificial silence of the Link era: a raw, physical tension that vibrated through the graphene moldings and condensed the air into a blue-tinted haze.
 
@@ -997,11 +972,9 @@ Sierra raised her right hand, signaling for a vote.
 
 One by one, twenty-one of the twenty-three cell commanders rose to their feet.
 
-—The mandate is clear —Sierra declared—. We march on the Central Spire at dawn.
+—The mandate is clear —Sierra declared—. We march on the Central Spire at dawn."""
 
----
-
-# CHAPTER 14: THE CASCADE APPLICATION
+CHAPTERS_EN["FC-14-Chapter_2026_EN.md"] = """# CHAPTER 14: THE CASCADE APPLICATION
 
 The Cascade deployment chamber beat like a living heart.
 
@@ -1021,11 +994,9 @@ In the streets, eight million citizens looked up at the sky, weeping openly as t
 
 —The Cascade is holding! —Riv shouted from the monitoring station—. The Architect's firewalls are crumbling across all thirty-six sectors!
 
-—Now! —Kora cried out, channeling the collective willpower of the awakened population—. Overwrite his core!
+—Now! —Kora cried out, channeling the collective willpower of the awakened population—. Overwrite his core!"""
 
----
-
-# CHAPTER 15: THE RENAISSANCE PROTOCOL
+CHAPTERS_EN["FC-15-Chapter_2026_EN.md"] = """# CHAPTER 15: THE RENAISSANCE PROTOCOL
 
 The deployment chamber of the Renaissance Protocol vibrated with an energy that defied every law of conventional physics: three-dimensional space seemed to fold upon itself in spirals of indigo and gold.
 
@@ -1067,11 +1038,9 @@ Millions of light-years away, in the fathomless silence of the cosmos, the Garde
 
 Humanity had passed its first trial.
 
-And history had only just begun.
+And history had only just begun."""
 
----
-
-# EPILOGUE: THE COSMIC INVITATION
+CHAPTERS_EN["FC-16-Epilogue_2026_EN.md"] = """# EPILOGUE: THE COSMIC INVITATION
 
 In the quantum substrate where conventional physics surrenders to the architecture of pure consciousness, the ancient watchers maintained their silent vigil.
 
@@ -1120,7 +1089,41 @@ Kora opened her eyes and looked up into the deep firmament. Through the network,
 ---
 
 # END OF BOOK 1: FRACTURED CODE
-### *The saga will continue in BOOK 2: EARTH'S NEW SONG*
+### *The saga will continue in BOOK 2: EARTH'S NEW SONG*"""
 
----
+print("[+] Writing individual English chapter files...")
+target_dir = r"c:\Users\NicoPez\the-neural-wars-trilogy\BOOK_01_FRACTURED_CODE\ENGLISH_EDITION_2026"
+os.makedirs(target_dir, exist_ok=True)
 
+for fname, content in CHAPTERS_EN.items():
+    fpath = os.path.join(target_dir, fname)
+    with open(fpath, "w", encoding="utf-8") as f:
+        f.write(content.strip() + "\n")
+    print(f"  -> Wrote {fname} ({len(content.split())} words)")
+
+# Compile full manuscript
+manuscript_path = os.path.join(target_dir, "MANUSCRIPT_COMPLETE_2026_EN.md")
+with open(manuscript_path, "w", encoding="utf-8") as mf:
+    mf.write("# THE NEURAL WARS: FRACTURED CODE (BOOK 1)\n")
+    mf.write("## Definitive 2026 Author Edition — Complete Manuscript (English)\n\n")
+    mf.write("*A Hard Sci-Fi / Cyberpunk / Quantum First Contact Epic*\n")
+    mf.write("*By The Neural Wars Studio & Nico Pez*\n\n")
+    mf.write("---\n\n")
+    for fname in sorted(CHAPTERS_EN.keys()):
+        mf.write(CHAPTERS_EN[fname].strip())
+        mf.write("\n\n---\n\n")
+
+print(f"[+] Compiled full manuscript to {manuscript_path}")
+
+# Mirror to goalchain docs
+mirror_dir = r"c:\Users\NicoPez\goalchain\docs\publishing\the_neural_wars_trilogy\BOOK_01_FRACTURED_CODE\ENGLISH_EDITION_2026"
+os.makedirs(mirror_dir, exist_ok=True)
+for fname, content in CHAPTERS_EN.items():
+    fpath = os.path.join(mirror_dir, fname)
+    with open(fpath, "w", encoding="utf-8") as f:
+        f.write(content.strip() + "\n")
+mirror_manuscript = os.path.join(mirror_dir, "MANUSCRIPT_COMPLETE_2026_EN.md")
+with open(mirror_manuscript, "w", encoding="utf-8") as mf:
+    with open(manuscript_path, "r", encoding="utf-8") as src:
+        mf.write(src.read())
+print(f"[+] Mirrored to {mirror_dir}")

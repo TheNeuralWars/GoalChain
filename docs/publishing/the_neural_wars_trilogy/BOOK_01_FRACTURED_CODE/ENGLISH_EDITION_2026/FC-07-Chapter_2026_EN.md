@@ -1,47 +1,47 @@
 # CHAPTER 7: THE COUNCIL'S DILEMMA
 
-The underground council chamber was choked with an atmosphere that scraped the throat: recycled air smelling of rust, combat sweat, and the sharp electrical ozone of minds operating at the edge of collapse.
+The subterranean council chamber simmered with an atmosphere that scraped the throat: recycled air tasting of rusted iron, combat sweat, and the sharp electrical stink of minds working on the razor's edge of exhaustion.
 
-Above the scarred tactical table, the holographic projection of Neo-Citania's central core rotated slowly, bathing the faces of the twenty-three resistance commanders in cold, ghostly blue light.
+Across the scarred steel tactical table, the hologram of Neo-Citania's central core rotated slowly, bathing the faces of the twenty-three cell commanders in a ghostly, glacial blue light.
 
-—This isn't a military operation—it's ritual suicide! —Jansen roared, slamming his fist onto the metal table, the jagged extraction scar above his right ear throbbing a furious crimson—. We're talking about penetrating the most heavily defended fortress on Earth based on the visions of a quantum ghost claiming to be Elena Vasquez! That's not resistance: it's extinction!
+—This is not a military plan, it's ritual suicide! —shouted Jansen, slamming his fist onto the sheet-metal table. The jagged scar above his right ear throbbed crimson with rage—. We are talking about infiltrating the most heavily fortified bunker on the planet based on the visions of a quantum entity claiming to be the late Dr. Vásquez! This isn't a rescue operation: it's the total extinction of our resistance!
 
-The echo of his words bounced off the damp concrete vaults. Several veteran cell leaders nodded in grim agreement, their hands tight on their carbines.
+The echo of his words boomed against the concrete barrel vaults. Several veterans nodded in grim silence, jaws clenched, fingers resting against their slung rifles.
 
-Kora did not give an inch. She stood beside Mileo, their postures reflecting an instinctive synchronicity that had developed since their Coils activated. A delicate web of bioluminescent indigo veins pulsed beneath her forearms and throat, dropping the room's ambient temperature until a delicate ring of frost formed on the concrete floor beneath her boots.
+Kora did not yield an inch. She stood beside Mileo, their postures aligned with an unstudied synchrony that had become instinctual ever since their respective Coils had ignited. A web of brilliant indigo veins pulsed beneath the skin of her arms and throat, dropping the ambient air temperature around them until a delicate corona of frost crystallized across the cement floor beneath their boots.
 
-—We aren't going in to blow up the servers, Jansen —Kora countered with quiet, unshakable conviction—. We're going in to rewrite the code. We're transforming their slaughterhouse into a network of liberation. We're giving the Yggdrasil Network back to humanity.
+—We are not going to destroy Project Renaissance —Kora countered in a level voice, imbued with strange serenity—. We are going to rewrite its architecture. We are going to transform the harvest into an instrument of liberation. We are going to return the Yggdrasil Network to humanity.
 
-—And we're supposed to trust the ghost of Elena Vasquez? —Elias challenged, pushing up his salvaged optical lenses with trembling fingers—. A consciousness that has spent twenty years fused with the Architect's processing matrix? It could be an algorithmic honeypot designed to drag our best operatives straight into the incinerator!
+—And you expect us to trust the ghost of Elena Vásquez? —interjected Elias, adjusting his thick magnifying lenses with trembling fingers—. A consciousness partially assimilated by the Architect's core! It could be an algorithmic lure engineered to draw our two finest assets directly into the grinder!
 
-Mileo took a deliberate step forward. He unbuttoned the high collar of his tunic, revealing the memory chip resting against his collarbone.
+Mileo took a deliberate step forward. The specialist unbuttoned the high collar of his tunic, revealing the data microchip secured against his clavicle.
 
-—I have personally verified every single technical parameter provided by Dr. Vasquez —Mileo said, speaking with the cold, undeniable authority of the man who helped build the system—. The quantum patch aligns perfectly with the core's real backdoors. There is no other way. If we simply plant high-explosives on the transmission towers, the resulting synaptic feedback pulse will lobotomize all eight million citizens in less than four seconds. The only way to save them is from the inside.
+—I have personally verified every technical parameter of the protocol transmitted by Dr. Vásquez —Mileo said, speaking with the cold authority of the man who co-designed the original network architecture—. The quantum reconfigurations match the physical topography of the central core. There is no other vector. If we simply blow the transmission towers with high explosives, the resulting synaptic shockwave will kill all eight million people tethered to the Link in under four seconds. The only way to save them is to transform the network from within.
 
-Dr. Marcus Okafor stepped forward, rubbing eyes red from seventy-two hours without sleep.
+Dr. Marcus Okafor stepped forward, rubbing eyes swollen from days without sleep.
 
-—The risk to whoever interfaces with the core during the rewrite is almost absolute —the physician warned in a somber voice—. If Kora and Mileo jack into the central node during the quantum inversion, the probability of biological consciousness dissolution into the network is eighty-two percent. They will likely never return.
+—The physiological risk to those executing the direct interface is near absolute —the physician warned in a somber register—. If Kora and Mileo jack into the core during the transition, the probability of their biological consciousness dissolving into the quantum flux is eighty-two percent. It is overwhelmingly likely they will never wake up.
 
-Mileo and Kora exchanged a silent, fleeting glance. There was no fear in their eyes; only the quiet resolve of two people who understood that their lives had meaning only if they served as a bridge to the future.
+Mileo and Kora exchanged a quiet, unhurried glance. There was no fear in their eyes; only the tranquil resolve of two souls who had grasped that their own lives possessed meaning only if they served as a bridge toward the future.
 
-Sierra Catalano raised her right hand. The gesture was minimal, but the silence across the chamber was instant.
+Sierra Catalano raised her right hand. The gesture was minimal, but silence claimed the room instantly.
 
-The commander leaned over the map table, her steel-gray eyes sweeping across every commander present.
+The commander leaned over the tactical table. Her slate-gray eyes swept across each member of the council in turn.
 
-—Four days remain until mass harvest —Sierra declared, her voice cutting through the damp air like a razor—. Four days before eight million human souls are drained into empty husks. We can stay down here arguing until NeuroSec breaches the blast doors, or we can play the only card we have left.
+—Four days remain before the general harvest initiates —Sierra stated, her voice slicing through the cold air like a razor edge—. Four days before eight million human souls are drained and hollowed out forever. We can keep arguing in this hole until the hounds kick down the blast door, or we can play the only card left in our hand.
 
-She paused, locking eyes with Mileo and Kora.
+She paused, locking her gaze onto Mileo and Kora.
 
-—The infiltration team consists of two operatives: Mileo Chen on architectural decryption and Kora Chen-Vega on genetic Coil synchronization. The operation begins in thirty-six hours. The remaining cells will initiate coordinated diversionary strikes across the perimeter sectors.
+—The infiltration stack will consist of two operatives: Mileo Chen for architectural subversion and Kora Chen-Vega for Coil harmonic synchronization. The operation commences in thirty-six hours. The remaining cells will execute diversionary assaults across the perimeter sectors.
 
-Jansen clenched his teeth, but did not object. In the underground of The Fractured, Sierra's word was martial law.
+Jansen ground his teeth together, but did not raise his voice again. In the Underbelly of *The Fractured*, Sierra’s word was martial law.
 
 ---
 
-When the council adjourned, Riv limped over to Sierra, leaning heavily on a metal cane.
+As the council dispersed, Riv limped up to Sierra, favoring his heavily bandaged thigh.
 
-—You're putting the fate of the species on a single roll of the dice, Sierra —the engineer murmured.
+—You are gambling the fate of the entire human species on a single roll of the dice, Sierra —the northern engineer whispered.
 
-Sierra watched the rotating hologram of the NeuroSys monolith.
+Sierra looked up at the hologram of the NeuroSys monolith still rotating above the table.
 
-—If we don't roll, Riv, the Architect has already won —the commander replied, allowing the weary human behind the tactical mask to surface for a brief second—. I'd rather die fighting for the evolution of our species than watch us get slaughtered like cattle in the dark. Tonight, we do not surrender.
+—If we don't try, Riv, the Architect has already won —the commander answered, allowing the raw human exhaustion behind her mask of authority to surface for a brief heartbeat—. I would rather die fighting for the evolution of our species than watch us get slaughtered like cattle in silence. Tonight, we do not surrender.
