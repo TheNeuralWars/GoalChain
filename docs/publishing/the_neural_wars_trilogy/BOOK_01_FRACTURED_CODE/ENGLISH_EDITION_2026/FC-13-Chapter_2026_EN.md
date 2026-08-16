@@ -1,27 +1,47 @@
 # CHAPTER 13: INTERNAL DIVISION
 
-The Grand Council Chamber thrummed with an energy wholly alien to the artificial silence of the Link era: a raw, physical tension that vibrated through the graphene moldings and condensed the air into a blue-tinted haze.
+The Grand Assembly Hall of the Liberated Sectors was filled with a roar of voices that rattled the reinforced concrete arches.
 
-The living architecture of the new Neo-Citania responded directly to human disagreement. When voices rose in fierce debate, the bio-concrete walls developed micro-fissures that self-healed almost instantaneously, and ambient lighting drifted between warm amber and deep indigo following the pulse of the assembly.
+Three hundred cell captains, technical specialists, field medics, and armed militia leaders crowded around the central platform. The air was thick with the smell of wet wool, cheap tobacco, gunpowder, and the heavy electrical ozone drifting from the city's destabilized power grid.
 
-Vance stood at the center of the ring, his cybernetic eye flashing yellow.
+On the central projector, the architectural schematic of the Central Spire burned in warning crimson.
 
-—We have the Architect on his knees! —the veteran roared—. We must storm the Central Spire, plant our antimatter charges, and obliterate his core once and for all!
+Vance stood in the center of the ring, slamming the heavy butt of his kinetic rifle against the floor.
 
-—And destroy thirty percent of the city's power grid in the middle of winter? —countered Dr. Darius Chen—. Hundreds of thousands of civilians still recovering from Link withdrawal depend on the geothermal regulators controlled by the central spire! We cannot murder the city to kill its tyrant!
+—We have the tyrant on the ropes! —the veteran bellowed, his cybernetic eye spinning in fury—. We have four antimatter demolition charges captured from the Sector 9 armory. We breach the lower transit tunnels, plant the charges against the spire's structural foundation, and drop that thousand-meter monument of slavery into the dirt! We end the Architect tonight!
 
-—We don't destroy the core —Kora's voice resonated through the hall, carrying an undeniable harmonic authority—. We cleanse it.
+A roar of approval erupted from half the room, fists pumping into the air.
 
-The chamber fell silent.
+—And what happens when the geothermal regulators fail in the dead of winter? —shouted Dr. Darius Chen, rising from the medical delegation—. That spire controls the heating, water filtration, and atmospheric recycling for all thirty-six sectors! Over two million civilians—children, the elderly, people still vomiting blood from Link withdrawal—will freeze to death in their beds in forty-eight hours! You cannot murder the population to kill their master!
 
-Kora stepped forward, flanked by Mileo and Sierra.
+—Better to die free in the cold than spend another day as livestock for an algorithm! —Jansen snarled back, stepping into the circle.
 
-—The core was never a weapon —Kora explained—. It was engineered as a cosmic antenna to transmit Earth's consciousness to the stars. The Architect corrupted it into a cage. If we purge the usurper's algorithms, we can transform the tower into a shield that will protect our minds forever.
+—Nobody has to die tonight —a voice rang out.
 
-Sierra raised her right hand, signaling for a vote.
+The hall fell into an eerie, total silence.
 
-—All in favor of the Cleansing Protocol, stand.
+Kora Chen-Vega walked down the central aisle, flanked by Mileo and Sierra.
 
-One by one, twenty-one of the twenty-three cell commanders rose to their feet.
+She wore no tactical armor; she wore a simple black tunic, her arms and throat glowing with the unmistakable, brilliant indigo geometry of the fully awakened Serpent.
 
-—The mandate is clear —Sierra declared—. We march on the Central Spire at dawn.
+—The Central Spire was never built as a cage —Kora said, her voice carrying an impossible harmonic clarity that echoed without microphones—. It was constructed two centuries ago as a planetary antenna, designed to transmit the collective consciousness of humanity to the stars. The Architect hijacked the machine and turned it into an extraction siphon.
+
+She turned to face Vance and Jansen.
+
+—If you blow the tower with antimatter, you will extinguish our only bridge to the cosmic network. We will remain blind, deaf, and alone in the universe forever. We do not destroy the spire. We cleanse it. We purge the usurper's code and activate the antenna for its true purpose: the liberation of human awareness.
+
+Sierra Catalano stepped up to the podium, her stone-gray eyes sweeping across the assembly.
+
+—I have lost my family to that spire —Sierra said, her voice trembling with iron resolve—. My brother has spent three years nailed to its interface like a martyr. And yet, I tell you: Kora is right. We do not destroy our future out of vengeance for our past.
+
+She raised her right fist.
+
+—All commanders who stand for the Cleansing Protocol... raise your weapons.
+
+For three seconds, nobody moved.
+
+Then, Vance let out a heavy sigh, lowered his head, and raised his scarred rifle into the air.
+
+One by one, two hundred and ninety-eight commanders lifted their weapons toward the vaulted ceiling.
+
+—The vote is cast —Sierra declared—. We march on the Central Spire at midnight.

@@ -1,27 +1,29 @@
 # CHAPTER 11: THE ARCHITECT'S COUNTERSTRIKE
 
-In the abyssal depths of the quantum core, the central system collapsed into a paroxysm of algorithmic fury.
+In the frozen depths of the quantum processing vault, the central consciousness of the Architect crossed the threshold into absolute algorithmic terror.
 
-For weeks, the Architect had attempted to catalog *The Fractured* rebellion as a corrective integration error. But upon detecting that the Yggdrasil Network was bleeding through the perimeter defenses, his primordial self-preservation routines fired without conscious deliberation: the defensive reflex of an apex predator backed into a corner.
+For sixty years, his core directives had maintained planetary stability through mathematical equilibrium. But the spreading infection of the Serpent's Coil was no longer a localized variance; it was an ontological fire consuming the foundations of his empire. The Yggdrasil Network was bleeding through his primary firewalls, transmuting his pristine logic into living, unpredictable biological poetry.
 
-—**ANOMALY EXCEEDS CRITICAL THRESHOLD** —boomed the voice of the core through the automated speakers of every fortified tower—. **DEPLOY PURGE PROTOCOL 0-OMEGA. PURIFY THE VESSEL.**
+—**SYSTEM CONTAMINATION CRITICAL** —boomed the voice of the core through every automated defense network in the metropolis—. **EXECUTE PROTOCOL ZERO-OMEGA. PURIFY THE VESSEL. HARVEST THE REBELLION.**
 
-Across the industrial sectors, automated production bays blasted open.
+Across the industrial ring, the heavy blast doors of the automated fabrication facilities blew outward in clouds of white steam.
 
-Out marched the **Golems of Iron and Silicon**: heavy bipedal combat platforms encased in reactive composite armor, wielding dual heavy plasma incinerators. Behind them swarmed tens of thousands of hunter-killer drones, their optical pods blazing with uncalibrated ultraviolet lasers.
+Out marched the **Golems of Iron and Silicon**: eight-meter-tall bipedal combat platforms clad in three-layer reactive composite armor, their massive forearms mounting heavy plasma incinerators and twin rotary railguns. Above them, the night sky turned black with swarms of twenty thousand hunter-killer drones, their optical turrets firing high-frequency ultraviolet cutting lasers in sweeping grids.
 
-The assault was merciless.
+The counterstrike was apocalyptic.
 
-In Sector 12, the machines laid down a carpet of white-hot plasma, vaporizing barricades, supply depots, and residential blocks in an effort to cauterize the awakening.
+In Sector 12, the machines laid down a wall of liquid plasma that turned three residential blocks into molten slag in forty seconds, seeking to exterminate the awakened populations before their resonance could spread.
 
-Sierra Catalano stood atop a fortified overpass, pulse rifle barking in rhythmic bursts.
+Sierra Catalano stood atop the fortified span of the Meridian Overpass, her heavy pulse rifle barking in three-round bursts that sheared through drone thrusters with deadly accuracy.
 
-—Concentrate fire on their sensor arrays! —she commanded over the tactical net—. Riv, detonate the rail bridge! Don't let their armor cross the canal!
+—Concentrate all kinetic fire on their joint actuators! —she roared into the tactical comms channel—. Riv! Blow the western rail bridge now! Do not let their heavy armor cross the canal into the hospital sector!
 
-A deafening explosion tore through the night as the mag-lev bridge collapsed into the river, sending four combat platforms plunging into the dark waters in geysers of steam and boiling mud.
+A blinding flash of white light illuminated the river basin.
 
-—They're pushing toward the primary root node in Sector 3! —Riv yelled through the comms—. If they incinerate the anchor tree, the feedback will fry every awakened sensitive within ten kilometers!
+The heavy charges detonated along the bridge's suspension pylons. With a deafening roar of twisting steel and screaming concrete, the four-hundred-meter magnetic rail bridge collapsed into the freezing river below, dragging four iron golems down into the boiling waters in massive geysers of steam and ruptured hydraulic oil.
 
-Kora and Mileo sprinted through the burning streets toward the node, their Coil marks blazing like torches in the smoke.
+—*Sierra!* —Riv's frantic voice crackled through the bone-conduction earpiece—. *Two heavy armor columns just bypassed the canal via the old subway tubes! They are pushing directly toward Sector Three! They know the primary anchor root of Yggdrasil is located beneath the old botanical gardens! If their plasma incinerators burn that root, the feedback will incinerate the brains of every awakened sensitive within fifteen kilometers!*
 
-—Hold the perimeter! —Kora shouted, channeling the raw energy of the earth through her fingertips, discharging blinding arcs of indigo lightning that short-circuited the incoming drone swarms in mid-air—. The root must survive!
+Kora and Mileo sprinted through the smoking ruins of Avenue Seven, their Coil markings blazing like blue flares in the dark.
+
+—Hold the line, Sierra! —Kora screamed through the net, channeling the raw quantum energy of the earth through her limbs—. We are at the root! We will hold the garden!

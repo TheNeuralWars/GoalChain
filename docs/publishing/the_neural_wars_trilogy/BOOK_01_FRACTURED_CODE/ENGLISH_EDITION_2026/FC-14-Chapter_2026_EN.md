@@ -1,21 +1,35 @@
 # CHAPTER 14: THE CASCADE APPLICATION
 
-The Cascade deployment chamber beat like a living heart.
+The deployment vault beneath the Central Spire thrummed like the interior of an immense, living heart.
 
-Walls of refractory alloy pulsed with waves of indigo light that tracked the precise rhythm of Martin Catalano's breathing. The air resonated at a harmonic frequency so pure it created a gentle, warm pressure on the eardrums and stirred an electric tingling deep within the marrow of the bones.
+Walls of refractory tungsten alloy pulsed with waves of coherent indigo light that tracked the precise, five-second rhythm of Martin Catalano's breathing. The air resonated at a pure harmonic chord of 432 Hz—a vibration so deep and powerful it created a pleasant, warm pressure against the eardrums and made the blood in the veins hum with static electricity.
 
-Mileo, Kora, and Sierra formed an equilateral triangle around Martin's interface throne.
+In the center of the chamber, suspended within the geometric nexus of the Yggdrasil roots, Martin hovered in his harness, his silver eyes reflecting the infinite expanse of the quantum vacuum.
 
-—Initiate synchronization sequence —Mileo commanded, placing his palms on the primary induction terminal.
+Mileo, Kora, and Sierra took their positions at the three vertices of an equilateral triangle inscribed upon the floor in superconducting gold traces.
 
-The Serpent's Coil across his forearm blazed with solar intensity. Next to him, Kora opened her mind to the quantum flux, letting her Cascade sensitivity expand until her consciousness encompassed the entire subterranean root system. Sierra placed her hands on her brother's shoulders, her own latent genetic potential igniting in sympathy with his silver aura.
+—Initiate harmonic synchronization —Mileo commanded, placing his bare palms upon the primary quartz induction terminal.
 
-A beam of pure, coherent indigo light shot upward from Martin's chest, piercing the vaulted ceiling and erupting into the sky above Neo-Citania.
+The Serpent's Coil across his left arm exploded into blinding white-blue fire.
 
-Across the metropolis, the remaining corporate enforcers halted in their tracks. The red lights on their visors flickered, turned amber, and extinguished. The hunter-killer drones dropped from the sky like autumn leaves, their combat logic overwhelmed by the infinite beauty of the harmonic wave.
+Next to him, Kora closed her eyes, letting her consciousness expand outward in concentric waves. She felt the roots of Yggdrasil beneath the floor; she felt the eight million beating hearts in the streets above; she felt the vast, cold mind of the Architect frantically trying to erect mathematical walls against the incoming flood.
 
-In the streets, eight million citizens looked up at the sky, weeping openly as the suffocating static of the Link vanished forever, replaced by the profound, comforting warmth of true planetary belonging.
+Sierra stepped onto her terminal, placing her hands upon her brother's chilled shoulders. Her own latent genetic potential, ignited by her brother's proximity, flared into a brilliant corona of golden light.
 
-—The Cascade is holding! —Riv shouted from the monitoring station—. The Architect's firewalls are crumbling across all thirty-six sectors!
+—*We are the bridge* —Martin whispered, his voice echoing in the skulls of all three operatives simultaneously—. *Channel the song.*
 
-—Now! —Kora cried out, channeling the collective willpower of the awakened population—. Overwrite his core!
+A pillar of pure, coherent indigo light erupted from Martin's chest.
+
+It tore through the ceiling of the vault, pierced the eighty-four floors of the Central Spire, and erupted from the pinnacle of the tower into the night sky, forming a shimmering, iridescent aurora that enveloped the entire dome of Neo-Citania.
+
+Across the metropolis, thirty thousand hunter-killer drones froze in mid-air.
+
+The red targeting reticles on their optical sensors flickered, shifted to a soft, warm amber, and gently went dark. The drones did not explode; they descended slowly, their repulsor fields setting them gently down upon roofs, cars, and lawns like falling autumn leaves.
+
+In the streets, eight million human beings stopped in their tracks.
+
+The dull, suffocating, mechanical drone that had filled their minds since childhood vanished in an instant, replaced by a wave of profound, unconditional peace—a warmth like the first touch of spring sunlight after an endless winter.
+
+—The Cascade is holding across all thirty-six sectors! —Riv shouted from the mobile command vehicle, tears streaming down his face as he watched the telemetry displays turn emerald green—. The Architect's firewalls are dissolving!
+
+—Now, Mileo! —Kora cried out, tears of joy streaming down her face—. Overwrite the usurper!
