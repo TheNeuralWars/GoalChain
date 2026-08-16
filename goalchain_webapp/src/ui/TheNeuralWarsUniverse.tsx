@@ -111,7 +111,7 @@ const CHARACTERS: CharacterDossier[] = [
       traumaResistance: 96,
     },
     accentColor: '#f87171',
-    imageUrl: '/assets/img/neuralwars/char_kora_vega.jpg',
+    imageUrl: '/assets/img/neuralwars/char_sierra_catalano.jpg',
   },
   {
     id: 'architect-agi',
@@ -154,7 +154,7 @@ const LOCATIONS: UniverseLocation[] = [
     description: 'El corazón latiente de la resistencia. Millas de túneles abandonados blindados contra ondas electromagnéticas, donde miles de fugitivos viven conectados al Arpa Planetaria.',
     tacticalNote: 'Puntos de acceso protegidos por trampas sónicas de 18 kHz. Solo entrar con salvoconducto de Kora Vega.',
     atmosphere: 'Clandestinidad • Cables Expuestos • Vapor Cálido',
-    imageUrl: '/assets/img/neuralwars/char_kora_vega.jpg',
+    imageUrl: '/assets/img/neuralwars/03_Locations/Location_Sub_Grid_Subway_Tunnels_Platform_B.jpg',
   },
   {
     id: 'pavilion-9',
@@ -164,7 +164,7 @@ const LOCATIONS: UniverseLocation[] = [
     description: 'Instalación médica secreta liderada por el Dr. Darius Thorne. Alberga más de 300 camas de desintoxicación neural y tanques de bioluminiscencia regenerativa.',
     tacticalNote: 'Área desmilitarizada por tratado tácito. Cero armas de fuego permitidas en el perímetro.',
     atmosphere: 'Luz Verde Esmeralda • Zumbido de Monitores • Esperanza Tensa',
-    imageUrl: '/assets/img/neuralwars/char_dr_darius_thorne.jpg',
+    imageUrl: '/assets/img/neuralwars/03_Locations/Location_Pavilion_9_Medical_Recovery_Ward.jpg',
   },
   {
     id: 'kuiper-monolith',
