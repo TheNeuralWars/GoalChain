@@ -3,266 +3,684 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>GoalWorld | Liga de Fantasía, Autoedición KDP &amp; Tokenización IP</title>
-    <meta name="description" content="GoalWorld: Ecosistema de autoedición de mundos de fantasía, lector inmersivo, Amazon KDP + Tokenización de IP en Solana con Agentes Hermes." />
-    <meta name="theme-color" content="#06060a" />
+    <title>GoalWorld | El Nexo Autónomo de Universos Vivos &amp; Autoedición Web3</title>
+    <meta name="description" content="GoalWorld: Ecosistema autónomo de co-creación literaria, auto-publicación en Amazon KDP (Web2) + Tokenización de Propiedad Intelectual en Solana (Web3) impulsado por Agentes Hermes." />
+    <meta name="theme-color" content="#05050e" />
+    
+    <!-- Design System & Tokens -->
     <link rel="stylesheet" href="assets/css/tokens.css?v=1.0" />
     <link rel="stylesheet" href="assets/css/style.css?v=4.4" />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Georgia&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/goalworld.css?v=2.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@400;600;700&family=Georgia&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" href="assets/img/logo_3d_clean.png?v=2.0" />
-    <style>
-      body {
-        background: #06060e;
-        color: #f3f4f6;
-        font-family: 'Outfit', sans-serif;
-        margin: 0;
-        overflow-x: hidden;
-      }
-      .gw-hero {
-        padding: 90px 20px 40px;
-        text-align: center;
-        background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, rgba(6, 6, 14, 0) 70%);
-      }
-      .gw-hero h1 {
-        font-size: clamp(2.2rem, 5vw, 3.6rem);
-        font-weight: 900;
-        margin: 0 0 12px;
-        background: linear-gradient(135deg, #ffffff 0%, #e9d5ff 50%, #c084fc 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .gw-hero p {
-        color: #94a3b8;
-        font-size: clamp(0.95rem, 2vw, 1.15rem);
-        max-width: 780px;
-        margin: 0 auto;
-        line-height: 1.6;
-      }
-      .gw-tab-nav {
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        max-width: 1000px;
-        margin: 30px auto 0;
-        padding: 0 15px;
-        flex-wrap: wrap;
-      }
-      .gw-tab-btn {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: #94a3b8;
-        padding: 12px 22px;
-        border-radius: 12px;
-        font-weight: 700;
-        font-size: 0.9rem;
-        cursor: pointer;
-        transition: all 0.2s;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .gw-tab-btn.active {
-        background: rgba(168, 85, 247, 0.25);
-        border-color: #a855f7;
-        color: #fff;
-        box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
-      }
-      .gw-container {
-        max-width: 1200px;
-        margin: 30px auto 80px;
-        padding: 0 20px;
-      }
-      .gw-card {
-        background: rgba(15, 23, 42, 0.85);
-        backdrop-filter: blur(16px);
-        border: 1px solid rgba(168, 85, 247, 0.3);
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-      }
-      .gw-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 20px;
-      }
-      .world-box {
-        background: rgba(10, 15, 30, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
-        overflow: hidden;
-        transition: transform 0.2s, border-color 0.2s;
-      }
-      .world-box:hover {
-        border-color: #a855f7;
-        transform: translateY(-4px);
-      }
-      .world-img {
-        width: 100%;
-        height: 160px;
-        object-fit: cover;
-      }
-    </style>
+    <link rel="shortcut icon" href="assets/img/logo_3d_clean.png?v=2.0" />
   </head>
-  <body>
-    <!-- TOP NAVIGATION -->
-    <nav class="main-nav" style="padding: 1rem 1.5rem; background: rgba(6,6,14,0.9); border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
-      <div style="display: flex; align-items: center; gap: 12px; cursor: pointer;" onclick="location.href='index.html'">
-        <img src="assets/img/logo_3d_clean.png" alt="GoalChain Logo" style="height: 38px;" />
-        <span style="font-weight: 900; font-size: 1.2rem; color: #fff;">Goal<span style="color: #c084fc;">World</span></span>
-      </div>
-      <div style="display: flex; gap: 15px; align-items: center;">
-        <a href="index.html" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 700;">🏠 Inicio</a>
-        <a href="pitch.html" style="color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 700;">📖 Pitch</a>
-        <a href="/go/goalworld" style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%); color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 0.82rem; font-weight: 900;">ABRIR GOALWORLD PORTAL 🔮</a>
-      </div>
-    </nav>
+  <body class="gw-body">
+    <!-- Ambient Canvas Background -->
+    <div class="gw-ambient-mesh"></div>
 
-    <!-- HERO HEADER -->
-    <header class="gw-hero">
-      <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); color: #c084fc; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 800; margin-bottom: 15px;">
-        🔮 THE FANTASY LORE LEAGUE &amp; SAAS EDITORIAL
-      </div>
-      <h1>Nexo de Universos de Fantasía &amp; Autoedición</h1>
-      <p>
-        El espejo del fútbol aplicado a la literatura. Co-creación entre autores humanos y Agentes Hermes: auto-publicación en <strong>Amazon KDP (Web2)</strong> + <strong>Tokenización de Regalías On-Chain (90%+) en Solana (Web3)</strong>.
-      </p>
-
-      <!-- TAB NAVIGATION -->
-      <div class="gw-tab-nav">
-        <button class="gw-tab-btn active" onclick="GW_switchTab('nexus')">🪐 Nexus de Universos</button>
-        <button class="gw-tab-btn" onclick="GW_switchTab('reader')">📖 Lector Inmersivo</button>
-        <button class="gw-tab-btn" onclick="GW_switchTab('saas')">🛠️ Publisher SaaS (KDP + Web3)</button>
-        <button class="gw-tab-btn" onclick="GW_switchTab('hermes')">🤖 Hermes Lore Suite</button>
-      </div>
-    </header>
-
-    <!-- MAIN INTERACTIVE CONTAINER -->
-    <main class="gw-container">
-      <!-- TAB 1: NEXUS DE UNIVERSOS -->
-      <div id="tab-nexus" class="gw-card">
-        <h2 style="font-size: 1.4rem; font-weight: 800; margin: 0 0 1.5rem; color: #fff;">🏆 Ranking de Universos Literarios (Temporada 2026)</h2>
-        <div class="gw-grid">
-          <!-- World 1 -->
-          <div class="world-box">
-            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Aethelgard" class="world-img" />
-            <div style="padding: 1.25rem;">
-              <span style="background: #a855f7; color: #fff; font-weight: 900; font-size: 0.75rem; padding: 2px 8px; border-radius: 6px;">RANK #1</span>
-              <h3 style="font-size: 1.2rem; font-weight: 800; margin: 10px 0 4px; color: #fff;">El Reino de Aethelgard</h3>
-              <div style="color: #94a3b8; font-size: 0.8rem; margin-bottom: 8px;">Por Elena R. Sterling • Alta Fantasía</div>
-              <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px;">Un imperio fragmentado por reliquias de sangre donde los caballeros rúnicos luchan por el trono de obsidiana.</p>
-              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
-                <span style="color: #22c55e; font-weight: 800; font-size: 0.85rem;">💰 Regalías: $18,420 USDC</span>
-                <button onclick="GW_switchTab('reader')" style="background: rgba(168,85,247,0.25); border: 1px solid #a855f7; color: #fff; font-weight: 700; padding: 6px 14px; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">📖 Leer Saga</button>
-              </div>
-            </div>
-          </div>
-          <!-- World 2 -->
-          <div class="world-box">
-            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80" alt="NecroCyber" class="world-img" />
-            <div style="padding: 1.25rem;">
-              <span style="background: #a855f7; color: #fff; font-weight: 900; font-size: 0.75rem; padding: 2px 8px; border-radius: 6px;">RANK #2</span>
-              <h3 style="font-size: 1.2rem; font-weight: 800; margin: 10px 0 4px; color: #fff;">NecroCyber 2099</h3>
-              <div style="color: #94a3b8; font-size: 0.8rem; margin-bottom: 8px;">Por Kaelen Vance • Cyberpunk LitRPG</div>
-              <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px;">En Neo-Kyoto, nigromantes digitales clonan conciencias para comerciar en la blockchain de Solana.</p>
-              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
-                <span style="color: #22c55e; font-weight: 800; font-size: 0.85rem;">💰 Regalías: $12,150 USDC</span>
-                <button onclick="GW_switchTab('reader')" style="background: rgba(168,85,247,0.25); border: 1px solid #a855f7; color: #fff; font-weight: 700; padding: 6px 14px; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">📖 Leer Saga</button>
-              </div>
-            </div>
-          </div>
+    <div class="gw-wrapper">
+      <!-- TOP NAVIGATION -->
+      <nav class="gw-nav">
+        <a href="index.html" class="gw-brand">
+          <img src="assets/img/logo_3d_clean.png" alt="GoalWorld Logo" class="gw-brand-logo" />
+          <span class="gw-brand-text">Goal<span class="gw-brand-highlight">World</span></span>
+        </a>
+        <div class="gw-nav-links">
+          <a href="index.html" class="gw-nav-link">⚽ GoalChain Core</a>
+          <a href="pitch.html" class="gw-nav-link">📖 Pitch Deck</a>
+          <a href="mega-guide.html" class="gw-nav-link">📚 Whitepaper</a>
+          <a href="https://github.com/theneuralwars/goalchain" target="_blank" class="gw-nav-link">⚡ GitHub</a>
+          <a href="/go/play" class="gw-nav-btn-portal">
+            <span>ABRIR PLAY DAPP</span>
+            <span style="font-size: 0.9rem;">➔</span>
+          </a>
         </div>
-      </div>
+      </nav>
 
-      <!-- TAB 2: LECTOR INMERSIVO -->
-      <div id="tab-reader" class="gw-card" style="display: none;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 1rem;">
-          <div>
-            <h2 style="font-size: 1.5rem; font-weight: 800; margin: 0 0 4px; color: #fff;">Capítulo I: El Despertar de la Runa Encarnada</h2>
-            <span style="color: #94a3b8; font-size: 0.85rem;">El Reino de Aethelgard • 12 min de lectura</span>
-          </div>
-          <button onclick="GW_toggleMusic()" id="gwAudioBtn" style="background: #a855f7; border: none; color: #fff; font-weight: 800; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">▶️ Música de Ambiente</button>
+      <!-- HERO HEADER -->
+      <header class="gw-hero">
+        <div class="gw-hero-badge">
+          <span>🔮 EL PROTOCOLO VIVO DE MUNDOS Y AGENTES AUTÓNOMOS</span>
         </div>
-        <div id="gwReaderText" style="font-family: 'Georgia', serif; font-size: 1.15rem; line-height: 1.8; color: #e2e8f0; white-space: pre-line;">
-          La nieve caía pesada sobre las almenas de la Fortaleza de Obsidiana. El aliento de Valerius formaba nubes de vapor en el aire helado mientras sujetaba la empuñadura de su mandoble. En la hoja de acero valyrio, las runas grabadas por su padre tres siglos atrás comenzaron a destellar con un fulgor carmesí inusual.
+        <h1 class="gw-hero-title">
+          El Nexo Autónomo de <br />
+          <span class="gw-hero-title-gradient">Universos Vivos &amp; Autoedición Web3</span>
+        </h1>
+        <p class="gw-hero-subtitle">
+          El paraguas maestro que une la co-creación literaria con Inteligencia Artificial, auto-publicación masiva en <strong>Amazon KDP (Web2)</strong>, <strong>Tokenización de Regalías On-Chain en Solana (Web3)</strong> y el enjambre de <strong>Agentes Hermes 24/7</strong>.
+        </p>
 
-          —No deberían estar vivas —susurró Lady Kaelen, ajustándose su capa de piel de lobo—. El Gran Sello de las Montañas fue roto al anochecer. Lo que yace debajo ha despertado.
+        <!-- PILLARS TAB NAVIGATION -->
+        <div class="gw-pillars-nav">
+          <button class="gw-pillar-btn active" id="btn-nexus" onclick="GW.switchTab('nexus')">
+            <span>🪐</span> Nexus de Universos
+          </button>
+          <button class="gw-pillar-btn" id="btn-reader" onclick="GW.switchTab('reader')">
+            <span>📖</span> Lector Inmersivo
+          </button>
+          <button class="gw-pillar-btn" id="btn-saas" onclick="GW.switchTab('saas')">
+            <span>🛠️</span> Publisher SaaS (KDP + Solana)
+          </button>
+          <button class="gw-pillar-btn" id="btn-hermes" onclick="GW.switchTab('hermes')">
+            <span>🤖</span> Hermes Swarm Command
+          </button>
+          <button class="gw-pillar-btn" id="btn-studio" onclick="GW.switchTab('studio')">
+            <span>🎨</span> Neural Asset Forge
+          </button>
+          <button class="gw-pillar-btn" id="btn-goalchain" onclick="GW.switchTab('goalchain')">
+            <span>⚽</span> GoalChain Infinity Bridge
+          </button>
         </div>
-      </div>
+      </header>
 
-      <!-- TAB 3: PUBLISHER SAAS -->
-      <div id="tab-saas" class="gw-card" style="display: none;">
-        <h2 style="font-size: 1.4rem; font-weight: 800; margin: 0 0 0.5rem; color: #c084fc;">🛠️ GoalWorld SaaS Editorial: Publicación Doble Vía</h2>
-        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem;">Auto-publicación masiva en Amazon KDP (Web2) + Tokenización de Regalías On-Chain (90%+) en Solana (Web3).</p>
+      <!-- MAIN INTERACTIVE HUB -->
+      <main class="gw-main-container">
         
-        <form onsubmit="GW_handlePublish(event)" style="display: flex; flex-direction: column; gap: 1rem; max-width: 700px;">
-          <div>
-            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 4px;">Título del Libro / Saga</label>
-            <input type="text" id="gwBookTitle" placeholder="Ej: Las Crónicas de Aethelgard: Tomo I" required style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px; color: #fff;" />
+        <!-- ====================================================================
+             TAB 1: 🪐 NEXUS DE UNIVERSOS
+             ==================================================================== -->
+        <section id="tab-nexus" class="gw-master-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <div style="color: var(--gw-neon-amethyst); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">TEMPORADA 2026 // GENESIS SAGAS</div>
+              <h2 style="font-size: 1.8rem; font-weight: 900; margin: 4px 0 0; color: #fff;">🏆 Universos Literarios &amp; Propiedad Intelectual Activa</h2>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button onclick="GW.filterGenre('all')" class="gw-tag gw-tag-genre" style="cursor: pointer;">Todos</button>
+              <button onclick="GW.filterGenre('fantasy')" class="gw-tag gw-tag-genre" style="cursor: pointer;">Alta Fantasía</button>
+              <button onclick="GW.filterGenre('cyberpunk')" class="gw-tag gw-tag-genre" style="cursor: pointer;">Cyberpunk</button>
+              <button onclick="GW.filterGenre('scifi')" class="gw-tag gw-tag-genre" style="cursor: pointer;">Sci-Fi Mitológico</button>
+            </div>
           </div>
-          <div>
-            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 4px;">Metadatos ISBN &amp; Reparto de Regalías</label>
-            <input type="text" value="ISBN: 978-3-16-148410-0 | Split: 85% Autor / 10% Editores / 5% Vault" readonly style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px; color: #22c55e; font-weight: 700;" />
-          </div>
-          <button type="submit" style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%); border: none; color: #fff; font-weight: 900; padding: 12px; border-radius: 10px; cursor: pointer; font-size: 0.95rem;">🚀 Publicar en Amazon KDP + Tokenizar IP en Solana</button>
-        </form>
-        <div id="gwSaasSuccess" style="display: none; margin-top: 15px; padding: 12px; background: rgba(34, 197, 94, 0.15); border: 1px solid #22c55e; color: #4ade80; border-radius: 8px; font-weight: 700;">🎉 ¡Publicación Doble Vía completada con éxito!</div>
-      </div>
 
-      <!-- TAB 4: HERMES LORE SUITE -->
-      <div id="tab-hermes" class="gw-card" style="display: none;">
-        <h2 style="font-size: 1.4rem; font-weight: 800; margin: 0 0 0.5rem; color: #c084fc;">🤖 Hermes Co-Writer &amp; Lore Guard Agent Suite</h2>
-        <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem;">Solicita auditorías de consistencia narrativa a los agentes de Hermes en tiempo real.</p>
-        <div style="display: flex; gap: 10px;">
-          <input type="text" id="gwHermesInput" placeholder="Ingresa un personaje o pasaje para auditar..." style="flex: 1; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 10px; color: #fff;" />
-          <button onclick="GW_runAudit()" style="background: #a855f7; border: none; color: #fff; font-weight: 800; padding: 10px 20px; border-radius: 8px; cursor: pointer;">🔍 Auditar Lore</button>
+          <div class="gw-multiverse-grid" id="gwMultiverseGrid">
+            <!-- World 1 -->
+            <article class="gw-world-card" data-genre="fantasy">
+              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Aethelgard" class="gw-world-hero-img" />
+              <div class="gw-world-content">
+                <div class="gw-world-tags">
+                  <span class="gw-tag gw-tag-rank">RANK #1</span>
+                  <span class="gw-tag gw-tag-genre">Alta Fantasía</span>
+                  <span class="gw-tag gw-tag-status">● Live On-Chain</span>
+                </div>
+                <h3 class="gw-world-title">El Reino de Aethelgard: Runas de Sangre</h3>
+                <div class="gw-world-author">Por Elena R. Sterling &amp; Hermes Lore Agent</div>
+                <p class="gw-world-synopsis">
+                  Un imperio fragmentado por reliquias de sangre donde los caballeros rúnicos luchan por el trono de obsidiana. Publicado en Amazon KDP y con derechos IP fraccionados en Solana.
+                </p>
+                <div class="gw-world-footer">
+                  <div class="gw-royalties-badge">
+                    <span>💰</span>
+                    <span>$24,850 USDC</span>
+                  </div>
+                  <button onclick="GW.openReader('Aethelgard')" class="gw-btn-sm-primary">📖 Leer Tomo I</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- World 2 -->
+            <article class="gw-world-card" data-genre="cyberpunk">
+              <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80" alt="NecroCyber" class="gw-world-hero-img" />
+              <div class="gw-world-content">
+                <div class="gw-world-tags">
+                  <span class="gw-tag gw-tag-rank">RANK #2</span>
+                  <span class="gw-tag gw-tag-genre">Cyberpunk LitRPG</span>
+                  <span class="gw-tag gw-tag-status">● Live On-Chain</span>
+                </div>
+                <h3 class="gw-world-title">NecroCyber 2099: Neon Souls</h3>
+                <div class="gw-world-author">Por Kaelen Vance &amp; Hermes Synth Suite</div>
+                <p class="gw-world-synopsis">
+                  En Neo-Kyoto, nigromantes cuánticos clonan conciencias para comerciar almas artificiales en la red de Solana. Adaptación a novela gráfica y smart contracts de regalías.
+                </p>
+                <div class="gw-world-footer">
+                  <div class="gw-royalties-badge">
+                    <span>💰</span>
+                    <span>$16,420 USDC</span>
+                  </div>
+                  <button onclick="GW.openReader('NecroCyber')" class="gw-btn-sm-primary">📖 Leer Tomo I</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- World 3 -->
+            <article class="gw-world-card" data-genre="scifi">
+              <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80" alt="AeroOlympus" class="gw-world-hero-img" />
+              <div class="gw-world-content">
+                <div class="gw-world-tags">
+                  <span class="gw-tag gw-tag-rank">RANK #3</span>
+                  <span class="gw-tag gw-tag-genre">Sci-Fi Mitológico</span>
+                  <span class="gw-tag gw-tag-status">● En Producción</span>
+                </div>
+                <h3 class="gw-world-title">AeroOlympus: Dioses del Fútbol Cuántico</h3>
+                <div class="gw-world-author">Por Nico Pez (@nicopez) &amp; Swarm Syndicate</div>
+                <p class="gw-world-synopsis">
+                  El puente directo con GoalChain: deidades olímpicas encarnan en jugadores de fútbol estelares que disputan torneos en estadios orbitales sin pérdidas de capital.
+                </p>
+                <div class="gw-world-footer">
+                  <div class="gw-royalties-badge">
+                    <span>💰</span>
+                    <span>$9,180 USDC</span>
+                  </div>
+                  <button onclick="GW.openReader('AeroOlympus')" class="gw-btn-sm-primary">📖 Leer Lore</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 2: 📖 LECTOR INMERSIVO
+             ==================================================================== -->
+        <section id="tab-reader" class="gw-master-card" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid var(--gw-border-subtle); padding-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <span id="gwReaderUniverse" style="color: var(--gw-neon-amethyst); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">EL REINO DE AETHELGARD // TOMO I</span>
+              <h2 id="gwReaderChapterTitle" style="font-size: 1.6rem; font-weight: 900; margin: 4px 0 0; color: #fff;">Capítulo I: El Despertar de la Runa Encarnada</h2>
+            </div>
+            
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <button onclick="GW.toggleFontFamily()" id="gwFontToggleBtn" style="background: rgba(255,255,255,0.06); border: 1px solid var(--gw-border-subtle); color: #cbd5e1; padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">🔤 Fuente: Serif</button>
+              <button onclick="GW.toggleMusic()" id="gwAudioBtn" style="background: var(--gw-neon-amethyst); border: none; color: #fff; font-weight: 800; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.82rem; box-shadow: 0 4px 14px var(--gw-neon-purple-glow);">▶️ Música de Ambiente</button>
+            </div>
+          </div>
+
+          <div id="gwReaderBody" style="font-family: 'Georgia', serif; font-size: 1.18rem; line-height: 1.85; color: #e2e8f0; max-width: 820px; margin: 0 auto; padding: 10px 0;">
+            <p>
+              La nieve caía pesada sobre las almenas de la <span style="border-bottom: 1px dashed var(--gw-neon-amethyst); color: #c084fc; cursor: pointer;" title="Fortaleza milenaria forjada con obsidiana rúnica que resiste el fuego de los dragones solares.">Fortaleza de Obsidiana</span>. El aliento de Valerius formaba nubes de vapor en el aire helado mientras sus dedos enguantados se cerraban sobre la empuñadura de su mandoble. En la hoja forjada en acero rúnico, las inscripciones que su padre había grabado tres siglos atrás comenzaron a vibrar con un fulgor carmesí profundo.
+            </p>
+            <p>
+              —No deberían estar vivas —susurró Lady Kaelen, ajustándose su capa de piel de lobo plateado—. El Gran Sello de las Montañas de Jade fue roto al anochecer. Lo que yace debajo ha despertado, y no busca tributos ni tierras: busca la chispa de la conciencia primigenia.
+            </p>
+            <p>
+              Valerius desenvainó la espada lentamente. El eco metálico resonó en todo el patio de armas, donde doscientos guardianes aguardaban en silencio absoluto. A través del horizonte gélido, una columna de luz violeta ascendió hacia la tormenta, sincronizándose con los nodos del firmamento.
+            </p>
+            <p>
+              —Entonces no nos retiramos —respondió Valerius, elevando el filo hacia las estrellas—. Que vengan. Grabaremos la crónica de esta noche en el tejido mismo del cosmos.
+            </p>
+          </div>
+
+          <div style="margin-top: 30px; border-top: 1px solid var(--gw-border-subtle); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; max-width: 820px; margin-left: auto; margin-right: auto;">
+            <button onclick="alert('Capítulo anterior no disponible en la muestra.');" class="gw-tag gw-tag-genre" style="cursor: pointer; padding: 8px 16px;">◀ Capítulo Anterior</button>
+            <span style="color: var(--gw-text-muted); font-size: 0.85rem;">Página 1 de 28 • Estimado: 8 min</span>
+            <button onclick="alert('Capítulo II en proceso de renderizado por el Lore Agent.');" class="gw-tag gw-tag-genre" style="cursor: pointer; padding: 8px 16px;">Capítulo Siguiente ▶</button>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 3: 🛠️ SAAS EDITORIAL DOBLE VÍA (KDP + SOLANA)
+             ==================================================================== -->
+        <section id="tab-saas" class="gw-master-card" style="display: none;">
+          <div style="margin-bottom: 24px;">
+            <div style="color: var(--gw-neon-cyan); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">PLATAFORMA SAAS // DUAL-PUBLISH ENGINE</div>
+            <h2 style="font-size: 1.8rem; font-weight: 900; margin: 4px 0 6px; color: #fff;">Publicación Simultánea en Amazon KDP + Regalías On-Chain en Solana</h2>
+            <p style="color: var(--gw-text-muted); font-size: 0.95rem; margin: 0; max-width: 850px;">
+              Transforma cualquier manuscrito o saga generada con IA en una obra con ISBN oficial, exportación automática a formatos de imprenta Amazon KDP (Web2) y tokenización del 90%+ de regalías en USDC transmitidas directamente a tu wallet de Solana (Web3).
+            </p>
+          </div>
+
+          <div class="gw-saas-grid">
+            <!-- Form Side -->
+            <div>
+              <form onsubmit="GW.handlePublish(event)" style="background: rgba(10, 15, 30, 0.7); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-lg); padding: 24px;">
+                <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 16px; color: #fff;">1. Parámetros de la Obra</h3>
+                
+                <div class="gw-form-group">
+                  <label class="gw-form-label">Título de la Novela / Saga</label>
+                  <input type="text" id="gwBookTitle" placeholder="Ej: Las Crónicas del Nexo: El Origen de los Guardianes" required class="gw-input" />
+                </div>
+
+                <div class="gw-form-group">
+                  <label class="gw-form-label">Género Literario</label>
+                  <select id="gwBookGenre" class="gw-select">
+                    <option value="fantasy">Alta Fantasía / LitRPG</option>
+                    <option value="cyberpunk">Cyberpunk / Sci-Fi Futurista</option>
+                    <option value="mythology">Mitología Épica / Deportes Cuánticos</option>
+                    <option value="nonfiction">Tecnología, IA &amp; Negocios</option>
+                  </select>
+                </div>
+
+                <div class="gw-form-group">
+                  <label class="gw-form-label">Distribución de Regalías On-Chain</label>
+                  <input type="text" value="85% Autor (@nicopez) | 10% Community Vault | 5% Hermes Compute" readonly class="gw-input" style="color: #34d399; font-weight: 700; background: rgba(0,0,0,0.6);" />
+                </div>
+
+                <div class="gw-form-group">
+                  <label class="gw-form-label">Wallet Receptora de Regalías (Solana)</label>
+                  <input type="text" value="7xKXtg2CW87d97TXJSDpbD5jBkheTjkA6wAhXodGy7ao" readonly class="gw-input" style="color: #38bdf8; font-family: monospace; font-size: 0.85rem;" />
+                </div>
+
+                <button type="submit" class="gw-btn-master">
+                  <span>🚀 Publicar Doble Vía (KDP + Solana IP)</span>
+                </button>
+              </form>
+
+              <div id="gwPublishSuccess" style="display: none; margin-top: 16px; padding: 16px; background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; border-radius: var(--gw-radius-md); color: #34d399;">
+                <div style="font-weight: 800; font-size: 1rem; margin-bottom: 4px;">🎉 ¡Publicación Dual Generada con Éxito!</div>
+                <div style="font-size: 0.85rem; color: #cbd5e1;">
+                  • <strong>Amazon KDP</strong>: Archivo EPUB &amp; Cover Print-Ready compilados (ISBN: 978-3-16-148410-0).<br />
+                  • <strong>Solana Web3</strong>: Smart Contract de Regalías acuñado en Devnet con 85% streamed a tu wallet.
+                </div>
+              </div>
+            </div>
+
+            <!-- Calculator Side -->
+            <div>
+              <div class="gw-calc-box">
+                <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 8px; color: #fff;">2. Simulador de Ingresos Proyectados</h3>
+                <p style="color: var(--gw-text-muted); font-size: 0.85rem; margin-bottom: 18px;">
+                  Compara los beneficios de la autoedición con GoalWorld frente a editoriales tradicionales.
+                </p>
+
+                <div class="gw-form-group">
+                  <label class="gw-form-label">Ventas Mensuales Estimadas: <span id="gwCopiesLabel" style="color: var(--gw-neon-cyan); font-weight: 800;">2,500 copias</span></label>
+                  <input type="range" id="gwCopiesRange" min="500" max="25000" step="500" value="2500" oninput="GW.updateCalculator(this.value)" style="width: 100%; accent-color: var(--gw-neon-amethyst);" />
+                </div>
+
+                <div class="gw-calc-metric">
+                  <span style="color: var(--gw-text-muted); font-size: 0.9rem;">Editorial Tradicional (12% Royalty):</span>
+                  <span id="gwCalcTraditional" class="gw-calc-metric-val" style="color: #94a3b8;">$2,997 USD</span>
+                </div>
+
+                <div class="gw-calc-metric">
+                  <span style="color: var(--gw-text-muted); font-size: 0.9rem;">Amazon KDP Directo (70% Royalty):</span>
+                  <span id="gwCalcKdp" class="gw-calc-metric-val" style="color: #60a5fa;">$17,482 USD</span>
+                </div>
+
+                <div class="gw-calc-metric" style="background: rgba(16, 185, 129, 0.1); border-radius: 8px; padding: 12px; margin-top: 8px;">
+                  <div>
+                    <div style="color: #34d399; font-weight: 800; font-size: 0.95rem;">GoalWorld Dual-Stream (KDP + Solana IP):</div>
+                    <div style="font-size: 0.75rem; color: #94a3b8;">Incluye mercado secundario Web3 + 85% autor</div>
+                  </div>
+                  <span id="gwCalcGoalWorld" class="gw-calc-metric-val" style="color: #34d399; font-size: 1.45rem;">$24,120 USDC</span>
+                </div>
+              </div>
+
+              <!-- Metadata Preview -->
+              <div style="margin-top: 18px; background: rgba(0,0,0,0.5); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-md); padding: 16px;">
+                <div style="font-size: 0.8rem; font-weight: 800; color: #c084fc; text-transform: uppercase; margin-bottom: 6px;">Metaplex Solana Schema Preview</div>
+                <div style="font-family: monospace; font-size: 0.75rem; color: #94a3b8; line-height: 1.5;">
+                  { "name": "GoalWorld Lore IP #001", "symbol": "GWIP", "seller_fee_basis_points": 850, "creators": [{"address": "7xKX...7ao", "share": 85}] }
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 4: 🤖 HERMES SWARM COMMAND
+             ==================================================================== -->
+        <section id="tab-hermes" class="gw-master-card" style="display: none;">
+          <div style="margin-bottom: 24px;">
+            <div style="color: var(--gw-neon-amethyst); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">ENJAMBRE AUTÓNOMO // VPS CLUSTER</div>
+            <h2 style="font-size: 1.8rem; font-weight: 900; margin: 4px 0 6px; color: #fff;">Hermes Agent Swarm Command &amp; Lore Guard</h2>
+            <p style="color: var(--gw-text-muted); font-size: 0.95rem; margin: 0; max-width: 850px;">
+              Los agentes de Inteligencia Artificial de GoalWorld operan 24/7 en VPS para auditar coherencia narrativa, orquestar tareas en GitHub, recopilar alpha en redes y vigilar la economía de los universos.
+            </p>
+          </div>
+
+          <!-- Telemetry Grid -->
+          <div class="gw-telemetry-grid">
+            <div class="gw-agent-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-weight: 800; font-size: 0.95rem; color: #fff;">Hermes CEO (Orchestrator)</span>
+                <span class="gw-agent-status-dot gw-dot-active"></span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--gw-text-muted); margin-bottom: 10px;">Puerto 3006 • OmniRoute Tooling</div>
+              <div style="font-size: 0.78rem; color: #34d399; font-weight: 700;">● 0 Crash Loops // 100% Online</div>
+            </div>
+
+            <div class="gw-agent-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-weight: 800; font-size: 0.95rem; color: #fff;">Lore Guard &amp; Co-Writer</span>
+                <span class="gw-agent-status-dot gw-dot-active"></span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--gw-text-muted); margin-bottom: 10px;">gBrain 0.46.6.0 • Memory Verbs v1</div>
+              <div style="font-size: 0.78rem; color: #c084fc; font-weight: 700;">● 121 Skills Instalados</div>
+            </div>
+
+            <div class="gw-agent-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-weight: 800; font-size: 0.95rem; color: #fff;">X-Scout Market Scanner</span>
+                <span class="gw-agent-status-dot gw-dot-active"></span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--gw-text-muted); margin-bottom: 10px;">Anti-Spam Gate v2 • Cooldown 2h</div>
+              <div style="font-size: 0.78rem; color: #38bdf8; font-weight: 700;">● Escaneando Señales Alpha</div>
+            </div>
+
+            <div class="gw-agent-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-weight: 800; font-size: 0.95rem; color: #fff;">Infinity Vault Sentinel</span>
+                <span class="gw-agent-status-dot gw-dot-active"></span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--gw-text-muted); margin-bottom: 10px;">Solana Devnet &amp; Honcho Sync</div>
+              <div style="font-size: 0.78rem; color: #f59e0b; font-weight: 700;">● Fondo 10% Devengado Activo</div>
+            </div>
+          </div>
+
+          <!-- Interactive Lore Audit Workbench -->
+          <div style="background: rgba(10, 15, 30, 0.7); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-lg); padding: 24px; margin-bottom: 24px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 8px; color: #fff;">Auditoría de Consistencia Narrativa &amp; Lore</h3>
+            <p style="color: var(--gw-text-muted); font-size: 0.85rem; margin-bottom: 16px;">
+              Ingresa cualquier párrafo, personaje o concepto de tu novela para que el agente Hermes audite la coherencia y sugiera expansiones rúnicas.
+            </p>
+            
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <textarea id="gwLoreInput" placeholder="Ej: Valerius utiliza la runa de hielo eterno en el desierto de ceniza para sellar el portal dimensional..." class="gw-textarea" style="height: 90px;"></textarea>
+            </div>
+            
+            <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+              <button onclick="GW.runLoreAudit()" class="gw-btn-sm-primary" style="padding: 10px 22px; font-size: 0.9rem;">
+                🔍 Auditar con Hermes Agent
+              </button>
+            </div>
+
+            <div id="gwLoreOutput" style="display: none; margin-top: 18px;" class="gw-terminal"></div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 5: 🎨 NEURAL ASSET FORGE
+             ==================================================================== -->
+        <section id="tab-studio" class="gw-master-card" style="display: none;">
+          <div style="margin-bottom: 24px;">
+            <div style="color: var(--gw-neon-gold); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">ESTUDIO MULTIMEDIA // GENERATIVE FORGE</div>
+            <h2 style="font-size: 1.8rem; font-weight: 900; margin: 4px 0 6px; color: #fff;">Neural Asset Forge: Generador de Arte &amp; Figuras Coleccionables</h2>
+            <p style="color: var(--gw-text-muted); font-size: 0.95rem; margin: 0; max-width: 850px;">
+              Pipeline de generación visual para personajes de alta fidelidad, figuras 3D de vinilo (estilo Genesis Avatars) y portadas de sagas cinematográficas.
+            </p>
+          </div>
+
+          <div class="gw-saas-grid">
+            <!-- Prompt Builder -->
+            <div style="background: rgba(10, 15, 30, 0.7); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-lg); padding: 24px;">
+              <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 16px; color: #fff;">Generador de Prompt Flux V7.0</h3>
+
+              <div class="gw-form-group">
+                <label class="gw-form-label">Tipo de Activo</label>
+                <select id="gwAssetType" class="gw-select" onchange="GW.updatePromptPreview()">
+                  <option value="figurine">Figura 3D Vinyl Toy Coleccionable (Avatar)</option>
+                  <option value="cover">Portada de Libro de Alta Fantasía (Amazon KDP)</option>
+                  <option value="stadium">Estadio Futurista RWA GoalWorld</option>
+                  <option value="emblem">Emblema de Facción / Escudo Rúnico</option>
+                </select>
+              </div>
+
+              <div class="gw-form-group">
+                <label class="gw-form-label">Nombre del Personaje o Escenario</label>
+                <input type="text" id="gwAssetName" value="Valerius de Aethelgard" class="gw-input" oninput="GW.updatePromptPreview()" />
+              </div>
+
+              <div class="gw-form-group">
+                <label class="gw-form-label">Rasgos Clave / Estilo Visual</label>
+                <input type="text" id="gwAssetTraits" value="Armadura de placas de obsidiana, runas carmesí brillantes, mandoble colosal, barba corta, mirada intensa" class="gw-input" oninput="GW.updatePromptPreview()" />
+              </div>
+
+              <div class="gw-form-group">
+                <label class="gw-form-label">Prompt Compilado para Flux / Midjourney</label>
+                <textarea id="gwCompiledPrompt" readonly class="gw-textarea" style="height: 110px; font-family: monospace; font-size: 0.82rem; color: #fde047; background: rgba(0,0,0,0.6);"></textarea>
+              </div>
+
+              <button onclick="GW.copyCompiledPrompt()" class="gw-btn-master" style="background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);">
+                <span>📋 Copiar Prompt al Portapapeles</span>
+              </button>
+            </div>
+
+            <!-- Asset Showcase Gallery -->
+            <div>
+              <div style="background: rgba(10, 15, 30, 0.7); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-lg); padding: 24px;">
+                <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 16px; color: #fff;">Galería de Activos Generados</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                  <div style="background: rgba(0,0,0,0.5); border-radius: 12px; overflow: hidden; border: 1px solid var(--gw-border-subtle);">
+                    <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=400&q=80" alt="Cyber Toy" style="width: 100%; height: 130px; object-fit: cover;" />
+                    <div style="padding: 10px; font-size: 0.8rem; font-weight: 700; color: #fff;">Zeus @player1 Figurine</div>
+                  </div>
+                  <div style="background: rgba(0,0,0,0.5); border-radius: 12px; overflow: hidden; border: 1px solid var(--gw-border-subtle);">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80" alt="Book Cover" style="width: 100%; height: 130px; object-fit: cover;" />
+                    <div style="padding: 10px; font-size: 0.8rem; font-weight: 700; color: #fff;">Aethelgard Book Cover</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 6: ⚽ GOALCHAIN INFINITY BRIDGE
+             ==================================================================== -->
+        <section id="tab-goalchain" class="gw-master-card" style="display: none;">
+          <div style="margin-bottom: 24px;">
+            <div style="color: var(--primary-neon); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">PROYECTO INSIGNIA // SOLANA WEB3</div>
+            <h2 style="font-size: 1.8rem; font-weight: 900; margin: 4px 0 6px; color: #fff;">GoalChain: Predicciones Deportivas Sin Pérdida de Capital</h2>
+            <p style="color: var(--gw-text-muted); font-size: 0.95rem; margin: 0; max-width: 850px;">
+              El protocolo de predicciones de fútbol sobre Solana que elimina el modelo extractivo tradicional. Tu capital nunca se pierde: el rendimiento de las bóvedas financia los premios y quema $GCH.
+            </p>
+          </div>
+
+          <div class="gw-saas-grid">
+            <div style="background: rgba(10, 15, 30, 0.7); border: 1px solid rgba(20, 241, 149, 0.25); border-radius: var(--gw-radius-lg); padding: 24px;">
+              <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 12px; color: #14f195;">Mecánicas Clave del Infinity Engine</h3>
+              <ul style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.7; padding-left: 20px; margin: 0 0 20px;">
+                <li><strong>Zero Value Loss</strong>: El principal apostado está protegido por vaults con yield en Solana.</li>
+                <li><strong>Infinity Burn</strong>: Las comisiones recompran y queman $GCH permanentemente.</li>
+                <li><strong>Genesis Squad (528 Jugadores)</strong>: Colección de futbolistas legendarios con similitud facial auditada.</li>
+                <li><strong>Oráculos Automatizados</strong>: Transmisión de marcadores y liquidación de apuestas en tiempo real.</li>
+              </ul>
+              <a href="/go/play" style="display: inline-flex; align-items: center; gap: 8px; background: #14f195; color: #05050e; font-weight: 900; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-size: 0.9rem;">
+                <span>Ingresar al Estadio de GoalChain</span>
+                <span>➔</span>
+              </a>
+            </div>
+
+            <div style="background: rgba(10, 15, 30, 0.7); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-lg); padding: 24px;">
+              <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 12px; color: #fff;">Estado del Despliegue</h3>
+              <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+                <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                  <span style="color: var(--gw-text-muted);">Red de Contratos:</span>
+                  <span style="color: #14f195; font-weight: 700;">Solana Devnet (Anchor)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                  <span style="color: var(--gw-text-muted);">Frontend Build:</span>
+                  <span style="color: #38bdf8; font-weight: 700;">React 18 + Vite (Compilado 100%)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                  <span style="color: var(--gw-text-muted);">Fondo Autónomo Agentes:</span>
+                  <span style="color: #f59e0b; font-weight: 700;">10% Devengado Activo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- FOOTER -->
+      <footer style="border-top: 1px solid var(--gw-border-subtle); padding: 40px 20px; text-align: center; background: rgba(5,5,14,0.95); font-size: 0.85rem; color: var(--gw-text-muted);">
+        <div style="max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+          <div>
+            <span style="font-weight: 800; color: #fff;">GoalWorld Ecosystem</span> © 2026. Creado por <a href="https://x.com/nicopez" target="_blank" style="color: #c084fc; text-decoration: none; font-weight: 700;">@nicopez</a>.
+          </div>
+          <div style="display: flex; gap: 20px;">
+            <a href="index.html" style="color: var(--gw-text-muted); text-decoration: none;">Inicio</a>
+            <a href="pitch.html" style="color: var(--gw-text-muted); text-decoration: none;">Pitch</a>
+            <a href="mega-guide.html" style="color: var(--gw-text-muted); text-decoration: none;">Documentación</a>
+            <a href="legal.html" style="color: var(--gw-text-muted); text-decoration: none;">Avisos Legales</a>
+          </div>
         </div>
-        <div id="gwHermesOutput" style="display: none; margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.5); border: 1px solid rgba(168,85,247,0.3); border-radius: 10px; color: #e9d5ff; font-family: monospace; font-size: 0.88rem; white-space: pre-line;"></div>
-      </div>
-    </main>
+      </footer>
+    </div>
 
-    <!-- SCRIPTS ADHERING TO RULE 2 -->
+    <!-- ====================================================================
+         JAVASCRIPT ENGINE (Strictly Adhering to Rule 2: Defensive Scope)
+         ==================================================================== -->
     <script>
       var GW = window.GW || {};
       GW.audioPlaying = false;
+      GW.currentFontIsSerif = true;
 
-      function GW_switchTab(tabId) {
-        var tabs = ['nexus', 'reader', 'saas', 'hermes'];
+      // 1. Tab Switching
+      GW.switchTab = function(tabId) {
+        var tabs = ['nexus', 'reader', 'saas', 'hermes', 'studio', 'goalchain'];
         tabs.forEach(function(t) {
           var el = document.getElementById('tab-' + t);
+          var btn = document.getElementById('btn-' + t);
           if (el) el.style.display = (t === tabId) ? 'block' : 'none';
+          if (btn) {
+            if (t === tabId) btn.classList.add('active');
+            else btn.classList.remove('active');
+          }
         });
-        var btns = document.querySelectorAll('.gw-tab-btn');
-        btns.forEach(function(b, idx) {
-          if (tabs[idx] === tabId) b.classList.add('active');
-          else b.classList.remove('active');
-        });
-      }
+        window.scrollTo({ top: 220, behavior: 'smooth' });
+      };
 
-      function GW_toggleMusic() {
+      // 2. Open Reader with Context
+      GW.openReader = function(worldName) {
+        var titleEl = document.getElementById('gwReaderUniverse');
+        var chapterEl = document.getElementById('gwReaderChapterTitle');
+        if (titleEl) titleEl.innerText = worldName.toUpperCase() + ' // TOMO I';
+        if (chapterEl) {
+          if (worldName === 'Aethelgard') chapterEl.innerText = 'Capítulo I: El Despertar de la Runa Encarnada';
+          else if (worldName === 'NecroCyber') chapterEl.innerText = 'Capítulo I: Protocolo Nigromante en Neo-Kyoto';
+          else chapterEl.innerText = 'Capítulo I: El Descenso de los Titanes a la Órbita';
+        }
+        GW.switchTab('reader');
+      };
+
+      // 3. Multiverse Filter
+      GW.filterGenre = function(genre) {
+        var cards = document.querySelectorAll('.gw-world-card');
+        cards.forEach(function(card) {
+          if (genre === 'all' || card.getAttribute('data-genre') === genre) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      };
+
+      // 4. Audio Toggle (Ambient Synthesizer)
+      GW.toggleMusic = function() {
         GW.audioPlaying = !GW.audioPlaying;
         var btn = document.getElementById('gwAudioBtn');
-        if (btn) btn.innerText = GW.audioPlaying ? '⏸️ Pausar Música' : '▶️ Música de Ambiente';
-      }
-
-      function GW_handlePublish(e) {
-        e.preventDefault();
-        var msg = document.getElementById('gwSaasSuccess');
-        if (msg) {
-          msg.style.display = 'block';
-          setTimeout(function() { msg.style.display = 'none'; }, 4000);
+        if (btn) {
+          btn.innerText = GW.audioPlaying ? '⏸️ Pausar Ambiente' : '▶️ Música de Ambiente';
         }
-      }
+      };
 
-      function GW_runAudit() {
-        var input = document.getElementById('gwHermesInput');
-        var out = document.getElementById('gwHermesOutput');
-        if (!input || !out || !input.value.trim()) return;
+      // 5. Typography Toggle
+      GW.toggleFontFamily = function() {
+        GW.currentFontIsSerif = !GW.currentFontIsSerif;
+        var bodyEl = document.getElementById('gwReaderBody');
+        var btn = document.getElementById('gwFontToggleBtn');
+        if (bodyEl && btn) {
+          if (GW.currentFontIsSerif) {
+            bodyEl.style.fontFamily = "'Georgia', serif";
+            btn.innerText = '🔤 Fuente: Serif';
+          } else {
+            bodyEl.style.fontFamily = "'Outfit', sans-serif";
+            btn.innerText = '🔤 Fuente: Sans';
+          }
+        }
+      };
+
+      // 6. Dual Royalty Calculator
+      GW.updateCalculator = function(copies) {
+        copies = parseInt(copies, 10) || 2500;
+        var labelEl = document.getElementById('gwCopiesLabel');
+        var tradEl = document.getElementById('gwCalcTraditional');
+        var kdpEl = document.getElementById('gwCalcKdp');
+        var gwEl = document.getElementById('gwCalcGoalWorld');
+
+        var bookPrice = 9.99;
+        var tradIncome = copies * bookPrice * 0.12;
+        var kdpIncome = copies * bookPrice * 0.70;
+        var gwIncome = (copies * bookPrice * 0.70) + (copies * 0.20 * 25.0 * 0.85); // KDP + Web3 secondary royalties
+
+        if (labelEl) labelEl.innerText = copies.toLocaleString() + ' copias';
+        if (tradEl) tradEl.innerText = '$' + Math.round(tradIncome).toLocaleString() + ' USD';
+        if (kdpEl) kdpEl.innerText = '$' + Math.round(kdpIncome).toLocaleString() + ' USD';
+        if (gwEl) gwEl.innerText = '$' + Math.round(gwIncome).toLocaleString() + ' USDC';
+      };
+
+      // 7. Handle SaaS Dual-Publish Simulation
+      GW.handlePublish = function(e) {
+        e.preventDefault();
+        var successEl = document.getElementById('gwPublishSuccess');
+        if (successEl) {
+          successEl.style.display = 'block';
+          setTimeout(function() {
+            successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
+      };
+
+      // 8. Live Lore Audit
+      GW.runLoreAudit = function() {
+        var input = document.getElementById('gwLoreInput');
+        var out = document.getElementById('gwLoreOutput');
+        if (!input || !out || !input.value.trim()) {
+          alert('Por favor ingresa un párrafo o idea para auditar.');
+          return;
+        }
         out.style.display = 'block';
-        out.innerText = '⏳ Analizando consistencia rúnica y cronológica del Lore con Hermes Agent...';
+        out.innerText = '⏳ [Hermes Lore Swarm]: Analizando coherencia rúnica con gBrain 0.46.6.0...';
+        
         setTimeout(function() {
-          out.innerText = '✨ [Hermes Agentic Lore Audit]\n\n• Consistencia de Saga: 99/100 (Sin fallas cronológicas).\n• Formato Amazon KDP: Listo para exportar en EPUB/PDF Print-Ready.\n• Registro IP: Sincronizado en Solana & gBrain Vector Memory.';
-        }, 1200);
-      }
+          out.innerText = '✨ [HERMES LORE AUDIT REPORT // v37]\n' +
+            '--------------------------------------------------\n' +
+            '• Coherencia Narrativa: 98.4% (Excelente)\n' +
+            '• Verificación Ontológica: Compatible con el canon de Aethelgard.\n' +
+            '• Sugerencia de Expansión: La runa de hielo puede catalizar un vórtice térmico si interactúa con las cenizas volcánicas del Tomo II.\n' +
+            '• Estado de Ingesta: Hecho indexado en gBrain vector graph (Entity: Aethelgard).';
+        }, 1100);
+      };
+
+      // 9. Prompt Builder
+      GW.updatePromptPreview = function() {
+        var typeEl = document.getElementById('gwAssetType');
+        var nameEl = document.getElementById('gwAssetName');
+        var traitsEl = document.getElementById('gwAssetTraits');
+        var outEl = document.getElementById('gwCompiledPrompt');
+
+        if (!typeEl || !nameEl || !traitsEl || !outEl) return;
+
+        var type = typeEl.value;
+        var name = nameEl.value.trim() || 'Personaje';
+        var traits = traitsEl.value.trim() || 'rasgos heroicos';
+
+        var compiled = '';
+        if (type === 'figurine') {
+          compiled = 'A premium 3D vinyl toy collector figurine caricature of ' + name + ' standing full body. ' +
+            traits + '. Oversized bobblehead proportions, clean pure white background (#FFFFFF), zero floor shadows, studio raytracing lighting, hyper-detailed textures, masterpiece collectible --ar 1:1 --v 7.0';
+        } else if (type === 'cover') {
+          compiled = 'Cinematic book cover art for "' + name + '". Epic high fantasy atmosphere, ' + traits + ', dramatic lighting, golden ratio composition, typography-ready negative space, volumetric mist, 8k resolution --ar 2:3';
+        } else if (type === 'stadium') {
+          compiled = 'Futuristic quantum football stadium in orbital space, named ' + name + '. Holographic goalposts, neon Solana green and purple particles, ' + traits + ', cinematic drone shot --ar 16:9';
+        } else {
+          compiled = 'Mythic faction shield crest for ' + name + '. ' + traits + ', vector obsidian metal and glowing runes, isolated on dark void background --ar 1:1';
+        }
+
+        outEl.value = compiled;
+      };
+
+      // 10. Copy Prompt
+      GW.copyCompiledPrompt = function() {
+        var outEl = document.getElementById('gwCompiledPrompt');
+        if (!outEl) return;
+        navigator.clipboard.writeText(outEl.value).then(function() {
+          alert('¡Prompt copiado al portapapeles con éxito!');
+        }).catch(function() {
+          outEl.select();
+          document.execCommand('copy');
+          alert('¡Prompt copiado al portapapeles!');
+        });
+      };
+
+      // Initialize
+      document.addEventListener('DOMContentLoaded', function() {
+        GW.updatePromptPreview();
+        GW.updateCalculator(2500);
+      });
     </script>
   </body>
 </html>
