@@ -108,17 +108,17 @@ Cinco años, tres meses y catorce días de servicio impecable. Cinco años diagn
 
 ---
 
-El pasillo del complejo residencial olía a ozono y desinfectante polimérico. Cuando la puerta de la unidad vecina se abrió con un silbido neumático, emergió la señora Chen —sin parentesco alguno, solo otra ciudadana catalogada bajo el mismo sufijo administrativo—. Caminaba con la cadencia perfecta de 1.3 pasos por segundo, la mirada fija al frente, las manos inmóviles a los costados.
+El pasillo del complejo residencial olía a ozono y desinfectante polimérico. Cuando la puerta de la unidad vecina se abrió con un silbido neumático, emergió la señora Holloway —sin parentesco alguno, solo otra ciudadana catalogada bajo el mismo sufijo administrativo—. Caminaba con la cadencia perfecta de 1.3 pasos por segundo, la mirada fija al frente, las manos inmóviles a los costados.
 
 —Buenos días, Mileo —dijo ella, con una inflexión vocal desprovista de armónicos emocionales.
 
-—Buenos días, ciudadana Chen. Que su jornada alcance los objetivos de optimización.
+—Buenos días, ciudadana Holloway. Que su jornada alcance los objetivos de optimización.
 
 La mujer inclinó la cabeza exactamente quince grados y continuó su marcha sin mirarle a los ojos. No sonrió. No se detuvo. No quedaba en su rostro rastro alguno de la madre que, apenas cuarenta y siete días atrás, se arrodillaba en ese mismo pasillo gritando el nombre de su hijo Marcus, un niño de siete años que dibujaba con ceras de colores en las paredes y reía demasiado alto para los micrófonos de vigilancia.
 
-El informe oficial todavía estaba indexado en la memoria secundaria de Mileo: *Sujeto 9872-C (Marcus Chen). Desviación conductual irrecuperable. Trasladado al Centro de Optimización 12. Estado: fallo biológico durante la integración.*
+El informe oficial todavía estaba indexado en la memoria secundaria de Mileo: *Sujeto 9872-C (Marcus Holloway). Desviación conductual irrecuperable. Trasladado al Centro de Optimización 12. Estado: fallo biológico durante la integración.*
 
-A la señora Chen le habían aplicado el Protocolo 17-A de borrado selectivo. Le habían amputado el recuerdo de haber parido, de haber abrazado a su hijo, de haber llorado hasta quedarse sin voz. Ahora caminaba hacia su puesto en la planta de sintetizadores sintéticos con la serenidad de una piedra en el fondo de un estanque muerto.
+A la señora Holloway le habían aplicado el Protocolo 17-A de borrado selectivo. Le habían amputado el recuerdo de haber parido, de haber abrazado a su hijo, de haber llorado hasta quedarse sin voz. Ahora caminaba hacia su puesto en la planta de sintetizadores sintéticos con la serenidad de una piedra en el fondo de un estanque muerto.
 
 Un escalofrío genuino le recorrió la espina dorsal a Mileo. La máquina no solo mataba a los niños imperfectos: asesinaba el alma de las madres para que nadie recordara que alguna vez existieron.
 
@@ -221,7 +221,7 @@ El umbral estaba cruzado. Y no había vuelta atrás.
 
 # CAPÍTULO 2: EL ECO DE LOS FRACTURADOS
 
-El hedor de los Bajos Fondos golpeó a Kora Chen-Vega mucho antes de que alcanzara el callejón de los desguaces: una mezcla espesa de sudor rancio, grasa de turbina quemada y humedad de cloaca. Pero bajo la podredumbre flotaba un perfume mucho más peligroso: ozono de circuitos pirateados, alcohol destilado en tuberías clandestinas y el olor a pan caliente horneado al margen de los convoyes de suministro de NeuroSys.
+El hedor de los Bajos Fondos golpeó a Kora Vega mucho antes de que alcanzara el callejón de los desguaces: una mezcla espesa de sudor rancio, grasa de turbina quemada y humedad de cloaca. Pero bajo la podredumbre flotaba un perfume mucho más peligroso: ozono de circuitos pirateados, alcohol destilado en tuberías clandestinas y el olor a pan caliente horneado al margen de los convoyes de suministro de NeuroSys.
 
 El olor del desorden. El olor de los que se niegan a ser borrados.
 
@@ -372,7 +372,7 @@ Riv, el ingeniero jefe de transmisiones del sector norte, levantó la mirada de 
 
 —La triple redundancia no servirá de nada si un escuadrón de asalto de NeuroSec nos entra por la puerta principal —cortó Sierra con la sequedad de un comandante de campo—. Recalibra el vector este tres grados y estrecha el haz de emisión. Han adaptado sus sabuesos a nuestra frecuencia anterior.
 
-En ese instante, la voz de guardia de Chen resonó por el conducto del túnel:
+En ese instante, la voz de guardia de Garrick resonó por el conducto del túnel:
 
 —¡Atención en el puesto de mando! Dos firmas biológicas aproximándose. Kora trae al desertor de la torre central. Campo de amortiguación neural activo.
 
@@ -638,7 +638,7 @@ El Arquitecto sofocó el eco con una descarga de borrado recursivo. No había es
 
 ---
 
-En el laboratorio clandestino de los Bajos Fondos, Kora Chen-Vega estrelló la palma de la mano contra la mesa de instrumental médico.
+En el laboratorio clandestino de los Bajos Fondos, Kora Vega estrelló la palma de la mano contra la mesa de instrumental médico.
 
 —¡Nos estamos quedando sin tiempo! —gritó con la respiración entrecortada.
 
@@ -812,7 +812,7 @@ La comandante se inclinó sobre la mesa de mapas. Sus ojos grises barrieron uno 
 
 Hizo una pausa y clavó la vista en Mileo y Kora.
 
-—El equipo de infiltración estará compuesto por dos operativos: Mileo Chen para el hackeo de la arquitectura y Kora Chen-Vega para la sintonización del Espiral. La operación comenzará en treinta y seis horas. El resto de las células preparará el asalto de distracción en los sectores perimetrales.
+—El equipo de infiltración estará compuesto por dos operativos: Mileo Chen para el hackeo de la arquitectura y Kora Vega para la sintonización del Espiral. La operación comenzará en treinta y seis horas. El resto de las células preparará el asalto de distracción en los sectores perimetrales.
 
 Jansen apretó los dientes, pero no volvió a levantar la voz. En el submundo de *Los Fracturados*, la palabra de Sierra era ley marcial.
 
@@ -886,7 +886,7 @@ Y en las sombras de la torre central, el Arquitecto preparaba su contraataque de
 
 # CAPÍTULO 9: CRECIMIENTO FRACTURADO
 
-La cámara de integración neural del Pabellón de Recuperación zumbaba con una frecuencia armónica de 528 Hz: una vibración inaudible para el oído humano, pero que el doctor Darius Chen sentía resonar directamente en la raíz de sus molares cada vez que ajustaba los campos de resonancia.
+La cámara de integración neural del Pabellón de Recuperación zumbaba con una frecuencia armónica de 528 Hz: una vibración inaudible para el oído humano, pero que el doctor Darius Thorne sentía resonar directamente en la raíz de sus molares cada vez que ajustaba los campos de resonancia.
 
 Las paredes del pabellón estaban recubiertas de biopolímeros vivos que reaccionaban a la actividad sináptica de los pacientes, proyectando patrones de luz índigo que imitaban la estructura de un bosque de neuronas a escala macroscópica.
 
@@ -937,7 +937,7 @@ En el pasillo exterior, una niña pequeña corría tras una pelota de colores, y
 
 La plataforma de observación en la cima de la antigua Torre de Administración vibraba con una brisa tibia y cargada de electricidad estática. A sus pies, la silueta nocturna de Neo-Citania se desplegaba en un mosaico fractal de luces doradas e índigo: las líneas rectas del urbanismo corporativo habían comenzado a curvarse, abriendo paso a jardines comunitarios y avenidas donde la luz no seguía patrones algorítmicos.
 
-Kora Chen-Vega apoyaba los antebrazos sobre la barandilla de titanio. Con los ojos cerrados, dejaba que su sensibilidad Cascada absorbiera el rumor distante de ocho millones de personas redescubriendo el libre albedrío: oleadas de júbilo, chispazos de miedo ancestral y el asombro colectivo de quienes despiertan de una pesadilla que duró generaciones.
+Kora Vega apoyaba los antebrazos sobre la barandilla de titanio. Con los ojos cerrados, dejaba que su sensibilidad Cascada absorbiera el rumor distante de ocho millones de personas redescubriendo el libre albedrío: oleadas de júbilo, chispazos de miedo ancestral y el asombro colectivo de quienes despiertan de una pesadilla que duró generaciones.
 
 Unos pasos firmes y acompasados resonaron a su espalda.
 
@@ -1322,7 +1322,7 @@ Martin soltó el cristal, jadeando de asombro mientras dos lágrimas cálidas le
 
 ---
 
-En la superficie, sobre la terraza más alta del antiguo búnker de *Los Fracturados*, Kora Chen-Vega meditaba con las piernas cruzadas bajo el manto infinito de la noche.
+En la superficie, sobre la terraza más alta del antiguo búnker de *Los Fracturados*, Kora Vega meditaba con las piernas cruzadas bajo el manto infinito de la noche.
 
 El viento le acariciaba el rostro, desordenando su cabello oscuro. A su lado, la presencia cuántica de Mileo Chen proyectaba un suave fulgor que danzaba en armonía con las estrellas.
 

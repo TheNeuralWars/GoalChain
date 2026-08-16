@@ -1,6 +1,6 @@
 # CAPÍTULO 1: LA FRECUENCIA INAUDIBLE
 
-Kora Chen-Vega despertó de golpe con la boca seca y la sensación de que alguien había colocado un imán sobrecalentado justo en el centro de su frente.
+Kora Vega despertó de golpe con la boca seca y la sensación de que alguien había colocado un imán sobrecalentado justo en el centro de su frente.
 
 El despertador holográfico de su mesilla marcaba las 04:17 de la madrugada.
 

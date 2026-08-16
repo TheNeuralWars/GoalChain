@@ -34,7 +34,7 @@ Martin stepped back from the stone, wiping a tear of wonder from his cheek.
 
 ---
 
-On the highest terrace of the former NeuroSys Spire, five hundred meters above the glowing city, Kora Chen-Vega and Mileo Chen sat side by side beneath the starry dome of night.
+On the highest terrace of the former NeuroSys Spire, five hundred meters above the glowing city, Kora Vega and Mileo Chen sat side by side beneath the starry dome of night.
 
 The cool mountain wind ruffled Kora's dark hair. Beside her, Mileo held her hand, their fingers intertwined, the indigo glow of their Coils pulsing in quiet, steady harmony with the stars above.
 

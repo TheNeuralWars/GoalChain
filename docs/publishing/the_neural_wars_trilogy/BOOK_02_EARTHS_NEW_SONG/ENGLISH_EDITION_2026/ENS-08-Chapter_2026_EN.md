@@ -10,7 +10,7 @@ There were no military orders. No bugles sounded, no governmental decrees were p
 
 It was an unforced, voluntary rendezvous coordinated through the invisible currents of Yggdrasil: humanity's sovereign answer to the whisper that had crossed the outer reaches of the solar system.
 
-Atop the highest spire of Neo-Citania, Kora Chen-Vega raised her arms toward the star-strewn night. Beside her, the golden quantum presence of Mileo Chen, the steady gaze of Sierra Catalano, and the multidimensional awareness of Martin Catalano closed the synchronization circle.
+Atop the highest spire of Neo-Citania, Kora Vega raised her arms toward the star-strewn night. Beside her, the golden quantum presence of Mileo Chen, the steady gaze of Sierra Catalano, and the multidimensional awareness of Martin Catalano closed the synchronization circle.
 
 —Now —Kora whispered.
 

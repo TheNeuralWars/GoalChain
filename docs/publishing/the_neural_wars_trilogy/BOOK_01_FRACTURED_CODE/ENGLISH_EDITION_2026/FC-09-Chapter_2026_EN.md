@@ -2,7 +2,7 @@
 
 The recovery ward of the Deep Resonance Pavilion hummed with a pure, crystalline vibration calibrated to exactly 528 Hz.
 
-It was the frequency of cellular repair—a subtle acoustic wave that Dr. Darius Chen felt thrumming through the bones of his jaw every time he adjusted the resonance coils lining the perimeter of the hall.
+It was the frequency of cellular repair—a subtle acoustic wave that Dr. Darius Thorne felt thrumming through the bones of his jaw every time he adjusted the resonance coils lining the perimeter of the hall.
 
 The walls of the ward were grown from living biopolymers that reacted directly to the emotional and synaptic states of the patients. Where forty-eight newly liberated men and women lay resting in suspension pods, the walls blossomed with undulating patterns of emerald and deep indigo light, resembling the sunlit canopy of a subterranean forest.
 

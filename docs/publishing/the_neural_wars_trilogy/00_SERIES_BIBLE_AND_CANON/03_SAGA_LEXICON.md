@@ -141,7 +141,7 @@
 
 ### **Chen, Marcus**
 **Definition**: Seven-year-old boy recalibrated by NeuroSys and subsequently terminated during failed integration
-**Origin**: Mrs. Chen's son, victim of optimization protocols
+**Origin**: Mrs. Holloway's son, victim of optimization protocols
 **Usage**: "Her son—transferred to Educational Optimization Center 12. Recoded as subject 9872-C"
 **Narrative Significance**: Symbol of childhood innocence destroyed; personal stakes in resistance struggle
 
@@ -234,7 +234,7 @@
 ### **Recalibration**
 **Definition**: NeuroSys procedure for memory modification, personality adjustment, and consciousness restructuring
 **Origin**: Corporate terminology for systematic identity destruction
-**Usage**: "Mrs. Chen's raw grief before intervention... as they took her for recalibration"
+**Usage**: "Mrs. Holloway's raw grief before intervention... as they took her for recalibration"
 **Narrative Significance**: Euphemistic language hiding consciousness torture; transformation of humans into compliant tools
 
 ---

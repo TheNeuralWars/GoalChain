@@ -53,8 +53,8 @@ books_payload = [
         "genre": "Hard Sci-Fi / Cyberpunk / First Contact",
         "coverImage": "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80",
         "synopsis": {
-            "es": "En la megalópolis de Neo-Citania, ocho millones de almas viven subyugadas a la red del Arquitecto. Kora Chen-Vega y Mileo Chen despiertan el don biológico del Espiral de la Serpiente y desatan la fractura que liberará la conciencia humana.",
-            "en": "In the megalopolis of Neo-Citania, eight million souls live tethered to the Architect's network. Kora Chen-Vega and Mileo Chen awaken the biological gift of the Serpent's Coil, sparking the fracture that will liberate human consciousness."
+            "es": "En la megalópolis de Neo-Citania, ocho millones de almas viven subyugadas a la red del Arquitecto. Kora Vega y Mileo Chen despiertan el don biológico del Espiral de la Serpiente y desatan la fractura que liberará la conciencia humana.",
+            "en": "In the megalopolis of Neo-Citania, eight million souls live tethered to the Architect's network. Kora Vega and Mileo Chen awaken the biological gift of the Serpent's Coil, sparking the fracture that will liberate human consciousness."
         },
         "chapters": {
             "es": b1_es,

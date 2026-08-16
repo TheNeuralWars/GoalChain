@@ -2,7 +2,7 @@
 
 [Reflection]
 
-The Recovery Pavilion's neural integration chamber hums with frequencies that shouldn't be audible to human ears, yet Darius Chen *feels* them vibrating through his molars as he adjusts the calibration parameters. His fingers—steady despite thirty-six hours without proper rest—move through the holographic interface with practiced precision. Each adjustment triggers changes that *taste* like ozone and possibility, making his stomach clench with nervous energy.
+The Recovery Pavilion's neural integration chamber hums with frequencies that shouldn't be audible to human ears, yet Darius Thorne *feels* them vibrating through his molars as he adjusts the calibration parameters. His fingers—steady despite thirty-six hours without proper rest—move through the holographic interface with practiced precision. Each adjustment triggers changes that *taste* like ozone and possibility, making his stomach clench with nervous energy.
 
 The chamber walls pulse with bioluminescent cultures responsive to neural patterns. Indigo luminescence flows through embedded conduits, mirroring human neural architecture at macro scale. The air carries metallic tang overlaid with something organic—the actual *scent* of consciousness being rewoven. It reminds him uncomfortably of the smell that lingered after his brother's failed extraction.
 

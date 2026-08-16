@@ -2,7 +2,7 @@
 
 En el domo geodésico de Atacama, la noche cayó con un manto de estrellas tan brillantes que parecían rozar las antenas de transmisión.
 
-Kora Chen-Vega se sentó con las piernas cruzadas a un metro del artefacto de obsidiana.
+Kora Vega se sentó con las piernas cruzadas a un metro del artefacto de obsidiana.
 
 A su alrededor, el doctor Okafor y Naomi Lang monitorizaban su actividad cerebral a través de un anillo de sensores no invasivos. Dos viales de neuro-estabilizadores descansaban sobre una bandeja metálica, listos para cualquier intervención de emergencia.
 

@@ -6,7 +6,7 @@ Al mediodía, un destello silencioso rasgó la atmósfera sobre el Valle de la L
 
 No hubo estampido sónico ni rastro de humo incandescente. Un fragmento desprendido del monolito de Júpiter —un prisma de tres metros de altura tallado en obsidiana cuántica y filamentos dorados— descendió con la ingravidez de una pluma, posándose suavemente sobre la arena sin levantar una sola mota de polvo.
 
-Kora Chen-Vega y Martin Catalano aguardaban a cincuenta metros, envueltos en túnicas de lana de vicuña y gafas de protección solar.
+Kora Vega y Martin Catalano aguardaban a cincuenta metros, envueltos en túnicas de lana de vicuña y gafas de protección solar.
 
 El artefacto no emitía calor, pero el espacio a su alrededor se distorsionaba en una lente gravitacional que hacía que las montañas lejanas parecieran ondular como agua bajo el sol.
 

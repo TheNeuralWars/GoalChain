@@ -1,7 +1,7 @@
 # 🌌 The Neural Wars — Libro 3: Evolution Matrix (Cosmic Renaissance)
 
 **Título Alternativo / Canon**: *Evolution Matrix / Cosmic Renaissance*  
-**Protagonistas**: Dra. Elena Vasquez, Amara Lin, Riv Chen y el Enjambre de Conciencia Humana  
+**Protagonistas**: Dra. Elena Vasquez, Amara Lin, Riv Rivera y el Enjambre de Conciencia Humana  
 **Timeline**: Un año después de los eventos de *Earth's New Song*.
 
 ---
@@ -22,7 +22,7 @@ La humanidad ha recibido la invitación de los *Gardeners* para unirse a la red 
 
 ### Acto II: El Vórtice de la Singularidad (Capítulos 5 a 8)
 * **Capítulo 5**: Crisis en la colonia orbital: una sobrecarga de datos amenaza con borrar memorias individuales.
-* **Capítulo 6**: Riv Chen diseña el filtro bio-cuántico que preserva la identidad única de cada ser humano.
+* **Capítulo 6**: Riv Rivera diseña el filtro bio-cuántico que preserva la identidad única de cada ser humano.
 * **Capítulo 7**: Amara Lin defiende la preservación de la música, el folclore y la diversidad cultural de la Tierra.
 * **Capítulo 8**: Encuentro cara a cara con el Consejo de Sembradores en la Esfera de Dyson.
 

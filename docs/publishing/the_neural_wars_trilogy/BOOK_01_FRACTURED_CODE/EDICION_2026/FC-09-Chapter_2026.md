@@ -1,6 +1,6 @@
 # CAPÍTULO 9: CRECIMIENTO FRACTURADO
 
-La cámara de integración neural del Pabellón de Recuperación zumbaba con una frecuencia armónica de 528 Hz: una vibración inaudible para el oído humano, pero que el doctor Darius Chen sentía resonar directamente en la raíz de sus molares cada vez que ajustaba los campos de resonancia.
+La cámara de integración neural del Pabellón de Recuperación zumbaba con una frecuencia armónica de 528 Hz: una vibración inaudible para el oído humano, pero que el doctor Darius Thorne sentía resonar directamente en la raíz de sus molares cada vez que ajustaba los campos de resonancia.
 
 Las paredes del pabellón estaban recubiertas de biopolímeros vivos que reaccionaban a la actividad sináptica de los pacientes, proyectando patrones de luz índigo que imitaban la estructura de un bosque de neuronas a escala macroscópica.
 

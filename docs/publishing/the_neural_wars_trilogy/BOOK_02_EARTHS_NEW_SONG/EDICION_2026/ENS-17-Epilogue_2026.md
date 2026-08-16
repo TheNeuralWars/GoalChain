@@ -8,7 +8,7 @@ Construida con aleaciones ligeras de grafeno, cristales de resonancia de Atacama
 
 En el puente de mando, **Martin Catalano** ocupaba el puesto de navegación cuántica, con los ojos brillando en su eterna danza violeta.
 
-A su lado, **Kora Chen-Vega**, vestida con el traje de exploradora del nuevo cosmos, sostenía la mano de **Sierra Catalano**, quien asumía el mando de la primera misión de exploración interestelar de la especie humana.
+A su lado, **Kora Vega**, vestida con el traje de exploradora del nuevo cosmos, sostenía la mano de **Sierra Catalano**, quien asumía el mando de la primera misión de exploración interestelar de la especie humana.
 
 En la pantalla principal de navegación, la presencia incorpórea de **Mileo Chen** y la sonrisa holográfica de la doctora **Elena Vásquez** proyectaban las coordenadas del primer salto estelar.
 

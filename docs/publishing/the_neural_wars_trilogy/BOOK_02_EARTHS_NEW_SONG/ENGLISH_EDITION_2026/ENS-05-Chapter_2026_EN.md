@@ -10,7 +10,7 @@ It was neither an offshore military outpost nor a deep-sea drilling station: it 
 
 Within the domes, thousands of engineers, marine biologists, and fishermen who had fled corporate purges had developed a unique adaptation of the Serpent's Coil gene: their synaptic bioluminescence was not confined to their skin, but propagated through surrounding water molecules, allowing them to communicate in a silent language of light pulses and acoustic pressure waves.
 
-Kora Chen-Vega gazed at the submerged city, her eyes wide with wonder.
+Kora Vega gazed at the submerged city, her eyes wide with wonder.
 
 —The Yggdrasil Network doesn't just travel through air or stone, Riv —Kora whispered, feeling the briny caress of thousands of interconnected minds drifting through the ocean currents—. Water is the ultimate quantum conductor.
 

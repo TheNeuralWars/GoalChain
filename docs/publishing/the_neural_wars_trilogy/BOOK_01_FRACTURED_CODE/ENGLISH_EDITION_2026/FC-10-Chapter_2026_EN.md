@@ -4,7 +4,7 @@ The observation terrace atop the decommissioned Administration Spire trembled un
 
 Below, the endless expanse of Neo-Citania sprawled like a fallen galaxy of gold, amber, and vibrant violet. The rigid, right-angled grids of the corporate sectors had begun to fracture: streetlights flickered in unchoreographed pulses, rooftop bonfires cast dancing orange shadows across the white titanium facades, and the boulevards were filled with the distant, rolling roar of thousands of free human voices.
 
-Kora Chen-Vega rested her forearms on the cold metal parapet, her eyes closed.
+Kora Vega rested her forearms on the cold metal parapet, her eyes closed.
 
 With her sensory barriers lowered, her Cascade perception drank in the collective emotional ocean of the city: rolling waves of incandescent joy, sharp spikes of ancestral terror, the fierce warmth of reunited families, and the vast, aching wonder of a species rubbing its eyes after a century of manufactured sleep.
 

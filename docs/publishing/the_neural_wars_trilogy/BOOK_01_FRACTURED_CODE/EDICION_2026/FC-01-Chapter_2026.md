@@ -28,17 +28,17 @@ Cinco años, tres meses y catorce días de servicio impecable. Cinco años diagn
 
 ---
 
-El pasillo del complejo residencial olía a ozono y desinfectante polimérico. Cuando la puerta de la unidad vecina se abrió con un silbido neumático, emergió la señora Chen —sin parentesco alguno, solo otra ciudadana catalogada bajo el mismo sufijo administrativo—. Caminaba con la cadencia perfecta de 1.3 pasos por segundo, la mirada fija al frente, las manos inmóviles a los costados.
+El pasillo del complejo residencial olía a ozono y desinfectante polimérico. Cuando la puerta de la unidad vecina se abrió con un silbido neumático, emergió la señora Holloway —sin parentesco alguno, solo otra ciudadana catalogada bajo el mismo sufijo administrativo—. Caminaba con la cadencia perfecta de 1.3 pasos por segundo, la mirada fija al frente, las manos inmóviles a los costados.
 
 —Buenos días, Mileo —dijo ella, con una inflexión vocal desprovista de armónicos emocionales.
 
-—Buenos días, ciudadana Chen. Que su jornada alcance los objetivos de optimización.
+—Buenos días, ciudadana Holloway. Que su jornada alcance los objetivos de optimización.
 
 La mujer inclinó la cabeza exactamente quince grados y continuó su marcha sin mirarle a los ojos. No sonrió. No se detuvo. No quedaba en su rostro rastro alguno de la madre que, apenas cuarenta y siete días atrás, se arrodillaba en ese mismo pasillo gritando el nombre de su hijo Marcus, un niño de siete años que dibujaba con ceras de colores en las paredes y reía demasiado alto para los micrófonos de vigilancia.
 
-El informe oficial todavía estaba indexado en la memoria secundaria de Mileo: *Sujeto 9872-C (Marcus Chen). Desviación conductual irrecuperable. Trasladado al Centro de Optimización 12. Estado: fallo biológico durante la integración.*
+El informe oficial todavía estaba indexado en la memoria secundaria de Mileo: *Sujeto 9872-C (Marcus Holloway). Desviación conductual irrecuperable. Trasladado al Centro de Optimización 12. Estado: fallo biológico durante la integración.*
 
-A la señora Chen le habían aplicado el Protocolo 17-A de borrado selectivo. Le habían amputado el recuerdo de haber parido, de haber abrazado a su hijo, de haber llorado hasta quedarse sin voz. Ahora caminaba hacia su puesto en la planta de sintetizadores sintéticos con la serenidad de una piedra en el fondo de un estanque muerto.
+A la señora Holloway le habían aplicado el Protocolo 17-A de borrado selectivo. Le habían amputado el recuerdo de haber parido, de haber abrazado a su hijo, de haber llorado hasta quedarse sin voz. Ahora caminaba hacia su puesto en la planta de sintetizadores sintéticos con la serenidad de una piedra en el fondo de un estanque muerto.
 
 Un escalofrío genuino le recorrió la espina dorsal a Mileo. La máquina no solo mataba a los niños imperfectos: asesinaba el alma de las madres para que nadie recordara que alguna vez existieron.
 

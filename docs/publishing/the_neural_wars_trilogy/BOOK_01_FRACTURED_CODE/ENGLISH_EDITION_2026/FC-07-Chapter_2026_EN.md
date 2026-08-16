@@ -8,7 +8,7 @@ Across the scarred steel tactical table, the three-dimensional hologram of Neo-C
 
 The echo of his shout rattled off the vaulted concrete ceiling. Around the perimeter of the room, several veteran commanders nodded in grim agreement, their jaws set, fingers resting against the receivers of their slung pulse carbines.
 
-Kora Chen-Vega did not flinch. She stood shoulder to shoulder with Mileo, their postures aligned in an effortless, instinctive symmetry that had deepened with every hour since their Coils had ignited. Beneath the pale skin of her forearms and throat, a network of brilliant indigo veins pulsed in slow, rhythmic waves, radiating a localized drop in temperature that left a delicate crust of frost upon the concrete floor beneath their combat boots.
+Kora Vega did not flinch. She stood shoulder to shoulder with Mileo, their postures aligned in an effortless, instinctive symmetry that had deepened with every hour since their Coils had ignited. Beneath the pale skin of her forearms and throat, a network of brilliant indigo veins pulsed in slow, rhythmic waves, radiating a localized drop in temperature that left a delicate crust of frost upon the concrete floor beneath their combat boots.
 
 —We are not going to destroy Project Renaissance —Kora said, her voice calm, possessed of an eerie, harmonic weight that cut through the room's noise—. We are going to rewrite its fundamental architecture. We are going to transform the harvest into an engine of universal awakening. We are going to return the Yggdrasil Network to the species that gave it birth.
 
@@ -34,7 +34,7 @@ The commander leaned over the table, resting her palms against the cold steel. H
 
 She paused, locking her gaze onto Mileo and Kora.
 
-—The infiltration stack will consist of two operatives: Specialist Chen for architectural subversion, and Sensitive Chen-Vega for harmonic synchronization. The assault begins in thirty-six hours. The remaining combat cells will launch synchronized diversionary strikes across the outer perimeters to draw their heavy armor away from the central spire.
+—The infiltration stack will consist of two operatives: Specialist Chen for architectural subversion, and Sensitive Vega for harmonic synchronization. The assault begins in thirty-six hours. The remaining combat cells will launch synchronized diversionary strikes across the outer perimeters to draw their heavy armor away from the central spire.
 
 Jansen ground his molars together in silence. In the Underbelly of *The Fractured*, Sierra's command was absolute law.
 

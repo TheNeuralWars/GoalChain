@@ -34,7 +34,7 @@ Martin soltó el cristal, jadeando de asombro mientras dos lágrimas cálidas le
 
 ---
 
-En la superficie, sobre la terraza más alta del antiguo búnker de *Los Fracturados*, Kora Chen-Vega meditaba con las piernas cruzadas bajo el manto infinito de la noche.
+En la superficie, sobre la terraza más alta del antiguo búnker de *Los Fracturados*, Kora Vega meditaba con las piernas cruzadas bajo el manto infinito de la noche.
 
 El viento le acariciaba el rostro, desordenando su cabello oscuro. A su lado, la presencia cuántica de Mileo Chen proyectaba un suave fulgor que danzaba en armonía con las estrellas.
 

@@ -13,9 +13,9 @@ if hasattr(sys.stdout, "reconfigure"):
 
 CANONICAL_ENTITIES = {
     "Characters": [
-        "Mileo Chen", "Kora Chen-Vega", "Sierra Catalano", "Martin Catalano",
+        "Mileo Chen", "Kora Vega", "Sierra Catalano", "Martin Catalano",
         "Elena Vásquez", "Elena Vasquez", "Dr. Marcus Okafor", "Marcus Okafor",
-        "Riv", "Maddox", "Director Halsey", "Halsey", "Amara Lin", "Dr. Darius Chen",
+        "Riv", "Maddox", "Director Halsey", "Halsey", "Amara Lin", "Dr. Darius Thorne",
         "Marcus Kelvin", "Jansen", "Elias", "Vance"
     ],
     "Factions_And_Tech": [

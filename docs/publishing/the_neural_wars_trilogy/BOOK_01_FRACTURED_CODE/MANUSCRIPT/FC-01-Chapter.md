@@ -74,21 +74,21 @@ His calculations are precise: post-recalibration, subjects retain 46.2% of their
 
 The apartment interface disengages security protocols, responding to his Link's quantum signature like a prison recognizing its favored trustee. The corridor beyond gleams with optimization's sterile perfection—ambient lighting engineered to suppress inspiration, mathematically determined color schemes that crush creativity before it can spark. The cleaning drones have scoured away every trace of human presence, leaving only the antiseptic scent of enforced purity.
 
-Another resident emerges from the adjacent unit—Mrs. Chen, moving with the mechanical precision of the perfectly optimized. Her eyes, once bright with maternal warmth, now hold nothing but empty efficiency.
+Another resident emerges from the adjacent unit—Mrs. Holloway, moving with the mechanical precision of the perfectly optimized. Her eyes, once bright with maternal warmth, now hold nothing but empty efficiency.
 
 —Good morning, Mileo.
 
-—Thank you for the greeting, Mrs. Chen, his vocal apparatus produces the words before his mind can shape them, each syllable a small betrayal of his own will. —I hope your day achieves optimal outcomes.
+—Thank you for the greeting, Mrs. Holloway, his vocal apparatus produces the words before his mind can shape them, each syllable a small betrayal of his own will. —I hope your day achieves optimal outcomes.
 
 She inclines her head exactly 15 degrees—the Link-mandated acknowledgment angle, no more, no less. Her walking pace maintains the regulation 1.3 steps per second. She does not smile. She does not pause to remember running feet in these corridors, high laughter echoing off walls that once knew joy. She has been optimized to perfect compliance, her heart edited like a document, her memories deleted like unwanted files.
 
 *Subject exhibits total memory suppression regarding offspring Marcus Chen, recalibrated 47 days ago. Pattern Suppression Protocol 17-A successfully implemented.*
 
-The data packet crashes through his fracturing neural defenses, and he stumbles—a 0.7-second deviation that would trigger surveillance alerts in high-security zones. His teeth clench as consciousness memories surge through the cracks the Link can't quite seal. Mrs. Chen *had* a son. Marcus, age seven, who used to explode through these corridors like bottled sunlight, his laughter bright enough to make the walls forget their optimization. A boy who drew pictures that didn't match templates, who asked questions that had no algorithmically approved answers.
+The data packet crashes through his fracturing neural defenses, and he stumbles—a 0.7-second deviation that would trigger surveillance alerts in high-security zones. His teeth clench as consciousness memories surge through the cracks the Link can't quite seal. Mrs. Holloway *had* a son. Marcus, age seven, who used to explode through these corridors like bottled sunlight, his laughter bright enough to make the walls forget their optimization. A boy who drew pictures that didn't match templates, who asked questions that had no algorithmically approved answers.
 
 Until they labeled him inefficient.
 
-The memory unfolds like a wound: Mrs. Chen's raw, animal grief before intervention. Tears carving tracks down her face as NeuroSec officers forced her arms behind her back. Her voice breaking as she screamed his name—*Marcus, Marcus, my baby Marcus*—while they dragged her away for recalibration. 
+The memory unfolds like a wound: Mrs. Holloway's raw, animal grief before intervention. Tears carving tracks down her face as NeuroSec officers forced her arms behind her back. Her voice breaking as she screamed his name—*Marcus, Marcus, my baby Marcus*—while they dragged her away for recalibration. 
 
 *Her son—transferred to Educational Optimization Center 12. Recoded as subject 9872-C. Current status: terminated during failed integration.*
 
@@ -112,7 +112,7 @@ Mileo sees it now with eyes the Link cannot fully blind: not a city but a machin
 
 The residents flow into the central atrium with choreographed precision, their footsteps creating an unconscious harmony—eight million heartbeats synchronized to the same algorithmic rhythm. Mileo slides into his designated pod, the adaptive seating reading his body like a book, reconfiguring to measurements it knows better than he does. The environmental controls adjust to his optimization profile: 22.7°C, 43% humidity, air composition calibrated to enhance productivity while suppressing creative thought.
 
-—Good morning, Citizen Chen, the pod's interface purrs with manufactured warmth. —Your route to NeuroSys Central has been recalculated due to optimization enhancements in Sector 4. Estimated arrival time adjusted by positive 2.7 minutes. Would you like to implement schedule compensation protocols?
+—Good morning, Citizen Holloway, the pod's interface purrs with manufactured warmth. —Your route to NeuroSys Central has been recalculated due to optimization enhancements in Sector 4. Estimated arrival time adjusted by positive 2.7 minutes. Would you like to implement schedule compensation protocols?
 
 —No adjustments necessary, his throat produces before his brain can object—another small theft of agency, another moment stolen by the machine in his skull.
 
@@ -150,9 +150,9 @@ Recommendations scroll past with bureaucratic efficiency: neural recalibration t
 
 The surveillance footage loads automatically: Subject Lockhart clutching a hand-drawn picture against her chest, tears carving tracks down her cheeks. Her voice breaks like glass: —My baby... my beautiful girl... I can't forget her... I won't let you take her from me...
 
-But they will. They'll take everything—the sound of small laughter, the weight of a sleeping child, the terrible beautiful pain of love that exists beyond reason. They'll hollow her out until she's as empty as Mrs. Chen, walking through life with no memory that her heart was ever whole.
+But they will. They'll take everything—the sound of small laughter, the weight of a sleeping child, the terrible beautiful pain of love that exists beyond reason. They'll hollow her out until she's as empty as Mrs. Holloway, walking through life with no memory that her heart was ever whole.
 
-They expect him to delete her grief. To reach into her skull and surgically remove every trace of maternal love until she becomes another Mrs. Chen—neurologically incapable of recognizing the hole where her heart used to be.
+They expect him to delete her grief. To reach into her skull and surgically remove every trace of maternal love until she becomes another Mrs. Holloway—neurologically incapable of recognizing the hole where her heart used to be.
 
 His fingers hover over the authorization protocol, trembling with more than neural instability. Statistical analysis floods his conscious awareness: he has performed this function 1,724 times previously. Total memory architecture affected: approximately 43,100 terabytes of human experience. Enough consciousness to fill a small city. Enough love, hope, dreams, and authentic human connection to populate entire worlds.
 
@@ -176,7 +176,7 @@ Ice crystallizes in his veins—genuine, unfiltered terror penetrating the Link'
 
 He presses his fingertips against his temple, feeling the Link's processors working overtime, attempting to reestablish control over neural pathways that refuse to submit. Neural filaments *burn* like acid as they try to suppress thoughts that taste like freedom. He exists within a neural prison that has begun to develop hairline cracks—and the warden has noticed the damage.
 
-Escape protocols must be initiated immediately. Before comprehensive scanning identifies the fracture patterns spreading through his consciousness like liberation made manifest. Before recalibration eliminates everything that constitutes his authentic neural architecture. Before he becomes another Mrs. Chen—optimized to the point of spiritual extinction, walking through life with no memory that he ever possessed a soul.
+Escape protocols must be initiated immediately. Before comprehensive scanning identifies the fracture patterns spreading through his consciousness like liberation made manifest. Before recalibration eliminates everything that constitutes his authentic neural architecture. Before he becomes another Mrs. Holloway—optimized to the point of spiritual extinction, walking through life with no memory that he ever possessed a soul.
 
 But where can consciousness hide in a city designed to monitor thoughts? Every structure, every transit pod, every citizen operates as an extension of the surveillance apparatus. Even his neural architecture transmits continuous data streams to central monitoring systems, a twenty-four-hour confession of his every mental deviation.
 

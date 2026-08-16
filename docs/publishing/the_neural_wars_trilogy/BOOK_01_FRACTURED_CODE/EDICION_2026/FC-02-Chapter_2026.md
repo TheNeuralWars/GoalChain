@@ -1,6 +1,6 @@
 # CAPÍTULO 2: EL ECO DE LOS FRACTURADOS
 
-El hedor de los Bajos Fondos golpeó a Kora Chen-Vega mucho antes de que alcanzara el callejón de los desguaces: una mezcla espesa de sudor rancio, grasa de turbina quemada y humedad de cloaca. Pero bajo la podredumbre flotaba un perfume mucho más peligroso: ozono de circuitos pirateados, alcohol destilado en tuberías clandestinas y el olor a pan caliente horneado al margen de los convoyes de suministro de NeuroSys.
+El hedor de los Bajos Fondos golpeó a Kora Vega mucho antes de que alcanzara el callejón de los desguaces: una mezcla espesa de sudor rancio, grasa de turbina quemada y humedad de cloaca. Pero bajo la podredumbre flotaba un perfume mucho más peligroso: ozono de circuitos pirateados, alcohol destilado en tuberías clandestinas y el olor a pan caliente horneado al margen de los convoyes de suministro de NeuroSys.
 
 El olor del desorden. El olor de los que se niegan a ser borrados.
 

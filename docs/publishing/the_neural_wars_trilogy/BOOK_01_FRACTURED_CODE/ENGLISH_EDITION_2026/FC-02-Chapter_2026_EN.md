@@ -1,6 +1,6 @@
 # CHAPTER 2: THE ECHO OF THE FRACTURED
 
-The stench of the Underbelly struck Kora Chen-Vega long before she reached Scrapyard Alley: a thick broth of stale sweat, scorched turbine lubricant, and sewer damp. But beneath the decay drifted a far more dangerous scent: ozone from hotwired circuits, moonshine distilled in clandestine piping, and the aroma of warm bread baked entirely off the NeuroSys logistics grid.
+The stench of the Underbelly struck Kora Vega long before she reached Scrapyard Alley: a thick broth of stale sweat, scorched turbine lubricant, and sewer damp. But beneath the decay drifted a far more dangerous scent: ozone from hotwired circuits, moonshine distilled in clandestine piping, and the aroma of warm bread baked entirely off the NeuroSys logistics grid.
 
 The smell of disorder. The smell of those who refused to be erased.
 

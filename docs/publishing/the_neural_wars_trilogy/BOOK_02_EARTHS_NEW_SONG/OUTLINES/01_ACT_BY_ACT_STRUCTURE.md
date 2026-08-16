@@ -1,7 +1,7 @@
 # 🎵 The Neural Wars — Libro 2: Earth's New Song (Convergence Protocol)
 
 **Título Alternativo / Canon**: *Convergence Protocol / Earth's New Song*  
-**Protagonista Central**: Kora Chen-Vega (Navegadora de la Cascada) & Sierra Catalano (Comandante de la Alianza Global)  
+**Protagonista Central**: Kora Vega (Navegadora de la Cascada) & Sierra Catalano (Comandante de la Alianza Global)  
 **Timeline**: Seis meses después de los eventos del Epílogo de *Fractured Code*.
 
 ---
@@ -15,7 +15,7 @@ Tras la caída del control central en Neo-Citania, la chispa de la conciencia di
 ## 📖 2. Estructura de 4 Actos (16 Capítulos Proyectados)
 
 ### Acto I: Ecos en la Red Global (Capítulos 1 a 4)
-* **Capítulo 1**: El despertar de Kora Chen-Vega. Sus sentidos cuánticos captan una melodía que no proviene de ninguna antena humana.
+* **Capítulo 1**: El despertar de Kora Vega. Sus sentidos cuánticos captan una melodía que no proviene de ninguna antena humana.
 * **Capítulo 2**: Sierra Catalano coordina las células de resistencia en la Federación Europea y el Movimiento Ubuntu en África.
 * **Capítulo 3**: Martin Catalano navega su nueva existencia híbrida en el sustrato cuántico.
 * **Capítulo 4**: Los satélites corporativos detectan una distorsión gravitacional en el cinturón de Kuiper: la respuesta a la Cascada ha comenzado.

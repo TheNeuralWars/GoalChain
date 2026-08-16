@@ -45,7 +45,7 @@ The Neural Wars saga chronicles humanity's evolutionary journey from isolated co
 
 *Evidence from source*: Sierra's tactical precision and protective instincts in Chapters 6-15 establish foundation for expanded leadership role
 
-**Kora Chen-Vega - Cascade Navigator** 
+**Kora Vega - Cascade Navigator** 
 *Evolution from individual sensitive to consciousness guide*
 - **Opening status**: Recovering from Renaissance Protocol exposure while developing enhanced abilities
 - **Central conflict**: Managing overwhelming perception expansion without losing individual identity
@@ -138,7 +138,7 @@ Rather than individual protagonists, Book 3 follows diverse human perspectives e
 - **Challenge**: Preventing homogenization while embracing beneficial connection
 - **Development**: Establishing frameworks for cultural evolution within expanded consciousness
 
-**Riv Chen - Technology Integration Specialist**
+**Riv Rivera - Technology Integration Specialist**
 *Engineering safe consciousness enhancement systems*
 - **Role**: Developing technology that serves rather than controls consciousness
 - **Challenge**: Creating tools that enhance without replacing human capability
@@ -233,7 +233,7 @@ Humanity becomes catalyst for universal consciousness evolution, fulfilling thei
 **Book 6**: Transcendent awareness enabling ancient problem solving
 **Book 7**: Infinite consciousness embodying ultimate human evolution potential
 
-#### Kora Chen-Vega - Perception Arc
+#### Kora Vega - Perception Arc
 **Book 1**: Street survivor with developing Cascade sensitivity
 **Book 2**: Consciousness translator enabling cosmic communication
 **Book 3**: Cosmic perception guide facilitating species-wide awareness expansion

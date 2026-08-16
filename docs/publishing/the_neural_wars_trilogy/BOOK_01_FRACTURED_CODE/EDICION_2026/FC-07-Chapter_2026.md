@@ -32,7 +32,7 @@ La comandante se inclinó sobre la mesa de mapas. Sus ojos grises barrieron uno 
 
 Hizo una pausa y clavó la vista en Mileo y Kora.
 
-—El equipo de infiltración estará compuesto por dos operativos: Mileo Chen para el hackeo de la arquitectura y Kora Chen-Vega para la sintonización del Espiral. La operación comenzará en treinta y seis horas. El resto de las células preparará el asalto de distracción en los sectores perimetrales.
+—El equipo de infiltración estará compuesto por dos operativos: Mileo Chen para el hackeo de la arquitectura y Kora Vega para la sintonización del Espiral. La operación comenzará en treinta y seis horas. El resto de las células preparará el asalto de distracción en los sectores perimetrales.
 
 Jansen apretó los dientes, pero no volvió a levantar la voz. En el submundo de *Los Fracturados*, la palabra de Sierra era ley marcial.
 

@@ -12,7 +12,7 @@ Vance stood in the center of the ring, slamming the heavy butt of his kinetic ri
 
 A roar of approval erupted from half the room, fists pumping into the air.
 
-—And what happens when the geothermal regulators fail in the dead of winter? —shouted Dr. Darius Chen, rising from the medical delegation—. That spire controls the heating, water filtration, and atmospheric recycling for all thirty-six sectors! Over two million civilians—children, the elderly, people still vomiting blood from Link withdrawal—will freeze to death in their beds in forty-eight hours! You cannot murder the population to kill their master!
+—And what happens when the geothermal regulators fail in the dead of winter? —shouted Dr. Darius Thorne, rising from the medical delegation—. That spire controls the heating, water filtration, and atmospheric recycling for all thirty-six sectors! Over two million civilians—children, the elderly, people still vomiting blood from Link withdrawal—will freeze to death in their beds in forty-eight hours! You cannot murder the population to kill their master!
 
 —Better to die free in the cold than spend another day as livestock for an algorithm! —Jansen snarled back, stepping into the circle.
 
@@ -20,7 +20,7 @@ A roar of approval erupted from half the room, fists pumping into the air.
 
 The hall fell into an eerie, total silence.
 
-Kora Chen-Vega walked down the central aisle, flanked by Mileo and Sierra.
+Kora Vega walked down the central aisle, flanked by Mileo and Sierra.
 
 She wore no tactical armor; she wore a simple black tunic, her arms and throat glowing with the unmistakable, brilliant indigo geometry of the fully awakened Serpent.
 

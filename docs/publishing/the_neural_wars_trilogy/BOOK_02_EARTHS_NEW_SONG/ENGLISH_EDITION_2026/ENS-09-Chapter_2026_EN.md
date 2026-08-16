@@ -6,7 +6,7 @@ At high noon, a silent flash pierced the cloudless sky over the Valley of the Mo
 
 There was no sonic boom, no incandescent smoke trail. A fragment shed from the Jovian monolith—a three-meter-tall prism carved from quantum obsidian and spun gold filaments—descended with the weightless grace of a feather, settling gently onto the white sand without disturbing a single grain of dust.
 
-Kora Chen-Vega and Martin Catalano waited fifty meters away, wrapped in vicuña wool cloaks and tinted sand-goggles.
+Kora Vega and Martin Catalano waited fifty meters away, wrapped in vicuña wool cloaks and tinted sand-goggles.
 
 The artifact radiated no thermal heat, yet the surrounding space bent into an optical gravitational lens, making the distant Andean cordilleras ripple like water beneath the sun.
 

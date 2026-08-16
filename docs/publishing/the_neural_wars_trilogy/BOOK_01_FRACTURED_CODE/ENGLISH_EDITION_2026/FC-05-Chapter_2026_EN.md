@@ -20,7 +20,7 @@ The Architect purged the thread with cold, recursive violence. He was an entity 
 
 ---
 
-In the damp chill of the subterranean medical bay, Kora Chen-Vega slammed her fist onto the stainless-steel instrument tray, sending scalpel blades and diagnostic probes clattering to the floor.
+In the damp chill of the subterranean medical bay, Kora Vega slammed her fist onto the stainless-steel instrument tray, sending scalpel blades and diagnostic probes clattering to the floor.
 
 —We are running out of time! —she gasped, her voice raw as sandpaper.
 

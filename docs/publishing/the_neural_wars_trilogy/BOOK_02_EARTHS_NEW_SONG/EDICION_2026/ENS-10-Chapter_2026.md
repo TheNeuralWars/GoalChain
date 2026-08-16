@@ -14,7 +14,7 @@ Sierra Catalano no levantó la voz. Se sirvió un vaso de agua fría y miró a J
 
 —¿Y si decidimos salir y ellos no nos dejan? —insistió Jansen, golpeando la mesa—. Yo propongo desplegar el escudo orbital de pulso pesado. Si quieren hablar, que lo hagan desde fuera de la órbita lunar. No podemos permitir que su señal reescriba el cerebro de nuestros hijos sin un perímetro de defensa militar activo.
 
-Kora Chen-Vega entró en la tienda de mando, sacudiéndose el polvo del desierto de su túnica. Sus ojos violetas se posaron en Jansen con una firmeza que hizo retroceder al viejo soldado medio paso.
+Kora Vega entró en la tienda de mando, sacudiéndose el polvo del desierto de su túnica. Sus ojos violetas se posaron en Jansen con una firmeza que hizo retroceder al viejo soldado medio paso.
 
 —No puedes defenderte del sol cerrando los ojos y disparando al cielo, Jansen —dijo Kora con voz pausada—. La conciencia no es un territorio que se defienda con trincheras y alambradas de espino. Los Sembradores no nos están pidiendo sumisión: nos están haciendo una invitación. Y la única forma de saber si es auténtica es tener el valor de mirarles a los ojos.
 

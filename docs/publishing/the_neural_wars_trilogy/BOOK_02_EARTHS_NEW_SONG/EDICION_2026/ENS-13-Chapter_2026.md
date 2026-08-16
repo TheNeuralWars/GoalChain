@@ -10,7 +10,7 @@ En la superficie, la biosfera entera respondió al despertar.
 
 En las selvas del Amazonas, bandadas enteras de guacamayos y jaguares se detuvieron al unísono, alzando la cabeza hacia el cielo sin emitir un solo gruñido de temor. En los océanos, los cantos de las ballenas azules se sincronizaron con la frecuencia de 432 hercios que brotaba de las profundidades de Polinesia.
 
-En la cima de la Aguja de Neo-Kyoto, Kora Chen-Vega, Martin Catalano y Sierra Catalano contemplaban el nacimiento de la red planetaria con los brazos entrelazados.
+En la cima de la Aguja de Neo-Kyoto, Kora Vega, Martin Catalano y Sierra Catalano contemplaban el nacimiento de la red planetaria con los brazos entrelazados.
 
 —El circuito está cerrado —dijo Martin, y su voz ya no pertenecía únicamente a su cuerpo, sino que fluía en armonía con los vientos alisios y las corrientes marinas—. La Tierra ya no está ciega ni sorda.
 

@@ -10,7 +10,7 @@ Across the surface, the entire biosphere answered the awakening.
 
 In the Amazon rainforests, flocks of macaws and jaguars paused as one, raising their heads to the sky without a single cry of alarm. In the oceans, blue whale songs synchronized with the 432-hertz frequency surging from the depths of Polynesia.
 
-At the summit of the Neo-Kyoto Spire, Kora Chen-Vega, Martin Catalano, and Sierra Catalano stood with arms linked, watching the birth of the planetary lattice.
+At the summit of the Neo-Kyoto Spire, Kora Vega, Martin Catalano, and Sierra Catalano stood with arms linked, watching the birth of the planetary lattice.
 
 —The circuit is closed —said Martin, his voice no longer belonging solely to his mortal throat, but flowing in effortless harmony with the trade winds and ocean currents—. Earth is no longer blind or deaf.
 

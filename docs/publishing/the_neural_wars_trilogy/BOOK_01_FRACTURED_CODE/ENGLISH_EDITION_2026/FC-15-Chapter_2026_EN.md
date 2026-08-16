@@ -36,7 +36,7 @@ Inside the high command deck, Sierra Catalano stood before the master planetary 
 
 Every sector of Neo-Citania—from the deepest forgotten sewer of the Underbelly to the highest observation lounge—glowed in soft, harmonic green: zero percent algorithmic subjugation, one hundred percent voluntary neural coherence.
 
-Kora Chen-Vega stepped up beside her, leaning against the rail, her face radiant with exhausted triumph.
+Kora Vega stepped up beside her, leaning against the rail, her face radiant with exhausted triumph.
 
 —We did it, Sierra —Kora said softly, taking a deep breath of the free air—. The machine is broken. The hive is dead.
 

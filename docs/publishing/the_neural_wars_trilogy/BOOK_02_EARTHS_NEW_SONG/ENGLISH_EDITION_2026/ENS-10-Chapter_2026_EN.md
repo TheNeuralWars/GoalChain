@@ -14,7 +14,7 @@ Sierra Catalano did not raise her voice. She poured herself a cup of cold water,
 
 —And what if we try to walk out and they don't let us? —Jansen challenged, slamming his fist onto the table—. I say we deploy the heavy orbital pulse grid. If they want to talk, let them do it from past lunar orbit. We cannot let their signal rewrite the brains of our children without an active military defense perimeter.
 
-Kora Chen-Vega stepped through the tent flap, brushing desert salt from her woolen cloak. Her violet eyes locked onto Jansen with a quiet intensity that made the old warrior take half a step back.
+Kora Vega stepped through the tent flap, brushing desert salt from her woolen cloak. Her violet eyes locked onto Jansen with a quiet intensity that made the old warrior take half a step back.
 
 —You cannot defend yourself against the sun by closing your eyes and shooting your rifle into the sky, Jansen —Kora said softly—. Consciousness is not a territory you defend with trenches and razor wire. The Gardeners aren't demanding submission: they are offering an invitation. And the only way to know if it's real is to have the courage to look them in the eye.
 

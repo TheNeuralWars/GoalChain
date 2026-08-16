@@ -20,7 +20,7 @@ The air ionized with a lethal electrostatic crackle.
 
 And then, sea and sky erupted in a blinding flash of indigo fire.
 
-Surging through the storm clouds, the quantum submarine *Nautilus-7* broke the bay's surface, firing a colossal acoustic resonance pulse that scrambled the battlecruiser's repulsor drives. At the same instant, Kora Chen-Vega leapt from a low-flying assault skiff, executing a combat slide across the rain-slicked platform.
+Surging through the storm clouds, the quantum submarine *Nautilus-7* broke the bay's surface, firing a colossal acoustic resonance pulse that scrambled the battlecruiser's repulsor drives. At the same instant, Kora Vega leapt from a low-flying assault skiff, executing a combat slide across the rain-slicked platform.
 
 Dropping to her knees at the base of the master inductor, Kora drove the Atacama crystal artifact directly into the antenna's primary core.
 

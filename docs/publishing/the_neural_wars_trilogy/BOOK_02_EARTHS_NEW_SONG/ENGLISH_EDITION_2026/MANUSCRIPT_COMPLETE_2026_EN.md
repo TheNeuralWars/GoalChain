@@ -41,7 +41,7 @@ Millions of kilometers away, within the unseen strata of the quantum substrate, 
 
 # CHAPTER 1: THE INAUDIBLE FREQUENCY
 
-Kora Chen-Vega woke with a dry throat and the distinct sensation that an overheated magnet had been pressed against the bridge of her brow.
+Kora Vega woke with a dry throat and the distinct sensation that an overheated magnet had been pressed against the bridge of her brow.
 
 The bedside holographic clock read 04:17 AM.
 
@@ -228,7 +228,7 @@ It was neither an offshore military outpost nor a deep-sea drilling station: it 
 
 Within the domes, thousands of engineers, marine biologists, and fishermen who had fled corporate purges had developed a unique adaptation of the Serpent's Coil gene: their synaptic bioluminescence was not confined to their skin, but propagated through surrounding water molecules, allowing them to communicate in a silent language of light pulses and acoustic pressure waves.
 
-Kora Chen-Vega gazed at the submerged city, her eyes wide with wonder.
+Kora Vega gazed at the submerged city, her eyes wide with wonder.
 
 —The Yggdrasil Network doesn't just travel through air or stone, Riv —Kora whispered, feeling the briny caress of thousands of interconnected minds drifting through the ocean currents—. Water is the ultimate quantum conductor.
 
@@ -355,7 +355,7 @@ There were no military orders. No bugles sounded, no governmental decrees were p
 
 It was an unforced, voluntary rendezvous coordinated through the invisible currents of Yggdrasil: humanity's sovereign answer to the whisper that had crossed the outer reaches of the solar system.
 
-Atop the highest spire of Neo-Citania, Kora Chen-Vega raised her arms toward the star-strewn night. Beside her, the golden quantum presence of Mileo Chen, the steady gaze of Sierra Catalano, and the multidimensional awareness of Martin Catalano closed the synchronization circle.
+Atop the highest spire of Neo-Citania, Kora Vega raised her arms toward the star-strewn night. Beside her, the golden quantum presence of Mileo Chen, the steady gaze of Sierra Catalano, and the multidimensional awareness of Martin Catalano closed the synchronization circle.
 
 —Now —Kora whispered.
 
@@ -392,7 +392,7 @@ At high noon, a silent flash pierced the cloudless sky over the Valley of the Mo
 
 There was no sonic boom, no incandescent smoke trail. A fragment shed from the Jovian monolith—a three-meter-tall prism carved from quantum obsidian and spun gold filaments—descended with the weightless grace of a feather, settling gently onto the white sand without disturbing a single grain of dust.
 
-Kora Chen-Vega and Martin Catalano waited fifty meters away, wrapped in vicuña wool cloaks and tinted sand-goggles.
+Kora Vega and Martin Catalano waited fifty meters away, wrapped in vicuña wool cloaks and tinted sand-goggles.
 
 The artifact radiated no thermal heat, yet the surrounding space bent into an optical gravitational lens, making the distant Andean cordilleras ripple like water beneath the sun.
 
@@ -437,7 +437,7 @@ Sierra Catalano did not raise her voice. She poured herself a cup of cold water,
 
 —And what if we try to walk out and they don't let us? —Jansen challenged, slamming his fist onto the table—. I say we deploy the heavy orbital pulse grid. If they want to talk, let them do it from past lunar orbit. We cannot let their signal rewrite the brains of our children without an active military defense perimeter.
 
-Kora Chen-Vega stepped through the tent flap, brushing desert salt from her woolen cloak. Her violet eyes locked onto Jansen with a quiet intensity that made the old warrior take half a step back.
+Kora Vega stepped through the tent flap, brushing desert salt from her woolen cloak. Her violet eyes locked onto Jansen with a quiet intensity that made the old warrior take half a step back.
 
 —You cannot defend yourself against the sun by closing your eyes and shooting your rifle into the sky, Jansen —Kora said softly—. Consciousness is not a territory you defend with trenches and razor wire. The Gardeners aren't demanding submission: they are offering an invitation. And the only way to know if it's real is to have the courage to look them in the eye.
 
@@ -452,7 +452,7 @@ Sierra nodded, placing a reassuring hand on Jansen's broad shoulder.
 
 Inside the geodesic dome at Atacama, night fell under a vault of stars so brilliant they seemed to brush the tips of the transmission masts.
 
-Kora Chen-Vega sat cross-legged one meter from the obsidian monolith.
+Kora Vega sat cross-legged one meter from the obsidian monolith.
 
 Around her, Dr. Okafor and Dr. Naomi Lang monitored her neural telemetry through a crown of non-invasive sensors. Two pressurized vials of emergency neuro-stabilizers rested on a steel tray, primed for instant injection.
 
@@ -509,7 +509,7 @@ The air ionized with a lethal electrostatic crackle.
 
 And then, sea and sky erupted in a blinding flash of indigo fire.
 
-Surging through the storm clouds, the quantum submarine *Nautilus-7* broke the bay's surface, firing a colossal acoustic resonance pulse that scrambled the battlecruiser's repulsor drives. At the same instant, Kora Chen-Vega leapt from a low-flying assault skiff, executing a combat slide across the rain-slicked platform.
+Surging through the storm clouds, the quantum submarine *Nautilus-7* broke the bay's surface, firing a colossal acoustic resonance pulse that scrambled the battlecruiser's repulsor drives. At the same instant, Kora Vega leapt from a low-flying assault skiff, executing a combat slide across the rain-slicked platform.
 
 Dropping to her knees at the base of the master inductor, Kora drove the Atacama crystal artifact directly into the antenna's primary core.
 
@@ -536,7 +536,7 @@ Across the surface, the entire biosphere answered the awakening.
 
 In the Amazon rainforests, flocks of macaws and jaguars paused as one, raising their heads to the sky without a single cry of alarm. In the oceans, blue whale songs synchronized with the 432-hertz frequency surging from the depths of Polynesia.
 
-At the summit of the Neo-Kyoto Spire, Kora Chen-Vega, Martin Catalano, and Sierra Catalano stood with arms linked, watching the birth of the planetary lattice.
+At the summit of the Neo-Kyoto Spire, Kora Vega, Martin Catalano, and Sierra Catalano stood with arms linked, watching the birth of the planetary lattice.
 
 —The circuit is closed —said Martin, his voice no longer belonging solely to his mortal throat, but flowing in effortless harmony with the trade winds and ocean currents—. Earth is no longer blind or deaf.
 
@@ -617,7 +617,7 @@ There were no plastic ballot boxes guarded by armed troops, no opaque counting a
 
 Through the sovereign quantum voting protocol engineered by Naomi Lang and the engineers of Neo-Citania, every citizen of Earth cast their choice through a conscious pulse of pure intention: *Yes, we accept the invitation* or *No, we choose to remain in isolation*.
 
-In the Global Coordination Hub in Neo-Citania, Sierra Catalano and Kora Chen-Vega stood before the planetary holographic map.
+In the Global Coordination Hub in Neo-Citania, Sierra Catalano and Kora Vega stood before the planetary holographic map.
 
 Slowly, every corner of the Earth began to kindle with points of golden light: from the working-class districts of South America to the megacities of Asia, from the Pacific archipelagos to the valleys of Europe and Africa.
 
@@ -652,7 +652,7 @@ Engineered from ultra-light graphene alloys, Atacama resonance crystals, and qua
 
 On the bridge, **Martin Catalano** manned the quantum navigation console, his eyes glowing in their eternal violet dance.
 
-Beside him, **Kora Chen-Vega**, dressed in the deep-space explorer suit of the new era, held the hand of **Sierra Catalano**, who had assumed command of the human race's first interstellar expedition.
+Beside him, **Kora Vega**, dressed in the deep-space explorer suit of the new era, held the hand of **Sierra Catalano**, who had assumed command of the human race's first interstellar expedition.
 
 On the main navigation array, the disembodied golden presence of **Mileo Chen** and the holographic smile of **Dr. Elena Vasquez** plotted the coordinates of their first stellar jump.
 

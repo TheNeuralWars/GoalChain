@@ -20,7 +20,7 @@ El aire crujió con una carga electrostática mortal.
 
 Y entonces, el mar y el cielo se encendieron en un resplandor índigo cegador.
 
-A través de las nubes de tormenta, el sumergible cuántico *Nautilus-7* emergió a la superficie de la bahía, disparando una columna de resonancia sónica que desestabilizó los motores del crucero de guerra. Simultáneamente, Kora Chen-Vega descendió en un transporte ligero de salto, saltando a la plataforma de la antena en un vuelo rasante.
+A través de las nubes de tormenta, el sumergible cuántico *Nautilus-7* emergió a la superficie de la bahía, disparando una columna de resonancia sónica que desestabilizó los motores del crucero de guerra. Simultáneamente, Kora Vega descendió en un transporte ligero de salto, saltando a la plataforma de la antena en un vuelo rasante.
 
 Kora aterrizó de rodillas junto a la bobina central. Con ambas manos, clavó el artefacto de Atacama directamente en el núcleo de la antena.
 

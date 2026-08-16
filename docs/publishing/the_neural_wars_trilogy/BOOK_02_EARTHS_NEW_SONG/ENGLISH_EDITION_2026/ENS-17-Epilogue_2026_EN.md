@@ -8,7 +8,7 @@ Engineered from ultra-light graphene alloys, Atacama resonance crystals, and qua
 
 On the bridge, **Martin Catalano** manned the quantum navigation console, his eyes glowing in their eternal violet dance.
 
-Beside him, **Kora Chen-Vega**, dressed in the deep-space explorer suit of the new era, held the hand of **Sierra Catalano**, who had assumed command of the human race's first interstellar expedition.
+Beside him, **Kora Vega**, dressed in the deep-space explorer suit of the new era, held the hand of **Sierra Catalano**, who had assumed command of the human race's first interstellar expedition.
 
 On the main navigation array, the disembodied golden presence of **Mileo Chen** and the holographic smile of **Dr. Elena Vasquez** plotted the coordinates of their first stellar jump.
 

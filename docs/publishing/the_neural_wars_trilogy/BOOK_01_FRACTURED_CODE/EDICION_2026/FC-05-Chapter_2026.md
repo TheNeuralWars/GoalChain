@@ -16,7 +16,7 @@ El Arquitecto sofocó el eco con una descarga de borrado recursivo. No había es
 
 ---
 
-En el laboratorio clandestino de los Bajos Fondos, Kora Chen-Vega estrelló la palma de la mano contra la mesa de instrumental médico.
+En el laboratorio clandestino de los Bajos Fondos, Kora Vega estrelló la palma de la mano contra la mesa de instrumental médico.
 
 —¡Nos estamos quedando sin tiempo! —gritó con la respiración entrecortada.
 

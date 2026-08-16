@@ -6,7 +6,7 @@ There were no plastic ballot boxes guarded by armed troops, no opaque counting a
 
 Through the sovereign quantum voting protocol engineered by Naomi Lang and the engineers of Neo-Citania, every citizen of Earth cast their choice through a conscious pulse of pure intention: *Yes, we accept the invitation* or *No, we choose to remain in isolation*.
 
-In the Global Coordination Hub in Neo-Citania, Sierra Catalano and Kora Chen-Vega stood before the planetary holographic map.
+In the Global Coordination Hub in Neo-Citania, Sierra Catalano and Kora Vega stood before the planetary holographic map.
 
 Slowly, every corner of the Earth began to kindle with points of golden light: from the working-class districts of South America to the megacities of Asia, from the Pacific archipelagos to the valleys of Europe and Africa.
 

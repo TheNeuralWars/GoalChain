@@ -246,7 +246,7 @@ export function AuthorStudio() {
               color: '#38bdf8'
             },
             {
-              name: 'Kora Chen-Vega',
+              name: 'Kora Vega',
               role: 'Sensitiva de los Bajos Fondos / Portadora de la Serpiente',
               archetype: 'La Rebelde Cinética / Oído Cósmico',
               wound: 'Ver a su familia vaciada y reducida a autómatas de limpieza.',

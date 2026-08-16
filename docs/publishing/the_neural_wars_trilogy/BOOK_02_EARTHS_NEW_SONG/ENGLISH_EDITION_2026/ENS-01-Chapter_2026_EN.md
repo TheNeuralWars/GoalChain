@@ -1,6 +1,6 @@
 # CHAPTER 1: THE INAUDIBLE FREQUENCY
 
-Kora Chen-Vega woke with a dry throat and the distinct sensation that an overheated magnet had been pressed against the bridge of her brow.
+Kora Vega woke with a dry throat and the distinct sensation that an overheated magnet had been pressed against the bridge of her brow.
 
 The bedside holographic clock read 04:17 AM.
 

@@ -16,7 +16,7 @@ Riv, el ingeniero jefe de transmisiones del sector norte, levantó la mirada de 
 
 —La triple redundancia no servirá de nada si un escuadrón de asalto de NeuroSec nos entra por la puerta principal —cortó Sierra con la sequedad de un comandante de campo—. Recalibra el vector este tres grados y estrecha el haz de emisión. Han adaptado sus sabuesos a nuestra frecuencia anterior.
 
-En ese instante, la voz de guardia de Chen resonó por el conducto del túnel:
+En ese instante, la voz de guardia de Garrick resonó por el conducto del túnel:
 
 —¡Atención en el puesto de mando! Dos firmas biológicas aproximándose. Kora trae al desertor de la torre central. Campo de amortiguación neural activo.
 

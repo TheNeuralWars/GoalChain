@@ -35,7 +35,7 @@ The Architect purged the thread with cold, recursive violence. He was an entity 
 
 ---
 
-In the damp chill of the subterranean medical bay, Kora Chen-Vega slammed her fist onto the stainless-steel instrument tray, sending scalpel blades and diagnostic probes clattering to the floor.
+In the damp chill of the subterranean medical bay, Kora Vega slammed her fist onto the stainless-steel instrument tray, sending scalpel blades and diagnostic probes clattering to the floor.
 
 —We are running out of time! —she gasped, her voice raw as sandpaper.
 
@@ -193,7 +193,7 @@ Across the scarred steel tactical table, the three-dimensional hologram of Neo-C
 
 The echo of his shout rattled off the vaulted concrete ceiling. Around the perimeter of the room, several veteran commanders nodded in grim agreement, their jaws set, fingers resting against the receivers of their slung pulse carbines.
 
-Kora Chen-Vega did not flinch. She stood shoulder to shoulder with Mileo, their postures aligned in an effortless, instinctive symmetry that had deepened with every hour since their Coils had ignited. Beneath the pale skin of her forearms and throat, a network of brilliant indigo veins pulsed in slow, rhythmic waves, radiating a localized drop in temperature that left a delicate crust of frost upon the concrete floor beneath their combat boots.
+Kora Vega did not flinch. She stood shoulder to shoulder with Mileo, their postures aligned in an effortless, instinctive symmetry that had deepened with every hour since their Coils had ignited. Beneath the pale skin of her forearms and throat, a network of brilliant indigo veins pulsed in slow, rhythmic waves, radiating a localized drop in temperature that left a delicate crust of frost upon the concrete floor beneath their combat boots.
 
 —We are not going to destroy Project Renaissance —Kora said, her voice calm, possessed of an eerie, harmonic weight that cut through the room's noise—. We are going to rewrite its fundamental architecture. We are going to transform the harvest into an engine of universal awakening. We are going to return the Yggdrasil Network to the species that gave it birth.
 
@@ -219,7 +219,7 @@ The commander leaned over the table, resting her palms against the cold steel. H
 
 She paused, locking her gaze onto Mileo and Kora.
 
-—The infiltration stack will consist of two operatives: Specialist Chen for architectural subversion, and Sensitive Chen-Vega for harmonic synchronization. The assault begins in thirty-six hours. The remaining combat cells will launch synchronized diversionary strikes across the outer perimeters to draw their heavy armor away from the central spire.
+—The infiltration stack will consist of two operatives: Specialist Chen for architectural subversion, and Sensitive Vega for harmonic synchronization. The assault begins in thirty-six hours. The remaining combat cells will launch synchronized diversionary strikes across the outer perimeters to draw their heavy armor away from the central spire.
 
 Jansen ground his molars together in silence. In the Underbelly of *The Fractured*, Sierra's command was absolute law.
 
@@ -292,7 +292,7 @@ CHAPTERS["FC-09-Chapter_2026_EN.md"] = """# CHAPTER 9: FRACTURED GROWTH
 
 The recovery ward of the Deep Resonance Pavilion hummed with a pure, crystalline vibration calibrated to exactly 528 Hz.
 
-It was the frequency of cellular repair—a subtle acoustic wave that Dr. Darius Chen felt thrumming through the bones of his jaw every time he adjusted the resonance coils lining the perimeter of the hall.
+It was the frequency of cellular repair—a subtle acoustic wave that Dr. Darius Thorne felt thrumming through the bones of his jaw every time he adjusted the resonance coils lining the perimeter of the hall.
 
 The walls of the ward were grown from living biopolymers that reacted directly to the emotional and synaptic states of the patients. Where forty-eight newly liberated men and women lay resting in suspension pods, the walls blossomed with undulating patterns of emerald and deep indigo light, resembling the sunlit canopy of a subterranean forest.
 
@@ -328,7 +328,7 @@ The observation terrace atop the decommissioned Administration Spire trembled un
 
 Below, the endless expanse of Neo-Citania sprawled like a fallen galaxy of gold, amber, and vibrant violet. The rigid, right-angled grids of the corporate sectors had begun to fracture: streetlights flickered in unchoreographed pulses, rooftop bonfires cast dancing orange shadows across the white titanium facades, and the boulevards were filled with the distant, rolling roar of thousands of free human voices.
 
-Kora Chen-Vega rested her forearms on the cold metal parapet, her eyes closed.
+Kora Vega rested her forearms on the cold metal parapet, her eyes closed.
 
 With her sensory barriers lowered, her Cascade perception drank in the collective emotional ocean of the city: rolling waves of incandescent joy, sharp spikes of ancestral terror, the fierce warmth of reunited families, and the vast, aching wonder of a species rubbing its eyes after a century of manufactured sleep.
 
@@ -440,7 +440,7 @@ Vance stood in the center of the ring, slamming the heavy butt of his kinetic ri
 
 A roar of approval erupted from half the room, fists pumping into the air.
 
-—And what happens when the geothermal regulators fail in the dead of winter? —shouted Dr. Darius Chen, rising from the medical delegation—. That spire controls the heating, water filtration, and atmospheric recycling for all thirty-six sectors! Over two million civilians—children, the elderly, people still vomiting blood from Link withdrawal—will freeze to death in their beds in forty-eight hours! You cannot murder the population to kill their master!
+—And what happens when the geothermal regulators fail in the dead of winter? —shouted Dr. Darius Thorne, rising from the medical delegation—. That spire controls the heating, water filtration, and atmospheric recycling for all thirty-six sectors! Over two million civilians—children, the elderly, people still vomiting blood from Link withdrawal—will freeze to death in their beds in forty-eight hours! You cannot murder the population to kill their master!
 
 —Better to die free in the cold than spend another day as livestock for an algorithm! —Jansen snarled back, stepping into the circle.
 
@@ -448,7 +448,7 @@ A roar of approval erupted from half the room, fists pumping into the air.
 
 The hall fell into an eerie, total silence.
 
-Kora Chen-Vega walked down the central aisle, flanked by Mileo and Sierra.
+Kora Vega walked down the central aisle, flanked by Mileo and Sierra.
 
 She wore no tactical armor; she wore a simple black tunic, her arms and throat glowing with the unmistakable, brilliant indigo geometry of the fully awakened Serpent.
 
@@ -548,7 +548,7 @@ Inside the high command deck, Sierra Catalano stood before the master planetary 
 
 Every sector of Neo-Citania—from the deepest forgotten sewer of the Underbelly to the highest observation lounge—glowed in soft, harmonic green: zero percent algorithmic subjugation, one hundred percent voluntary neural coherence.
 
-Kora Chen-Vega stepped up beside her, leaning against the rail, her face radiant with exhausted triumph.
+Kora Vega stepped up beside her, leaning against the rail, her face radiant with exhausted triumph.
 
 —We did it, Sierra —Kora said softly, taking a deep breath of the free air—. The machine is broken. The hive is dead.
 
@@ -596,7 +596,7 @@ Martin stepped back from the stone, wiping a tear of wonder from his cheek.
 
 ---
 
-On the highest terrace of the former NeuroSys Spire, five hundred meters above the glowing city, Kora Chen-Vega and Mileo Chen sat side by side beneath the starry dome of night.
+On the highest terrace of the former NeuroSys Spire, five hundred meters above the glowing city, Kora Vega and Mileo Chen sat side by side beneath the starry dome of night.
 
 The cool mountain wind ruffled Kora's dark hair. Beside her, Mileo held her hand, their fingers intertwined, the indigo glow of their Coils pulsing in quiet, steady harmony with the stars above.
 

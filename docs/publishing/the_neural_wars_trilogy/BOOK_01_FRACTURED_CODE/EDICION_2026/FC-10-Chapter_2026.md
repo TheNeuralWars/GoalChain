@@ -2,7 +2,7 @@
 
 La plataforma de observación en la cima de la antigua Torre de Administración vibraba con una brisa tibia y cargada de electricidad estática. A sus pies, la silueta nocturna de Neo-Citania se desplegaba en un mosaico fractal de luces doradas e índigo: las líneas rectas del urbanismo corporativo habían comenzado a curvarse, abriendo paso a jardines comunitarios y avenidas donde la luz no seguía patrones algorítmicos.
 
-Kora Chen-Vega apoyaba los antebrazos sobre la barandilla de titanio. Con los ojos cerrados, dejaba que su sensibilidad Cascada absorbiera el rumor distante de ocho millones de personas redescubriendo el libre albedrío: oleadas de júbilo, chispazos de miedo ancestral y el asombro colectivo de quienes despiertan de una pesadilla que duró generaciones.
+Kora Vega apoyaba los antebrazos sobre la barandilla de titanio. Con los ojos cerrados, dejaba que su sensibilidad Cascada absorbiera el rumor distante de ocho millones de personas redescubriendo el libre albedrío: oleadas de júbilo, chispazos de miedo ancestral y el asombro colectivo de quienes despiertan de una pesadilla que duró generaciones.
 
 Unos pasos firmes y acompasados resonaron a su espalda.
 

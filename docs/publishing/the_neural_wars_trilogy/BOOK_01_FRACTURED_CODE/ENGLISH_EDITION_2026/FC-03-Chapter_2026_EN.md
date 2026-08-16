@@ -16,7 +16,7 @@ Riv, the northern sector's lead transmissions engineer, looked up from his tangl
 
 —Triple redundancy won’t mean a damn thing if a NeuroSec assault squad kicks in our front door —Sierra snapped with the dryness of a field commander—. Recalibrate the eastern vector three degrees and narrow the emitter beam. They've tuned their hounds to our previous frequency.
 
-At that moment, Chen's sentry call crackled through the ventilation duct:
+At that moment, Garrick's sentry call crackled through the ventilation duct:
 
 —Attention at the command post! Two biological signatures incoming. Kora is bringing in the defector from the central spire. Neural dampening field active.
 

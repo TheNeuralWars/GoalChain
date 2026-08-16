@@ -10,7 +10,7 @@ No había órdenes militares. No había toques de corneta ni decretos gubernamen
 
 Era una cita voluntaria concertada a través de las corrientes invisibles de Yggdrasil: la respuesta soberana de la humanidad al susurro que viajaba desde los confines del sistema solar.
 
-En la aguja más alta de Neo-Citania, Kora Chen-Vega extendió sus brazos hacia la noche estrellada. A su lado, la presencia cuántica de Mileo Chen, la mirada serena de Sierra Catalano y la mente interdimensional de Martin Catalano cerraron el círculo de sincronización.
+En la aguja más alta de Neo-Citania, Kora Vega extendió sus brazos hacia la noche estrellada. A su lado, la presencia cuántica de Mileo Chen, la mirada serena de Sierra Catalano y la mente interdimensional de Martin Catalano cerraron el círculo de sincronización.
 
 —Ahora —susurró Kora.
 

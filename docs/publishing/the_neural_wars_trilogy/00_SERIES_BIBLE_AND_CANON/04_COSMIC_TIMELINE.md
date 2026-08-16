@@ -24,7 +24,7 @@
 ## ⚡ ERA III: EL DESPERTAR DEL CÓDIGO (2148 d.C. — LIBRO 1: FRACTURED CODE)
 
 * **Día 1**: El especialista de cumplimiento Mileo Chen se niega a borrar el recuerdo de duelo de una madre en el Sector 17; activa un amortiguador y escapa al submundo.
-* **Día 2**: Kora Chen-Vega rescata a Mileo en el Túnel Seis y lo traslada ante Sierra Catalano.
+* **Día 2**: Kora Vega rescata a Mileo en el Túnel Seis y lo traslada ante Sierra Catalano.
 * **Día 5**: Infiltración en el Servidor Residencial 17 y descarga de los 42 TB del Proyecto Renacimiento.
 * **Día 12**: La manifestación cuántica de la Dra. Elena Vásquez revela la verdad de la Red Yggdrasil y el Espiral de la Serpiente.
 * **Día 18**: Contraataque violento del Arquitecto. Rescate médico de sensitivos en la frontera de la Alianza.
@@ -36,7 +36,7 @@
 ## 🎵 ERA IV: LA CONVERGENCIA GLOBAL (2149 — 2152 d.C. — LIBRO 2: EARTH'S NEW SONG)
 
 * **2149 d.C. (Mes 1)**: La Cascada se expande más allá de Neo-Citania. La Alianza y los bloques corporativos asiáticos intentan construir murallas de contención electromagnética.
-* **2149 d.C. (Mes 4)**: Kora Chen-Vega y Sierra Catalano lideran la diplomacia de la Red Abierta. La científica fugitiva Dra. Naomi Lang desarrolla los primeros estabilizadores éticos.
+* **2149 d.C. (Mes 4)**: Kora Vega y Sierra Catalano lideran la diplomacia de la Red Abierta. La científica fugitiva Dra. Naomi Lang desarrolla los primeros estabilizadores éticos.
 * **2150 d.C.**: Aparición de las "Anomalías Cantantes" en el cinturón de asteroides: los artefactos de Los Sembradores comienzan a descender hacia la ionosfera terrestre.
 
 ---

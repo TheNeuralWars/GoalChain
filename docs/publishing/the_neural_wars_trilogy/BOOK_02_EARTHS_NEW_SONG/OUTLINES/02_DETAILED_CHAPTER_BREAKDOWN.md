@@ -16,7 +16,7 @@
 ### ⚡ ACTO I: ECOS EN LA RED GLOBAL (Capítulos 1 a 4)
 
 #### **Capítulo 1: La Frecuencia Inaudible**
-* **Punto de vista**: Kora Chen-Vega en la nueva Neo-Citania.
+* **Punto de vista**: Kora Vega en la nueva Neo-Citania.
 * **Trama**: Kora despierta empapada en sudor violeta. Una melodía armónica vibra en sus dientes y en el agua de su vaso. Al conectar con los nodos de Yggdrasil, descubre que la señal no se origina en la superficie terrestre, sino en el vacío del espacio exterior.
 
 #### **Capítulo 2: Fronteras de Silicio**
@@ -56,7 +56,7 @@
 ### 🔮 ACTO III: EL PRIMER CONTACTO NO BIOLÓGICO (Capítulos 9 a 12)
 
 #### **Capítulo 9: La Serpiente de Cristal**
-* **Punto de vista**: Martin Catalano y Kora Chen-Vega.
+* **Punto de vista**: Martin Catalano y Kora Vega.
 * **Trama**: Un fragmento del artefacto alienígena penetra la atmósfera y aterriza suavemente en el desierto de Atacama, sin generar cráter. Al tocarlo, Kora y Martin experimentan la memoria colectiva de una civilización que floreció hace tres mil millones de años.
 
 #### **Capítulo 10: La Paradoja de la Libertad**
@@ -64,7 +64,7 @@
 * **Trama**: Debate ético desgarrador: ¿Unirse a la red de Los Sembradores significa perder la soberanía de la especie humana? Jansen defiende la construcción de un escudo planetario; Sierra defiende el diálogo abierto pero armado.
 
 #### **Capítulo 11: Inmersión en el Vórtice**
-* **Punto de vista**: Kora Chen-Vega.
+* **Punto de vista**: Kora Vega.
 * **Trama**: Kora proyecta su conciencia a través del artefacto de Atacama y se encuentra cara a cara con El Testigo en un espacio de doce dimensiones. Descubre que Los Sembradores no buscan súbditos, sino iguales capaces de compartir el dolor y la belleza del cosmos.
 
 #### **Capítulo 12: La Batalla de Neo-Kyoto**
@@ -88,7 +88,7 @@
 * **Trama**: Los Sembradores transmiten su mensaje formal a todos los monitores y mentes del planeta: *«La infancia de su especie ha concluido. ¿Aceptan caminar junto a nosotros entre las estrellas?»*.
 
 #### **Capítulo 16: El Sí de los Fracturados**
-* **Punto de vista**: Kora Chen-Vega y Sierra Catalano.
+* **Punto de vista**: Kora Vega y Sierra Catalano.
 * **Trama**: El voto planetario mundial. La humanidad, con todas sus cicatrices y diferencias, decide de manera libre y unánime cruzar el umbral.
 
 #### **Epílogo: Rumbo a la Matriz de Evolución**

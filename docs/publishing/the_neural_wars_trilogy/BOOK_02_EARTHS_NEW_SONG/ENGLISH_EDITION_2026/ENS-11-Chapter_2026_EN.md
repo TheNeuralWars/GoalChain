@@ -2,7 +2,7 @@
 
 Inside the geodesic dome at Atacama, night fell under a vault of stars so brilliant they seemed to brush the tips of the transmission masts.
 
-Kora Chen-Vega sat cross-legged one meter from the obsidian monolith.
+Kora Vega sat cross-legged one meter from the obsidian monolith.
 
 Around her, Dr. Okafor and Dr. Naomi Lang monitored her neural telemetry through a crown of non-invasive sensors. Two pressurized vials of emergency neuro-stabilizers rested on a steel tray, primed for instant injection.
 

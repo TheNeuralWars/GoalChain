@@ -24,7 +24,7 @@ Hace un año, los modelos de lenguaje tendían a:
 ```mermaid
 graph TD
     B1["📖 LIBRO 1: Fractured Code<br/>(Neo-Citania, Despertar de la Cascada y Resistencia Urbana)"]
-    B2["🎵 LIBRO 2: Earth's New Song / Convergence Protocol<br/>(Kora Chen-Vega, Redes Globales Ubuntu & Primer Contacto)"]
+    B2["🎵 LIBRO 2: Earth's New Song / Convergence Protocol<br/>(Kora Vega, Redes Globales Ubuntu & Primer Contacto)"]
     B3["🌌 LIBRO 3: Evolution Matrix / Cosmic Renaissance<br/>(Integración Planetaria, The Gardeners y Trascendencia)"]
     
     B1 --> B2 --> B3

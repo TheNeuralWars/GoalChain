@@ -6,7 +6,7 @@ No hubo urnas de plástico custodiadas por soldados ni algoritmos de recuento op
 
 A través del protocolo de votación cuántica soberana desarrollado por Naomi Lang y los técnicos de Neo-Citania, cada ciudadano del planeta emitió su voluntad mediante un pulso de intención consciente: *Sí, aceptamos la invitación* o *No, deseamos permanecer en aislamiento*.
 
-En el Centro de Coordinación Global de Neo-Citania, Sierra Catalano y Kora Chen-Vega observaban el mapa holográfico del planeta.
+En el Centro de Coordinación Global de Neo-Citania, Sierra Catalano y Kora Vega observaban el mapa holográfico del planeta.
 
 Poco a poco, cada rincón de la Tierra comenzó a iluminarse con puntos de luz dorada: desde las barriadas obreras de América del Sur hasta las metrópolis de Asia, desde los archipiélagos del Pacífico hasta los valles de Europa y África.
 

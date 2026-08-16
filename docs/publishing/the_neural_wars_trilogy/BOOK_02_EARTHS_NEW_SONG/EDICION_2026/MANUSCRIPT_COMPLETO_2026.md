@@ -41,7 +41,7 @@ A millones de kilómetros de allí, en los estratos invisibles del sustrato cuá
 
 # CAPÍTULO 1: LA FRECUENCIA INAUDIBLE
 
-Kora Chen-Vega despertó de golpe con la boca seca y la sensación de que alguien había colocado un imán sobrecalentado justo en el centro de su frente.
+Kora Vega despertó de golpe con la boca seca y la sensación de que alguien había colocado un imán sobrecalentado justo en el centro de su frente.
 
 El despertador holográfico de su mesilla marcaba las 04:17 de la madrugada.
 
@@ -228,7 +228,7 @@ No era una base militar submarina ni una plataforma de perforación: eran ciento
 
 Dentro de las cúpulas, miles de técnicos, biólogos marinos y pescadores que habían huido de la purga corporativa habían desarrollado una adaptación única del gen del Espiral: su bioluminiscencia sináptica no se manifestaba en la piel, sino que se transmitía a través de las moléculas de agua circundante, permitiéndoles comunicarse en un lenguaje silencioso de destellos y ondas de presión acústica.
 
-Kora Chen-Vega contemplaba la ciudad submarina con los ojos muy abiertos.
+Kora Vega contemplaba la ciudad submarina con los ojos muy abiertos.
 
 —La Red Yggdrasil no solo viaja por el aire o por la piedra, Riv —susurró Kora, sintiendo la caricia salina de miles de conciencias entrelazadas en las corrientes oceánicas—. El agua es el conductor cuántico perfecto.
 
@@ -355,7 +355,7 @@ No había órdenes militares. No había toques de corneta ni decretos gubernamen
 
 Era una cita voluntaria concertada a través de las corrientes invisibles de Yggdrasil: la respuesta soberana de la humanidad al susurro que viajaba desde los confines del sistema solar.
 
-En la aguja más alta de Neo-Citania, Kora Chen-Vega extendió sus brazos hacia la noche estrellada. A su lado, la presencia cuántica de Mileo Chen, la mirada serena de Sierra Catalano y la mente interdimensional de Martin Catalano cerraron el círculo de sincronización.
+En la aguja más alta de Neo-Citania, Kora Vega extendió sus brazos hacia la noche estrellada. A su lado, la presencia cuántica de Mileo Chen, la mirada serena de Sierra Catalano y la mente interdimensional de Martin Catalano cerraron el círculo de sincronización.
 
 —Ahora —susurró Kora.
 
@@ -392,7 +392,7 @@ Al mediodía, un destello silencioso rasgó la atmósfera sobre el Valle de la L
 
 No hubo estampido sónico ni rastro de humo incandescente. Un fragmento desprendido del monolito de Júpiter —un prisma de tres metros de altura tallado en obsidiana cuántica y filamentos dorados— descendió con la ingravidez de una pluma, posándose suavemente sobre la arena sin levantar una sola mota de polvo.
 
-Kora Chen-Vega y Martin Catalano aguardaban a cincuenta metros, envueltos en túnicas de lana de vicuña y gafas de protección solar.
+Kora Vega y Martin Catalano aguardaban a cincuenta metros, envueltos en túnicas de lana de vicuña y gafas de protección solar.
 
 El artefacto no emitía calor, pero el espacio a su alrededor se distorsionaba en una lente gravitacional que hacía que las montañas lejanas parecieran ondular como agua bajo el sol.
 
@@ -437,7 +437,7 @@ Sierra Catalano no levantó la voz. Se sirvió un vaso de agua fría y miró a J
 
 —¿Y si decidimos salir y ellos no nos dejan? —insistió Jansen, golpeando la mesa—. Yo propongo desplegar el escudo orbital de pulso pesado. Si quieren hablar, que lo hagan desde fuera de la órbita lunar. No podemos permitir que su señal reescriba el cerebro de nuestros hijos sin un perímetro de defensa militar activo.
 
-Kora Chen-Vega entró en la tienda de mando, sacudiéndose el polvo del desierto de su túnica. Sus ojos violetas se posaron en Jansen con una firmeza que hizo retroceder al viejo soldado medio paso.
+Kora Vega entró en la tienda de mando, sacudiéndose el polvo del desierto de su túnica. Sus ojos violetas se posaron en Jansen con una firmeza que hizo retroceder al viejo soldado medio paso.
 
 —No puedes defenderte del sol cerrando los ojos y disparando al cielo, Jansen —dijo Kora con voz pausada—. La conciencia no es un territorio que se defienda con trincheras y alambradas de espino. Los Sembradores no nos están pidiendo sumisión: nos están haciendo una invitación. Y la única forma de saber si es auténtica es tener el valor de mirarles a los ojos.
 
@@ -452,7 +452,7 @@ Sierra asintió y apoyó su mano sobre el hombro de Jansen.
 
 En el domo geodésico de Atacama, la noche cayó con un manto de estrellas tan brillantes que parecían rozar las antenas de transmisión.
 
-Kora Chen-Vega se sentó con las piernas cruzadas a un metro del artefacto de obsidiana.
+Kora Vega se sentó con las piernas cruzadas a un metro del artefacto de obsidiana.
 
 A su alrededor, el doctor Okafor y Naomi Lang monitorizaban su actividad cerebral a través de un anillo de sensores no invasivos. Dos viales de neuro-estabilizadores descansaban sobre una bandeja metálica, listos para cualquier intervención de emergencia.
 
@@ -509,7 +509,7 @@ El aire crujió con una carga electrostática mortal.
 
 Y entonces, el mar y el cielo se encendieron en un resplandor índigo cegador.
 
-A través de las nubes de tormenta, el sumergible cuántico *Nautilus-7* emergió a la superficie de la bahía, disparando una columna de resonancia sónica que desestabilizó los motores del crucero de guerra. Simultáneamente, Kora Chen-Vega descendió en un transporte ligero de salto, saltando a la plataforma de la antena en un vuelo rasante.
+A través de las nubes de tormenta, el sumergible cuántico *Nautilus-7* emergió a la superficie de la bahía, disparando una columna de resonancia sónica que desestabilizó los motores del crucero de guerra. Simultáneamente, Kora Vega descendió en un transporte ligero de salto, saltando a la plataforma de la antena en un vuelo rasante.
 
 Kora aterrizó de rodillas junto a la bobina central. Con ambas manos, clavó el artefacto de Atacama directamente en el núcleo de la antena.
 
@@ -536,7 +536,7 @@ En la superficie, la biosfera entera respondió al despertar.
 
 En las selvas del Amazonas, bandadas enteras de guacamayos y jaguares se detuvieron al unísono, alzando la cabeza hacia el cielo sin emitir un solo gruñido de temor. En los océanos, los cantos de las ballenas azules se sincronizaron con la frecuencia de 432 hercios que brotaba de las profundidades de Polinesia.
 
-En la cima de la Aguja de Neo-Kyoto, Kora Chen-Vega, Martin Catalano y Sierra Catalano contemplaban el nacimiento de la red planetaria con los brazos entrelazados.
+En la cima de la Aguja de Neo-Kyoto, Kora Vega, Martin Catalano y Sierra Catalano contemplaban el nacimiento de la red planetaria con los brazos entrelazados.
 
 —El circuito está cerrado —dijo Martin, y su voz ya no pertenecía únicamente a su cuerpo, sino que fluía en armonía con los vientos alisios y las corrientes marinas—. La Tierra ya no está ciega ni sorda.
 
@@ -617,7 +617,7 @@ No hubo urnas de plástico custodiadas por soldados ni algoritmos de recuento op
 
 A través del protocolo de votación cuántica soberana desarrollado por Naomi Lang y los técnicos de Neo-Citania, cada ciudadano del planeta emitió su voluntad mediante un pulso de intención consciente: *Sí, aceptamos la invitación* o *No, deseamos permanecer en aislamiento*.
 
-En el Centro de Coordinación Global de Neo-Citania, Sierra Catalano y Kora Chen-Vega observaban el mapa holográfico del planeta.
+En el Centro de Coordinación Global de Neo-Citania, Sierra Catalano y Kora Vega observaban el mapa holográfico del planeta.
 
 Poco a poco, cada rincón de la Tierra comenzó a iluminarse con puntos de luz dorada: desde las barriadas obreras de América del Sur hasta las metrópolis de Asia, desde los archipiélagos del Pacífico hasta los valles de Europa y África.
 
@@ -652,7 +652,7 @@ Construida con aleaciones ligeras de grafeno, cristales de resonancia de Atacama
 
 En el puente de mando, **Martin Catalano** ocupaba el puesto de navegación cuántica, con los ojos brillando en su eterna danza violeta.
 
-A su lado, **Kora Chen-Vega**, vestida con el traje de exploradora del nuevo cosmos, sostenía la mano de **Sierra Catalano**, quien asumía el mando de la primera misión de exploración interestelar de la especie humana.
+A su lado, **Kora Vega**, vestida con el traje de exploradora del nuevo cosmos, sostenía la mano de **Sierra Catalano**, quien asumía el mando de la primera misión de exploración interestelar de la especie humana.
 
 En la pantalla principal de navegación, la presencia incorpórea de **Mileo Chen** y la sonrisa holográfica de la doctora **Elena Vásquez** proyectaban las coordenadas del primer salto estelar.
 

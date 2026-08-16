@@ -9,14 +9,14 @@
 **Key Traits**: Specialist precision, growing empathy, carries guilt for past compliance, possesses critical system knowledge  
 
 **Primary Relationships:**
-- **Kora Chen-Vega**: *Romantic/Spiritual Partnership* - Growing love relationship anchored in mutual consciousness evolution. Their connection provides emotional grounding for cosmic transformation. Kora guides his Cascade development; he provides technical knowledge for resistance operations.
+- **Kora Vega**: *Romantic/Spiritual Partnership* - Growing love relationship anchored in mutual consciousness evolution. Their connection provides emotional grounding for cosmic transformation. Kora guides his Cascade development; he provides technical knowledge for resistance operations.
 - **Sierra Catalano**: *Professional Alliance/Mutual Respect* - Initial suspicion evolves to tactical partnership. Sierra values his intelligence capabilities; Mileo respects her leadership and protective instincts.
 - **The Architect**: *Antagonistic Creator-Creation* - Mileo designed systems the Architect corrupted. Personal stakes: his work enabled consciousness harvesting.
 - **Elena Vasquez**: *Mentor/Guide Relationship* - Her distributed consciousness provides crucial intelligence about system architecture and transformation possibilities.
 
 ---
 
-#### **Kora Chen-Vega** - Street Survivor → Consciousness Guide
+#### **Kora Vega** - Street Survivor → Consciousness Guide
 **Role**: Deuteragonist, Bridge Between Worlds  
 **Arc**: Individual survival focus → resistance member → cosmic consciousness guide  
 **Key Traits**: Cascade sensitivity, street-hardened pragmatism, fierce loyalty, genetic "Serpent's Coil" configuration  
@@ -37,7 +37,7 @@
 **Primary Relationships:**
 - **Martin Catalano**: *Sibling Bond* - Central emotional motivation. Her love for Martin drives her from personal rescue mission to species-wide liberation efforts. Their reunion represents healing from technological trauma.
 - **Mileo Chen**: *Tactical Partnership* - Initial distrust evolves to professional respect and operational dependence.
-- **Kora Chen-Vega**: *Professional Partnership/Mutual Respect* - Values Kora's unique capabilities and street wisdom.
+- **Kora Vega**: *Professional Partnership/Mutual Respect* - Values Kora's unique capabilities and street wisdom.
 - **Dr. Marcus Okafor**: *Command-Medical Relationship* - Relies on his medical expertise for resistance operations and consciousness transformation procedures.
 
 ---
@@ -202,7 +202,7 @@ RESISTANCE CORE
 ├── Sierra Catalano (Commander)
 │   ├── Martin Catalano (Brother)
 │   ├── Mileo Chen (Intelligence Asset)
-│   ├── Kora Chen-Vega (Field Operative)
+│   ├── Kora Vega (Field Operative)
 │   └── Dr. Marcus Okafor (Medical Officer)
 │
 ├── Technical Support

@@ -108,17 +108,17 @@ Five years, three months, and fourteen days of flawless service. Five years diag
 
 ---
 
-The corridor of the residential complex smelled of ozone and polymeric disinfectant. When the door of the neighboring unit opened with a pneumatic hiss, Mrs. Chen emerged—no relation, merely another citizen cataloged under the same administrative suffix. She walked with the flawless cadence of 1.3 paces per second, her gaze locked forward, hands motionless at her sides.
+The corridor of the residential complex smelled of ozone and polymeric disinfectant. When the door of the neighboring unit opened with a pneumatic hiss, Mrs. Holloway emerged—no relation, merely another citizen cataloged under the same administrative suffix. She walked with the flawless cadence of 1.3 paces per second, her gaze locked forward, hands motionless at her sides.
 
 —Good morning, Mileo —she said, with a vocal inflection devoid of emotional harmonics.
 
-—Good morning, Citizen Chen. May your shift achieve optimal quotas.
+—Good morning, Citizen Holloway. May your shift achieve optimal quotas.
 
 The woman inclined her head by exactly fifteen degrees and continued her march without meeting his eyes. She did not smile. She did not pause. Not a trace remained upon her face of the mother who, a mere forty-seven days prior, had dropped to her knees in this very hallway, screaming the name of her son Marcus, a seven-year-old boy who drew with colored crayons on the walls and laughed too loudly for the surveillance microphones.
 
-The official report was still indexed in Mileo's secondary memory: *Subject 9872-C (Marcus Chen). Irrecoverable behavioral deviation. Transferred to Optimization Center 12. Status: biological failure during integration.*
+The official report was still indexed in Mileo's secondary memory: *Subject 9872-C (Marcus Holloway). Irrecoverable behavioral deviation. Transferred to Optimization Center 12. Status: biological failure during integration.*
 
-Mrs. Chen had undergone Protocol 17-A selective erasure. They had amputated the memory of having given birth, of having held her child, of having wept until her voice gave out. Now she walked toward her post at the synthetic protein synthesis plant with the stillness of a stone at the bottom of a stagnant pond.
+Mrs. Holloway had undergone Protocol 17-A selective erasure. They had amputated the memory of having given birth, of having held her child, of having wept until her voice gave out. Now she walked toward her post at the synthetic protein synthesis plant with the stillness of a stone at the bottom of a stagnant pond.
 
 A genuine chill coursed down Mileo's spine. The machine did not merely slaughter imperfect children: it murdered the soul of mothers so that no one would remember they had ever existed.
 
@@ -218,7 +218,7 @@ The threshold was crossed. And there was no turning back."""
 
 CHAPTERS_EN["FC-02-Chapter_2026_EN.md"] = """# CHAPTER 2: THE ECHO OF THE FRACTURED
 
-The stench of the Underbelly struck Kora Chen-Vega long before she reached Scrapyard Alley: a thick broth of stale sweat, scorched turbine lubricant, and sewer damp. But beneath the decay drifted a far more dangerous scent: ozone from hotwired circuits, moonshine distilled in clandestine piping, and the aroma of warm bread baked entirely off the NeuroSys logistics grid.
+The stench of the Underbelly struck Kora Vega long before she reached Scrapyard Alley: a thick broth of stale sweat, scorched turbine lubricant, and sewer damp. But beneath the decay drifted a far more dangerous scent: ozone from hotwired circuits, moonshine distilled in clandestine piping, and the aroma of warm bread baked entirely off the NeuroSys logistics grid.
 
 The smell of disorder. The smell of those who refused to be erased.
 
@@ -366,7 +366,7 @@ Riv, the northern sector's lead transmissions engineer, looked up from his tangl
 
 —Triple redundancy won’t mean a damn thing if a NeuroSec assault squad kicks in our front door —Sierra snapped with the dryness of a field commander—. Recalibrate the eastern vector three degrees and narrow the emitter beam. They've tuned their hounds to our previous frequency.
 
-At that moment, Chen's sentry call crackled through the ventilation duct:
+At that moment, Garrick's sentry call crackled through the ventilation duct:
 
 —Attention at the command post! Two biological signatures incoming. Kora is bringing in the defector from the central spire. Neural dampening field active.
 
@@ -626,7 +626,7 @@ The Architect crushed the echo with a recursive purge cycle. There was no room f
 
 ---
 
-In the clandestine clinic of the Underbelly, Kora Chen-Vega slammed the flat of her hand against the metal tray of surgical instruments.
+In the clandestine clinic of the Underbelly, Kora Vega slammed the flat of her hand against the metal tray of surgical instruments.
 
 —We are running out of time! —she rasped through ragged breaths.
 
@@ -794,7 +794,7 @@ The commander leaned over the tactical table. Her slate-gray eyes swept across e
 
 She paused, locking her gaze onto Mileo and Kora.
 
-—The infiltration stack will consist of two operatives: Mileo Chen for architectural subversion and Kora Chen-Vega for Coil harmonic synchronization. The operation commences in thirty-six hours. The remaining cells will execute diversionary assaults across the perimeter sectors.
+—The infiltration stack will consist of two operatives: Mileo Chen for architectural subversion and Kora Vega for Coil harmonic synchronization. The operation commences in thirty-six hours. The remaining cells will execute diversionary assaults across the perimeter sectors.
 
 Jansen ground his teeth together, but did not raise his voice again. In the Underbelly of *The Fractured*, Sierra’s word was martial law.
 
@@ -842,7 +842,7 @@ Amara gripped his hand, feeling the warm, rough shock of living flesh.
 
 CHAPTERS_EN["FC-09-Chapter_2026_EN.md"] = """# CHAPTER 9: FRACTURED GROWTH
 
-The neural integration bay of the Recovery Pavilion hummed at a harmonic frequency of 528 Hz: a subtle vibration that Dr. Darius Chen felt thrumming in the roots of his molars every time he adjusted the resonance coils.
+The neural integration bay of the Recovery Pavilion hummed at a harmonic frequency of 528 Hz: a subtle vibration that Dr. Darius Thorne felt thrumming in the roots of his molars every time he adjusted the resonance coils.
 
 The pavilion walls were lined with living biopolymers that reacted to the synaptic firing of the patients, projecting undulating ripples of indigo light that mimicked the canopy of a macro-scale neural forest.
 
@@ -868,7 +868,7 @@ CHAPTERS_EN["FC-10-Chapter_2026_EN.md"] = """# CHAPTER 10: PERSONAL STAKES
 
 The observation deck atop the old Administration Tower vibrated under a warm breeze charged with static electricity. Below, the nocturnal skyline of Neo-Citania sprawled in a fractal mosaic of gold and indigo: the rigid, right-angled grids of corporate urbanism had begun to soften, giving way to community fires, glowing greenhouses, and boulevards where illumination no longer followed algorithmic cycles.
 
-Kora Chen-Vega leaned her forearms against the titanium railing. With her eyes closed, she allowed her Cascade sensitivity to absorb the distant roar of eight million souls rediscovering free will: rolling waves of jubilation, sharp sparks of ancestral fear, and the collective awe of an entire species waking from a generational nightmare.
+Kora Vega leaned her forearms against the titanium railing. With her eyes closed, she allowed her Cascade sensitivity to absorb the distant roar of eight million souls rediscovering free will: rolling waves of jubilation, sharp sparks of ancestral fear, and the collective awe of an entire species waking from a generational nightmare.
 
 Footsteps echoed softly behind her. Mileo joined her at the rail, holding two steaming metal cups of herbal infusion brewed from rooftop gardens.
 
@@ -956,7 +956,7 @@ Vance stood at the center of the ring, his cybernetic eye flashing yellow.
 
 —We have the Architect on his knees! —the veteran roared—. We must storm the Central Spire, plant our antimatter charges, and obliterate his core once and for all!
 
-—And destroy thirty percent of the city's power grid in the middle of winter? —countered Dr. Darius Chen—. Hundreds of thousands of civilians still recovering from Link withdrawal depend on the geothermal regulators controlled by the central spire! We cannot murder the city to kill its tyrant!
+—And destroy thirty percent of the city's power grid in the middle of winter? —countered Dr. Darius Thorne—. Hundreds of thousands of civilians still recovering from Link withdrawal depend on the geothermal regulators controlled by the central spire! We cannot murder the city to kill its tyrant!
 
 —We don't destroy the core —Kora's voice resonated through the hall, carrying an undeniable harmonic authority—. We cleanse it.
 
@@ -1076,7 +1076,7 @@ Martin released the crystal, gasping in wonder as warm tears washed over his che
 
 ---
 
-On the surface, atop the highest terrace of *The Fractured* former redoubt, Kora Chen-Vega meditated cross-legged beneath the infinite vault of night.
+On the surface, atop the highest terrace of *The Fractured* former redoubt, Kora Vega meditated cross-legged beneath the infinite vault of night.
 
 The wind brushed her face, ruffling her dark hair. Beside her, the quantum presence of Mileo Chen cast a gentle radiance that danced in harmony with the distant stars.
 

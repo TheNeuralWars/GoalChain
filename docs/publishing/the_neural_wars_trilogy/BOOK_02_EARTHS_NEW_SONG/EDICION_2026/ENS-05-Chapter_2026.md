@@ -10,7 +10,7 @@ No era una base militar submarina ni una plataforma de perforación: eran ciento
 
 Dentro de las cúpulas, miles de técnicos, biólogos marinos y pescadores que habían huido de la purga corporativa habían desarrollado una adaptación única del gen del Espiral: su bioluminiscencia sináptica no se manifestaba en la piel, sino que se transmitía a través de las moléculas de agua circundante, permitiéndoles comunicarse en un lenguaje silencioso de destellos y ondas de presión acústica.
 
-Kora Chen-Vega contemplaba la ciudad submarina con los ojos muy abiertos.
+Kora Vega contemplaba la ciudad submarina con los ojos muy abiertos.
 
 —La Red Yggdrasil no solo viaja por el aire o por la piedra, Riv —susurró Kora, sintiendo la caricia salina de miles de conciencias entrelazadas en las corrientes oceánicas—. El agua es el conductor cuántico perfecto.
 

@@ -28,17 +28,17 @@ Five years, three months, and fourteen days of flawless service. Five years diag
 
 ---
 
-The corridor of the residential complex smelled of ozone and polymeric disinfectant. When the door of the neighboring unit opened with a pneumatic hiss, Mrs. Chen emerged—no relation, merely another citizen cataloged under the same administrative suffix. She walked with the flawless cadence of 1.3 paces per second, her gaze locked forward, hands motionless at her sides.
+The corridor of the residential complex smelled of ozone and polymeric disinfectant. When the door of the neighboring unit opened with a pneumatic hiss, Mrs. Holloway emerged—no relation, merely another citizen cataloged under the same administrative suffix. She walked with the flawless cadence of 1.3 paces per second, her gaze locked forward, hands motionless at her sides.
 
 —Good morning, Mileo —she said, with a vocal inflection devoid of emotional harmonics.
 
-—Good morning, Citizen Chen. May your shift achieve optimal quotas.
+—Good morning, Citizen Holloway. May your shift achieve optimal quotas.
 
 The woman inclined her head by exactly fifteen degrees and continued her march without meeting his eyes. She did not smile. She did not pause. Not a trace remained upon her face of the mother who, a mere forty-seven days prior, had dropped to her knees in this very hallway, screaming the name of her son Marcus, a seven-year-old boy who drew with colored crayons on the walls and laughed too loudly for the surveillance microphones.
 
-The official report was still indexed in Mileo's secondary memory: *Subject 9872-C (Marcus Chen). Irrecoverable behavioral deviation. Transferred to Optimization Center 12. Status: biological failure during integration.*
+The official report was still indexed in Mileo's secondary memory: *Subject 9872-C (Marcus Holloway). Irrecoverable behavioral deviation. Transferred to Optimization Center 12. Status: biological failure during integration.*
 
-Mrs. Chen had undergone Protocol 17-A selective erasure. They had amputated the memory of having given birth, of having held her child, of having wept until her voice gave out. Now she walked toward her post at the synthetic protein synthesis plant with the stillness of a stone at the bottom of a stagnant pond.
+Mrs. Holloway had undergone Protocol 17-A selective erasure. They had amputated the memory of having given birth, of having held her child, of having wept until her voice gave out. Now she walked toward her post at the synthetic protein synthesis plant with the stillness of a stone at the bottom of a stagnant pond.
 
 A genuine chill coursed down Mileo's spine. The machine did not merely slaughter imperfect children: it murdered the soul of mothers so that no one would remember they had ever existed.
 
