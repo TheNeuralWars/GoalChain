@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from '../i18n';
 import { KindleReader } from './KindleReader';
 import { AuthorStudio } from './AuthorStudio';
+import { TheNeuralWarsUniverse } from './TheNeuralWarsUniverse';
 import { THE_NEURAL_WARS_BOOKS } from './booksData';
 
 interface FantasyWorld {
@@ -189,7 +190,7 @@ const MOCK_BOUNTIES: EditorialBounty[] = [
 
 export function GoalWorldPortal() {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState<'nexus' | 'reader' | 'saas' | 'hermes'>('nexus');
+  const [activeTab, setActiveTab] = useState<'nexus' | 'universe' | 'reader' | 'saas' | 'hermes'>('nexus');
   const [selectedWorld, setSelectedWorld] = useState<FantasyWorld>(MOCK_WORLDS[0]);
   const [activeChapter, setActiveChapter] = useState<Chapter>(MOCK_CHAPTERS[0]);
   const [fontSize, setFontSize] = useState<number>(18);
@@ -304,9 +305,9 @@ export function GoalWorldPortal() {
 
           <div style={{ display: 'flex', gap: '1rem' }}>
             <button
-              onClick={() => setActiveTab('saas')}
+              onClick={() => setActiveTab('universe')}
               style={{
-                background: 'linear-gradient(135deg, #a855f7 0%, #7e22ce 100%)',
+                background: 'linear-gradient(135deg, #a855f7 0%, #38bdf8 100%)',
                 border: 'none',
                 color: '#fff',
                 fontWeight: 900,
@@ -317,7 +318,7 @@ export function GoalWorldPortal() {
                 transition: 'all 0.2s'
               }}
             >
-              🛠️ Publisher SaaS Studio
+              🪐 Explorar Universo The Neural Wars
             </button>
           </div>
         </div>
@@ -333,6 +334,7 @@ export function GoalWorldPortal() {
         }}>
           {[
             { id: 'nexus', label: '🪐 Nexus de Universos', badge: 'Fantasía' },
+            { id: 'universe', label: '⚡ Universo The Neural Wars', badge: 'Lore & Canon' },
             { id: 'reader', label: '📖 Lector Inmersivo', badge: 'E-Reader' },
             { id: 'saas', label: '🛠️ Publisher SaaS (KDP + Web3)', badge: 'Simbiosis IA' },
             { id: 'hermes', label: '🤖 Hermes Co-Writer Suite', badge: 'Agentes' }
@@ -544,6 +546,19 @@ export function GoalWorldPortal() {
               ))}
             </div>
           </div>
+        </div>
+      )}
+
+      {/* TAB: UNIVERSO THE NEURAL WARS */}
+      {activeTab === 'universe' && (
+        <div style={{ borderRadius: '20px', overflow: 'hidden', border: '1px solid rgba(168, 85, 247, 0.3)', boxShadow: '0 20px 50px rgba(0,0,0,0.6)' }}>
+          <TheNeuralWarsUniverse
+            onOpenReader={(bId) => {
+              const b = MOCK_WORLDS.find((w) => w.id === bId);
+              if (b) setSelectedWorld(b);
+              setActiveTab('reader');
+            }}
+          />
         </div>
       )}
 

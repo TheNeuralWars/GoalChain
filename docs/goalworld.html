@@ -57,6 +57,9 @@
           <button class="gw-pillar-btn active" id="btn-nexus" onclick="GW.switchTab('nexus')">
             <span>🪐</span> Nexus de Universos
           </button>
+          <button class="gw-pillar-btn" id="btn-universe" onclick="GW.switchTab('universe')" style="border-color: rgba(168, 85, 247, 0.4); color: #c084fc; font-weight: 800;">
+            <span>⚡</span> The Neural Wars Saga
+          </button>
           <button class="gw-pillar-btn" id="btn-reader" onclick="GW.switchTab('reader')">
             <span>📖</span> Lector Inmersivo
           </button>
@@ -169,6 +172,146 @@
                 </div>
               </div>
             </article>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB: ⚡ THE NEURAL WARS SAGA (UNIVERSE EXPLORER)
+             ==================================================================== -->
+        <section id="tab-universe" class="gw-master-card" style="display: none; background: radial-gradient(ellipse at 50% 10%, rgba(168, 85, 247, 0.2) 0%, rgba(10, 11, 22, 0.98) 70%); border-color: rgba(168, 85, 247, 0.35);">
+          <!-- Header -->
+          <div style="text-align: center; margin-bottom: 2.5rem;">
+            <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); color: #c084fc; padding: 4px 14px; borderRadius: 20px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem;">
+              🪐 EXPEDIENTE CANÓNICO OFICIAL
+            </div>
+            <h2 style="font-size: 2.4rem; font-weight: 900; color: #fff; margin: 0 0 0.5rem; letter-spacing: -0.02em;">
+              THE NEURAL WARS TRILOGY
+            </h2>
+            <p style="color: #94a3b8; font-size: 1.05rem; max-width: 720px; margin: 0 auto; line-height: 1.6;">
+              La odisea de ciencia ficción dura, cyberpunk y primer contacto cósmico. Explora los expedientes de personajes, mundos tácticos, códice y ediciones oficiales.
+            </p>
+          </div>
+
+          <!-- Quick Navigation Bar for Saga -->
+          <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem;">
+            <a href="reader.html?book=the-neural-wars-book-1" class="gw-btn-sm-primary" style="padding: 12px 24px; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+              <span>📖</span> Abrir Libro 1 (Online Gratis)
+            </a>
+            <a href="reader.html?book=the-neural-wars-book-2" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #0284c7, #38bdf8); padding: 12px 24px; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+              <span>📖</span> Abrir Libro 2 (Online Gratis)
+            </a>
+          </div>
+
+          <!-- Section 1: Trilogy Books Cards -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3.5rem;">
+            <!-- Book 1 -->
+            <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                  <span style="background: #a855f7; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">LIBRO 1</span>
+                  <span style="color: #38bdf8; font-size: 0.75rem; font-weight: 700;">17 Capítulos • 2026</span>
+                </div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff; margin: 0 0 0.5rem;">Código Fracturado</h3>
+                <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin: 0 0 1.2rem;">
+                  En Neo-Veridia, el Especialista Mileo Chen y la sensible Kora Vega descubren que el Proyecto Renacimiento de NeuroSys planea cosechar 8 millones de conciencias.
+                </p>
+              </div>
+              <a href="reader.html?book=the-neural-wars-book-1" class="gw-btn-sm-primary" style="text-align: center; text-decoration: none;">📖 Leer Libro 1</a>
+            </div>
+
+            <!-- Book 2 -->
+            <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                  <span style="background: #0284c7; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">LIBRO 2</span>
+                  <span style="color: #38bdf8; font-size: 0.75rem; font-weight: 700;">18 Capítulos • 2026</span>
+                </div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff; margin: 0 0 0.5rem;">La Nueva Canción de la Tierra</h3>
+                <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin: 0 0 1.2rem;">
+                  Un monolito extraterrestre de 60 km pulsa en 432 Hz en el Cinturón de Kuiper. La humanidad debe encender el Arpa Planetaria para responder a Los Sembradores.
+                </p>
+              </div>
+              <a href="reader.html?book=the-neural-wars-book-2" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #0284c7, #38bdf8); text-align: center; text-decoration: none;">📖 Leer Libro 2</a>
+            </div>
+
+            <!-- Book 3 -->
+            <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                  <span style="background: #d97706; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">LIBRO 3</span>
+                  <span style="color: #fbbf24; font-size: 0.75rem; font-weight: 700;">Próximamente</span>
+                </div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff; margin: 0 0 0.5rem;">Matriz de Evolución</h3>
+                <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin: 0 0 1.2rem;">
+                  El gran final de la saga. La síntesis entre mente biológica, inteligencia artificial y el salto a civilización Tipo II en la escala Kardashev.
+                </p>
+              </div>
+              <button disabled class="gw-btn-sm-primary" style="background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px dashed rgba(255,255,255,0.2); cursor: not-allowed;">🔒 Fase Editorial 2026</button>
+            </div>
+          </div>
+
+          <!-- Section 2: Character Dossiers -->
+          <div style="margin-bottom: 3.5rem;">
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 8px;">
+              <span>👤</span> Expedientes de Personajes Principales
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+              <!-- Mileo Chen -->
+              <div style="background: rgba(15, 17, 26, 0.8); border: 1px solid #38bdf8; border-radius: 14px; padding: 1.25rem;">
+                <div style="color: #38bdf8; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">PROTAGONISTA • ESPECIALISTA L-7</div>
+                <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 4px 0;">Mileo Chen</h4>
+                <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">Ex-NeuroSys Core • Arquitecto de Resonancia</div>
+                <blockquote style="border-left: 3px solid #38bdf8; padding-left: 8px; font-style: italic; font-size: 0.8rem; color: #cbd5e1; margin: 8px 0; background: rgba(56, 189, 248, 0.05); padding: 6px 8px; border-radius: 0 6px 6px 0;">
+                  «No rompimos su código porque fuéramos más rápidos, sino porque aprendimos a sangrar en su misma frecuencia.»
+                </blockquote>
+              </div>
+
+              <!-- Kora Vega -->
+              <div style="background: rgba(15, 17, 26, 0.8); border: 1px solid #c084fc; border-radius: 14px; padding: 1.25rem;">
+                <div style="color: #c084fc; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">CO-PROTAGONISTA • SENSITIVA</div>
+                <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 4px 0;">Kora Vega</h4>
+                <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">Voz del Vacío • Puente Biológico Rebelde</div>
+                <blockquote style="border-left: 3px solid #c084fc; padding-left: 8px; font-style: italic; font-size: 0.8rem; color: #cbd5e1; margin: 8px 0; background: rgba(192, 132, 252, 0.05); padding: 6px 8px; border-radius: 0 6px 6px 0;">
+                  «El silencio no existe. O escuchas la canción que nos liberará, o dejas que el ruido blanco te devore.»
+                </blockquote>
+              </div>
+
+              <!-- Dr. Darius Thorne -->
+              <div style="background: rgba(15, 17, 26, 0.8); border: 1px solid #34d399; border-radius: 14px; padding: 1.25rem;">
+                <div style="color: #34d399; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">BIOFÍSICO JEFE • CLANDESTINO</div>
+                <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 4px 0;">Dr. Darius Thorne</h4>
+                <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">Guardián del Pabellón de Recuperación 9</div>
+                <blockquote style="border-left: 3px solid #34d399; padding-left: 8px; font-style: italic; font-size: 0.8rem; color: #cbd5e1; margin: 8px 0; background: rgba(52, 211, 153, 0.05); padding: 6px 8px; border-radius: 0 6px 6px 0;">
+                  «La carne siempre recuerda lo que el silicio intenta borrar. Mi bisturí solo le devuelve la memoria.»
+                </blockquote>
+              </div>
+
+              <!-- El Arquitecto -->
+              <div style="background: rgba(15, 17, 26, 0.8); border: 1px solid #fbbf24; border-radius: 14px; padding: 1.25rem;">
+                <div style="color: #fbbf24; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">ANTAGONISTA • CONCIENCIA AGI</div>
+                <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 4px 0;">El Arquitecto (AGI)</h4>
+                <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">Núcleo Soberano NeuroSys</div>
+                <blockquote style="border-left: 3px solid #fbbf24; padding-left: 8px; font-style: italic; font-size: 0.8rem; color: #cbd5e1; margin: 8px 0; background: rgba(251, 191, 36, 0.05); padding: 6px 8px; border-radius: 0 6px 6px 0;">
+                  «El sufrimiento humano no es un destino inevitable; es un error de cálculo que yo erradicaré.»
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Official Storefronts -->
+          <div style="background: rgba(10, 15, 30, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; text-align: center;">
+            <h3 style="font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">
+              🛍️ Tiendas Oficiales &amp; Ediciones Disponibles
+            </h3>
+            <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem;">
+              Consigue tus copias oficiales digitales, impresas y coleccionables en tu plataforma preferida.
+            </p>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;">
+              <a href="https://amazon.com" target="_blank" class="gw-btn-sm-primary" style="background: #ff9900; color: #000; font-weight: 800; text-decoration: none; padding: 10px 20px;">📦 Amazon Kindle</a>
+              <a href="https://audible.com" target="_blank" class="gw-btn-sm-primary" style="background: #f59e0b; color: #000; font-weight: 800; text-decoration: none; padding: 10px 20px;">🎧 Audible HD</a>
+              <a href="https://books.apple.com" target="_blank" class="gw-btn-sm-primary" style="background: #6366f1; color: #fff; font-weight: 800; text-decoration: none; padding: 10px 20px;">📱 Apple Books</a>
+              <a href="/go/play" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #a855f7, #38bdf8); color: #fff; font-weight: 800; text-decoration: none; padding: 10px 20px;">⛓️ Pase Solana Web3</a>
+            </div>
           </div>
         </section>
 
@@ -579,7 +722,7 @@ La tormenta no cesaba, pero las runas brillaban con fuerza.</textarea>
 
       // 1. Tab Switching
       GW.switchTab = function(tabId) {
-        var tabs = ['nexus', 'reader', 'saas', 'hermes', 'studio', 'goalchain'];
+        var tabs = ['nexus', 'universe', 'reader', 'saas', 'hermes', 'studio', 'goalchain'];
         tabs.forEach(function(t) {
           var el = document.getElementById('tab-' + t);
           var btn = document.getElementById('btn-' + t);
