@@ -18,7 +18,7 @@ export interface CharacterDossier {
     traumaResistance: number;
   };
   accentColor: string;
-  avatarPlaceholder?: string;
+  imageUrl?: string;
 }
 
 export interface UniverseLocation {
@@ -29,6 +29,7 @@ export interface UniverseLocation {
   description: string;
   tacticalNote: string;
   atmosphere: string;
+  imageUrl?: string;
 }
 
 const CHARACTERS: CharacterDossier[] = [
@@ -50,6 +51,7 @@ const CHARACTERS: CharacterDossier[] = [
       traumaResistance: 90,
     },
     accentColor: '#38bdf8',
+    imageUrl: '/assets/img/neuralwars/char_mileo_chen.jpg',
   },
   {
     id: 'kora-vega',
@@ -69,6 +71,7 @@ const CHARACTERS: CharacterDossier[] = [
       traumaResistance: 86,
     },
     accentColor: '#c084fc',
+    imageUrl: '/assets/img/neuralwars/char_kora_vega.jpg',
   },
   {
     id: 'darius-thorne',
@@ -88,6 +91,7 @@ const CHARACTERS: CharacterDossier[] = [
       traumaResistance: 99,
     },
     accentColor: '#34d399',
+    imageUrl: '/assets/img/neuralwars/char_dr_darius_thorne.jpg',
   },
   {
     id: 'sierra-catalano',
@@ -107,6 +111,7 @@ const CHARACTERS: CharacterDossier[] = [
       traumaResistance: 96,
     },
     accentColor: '#f87171',
+    imageUrl: '/assets/img/neuralwars/char_kora_vega.jpg',
   },
   {
     id: 'architect-agi',
@@ -138,6 +143,7 @@ const LOCATIONS: UniverseLocation[] = [
     description: 'Una metrópolis vertical de 140 niveles donde la luz solar no llega a las capas bajas. Calles empapadas de lluvia ácida, torres de fibra óptica y pantallas holográficas que proyectan propaganda del Proyecto Renacimiento.',
     tacticalNote: 'Vigilancia constante por drones Reaper L-4. Evitar las plazas centrales entre las 02:00 y las 05:00 durante las purgas de señal.',
     atmosphere: 'Cyberpunk Industrial • Lluvia de Cian • Humo de Nitrógeno',
+    imageUrl: '/assets/img/neuralwars/loc_neo_veridia_sector4.jpg',
   },
   {
     id: 'sub-grid',
@@ -147,6 +153,7 @@ const LOCATIONS: UniverseLocation[] = [
     description: 'El corazón latiente de la resistencia. Millas de túneles abandonados blindados contra ondas electromagnéticas, donde miles de fugitivos viven conectados al Arpa Planetaria.',
     tacticalNote: 'Puntos de acceso protegidos por trampas sónicas de 18 kHz. Solo entrar con salvoconducto de Kora Vega.',
     atmosphere: 'Clandestinidad • Cables Expuestos • Vapor Cálido',
+    imageUrl: '/assets/img/neuralwars/loc_neo_veridia_sector4.jpg',
   },
   {
     id: 'pavilion-9',
@@ -156,6 +163,7 @@ const LOCATIONS: UniverseLocation[] = [
     description: 'Instalación médica secreta liderada por el Dr. Darius Thorne. Alberga más de 300 camas de desintoxicación neural y tanques de bioluminiscencia regenerativa.',
     tacticalNote: 'Área desmilitarizada por tratado tácito. Cero armas de fuego permitidas en el perímetro.',
     atmosphere: 'Luz Verde Esmeralda • Zumbido de Monitores • Esperanza Tensa',
+    imageUrl: '/assets/img/neuralwars/char_dr_darius_thorne.jpg',
   },
   {
     id: 'kuiper-monolith',
@@ -165,6 +173,7 @@ const LOCATIONS: UniverseLocation[] = [
     description: 'Una megaestructura cristalina extraterrestre de 60 kilómetros descubierta emitiendo un pulso armónico en 432 Hz hacia el núcleo terrestre. La clave del Libro 2 (Earth\'s New Song).',
     tacticalNote: 'Campos gravitacionales no newtonianos detectados. Todo intento de escaneo invasivo provoca ondas de choque psíquicas.',
     atmosphere: 'Silencio Cósmico • Resonancia Cristalina • Misterio Ancestral',
+    imageUrl: '/assets/img/neuralwars/loc_kuiper_monolith.jpg',
   },
 ];
 
@@ -202,7 +211,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
           right: 0,
           bottom: 0,
           pointerEvents: 'none',
-          background: 'radial-gradient(ellipse at 50% 10%, rgba(168, 85, 247, 0.15) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(5, 6, 11, 0.98) 85%)',
+          background: 'radial-gradient(ellipse at 50% 10%, rgba(168, 85, 247, 0.18) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(5, 6, 11, 0.98) 85%)',
           zIndex: 0,
         }}
       />
@@ -266,8 +275,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
               lineHeight: 1.65,
             }}
           >
-            Sumérgete en la saga de ciencia ficción dura, cyberpunk y primer contacto cósmico. 
-            Descubre el lore clasificado, los personajes rebeldes, las megaestructuras y las ediciones oficiales antes de comenzar tu lectura.
+            Sumérgete en la saga de ciencia ficción dura, cyberpunk y primer contacto cósmico creada por <strong style={{ color: '#fff' }}>The Neural Wars Studio + Nico Pez</strong>. 
+            Descubre los expedientes clasificados, megaestructuras y ediciones oficiales antes de comenzar tu lectura.
           </p>
 
           {/* Hero Quick Action CTA */}
@@ -379,14 +388,14 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 </p>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2rem', marginBottom: '3.5rem' }}>
                 {/* Book 1 */}
                 <div
                   style={{
                     background: 'rgba(15, 17, 26, 0.85)',
                     border: '1px solid rgba(168, 85, 247, 0.35)',
                     borderRadius: '20px',
-                    padding: '2rem',
+                    padding: '1.5rem',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
@@ -395,17 +404,26 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   }}
                 >
                   <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                    {/* Book Cover Image */}
+                    <div style={{ width: '100%', height: '360px', borderRadius: '12px', overflow: 'hidden', marginBottom: '1.25rem', boxShadow: '0 8px 25px rgba(0,0,0,0.6)' }}>
+                      <img
+                        src="/assets/img/neuralwars/book1_cover_fractured_code.jpg"
+                        alt="The Neural Wars: Fractured Code Cover"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
                       <span style={{ background: '#a855f7', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 800 }}>
                         LIBRO 1 • COMPLETO
                       </span>
-                      <span style={{ color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700 }}>17 Capítulos</span>
+                      <span style={{ color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700 }}>17 Capítulos • 2026</span>
                     </div>
-                    <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
                       Código Fracturado (Fractured Code)
                     </h3>
-                    <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                      En la claustrofóbica megalópolis de Neo-Veridia, el Especialista Mileo Chen y la sensible Kora Vega descubren que el Proyecto Renacimiento de NeuroSys planea la cosecha forzosa de 8 millones de mentes. La primera batalla por el alma de la especie.
+                    <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                      En la claustrofóbica megalópolis de Neo-Veridia, el Especialista Mileo Chen y la sensible Kora Vega descubren que el Proyecto Renacimiento de NeuroSys planea la cosecha forzosa de 8 millones de mentes.
                     </p>
                   </div>
                   <div style={{ display: 'flex', gap: '10px' }}>
@@ -448,7 +466,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                     background: 'rgba(15, 17, 26, 0.85)',
                     border: '1px solid rgba(56, 189, 248, 0.35)',
                     borderRadius: '20px',
-                    padding: '2rem',
+                    padding: '1.5rem',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
@@ -457,16 +475,25 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   }}
                 >
                   <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                    {/* Book Cover Image */}
+                    <div style={{ width: '100%', height: '360px', borderRadius: '12px', overflow: 'hidden', marginBottom: '1.25rem', boxShadow: '0 8px 25px rgba(0,0,0,0.6)' }}>
+                      <img
+                        src="/assets/img/neuralwars/book2_cover_earths_new_song.jpg"
+                        alt="The Neural Wars: Earth's New Song Cover"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
                       <span style={{ background: '#0284c7', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 800 }}>
                         LIBRO 2 • COMPLETO
                       </span>
-                      <span style={{ color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700 }}>18 Capítulos</span>
+                      <span style={{ color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700 }}>18 Capítulos • 2026</span>
                     </div>
-                    <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
                       La Nueva Canción de la Tierra (Earth's New Song)
                     </h3>
-                    <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                    <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
                       Un monolito alienígena de 60 kilómetros pulsa en 432 Hz en el Cinturón de Kuiper. Mientras la Tierra se desangra en una guerra civil cibernética, la humanidad debe encender el Arpa Planetaria para responder a la Primera Invitación cósmica.
                     </p>
                   </div>
@@ -510,7 +537,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                     background: 'rgba(15, 17, 26, 0.85)',
                     border: '1px solid rgba(245, 158, 11, 0.35)',
                     borderRadius: '20px',
-                    padding: '2rem',
+                    padding: '1.5rem',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
@@ -519,16 +546,23 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   }}
                 >
                   <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                    {/* Visual Placeholder */}
+                    <div style={{ width: '100%', height: '360px', borderRadius: '12px', background: 'radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, rgba(10, 11, 22, 0.9) 70%)', border: '1px dashed rgba(245, 158, 11, 0.4)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                      <div style={{ fontSize: '3.5rem', marginBottom: '8px' }}>🪐</div>
+                      <div style={{ color: '#fbbf24', fontWeight: 800, fontSize: '0.88rem' }}>CONVERGENCE PROTOCOL</div>
+                      <div style={{ color: '#94a3b8', fontSize: '0.75rem' }}>Fase Final de Producción</div>
+                    </div>
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
                       <span style={{ background: '#d97706', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 800 }}>
                         LIBRO 3 • PRÓXIMAMENTE
                       </span>
                       <span style={{ color: '#fbbf24', fontSize: '0.82rem', fontWeight: 700 }}>Gran Final</span>
                     </div>
-                    <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
                       Matriz de Evolución (Evolution Matrix)
                     </h3>
-                    <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                    <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
                       El salto definitivo hacia una civilización Tipo II en la Escala de Kardashev. La síntesis entre mente biológica, inteligencia artificial y el entramado cuántico del espacio-tiempo.
                     </p>
                   </div>
@@ -551,6 +585,35 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   </div>
                 </div>
               </div>
+
+              {/* Cinematic Teaser Trailer Video Showcase */}
+              <div
+                style={{
+                  background: 'rgba(15, 17, 26, 0.9)',
+                  border: '1px solid rgba(168, 85, 247, 0.4)',
+                  borderRadius: '24px',
+                  padding: '2rem',
+                  boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
+                  textAlign: 'center',
+                }}
+              >
+                <div style={{ color: '#c084fc', fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>
+                  🎬 CINEMÁTICA OFICIAL • SAGA TEASER
+                </div>
+                <h3 style={{ fontSize: '1.8rem', fontWeight: 900, color: '#fff', marginBottom: '1.25rem' }}>
+                  The Neural Wars: Teaser Tráiler
+                </h3>
+                <div style={{ maxWidth: '850px', margin: '0 auto', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 40px rgba(0,0,0,0.8)' }}>
+                  <video
+                    controls
+                    poster="/assets/img/neuralwars/loc_neo_veridia_sector4.jpg"
+                    style={{ width: '100%', height: 'auto', display: 'block' }}
+                  >
+                    <source src="/assets/img/neuralwars/trailer_cinematic_teaser.mp4" type="video/mp4" />
+                    Tu navegador no soporta la reproducción de video HTML5.
+                  </video>
+                </div>
+              </div>
             </div>
           )}
 
@@ -571,11 +634,22 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       cursor: 'pointer',
                       boxShadow: selectedChar.id === char.id ? `0 0 20px ${char.accentColor}33` : 'none',
                       transition: 'all 0.2s',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '12px',
                     }}
                   >
-                    <div style={{ fontSize: '1rem', fontWeight: 900, color: char.accentColor }}>{char.name}</div>
-                    <div style={{ fontSize: '0.78rem', color: '#94a3b8', marginTop: '2px' }}>{char.role}</div>
-                    <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '4px' }}>{char.faction}</div>
+                    {char.imageUrl && (
+                      <img
+                        src={char.imageUrl}
+                        alt={char.name}
+                        style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover', border: `2px solid ${char.accentColor}` }}
+                      />
+                    )}
+                    <div>
+                      <div style={{ fontSize: '1rem', fontWeight: 900, color: char.accentColor }}>{char.name}</div>
+                      <div style={{ fontSize: '0.78rem', color: '#94a3b8', marginTop: '2px' }}>{char.role}</div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -591,15 +665,27 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   backdropFilter: 'blur(20px)',
                 }}
               >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
-                  <div>
+                <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap', marginBottom: '2rem' }}>
+                  {selectedChar.imageUrl && (
+                    <div style={{ width: '180px', height: '240px', borderRadius: '16px', overflow: 'hidden', border: `2px solid ${selectedChar.accentColor}`, boxShadow: `0 0 25px ${selectedChar.accentColor}44`, flexShrink: 0 }}>
+                      <img
+                        src={selectedChar.imageUrl}
+                        alt={selectedChar.name}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    </div>
+                  )}
+                  <div style={{ flex: 1 }}>
                     <span style={{ color: selectedChar.accentColor, fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.2px' }}>
                       {selectedChar.codename}
                     </span>
                     <h2 style={{ fontSize: '2.4rem', fontWeight: 900, color: '#fff', margin: '4px 0' }}>
                       {selectedChar.name}
                     </h2>
-                    <div style={{ color: '#94a3b8', fontSize: '0.95rem' }}>{selectedChar.role} • <strong style={{ color: '#fff' }}>{selectedChar.status}</strong></div>
+                    <div style={{ color: '#94a3b8', fontSize: '0.95rem', marginBottom: '1rem' }}>{selectedChar.role} • <strong style={{ color: '#fff' }}>{selectedChar.status}</strong></div>
+                    <div style={{ background: 'rgba(0,0,0,0.3)', padding: '6px 12px', borderRadius: '8px', fontSize: '0.8rem', color: selectedChar.accentColor, display: 'inline-block' }}>
+                      ⚡ {selectedChar.specialty}
+                    </div>
                   </div>
                 </div>
 
@@ -690,6 +776,16 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   boxShadow: '0 0 35px rgba(56, 189, 248, 0.15)',
                 }}
               >
+                {selectedLoc.imageUrl && (
+                  <div style={{ width: '100%', height: '320px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.75rem', boxShadow: '0 10px 30px rgba(0,0,0,0.7)' }}>
+                    <img
+                      src={selectedLoc.imageUrl}
+                      alt={selectedLoc.name}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </div>
+                )}
+
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
                   <div>
                     <span style={{ color: '#38bdf8', fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.2px' }}>
@@ -801,7 +897,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
 
           {/* TAB 5: AUTHOR BIOGRAPHY & MANIFESTO */}
           {activeTab === 'author' && (
-            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <div style={{ maxWidth: '850px', margin: '0 auto' }}>
               <div
                 style={{
                   background: 'rgba(15, 17, 26, 0.92)',
@@ -812,7 +908,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   backdropFilter: 'blur(20px)',
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
                   <div
                     style={{
                       width: '85px',
@@ -833,9 +929,18 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       The Neural Wars Studio + Nico Pez
                     </h2>
                     <div style={{ color: '#a855f7', fontWeight: 800, fontSize: '0.92rem', marginTop: '4px' }}>
-                      Entidad de Co-Creación Literaria • Arquitectura de Ficción Viva
+                      Nico Pez (@nicopez / @nicodelbellopez) • Creador &amp; Arquitecto de Ficción Viva
                     </div>
                   </div>
+                </div>
+
+                <div style={{ background: 'rgba(168, 85, 247, 0.1)', borderLeft: '4px solid #a855f7', padding: '1rem 1.4rem', borderRadius: '0 10px 10px 0', marginBottom: '1.8rem' }}>
+                  <h4 style={{ color: '#c084fc', fontSize: '0.9rem', fontWeight: 800, margin: '0 0 4px', textTransform: 'uppercase' }}>
+                    Biografía del Autor
+                  </h4>
+                  <p style={{ color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.7, margin: 0 }}>
+                    <strong>Nico Pez</strong> (identificado como <em>nicodelbellopez</em> en redes) es un desarrollador, arquitecto de sistemas autónomos y creador de universos literarios. Con amplia trayectoria en tecnología descentralizada, inteligencia artificial y tokenización de propiedad intelectual en Solana, concibe la literatura como un ecosistema vivo donde la dirección creativa humana y los enjambres de agentes inteligentes colaboran en tiempo real para expandir mundos de ficción con un rigor cinematográfico y filosófico sin precedentes.
+                  </p>
                 </div>
 
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#38bdf8', marginBottom: '1rem' }}>

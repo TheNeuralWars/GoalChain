@@ -203,10 +203,13 @@
           </div>
 
           <!-- Section 1: Trilogy Books Cards -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; margin-bottom: 3.5rem;">
             <!-- Book 1 -->
             <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
+                <div style="width: 100%; height: 320px; border-radius: 10px; overflow: hidden; margin-bottom: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.6);">
+                  <img src="assets/img/neuralwars/book1_cover_fractured_code.jpg" alt="Portada Libro 1" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
                   <span style="background: #a855f7; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">LIBRO 1</span>
                   <span style="color: #38bdf8; font-size: 0.75rem; font-weight: 700;">17 Capítulos • 2026</span>
@@ -222,6 +225,9 @@
             <!-- Book 2 -->
             <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
+                <div style="width: 100%; height: 320px; border-radius: 10px; overflow: hidden; margin-bottom: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.6);">
+                  <img src="assets/img/neuralwars/book2_cover_earths_new_song.jpg" alt="Portada Libro 2" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
                   <span style="background: #0284c7; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">LIBRO 2</span>
                   <span style="color: #38bdf8; font-size: 0.75rem; font-weight: 700;">18 Capítulos • 2026</span>
@@ -237,6 +243,11 @@
             <!-- Book 3 -->
             <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
               <div>
+                <div style="width: 100%; height: 320px; border-radius: 10px; background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, rgba(10, 11, 22, 0.9) 70%); border: 1px dashed rgba(245, 158, 11, 0.4); display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                  <div style="font-size: 3rem; margin-bottom: 6px;">🪐</div>
+                  <div style="color: #fbbf24; font-weight: 800; font-size: 0.82rem;">CONVERGENCE PROTOCOL</div>
+                  <div style="color: #94a3b8; font-size: 0.72rem;">Fase Final de Edición</div>
+                </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
                   <span style="background: #d97706; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">LIBRO 3</span>
                   <span style="color: #fbbf24; font-size: 0.75rem; font-weight: 700;">Próximamente</span>
@@ -246,7 +257,7 @@
                   El gran final de la saga. La síntesis entre mente biológica, inteligencia artificial y el salto a civilización Tipo II en la escala Kardashev.
                 </p>
               </div>
-              <button disabled class="gw-btn-sm-primary" style="background: rgba(255,255,255,0.05); color: #94a3b8; border: 1px dashed rgba(255,255,255,0.2); cursor: not-allowed;">🔒 Fase Editorial 2026</button>
+              <button onclick="GW.openPreOrder('Libro 3 (Evolution Matrix)')" class="gw-btn-sm-primary" style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24; cursor: pointer;">🔔 Notificarme</button>
             </div>
           </div>
 
@@ -258,6 +269,9 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
               <!-- Mileo Chen -->
               <div style="background: rgba(15, 17, 26, 0.8); border: 1px solid #38bdf8; border-radius: 14px; padding: 1.25rem;">
+                <div style="width: 100%; height: 200px; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
+                  <img src="assets/img/neuralwars/char_mileo_chen.jpg" alt="Mileo Chen" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
                 <div style="color: #38bdf8; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">PROTAGONISTA • ESPECIALISTA L-7</div>
                 <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 4px 0;">Mileo Chen</h4>
                 <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">Ex-NeuroSys Core • Arquitecto de Resonancia</div>
@@ -268,6 +282,9 @@
 
               <!-- Kora Vega -->
               <div style="background: rgba(15, 17, 26, 0.8); border: 1px solid #c084fc; border-radius: 14px; padding: 1.25rem;">
+                <div style="width: 100%; height: 200px; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
+                  <img src="assets/img/neuralwars/char_kora_vega.jpg" alt="Kora Vega" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
                 <div style="color: #c084fc; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">CO-PROTAGONISTA • SENSITIVA</div>
                 <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 4px 0;">Kora Vega</h4>
                 <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">Voz del Vacío • Puente Biológico Rebelde</div>
@@ -278,6 +295,9 @@
 
               <!-- Dr. Darius Thorne -->
               <div style="background: rgba(15, 17, 26, 0.8); border: 1px solid #34d399; border-radius: 14px; padding: 1.25rem;">
+                <div style="width: 100%; height: 200px; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
+                  <img src="assets/img/neuralwars/char_dr_darius_thorne.jpg" alt="Dr. Darius Thorne" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
                 <div style="color: #34d399; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">BIOFÍSICO JEFE • CLANDESTINO</div>
                 <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 4px 0;">Dr. Darius Thorne</h4>
                 <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">Guardián del Pabellón de Recuperación 9</div>
@@ -288,6 +308,9 @@
 
               <!-- El Arquitecto -->
               <div style="background: rgba(15, 17, 26, 0.8); border: 1px solid #fbbf24; border-radius: 14px; padding: 1.25rem;">
+                <div style="width: 100%; height: 200px; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
+                  <img src="assets/img/neuralwars/loc_neo_veridia_sector4.jpg" alt="El Arquitecto" style="width: 100%; height: 100%; object-fit: cover;" />
+                </div>
                 <div style="color: #fbbf24; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">ANTAGONISTA • CONCIENCIA AGI</div>
                 <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 4px 0;">El Arquitecto (AGI)</h4>
                 <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">Núcleo Soberano NeuroSys</div>
@@ -298,17 +321,41 @@
             </div>
           </div>
 
+          <!-- Section 2.5: Cinematic Video Teaser -->
+          <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 20px; padding: 2rem; margin-bottom: 3.5rem; text-align: center;">
+            <div style="color: #c084fc; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">
+              🎬 CINEMÁTICA OFICIAL • TEASER SAGA
+            </div>
+            <h3 style="font-size: 1.6rem; font-weight: 900; color: #fff; margin-bottom: 1.2rem;">
+              The Neural Wars: Tráiler Cinemático
+            </h3>
+            <div style="max-width: 800px; margin: 0 auto; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 35px rgba(0,0,0,0.8);">
+              <video controls poster="assets/img/neuralwars/loc_neo_veridia_sector4.jpg" style="width: 100%; height: auto; display: block;">
+                <source src="assets/img/neuralwars/trailer_cinematic_teaser.mp4" type="video/mp4" />
+                Tu navegador no soporta video HTML5.
+              </video>
+            </div>
+          </div>
+
           <!-- Section 3: Author Manifesto & Biography -->
           <div style="background: rgba(15, 17, 26, 0.88); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 20px; padding: 2.5rem; margin-bottom: 3rem; box-shadow: 0 15px 40px rgba(0,0,0,0.5);">
-            <div style="display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
               <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #a855f7, #38bdf8); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);">
                 🖋️
               </div>
               <div>
                 <h3 style="font-size: 1.4rem; font-weight: 900; color: #fff; margin: 0;">The Neural Wars Studio + Nico Pez</h3>
-                <div style="color: #a855f7; font-weight: 800; font-size: 0.85rem; margin-top: 2px;">Entidad de Co-Creación Literaria • Arquitectura de Ficción Viva</div>
+                <div style="color: #a855f7; font-weight: 800; font-size: 0.85rem; margin-top: 2px;">Nico Pez (@nicopez / @nicodelbellopez) • Creador &amp; Arquitecto de Ficción Viva</div>
               </div>
             </div>
+            
+            <div style="background: rgba(168, 85, 247, 0.08); border-left: 4px solid #a855f7; padding: 1rem 1.2rem; border-radius: 0 8px 8px 0; margin-bottom: 1.5rem;">
+              <h4 style="color: #c084fc; font-size: 0.85rem; font-weight: 800; margin: 0 0 4px; text-transform: uppercase;">Biografía del Autor</h4>
+              <p style="color: #e2e8f0; font-size: 0.92rem; line-height: 1.7; margin: 0;">
+                <strong>Nico Pez</strong> (identificado en redes como <em>nicodelbellopez</em>) es un desarrollador de software, arquitecto de sistemas autónomos y creador de universos literarios. Concibe la literatura como un organismo vivo donde la dirección cinematográfica humana y los enjambres de inteligencia artificial colaboran en tiempo real para crear sagas épicas con máxima rigurosidad científica y profundidad emocional.
+              </p>
+            </div>
+
             <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.75; margin-bottom: 1rem;">
               «No concebimos las historias como monumentos estáticos de papel congelados en el tiempo. Las concebimos como <strong>universos vivos y respirables</strong>, donde la dirección cinematográfica humana y el poder de enjambres de inteligencia artificial colaboran en tiempo real para crear mundos con una profundidad, textura y coherencia sin precedentes.»
             </p>
