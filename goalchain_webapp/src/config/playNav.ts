@@ -139,6 +139,13 @@ const CLUB_ITEMS: PlayNavItem[] = [
     icon: '🔮',
     to: '/goalworld',
   },
+  {
+    id: 'reader',
+    label: 'Kindle E-Reader',
+    icon: '📖',
+    to: '/reader',
+    badge: 'VIP',
+  },
 ];
 
 /* ============================================================

@@ -5,6 +5,9 @@
   "rewrites": [
     { "source": "/goalworld", "destination": "/goalworld.html" },
     { "source": "/protocol", "destination": "/protocol.html" },
+    { "source": "/reader", "destination": "/reader.html" },
+    { "source": "/read", "destination": "/reader.html" },
+    { "source": "/go/reader", "destination": "/go/reader/index.html" },
     { "source": "/go/goalworld", "destination": "/go/goalworld/index.html" },
     { "source": "/go/estadio", "destination": "/go/estadio/index.html" },
     { "source": "/go/defi", "destination": "/go/defi/index.html" },

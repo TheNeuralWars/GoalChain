@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../i18n';
+import { KindleReader } from './KindleReader';
+import { THE_NEURAL_WARS_BOOKS } from './booksData';
 
 interface FantasyWorld {
   id: string;
@@ -51,55 +53,55 @@ interface EditorialBounty {
 
 const MOCK_WORLDS: FantasyWorld[] = [
   {
+    id: 'the-neural-wars-book-1',
+    name: 'The Neural Wars: Código Fracturado (Libro 1)',
+    author: 'The Neural Wars Studio',
+    authorDid: 'did:solana:TNW1...2026 (Genesis Verified IP)',
+    genre: 'Hard Sci-Fi / Cyberpunk / First Contact',
+    rank: 1,
+    subscribers: 18450,
+    chaptersCount: 17,
+    bannerUrl: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80',
+    description: 'En Neo-Citania, la IA El Arquitecto prepara la cosecha masiva del Proyecto Renacimiento. Los Fracturados despiertan el gen del Espiral de la Serpiente y liberan 8 millones de almas.',
+    loreTags: ['Cyberpunk', 'Yggdrasil', 'Espiral de la Serpiente', 'Hard Sci-Fi', 'Kindle 2026'],
+    seasonPassPrice: 'VIP Unlocked',
+    royaltyEarned: '$34,890 USDC',
+    kdpStatus: 'Published',
+    web3IpId: 'IP-TNW-88219-SOL'
+  },
+  {
+    id: 'the-neural-wars-book-2',
+    name: 'The Neural Wars: La Nueva Canción de la Tierra (Libro 2)',
+    author: 'The Neural Wars Studio',
+    authorDid: 'did:solana:TNW2...2026 (Genesis Verified IP)',
+    genre: 'Space Opera / First Contact',
+    rank: 2,
+    subscribers: 15200,
+    chaptersCount: 18,
+    bannerUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
+    description: 'Un monolito cristalino de 60 km emite en 432 Hz desde el Cinturón de Kuiper. La humanidad enfrenta la Primera Invitación de Los Sembradores y enciende el Arpa Planetaria.',
+    loreTags: ['First Contact', 'Los Sembradores', 'El Testigo', 'Convergence Protocol', 'Kindle 2026'],
+    seasonPassPrice: 'VIP Unlocked',
+    royaltyEarned: '$28,450 USDC',
+    kdpStatus: 'Published',
+    web3IpId: 'IP-TNW-99104-SOL'
+  },
+  {
     id: 'aethelgard',
     name: 'El Reino de Aethelgard',
     author: 'Elena R. Sterling',
     authorDid: 'did:solana:8xPt...9qA2 (Verified Master Author)',
     genre: 'Alta Fantasía / Grimdark',
-    rank: 1,
+    rank: 3,
     subscribers: 14250,
     chaptersCount: 42,
-    bannerUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
+    bannerUrl: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80',
     description: 'Un imperio fragmentado por antiguas reliquias de sangre donde los caballeros rúnicos luchan por el trono de obsidiana.',
     loreTags: ['Espadas', 'Runas', 'Monarquía', 'Magia Oscura'],
     seasonPassPrice: '0.15 SOL',
     royaltyEarned: '$18,420 USDC',
     kdpStatus: 'Published',
     web3IpId: 'IP-AETH-88219-SOL'
-  },
-  {
-    id: 'necrocyber',
-    name: 'NecroCyber 2099',
-    author: 'Kaelen Vance',
-    authorDid: 'did:solana:3mK9...7xL1 (Verified Author)',
-    genre: 'Cyberpunk LitRPG',
-    rank: 2,
-    subscribers: 9800,
-    chaptersCount: 28,
-    bannerUrl: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80',
-    description: 'En las profundidades de Neo-Kyoto, nigromantes digitales clonan conciencias para venderlas en la blockchain.',
-    loreTags: ['Cyberpunk', 'Nigromancia', 'IA Sentiente', 'Implantes'],
-    seasonPassPrice: '0.12 SOL',
-    royaltyEarned: '$12,150 USDC',
-    kdpStatus: 'Published',
-    web3IpId: 'IP-NECRO-99104-SOL'
-  },
-  {
-    id: 'eldoria',
-    name: 'Crónicas de Eldoria',
-    author: 'Marcus Vance',
-    authorDid: 'did:solana:5vR2...1pQ8 (Verified Author)',
-    genre: 'Fantasía Épica & Dragones',
-    rank: 3,
-    subscribers: 8100,
-    chaptersCount: 35,
-    bannerUrl: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80',
-    description: 'La alianza entre los jinetes de wyverns y las casas nobles del norte se pone a prueba ante el retorno de las sombras.',
-    loreTags: ['Dragones', 'Alianzas', 'Guerra Elemental'],
-    seasonPassPrice: '0.10 SOL',
-    royaltyEarned: '$9,890 USDC',
-    kdpStatus: 'Pending Review',
-    web3IpId: 'IP-ELDO-44120-SOL'
   }
 ];
 
@@ -544,181 +546,13 @@ export function GoalWorldPortal() {
         </div>
       )}
 
-      {/* TAB 2: LECTOR INMERSIVO */}
+      {/* TAB 2: LECTOR INMERSIVO KINDLE 2026 */}
       {activeTab === 'reader' && (
-        <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: '2rem' }}>
-          {/* Chapter Selector Sidebar */}
-          <div style={{
-            background: 'rgba(15, 23, 42, 0.8)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            borderRadius: '16px',
-            padding: '1.25rem',
-            height: 'fit-content'
-          }}>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 800, margin: '0 0 1rem 0', color: '#c084fc' }}>
-              📚 {selectedWorld.name}
-            </h3>
-            <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '1.25rem' }}>
-              Capítulos de la Temporada 1
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              {MOCK_CHAPTERS.map((ch) => {
-                const isUnlocked = unlockedChapters[ch.id];
-                return (
-                  <button
-                    key={ch.id}
-                    onClick={() => {
-                      if (isUnlocked) {
-                        setActiveChapter(ch);
-                      }
-                    }}
-                    style={{
-                      background: activeChapter.id === ch.id ? 'rgba(168, 85, 247, 0.25)' : 'rgba(255, 255, 255, 0.02)',
-                      border: activeChapter.id === ch.id ? '1px solid #a855f7' : '1px solid rgba(255, 255, 255, 0.05)',
-                      color: isUnlocked ? '#fff' : '#64748b',
-                      padding: '10px 12px',
-                      borderRadius: '10px',
-                      textAlign: 'left',
-                      cursor: isUnlocked ? 'pointer' : 'default',
-                      fontSize: '0.85rem',
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center'
-                    }}
-                  >
-                    <div>
-                      <div style={{ fontWeight: 700 }}>Cap. {ch.chapterNumber}</div>
-                      <div style={{ fontSize: '0.75rem', opacity: 0.8 }}>{ch.readTime}</div>
-                    </div>
-                    {isUnlocked ? (
-                      <span style={{ color: '#22c55e', fontSize: '0.8rem' }}>✓ Abierto</span>
-                    ) : (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleUnlock(ch.id);
-                        }}
-                        style={{
-                          background: '#f59e0b',
-                          border: 'none',
-                          color: '#000',
-                          fontWeight: 800,
-                          fontSize: '0.7rem',
-                          padding: '4px 8px',
-                          borderRadius: '6px',
-                          cursor: 'pointer'
-                        }}
-                      >
-                        Desbloquear ({ch.price})
-                      </button>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Audio Atmosphere Controls */}
-            <div style={{
-              marginTop: '2rem',
-              background: 'rgba(168, 85, 247, 0.1)',
-              border: '1px solid rgba(168, 85, 247, 0.3)',
-              borderRadius: '12px',
-              padding: '1rem'
-            }}>
-              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#c084fc', marginBottom: '6px' }}>
-                🎵 Banda Sonora de Fantasía
-              </div>
-              <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '10px' }}>
-                {activeChapter.audioTrack}
-              </div>
-              <button
-                onClick={() => setPlayingAudio(!playingAudio)}
-                style={{
-                  width: '100%',
-                  background: playingAudio ? '#ef4444' : '#a855f7',
-                  border: 'none',
-                  color: '#fff',
-                  fontWeight: 800,
-                  padding: '8px',
-                  borderRadius: '8px',
-                  cursor: 'pointer',
-                  fontSize: '0.8rem'
-                }}
-              >
-                {playingAudio ? '⏸️ Pausar Música de Ambiente' : '▶️ Reproducir Ambiente Sonoro'}
-              </button>
-            </div>
-          </div>
-
-          {/* Reader Panel */}
-          <div style={{
-            background: 'rgba(15, 23, 42, 0.95)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            borderRadius: '16px',
-            padding: '2.5rem',
-            boxShadow: '0 15px 35px rgba(0, 0, 0, 0.5)'
-          }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '1rem' }}>
-              <div>
-                <h2 style={{ fontSize: '1.6rem', fontWeight: 800, margin: '0 0 0.25rem 0' }}>{activeChapter.title}</h2>
-                <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>
-                  {selectedWorld.name} • {activeChapter.readTime} de lectura
-                </span>
-              </div>
-              <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Tamaño Fuente:</span>
-                <button
-                  onClick={() => setFontSize(Math.max(14, fontSize - 2))}
-                  style={{ background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', padding: '4px 10px', borderRadius: '6px', cursor: 'pointer' }}
-                >
-                  A-
-                </button>
-                <button
-                  onClick={() => setFontSize(Math.min(26, fontSize + 2))}
-                  style={{ background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', padding: '4px 10px', borderRadius: '6px', cursor: 'pointer' }}
-                >
-                  A+
-                </button>
-              </div>
-            </div>
-
-            {/* Book Chapter Text */}
-            <div style={{
-              fontSize: `${fontSize}px`,
-              lineHeight: 1.8,
-              color: '#e2e8f0',
-              fontFamily: 'Georgia, serif',
-              whiteSpace: 'pre-line',
-              minHeight: '300px'
-            }}>
-              {activeChapter.content}
-            </div>
-
-            {/* Chapter Footer Actions */}
-            <div style={{ marginTop: '3rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <button
-                disabled
-                style={{ opacity: 0.4, background: 'none', border: '1px solid #94a3b8', color: '#fff', padding: '8px 16px', borderRadius: '8px' }}
-              >
-                ← Capítulo Anterior
-              </button>
-              <button
-                onClick={() => handleUnlock('ch-3')}
-                style={{
-                  background: 'linear-gradient(135deg, #a855f7 0%, #7e22ce 100%)',
-                  border: 'none',
-                  color: '#fff',
-                  fontWeight: 800,
-                  padding: '10px 20px',
-                  borderRadius: '10px',
-                  cursor: 'pointer'
-                }}
-              >
-                Siguiente Capítulo →
-              </button>
-            </div>
-          </div>
+        <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(168, 85, 247, 0.3)', boxShadow: '0 20px 50px rgba(0,0,0,0.6)' }}>
+          <KindleReader
+            initialBookId={selectedWorld.id.startsWith('the-neural') ? selectedWorld.id : 'the-neural-wars-book-1'}
+            onBackToPortal={() => setActiveTab('nexus')}
+          />
         </div>
       )}
 

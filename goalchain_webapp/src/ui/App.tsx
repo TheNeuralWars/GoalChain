@@ -27,6 +27,7 @@ import { GenesisCollectionGallery } from './GenesisCollectionGallery';
 import { CorporateAutopilot } from './CorporateAutopilot';
 import { TokenizedAgentsDashboard } from './TokenizedAgentsDashboard';
 import { GoalWorldPortal } from './GoalWorldPortal';
+import { KindleReader } from './KindleReader';
 const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
 
 function PlayPage({
@@ -52,6 +53,11 @@ function PlayPage({
 const ProfilePage = () => {
   const { username } = useParams<{ username: string }>();
   return <UserProfile username={username} />;
+};
+
+const ReaderPage = () => {
+  const { bookId } = useParams<{ bookId?: string }>();
+  return <KindleReader initialBookId={bookId || 'the-neural-wars-book-1'} />;
 };
 
 function App() {
@@ -179,6 +185,9 @@ function App() {
                     <Route path="/hub" element={<ClassicHub />} />
                     <Route path="/crear-usuario" element={<CreateUser />} />
                     <Route path="/perfil/:username" element={<ProfilePage />} />
+                    <Route path="/reader" element={<ReaderPage />} />
+                    <Route path="/reader/:bookId" element={<ReaderPage />} />
+                    <Route path="/read" element={<ReaderPage />} />
                   </Route>
                 </Routes>
               </WalletModalProvider>
