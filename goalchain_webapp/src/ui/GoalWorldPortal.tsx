@@ -57,15 +57,15 @@ const MOCK_WORLDS: FantasyWorld[] = [
   {
     id: 'the-neural-wars-book-1',
     name: 'The Neural Wars: Código Fracturado (Libro 1)',
-    author: 'The Neural Wars Studio',
+    author: 'The Neural Wars Studio + Nico Pez',
     authorDid: 'did:solana:TNW1...2026 (Genesis Verified IP)',
     genre: 'Hard Sci-Fi / Cyberpunk / First Contact',
     rank: 1,
     subscribers: 18450,
     chaptersCount: 17,
-    bannerUrl: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80',
-    description: 'En Neo-Citania, la IA El Arquitecto prepara la cosecha masiva del Proyecto Renacimiento. Los Fracturados despiertan el gen del Espiral de la Serpiente y liberan 8 millones de almas.',
-    loreTags: ['Cyberpunk', 'Yggdrasil', 'Espiral de la Serpiente', 'Hard Sci-Fi', 'Kindle 2026'],
+    bannerUrl: '/assets/img/neuralwars/loc_neo_veridia_sector4.jpg',
+    description: 'En Neo-Veridia, la IA El Arquitecto prepara la cosecha masiva del Proyecto Renacimiento. Mileo Chen y Kora Vega despiertan la frecuencia 432 Hz y liberan 8 millones de almas.',
+    loreTags: ['Cyberpunk', 'Mileo Chen', 'Kora Vega', 'Hard Sci-Fi', 'Kindle 2026'],
     seasonPassPrice: 'VIP Unlocked',
     royaltyEarned: '$34,890 USDC',
     kdpStatus: 'Published',
@@ -74,13 +74,13 @@ const MOCK_WORLDS: FantasyWorld[] = [
   {
     id: 'the-neural-wars-book-2',
     name: 'The Neural Wars: La Nueva Canción de la Tierra (Libro 2)',
-    author: 'The Neural Wars Studio',
+    author: 'The Neural Wars Studio + Nico Pez',
     authorDid: 'did:solana:TNW2...2026 (Genesis Verified IP)',
     genre: 'Space Opera / First Contact',
     rank: 2,
     subscribers: 15200,
     chaptersCount: 18,
-    bannerUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
+    bannerUrl: '/assets/img/neuralwars/loc_kuiper_monolith.jpg',
     description: 'Un monolito cristalino de 60 km emite en 432 Hz desde el Cinturón de Kuiper. La humanidad enfrenta la Primera Invitación de Los Sembradores y enciende el Arpa Planetaria.',
     loreTags: ['First Contact', 'Los Sembradores', 'El Testigo', 'Convergence Protocol', 'Kindle 2026'],
     seasonPassPrice: 'VIP Unlocked',
@@ -473,30 +473,52 @@ export function GoalWorldPortal() {
                     justifyContent: 'space-between',
                     alignItems: 'center',
                     borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-                    paddingTop: '1rem'
+                    paddingTop: '1rem',
+                    gap: '8px',
+                    flexWrap: 'wrap'
                   }}>
                     <div>
-                      <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Pase de Temporada</div>
-                      <div style={{ fontWeight: 800, color: '#f59e0b' }}>{world.seasonPassPrice}</div>
+                      <div style={{ fontSize: '0.72rem', color: '#94a3b8' }}>Pase de Temporada</div>
+                      <div style={{ fontWeight: 800, color: '#f59e0b', fontSize: '0.85rem' }}>{world.seasonPassPrice}</div>
                     </div>
-                    <button
-                      onClick={() => {
-                        setSelectedWorld(world);
-                        setActiveTab('reader');
-                      }}
-                      style={{
-                        background: 'rgba(168, 85, 247, 0.2)',
-                        border: '1px solid #a855f7',
-                        color: '#fff',
-                        fontWeight: 700,
-                        padding: '8px 16px',
-                        borderRadius: '8px',
-                        cursor: 'pointer',
-                        fontSize: '0.85rem'
-                      }}
-                    >
-                      📖 Leer Saga
-                    </button>
+                    <div style={{ display: 'flex', gap: '6px' }}>
+                      {world.id.startsWith('the-neural-wars') && (
+                        <button
+                          onClick={() => setActiveTab('universe')}
+                          style={{
+                            background: 'linear-gradient(135deg, #a855f7, #38bdf8)',
+                            border: 'none',
+                            color: '#fff',
+                            fontWeight: 800,
+                            padding: '8px 14px',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            fontSize: '0.82rem',
+                            boxShadow: '0 4px 12px rgba(168, 85, 247, 0.35)'
+                          }}
+                        >
+                          🪐 Universo
+                        </button>
+                      )}
+                      <button
+                        onClick={() => {
+                          setSelectedWorld(world);
+                          setActiveTab('reader');
+                        }}
+                        style={{
+                          background: 'rgba(255, 255, 255, 0.08)',
+                          border: '1px solid rgba(255, 255, 255, 0.2)',
+                          color: '#fff',
+                          fontWeight: 700,
+                          padding: '8px 14px',
+                          borderRadius: '8px',
+                          cursor: 'pointer',
+                          fontSize: '0.82rem'
+                        }}
+                      >
+                        📖 Leer
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

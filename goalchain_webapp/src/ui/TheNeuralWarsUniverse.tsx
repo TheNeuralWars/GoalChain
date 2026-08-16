@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export interface CharacterDossier {
   id: string;
@@ -131,6 +131,7 @@ const CHARACTERS: CharacterDossier[] = [
       traumaResistance: 100,
     },
     accentColor: '#fbbf24',
+    imageUrl: '/assets/img/neuralwars/loc_neo_veridia_sector4.jpg',
   },
 ];
 
@@ -153,7 +154,7 @@ const LOCATIONS: UniverseLocation[] = [
     description: 'El corazón latiente de la resistencia. Millas de túneles abandonados blindados contra ondas electromagnéticas, donde miles de fugitivos viven conectados al Arpa Planetaria.',
     tacticalNote: 'Puntos de acceso protegidos por trampas sónicas de 18 kHz. Solo entrar con salvoconducto de Kora Vega.',
     atmosphere: 'Clandestinidad • Cables Expuestos • Vapor Cálido',
-    imageUrl: '/assets/img/neuralwars/loc_neo_veridia_sector4.jpg',
+    imageUrl: '/assets/img/neuralwars/char_kora_vega.jpg',
   },
   {
     id: 'pavilion-9',
@@ -188,6 +189,48 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
   const [notifyModalPlatform, setNotifyModalPlatform] = useState<string | null>(null);
   const [notifyEmail, setNotifyEmail] = useState<string>('');
   const [notifySubmitted, setNotifySubmitted] = useState<boolean>(false);
+  const [isHarmonicPlaying, setIsHarmonicPlaying] = useState<boolean>(false);
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const oscillatorRef = useRef<OscillatorNode | null>(null);
+
+  const toggleHarmonicSoundscape = () => {
+    if (isHarmonicPlaying) {
+      if (oscillatorRef.current) {
+        oscillatorRef.current.stop();
+        oscillatorRef.current.disconnect();
+      }
+      setIsHarmonicPlaying(false);
+    } else {
+      try {
+        const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+        const ctx = new AudioCtx();
+        audioCtxRef.current = ctx;
+
+        // 432 Hz Master Solfeggio Harmonic Tone
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(432, ctx.currentTime);
+        gain.gain.setValueAtTime(0.045, ctx.currentTime); // Soft background drone
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        oscillatorRef.current = osc;
+        setIsHarmonicPlaying(true);
+      } catch (err) {
+        console.warn('Web Audio API not supported', err);
+      }
+    }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (oscillatorRef.current) {
+        oscillatorRef.current.stop();
+      }
+    };
+  }, []);
 
   const handleNotifySubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -201,8 +244,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
   };
 
   return (
-    <div style={{ background: '#05060b', color: '#f1f5f9', minHeight: '100vh', fontFamily: '"Inter", sans-serif', position: 'relative' }}>
-      {/* Dynamic Ambient Background Shimmer */}
+    <div style={{ background: '#030408', color: '#f1f5f9', minHeight: '100vh', fontFamily: '"Inter", sans-serif', position: 'relative', overflowX: 'hidden' }}>
+      {/* Dynamic Ambient Background Shimmer & Cosmic Gradients */}
       <div
         style={{
           position: 'fixed',
@@ -211,56 +254,80 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
           right: 0,
           bottom: 0,
           pointerEvents: 'none',
-          background: 'radial-gradient(ellipse at 50% 10%, rgba(168, 85, 247, 0.18) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(5, 6, 11, 0.98) 85%)',
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(168, 85, 247, 0.22) 0%, rgba(6, 182, 212, 0.12) 45%, rgba(3, 4, 8, 0.98) 85%)',
           zIndex: 0,
         }}
       />
 
       <div style={{ position: 'relative', zIndex: 1 }}>
-        {/* 1. HERO EPIC SHOWCASE WITH GLASSMORPHISM & GLOW */}
+        {/* 1. HERO EPIC SHOWCASE WITH GLASSMORPHISM, AUDIO FREQUENCY & GLOW */}
         <section
           style={{
             position: 'relative',
-            padding: '5.5rem 2rem 4.5rem',
+            padding: '5rem 2rem 4rem',
             borderBottom: '1px solid rgba(168, 85, 247, 0.25)',
             textAlign: 'center',
             overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
+            background: 'linear-gradient(180deg, rgba(168, 85, 247, 0.08) 0%, rgba(3, 4, 8, 0.6) 100%)',
           }}
         >
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              background: 'rgba(168, 85, 247, 0.18)',
-              border: '1px solid rgba(168, 85, 247, 0.5)',
-              color: '#c084fc',
-              padding: '6px 18px',
-              borderRadius: '30px',
-              fontSize: '0.82rem',
-              fontWeight: 800,
-              letterSpacing: '1.2px',
-              textTransform: 'uppercase',
-              marginBottom: '1.5rem',
-              boxShadow: '0 0 20px rgba(168, 85, 247, 0.35)',
-            }}
-          >
-            <span>🪐</span> EXPEDIENTE CANÓNICO DEL UNIVERSO
+          {/* Top Pill with 432 Hz Solfeggio Audio Toggle */}
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'rgba(168, 85, 247, 0.18)',
+                border: '1px solid rgba(168, 85, 247, 0.5)',
+                color: '#c084fc',
+                padding: '6px 18px',
+                borderRadius: '30px',
+                fontSize: '0.82rem',
+                fontWeight: 800,
+                letterSpacing: '1.2px',
+                textTransform: 'uppercase',
+                boxShadow: '0 0 20px rgba(168, 85, 247, 0.35)',
+              }}
+            >
+              <span>🪐</span> EXPEDIENTE CANÓNICO DEL UNIVERSO
+            </div>
+
+            <button
+              onClick={toggleHarmonicSoundscape}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: isHarmonicPlaying ? 'rgba(56, 189, 248, 0.25)' : 'rgba(255, 255, 255, 0.05)',
+                border: isHarmonicPlaying ? '1px solid #38bdf8' : '1px solid rgba(255, 255, 255, 0.15)',
+                color: isHarmonicPlaying ? '#38bdf8' : '#94a3b8',
+                padding: '6px 16px',
+                borderRadius: '30px',
+                fontSize: '0.82rem',
+                fontWeight: 800,
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+                boxShadow: isHarmonicPlaying ? '0 0 18px rgba(56, 189, 248, 0.4)' : 'none',
+              }}
+            >
+              <span>{isHarmonicPlaying ? '🔊' : '🔈'}</span>
+              <span>432 Hz Frecuencia Armónica {isHarmonicPlaying ? '(Activa)' : '(Activar Sonido)'}</span>
+            </button>
           </div>
 
           <h1
             style={{
-              fontSize: 'clamp(2.6rem, 5.5vw, 4.8rem)',
+              fontSize: 'clamp(2.8rem, 6vw, 5.2rem)',
               fontWeight: 900,
               lineHeight: 1.05,
               letterSpacing: '-0.03em',
               margin: '0 auto 1.2rem',
-              maxWidth: '920px',
-              background: 'linear-gradient(135deg, #ffffff 20%, #c084fc 60%, #38bdf8 100%)',
+              maxWidth: '960px',
+              background: 'linear-gradient(135deg, #ffffff 15%, #c084fc 55%, #38bdf8 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              textShadow: '0 0 40px rgba(168, 85, 247, 0.4)',
+              textShadow: '0 0 45px rgba(168, 85, 247, 0.4)',
             }}
           >
             THE NEURAL WARS
@@ -270,16 +337,16 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
             style={{
               fontSize: '1.2rem',
               color: '#94a3b8',
-              maxWidth: '750px',
+              maxWidth: '780px',
               margin: '0 auto 2.8rem',
-              lineHeight: 1.65,
+              lineHeight: 1.7,
             }}
           >
-            Sumérgete en la saga de ciencia ficción dura, cyberpunk y primer contacto cósmico creada por <strong style={{ color: '#fff' }}>The Neural Wars Studio + Nico Pez</strong>. 
-            Descubre los expedientes clasificados, megaestructuras y ediciones oficiales antes de comenzar tu lectura.
+            La odisea definitiva de ciencia ficción dura, cyberpunk y primer contacto cósmico creada por <strong style={{ color: '#fff' }}>The Neural Wars Studio + Nico Pez</strong>. 
+            Explora los expedientes clasificados, megaestructuras y ediciones oficiales.
           </p>
 
-          {/* Hero Quick Action CTA */}
+          {/* Hero Quick Action CTAs */}
           <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '1.2rem' }}>
             <button
               onClick={() => onOpenReader && onOpenReader('the-neural-wars-book-1')}
@@ -287,7 +354,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 background: 'linear-gradient(135deg, #a855f7 0%, #38bdf8 100%)',
                 color: '#fff',
                 border: 'none',
-                padding: '14px 30px',
+                padding: '14px 32px',
                 borderRadius: '12px',
                 fontWeight: 900,
                 fontSize: '1rem',
@@ -300,6 +367,27 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
               }}
             >
               <span>📖</span> Leer Libro 1 (Online Gratis)
+            </button>
+
+            <button
+              onClick={() => onOpenReader && onOpenReader('the-neural-wars-book-2')}
+              style={{
+                background: 'linear-gradient(135deg, #0284c7 0%, #38bdf8 100%)',
+                color: '#fff',
+                border: 'none',
+                padding: '14px 32px',
+                borderRadius: '12px',
+                fontWeight: 900,
+                fontSize: '1rem',
+                cursor: 'pointer',
+                boxShadow: '0 8px 30px rgba(56, 189, 248, 0.45)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                transition: 'all 0.2s',
+              }}
+            >
+              <span>📖</span> Leer Libro 2 (Online Gratis)
             </button>
 
             <button
@@ -330,7 +418,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
             position: 'sticky',
             top: 0,
             zIndex: 30,
-            background: 'rgba(10, 11, 22, 0.95)',
+            background: 'rgba(5, 7, 15, 0.95)',
             borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
             backdropFilter: 'blur(20px)',
             display: 'flex',
@@ -375,7 +463,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
         </nav>
 
         {/* 3. TAB CONTENT VIEWER */}
-        <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '3.5rem 1.5rem 6rem' }}>
+        <main style={{ maxWidth: '1280px', margin: '0 auto', padding: '3.5rem 1.5rem 6rem' }}>
           {/* TAB 1: OVERVIEW & TRILOGY SHOWCASE */}
           {activeTab === 'overview' && (
             <div>
@@ -388,28 +476,50 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 </p>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '2rem', marginBottom: '3.5rem' }}>
+              {/* Trilogy Grid with Uncropped Full-Frame Covers */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2.2rem', marginBottom: '4rem' }}>
                 {/* Book 1 */}
                 <div
                   style={{
-                    background: 'rgba(15, 17, 26, 0.85)',
+                    background: 'rgba(12, 14, 24, 0.85)',
                     border: '1px solid rgba(168, 85, 247, 0.35)',
-                    borderRadius: '20px',
-                    padding: '1.5rem',
+                    borderRadius: '22px',
+                    padding: '1.75rem',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    boxShadow: '0 15px 35px rgba(0,0,0,0.5)',
+                    boxShadow: '0 15px 40px rgba(0,0,0,0.6)',
                     backdropFilter: 'blur(12px)',
                   }}
                 >
                   <div>
-                    {/* Book Cover Image */}
-                    <div style={{ width: '100%', height: '360px', borderRadius: '12px', overflow: 'hidden', marginBottom: '1.25rem', boxShadow: '0 8px 25px rgba(0,0,0,0.6)' }}>
+                    {/* Uncropped Cover Container with Dark Framing */}
+                    <div
+                      style={{
+                        width: '100%',
+                        borderRadius: '14px',
+                        overflow: 'hidden',
+                        marginBottom: '1.5rem',
+                        background: '#020308',
+                        border: '1px solid rgba(168, 85, 247, 0.25)',
+                        boxShadow: '0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(168, 85, 247, 0.15)',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '8px',
+                      }}
+                    >
                       <img
                         src="/assets/img/neuralwars/book1_cover_fractured_code.jpg"
                         alt="The Neural Wars: Fractured Code Cover"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        style={{
+                          width: '100%',
+                          maxHeight: '460px',
+                          aspectRatio: '2 / 3',
+                          objectFit: 'contain',
+                          borderRadius: '8px',
+                          display: 'block',
+                        }}
                       />
                     </div>
 
@@ -419,10 +529,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       </span>
                       <span style={{ color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700 }}>17 Capítulos • 2026</span>
                     </div>
-                    <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
                       Código Fracturado (Fractured Code)
                     </h3>
-                    <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                    <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.65, marginBottom: '1.5rem' }}>
                       En la claustrofóbica megalópolis de Neo-Veridia, el Especialista Mileo Chen y la sensible Kora Vega descubren que el Proyecto Renacimiento de NeuroSys planea la cosecha forzosa de 8 millones de mentes.
                     </p>
                   </div>
@@ -434,11 +544,11 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                         background: 'linear-gradient(135deg, #a855f7, #6366f1)',
                         border: 'none',
                         color: '#fff',
-                        padding: '12px',
+                        padding: '13px',
                         borderRadius: '10px',
                         fontWeight: 800,
                         cursor: 'pointer',
-                        boxShadow: '0 4px 14px rgba(168, 85, 247, 0.35)',
+                        boxShadow: '0 4px 15px rgba(168, 85, 247, 0.4)',
                       }}
                     >
                       📖 Leer en Lector Web
@@ -449,7 +559,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                         background: 'rgba(255,255,255,0.06)',
                         border: '1px solid rgba(255,255,255,0.15)',
                         color: '#fff',
-                        padding: '12px 16px',
+                        padding: '13px 16px',
                         borderRadius: '10px',
                         fontWeight: 700,
                         cursor: 'pointer',
@@ -463,24 +573,45 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 {/* Book 2 */}
                 <div
                   style={{
-                    background: 'rgba(15, 17, 26, 0.85)',
+                    background: 'rgba(12, 14, 24, 0.85)',
                     border: '1px solid rgba(56, 189, 248, 0.35)',
-                    borderRadius: '20px',
-                    padding: '1.5rem',
+                    borderRadius: '22px',
+                    padding: '1.75rem',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    boxShadow: '0 15px 35px rgba(0,0,0,0.5)',
+                    boxShadow: '0 15px 40px rgba(0,0,0,0.6)',
                     backdropFilter: 'blur(12px)',
                   }}
                 >
                   <div>
-                    {/* Book Cover Image */}
-                    <div style={{ width: '100%', height: '360px', borderRadius: '12px', overflow: 'hidden', marginBottom: '1.25rem', boxShadow: '0 8px 25px rgba(0,0,0,0.6)' }}>
+                    {/* Uncropped Cover Container with Dark Framing */}
+                    <div
+                      style={{
+                        width: '100%',
+                        borderRadius: '14px',
+                        overflow: 'hidden',
+                        marginBottom: '1.5rem',
+                        background: '#020308',
+                        border: '1px solid rgba(56, 189, 248, 0.25)',
+                        boxShadow: '0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(56, 189, 248, 0.15)',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '8px',
+                      }}
+                    >
                       <img
                         src="/assets/img/neuralwars/book2_cover_earths_new_song.jpg"
                         alt="The Neural Wars: Earth's New Song Cover"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        style={{
+                          width: '100%',
+                          maxHeight: '460px',
+                          aspectRatio: '2 / 3',
+                          objectFit: 'contain',
+                          borderRadius: '8px',
+                          display: 'block',
+                        }}
                       />
                     </div>
 
@@ -490,10 +621,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       </span>
                       <span style={{ color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700 }}>18 Capítulos • 2026</span>
                     </div>
-                    <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
                       La Nueva Canción de la Tierra (Earth's New Song)
                     </h3>
-                    <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                    <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.65, marginBottom: '1.5rem' }}>
                       Un monolito alienígena de 60 kilómetros pulsa en 432 Hz en el Cinturón de Kuiper. Mientras la Tierra se desangra en una guerra civil cibernética, la humanidad debe encender el Arpa Planetaria para responder a la Primera Invitación cósmica.
                     </p>
                   </div>
@@ -505,11 +636,11 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                         background: 'linear-gradient(135deg, #0284c7, #38bdf8)',
                         border: 'none',
                         color: '#fff',
-                        padding: '12px',
+                        padding: '13px',
                         borderRadius: '10px',
                         fontWeight: 800,
                         cursor: 'pointer',
-                        boxShadow: '0 4px 14px rgba(56, 189, 248, 0.35)',
+                        boxShadow: '0 4px 15px rgba(56, 189, 248, 0.4)',
                       }}
                     >
                       📖 Leer en Lector Web
@@ -520,7 +651,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                         background: 'rgba(255,255,255,0.06)',
                         border: '1px solid rgba(255,255,255,0.15)',
                         color: '#fff',
-                        padding: '12px 16px',
+                        padding: '13px 16px',
                         borderRadius: '10px',
                         fontWeight: 700,
                         cursor: 'pointer',
@@ -534,23 +665,37 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 {/* Book 3 */}
                 <div
                   style={{
-                    background: 'rgba(15, 17, 26, 0.85)',
+                    background: 'rgba(12, 14, 24, 0.85)',
                     border: '1px solid rgba(245, 158, 11, 0.35)',
-                    borderRadius: '20px',
-                    padding: '1.5rem',
+                    borderRadius: '22px',
+                    padding: '1.75rem',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    boxShadow: '0 15px 35px rgba(0,0,0,0.5)',
+                    boxShadow: '0 15px 40px rgba(0,0,0,0.6)',
                     backdropFilter: 'blur(12px)',
                   }}
                 >
                   <div>
-                    {/* Visual Placeholder */}
-                    <div style={{ width: '100%', height: '360px', borderRadius: '12px', background: 'radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, rgba(10, 11, 22, 0.9) 70%)', border: '1px dashed rgba(245, 158, 11, 0.4)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
-                      <div style={{ fontSize: '3.5rem', marginBottom: '8px' }}>🪐</div>
-                      <div style={{ color: '#fbbf24', fontWeight: 800, fontSize: '0.88rem' }}>CONVERGENCE PROTOCOL</div>
-                      <div style={{ color: '#94a3b8', fontSize: '0.75rem' }}>Fase Final de Producción</div>
+                    {/* Visual Placeholder Framing */}
+                    <div
+                      style={{
+                        width: '100%',
+                        borderRadius: '14px',
+                        maxHeight: '460px',
+                        aspectRatio: '2 / 3',
+                        background: 'radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, rgba(5, 6, 12, 0.95) 75%)',
+                        border: '1px dashed rgba(245, 158, 11, 0.4)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginBottom: '1.5rem',
+                      }}
+                    >
+                      <div style={{ fontSize: '4rem', marginBottom: '8px' }}>🪐</div>
+                      <div style={{ color: '#fbbf24', fontWeight: 900, fontSize: '0.95rem', letterSpacing: '1px' }}>CONVERGENCE PROTOCOL</div>
+                      <div style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '4px' }}>Fase Final de Producción Editorial</div>
                     </div>
 
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
@@ -559,10 +704,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       </span>
                       <span style={{ color: '#fbbf24', fontSize: '0.82rem', fontWeight: 700 }}>Gran Final</span>
                     </div>
-                    <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
                       Matriz de Evolución (Evolution Matrix)
                     </h3>
-                    <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                    <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.65, marginBottom: '1.5rem' }}>
                       El salto definitivo hacia una civilización Tipo II en la Escala de Kardashev. La síntesis entre mente biológica, inteligencia artificial y el entramado cuántico del espacio-tiempo.
                     </p>
                   </div>
@@ -574,7 +719,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                         background: 'rgba(245, 158, 11, 0.15)',
                         border: '1px solid rgba(245, 158, 11, 0.4)',
                         color: '#fbbf24',
-                        padding: '12px',
+                        padding: '13px',
                         borderRadius: '10px',
                         fontWeight: 800,
                         cursor: 'pointer',
@@ -589,21 +734,21 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
               {/* Cinematic Teaser Trailer Video Showcase */}
               <div
                 style={{
-                  background: 'rgba(15, 17, 26, 0.9)',
+                  background: 'rgba(12, 14, 24, 0.92)',
                   border: '1px solid rgba(168, 85, 247, 0.4)',
                   borderRadius: '24px',
-                  padding: '2rem',
-                  boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
+                  padding: '2.5rem 2rem',
+                  boxShadow: '0 20px 50px rgba(0,0,0,0.7)',
                   textAlign: 'center',
                 }}
               >
-                <div style={{ color: '#c084fc', fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '6px' }}>
+                <div style={{ color: '#c084fc', fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1.5px', marginBottom: '6px' }}>
                   🎬 CINEMÁTICA OFICIAL • SAGA TEASER
                 </div>
-                <h3 style={{ fontSize: '1.8rem', fontWeight: 900, color: '#fff', marginBottom: '1.25rem' }}>
-                  The Neural Wars: Teaser Tráiler
+                <h3 style={{ fontSize: '1.9rem', fontWeight: 900, color: '#fff', marginBottom: '1.5rem' }}>
+                  The Neural Wars: Tráiler Cinemático Oficial
                 </h3>
-                <div style={{ maxWidth: '850px', margin: '0 auto', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 40px rgba(0,0,0,0.8)' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', borderRadius: '18px', overflow: 'hidden', boxShadow: '0 15px 45px rgba(0,0,0,0.9)', border: '1px solid rgba(255,255,255,0.1)' }}>
                   <video
                     controls
                     poster="/assets/img/neuralwars/loc_neo_veridia_sector4.jpg"
@@ -627,7 +772,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                     key={char.id}
                     onClick={() => setSelectedChar(char)}
                     style={{
-                      background: selectedChar.id === char.id ? 'rgba(168, 85, 247, 0.18)' : 'rgba(15, 17, 26, 0.65)',
+                      background: selectedChar.id === char.id ? 'rgba(168, 85, 247, 0.18)' : 'rgba(12, 14, 24, 0.65)',
                       border: selectedChar.id === char.id ? `2px solid ${char.accentColor}` : '1px solid rgba(255,255,255,0.08)',
                       borderRadius: '14px',
                       padding: '1rem',
@@ -643,11 +788,11 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       <img
                         src={char.imageUrl}
                         alt={char.name}
-                        style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover', border: `2px solid ${char.accentColor}` }}
+                        style={{ width: '52px', height: '52px', borderRadius: '50%', objectFit: 'cover', border: `2px solid ${char.accentColor}` }}
                       />
                     )}
                     <div>
-                      <div style={{ fontSize: '1rem', fontWeight: 900, color: char.accentColor }}>{char.name}</div>
+                      <div style={{ fontSize: '1.02rem', fontWeight: 900, color: char.accentColor }}>{char.name}</div>
                       <div style={{ fontSize: '0.78rem', color: '#94a3b8', marginTop: '2px' }}>{char.role}</div>
                     </div>
                   </div>
@@ -657,33 +802,46 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
               {/* Selected Character Holo-Card Details */}
               <div
                 style={{
-                  background: 'rgba(15, 17, 26, 0.92)',
+                  background: 'rgba(12, 14, 24, 0.94)',
                   border: `1px solid ${selectedChar.accentColor}`,
                   borderRadius: '24px',
                   padding: '2.5rem',
-                  boxShadow: `0 0 40px ${selectedChar.accentColor}25`,
+                  boxShadow: `0 0 45px ${selectedChar.accentColor}25`,
                   backdropFilter: 'blur(20px)',
                 }}
               >
-                <div style={{ display: 'flex', gap: '2rem', alignItems: 'flex-start', flexWrap: 'wrap', marginBottom: '2rem' }}>
+                <div style={{ display: 'flex', gap: '2.2rem', alignItems: 'flex-start', flexWrap: 'wrap', marginBottom: '2rem' }}>
                   {selectedChar.imageUrl && (
-                    <div style={{ width: '180px', height: '240px', borderRadius: '16px', overflow: 'hidden', border: `2px solid ${selectedChar.accentColor}`, boxShadow: `0 0 25px ${selectedChar.accentColor}44`, flexShrink: 0 }}>
+                    <div
+                      style={{
+                        width: '220px',
+                        borderRadius: '18px',
+                        overflow: 'hidden',
+                        border: `2px solid ${selectedChar.accentColor}`,
+                        boxShadow: `0 0 30px ${selectedChar.accentColor}44`,
+                        flexShrink: 0,
+                        background: '#020308',
+                        padding: '4px',
+                      }}
+                    >
                       <img
                         src={selectedChar.imageUrl}
                         alt={selectedChar.name}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        style={{ width: '100%', aspectRatio: '3 / 4', objectFit: 'cover', objectPosition: 'center top', borderRadius: '14px', display: 'block' }}
                       />
                     </div>
                   )}
                   <div style={{ flex: 1 }}>
-                    <span style={{ color: selectedChar.accentColor, fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.2px' }}>
+                    <span style={{ color: selectedChar.accentColor, fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.2px' }}>
                       {selectedChar.codename}
                     </span>
-                    <h2 style={{ fontSize: '2.4rem', fontWeight: 900, color: '#fff', margin: '4px 0' }}>
+                    <h2 style={{ fontSize: '2.4rem', fontWeight: 900, color: '#fff', margin: '4px 0 8px' }}>
                       {selectedChar.name}
                     </h2>
-                    <div style={{ color: '#94a3b8', fontSize: '0.95rem', marginBottom: '1rem' }}>{selectedChar.role} • <strong style={{ color: '#fff' }}>{selectedChar.status}</strong></div>
-                    <div style={{ background: 'rgba(0,0,0,0.3)', padding: '6px 12px', borderRadius: '8px', fontSize: '0.8rem', color: selectedChar.accentColor, display: 'inline-block' }}>
+                    <div style={{ color: '#94a3b8', fontSize: '0.95rem', marginBottom: '1.2rem' }}>
+                      {selectedChar.role} • <strong style={{ color: '#fff' }}>{selectedChar.status}</strong>
+                    </div>
+                    <div style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(255,255,255,0.08)', padding: '8px 14px', borderRadius: '10px', fontSize: '0.85rem', color: selectedChar.accentColor, display: 'inline-block' }}>
                       ⚡ {selectedChar.specialty}
                     </div>
                   </div>
@@ -693,14 +851,15 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 <blockquote
                   style={{
                     borderLeft: `4px solid ${selectedChar.accentColor}`,
-                    paddingLeft: '1.2rem',
                     fontStyle: 'italic',
                     color: '#e2e8f0',
                     margin: '1.5rem 0',
                     background: 'rgba(255,255,255,0.03)',
-                    padding: '1rem 1.4rem',
-                    borderRadius: '0 10px 10px 0',
+                    padding: '1.2rem 1.5rem',
+                    borderRadius: '0 12px 12px 0',
                     boxShadow: `inset 0 0 15px ${selectedChar.accentColor}11`,
+                    fontSize: '1rem',
+                    lineHeight: 1.6,
                   }}
                 >
                   {selectedChar.quote}
@@ -711,7 +870,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   <h4 style={{ color: '#94a3b8', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '6px' }}>
                     EXPEDIENTE BIOGRÁFICO
                   </h4>
-                  <p style={{ color: '#cbd5e1', lineHeight: 1.75, fontSize: '0.95rem' }}>
+                  <p style={{ color: '#cbd5e1', lineHeight: 1.8, fontSize: '0.98rem' }}>
                     {selectedChar.bio}
                   </p>
                 </div>
@@ -721,15 +880,15 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   <h4 style={{ color: '#94a3b8', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '1rem' }}>
                     MÉTRICAS DE ENLACE NEURAL
                   </h4>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.2rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.4rem' }}>
                     {Object.entries(selectedChar.stats).map(([statName, val]) => (
                       <div key={statName}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginBottom: '4px', textTransform: 'capitalize' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.84rem', marginBottom: '6px', textTransform: 'capitalize' }}>
                           <span style={{ color: '#94a3b8' }}>{statName.replace(/([A-Z])/g, ' $1')}</span>
                           <span style={{ color: selectedChar.accentColor, fontWeight: 900 }}>{val}%</span>
                         </div>
-                        <div style={{ height: '6px', background: 'rgba(255,255,255,0.08)', borderRadius: '3px', overflow: 'hidden' }}>
-                          <div style={{ height: '100%', width: `${val}%`, background: selectedChar.accentColor, boxShadow: `0 0 8px ${selectedChar.accentColor}` }} />
+                        <div style={{ height: '7px', background: 'rgba(255,255,255,0.08)', borderRadius: '4px', overflow: 'hidden' }}>
+                          <div style={{ height: '100%', width: `${val}%`, background: selectedChar.accentColor, boxShadow: `0 0 10px ${selectedChar.accentColor}` }} />
                         </div>
                       </div>
                     ))}
@@ -749,7 +908,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                     key={loc.id}
                     onClick={() => setSelectedLoc(loc)}
                     style={{
-                      background: selectedLoc.id === loc.id ? 'rgba(56, 189, 248, 0.18)' : 'rgba(15, 17, 26, 0.65)',
+                      background: selectedLoc.id === loc.id ? 'rgba(56, 189, 248, 0.18)' : 'rgba(12, 14, 24, 0.65)',
                       border: selectedLoc.id === loc.id ? '2px solid #38bdf8' : '1px solid rgba(255,255,255,0.08)',
                       borderRadius: '14px',
                       padding: '1rem',
@@ -768,20 +927,30 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
               {/* Location Details */}
               <div
                 style={{
-                  background: 'rgba(15, 17, 26, 0.92)',
+                  background: 'rgba(12, 14, 24, 0.94)',
                   border: '1px solid rgba(56, 189, 248, 0.35)',
                   borderRadius: '24px',
                   padding: '2.5rem',
                   backdropFilter: 'blur(20px)',
-                  boxShadow: '0 0 35px rgba(56, 189, 248, 0.15)',
+                  boxShadow: '0 0 40px rgba(56, 189, 248, 0.18)',
                 }}
               >
                 {selectedLoc.imageUrl && (
-                  <div style={{ width: '100%', height: '320px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.75rem', boxShadow: '0 10px 30px rgba(0,0,0,0.7)' }}>
+                  <div
+                    style={{
+                      width: '100%',
+                      borderRadius: '18px',
+                      overflow: 'hidden',
+                      marginBottom: '1.75rem',
+                      background: '#020308',
+                      border: '1px solid rgba(56, 189, 248, 0.25)',
+                      boxShadow: '0 15px 40px rgba(0,0,0,0.8)',
+                    }}
+                  >
                     <img
                       src={selectedLoc.imageUrl}
                       alt={selectedLoc.name}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      style={{ width: '100%', aspectRatio: '16 / 9', objectFit: 'cover', display: 'block' }}
                     />
                   </div>
                 )}
@@ -810,20 +979,20 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   </span>
                 </div>
 
-                <p style={{ color: '#cbd5e1', lineHeight: 1.75, fontSize: '1rem', marginBottom: '2rem' }}>
+                <p style={{ color: '#cbd5e1', lineHeight: 1.8, fontSize: '1.02rem', marginBottom: '2rem' }}>
                   {selectedLoc.description}
                 </p>
 
                 <div style={{ background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px', padding: '1.4rem', marginBottom: '1.5rem' }}>
-                  <h4 style={{ color: '#fbbf24', fontSize: '0.85rem', fontWeight: 900, marginBottom: '6px', letterSpacing: '0.5px' }}>
+                  <h4 style={{ color: '#fbbf24', fontSize: '0.88rem', fontWeight: 900, marginBottom: '6px', letterSpacing: '0.5px' }}>
                     ⚠️ NOTA TÁCTICA DE CAMPO
                   </h4>
-                  <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ color: '#94a3b8', fontSize: '0.94rem', lineHeight: 1.65, margin: 0 }}>
                     {selectedLoc.tacticalNote}
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.88rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.9rem' }}>
                   <span>Atmósfera sensorial:</span>
                   <strong style={{ color: '#cbd5e1' }}>{selectedLoc.atmosphere}</strong>
                 </div>
@@ -833,7 +1002,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
 
           {/* TAB 4: LORE CODEX & TIMELINE */}
           {activeTab === 'lore' && (
-            <div style={{ maxWidth: '850px', margin: '0 auto' }}>
+            <div style={{ maxWidth: '900px', margin: '0 auto' }}>
               <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
                 <h2 style={{ fontSize: '2.2rem', fontWeight: 900, color: '#fff', marginBottom: '0.5rem' }}>
                   El Códice Canónico & Cronología
@@ -871,10 +1040,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                     style={{
                       display: 'flex',
                       gap: '1.5rem',
-                      background: 'rgba(15, 17, 26, 0.75)',
+                      background: 'rgba(12, 14, 24, 0.8)',
                       border: '1px solid rgba(255,255,255,0.08)',
                       borderRadius: '18px',
-                      padding: '1.75rem',
+                      padding: '1.8rem',
                       boxShadow: '0 10px 25px rgba(0,0,0,0.3)',
                     }}
                   >
@@ -885,7 +1054,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
                         {event.title}
                       </h3>
-                      <p style={{ color: '#94a3b8', fontSize: '0.94rem', lineHeight: 1.6, margin: 0 }}>
+                      <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: 1.65, margin: 0 }}>
                         {event.text}
                       </p>
                     </div>
@@ -897,10 +1066,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
 
           {/* TAB 5: AUTHOR BIOGRAPHY & MANIFESTO */}
           {activeTab === 'author' && (
-            <div style={{ maxWidth: '850px', margin: '0 auto' }}>
+            <div style={{ maxWidth: '880px', margin: '0 auto' }}>
               <div
                 style={{
-                  background: 'rgba(15, 17, 26, 0.92)',
+                  background: 'rgba(12, 14, 24, 0.94)',
                   border: '1px solid rgba(168, 85, 247, 0.35)',
                   borderRadius: '24px',
                   padding: '3rem',
@@ -925,37 +1094,37 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                     🖋️
                   </div>
                   <div>
-                    <h2 style={{ fontSize: '1.85rem', fontWeight: 900, color: '#fff', margin: 0 }}>
+                    <h2 style={{ fontSize: '1.9rem', fontWeight: 900, color: '#fff', margin: 0 }}>
                       The Neural Wars Studio + Nico Pez
                     </h2>
-                    <div style={{ color: '#a855f7', fontWeight: 800, fontSize: '0.92rem', marginTop: '4px' }}>
+                    <div style={{ color: '#a855f7', fontWeight: 800, fontSize: '0.94rem', marginTop: '4px' }}>
                       Nico Pez (@nicopez / @nicodelbellopez) • Creador &amp; Arquitecto de Ficción Viva
                     </div>
                   </div>
                 </div>
 
-                <div style={{ background: 'rgba(168, 85, 247, 0.1)', borderLeft: '4px solid #a855f7', padding: '1rem 1.4rem', borderRadius: '0 10px 10px 0', marginBottom: '1.8rem' }}>
-                  <h4 style={{ color: '#c084fc', fontSize: '0.9rem', fontWeight: 800, margin: '0 0 4px', textTransform: 'uppercase' }}>
+                <div style={{ background: 'rgba(168, 85, 247, 0.08)', borderLeft: '4px solid #a855f7', padding: '1.2rem 1.5rem', borderRadius: '0 10px 10px 0', marginBottom: '2rem' }}>
+                  <h4 style={{ color: '#c084fc', fontSize: '0.9rem', fontWeight: 800, margin: '0 0 6px', textTransform: 'uppercase' }}>
                     Biografía del Autor
                   </h4>
-                  <p style={{ color: '#e2e8f0', fontSize: '0.94rem', lineHeight: 1.7, margin: 0 }}>
-                    <strong>Nico Pez</strong> (identificado como <em>nicodelbellopez</em> en redes) es un desarrollador, arquitecto de sistemas autónomos y creador de universos literarios. Con amplia trayectoria en tecnología descentralizada, inteligencia artificial y tokenización de propiedad intelectual en Solana, concibe la literatura como un ecosistema vivo donde la dirección creativa humana y los enjambres de agentes inteligentes colaboran en tiempo real para expandir mundos de ficción con un rigor cinematográfico y filosófico sin precedentes.
+                  <p style={{ color: '#e2e8f0', fontSize: '0.96rem', lineHeight: 1.75, margin: 0 }}>
+                    <strong>Nico Pez</strong> (identificado en redes como <em>nicodelbellopez</em>) es un desarrollador de software, arquitecto de sistemas autónomos y creador de universos literarios. Concibe la literatura como un organismo vivo donde la dirección cinematográfica humana y los enjambres de inteligencia artificial colaboran en tiempo real para crear sagas épicas con máxima rigurosidad científica y profundidad emocional.
                   </p>
                 </div>
 
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#38bdf8', marginBottom: '1rem' }}>
+                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#38bdf8', marginBottom: '1rem' }}>
                   El Manifiesto de la Literatura Autónoma (2026)
                 </h3>
 
-                <p style={{ color: '#cbd5e1', lineHeight: 1.8, fontSize: '0.98rem', marginBottom: '1.5rem' }}>
+                <p style={{ color: '#cbd5e1', lineHeight: 1.8, fontSize: '1rem', marginBottom: '1.5rem' }}>
                   «No concebimos las historias como monumentos estáticos de papel congelados en el tiempo. Las concebimos como <strong>universos vivos y respirables</strong>, donde la dirección cinematográfica humana y el poder de enjambres de inteligencia artificial colaboran en tiempo real para crear mundos con una profundidad, textura y coherencia sin precedentes.»
                 </p>
 
-                <p style={{ color: '#94a3b8', lineHeight: 1.75, fontSize: '0.94rem', marginBottom: '1.5rem' }}>
+                <p style={{ color: '#94a3b8', lineHeight: 1.75, fontSize: '0.95rem', marginBottom: '1.5rem' }}>
                   The Neural Wars es el primer universo de ficción diseñado desde su origen para existir simultáneamente como best seller literario tradicional en Amazon Kindle, audiolibro enriquecido en tiempo real con frecuencias Solfeggio, y propiedad intelectual tokenizada sobre Solana donde los lectores son co-propietarios de la saga.
                 </p>
 
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#64748b', fontSize: '0.85rem' }}>
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#64748b', fontSize: '0.88rem' }}>
                   <span>Sello Editorial: <strong>GoalWorld Publishing</strong></span>
                   <span>Ubicación: <strong>Global / Solana Mainnet</strong></span>
                 </div>
@@ -975,12 +1144,12 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 </p>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.75rem' }}>
                 {/* Amazon Kindle KDP */}
-                <div style={{ background: 'rgba(15, 17, 26, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '18px', padding: '1.8rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
-                  <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>📦</div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Amazon Kindle KDP</h3>
-                  <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.4rem' }}>
+                <div style={{ background: 'rgba(12, 14, 24, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '2rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
+                  <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>📦</div>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Amazon Kindle KDP</h3>
+                  <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
                     Edición Ebook oficial para dispositivos Kindle, Paperwhite y App Kindle iOS/Android.
                   </p>
                   <button
@@ -990,10 +1159,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       background: 'linear-gradient(135deg, #ff9900, #f59e0b)',
                       color: '#000',
                       border: 'none',
-                      padding: '12px',
+                      padding: '13px',
                       borderRadius: '10px',
                       fontWeight: 900,
-                      fontSize: '0.9rem',
+                      fontSize: '0.92rem',
                       cursor: 'pointer',
                       boxShadow: '0 4px 15px rgba(255, 153, 0, 0.3)',
                     }}
@@ -1003,10 +1172,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 </div>
 
                 {/* Audible */}
-                <div style={{ background: 'rgba(15, 17, 26, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '18px', padding: '1.8rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
-                  <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>🎧</div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Audible / Audiolibro HD</h3>
-                  <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.4rem' }}>
+                <div style={{ background: 'rgba(12, 14, 24, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '2rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
+                  <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>🎧</div>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Audible / Audiolibro HD</h3>
+                  <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
                     Narración inmersiva con actores de voz neural y fondo binaural a 432 Hz.
                   </p>
                   <button
@@ -1016,10 +1185,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       background: 'linear-gradient(135deg, #f59e0b, #d97706)',
                       color: '#000',
                       border: 'none',
-                      padding: '12px',
+                      padding: '13px',
                       borderRadius: '10px',
                       fontWeight: 900,
-                      fontSize: '0.9rem',
+                      fontSize: '0.92rem',
                       cursor: 'pointer',
                       boxShadow: '0 4px 15px rgba(245, 158, 11, 0.3)',
                     }}
@@ -1029,10 +1198,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 </div>
 
                 {/* Apple Books & Google Play */}
-                <div style={{ background: 'rgba(15, 17, 26, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '18px', padding: '1.8rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
-                  <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>📱</div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Apple Books &amp; Google Play</h3>
-                  <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.4rem' }}>
+                <div style={{ background: 'rgba(12, 14, 24, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '2rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
+                  <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>📱</div>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Apple Books &amp; Google Play</h3>
+                  <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
                     Formatos ePub universales compatibles con todos los lectores electrónicos.
                   </p>
                   <button
@@ -1042,10 +1211,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       background: 'linear-gradient(135deg, #6366f1, #4f46e5)',
                       color: '#fff',
                       border: 'none',
-                      padding: '12px',
+                      padding: '13px',
                       borderRadius: '10px',
                       fontWeight: 900,
-                      fontSize: '0.9rem',
+                      fontSize: '0.92rem',
                       cursor: 'pointer',
                       boxShadow: '0 4px 15px rgba(99, 102, 241, 0.3)',
                     }}
@@ -1055,10 +1224,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 </div>
 
                 {/* Solana Web3 Royalty Pass */}
-                <div style={{ background: 'rgba(15, 17, 26, 0.85)', border: '1px solid rgba(168, 85, 247, 0.4)', borderRadius: '18px', padding: '1.8rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
-                  <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>⛓️</div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#c084fc', marginBottom: '0.4rem' }}>Solana Genesis IP Pass</h3>
-                  <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.4rem' }}>
+                <div style={{ background: 'rgba(12, 14, 24, 0.85)', border: '1px solid rgba(168, 85, 247, 0.4)', borderRadius: '20px', padding: '2rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
+                  <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>⛓️</div>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#c084fc', marginBottom: '0.4rem' }}>Solana Genesis IP Pass</h3>
+                  <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
                     Pase On-Chain verificado que otorga regalías perpetuas de ventas Web2 y acceso VIP ilimitado.
                   </p>
                   <a
@@ -1068,10 +1237,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       background: 'linear-gradient(135deg, #a855f7, #38bdf8)',
                       color: '#fff',
                       textDecoration: 'none',
-                      padding: '12px',
+                      padding: '13px',
                       borderRadius: '10px',
                       fontWeight: 900,
-                      fontSize: '0.9rem',
+                      fontSize: '0.92rem',
                       boxShadow: '0 4px 15px rgba(168, 85, 247, 0.4)',
                     }}
                   >
@@ -1093,8 +1262,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'rgba(0,0,0,0.75)',
-            backdropFilter: 'blur(12px)',
+            background: 'rgba(0,0,0,0.8)',
+            backdropFilter: 'blur(14px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -1104,13 +1273,13 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
         >
           <div
             style={{
-              background: 'rgba(15, 17, 26, 0.98)',
+              background: 'rgba(12, 14, 24, 0.98)',
               border: '1px solid rgba(168, 85, 247, 0.4)',
               borderRadius: '24px',
               padding: '2.5rem',
-              maxWidth: '450px',
+              maxWidth: '460px',
               width: '100%',
-              boxShadow: '0 25px 60px rgba(0,0,0,0.8), 0 0 30px rgba(168, 85, 247, 0.25)',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(168, 85, 247, 0.3)',
               textAlign: 'center',
               position: 'relative',
             }}
@@ -1125,26 +1294,26 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 border: 'none',
                 color: '#94a3b8',
                 cursor: 'pointer',
-                fontSize: '1.2rem',
+                fontSize: '1.3rem',
               }}
             >
               ✕
             </button>
 
-            <div style={{ fontSize: '3rem', marginBottom: '0.75rem' }}>🔔</div>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 900, color: '#fff', margin: '0 0 0.5rem' }}>
+            <div style={{ fontSize: '3.2rem', marginBottom: '0.75rem' }}>🔔</div>
+            <h3 style={{ fontSize: '1.6rem', fontWeight: 900, color: '#fff', margin: '0 0 0.5rem' }}>
               Prerreserva &amp; Lanzamiento
             </h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.8rem', lineHeight: 1.5 }}>
+            <p style={{ color: '#94a3b8', fontSize: '0.94rem', marginBottom: '1.8rem', lineHeight: 1.55 }}>
               Sé el primero en recibir el enlace directo a <strong style={{ color: '#c084fc' }}>{notifyModalPlatform}</strong> y capítulos exclusivos inéditos.
             </p>
 
             {notifySubmitted ? (
-              <div style={{ background: 'rgba(34, 197, 94, 0.2)', border: '1px solid #22c55e', color: '#22c55e', padding: '1rem', borderRadius: '12px', fontWeight: 800 }}>
+              <div style={{ background: 'rgba(34, 197, 94, 0.2)', border: '1px solid #22c55e', color: '#22c55e', padding: '1.2rem', borderRadius: '12px', fontWeight: 800 }}>
                 ✨ ¡Registrado con éxito! Te notificaremos al instante.
               </div>
             ) : (
-              <form onSubmit={handleNotifySubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <form onSubmit={handleNotifySubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                 <input
                   type="email"
                   placeholder="Tu correo electrónico..."
@@ -1155,7 +1324,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                     background: 'rgba(255, 255, 255, 0.06)',
                     border: '1px solid rgba(255, 255, 255, 0.15)',
                     color: '#fff',
-                    padding: '12px 16px',
+                    padding: '13px 16px',
                     borderRadius: '10px',
                     fontSize: '0.95rem',
                     outline: 'none',
@@ -1167,7 +1336,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                     background: 'linear-gradient(135deg, #a855f7 0%, #38bdf8 100%)',
                     border: 'none',
                     color: '#fff',
-                    padding: '12px',
+                    padding: '13px',
                     borderRadius: '10px',
                     fontWeight: 900,
                     fontSize: '0.95rem',

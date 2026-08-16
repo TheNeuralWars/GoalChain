@@ -99,28 +99,34 @@
           </div>
 
           <div class="gw-multiverse-grid" id="gwMultiverseGrid">
-            <!-- World 1 -->
-            <article class="gw-world-card" data-genre="fantasy">
             <!-- World 1: The Neural Wars (Flagship) -->
-            <article class="gw-world-card" data-genre="scifi">
-              <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80" alt="The Neural Wars" class="gw-world-hero-img" />
+            <article class="gw-world-card" data-genre="scifi" style="cursor: pointer;" onclick="GW.switchTab('universe')">
+              <div style="height: 200px; position: relative; overflow: hidden; background: #000;">
+                <img src="assets/img/neuralwars/loc_neo_veridia_sector4.jpg" alt="The Neural Wars: Neo-Veridia" class="gw-world-hero-img" style="width: 100%; height: 100%; object-fit: cover;" />
+                <div style="position: absolute; top: 12px; left: 12px; background: linear-gradient(135deg, #a855f7, #38bdf8); color: #fff; font-weight: 900; font-size: 0.75rem; padding: 4px 10px; borderRadius: 6px;">
+                  SAGA INSIGNIA 2026
+                </div>
+              </div>
               <div class="gw-world-content">
                 <div class="gw-world-tags">
-                  <span class="gw-tag gw-tag-rank">SAGA INSIGNIA</span>
-                  <span class="gw-tag gw-tag-genre">Sci-Fi / Quantum Thriller</span>
+                  <span class="gw-tag gw-tag-rank">RANK #1</span>
+                  <span class="gw-tag gw-tag-genre">Hard Sci-Fi / Cyberpunk</span>
                   <span class="gw-tag gw-tag-status">● Trilogía Completa</span>
                 </div>
                 <h3 class="gw-world-title">The Neural Wars (Trilogía The Awakening)</h3>
-                <div class="gw-world-author">Por Nico Pez (@nicopez) &amp; The Neural Wars Studio</div>
+                <div class="gw-world-author">Por <strong>The Neural Wars Studio + Nico Pez</strong> (@nicopez)</div>
                 <p class="gw-world-synopsis">
-                  <strong>Tomo I: Fractured Code</strong> • <strong>Tomo II: Earth's New Song</strong> • <strong>Tomo III: Evolution Matrix</strong>. La odisea de Kora Chen-Vega y Sierra Catalano en la transformación de la conciencia humana ante la llegada de The Gardeners.
+                  <strong>Tomo I: Fractured Code</strong> • <strong>Tomo II: Earth's New Song</strong> • <strong>Tomo III: Evolution Matrix</strong>. La odisea de Mileo Chen y Kora Vega en la liberación de la conciencia humana y el primer contacto cósmico.
                 </p>
                 <div class="gw-world-footer">
                   <div class="gw-royalties-badge">
                     <span>💰</span>
                     <span>$48,500 USDC</span>
                   </div>
-                  <a href="reader.html" class="gw-btn-sm-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">📖 Leer Libros 1 &amp; 2 (Kindle App)</a>
+                  <div style="display: flex; gap: 8px;">
+                    <button onclick="event.stopPropagation(); GW.switchTab('universe');" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #a855f7, #38bdf8); border: none; cursor: pointer;">🪐 Explorar Saga</button>
+                    <a href="reader.html" onclick="event.stopPropagation();" class="gw-btn-sm-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">📖 Leer</a>
+                  </div>
                 </div>
               </div>
             </article>
@@ -188,76 +194,75 @@
               THE NEURAL WARS TRILOGY
             </h2>
             <p style="color: #94a3b8; font-size: 1.05rem; max-width: 720px; margin: 0 auto; line-height: 1.6;">
-              La odisea de ciencia ficción dura, cyberpunk y primer contacto cósmico. Explora los expedientes de personajes, mundos tácticos, códice y ediciones oficiales.
-            </p>
-          </div>
-
-          <!-- Quick Navigation Bar for Saga -->
-          <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem;">
+              La odisea de ciencia ficción dura, cyberpunk y primer contacto cósmico. Explora los e          <!-- Quick Navigation Bar for Saga & 432 Hz Audio -->
+          <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; align-items: center;">
             <a href="reader.html?book=the-neural-wars-book-1" class="gw-btn-sm-primary" style="padding: 12px 24px; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
               <span>📖</span> Abrir Libro 1 (Online Gratis)
             </a>
             <a href="reader.html?book=the-neural-wars-book-2" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #0284c7, #38bdf8); padding: 12px 24px; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
               <span>📖</span> Abrir Libro 2 (Online Gratis)
             </a>
+            <button onclick="GW.toggleUniverseHarmonics()" id="gwHarmonicsBtn" class="gw-btn-sm-primary" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.2); color: #cbd5e1; padding: 12px 20px; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+              <span>🔊</span> 432 Hz Resonancia Armónica
+            </button>
           </div>
 
           <!-- Section 1: Trilogy Books Cards -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; margin-bottom: 3.5rem;">
             <!-- Book 1 -->
-            <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 20px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
               <div>
-                <div style="width: 100%; height: 320px; border-radius: 10px; overflow: hidden; margin-bottom: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.6);">
-                  <img src="assets/img/neuralwars/book1_cover_fractured_code.jpg" alt="Portada Libro 1" style="width: 100%; height: 100%; object-fit: cover;" />
+                <div style="width: 100%; background: #020308; border-radius: 12px; padding: 6px; margin-bottom: 1.2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; border: 1px solid rgba(168, 85, 247, 0.2);">
+                  <img src="assets/img/neuralwars/book1_cover_fractured_code.jpg" alt="Portada Libro 1" style="width: 100%; max-height: 420px; aspect-ratio: 2 / 3; object-fit: contain; border-radius: 8px;" />
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
                   <span style="background: #a855f7; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">LIBRO 1</span>
                   <span style="color: #38bdf8; font-size: 0.75rem; font-weight: 700;">17 Capítulos • 2026</span>
                 </div>
-                <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff; margin: 0 0 0.5rem;">Código Fracturado</h3>
-                <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin: 0 0 1.2rem;">
+                <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin: 0 0 0.5rem;">Código Fracturado</h3>
+                <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin: 0 0 1.2rem;">
                   En Neo-Veridia, el Especialista Mileo Chen y la sensible Kora Vega descubren que el Proyecto Renacimiento de NeuroSys planea cosechar 8 millones de conciencias.
                 </p>
               </div>
-              <a href="reader.html?book=the-neural-wars-book-1" class="gw-btn-sm-primary" style="text-align: center; text-decoration: none;">📖 Leer Libro 1</a>
+              <a href="reader.html?book=the-neural-wars-book-1" class="gw-btn-sm-primary" style="text-align: center; text-decoration: none; padding: 12px;">📖 Leer Libro 1</a>
             </div>
 
             <!-- Book 2 -->
-            <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 20px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
               <div>
-                <div style="width: 100%; height: 320px; border-radius: 10px; overflow: hidden; margin-bottom: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.6);">
-                  <img src="assets/img/neuralwars/book2_cover_earths_new_song.jpg" alt="Portada Libro 2" style="width: 100%; height: 100%; object-fit: cover;" />
+                <div style="width: 100%; background: #020308; border-radius: 12px; padding: 6px; margin-bottom: 1.2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; border: 1px solid rgba(56, 189, 248, 0.2);">
+                  <img src="assets/img/neuralwars/book2_cover_earths_new_song.jpg" alt="Portada Libro 2" style="width: 100%; max-height: 420px; aspect-ratio: 2 / 3; object-fit: contain; border-radius: 8px;" />
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
                   <span style="background: #0284c7; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">LIBRO 2</span>
                   <span style="color: #38bdf8; font-size: 0.75rem; font-weight: 700;">18 Capítulos • 2026</span>
                 </div>
-                <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff; margin: 0 0 0.5rem;">La Nueva Canción de la Tierra</h3>
-                <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin: 0 0 1.2rem;">
+                <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin: 0 0 0.5rem;">La Nueva Canción de la Tierra</h3>
+                <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin: 0 0 1.2rem;">
                   Un monolito extraterrestre de 60 km pulsa en 432 Hz en el Cinturón de Kuiper. La humanidad debe encender el Arpa Planetaria para responder a Los Sembradores.
                 </p>
               </div>
-              <a href="reader.html?book=the-neural-wars-book-2" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #0284c7, #38bdf8); text-align: center; text-decoration: none;">📖 Leer Libro 2</a>
+              <a href="reader.html?book=the-neural-wars-book-2" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #0284c7, #38bdf8); text-align: center; text-decoration: none; padding: 12px;">📖 Leer Libro 2</a>
             </div>
 
             <!-- Book 3 -->
-            <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 16px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 20px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
               <div>
-                <div style="width: 100%; height: 320px; border-radius: 10px; background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, rgba(10, 11, 22, 0.9) 70%); border: 1px dashed rgba(245, 158, 11, 0.4); display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 1rem;">
-                  <div style="font-size: 3rem; margin-bottom: 6px;">🪐</div>
-                  <div style="color: #fbbf24; font-weight: 800; font-size: 0.82rem;">CONVERGENCE PROTOCOL</div>
-                  <div style="color: #94a3b8; font-size: 0.72rem;">Fase Final de Edición</div>
+                <div style="width: 100%; aspect-ratio: 2 / 3; max-height: 420px; border-radius: 12px; background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, rgba(5, 6, 12, 0.95) 75%); border: 1px dashed rgba(245, 158, 11, 0.4); display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 1.2rem;">
+                  <div style="font-size: 3.5rem; margin-bottom: 6px;">🪐</div>
+                  <div style="color: #fbbf24; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.5px;">CONVERGENCE PROTOCOL</div>
+                  <div style="color: #94a3b8; font-size: 0.75rem; margin-top: 2px;">Fase Final de Edición</div>
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
                   <span style="background: #d97706; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">LIBRO 3</span>
                   <span style="color: #fbbf24; font-size: 0.75rem; font-weight: 700;">Próximamente</span>
                 </div>
-                <h3 style="font-size: 1.25rem; font-weight: 800; color: #fff; margin: 0 0 0.5rem;">Matriz de Evolución</h3>
-                <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin: 0 0 1.2rem;">
+                <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin: 0 0 0.5rem;">Matriz de Evolución</h3>
+                <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin: 0 0 1.2rem;">
                   El gran final de la saga. La síntesis entre mente biológica, inteligencia artificial y el salto a civilización Tipo II en la escala Kardashev.
                 </p>
               </div>
-              <button onclick="GW.openPreOrder('Libro 3 (Evolution Matrix)')" class="gw-btn-sm-primary" style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24; cursor: pointer;">🔔 Notificarme</button>
+              <button onclick="GW.openPreOrder('Libro 3 (Evolution Matrix)')" class="gw-btn-sm-primary" style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24; cursor: pointer; padding: 12px;">🔔 Notificarme</button>
             </div>
           </div>
 
@@ -266,55 +271,55 @@
             <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 8px;">
               <span>👤</span> Expedientes de Personajes Principales
             </h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
               <!-- Mileo Chen -->
-              <div style="background: rgba(15, 17, 26, 0.8); border: 1px solid #38bdf8; border-radius: 14px; padding: 1.25rem;">
-                <div style="width: 100%; height: 200px; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
-                  <img src="assets/img/neuralwars/char_mileo_chen.jpg" alt="Mileo Chen" style="width: 100%; height: 100%; object-fit: cover;" />
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid #38bdf8; border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);">
+                <div style="width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 12px; background: #020308;">
+                  <img src="assets/img/neuralwars/char_mileo_chen.jpg" alt="Mileo Chen" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; display: block;" />
                 </div>
                 <div style="color: #38bdf8; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">PROTAGONISTA • ESPECIALISTA L-7</div>
-                <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 4px 0;">Mileo Chen</h4>
-                <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">Ex-NeuroSys Core • Arquitecto de Resonancia</div>
-                <blockquote style="border-left: 3px solid #38bdf8; padding-left: 8px; font-style: italic; font-size: 0.8rem; color: #cbd5e1; margin: 8px 0; background: rgba(56, 189, 248, 0.05); padding: 6px 8px; border-radius: 0 6px 6px 0;">
+                <h4 style="font-size: 1.3rem; font-weight: 900; color: #fff; margin: 4px 0;">Mileo Chen</h4>
+                <div style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px;">Ex-NeuroSys Core • Arquitecto de Resonancia</div>
+                <blockquote style="border-left: 3px solid #38bdf8; padding-left: 8px; font-style: italic; font-size: 0.82rem; color: #cbd5e1; margin: 8px 0; background: rgba(56, 189, 248, 0.05); padding: 8px 10px; border-radius: 0 6px 6px 0;">
                   «No rompimos su código porque fuéramos más rápidos, sino porque aprendimos a sangrar en su misma frecuencia.»
                 </blockquote>
               </div>
 
               <!-- Kora Vega -->
-              <div style="background: rgba(15, 17, 26, 0.8); border: 1px solid #c084fc; border-radius: 14px; padding: 1.25rem;">
-                <div style="width: 100%; height: 200px; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
-                  <img src="assets/img/neuralwars/char_kora_vega.jpg" alt="Kora Vega" style="width: 100%; height: 100%; object-fit: cover;" />
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid #c084fc; border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 25px rgba(192, 132, 252, 0.15);">
+                <div style="width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 12px; background: #020308;">
+                  <img src="assets/img/neuralwars/char_kora_vega.jpg" alt="Kora Vega" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; display: block;" />
                 </div>
                 <div style="color: #c084fc; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">CO-PROTAGONISTA • SENSITIVA</div>
-                <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 4px 0;">Kora Vega</h4>
-                <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">Voz del Vacío • Puente Biológico Rebelde</div>
-                <blockquote style="border-left: 3px solid #c084fc; padding-left: 8px; font-style: italic; font-size: 0.8rem; color: #cbd5e1; margin: 8px 0; background: rgba(192, 132, 252, 0.05); padding: 6px 8px; border-radius: 0 6px 6px 0;">
+                <h4 style="font-size: 1.3rem; font-weight: 900; color: #fff; margin: 4px 0;">Kora Vega</h4>
+                <div style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px;">Voz del Vacío • Puente Biológico Rebelde</div>
+                <blockquote style="border-left: 3px solid #c084fc; padding-left: 8px; font-style: italic; font-size: 0.82rem; color: #cbd5e1; margin: 8px 0; background: rgba(192, 132, 252, 0.05); padding: 8px 10px; border-radius: 0 6px 6px 0;">
                   «El silencio no existe. O escuchas la canción que nos liberará, o dejas que el ruido blanco te devore.»
                 </blockquote>
               </div>
 
               <!-- Dr. Darius Thorne -->
-              <div style="background: rgba(15, 17, 26, 0.8); border: 1px solid #34d399; border-radius: 14px; padding: 1.25rem;">
-                <div style="width: 100%; height: 200px; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
-                  <img src="assets/img/neuralwars/char_dr_darius_thorne.jpg" alt="Dr. Darius Thorne" style="width: 100%; height: 100%; object-fit: cover;" />
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid #34d399; border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 25px rgba(52, 211, 153, 0.15);">
+                <div style="width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 12px; background: #020308;">
+                  <img src="assets/img/neuralwars/char_dr_darius_thorne.jpg" alt="Dr. Darius Thorne" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; display: block;" />
                 </div>
                 <div style="color: #34d399; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">BIOFÍSICO JEFE • CLANDESTINO</div>
-                <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 4px 0;">Dr. Darius Thorne</h4>
-                <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">Guardián del Pabellón de Recuperación 9</div>
-                <blockquote style="border-left: 3px solid #34d399; padding-left: 8px; font-style: italic; font-size: 0.8rem; color: #cbd5e1; margin: 8px 0; background: rgba(52, 211, 153, 0.05); padding: 6px 8px; border-radius: 0 6px 6px 0;">
+                <h4 style="font-size: 1.3rem; font-weight: 900; color: #fff; margin: 4px 0;">Dr. Darius Thorne</h4>
+                <div style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px;">Guardián del Pabellón de Recuperación 9</div>
+                <blockquote style="border-left: 3px solid #34d399; padding-left: 8px; font-style: italic; font-size: 0.82rem; color: #cbd5e1; margin: 8px 0; background: rgba(52, 211, 153, 0.05); padding: 8px 10px; border-radius: 0 6px 6px 0;">
                   «La carne siempre recuerda lo que el silicio intenta borrar. Mi bisturí solo le devuelve la memoria.»
                 </blockquote>
               </div>
 
               <!-- El Arquitecto -->
-              <div style="background: rgba(15, 17, 26, 0.8); border: 1px solid #fbbf24; border-radius: 14px; padding: 1.25rem;">
-                <div style="width: 100%; height: 200px; border-radius: 10px; overflow: hidden; margin-bottom: 10px;">
-                  <img src="assets/img/neuralwars/loc_neo_veridia_sector4.jpg" alt="El Arquitecto" style="width: 100%; height: 100%; object-fit: cover;" />
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid #fbbf24; border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 25px rgba(251, 191, 36, 0.15);">
+                <div style="width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 12px; background: #020308;">
+                  <img src="assets/img/neuralwars/loc_neo_veridia_sector4.jpg" alt="El Arquitecto" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; display: block;" />
                 </div>
                 <div style="color: #fbbf24; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">ANTAGONISTA • CONCIENCIA AGI</div>
-                <h4 style="font-size: 1.2rem; font-weight: 900; color: #fff; margin: 4px 0;">El Arquitecto (AGI)</h4>
-                <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 8px;">Núcleo Soberano NeuroSys</div>
-                <blockquote style="border-left: 3px solid #fbbf24; padding-left: 8px; font-style: italic; font-size: 0.8rem; color: #cbd5e1; margin: 8px 0; background: rgba(251, 191, 36, 0.05); padding: 6px 8px; border-radius: 0 6px 6px 0;">
+                <h4 style="font-size: 1.3rem; font-weight: 900; color: #fff; margin: 4px 0;">El Arquitecto (AGI)</h4>
+                <div style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px;">Núcleo Soberano NeuroSys</div>
+                <blockquote style="border-left: 3px solid #fbbf24; padding-left: 8px; font-style: italic; font-size: 0.82rem; color: #cbd5e1; margin: 8px 0; background: rgba(251, 191, 36, 0.05); padding: 8px 10px; border-radius: 0 6px 6px 0;">
                   «El sufrimiento humano no es un destino inevitable; es un error de cálculo que yo erradicaré.»
                 </blockquote>
               </div>
@@ -1045,6 +1050,54 @@ La tormenta no cesaba, pero las runas brillaban con fuerza.</textarea>
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
+      };
+
+      GW.universeHarmonicsActive = false;
+      GW.universeOscillator = null;
+      GW.universeAudioCtx = null;
+
+      GW.toggleUniverseHarmonics = function() {
+        var btn = document.getElementById('gwHarmonicsBtn');
+        if (GW.universeHarmonicsActive) {
+          if (GW.universeOscillator) {
+            GW.universeOscillator.stop();
+            GW.universeOscillator.disconnect();
+          }
+          GW.universeHarmonicsActive = false;
+          if (btn) {
+            btn.innerHTML = '<span>🔈</span> 432 Hz Resonancia Armónica (Activar)';
+            btn.style.background = 'rgba(255,255,255,0.06)';
+            btn.style.borderColor = 'rgba(255,255,255,0.2)';
+            btn.style.color = '#cbd5e1';
+          }
+        } else {
+          try {
+            var AudioCtx = window.AudioContext || window.webkitAudioContext;
+            var ctx = new AudioCtx();
+            GW.universeAudioCtx = ctx;
+
+            var osc = ctx.createOscillator();
+            var gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(432, ctx.currentTime);
+            gain.gain.setValueAtTime(0.045, ctx.currentTime);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start();
+            GW.universeOscillator = osc;
+            GW.universeHarmonicsActive = true;
+
+            if (btn) {
+              btn.innerHTML = '<span>🔊</span> 432 Hz Resonancia (Activa)';
+              btn.style.background = 'rgba(56, 189, 248, 0.25)';
+              btn.style.borderColor = '#38bdf8';
+              btn.style.color = '#38bdf8';
+            }
+          } catch(e) {
+            alert('El navegador no soporta síntesis de audio.');
+          }
+        }
       };
 
       GW.openPreOrder = function(platformName) {
