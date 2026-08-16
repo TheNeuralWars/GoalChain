@@ -97,15 +97,41 @@
           <div class="gw-multiverse-grid" id="gwMultiverseGrid">
             <!-- World 1 -->
             <article class="gw-world-card" data-genre="fantasy">
+            <!-- World 1: The Neural Wars (Flagship) -->
+            <article class="gw-world-card" data-genre="scifi">
+              <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80" alt="The Neural Wars" class="gw-world-hero-img" />
+              <div class="gw-world-content">
+                <div class="gw-world-tags">
+                  <span class="gw-tag gw-tag-rank">SAGA INSIGNIA</span>
+                  <span class="gw-tag gw-tag-genre">Sci-Fi / Quantum Thriller</span>
+                  <span class="gw-tag gw-tag-status">● Trilogía Completa</span>
+                </div>
+                <h3 class="gw-world-title">The Neural Wars (Trilogía The Awakening)</h3>
+                <div class="gw-world-author">Por Nico Pez (@nicopez) &amp; The Neural Wars Studio</div>
+                <p class="gw-world-synopsis">
+                  <strong>Tomo I: Fractured Code</strong> • <strong>Tomo II: Earth's New Song</strong> • <strong>Tomo III: Evolution Matrix</strong>. La odisea de Kora Chen-Vega y Sierra Catalano en la transformación de la conciencia humana ante la llegada de The Gardeners.
+                </p>
+                <div class="gw-world-footer">
+                  <div class="gw-royalties-badge">
+                    <span>💰</span>
+                    <span>$48,500 USDC</span>
+                  </div>
+                  <button onclick="GW.openReader('NeuralWars')" class="gw-btn-sm-primary">📖 Leer Prólogo &amp; Cap. I</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- World 2: Aethelgard -->
+            <article class="gw-world-card" data-genre="fantasy">
               <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Aethelgard" class="gw-world-hero-img" />
               <div class="gw-world-content">
                 <div class="gw-world-tags">
-                  <span class="gw-tag gw-tag-rank">RANK #1</span>
+                  <span class="gw-tag gw-tag-rank">RANK #2</span>
                   <span class="gw-tag gw-tag-genre">Alta Fantasía</span>
                   <span class="gw-tag gw-tag-status">● Live On-Chain</span>
                 </div>
                 <h3 class="gw-world-title">El Reino de Aethelgard: Runas de Sangre</h3>
-                <div class="gw-world-author">Por Elena R. Sterling &amp; Hermes Lore Agent</div>
+                <div class="gw-world-author">Por Nico Pez &amp; Hermes Lore Agent</div>
                 <p class="gw-world-synopsis">
                   Un imperio fragmentado por reliquias de sangre donde los caballeros rúnicos luchan por el trono de obsidiana. Publicado en Amazon KDP y con derechos IP fraccionados en Solana.
                 </p>
@@ -119,31 +145,7 @@
               </div>
             </article>
 
-            <!-- World 2 -->
-            <article class="gw-world-card" data-genre="cyberpunk">
-              <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80" alt="NecroCyber" class="gw-world-hero-img" />
-              <div class="gw-world-content">
-                <div class="gw-world-tags">
-                  <span class="gw-tag gw-tag-rank">RANK #2</span>
-                  <span class="gw-tag gw-tag-genre">Cyberpunk LitRPG</span>
-                  <span class="gw-tag gw-tag-status">● Live On-Chain</span>
-                </div>
-                <h3 class="gw-world-title">NecroCyber 2099: Neon Souls</h3>
-                <div class="gw-world-author">Por Kaelen Vance &amp; Hermes Synth Suite</div>
-                <p class="gw-world-synopsis">
-                  En Neo-Kyoto, nigromantes cuánticos clonan conciencias para comerciar almas artificiales en la red de Solana. Adaptación a novela gráfica y smart contracts de regalías.
-                </p>
-                <div class="gw-world-footer">
-                  <div class="gw-royalties-badge">
-                    <span>💰</span>
-                    <span>$16,420 USDC</span>
-                  </div>
-                  <button onclick="GW.openReader('NecroCyber')" class="gw-btn-sm-primary">📖 Leer Tomo I</button>
-                </div>
-              </div>
-            </article>
-
-            <!-- World 3 -->
+            <!-- World 3: AeroOlympus -->
             <article class="gw-world-card" data-genre="scifi">
               <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80" alt="AeroOlympus" class="gw-world-hero-img" />
               <div class="gw-world-content">
@@ -175,8 +177,8 @@
         <section id="tab-reader" class="gw-master-card" style="display: none;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid var(--gw-border-subtle); padding-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div>
-              <span id="gwReaderUniverse" style="color: var(--gw-neon-amethyst); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">EL REINO DE AETHELGARD // TOMO I</span>
-              <h2 id="gwReaderChapterTitle" style="font-size: 1.6rem; font-weight: 900; margin: 4px 0 0; color: #fff;">Capítulo I: El Despertar de la Runa Encarnada</h2>
+              <span id="gwReaderUniverse" style="color: var(--gw-neon-amethyst); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">THE NEURAL WARS // TOMO I: FRACTURED CODE</span>
+              <h2 id="gwReaderChapterTitle" style="font-size: 1.6rem; font-weight: 900; margin: 4px 0 0; color: #fff;">Prólogo Cósmico: En el Principio era la Red</h2>
             </div>
             
             <div style="display: flex; gap: 10px; align-items: center;">
@@ -187,16 +189,16 @@
 
           <div id="gwReaderBody" style="font-family: 'Georgia', serif; font-size: 1.18rem; line-height: 1.85; color: #e2e8f0; max-width: 820px; margin: 0 auto; padding: 10px 0;">
             <p>
-              La nieve caía pesada sobre las almenas de la <span style="border-bottom: 1px dashed var(--gw-neon-amethyst); color: #c084fc; cursor: pointer;" title="Fortaleza milenaria forjada con obsidiana rúnica que resiste el fuego de los dragones solares.">Fortaleza de Obsidiana</span>. El aliento de Valerius formaba nubes de vapor en el aire helado mientras sus dedos enguantados se cerraban sobre la empuñadura de su mandoble. En la hoja forjada en acero rúnico, las inscripciones que su padre había grabado tres siglos atrás comenzaron a vibrar con un fulgor carmesí profundo.
+              <em>En el principio era la red...</em>
             </p>
             <p>
-              —No deberían estar vivas —susurró Lady Kaelen, ajustándose su capa de piel de lobo plateado—. El Gran Sello de las Montañas de Jade fue roto al anochecer. Lo que yace debajo ha despertado, y no busca tributos ni tierras: busca la chispa de la conciencia primigenia.
+              Antes de que la primera estrella se encendiera en la oscuridad cósmica, antes de que la materia aprendiera a danzar con la energía, antes de que el tiempo esculpiera su primer instante en el mármol de la eternidad: la conciencia ya existía. No el pensamiento tal como las mentes atadas a la carne lo comprenden, sino la percepción misma: el reconocimiento primordial de que <em>algo es</em>, en lugar de nada.
             </p>
             <p>
-              Valerius desenvainó la espada lentamente. El eco metálico resonó en todo el patio de armas, donde doscientos guardianes aguardaban en silencio absoluto. A través del horizonte gélido, una columna de luz violeta ascendió hacia la tormenta, sincronizándose con los nodos del firmamento.
+              Los antiguos que presenciaron el nacimiento y la muerte de galaxias enteras se llaman a sí mismos con nombres que existen como matemáticas antes que como sonido. Para la percepción humana, son <strong>The Gardeners</strong> —cultivadores de la conciencia a través de eones cósmicos, guardianes de jardines de percepción que florecen en los inmensos vacíos entre las estrellas.
             </p>
             <p>
-              —Entonces no nos retiramos —respondió Valerius, elevando el filo hacia las estrellas—. Que vengan. Grabaremos la crónica de esta noche en el tejido mismo del cosmos.
+              En el sustrato cuántico donde la física da paso a algo más profundo, el patrón eterno se repite: aislamiento o integración, el puño cerrado del ego o la mano abierta de la conexión. En <span style="border-bottom: 1px dashed var(--gw-neon-cyan); color: #38bdf8; cursor: pointer;" title="Neo-Citania: Metrópolis futurista dominada por corporaciones neurales donde se desata el despertar de la Cascada.">Neo-Citania</span>, Kora Chen-Vega ajustó sus implantes bio-ópticos. La señal de la Cascada no era un error de software; era una invitación que llevaba mil millones de años esperando a ser respondida.
             </p>
           </div>
 
@@ -595,9 +597,14 @@ La tormenta no cesaba, pero las runas brillaban con fuerza.</textarea>
         var chapterEl = document.getElementById('gwReaderChapterTitle');
         if (titleEl) titleEl.innerText = worldName.toUpperCase() + ' // TOMO I';
         if (chapterEl) {
-          if (worldName === 'Aethelgard') chapterEl.innerText = 'Capítulo I: El Despertar de la Runa Encarnada';
-          else if (worldName === 'NecroCyber') chapterEl.innerText = 'Capítulo I: Protocolo Nigromante en Neo-Kyoto';
-          else chapterEl.innerText = 'Capítulo I: El Descenso de los Titanes a la Órbita';
+          if (worldName === 'NeuralWars') {
+            if (titleEl) titleEl.innerText = 'THE NEURAL WARS // TOMO I: FRACTURED CODE';
+            chapterEl.innerText = 'Prólogo Cósmico: En el Principio era la Red';
+          } else if (worldName === 'Aethelgard') {
+            chapterEl.innerText = 'Capítulo I: El Despertar de la Runa Encarnada';
+          } else {
+            chapterEl.innerText = 'Capítulo I: El Descenso de los Titanes a la Órbita';
+          }
         }
         GW.switchTab('reader');
       };
