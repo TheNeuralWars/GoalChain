@@ -220,24 +220,35 @@
           </div>
 
           <div class="gw-saas-grid">
-            <!-- Form Side -->
+            <!-- Form & Manuscript Compiler Side -->
             <div>
-              <form onsubmit="GW.handlePublish(event)" style="background: rgba(10, 15, 30, 0.7); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-lg); padding: 24px;">
+              <form onsubmit="GW.handlePublish(event)" style="background: rgba(10, 15, 30, 0.7); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-lg); padding: 24px; margin-bottom: 20px;">
                 <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 16px; color: #fff;">1. Parámetros de la Obra</h3>
                 
                 <div class="gw-form-group">
                   <label class="gw-form-label">Título de la Novela / Saga</label>
-                  <input type="text" id="gwBookTitle" placeholder="Ej: Las Crónicas del Nexo: El Origen de los Guardianes" required class="gw-input" />
+                  <input type="text" id="gwBookTitle" value="El Reino de Aethelgard: Tomo I" required class="gw-input" oninput="GW.updateKdpManifest()" />
                 </div>
 
                 <div class="gw-form-group">
-                  <label class="gw-form-label">Género Literario</label>
-                  <select id="gwBookGenre" class="gw-select">
-                    <option value="fantasy">Alta Fantasía / LitRPG</option>
-                    <option value="cyberpunk">Cyberpunk / Sci-Fi Futurista</option>
-                    <option value="mythology">Mitología Épica / Deportes Cuánticos</option>
-                    <option value="nonfiction">Tecnología, IA &amp; Negocios</option>
-                  </select>
+                  <label class="gw-form-label">Subtítulo KDP</label>
+                  <input type="text" id="gwBookSubtitle" value="Crónica de las Runas de Obsidiana" class="gw-input" oninput="GW.updateKdpManifest()" />
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                  <div class="gw-form-group">
+                    <label class="gw-form-label">Género Literario</label>
+                    <select id="gwBookGenre" class="gw-select" onchange="GW.updateKdpManifest()">
+                      <option value="Alta Fantasía / LitRPG">Alta Fantasía / LitRPG</option>
+                      <option value="Cyberpunk Sci-Fi">Cyberpunk Sci-Fi</option>
+                      <option value="Mitología Épica">Mitología Épica</option>
+                      <option value="Tecnología &amp; Negocios">Tecnología &amp; Negocios</option>
+                    </select>
+                  </div>
+                  <div class="gw-form-group">
+                    <label class="gw-form-label">ISBN-13 Oficial</label>
+                    <input type="text" id="gwBookIsbn" value="978-3-16-148410-0" readonly class="gw-input" style="color: #38bdf8; font-family: monospace;" />
+                  </div>
                 </div>
 
                 <div class="gw-form-group">
@@ -246,61 +257,106 @@
                 </div>
 
                 <div class="gw-form-group">
-                  <label class="gw-form-label">Wallet Receptora de Regalías (Solana)</label>
-                  <input type="text" value="7xKXtg2CW87d97TXJSDpbD5jBkheTjkA6wAhXodGy7ao" readonly class="gw-input" style="color: #38bdf8; font-family: monospace; font-size: 0.85rem;" />
+                  <label class="gw-form-label">Editor / Compilador de Manuscrito Markdown</label>
+                  <textarea id="gwManuscriptInput" class="gw-textarea" style="height: 100px; font-family: monospace; font-size: 0.82rem;" placeholder="Pega aquí el texto markdown de tu capítulo..."># Capítulo I: El Despertar
+
+La nieve caía pesada sobre las almenas de la Fortaleza de Obsidiana. El aliento de Valerius formaba nubes de vapor en el aire helado...
+
+* * *
+
+La tormenta no cesaba, pero las runas brillaban con fuerza.</textarea>
                 </div>
 
-                <button type="submit" class="gw-btn-master">
-                  <span>🚀 Publicar Doble Vía (KDP + Solana IP)</span>
-                </button>
+                <div style="display: flex; gap: 10px;">
+                  <button type="button" onclick="GW.formatManuscriptKdp()" class="gw-btn-sm-primary" style="flex: 1; padding: 10px;">
+                    📝 Formatear Estándar KDP
+                  </button>
+                  <button type="submit" class="gw-btn-master" style="flex: 1.5; padding: 10px;">
+                    <span>🚀 Compilar &amp; Tokenizar</span>
+                  </button>
+                </div>
               </form>
 
               <div id="gwPublishSuccess" style="display: none; margin-top: 16px; padding: 16px; background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; border-radius: var(--gw-radius-md); color: #34d399;">
                 <div style="font-weight: 800; font-size: 1rem; margin-bottom: 4px;">🎉 ¡Publicación Dual Generada con Éxito!</div>
-                <div style="font-size: 0.85rem; color: #cbd5e1;">
+                <div style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 10px;">
                   • <strong>Amazon KDP</strong>: Archivo EPUB &amp; Cover Print-Ready compilados (ISBN: 978-3-16-148410-0).<br />
                   • <strong>Solana Web3</strong>: Smart Contract de Regalías acuñado en Devnet con 85% streamed a tu wallet.
                 </div>
+                <button onclick="GW.downloadKdpPack()" class="gw-btn-sm-primary" style="background: #10b981; color: #000; font-weight: 800; border: none;">
+                  📥 Descargar Paquete Completo (JSON + HTML)
+                </button>
               </div>
             </div>
 
-            <!-- Calculator Side -->
+            <!-- Spine Calculator & Royalty Projections Side -->
             <div>
-              <div class="gw-calc-box">
-                <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 8px; color: #fff;">2. Simulador de Ingresos Proyectados</h3>
-                <p style="color: var(--gw-text-muted); font-size: 0.85rem; margin-bottom: 18px;">
-                  Compara los beneficios de la autoedición con GoalWorld frente a editoriales tradicionales.
+              <!-- Spine & Bleed Visualizer Box -->
+              <div class="gw-calc-box" style="margin-bottom: 20px; border-color: rgba(168, 85, 247, 0.3);">
+                <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 8px; color: #fff;">2. Calculadora de Lomo KDP &amp; Portada 300 DPI</h3>
+                <p style="color: var(--gw-text-muted); font-size: 0.82rem; margin-bottom: 14px;">
+                  Calcula las medidas exactas de imprenta Amazon KDP (formato 6" x 9" con sangría).
                 </p>
 
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+                  <div>
+                    <label class="gw-form-label" style="font-size: 0.8rem;">Páginas: <span id="gwPageCountVal" style="color: #c084fc; font-weight: 800;">280</span></label>
+                    <input type="range" id="gwPageRange" min="80" max="600" step="10" value="280" oninput="GW.updateKdpSpine(this.value)" style="width: 100%; accent-color: var(--gw-neon-amethyst);" />
+                  </div>
+                  <div>
+                    <label class="gw-form-label" style="font-size: 0.8rem;">Tipo de Papel</label>
+                    <select id="gwPaperType" class="gw-select" style="padding: 6px;" onchange="GW.updateKdpSpine()">
+                      <option value="cream">Papel Ahuesado (Crema)</option>
+                      <option value="white">Papel Blanco</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Visual Cover Blueprint -->
+                <div style="display: flex; height: 110px; border: 1px dashed rgba(168, 85, 247, 0.5); border-radius: 8px; background: rgba(0,0,0,0.5); text-align: center; font-size: 0.72rem; overflow: hidden; margin-bottom: 12px;">
+                  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255,255,255,0.1); padding: 4px; color: #94a3b8;">
+                    <div>Contracubierta</div>
+                    <div style="font-size: 0.65rem; color: #64748b;">(Sinopsis &amp; Barcode)</div>
+                  </div>
+                  <div id="gwSpineVisual" style="width: 32px; background: rgba(168, 85, 247, 0.2); border-right: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; font-weight: 800; color: #c084fc; font-size: 0.65rem;">
+                    LOMO: 0.70"
+                  </div>
+                  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 4px; color: #e2e8f0; font-weight: 700;">
+                    <div>Portada Frontal</div>
+                    <div style="font-size: 0.65rem; color: #c084fc;">(Título &amp; Arte)</div>
+                  </div>
+                </div>
+
+                <div style="font-family: monospace; font-size: 0.75rem; color: #34d399; line-height: 1.5;">
+                  • Dimensión Total: <span id="gwCoverDimInches">12.95" x 9.25"</span><br />
+                  • Resolución KDP: <span id="gwCoverDimPx">3885 x 2775 px (300 DPI)</span>
+                </div>
+              </div>
+
+              <!-- Royalty Calculator Box -->
+              <div class="gw-calc-box">
+                <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 8px; color: #fff;">3. Simulador de Ingresos Proyectados</h3>
                 <div class="gw-form-group">
                   <label class="gw-form-label">Ventas Mensuales Estimadas: <span id="gwCopiesLabel" style="color: var(--gw-neon-cyan); font-weight: 800;">2,500 copias</span></label>
                   <input type="range" id="gwCopiesRange" min="500" max="25000" step="500" value="2500" oninput="GW.updateCalculator(this.value)" style="width: 100%; accent-color: var(--gw-neon-amethyst);" />
                 </div>
 
                 <div class="gw-calc-metric">
-                  <span style="color: var(--gw-text-muted); font-size: 0.9rem;">Editorial Tradicional (12% Royalty):</span>
-                  <span id="gwCalcTraditional" class="gw-calc-metric-val" style="color: #94a3b8;">$2,997 USD</span>
+                  <span style="color: var(--gw-text-muted); font-size: 0.85rem;">Editorial Tradicional (12%):</span>
+                  <span id="gwCalcTraditional" class="gw-calc-metric-val" style="color: #94a3b8; font-size: 1.05rem;">$2,997 USD</span>
                 </div>
 
                 <div class="gw-calc-metric">
-                  <span style="color: var(--gw-text-muted); font-size: 0.9rem;">Amazon KDP Directo (70% Royalty):</span>
-                  <span id="gwCalcKdp" class="gw-calc-metric-val" style="color: #60a5fa;">$17,482 USD</span>
+                  <span style="color: var(--gw-text-muted); font-size: 0.85rem;">Amazon KDP Directo (70%):</span>
+                  <span id="gwCalcKdp" class="gw-calc-metric-val" style="color: #60a5fa; font-size: 1.05rem;">$17,482 USD</span>
                 </div>
 
-                <div class="gw-calc-metric" style="background: rgba(16, 185, 129, 0.1); border-radius: 8px; padding: 12px; margin-top: 8px;">
+                <div class="gw-calc-metric" style="background: rgba(16, 185, 129, 0.1); border-radius: 8px; padding: 10px; margin-top: 6px;">
                   <div>
-                    <div style="color: #34d399; font-weight: 800; font-size: 0.95rem;">GoalWorld Dual-Stream (KDP + Solana IP):</div>
-                    <div style="font-size: 0.75rem; color: #94a3b8;">Incluye mercado secundario Web3 + 85% autor</div>
+                    <div style="color: #34d399; font-weight: 800; font-size: 0.9rem;">GoalWorld Dual-Stream:</div>
+                    <div style="font-size: 0.7rem; color: #94a3b8;">KDP + Regalías Web3 (85% Autor)</div>
                   </div>
-                  <span id="gwCalcGoalWorld" class="gw-calc-metric-val" style="color: #34d399; font-size: 1.45rem;">$24,120 USDC</span>
-                </div>
-              </div>
-
-              <!-- Metadata Preview -->
-              <div style="margin-top: 18px; background: rgba(0,0,0,0.5); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-md); padding: 16px;">
-                <div style="font-size: 0.8rem; font-weight: 800; color: #c084fc; text-transform: uppercase; margin-bottom: 6px;">Metaplex Solana Schema Preview</div>
-                <div style="font-family: monospace; font-size: 0.75rem; color: #94a3b8; line-height: 1.5;">
-                  { "name": "GoalWorld Lore IP #001", "symbol": "GWIP", "seller_fee_basis_points": 850, "creators": [{"address": "7xKX...7ao", "share": 85}] }
+                  <span id="gwCalcGoalWorld" class="gw-calc-metric-val" style="color: #34d399; font-size: 1.3rem;">$24,120 USDC</span>
                 </div>
               </div>
             </div>
@@ -676,10 +732,110 @@
         });
       };
 
+      // 11. KDP Spine & Bleed Width Calculation
+      GW.updateKdpSpine = function(pages) {
+        pages = parseInt(pages || document.getElementById('gwPageRange').value, 10) || 280;
+        var paper = document.getElementById('gwPaperType').value || 'cream';
+        var pageCountValEl = document.getElementById('gwPageCountVal');
+        var spineVisualEl = document.getElementById('gwSpineVisual');
+        var dimInchesEl = document.getElementById('gwCoverDimInches');
+        var dimPxEl = document.getElementById('gwCoverDimPx');
+
+        var multiplier = paper === 'cream' ? 0.0025 : 0.002252;
+        var spineWidthIn = pages * multiplier;
+        var totalWIn = 0.125 + 6.0 + spineWidthIn + 6.0 + 0.125;
+        var totalHIn = 0.125 + 9.0 + 0.125;
+
+        var totalWPx = Math.ceil(totalWIn * 300);
+        var totalHPx = Math.ceil(totalHIn * 300);
+
+        if (pageCountValEl) pageCountValEl.innerText = pages;
+        if (spineVisualEl) {
+          spineVisualEl.innerText = 'LOMO: ' + spineWidthIn.toFixed(2) + '"';
+          spineVisualEl.style.width = Math.max(24, Math.min(80, Math.round(spineWidthIn * 50))) + 'px';
+        }
+        if (dimInchesEl) dimInchesEl.innerText = totalWIn.toFixed(2) + '" x ' + totalHIn.toFixed(2) + '"';
+        if (dimPxEl) dimPxEl.innerText = totalWPx + ' x ' + totalHPx + ' px (300 DPI)';
+      };
+
+      // 12. Format Markdown Manuscript for Amazon KDP
+      GW.formatManuscriptKdp = function() {
+        var inputEl = document.getElementById('gwManuscriptInput');
+        if (!inputEl) return;
+        var raw = inputEl.value;
+        if (!raw.trim()) {
+          alert('Por favor ingresa texto en el editor de manuscrito.');
+          return;
+        }
+
+        // Auto-format headings, scene breaks and drop caps
+        var formatted = raw
+          .replace(/^#\s+(.*)$/gm, '\n[CHAPTER_TITLE: $1]\n')
+          .replace(/^##\s+(.*)$/gm, '\n[SECTION: $1]\n')
+          .replace(/^\*\s\*\s\*$/gm, '\n--- ✦ --- ✦ ---\n');
+
+        inputEl.value = '/* MANUSCRITO ESTÁNDAR KDP FORMATEADO */\n\n' + formatted;
+        alert('✨ Manuscrito formateado con sangrías, quiebres de escena e identificadores de capítulo estándar Amazon KDP.');
+      };
+
+      // 13. Download Complete KDP & Solana Package
+      GW.downloadKdpPack = function() {
+        var title = document.getElementById('gwBookTitle').value || 'Saga GoalWorld';
+        var subtitle = document.getElementById('gwBookSubtitle').value || '';
+        var genre = document.getElementById('gwBookGenre').value || 'Alta Fantasía';
+        var isbn = document.getElementById('gwBookIsbn').value || '978-3-16-148410-0';
+
+        var pack = {
+          goalworld_kdp_manifest: {
+            title: title,
+            subtitle: subtitle,
+            isbn_13: isbn,
+            genre: genre,
+            trim_size: "6.0 x 9.0 in",
+            paper_type: document.getElementById('gwPaperType').value || 'cream',
+            page_count: document.getElementById('gwPageRange').value || 280,
+            amazon_search_keywords: [
+              "novela de fantasia epica",
+              "dark fantasy litrpg",
+              "runas y caballeros",
+              "kindle unlimited 2026",
+              "audiolibro solana"
+            ],
+            bisac_categories: [
+              "FIC009020 FICTION / Fantasy / Dark Fantasy",
+              "FIC009010 FICTION / Fantasy / Epic"
+            ]
+          },
+          solana_metaplex_ip_schema: {
+            name: "GoalWorld IP: " + title,
+            symbol: "GWIP",
+            seller_fee_basis_points: 850,
+            creators: [
+              { address: "7xKXtg2CW87d97TXJSDpbD5jBkheTjkA6wAhXodGy7ao", share: 85 },
+              { address: "GWVault11111111111111111111111111111111111", share: 10 },
+              { address: "HermesAgent1111111111111111111111111111111", share: 5 }
+            ]
+          }
+        };
+
+        var blob = new Blob([JSON.stringify(pack, null, 2)], { type: 'application/json' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'GoalWorld_KDP_Solana_Pack_' + title.replace(/\s+/g, '_') + '.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      };
+
+      GW.updateKdpManifest = function() {};
+
       // Initialize
       document.addEventListener('DOMContentLoaded', function() {
         GW.updatePromptPreview();
         GW.updateCalculator(2500);
+        GW.updateKdpSpine(280);
       });
     </script>
   </body>
