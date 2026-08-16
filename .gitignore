@@ -23,9 +23,11 @@ build/
 coverage/
 .tmp/
 .temp/
-# Do NOT ignore goalchain_oracle/dist (we commit it)
+# Do NOT ignore goalchain_oracle/dist and goalchain-sdk/dist (we commit them for CI/Vercel)
 !goalchain_oracle/dist/
 !goalchain_oracle/dist/**
+!goalchain-sdk/dist/
+!goalchain-sdk/dist/**
 # --- Anchor / Solana ---
 .target/
 **/.anchor/
