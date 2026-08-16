@@ -1,0 +1,19 @@
+[Unit]
+Description=Hermes Dashboard (New Clean Installation)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=-/data/hermes-home/.env
+Environment="HERMES_HOME=/data/hermes-home"
+Environment="HERMES_DASHBOARD_SESSION_TOKEN=63bfdc3f3eb6e7c2fd6cb83549c1d7a8fc5d0bf979d8e200"
+Environment="PATH=/data/ubuntu/.hermes/hermes-agent/venv/bin:/usr/bin:/home/ubuntu/.local/bin"
+WorkingDirectory=/data/hermes-home
+ExecStartPre=/usr/bin/python3 /data/apps/GoalWorld/ops/hermes/patch_remote_hermes.py
+ExecStart=/data/ubuntu/.hermes/hermes-agent/venv/bin/python -m hermes_cli.main dashboard --host 127.0.0.1 --port 9120 --no-open --skip-build --isolated
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

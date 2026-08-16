@@ -12,19 +12,20 @@ import time
 import base64
 import requests
 import subprocess
+import yaml
 
 # === CONFIGURATION ===
 BOT_TOKEN = "8677250341:AAFK4UIJzXxgnGL_qLhXrq_RmRKeWKmCNIg"
-HERMES_HOME = os.getenv("HERMES_HOME", os.path.expanduser("~/hermes"))
-REPO_ROOT = os.getenv("GOALCHAIN_REPO_PATH", os.path.join(HERMES_HOME, "workspace/GoalChain"))
+HERMES_HOME = os.getenv("HERMES_HOME", "/data/hermes-home")
+REPO_ROOT = os.getenv("GOALWORLD_REPO_PATH", "/data/apps/GoalWorld")
 INTAKE_DIR = os.path.join(REPO_ROOT, "docs/intake")
 
 # Load Gemini API Key from active environment or process proc environment fallback
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 if not GEMINI_API_KEY:
-    # Attempt to read from config.env or zshrc
-    config_file = os.path.join(HERMES_HOME, "config.env")
+    # Attempt to read from .env in new hermes home
+    config_file = os.path.join(HERMES_HOME, ".env")
     if os.path.exists(config_file):
         with open(config_file) as f:
             for line in f:
@@ -32,9 +33,9 @@ if not GEMINI_API_KEY:
                     GEMINI_API_KEY = line.strip().split("=", 1)[1].strip('"').strip("'")
                     break
 
-# Fallback hardcoded matching what we extracted from active process
+# Fallback de variable de entorno
 if not GEMINI_API_KEY:
-    GEMINI_API_KEY = "AQ.Ab8RN6J42usKOAbHisJC8dkgkRpH8IZGNVet_l7rWvrIHsvpQA"
+    GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 
 def log(msg):
     print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] [TELEGRAM-BOT] {msg}", flush=True)
@@ -88,6 +89,7 @@ def chat_with_hermes(text, chat_id=None):
     
     try:
         env = os.environ.copy()
+        env["HERMES_HOME"] = HERMES_HOME
         local_bin = os.path.expanduser("~/.local/bin")
         if local_bin not in env.get("PATH", ""):
             env["PATH"] = f"{local_bin}:{env.get('PATH', '')}"
@@ -161,6 +163,40 @@ def transcribe_audio_gemini(audio_bytes, mime_type="audio/ogg"):
     else:
         raise Exception(f"Gemini API returned status {response.status_code}: {response.text}")
 
+def transcribe_audio_omniroute(audio_bytes, mime_type="audio/ogg"):
+    """Llama a la API local de OmniRoute Whisper como failover"""
+    url = "http://127.0.0.1:20128/v1/audio/transcriptions"
+    
+    # Use the omniroute API key from config.yaml if possible, otherwise fallback hardcoded
+    api_key = "sk-cac9fb818e70e6bb-f4dcba-60525661"
+    config_file = os.path.join(HERMES_HOME, "config.yaml")
+    if os.path.exists(config_file):
+        try:
+            with open(config_file, "r") as f:
+                cfg = yaml.safe_load(f)
+                api_key = cfg.get("providers", {}).get("omniroute", {}).get("api_key", api_key)
+        except Exception:
+            pass
+            
+    headers = {
+        "Authorization": f"Bearer {api_key}"
+    }
+    
+    files = {
+        "file": ("voice.ogg", audio_bytes, "audio/ogg")
+    }
+    data = {
+        "model": "nvidia/openai/whisper-large-v3"
+    }
+    
+    log("Calling local OmniRoute Whisper endpoint...")
+    response = requests.post(url, headers=headers, files=files, data=data)
+    if response.status_code == 200:
+        res_data = response.json()
+        return res_data.get("text", "").strip()
+    else:
+        raise Exception(f"OmniRoute Whisper returned status {response.status_code}: {response.text}")
+
 def create_intake_brief_from_voice(transcription_text):
     """Crea un brief de ingesta en docs/intake/ y lo guarda en disco"""
     os.makedirs(INTAKE_DIR, exist_ok=True)
@@ -180,29 +216,29 @@ def create_intake_brief_from_voice(transcription_text):
     title = f"Voice Task: {title_str}"
     
     markdown_content = f"""# {title}
-
+ 
 - **Status:** ready-for-hermes
 - **Priority:** P1
 - **Owner:** hermes
 - **Created:** {date_str}
 - **Source:** Voice Note via Telegram Bot
-
+ 
 ## Objective
-
+ 
 This task was received as a voice note from Nico via the Telegram Bot and transcribed autonomously using the Gemini Multimodal Audio engine.
-
+ 
 ## Transcription
-
+ 
 > {transcription_text}
-
+ 
 ## Recommended Path Forward
-
+ 
 - [ ] Parse and generate implementation tasks via autonomic-intake-processor.
 - [ ] Auto-dispatch to FCC/Hermes for code implementation.
 - [ ] Run typescript checks and auto-merge to main if clean.
-
+ 
 ## Tags
-
+ 
 #voice-task #telegram-bot #gemini-transcribe #humans-0 #autonomous-push
 """
     
@@ -234,10 +270,16 @@ def handle_voice_message(voice_data, file_id):
         return
         
     audio_bytes = audio_res.content
-    log("Voice note downloaded. Transcribing using Gemini multimodal...")
+    log("Voice note downloaded. Transcribing...")
     
     try:
-        transcription = transcribe_audio_gemini(audio_bytes, mime_type="audio/ogg")
+        try:
+            log("Transcribing using Gemini multimodal...")
+            transcription = transcribe_audio_gemini(audio_bytes, mime_type="audio/ogg")
+        except Exception as gemini_err:
+            log(f"Gemini transcription failed ({gemini_err}). Trying OmniRoute Whisper fallback...")
+            transcription = transcribe_audio_omniroute(audio_bytes, mime_type="audio/ogg")
+            
         log(f"Transcription result: '{transcription}'")
         
         if len(transcription.strip()) < 3:

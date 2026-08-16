@@ -818,15 +818,15 @@ input:checked + .slider-red:before {
 
 .play-shell--grid {
   display: grid;
-  grid-template-columns: var(--gc-rail-expanded) 1fr;
+  grid-template-columns: var(--gc-shell-cols);
   align-items: start;
   transition: grid-template-columns var(--gc-dur-base) var(--gc-ease);
 }
 .play-shell--grid.play-shell--collapsed {
-  grid-template-columns: var(--gc-rail-collapsed) 1fr;
+  --gc-shell-cols: var(--gc-rail-collapsed) 1fr;
 }
 .play-shell--grid.play-shell--expanded {
-  grid-template-columns: var(--gc-rail-expanded) 1fr;
+  --gc-shell-cols: var(--gc-rail-expanded) 1fr;
 }
 
 /* --- Columna principal --- */
@@ -896,6 +896,84 @@ input:checked + .slider-red:before {
   margin: 0 auto;
   padding: var(--gc-space-5) var(--gc-space-5) calc(var(--gc-space-7) + var(--gc-bottom-tab-h));
   box-sizing: border-box;
+}
+
+/* --- Floating AI Coach Button & Drawer --- */
+.gc-floating-coach-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 450;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gc-purple, #9945ff) 0%, var(--gc-green, #14f195) 100%);
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(153, 69, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, bottom 0.2s;
+}
+.gc-floating-coach-btn:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 767px) {
+  .gc-floating-coach-btn {
+    bottom: 84px; /* Elevate above mobile bottom tab bar */
+  }
+}
+
+.gc-coach-drawer {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 380px;
+  height: 500px;
+  max-height: 70vh;
+  z-index: 440;
+  background: rgba(13, 13, 27, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(153, 69, 255, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease, visibility 0.3s;
+}
+.gc-coach-drawer.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 480px) {
+  .gc-coach-drawer {
+    width: calc(100% - 40px);
+    right: 20px;
+    left: 20px;
+    bottom: 150px;
+  }
+}
+
+/* --- Panel grids (TradingTerminal y similares) --- */
+.tt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--gc-space-5);
+}
+@media (max-width: 900px) {
+  .tt-grid { grid-template-columns: 1fr; gap: var(--gc-space-4); }
+}
+@media (max-width: 600px) {
+  .tt-grid { gap: var(--gc-space-3); }
 }
 
 /* ============================================================
@@ -1261,22 +1339,32 @@ input:checked + .slider-red:before {
 /* ============================================================
    RESPONSIVE — Chasis
    ============================================================ */
-@media (max-width: 1280px) {
-  /* Tablet: el rail colapsa en la estructura de rejilla */
+@media (max-width: 1279px) {
+  /* Tablet: la rejilla SIEMPRE es 72px 1fr, sin importar el estado del rail.
+     El rail colapsado ocupa los 72px in-flow; el expandido flota como overlay. */
+  .play-shell--grid,
   .play-shell--grid.play-shell--collapsed,
   .play-shell--grid.play-shell--expanded {
-    grid-template-columns: var(--gc-rail-collapsed) 1fr;
+    --gc-shell-cols: var(--gc-rail-collapsed) 1fr;
   }
-  
-  /* Cuando está expandido, se convierte en un cajón flotante (overlay drawer) */
+
+  /* Rail colapsado: gutter in-flow de 72px (sin cambios de comportamiento). */
+  .gc-rail--collapsed {
+    position: sticky;
+    width: var(--gc-rail-collapsed);
+  }
+
+  /* Rail expandido en tablet: cajón flotante (overlay). NO participa en la rejilla. */
   .gc-rail--expanded {
-    position: fixed !important;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     z-index: 500;
-    width: var(--gc-rail-expanded) !important;
-    background: #0f0a1c !important; /* Fondo opaco oscuro para legibilidad sobre el contenido */
+    width: var(--gc-rail-expanded);
+    background: var(--gc-glass-strong-bg);
+    backdrop-filter: var(--gc-glass-strong-blur);
+    -webkit-backdrop-filter: var(--gc-glass-strong-blur);
     box-shadow: 10px 0 35px rgba(0, 0, 0, 0.7);
   }
 
@@ -1288,15 +1376,34 @@ input:checked + .slider-red:before {
   .gc-rail--expanded .gc-nav-group-items,
   .gc-rail--expanded .gc-rail-resources,
   .gc-rail--expanded .gc-rail-footer-lang {
-    display: block !important;
+    display: block;
   }
   .gc-rail--expanded .gc-nav-group-items {
-    display: flex !important;
+    display: flex;
   }
   .gc-rail--expanded .gc-nav-group-head,
   .gc-rail--expanded .gc-nav-link {
-    justify-content: flex-start !important;
+    justify-content: flex-start;
   }
+}
+
+/* Scrim overlay (cortina que oscurece el contenido bajo el cajón flotante).
+   Toggled vía la clase .play-shell--drawer-open añadida por PlayLayout.tsx. */
+.gc-rail-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 490;
+  background: rgba(3, 3, 7, 0.6);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--gc-dur-base) var(--gc-ease),
+              visibility var(--gc-dur-base) var(--gc-ease);
+}
+.play-shell--drawer-open .gc-rail-scrim {
+  opacity: 1;
+  visibility: visible;
 }
 
 @media (max-width: 767px) {

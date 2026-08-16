@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
-  "installCommand": "npm install && cd ../goalchain-sdk && npm install",
-  "buildCommand": "cd ../goalchain-sdk && npm run build && cd ../goalchain_webapp && npm run build",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
     { "source": "/classic-dashboard.html", "destination": "/classic-dashboard.html" },

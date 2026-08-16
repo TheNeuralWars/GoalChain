@@ -1,8 +1,9 @@
 (function () {
-  /** Canonical transactional frontend (Vercel / goalchain_webapp). */
-  var PLAY = window.GOALCHAIN_PLAY_URL || 'https://play.goalchain.fun';
+  /** Dynamic target domain detection (supports both goalworld.fun and goalchain.fun). */
+  var host = (typeof window !== 'undefined' && window.location && window.location.hostname) ? window.location.hostname : '';
+  var defaultPlay = host.indexOf('goalworld') !== -1 ? 'https://play.goalworld.fun' : 'https://play.goalchain.fun';
+  var PLAY = window.GOALCHAIN_PLAY_URL || defaultPlay;
   window.GOALCHAIN_PLAY_URL = PLAY;
-  /** Marketing-site alias; GitHub Pages serves docs/go/index.html → play URL. */
   window.GOALCHAIN_PLAY_PATH = window.GOALCHAIN_PLAY_PATH || '/go/';
 
   /**

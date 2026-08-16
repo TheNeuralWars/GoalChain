@@ -486,7 +486,7 @@ export const TradingTerminal: React.FC = () => {
 
             {activeTab === 'manual' ? (
                 /* Manual Trading layout */
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
+                <div className="tt-grid">
                     {/* Control Panel */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                         <div>
@@ -554,7 +554,7 @@ export const TradingTerminal: React.FC = () => {
                 </div>
             ) : (
                 /* Vibe Trading layout */
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
+                <div className="tt-grid">
                     {/* Left Panel: Gauge & Toggles */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                         {/* Sentiment Gauge */}

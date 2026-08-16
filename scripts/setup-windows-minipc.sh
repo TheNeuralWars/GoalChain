@@ -165,7 +165,14 @@ pip install hermes-agent --quiet 2>/dev/null || python -m pip install hermes-age
 HERMES_DIR="${HOME}/.hermes"
 mkdir -p "${HERMES_DIR}"
 
+# Try the new path /data/hermes-home first, fall back to /home/ubuntu/.hermes
 log "Pulling Hermes config files from VPS..."
+scp -o ConnectTimeout=10 \
+  "${GOALCHAIN_SSH}:/data/hermes-home/.env" \
+  "${GOALCHAIN_SSH}:/data/hermes-home/auth.json" \
+  "${GOALCHAIN_SSH}:/data/hermes-home/config.yaml" \
+  "${GOALCHAIN_SSH}:/data/hermes-home/SOUL.md" \
+  "${HERMES_DIR}/" 2>/dev/null || \
 scp -o ConnectTimeout=10 \
   "${GOALCHAIN_SSH}:/home/ubuntu/.hermes/.env" \
   "${GOALCHAIN_SSH}:/home/ubuntu/.hermes/auth.json" \

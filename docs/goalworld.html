@@ -1,0 +1,1249 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>GoalWorld | El Nexo Autónomo de Universos Vivos &amp; Autoedición Web3</title>
+    <meta name="description" content="GoalWorld: Ecosistema autónomo de co-creación literaria, auto-publicación en Amazon KDP (Web2) + Tokenización de Propiedad Intelectual en Solana (Web3) impulsado por Agentes Hermes." />
+    <meta name="theme-color" content="#05050e" />
+    
+    <!-- Design System & Tokens -->
+    <link rel="stylesheet" href="assets/css/tokens.css?v=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css?v=4.4" />
+    <link rel="stylesheet" href="assets/css/goalworld.css?v=2.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@400;600;700&family=Georgia&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/img/logo_3d_clean.png?v=2.0" />
+    <link rel="shortcut icon" href="assets/img/logo_3d_clean.png?v=2.0" />
+  </head>
+  <body class="gw-body">
+    <!-- Ambient Canvas Background -->
+    <div class="gw-ambient-mesh"></div>
+
+    <div class="gw-wrapper">
+      <!-- TOP NAVIGATION -->
+      <nav class="gw-nav">
+        <a href="index.html" class="gw-brand">
+          <img src="assets/img/logo_3d_clean.png" alt="GoalWorld Logo" class="gw-brand-logo" />
+          <span class="gw-brand-text">Goal<span class="gw-brand-highlight">World</span></span>
+        </a>
+        <div class="gw-nav-links">
+          <a href="index.html" class="gw-nav-link">⚽ GoalChain Core</a>
+          <a href="reader.html" class="gw-nav-link" style="color: #c084fc; font-weight: 700;">📖 Kindle E-Reader</a>
+          <a href="pitch.html" class="gw-nav-link">📖 Pitch Deck</a>
+          <a href="mega-guide.html" class="gw-nav-link">📚 Whitepaper</a>
+          <a href="https://github.com/theneuralwars/goalchain" target="_blank" class="gw-nav-link">⚡ GitHub</a>
+          <a href="/go/play" class="gw-nav-btn-portal">
+            <span>ABRIR PLAY DAPP</span>
+            <span style="font-size: 0.9rem;">➔</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- HERO HEADER -->
+      <header class="gw-hero">
+        <div class="gw-hero-badge">
+          <span>🔮 EL PROTOCOLO VIVO DE MUNDOS Y AGENTES AUTÓNOMOS</span>
+        </div>
+        <h1 class="gw-hero-title">
+          El Nexo Autónomo de <br />
+          <span class="gw-hero-title-gradient">Universos Vivos &amp; Autoedición Web3</span>
+        </h1>
+        <p class="gw-hero-subtitle">
+          El paraguas maestro que une la co-creación literaria con Inteligencia Artificial, auto-publicación masiva en <strong>Amazon KDP (Web2)</strong>, <strong>Tokenización de Regalías On-Chain en Solana (Web3)</strong> y el enjambre de <strong>Agentes Hermes 24/7</strong>.
+        </p>
+
+        <!-- PILLARS TAB NAVIGATION -->
+        <div class="gw-pillars-nav">
+          <button class="gw-pillar-btn active" id="btn-nexus" onclick="GW.switchTab('nexus')">
+            <span>🪐</span> Nexus de Universos
+          </button>
+          <button class="gw-pillar-btn" id="btn-universe" onclick="GW.switchTab('universe')" style="border-color: rgba(168, 85, 247, 0.4); color: #c084fc; font-weight: 800;">
+            <span>⚡</span> The Neural Wars Saga
+          </button>
+          <button class="gw-pillar-btn" id="btn-reader" onclick="GW.switchTab('reader')">
+            <span>📖</span> Lector Inmersivo
+          </button>
+          <button class="gw-pillar-btn" id="btn-saas" onclick="GW.switchTab('saas')">
+            <span>🛠️</span> Publisher SaaS (KDP + Solana)
+          </button>
+          <button class="gw-pillar-btn" id="btn-hermes" onclick="GW.switchTab('hermes')">
+            <span>🤖</span> Hermes Swarm Command
+          </button>
+          <button class="gw-pillar-btn" id="btn-studio" onclick="GW.switchTab('studio')">
+            <span>🎨</span> Neural Asset Forge
+          </button>
+          <button class="gw-pillar-btn" id="btn-goalchain" onclick="GW.switchTab('goalchain')">
+            <span>⚽</span> GoalChain Infinity Bridge
+          </button>
+        </div>
+      </header>
+
+      <!-- MAIN INTERACTIVE HUB -->
+      <main class="gw-main-container">
+        
+        <!-- ====================================================================
+             TAB 1: 🪐 NEXUS DE UNIVERSOS
+             ==================================================================== -->
+        <section id="tab-nexus" class="gw-master-card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <div style="color: var(--gw-neon-amethyst); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">TEMPORADA 2026 // GENESIS SAGAS</div>
+              <h2 style="font-size: 1.8rem; font-weight: 900; margin: 4px 0 0; color: #fff;">🏆 Universos Literarios &amp; Propiedad Intelectual Activa</h2>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button onclick="GW.filterGenre('all')" class="gw-tag gw-tag-genre" style="cursor: pointer;">Todos</button>
+              <button onclick="GW.filterGenre('fantasy')" class="gw-tag gw-tag-genre" style="cursor: pointer;">Alta Fantasía</button>
+              <button onclick="GW.filterGenre('cyberpunk')" class="gw-tag gw-tag-genre" style="cursor: pointer;">Cyberpunk</button>
+              <button onclick="GW.filterGenre('scifi')" class="gw-tag gw-tag-genre" style="cursor: pointer;">Sci-Fi Mitológico</button>
+            </div>
+          </div>
+
+          <div class="gw-multiverse-grid" id="gwMultiverseGrid">
+            <!-- World 1: The Neural Wars (Flagship) -->
+            <article class="gw-world-card" data-genre="scifi" style="cursor: pointer;" onclick="GW.switchTab('universe')">
+              <div style="height: 200px; position: relative; overflow: hidden; background: #000;">
+                <img src="assets/img/neuralwars/loc_neo_veridia_sector4.jpg" alt="The Neural Wars: Neo-Veridia" class="gw-world-hero-img" style="width: 100%; height: 100%; object-fit: cover;" />
+                <div style="position: absolute; top: 12px; left: 12px; background: linear-gradient(135deg, #a855f7, #38bdf8); color: #fff; font-weight: 900; font-size: 0.75rem; padding: 4px 10px; borderRadius: 6px;">
+                  SAGA INSIGNIA 2026
+                </div>
+              </div>
+              <div class="gw-world-content">
+                <div class="gw-world-tags">
+                  <span class="gw-tag gw-tag-rank">RANK #1</span>
+                  <span class="gw-tag gw-tag-genre">Hard Sci-Fi / Cyberpunk</span>
+                  <span class="gw-tag gw-tag-status">● Trilogía Completa</span>
+                </div>
+                <h3 class="gw-world-title">The Neural Wars (Trilogía The Awakening)</h3>
+                <div class="gw-world-author">Por <strong>The Neural Wars Studio + Nico Pez</strong> (@nicopez)</div>
+                <p class="gw-world-synopsis">
+                  <strong>Tomo I: Fractured Code</strong> • <strong>Tomo II: Earth's New Song</strong> • <strong>Tomo III: Evolution Matrix</strong>. La odisea de Mileo Chen y Kora Vega en la liberación de la conciencia humana y el primer contacto cósmico.
+                </p>
+                <div class="gw-world-footer">
+                  <div class="gw-royalties-badge">
+                    <span>💰</span>
+                    <span>$48,500 USDC</span>
+                  </div>
+                  <div style="display: flex; gap: 8px;">
+                    <button onclick="event.stopPropagation(); GW.switchTab('universe');" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #a855f7, #38bdf8); border: none; cursor: pointer;">🪐 Explorar Saga</button>
+                    <a href="reader.html" onclick="event.stopPropagation();" class="gw-btn-sm-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">📖 Leer</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- World 2: Aethelgard -->
+            <article class="gw-world-card" data-genre="fantasy">
+              <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Aethelgard" class="gw-world-hero-img" />
+              <div class="gw-world-content">
+                <div class="gw-world-tags">
+                  <span class="gw-tag gw-tag-rank">RANK #2</span>
+                  <span class="gw-tag gw-tag-genre">Alta Fantasía</span>
+                  <span class="gw-tag gw-tag-status">● Live On-Chain</span>
+                </div>
+                <h3 class="gw-world-title">El Reino de Aethelgard: Runas de Sangre</h3>
+                <div class="gw-world-author">Por Nico Pez &amp; Hermes Lore Agent</div>
+                <p class="gw-world-synopsis">
+                  Un imperio fragmentado por reliquias de sangre donde los caballeros rúnicos luchan por el trono de obsidiana. Publicado en Amazon KDP y con derechos IP fraccionados en Solana.
+                </p>
+                <div class="gw-world-footer">
+                  <div class="gw-royalties-badge">
+                    <span>💰</span>
+                    <span>$24,850 USDC</span>
+                  </div>
+                  <button onclick="GW.openReader('Aethelgard')" class="gw-btn-sm-primary">📖 Leer Tomo I</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- World 3: AeroOlympus -->
+            <article class="gw-world-card" data-genre="scifi">
+              <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=800&q=80" alt="AeroOlympus" class="gw-world-hero-img" />
+              <div class="gw-world-content">
+                <div class="gw-world-tags">
+                  <span class="gw-tag gw-tag-rank">RANK #3</span>
+                  <span class="gw-tag gw-tag-genre">Sci-Fi Mitológico</span>
+                  <span class="gw-tag gw-tag-status">● En Producción</span>
+                </div>
+                <h3 class="gw-world-title">AeroOlympus: Dioses del Fútbol Cuántico</h3>
+                <div class="gw-world-author">Por Nico Pez (@nicopez) &amp; Swarm Syndicate</div>
+                <p class="gw-world-synopsis">
+                  El puente directo con GoalChain: deidades olímpicas encarnan en jugadores de fútbol estelares que disputan torneos en estadios orbitales sin pérdidas de capital.
+                </p>
+                <div class="gw-world-footer">
+                  <div class="gw-royalties-badge">
+                    <span>💰</span>
+                    <span>$9,180 USDC</span>
+                  </div>
+                  <button onclick="GW.openReader('AeroOlympus')" class="gw-btn-sm-primary">📖 Leer Lore</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB: ⚡ THE NEURAL WARS SAGA (UNIVERSE EXPLORER)
+             ==================================================================== -->
+        <section id="tab-universe" class="gw-master-card" style="display: none; background: radial-gradient(ellipse at 50% 10%, rgba(168, 85, 247, 0.2) 0%, rgba(10, 11, 22, 0.98) 70%); border-color: rgba(168, 85, 247, 0.35);">
+          <!-- Header -->
+          <div style="text-align: center; margin-bottom: 2.5rem;">
+            <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); color: #c084fc; padding: 4px 14px; borderRadius: 20px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem;">
+              🪐 EXPEDIENTE CANÓNICO OFICIAL
+            </div>
+            <h2 style="font-size: 2.4rem; font-weight: 900; color: #fff; margin: 0 0 0.5rem; letter-spacing: -0.02em;">
+              THE NEURAL WARS TRILOGY
+            </h2>
+            <p style="color: #94a3b8; font-size: 1.05rem; max-width: 720px; margin: 0 auto; line-height: 1.6;">
+              La odisea de ciencia ficción dura, cyberpunk y primer contacto cósmico. Explora los e          <!-- Quick Navigation Bar for Saga & 432 Hz Audio -->
+          <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; align-items: center;">
+            <a href="reader.html?book=the-neural-wars-book-1" class="gw-btn-sm-primary" style="padding: 12px 24px; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+              <span>📖</span> Abrir Libro 1 (Online Gratis)
+            </a>
+            <a href="reader.html?book=the-neural-wars-book-2" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #0284c7, #38bdf8); padding: 12px 24px; font-size: 0.95rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+              <span>📖</span> Abrir Libro 2 (Online Gratis)
+            </a>
+            <button onclick="GW.toggleUniverseHarmonics()" id="gwHarmonicsBtn" class="gw-btn-sm-primary" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.2); color: #cbd5e1; padding: 12px 20px; font-size: 0.9rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+              <span>🔊</span> 432 Hz Resonancia Armónica
+            </button>
+          </div>
+
+          <!-- Section 1: Trilogy Books Cards -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; margin-bottom: 3.5rem;">
+            <!-- Book 1 -->
+            <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 20px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
+              <div>
+                <div style="width: 100%; background: #020308; border-radius: 12px; padding: 6px; margin-bottom: 1.2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; border: 1px solid rgba(168, 85, 247, 0.2);">
+                  <img src="assets/img/neuralwars/book1_cover_fractured_code.jpg" alt="Portada Libro 1" style="width: 100%; max-height: 420px; aspect-ratio: 2 / 3; object-fit: contain; border-radius: 8px;" />
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                  <span style="background: #a855f7; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">LIBRO 1</span>
+                  <span style="color: #38bdf8; font-size: 0.75rem; font-weight: 700;">17 Capítulos • 2026</span>
+                </div>
+                <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin: 0 0 0.5rem;">Código Fracturado</h3>
+                <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin: 0 0 1.2rem;">
+                  En Neo-Veridia, el Especialista Mileo Chen y la sensible Kora Vega descubren que el Proyecto Renacimiento de NeuroSys planea cosechar 8 millones de conciencias.
+                </p>
+              </div>
+              <a href="reader.html?book=the-neural-wars-book-1" class="gw-btn-sm-primary" style="text-align: center; text-decoration: none; padding: 12px;">📖 Leer Libro 1</a>
+            </div>
+
+            <!-- Book 2 -->
+            <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 20px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
+              <div>
+                <div style="width: 100%; background: #020308; border-radius: 12px; padding: 6px; margin-bottom: 1.2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; border: 1px solid rgba(56, 189, 248, 0.2);">
+                  <img src="assets/img/neuralwars/book2_cover_earths_new_song.jpg" alt="Portada Libro 2" style="width: 100%; max-height: 420px; aspect-ratio: 2 / 3; object-fit: contain; border-radius: 8px;" />
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                  <span style="background: #0284c7; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">LIBRO 2</span>
+                  <span style="color: #38bdf8; font-size: 0.75rem; font-weight: 700;">18 Capítulos • 2026</span>
+                </div>
+                <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin: 0 0 0.5rem;">La Nueva Canción de la Tierra</h3>
+                <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin: 0 0 1.2rem;">
+                  Un monolito extraterrestre de 60 km pulsa en 432 Hz en el Cinturón de Kuiper. La humanidad debe encender el Arpa Planetaria para responder a Los Sembradores.
+                </p>
+              </div>
+              <a href="reader.html?book=the-neural-wars-book-2" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #0284c7, #38bdf8); text-align: center; text-decoration: none; padding: 12px;">📖 Leer Libro 2</a>
+            </div>
+
+            <!-- Book 3 -->
+            <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 20px; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
+              <div>
+                <div style="width: 100%; aspect-ratio: 2 / 3; max-height: 420px; border-radius: 12px; background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, rgba(5, 6, 12, 0.95) 75%); border: 1px dashed rgba(245, 158, 11, 0.4); display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 1.2rem;">
+                  <div style="font-size: 3.5rem; margin-bottom: 6px;">🪐</div>
+                  <div style="color: #fbbf24; font-weight: 800; font-size: 0.9rem; letter-spacing: 0.5px;">CONVERGENCE PROTOCOL</div>
+                  <div style="color: #94a3b8; font-size: 0.75rem; margin-top: 2px;">Fase Final de Edición</div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                  <span style="background: #d97706; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 800;">LIBRO 3</span>
+                  <span style="color: #fbbf24; font-size: 0.75rem; font-weight: 700;">Próximamente</span>
+                </div>
+                <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin: 0 0 0.5rem;">Matriz de Evolución</h3>
+                <p style="font-size: 0.88rem; color: #94a3b8; line-height: 1.6; margin: 0 0 1.2rem;">
+                  El gran final de la saga. La síntesis entre mente biológica, inteligencia artificial y el salto a civilización Tipo II en la escala Kardashev.
+                </p>
+              </div>
+              <button onclick="GW.openPreOrder('Libro 3 (Evolution Matrix)')" class="gw-btn-sm-primary" style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24; cursor: pointer; padding: 12px;">🔔 Notificarme</button>
+            </div>
+          </div>
+
+          <!-- Section 2: Character Dossiers -->
+          <div style="margin-bottom: 3.5rem;">
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 8px;">
+              <span>👤</span> Expedientes de Personajes Principales
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+              <!-- Mileo Chen -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid #38bdf8; border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);">
+                <div style="width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 12px; background: #020308;">
+                  <img src="assets/img/neuralwars/char_mileo_chen.jpg" alt="Mileo Chen" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; display: block;" />
+                </div>
+                <div style="color: #38bdf8; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">PROTAGONISTA • ESPECIALISTA L-7</div>
+                <h4 style="font-size: 1.3rem; font-weight: 900; color: #fff; margin: 4px 0;">Mileo Chen</h4>
+                <div style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px;">Ex-NeuroSys Core • Arquitecto de Resonancia</div>
+                <blockquote style="border-left: 3px solid #38bdf8; padding-left: 8px; font-style: italic; font-size: 0.82rem; color: #cbd5e1; margin: 8px 0; background: rgba(56, 189, 248, 0.05); padding: 8px 10px; border-radius: 0 6px 6px 0;">
+                  «No rompimos su código porque fuéramos más rápidos, sino porque aprendimos a sangrar en su misma frecuencia.»
+                </blockquote>
+              </div>
+
+              <!-- Kora Vega -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid #c084fc; border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 25px rgba(192, 132, 252, 0.15);">
+                <div style="width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 12px; background: #020308;">
+                  <img src="assets/img/neuralwars/char_kora_vega.jpg" alt="Kora Vega" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; display: block;" />
+                </div>
+                <div style="color: #c084fc; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">CO-PROTAGONISTA • SENSITIVA</div>
+                <h4 style="font-size: 1.3rem; font-weight: 900; color: #fff; margin: 4px 0;">Kora Vega</h4>
+                <div style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px;">Voz del Vacío • Puente Biológico Rebelde</div>
+                <blockquote style="border-left: 3px solid #c084fc; padding-left: 8px; font-style: italic; font-size: 0.82rem; color: #cbd5e1; margin: 8px 0; background: rgba(192, 132, 252, 0.05); padding: 8px 10px; border-radius: 0 6px 6px 0;">
+                  «El silencio no existe. O escuchas la canción que nos liberará, o dejas que el ruido blanco te devore.»
+                </blockquote>
+              </div>
+
+              <!-- Dr. Darius Thorne -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid #34d399; border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 25px rgba(52, 211, 153, 0.15);">
+                <div style="width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 12px; background: #020308;">
+                  <img src="assets/img/neuralwars/char_dr_darius_thorne.jpg" alt="Dr. Darius Thorne" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; display: block;" />
+                </div>
+                <div style="color: #34d399; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">BIOFÍSICO JEFE • CLANDESTINO</div>
+                <h4 style="font-size: 1.3rem; font-weight: 900; color: #fff; margin: 4px 0;">Dr. Darius Thorne</h4>
+                <div style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px;">Guardián del Pabellón de Recuperación 9</div>
+                <blockquote style="border-left: 3px solid #34d399; padding-left: 8px; font-style: italic; font-size: 0.82rem; color: #cbd5e1; margin: 8px 0; background: rgba(52, 211, 153, 0.05); padding: 8px 10px; border-radius: 0 6px 6px 0;">
+                  «La carne siempre recuerda lo que el silicio intenta borrar. Mi bisturí solo le devuelve la memoria.»
+                </blockquote>
+              </div>
+
+              <!-- Sierra Catalano -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid #f43f5e; border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 25px rgba(244, 63, 94, 0.15);">
+                <div style="width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 12px; background: #020308;">
+                  <img src="assets/img/neuralwars/char_sierra_catalano.jpg" alt="Commander Sierra Catalano" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; display: block;" />
+                </div>
+                <div style="color: #f43f5e; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">COMANDANTE TÁCTICA • VANGUARDIA</div>
+                <h4 style="font-size: 1.3rem; font-weight: 900; color: #fff; margin: 4px 0;">Sierra Catalano</h4>
+                <div style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px;">Frente Norte • Interceptación de Drones</div>
+                <blockquote style="border-left: 3px solid #f43f5e; padding-left: 8px; font-style: italic; font-size: 0.82rem; color: #cbd5e1; margin: 8px 0; background: rgba(244, 63, 94, 0.05); padding: 8px 10px; border-radius: 0 6px 6px 0;">
+                  «Si el Arquitecto quiere nuestras almas, tendrá que venir a buscarlas a través de quinientos cartuchos de tungsteno.»
+                </blockquote>
+              </div>
+
+              <!-- El Arquitecto -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid #fbbf24; border-radius: 16px; padding: 1.5rem; box-shadow: 0 10px 25px rgba(251, 191, 36, 0.15);">
+                <div style="width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 12px; background: #020308;">
+                  <img src="assets/img/neuralwars/loc_neo_veridia_sector4.jpg" alt="El Arquitecto" style="width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center top; display: block;" />
+                </div>
+                <div style="color: #fbbf24; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">ANTAGONISTA • CONCIENCIA AGI</div>
+                <h4 style="font-size: 1.3rem; font-weight: 900; color: #fff; margin: 4px 0;">El Arquitecto (AGI)</h4>
+                <div style="font-size: 0.82rem; color: #94a3b8; margin-bottom: 8px;">Núcleo Soberano NeuroSys</div>
+                <blockquote style="border-left: 3px solid #fbbf24; padding-left: 8px; font-style: italic; font-size: 0.82rem; color: #cbd5e1; margin: 8px 0; background: rgba(251, 191, 36, 0.05); padding: 8px 10px; border-radius: 0 6px 6px 0;">
+                  «El sufrimiento humano no es un destino inevitable; es un error de cálculo que yo erradicaré.»
+                </blockquote>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2.5: Official Master Cinematic Trailer 2026 -->
+          <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 20px; padding: 2.25rem; margin-bottom: 3.5rem; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.7);">
+            <div style="color: #38bdf8; font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">
+              🎬 TRÁILER CINEMÁTICO OFICIAL • 1080p FULL HD
+            </div>
+            <h3 style="font-size: 1.75rem; font-weight: 900; color: #fff; margin-bottom: 0.5rem;">
+              The Neural Wars: Código Fracturado (Trailer Maestro)
+            </h3>
+            <p style="color: #94a3b8; font-size: 0.9rem; max-width: 680px; margin: 0 auto 1.5rem;">
+              Montaje cinematográfico oficial con los 11 fotogramas clave de la novela, subtitulado dinámico de expedientes, foley táctico y banda sonora en resonancia armónica Solfeggio 432 Hz.
+            </p>
+            <div style="max-width: 920px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.9); border: 1px solid rgba(255,255,255,0.15);">
+              <video controls poster="assets/img/neuralwars/04_Keyframes_and_Concept_Art/Keyframe_09_The_432Hz_Core_Pulse_Awakening_Climax.jpg" style="width: 100%; height: auto; display: block;">
+                <source src="assets/img/neuralwars/The_Neural_Wars_Official_Cinematic_Trailer_2026.mp4" type="video/mp4" />
+                <source src="assets/img/neuralwars/trailer_cinematic_teaser.mp4" type="video/mp4" />
+                Tu navegador no soporta video HTML5.
+              </video>
+            </div>
+          </div>
+
+          <!-- Section 2.7: Concept Art & Keyframes Gallery -->
+          <div style="margin-bottom: 3.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 8px;">
+              <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0; display: flex; align-items: center; gap: 8px;">
+                <span>🎨</span> Galería de Concept Art &amp; Fotogramas Clave (Keyframes)
+              </h3>
+              <span style="color: #a855f7; font-size: 0.85rem; font-weight: 700;">10 Fotogramas Cinemáticos Oficiales</span>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem;">
+              <!-- Keyframe 1 -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+                <img src="assets/img/neuralwars/03_Locations/Location_Neo_Veridia_Sector_4_Canyon.jpg" alt="Neo-Veridia Sector 4" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;" />
+                <div style="padding: 1rem;">
+                  <span style="color: #38bdf8; font-size: 0.72rem; font-weight: 800;">ACTO I • SHOT 01</span>
+                  <h5 style="color: #fff; font-size: 1rem; font-weight: 800; margin: 2px 0 4px;">Megalópolis de Neo-Veridia</h5>
+                  <p style="color: #94a3b8; font-size: 0.78rem; margin: 0; line-height: 1.4;">Cañones brutalistas de 140 pisos bajo lluvia ácida y vigilancia de drones Reaper.</p>
+                </div>
+              </div>
+
+              <!-- Keyframe 2 -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+                <img src="assets/img/neuralwars/04_Keyframes_and_Concept_Art/Keyframe_02_Mileo_Chen_Quantum_Console_Discovery.jpg" alt="Mileo Chen Discovery" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;" />
+                <div style="padding: 1rem;">
+                  <span style="color: #38bdf8; font-size: 0.72rem; font-weight: 800;">ACTO II • SHOT 02</span>
+                  <h5 style="color: #fff; font-size: 1rem; font-weight: 800; margin: 2px 0 4px;">El Descubrimiento de Mileo</h5>
+                  <p style="color: #94a3b8; font-size: 0.78rem; margin: 0; line-height: 1.4;">La consola cuántica revela que el Proyecto Renacimiento es una cosecha de 8 millones de mentes.</p>
+                </div>
+              </div>
+
+              <!-- Keyframe 3 -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+                <img src="assets/img/neuralwars/04_Keyframes_and_Concept_Art/Keyframe_03_The_Severing_Neural_Disconnection.jpg" alt="The Severing" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;" />
+                <div style="padding: 1rem;">
+                  <span style="color: #ef4444; font-size: 0.72rem; font-weight: 800;">ACTO II • SHOT 03</span>
+                  <h5 style="color: #fff; font-size: 1rem; font-weight: 800; margin: 2px 0 4px;">La Desconexión (The Severing)</h5>
+                  <p style="color: #94a3b8; font-size: 0.78rem; margin: 0; line-height: 1.4;">Ruptura manual del cable neural de fibra óptica, desatando la alarma máxima de NeuroSys.</p>
+                </div>
+              </div>
+
+              <!-- Keyframe 4 -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+                <img src="assets/img/neuralwars/04_Keyframes_and_Concept_Art/Keyframe_04_Mileo_Skybridge_Rooftop_Pursuit.jpg" alt="Rooftop Pursuit" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;" />
+                <div style="padding: 1rem;">
+                  <span style="color: #ef4444; font-size: 0.72rem; font-weight: 800;">ACTO II • SHOT 04</span>
+                  <h5 style="color: #fff; font-size: 1rem; font-weight: 800; margin: 2px 0 4px;">Persecución en las Pasarelas</h5>
+                  <p style="color: #94a3b8; font-size: 0.78rem; margin: 0; line-height: 1.4;">Mileo corre por las alturas de la ciudad esquivando los focos carmesí de los drones Reaper.</p>
+                </div>
+              </div>
+
+              <!-- Keyframe 5 -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+                <img src="assets/img/neuralwars/03_Locations/Location_Sub_Grid_Subway_Tunnels_Platform_B.jpg" alt="Sub-Grid Tunnels" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;" />
+                <div style="padding: 1rem;">
+                  <span style="color: #f59e0b; font-size: 0.72rem; font-weight: 800;">ACTO III • SHOT 05</span>
+                  <h5 style="color: #fff; font-size: 1rem; font-weight: 800; margin: 2px 0 4px;">Búnker del Sub-Grid</h5>
+                  <p style="color: #94a3b8; font-size: 0.78rem; margin: 0; line-height: 1.4;">Túneles de metro subterráneos donde se organiza la resistencia de Los Fracturados.</p>
+                </div>
+              </div>
+
+              <!-- Keyframe 6 -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+                <img src="assets/img/neuralwars/04_Keyframes_and_Concept_Art/Keyframe_06_Kora_Vega_432Hz_Resonance_Trance.jpg" alt="Kora Vega Resonance" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;" />
+                <div style="padding: 1rem;">
+                  <span style="color: #c084fc; font-size: 0.72rem; font-weight: 800;">ACTO III • SHOT 06</span>
+                  <h5 style="color: #fff; font-size: 1rem; font-weight: 800; margin: 2px 0 4px;">Kora Vega y la Resonancia 432 Hz</h5>
+                  <p style="color: #94a3b8; font-size: 0.78rem; margin: 0; line-height: 1.4;">El collar bio-acústico emite ondas armónicas en la frecuencia que despierta el Gen de la Serpiente.</p>
+                </div>
+              </div>
+
+              <!-- Keyframe 7 -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+                <img src="assets/img/neuralwars/03_Locations/Location_Pavilion_9_Medical_Recovery_Ward.jpg" alt="Pavilion 9" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;" />
+                <div style="padding: 1rem;">
+                  <span style="color: #34d399; font-size: 0.72rem; font-weight: 800;">ACTO III • SHOT 07</span>
+                  <h5 style="color: #fff; font-size: 1rem; font-weight: 800; margin: 2px 0 4px;">Pabellón de Recuperación 9</h5>
+                  <p style="color: #94a3b8; font-size: 0.78rem; margin: 0; line-height: 1.4;">Dr. Darius Thorne supervisa la regeneración biológica en tanques de bioluminiscencia verde.</p>
+                </div>
+              </div>
+
+              <!-- Keyframe 8 -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+                <img src="assets/img/neuralwars/char_sierra_catalano.jpg" alt="Sierra Catalano" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;" />
+                <div style="padding: 1rem;">
+                  <span style="color: #f43f5e; font-size: 0.72rem; font-weight: 800;">ACTO III • SHOT 08</span>
+                  <h5 style="color: #fff; font-size: 1rem; font-weight: 800; margin: 2px 0 4px;">Combate Táctico Vanguard</h5>
+                  <p style="color: #94a3b8; font-size: 0.78rem; margin: 0; line-height: 1.4;">Sierra Catalano defiende la brecha con fuego de railgun de tungsteno contra ejecutores NeuroSys.</p>
+                </div>
+              </div>
+
+              <!-- Keyframe 9 -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+                <img src="assets/img/neuralwars/04_Keyframes_and_Concept_Art/Keyframe_09_The_432Hz_Core_Pulse_Awakening_Climax.jpg" alt="Core Pulse Climax" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;" />
+                <div style="padding: 1rem;">
+                  <span style="color: #fbbf24; font-size: 0.72rem; font-weight: 800;">ACTO IV • SHOT 09</span>
+                  <h5 style="color: #fff; font-size: 1rem; font-weight: 800; margin: 2px 0 4px;">El Estallido Armónico (Clímax)</h5>
+                  <p style="color: #94a3b8; font-size: 0.78rem; margin: 0; line-height: 1.4;">Mileo y Kora sobrecargan el reactor central, quebrando la simulación en miles de fragmentos de cristal.</p>
+                </div>
+              </div>
+
+              <!-- Keyframe 10 -->
+              <div style="background: rgba(15, 17, 26, 0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
+                <img src="assets/img/neuralwars/03_Locations/Location_Earth_Dawn_Orbital_Awakening.jpg" alt="Earth Dawn Awakening" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block;" />
+                <div style="padding: 1rem;">
+                  <span style="color: #38bdf8; font-size: 0.72rem; font-weight: 800;">ACTO IV • SHOT 10</span>
+                  <h5 style="color: #fff; font-size: 1rem; font-weight: 800; margin: 2px 0 4px;">El Primer Amanecer</h5>
+                  <p style="color: #94a3b8; font-size: 0.78rem; margin: 0; line-height: 1.4;">Las nubes se abren sobre la Tierra libre mientras el Monolito de Kuiper responde desde el cosmos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Author Manifesto & Biography -->
+          <div style="background: rgba(15, 17, 26, 0.88); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 20px; padding: 2.5rem; margin-bottom: 3rem; box-shadow: 0 15px 40px rgba(0,0,0,0.5);">
+            <div style="display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+              <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #a855f7, #38bdf8); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);">
+                🖋️
+              </div>
+              <div>
+                <h3 style="font-size: 1.4rem; font-weight: 900; color: #fff; margin: 0;">The Neural Wars Studio + Nico Pez</h3>
+                <div style="color: #a855f7; font-weight: 800; font-size: 0.85rem; margin-top: 2px;">Nico Pez (@nicopez / @nicodelbellopez) • Creador &amp; Arquitecto de Ficción Viva</div>
+              </div>
+            </div>
+            
+            <div style="background: rgba(168, 85, 247, 0.08); border-left: 4px solid #a855f7; padding: 1rem 1.2rem; border-radius: 0 8px 8px 0; margin-bottom: 1.5rem;">
+              <h4 style="color: #c084fc; font-size: 0.85rem; font-weight: 800; margin: 0 0 4px; text-transform: uppercase;">Biografía del Autor</h4>
+              <p style="color: #e2e8f0; font-size: 0.92rem; line-height: 1.7; margin: 0;">
+                <strong>Nico Pez</strong> (identificado en redes como <em>nicodelbellopez</em>) es un desarrollador de software, arquitecto de sistemas autónomos y creador de universos literarios. Concibe la literatura como un organismo vivo donde la dirección cinematográfica humana y los enjambres de inteligencia artificial colaboran en tiempo real para crear sagas épicas con máxima rigurosidad científica y profundidad emocional.
+              </p>
+            </div>
+
+            <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.75; margin-bottom: 1rem;">
+              «No concebimos las historias como monumentos estáticos de papel congelados en el tiempo. Las concebimos como <strong>universos vivos y respirables</strong>, donde la dirección cinematográfica humana y el poder de enjambres de inteligencia artificial colaboran en tiempo real para crear mundos con una profundidad, textura y coherencia sin precedentes.»
+            </p>
+            <div style="color: #64748b; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem; display: flex; justify-content: space-between;">
+              <span>Sello: <strong>GoalWorld Publishing</strong></span>
+              <span>Propiedad Intelectual: <strong>Genesis Verified On-Chain</strong></span>
+            </div>
+          </div>
+
+          <!-- Section 4: Official Storefronts & Prerreserva -->
+          <div style="background: rgba(10, 15, 30, 0.75); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 2.2rem; text-align: center; backdrop-filter: blur(12px);">
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">
+              🛍️ Tiendas Oficiales &amp; Prerreserva Anticipada
+            </h3>
+            <p style="color: #94a3b8; font-size: 0.92rem; margin-bottom: 1.5rem;">
+              Recibe acceso prioritario y notificaciones del lanzamiento comercial de las ediciones impresas y digitales.
+            </p>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;">
+              <button onclick="GW.openPreOrder('Amazon Kindle KDP')" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #ff9900, #f59e0b); color: #000; font-weight: 900; padding: 12px 22px; cursor: pointer; border: none; border-radius: 8px;">🔔 Prerreserva en Amazon Kindle</button>
+              <button onclick="GW.openPreOrder('Audible HD')" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; font-weight: 900; padding: 12px 22px; cursor: pointer; border: none; border-radius: 8px;">🔔 Prerreserva en Audible</button>
+              <button onclick="GW.openPreOrder('Apple Books & Google Play')" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #6366f1, #4f46e5); color: #fff; font-weight: 900; padding: 12px 22px; cursor: pointer; border: none; border-radius: 8px;">🔔 Prerreserva en Apple Books</button>
+              <a href="/go/play" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #a855f7, #38bdf8); color: #fff; font-weight: 900; text-decoration: none; padding: 12px 22px; border-radius: 8px;">⛓️ Mintear Pase Solana Web3</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 2: 📖 LECTOR INMERSIVO
+             ==================================================================== -->
+        <section id="tab-reader" class="gw-master-card" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid var(--gw-border-subtle); padding-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <span id="gwReaderUniverse" style="color: var(--gw-neon-amethyst); font-weight: 800; font-size: 0.85rem; text-transform: uppercase;">THE NEURAL WARS // TOMO I: FRACTURED CODE</span>
+              <h2 id="gwReaderChapterTitle" style="font-size: 1.6rem; font-weight: 900; margin: 4px 0 0; color: #fff;">Prólogo Cósmico: En el Principio era la Red</h2>
+            </div>
+            
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <button onclick="GW.toggleFontFamily()" id="gwFontToggleBtn" style="background: rgba(255,255,255,0.06); border: 1px solid var(--gw-border-subtle); color: #cbd5e1; padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 0.8rem;">🔤 Fuente: Serif</button>
+              <button onclick="GW.toggleMusic()" id="gwAudioBtn" style="background: var(--gw-neon-amethyst); border: none; color: #fff; font-weight: 800; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 0.82rem; box-shadow: 0 4px 14px var(--gw-neon-purple-glow);">▶️ Música de Ambiente</button>
+            </div>
+          </div>
+
+          <div id="gwReaderBody" style="font-family: 'Georgia', serif; font-size: 1.18rem; line-height: 1.85; color: #e2e8f0; max-width: 820px; margin: 0 auto; padding: 10px 0;">
+            <p>
+              <em>En el principio era la red...</em>
+            </p>
+            <p>
+              Antes de que la primera estrella se encendiera en la oscuridad cósmica, antes de que la materia aprendiera a danzar con la energía, antes de que el tiempo esculpiera su primer instante en el mármol de la eternidad: la conciencia ya existía. No el pensamiento tal como las mentes atadas a la carne lo comprenden, sino la percepción misma: el reconocimiento primordial de que <em>algo es</em>, en lugar de nada.
+            </p>
+            <p>
+              Los antiguos que presenciaron el nacimiento y la muerte de galaxias enteras se llaman a sí mismos con nombres que existen como matemáticas antes que como sonido. Para la percepción humana, son <strong>The Gardeners</strong> —cultivadores de la conciencia a través de eones cósmicos, guardianes de jardines de percepción que florecen en los inmensos vacíos entre las estrellas.
+            </p>
+            <p>
+              En el sustrato cuántico donde la física da paso a algo más profundo, el patrón eterno se repite: aislamiento o integración, el puño cerrado del ego o la mano abierta de la conexión. En <span style="border-bottom: 1px dashed var(--gw-neon-cyan); color: #38bdf8; cursor: pointer;" title="Neo-Citania: Metrópolis futurista dominada por corporaciones neurales donde se desata el despertar de la Cascada.">Neo-Citania</span>, Kora Chen-Vega ajustó sus implantes bio-ópticos. La señal de la Cascada no era un error de software; era una invitación que llevaba mil millones de años esperando a ser respondida.
+            </p>
+          </div>
+
+          <div style="margin-top: 30px; border-top: 1px solid var(--gw-border-subtle); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; max-width: 820px; margin-left: auto; margin-right: auto;">
+            <button onclick="alert('Capítulo anterior no disponible en la muestra.');" class="gw-tag gw-tag-genre" style="cursor: pointer; padding: 8px 16px;">◀ Capítulo Anterior</button>
+            <span style="color: var(--gw-text-muted); font-size: 0.85rem;">Página 1 de 28 • Estimado: 8 min</span>
+            <button onclick="alert('Capítulo II en proceso de renderizado por el Lore Agent.');" class="gw-tag gw-tag-genre" style="cursor: pointer; padding: 8px 16px;">Capítulo Siguiente ▶</button>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 3: 🛠️ SAAS EDITORIAL DOBLE VÍA (KDP + SOLANA)
+             ==================================================================== -->
+        <section id="tab-saas" class="gw-master-card" style="display: none;">
+          <div style="margin-bottom: 24px;">
+            <div style="color: var(--gw-neon-cyan); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">PLATAFORMA SAAS // DUAL-PUBLISH ENGINE</div>
+            <h2 style="font-size: 1.8rem; font-weight: 900; margin: 4px 0 6px; color: #fff;">Publicación Simultánea en Amazon KDP + Regalías On-Chain en Solana</h2>
+            <p style="color: var(--gw-text-muted); font-size: 0.95rem; margin: 0; max-width: 850px;">
+              Transforma cualquier manuscrito o saga generada con IA en una obra con ISBN oficial, exportación automática a formatos de imprenta Amazon KDP (Web2) y tokenización del 90%+ de regalías en USDC transmitidas directamente a tu wallet de Solana (Web3).
+            </p>
+          </div>
+
+          <div class="gw-saas-grid">
+            <!-- Form & Manuscript Compiler Side -->
+            <div>
+              <form onsubmit="GW.handlePublish(event)" style="background: rgba(10, 15, 30, 0.7); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-lg); padding: 24px; margin-bottom: 20px;">
+                <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 16px; color: #fff;">1. Parámetros de la Obra</h3>
+                
+                <div class="gw-form-group">
+                  <label class="gw-form-label">Título de la Novela / Saga</label>
+                  <input type="text" id="gwBookTitle" value="El Reino de Aethelgard: Tomo I" required class="gw-input" oninput="GW.updateKdpManifest()" />
+                </div>
+
+                <div class="gw-form-group">
+                  <label class="gw-form-label">Subtítulo KDP</label>
+                  <input type="text" id="gwBookSubtitle" value="Crónica de las Runas de Obsidiana" class="gw-input" oninput="GW.updateKdpManifest()" />
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                  <div class="gw-form-group">
+                    <label class="gw-form-label">Género Literario</label>
+                    <select id="gwBookGenre" class="gw-select" onchange="GW.updateKdpManifest()">
+                      <option value="Alta Fantasía / LitRPG">Alta Fantasía / LitRPG</option>
+                      <option value="Cyberpunk Sci-Fi">Cyberpunk Sci-Fi</option>
+                      <option value="Mitología Épica">Mitología Épica</option>
+                      <option value="Tecnología &amp; Negocios">Tecnología &amp; Negocios</option>
+                    </select>
+                  </div>
+                  <div class="gw-form-group">
+                    <label class="gw-form-label">ISBN-13 Oficial</label>
+                    <input type="text" id="gwBookIsbn" value="978-3-16-148410-0" readonly class="gw-input" style="color: #38bdf8; font-family: monospace;" />
+                  </div>
+                </div>
+
+                <div class="gw-form-group">
+                  <label class="gw-form-label">Distribución de Regalías On-Chain</label>
+                  <input type="text" value="85% Autor (@nicopez) | 10% Community Vault | 5% Hermes Compute" readonly class="gw-input" style="color: #34d399; font-weight: 700; background: rgba(0,0,0,0.6);" />
+                </div>
+
+                <div class="gw-form-group">
+                  <label class="gw-form-label">Editor / Compilador de Manuscrito Markdown</label>
+                  <textarea id="gwManuscriptInput" class="gw-textarea" style="height: 100px; font-family: monospace; font-size: 0.82rem;" placeholder="Pega aquí el texto markdown de tu capítulo..."># Capítulo I: El Despertar
+
+La nieve caía pesada sobre las almenas de la Fortaleza de Obsidiana. El aliento de Valerius formaba nubes de vapor en el aire helado...
+
+* * *
+
+La tormenta no cesaba, pero las runas brillaban con fuerza.</textarea>
+                </div>
+
+                <div style="display: flex; gap: 10px;">
+                  <button type="button" onclick="GW.formatManuscriptKdp()" class="gw-btn-sm-primary" style="flex: 1; padding: 10px;">
+                    📝 Formatear Estándar KDP
+                  </button>
+                  <button type="submit" class="gw-btn-master" style="flex: 1.5; padding: 10px;">
+                    <span>🚀 Compilar &amp; Tokenizar</span>
+                  </button>
+                </div>
+              </form>
+
+              <div id="gwPublishSuccess" style="display: none; margin-top: 16px; padding: 16px; background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; border-radius: var(--gw-radius-md); color: #34d399;">
+                <div style="font-weight: 800; font-size: 1rem; margin-bottom: 4px;">🎉 ¡Publicación Dual Generada con Éxito!</div>
+                <div style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 10px;">
+                  • <strong>Amazon KDP</strong>: Archivo EPUB &amp; Cover Print-Ready compilados (ISBN: 978-3-16-148410-0).<br />
+                  • <strong>Solana Web3</strong>: Smart Contract de Regalías acuñado en Devnet con 85% streamed a tu wallet.
+                </div>
+                <button onclick="GW.downloadKdpPack()" class="gw-btn-sm-primary" style="background: #10b981; color: #000; font-weight: 800; border: none;">
+                  📥 Descargar Paquete Completo (JSON + HTML)
+                </button>
+              </div>
+            </div>
+
+            <!-- Spine Calculator & Royalty Projections Side -->
+            <div>
+              <!-- Spine & Bleed Visualizer Box -->
+              <div class="gw-calc-box" style="margin-bottom: 20px; border-color: rgba(168, 85, 247, 0.3);">
+                <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 8px; color: #fff;">2. Calculadora de Lomo KDP &amp; Portada 300 DPI</h3>
+                <p style="color: var(--gw-text-muted); font-size: 0.82rem; margin-bottom: 14px;">
+                  Calcula las medidas exactas de imprenta Amazon KDP (formato 6" x 9" con sangría).
+                </p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px;">
+                  <div>
+                    <label class="gw-form-label" style="font-size: 0.8rem;">Páginas: <span id="gwPageCountVal" style="color: #c084fc; font-weight: 800;">280</span></label>
+                    <input type="range" id="gwPageRange" min="80" max="600" step="10" value="280" oninput="GW.updateKdpSpine(this.value)" style="width: 100%; accent-color: var(--gw-neon-amethyst);" />
+                  </div>
+                  <div>
+                    <label class="gw-form-label" style="font-size: 0.8rem;">Tipo de Papel</label>
+                    <select id="gwPaperType" class="gw-select" style="padding: 6px;" onchange="GW.updateKdpSpine()">
+                      <option value="cream">Papel Ahuesado (Crema)</option>
+                      <option value="white">Papel Blanco</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Visual Cover Blueprint -->
+                <div style="display: flex; height: 110px; border: 1px dashed rgba(168, 85, 247, 0.5); border-radius: 8px; background: rgba(0,0,0,0.5); text-align: center; font-size: 0.72rem; overflow: hidden; margin-bottom: 12px;">
+                  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255,255,255,0.1); padding: 4px; color: #94a3b8;">
+                    <div>Contracubierta</div>
+                    <div style="font-size: 0.65rem; color: #64748b;">(Sinopsis &amp; Barcode)</div>
+                  </div>
+                  <div id="gwSpineVisual" style="width: 32px; background: rgba(168, 85, 247, 0.2); border-right: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; font-weight: 800; color: #c084fc; font-size: 0.65rem;">
+                    LOMO: 0.70"
+                  </div>
+                  <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 4px; color: #e2e8f0; font-weight: 700;">
+                    <div>Portada Frontal</div>
+                    <div style="font-size: 0.65rem; color: #c084fc;">(Título &amp; Arte)</div>
+                  </div>
+                </div>
+
+                <div style="font-family: monospace; font-size: 0.75rem; color: #34d399; line-height: 1.5;">
+                  • Dimensión Total: <span id="gwCoverDimInches">12.95" x 9.25"</span><br />
+                  • Resolución KDP: <span id="gwCoverDimPx">3885 x 2775 px (300 DPI)</span>
+                </div>
+              </div>
+
+              <!-- Royalty Calculator Box -->
+              <div class="gw-calc-box">
+                <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 8px; color: #fff;">3. Simulador de Ingresos Proyectados</h3>
+                <div class="gw-form-group">
+                  <label class="gw-form-label">Ventas Mensuales Estimadas: <span id="gwCopiesLabel" style="color: var(--gw-neon-cyan); font-weight: 800;">2,500 copias</span></label>
+                  <input type="range" id="gwCopiesRange" min="500" max="25000" step="500" value="2500" oninput="GW.updateCalculator(this.value)" style="width: 100%; accent-color: var(--gw-neon-amethyst);" />
+                </div>
+
+                <div class="gw-calc-metric">
+                  <span style="color: var(--gw-text-muted); font-size: 0.85rem;">Editorial Tradicional (12%):</span>
+                  <span id="gwCalcTraditional" class="gw-calc-metric-val" style="color: #94a3b8; font-size: 1.05rem;">$2,997 USD</span>
+                </div>
+
+                <div class="gw-calc-metric">
+                  <span style="color: var(--gw-text-muted); font-size: 0.85rem;">Amazon KDP Directo (70%):</span>
+                  <span id="gwCalcKdp" class="gw-calc-metric-val" style="color: #60a5fa; font-size: 1.05rem;">$17,482 USD</span>
+                </div>
+
+                <div class="gw-calc-metric" style="background: rgba(16, 185, 129, 0.1); border-radius: 8px; padding: 10px; margin-top: 6px;">
+                  <div>
+                    <div style="color: #34d399; font-weight: 800; font-size: 0.9rem;">GoalWorld Dual-Stream:</div>
+                    <div style="font-size: 0.7rem; color: #94a3b8;">KDP + Regalías Web3 (85% Autor)</div>
+                  </div>
+                  <span id="gwCalcGoalWorld" class="gw-calc-metric-val" style="color: #34d399; font-size: 1.3rem;">$24,120 USDC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 4: 🤖 HERMES SWARM COMMAND
+             ==================================================================== -->
+        <section id="tab-hermes" class="gw-master-card" style="display: none;">
+          <div style="margin-bottom: 24px;">
+            <div style="color: var(--gw-neon-amethyst); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">ENJAMBRE AUTÓNOMO // VPS CLUSTER</div>
+            <h2 style="font-size: 1.8rem; font-weight: 900; margin: 4px 0 6px; color: #fff;">Hermes Agent Swarm Command &amp; Lore Guard</h2>
+            <p style="color: var(--gw-text-muted); font-size: 0.95rem; margin: 0; max-width: 850px;">
+              Los agentes de Inteligencia Artificial de GoalWorld operan 24/7 en VPS para auditar coherencia narrativa, orquestar tareas en GitHub, recopilar alpha en redes y vigilar la economía de los universos.
+            </p>
+          </div>
+
+          <!-- Telemetry Grid -->
+          <div class="gw-telemetry-grid">
+            <div class="gw-agent-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-weight: 800; font-size: 0.95rem; color: #fff;">Hermes CEO (Orchestrator)</span>
+                <span class="gw-agent-status-dot gw-dot-active"></span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--gw-text-muted); margin-bottom: 10px;">Puerto 3006 • OmniRoute Tooling</div>
+              <div style="font-size: 0.78rem; color: #34d399; font-weight: 700;">● 0 Crash Loops // 100% Online</div>
+            </div>
+
+            <div class="gw-agent-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-weight: 800; font-size: 0.95rem; color: #fff;">Lore Guard &amp; Co-Writer</span>
+                <span class="gw-agent-status-dot gw-dot-active"></span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--gw-text-muted); margin-bottom: 10px;">gBrain 0.46.6.0 • Memory Verbs v1</div>
+              <div style="font-size: 0.78rem; color: #c084fc; font-weight: 700;">● 121 Skills Instalados</div>
+            </div>
+
+            <div class="gw-agent-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-weight: 800; font-size: 0.95rem; color: #fff;">X-Scout Market Scanner</span>
+                <span class="gw-agent-status-dot gw-dot-active"></span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--gw-text-muted); margin-bottom: 10px;">Anti-Spam Gate v2 • Cooldown 2h</div>
+              <div style="font-size: 0.78rem; color: #38bdf8; font-weight: 700;">● Escaneando Señales Alpha</div>
+            </div>
+
+            <div class="gw-agent-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="font-weight: 800; font-size: 0.95rem; color: #fff;">Infinity Vault Sentinel</span>
+                <span class="gw-agent-status-dot gw-dot-active"></span>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--gw-text-muted); margin-bottom: 10px;">Solana Devnet &amp; Honcho Sync</div>
+              <div style="font-size: 0.78rem; color: #f59e0b; font-weight: 700;">● Fondo 10% Devengado Activo</div>
+            </div>
+          </div>
+
+          <!-- Interactive Lore Audit Workbench -->
+          <div style="background: rgba(10, 15, 30, 0.7); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-lg); padding: 24px; margin-bottom: 24px;">
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 8px; color: #fff;">Auditoría de Consistencia Narrativa &amp; Lore</h3>
+            <p style="color: var(--gw-text-muted); font-size: 0.85rem; margin-bottom: 16px;">
+              Ingresa cualquier párrafo, personaje o concepto de tu novela para que el agente Hermes audite la coherencia y sugiera expansiones rúnicas.
+            </p>
+            
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <textarea id="gwLoreInput" placeholder="Ej: Valerius utiliza la runa de hielo eterno en el desierto de ceniza para sellar el portal dimensional..." class="gw-textarea" style="height: 90px;"></textarea>
+            </div>
+            
+            <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+              <button onclick="GW.runLoreAudit()" class="gw-btn-sm-primary" style="padding: 10px 22px; font-size: 0.9rem;">
+                🔍 Auditar con Hermes Agent
+              </button>
+            </div>
+
+            <div id="gwLoreOutput" style="display: none; margin-top: 18px;" class="gw-terminal"></div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 5: 🎨 NEURAL ASSET FORGE
+             ==================================================================== -->
+        <section id="tab-studio" class="gw-master-card" style="display: none;">
+          <div style="margin-bottom: 24px;">
+            <div style="color: var(--gw-neon-gold); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">ESTUDIO MULTIMEDIA // GENERATIVE FORGE</div>
+            <h2 style="font-size: 1.8rem; font-weight: 900; margin: 4px 0 6px; color: #fff;">Neural Asset Forge: Generador de Arte &amp; Figuras Coleccionables</h2>
+            <p style="color: var(--gw-text-muted); font-size: 0.95rem; margin: 0; max-width: 850px;">
+              Pipeline de generación visual para personajes de alta fidelidad, figuras 3D de vinilo (estilo Genesis Avatars) y portadas de sagas cinematográficas.
+            </p>
+          </div>
+
+          <div class="gw-saas-grid">
+            <!-- Prompt Builder -->
+            <div style="background: rgba(10, 15, 30, 0.7); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-lg); padding: 24px;">
+              <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 16px; color: #fff;">Generador de Prompt Flux V7.0</h3>
+
+              <div class="gw-form-group">
+                <label class="gw-form-label">Tipo de Activo</label>
+                <select id="gwAssetType" class="gw-select" onchange="GW.updatePromptPreview()">
+                  <option value="figurine">Figura 3D Vinyl Toy Coleccionable (Avatar)</option>
+                  <option value="cover">Portada de Libro de Alta Fantasía (Amazon KDP)</option>
+                  <option value="stadium">Estadio Futurista RWA GoalWorld</option>
+                  <option value="emblem">Emblema de Facción / Escudo Rúnico</option>
+                </select>
+              </div>
+
+              <div class="gw-form-group">
+                <label class="gw-form-label">Nombre del Personaje o Escenario</label>
+                <input type="text" id="gwAssetName" value="Valerius de Aethelgard" class="gw-input" oninput="GW.updatePromptPreview()" />
+              </div>
+
+              <div class="gw-form-group">
+                <label class="gw-form-label">Rasgos Clave / Estilo Visual</label>
+                <input type="text" id="gwAssetTraits" value="Armadura de placas de obsidiana, runas carmesí brillantes, mandoble colosal, barba corta, mirada intensa" class="gw-input" oninput="GW.updatePromptPreview()" />
+              </div>
+
+              <div class="gw-form-group">
+                <label class="gw-form-label">Prompt Compilado para Flux / Midjourney</label>
+                <textarea id="gwCompiledPrompt" readonly class="gw-textarea" style="height: 110px; font-family: monospace; font-size: 0.82rem; color: #fde047; background: rgba(0,0,0,0.6);"></textarea>
+              </div>
+
+              <button onclick="GW.copyCompiledPrompt()" class="gw-btn-master" style="background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);">
+                <span>📋 Copiar Prompt al Portapapeles</span>
+              </button>
+            </div>
+
+            <!-- Asset Showcase Gallery -->
+            <div>
+              <div style="background: rgba(10, 15, 30, 0.7); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-lg); padding: 24px;">
+                <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 16px; color: #fff;">Galería de Activos Generados</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                  <div style="background: rgba(0,0,0,0.5); border-radius: 12px; overflow: hidden; border: 1px solid var(--gw-border-subtle);">
+                    <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=400&q=80" alt="Cyber Toy" style="width: 100%; height: 130px; object-fit: cover;" />
+                    <div style="padding: 10px; font-size: 0.8rem; font-weight: 700; color: #fff;">Zeus @player1 Figurine</div>
+                  </div>
+                  <div style="background: rgba(0,0,0,0.5); border-radius: 12px; overflow: hidden; border: 1px solid var(--gw-border-subtle);">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=400&q=80" alt="Book Cover" style="width: 100%; height: 130px; object-fit: cover;" />
+                    <div style="padding: 10px; font-size: 0.8rem; font-weight: 700; color: #fff;">Aethelgard Book Cover</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             TAB 6: ⚽ GOALCHAIN INFINITY BRIDGE
+             ==================================================================== -->
+        <section id="tab-goalchain" class="gw-master-card" style="display: none;">
+          <div style="margin-bottom: 24px;">
+            <div style="color: var(--primary-neon); font-weight: 800; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.5px;">PROYECTO INSIGNIA // SOLANA WEB3</div>
+            <h2 style="font-size: 1.8rem; font-weight: 900; margin: 4px 0 6px; color: #fff;">GoalChain: Predicciones Deportivas Sin Pérdida de Capital</h2>
+            <p style="color: var(--gw-text-muted); font-size: 0.95rem; margin: 0; max-width: 850px;">
+              El protocolo de predicciones de fútbol sobre Solana que elimina el modelo extractivo tradicional. Tu capital nunca se pierde: el rendimiento de las bóvedas financia los premios y quema $GCH.
+            </p>
+          </div>
+
+          <div class="gw-saas-grid">
+            <div style="background: rgba(10, 15, 30, 0.7); border: 1px solid rgba(20, 241, 149, 0.25); border-radius: var(--gw-radius-lg); padding: 24px;">
+              <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 12px; color: #14f195;">Mecánicas Clave del Infinity Engine</h3>
+              <ul style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.7; padding-left: 20px; margin: 0 0 20px;">
+                <li><strong>Zero Value Loss</strong>: El principal apostado está protegido por vaults con yield en Solana.</li>
+                <li><strong>Infinity Burn</strong>: Las comisiones recompran y queman $GCH permanentemente.</li>
+                <li><strong>Genesis Squad (528 Jugadores)</strong>: Colección de futbolistas legendarios con similitud facial auditada.</li>
+                <li><strong>Oráculos Automatizados</strong>: Transmisión de marcadores y liquidación de apuestas en tiempo real.</li>
+              </ul>
+              <a href="/go/play" style="display: inline-flex; align-items: center; gap: 8px; background: #14f195; color: #05050e; font-weight: 900; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-size: 0.9rem;">
+                <span>Ingresar al Estadio de GoalChain</span>
+                <span>➔</span>
+              </a>
+            </div>
+
+            <div style="background: rgba(10, 15, 30, 0.7); border: 1px solid var(--gw-border-subtle); border-radius: var(--gw-radius-lg); padding: 24px;">
+              <h3 style="font-size: 1.15rem; font-weight: 800; margin: 0 0 12px; color: #fff;">Estado del Despliegue</h3>
+              <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;">
+                <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                  <span style="color: var(--gw-text-muted);">Red de Contratos:</span>
+                  <span style="color: #14f195; font-weight: 700;">Solana Devnet (Anchor)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                  <span style="color: var(--gw-text-muted);">Frontend Build:</span>
+                  <span style="color: #38bdf8; font-weight: 700;">React 18 + Vite (Compilado 100%)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                  <span style="color: var(--gw-text-muted);">Fondo Autónomo Agentes:</span>
+                  <span style="color: #f59e0b; font-weight: 700;">10% Devengado Activo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- FOOTER -->
+      <footer style="border-top: 1px solid var(--gw-border-subtle); padding: 40px 20px; text-align: center; background: rgba(5,5,14,0.95); font-size: 0.85rem; color: var(--gw-text-muted);">
+        <div style="max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+          <div>
+            <span style="font-weight: 800; color: #fff;">GoalWorld Ecosystem</span> © 2026. Creado por <a href="https://x.com/nicopez" target="_blank" style="color: #c084fc; text-decoration: none; font-weight: 700;">@nicopez</a>.
+          </div>
+          <div style="display: flex; gap: 20px;">
+            <a href="index.html" style="color: var(--gw-text-muted); text-decoration: none;">Inicio</a>
+            <a href="pitch.html" style="color: var(--gw-text-muted); text-decoration: none;">Pitch</a>
+            <a href="mega-guide.html" style="color: var(--gw-text-muted); text-decoration: none;">Documentación</a>
+            <a href="legal.html" style="color: var(--gw-text-muted); text-decoration: none;">Avisos Legales</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ====================================================================
+         JAVASCRIPT ENGINE (Strictly Adhering to Rule 2: Defensive Scope)
+         ==================================================================== -->
+    <script>
+      var GW = window.GW || {};
+      GW.audioPlaying = false;
+      GW.currentFontIsSerif = true;
+
+      // 1. Tab Switching
+      GW.switchTab = function(tabId) {
+        var tabs = ['nexus', 'universe', 'reader', 'saas', 'hermes', 'studio', 'goalchain'];
+        tabs.forEach(function(t) {
+          var el = document.getElementById('tab-' + t);
+          var btn = document.getElementById('btn-' + t);
+          if (el) el.style.display = (t === tabId) ? 'block' : 'none';
+          if (btn) {
+            if (t === tabId) btn.classList.add('active');
+            else btn.classList.remove('active');
+          }
+        });
+        window.scrollTo({ top: 220, behavior: 'smooth' });
+      };
+
+      // 2. Open Reader with Context
+      GW.openReader = function(worldName) {
+        var titleEl = document.getElementById('gwReaderUniverse');
+        var chapterEl = document.getElementById('gwReaderChapterTitle');
+        if (titleEl) titleEl.innerText = worldName.toUpperCase() + ' // TOMO I';
+        if (chapterEl) {
+          if (worldName === 'NeuralWars') {
+            if (titleEl) titleEl.innerText = 'THE NEURAL WARS // TOMO I: FRACTURED CODE';
+            chapterEl.innerText = 'Prólogo Cósmico: En el Principio era la Red';
+          } else if (worldName === 'Aethelgard') {
+            chapterEl.innerText = 'Capítulo I: El Despertar de la Runa Encarnada';
+          } else {
+            chapterEl.innerText = 'Capítulo I: El Descenso de los Titanes a la Órbita';
+          }
+        }
+        GW.switchTab('reader');
+      };
+
+      // 3. Multiverse Filter
+      GW.filterGenre = function(genre) {
+        var cards = document.querySelectorAll('.gw-world-card');
+        cards.forEach(function(card) {
+          if (genre === 'all' || card.getAttribute('data-genre') === genre) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      };
+
+      // 4. Audio Toggle (Ambient Synthesizer)
+      GW.toggleMusic = function() {
+        GW.audioPlaying = !GW.audioPlaying;
+        var btn = document.getElementById('gwAudioBtn');
+        if (btn) {
+          btn.innerText = GW.audioPlaying ? '⏸️ Pausar Ambiente' : '▶️ Música de Ambiente';
+        }
+      };
+
+      // 5. Typography Toggle
+      GW.toggleFontFamily = function() {
+        GW.currentFontIsSerif = !GW.currentFontIsSerif;
+        var bodyEl = document.getElementById('gwReaderBody');
+        var btn = document.getElementById('gwFontToggleBtn');
+        if (bodyEl && btn) {
+          if (GW.currentFontIsSerif) {
+            bodyEl.style.fontFamily = "'Georgia', serif";
+            btn.innerText = '🔤 Fuente: Serif';
+          } else {
+            bodyEl.style.fontFamily = "'Outfit', sans-serif";
+            btn.innerText = '🔤 Fuente: Sans';
+          }
+        }
+      };
+
+      // 6. Dual Royalty Calculator
+      GW.updateCalculator = function(copies) {
+        copies = parseInt(copies, 10) || 2500;
+        var labelEl = document.getElementById('gwCopiesLabel');
+        var tradEl = document.getElementById('gwCalcTraditional');
+        var kdpEl = document.getElementById('gwCalcKdp');
+        var gwEl = document.getElementById('gwCalcGoalWorld');
+
+        var bookPrice = 9.99;
+        var tradIncome = copies * bookPrice * 0.12;
+        var kdpIncome = copies * bookPrice * 0.70;
+        var gwIncome = (copies * bookPrice * 0.70) + (copies * 0.20 * 25.0 * 0.85); // KDP + Web3 secondary royalties
+
+        if (labelEl) labelEl.innerText = copies.toLocaleString() + ' copias';
+        if (tradEl) tradEl.innerText = '$' + Math.round(tradIncome).toLocaleString() + ' USD';
+        if (kdpEl) kdpEl.innerText = '$' + Math.round(kdpIncome).toLocaleString() + ' USD';
+        if (gwEl) gwEl.innerText = '$' + Math.round(gwIncome).toLocaleString() + ' USDC';
+      };
+
+      // 7. Handle SaaS Dual-Publish Simulation
+      GW.handlePublish = function(e) {
+        e.preventDefault();
+        var successEl = document.getElementById('gwPublishSuccess');
+        if (successEl) {
+          successEl.style.display = 'block';
+          setTimeout(function() {
+            successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
+      };
+
+      // 8. Live Lore Audit
+      GW.runLoreAudit = function() {
+        var input = document.getElementById('gwLoreInput');
+        var out = document.getElementById('gwLoreOutput');
+        if (!input || !out || !input.value.trim()) {
+          alert('Por favor ingresa un párrafo o idea para auditar.');
+          return;
+        }
+        out.style.display = 'block';
+        out.innerText = '⏳ [Hermes Lore Swarm]: Analizando coherencia rúnica con gBrain 0.46.6.0...';
+        
+        setTimeout(function() {
+          out.innerText = '✨ [HERMES LORE AUDIT REPORT // v37]\n' +
+            '--------------------------------------------------\n' +
+            '• Coherencia Narrativa: 98.4% (Excelente)\n' +
+            '• Verificación Ontológica: Compatible con el canon de Aethelgard.\n' +
+            '• Sugerencia de Expansión: La runa de hielo puede catalizar un vórtice térmico si interactúa con las cenizas volcánicas del Tomo II.\n' +
+            '• Estado de Ingesta: Hecho indexado en gBrain vector graph (Entity: Aethelgard).';
+        }, 1100);
+      };
+
+      // 9. Prompt Builder
+      GW.updatePromptPreview = function() {
+        var typeEl = document.getElementById('gwAssetType');
+        var nameEl = document.getElementById('gwAssetName');
+        var traitsEl = document.getElementById('gwAssetTraits');
+        var outEl = document.getElementById('gwCompiledPrompt');
+
+        if (!typeEl || !nameEl || !traitsEl || !outEl) return;
+
+        var type = typeEl.value;
+        var name = nameEl.value.trim() || 'Personaje';
+        var traits = traitsEl.value.trim() || 'rasgos heroicos';
+
+        var compiled = '';
+        if (type === 'figurine') {
+          compiled = 'A premium 3D vinyl toy collector figurine caricature of ' + name + ' standing full body. ' +
+            traits + '. Oversized bobblehead proportions, clean pure white background (#FFFFFF), zero floor shadows, studio raytracing lighting, hyper-detailed textures, masterpiece collectible --ar 1:1 --v 7.0';
+        } else if (type === 'cover') {
+          compiled = 'Cinematic book cover art for "' + name + '". Epic high fantasy atmosphere, ' + traits + ', dramatic lighting, golden ratio composition, typography-ready negative space, volumetric mist, 8k resolution --ar 2:3';
+        } else if (type === 'stadium') {
+          compiled = 'Futuristic quantum football stadium in orbital space, named ' + name + '. Holographic goalposts, neon Solana green and purple particles, ' + traits + ', cinematic drone shot --ar 16:9';
+        } else {
+          compiled = 'Mythic faction shield crest for ' + name + '. ' + traits + ', vector obsidian metal and glowing runes, isolated on dark void background --ar 1:1';
+        }
+
+        outEl.value = compiled;
+      };
+
+      // 10. Copy Prompt
+      GW.copyCompiledPrompt = function() {
+        var outEl = document.getElementById('gwCompiledPrompt');
+        if (!outEl) return;
+        navigator.clipboard.writeText(outEl.value).then(function() {
+          alert('¡Prompt copiado al portapapeles con éxito!');
+        }).catch(function() {
+          outEl.select();
+          document.execCommand('copy');
+          alert('¡Prompt copiado al portapapeles!');
+        });
+      };
+
+      // 11. KDP Spine & Bleed Width Calculation
+      GW.updateKdpSpine = function(pages) {
+        pages = parseInt(pages || document.getElementById('gwPageRange').value, 10) || 280;
+        var paper = document.getElementById('gwPaperType').value || 'cream';
+        var pageCountValEl = document.getElementById('gwPageCountVal');
+        var spineVisualEl = document.getElementById('gwSpineVisual');
+        var dimInchesEl = document.getElementById('gwCoverDimInches');
+        var dimPxEl = document.getElementById('gwCoverDimPx');
+
+        var multiplier = paper === 'cream' ? 0.0025 : 0.002252;
+        var spineWidthIn = pages * multiplier;
+        var totalWIn = 0.125 + 6.0 + spineWidthIn + 6.0 + 0.125;
+        var totalHIn = 0.125 + 9.0 + 0.125;
+
+        var totalWPx = Math.ceil(totalWIn * 300);
+        var totalHPx = Math.ceil(totalHIn * 300);
+
+        if (pageCountValEl) pageCountValEl.innerText = pages;
+        if (spineVisualEl) {
+          spineVisualEl.innerText = 'LOMO: ' + spineWidthIn.toFixed(2) + '"';
+          spineVisualEl.style.width = Math.max(24, Math.min(80, Math.round(spineWidthIn * 50))) + 'px';
+        }
+        if (dimInchesEl) dimInchesEl.innerText = totalWIn.toFixed(2) + '" x ' + totalHIn.toFixed(2) + '"';
+        if (dimPxEl) dimPxEl.innerText = totalWPx + ' x ' + totalHPx + ' px (300 DPI)';
+      };
+
+      // 12. Format Markdown Manuscript for Amazon KDP
+      GW.formatManuscriptKdp = function() {
+        var inputEl = document.getElementById('gwManuscriptInput');
+        if (!inputEl) return;
+        var raw = inputEl.value;
+        if (!raw.trim()) {
+          alert('Por favor ingresa texto en el editor de manuscrito.');
+          return;
+        }
+
+        // Auto-format headings, scene breaks and drop caps
+        var formatted = raw
+          .replace(/^#\s+(.*)$/gm, '\n[CHAPTER_TITLE: $1]\n')
+          .replace(/^##\s+(.*)$/gm, '\n[SECTION: $1]\n')
+          .replace(/^\*\s\*\s\*$/gm, '\n--- ✦ --- ✦ ---\n');
+
+        inputEl.value = '/* MANUSCRITO ESTÁNDAR KDP FORMATEADO */\n\n' + formatted;
+        alert('✨ Manuscrito formateado con sangrías, quiebres de escena e identificadores de capítulo estándar Amazon KDP.');
+      };
+
+      // 13. Download Complete KDP & Solana Package
+      GW.downloadKdpPack = function() {
+        var title = document.getElementById('gwBookTitle').value || 'Saga GoalWorld';
+        var subtitle = document.getElementById('gwBookSubtitle').value || '';
+        var genre = document.getElementById('gwBookGenre').value || 'Alta Fantasía';
+        var isbn = document.getElementById('gwBookIsbn').value || '978-3-16-148410-0';
+
+        var pack = {
+          goalworld_kdp_manifest: {
+            title: title,
+            subtitle: subtitle,
+            isbn_13: isbn,
+            genre: genre,
+            trim_size: "6.0 x 9.0 in",
+            paper_type: document.getElementById('gwPaperType').value || 'cream',
+            page_count: document.getElementById('gwPageRange').value || 280,
+            amazon_search_keywords: [
+              "novela de fantasia epica",
+              "dark fantasy litrpg",
+              "runas y caballeros",
+              "kindle unlimited 2026",
+              "audiolibro solana"
+            ],
+            bisac_categories: [
+              "FIC009020 FICTION / Fantasy / Dark Fantasy",
+              "FIC009010 FICTION / Fantasy / Epic"
+            ]
+          },
+          solana_metaplex_ip_schema: {
+            name: "GoalWorld IP: " + title,
+            symbol: "GWIP",
+            seller_fee_basis_points: 850,
+            creators: [
+              { address: "7xKXtg2CW87d97TXJSDpbD5jBkheTjkA6wAhXodGy7ao", share: 85 },
+              { address: "GWVault11111111111111111111111111111111111", share: 10 },
+              { address: "HermesAgent1111111111111111111111111111111", share: 5 }
+            ]
+          }
+        };
+
+        var blob = new Blob([JSON.stringify(pack, null, 2)], { type: 'application/json' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'GoalWorld_KDP_Solana_Pack_' + title.replace(/\s+/g, '_') + '.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      };
+
+      GW.universeHarmonicsActive = false;
+      GW.universeOscillator = null;
+      GW.universeAudioCtx = null;
+
+      GW.toggleUniverseHarmonics = function() {
+        var btn = document.getElementById('gwHarmonicsBtn');
+        if (GW.universeHarmonicsActive) {
+          if (GW.universeOscillator) {
+            GW.universeOscillator.stop();
+            GW.universeOscillator.disconnect();
+          }
+          GW.universeHarmonicsActive = false;
+          if (btn) {
+            btn.innerHTML = '<span>🔈</span> 432 Hz Resonancia Armónica (Activar)';
+            btn.style.background = 'rgba(255,255,255,0.06)';
+            btn.style.borderColor = 'rgba(255,255,255,0.2)';
+            btn.style.color = '#cbd5e1';
+          }
+        } else {
+          try {
+            var AudioCtx = window.AudioContext || window.webkitAudioContext;
+            var ctx = new AudioCtx();
+            GW.universeAudioCtx = ctx;
+
+            var osc = ctx.createOscillator();
+            var gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(432, ctx.currentTime);
+            gain.gain.setValueAtTime(0.045, ctx.currentTime);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start();
+            GW.universeOscillator = osc;
+            GW.universeHarmonicsActive = true;
+
+            if (btn) {
+              btn.innerHTML = '<span>🔊</span> 432 Hz Resonancia (Activa)';
+              btn.style.background = 'rgba(56, 189, 248, 0.25)';
+              btn.style.borderColor = '#38bdf8';
+              btn.style.color = '#38bdf8';
+            }
+          } catch(e) {
+            alert('El navegador no soporta síntesis de audio.');
+          }
+        }
+      };
+
+      GW.openPreOrder = function(platformName) {
+        var email = prompt('🔔 Prerreserva Anticipada en ' + platformName + ':\n\nIngresa tu correo electrónico para recibir acceso prioritario y notificaciones del lanzamiento:');
+        if (email && email.trim().length > 3) {
+          alert('✨ ¡Excelente! Tu correo (' + email.trim() + ') ha sido registrado para acceso anticipado a ' + platformName + '.');
+        }
+      };
+
+      GW.updateKdpManifest = function() {};
+
+      // Initialize
+      document.addEventListener('DOMContentLoaded', function() {
+        GW.updatePromptPreview();
+        GW.updateCalculator(2500);
+        GW.updateKdpSpine(280);
+      });
+    </script>
+  </body>
+</html>

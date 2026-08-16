@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>GoalChain Protocol | Verifiable Sports Oracles &amp; Zero-Loss Engine on Solana</title>
+    <meta name="description" content="GoalChain Protocol: The decentralized sports oracle, prediction market smart contracts, and developer SDK on Solana. Powering the GoalWorld ecosystem." />
+    <meta name="theme-color" content="#06060c" />
+    
+    <!-- Design Tokens & CSS -->
+    <link rel="stylesheet" href="assets/css/tokens.css?v=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css?v=4.4" />
+    <link rel="stylesheet" href="assets/css/goalworld.css?v=2.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="assets/img/logo_3d_clean.png?v=2.0" />
+    
+    <style>
+      :root {
+        --proto-solana-green: #14f195;
+        --proto-solana-purple: #9945ff;
+        --proto-cyan: #06b6d4;
+        --proto-dark: #070712;
+      }
+      body {
+        background: var(--proto-dark);
+        color: #f1f5f9;
+        font-family: 'Outfit', sans-serif;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      .proto-code {
+        font-family: 'Fira Code', 'Space Grotesk', monospace;
+      }
+      .proto-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+      }
+      .proto-card {
+        background: rgba(15, 23, 42, 0.75);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 28px;
+        transition: transform 0.25s, border-color 0.25s;
+      }
+      .proto-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--proto-solana-green);
+      }
+      .proto-tab-btn {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #94a3b8;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-family: 'Fira Code', monospace;
+        font-size: 0.85rem;
+        cursor: pointer;
+      }
+      .proto-tab-btn.active {
+        background: rgba(20, 241, 149, 0.15);
+        border-color: var(--proto-solana-green);
+        color: var(--proto-solana-green);
+      }
+      .consumer-bridge-banner {
+        background: linear-gradient(90deg, rgba(168, 85, 247, 0.2) 0%, rgba(6, 182, 212, 0.15) 100%);
+        border: 1px solid rgba(168, 85, 247, 0.4);
+        border-radius: 16px;
+        padding: 20px 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP NAVIGATION -->
+    <nav class="gw-nav" style="border-bottom: 1px solid rgba(20, 241, 149, 0.2);">
+      <div style="display: flex; align-items: center; gap: 12px; cursor: pointer;" onclick="location.href='#'">
+        <img src="assets/img/logo_3d_clean.png" alt="GoalChain Protocol Logo" style="height: 38px;" />
+        <span style="font-weight: 900; font-size: 1.25rem; color: #fff;">Goal<span style="color: var(--proto-solana-green);">Chain</span> <span style="font-size: 0.8rem; background: rgba(20,241,149,0.15); color: var(--proto-solana-green); padding: 2px 8px; border-radius: 6px; font-weight: 700; text-transform: uppercase;">Protocol</span></span>
+      </div>
+      <div class="gw-nav-links">
+        <a href="#contracts" class="gw-nav-link">Smart Contracts</a>
+        <a href="#oracles" class="gw-nav-link">Sports Oracles</a>
+        <a href="#sdk" class="gw-nav-link">Developer SDK</a>
+        <a href="https://goalworld.fun" target="_blank" style="background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%); color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 20px; font-size: 0.82rem; font-weight: 900; box-shadow: 0 4px 14px rgba(168, 85, 247, 0.35);">
+          🔮 CONSUMER HUB: GOALWORLD ➔
+        </a>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="gw-hero" style="padding-top: 60px;">
+      <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(20, 241, 149, 0.1); border: 1px solid rgba(20, 241, 149, 0.3); color: var(--proto-solana-green); padding: 5px 16px; border-radius: 999px; font-size: 0.82rem; font-weight: 800; margin-bottom: 20px; letter-spacing: 0.5px;">
+        ⚡ SOLANA B2B &amp; DEVELOPER PROTOCOL
+      </div>
+      <h1 class="gw-hero-title">
+        The Verifiable Sports Oracle &amp; <br />
+        <span style="background: linear-gradient(135deg, #14f195 0%, #38bdf8 50%, #9945ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Zero-Loss Prediction Engine</span>
+      </h1>
+      <p class="gw-hero-subtitle">
+        High-throughput sports telemetry feeds, non-custodial yield-backed wagering contracts, and Anchor SDKs on Solana. The foundational infrastructure powering <strong>GoalWorld</strong> and third-party Web3 apps.
+      </p>
+
+      <!-- CONSUMER BRIDGE BANNER -->
+      <div class="consumer-bridge-banner" style="max-width: 1000px; margin: 0 auto 50px;">
+        <div style="text-align: left;">
+          <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Looking for the Consumer Metaverse, Fantasy Lore &amp; KDP SaaS?</div>
+          <div style="font-size: 0.85rem; color: #cbd5e1;">All consumer gaming, live penalty shootouts, and literature publishing live on the GoalWorld hub.</div>
+        </div>
+        <a href="https://goalworld.fun/goalworld" target="_blank" style="background: #fff; color: #070712; font-weight: 900; padding: 10px 20px; border-radius: 10px; text-decoration: none; font-size: 0.88rem;">
+          Enter GoalWorld Hub ➔
+        </a>
+      </div>
+    </header>
+
+    <!-- MAIN PROTOCOL CONTENT -->
+    <main class="gw-main-container">
+      
+      <!-- PROTOCOL ARCHITECTURE GRID -->
+      <div class="proto-grid" id="contracts" style="margin-bottom: 50px;">
+        <!-- Card 1 -->
+        <div class="proto-card">
+          <div style="font-size: 1.8rem; margin-bottom: 12px;">🛡️</div>
+          <h3 style="font-size: 1.3rem; font-weight: 800; margin: 0 0 8px; color: #fff;">Solana Anchor Smart Contracts</h3>
+          <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">
+            Audited prediction pool programs with deterministic Program Derived Addresses (PDAs) for matches, player stakes, and automated yield sweeps.
+          </p>
+          <div class="proto-code" style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; font-size: 0.78rem; color: var(--proto-solana-green);">
+            Program ID: Goal111111111111111111111111111111111111111
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="proto-card" id="oracles">
+          <div style="font-size: 1.8rem; margin-bottom: 12px;">📡</div>
+          <h3 style="font-size: 1.3rem; font-weight: 800; margin: 0 0 8px; color: #fff;">Verifiable Sports Oracles</h3>
+          <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">
+            Multi-source sports scrapers with Jito MEV bundle protection. Delivers sub-second match scores, fixture status, and cryptographic settlement proofs.
+          </p>
+          <div class="proto-code" style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; font-size: 0.78rem; color: #38bdf8;">
+            Latency: &lt;450ms • Feeds: FIFA, UEFA, Leagues
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="proto-card">
+          <div style="font-size: 1.8rem; margin-bottom: 12px;">🔥</div>
+          <h3 style="font-size: 1.3rem; font-weight: 800; margin: 0 0 8px; color: #fff;">Infinity Engine Tokenomics</h3>
+          <p style="color: #94a3b8; font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">
+            Circular economic mechanics: 100% of oracle protocol fees trigger automated buybacks and perpetual burning of $GCH tokens from the Vault.
+          </p>
+          <div class="proto-code" style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; font-size: 0.78rem; color: #f59e0b;">
+            Zero Value Loss: Protected Principal Vaults
+          </div>
+        </div>
+      </div>
+
+      <!-- SDK & CODE PLAYGROUND -->
+      <section id="sdk" class="gw-master-card" style="border-color: rgba(20, 241, 149, 0.3);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <div style="color: var(--proto-solana-green); font-weight: 800; font-size: 0.82rem; text-transform: uppercase;">DEVELOPER INTEGRATION</div>
+            <h2 style="font-size: 1.6rem; font-weight: 900; margin: 4px 0 0; color: #fff;">GoalChain TypeScript SDK (`@goalchain/sdk`)</h2>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="proto-tab-btn active" onclick="GC_switchTab('ts')">TypeScript</button>
+            <button class="proto-tab-btn" onclick="GC_switchTab('rust')">Rust Anchor</button>
+            <button class="proto-tab-btn" onclick="GC_switchTab('cli')">CLI &amp; Oracles</button>
+          </div>
+        </div>
+
+        <div style="background: #020208; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; overflow-x: auto;">
+          <div id="code-ts" class="proto-code" style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+<span style="color: #64748b;">// 1. Install SDK</span>
+<span style="color: #38bdf8;">npm install</span> @goalchain/sdk @solana/web3.js @coral-xyz/anchor
+
+<span style="color: #64748b;">// 2. Initialize GoalChain Client &amp; Fetch Active Matches</span>
+<span style="color: #c084fc;">import</span> { GoalChainClient, deriveMatchPda } <span style="color: #c084fc;">from</span> <span style="color: #14f195;">'@goalchain/sdk'</span>;
+<span style="color: #c084fc;">import</span> { Connection, PublicKey } <span style="color: #c084fc;">from</span> <span style="color: #14f195;">'@solana/web3.js'</span>;
+
+<span style="color: #c084fc;">const</span> connection = <span style="color: #c084fc;">new</span> Connection(<span style="color: #14f195;">'https://api.devnet.solana.com'</span>);
+<span style="color: #c084fc;">const</span> client = <span style="color: #c084fc;">new</span> GoalChainClient({ connection });
+
+<span style="color: #64748b;">// Fetch zero-loss prediction fixtures</span>
+<span style="color: #c084fc;">const</span> fixtures = <span style="color: #c084fc;">await</span> client.getFixtures();
+console.log(<span style="color: #14f195;">`Active Fixtures: ${fixtures.length}`</span>);
+          </div>
+
+          <div id="code-rust" class="proto-code" style="display: none; font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+<span style="color: #64748b;">// Anchor Smart Contract CPI Call to Place Zero-Loss Prediction</span>
+<span style="color: #c084fc;">pub fn</span> place_prediction(ctx: Context&lt;PlacePrediction&gt;, match_id: u64, amount: u64) -&gt; Result&lt;()&gt; {
+    <span style="color: #c084fc;">let</span> vault = &amp;<span style="color: #c084fc;">mut</span> ctx.accounts.vault;
+    vault.deposit_principal(ctx.accounts.user.to_account_info(), amount)?;
+    msg!(<span style="color: #14f195;">"Zero-Loss Prediction confirmed for match #{}"</span>, match_id);
+    Ok(())
+}
+          </div>
+
+          <div id="code-cli" class="proto-code" style="display: none; font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+<span style="color: #64748b;"># Run sports oracle node with Jito MEV protection</span>
+bun run goalchain_oracle/src/index.ts --network devnet --signer /keys/oracle.json
+
+<span style="color: #64748b;"># Sweep and Crank Vault yields</span>
+bun run goalchain_oracle/src/vault_crank.ts
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="border-top: 1px solid rgba(255,255,255,0.08); padding: 30px 20px; text-align: center; font-size: 0.85rem; color: #64748b;">
+      <div style="max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <div>
+          <strong style="color: #fff;">GoalChain Protocol</strong> © 2026. Infrastructure Layer of <a href="https://goalworld.fun" style="color: var(--proto-solana-green); text-decoration: none;">GoalWorld</a>.
+        </div>
+        <div>
+          <a href="https://github.com/theneuralwars/goalchain" target="_blank" style="color: #94a3b8; text-decoration: none; margin-left: 15px;">GitHub Repo</a>
+          <a href="mega-guide.html" style="color: #94a3b8; text-decoration: none; margin-left: 15px;">Docs</a>
+          <a href="https://goalworld.fun" style="color: #a855f7; text-decoration: none; margin-left: 15px; font-weight: 700;">GoalWorld Hub ➔</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- DEFENSIVE NAMESPACE SCRIPT (RULE 2) -->
+    <script>
+      var GC_PROTO = window.GC_PROTO || {};
+      function GC_switchTab(tab) {
+        var tabs = ['ts', 'rust', 'cli'];
+        tabs.forEach(function(t) {
+          var el = document.getElementById('code-' + t);
+          if (el) el.style.display = (t === tab) ? 'block' : 'none';
+        });
+        var btns = document.querySelectorAll('.proto-tab-btn');
+        btns.forEach(function(b, idx) {
+          if (tabs[idx] === tab) b.classList.add('active');
+          else b.classList.remove('active');
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,69 +1,68 @@
-# GoalChain Project Directory & Architecture Index
+# 🌐 GoalWorld & GoalChain Architecture Index
 
-This index is the single source of truth for the codebase structure, compilation instructions, and coding standards. All agents and developers MUST read this index before initiating modifications.
+**Master Source of Truth for all Agents & Developers (Hermes, Antigravity, OpenCode, Claude Code).**  
+Read this index before initiating modifications.
 
 ---
 
-## 📂 Active Core Directories
+## 🏛️ 1. Domain & Ecosystem Architecture
+
+GoalWorld is the sovereign parent corporation and creative multiverse of **Nico Pez (@nicopez)**. The architecture is cleanly divided into two complementary domains:
+
+| Domain | Role & Positioning | Target Audience | Primary Assets |
+| :--- | :--- | :--- | :--- |
+| **`goalworld.fun`** | **Consumer & Multiverse Hub (B2C)**: Sagas, Publisher SaaS (KDP + Solana IP), Neural Asset Forge, and Play dApp. | Readers, Authors, Gamers, Web3 Community | `docs/goalworld.html`, `play.goalworld.fun`, `goalworld_webapp/` |
+| **`goalchain.fun`** | **Infrastructure & Developer Protocol (B2B)**: Verifiable Sports Oracles, Anchor Smart Contracts, and TypeScript SDK. | Developers, Solana Builders, Sports Data Users | `docs/protocol.html`, `goalchain-sdk/`, `goalchain_oracle/`, `goalchain_program/` |
+
+---
+
+## 📂 2. Active Core Directories
 
 ### 1. [goalchain_webapp](file:///c:/Users/NicoPez/goalchain/goalchain_webapp)
-- **Role**: React & Vite play portal (`play.goalchain.fun`).
-- **Tech Stack**: React 18, TypeScript, Solana Wallet Adapter, Tailwind (Vite plugin).
-- **Scope**: Fully isolated ES6 modules. No global window variables unless explicitly defined defensive properties.
-- **Build**: Run `npm run build` to compile production assets to `dist/`.
+- **Role**: React 18 & Vite play portal (`play.goalworld.fun` / `play.goalchain.fun`).
+- **Tech Stack**: React 18, TypeScript, Solana Wallet Adapter, Tailwind.
+- **Verification**: Must compile cleanly via `npm run build` with 0 errors before completing any task.
 
 ### 2. [docs](file:///c:/Users/NicoPez/goalchain/docs)
-- **Role**: Static landing page & documentation (`goalchain.fun`).
-- **Tech Stack**: Vanilla HTML5, CSS3, ES5/ES6 vanilla JS.
-- **Scope**: **Shared Global Window Scope**. Since files are loaded via `<script>` tags in `index.html`, variables, constants, and functions are declared globally.
-- **Strict Rule**: Never declare global `const` or `let` variables with overlapping names (e.g. `BG_IMAGE_MAP`, `FLAG_MAP`). Use defensive window mapping or encapsulating modules:
+- **Role**: Static portals & documentation (`goalworld.fun`, `goalworld.html`, `protocol.html`, `index.html`).
+- **Tech Stack**: Vanilla HTML5, CSS3 glassmorphism, ES5/ES6 vanilla JS.
+- **Rule 2 (Namespace Safety)**: Always use defensive window scoping:
   ```javascript
-  var MY_GLOBAL = window.MY_GLOBAL || { ... };
+  var GW = window.GW || {};
+  var GC_PROTO = window.GC_PROTO || {};
   ```
 
-### 3. [goalchain_program](file:///c:/Users/NicoPez/goalchain/goalchain_program)
-- **Role**: Solana Smart Contract (on-chain program).
-- **Tech Stack**: Rust, Anchor Framework.
-- **Build**: Run `anchor build` to compile.
+### 3. [goalchain-sdk](file:///c:/Users/NicoPez/goalchain/goalchain-sdk)
+- **Role**: Shared TypeScript SDK for Solana Anchor connection, PDAs, and transaction serialization.
+- **Build**: `npm run build`.
 
 ### 4. [goalchain_oracle](file:///c:/Users/NicoPez/goalchain/goalchain_oracle)
-- **Role**: Sports scraper and on-chain state update oracle.
+- **Role**: Sports data scraper, Jito MEV protection, and match settlement oracle.
 - **Tech Stack**: TypeScript, Node/Bun.
-- **Build**: Run `bun run build` or `npm run build`.
 
-### 5. [goalchain-sdk](file:///c:/Users/NicoPez/goalchain/goalchain-sdk)
-- **Role**: Shared connection and transaction serialization library.
-- **Tech Stack**: TypeScript.
+### 5. [goalchain_program](file:///c:/Users/NicoPez/goalchain/goalchain_program)
+- **Role**: Solana Smart Contracts (Anchor framework, Rust).
+- **Program ID**: `FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg`.
 
 ### 6. [goalchain_api](file:///c:/Users/NicoPez/goalchain/goalchain_api)
-- **Role**: Off-chain server API endpoints.
-- **Tech Stack**: Node/Bun, Express.
+- **Role**: Off-chain server API endpoints and economy metrics (Port 3001).
 
-### 7. [agentic-inbox](file:///c:/Users/NicoPez/goalchain/agentic-inbox)
-- **Role**: Cloudflare Worker notifications application.
-- **Tech Stack**: Cloudflare Workers, React Router.
+### 7. [ai_context](file:///c:/Users/NicoPez/goalchain/ai_context)
+- **Role**: Master user context (`user_profile.md`), roadmap (`GOALWORLD_MASTER_ROADMAP.md`), and guidelines.
 
-### 8. [hermes](file:///c:/Users/NicoPez/goalchain/hermes)
-- **Role**: Discord community bot and agentic handlers.
-
-### 9. [scripts](file:///c:/Users/NicoPez/goalchain/scripts)
-- **Role**: Production automation scripts, image processing, and highlights generation.
+### 8. [hermes](file:///c:/Users/NicoPez/goalchain/hermes) & [ops/hermes](file:///c:/Users/NicoPez/goalchain/ops/hermes)
+- **Role**: 24/7 Autonomous agent system (Hermes on VPS, Honcho memory, gBrain).
 
 ---
 
-## 🚫 Purged Legacy Folders (Do Not Reference/Create)
-- `_archive/` (Legacy archive)
-- `exp/` (Experimental drafts)
-- `Talks/` (Historical transcripts)
-- `hermes_tests/` (Ad-hoc temp tests)
-- `venv_parser/` (Local parsing environments)
+## 🚫 3. Purged Legacy Folders (Do Not Reference or Create)
+- `_archive/`, `exp/`, `Talks/`, `hermes_tests/`, `venv_parser/`.
 - Binary installers (`*.exe`, `*.msi`, `*.bat`) in root.
 
 ---
 
-## 📏 Mandatory Coding & Verification Guidelines
-
-1. **Global Variable Collisions**: When writing code in `docs/assets/js/`, you MUST verify that any dictionary or map is declared defensively with `var` or `window.` to prevent duplicate declaration crashes (`SyntaxError`).
-2. **Pre-commit Build Validation**: Any change to `goalchain_webapp` MUST be validated using `npm run build` in its directory to catch compilation breaks.
-3. **Landing Page Sandbox Check**: Any change to `docs/` MUST be verified using a browser agent to inspect console logs. If any SyntaxError appears, the task has FAILED.
-4. **Git Sync Visibility**: Whenever a change is completed locally, clearly guide the user to run `git push origin main` to sync and trigger the live Vercel/GitHub Pages pipelines.
+## 📏 4. Mandatory Agent Verification Protocol
+1. **Compilation Check**: Run `npm run build` in `goalchain_webapp/` to ensure 0 compilation errors.
+2. **Namespace Check**: Never declare global unprotected `const` or `let` in `docs/assets/js/` or HTML `<script>` tags.
+3. **Memory Sync**: Persist durable facts to `gbrain remember` with `visibility: world` so all agents share the same state.
+4. **Git Transparency**: Commit changes with clear conventional commits and report push status.

@@ -132,6 +132,26 @@ const CLUB_ITEMS: PlayNavItem[] = [
     icon: '🏟',
     to: '/estadio',
   },
+  {
+    id: 'goalworld',
+    label: 'GoalWorld Lore',
+    i18n: 'nav_goalworld',
+    icon: '🔮',
+    to: '/goalworld',
+  },
+  {
+    id: 'reader',
+    label: 'Kindle E-Reader',
+    icon: '📖',
+    to: '/reader',
+    badge: 'VIP',
+  },
+  {
+    id: 'studio',
+    label: 'Author & Lore Studio',
+    icon: '🖋️',
+    to: '/studio',
+  },
 ];
 
 /* ============================================================

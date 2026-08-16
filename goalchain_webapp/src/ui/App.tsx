@@ -26,6 +26,9 @@ import { PressKit } from './PressKit';
 import { GenesisCollectionGallery } from './GenesisCollectionGallery';
 import { CorporateAutopilot } from './CorporateAutopilot';
 import { TokenizedAgentsDashboard } from './TokenizedAgentsDashboard';
+import { GoalWorldPortal } from './GoalWorldPortal';
+import { KindleReader } from './KindleReader';
+import { AuthorStudio } from './AuthorStudio';
 const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
 
 function PlayPage({
@@ -51,6 +54,11 @@ function PlayPage({
 const ProfilePage = () => {
   const { username } = useParams<{ username: string }>();
   return <UserProfile username={username} />;
+};
+
+const ReaderPage = () => {
+  const { bookId } = useParams<{ bookId?: string }>();
+  return <KindleReader initialBookId={bookId || 'the-neural-wars-book-1'} />;
 };
 
 function App() {
@@ -117,6 +125,15 @@ function App() {
                       }
                     />
                     <Route
+                      path="/goalworld"
+                      element={
+                        <PlayPage titleKey="route_goalworld" align="left">
+                          <GoalWorldPortal />
+                        </PlayPage>
+
+                      }
+                    />
+                    <Route
                       path="/staking"
                       element={
                         <React.Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Loading Staking Dashboard...</div>}>
@@ -169,6 +186,11 @@ function App() {
                     <Route path="/hub" element={<ClassicHub />} />
                     <Route path="/crear-usuario" element={<CreateUser />} />
                     <Route path="/perfil/:username" element={<ProfilePage />} />
+                    <Route path="/reader" element={<ReaderPage />} />
+                    <Route path="/reader/:bookId" element={<ReaderPage />} />
+                    <Route path="/read" element={<ReaderPage />} />
+                    <Route path="/studio" element={<AuthorStudio />} />
+                    <Route path="/editorial" element={<AuthorStudio />} />
                   </Route>
                 </Routes>
               </WalletModalProvider>
