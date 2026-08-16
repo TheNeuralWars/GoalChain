@@ -298,19 +298,39 @@
             </div>
           </div>
 
-          <!-- Section 3: Official Storefronts -->
-          <div style="background: rgba(10, 15, 30, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 2rem; text-align: center;">
-            <h3 style="font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">
-              🛍️ Tiendas Oficiales &amp; Ediciones Disponibles
+          <!-- Section 3: Author Manifesto & Biography -->
+          <div style="background: rgba(15, 17, 26, 0.88); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 20px; padding: 2.5rem; margin-bottom: 3rem; box-shadow: 0 15px 40px rgba(0,0,0,0.5);">
+            <div style="display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem;">
+              <div style="width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #a855f7, #38bdf8); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);">
+                🖋️
+              </div>
+              <div>
+                <h3 style="font-size: 1.4rem; font-weight: 900; color: #fff; margin: 0;">The Neural Wars Studio + Nico Pez</h3>
+                <div style="color: #a855f7; font-weight: 800; font-size: 0.85rem; margin-top: 2px;">Entidad de Co-Creación Literaria • Arquitectura de Ficción Viva</div>
+              </div>
+            </div>
+            <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.75; margin-bottom: 1rem;">
+              «No concebimos las historias como monumentos estáticos de papel congelados en el tiempo. Las concebimos como <strong>universos vivos y respirables</strong>, donde la dirección cinematográfica humana y el poder de enjambres de inteligencia artificial colaboran en tiempo real para crear mundos con una profundidad, textura y coherencia sin precedentes.»
+            </p>
+            <div style="color: #64748b; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem; display: flex; justify-content: space-between;">
+              <span>Sello: <strong>GoalWorld Publishing</strong></span>
+              <span>Propiedad Intelectual: <strong>Genesis Verified On-Chain</strong></span>
+            </div>
+          </div>
+
+          <!-- Section 4: Official Storefronts & Prerreserva -->
+          <div style="background: rgba(10, 15, 30, 0.75); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 2.2rem; text-align: center; backdrop-filter: blur(12px);">
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">
+              🛍️ Tiendas Oficiales &amp; Prerreserva Anticipada
             </h3>
-            <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem;">
-              Consigue tus copias oficiales digitales, impresas y coleccionables en tu plataforma preferida.
+            <p style="color: #94a3b8; font-size: 0.92rem; margin-bottom: 1.5rem;">
+              Recibe acceso prioritario y notificaciones del lanzamiento comercial de las ediciones impresas y digitales.
             </p>
             <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;">
-              <a href="https://amazon.com" target="_blank" class="gw-btn-sm-primary" style="background: #ff9900; color: #000; font-weight: 800; text-decoration: none; padding: 10px 20px;">📦 Amazon Kindle</a>
-              <a href="https://audible.com" target="_blank" class="gw-btn-sm-primary" style="background: #f59e0b; color: #000; font-weight: 800; text-decoration: none; padding: 10px 20px;">🎧 Audible HD</a>
-              <a href="https://books.apple.com" target="_blank" class="gw-btn-sm-primary" style="background: #6366f1; color: #fff; font-weight: 800; text-decoration: none; padding: 10px 20px;">📱 Apple Books</a>
-              <a href="/go/play" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #a855f7, #38bdf8); color: #fff; font-weight: 800; text-decoration: none; padding: 10px 20px;">⛓️ Pase Solana Web3</a>
+              <button onclick="GW.openPreOrder('Amazon Kindle KDP')" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #ff9900, #f59e0b); color: #000; font-weight: 900; padding: 12px 22px; cursor: pointer; border: none; border-radius: 8px;">🔔 Prerreserva en Amazon Kindle</button>
+              <button onclick="GW.openPreOrder('Audible HD')" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; font-weight: 900; padding: 12px 22px; cursor: pointer; border: none; border-radius: 8px;">🔔 Prerreserva en Audible</button>
+              <button onclick="GW.openPreOrder('Apple Books & Google Play')" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #6366f1, #4f46e5); color: #fff; font-weight: 900; padding: 12px 22px; cursor: pointer; border: none; border-radius: 8px;">🔔 Prerreserva en Apple Books</button>
+              <a href="/go/play" class="gw-btn-sm-primary" style="background: linear-gradient(135deg, #a855f7, #38bdf8); color: #fff; font-weight: 900; text-decoration: none; padding: 12px 22px; border-radius: 8px;">⛓️ Mintear Pase Solana Web3</a>
             </div>
           </div>
         </section>
@@ -978,6 +998,13 @@ La tormenta no cesaba, pero las runas brillaban con fuerza.</textarea>
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
+      };
+
+      GW.openPreOrder = function(platformName) {
+        var email = prompt('🔔 Prerreserva Anticipada en ' + platformName + ':\n\nIngresa tu correo electrónico para recibir acceso prioritario y notificaciones del lanzamiento:');
+        if (email && email.trim().length > 3) {
+          alert('✨ ¡Excelente! Tu correo (' + email.trim() + ') ha sido registrado para acceso anticipado a ' + platformName + '.');
+        }
       };
 
       GW.updateKdpManifest = function() {};

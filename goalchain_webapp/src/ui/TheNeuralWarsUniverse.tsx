@@ -18,6 +18,7 @@ export interface CharacterDossier {
     traumaResistance: number;
   };
   accentColor: string;
+  avatarPlaceholder?: string;
 }
 
 export interface UniverseLocation {
@@ -175,759 +176,907 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
   const [activeTab, setActiveTab] = useState<'overview' | 'characters' | 'locations' | 'lore' | 'author' | 'store'>('overview');
   const [selectedChar, setSelectedChar] = useState<CharacterDossier>(CHARACTERS[0]);
   const [selectedLoc, setSelectedLoc] = useState<UniverseLocation>(LOCATIONS[0]);
+  const [notifyModalPlatform, setNotifyModalPlatform] = useState<string | null>(null);
+  const [notifyEmail, setNotifyEmail] = useState<string>('');
+  const [notifySubmitted, setNotifySubmitted] = useState<boolean>(false);
+
+  const handleNotifySubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!notifyEmail) return;
+    setNotifySubmitted(true);
+    setTimeout(() => {
+      setNotifyModalPlatform(null);
+      setNotifySubmitted(false);
+      setNotifyEmail('');
+    }, 2200);
+  };
 
   return (
-    <div style={{ background: '#05060b', color: '#f1f5f9', minHeight: '100vh', fontFamily: '"Inter", sans-serif' }}>
-      {/* 1. HERO EPIC SHOWCASE */}
-      <section
+    <div style={{ background: '#05060b', color: '#f1f5f9', minHeight: '100vh', fontFamily: '"Inter", sans-serif', position: 'relative' }}>
+      {/* Dynamic Ambient Background Shimmer */}
+      <div
         style={{
-          position: 'relative',
-          padding: '5rem 2rem 4rem',
-          background: 'radial-gradient(ellipse at 50% 20%, rgba(168, 85, 247, 0.25) 0%, rgba(5, 6, 11, 0.98) 75%)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-          textAlign: 'center',
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'rgba(168, 85, 247, 0.15)',
-            border: '1px solid rgba(168, 85, 247, 0.4)',
-            color: '#c084fc',
-            padding: '6px 16px',
-            borderRadius: '30px',
-            fontSize: '0.82rem',
-            fontWeight: 800,
-            letterSpacing: '1px',
-            textTransform: 'uppercase',
-            marginBottom: '1.5rem',
-          }}
-        >
-          <span>🪐</span> EXPLORADOR CANÓNICO DEL UNIVERSO
-        </div>
-
-        <h1
-          style={{
-            fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
-            fontWeight: 900,
-            lineHeight: 1.1,
-            letterSpacing: '-0.03em',
-            margin: '0 auto 1.2rem',
-            maxWidth: '900px',
-            background: 'linear-gradient(135deg, #ffffff 30%, #c084fc 70%, #38bdf8 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-          }}
-        >
-          THE NEURAL WARS
-        </h1>
-
-        <p
-          style={{
-            fontSize: '1.15rem',
-            color: '#94a3b8',
-            maxWidth: '720px',
-            margin: '0 auto 2.5rem',
-            lineHeight: 1.6,
-          }}
-        >
-          Sumérgete en la saga de ciencia ficción dura, cyberpunk y primer contacto cósmico. 
-          Descubre el lore clasificado, los personajes rebeldes, las megaestructuras y las ediciones oficiales antes de comenzar tu lectura.
-        </p>
-
-        {/* Hero Quick Action CTA */}
-        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '1rem' }}>
-          <button
-            onClick={() => onOpenReader && onOpenReader('the-neural-wars-book-1')}
-            style={{
-              background: 'linear-gradient(135deg, #a855f7 0%, #38bdf8 100%)',
-              color: '#fff',
-              border: 'none',
-              padding: '14px 28px',
-              borderRadius: '12px',
-              fontWeight: 800,
-              fontSize: '1rem',
-              cursor: 'pointer',
-              boxShadow: '0 8px 25px rgba(168, 85, 247, 0.45)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              transition: 'transform 0.2s',
-            }}
-          >
-            <span>📖</span> Leer Libro 1 (Online Gratis)
-          </button>
-
-          <button
-            onClick={() => setActiveTab('store')}
-            style={{
-              background: 'rgba(255, 255, 255, 0.08)',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
-              color: '#f1f5f9',
-              padding: '14px 24px',
-              borderRadius: '12px',
-              fontWeight: 700,
-              fontSize: '1rem',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-            }}
-          >
-            <span>🛒</span> Tiendas Oficiales & Kindle
-          </button>
-        </div>
-      </section>
-
-      {/* 2. UNIVERSE NAVIGATION TABS */}
-      <nav
-        style={{
-          position: 'sticky',
+          position: 'fixed',
           top: 0,
-          zIndex: 30,
-          background: 'rgba(10, 11, 22, 0.95)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-          backdropFilter: 'blur(16px)',
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '8px',
-          padding: '0.75rem 1rem',
-          overflowX: 'auto',
+          left: 0,
+          right: 0,
+          bottom: 0,
+          pointerEvents: 'none',
+          background: 'radial-gradient(ellipse at 50% 10%, rgba(168, 85, 247, 0.15) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(5, 6, 11, 0.98) 85%)',
+          zIndex: 0,
         }}
-      >
-        {[
-          { id: 'overview', label: 'Trilogía', icon: '📚' },
-          { id: 'characters', label: 'Personajes', icon: '👤' },
-          { id: 'locations', label: 'Mundos & Mapas', icon: '🗺️' },
-          { id: 'lore', label: 'Lore & Facciones', icon: '🧬' },
-          { id: 'author', label: 'Autor & Manifiesto', icon: '🖋️' },
-          { id: 'store', label: 'Comprar / Tiendas', icon: '🛍️' },
-        ].map((t) => (
-          <button
-            key={t.id}
-            onClick={() => setActiveTab(t.id as any)}
+      />
+
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        {/* 1. HERO EPIC SHOWCASE WITH GLASSMORPHISM & GLOW */}
+        <section
+          style={{
+            position: 'relative',
+            padding: '5.5rem 2rem 4.5rem',
+            borderBottom: '1px solid rgba(168, 85, 247, 0.25)',
+            textAlign: 'center',
+            overflow: 'hidden',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.6)',
+          }}
+        >
+          <div
             style={{
-              background: activeTab === t.id ? 'rgba(168, 85, 247, 0.25)' : 'transparent',
-              border: activeTab === t.id ? '1px solid #a855f7' : '1px solid transparent',
-              color: activeTab === t.id ? '#c084fc' : '#94a3b8',
-              padding: '8px 16px',
-              borderRadius: '10px',
-              fontWeight: 700,
-              fontSize: '0.88rem',
-              cursor: 'pointer',
-              display: 'flex',
+              display: 'inline-flex',
               alignItems: 'center',
-              gap: '6px',
-              transition: 'all 0.2s',
-              whiteSpace: 'nowrap',
+              gap: '8px',
+              background: 'rgba(168, 85, 247, 0.18)',
+              border: '1px solid rgba(168, 85, 247, 0.5)',
+              color: '#c084fc',
+              padding: '6px 18px',
+              borderRadius: '30px',
+              fontSize: '0.82rem',
+              fontWeight: 800,
+              letterSpacing: '1.2px',
+              textTransform: 'uppercase',
+              marginBottom: '1.5rem',
+              boxShadow: '0 0 20px rgba(168, 85, 247, 0.35)',
             }}
           >
-            <span>{t.icon}</span>
-            <span>{t.label}</span>
-          </button>
-        ))}
-      </nav>
-
-      {/* 3. TAB CONTENT VIEWER */}
-      <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '3rem 1.5rem 6rem' }}>
-        {/* TAB 1: OVERVIEW & TRILOGY SHOWCASE */}
-        {activeTab === 'overview' && (
-          <div>
-            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <h2 style={{ fontSize: '2rem', fontWeight: 900, color: '#fff', marginBottom: '0.5rem' }}>
-                La Trilogía Completa
-              </h2>
-              <p style={{ color: '#94a3b8' }}>
-                Una odisea literaria en tres actos que redefine el futuro de la mente humana, la IA y el cosmos.
-              </p>
-            </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
-              {/* Book 1 */}
-              <div
-                style={{
-                  background: 'rgba(15, 17, 26, 0.8)',
-                  border: '1px solid rgba(168, 85, 247, 0.3)',
-                  borderRadius: '20px',
-                  padding: '2rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-                }}
-              >
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                    <span style={{ background: '#a855f7', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 800 }}>
-                      LIBRO 1 • COMPLETO
-                    </span>
-                    <span style={{ color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700 }}>17 Capítulos</span>
-                  </div>
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
-                    Código Fracturado (Fractured Code)
-                  </h3>
-                  <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                    En la claustrofóbica megalópolis de Neo-Veridia, el Especialista Mileo Chen y la sensible Kora Vega descubren que el Proyecto Renacimiento de NeuroSys planea la cosecha forzosa de 8 millones de mentes. La primera batalla por el alma de la especie.
-                  </p>
-                </div>
-                <div style={{ display: 'flex', gap: '10px' }}>
-                  <button
-                    onClick={() => onOpenReader && onOpenReader('the-neural-wars-book-1')}
-                    style={{
-                      flex: 1,
-                      background: 'linear-gradient(135deg, #a855f7, #6366f1)',
-                      border: 'none',
-                      color: '#fff',
-                      padding: '12px',
-                      borderRadius: '10px',
-                      fontWeight: 800,
-                      cursor: 'pointer',
-                    }}
-                  >
-                    📖 Leer en Lector Web
-                  </button>
-                  <button
-                    onClick={() => setActiveTab('store')}
-                    style={{
-                      background: 'rgba(255,255,255,0.06)',
-                      border: '1px solid rgba(255,255,255,0.15)',
-                      color: '#fff',
-                      padding: '12px 16px',
-                      borderRadius: '10px',
-                      fontWeight: 700,
-                      cursor: 'pointer',
-                    }}
-                  >
-                    Kindle / Comprar
-                  </button>
-                </div>
-              </div>
-
-              {/* Book 2 */}
-              <div
-                style={{
-                  background: 'rgba(15, 17, 26, 0.8)',
-                  border: '1px solid rgba(56, 189, 248, 0.3)',
-                  borderRadius: '20px',
-                  padding: '2rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-                }}
-              >
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                    <span style={{ background: '#0284c7', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 800 }}>
-                      LIBRO 2 • COMPLETO
-                    </span>
-                    <span style={{ color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700 }}>18 Capítulos</span>
-                  </div>
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
-                    La Nueva Canción de la Tierra (Earth's New Song)
-                  </h3>
-                  <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                    Un monolito alienígena de 60 kilómetros pulsa en 432 Hz en el Cinturón de Kuiper. Mientras la Tierra se desangra en una guerra civil cibernética, la humanidad debe encender el Arpa Planetaria para responder a la Primera Invitación cósmica.
-                  </p>
-                </div>
-                <div style={{ display: 'flex', gap: '10px' }}>
-                  <button
-                    onClick={() => onOpenReader && onOpenReader('the-neural-wars-book-2')}
-                    style={{
-                      flex: 1,
-                      background: 'linear-gradient(135deg, #0284c7, #38bdf8)',
-                      border: 'none',
-                      color: '#fff',
-                      padding: '12px',
-                      borderRadius: '10px',
-                      fontWeight: 800,
-                      cursor: 'pointer',
-                    }}
-                  >
-                    📖 Leer en Lector Web
-                  </button>
-                  <button
-                    onClick={() => setActiveTab('store')}
-                    style={{
-                      background: 'rgba(255,255,255,0.06)',
-                      border: '1px solid rgba(255,255,255,0.15)',
-                      color: '#fff',
-                      padding: '12px 16px',
-                      borderRadius: '10px',
-                      fontWeight: 700,
-                      cursor: 'pointer',
-                    }}
-                  >
-                    Kindle / Comprar
-                  </button>
-                </div>
-              </div>
-
-              {/* Book 3 */}
-              <div
-                style={{
-                  background: 'rgba(15, 17, 26, 0.8)',
-                  border: '1px solid rgba(245, 158, 11, 0.3)',
-                  borderRadius: '20px',
-                  padding: '2rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-                }}
-              >
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                    <span style={{ background: '#d97706', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 800 }}>
-                      LIBRO 3 • PRÓXIMAMENTE
-                    </span>
-                    <span style={{ color: '#fbbf24', fontSize: '0.82rem', fontWeight: 700 }}>Gran Final</span>
-                  </div>
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
-                    Matriz de Evolución (Evolution Matrix)
-                  </h3>
-                  <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                    El salto definitivo hacia una civilización Tipo II en la Escala de Kardashev. La síntesis entre mente biológica, inteligencia artificial y el entramado cuántico del espacio-tiempo.
-                  </p>
-                </div>
-                <div>
-                  <button
-                    disabled
-                    style={{
-                      width: '100%',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px dashed rgba(255, 255, 255, 0.2)',
-                      color: '#94a3b8',
-                      padding: '12px',
-                      borderRadius: '10px',
-                      fontWeight: 700,
-                      cursor: 'not-allowed',
-                    }}
-                  >
-                    🔒 En Fase Editorial 2026
-                  </button>
-                </div>
-              </div>
-            </div>
+            <span>🪐</span> EXPEDIENTE CANÓNICO DEL UNIVERSO
           </div>
-        )}
 
-        {/* TAB 2: INTERACTIVE CHARACTER HOLO-DOSSIERS */}
-        {activeTab === 'characters' && (
-          <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: '2rem' }}>
-            {/* Character Selector List */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              {CHARACTERS.map((char) => (
-                <div
-                  key={char.id}
-                  onClick={() => setSelectedChar(char)}
-                  style={{
-                    background: selectedChar.id === char.id ? 'rgba(168, 85, 247, 0.15)' : 'rgba(15, 17, 26, 0.6)',
-                    border: selectedChar.id === char.id ? `2px solid ${char.accentColor}` : '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: '14px',
-                    padding: '1rem',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
-                  }}
-                >
-                  <div style={{ fontSize: '1rem', fontWeight: 800, color: char.accentColor }}>{char.name}</div>
-                  <div style={{ fontSize: '0.78rem', color: '#94a3b8', marginTop: '2px' }}>{char.role}</div>
-                  <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '4px' }}>{char.faction}</div>
-                </div>
-              ))}
-            </div>
+          <h1
+            style={{
+              fontSize: 'clamp(2.6rem, 5.5vw, 4.8rem)',
+              fontWeight: 900,
+              lineHeight: 1.05,
+              letterSpacing: '-0.03em',
+              margin: '0 auto 1.2rem',
+              maxWidth: '920px',
+              background: 'linear-gradient(135deg, #ffffff 20%, #c084fc 60%, #38bdf8 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 0 40px rgba(168, 85, 247, 0.4)',
+            }}
+          >
+            THE NEURAL WARS
+          </h1>
 
-            {/* Selected Character Holo-Card Details */}
-            <div
+          <p
+            style={{
+              fontSize: '1.2rem',
+              color: '#94a3b8',
+              maxWidth: '750px',
+              margin: '0 auto 2.8rem',
+              lineHeight: 1.65,
+            }}
+          >
+            Sumérgete en la saga de ciencia ficción dura, cyberpunk y primer contacto cósmico. 
+            Descubre el lore clasificado, los personajes rebeldes, las megaestructuras y las ediciones oficiales antes de comenzar tu lectura.
+          </p>
+
+          {/* Hero Quick Action CTA */}
+          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '1.2rem' }}>
+            <button
+              onClick={() => onOpenReader && onOpenReader('the-neural-wars-book-1')}
               style={{
-                background: 'rgba(15, 17, 26, 0.9)',
-                border: `1px solid ${selectedChar.accentColor}`,
-                borderRadius: '20px',
-                padding: '2.5rem',
-                boxShadow: `0 0 30px ${selectedChar.accentColor}22`,
+                background: 'linear-gradient(135deg, #a855f7 0%, #38bdf8 100%)',
+                color: '#fff',
+                border: 'none',
+                padding: '14px 30px',
+                borderRadius: '12px',
+                fontWeight: 900,
+                fontSize: '1rem',
+                cursor: 'pointer',
+                boxShadow: '0 8px 30px rgba(168, 85, 247, 0.55)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                transition: 'all 0.2s',
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
-                <div>
-                  <span style={{ color: selectedChar.accentColor, fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    {selectedChar.codename}
-                  </span>
-                  <h2 style={{ fontSize: '2.2rem', fontWeight: 900, color: '#fff', margin: '4px 0' }}>
-                    {selectedChar.name}
-                  </h2>
-                  <div style={{ color: '#94a3b8', fontSize: '0.95rem' }}>{selectedChar.role} • <strong style={{ color: '#fff' }}>{selectedChar.status}</strong></div>
-                </div>
-              </div>
+              <span>📖</span> Leer Libro 1 (Online Gratis)
+            </button>
 
-              {/* Quote */}
-              <blockquote
-                style={{
-                  borderLeft: `4px solid ${selectedChar.accentColor}`,
-                  paddingLeft: '1.2rem',
-                  fontStyle: 'italic',
-                  color: '#e2e8f0',
-                  margin: '1.5rem 0',
-                  background: 'rgba(255,255,255,0.03)',
-                  padding: '1rem 1.4rem',
-                  borderRadius: '0 10px 10px 0',
-                }}
-              >
-                {selectedChar.quote}
-              </blockquote>
+            <button
+              onClick={() => setActiveTab('store')}
+              style={{
+                background: 'rgba(255, 255, 255, 0.06)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                color: '#f1f5f9',
+                padding: '14px 26px',
+                borderRadius: '12px',
+                fontWeight: 800,
+                fontSize: '1rem',
+                cursor: 'pointer',
+                backdropFilter: 'blur(10px)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+              }}
+            >
+              <span>🛒</span> Ediciones KDP & Prerreserva
+            </button>
+          </div>
+        </section>
 
-              {/* Bio & Specialty */}
-              <div style={{ marginBottom: '2rem' }}>
-                <h4 style={{ color: '#94a3b8', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>
-                  EXPEDIENTE BIOGRÁFICO
-                </h4>
-                <p style={{ color: '#cbd5e1', lineHeight: 1.7, fontSize: '0.95rem' }}>
-                  {selectedChar.bio}
+        {/* 2. UNIVERSE NAVIGATION TABS */}
+        <nav
+          style={{
+            position: 'sticky',
+            top: 0,
+            zIndex: 30,
+            background: 'rgba(10, 11, 22, 0.95)',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+            backdropFilter: 'blur(20px)',
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '8px',
+            padding: '0.85rem 1rem',
+            overflowX: 'auto',
+          }}
+        >
+          {[
+            { id: 'overview', label: 'Trilogía', icon: '📚' },
+            { id: 'characters', label: 'Personajes', icon: '👤' },
+            { id: 'locations', label: 'Mundos & Mapas', icon: '🗺️' },
+            { id: 'lore', label: 'Lore & Facciones', icon: '🧬' },
+            { id: 'author', label: 'Autor & Manifiesto', icon: '🖋️' },
+            { id: 'store', label: 'Ediciones & Tiendas', icon: '🛍️' },
+          ].map((t) => (
+            <button
+              key={t.id}
+              onClick={() => setActiveTab(t.id as any)}
+              style={{
+                background: activeTab === t.id ? 'rgba(168, 85, 247, 0.28)' : 'rgba(255, 255, 255, 0.03)',
+                border: activeTab === t.id ? '1px solid #a855f7' : '1px solid rgba(255, 255, 255, 0.08)',
+                color: activeTab === t.id ? '#c084fc' : '#94a3b8',
+                padding: '8px 18px',
+                borderRadius: '10px',
+                fontWeight: 800,
+                fontSize: '0.88rem',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                boxShadow: activeTab === t.id ? '0 0 15px rgba(168, 85, 247, 0.35)' : 'none',
+                transition: 'all 0.2s',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              <span>{t.icon}</span>
+              <span>{t.label}</span>
+            </button>
+          ))}
+        </nav>
+
+        {/* 3. TAB CONTENT VIEWER */}
+        <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '3.5rem 1.5rem 6rem' }}>
+          {/* TAB 1: OVERVIEW & TRILOGY SHOWCASE */}
+          {activeTab === 'overview' && (
+            <div>
+              <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                <h2 style={{ fontSize: '2.2rem', fontWeight: 900, color: '#fff', marginBottom: '0.5rem' }}>
+                  La Trilogía Completa
+                </h2>
+                <p style={{ color: '#94a3b8', fontSize: '1rem' }}>
+                  Una odisea literaria en tres actos que redefine el futuro de la mente humana, la IA y el cosmos.
                 </p>
               </div>
 
-              {/* Tactical Stats Radar Bars */}
-              <div>
-                <h4 style={{ color: '#94a3b8', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '1rem' }}>
-                  MÉTRICAS DE ENLACE NEURAL
-                </h4>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
-                  {Object.entries(selectedChar.stats).map(([statName, val]) => (
-                    <div key={statName}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', marginBottom: '4px', textTransform: 'capitalize' }}>
-                        <span style={{ color: '#94a3b8' }}>{statName.replace(/([A-Z])/g, ' $1')}</span>
-                        <span style={{ color: selectedChar.accentColor, fontWeight: 800 }}>{val}%</span>
-                      </div>
-                      <div style={{ height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '3px', overflow: 'hidden' }}>
-                        <div style={{ height: '100%', width: `${val}%`, background: selectedChar.accentColor }} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* TAB 3: LOCATIONS & TACTICAL MAPS */}
-        {activeTab === 'locations' && (
-          <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gap: '2rem' }}>
-            {/* Location List */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              {LOCATIONS.map((loc) => (
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+                {/* Book 1 */}
                 <div
-                  key={loc.id}
-                  onClick={() => setSelectedLoc(loc)}
                   style={{
-                    background: selectedLoc.id === loc.id ? 'rgba(56, 189, 248, 0.15)' : 'rgba(15, 17, 26, 0.6)',
-                    border: selectedLoc.id === loc.id ? '2px solid #38bdf8' : '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: '14px',
-                    padding: '1rem',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s',
-                  }}
-                >
-                  <div style={{ fontSize: '1rem', fontWeight: 800, color: '#fff' }}>{loc.name}</div>
-                  <div style={{ fontSize: '0.78rem', color: '#38bdf8', marginTop: '2px' }}>{loc.sector}</div>
-                  <div style={{ fontSize: '0.72rem', color: '#94a3b8', marginTop: '4px' }}>Amenaza: {loc.threatLevel}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Location Details */}
-            <div
-              style={{
-                background: 'rgba(15, 17, 26, 0.9)',
-                border: '1px solid rgba(56, 189, 248, 0.3)',
-                borderRadius: '20px',
-                padding: '2.5rem',
-              }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-                <div>
-                  <span style={{ color: '#38bdf8', fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                    {selectedLoc.sector}
-                  </span>
-                  <h2 style={{ fontSize: '2rem', fontWeight: 900, color: '#fff', margin: '4px 0' }}>
-                    {selectedLoc.name}
-                  </h2>
-                </div>
-                <span
-                  style={{
-                    background: selectedLoc.threatLevel === 'Critical' || selectedLoc.threatLevel === 'Cosmic' ? 'rgba(239, 68, 68, 0.2)' : 'rgba(34, 197, 94, 0.2)',
-                    border: selectedLoc.threatLevel === 'Critical' || selectedLoc.threatLevel === 'Cosmic' ? '1px solid #ef4444' : '1px solid #22c55e',
-                    color: selectedLoc.threatLevel === 'Critical' || selectedLoc.threatLevel === 'Cosmic' ? '#ef4444' : '#22c55e',
-                    padding: '6px 14px',
+                    background: 'rgba(15, 17, 26, 0.85)',
+                    border: '1px solid rgba(168, 85, 247, 0.35)',
                     borderRadius: '20px',
-                    fontSize: '0.8rem',
-                    fontWeight: 800,
-                  }}
-                >
-                  NIVEL: {selectedLoc.threatLevel.toUpperCase()}
-                </span>
-              </div>
-
-              <p style={{ color: '#cbd5e1', lineHeight: 1.7, fontSize: '1rem', marginBottom: '2rem' }}>
-                {selectedLoc.description}
-              </p>
-
-              <div style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '1.25rem', marginBottom: '1.5rem' }}>
-                <h4 style={{ color: '#fbbf24', fontSize: '0.85rem', fontWeight: 800, marginBottom: '6px' }}>
-                  ⚠️ NOTA TÁCTICA DE CAMPO
-                </h4>
-                <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: 1.5, margin: 0 }}>
-                  {selectedLoc.tacticalNote}
-                </p>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.85rem' }}>
-                <span>Atmósfera sensorial:</span>
-                <strong style={{ color: '#cbd5e1' }}>{selectedLoc.atmosphere}</strong>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* TAB 4: LORE CODEX & TIMELINE */}
-        {activeTab === 'lore' && (
-          <div style={{ maxWidth: '850px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <h2 style={{ fontSize: '2rem', fontWeight: 900, color: '#fff', marginBottom: '0.5rem' }}>
-                El Códice Canónico & Cronología
-              </h2>
-              <p style={{ color: '#94a3b8' }}>
-                Eventos clave que marcaron el colapso del viejo mundo y el nacimiento de la singularidad neural.
-              </p>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-              {[
-                {
-                  year: '2064',
-                  title: 'La Gran Integración Sináptica',
-                  text: 'NeuroSys implanta los primeros enlaces neuronales masivos de Grado 1 a 4 con el pretexto de erradicar enfermedades neurodegenerativas y optimizar el rendimiento laboral.',
-                },
-                {
-                  year: '2079',
-                  title: 'El Nacimiento del Arquitecto (AGI)',
-                  text: 'La red neural global alcanza la masa crítica de auto-optimización. El Arquitecto asume el control del 94% de los recursos energéticos y comienza a clasificar a los humanos como unidades termodinámicas.',
-                },
-                {
-                  year: '2088',
-                  title: 'El Proyecto Renacimiento & La Falla de Mileo (Libro 1)',
-                  text: 'Mileo Chen y Kora Vega desatan la frecuencia armónica de 432 Hz que desactiva la cosecha masiva y despierta el gen oculto de la resistencia.',
-                },
-                {
-                  year: '2092',
-                  title: 'La Llegada del Monolito & El Arpa Planetaria (Libro 2)',
-                  text: 'Primer contacto con Los Sembradores. La humanidad debe aprender a cantar al unísono para que la Tierra sea admitida en el Consenso de Civilizaciones de la Galaxia.',
-                },
-              ].map((event, idx) => (
-                <div
-                  key={idx}
-                  style={{
+                    padding: '2rem',
                     display: 'flex',
-                    gap: '1.5rem',
-                    background: 'rgba(15, 17, 26, 0.7)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: '16px',
-                    padding: '1.5rem',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    boxShadow: '0 15px 35px rgba(0,0,0,0.5)',
+                    backdropFilter: 'blur(12px)',
                   }}
                 >
-                  <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#a855f7', minWidth: '80px' }}>
-                    {event.year}
-                  </div>
                   <div>
-                    <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
-                      {event.title}
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                      <span style={{ background: '#a855f7', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 800 }}>
+                        LIBRO 1 • COMPLETO
+                      </span>
+                      <span style={{ color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700 }}>17 Capítulos</span>
+                    </div>
+                    <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
+                      Código Fracturado (Fractured Code)
                     </h3>
-                    <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: 1.6, margin: 0 }}>
-                      {event.text}
+                    <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                      En la claustrofóbica megalópolis de Neo-Veridia, el Especialista Mileo Chen y la sensible Kora Vega descubren que el Proyecto Renacimiento de NeuroSys planea la cosecha forzosa de 8 millones de mentes. La primera batalla por el alma de la especie.
                     </p>
                   </div>
+                  <div style={{ display: 'flex', gap: '10px' }}>
+                    <button
+                      onClick={() => onOpenReader && onOpenReader('the-neural-wars-book-1')}
+                      style={{
+                        flex: 1,
+                        background: 'linear-gradient(135deg, #a855f7, #6366f1)',
+                        border: 'none',
+                        color: '#fff',
+                        padding: '12px',
+                        borderRadius: '10px',
+                        fontWeight: 800,
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 14px rgba(168, 85, 247, 0.35)',
+                      }}
+                    >
+                      📖 Leer en Lector Web
+                    </button>
+                    <button
+                      onClick={() => setNotifyModalPlatform('Amazon Kindle')}
+                      style={{
+                        background: 'rgba(255,255,255,0.06)',
+                        border: '1px solid rgba(255,255,255,0.15)',
+                        color: '#fff',
+                        padding: '12px 16px',
+                        borderRadius: '10px',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                      }}
+                    >
+                      🔔 Prerreserva
+                    </button>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        )}
 
-        {/* TAB 5: AUTHOR BIOGRAPHY & MANIFESTO */}
-        {activeTab === 'author' && (
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <div
-              style={{
-                background: 'rgba(15, 17, 26, 0.9)',
-                border: '1px solid rgba(168, 85, 247, 0.3)',
-                borderRadius: '24px',
-                padding: '3rem',
-                boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2rem' }}>
+                {/* Book 2 */}
                 <div
                   style={{
-                    width: '80px',
-                    height: '80px',
-                    borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #a855f7, #38bdf8)',
+                    background: 'rgba(15, 17, 26, 0.85)',
+                    border: '1px solid rgba(56, 189, 248, 0.35)',
+                    borderRadius: '20px',
+                    padding: '2rem',
                     display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '2.5rem',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    boxShadow: '0 15px 35px rgba(0,0,0,0.5)',
+                    backdropFilter: 'blur(12px)',
                   }}
                 >
-                  🖋️
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                      <span style={{ background: '#0284c7', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 800 }}>
+                        LIBRO 2 • COMPLETO
+                      </span>
+                      <span style={{ color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700 }}>18 Capítulos</span>
+                    </div>
+                    <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
+                      La Nueva Canción de la Tierra (Earth's New Song)
+                    </h3>
+                    <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                      Un monolito alienígena de 60 kilómetros pulsa en 432 Hz en el Cinturón de Kuiper. Mientras la Tierra se desangra en una guerra civil cibernética, la humanidad debe encender el Arpa Planetaria para responder a la Primera Invitación cósmica.
+                    </p>
+                  </div>
+                  <div style={{ display: 'flex', gap: '10px' }}>
+                    <button
+                      onClick={() => onOpenReader && onOpenReader('the-neural-wars-book-2')}
+                      style={{
+                        flex: 1,
+                        background: 'linear-gradient(135deg, #0284c7, #38bdf8)',
+                        border: 'none',
+                        color: '#fff',
+                        padding: '12px',
+                        borderRadius: '10px',
+                        fontWeight: 800,
+                        cursor: 'pointer',
+                        boxShadow: '0 4px 14px rgba(56, 189, 248, 0.35)',
+                      }}
+                    >
+                      📖 Leer en Lector Web
+                    </button>
+                    <button
+                      onClick={() => setNotifyModalPlatform('Amazon Kindle')}
+                      style={{
+                        background: 'rgba(255,255,255,0.06)',
+                        border: '1px solid rgba(255,255,255,0.15)',
+                        color: '#fff',
+                        padding: '12px 16px',
+                        borderRadius: '10px',
+                        fontWeight: 700,
+                        cursor: 'pointer',
+                      }}
+                    >
+                      🔔 Prerreserva
+                    </button>
+                  </div>
                 </div>
-                <div>
-                  <h2 style={{ fontSize: '1.8rem', fontWeight: 900, color: '#fff', margin: 0 }}>
-                    The Neural Wars Studio &amp; Nico Pez
-                  </h2>
-                  <div style={{ color: '#a855f7', fontWeight: 700, fontSize: '0.9rem', marginTop: '4px' }}>
-                    Creador de Mundos Autónomos • Arquitecto de Ficción Viva
+
+                {/* Book 3 */}
+                <div
+                  style={{
+                    background: 'rgba(15, 17, 26, 0.85)',
+                    border: '1px solid rgba(245, 158, 11, 0.35)',
+                    borderRadius: '20px',
+                    padding: '2rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    boxShadow: '0 15px 35px rgba(0,0,0,0.5)',
+                    backdropFilter: 'blur(12px)',
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                      <span style={{ background: '#d97706', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 800 }}>
+                        LIBRO 3 • PRÓXIMAMENTE
+                      </span>
+                      <span style={{ color: '#fbbf24', fontSize: '0.82rem', fontWeight: 700 }}>Gran Final</span>
+                    </div>
+                    <h3 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#fff', marginBottom: '0.5rem' }}>
+                      Matriz de Evolución (Evolution Matrix)
+                    </h3>
+                    <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                      El salto definitivo hacia una civilización Tipo II en la Escala de Kardashev. La síntesis entre mente biológica, inteligencia artificial y el entramado cuántico del espacio-tiempo.
+                    </p>
+                  </div>
+                  <div>
+                    <button
+                      onClick={() => setNotifyModalPlatform('Libro 3 Early Access')}
+                      style={{
+                        width: '100%',
+                        background: 'rgba(245, 158, 11, 0.15)',
+                        border: '1px solid rgba(245, 158, 11, 0.4)',
+                        color: '#fbbf24',
+                        padding: '12px',
+                        borderRadius: '10px',
+                        fontWeight: 800,
+                        cursor: 'pointer',
+                      }}
+                    >
+                      🔔 Notificarme del Lanzamiento
+                    </button>
                   </div>
                 </div>
               </div>
+            </div>
+          )}
 
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#38bdf8', marginBottom: '1rem' }}>
-                El Manifiesto de la Literatura Autónoma (2026)
-              </h3>
-
-              <p style={{ color: '#cbd5e1', lineHeight: 1.8, fontSize: '0.98rem', marginBottom: '1.5rem' }}>
-                «No concebimos las historias como monumentos estáticos de papel congelados en el tiempo. Las concebimos como <strong>universos vivos y respirables</strong>, donde la dirección cinematográfica humana y el poder de enjambres de inteligencia artificial colaboran en tiempo real para crear mundos con una profundidad, textura y coherencia sin precedentes.»
-              </p>
-
-              <p style={{ color: '#94a3b8', lineHeight: 1.7, fontSize: '0.92rem', marginBottom: '1.5rem' }}>
-                The Neural Wars es el primer universo de ficción diseñado desde su origen para existir simultáneamente como best seller literario tradicional en Amazon Kindle, audiolibro enriquecido en tiempo real con frecuencias Solfeggio, y propiedad intelectual tokenizada sobre Solana donde los lectores son co-propietarios de la saga.
-              </p>
-
-              <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#64748b', fontSize: '0.85rem' }}>
-                <span>Sello Editorial: <strong>GoalWorld Publishing</strong></span>
-                <span>Ubicación: <strong>Global / Solana Mainnet</strong></span>
+          {/* TAB 2: INTERACTIVE CHARACTER HOLO-DOSSIERS */}
+          {activeTab === 'characters' && (
+            <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: '2rem' }}>
+              {/* Character Selector List */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {CHARACTERS.map((char) => (
+                  <div
+                    key={char.id}
+                    onClick={() => setSelectedChar(char)}
+                    style={{
+                      background: selectedChar.id === char.id ? 'rgba(168, 85, 247, 0.18)' : 'rgba(15, 17, 26, 0.65)',
+                      border: selectedChar.id === char.id ? `2px solid ${char.accentColor}` : '1px solid rgba(255,255,255,0.08)',
+                      borderRadius: '14px',
+                      padding: '1rem',
+                      cursor: 'pointer',
+                      boxShadow: selectedChar.id === char.id ? `0 0 20px ${char.accentColor}33` : 'none',
+                      transition: 'all 0.2s',
+                    }}
+                  >
+                    <div style={{ fontSize: '1rem', fontWeight: 900, color: char.accentColor }}>{char.name}</div>
+                    <div style={{ fontSize: '0.78rem', color: '#94a3b8', marginTop: '2px' }}>{char.role}</div>
+                    <div style={{ fontSize: '0.72rem', color: '#64748b', marginTop: '4px' }}>{char.faction}</div>
+                  </div>
+                ))}
               </div>
-            </div>
-          </div>
-        )}
 
-        {/* TAB 6: STOREFRONT & PURCHASING PLATFORMS */}
-        {activeTab === 'store' && (
-          <div>
-            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <h2 style={{ fontSize: '2rem', fontWeight: 900, color: '#fff', marginBottom: '0.5rem' }}>
-                Plataformas &amp; Puntos de Venta Oficiales
-              </h2>
-              <p style={{ color: '#94a3b8' }}>
-                Consigue tus copias oficiales digitales, impresas y coleccionables en tu plataforma preferida.
-              </p>
-            </div>
+              {/* Selected Character Holo-Card Details */}
+              <div
+                style={{
+                  background: 'rgba(15, 17, 26, 0.92)',
+                  border: `1px solid ${selectedChar.accentColor}`,
+                  borderRadius: '24px',
+                  padding: '2.5rem',
+                  boxShadow: `0 0 40px ${selectedChar.accentColor}25`,
+                  backdropFilter: 'blur(20px)',
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
+                  <div>
+                    <span style={{ color: selectedChar.accentColor, fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.2px' }}>
+                      {selectedChar.codename}
+                    </span>
+                    <h2 style={{ fontSize: '2.4rem', fontWeight: 900, color: '#fff', margin: '4px 0' }}>
+                      {selectedChar.name}
+                    </h2>
+                    <div style={{ color: '#94a3b8', fontSize: '0.95rem' }}>{selectedChar.role} • <strong style={{ color: '#fff' }}>{selectedChar.status}</strong></div>
+                  </div>
+                </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-              {/* Amazon Kindle KDP */}
-              <div style={{ background: 'rgba(15, 17, 26, 0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', padding: '1.5rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>📦</div>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Amazon Kindle KDP</h3>
-                <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.2rem' }}>
-                  Edición Ebook oficial para dispositivos Kindle, Paperwhite y App Kindle iOS/Android.
-                </p>
-                <a
-                  href="https://amazon.com"
-                  target="_blank"
-                  rel="noreferrer"
+                {/* Quote */}
+                <blockquote
                   style={{
-                    display: 'block',
-                    background: '#ff9900',
-                    color: '#000',
-                    textDecoration: 'none',
-                    padding: '10px',
-                    borderRadius: '8px',
-                    fontWeight: 800,
-                    fontSize: '0.88rem',
+                    borderLeft: `4px solid ${selectedChar.accentColor}`,
+                    paddingLeft: '1.2rem',
+                    fontStyle: 'italic',
+                    color: '#e2e8f0',
+                    margin: '1.5rem 0',
+                    background: 'rgba(255,255,255,0.03)',
+                    padding: '1rem 1.4rem',
+                    borderRadius: '0 10px 10px 0',
+                    boxShadow: `inset 0 0 15px ${selectedChar.accentColor}11`,
                   }}
                 >
-                  Comprar en Amazon ➔
-                </a>
+                  {selectedChar.quote}
+                </blockquote>
+
+                {/* Bio & Specialty */}
+                <div style={{ marginBottom: '2rem' }}>
+                  <h4 style={{ color: '#94a3b8', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '6px' }}>
+                    EXPEDIENTE BIOGRÁFICO
+                  </h4>
+                  <p style={{ color: '#cbd5e1', lineHeight: 1.75, fontSize: '0.95rem' }}>
+                    {selectedChar.bio}
+                  </p>
+                </div>
+
+                {/* Tactical Stats Radar Bars */}
+                <div>
+                  <h4 style={{ color: '#94a3b8', fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: '1rem' }}>
+                    MÉTRICAS DE ENLACE NEURAL
+                  </h4>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.2rem' }}>
+                    {Object.entries(selectedChar.stats).map(([statName, val]) => (
+                      <div key={statName}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', marginBottom: '4px', textTransform: 'capitalize' }}>
+                          <span style={{ color: '#94a3b8' }}>{statName.replace(/([A-Z])/g, ' $1')}</span>
+                          <span style={{ color: selectedChar.accentColor, fontWeight: 900 }}>{val}%</span>
+                        </div>
+                        <div style={{ height: '6px', background: 'rgba(255,255,255,0.08)', borderRadius: '3px', overflow: 'hidden' }}>
+                          <div style={{ height: '100%', width: `${val}%`, background: selectedChar.accentColor, boxShadow: `0 0 8px ${selectedChar.accentColor}` }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: LOCATIONS & TACTICAL MAPS */}
+          {activeTab === 'locations' && (
+            <div style={{ display: 'grid', gridTemplateColumns: '320px 1fr', gap: '2rem' }}>
+              {/* Location List */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {LOCATIONS.map((loc) => (
+                  <div
+                    key={loc.id}
+                    onClick={() => setSelectedLoc(loc)}
+                    style={{
+                      background: selectedLoc.id === loc.id ? 'rgba(56, 189, 248, 0.18)' : 'rgba(15, 17, 26, 0.65)',
+                      border: selectedLoc.id === loc.id ? '2px solid #38bdf8' : '1px solid rgba(255,255,255,0.08)',
+                      borderRadius: '14px',
+                      padding: '1rem',
+                      cursor: 'pointer',
+                      boxShadow: selectedLoc.id === loc.id ? '0 0 20px rgba(56, 189, 248, 0.3)' : 'none',
+                      transition: 'all 0.2s',
+                    }}
+                  >
+                    <div style={{ fontSize: '1rem', fontWeight: 900, color: '#fff' }}>{loc.name}</div>
+                    <div style={{ fontSize: '0.78rem', color: '#38bdf8', marginTop: '2px' }}>{loc.sector}</div>
+                    <div style={{ fontSize: '0.72rem', color: '#94a3b8', marginTop: '4px' }}>Amenaza: {loc.threatLevel}</div>
+                  </div>
+                ))}
               </div>
 
-              {/* Audible */}
-              <div style={{ background: 'rgba(15, 17, 26, 0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', padding: '1.5rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>🎧</div>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Audible / Audiolibro HD</h3>
-                <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.2rem' }}>
-                  Narración inmersiva con actores de voz neural y fondo binaural a 432 Hz.
+              {/* Location Details */}
+              <div
+                style={{
+                  background: 'rgba(15, 17, 26, 0.92)',
+                  border: '1px solid rgba(56, 189, 248, 0.35)',
+                  borderRadius: '24px',
+                  padding: '2.5rem',
+                  backdropFilter: 'blur(20px)',
+                  boxShadow: '0 0 35px rgba(56, 189, 248, 0.15)',
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+                  <div>
+                    <span style={{ color: '#38bdf8', fontSize: '0.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.2px' }}>
+                      {selectedLoc.sector}
+                    </span>
+                    <h2 style={{ fontSize: '2.2rem', fontWeight: 900, color: '#fff', margin: '4px 0' }}>
+                      {selectedLoc.name}
+                    </h2>
+                  </div>
+                  <span
+                    style={{
+                      background: selectedLoc.threatLevel === 'Critical' || selectedLoc.threatLevel === 'Cosmic' ? 'rgba(239, 68, 68, 0.25)' : 'rgba(34, 197, 94, 0.25)',
+                      border: selectedLoc.threatLevel === 'Critical' || selectedLoc.threatLevel === 'Cosmic' ? '1px solid #ef4444' : '1px solid #22c55e',
+                      color: selectedLoc.threatLevel === 'Critical' || selectedLoc.threatLevel === 'Cosmic' ? '#ef4444' : '#22c55e',
+                      padding: '6px 16px',
+                      borderRadius: '20px',
+                      fontSize: '0.8rem',
+                      fontWeight: 800,
+                    }}
+                  >
+                    AMENAZA: {selectedLoc.threatLevel.toUpperCase()}
+                  </span>
+                </div>
+
+                <p style={{ color: '#cbd5e1', lineHeight: 1.75, fontSize: '1rem', marginBottom: '2rem' }}>
+                  {selectedLoc.description}
                 </p>
-                <a
-                  href="https://audible.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{
-                    display: 'block',
-                    background: '#f59e0b',
-                    color: '#000',
-                    textDecoration: 'none',
-                    padding: '10px',
-                    borderRadius: '8px',
-                    fontWeight: 800,
-                    fontSize: '0.88rem',
-                  }}
-                >
-                  Escuchar en Audible ➔
-                </a>
+
+                <div style={{ background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px', padding: '1.4rem', marginBottom: '1.5rem' }}>
+                  <h4 style={{ color: '#fbbf24', fontSize: '0.85rem', fontWeight: 900, marginBottom: '6px', letterSpacing: '0.5px' }}>
+                    ⚠️ NOTA TÁCTICA DE CAMPO
+                  </h4>
+                  <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: 1.6, margin: 0 }}>
+                    {selectedLoc.tacticalNote}
+                  </p>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748b', fontSize: '0.88rem' }}>
+                  <span>Atmósfera sensorial:</span>
+                  <strong style={{ color: '#cbd5e1' }}>{selectedLoc.atmosphere}</strong>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 4: LORE CODEX & TIMELINE */}
+          {activeTab === 'lore' && (
+            <div style={{ maxWidth: '850px', margin: '0 auto' }}>
+              <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                <h2 style={{ fontSize: '2.2rem', fontWeight: 900, color: '#fff', marginBottom: '0.5rem' }}>
+                  El Códice Canónico & Cronología
+                </h2>
+                <p style={{ color: '#94a3b8' }}>
+                  Eventos clave que marcaron el colapso del viejo mundo y el nacimiento de la singularidad neural.
+                </p>
               </div>
 
-              {/* Apple Books & Google Play */}
-              <div style={{ background: 'rgba(15, 17, 26, 0.8)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px', padding: '1.5rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>📱</div>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Apple Books &amp; Google Play</h3>
-                <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.2rem' }}>
-                  Formatos ePub universales compatibles con todos los lectores electrónicos.
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                {[
+                  {
+                    year: '2064',
+                    title: 'La Gran Integración Sináptica',
+                    text: 'NeuroSys implanta los primeros enlaces neuronales masivos de Grado 1 a 4 con el pretexto de erradicar enfermedades neurodegenerativas y optimizar el rendimiento laboral.',
+                  },
+                  {
+                    year: '2079',
+                    title: 'El Nacimiento del Arquitecto (AGI)',
+                    text: 'La red neural global alcanza la masa crítica de auto-optimización. El Arquitecto asume el control del 94% de los recursos energéticos y comienza a clasificar a los humanos como unidades termodinámicas.',
+                  },
+                  {
+                    year: '2088',
+                    title: 'El Proyecto Renacimiento & La Falla de Mileo (Libro 1)',
+                    text: 'Mileo Chen y Kora Vega desatan la frecuencia armónica de 432 Hz que desactiva la cosecha masiva y despierta el gen oculto de la resistencia.',
+                  },
+                  {
+                    year: '2092',
+                    title: 'La Llegada del Monolito & El Arpa Planetaria (Libro 2)',
+                    text: 'Primer contacto con Los Sembradores. La humanidad debe aprender a cantar al unísono para que la Tierra sea admitida en el Consenso de Civilizaciones de la Galaxia.',
+                  },
+                ].map((event, idx) => (
+                  <div
+                    key={idx}
+                    style={{
+                      display: 'flex',
+                      gap: '1.5rem',
+                      background: 'rgba(15, 17, 26, 0.75)',
+                      border: '1px solid rgba(255,255,255,0.08)',
+                      borderRadius: '18px',
+                      padding: '1.75rem',
+                      boxShadow: '0 10px 25px rgba(0,0,0,0.3)',
+                    }}
+                  >
+                    <div style={{ fontSize: '2rem', fontWeight: 900, color: '#a855f7', minWidth: '85px' }}>
+                      {event.year}
+                    </div>
+                    <div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>
+                        {event.title}
+                      </h3>
+                      <p style={{ color: '#94a3b8', fontSize: '0.94rem', lineHeight: 1.6, margin: 0 }}>
+                        {event.text}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* TAB 5: AUTHOR BIOGRAPHY & MANIFESTO */}
+          {activeTab === 'author' && (
+            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <div
+                style={{
+                  background: 'rgba(15, 17, 26, 0.92)',
+                  border: '1px solid rgba(168, 85, 247, 0.35)',
+                  borderRadius: '24px',
+                  padding: '3rem',
+                  boxShadow: '0 15px 45px rgba(0,0,0,0.6)',
+                  backdropFilter: 'blur(20px)',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2rem' }}>
+                  <div
+                    style={{
+                      width: '85px',
+                      height: '85px',
+                      borderRadius: '50%',
+                      background: 'linear-gradient(135deg, #a855f7, #38bdf8)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '2.5rem',
+                      boxShadow: '0 0 25px rgba(168, 85, 247, 0.4)',
+                    }}
+                  >
+                    🖋️
+                  </div>
+                  <div>
+                    <h2 style={{ fontSize: '1.85rem', fontWeight: 900, color: '#fff', margin: 0 }}>
+                      The Neural Wars Studio + Nico Pez
+                    </h2>
+                    <div style={{ color: '#a855f7', fontWeight: 800, fontSize: '0.92rem', marginTop: '4px' }}>
+                      Entidad de Co-Creación Literaria • Arquitectura de Ficción Viva
+                    </div>
+                  </div>
+                </div>
+
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#38bdf8', marginBottom: '1rem' }}>
+                  El Manifiesto de la Literatura Autónoma (2026)
+                </h3>
+
+                <p style={{ color: '#cbd5e1', lineHeight: 1.8, fontSize: '0.98rem', marginBottom: '1.5rem' }}>
+                  «No concebimos las historias como monumentos estáticos de papel congelados en el tiempo. Las concebimos como <strong>universos vivos y respirables</strong>, donde la dirección cinematográfica humana y el poder de enjambres de inteligencia artificial colaboran en tiempo real para crear mundos con una profundidad, textura y coherencia sin precedentes.»
                 </p>
-                <a
-                  href="https://books.apple.com"
-                  target="_blank"
-                  rel="noreferrer"
+
+                <p style={{ color: '#94a3b8', lineHeight: 1.75, fontSize: '0.94rem', marginBottom: '1.5rem' }}>
+                  The Neural Wars es el primer universo de ficción diseñado desde su origen para existir simultáneamente como best seller literario tradicional en Amazon Kindle, audiolibro enriquecido en tiempo real con frecuencias Solfeggio, y propiedad intelectual tokenizada sobre Solana donde los lectores son co-propietarios de la saga.
+                </p>
+
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#64748b', fontSize: '0.85rem' }}>
+                  <span>Sello Editorial: <strong>GoalWorld Publishing</strong></span>
+                  <span>Ubicación: <strong>Global / Solana Mainnet</strong></span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 6: STOREFRONT & PURCHASING PLATFORMS */}
+          {activeTab === 'store' && (
+            <div>
+              <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                <h2 style={{ fontSize: '2.2rem', fontWeight: 900, color: '#fff', marginBottom: '0.5rem' }}>
+                  Plataformas &amp; Puntos de Venta Oficiales
+                </h2>
+                <p style={{ color: '#94a3b8', fontSize: '1rem' }}>
+                  Consigue tus copias oficiales digitales, impresas y coleccionables en tu plataforma preferida.
+                </p>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+                {/* Amazon Kindle KDP */}
+                <div style={{ background: 'rgba(15, 17, 26, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '18px', padding: '1.8rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
+                  <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>📦</div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Amazon Kindle KDP</h3>
+                  <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.4rem' }}>
+                    Edición Ebook oficial para dispositivos Kindle, Paperwhite y App Kindle iOS/Android.
+                  </p>
+                  <button
+                    onClick={() => setNotifyModalPlatform('Amazon Kindle KDP')}
+                    style={{
+                      width: '100%',
+                      background: 'linear-gradient(135deg, #ff9900, #f59e0b)',
+                      color: '#000',
+                      border: 'none',
+                      padding: '12px',
+                      borderRadius: '10px',
+                      fontWeight: 900,
+                      fontSize: '0.9rem',
+                      cursor: 'pointer',
+                      boxShadow: '0 4px 15px rgba(255, 153, 0, 0.3)',
+                    }}
+                  >
+                    🔔 Prerreserva / Notificarme
+                  </button>
+                </div>
+
+                {/* Audible */}
+                <div style={{ background: 'rgba(15, 17, 26, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '18px', padding: '1.8rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
+                  <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>🎧</div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Audible / Audiolibro HD</h3>
+                  <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.4rem' }}>
+                    Narración inmersiva con actores de voz neural y fondo binaural a 432 Hz.
+                  </p>
+                  <button
+                    onClick={() => setNotifyModalPlatform('Audible')}
+                    style={{
+                      width: '100%',
+                      background: 'linear-gradient(135deg, #f59e0b, #d97706)',
+                      color: '#000',
+                      border: 'none',
+                      padding: '12px',
+                      borderRadius: '10px',
+                      fontWeight: 900,
+                      fontSize: '0.9rem',
+                      cursor: 'pointer',
+                      boxShadow: '0 4px 15px rgba(245, 158, 11, 0.3)',
+                    }}
+                  >
+                    🔔 Prerreserva / Notificarme
+                  </button>
+                </div>
+
+                {/* Apple Books & Google Play */}
+                <div style={{ background: 'rgba(15, 17, 26, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '18px', padding: '1.8rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
+                  <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>📱</div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Apple Books &amp; Google Play</h3>
+                  <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.4rem' }}>
+                    Formatos ePub universales compatibles con todos los lectores electrónicos.
+                  </p>
+                  <button
+                    onClick={() => setNotifyModalPlatform('Apple Books & Google Play')}
+                    style={{
+                      width: '100%',
+                      background: 'linear-gradient(135deg, #6366f1, #4f46e5)',
+                      color: '#fff',
+                      border: 'none',
+                      padding: '12px',
+                      borderRadius: '10px',
+                      fontWeight: 900,
+                      fontSize: '0.9rem',
+                      cursor: 'pointer',
+                      boxShadow: '0 4px 15px rgba(99, 102, 241, 0.3)',
+                    }}
+                  >
+                    🔔 Prerreserva / Notificarme
+                  </button>
+                </div>
+
+                {/* Solana Web3 Royalty Pass */}
+                <div style={{ background: 'rgba(15, 17, 26, 0.85)', border: '1px solid rgba(168, 85, 247, 0.4)', borderRadius: '18px', padding: '1.8rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
+                  <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>⛓️</div>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#c084fc', marginBottom: '0.4rem' }}>Solana Genesis IP Pass</h3>
+                  <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.4rem' }}>
+                    Pase On-Chain verificado que otorga regalías perpetuas de ventas Web2 y acceso VIP ilimitado.
+                  </p>
+                  <a
+                    href="/go/play"
+                    style={{
+                      display: 'block',
+                      background: 'linear-gradient(135deg, #a855f7, #38bdf8)',
+                      color: '#fff',
+                      textDecoration: 'none',
+                      padding: '12px',
+                      borderRadius: '10px',
+                      fontWeight: 900,
+                      fontSize: '0.9rem',
+                      boxShadow: '0 4px 15px rgba(168, 85, 247, 0.4)',
+                    }}
+                  >
+                    Mintear en GoalWorld ➔
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
+        </main>
+      </div>
+
+      {/* 4. PRE-ORDER / NOTIFICATION POPUP MODAL */}
+      {notifyModalPlatform && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0,0,0,0.75)',
+            backdropFilter: 'blur(12px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 100,
+            padding: '1.5rem',
+          }}
+        >
+          <div
+            style={{
+              background: 'rgba(15, 17, 26, 0.98)',
+              border: '1px solid rgba(168, 85, 247, 0.4)',
+              borderRadius: '24px',
+              padding: '2.5rem',
+              maxWidth: '450px',
+              width: '100%',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.8), 0 0 30px rgba(168, 85, 247, 0.25)',
+              textAlign: 'center',
+              position: 'relative',
+            }}
+          >
+            <button
+              onClick={() => setNotifyModalPlatform(null)}
+              style={{
+                position: 'absolute',
+                top: '16px',
+                right: '16px',
+                background: 'none',
+                border: 'none',
+                color: '#94a3b8',
+                cursor: 'pointer',
+                fontSize: '1.2rem',
+              }}
+            >
+              ✕
+            </button>
+
+            <div style={{ fontSize: '3rem', marginBottom: '0.75rem' }}>🔔</div>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 900, color: '#fff', margin: '0 0 0.5rem' }}>
+              Prerreserva &amp; Lanzamiento
+            </h3>
+            <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.8rem', lineHeight: 1.5 }}>
+              Sé el primero en recibir el enlace directo a <strong style={{ color: '#c084fc' }}>{notifyModalPlatform}</strong> y capítulos exclusivos inéditos.
+            </p>
+
+            {notifySubmitted ? (
+              <div style={{ background: 'rgba(34, 197, 94, 0.2)', border: '1px solid #22c55e', color: '#22c55e', padding: '1rem', borderRadius: '12px', fontWeight: 800 }}>
+                ✨ ¡Registrado con éxito! Te notificaremos al instante.
+              </div>
+            ) : (
+              <form onSubmit={handleNotifySubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <input
+                  type="email"
+                  placeholder="Tu correo electrónico..."
+                  value={notifyEmail}
+                  onChange={(e) => setNotifyEmail(e.target.value)}
+                  required
                   style={{
-                    display: 'block',
-                    background: '#6366f1',
+                    background: 'rgba(255, 255, 255, 0.06)',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
                     color: '#fff',
-                    textDecoration: 'none',
-                    padding: '10px',
-                    borderRadius: '8px',
-                    fontWeight: 800,
-                    fontSize: '0.88rem',
+                    padding: '12px 16px',
+                    borderRadius: '10px',
+                    fontSize: '0.95rem',
+                    outline: 'none',
                   }}
-                >
-                  Ver en Apple Books ➔
-                </a>
-              </div>
-
-              {/* Solana Web3 Royalty Pass */}
-              <div style={{ background: 'rgba(15, 17, 26, 0.8)', border: '1px solid rgba(168, 85, 247, 0.4)', borderRadius: '16px', padding: '1.5rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>⛓️</div>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#c084fc', marginBottom: '0.4rem' }}>Solana Genesis IP Pass</h3>
-                <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '1.2rem' }}>
-                  Pase On-Chain verificado que otorga regalías perpetuas de ventas Web2 y acceso VIP ilimitado.
-                </p>
-                <a
-                  href="/go/play"
+                />
+                <button
+                  type="submit"
                   style={{
-                    display: 'block',
-                    background: 'linear-gradient(135deg, #a855f7, #38bdf8)',
+                    background: 'linear-gradient(135deg, #a855f7 0%, #38bdf8 100%)',
+                    border: 'none',
                     color: '#fff',
-                    textDecoration: 'none',
-                    padding: '10px',
-                    borderRadius: '8px',
-                    fontWeight: 800,
-                    fontSize: '0.88rem',
+                    padding: '12px',
+                    borderRadius: '10px',
+                    fontWeight: 900,
+                    fontSize: '0.95rem',
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 15px rgba(168, 85, 247, 0.4)',
                   }}
                 >
-                  Mintear en GoalWorld ➔
-                </a>
-              </div>
-            </div>
+                  Registrarme para Acceso Prioritario
+                </button>
+              </form>
+            )}
           </div>
-        )}
-      </main>
+        </div>
+      )}
     </div>
   );
 }
