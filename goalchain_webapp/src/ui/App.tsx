@@ -28,6 +28,7 @@ import { CorporateAutopilot } from './CorporateAutopilot';
 import { TokenizedAgentsDashboard } from './TokenizedAgentsDashboard';
 import { GoalWorldPortal } from './GoalWorldPortal';
 import { KindleReader } from './KindleReader';
+import { AuthorStudio } from './AuthorStudio';
 const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
 
 function PlayPage({
@@ -188,6 +189,8 @@ function App() {
                     <Route path="/reader" element={<ReaderPage />} />
                     <Route path="/reader/:bookId" element={<ReaderPage />} />
                     <Route path="/read" element={<ReaderPage />} />
+                    <Route path="/studio" element={<AuthorStudio />} />
+                    <Route path="/editorial" element={<AuthorStudio />} />
                   </Route>
                 </Routes>
               </WalletModalProvider>

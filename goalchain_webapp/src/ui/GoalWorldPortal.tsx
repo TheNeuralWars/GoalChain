@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../i18n';
 import { KindleReader } from './KindleReader';
+import { AuthorStudio } from './AuthorStudio';
 import { THE_NEURAL_WARS_BOOKS } from './booksData';
 
 interface FantasyWorld {
@@ -556,9 +557,12 @@ export function GoalWorldPortal() {
         </div>
       )}
 
-      {/* TAB 3: PUBLISHER SAAS (AMAZON KDP + WEB3 TOKENIZER) */}
+      {/* TAB 3: PUBLISHER SAAS & EDITORIAL STUDIO */}
       {activeTab === 'saas' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          {/* Integrated Author & Lore Studio */}
+          <AuthorStudio />
+
           {/* SaaS Header & Step Progress */}
           <div style={{
             background: 'rgba(15, 23, 42, 0.9)',
@@ -567,10 +571,10 @@ export function GoalWorldPortal() {
             padding: '1.5rem 2rem'
           }}>
             <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.3rem', fontWeight: 800, color: '#c084fc' }}>
-              🛠️ GoalWorld SaaS Editorial: Pipeline de Publicación Doble Vía
+              🛠️ Pipeline de Publicación Doble Vía (Amazon KDP + Web3 Tokenizer)
             </h3>
             <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.88rem' }}>
-              De borrador a publicación masiva en <strong>Amazon KDP (Web2)</strong> y <strong>Tokenización de IP On-Chain (Web3)</strong>.
+              De borrador pulido a publicación masiva en <strong>Amazon KDP (Web2)</strong> y <strong>Tokenización de IP On-Chain (Web3)</strong>.
             </p>
 
             <div style={{ display: 'flex', gap: '1rem', marginTop: '1.25rem' }}>

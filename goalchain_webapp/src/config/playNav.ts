@@ -146,6 +146,12 @@ const CLUB_ITEMS: PlayNavItem[] = [
     to: '/reader',
     badge: 'VIP',
   },
+  {
+    id: 'studio',
+    label: 'Author & Lore Studio',
+    icon: '🖋️',
+    to: '/studio',
+  },
 ];
 
 /* ============================================================
