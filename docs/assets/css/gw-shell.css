@@ -1,0 +1,57 @@
+/* GoalWorld persistent dock — marketing + lore + GoalChain settlement */
+.gw-dock {
+  position: fixed;
+  z-index: 9000;
+  left: 50%;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  max-width: calc(100vw - 16px);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: rgba(3, 3, 7, 0.82);
+  border: 1px solid rgba(20, 241, 149, 0.22);
+  border-radius: 999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  font-family: Outfit, system-ui, sans-serif;
+}
+.gw-dock a {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.gw-dock a:hover,
+.gw-dock a:focus-visible {
+  color: #14f195;
+  background: rgba(20, 241, 149, 0.1);
+  outline: none;
+}
+.gw-dock a[aria-current="page"] {
+  color: #030307;
+  background: #14f195;
+}
+.gw-dock .mark {
+  font-weight: 900;
+  color: #fff;
+}
+body.gw-has-dock {
+  padding-bottom: 72px;
+}
+@media (max-width: 720px) {
+  .gw-dock a .txt { display: none; }
+  .gw-dock a { padding: 0 14px; }
+}

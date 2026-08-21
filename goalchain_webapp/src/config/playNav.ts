@@ -17,7 +17,7 @@
 /** Canonical marketing site (read-only). Override with VITE_MARKETING_URL. */
 export const MARKETING_BASE =
   (import.meta.env.VITE_MARKETING_URL as string | undefined)?.replace(/\/$/, '') ||
-  'https://goalchain.fun';
+  'https://goalworld.fun';
 
 /** Id de juego rápido del ARCADE (abre modal, no ruta). */
 export type ArcadeGameId = 'penalty' | 'pack' | 'modifiers';
@@ -213,7 +213,37 @@ export const RESOURCE_LINKS: PlayNavItem[] = [
 /* ============================================================
    GRUPOS — las 5 zonas del icon-rail / sidebar
    ============================================================ */
+const WORLD_ITEMS: PlayNavItem[] = [
+  {
+    id: 'hub',
+    label: 'GoalWorld hub',
+    icon: '🌐',
+    href: `${MARKETING_BASE}/`,
+    external: true,
+  },
+  {
+    id: 'map',
+    label: 'Map',
+    icon: '🗺',
+    href: `${MARKETING_BASE}/map.html`,
+    external: true,
+  },
+  {
+    id: 'matchday-site',
+    label: 'Matchday site',
+    icon: '⚽',
+    href: `${MARKETING_BASE}/goalchain.html`,
+    external: true,
+  },
+];
+
 export const PLAY_NAV_GROUPS: PlayNavGroup[] = [
+  {
+    id: 'world',
+    label: 'World',
+    icon: '🌐',
+    items: WORLD_ITEMS,
+  },
   {
     id: 'matchday',
     label: 'Matchday',
