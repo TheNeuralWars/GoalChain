@@ -254,7 +254,9 @@
 
         function renderSlides() {
             const container = document.getElementById('pitchContainer');
-            container.innerHTML = slidesData[currentLang].map((slide, index) => `
+            const data = slidesData[currentLang] || slidesData.en;
+            if (!container || !data) return;
+            container.innerHTML = data.map((slide, index) => `
                 <div class="slide ${index === currentSlide ? 'active' : ''}">
                     <div class="slide-header">${slide.title}</div>
                     <div class="slide-content">${slide.content}</div>
@@ -293,7 +295,7 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
-            if (e.key === 'Escape') window.location.href = 'index.html';
+            if (e.key === 'Escape') window.location.href = '/';
         });
 
         // Sync html lang with the persisted language on first paint.

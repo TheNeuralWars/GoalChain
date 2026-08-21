@@ -6,211 +6,176 @@
     <title>GoalWorld · Mundo de Logros</title>
     <meta
       name="description"
-      content="GoalWorld is NicoPez’s World of Achievements: lore &amp; books, GoalChain settlement, agentic trading, and AI cinema. One hub. Four verticals."
+      content="GoalWorld is the front door: lore &amp; books, GoalChain matchday, live betting, agentic trading. GoalChain settles. GoalWorld orients."
     />
-    <meta name="theme-color" content="#030307" />
+    <meta name="theme-color" content="#06060a" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://goalworld.fun/" />
     <meta property="og:title" content="GoalWorld · Mundo de Logros" />
-    <meta
-      property="og:description"
-      content="Publisher lore, GoalChain football settlement, agentic trading, AI cinema — correlated from one door."
-    />
     <meta property="og:image" content="https://goalworld.fun/assets/img/logo_3d_clean.png" />
     <link rel="icon" type="image/png" href="assets/img/logo_3d_clean.png?v=2.0" />
     <link rel="stylesheet" href="assets/css/tokens.css?v=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="assets/css/style.css?v=4.4" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet" />
     <script src="assets/js/play_url.js?v=1.1"></script>
     <style>
-      :root {
-        --ink: #e8eef5;
-        --muted: rgba(232, 238, 245, 0.62);
-        --line: rgba(255, 255, 255, 0.08);
-        --g: #14f195;
-        --p: #9945ff;
+      body.hub {
+        background: #06060a;
+        color: #fff;
+        font-family: Outfit, system-ui, sans-serif;
+        margin: 0;
       }
-      * { box-sizing: border-box; }
-      html, body { margin: 0; background: #030307; color: var(--ink); font-family: Outfit, system-ui, sans-serif; }
-      a { color: inherit; }
-      .skip { position: absolute; left: -999px; }
-      .skip:focus { left: 12px; top: 12px; background: var(--g); color: #030307; padding: 8px 12px; z-index: 9; }
-      header.hero {
-        max-width: 1120px;
+      .hub-hero {
+        max-width: 1100px;
         margin: 0 auto;
-        padding: 28px 20px 12px;
+        padding: 28px 20px 8px;
       }
-      .brand {
-        display: flex; align-items: center; gap: 12px; text-decoration: none;
-      }
-      .brand img { height: 40px; }
-      .brand strong { font-size: 1.35rem; letter-spacing: -0.04em; }
-      .brand strong span { color: var(--g); }
-      .kicker {
-        margin-top: 36px;
+      .hub-kicker {
+        color: #14f195;
+        letter-spacing: 0.2em;
         font-size: 0.72rem;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--g);
         font-weight: 800;
+        text-transform: uppercase;
       }
-      h1 {
-        margin: 10px 0 12px;
-        font-size: clamp(2rem, 5vw, 3.4rem);
-        line-height: 1.05;
+      .hub-hero h1 {
+        font-size: clamp(2.1rem, 5vw, 3.6rem);
         letter-spacing: -0.04em;
+        margin: 10px 0 12px;
+        line-height: 1.05;
       }
-      .lede { max-width: 640px; color: var(--muted); font-size: 1.05rem; line-height: 1.55; }
-      .grid {
-        max-width: 1120px;
-        margin: 28px auto 0;
-        padding: 0 20px;
+      .hub-hero p {
+        max-width: 640px;
+        color: rgba(255,255,255,0.65);
+        font-size: 1.05rem;
+        line-height: 1.55;
+      }
+      .hub-grid {
+        max-width: 1100px;
+        margin: 20px auto 0;
+        padding: 0 20px 24px;
         display: grid;
         gap: 14px;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
-      .card {
-        display: flex; flex-direction: column; gap: 8px;
-        min-height: 180px;
+      .hub-card {
+        min-height: 200px;
         padding: 22px;
-        border: 1px solid var(--line);
         border-radius: 18px;
-        background: rgba(10, 10, 20, 0.55);
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(10,10,20,0.55);
         text-decoration: none;
-        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
       }
-      .card:hover, .card:focus-visible {
+      .hub-card:hover {
         transform: translateY(-3px);
-        border-color: rgba(20, 241, 149, 0.45);
-        box-shadow: 0 16px 40px rgba(20, 241, 149, 0.08);
-        outline: none;
+        border-color: rgba(20,241,149,.5);
+        box-shadow: 0 16px 40px rgba(20,241,149,.1);
       }
-      .card h2 { margin: 0; font-size: 1.25rem; }
-      .card p { margin: 0; color: var(--muted); font-size: 0.92rem; line-height: 1.45; flex: 1; }
-      .card .go { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--g); }
-      .card.lore { border-color: rgba(153, 69, 255, 0.35); }
-      .card.chain { border-color: rgba(20, 241, 149, 0.35); }
-      .settle {
-        max-width: 1120px;
-        margin: 18px auto 0;
-        padding: 18px 22px;
-        border-radius: 18px;
-        border: 1px dashed rgba(20, 241, 149, 0.35);
-        background: rgba(20, 241, 149, 0.05);
+      .hub-card h2 { margin: 0; font-size: 1.2rem; }
+      .hub-card p { margin: 0; flex: 1; color: rgba(255,255,255,.6); font-size: .92rem; line-height: 1.45; }
+      .hub-card .go { color: #14f195; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+      .hub-card.lore { border-color: rgba(153,69,255,.4); }
+      .hub-card.chain { border-color: rgba(20,241,149,.4); }
+      .hub-settle {
+        max-width: 1100px;
+        margin: 0 auto 20px;
+        padding: 16px 22px;
+        border: 1px dashed rgba(20,241,149,.35);
+        border-radius: 16px;
+        color: rgba(255,255,255,.7);
+        font-size: .92rem;
       }
-      .settle h2 { margin: 0 0 6px; font-size: 1rem; }
-      .settle p { margin: 0; color: var(--muted); font-size: 0.9rem; }
-      .shortcuts {
-        max-width: 1120px;
-        margin: 22px auto 40px;
+      .hub-shortcuts {
+        max-width: 1100px;
+        margin: 0 auto 96px;
         padding: 0 20px;
         display: grid;
         gap: 8px;
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       }
-      .shortcuts a {
+      .hub-shortcuts a {
         min-height: 44px;
         display: flex; align-items: center; justify-content: center;
-        border: 1px solid var(--line);
+        border: 1px solid rgba(255,255,255,.1);
         border-radius: 12px;
         text-decoration: none;
-        font-size: 0.82rem;
+        color: #fff;
         font-weight: 700;
-        background: rgba(255,255,255,0.02);
+        font-size: .82rem;
       }
-      .shortcuts a:hover { border-color: var(--g); color: var(--g); }
-      footer {
-        max-width: 1120px;
-        margin: 0 auto 88px;
-        padding: 0 20px 24px;
-        color: var(--muted);
-        font-size: 0.8rem;
-        display: flex; gap: 16px; flex-wrap: wrap;
-      }
-      @media (max-width: 720px) {
-        .grid { grid-template-columns: 1fr; }
-      }
+      .hub-shortcuts a:hover { border-color: #14f195; color: #14f195; }
+      @media (max-width: 900px) { .hub-grid { grid-template-columns: 1fr 1fr; } }
+      @media (max-width: 620px) { .hub-grid { grid-template-columns: 1fr; } }
     </style>
   </head>
-  <body>
-    <a class="skip" href="#verticals">Skip to verticals</a>
-    <header class="hero">
-      <a class="brand" href="/">
-        <img src="assets/img/logo_3d_clean.png" alt="" />
-        <strong>Goal<span>World</span></strong>
+  <body class="hub">
+    <header class="hub-hero">
+      <a href="/" class="brand" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff">
+        <img src="assets/img/logo_3d_clean.png" alt="" style="height:42px" />
+        <strong style="font-size:1.35rem;letter-spacing:-.04em">Goal<span style="color:#14f195">World</span></strong>
       </a>
-      <p class="kicker">Mundo de Logros · NicoPez studio</p>
+      <p class="hub-kicker">Mundo de Logros · NicoPez studio</p>
       <h1>Four verticals.<br />One settlement layer.</h1>
-      <p class="lede">
-        GoalWorld is the front door. Lore, football, trading, and cinema all correlate here.
-        GoalChain is the cadence underneath — wallets, bets, claims, IP tokens — never the homepage.
+      <p>
+        This is the front door. Books, matchday, betting and trading all start here.
+        GoalChain is the cadence underneath — wallet, bets, claims — never the homepage.
       </p>
     </header>
 
-    <main id="verticals" class="grid">
-      <a class="card lore" href="/go/reader">
+    <main class="hub-grid">
+      <a class="hub-card lore" href="goalworld.html">
         <h2>Publisher Lore</h2>
-        <p>The Neural Wars. Fractured Code, Earth’s New Song, Evolution Matrix. Kindle reader, KDP export, Solana IP.</p>
-        <span class="go">Open Fractured Code →</span>
+        <p>Neural Wars universe, Nexus, KDP, IP on Solana. The designed lore site — not the Play dApp.</p>
+        <span class="go">Open GoalWorld lore →</span>
       </a>
-      <a class="card chain" href="goalchain.html">
+      <a class="hub-card" href="/go/reader">
+        <h2>Fractured Code</h2>
+        <p>Kindle reader + audiobook. Book 1 of The Neural Wars. Direct, no wallet.</p>
+        <span class="go">Read now →</span>
+      </a>
+      <a class="hub-card chain" href="goalchain.html">
         <h2>GoalChain Matchday</h2>
-        <p>World Cup 2026 football manager, packs, stadiums, live ticker. Marketing surface for the sports vertical.</p>
+        <p>World Cup 2026 football landing: packs, stadiums, ticker. The page that already looks right.</p>
         <span class="go">Enter matchday →</span>
       </a>
-      <a class="card" href="/go/estadio">
-        <h2>Live betting</h2>
-        <p>Parimutuel markets on GoalChain. Wallet, live oracle, claims. Transactions never run on this docs host.</p>
-        <span class="go">Open stadium (Play) →</span>
+      <a class="hub-card" href="arcade.html">
+        <h2>Arcade</h2>
+        <p>Penalty shootout and pack opener. Same visual system as Matchday.</p>
+        <span class="go">Play arcade →</span>
       </a>
-      <a class="card" href="/go/defi">
-        <h2>Agentic trading</h2>
-        <p>DeFi swarm, vaults, X-Scout. Agents settle on GoalChain the same way a bet or an IP royalty does.</p>
-        <span class="go">Open DeFi swarm →</span>
+      <a class="hub-card" href="agents.html">
+        <h2>Agents</h2>
+        <p>Tokenized Hermes agents that run the studio. Marketing surface, not a wallet.</p>
+        <span class="go">See agents →</span>
       </a>
-      <a class="card" href="arcade.html">
-        <h2>AI cinema &amp; arcade</h2>
-        <p>Penalty minigame, pack opener, cinematic loops. Side door — still on the same map.</p>
-        <span class="go">Arcade →</span>
-      </a>
-      <a class="card" href="/go/goalworld">
-        <h2>Nexus / Studio</h2>
-        <p>Fantasy league of sagas, author studio, lore consistency. Where books and GoalChain NFTs share a universe.</p>
-        <span class="go">Open GoalWorld portal →</span>
+      <a class="hub-card" href="https://play.goalworld.fun/estadio">
+        <h2>Live betting (Play)</h2>
+        <p>Parimutuel on GoalChain. This one leaves the docs site and opens the dApp.</p>
+        <span class="go">Open stadium app →</span>
       </a>
     </main>
 
-    <section class="settle" style="max-width:1120px;margin:18px auto;padding:0 20px;">
-      <div class="settle">
-        <h2>GoalChain = settlement, not the front page</h2>
-        <p>
-          Play (<code>play.goalworld.fun</code>) is the only transactional client: wallet, bets, claims, rent.
-          This site stays read-only. Shortcuts below keep every old URL one tap away.
-        </p>
-      </div>
+    <section class="hub-settle">
+      <strong style="color:#14f195">GoalChain = settlement.</strong>
+      Wallet, claims and bets live at play.goalworld.fun. Everything else on this domain is read-only marketing.
     </section>
 
-    <nav class="shortcuts" aria-label="Direct access">
-      <a href="/go/">Play app</a>
-      <a href="/go/club">My Club</a>
-      <a href="/go/reader">Books</a>
+    <nav class="hub-shortcuts" aria-label="Docs">
       <a href="pitch.html">Pitch</a>
       <a href="mega-guide.html">Mega guide</a>
-      <a href="agents.html">Agents</a>
       <a href="tokenomics.html">Tokenomics</a>
       <a href="colabs.html">Collabs</a>
       <a href="ceo.html">CEO log</a>
-      <a href="map.html">Full map</a>
-    </nav>
-
-    <footer>
-      <a href="legal.html">Legal</a>
       <a href="protocol.html">Protocol</a>
       <a href="pre-nft.html">Pre-NFT</a>
-      <span>Nothing removed — only re-homed.</span>
-    </footer>
+      <a href="legal.html">Legal</a>
+      <a href="map.html">Full map</a>
+      <a href="https://play.goalworld.fun/">Play dApp</a>
+    </nav>
     <script src="assets/js/gw-shell.js"></script>
   </body>
 </html>
