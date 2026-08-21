@@ -27,25 +27,32 @@ jobs:
           import re
           import sys
 
-          nft_dir = "docs/assets/images/nfts"
-          if not os.path.exists(nft_dir):
-              print("❌ Carpeta docs/assets/images/nfts no encontrada")
+          # Real NFT asset directory (used by the webapp / wallet cards).
+          nft_dir = "docs/assets/img/nfts"
+          if not os.path.isdir(nft_dir):
+              print("❌ Carpeta %s no encontrada" % nft_dir)
               sys.exit(1)
 
-          invalid_files = []
-          pattern = re.compile(r'^\d{3}_[a-z0-9_]+\.(jpg|png)$')
+          # Player cards: 3 dígitos + _ + nombre (minúsculas, acentos, guiones) + .webp/.png/.jpg
+          pattern = re.compile(r'^\d{3}_[a-z0-9À-ÿ_-]+\.(webp|png|jpg)$', re.IGNORECASE)
+          # Generated subdirs (composed/bg/transparent) and the placeholder are allowed.
+          allow = {"card_placeholder_soon.png"}
 
-          for filename in os.listdir(nft_dir):
-              if filename.startswith('.'):
+          invalid_files = []
+          for entry in sorted(os.listdir(nft_dir)):
+              path = os.path.join(nft_dir, entry)
+              if os.path.isdir(path):       # composed/ bg/ transparent/ are build artifacts
                   continue
-              if not pattern.match(filename.lower()):
-                  invalid_files.append(filename)
+              if entry in allow:
+                  continue
+              if not pattern.match(entry):
+                  invalid_files.append(entry)
 
           if invalid_files:
               print("❌ Archivos con nombre inválido:")
               for f in invalid_files:
-                  print(f"   - {f}")
-              print("\nFormato esperado: 071_mats_hummels.jpg (3 dígitos + guión bajo + minúsculas)")
+                  print("   - %s" % f)
+              print("\nFormato esperado: 001_lionel_satoshi.webp (3 dígitos + _ + minúsculas/acentos/guiones)")
               sys.exit(1)
           else:
               print("✅ Todas las imágenes cumplen la convención de nombres")
@@ -53,7 +60,7 @@ jobs:
 
       - name: Verificar integridad de imágenes (tamaño mínimo)
         run: |
-          find docs/assets/images/nfts -type f \( -name "*.jpg" -o -name "*.png" \) -exec sh -c '
+          find docs/assets/img/nfts -maxdepth 1 -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.webp" \) -exec sh -c '
             for f; do
               size=$(stat -c%s "$f")
               if [ "$size" -lt 50000 ]; then
