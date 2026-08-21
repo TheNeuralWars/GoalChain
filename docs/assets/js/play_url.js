@@ -25,10 +25,25 @@
     window.location.href = window.goalchainPlayUrl(path);
   };
 
-  /** Rewrite all anchors pointing at /go/... so they resolve on any host. */
+  /** Docs that live on goalworld.fun — never hijack to Play. */
+  var KEEP_PREFIXES = ['/go/reader'];
+
+  function keepOnDocs(href) {
+    if (!href) return false;
+    var p = href.split('?')[0].split('#')[0];
+    for (var i = 0; i < KEEP_PREFIXES.length; i++) {
+      var k = KEEP_PREFIXES[i];
+      if (p === k || p.indexOf(k + '/') === 0) return true;
+    }
+    return false;
+  }
+
+  /** Rewrite /go/... to Play, except Kindle /go/reader. */
   function rewriteLinks() {
     document.querySelectorAll('a[href^="/go"]').forEach(function (a) {
-      a.href = window.goalchainPlayUrl(a.getAttribute('href'));
+      var href = a.getAttribute('href');
+      if (keepOnDocs(href)) return;
+      a.href = window.goalchainPlayUrl(href);
     });
   }
 
