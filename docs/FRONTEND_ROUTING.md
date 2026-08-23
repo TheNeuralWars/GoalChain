@@ -41,3 +41,7 @@ Config de menú: `goalchain_webapp/src/config/playNav.ts`.
 ## Shared constant
 
 Browser-side play URL for docs redirects: `docs/assets/js/play_url.js` (`GOALCHAIN_PLAY_URL`).
+
+## Shared top chrome (GW-CHROME-001)
+
+`assets/js/gw-shell.js` injects one top nav on every marketing HTML page except `body.pitch-mode`: **World · Matchday · Books · Lore · Play**. Absolute URLs. Tokens: Outfit, `#14f195`, `logo_3d_clean`. Do not restyle Matchday (`goalchain.html`) — the shell only offsets `.main-nav`.

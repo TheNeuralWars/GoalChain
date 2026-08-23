@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GoalWorld Lore &amp; Fantasy League</title>
-    <meta http-equiv="refresh" content="0;url=https://play.goalchain.fun/goalworld" />
     <script src="../../assets/js/play_url.js"></script>
     <script>
       (function () {
-        var base = window.GOALCHAIN_PLAY_URL || 'https://play.goalchain.fun';
+        (function () {
+          var h = location.hostname || '';
+          var base = window.GOALCHAIN_PLAY_URL ||
+            (h.indexOf('goalworld') !== -1 ? 'https://play.goalworld.fun' : 'https://play.goalchain.fun');
         location.replace(base + '/goalworld' + location.search + location.hash);
       })();
     </script>

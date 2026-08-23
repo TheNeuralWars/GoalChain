@@ -1,29 +1,65 @@
-/* GoalWorld persistent dock — marketing + lore + GoalChain settlement */
-.gw-dock {
+/* GoalWorld shared top chrome — World | Matchday | Books | Lore | Play
+   Tokens: Outfit, #14f195, logo_3d_clean. Do not restyle Matchday pages;
+   only offset existing .main-nav / .colab-nav so they sit under this bar. */
+.gw-chrome {
+  --gw-green: #14f195;
   position: fixed;
-  z-index: 9000;
-  left: 50%;
-  bottom: max(12px, env(safe-area-inset-bottom));
-  transform: translateX(-50%);
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  gap: 4px;
-  padding: 6px;
-  max-width: calc(100vw - 16px);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  background: rgba(3, 3, 7, 0.82);
-  border: 1px solid rgba(20, 241, 149, 0.22);
-  border-radius: 999px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 56px;
+  padding: 0 16px;
+  padding-top: env(safe-area-inset-top);
+  box-sizing: border-box;
+  background: rgba(3, 3, 7, 0.88);
+  border-bottom: 1px solid rgba(20, 241, 149, 0.22);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
   font-family: Outfit, system-ui, sans-serif;
 }
-.gw-dock a {
+.gw-chrome-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+  flex-shrink: 0;
+}
+.gw-chrome-brand img {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(20, 241, 149, 0.4));
+}
+.gw-chrome-brand strong {
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+.gw-chrome-brand span {
+  color: #14f195;
+}
+.gw-chrome-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  min-width: 0;
+}
+.gw-chrome-nav::-webkit-scrollbar {
+  display: none;
+}
+.gw-chrome-nav a {
   flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
   min-height: 44px;
   padding: 0 12px;
   border-radius: 999px;
@@ -31,27 +67,44 @@
   text-decoration: none;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
-.gw-dock a:hover,
-.gw-dock a:focus-visible {
+.gw-chrome-nav a:hover,
+.gw-chrome-nav a:focus-visible {
   color: #14f195;
   background: rgba(20, 241, 149, 0.1);
   outline: none;
 }
-.gw-dock a[aria-current="page"] {
+.gw-chrome-nav a[aria-current='page'] {
   color: #030307;
   background: #14f195;
 }
-.gw-dock .mark {
+.gw-chrome-nav a.gw-chrome-play {
+  color: #14f195;
+  border: 1px solid #14f195;
   font-weight: 900;
-  color: #fff;
+  margin-left: 4px;
 }
-body.gw-has-dock {
-  padding-bottom: 72px;
+.gw-chrome-nav a.gw-chrome-play[aria-current='page'] {
+  color: #030307;
+  background: #14f195;
+}
+body.gw-has-chrome {
+  --gw-chrome-h: 56px;
+  padding-top: calc(var(--gw-chrome-h) + env(safe-area-inset-top, 0px));
+}
+body.gw-has-chrome .main-nav,
+body.gw-has-chrome .colab-nav {
+  top: calc(var(--gw-chrome-h) + env(safe-area-inset-top, 0px));
 }
 @media (max-width: 720px) {
-  .gw-dock a .txt { display: none; }
-  .gw-dock a { padding: 0 14px; }
+  .gw-chrome-brand strong {
+    display: none;
+  }
+  .gw-chrome-nav a {
+    padding: 0 10px;
+    font-size: 11px;
+  }
 }

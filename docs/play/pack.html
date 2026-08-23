@@ -9,12 +9,12 @@
       ARCADE de goalchain_webapp (via <VanillaMount> iframe).
 
       Nota técnica: <base href="../"> reescribe las rutas relativas del
-      script (fetch('assets/data/players.json'), img src="assets/...")
+      script (fetch('assets/data/players.json'), img src="/assets/...")
       hacia la raíz de docs/, evitando reescribir pack_opener.js.
     -->
     <base href="../">
-    <link rel="stylesheet" href="assets/css/tokens.css?v=1.0">
-    <link rel="stylesheet" href="assets/css/style.css?v=4.3">
+    <link rel="stylesheet" href="/assets/css/tokens.css?v=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css?v=4.3">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <style>
         html, body {
@@ -56,7 +56,7 @@
         <div class="pack-container">
             <div id="mysteryPack" class="pack-sealed">
                 <img
-                    src="assets/img/logo.svg"
+                    src="/assets/img/logo.svg"
                     alt="Pack Logo"
                     class="pack-logo-inner"
                     onerror="this.src = 'assets/img/logo.png'"
@@ -94,10 +94,10 @@
         </div>
     </div>
 
-    <script src="assets/js/i18n.js?v=3.0"></script>
-    <script src="assets/js/pack_opener.js?v=3.0"></script>
+    <script src="/assets/js/i18n.js?v=3.0"></script>
+    <script src="/assets/js/pack_opener.js?v=3.0"></script>
     <!-- Puente postMessage hacia la webapp de React (eventos de juego). -->
-    <script src="assets/js/arcade_bridge.js?v=1.0"></script>
+    <script src="/assets/js/arcade_bridge.js?v=1.0"></script>
 <script src="../assets/js/gw-shell.js"></script>
   </body>
 </html>

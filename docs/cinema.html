@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>GoalWorld Cinema · AI Cinema &amp; Media Engine</title>
+    <meta
+      name="description"
+      content="GoalWorld AI Cinema: trailers, stills, and the media engine that turns Neural Wars lore into cutscenes. Not the arcade."
+    />
+    <meta name="theme-color" content="#06060a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://goalworld.fun/cinema" />
+    <meta property="og:title" content="GoalWorld Cinema · AI Cinema &amp; Media Engine" />
+    <meta
+      property="og:description"
+      content="Trailers, stills, and the media desk. Vertical 2 of the World of Achievements — not arcade."
+    />
+    <meta property="og:image" content="https://goalworld.fun/assets/img/logo_3d_clean.png" />
+    <meta property="og:site_name" content="GoalWorld" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GoalWorld Cinema · AI Cinema &amp; Media Engine" />
+    <meta
+      name="twitter:description"
+      content="Trailers, stills, and the media desk. Vertical 2 of the World of Achievements."
+    />
+    <meta name="twitter:image" content="https://goalworld.fun/assets/img/logo_3d_clean.png" />
+    <link rel="stylesheet" href="assets/css/tokens.css?v=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css?v=4.4" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/img/logo_3d_clean.png?v=2.0" />
+    <link rel="shortcut icon" href="assets/img/logo_3d_clean.png?v=2.0" />
+    <script src="assets/js/play_url.js?v=1.1"></script>
+    <style>
+      :root {
+        --cine: #7ee8ff;
+        --cine-dim: rgba(126, 232, 255, 0.14);
+      }
+
+      body.cinema {
+        background: #06060a;
+      }
+
+      .cinema .main-nav {
+        flex-direction: column;
+        padding: 0;
+        align-items: stretch;
+      }
+
+      .cinema .nav-container-inner {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        box-sizing: border-box;
+        gap: 12px;
+      }
+
+      .cinema .nav-links-desktop a[aria-current="page"] {
+        color: var(--primary);
+      }
+
+      .cinema-hero.hero {
+        min-height: 100svh;
+        align-items: flex-start;
+        text-align: left;
+        padding-top: 7.5rem;
+        padding-bottom: 6rem;
+        background:
+          linear-gradient(180deg, rgba(6, 6, 10, 0.55) 0%, rgba(6, 6, 10, 0.88) 100%),
+          url("assets/img/bg/hero_bg.png");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .cinema-hero .hero-badge {
+        display: inline-flex;
+        width: fit-content;
+        margin-bottom: 1.25rem;
+      }
+
+      .cinema .section {
+        scroll-margin-top: 120px;
+      }
+
+      .cinema-hero .hero-inner {
+        max-width: 1100px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .cinema-hero h1 {
+        max-width: 16ch;
+        text-align: left;
+      }
+
+      .cinema-hero p {
+        max-width: 38rem;
+        text-align: left;
+        margin-bottom: 1.4rem;
+      }
+
+      .cinema-hero .hero-btns {
+        justify-content: flex-start;
+      }
+
+      .film-plate {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: #000;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+      }
+
+      .film-plate video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .film-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+        color: var(--text-dim);
+        font-size: 0.88rem;
+      }
+
+      .film-meta strong {
+        color: #fff;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+      }
+
+      .stills-strip {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr 1fr 0.9fr;
+        gap: 12px;
+      }
+
+      .still {
+        margin: 0;
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: #0a0a14;
+        min-height: 220px;
+      }
+
+      .still img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        min-height: 220px;
+      }
+
+      .still figcaption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 28px 14px 12px;
+        background: linear-gradient(transparent, rgba(3, 3, 7, 0.92));
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #fff;
+      }
+
+      .desk {
+        display: grid;
+        grid-template-columns: 1.4fr 0.8fr;
+        gap: 22px;
+        align-items: center;
+      }
+
+      .desk-note {
+        text-align: left;
+      }
+
+      .desk-note h2 {
+        text-align: left;
+        margin-bottom: 0.6rem;
+      }
+
+      .desk-note p {
+        text-align: left;
+        margin: 0 0 1.2rem;
+        max-width: none;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 44px;
+        padding: 0 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(20, 241, 149, 0.35);
+        background: rgba(20, 241, 149, 0.08);
+        color: var(--primary);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .status-pill .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #14f195;
+        box-shadow: 0 0 10px #14f195;
+      }
+
+      .sibling {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+        text-align: left;
+      }
+
+      .sibling p {
+        margin: 0;
+        color: var(--text-dim);
+        max-width: 42rem;
+      }
+
+      @media (max-width: 900px) {
+        .stills-strip {
+          grid-template-columns: 1fr 1fr;
+        }
+        .still:nth-child(1) { grid-row: auto; }
+        .still:nth-child(1) img,
+        .still img { min-height: 220px; }
+        .desk { grid-template-columns: 1fr; }
+        .cinema-hero.hero { padding-top: 6.5rem; }
+      }
+
+      @media (max-width: 620px) {
+        .stills-strip { grid-template-columns: 1fr; }
+        .cinema-hero h1 { max-width: none; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-badge { animation: none; }
+        .reveal { opacity: 1; transform: none; transition: none; }
+        .status-pill .dot { box-shadow: none; }
+      }
+    </style>
+  </head>
+  <body class="cinema">
+    <nav class="main-nav" id="mainNav">
+      <div class="dev-mode-banner">
+        <strong>READ-ONLY MODE</strong>
+        <span>This page is marketing. Wallet, queue triggers and settlement live on Play.</span>
+      </div>
+      <div class="nav-container-inner">
+        <a
+          class="logo"
+          href="index.html"
+          style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit"
+        >
+          <img
+            src="assets/img/logo_3d_clean.png"
+            alt=""
+            style="height: 42px; filter: drop-shadow(0 0 15px rgba(20, 241, 149, 0.4))"
+          />
+          <span style="font-weight: 900; letter-spacing: -1px"
+            >Goal<span>World</span></span
+          >
+        </a>
+
+        <div class="nav-links-desktop">
+          <a href="index.html">World</a>
+          <a href="goalworld.html">Lore</a>
+          <a href="/go/reader">Books</a>
+          <a href="goalchain.html">Matchday</a>
+          <a href="cinema.html" aria-current="page">Cinema</a>
+          <a href="arcade.html">Arcade</a>
+        </div>
+
+        <div class="nav-right">
+          <a
+            id="mc-cta"
+            class="btn btn-primary btn-glow btn-sm desktop-only-btn"
+            href="https://play.goalworld.fun/marketing-control"
+            >Open control</a
+          >
+          <button
+            class="hamburger"
+            type="button"
+            id="navToggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <a href="index.html" onclick="closeMobile()">World</a>
+      <a href="goalworld.html" onclick="closeMobile()">Lore</a>
+      <a href="/go/reader" onclick="closeMobile()">Books</a>
+      <a href="goalchain.html" onclick="closeMobile()">Matchday</a>
+      <a href="cinema.html" aria-current="page" onclick="closeMobile()">Cinema</a>
+      <a href="arcade.html" onclick="closeMobile()">Arcade</a>
+      <a
+        id="mc-cta-mobile"
+        class="btn btn-primary"
+        href="https://play.goalworld.fun/marketing-control"
+        >Open control desk</a
+      >
+    </div>
+
+    <header class="hero cinema-hero">
+      <div class="hero-inner">
+        <div class="hero-badge">Vertical 02 · AI Cinema</div>
+        <h1>Lore in.<br />Cutscene out.</h1>
+        <p>
+          The media engine that turns Neural Wars sagas into trailers, stills and
+          social cuts. This is the cinema door — arcade stays on its own page.
+        </p>
+        <div class="hero-btns">
+          <a class="btn btn-primary btn-glow" href="#trailer">Watch the reel</a>
+          <a class="btn btn-secondary" href="#stills">View stills</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="trailer" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Trailer <span>slot</span></h2>
+          <p class="section-subtitle">
+            Studio reel currently on the plate. A dedicated Neural Wars trailer
+            replaces this cut when the engine finishes one.
+          </p>
+        </div>
+        <div class="film-plate">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="assets/img/bg/hero_bg.png"
+            aria-label="GoalWorld studio reel"
+          >
+            <source src="assets/video/GoalChain_Presentacion_Final.mp4" type="video/mp4" />
+            Your browser cannot play this reel.
+          </video>
+        </div>
+        <div class="film-meta">
+          <div>
+            <strong>Now playing</strong><br />
+            GoalChain_Presentacion_Final.mp4 — existing studio presentation, not a finished feature.
+          </div>
+          <div>
+            <strong>Next cut</strong><br />
+            Neural Wars · Fractured Code trailer, generated from the lore desk.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stills" class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Stills <span>&amp; plates</span></h2>
+          <p class="section-subtitle">
+            Key art already in the vault. Book covers from Publisher Lore, stadium
+            plates from the Matchday engine — the cinema desk composites from both.
+          </p>
+        </div>
+        <div class="stills-strip">
+          <figure class="still">
+            <img
+              src="assets/img/neuralwars/book1_cover_fractured_code.jpg"
+              alt="Fractured Code key art: a courier in profile against a rain-soaked neon city, neural port glowing at the temple"
+              width="800"
+              height="1200"
+            />
+            <figcaption>Fractured Code · Book 1 key art</figcaption>
+          </figure>
+          <figure class="still">
+            <img
+              src="assets/img/neuralwars/book2_cover_earths_new_song.jpg"
+              alt="Earth's New Song key art: a crystalline shard beaming gold light onto Earth from deep space"
+              width="800"
+              height="1200"
+            />
+            <figcaption>Earth’s New Song · Book 2</figcaption>
+          </figure>
+          <figure class="still">
+            <img
+              src="assets/img/stadiums/bg_mythic_lunar.png"
+              alt="Mythic lunar stadium plate, dark turf under a huge moon"
+              width="1024"
+              height="1024"
+            />
+            <figcaption>Mythic lunar plate</figcaption>
+          </figure>
+          <figure class="still">
+            <img
+              src="assets/img/stadiums/bg_legendary_hologram.png"
+              alt="Legendary hologram stadium plate with violet volumetric light"
+              width="1024"
+              height="1024"
+            />
+            <figcaption>Legendary hologram plate</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="desk" class="section">
+      <div class="container desk">
+        <div class="desk-note">
+          <span class="status-pill" id="mc-status">
+            <span class="dot" aria-hidden="true"></span>
+            Control desk live
+          </span>
+          <h2 class="section-title" style="margin-top: 16px">Marketing control</h2>
+          <p class="section-subtitle">
+            The render queue, daemon status and social cuts live on Play at
+            <code>/marketing-control</code>. This marketing page does not trigger
+            jobs. Open the desk if you need the live stack.
+          </p>
+          <a
+            id="mc-desk"
+            class="btn btn-primary btn-glow"
+            href="https://play.goalworld.fun/marketing-control"
+            >Open marketing-control</a
+          >
+        </div>
+        <aside class="glass-card" style="text-align: left">
+          <p style="color: var(--primary); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px">
+            What this is
+          </p>
+          <p style="margin: 0 0 12px; color: var(--text-dim); font-size: 0.92rem">
+            Screenplay parser → stills → trailer compile → Buffer. The cinema
+            vertical feeds social. It is not a minigame.
+          </p>
+          <p style="margin: 0; color: var(--text-dim); font-size: 0.92rem">
+            Penalty and pack opener stay on
+            <a href="arcade.html" style="color: var(--primary)">arcade.html</a>.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="glass-card sibling">
+          <p>
+            Want the shootout? That is Arcade, a different door. Cinema does not
+            host games.
+          </p>
+          <a class="btn btn-secondary" href="arcade.html">Go to Arcade</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="logo" style="margin-bottom: 0.5rem">
+        Goal<span>World</span>
+      </div>
+      <p style="font-size: 0.8rem; color: var(--text-dim)">
+        &copy; 2026 GoalWorld — World of Achievements. Cinema is vertical 2.
+      </p>
+      <div class="footer-links">
+        <a href="index.html">World hub</a>
+        <a href="goalworld.html">Lore</a>
+        <a href="goalchain.html">Matchday</a>
+        <a href="arcade.html">Arcade</a>
+        <a href="map.html">Map</a>
+        <a href="legal.html">Legal</a>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var PLAY = window.goalworld_PLAY_URL || "https://play.goalworld.fun";
+        var desk = PLAY.replace(/\/$/, "") + "/marketing-control";
+        ["mc-cta", "mc-cta-mobile", "mc-desk"].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) el.href = desk;
+        });
+
+        var toggle = document.getElementById("navToggle");
+        var menu = document.getElementById("mobileMenu");
+        window.closeMobile = function () {
+          if (!menu || !toggle) return;
+          menu.hidden = true;
+          menu.style.display = "none";
+          toggle.classList.remove("active");
+          toggle.setAttribute("aria-expanded", "false");
+        };
+        if (toggle && menu) {
+          toggle.addEventListener("click", function () {
+            var open = menu.hidden;
+            menu.hidden = !open;
+            menu.style.display = open ? "flex" : "none";
+            toggle.classList.toggle("active", open);
+            toggle.setAttribute("aria-expanded", open ? "true" : "false");
+          });
+        }
+
+        var nav = document.getElementById("mainNav");
+        window.addEventListener("scroll", function () {
+          if (!nav) return;
+          nav.classList.toggle("nav-scrolled", window.scrollY > 20);
+        });
+      })();
+    </script>
+    <script src="assets/js/gw-shell.js"></script>
+  </body>
+</html>

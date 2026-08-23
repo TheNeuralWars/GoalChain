@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Author Studio · GoalWorld Lore</title>
+    <meta
+      name="description"
+      content="GoalWorld Author Studio: vinyl-toy prompt forge, saga seeds, and KDP cover math. Lore chrome — not the Play dashboard."
+    />
+    <meta name="theme-color" content="#030307" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://goalworld.fun/studio.html" />
+    <meta property="og:title" content="Author Studio · GoalWorld Lore" />
+    <meta property="og:image" content="https://goalworld.fun/assets/img/logo_3d_clean.png" />
+    <link rel="icon" type="image/png" href="assets/img/logo_3d_clean.png?v=2.0" />
+    <link rel="stylesheet" href="assets/css/tokens.css?v=1.0" />
+    <link rel="stylesheet" href="assets/css/lore.css?v=1.1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&family=Outfit:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="assets/js/play_url.js?v=1.1"></script>
+  </head>
+  <body class="lore">
+    <header class="lore-top">
+      <a class="lore-brand" href="index.html">
+        <img src="assets/img/logo_3d_clean.png" alt="" />
+        Goal<span>World</span>
+      </a>
+      <nav class="lore-crumb" aria-label="Lore">
+        <a href="goalworld.html">Lore</a>
+        <b>Studio</b>
+        <a href="/go/reader">Books</a>
+      </nav>
+    </header>
+
+    <section class="lore-hero lore-hero--desk">
+      <p class="lore-kicker">Author Studio · lore-first</p>
+      <h1>Desk — not Play <code>/studio</code></h1>
+    </section>
+
+    <div class="studio-shell">
+      <nav class="tool-rail" role="tablist" aria-label="Studio tools">
+        <button type="button" role="tab" id="tab-forge" aria-selected="true" aria-controls="panel-forge" data-panel="forge">Forge</button>
+        <button type="button" role="tab" id="tab-seed" aria-selected="false" aria-controls="panel-seed" data-panel="seed">Saga seed</button>
+        <button type="button" role="tab" id="tab-kdp" aria-selected="false" aria-controls="panel-kdp" data-panel="kdp">KDP math</button>
+        <button type="button" role="tab" id="tab-play" aria-selected="false" aria-controls="panel-play" data-panel="play">Play shell</button>
+      </nav>
+
+      <div>
+        <section id="panel-forge" class="panel is-on" role="tabpanel" aria-labelledby="tab-forge">
+          <h1>Neural Asset Forge</h1>
+          <p class="lede">Compile a generation prompt. Copy it. Run it in your usual model. Nothing is billed from this page.</p>
+          <p class="canon">
+            Canon: 3D vinyl-toy collectible (Mighty Jaxx), semi-realistic face on a chibi body,
+            oversized head, stubby legs, always barefoot, GCH hex badge + Solana mark on the kit.
+            Not anime. Not photoreal. Not a bobblehead.
+          </p>
+          <form id="forge-form" onsubmit="return false">
+            <div class="field">
+              <label for="assetType">Asset type</label>
+              <select id="assetType">
+                <option value="figurine">Vinyl-toy figure</option>
+                <option value="cover">KDP book cover</option>
+                <option value="stadium">GoalWorld stadium</option>
+                <option value="emblem">Faction emblem</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="assetName">Name</label>
+              <input id="assetName" type="text" value="Mileo Chen" autocomplete="off" />
+            </div>
+            <div class="field">
+              <label for="assetTraits">Traits / kit</label>
+              <input
+                id="assetTraits"
+                type="text"
+                value="Obsidian flight jacket, neural-port at the temple, storm-grey eyes, jersey number 07"
+              />
+            </div>
+            <button class="btn btn-primary" type="button" id="copy-prompt">Copy prompt</button>
+            <p class="status" id="forge-status" role="status"></p>
+          </form>
+          <div class="out">
+            <textarea id="compiledPrompt" readonly aria-label="Compiled prompt"></textarea>
+          </div>
+        </section>
+
+        <section id="panel-seed" class="panel" role="tabpanel" aria-labelledby="tab-seed" hidden>
+          <h1>Saga seed</h1>
+          <p class="lede">Minimum viable canon. Downloads as Markdown aligned with <code>ventures/publisher-lore/saga_seed_template.md</code>.</p>
+          <form id="seed-form" onsubmit="return false">
+            <div class="field">
+              <label for="seedTitle">Working title</label>
+              <input id="seedTitle" type="text" value="The Neural Wars" />
+            </div>
+            <div class="field">
+              <label for="seedGenre">Genre</label>
+              <input id="seedGenre" type="text" value="Hard sci-fi / cyberpunk" />
+            </div>
+            <div class="field">
+              <label for="seedHook">One-sentence hook</label>
+              <textarea id="seedHook">A neural-port courier and a silenced singer crack the lattice that keeps human minds leased to the city.</textarea>
+            </div>
+            <div class="field">
+              <label for="seedWorld">World name + rule</label>
+              <textarea id="seedWorld">Neo-Veridia. Consciousness can be forked; only one fork may hold the body. First contact arrives as a frequency, not a ship.</textarea>
+            </div>
+            <div class="field">
+              <label for="seedCast">Main cast (one per line)</label>
+              <textarea id="seedCast">Mileo Chen — protagonist, courier, neural-port at the temple
+Kora Vega — deuteragonist, voice that can retune the lattice</textarea>
+            </div>
+            <button class="btn btn-primary" type="button" id="download-seed">Download .md</button>
+            <p class="status" id="seed-status" role="status"></p>
+          </form>
+          <div class="out">
+            <textarea id="seedOut" readonly aria-label="Saga seed markdown"></textarea>
+          </div>
+        </section>
+
+        <section id="panel-kdp" class="panel" role="tabpanel" aria-labelledby="tab-kdp" hidden>
+          <h1>KDP cover math</h1>
+          <p class="lede">6×9 in trade paperback with 0.125 in bleed. Cream paper 0.0025 in/page; white 0.002252. Output is wrap width at 300 DPI.</p>
+          <form id="kdp-form" onsubmit="return false">
+            <div class="field">
+              <label for="pageCount">Page count</label>
+              <input id="pageCount" type="number" min="24" max="828" value="280" />
+            </div>
+            <div class="field">
+              <label for="paperType">Paper</label>
+              <select id="paperType">
+                <option value="cream">Cream (0.0025 in / page)</option>
+                <option value="white">White (0.002252 in / page)</option>
+              </select>
+            </div>
+          </form>
+          <dl class="kdp-readout" id="kdp-readout">
+            <dt>Spine</dt>
+            <dd id="kdp-spine">—</dd>
+            <dt>Full wrap (with bleed)</dt>
+            <dd id="kdp-in">—</dd>
+            <dt>Pixels @ 300 DPI</dt>
+            <dd id="kdp-px">—</dd>
+          </dl>
+        </section>
+
+        <section id="panel-play" class="panel" role="tabpanel" aria-labelledby="tab-play" hidden>
+          <h1>Play /studio shell</h1>
+          <p class="play-warn">
+            Optional. <code>play.goalworld.fun/studio</code> is currently the GoalChain SPA
+            (dashboard, not an authoring surface). Loaded in an iframe so lore chrome stays
+            around it. Prefer Forge / Seed / KDP above.
+          </p>
+          <p>
+            <button class="btn btn-ghost" type="button" id="load-play">Load Play shell</button>
+            <a class="btn btn-ghost" id="open-play" href="https://play.goalworld.fun/studio" target="_blank" rel="noopener">Open in new tab</a>
+          </p>
+          <iframe class="play-frame" id="play-frame" title="Play /studio" hidden></iframe>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var VINYL =
+          "3D vinyl toy designer collectible figure, Mighty Jaxx / MINDstyle aesthetic, semi-realistic face on a chibi body, oversized head (~1:3.5), compact torso, stubby shortened legs, always barefoot, smooth matte vinyl skin with subtle subsurface scattering, neutral front-facing standing pose, green hexagonal GCH badge and Solana logo on the jersey";
+
+        function $(id) {
+          return document.getElementById(id);
+        }
+
+        function compilePrompt() {
+          var type = $("assetType").value;
+          var name = $("assetName").value.trim() || "unnamed figure";
+          var traits = $("assetTraits").value.trim() || "kit unspecified";
+          var compiled;
+          if (type === "figurine") {
+            compiled =
+              "A " +
+              VINYL +
+              " of " +
+              name +
+              ". " +
+              traits +
+              ". Isolated on pure white studio background, no floor shadow, no scenery. --ar 1:1";
+          } else if (type === "cover") {
+            compiled =
+              'Cinematic trade-paperback cover for "' +
+              name +
+              '". ' +
+              traits +
+              ". Dark stadium-void atmosphere, emerald #14f195 and violet #9945ff rim light, typography-ready negative space in the upper third, no fake logos. --ar 2:3";
+          } else if (type === "stadium") {
+            compiled =
+              "Futuristic football stadium named " +
+              name +
+              ", GoalWorld night match. " +
+              traits +
+              ". Emerald and violet neon, wet pitch, volumetric haze, cinematic wide shot. --ar 16:9";
+          } else {
+            compiled =
+              "Faction emblem for " +
+              name +
+              ". " +
+              traits +
+              ". Vector metal on a dark void, hexagonal GCH geometry, no text. --ar 1:1";
+          }
+          $("compiledPrompt").value = compiled;
+        }
+
+        function compileSeed() {
+          var title = $("seedTitle").value.trim() || "Untitled saga";
+          var genre = $("seedGenre").value.trim() || "unspecified";
+          var hook = $("seedHook").value.trim() || "";
+          var world = $("seedWorld").value.trim() || "";
+          var cast = $("seedCast").value.trim() || "";
+          var md =
+            "# Saga Seed — " +
+            title +
+            "\n\n" +
+            "> Generated from GoalWorld Author Studio. Aligns with saga_seed_template.md.\n\n" +
+            "## 1) Saga identity\n" +
+            "- Working title: " +
+            title +
+            "\n" +
+            "- Genre: " +
+            genre +
+            "\n" +
+            "- Format goal: serial / novel\n\n" +
+            "## 2) Core premise\n" +
+            "- One-sentence hook: " +
+            hook +
+            "\n\n" +
+            "## 3) World building\n" +
+            world +
+            "\n\n" +
+            "## 4) Main characters\n" +
+            cast +
+            "\n\n" +
+            "## 9) Starter prompts\n" +
+            "- Write the saga opening using the premise and world rules above.\n" +
+            "- Generate the first chapter outline with clear conflict escalation.\n" +
+            "- Extract visual prompts for cover art using GoalWorld vinyl-toy canon.\n";
+          $("seedOut").value = md;
+          return md;
+        }
+
+        function kdp() {
+          var pages = parseInt($("pageCount").value, 10) || 280;
+          pages = Math.max(24, Math.min(828, pages));
+          var paper = $("paperType").value;
+          var mul = paper === "cream" ? 0.0025 : 0.002252;
+          var spine = pages * mul;
+          var w = 0.125 + 6 + spine + 6 + 0.125;
+          var h = 0.125 + 9 + 0.125;
+          $("kdp-spine").textContent = spine.toFixed(3) + " in";
+          $("kdp-in").textContent = w.toFixed(3) + " × " + h.toFixed(3) + " in";
+          $("kdp-px").textContent =
+            Math.ceil(w * 300) + " × " + Math.ceil(h * 300) + " px";
+        }
+
+        function flash(el, msg) {
+          el.textContent = msg;
+          setTimeout(function () {
+            if (el.textContent === msg) el.textContent = "";
+          }, 2200);
+        }
+
+        function switchPanel(id) {
+          document.querySelectorAll(".tool-rail button").forEach(function (b) {
+            var on = b.getAttribute("data-panel") === id;
+            b.setAttribute("aria-selected", on ? "true" : "false");
+          });
+          document.querySelectorAll(".panel").forEach(function (p) {
+            var on = p.id === "panel-" + id;
+            p.classList.toggle("is-on", on);
+            if (on) p.removeAttribute("hidden");
+            else p.setAttribute("hidden", "");
+          });
+          if (location.hash.replace("#", "") !== id) {
+            history.replaceState(null, "", "#" + id);
+          }
+        }
+
+        document.querySelectorAll(".tool-rail button").forEach(function (b) {
+          b.addEventListener("click", function () {
+            switchPanel(b.getAttribute("data-panel"));
+          });
+        });
+
+        ["assetType", "assetName", "assetTraits"].forEach(function (id) {
+          $(id).addEventListener("input", compilePrompt);
+          $(id).addEventListener("change", compilePrompt);
+        });
+        ["seedTitle", "seedGenre", "seedHook", "seedWorld", "seedCast"].forEach(function (id) {
+          $(id).addEventListener("input", compileSeed);
+        });
+        $("pageCount").addEventListener("input", kdp);
+        $("paperType").addEventListener("change", kdp);
+
+        $("copy-prompt").addEventListener("click", function () {
+          var text = $("compiledPrompt").value;
+          var done = function () {
+            flash($("forge-status"), "Copied.");
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done).catch(function () {
+              $("compiledPrompt").select();
+              document.execCommand("copy");
+              done();
+            });
+          } else {
+            $("compiledPrompt").select();
+            document.execCommand("copy");
+            done();
+          }
+        });
+
+        $("download-seed").addEventListener("click", function () {
+          var md = compileSeed();
+          var blob = new Blob([md], { type: "text/markdown" });
+          var a = document.createElement("a");
+          var slug = ($("seedTitle").value || "saga-seed")
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-|-$/g, "");
+          a.href = URL.createObjectURL(blob);
+          a.download = slug + "-seed.md";
+          a.click();
+          URL.revokeObjectURL(a.href);
+          flash($("seed-status"), "Downloaded.");
+        });
+
+        $("load-play").addEventListener("click", function () {
+          var frame = $("play-frame");
+          var src =
+            (window.goalworldPlayUrl && window.goalworldPlayUrl("/studio")) ||
+            "https://play.goalworld.fun/studio";
+          frame.src = src;
+          frame.hidden = false;
+        });
+
+        var openPlay = $("open-play");
+        if (window.goalworldPlayUrl) openPlay.href = window.goalworldPlayUrl("/studio");
+
+        compilePrompt();
+        compileSeed();
+        kdp();
+
+        var initial = (location.hash || "#forge").replace("#", "");
+        if (["forge", "seed", "kdp", "play"].indexOf(initial) === -1) initial = "forge";
+        switchPanel(initial);
+      })();
+    </script>
+    <script src="assets/js/gw-shell.js"></script>
+  </body>
+</html>

@@ -8,13 +8,11 @@
       name="description"
       content="Frontend transaccional oficial de GoalChain: apuestas, wallet y claims en devnet."
     />
-    <link rel="canonical" href="https://play.goalchain.fun/" />
-    <meta http-equiv="refresh" content="0;url=https://play.goalchain.fun/" />
     <script src="../assets/js/play_url.js"></script>
     <script>
       (function () {
         var target =
-          (window.GOALCHAIN_PLAY_URL || 'https://play.goalchain.fun') +
+          (window.GOALCHAIN_PLAY_URL || (location.hostname.indexOf('goalworld') !== -1 ? 'https://play.goalworld.fun' : 'https://play.goalchain.fun')) +
           location.search +
           location.hash;
         location.replace(target);
@@ -38,7 +36,7 @@
   <body>
     <p>
       Redirigiendo a
-      <a href="https://play.goalchain.fun/">play.goalchain.fun</a>…
+      <a href="https://play.goalworld.fun/">play.goalworld.fun</a>…
     </p>
   </body>
 </html>

@@ -1,0 +1,480 @@
+/**
+ * GoalWorld lore surfaces — goalworld.html + studio.html
+ * Tokens come from tokens.css (--gc-*). This file is the lore composition,
+ * not a second design system.
+ */
+:root {
+  --lore-serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --lore-ink: var(--gc-text);
+  --lore-muted: var(--gc-text-dim);
+  --lore-line: var(--gc-border);
+  --lore-accent: var(--gc-green);
+  --lore-violet: var(--gc-purple);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body.lore {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 520px at 12% -10%, var(--gc-radial-purple), transparent 55%),
+    radial-gradient(900px 480px at 92% 0%, var(--gc-radial-green), transparent 50%),
+    var(--gc-bg);
+  color: var(--lore-ink);
+  font-family: var(--gc-font);
+}
+
+.lore a {
+  color: var(--lore-accent);
+}
+
+.lore a.btn-primary {
+  color: var(--gc-text-inverse);
+}
+
+.lore-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 22px 20px 8px;
+}
+
+.lore-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  font-size: 1.2rem;
+}
+
+.lore-brand img {
+  height: 40px;
+  width: 40px;
+}
+
+.lore-brand span {
+  color: var(--lore-accent);
+}
+
+.lore-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.lore-crumb a,
+.lore-crumb b {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  border-radius: var(--gc-radius-pill);
+  border: 1px solid var(--lore-line);
+  text-decoration: none;
+  color: var(--lore-ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lore-crumb a:hover,
+.lore-crumb a:focus-visible {
+  border-color: var(--lore-accent);
+  color: var(--lore-accent);
+  outline: none;
+}
+
+.lore-crumb b {
+  background: var(--lore-accent);
+  color: var(--gc-text-inverse);
+  border-color: var(--lore-accent);
+}
+
+.lore-hero {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 28px 20px 12px;
+}
+
+.lore-hero h1 {
+  font-family: var(--lore-serif);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 16px;
+  max-width: 18ch;
+  text-wrap: pretty;
+}
+
+.lore-hero.lore-hero--desk h1 {
+  font-size: 1.35rem;
+  max-width: none;
+  margin: 0 0 4px;
+}
+
+.lore-hero--desk {
+  padding: 10px 20px 4px;
+}
+
+.lore-kicker {
+  color: var(--lore-violet);
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+
+.lore-hero h1 em {
+  font-style: italic;
+  color: var(--lore-accent);
+}
+
+.lore-lede {
+  max-width: 62ch;
+  color: var(--lore-muted);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin: 0 0 22px;
+  text-wrap: pretty;
+}
+
+.lore-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--lore-accent);
+  color: var(--gc-text-inverse);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  filter: brightness(1.08);
+  outline: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--lore-ink);
+  border-color: var(--lore-line);
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  border-color: var(--lore-accent);
+  color: var(--lore-accent);
+  outline: none;
+}
+
+.btn[disabled] {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.saga {
+  max-width: 1120px;
+  margin: 8px auto 0;
+  padding: 12px 20px 96px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  gap: 18px;
+}
+
+.saga-main,
+.saga-aside {
+  border: 1px solid var(--lore-line);
+  border-radius: 22px;
+  background: var(--gc-glass-bg);
+  padding: 22px;
+}
+
+.saga-main h2,
+.saga-aside h2 {
+  font-family: var(--lore-serif);
+  font-size: 1.55rem;
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+
+.tomo {
+  display: grid;
+  gap: 0;
+  margin: 18px 0 0;
+}
+
+.tomo a {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr auto;
+  gap: 12px;
+  align-items: center;
+  min-height: 56px;
+  padding: 10px 0;
+  border-top: 1px solid var(--lore-line);
+  text-decoration: none;
+  color: inherit;
+}
+
+.tomo a:hover .tomo-title,
+.tomo a:focus-visible .tomo-title {
+  color: var(--lore-accent);
+}
+
+.tomo-n {
+  font-variant-numeric: tabular-nums;
+  color: var(--lore-violet);
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.tomo-title {
+  font-weight: 700;
+}
+
+.tomo-meta {
+  color: var(--lore-muted);
+  font-size: 0.78rem;
+}
+
+.note {
+  color: var(--lore-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.studio-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 20px 128px;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.tool-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: sticky;
+  top: 12px;
+  align-self: start;
+}
+
+.tool-rail button {
+  min-height: 44px;
+  text-align: left;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid var(--lore-line);
+  background: transparent;
+  color: var(--lore-ink);
+  font: 700 0.82rem/1 var(--gc-font);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.tool-rail button[aria-selected="true"] {
+  background: var(--lore-accent);
+  color: var(--gc-text-inverse);
+  border-color: var(--lore-accent);
+}
+
+.tool-rail button:hover,
+.tool-rail button:focus-visible {
+  border-color: var(--lore-accent);
+  outline: none;
+}
+
+.panel {
+  display: none;
+  border: 1px solid var(--lore-line);
+  border-radius: 22px;
+  background: var(--gc-glass-bg);
+  padding: 22px;
+}
+
+.panel.is-on {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.85fr);
+  gap: 20px;
+}
+
+.panel h1 {
+  font-family: var(--lore-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 500;
+  margin: 0 0 8px;
+  grid-column: 1 / -1;
+}
+
+.panel .lede,
+.panel .canon,
+.panel .play-warn {
+  grid-column: 1 / -1;
+}
+
+.panel .lede {
+  color: var(--lore-muted);
+  margin: 0 0 8px;
+  max-width: 72ch;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 14px;
+}
+
+.field label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--lore-muted);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--lore-ink);
+  border: 1px solid var(--lore-line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font: 400 0.95rem/1.4 var(--gc-font);
+}
+
+.field textarea {
+  min-height: 88px;
+  resize: vertical;
+  font-family: var(--gc-font-mono);
+  font-size: 0.82rem;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--lore-accent);
+  border-color: transparent;
+}
+
+.out {
+  background: #000;
+  border: 1px solid var(--lore-line);
+  border-radius: 16px;
+  padding: 14px;
+  min-height: 220px;
+}
+
+.out pre,
+.out textarea {
+  margin: 0;
+  width: 100%;
+  min-height: 220px;
+  background: transparent;
+  color: #fde047;
+  border: 0;
+  font: 400 0.78rem/1.45 var(--gc-font-mono);
+  resize: vertical;
+}
+
+.canon {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--lore-accent);
+  color: var(--lore-muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.kdp-readout {
+  display: grid;
+  gap: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.kdp-readout dt {
+  color: var(--lore-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.kdp-readout dd {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.play-warn {
+  grid-column: 1 / -1;
+  color: var(--lore-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.play-frame {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 70vh;
+  border: 1px solid var(--lore-line);
+  border-radius: 16px;
+  background: #000;
+}
+
+.status {
+  font-size: 0.78rem;
+  color: var(--lore-accent);
+  min-height: 1.2em;
+  margin: 8px 0 0;
+}
+
+@media (max-width: 900px) {
+  .saga,
+  .studio-shell,
+  .panel.is-on {
+    grid-template-columns: 1fr;
+  }
+  .tool-rail {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  .tool-rail button {
+    flex: 0 0 auto;
+  }
+}

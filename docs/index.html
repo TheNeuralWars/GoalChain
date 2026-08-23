@@ -2,180 +2,474 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>GoalWorld · Mundo de Logros</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>GoalWorld · World of Achievements</title>
     <meta
       name="description"
-      content="GoalWorld is the front door: lore &amp; books, GoalChain matchday, live betting, agentic trading. GoalChain settles. GoalWorld orients."
+      content="GoalWorld is the front door: Fractured Code, GoalChain matchday, AI Cinema, agentic trading. GoalChain settles. GoalWorld orients."
     />
-    <meta name="theme-color" content="#06060a" />
+    <meta name="theme-color" content="#030307" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://goalworld.fun/" />
-    <meta property="og:title" content="GoalWorld · Mundo de Logros" />
-    <meta property="og:image" content="https://goalworld.fun/assets/img/logo_3d_clean.png" />
+    <meta property="og:title" content="GoalWorld · World of Achievements" />
+    <meta
+      property="og:description"
+      content="Four verticals. One settlement layer. Read Fractured Code, enter Matchday, or open Play."
+    />
+    <meta
+      property="og:image"
+      content="https://goalworld.fun/assets/img/neuralwars/book1_cover_fractured_code.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GoalWorld · World of Achievements" />
+    <meta
+      name="twitter:image"
+      content="https://goalworld.fun/assets/img/neuralwars/book1_cover_fractured_code.jpg"
+    />
     <link rel="icon" type="image/png" href="assets/img/logo_3d_clean.png?v=2.0" />
     <link rel="stylesheet" href="assets/css/tokens.css?v=1.0" />
-    <link rel="stylesheet" href="assets/css/style.css?v=4.4" />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet" />
     <script src="assets/js/play_url.js?v=1.1"></script>
     <style>
+      :root {
+        --ink: var(--gc-text, #f0f0f5);
+        --muted: rgba(240, 240, 245, 0.62);
+        --line: var(--gc-border, rgba(255, 255, 255, 0.08));
+        --green: var(--gc-green, #14f195);
+        --purple: var(--gc-purple, #9945ff);
+        --bg: var(--gc-bg, #030307);
+        --ease: var(--gc-ease, cubic-bezier(0.16, 1, 0.3, 1));
+      }
+
+      * { box-sizing: border-box; }
+      html { color-scheme: dark; }
+      html, body { margin: 0; min-height: 100%; }
       body.hub {
-        background: #06060a;
-        color: #fff;
+        background: var(--bg);
+        color: var(--ink);
         font-family: Outfit, system-ui, sans-serif;
-        margin: 0;
+        overflow-x: hidden;
       }
-      .hub-hero {
-        max-width: 1100px;
+      img, video { max-width: 100%; display: block; }
+      a { color: inherit; }
+
+      .atmosphere {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background: #030307;
+      }
+      .atmosphere video,
+      .atmosphere .still {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 62% 40%;
+      }
+      .atmosphere .still { z-index: 1; }
+      .atmosphere video { z-index: 2; }
+      .atmosphere::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        background:
+          linear-gradient(90deg, rgba(3, 3, 7, 0.94) 0%, rgba(3, 3, 7, 0.78) 42%, rgba(3, 3, 7, 0.35) 70%, rgba(3, 3, 7, 0.55) 100%),
+          linear-gradient(180deg, rgba(3, 3, 7, 0.35) 0%, rgba(3, 3, 7, 0.15) 40%, rgba(3, 3, 7, 0.92) 100%);
+      }
+
+      .wrap {
+        position: relative;
+        z-index: 1;
+        max-width: 1240px;
         margin: 0 auto;
-        padding: 28px 20px 8px;
+        padding: 8px 22px 0;
       }
-      .hub-kicker {
-        color: #14f195;
-        letter-spacing: 0.2em;
-        font-size: 0.72rem;
+
+      .stage {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 520px);
+        gap: clamp(28px, 5vw, 64px);
+        align-items: end;
+        min-height: calc(100svh - 88px);
+        padding: 36px 0 56px;
+      }
+
+      .kicker {
+        margin: 0 0 14px;
+        color: var(--green);
+        letter-spacing: 0.22em;
+        font-size: 0.7rem;
         font-weight: 800;
         text-transform: uppercase;
       }
-      .hub-hero h1 {
-        font-size: clamp(2.1rem, 5vw, 3.6rem);
-        letter-spacing: -0.04em;
-        margin: 10px 0 12px;
-        line-height: 1.05;
+      .copy h1 {
+        margin: 0 0 16px;
+        font-size: clamp(2.4rem, 6.4vw, 4.4rem);
+        letter-spacing: -0.045em;
+        line-height: 0.96;
+        font-weight: 900;
+        text-wrap: balance;
       }
-      .hub-hero p {
-        max-width: 640px;
-        color: rgba(255,255,255,0.65);
-        font-size: 1.05rem;
+      .copy .lede {
+        margin: 0 0 28px;
+        max-width: 34rem;
+        color: var(--muted);
+        font-size: 1.08rem;
         line-height: 1.55;
       }
-      .hub-grid {
-        max-width: 1100px;
-        margin: 20px auto 0;
-        padding: 0 20px 24px;
-        display: grid;
-        gap: 14px;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      .ctas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
       }
-      .hub-card {
-        min-height: 200px;
-        padding: 22px;
-        border-radius: 18px;
-        border: 1px solid rgba(255,255,255,0.08);
-        background: rgba(10,10,20,0.55);
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: 999px;
         text-decoration: none;
-        color: inherit;
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: transform 180ms var(--ease), box-shadow 180ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease);
+      }
+      .cta:focus-visible {
+        outline: 2px solid var(--green);
+        outline-offset: 3px;
+      }
+      .cta-read {
+        background: var(--green);
+        color: #030307;
+        box-shadow: 0 0 24px rgba(20, 241, 149, 0.28);
+      }
+      .cta-read:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(20, 241, 149, 0.38); }
+      .cta-match {
+        border: 1px solid rgba(20, 241, 149, 0.55);
+        color: #fff;
+        background: rgba(3, 3, 7, 0.35);
+      }
+      .cta-match:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
+      .cta-play {
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: rgba(255, 255, 255, 0.88);
+        background: transparent;
+      }
+      .cta-play:hover { border-color: #fff; color: #fff; transform: translateY(-2px); }
+
+      .objects {
+        position: relative;
+        min-height: 520px;
+      }
+      .still-plate {
+        position: absolute;
+        right: 0;
+        top: 18px;
+        width: min(86%, 420px);
+        aspect-ratio: 16 / 10;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+        overflow: hidden;
+        background: #0a0a14;
+      }
+      .still-plate img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 40%;
+      }
+      .still-plate figcaption {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        margin: 0;
+        padding: 4px 8px;
+        font-size: 0.64rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #fff;
+        background: rgba(3, 3, 7, 0.55);
+      }
+      .cover {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: min(58%, 280px);
+        aspect-ratio: 2 / 3;
+        transform: rotate(-6.5deg);
+        transform-origin: 50% 100%;
+        box-shadow:
+          0 30px 50px rgba(0, 0, 0, 0.62),
+          0 0 0 1px rgba(153, 69, 255, 0.28);
+        z-index: 2;
+      }
+      .cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .verticals {
+        padding: 8px 0 36px;
+      }
+      .verticals h2 {
+        margin: 0 0 14px;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(240, 240, 245, 0.45);
+      }
+      .film {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .beat {
+        position: relative;
+        min-height: 220px;
         display: flex;
         flex-direction: column;
-        gap: 8px;
-        transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-      }
-      .hub-card:hover {
-        transform: translateY(-3px);
-        border-color: rgba(20,241,149,.5);
-        box-shadow: 0 16px 40px rgba(20,241,149,.1);
-      }
-      .hub-card h2 { margin: 0; font-size: 1.2rem; }
-      .hub-card p { margin: 0; flex: 1; color: rgba(255,255,255,.6); font-size: .92rem; line-height: 1.45; }
-      .hub-card .go { color: #14f195; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-      .hub-card.lore { border-color: rgba(153,69,255,.4); }
-      .hub-card.chain { border-color: rgba(20,241,149,.4); }
-      .hub-settle {
-        max-width: 1100px;
-        margin: 0 auto 20px;
-        padding: 16px 22px;
-        border: 1px dashed rgba(20,241,149,.35);
-        border-radius: 16px;
-        color: rgba(255,255,255,.7);
-        font-size: .92rem;
-      }
-      .hub-shortcuts {
-        max-width: 1100px;
-        margin: 0 auto 96px;
-        padding: 0 20px;
-        display: grid;
-        gap: 8px;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      }
-      .hub-shortcuts a {
-        min-height: 44px;
-        display: flex; align-items: center; justify-content: center;
-        border: 1px solid rgba(255,255,255,.1);
-        border-radius: 12px;
+        justify-content: flex-end;
+        padding: 16px;
         text-decoration: none;
+        overflow: hidden;
+        isolation: isolate;
         color: #fff;
-        font-weight: 700;
-        font-size: .82rem;
       }
-      .hub-shortcuts a:hover { border-color: #14f195; color: #14f195; }
-      @media (max-width: 900px) { .hub-grid { grid-template-columns: 1fr 1fr; } }
-      @media (max-width: 620px) { .hub-grid { grid-template-columns: 1fr; } }
+      .beat img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+      }
+      .beat::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(180deg, rgba(3, 3, 7, 0.15) 20%, rgba(3, 3, 7, 0.88) 100%);
+      }
+      .beat:hover { outline: 1px solid rgba(20, 241, 149, 0.45); outline-offset: 0; }
+      .beat:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+      .beat .n {
+        font-size: 0.66rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        color: var(--green);
+        margin-bottom: 6px;
+      }
+      .beat h3 {
+        margin: 0 0 6px;
+        font-size: 1.05rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+      .beat p {
+        margin: 0;
+        font-size: 0.82rem;
+        line-height: 1.4;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .settle {
+        margin: 0 0 28px;
+        padding: 14px 0;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      .settle strong { color: var(--green); font-weight: 800; }
+
+      .docs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+        padding: 0 0 28px;
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+      .docs a {
+        color: rgba(240, 240, 245, 0.55);
+        text-decoration: none;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+      .docs a:hover,
+      .docs a:focus-visible { color: var(--green); }
+
+      @media (max-width: 900px) {
+        .stage {
+          grid-template-columns: 1fr;
+          min-height: auto;
+          padding: 18px 0 28px;
+        }
+        .objects {
+          min-height: 360px;
+        }
+        .still-plate { width: 78%; top: 0; }
+        .cover { width: 46%; max-width: 200px; }
+        .film { grid-template-columns: 1fr 1fr; }
+        .ctas { margin-bottom: 8px; }
+      }
+      @media (max-width: 560px) {
+        .film { grid-template-columns: 1fr; }
+        .objects { min-height: 360px; }
+        .copy h1 { font-size: 2.35rem; }
+        .cta { flex: 1 1 100%; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .atmosphere video { display: none; }
+        .cta, .beat { transition: none; }
+        .cta:hover, .cta-read:hover { transform: none; }
+      }
     </style>
   </head>
   <body class="hub">
-    <header class="hub-hero">
-      <a href="/" class="brand" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff">
-        <img src="assets/img/logo_3d_clean.png" alt="" style="height:42px" />
-        <strong style="font-size:1.35rem;letter-spacing:-.04em">Goal<span style="color:#14f195">World</span></strong>
-      </a>
-      <p class="hub-kicker">Mundo de Logros · NicoPez studio</p>
-      <h1>Four verticals.<br />One settlement layer.</h1>
-      <p>
-        This is the front door. Books, matchday, betting and trading all start here.
-        GoalChain is the cadence underneath — wallet, bets, claims — never the homepage.
+    <div class="atmosphere" aria-hidden="true">
+      <img
+        class="still"
+        src="assets/img/bg/hero_bg.png"
+        alt=""
+        width="1600"
+        height="900"
+      />
+      <video
+        id="hub-loop"
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="assets/img/bg/hero_bg.png"
+      >
+        <source src="assets/video/stadiums/neo_olympus.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="wrap">
+      <header class="stage">
+        <div class="copy">
+          <p class="kicker">World of Achievements · NicoPez studio</p>
+          <h1>Four verticals.<br />One settlement layer.</h1>
+          <p class="lede">
+            This is the front door. Fractured Code, matchday, cinema and trading start here.
+            GoalChain is the cadence underneath — wallet, bets, claims — never the homepage.
+          </p>
+          <nav class="ctas" aria-label="Primary">
+            <a class="cta cta-read" href="/go/reader">Read Fractured Code</a>
+            <a class="cta cta-match" href="goalchain.html">Enter Matchday</a>
+            <a class="cta cta-play" href="/go/">Open Play</a>
+          </nav>
+        </div>
+
+        <div class="objects" aria-hidden="false">
+          <figure class="still-plate">
+            <img src="assets/img/bg/hero_bg.png" alt="GoalChain matchday stadium under Solana lights" width="840" height="525" />
+            <figcaption>Matchday · Neo Olympus</figcaption>
+          </figure>
+          <a class="cover" href="/go/reader">
+            <img
+              src="assets/img/neuralwars/book1_cover_fractured_code.jpg"
+              alt="The Neural Wars: Fractured Code — Book 1 cover"
+              width="280"
+              height="420"
+            />
+          </a>
+        </div>
+      </header>
+
+      <section class="verticals" aria-labelledby="vert-title">
+        <h2 id="vert-title">The four verticals</h2>
+        <div class="film">
+          <a class="beat" href="goalworld.html">
+            <img src="assets/img/neuralwars/book1_cover_fractured_code.jpg" alt="" />
+            <span class="n">01</span>
+            <h3>Publisher Lore</h3>
+            <p>Neural Wars, Nexus, KDP. IP on Solana — the designed lore site, not the dApp.</p>
+          </a>
+          <a class="beat" href="goalchain.html">
+            <img src="assets/img/bg/hero_bg.png" alt="" />
+            <span class="n">02</span>
+            <h3>GoalChain Soccer</h3>
+            <p>World Cup 2026 matchday: packs, stadiums, ticker. The page that already looks right.</p>
+          </a>
+          <a class="beat" href="cinema.html">
+            <img
+              src="assets/img/neuralwars/04_Keyframes_and_Concept_Art/Keyframe_03_The_Severing_Neural_Disconnection.jpg"
+              alt=""
+            />
+            <span class="n">03</span>
+            <h3>AI Cinema</h3>
+            <p>Trailers and stills from the studio desk. The media engine, not the arcade.</p>
+          </a>
+          <a class="beat" href="agents.html">
+            <img src="assets/img/bg/vault_bg.png" alt="" />
+            <span class="n">04</span>
+            <h3>Agentic Trading</h3>
+            <p>Tokenized Hermes agents and the DeFi swarm. Marketing surface — wallets live in Play.</p>
+          </a>
+        </div>
+      </section>
+
+      <p class="settle">
+        <strong>GoalChain = settlement.</strong>
+        Wallet, claims and bets live at play.goalworld.fun. Everything else on this domain is read-only.
       </p>
-    </header>
 
-    <main class="hub-grid">
-      <a class="hub-card lore" href="goalworld.html">
-        <h2>Publisher Lore</h2>
-        <p>Neural Wars universe, Nexus, KDP, IP on Solana. The designed lore site — not the Play dApp.</p>
-        <span class="go">Open GoalWorld lore →</span>
-      </a>
-      <a class="hub-card" href="/go/reader">
-        <h2>Fractured Code</h2>
-        <p>Kindle reader + audiobook. Book 1 of The Neural Wars. Direct, no wallet.</p>
-        <span class="go">Read now →</span>
-      </a>
-      <a class="hub-card chain" href="goalchain.html">
-        <h2>GoalChain Matchday</h2>
-        <p>World Cup 2026 football landing: packs, stadiums, ticker. The page that already looks right.</p>
-        <span class="go">Enter matchday →</span>
-      </a>
-      <a class="hub-card" href="arcade.html">
-        <h2>Arcade</h2>
-        <p>Penalty shootout and pack opener. Same visual system as Matchday.</p>
-        <span class="go">Play arcade →</span>
-      </a>
-      <a class="hub-card" href="agents.html">
-        <h2>Agents</h2>
-        <p>Tokenized Hermes agents that run the studio. Marketing surface, not a wallet.</p>
-        <span class="go">See agents →</span>
-      </a>
-      <a class="hub-card" href="https://play.goalworld.fun/estadio">
-        <h2>Live betting (Play)</h2>
-        <p>Parimutuel on GoalChain. This one leaves the docs site and opens the dApp.</p>
-        <span class="go">Open stadium app →</span>
-      </a>
-    </main>
+      <nav class="docs" aria-label="Docs">
+        <a href="pitch.html">Pitch</a>
+        <a href="mega-guide.html">Mega guide</a>
+        <a href="tokenomics.html">Tokenomics</a>
+        <a href="colabs.html">Collabs</a>
+        <a href="ceo.html">CEO log</a>
+        <a href="protocol.html">Protocol</a>
+        <a href="pre-nft.html">Pre-NFT</a>
+        <a href="arcade.html">Arcade</a>
+        <a href="legal.html">Legal</a>
+        <a href="map.html">Full map</a>
+      </nav>
+    </div>
 
-    <section class="hub-settle">
-      <strong style="color:#14f195">GoalChain = settlement.</strong>
-      Wallet, claims and bets live at play.goalworld.fun. Everything else on this domain is read-only marketing.
-    </section>
-
-    <nav class="hub-shortcuts" aria-label="Docs">
-      <a href="pitch.html">Pitch</a>
-      <a href="mega-guide.html">Mega guide</a>
-      <a href="tokenomics.html">Tokenomics</a>
-      <a href="colabs.html">Collabs</a>
-      <a href="ceo.html">CEO log</a>
-      <a href="protocol.html">Protocol</a>
-      <a href="pre-nft.html">Pre-NFT</a>
-      <a href="legal.html">Legal</a>
-      <a href="map.html">Full map</a>
-      <a href="https://play.goalworld.fun/">Play dApp</a>
-    </nav>
+    <script>
+      (function () {
+        var v = document.getElementById("hub-loop");
+        if (!v) return;
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) {
+          v.removeAttribute("autoplay");
+          v.pause();
+          v.remove();
+          return;
+        }
+        var play = function () {
+          var p = v.play();
+          if (p && p.catch) p.catch(function () {});
+        };
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) play();
+              else v.pause();
+            });
+          }, { threshold: 0.15 });
+          io.observe(v);
+        }
+        play();
+      })();
+    </script>
     <script src="assets/js/gw-shell.js"></script>
   </body>
 </html>
