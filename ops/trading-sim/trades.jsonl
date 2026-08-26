@@ -1,0 +1,2 @@
+{"event": "OPEN", "ts": "2026-08-26T20:25:27.886029+00:00", "trade_id": 1, "strategy": "trend_following", "symbol": "BTCUSDT", "side": "short", "entry_px": 78348.79600500001, "size": 0.00051054, "notional": 40.0, "fee_usd": 0.04, "slippage_usd": 0.02, "confidence": 0.759}
+{"event": "OPEN", "ts": "2026-08-26T20:25:29.359116+00:00", "trade_id": 2, "strategy": "trend_following", "symbol": "SOLUSDT", "side": "short", "entry_px": 96.67164000000001, "size": 0.41372713, "notional": 39.9957, "fee_usd": 0.039996, "slippage_usd": 0.019998, "confidence": 0.766}

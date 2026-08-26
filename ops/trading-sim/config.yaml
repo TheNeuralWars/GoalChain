@@ -1,0 +1,65 @@
+name: trading-sim
+version: 1.0.0
+description: "GoalWorld Trading Simulator - Real-time paper trading with $500 virtual capital"
+
+start:
+  equity_usd: 500.0
+  timestamp: "2026-08-26T20:00:00Z"
+
+exchange:
+  name: binance
+  fee_maker: 0.0002  # 0.02%
+  fee_taker: 0.001   # 0.10%
+  slippage_bps: 5    # 0.05% slippage on market orders
+
+strategies:
+  trend_following:
+    enabled: true
+    allocation_pct: 40  # $200
+    symbols: ["BTC/USDT", "ETH/USDT", "SOL/USDT"]
+    timeframe: "1h"
+    params:
+      sma_fast: 20
+      sma_slow: 50
+      momentum_period: 10
+      stop_loss_pct: 2.0
+      take_profit_pct: 3.0
+      max_position_pct: 20  # max 20% of strategy capital per position
+      horizon_hours: 8
+
+  mean_reversion:
+    enabled: true
+    allocation_pct: 30  # $150
+    symbols: ["BTC/USDT", "ETH/USDT"]
+    timeframe: "15m"
+    params:
+      bb_period: 20
+      bb_std: 2.0
+      stop_loss_pct: 1.5
+      take_profit_pct: 2.0
+      max_position_pct: 15
+      horizon_hours: 4
+
+  breakout:
+    enabled: true
+    allocation_pct: 30  # $150
+    symbols: ["SOL/USDT", "ETH/USDT"]
+    timeframe: "1h"
+    params:
+      donchian_period: 20
+      stop_loss_pct: 2.5
+      take_profit_pct: 4.0
+      max_position_pct: 15
+      horizon_hours: 12
+
+risk:
+  max_drawdown_pct: 10.0       # pause all if equity drops 10%
+  max_daily_loss_pct: 5.0     # pause strategy if it loses 5% in a day
+  max_open_positions: 3        # per strategy
+  max_total_exposure_pct: 80   # max 80% of total equity deployed
+
+runner:
+  tick_interval_seconds: 60    # check every minute
+  price_cache_seconds: 30      # cache prices for 30s
+  git_commit_every_n_trades: 5
+  report_interval_minutes: 240  # 4 hours
