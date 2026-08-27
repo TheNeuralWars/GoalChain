@@ -1,26 +1,26 @@
 # GoalWorld Trading Simulator — Live Report
-**2026-08-27 16:20:27 UTC**
+**2026-08-27 16:32:26 UTC**
 
 ## Portfolio Summary
 - **Starting Capital:** $500.00
-- **Total P&L:** $-0.3815
-- **Total Fees:** $0.2902
-- **Total Slippage:** $0.1451
-- **Return:** -0.08%
+- **Total P&L:** $+0.6069
+- **Total Fees:** $0.3261
+- **Total Slippage:** $0.1631
+- **Return:** +0.12%
 
 ## Trade Statistics
-- **Total Opens:** 20
-- **Total Closes:** 11
+- **Total Opens:** 21
+- **Total Closes:** 12
 - **Open Positions:** 9
-- **Win Rate:** 45.5%
-- **Avg Win:** $+0.5296
+- **Win Rate:** 50.0%
+- **Avg Win:** $+0.6061
 - **Avg Loss:** $-0.5050
-- **Profit Factor:** 0.87
+- **Profit Factor:** 1.20
 
 ## Per Strategy
 ### trend_following
-- P&L: $-0.5853
-- Trades: 3 (win rate: 33.3%)
+- P&L: $+0.4031
+- Trades: 4 (win rate: 50.0%)
 
 ### momentum
 - P&L: $-1.0168
