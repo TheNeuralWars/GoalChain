@@ -1,5 +1,5 @@
 # GoalWorld Trading Simulator — Live Report
-**2026-08-27 13:48:43 UTC**
+**2026-08-27 15:32:23 UTC**
 
 ## Portfolio Summary
 - **Starting Capital:** $500.00
@@ -9,9 +9,9 @@
 - **Return:** -0.08%
 
 ## Trade Statistics
-- **Total Opens:** 15
+- **Total Opens:** 20
 - **Total Closes:** 11
-- **Open Positions:** 4
+- **Open Positions:** 9
 - **Win Rate:** 45.5%
 - **Avg Win:** $+0.5296
 - **Avg Loss:** $-0.5050
