@@ -165,15 +165,55 @@ export function AICoach() {
         const data = await apiRes.json();
         if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
           reply = data.candidates[0].content.parts[0].text;
-        } else {
-          reply = t('ai_coach_error_response');
         }
-      } catch {
-        reply = t('ai_coach_error_response');
+      } catch (e) {
+        console.error("Local Gemini Pro error, falling back:", e);
       }
-    } else {
-      // Fallback to mock response
-      reply = t('ai_coach_mock_response', { userText });
+    }
+
+    // 2. Try Local API backend proxy
+    if (!reply) {
+      try {
+        const apiBase = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001';
+        const backendRes = await fetch(`${apiBase}/api/coach/chat`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            context: {
+              pName: tacticalState.player,
+              pStats: tacticalState.stats,
+              activeLeague: tacticalState.league,
+              stamina: tacticalState.stamina,
+              jersey: tacticalState.jersey,
+              sameCountry: tacticalState.sameCountryCount,
+              sameClub: tacticalState.sameClubCount,
+              stadium: tacticalState.stadium,
+              balance: tacticalState.balance
+            },
+            userText
+          })
+        });
+        if (backendRes.ok) {
+          const data = await backendRes.json();
+          if (data.reply) reply = data.reply;
+        }
+      } catch (e) {
+        console.error("Backend Chat proxy error, falling back to heuristics:", e);
+      }
+    }
+
+    // 3. Fallback Heuristics or i18n
+    if (!reply) {
+      const q = userText.toLowerCase();
+      if (q.includes('stamina') || q.includes('energia') || q.includes('cansado') || q.includes('fatiga')) {
+        reply = `🏃‍♂️ ¡Tu jugador ${tacticalState.player} está fatigado al ${tacticalState.stamina}%! Compra una poción restauradora en el vestuario por 10 $GCH para eliminar la penalización del yield.`;
+      } else if (q.includes('sinergia') || q.includes('club') || q.includes('pais') || q.includes('quimica')) {
+        reply = `🏆 Sinergia de Club al ${tacticalState.sameClubCount}/11 y País al ${tacticalState.sameCountryCount}/11. ¡Alinea 11 del mismo club para conseguir +15% de yield y 11 del mismo país para +25% de stats!`;
+      } else if (q.includes('yield') || q.includes('sueldo') || q.includes('ganar') || q.includes('gch')) {
+        reply = `📈 Para maximizar tu yield: 1) Mantén estamina > 90%, 2) Equipa camiseta de selección, 3) Busca Sinergia de Club completa (11 del mismo club para +15%). ¡La stamina actual de ${tacticalState.stamina}% te está costando ganancias!`;
+      } else {
+        reply = t('ai_coach_mock_response', { userText });
+      }
     }
 
     setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'coach', text: reply }]);
