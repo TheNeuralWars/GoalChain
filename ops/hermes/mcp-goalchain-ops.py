@@ -15,8 +15,11 @@ import requests
 
 try:
     from mcp.server.fastmcp import FastMCP
-except ImportError as e:  # pragma: no cover
-    raise SystemExit("pip install mcp (Hermes venv should include it)") from e
+except ImportError:
+    try:
+        from fastmcp import FastMCP
+    except ImportError as e:  # pragma: no cover
+        raise SystemExit("pip install fastmcp or mcp (Hermes venv should include it)") from e
 
 import sys
 is_sse = len(sys.argv) > 1 and sys.argv[1] == "sse"
