@@ -1,0 +1,61 @@
+{
+  "updated_at": "2026-09-02T21:49:44.993543+00:00",
+  "regime": "CONVICTION_TREND",
+  "position_scale": 1.1,
+  "total_paper_equity": 2002.5900000000001,
+  "strategies": {
+    "vibe_sentiment": {
+      "status": "active",
+      "hours_tested": 246,
+      "win_rate": 0.5714,
+      "max_drawdown": 0.0016,
+      "total_signals": 44,
+      "closed_trades": 14,
+      "initial_equity": 1000.0,
+      "current_equity": 1003.69,
+      "net_pnl_usd": 3.69,
+      "assets": {
+        "SOL": {
+          "trades": 7,
+          "pnl_usd": 2.29,
+          "allocated_weight": 0.6
+        },
+        "BTC": {
+          "trades": 4,
+          "pnl_usd": 0.65,
+          "allocated_weight": 0.25
+        },
+        "ETH": {
+          "trades": 3,
+          "pnl_usd": 0.64,
+          "allocated_weight": 0.15
+        }
+      }
+    },
+    "bot_a_arbitrage": {
+      "strategy": "Completeness Arbitrage (Polymarket CLOB)",
+      "status": "active",
+      "resolution_oracle": "Chainlink TWAP 60s",
+      "margin_threshold": 0.008,
+      "fee_cap": 0.07,
+      "daily_ticks": 5102,
+      "ev_hits_24h": 5,
+      "max_edge_found": 0.04637,
+      "paper_equity": 500.0,
+      "realized_pnl_usd": 0.0
+    },
+    "bot_b_sports_mm": {
+      "strategy": "Sports Market Maker (Orderbook Rebates)",
+      "status": "active",
+      "paper_equity": 498.9,
+      "net_pnl_pct": -0.002
+    }
+  },
+  "recommendation": "Graduation Ready: Paper metrics passed 72h hurdle with 57% win rate. Ready for micro-cap live approval.",
+  "safety_invariants": {
+    "dry_run": true,
+    "hitl_required_for_live": true,
+    "max_position_pct": 0.05,
+    "stop_loss_pct": 0.15
+  }
+}
