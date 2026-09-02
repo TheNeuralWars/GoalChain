@@ -53,6 +53,6 @@ When executing autonomously, follow a structured remediation loop if builds or t
 
 ---
 
-## 🚀 7. Git Status Transparency
-- When a build compiles successfully, explicitly state whether changes have been committed and pushed to remote.
-- Provide the user with exact terminal instructions (e.g. `git push origin <branch>`) to deploy local changes.
+## 🚀 7. Proactive Autonomous Terminal Execution & Git Deployment
+- **Autonomous Execution Mandate**: NEVER ask the user to run shell or git commands manually. Always execute all required terminal commands, builds, tests, staging, commits, and pushes directly using the terminal execution tool.
+- **Automatic Deployment**: Upon successful compilation and task completion, automatically execute the staging, commit, and git push to remote, reporting the resulting commit hash and push status to the user.
