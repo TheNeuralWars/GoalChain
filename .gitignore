@@ -117,3 +117,9 @@ agentic-inbox/
 data/marketing_pipeline/youtube_client_secrets.json
 data/marketing_pipeline/youtube_oauth_token.json
 .vercel
+
+# --- gBrain local database ---
+.gbrain/
+
+# --- Local installers & binaries ---
+docs/assets/img/neuralwars/*.exe
