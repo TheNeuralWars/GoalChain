@@ -4,42 +4,43 @@
   "publisher": "Aethelgard Press / GoalWorld Media",
   "imprint": "Independent Author Edition 2026",
   "royalty_split": {
-    "amazon_kdp_ebook": "70% (Select)",
-    "amazon_kdp_paperback": "60% minus printing costs",
-    "solana_metaplex_secondary": "8.5% creator share"
+    "amazon_kdp_ebook": "70% (KDP Select / $2.99 Regular & $0.99 Promo Countdown)",
+    "kindle_unlimited_kenp": "Active (Standard KENP rate per page read)",
+    "solana_metaplex_secondary": "8.5% creator share to GOAL buyback & burn"
   },
   "books": [
     {
       "book_id": "book-1-fractured-code",
+      "format": "Novella / Kindle Short Reads: Two Hours or More (65-100 pages)",
       "title_en": "The Neural Wars: Fractured Code (Book 1)",
-      "title_es": "The Neural Wars: C\u00f3digo Fracturado (Libro 1)",
-      "isbn_paperback": "979889210123-3",
-      "isbn_hardcover": "979889210124-0",
+      "title_es": "The Neural Wars: Código Fracturado (Libro 1)",
       "asin_kindle": "B0DXNEURAL1",
+      "isbn_paperback": "PENDING_OMNIBUS_EXPANSION",
+      "word_count_es": 24694,
+      "word_count_en": 23623,
+      "bilingual_parity": "95.7%",
       "categories": [
         "Fiction / Science Fiction / Cyberpunk",
-        "Fiction / Science Fiction / Hard Science Fiction",
-        "Fiction / Dystopian"
+        "Fiction / Dystopian",
+        "Fiction / Thrillers / Technological"
       ],
       "keywords": [
-        "neural interface",
-        "solana cyberpunk",
-        "quantum AI",
-        "world cup 2026",
-        "techno thriller",
-        "the awakening"
+        "cyberpunk artificial intelligence rebellion",
+        "neural link memory hacker dystopian",
+        "hard sci fi novella fast paced",
+        "transhumanism corporate conspiracy thriller",
+        "solana web3 consciousness matrix",
+        "kindle unlimited science fiction short read",
+        "altered carbon blade runner fans"
       ],
-      "print_specs": {
-        "page_count": 348,
-        "paper_type": "white",
-        "trim_size": "6.0 x 9.0 inches",
-        "spine_width_inches": 0.7837,
-        "spine_width_px_300dpi": 236,
-        "total_cover_width_inches": 13.0337,
-        "total_cover_height_inches": 9.25,
-        "full_cover_px_300dpi": "3911 x 2775",
-        "bleed_inches": 0.125
+      "pricing": {
+        "launch_promo_usd": 0.99,
+        "regular_usd": 2.99,
+        "royalty_rate": "70%",
+        "kindle_unlimited": true
       },
+      "print_status": "Paperback spine suspended to prevent consumer deception. Re-evaluating for 60k+ omnibus or complete trilogy boxset.",
+      "estimated_pocket_pages": 96,
       "solana_ip_link": {
         "collection_address": "8hV6W1NCoCgK8p2z41Fp9R7Y5HxqXS1JuXdNcBwgAETH",
         "content_hash": "sha256:7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069"
@@ -49,8 +50,6 @@
       "book_id": "book-2-earths-new-song",
       "title_en": "The Neural Wars: Earth's New Song (Book 2)",
       "title_es": "The Neural Wars: El Nuevo Canto de la Tierra (Libro 2)",
-      "isbn_paperback": "979889210125-7",
-      "isbn_hardcover": "979889210126-4",
       "asin_kindle": "B0DXNEURAL2",
       "categories": [
         "Fiction / Science Fiction / Space Exploration",
@@ -61,24 +60,13 @@
         "yggdrasil network",
         "cyber sports",
         "planetary consciousness",
-        "solfeggio harmonics"
+        "solfeggio harmonics 528hz"
       ],
-      "print_specs": {
-        "page_count": 392,
-        "paper_type": "white",
-        "trim_size": "6.0 x 9.0 inches",
-        "spine_width_inches": 0.8828,
-        "spine_width_px_300dpi": 265,
-        "total_cover_width_inches": 13.1328,
-        "total_cover_height_inches": 9.25,
-        "full_cover_px_300dpi": "3940 x 2775",
-        "bleed_inches": 0.125
-      },
       "solana_ip_link": {
         "collection_address": "4kM7W2NCoCgK8p2z41Fp9R7Y5HxqXS1JuXdNcBwgEARTH",
         "content_hash": "sha256:3a91b2c448de0387b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069"
       }
     }
   ],
-  "export_timestamp": "2026-09-02T23:56:00Z"
+  "export_timestamp": "2026-09-03T01:10:00Z"
 }
