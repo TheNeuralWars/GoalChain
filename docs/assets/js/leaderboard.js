@@ -3,7 +3,7 @@
  * Carga el Top 50 desde el backend de Google Sheets.
  */
 
-const TIER_MAP = [
+var TIER_MAP = window.TIER_MAP || [
     { min: 10000, label: 'MYTHIC',    color: '#ffd700' },
     { min: 5000,  label: 'LEGENDARY', color: '#a855f7' },
     { min: 2000,  label: 'EPIC',      color: '#00e5ff' },

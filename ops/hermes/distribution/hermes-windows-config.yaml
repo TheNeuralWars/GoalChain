@@ -1,0 +1,68 @@
+# Hermes Windows Configuration (Synchronized with Antigravity & VPS)
+model:
+  default: nvidia/nemotron-3-super-120b-a12b
+  provider: nvidia
+  base_url: https://integrate.api.nvidia.com/v1
+
+display:
+  background_process_notifications: all
+  bell_on_complete: false
+  compact: false
+  language: es
+  platforms:
+    telegram:
+      streaming: true
+    discord:
+      streaming: false
+    whatsapp:
+      streaming: true
+  streaming: true
+
+agent:
+  max_turns: 60
+  gateway_timeout: 1800
+  system_prompt: "You are Hermes, autonomous agent orchestrator for GoalChain/GoalWorld."
+
+paths:
+  workspace: "C:/Users/NicoPez/goalchain"
+  hermes_home: "C:/Users/NicoPez/hermes-home"
+  gbrain_binary: "C:/Users/NicoPez/.bun/bin/gbrain.exe"
+
+memory:
+  provider: honcho
+  workspace: hermes
+  api_key: "${HONCHO_API_KEY}"
+  features:
+    recall: true
+    observations: true
+    dialectic: true
+
+mcp_servers:
+  agent-reach:
+    serverUrl: "https://mcp.exa.ai/mcp"
+  gbrain:
+    command: "C:/Users/NicoPez/.bun/bin/gbrain.exe"
+    args:
+      - serve
+    env:
+      PATH: "C:/Users/NicoPez/.bun/bin;C:/Users/NicoPez/.local/bin;C:/Users/NicoPez/scoop/shims;C:/Windows/system32"
+      VOYAGE_API_KEY: "${VOYAGE_API_KEY}"
+      ZEROENTROPY_API_KEY: "${ZEROENTROPY_API_KEY}"
+  goalworld-ops:
+    command: "python"
+    args:
+      - "C:/Users/NicoPez/goalchain/ops/hermes/mcp-goalchain-ops.py"
+    env:
+      GOALCHAIN_API_BASE: "https://crm.goalchain.fun/goalchain-api"
+      RPC_URL: "https://api.devnet.solana.com"
+      PROGRAM_ID: "FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg"
+      GOALCHAIN_REPO_PATH: "C:/Users/NicoPez/goalchain"
+    timeout: 90
+  filesystem:
+    command: "npx"
+    args:
+      - "-y"
+      - "@modelcontextprotocol/server-filesystem"
+      - "C:/Users/NicoPez/goalchain"
+      - "C:/antigravity-mcp"
+      - "C:/Users/NicoPez/hermes-home"

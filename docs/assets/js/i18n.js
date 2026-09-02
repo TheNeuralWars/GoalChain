@@ -1,6 +1,6 @@
 // ===== GoalChain i18n - Spanish / English =====
 
-const TRANSLATIONS = {
+var TRANSLATIONS = window.TRANSLATIONS || {
   es: {
     alpha_back: 'VOLVER',
     alpha_enter: 'ENTRAR AL ECOSISTEMA',

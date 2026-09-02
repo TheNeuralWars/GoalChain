@@ -61,7 +61,7 @@ window.makeVideoYoyo = window.makeVideoYoyo || function(videoElement) {
     }
 };
 
-const RARITY_COLORS = {
+var RARITY_COLORS = window.RARITY_COLORS || {
     "mythic": "#ffcc00",
     "legendary": "#14f195",
     "epic": "#9945ff",
@@ -69,7 +69,7 @@ const RARITY_COLORS = {
     "common": "#c8c8c8"
 };
 
-const BG_IMAGE_MAP = {
+var BG_IMAGE_MAP = window.BG_IMAGE_MAP || {
     "BG-MYT": "neo_olympus_vertical.mp4",
     "BG-LEG": "titanium_coliseum.mp4",
     "BG-EPI": "aether_dome.mp4",
@@ -77,7 +77,7 @@ const BG_IMAGE_MAP = {
     "BG-COM": "dome_kronos_vertical.mp4"
 };
 
-const BATCH_SIZE = 8; // Cards loaded per batch
+var BATCH_SIZE = window.BATCH_SIZE || 8; // Cards loaded per batch
 
 async function initGalleryView() {
     const container = document.getElementById('galleryContainer');

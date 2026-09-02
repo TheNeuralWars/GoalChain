@@ -2,11 +2,11 @@
  * nft_registry.js - Registro Maestro y Lógica de Galería 4.0 (Contract Panel Update)
  */
 
-let masterPlayers = [];
-let favorites = JSON.parse(localStorage.getItem('gch_favorites') || '[]');
-let showOnlyFavorites = false;
+var masterPlayers = window.masterPlayers || [];
+var favorites = window.favorites || JSON.parse(localStorage.getItem('gch_favorites') || '[]');
+var showOnlyFavorites = window.showOnlyFavorites !== undefined ? window.showOnlyFavorites : false;
 
-const PRICE_MAP = {
+var PRICE_MAP = window.PRICE_MAP || {
     "mythic": "10,000 $GCH",
     "legendary": "5,000 $GCH",
     "epic": "1,000 $GCH",
@@ -15,7 +15,7 @@ const PRICE_MAP = {
 };
 
 // Manual image map for generated NFTs (overrides auto-generated paths)
-const NFT_IMAGE_MAP = {};
+var NFT_IMAGE_MAP = window.NFT_IMAGE_MAP || {};
 
 // Background Image Map (Updated to use premium vertical RWA stadiums)
 var BG_IMAGE_MAP = window.BG_IMAGE_MAP || {

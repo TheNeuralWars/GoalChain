@@ -2,7 +2,7 @@
  * wallet_connect.js - Integración oficial con Phantom y Solflare
  */
 
-const walletState = {
+var walletState = window.walletState || {
     connected: false,
     publicKey: null,
     provider: null,

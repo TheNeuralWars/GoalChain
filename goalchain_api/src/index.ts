@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import path from "path";
 import { Connection, PublicKey } from "@solana/web3.js";
 import { AnchorProvider, Program } from "@coral-xyz/anchor";
-import { idl, PROGRAM_ID, GoalchainProgram, retryRpcCall, getConnection, getRpcUrl } from "@goalchain/sdk";
+import { idl, PROGRAM_ID, GoalchainProgram, retryRpcCall, getConnection, getRpcUrl, fetchWithTimeout, retryWithBackoff } from "@goalchain/sdk";
 import fs from "fs";
 import { exec } from "child_process";
 import crypto from "crypto";
@@ -1125,8 +1125,6 @@ Pregunta del manager: "${userText}"`;
 // ============================================
 // Jupiter Quote Endpoint (Solana DEX)
 // ============================================
-
-import { fetchWithTimeout, retryWithBackoff } from "@goalchain/sdk";
 
 interface JupiterQuoteRequest {
   inputMint: string;

@@ -3,10 +3,10 @@
  * Handles real Solana transactions for the NFT Minting experience.
  */
 
-const DEVNET_RPC = "https://api.devnet.solana.com";
-const TREASURY_WALLET = "6v6yVpWp5Z6T8f7Qz4J6x6m5Y6x6Y6x6Y6x6Y6x6Y6x6"; // Placeholder Treasury
+var DEVNET_RPC = window.DEVNET_RPC || "https://api.devnet.solana.com";
+var TREASURY_WALLET = window.TREASURY_WALLET || "6v6yVpWp5Z6T8f7Qz4J6x6m5Y6x6Y6x6Y6x6Y6x6Y6x6"; // Placeholder Treasury
 
-const MintEngine = {
+var MintEngine = window.MintEngine || {
     async processMint(player) {
         if (!window.solana || !window.solana.isConnected) {
             if (window.notifier) window.notifier.show('ERROR', 'Conecta tu wallet para mintear.', 'error');

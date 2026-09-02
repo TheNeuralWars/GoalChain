@@ -2,12 +2,12 @@
  * marketplace.js - Lógica del Mercado de Transferencias GoalChain 4.0 (3D NFT Update)
  */
 
-const marketState = {
+var marketState = window.marketState || {
     listings: [],
     players: []
 };
 
-const RARITY_PRICES = {
+var RARITY_PRICES = window.RARITY_PRICES || {
     mythic: "25.0 SOL",
     legendary: "12.5 SOL",
     epic: "5.0 SOL",

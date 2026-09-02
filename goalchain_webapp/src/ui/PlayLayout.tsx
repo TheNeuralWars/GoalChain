@@ -123,7 +123,9 @@ export function PlayLayout() {
         </header>
 
         <div className="play-body">
-          <Outlet />
+          <React.Suspense fallback={<div className="portal-loading-state" style={{ color: '#64748b', padding: '3rem', textAlign: 'center' }}>Loading...</div>}>
+            <Outlet />
+          </React.Suspense>
         </div>
       </div>
 

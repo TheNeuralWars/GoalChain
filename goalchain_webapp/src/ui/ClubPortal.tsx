@@ -6,7 +6,7 @@ import { CreateUser } from './CreateUser';
 import { NFTMarketplace } from './NFTMarketplace';
 import { AICoach } from './AICoach';
 import { useUser } from '../contexts/UserContext';
-import { MatchSimulator } from './MatchSimulator';
+const MatchSimulator = React.lazy(() => import('./MatchSimulator').then(m => ({ default: m.MatchSimulator })));
 import { useTranslation } from '../i18n/index';
 
 
@@ -59,7 +59,9 @@ export function ClubPortal() {
         )}
         {activeSubTab === 'arena' && (
           <div className="portal-fade-in">
-            <MatchSimulator />
+            <React.Suspense fallback={<div className="portal-loading-state" style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Loading Arena...</div>}>
+              <MatchSimulator />
+            </React.Suspense>
           </div>
         )}
         {activeSubTab === 'market' && (

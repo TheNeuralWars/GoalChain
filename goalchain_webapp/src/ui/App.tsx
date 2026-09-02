@@ -20,15 +20,17 @@ import { DeFiPortal } from './DeFiPortal';
 import { ClubPortal } from './ClubPortal';
 import { CreateUser } from './CreateUser';
 import { UserProfile } from './UserProfile';
-import { ClassicHub } from './ClassicHub';
-import { MarketingControlCenter } from './MarketingControlCenter';
-import { PressKit } from './PressKit';
-import { GenesisCollectionGallery } from './GenesisCollectionGallery';
-import { CorporateAutopilot } from './CorporateAutopilot';
-import { TokenizedAgentsDashboard } from './TokenizedAgentsDashboard';
 import { GoalWorldPortal } from './GoalWorldPortal';
-import { KindleReader } from './KindleReader';
-import { AuthorStudio } from './AuthorStudio';
+
+// Secondary views loaded on-demand
+const ClassicHub = React.lazy(() => import('./ClassicHub').then(m => ({ default: m.ClassicHub })));
+const MarketingControlCenter = React.lazy(() => import('./MarketingControlCenter').then(m => ({ default: m.MarketingControlCenter })));
+const PressKit = React.lazy(() => import('./PressKit').then(m => ({ default: m.PressKit })));
+const GenesisCollectionGallery = React.lazy(() => import('./GenesisCollectionGallery').then(m => ({ default: m.GenesisCollectionGallery })));
+const CorporateAutopilot = React.lazy(() => import('./CorporateAutopilot').then(m => ({ default: m.CorporateAutopilot })));
+const TokenizedAgentsDashboard = React.lazy(() => import('./TokenizedAgentsDashboard').then(m => ({ default: m.TokenizedAgentsDashboard })));
+const KindleReader = React.lazy(() => import('./KindleReader').then(m => ({ default: m.KindleReader })));
+const AuthorStudio = React.lazy(() => import('./AuthorStudio').then(m => ({ default: m.AuthorStudio })));
 const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
 
 function PlayPage({

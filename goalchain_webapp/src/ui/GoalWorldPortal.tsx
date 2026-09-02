@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../i18n';
-import { KindleReader } from './KindleReader';
-import { AuthorStudio } from './AuthorStudio';
+const KindleReader = React.lazy(() => import('./KindleReader').then(m => ({ default: m.KindleReader })));
+const AuthorStudio = React.lazy(() => import('./AuthorStudio').then(m => ({ default: m.AuthorStudio })));
 import { TheNeuralWarsUniverse } from './TheNeuralWarsUniverse';
 import { THE_NEURAL_WARS_BOOKS } from './booksData';
 
@@ -587,10 +587,12 @@ export function GoalWorldPortal() {
       {/* TAB 2: LECTOR INMERSIVO KINDLE 2026 */}
       {activeTab === 'reader' && (
         <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(168, 85, 247, 0.3)', boxShadow: '0 20px 50px rgba(0,0,0,0.6)' }}>
-          <KindleReader
-            initialBookId={selectedWorld.id.startsWith('the-neural') ? selectedWorld.id : 'the-neural-wars-book-1'}
-            onBackToPortal={() => setActiveTab('nexus')}
-          />
+          <React.Suspense fallback={<div style={{ color: '#c084fc', padding: '3rem', textAlign: 'center' }}>Cargando lector Kindle...</div>}>
+            <KindleReader
+              initialBookId={selectedWorld.id.startsWith('the-neural') ? selectedWorld.id : 'the-neural-wars-book-1'}
+              onBackToPortal={() => setActiveTab('nexus')}
+            />
+          </React.Suspense>
         </div>
       )}
 
@@ -598,7 +600,9 @@ export function GoalWorldPortal() {
       {activeTab === 'saas' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           {/* Integrated Author & Lore Studio */}
-          <AuthorStudio />
+          <React.Suspense fallback={<div style={{ color: '#c084fc', padding: '3rem', textAlign: 'center' }}>Cargando Author Studio...</div>}>
+            <AuthorStudio />
+          </React.Suspense>
 
           {/* SaaS Header & Step Progress */}
           <div style={{
