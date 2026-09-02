@@ -1,6 +1,6 @@
 {
-  "total_es_words": 21533,
-  "total_en_words": 20034,
+  "total_es_words": 22727,
+  "total_en_words": 21847,
   "chapters": [
     {
       "chapter": "00",
@@ -585,192 +585,192 @@
       "file_es": "FC-12-Chapter_2026.md",
       "file_en": "FC-12-Chapter_2026_EN.md",
       "es": {
-        "word_count": 680,
-        "sent_count": 43,
-        "avg_length": 15.8,
-        "std_dev": 10.1,
-        "staccato_pct": 16.3,
-        "narrative_pct": 60.5,
-        "expansive_pct": 14.0,
+        "word_count": 1111,
+        "sent_count": 71,
+        "avg_length": 15.6,
+        "std_dev": 11.3,
+        "staccato_pct": 22.5,
+        "narrative_pct": 53.5,
+        "expansive_pct": 19.7,
         "cliches_found": [],
         "cliche_total_count": 0,
-        "filter_count": 1,
-        "filter_rate_per_1k": 1.47,
+        "filter_count": 2,
+        "filter_rate_per_1k": 1.8,
         "sensory_scores": {
-          "tactile": 1,
+          "tactile": 3,
           "olfactory_gustatory": 5,
-          "auditory": 2,
-          "visual": 8
+          "auditory": 4,
+          "visual": 10
         },
-        "sensory_density_per_1k": 23.53,
-        "dialogue_ratio": 35.9
+        "sensory_density_per_1k": 19.8,
+        "dialogue_ratio": 33.1
       },
       "en": {
-        "word_count": 484,
-        "sent_count": 40,
-        "avg_length": 12.1,
-        "std_dev": 9.8,
-        "staccato_pct": 40.0,
-        "narrative_pct": 42.5,
-        "expansive_pct": 7.5,
+        "word_count": 1010,
+        "sent_count": 70,
+        "avg_length": 14.4,
+        "std_dev": 10.3,
+        "staccato_pct": 21.4,
+        "narrative_pct": 55.7,
+        "expansive_pct": 14.3,
         "cliches_found": [],
         "cliche_total_count": 0,
-        "filter_count": 0,
-        "filter_rate_per_1k": 0.0,
+        "filter_count": 2,
+        "filter_rate_per_1k": 1.98,
         "sensory_scores": {
-          "tactile": 2,
-          "olfactory_gustatory": 0,
-          "auditory": 4,
-          "visual": 3
+          "tactile": 7,
+          "olfactory_gustatory": 4,
+          "auditory": 5,
+          "visual": 8
         },
-        "sensory_density_per_1k": 18.6,
+        "sensory_density_per_1k": 23.76,
         "dialogue_ratio": 0.0
       },
-      "ratio_en_es": 71.2
+      "ratio_en_es": 90.9
     },
     {
       "chapter": "13",
       "file_es": "FC-13-Chapter_2026.md",
       "file_en": "FC-13-Chapter_2026_EN.md",
       "es": {
-        "word_count": 792,
-        "sent_count": 47,
-        "avg_length": 16.9,
-        "std_dev": 9.6,
-        "staccato_pct": 8.5,
-        "narrative_pct": 66.0,
-        "expansive_pct": 19.1,
-        "cliches_found": [],
-        "cliche_total_count": 0,
-        "filter_count": 1,
-        "filter_rate_per_1k": 1.26,
-        "sensory_scores": {
-          "tactile": 2,
-          "olfactory_gustatory": 1,
-          "auditory": 3,
-          "visual": 3
-        },
-        "sensory_density_per_1k": 11.36,
-        "dialogue_ratio": 47.3
-      },
-      "en": {
-        "word_count": 567,
-        "sent_count": 45,
-        "avg_length": 12.6,
-        "std_dev": 6.5,
-        "staccato_pct": 17.8,
-        "narrative_pct": 66.7,
-        "expansive_pct": 6.7,
+        "word_count": 1234,
+        "sent_count": 65,
+        "avg_length": 19.0,
+        "std_dev": 10.0,
+        "staccato_pct": 7.7,
+        "narrative_pct": 55.4,
+        "expansive_pct": 29.2,
         "cliches_found": [],
         "cliche_total_count": 0,
         "filter_count": 0,
         "filter_rate_per_1k": 0.0,
         "sensory_scores": {
           "tactile": 1,
-          "olfactory_gustatory": 3,
-          "auditory": 6,
-          "visual": 2
+          "olfactory_gustatory": 5,
+          "auditory": 8,
+          "visual": 4
         },
-        "sensory_density_per_1k": 21.16,
+        "sensory_density_per_1k": 14.59,
+        "dialogue_ratio": 52.5
+      },
+      "en": {
+        "word_count": 1161,
+        "sent_count": 68,
+        "avg_length": 17.1,
+        "std_dev": 9.1,
+        "staccato_pct": 11.8,
+        "narrative_pct": 52.9,
+        "expansive_pct": 20.6,
+        "cliches_found": [],
+        "cliche_total_count": 0,
+        "filter_count": 0,
+        "filter_rate_per_1k": 0.0,
+        "sensory_scores": {
+          "tactile": 0,
+          "olfactory_gustatory": 6,
+          "auditory": 8,
+          "visual": 9
+        },
+        "sensory_density_per_1k": 19.81,
         "dialogue_ratio": 0.0
       },
-      "ratio_en_es": 71.6
+      "ratio_en_es": 94.1
     },
     {
       "chapter": "14",
       "file_es": "FC-14-Chapter_2026.md",
       "file_en": "FC-14-Chapter_2026_EN.md",
       "es": {
-        "word_count": 876,
-        "sent_count": 60,
-        "avg_length": 14.6,
-        "std_dev": 8.7,
-        "staccato_pct": 18.3,
-        "narrative_pct": 58.3,
-        "expansive_pct": 15.0,
+        "word_count": 890,
+        "sent_count": 53,
+        "avg_length": 16.8,
+        "std_dev": 11.0,
+        "staccato_pct": 20.8,
+        "narrative_pct": 45.3,
+        "expansive_pct": 15.1,
         "cliches_found": [],
         "cliche_total_count": 0,
-        "filter_count": 1,
-        "filter_rate_per_1k": 1.14,
+        "filter_count": 3,
+        "filter_rate_per_1k": 3.37,
         "sensory_scores": {
-          "tactile": 2,
-          "olfactory_gustatory": 1,
-          "auditory": 2,
-          "visual": 9
+          "tactile": 4,
+          "olfactory_gustatory": 2,
+          "auditory": 3,
+          "visual": 10
         },
-        "sensory_density_per_1k": 15.98,
-        "dialogue_ratio": 31.4
+        "sensory_density_per_1k": 21.35,
+        "dialogue_ratio": 21.8
       },
       "en": {
-        "word_count": 466,
-        "sent_count": 26,
-        "avg_length": 18.0,
-        "std_dev": 10.9,
-        "staccato_pct": 15.4,
-        "narrative_pct": 46.2,
-        "expansive_pct": 19.2,
+        "word_count": 867,
+        "sent_count": 55,
+        "avg_length": 15.8,
+        "std_dev": 10.5,
+        "staccato_pct": 23.6,
+        "narrative_pct": 47.3,
+        "expansive_pct": 18.2,
         "cliches_found": [],
         "cliche_total_count": 0,
-        "filter_count": 4,
-        "filter_rate_per_1k": 8.58,
+        "filter_count": 3,
+        "filter_rate_per_1k": 3.46,
         "sensory_scores": {
-          "tactile": 5,
-          "olfactory_gustatory": 1,
-          "auditory": 3,
-          "visual": 7
+          "tactile": 7,
+          "olfactory_gustatory": 3,
+          "auditory": 2,
+          "visual": 12
         },
-        "sensory_density_per_1k": 34.33,
+        "sensory_density_per_1k": 27.68,
         "dialogue_ratio": 0.0
       },
-      "ratio_en_es": 53.2
+      "ratio_en_es": 97.4
     },
     {
       "chapter": "15",
       "file_es": "FC-15-Chapter_2026.md",
       "file_en": "FC-15-Chapter_2026_EN.md",
       "es": {
-        "word_count": 578,
-        "sent_count": 31,
-        "avg_length": 18.6,
-        "std_dev": 12.4,
-        "staccato_pct": 19.4,
-        "narrative_pct": 41.9,
-        "expansive_pct": 29.0,
-        "cliches_found": [],
-        "cliche_total_count": 0,
-        "filter_count": 3,
-        "filter_rate_per_1k": 5.19,
-        "sensory_scores": {
-          "tactile": 2,
-          "olfactory_gustatory": 1,
-          "auditory": 3,
-          "visual": 9
-        },
-        "sensory_density_per_1k": 25.95,
-        "dialogue_ratio": 10.2
-      },
-      "en": {
-        "word_count": 553,
-        "sent_count": 33,
-        "avg_length": 16.8,
-        "std_dev": 10.1,
-        "staccato_pct": 21.2,
-        "narrative_pct": 39.4,
-        "expansive_pct": 27.3,
+        "word_count": 885,
+        "sent_count": 47,
+        "avg_length": 18.9,
+        "std_dev": 11.4,
+        "staccato_pct": 19.1,
+        "narrative_pct": 44.7,
+        "expansive_pct": 25.5,
         "cliches_found": [],
         "cliche_total_count": 0,
         "filter_count": 2,
-        "filter_rate_per_1k": 3.62,
+        "filter_rate_per_1k": 2.26,
         "sensory_scores": {
-          "tactile": 1,
-          "olfactory_gustatory": 0,
-          "auditory": 3,
-          "visual": 6
+          "tactile": 5,
+          "olfactory_gustatory": 2,
+          "auditory": 5,
+          "visual": 9
         },
-        "sensory_density_per_1k": 18.08,
+        "sensory_density_per_1k": 23.73,
+        "dialogue_ratio": 15.4
+      },
+      "en": {
+        "word_count": 845,
+        "sent_count": 49,
+        "avg_length": 17.3,
+        "std_dev": 10.9,
+        "staccato_pct": 22.4,
+        "narrative_pct": 44.9,
+        "expansive_pct": 22.4,
+        "cliches_found": [],
+        "cliche_total_count": 0,
+        "filter_count": 2,
+        "filter_rate_per_1k": 2.37,
+        "sensory_scores": {
+          "tactile": 6,
+          "olfactory_gustatory": 1,
+          "auditory": 4,
+          "visual": 8
+        },
+        "sensory_density_per_1k": 22.49,
         "dialogue_ratio": 0.0
       },
-      "ratio_en_es": 95.7
+      "ratio_en_es": 95.5
     },
     {
       "chapter": "16",
