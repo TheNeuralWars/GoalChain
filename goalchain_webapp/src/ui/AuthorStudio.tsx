@@ -22,7 +22,7 @@ const AI_CLICHES = [
 const FILTER_WORDS = ['felt', 'feel', 'heard', 'hear', 'saw', 'see', 'noticed', 'wondered', 'watched', 'seemed', 'realized'];
 
 export function AuthorStudio() {
-  const [activeStudioTab, setActiveStudioTab] = useState<'prose' | 'characters' | 'beats' | 'cinematic'>('prose');
+  const [activeStudioTab, setActiveStudioTab] = useState<'prose' | 'characters' | 'beats' | 'cinematic' | 'kdp'>('prose');
   const [sampleText, setSampleText] = useState<string>(
     `The rain fell against the seventy-fourth-floor bay window with military discipline: identical, perfectly spherical droplets tracing parallel furrows separated by exactly seven millimeters of reinforced glass.\n\nMileo Chen pressed the pad of his right index finger against the chilled surface. For a fraction of a second, the icy bite of the glass pinched his flesh with sharp authenticity. But before the shiver could travel up his arm, the implant at the base of his skull emitted a dull hum. An imperceptible discharge of synthetic heat spread across his brainstem, followed by a burst of chemical suppressors that extinguished the sensation like freezing water dousing an ember.`
   );
@@ -70,6 +70,7 @@ export function AuthorStudio() {
       sentCount,
       avgLen: avgLen.toFixed(1),
       stdDev: stdDev.toFixed(1),
+      isBurstHigh: stdDev >= 6.5,
       foundCliches,
       filterCount,
       sensory: { visual, auditory, tactile, olfactory },
@@ -89,12 +90,13 @@ export function AuthorStudio() {
             Harness profesional de escritura, análisis de prosa, arquitectura dramática y control de canon para novelas bestsellers.
           </p>
         </div>
-        <div style={{ display: 'flex', gap: '8px' }}>
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
           {[
             { id: 'prose', label: '🔬 Doctor de Prosa' },
             { id: 'characters', label: '🎭 Matriz de Personajes' },
             { id: 'beats', label: '🎬 Beat Sheet 4-Actos' },
-            { id: 'cinematic', label: '📽️ Adaptación Cine' }
+            { id: 'cinematic', label: '📽️ Adaptación Cine' },
+            { id: 'kdp', label: '📖 Amazon KDP Publishing' }
           ].map(t => (
             <button
               key={t.id}
@@ -306,6 +308,100 @@ export function AuthorStudio() {
           <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
             <strong>Formato:</strong> Serie de TV (10 Episodios de 50 min) o Largometraje de Ciencia Ficción Dura.<br />
             <strong>Comparables:</strong> <em>Blade Runner 2049</em> meets <em>Arrival</em> meets <em>The Matrix</em>.
+          </div>
+        </div>
+      )}
+
+      {/* TAB 5: AMAZON KDP & SOLANA IP PUBLISHING */}
+      {activeStudioTab === 'kdp' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          {/* Header Banner */}
+          <div style={{
+            background: 'linear-gradient(135deg, rgba(217, 119, 6, 0.15) 0%, rgba(147, 51, 234, 0.15) 100%)',
+            border: '1px solid rgba(217, 119, 6, 0.3)',
+            borderRadius: '12px',
+            padding: '1.25rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '1rem'
+          }}>
+            <div>
+              <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fbbf24', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                📦 Amazon KDP Print & Metaplex Solana Dual-Publishing
+              </div>
+              <div style={{ fontSize: '0.82rem', color: '#cbd5e1', marginTop: '4px' }}>
+                Manuscritos definitivos de <em>The Neural Wars</em> formateados para tapa blanda estándar 6.0" x 9.0" y metadatos IP de regalías on-chain.
+              </div>
+            </div>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '8px', background: 'rgba(217, 119, 6, 0.25)', color: '#fbbf24', border: '1px solid rgba(217, 119, 6, 0.4)' }}>
+                KDP Select: 70%
+              </span>
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, padding: '4px 10px', borderRadius: '8px', background: 'rgba(147, 51, 234, 0.25)', color: '#c084fc', border: '1px solid rgba(147, 51, 234, 0.4)' }}>
+                Metaplex IP: 8.5%
+              </span>
+            </div>
+          </div>
+
+          {/* Books Specs Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
+            {/* Book 1 */}
+            <div style={{ background: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '12px', padding: '1.25rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <span style={{ fontWeight: 800, color: '#38bdf8', fontSize: '0.95rem' }}>Libro 1: Fractured Code</span>
+                <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>348 Págs</span>
+              </div>
+              <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '1rem' }}>ISBN: 979-8-8921-0123-5 · ASIN: B0DXNEURAL1</div>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.78rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  <span style={{ color: '#94a3b8' }}>Tamaño de Corte:</span>
+                  <span style={{ color: '#ffffff', fontWeight: 600 }}>6.0" x 9.0" (15.24 x 22.86 cm)</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  <span style={{ color: '#94a3b8' }}>Ancho de Lomo (Spine):</span>
+                  <span style={{ color: '#fbbf24', fontWeight: 700 }}>0.7837" (235 px @ 300 DPI)</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  <span style={{ color: '#94a3b8' }}>Pliego Completo Tapa:</span>
+                  <span style={{ color: '#ffffff', fontWeight: 600 }}>4061 x 2775 px (300 DPI)</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0' }}>
+                  <span style={{ color: '#94a3b8' }}>Solana IP Collection:</span>
+                  <span style={{ color: '#c084fc', fontFamily: 'monospace' }}>8hV6...AETH</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Book 2 */}
+            <div style={{ background: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '12px', padding: '1.25rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <span style={{ fontWeight: 800, color: '#34d399', fontSize: '0.95rem' }}>Libro 2: Earth's New Song</span>
+                <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>392 Págs</span>
+              </div>
+              <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '1rem' }}>ISBN: 979-8-8921-0125-9 · ASIN: B0DXNEURAL2</div>
+              
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.78rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  <span style={{ color: '#94a3b8' }}>Tamaño de Corte:</span>
+                  <span style={{ color: '#ffffff', fontWeight: 600 }}>6.0" x 9.0" (15.24 x 22.86 cm)</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  <span style={{ color: '#94a3b8' }}>Ancho de Lomo (Spine):</span>
+                  <span style={{ color: '#fbbf24', fontWeight: 700 }}>0.8828" (265 px @ 300 DPI)</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                  <span style={{ color: '#94a3b8' }}>Pliego Completo Tapa:</span>
+                  <span style={{ color: '#ffffff', fontWeight: 600 }}>4090 x 2775 px (300 DPI)</span>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '4px 0' }}>
+                  <span style={{ color: '#94a3b8' }}>Solana IP Collection:</span>
+                  <span style={{ color: '#c084fc', fontFamily: 'monospace' }}>4kM7...EARTH</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}

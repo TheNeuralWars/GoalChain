@@ -1,0 +1,102 @@
+{
+  "updated_at": "2026-09-02T21:56:56.926776+00:00",
+  "queue": [
+    {
+      "id": "faceless-001-worldcup-ai",
+      "account": "NicoPezDorado",
+      "platform": "tiktok",
+      "title": "\u00bfPuede una IA predecir qui\u00e9n gana el Mundial 2026?",
+      "hook_3s": "Si cre\u00edas que el Mundial 2026 lo definen solo los jugadores... mira lo que detect\u00f3 este algoritmo cu\u00e1ntico en 5.000 simulaciones.",
+      "duration_seconds": 45,
+      "format": "9:16 vertical (1080x1920)",
+      "archetype": "sports-commentator",
+      "voice_settings": {
+        "engine": "kokoro-tts",
+        "voice": "es_m_dario",
+        "speed": 1.08
+      },
+      "visual_prompts": [
+        "00-03s: Cybernetic holographic soccer pitch at night with neon green telemetry lines, low angle stadium perspective",
+        "03-15s: Fast glitch montage of World Cup stadiums with HUD data overlay and glowing ball physics",
+        "15-35s: Neural brain map interlaced with tactical formations, dramatic stadium mist and Phantom Purple bokeh",
+        "35-45s: GoalWorld terminal interface showing live odds and Amazon Kindle book cover 'The Neural Wars: Fractured Code'"
+      ],
+      "captions": [
+        {
+          "start": 0.0,
+          "end": 3.2,
+          "text": "LA IA YA SABE QUI\u00c9N GANA EL MUNDIAL"
+        },
+        {
+          "start": 3.2,
+          "end": 7.5,
+          "text": "5.000 simulaciones cu\u00e1nticas en tiempo real"
+        },
+        {
+          "start": 7.5,
+          "end": 14.0,
+          "text": "Los or\u00e1culos de Drift detectaron una anomal\u00eda t\u00e1ctica"
+        },
+        {
+          "start": 14.0,
+          "end": 28.0,
+          "text": "No es f\u00fatbol tradicional: es SportsFi descentralizado"
+        },
+        {
+          "start": 28.0,
+          "end": 45.0,
+          "text": "Descubre la historia completa en 'The Neural Wars' en Amazon Kindle"
+        }
+      ],
+      "cta": "Disponible en Amazon Kindle y GoalWorld.fun",
+      "status": "ready_for_buffer",
+      "scheduled_slot": "18:00 ART"
+    },
+    {
+      "id": "faceless-002-neural-awakening",
+      "account": "GoalChainSol",
+      "platform": "youtube_shorts",
+      "title": "The Yggdrasil Frequency: When Code Meets Biology",
+      "hook_3s": "What if ancient DNA isn't junk... but a dormant biological quantum antenna designed to interface with the universe?",
+      "duration_seconds": 52,
+      "format": "9:16 vertical (1080x1920)",
+      "archetype": "bestseller-novelist",
+      "voice_settings": {
+        "engine": "kokoro-tts",
+        "voice": "en_m_michael",
+        "speed": 1.05
+      },
+      "visual_prompts": [
+        "00-04s: Macro shot of iridescent indigo neural synapses firing along a double helix spiral in a dark void",
+        "04-20s: Megacity Neo-Citania at night under sweeping biometric surveillance grids and rain-slicked glass towers",
+        "20-38s: Dr. Marcus Okafor projecting holographic brain lattice of the Serpent's Coil in subterranean lab",
+        "38-52s: Book teaser banner for 'The Neural Wars: Fractured Code' Definitive Edition on Amazon Kindle"
+      ],
+      "captions": [
+        {
+          "start": 0.0,
+          "end": 4.0,
+          "text": "WHAT IF HUMAN DNA IS AN ANTENNA?"
+        },
+        {
+          "start": 4.0,
+          "end": 18.0,
+          "text": "In Neo-Citania, eight million minds were tethered to the Architect"
+        },
+        {
+          "start": 18.0,
+          "end": 35.0,
+          "text": "Until Kora Vega and Mileo Chen unlocked the ancient frequency"
+        },
+        {
+          "start": 35.0,
+          "end": 52.0,
+          "text": "Read the #1 Sci-Fi epic 'The Neural Wars' now on Kindle Unlimited"
+        }
+      ],
+      "cta": "Read on Amazon Kindle & Listen on GoalChain",
+      "status": "ready_for_buffer",
+      "scheduled_slot": "21:30 ART"
+    }
+  ]
+}

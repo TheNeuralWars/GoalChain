@@ -916,6 +916,40 @@ app.get("/api/fund/status", async (_req, res) => {
   }
 });
 
+// --- Amazon KDP & Literature Dual-Publishing Endpoints ---
+app.get("/api/publishing/kdp-status", async (_req, res) => {
+  try {
+    const manifestPath = path.resolve(__dirname, "../../data/publishing/kdp_manifest.json");
+    if (fs.existsSync(manifestPath)) {
+      const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+      return res.json({ success: true, manifest });
+    }
+    return res.json({
+      success: true,
+      manifest: {
+        series: "The Neural Wars Trilogy",
+        publisher: "Aethelgard Press / GoalWorld Media",
+        books: [
+          {
+            book_id: "book-1-fractured-code",
+            title_en: "The Neural Wars: Fractured Code (Book 1)",
+            isbn_paperback: "979889210123-5",
+            print_specs: {
+              trim_size: "6.0 x 9.0 inches",
+              page_count: 348,
+              spine_width_inches: 0.7837,
+              full_cover_px_300dpi: "4061 x 2775",
+            },
+          },
+        ],
+      },
+    });
+  } catch (err: any) {
+    console.error("KDP status endpoint error:", err);
+    return res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 app.post("/api/ops/crank", async (req, res) => {
   try {
     const oracleDir = path.resolve(__dirname, "../../goalchain_oracle");
