@@ -41,7 +41,7 @@ def get_grok_prompt(player_data):
     """
     
     data = {
-        "model": os.environ.get("XAI_MODEL", "grok-4.3"),
+        "model": os.environ.get("XAI_MODEL", "grok-4.6"),
         "messages": [
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": user_content}

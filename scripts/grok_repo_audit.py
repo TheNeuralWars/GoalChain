@@ -101,7 +101,7 @@ Source Code:
     }
 
     payload = {
-        "model": "grok-4.3",
+        "model": os.environ.get("XAI_MODEL", "grok-4.6"),
         "messages": [
             {"role": "system", "content": "You are a principal staff engineer auditing a repository. Write a highly detailed, professional markdown report."},
             {"role": "user", "content": prompt}

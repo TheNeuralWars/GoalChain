@@ -14,8 +14,6 @@ display:
       streaming: true
     discord:
       streaming: false
-    whatsapp:
-      streaming: true
   streaming: true
 
 agent:

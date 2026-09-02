@@ -61,7 +61,7 @@ Git Diff:
 """
 
     payload = {
-        "model": "grok-4.3",  # Fast and robust code review model
+        "model": os.environ.get("XAI_MODEL", "grok-4.6"),
         "messages": [
             {"role": "system", "content": "You are a senior tech lead reviewing a pull request. Output the review directly in markdown format."},
             {"role": "user", "content": prompt}

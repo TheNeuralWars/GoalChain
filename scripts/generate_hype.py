@@ -17,7 +17,7 @@ def get_grok_response(prompt):
         "Authorization": f"Bearer {XAI_API_KEY}"
     }
     data = {
-        "model": os.environ.get("XAI_MODEL", "grok-4.3"),
+        "model": os.environ.get("XAI_MODEL", "grok-4.6"),
         "messages": [
             {"role": "system", "content": "Eres el Community Manager de GoalChain. Tu estilo es vibrante, épico, lleno de emojis de fútbol y términos Web3 (Solana, NFTs, Bullish, Moon, etc)."},
             {"role": "user", "content": prompt}

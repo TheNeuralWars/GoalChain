@@ -21,7 +21,7 @@
 ## Flujo actual: Kanban → Hermes CEO
 
 ```bash
-# 1. Manager crea issue (Discord/WhatsApp o manual)
+# 1. Manager crea issue (Discord #hermes o manual)
 bash ~/hermes/scripts/create-task.sh hermes P1 "[DRAFT] Task title" "detailed prompt with skills"
 
 # 2. Hermes CEO ejecuta (máx 4 concurrentes)

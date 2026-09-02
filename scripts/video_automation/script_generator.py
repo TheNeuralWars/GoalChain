@@ -10,7 +10,7 @@ def call_grok(prompt: str, json_mode: bool = False) -> str:
         raise ValueError("XAI_API_KEY no configurada.")
     url = "https://api.x.ai/v1/chat/completions"
     payload = {
-        "model": "grok-4.3",
+        "model": os.environ.get("XAI_MODEL", "grok-4.6"),
         "messages": [{"role": "user", "content": prompt}]
     }
     data = json.dumps(payload).encode("utf-8")

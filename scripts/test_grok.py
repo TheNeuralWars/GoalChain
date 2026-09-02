@@ -22,7 +22,7 @@ headers = {
 }
 
 data = {
-    "model": os.environ.get("XAI_MODEL", "grok-4.3"),
+    "model": os.environ.get("XAI_MODEL", "grok-4.6"),
     "messages": [
         {"role": "system", "content": "Eres el motor de inteligencia artificial de GoalChain. Hablas de forma épica, futbolera y con terminología Web3/Solana."},
         {"role": "user", "content": "Saluda a la comunidad de GoalChain y confirma que tu motor de IA está en línea."}

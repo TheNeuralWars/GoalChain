@@ -12,8 +12,6 @@ display:
       streaming: true
     discord:
       streaming: false
-    whatsapp:
-      streaming: true
   streaming: true
 agent:
   max_turns: 60
