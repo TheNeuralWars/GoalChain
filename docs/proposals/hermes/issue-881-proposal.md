@@ -34,11 +34,19 @@ SECURITY: internal working docs are published on goalworld.fun (docs/intake is p
    R3/R10: a filtered upload is small, reversible, and does not break the agent intake workflow.
 2. **Publish-time filter = "no internal pattern reaches the artifact", with the guard failing closed** if
    the filter is bypassed (new file that the pattern list misses). Deny-by-pattern is auditable in one file.
-3. **Kill the directory-listing vector deterministically**: the staged tree drops `README.md` / `index.md`,
-   so Jekyll cannot synthesize an index page. Rejected a `_config.yml readme_index: false` because it relies
-   on GitHub Pages honouring an artifact-side Jekyll config, which I could not verify before merge.
-4. **No `_config.yml`, no `.nojekyll`**: Jekyll `.md -> .html` rendering is live behaviour
-   (`/intake/MUNDIAL-2026-MVP.html` = 200) and public pages may rely on it. Out of scope to change.
+3. **Repository-side exclusion via `docs/_config.yml` is the mechanism that actually protects the live
+   site** (discovered mid-task): `gh api repos/TheNeuralWars/GoalChain/pages` says
+   `build_type: legacy, source: main:/docs`, and the repo's `GoalChain CI/CD` workflow has failed on
+   every push since 2026-08-16 ("account is locked due to a billing issue"). So the site is built by the
+   legacy branch Jekyll build, not by `upload-pages-artifact`; an Actions-side filter alone would change
+   nothing live. `_config.yml` `exclude:` is honoured by that build, and `readme_index: enabled: false`
+   kills the README-as-directory-index behaviour. Verified locally with Jekyll 4.4.1 (before: 142 intake
+   files + `/intake/index.html` built; after: none).
+   The Actions staging/guard is kept as forward-looking hardening for when Pages moves to
+   "GitHub Actions" (or billing is restored) — and it is what runs the PR-time CI check.
+4. **No `.nojekyll`** and no change to Jekyll's `.md -> .html` rendering: `/intake/MUNDIAL-2026-MVP.html`
+   = 200 shows public pages can depend on it; disabling Jekyll wholesale would break them. We only remove
+   the `readme_index` behaviour, which exists solely to list directories.
 5. **`docs/publishing/` is NOT excluded**: `scripts/build_static_reader.py` intentionally embeds Book 1 & 2
    into `docs/reader.html`, i.e. the manuscript is public by design. Excluding it would fight the product.
    Flagged for owner awareness in the audit instead.
@@ -47,20 +55,23 @@ SECURITY: internal working docs are published on goalworld.fun (docs/intake is p
 ## Task list (plain text; `todowrite` is forbidden with Nemotron-3)
 - [x] T1 Read repo constraints, CLAUDE.md, AGENT_ORCHESTRATION.md, META charter (from .bak copy).
 - [x] T2 Reproduce the exposure live (HTTP codes) + audit what is already public.
-- [x] T3 `docs/.assetsignore` as the single pattern source of truth (Tier A dirs, hard markers, Tier B root docs).
-- [x] T4 `scripts/pages/pages_patterns.py` (loader) + `stage_public_tree.py` (filtered staging + index drop).
-- [x] T5 `scripts/pages/guard_published_tree.py` (fail-closed CI guard).
-- [x] T6 Contract tests `scripts/pages/test_guard_published_tree.py` (5 tests, all green).
-- [x] T7 `.github/workflows/goalchain-ci-cd.yml`: `public-tree-guard` job + deploy uploads `_site_public`.
-- [x] T8 Audit report `docs/REPORTS/SECURITY_INTERNAL_DOCS_AUDIT_2026-09-10.md` (no deletions).
-- [ ] T9 Owner decisions: which purge tier (audit §4), manuscript + ceo-log intent.
-- [ ] T10 Post-merge verification: `/intake/` must 404; `/`, `/go/`, `/play/`, `/reader.html` must stay 200.
-- [ ] T11 Follow-up issue: restore `ai_context/META_CHARTER.md` + `.cursor/rules/meta-principal.mdc` in the active checkout.
+- [x] T3 `docs/_config.yml`: `exclude:` + `readme_index: enabled: false` (the live-site fix).
+- [x] T4 `docs/.assetsignore` as the single pattern source of truth (Tier A dirs, hard markers, Tier B root docs).
+- [x] T5 `scripts/pages/{pages_patterns,stage_public_tree,guard_published_tree,check_ignore_sync,verify_live_site}.py`.
+- [x] T6 Contract tests `scripts/pages/test_guard_published_tree.py` (7 tests, all green).
+- [x] T7 Local Jekyll 4.4.1 proof: leak reproduced without `_config.yml`, gone with it.
+- [x] T8 `.github/workflows/goalchain-ci-cd.yml`: `public-tree-guard` job + deploy uploads `_site_public`.
+- [x] T9 Audit report `docs/REPORTS/SECURITY_INTERNAL_DOCS_AUDIT_2026-09-10.md` (no deletions).
+- [ ] T10 Owner decisions: which purge tier (audit §4), manuscript + ceo-log intent.
+- [ ] T11 Post-merge verification: `python3 scripts/pages/verify_live_site.py` must read 16/16.
+- [ ] T12 Follow-up: Actions billing lock + switch Pages source to "GitHub Actions" so the guarded deploy path is real.
+- [ ] T13 Follow-up issue: restore `ai_context/META_CHARTER.md` + `.cursor/rules/meta-principal.mdc` in the active checkout.
 
 ## Files touched
-`docs/.assetsignore`, `docs/REPORTS/SECURITY_INTERNAL_DOCS_AUDIT_2026-09-10.md`,
-`docs/proposals/hermes/issue-881-proposal.md`, `scripts/pages/{pages_patterns,stage_public_tree,guard_published_tree,test_guard_published_tree}.py`,
-`.github/workflows/goalchain-ci-cd.yml`. No app code, no on-chain, no economy config, no secrets.
+`docs/_config.yml`, `docs/.assetsignore`, `docs/REPORTS/SECURITY_INTERNAL_DOCS_AUDIT_2026-09-10.md`,
+`docs/proposals/hermes/issue-881-proposal.md`, `docs/intake/issue-881.done`,
+`scripts/pages/{pages_patterns,stage_public_tree,guard_published_tree,check_ignore_sync,verify_live_site,test_guard_published_tree}.py`,
+`.github/workflows/goalchain-ci-cd.yml`, `.gitignore`. No app code, no on-chain, no economy config, no secrets.
 
 ## Scope that was deliberately NOT touched
 - No deletions of tracked files (issue: owner confirms internal-only first).

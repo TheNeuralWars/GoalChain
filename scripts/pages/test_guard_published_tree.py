@@ -12,6 +12,7 @@ import unittest
 HERE = os.path.dirname(os.path.abspath(__file__))
 STAGE = os.path.join(HERE, "stage_public_tree.py")
 GUARD = os.path.join(HERE, "guard_published_tree.py")
+SYNC = os.path.join(HERE, "check_ignore_sync.py")
 
 
 def make_docs(root):
@@ -22,6 +23,7 @@ def make_docs(root):
             fh.write(text)
 
     w(".assetsignore", "intake/\nproposals/\n*INTERNAL*\n")
+    w("_config.yml", "exclude:\n  - intake\n  - proposals\nreadme_index:\n  enabled: false\n")
     w("index.html", "<html>public</html>")
     w("public.md", "# public page\n")
     w("intake/README.md", "# GoalChain intake queue\n")
@@ -79,6 +81,19 @@ class PublishGuardTest(unittest.TestCase):
         res = run(GUARD, "--root", self.docs, "--patterns", self.docs, "--repo", "--advisory")
         self.assertEqual(res.returncode, 0, res.stdout)
         self.assertIn("intake/", res.stdout)
+
+    def test_config_sync_passes_when_jekyll_excludes_match(self):
+        """Contract: the live Jekyll build (docs/_config.yml) excludes every literal pattern."""
+        res = run(SYNC, self.docs)
+        self.assertEqual(res.returncode, 0, res.stdout)
+
+    def test_config_sync_fails_on_drift(self):
+        """Contract: a path the guard skips but Jekyll still publishes is a silent re-exposure."""
+        with open(os.path.join(self.docs, "_config.yml"), "w", encoding="utf-8") as fh:
+            fh.write("exclude:\n  - intake\n")
+        res = run(SYNC, self.docs)
+        self.assertEqual(res.returncode, 1, res.stdout)
+        self.assertIn("proposals", res.stdout)
 
 
 if __name__ == "__main__":

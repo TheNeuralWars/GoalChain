@@ -86,6 +86,9 @@ jobs:
       - name: Fail if an internal-only doc would be published
         run: python3 scripts/pages/guard_published_tree.py --root _site_public --patterns docs
 
+      - name: Check docs/_config.yml matches docs/.assetsignore
+        run: python3 scripts/pages/check_ignore_sync.py docs
+
       - name: Report internal docs still tracked under docs/ (advisory until purge)
         run: python3 scripts/pages/guard_published_tree.py --root docs --patterns docs --repo --advisory || true
 
