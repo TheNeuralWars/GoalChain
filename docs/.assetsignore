@@ -30,6 +30,7 @@ hackathons/
 .wrangler/
 .gitleaks.toml
 .assetsignore
+_config.yml
 
 # --- Hard internal markers (any location) ------------------------------------------
 *INTERNAL*
@@ -66,13 +67,7 @@ publishing/the_neural_wars_trilogy/00_SERIES_BIBLE_AND_CANON/*
 publishing/the_neural_wars_trilogy/AI_AGENT_EDITORIAL_WORKBENCH/*
 ceo-log.txt
 
-# --- Oversized media kept out of the deployed artifact -----------------------------
-assets/PressKit_GoalChain.zip
-assets/img/neuralwars/The_Neural_Wars_Official_Cinematic_Trailer_2026.mp4
-assets/img/neuralwars/trailer_cinematic_teaser.mp4
-assets/img/neuralwars/05_Clips/Clip_02b_Neo_Veridia_Ambient_Extended.mp4
-assets/img/neuralwars/05_Clips/Clip_05_Mileo_Skybridge_Rooftop_Pursuit.mp4
-assets/img/neuralwars/05_Clips/Clip_10_The_432Hz_Core_Pulse_Awakening_Climax.mp4
-assets/img/neuralwars/trailer/grok-1f8abd0e-8493-4abc-b718-896b07348366-720p.mp4
-assets/img/neuralwars/trailer/grok-c30d6083-0827-4406-85cb-6d6e13a44705-720p.mp4
-assets/img/neuralwars/trailer/grok-3796faae-6a6e-4d4a-ac37-20e6d6c8d865.mp4
+# --- Media that is SERVED by the site (goalworld.html embeds the trailers; the press kit
+# is a public download). These used to be excluded to keep the Cloudflare Pages upload
+# small. goalworld.fun is now served from the VPS through the tunnel, so they must be
+# present in the staged tree -- the live acceptance suite checks them.

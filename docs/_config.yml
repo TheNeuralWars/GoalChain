@@ -10,6 +10,7 @@
 # enforced by the CI guard instead.
 exclude:
   - .assetsignore
+  - _config.yml
   - .gitleaks.toml
   - .wrangler
   - intake
