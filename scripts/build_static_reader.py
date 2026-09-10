@@ -1,14 +1,28 @@
 #!/usr/bin/env python3
 """
-Builds docs/reader.html and docs/go/reader/index.html with embedded manuscripts of Book 1 & Book 2,
-including AI HD Neural voices + Web Speech Synthesis fallback, 432 Hz Solfeggio generator, and polished UI.
+Builds the GoalWorld sample reader: docs/reader.html, docs/go/reader/index.html and the
+docs/assets/data/neural-wars-sample.json fallback.
+
+Serves ONLY the prologue (FC-00) and chapter 1 (FC-01) of Book 1 in Spanish and English, with
+AI HD neural voices + Web Speech Synthesis fallback, a 432 Hz Solfeggio generator, pricing and
+an email-capture CTA. The sample payload is embedded deflate+base64 to stay under the 60 KB
+page budget (issues #877 / #879). All paths resolve repo-relative, so a rebuild is reproducible
+off the VPS.
 """
 import os
 import glob
 import json
+import base64
+import zlib
+from pathlib import Path
 
-# Updated path for VPS environment
-base_trilogy = r"/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy"
+# Repo-relative resolution (issue #879, item 2): the export must be reproducible off-VPS.
+# Never hardcode an absolute path here again.
+REPO_ROOT = Path(__file__).resolve().parents[1]
+base_trilogy = REPO_ROOT / "docs" / "publishing" / "the_neural_wars_trilogy"
+
+# No real ASIN exists yet, so the reader must never emit an Amazon/buy URL (issue #879 constraint).
+BUY_LINK_ENABLED = False
 
 def load_book_chapters(book_folder_name, edition_subfolder):
     folder = os.path.join(base_trilogy, book_folder_name, edition_subfolder)
@@ -27,8 +41,6 @@ def load_book_chapters(book_folder_name, edition_subfolder):
         words = len(content.split())
         read_time = f"{max(1, round(words / 200))} min"
         chapters.append({
-            "id": f"ch-{idx}",
-            "index": idx,
             "title": title,
             "readTime": read_time,
             "wordCount": words,
@@ -43,46 +55,100 @@ b1_en = load_book_chapters("BOOK_01_FRACTURED_CODE", "ENGLISH_EDITION_2026")
 # b2_es = load_book_chapters("BOOK_02_EARTHS_NEW_SONG", "EDICION_2026")
 # b2_en = load_book_chapters("BOOK_02_EARTHS_NEW_SONG", "ENGLISH_EDITION_2026")
 
-# Load pricing information from manifest
-import os
-
-def get_pricing_info():
-    manifest_path = r"/data/apps/GoalChain/data/publishing/kdp_manifest.json"
+# Load pricing information from the manifest (single source of truth).
+def get_manifest():
+    manifest_path = REPO_ROOT / "data" / "publishing" / "kdp_manifest.json"
     if os.path.exists(manifest_path):
         try:
             with open(manifest_path, 'r', encoding='utf-8') as f:
-                manifest = json.load(f)
-            return manifest.get('pricing', {
-                "preorder_usd": 0.99,
-                "regular_usd": 2.99,
-                "kindle_unlimited": True
-            })
+                return json.load(f)
         except Exception as e:
             print(f"Warning: Could not load pricing manifest: {e}")
+    return {}
+
+def get_pricing_info():
+    pricing = get_manifest().get('pricing', {}) or {}
     return {
-        "preorder_usd": 0.99,
-        "regular_usd": 2.99,
-        "kindle_unlimited": True
+        "preorder_usd": pricing.get("preorder_usd", 0.99),
+        "regular_usd": pricing.get("regular_usd", 2.99),
+        "kindle_unlimited": pricing.get("kindle_unlimited", True)
     }
 
 pricing_info = get_pricing_info()
+PRICE_LAUNCH = f"${pricing_info['preorder_usd']:.2f}"
+PRICE_REGULAR = f"${pricing_info['regular_usd']:.2f}"
+KU_TEXT_ES = "Incluido en Kindle Unlimited" if pricing_info['kindle_unlimited'] else "No incluido en Kindle Unlimited"
+KU_TEXT_EN = "Included in Kindle Unlimited" if pricing_info['kindle_unlimited'] else "Not in Kindle Unlimited"
+
+# Reviewed pricing/CTA copy (issue #879, item 1). Spanish is the static markup default so the
+# block renders without JavaScript and stays indexable; English is injected into the same
+# elements by applyPricingCopy(). Both languages travel together, so they cannot drift.
+COPY_ES = {
+    "pricing-copy": (
+        f"Novella fundacional de ciencia ficción cyberpunk. Precio de lanzamiento: {PRICE_LAUNCH} USD · "
+        f"Precio regular: {PRICE_REGULAR} USD · {KU_TEXT_ES}."
+    ),
+    "pricing-note": (
+        "La edición Kindle aún no está publicada. Lee gratis el prólogo y el capítulo 1 aquí abajo."
+    ),
+    "lead-label": "Tu email para el aviso de lanzamiento",
+    "lead-submit": "Avisadme cuando salga",
+    "pricing-scope": (
+        "Solo se incluyen el Prólogo y el Capítulo 1. El resto del libro, para quien lo compra."
+    ),
+    "price-label-launch": "Precio de lanzamiento",
+    "price-label-regular": "Precio regular",
+    "price-ku": "Al publicarse",
+}
+COPY_EN = {
+    "pricing-copy": (
+        f"A cyberpunk sci-fi foundational novella. Launch price: {PRICE_LAUNCH} USD · "
+        f"Regular price: {PRICE_REGULAR} USD · {KU_TEXT_EN}."
+    ),
+    "pricing-note": (
+        "The Kindle edition is not published yet. Read the prologue and chapter 1 free below."
+    ),
+    "lead-label": "Your email for the launch notice",
+    "lead-submit": "Notify me at launch",
+    "pricing-scope": (
+        "Only the Prologue and Chapter 1 are included. The rest is for readers who buy the book."
+    ),
+    "price-label-launch": "Launch price",
+    "price-label-regular": "Regular price",
+    "price-ku": "At launch",
+}
+# Guard: both languages must cover exactly the same keys (issue #879 constraint).
+assert set(COPY_ES) == set(COPY_EN), "ES/EN copy keys out of sync"
 
 books_payload = [
     {
         "id": "the-neural-wars-book-1",
         "title": {"es": "The Neural Wars: Código Fracturado (Libro 1)", "en": "The Neural Wars: Fractured Code (Book 1)"},
-        "subtitle": {"es": "Edición Definitiva de Autor 2026", "en": "2026 Definitive Author Edition"},
         "chapters": {"es": b1_es, "en": b1_en}
     }
 ]
+
+# ---- Sample payload compression (issue #879, item 3) ---------------------------------
+# #877 set a < 60 KB budget, but the sample prose alone is ~40 KB, so plain JSON can never
+# fit. Deflate + base64 takes the embedded block from ~41.4 KB to ~23.8 KB and keeps the
+# prologue + chapter 1 (ES and EN) byte-for-byte intact.
+PAYLOAD_JSON = json.dumps(books_payload, ensure_ascii=False, separators=(",", ":"))
+PAYLOAD_B64 = base64.b64encode(zlib.compress(PAYLOAD_JSON.encode("utf-8"), 9)).decode("ascii")
+COPY_JS_EN = json.dumps(COPY_EN, ensure_ascii=False)
+
+# Hard guarantee that compression did not drop or mutate any sample text.
+_decoded = json.loads(zlib.decompress(base64.b64decode(PAYLOAD_B64)).decode("utf-8"))
+assert _decoded == books_payload, "payload round-trip changed the sample"
+print(f"[i] payload: json={len(PAYLOAD_JSON.encode('utf-8'))}B -> deflate+b64={len(PAYLOAD_B64)}B")
+
 
 html_template = """<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GoalWorld Kindle E-Reader & Audiolibro HD • The Neural Wars Saga</title>
-  <meta name="description" content="Lector inmersivo y audiolibro gratuito con voces IA HD de GoalWorld para The Neural Wars Trilogy." />
+  <title>The Neural Wars: Fractured Code — Free Sample (Prologue + Chapter 1)</title>
+  <meta name="description" content="Read the prologue and chapter 1 of The Neural Wars: Fractured Code (Book 1) free, in English or Spanish. Cyberpunk sci-fi novella — the Kindle edition is coming soon." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -352,6 +418,24 @@ html_template = """<!DOCTYPE html>
       width: 0%;
       transition: width 0.1s linear;
     }
+
+    /* Pricing + email-capture block (sample + launch gate). */
+    .pricing-section { background: var(--header-bg); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); padding: 1.75rem 1.5rem; margin-bottom: 2.5rem; font-family: 'Inter', sans-serif; }
+    .pricing-inner { max-width: 540px; margin: 0 auto; text-align: center; }
+    .pricing-inner h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 0.8rem; }
+    .pricing-copy { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.25rem; line-height: 1.6; }
+    .price-row { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .price-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    .price-value { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+    .price-ku { font-size: 0.9rem; font-weight: 800; color: #fbbf24; }
+    .pricing-note { font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; }
+    .lead-form { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .lead-label { font-size: 0.8rem; color: var(--muted); }
+    .lead-row { display: flex; gap: 0.5rem; width: 100%; max-width: 430px; }
+    .lead-row input { flex: 1; min-width: 0; padding: 0.7rem 0.9rem; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); font-size: 0.9rem; font-family: 'Inter', sans-serif; }
+    .lead-submit { background: linear-gradient(135deg, #a855f7 0%, #38bdf8 100%); color: #fff; border: none; padding: 0.7rem 1.2rem; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; white-space: nowrap; }
+    .lead-status { font-size: 0.78rem; color: var(--accent); min-height: 1.1em; line-height: 1.4; }
+    .pricing-scope { font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; }
   </style>
 </head>
 <body>
@@ -421,31 +505,48 @@ html_template = """<!DOCTYPE html>
   </div>
 
   <main>
-  <!-- PRICING & EMAIL CAPTURE SECTION (sample + buy gate) -->
-  <div class="pricing-section" style="display: flex; justify-content: center; align-items: center; padding: 2rem 0; margin-bottom: 2rem; background: var(--header-bg); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
-    <div style="text-align: center; max-width: 500px; padding: 0 1.5rem;">
-      <h2 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 0.8rem; font-family: 'Inter', sans-serif;">The Neural Wars: Fractured Code</h2>
-      <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 0.9rem;">Este libro tiene \u00a1<0.99 USD! Dispondible en 2.99 USD para Kindle</p>
-      <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-        <div style="text-align: center;">
-          <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Preorder</div>
-          <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">$0.99</div>
+    <article>
+      <!-- Pricing + email-capture (sample/launch gate). ES is static markup; applyPricingCopy()
+           swaps in EN from the same source so the two cannot drift. No store or buy URL is
+           emitted while the ASIN is still a placeholder. -->
+      <section class="pricing-section" aria-labelledby="pricing-title">
+        <div class="pricing-inner">
+          <h2 id="pricing-title">The Neural Wars: Fractured Code</h2>
+          <p class="pricing-copy" id="pricing-copy">""" + COPY_ES["pricing-copy"] + """</p>
+          <div class="price-row">
+            <div>
+              <div class="price-label" id="price-label-launch">""" + COPY_ES["price-label-launch"] + """</div>
+              <div class="price-value">""" + PRICE_LAUNCH + """</div>
+            </div>
+            <div>
+              <div class="price-label" id="price-label-regular">""" + COPY_ES["price-label-regular"] + """</div>
+              <div class="price-value">""" + PRICE_REGULAR + """</div>
+            </div>
+            <div>
+              <div class="price-label">Kindle Unlimited</div>
+              <div class="price-ku">✓ <span id="price-ku">""" + COPY_ES["price-ku"] + """</span></div>
+            </div>
+          </div>
+          <p class="pricing-note" id="pricing-note">""" + COPY_ES["pricing-note"] + """</p>
+          <form class="lead-form" id="lead-form" novalidate>
+            <label class="lead-label" id="lead-label" for="lead-email">""" + COPY_ES["lead-label"] + """</label>
+            <div class="lead-row">
+              <input type="email" id="lead-email" name="email" required autocomplete="email"
+                     placeholder="tu@email.com" data-ph-es="tu@email.com" data-ph-en="you@email.com" />
+              <button type="submit" class="lead-submit" id="lead-submit">""" + COPY_ES["lead-submit"] + """</button>
+            </div>
+            <p class="lead-status" id="lead-status" role="status" aria-live="polite"></p>
+          </form>
+          <p class="pricing-scope" id="pricing-scope">""" + COPY_ES["pricing-scope"] + """</p>
         </div>
-        <div style="text-align: center;">
-          <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Regular</div>
-          <div style="font-size: 1.5rem; font-weight: 800; color: var(--text);">$2.99</div>
-        </div>
-        <div style="text-align: center;">
-          <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Kindle Unlimited</div>
-          <div style="font-size: 1rem; font-weight: 800; color: #fbbf24;">✓ Available</div>
-        </div>
+      </section>
+
+      <div class="chapter-header">
+        <div id="chapter-meta-tag" class="chapter-tag"></div>
+        <div id="chapter-meta-time" style="font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem;"></div>
       </div>
-      <button onclick="goToPlay('/go/reader/')" style="background: linear-gradient(135deg, #a855f7 0%, #38bdf8 100%); color: white; border: none; padding: 0.8rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4); transition: all 0.2s;">
-        Capturar Email para Acceso Anticipado
-      </button>
-      <p style="font-size: 0.75rem; color: var(--muted); margin-top: 0.8rem;">Solo se entrega el Prólogo y Capítulo 1. Resto del libro para compradores.</p>
-    </div>
-  </div>
+      <div id="reader-body" class="reader-body"></div>
+
 
       <nav style="margin-top: 4.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif;">
         <button id="btn-prev" class="btn" onclick="navigateChapter(-1)">◀ Anterior</button>
@@ -466,19 +567,103 @@ html_template = """<!DOCTYPE html>
   </footer>
 
         <script>
-    // BOOKS_DATA contains the book content for the reader
-    const BOOKS_DATA = """ + json.dumps(books_payload, ensure_ascii=False) + """;
-    
-    // Inject pricing information into books data for UI access
-    const booksWithPricing = JSON.parse(BOOKS_DATA);
-    booksWithPricing.forEach(book => {
-        book.pricing = book.pricing || {
-            preorder_usd: 0.99,
-            regular_usd: 2.99,
-            kindle_unlimited: true
-        };
-    });
-    const BOOKS_DATA_WITH_PRICING = JSON.stringify(booksWithPricing);
+    // Sample payload (issue #879, item 3): prologue + chapter 1, ES and EN, embedded as
+    // deflate+base64 to stay under the 60 KB budget from #877. The generator asserts a zlib
+    // round-trip, so the text is byte-identical to the manuscripts.
+    const BOOKS_DATA_B64 = """ + json.dumps(PAYLOAD_B64) + """;
+    const PAYLOAD_FALLBACK_URL = "/assets/data/neural-wars-sample.json";
+    let BOOKS_DATA = null;
+
+    // English twin of the pricing/CTA block. The Spanish strings sit in the static markup and are
+    // snapshotted on first use, so both languages render from one path and cannot drift.
+    const COPY_EN = """ + COPY_JS_EN + """;
+    let copyEsSnapshot = null;
+
+    function applyPricingCopy(lang) {
+      // innerHTML is safe: every value is a build-time constant from this repo's copy deck, or is
+      // snapshotted from our own static markup. No user input reaches it.
+      if (!copyEsSnapshot) {
+        copyEsSnapshot = {};
+        Object.keys(COPY_EN).forEach(id => {
+          const el = document.getElementById(id);
+          copyEsSnapshot[id] = el ? el.innerHTML : '';
+        });
+      }
+      Object.keys(COPY_EN).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = lang === 'en' ? COPY_EN[id] : copyEsSnapshot[id];
+      });
+      const email = document.getElementById('lead-email');
+      if (email) email.placeholder = lang === 'en' ? email.dataset.phEn : email.dataset.phEs;
+      document.documentElement.lang = lang;
+      syncLangButtons();
+      const status = document.getElementById('lead-status');
+      if (status) status.textContent = '';
+    }
+
+    function syncLangButtons() {
+      const es = document.getElementById('btn-lang-es');
+      const en = document.getElementById('btn-lang-en');
+      if (es) { es.style.background = state.lang === 'es' ? 'var(--accent)' : 'transparent'; es.style.color = state.lang === 'es' ? '#fff' : 'var(--text)'; }
+      if (en) { en.style.background = state.lang === 'en' ? 'var(--accent)' : 'transparent'; en.style.color = state.lang === 'en' ? '#fff' : 'var(--text)'; }
+    }
+
+    function b64ToBytes(b64) {
+      const bin = atob(b64);
+      const bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return bytes;
+    }
+
+    async function loadBooksData() {
+      if (typeof DecompressionStream === 'function') {
+        try {
+          const stream = new Blob([b64ToBytes(BOOKS_DATA_B64)])
+            .stream().pipeThrough(new DecompressionStream('deflate'));
+          return JSON.parse(await new Response(stream).text());
+        } catch (e) {
+          console.warn('Inline sample inflate failed, falling back to JSON:', e);
+        }
+      }
+      const res = await fetch(PAYLOAD_FALLBACK_URL, { cache: 'force-cache' });
+      if (!res.ok) throw new Error('sample fetch failed: ' + res.status);
+      return await res.json();
+    }
+
+    // Email capture. This static export has no production lead backend, so the address is kept
+    // on the device and the status line says exactly that — no fake "we emailed you" state.
+    const LEAD_ENDPOINT = ""; // point this at a real endpoint to enable server-side capture
+
+    function handleLeadSubmit(ev) {
+      ev.preventDefault();
+      const input = document.getElementById('lead-email');
+      const status = document.getElementById('lead-status');
+      if (!input || !status) return;
+      const email = (input.value || '').trim();
+      const es = state.lang !== 'en';
+      if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/.test(email)) {
+        status.textContent = es ? 'Introduce un email válido.' : 'Enter a valid email address.';
+        return;
+      }
+      if (LEAD_ENDPOINT) {
+        fetch(LEAD_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, source: 'reader-sample' })
+        }).catch(e => console.warn('lead post failed', e));
+      }
+      try {
+        const key = 'gw_reader_leads';
+        const leads = JSON.parse(localStorage.getItem(key) || '[]');
+        if (leads.indexOf(email) === -1) leads.push(email);
+        localStorage.setItem(key, JSON.stringify(leads));
+      } catch (e) { /* storage blocked: nothing else to do offline */ }
+      input.value = '';
+      status.textContent = LEAD_ENDPOINT
+        ? (es ? 'Gracias. Te avisaremos en el lanzamiento.' : 'Thanks. We will email you at launch.')
+        : (es ? 'Guardado en este dispositivo. Aún no hay servicio de avisos conectado.'
+              : 'Saved on this device. No notification service is connected yet.');
+    }
 
     let state = {
       bookId: 'the-neural-wars-book-1',
@@ -501,11 +686,30 @@ html_template = """<!DOCTYPE html>
     let solfeggioGain = null;
     let currentAiAudio = null;
 
-    function init() {
+    async function init() {
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get('book')) state.bookId = urlParams.get('book');
       if (urlParams.get('lang')) state.lang = urlParams.get('lang');
       if (urlParams.get('ch')) state.chapterIndex = parseInt(urlParams.get('ch')) || 0;
+
+      applyPricingCopy(state.lang);
+      const leadForm = document.getElementById('lead-form');
+      if (leadForm) leadForm.addEventListener('submit', handleLeadSubmit);
+
+      try {
+        BOOKS_DATA = await loadBooksData();
+      } catch (e) {
+        console.error('Reader sample unavailable:', e);
+        const body = document.getElementById('reader-body');
+        if (body) {
+          const p = document.createElement('p');
+          p.textContent = state.lang === 'en'
+            ? 'The sample could not be loaded. Please reload the page.'
+            : 'No se pudo cargar la muestra. Recarga la página.';
+          body.replaceChildren(p);
+        }
+        return;
+      }
 
       populateBookSelect();
       loadVoices();
@@ -756,10 +960,7 @@ html_template = """<!DOCTYPE html>
     function changeLang(lang) {
       stopTts();
       state.lang = lang;
-      document.getElementById('btn-lang-es').style.background = lang === 'es' ? 'var(--accent)' : 'transparent';
-      document.getElementById('btn-lang-es').style.color = lang === 'es' ? '#fff' : 'var(--text)';
-      document.getElementById('btn-lang-en').style.background = lang === 'en' ? 'var(--accent)' : 'transparent';
-      document.getElementById('btn-lang-en').style.color = lang === 'en' ? '#fff' : 'var(--text)';
+      applyPricingCopy(lang);
       populateBookSelect();
       loadVoices();
       renderChapter();
@@ -786,7 +987,8 @@ html_template = """<!DOCTYPE html>
 
       // Render Markdown
       const body = document.getElementById('reader-body');
-      const lines = ch.content.split('\\n\\n');
+      // Split on blank lines and before headings (an h1 must not swallow the next ## line).
+      const lines = ch.content.split(/\\n{2,}|(?=\\n#{1,3} )/);
       let html = '';
 
       lines.forEach(l => {
@@ -865,20 +1067,39 @@ html_template = """<!DOCTYPE html>
       document.getElementById('scroll-progress-text').textContent = `${percent}%`;
     }
 
-    window.onload = init;
+    window.onload = function () {
+      init().catch(e => console.error('Reader init failed:', e));
+    };
   </script>
 </body>
 </html>
 """
 
-# Write reader.html and go/reader/index.html
-out_reader = r"/data/apps/GoalChain/docs/reader.html"
-with open(out_reader, "w", encoding="utf-8") as f:
-    f.write(html_template)
-print(f"[+] Wrote {out_reader}")
+# ---- Page budget guard (issues #877 / #879) ------------------------------------------
+# The generated pages must stay under 60 KB, so fail the build rather than silently regress.
+PAGE_BUDGET_BYTES = 60000
+_page_bytes = len(html_template.encode("utf-8"))
+assert _page_bytes < PAGE_BUDGET_BYTES, (
+    f"reader page is {_page_bytes} bytes, over the {PAGE_BUDGET_BYTES} byte budget from #877"
+)
+print(f"[i] page size: {_page_bytes} bytes (budget {PAGE_BUDGET_BYTES})")
 
-out_go_reader = r"/data/apps/GoalChain/docs/go/reader/index.html"
-os.makedirs(os.path.dirname(out_go_reader), exist_ok=True)
-with open(out_go_reader, "w", encoding="utf-8") as f:
-    f.write(html_template)
-print(f"[+] Wrote {out_go_reader}")
+# Write every artifact from repo-relative paths so a rebuild is reproducible off-VPS.
+def write_text(path, text):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(text)
+    print(f"[+] Wrote {path.relative_to(REPO_ROOT)} ({len(text.encode('utf-8'))} bytes)")
+
+for out_path in [
+    REPO_ROOT / "docs" / "reader.html",
+    REPO_ROOT / "docs" / "go" / "reader" / "index.html",
+]:
+    write_text(out_path, html_template)
+
+# Fallback twin of the sample payload, for engines without DecompressionStream. Same source and
+# same generator run, so it can never disagree with the embedded copy.
+write_text(
+    REPO_ROOT / "docs" / "assets" / "data" / "neural-wars-sample.json",
+    json.dumps(books_payload, ensure_ascii=False, indent=2) + "\n",
+)
