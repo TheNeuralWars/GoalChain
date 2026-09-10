@@ -4069,3 +4069,9 @@
 {"ts": "2026-09-10T19:55:45.193966+00:00", "strategy": "mean_reversion", "symbol": "ETHUSDT", "regime": "trend", "reason": "mr_in_trend"}
 {"ts": "2026-09-10T20:01:44.394164+00:00", "strategy": "trend_following", "symbol": "ETHUSDT", "regime": "chop", "reason": "trend_in_chop"}
 {"ts": "2026-09-10T20:01:45.360002+00:00", "strategy": "mean_reversion", "symbol": "ETHUSDT", "regime": "trend", "reason": "mr_in_trend"}
+{"ts": "2026-09-10T20:07:44.762685+00:00", "strategy": "trend_following", "symbol": "ETHUSDT", "regime": "chop", "reason": "trend_in_chop"}
+{"ts": "2026-09-10T20:07:45.725487+00:00", "strategy": "mean_reversion", "symbol": "ETHUSDT", "regime": "trend", "reason": "mr_in_trend"}
+{"ts": "2026-09-10T20:13:44.938865+00:00", "strategy": "trend_following", "symbol": "ETHUSDT", "regime": "chop", "reason": "trend_in_chop"}
+{"ts": "2026-09-10T20:13:45.948006+00:00", "strategy": "mean_reversion", "symbol": "ETHUSDT", "regime": "trend", "reason": "mr_in_trend"}
+{"ts": "2026-09-10T20:19:45.535501+00:00", "strategy": "trend_following", "symbol": "ETHUSDT", "regime": "chop", "reason": "trend_in_chop"}
+{"ts": "2026-09-10T20:19:46.530100+00:00", "strategy": "mean_reversion", "symbol": "ETHUSDT", "regime": "trend", "reason": "mr_in_trend"}
