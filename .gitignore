@@ -24,6 +24,8 @@ dist/
 build/
 coverage/
 .tmp/
+# GitHub Pages staging output (scripts/pages/stage_public_tree.py)
+_site_public/
 .temp/
 # Do NOT ignore goalchain_oracle/dist and goalchain-sdk/dist (we commit them for CI/Vercel)
 !goalchain_oracle/dist/
