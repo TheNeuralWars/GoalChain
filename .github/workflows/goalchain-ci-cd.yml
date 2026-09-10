@@ -7,6 +7,7 @@ on:
     paths:
       - 'docs/**'
       - 'players.json'
+      - 'scripts/pages/**'
       - '.github/workflows/**'
   pull_request:
     branches: [ main, master ]
@@ -69,9 +70,31 @@ jobs:
             done
           ' sh {} +
 
+  public-tree-guard:
+    name: 🛡️ No internal docs in the published tree
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Unit tests for the publish guard (issue #881)
+        run: python3 scripts/pages/test_guard_published_tree.py
+
+      - name: Stage the public tree (drops docs/.assetsignore paths)
+        run: python3 scripts/pages/stage_public_tree.py --src docs --dst _site_public
+
+      - name: Fail if an internal-only doc would be published
+        run: python3 scripts/pages/guard_published_tree.py --root _site_public --patterns docs
+
+      - name: Check docs/_config.yml matches docs/.assetsignore
+        run: python3 scripts/pages/check_ignore_sync.py docs
+
+      - name: Report internal docs still tracked under docs/ (advisory until purge)
+        run: python3 scripts/pages/guard_published_tree.py --root docs --patterns docs --repo --advisory || true
+
   deploy:
     name: 🚀 Desplegar a GitHub Pages
-    needs: validate-nfts
+    needs: [validate-nfts, public-tree-guard]
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     permissions:
@@ -85,13 +108,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Stage the public subtree (internal working docs never leave the repo)
+        run: python3 scripts/pages/stage_public_tree.py --src docs --dst _site_public
+
+      - name: Guard the upload tree (fails closed, issue #881)
+        run: python3 scripts/pages/guard_published_tree.py --root _site_public --patterns docs
+
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v4
 
       - name: Subir artefacto
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs
+          path: ./_site_public
 
       - name: Desplegar a GitHub Pages
         id: deployment
