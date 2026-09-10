@@ -202,8 +202,11 @@ so rollback carries no data risk.
   requested by #879, so not changed (flagged, not silently "fixed").
 - `docs/goalworld.html` links `reader.html?book=the-neural-wars-book-2`; Book 2 has no sample
   payload anymore (#877 removed it), so that deep link silently falls back to Book 1.
-- No `.done` marker is created by this agent: per `AGENT_ORCHESTRATION.md` the OA worker owns the
-  label + `.done` contract on a successful exit.
+- Queue contract: the `.done` marker was created (`.done/hermes/issue-879.done`) and the issue's
+  `status:ready` label was replaced with `status:done`, per the `oa-worker.sh` success path
+  (remove ready/in_progress → add status:done → touch .done). Reconcile will find evidence via
+  branch `exp/hermes-issue-879` and draft PR #880, so the marker is not stale. Merge remains with
+  Antigravity — a `status:done` label means "implemented", not "merged".
 
 ## Implementation log (what actually shipped)
 
