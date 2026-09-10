@@ -24,36 +24,39 @@ REPORT_DIR = BASE_DIR / "reports"
 
 START_EQUITY = 500.0
 
-STRATEGIES = {
-    "trend_following": {
-        "allocation_pct": 35,  # $175
-        "symbols": ["BTCUSDT", "ETHUSDT", "SOLUSDT"],
-        "timeframe": "1h",
-        "func": "strategy_trend_following",
-        "enabled": True,
-    },
-    "mean_reversion": {
-        "allocation_pct": 25,  # $125
-        "symbols": ["BTCUSDT", "ETHUSDT"],
-        "timeframe": "15m",
-        "func": "strategy_mean_reversion",
-        "enabled": True,
-    },
-    "breakout": {
-        "allocation_pct": 25,  # $125
-        "symbols": ["SOLUSDT", "ETHUSDT", "BTCUSDT"],
-        "timeframe": "1h",
-        "func": "strategy_breakout",
-        "enabled": True,
-    },
-    "momentum": {
-        "allocation_pct": 15,  # $75
-        "symbols": ["SOLUSDT", "ETHUSDT"],
-        "timeframe": "15m",
-        "func": "strategy_momentum",
-        "enabled": True,
-    },
-}
+def _load_strategies():
+    """Prefer config.yaml; fall back to engine defaults. Syncs allocation/enabled/symbols."""
+    defaults = {
+        "trend_following": {"allocation_pct": 40, "symbols": ["BTCUSDT", "ETHUSDT", "SOLUSDT"], "timeframe": "1h", "func": "strategy_trend_following", "enabled": True},
+        "mean_reversion": {"allocation_pct": 30, "symbols": ["BTCUSDT", "ETHUSDT"], "timeframe": "15m", "func": "strategy_mean_reversion", "enabled": True},
+        "breakout": {"allocation_pct": 30, "symbols": ["SOLUSDT", "ETHUSDT"], "timeframe": "1h", "func": "strategy_breakout", "enabled": True},
+    }
+    cfg_path = BASE_DIR / "config.yaml"
+    try:
+        import yaml
+        raw = yaml.safe_load(cfg_path.read_text()) or {}
+        block = raw.get("strategies") or {}
+        out = {}
+        for name, spec in block.items():
+            if not isinstance(spec, dict):
+                continue
+            base = defaults.get(name, {"func": f"strategy_{name}", "timeframe": "1h", "symbols": ["BTCUSDT"]})
+            syms = spec.get("symbols") or base["symbols"]
+            out[name] = {
+                "allocation_pct": float(spec.get("allocation_pct") or base.get("allocation_pct") or 0),
+                "symbols": [s.replace("/", "") for s in syms],
+                "timeframe": spec.get("timeframe") or base["timeframe"],
+                "func": base.get("func") or f"strategy_{name}",
+                "enabled": bool(spec.get("enabled", True)),
+            }
+        if out:
+            return out
+    except Exception as e:
+        print(f"[WARN] config.yaml not loaded: {e}")
+    return defaults
+
+
+STRATEGIES = _load_strategies()
 
 # Risk parameters
 STOP_LOSS_PCT = 0.02      # 2%
@@ -176,6 +179,28 @@ def calc_sma(closes, period):
     if len(closes) < period:
         return None
     return sum(closes[-period:]) / period
+
+
+def market_regime(symbol, interval="1h"):
+    """trend vs chop from SMA20 + ATR. stdlib only (no pandas-ta)."""
+    klines = fetch_klines(symbol, interval, 40)
+    if len(klines) < 21:
+        return "unknown"
+    closes = [k["close"] for k in klines]
+    sma20 = calc_sma(closes, 20)
+    trs = []
+    for i in range(1, len(klines)):
+        h, l, pc = klines[i]["high"], klines[i]["low"], klines[i - 1]["close"]
+        trs.append(max(h - l, abs(h - pc), abs(l - pc)))
+    atr = sum(trs[-14:]) / 14 if len(trs) >= 14 else 0
+    rng = abs(closes[-1] - closes[-20]) if len(closes) >= 20 else 0
+    if sma20 is None:
+        return "unknown"
+    if closes[-1] > sma20 and rng > 1.2 * atr:
+        return "trend"
+    if closes[-1] < sma20 and rng > 1.2 * atr:
+        return "trend"
+    return "chop"
 
 
 def strategy_trend_following(symbol):
@@ -632,7 +657,22 @@ def run_tick():
             if any(p["symbol"] == symbol for p in positions):
                 continue
             
-            func = STRATEGY_FUNCS[name]
+            func = STRATEGY_FUNCS.get(name)
+            if func is None:
+                continue
+            regime = market_regime(symbol, config.get("timeframe") or "1h")
+            skipped = None
+            if name == "mean_reversion" and regime == "trend":
+                skipped = "mr_in_trend"
+            if name in ("trend_following", "breakout", "momentum") and regime == "chop":
+                skipped = "trend_in_chop"
+            if skipped:
+                try:
+                    with (BASE_DIR / "regime_skips.jsonl").open("a") as f:
+                        f.write(json.dumps({"ts": datetime.now(timezone.utc).isoformat(), "strategy": name, "symbol": symbol, "regime": regime, "reason": skipped}) + "\n")
+                except OSError:
+                    pass
+                continue
             side, confidence = func(symbol)
             
             if side == "flat" or confidence < 0.55:

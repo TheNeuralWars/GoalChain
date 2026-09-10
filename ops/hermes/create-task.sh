@@ -58,7 +58,16 @@ ${OWNER}
 ${PRIORITY}
 
 ## Context
-Requested by Nico via Manager (WhatsApp/OpenClaw). Keep scope tight and aligned with GoalChain orchestration rules.
+Requested by Nico via Manager. Keep scope tight. Do not improvise extra features.
+
+## Archetype (mandatory)
+Prefix the working prompt with one line: `Adopt Archetype: .agents/archetypes/<name>.md`
+- Anchor / Solana / tokenomics → `solana-architect.md` (Program ID `FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg`)
+- Frontend / React / Vite → `frontend-craftsman.md` (0 TS errors, bundle < 500kB)
+- Novels / KDP / lore → `bestseller-novelist.md` (zero AI slop)
+- Video / X / Discord copy → `web3-growth-hacker.md` (100% English Max Law)
+- Match / 528 NFTs / Mundial → `sports-commentator.md`
+- Security / audit → `security-auditor.md`
 
 ## Required output
 - Proposed file list

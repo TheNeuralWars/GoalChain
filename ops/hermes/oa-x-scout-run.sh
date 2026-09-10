@@ -8,6 +8,12 @@ set -a
 source "${HERMES_HOME}/config.env"
 set +a
 
+# Prefer xai-oauth / Super Grok when auth is available
+if [[ -f /data/hermes-home/auth.json ]] && grep -q '"xai-oauth"' /data/hermes-home/auth.json; then
+  export XAI_AUTH_MODE="xai-oauth"
+  export XAI_MODEL="grok-4.6"
+fi
+
 SCRIPT="${HERMES_HOME}/scripts/oa-x-scout-run.py"
 LOG="${HERMES_HOME}/oa/logs/x-scout.log"
 STATE="${HERMES_HOME}/oa/state"

@@ -1,0 +1,8 @@
+{
+  "pricing": {
+    "preorder_usd": 0.99,
+    "regular_usd": 2.99,
+    "kindle_unlimited": true
+  },
+  "bisac_excluded": ["Fiction / Science Fiction / Hard Science Fiction"]
+}

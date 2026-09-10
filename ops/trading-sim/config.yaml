@@ -4,7 +4,7 @@ description: "GoalWorld Trading Simulator - Real-time paper trading with $500 vi
 
 start:
   equity_usd: 500.0
-  timestamp: "2026-08-26T20:00:00Z"
+  timestamp: "2026-08-27T20:06:00Z"
 
 exchange:
   name: binance

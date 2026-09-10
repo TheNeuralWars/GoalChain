@@ -7,13 +7,16 @@ import os
 import glob
 import json
 
-base_trilogy = r"c:\Users\NicoPez\the-neural-wars-trilogy"
+# Updated path for VPS environment
+base_trilogy = r"/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy"
 
 def load_book_chapters(book_folder_name, edition_subfolder):
     folder = os.path.join(base_trilogy, book_folder_name, edition_subfolder)
     files = sorted([
         f for f in glob.glob(os.path.join(folder, "*.md"))
         if not os.path.basename(f).startswith("README") and not os.path.basename(f).startswith("MANUSCRIPT")
+        and (os.path.basename(f) in ["FC-00-Prologue_2026.md", "FC-01-Chapter_2026.md", "ENS-00-Prologue_2026.md", "ENS-01-Chapter_2026.md",
+                                       "FC-00-Prologue_2026_EN.md", "FC-01-Chapter_2026_EN.md", "ENS-00-Prologue_2026_EN.md", "ENS-01-Chapter_2026_EN.md"])
     ])
     chapters = []
     for idx, f in enumerate(files):
@@ -35,23 +38,41 @@ def load_book_chapters(book_folder_name, edition_subfolder):
 
 b1_es = load_book_chapters("BOOK_01_FRACTURED_CODE", "EDICION_2026")
 b1_en = load_book_chapters("BOOK_01_FRACTURED_CODE", "ENGLISH_EDITION_2026")
-b2_es = load_book_chapters("BOOK_02_EARTHS_NEW_SONG", "EDICION_2026")
-b2_en = load_book_chapters("BOOK_02_EARTHS_NEW_SONG", "ENGLISH_EDITION_2026")
+
+# Book 2 chapters are NOT needed - only Book 1 (prologue + chapter 1) for the sample
+# b2_es = load_book_chapters("BOOK_02_EARTHS_NEW_SONG", "EDICION_2026")
+# b2_en = load_book_chapters("BOOK_02_EARTHS_NEW_SONG", "ENGLISH_EDITION_2026")
+
+# Load pricing information from manifest
+import os
+
+def get_pricing_info():
+    manifest_path = r"/data/apps/GoalChain/data/publishing/kdp_manifest.json"
+    if os.path.exists(manifest_path):
+        try:
+            with open(manifest_path, 'r', encoding='utf-8') as f:
+                manifest = json.load(f)
+            return manifest.get('pricing', {
+                "preorder_usd": 0.99,
+                "regular_usd": 2.99,
+                "kindle_unlimited": True
+            })
+        except Exception as e:
+            print(f"Warning: Could not load pricing manifest: {e}")
+    return {
+        "preorder_usd": 0.99,
+        "regular_usd": 2.99,
+        "kindle_unlimited": True
+    }
+
+pricing_info = get_pricing_info()
 
 books_payload = [
     {
         "id": "the-neural-wars-book-1",
         "title": {"es": "The Neural Wars: Código Fracturado (Libro 1)", "en": "The Neural Wars: Fractured Code (Book 1)"},
         "subtitle": {"es": "Edición Definitiva de Autor 2026", "en": "2026 Definitive Author Edition"},
-        "genre": "Hard Sci-Fi / Cyberpunk",
         "chapters": {"es": b1_es, "en": b1_en}
-    },
-    {
-        "id": "the-neural-wars-book-2",
-        "title": {"es": "The Neural Wars: La Nueva Canción de la Tierra (Libro 2)", "en": "The Neural Wars: Earth's New Song (Book 2)"},
-        "subtitle": {"es": "Convergence Protocol — Edición 2026", "en": "Convergence Protocol — 2026 Edition"},
-        "genre": "Hard Sci-Fi / Space Opera / First Contact",
-        "chapters": {"es": b2_es, "en": b2_en}
     }
 ]
 
@@ -400,12 +421,31 @@ html_template = """<!DOCTYPE html>
   </div>
 
   <main>
-    <article>
-      <div class="chapter-header">
-        <div id="chapter-meta-tag" class="chapter-tag"></div>
-        <div id="chapter-meta-time" style="font-size: 0.85rem; color: var(--muted); margin-top: 0.4rem;"></div>
+  <!-- PRICING & EMAIL CAPTURE SECTION (sample + buy gate) -->
+  <div class="pricing-section" style="display: flex; justify-content: center; align-items: center; padding: 2rem 0; margin-bottom: 2rem; background: var(--header-bg); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+    <div style="text-align: center; max-width: 500px; padding: 0 1.5rem;">
+      <h2 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 0.8rem; font-family: 'Inter', sans-serif;">The Neural Wars: Fractured Code</h2>
+      <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 0.9rem;">Este libro tiene \u00a1<0.99 USD! Dispondible en 2.99 USD para Kindle</p>
+      <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+        <div style="text-align: center;">
+          <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Preorder</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">$0.99</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Regular</div>
+          <div style="font-size: 1.5rem; font-weight: 800; color: var(--text);">$2.99</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Kindle Unlimited</div>
+          <div style="font-size: 1rem; font-weight: 800; color: #fbbf24;">✓ Available</div>
+        </div>
       </div>
-      <div id="reader-body" class="reader-body"></div>
+      <button onclick="goToPlay('/go/reader/')" style="background: linear-gradient(135deg, #a855f7 0%, #38bdf8 100%); color: white; border: none; padding: 0.8rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4); transition: all 0.2s;">
+        Capturar Email para Acceso Anticipado
+      </button>
+      <p style="font-size: 0.75rem; color: var(--muted); margin-top: 0.8rem;">Solo se entrega el Prólogo y Capítulo 1. Resto del libro para compradores.</p>
+    </div>
+  </div>
 
       <nav style="margin-top: 4.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif;">
         <button id="btn-prev" class="btn" onclick="navigateChapter(-1)">◀ Anterior</button>
@@ -425,8 +465,20 @@ html_template = """<!DOCTYPE html>
     </div>
   </footer>
 
-  <script>
+        <script>
+    // BOOKS_DATA contains the book content for the reader
     const BOOKS_DATA = """ + json.dumps(books_payload, ensure_ascii=False) + """;
+    
+    // Inject pricing information into books data for UI access
+    const booksWithPricing = JSON.parse(BOOKS_DATA);
+    booksWithPricing.forEach(book => {
+        book.pricing = book.pricing || {
+            preorder_usd: 0.99,
+            regular_usd: 2.99,
+            kindle_unlimited: true
+        };
+    });
+    const BOOKS_DATA_WITH_PRICING = JSON.stringify(booksWithPricing);
 
     let state = {
       bookId: 'the-neural-wars-book-1',
@@ -820,12 +872,12 @@ html_template = """<!DOCTYPE html>
 """
 
 # Write reader.html and go/reader/index.html
-out_reader = r"c:\Users\NicoPez\goalchain\docs\reader.html"
+out_reader = r"/data/apps/GoalChain/docs/reader.html"
 with open(out_reader, "w", encoding="utf-8") as f:
     f.write(html_template)
 print(f"[+] Wrote {out_reader}")
 
-out_go_reader = r"c:\Users\NicoPez\goalchain\docs\go\reader\index.html"
+out_go_reader = r"/data/apps/GoalChain/docs/go/reader/index.html"
 os.makedirs(os.path.dirname(out_go_reader), exist_ok=True)
 with open(out_go_reader, "w", encoding="utf-8") as f:
     f.write(html_template)
