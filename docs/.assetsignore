@@ -1,3 +1,70 @@
+# docs/ IS the published site root (GitHub Pages, goalworld.fun). Everything in this
+# tree is world-readable unless listed here.
+#
+# Issue #881: internal working docs must never reach the deployed artifact.
+# Consumed by:
+#   scripts/pages/stage_public_tree.py   -> excludes these paths before upload
+#   scripts/pages/guard_published_tree.py -> fails the deploy if one survives
+# Entries ending in "/" mean a whole directory subtree; otherwise globs (fnmatch) match
+# the relative path or the basename.
+#
+# Review before adding: an entry here hides a path from the public site. Deleting the
+# files themselves is a separate, owner-approved decision (see
+# docs/REPORTS/SECURITY_INTERNAL_DOCS_AUDIT_2026-09-10.md).
+
+# --- Internal working docs: agent briefs, OA proposals, audits, scratch -------------
+intake/
+proposals/
+REPORTS/
+issues/
+scratch/
+hermes-workflow/
+insights/
+social/
+x-reposts/
+adr/
+archive/
+tests/
+governance/
+hackathons/
+.wrangler/
+.gitleaks.toml
+.assetsignore
+
+# --- Hard internal markers (any location) ------------------------------------------
+*INTERNAL*
+internal-*.md
+
+# --- TIER B: internal ops docs that live in the docs/ root --------------------------
+# Excluded from the deploy now (reversible, no file deleted). Repo removal / history
+# purge needs owner confirmation: docs/REPORTS/SECURITY_INTERNAL_DOCS_AUDIT_2026-09-10.md
+# NOTE: docs/publishing/ stays public for art/metadata, but the manuscript trees inside it
+# (MANUSCRIPT/, EDICION_2026/, ENGLISH_EDITION_2026/) are excluded above — the reader page
+# is built from them on the VPS and does not require them to be downloadable.
+SECURITY_AUDIT.md
+GROK_SYSTEM_PROMPT.md
+IMPLEMENTATION_STATUS.md
+GOALCHAIN_MASTER_PROMPTS_V1.md
+EXECUTION_BACKLOG_90D.md
+BACKLOG_STATUS_MODEL.md
+AUDIT_STATE_2026-05-11.md
+NFT_PROMPTS.md
+PLAYER_IMAGE_PROMPTS.md
+GOALCHAIN_PITCH_DECK.md
+
+# --- Unpublished manuscript trees: commercial IP, must NEVER be published -----------
+# The reader/sample pages (docs/go/reader/, docs/reader.html) are built FROM these files
+# at deploy time on the VPS; the source manuscripts themselves do not need to be public.
+# Adding an entry here hides the path from the site; it does not delete anything.
+publishing/*/*/MANUSCRIPT/*
+publishing/*/*/EDICION_2026/*
+publishing/*/*/ENGLISH_EDITION_2026/*
+publishing/*/*/OUTLINES/*
+publishing/the_neural_wars_trilogy/00_SERIES_BIBLE_AND_CANON/*
+publishing/the_neural_wars_trilogy/AI_AGENT_EDITORIAL_WORKBENCH/*
+ceo-log.txt
+
+# --- Oversized media kept out of the deployed artifact -----------------------------
 assets/PressKit_GoalChain.zip
 assets/img/neuralwars/The_Neural_Wars_Official_Cinematic_Trailer_2026.mp4
 assets/img/neuralwars/trailer_cinematic_teaser.mp4

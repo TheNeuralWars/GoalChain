@@ -1,0 +1,55 @@
+# goalworld.fun is published straight from this directory: GitHub Pages, build_type
+# "legacy", source branch main, path /docs (see issue #881). That build runs Jekyll over
+# everything below, so anything not excluded here is served publicly - and README.md in a
+# subdirectory becomes a browsable directory index (that is how /intake/ was exposed).
+#
+# `exclude` keeps internal working docs in the repo (agents keep writing to them) but out
+# of the deployed site. Keep this list in sync with docs/.assetsignore, which the CI
+# publish guard enforces:  python3 scripts/pages/check_ignore_sync.py docs
+# Jekyll `exclude` takes literal paths only (no globs) - glob entries in .assetsignore are
+# enforced by the CI guard instead.
+exclude:
+  - .assetsignore
+  - .gitleaks.toml
+  - .wrangler
+  - intake
+  - proposals
+  - REPORTS
+  - issues
+  - scratch
+  - hermes-workflow
+  - insights
+  - social
+  - x-reposts
+  - adr
+  - archive
+  - tests
+  - governance
+  - hackathons
+  - SECURITY_AUDIT.md
+  - GROK_SYSTEM_PROMPT.md
+  - IMPLEMENTATION_STATUS.md
+  - GOALCHAIN_MASTER_PROMPTS_V1.md
+  - EXECUTION_BACKLOG_90D.md
+  - BACKLOG_STATUS_MODEL.md
+  - AUDIT_STATE_2026-05-11.md
+  - NFT_PROMPTS.md
+  - PLAYER_IMAGE_PROMPTS.md
+  - GOALCHAIN_PITCH_DECK.md
+  - ceo-log.txt
+  # Unpublished manuscript trees + series canon (issue #881 follow-up). The reader page is
+  # built from these on the VPS; the sources themselves must never be downloadable.
+  - publishing/the_neural_wars_trilogy/00_SERIES_BIBLE_AND_CANON
+  - publishing/the_neural_wars_trilogy/AI_AGENT_EDITORIAL_WORKBENCH
+  - publishing/the_neural_wars_trilogy/BOOK_01_FRACTURED_CODE/MANUSCRIPT
+  - publishing/the_neural_wars_trilogy/BOOK_01_FRACTURED_CODE/EDICION_2026
+  - publishing/the_neural_wars_trilogy/BOOK_01_FRACTURED_CODE/ENGLISH_EDITION_2026
+  - publishing/the_neural_wars_trilogy/BOOK_02_EARTHS_NEW_SONG/EDICION_2026
+  - publishing/the_neural_wars_trilogy/BOOK_02_EARTHS_NEW_SONG/ENGLISH_EDITION_2026
+  - publishing/the_neural_wars_trilogy/BOOK_02_EARTHS_NEW_SONG/OUTLINES
+  - publishing/the_neural_wars_trilogy/BOOK_03_EVOLUTION_MATRIX/OUTLINES
+
+# jekyll-readme-index (part of the GitHub Pages plugin set) turns README.md into the
+# directory index page. Disabled: no internal folder can ever be listed again.
+readme_index:
+  enabled: false
