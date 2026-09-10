@@ -6,9 +6,12 @@ including AI HD Neural voices + Web Speech Synthesis fallback, 432 Hz Solfeggio 
 import os
 import glob
 import json
+import re
 
-# Updated path for VPS environment
-base_trilogy = r"/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy"
+# Repo-relative paths so the export is reproducible off-VPS (issue #879).
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+base_trilogy = os.path.join(REPO_ROOT, "docs", "publishing", "the_neural_wars_trilogy")
+SAMPLE_DIR = os.path.join(base_trilogy, "BOOK_01_FRACTURED_CODE", "SAMPLE")
 
 def load_book_chapters(book_folder_name, edition_subfolder):
     folder = os.path.join(base_trilogy, book_folder_name, edition_subfolder)
@@ -47,7 +50,7 @@ b1_en = load_book_chapters("BOOK_01_FRACTURED_CODE", "ENGLISH_EDITION_2026")
 import os
 
 def get_pricing_info():
-    manifest_path = r"/data/apps/GoalChain/data/publishing/kdp_manifest.json"
+    manifest_path = os.path.join(REPO_ROOT, "data", "publishing", "kdp_manifest.json")
     if os.path.exists(manifest_path):
         try:
             with open(manifest_path, 'r', encoding='utf-8') as f:
@@ -75,6 +78,27 @@ books_payload = [
         "chapters": {"es": b1_es, "en": b1_en}
     }
 ]
+
+# The cosmic prologue that shipped with the condensed editions was cut from the book
+# (2026-09-10 forensic audit: 2/10, spoils the arc, no scene). The sample now opens on the
+# rewritten cold open kept in SAMPLE/. Falls back to the edition text when absent.
+def _sample_prologue(lang):
+    path = os.path.join(SAMPLE_DIR, "prologue_%s.md" % lang)
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as fh:
+            return fh.read().strip()
+    return None
+
+
+for _book in books_payload:
+    for _lang in ("es", "en"):
+        _txt = _sample_prologue(_lang)
+        _chs = _book.get("chapters", {}).get(_lang) or []
+        if _txt and _chs:
+            _chs[0]["title"] = "PRÓLOGO" if _lang == "es" else "PROLOGUE"
+            _chs[0]["content"] = _txt
+            _chs[0]["wordCount"] = len(_txt.split())
+            _chs[0]["readTime"] = max(1, round(len(_txt.split()) / 220))
 
 html_template = """<!DOCTYPE html>
 <html lang="es">
@@ -421,29 +445,30 @@ html_template = """<!DOCTYPE html>
   </div>
 
   <main>
-  <!-- PRICING & EMAIL CAPTURE SECTION (sample + buy gate) -->
+  <!-- SAMPLE + BUY GATE (issue #879): honest copy, real prices from kdp_manifest.json.
+       No fake purchase link while the Amazon ASIN is still a placeholder, and no fake
+       "email capture" button (there is no backend endpoint: the old one just reloaded
+       this same page). -->
   <div class="pricing-section" style="display: flex; justify-content: center; align-items: center; padding: 2rem 0; margin-bottom: 2rem; background: var(--header-bg); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
     <div style="text-align: center; max-width: 500px; padding: 0 1.5rem;">
       <h2 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 0.8rem; font-family: 'Inter', sans-serif;">The Neural Wars: Fractured Code</h2>
-      <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 0.9rem;">Este libro tiene \u00a1<0.99 USD! Dispondible en 2.99 USD para Kindle</p>
+      <p id="sample-copy" style="color: var(--muted); margin-bottom: 1.5rem; font-size: 0.9rem;"></p>
       <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
         <div style="text-align: center;">
-          <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Preorder</div>
-          <div style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">$0.99</div>
+          <div id="price-preorder-label" style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Preorder</div>
+          <div id="price-preorder" style="font-size: 1.5rem; font-weight: 800; color: var(--accent);"></div>
         </div>
         <div style="text-align: center;">
-          <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Regular</div>
-          <div style="font-size: 1.5rem; font-weight: 800; color: var(--text);">$2.99</div>
+          <div id="price-regular-label" style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Regular</div>
+          <div id="price-regular" style="font-size: 1.5rem; font-weight: 800; color: var(--text);"></div>
         </div>
-        <div style="text-align: center;">
+        <div id="ku-block" style="text-align: center;">
           <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Kindle Unlimited</div>
-          <div style="font-size: 1rem; font-weight: 800; color: #fbbf24;">✓ Available</div>
+          <div style="font-size: 1rem; font-weight: 800; color: #fbbf24;">&#10003;</div>
         </div>
       </div>
-      <button onclick="goToPlay('/go/reader/')" style="background: linear-gradient(135deg, #a855f7 0%, #38bdf8 100%); color: white; border: none; padding: 0.8rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4); transition: all 0.2s;">
-        Capturar Email para Acceso Anticipado
-      </button>
-      <p style="font-size: 0.75rem; color: var(--muted); margin-top: 0.8rem;">Solo se entrega el Prólogo y Capítulo 1. Resto del libro para compradores.</p>
+      <a id="sample-cta" href="/goalworld.html" style="display: inline-block; text-decoration: none; background: linear-gradient(135deg, #a855f7 0%, #38bdf8 100%); color: white; border: none; padding: 0.8rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4); transition: all 0.2s;"></a>
+      <p id="sample-note" style="font-size: 0.75rem; color: var(--muted); margin-top: 0.8rem;"></p>
     </div>
   </div>
 
@@ -467,9 +492,28 @@ html_template = """<!DOCTYPE html>
 
         <script>
     // BOOKS_DATA contains the book content for the reader
-    const BOOKS_DATA = """ + json.dumps(books_payload, ensure_ascii=False) + """;
+    const BOOKS_DATA = """ + json.dumps(books_payload, ensure_ascii=False, separators=(",", ":")) + """;
     
     // Inject pricing information into books data for UI access
+    const PRICING = {"preorder_usd": " + str(pricing_info.get('preorder_usd', 0.99)) + ", "regular_usd": " + str(pricing_info.get('regular_usd', 2.99)) + ", "kindle_unlimited": " + ('true' if pricing_info.get('kindle_unlimited') else 'false') + "};
+    const SAMPLE_COPY = {
+      es: {line: 'Muestra gratuita: Prólogo y Capítulo 1.', cta: 'Ver preventa y novedades', note: 'El libro completo sale en preventa. Aquí solo se publican el Prólogo y el Capítulo 1.', pre: 'Preventa', reg: 'Precio normal', ku: 'En Kindle Unlimited'},
+      en: {line: 'Free sample: Prologue and Chapter 1.', cta: 'Preorder and release news', note: 'The complete book launches with a preorder. Only the Prologue and Chapter 1 are published here.', pre: 'Preorder', reg: 'Regular', ku: 'In Kindle Unlimited'}
+    };
+    function updateSampleCopy(lang) {
+      const c = SAMPLE_COPY[lang] || SAMPLE_COPY.en;
+      const set = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
+      set('sample-copy', c.line + ' ' + (lang === 'es' ? 'Preventa $' + PRICING.preorder_usd.toFixed(2) + ' · después $' + PRICING.regular_usd.toFixed(2) : '$' + PRICING.preorder_usd.toFixed(2) + ' preorder · $' + PRICING.regular_usd.toFixed(2) + ' after'));
+      set('sample-cta', c.cta);
+      set('sample-note', c.note);
+      set('price-preorder-label', c.pre);
+      set('price-regular-label', c.reg);
+      set('price-preorder', '$' + PRICING.preorder_usd.toFixed(2));
+      set('price-regular', '$' + PRICING.regular_usd.toFixed(2));
+      const ku = document.getElementById('ku-block');
+      if (ku) ku.style.display = PRICING.kindle_unlimited ? '' : 'none';
+    }
+    updateSampleCopy('es');
     const booksWithPricing = JSON.parse(BOOKS_DATA);
     booksWithPricing.forEach(book => {
         book.pricing = book.pricing || {
@@ -761,6 +805,7 @@ html_template = """<!DOCTYPE html>
       document.getElementById('btn-lang-en').style.background = lang === 'en' ? 'var(--accent)' : 'transparent';
       document.getElementById('btn-lang-en').style.color = lang === 'en' ? '#fff' : 'var(--text)';
       populateBookSelect();
+      updateSampleCopy(lang);
       loadVoices();
       renderChapter();
     }
@@ -871,14 +916,33 @@ html_template = """<!DOCTYPE html>
 </html>
 """
 
-# Write reader.html and go/reader/index.html
-out_reader = r"/data/apps/GoalChain/docs/reader.html"
+# --- Size budget (issue #879: keep the sample page under 60 KB) ----------------------
+# CSS comments/whitespace and HTML comments carry no meaning for the reader; the sample
+# text is what the page is for. Never touch <script> (minifying JS by regex is unsafe).
+def minify_for_delivery(html):
+    def css_repl(m):
+        css = re.sub(r"/\*.*?\*/", "", m.group(1), flags=re.S)
+        css = re.sub(r"\s+", " ", css)
+        css = re.sub(r"\s*([{}:;,>])\s*", r"\1", css)
+        return "<style>" + css.replace(";}", "}").strip() + "</style>"
+
+    html = re.sub(r"<style>(.*?)</style>", css_repl, html, flags=re.S)
+    html = re.sub(r"[ \t]*<!--(?!\[if).*?-->[ \t]*\n?", "", html, flags=re.S)
+    html = re.sub(r"\n{3,}", "\n\n", html)
+    return html
+
+
+html_template = minify_for_delivery(html_template)
+
+# Write reader.html and go/reader/index.html (repo-relative, same reason as above)
+out_reader = os.path.join(REPO_ROOT, "docs", "reader.html")
 with open(out_reader, "w", encoding="utf-8") as f:
     f.write(html_template)
 print(f"[+] Wrote {out_reader}")
 
-out_go_reader = r"/data/apps/GoalChain/docs/go/reader/index.html"
+out_go_reader = os.path.join(REPO_ROOT, "docs", "go", "reader", "index.html")
 os.makedirs(os.path.dirname(out_go_reader), exist_ok=True)
 with open(out_go_reader, "w", encoding="utf-8") as f:
     f.write(html_template)
 print(f"[+] Wrote {out_go_reader}")
+print(f"[+] Size: {len(html_template)} chars ({'OK <60KB' if len(html_template) < 60000 else 'OVER BUDGET'})")
