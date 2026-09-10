@@ -48,6 +48,9 @@ exclude:
   - publishing/the_neural_wars_trilogy/BOOK_02_EARTHS_NEW_SONG/ENGLISH_EDITION_2026
   - publishing/the_neural_wars_trilogy/BOOK_02_EARTHS_NEW_SONG/OUTLINES
   - publishing/the_neural_wars_trilogy/BOOK_03_EVOLUTION_MATRIX/OUTLINES
+  # Film workspace (storyboards, prompts, renders) for the neural-wars adaptation. Kept out
+  # of the published tree by default; publish individual posters/trailers deliberately.
+  - publishing/the_neural_wars_trilogy/FILM
 
 # jekyll-readme-index (part of the GitHub Pages plugin set) turns README.md into the
 # directory index page. Disabled: no internal folder can ever be listed again.
