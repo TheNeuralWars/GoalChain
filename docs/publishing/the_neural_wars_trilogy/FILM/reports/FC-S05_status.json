@@ -1,0 +1,201 @@
+{
+  "scene_id": "FC-S05",
+  "updated_at": "2026-09-14T10:29:35.679543Z",
+  "shots": [
+    {
+      "id": "FC-S05-01",
+      "order": 1,
+      "duration_s": 5,
+      "camera": "slow push into makeshift medical bay",
+      "framing": "wide establishing",
+      "characters": [
+        "Dr. Marcus Okafor"
+      ],
+      "wardrobe_ref": "Okafor field-medic apron (NEW)",
+      "location": "Fracturados redoubt — makeshift medical / extraction bay",
+      "action": "Establish cold clinical bay under brick vault: surgical gurney, fiber-optic rig, analog monitors dark; Okafor preps probes under harsh practicals",
+      "image_prompt": "Wide cinematic establishing of a makeshift underground medical extraction bay in a decommissioned metro redoubt. Steel surgical gurney with heavy canvas straps, coiled fiber-optic cables, scavenged analog monitor banks dark and blank — NO readable text, NO logos, NO UI. consistent character lock Dr. Marcus Okafor: West African-descent man ~50s, weathered healer presence, short greying hair, kind exhausted eyes, same face across shots in stained field-medic apron over dark layers prepares three fiber probes under cold harsh practical light. Brick vault, frost-ready air, volumetric haze. Empty approach — no crowd yet. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Slow push into bay; cold practical flicker on steel gurney; fiber cables sway; Okafor checks probe tips; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-01.png",
+        "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-01.mp4",
+        "backend": "xAI API"
+      },
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-01.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-01.mp4"
+    },
+    {
+      "id": "FC-S05-02",
+      "order": 2,
+      "duration_s": 5,
+      "camera": "high angle down on strapped Mileo",
+      "framing": "high wide to medium",
+      "characters": [
+        "Mileo Chen",
+        "Dr. Marcus Okafor",
+        "Kora Vega",
+        "Sierra Catalano"
+      ],
+      "wardrobe_ref": "Mileo AFTER cut + Coil; Okafor apron; Kora copper-gold; Sierra leather (FROZEN)",
+      "location": "Fracturados medical bay — surgical gurney",
+      "action": "Mileo strapped in canvas restraints; Okafor leans in; Kora and Sierra flank — resolve before jack-in",
+      "image_prompt": "High-angle cinematic: consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots in dark underlayer with LEFT wrist indigo Serpent Coil, strapped to steel gurney by heavy canvas restraints, vivid green eyes open with fearful resolve. consistent character lock Dr. Marcus Okafor: West African-descent man ~50s, weathered healer presence, short greying hair, kind exhausted eyes, same face across shots leans over from head of table. Soft flanks: consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots copper-bronze vest and consistent character lock Sierra Catalano: field commander woman, hazel/dark calculating eyes, pale scar across LEFT cheek from temple to jaw, dark practical commander hair, same face across shots weathered leather jacket with pale LEFT cheek scar — both watching. Cold clinical practicals, brick vault. NO readable text, NO logos on any gear. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Subtle breath on Mileo; canvas straps creak; Okafor nods; Kora and Sierra hold still; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-02.png",
+        "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-02.mp4",
+        "backend": "xAI API"
+      },
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-02.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-02.mp4"
+    },
+    {
+      "id": "FC-S05-03",
+      "order": 3,
+      "duration_s": 5,
+      "camera": "ECU insert on LEFT forearm dermal nodes + probe tips",
+      "framing": "extreme close-up insert",
+      "characters": [
+        "Mileo Chen",
+        "Dr. Marcus Okafor"
+      ],
+      "wardrobe_ref": "Mileo LEFT forearm geometric dermal scars + Coil; Okafor hands",
+      "location": "Medical bay — Mileo LEFT forearm",
+      "action": "Okafor plugs three fiber-optic probes into subdermal geometric scar-circuit on Mileo LEFT forearm; dermal Renaissance cache jack-in",
+      "image_prompt": "Extreme close-up cinematic insert: consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots LEFT forearm mapped with geometric bio-digital scar tissue like a circuit plate; indigo Coil glow faintly under wrist skin. Weathered hands of consistent character lock Dr. Marcus Okafor: West African-descent man ~50s, weathered healer presence, short greying hair, kind exhausted eyes, same face across shots seat three glowing fiber-optic probe tips into subdermal nodes — abstract light only, NO readable markings, NO logos, NO UI text. Cold steel, ozone haze, Cascade indigo tip glow. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Probes seat with soft click-glow; indigo pulse travels scar lines; tiny ozone shimmer; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-03.png",
+        "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-03.mp4",
+        "backend": "xAI API"
+      },
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-03.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-03.mp4"
+    },
+    {
+      "id": "FC-S05-04",
+      "order": 4,
+      "duration_s": 6,
+      "camera": "whip from arched Mileo to Riv analog fractal screens",
+      "framing": "medium reaction to screen wide",
+      "characters": [
+        "Mileo Chen",
+        "Riv",
+        "Dr. Marcus Okafor"
+      ],
+      "wardrobe_ref": "Mileo restrained; Riv cobalt-gel fingers + compass (NEW); Okafor",
+      "location": "Medical bay — gurney + Riv transmission bank",
+      "action": "Extraction surge PG-13: Mileo spine arches against canvas; Riv analog screens bloom living fractal geometries (not binary); breath turns to frost plumes",
+      "image_prompt": "Split-energy cinematic: consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots arches violently against canvas straps on gurney — PG-13 tension, NO gore, face strained, vivid green eyes squeezed. Cut-sense to consistent character lock Riv: wiry underground engineer man ~30s, sleep-deprived red-rimmed eyes, fingers stained cobalt-blue conductive gel, small silver compass pendant at throat, same face across shots at scavenged analog monitor bank — fingers stained cobalt-blue gel, silver compass pendant — screens project blossoming fractal geometries like living cells in electric indigo, NOT binary code, NO readable text, NO logos. White frost breath plumes in suddenly freezing air; lamp glass misting. consistent character lock Dr. Marcus Okafor: West African-descent man ~50s, weathered healer presence, short greying hair, kind exhausted eyes, same face across shots braced at table edge. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Mileo arches; fractal blooms multiply on screens; frost breath blooms; Riv reaches for relays; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-04.png",
+        "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-04.mp4",
+        "backend": "xAI API"
+      },
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-04.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-04.mp4"
+    },
+    {
+      "id": "FC-S05-05",
+      "order": 5,
+      "duration_s": 5,
+      "camera": "low push on Kora Cascade collapse",
+      "framing": "medium low to close",
+      "characters": [
+        "Kora Vega",
+        "Sierra Catalano"
+      ],
+      "wardrobe_ref": "Kora copper-gold + Cascade veins; Sierra leather soft BG",
+      "location": "Medical bay concrete floor beside gurney",
+      "action": "Kora Cascade seizure: drops to knees clutching temples; indigo bioluminescent veins flare temples/forearms; subtle violet nosebleed; senses cosmic tree branches",
+      "image_prompt": "Low cinematic push: consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots in copper-bronze vest drops to cold concrete knees, clutching temples; pupils dilated devouring iris; indigo bioluminescent vein-web flares under skin at temples and forearms (#4B0082 / #3F00FF); subtle dark violet shimmer at nostrils — PG-13, NO graphic gore. Soft BG: consistent character lock Sierra Catalano: field commander woman, hazel/dark calculating eyes, pale scar across LEFT cheek from temple to jaw, dark practical commander hair, same face across shots weathered leather, pale LEFT cheek scar, recognizing Cascade onset. Frost air, violet rim light. NO text, NO logos. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Kora drops; indigo veins pulse brighter; violet shimmer at nose; Sierra steps forward; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-05.png",
+        "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-05.mp4",
+        "backend": "xAI API"
+      },
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-05.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-05.mp4"
+    },
+    {
+      "id": "FC-S05-06",
+      "order": 6,
+      "duration_s": 6,
+      "camera": "hero ECU Mileo indigo-fire eyes + rising wide energy",
+      "framing": "ECU eyes to medium rising",
+      "characters": [
+        "Mileo Chen",
+        "Sierra Catalano"
+      ],
+      "wardrobe_ref": "Mileo channel state; Sierra leather witness",
+      "location": "Medical bay — surgical gurney climax",
+      "action": "Mileo eyes snap open as twin discs of blinding indigo fire; jaw parts — polyphonic Architect-Usurper voice (visual energy only); violet radiance; gurney braces stress — NO on-screen text",
+      "image_prompt": "Hero cinematic ECU then rising medium: consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots eyes snap open — pupils gone, twin discs of blinding indigo fire (#4B0082 / #3F00FF); jaw parted in silent roar of invisible polyphonic force; violet radiance blooms from chest and LEFT wrist Coil; canvas and steel braces strain. Soft witness: consistent character lock Sierra Catalano: field commander woman, hazel/dark calculating eyes, pale scar across LEFT cheek from temple to jaw, dark practical commander hair, same face across shots leather jacket, LEFT cheek scar lit violet, chest struck by unseen shockwave. Abstract EM shimmer, frost lattice forming on nearby metal — NO readable text, NO logos, NO captions of dialogue. PG-13 supernatural intensity. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Eyes ignite indigo; violet shockwave ripples air; Sierra braces; frost races metal; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-06.png",
+        "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-06.mp4",
+        "backend": "xAI API"
+      },
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-06.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-06.mp4"
+    },
+    {
+      "id": "FC-S05-07",
+      "order": 7,
+      "duration_s": 6,
+      "camera": "push into surviving monitor hologram",
+      "framing": "screen fill / abstract wide",
+      "characters": [],
+      "wardrobe_ref": "n/a",
+      "location": "Medical bay — sole surviving analog tactical monitor",
+      "action": "Crystal hologram: immense bioluminescent Yggdrasil tree — roots in mantle, canopy into stars; dark parasitic NeuroSys tumor strangling trunk sap — NO readable text/code",
+      "image_prompt": "Cinematic screen-fill of a scavenged analog monitor showing a crystal-clear abstract hologram: an immense tree of bioluminescent indigo-gold light, roots coiling deep into planetary mantle, canopy unfurling into starfield. In the heart of the trunk a dark parasitic digital tumor strangling luminous sap conduits — NeuroSys core as abstract shadow mass. Pure mythic image — NO readable text, NO code lines, NO logos, NO UI labels, NO captions. Monitor bezel plain steel; bay reflected faintly. Cascade indigo + gold bioluminescence. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Hologram tree breathes — roots pulse, canopy opens, parasite constricts then falters; soft scanline shimmer without text; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-07.png",
+        "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-07.mp4",
+        "backend": "xAI API"
+      },
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-07.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-07.mp4"
+    },
+    {
+      "id": "FC-S05-08",
+      "order": 8,
+      "duration_s": 6,
+      "camera": "rising wide aftermath then ECU Coil / red beacon hint",
+      "framing": "wide aftermath to ECU Coil",
+      "characters": [
+        "Mileo Chen",
+        "Kora Vega",
+        "Sierra Catalano",
+        "Dr. Marcus Okafor",
+        "Riv"
+      ],
+      "wardrobe_ref": "All; Sierra racks rifle; Kora Cascade residue; Mileo collapsed alive",
+      "location": "Medical bay — post-surge / tunnel mouth hint",
+      "action": "Gurney crashed; Mileo unconscious but breathing; Kora rises violet-smeared; Sierra racks pulse rifle glacial calm; red emergency beacons begin to spin — breach imminent; LEFT wrist Coil still faintly alive",
+      "image_prompt": "Wide cinematic aftermath: steel gurney askew on floor; consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots collapsed unconscious but breathing, LEFT wrist indigo Coil faintly alive, eyes shut. consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots rising, copper vest, face with subtle luminous violet residue at nostrils — PG-13. consistent character lock Sierra Catalano: field commander woman, hazel/dark calculating eyes, pale scar across LEFT cheek from temple to jaw, dark practical commander hair, same face across shots racks abstract pulse rifle with glacial calm, pale LEFT cheek scar, weathered leather. Soft: consistent character lock Dr. Marcus Okafor: West African-descent man ~50s, weathered healer presence, short greying hair, kind exhausted eyes, same face across shots checking vitals; consistent character lock Riv: wiry underground engineer man ~30s, sleep-deprived red-rimmed eyes, fingers stained cobalt-blue conductive gel, small silver compass pendant at throat, same face across shots at smoking blank monitors — NO readable text. Red emergency beacon glow begins spinning at tunnel mouth (abstract light only, NO signage). Point of no return after Yggdrasil vision. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Beacon red spins up; Sierra racks bolt; Mileo Coil pulse once; Kora steadies; freeze on Coil ECU; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-08.png",
+        "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-08.mp4",
+        "backend": "xAI API"
+      },
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-08.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-08.mp4"
+    }
+  ],
+  "last_run": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/FC-S05_run_20260914T102935Z.json"
+}

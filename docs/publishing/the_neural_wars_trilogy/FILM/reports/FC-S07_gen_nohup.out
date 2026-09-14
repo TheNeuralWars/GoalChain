@@ -1,0 +1,152 @@
+2026-09-11 06:56:16 [INFO] Storyboard: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/scenes/FC-S07.json
+2026-09-11 06:56:16 [INFO] Outdir: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM
+2026-09-11 06:56:16 [INFO] Renders dir: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07
+2026-09-11 06:56:16 [INFO] Reports dir: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports
+2026-09-11 06:56:16 [INFO] Shots selected: 8 (max=8) dry_run=False skip_existing=True
+2026-09-11 06:56:16 [INFO] Generating image via xAI API directly (grok-imagine-image)...
+2026-09-11 06:56:23 [INFO] Image saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-01.png
+2026-09-11 06:56:23 [INFO] Submitting video generation to xAI API (grok-imagine-video)...
+2026-09-11 06:56:23 [INFO] Waiting for video render (request_id=77425d5a-3a2c-9218-a04e-ebb4276a1406)...
+2026-09-11 06:56:27 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:56:30 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:56:34 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:56:38 [INFO]   Video progress: status=pending (18%)
+2026-09-11 06:56:41 [INFO]   Video progress: status=pending (37%)
+2026-09-11 06:56:45 [INFO]   Video progress: status=pending (56%)
+2026-09-11 06:56:48 [INFO]   Video progress: status=pending (75%)
+2026-09-11 06:56:52 [INFO]   Video progress: status=pending (87%)
+2026-09-11 06:56:55 [INFO]   Video progress: status=pending (94%)
+2026-09-11 06:56:59 [INFO]   Video progress: status=done (100%)
+2026-09-11 06:56:59 [INFO] Video saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-01.mp4
+2026-09-11 06:56:59 [INFO] Generating image via xAI API directly (grok-imagine-image)...
+2026-09-11 06:57:09 [INFO] Image saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-02.png
+2026-09-11 06:57:09 [INFO] Submitting video generation to xAI API (grok-imagine-video)...
+2026-09-11 06:57:09 [INFO] Waiting for video render (request_id=e548de14-60fb-994f-92c3-6bb69ee6ac88)...
+2026-09-11 06:57:13 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:57:16 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:57:20 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:57:23 [INFO]   Video progress: status=pending (18%)
+2026-09-11 06:57:26 [INFO]   Video progress: status=pending (37%)
+2026-09-11 06:57:30 [INFO]   Video progress: status=pending (62%)
+2026-09-11 06:57:34 [INFO]   Video progress: status=pending (81%)
+2026-09-11 06:57:37 [INFO]   Video progress: status=pending (87%)
+2026-09-11 06:57:41 [INFO]   Video progress: status=done (100%)
+2026-09-11 06:57:42 [INFO] Video saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-02.mp4
+2026-09-11 06:57:42 [INFO] Generating image via xAI API directly (grok-imagine-image)...
+2026-09-11 06:57:50 [INFO] Image saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-03.png
+2026-09-11 06:57:50 [INFO] Submitting video generation to xAI API (grok-imagine-video)...
+2026-09-11 06:57:50 [INFO] Waiting for video render (request_id=e6e9520c-02bf-941e-9a25-88156362f346)...
+2026-09-11 06:57:54 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:57:57 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:58:01 [INFO]   Video progress: status=pending (12%)
+2026-09-11 06:58:05 [INFO]   Video progress: status=pending (31%)
+2026-09-11 06:58:08 [INFO]   Video progress: status=pending (50%)
+2026-09-11 06:58:12 [INFO]   Video progress: status=pending (68%)
+2026-09-11 06:58:15 [INFO]   Video progress: status=pending (87%)
+2026-09-11 06:58:19 [INFO]   Video progress: status=pending (94%)
+2026-09-11 06:58:22 [INFO]   Video progress: status=done (100%)
+2026-09-11 06:58:23 [INFO] Video saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-03.mp4
+2026-09-11 06:58:23 [INFO] Generating image via xAI API directly (grok-imagine-image)...
+2026-09-11 06:58:29 [INFO] Image saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-04.png
+2026-09-11 06:58:29 [INFO] Submitting video generation to xAI API (grok-imagine-video)...
+2026-09-11 06:58:29 [INFO] Waiting for video render (request_id=2a0be888-905f-960b-b730-2847c96f4776)...
+2026-09-11 06:58:33 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:58:36 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:58:40 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:58:43 [INFO]   Video progress: status=pending (18%)
+2026-09-11 06:58:47 [INFO]   Video progress: status=pending (37%)
+2026-09-11 06:58:50 [INFO]   Video progress: status=pending (62%)
+2026-09-11 06:58:54 [INFO]   Video progress: status=pending (81%)
+2026-09-11 06:58:57 [INFO]   Video progress: status=pending (87%)
+2026-09-11 06:59:01 [INFO]   Video progress: status=done (100%)
+2026-09-11 06:59:01 [INFO] Video saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-04.mp4
+2026-09-11 06:59:01 [INFO] Generating image via xAI API directly (grok-imagine-image)...
+2026-09-11 06:59:10 [INFO] Image saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-05.png
+2026-09-11 06:59:10 [INFO] Submitting video generation to xAI API (grok-imagine-video)...
+2026-09-11 06:59:11 [INFO] Waiting for video render (request_id=dda306f1-c0b3-9a98-ab9f-6d5a62b8779a)...
+2026-09-11 06:59:14 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:59:18 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:59:21 [INFO]   Video progress: status=pending (1%)
+2026-09-11 06:59:25 [INFO]   Video progress: status=pending (18%)
+2026-09-11 06:59:29 [INFO]   Video progress: status=pending (43%)
+2026-09-11 06:59:32 [INFO]   Video progress: status=pending (62%)
+2026-09-11 06:59:36 [INFO]   Video progress: status=pending (81%)
+2026-09-11 06:59:39 [INFO]   Video progress: status=pending (87%)
+2026-09-11 06:59:43 [INFO]   Video progress: status=done (100%)
+2026-09-11 06:59:43 [INFO] Video saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-05.mp4
+2026-09-11 06:59:43 [INFO] Generating image via xAI API directly (grok-imagine-image)...
+2026-09-11 06:59:54 [INFO] Image saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-06.png
+2026-09-11 06:59:54 [INFO] Submitting video generation to xAI API (grok-imagine-video)...
+2026-09-11 06:59:54 [INFO] Waiting for video render (request_id=0b404056-7375-9453-afce-2c7e5ca25b71)...
+2026-09-11 06:59:58 [INFO]   Video progress: status=pending (1%)
+2026-09-11 07:00:01 [INFO]   Video progress: status=pending (1%)
+2026-09-11 07:00:05 [INFO]   Video progress: status=pending (1%)
+2026-09-11 07:00:08 [INFO]   Video progress: status=pending (25%)
+2026-09-11 07:00:12 [INFO]   Video progress: status=pending (43%)
+2026-09-11 07:00:15 [INFO]   Video progress: status=pending (62%)
+2026-09-11 07:00:19 [INFO]   Video progress: status=pending (81%)
+2026-09-11 07:00:22 [INFO]   Video progress: status=pending (87%)
+2026-09-11 07:00:25 [INFO]   Video progress: status=pending (94%)
+2026-09-11 07:00:29 [INFO]   Video progress: status=done (100%)
+2026-09-11 07:00:29 [INFO] Video saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-06.mp4
+2026-09-11 07:00:29 [INFO] Generating image via xAI API directly (grok-imagine-image)...
+2026-09-11 07:00:39 [INFO] Image saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-07.png
+2026-09-11 07:00:39 [INFO] Submitting video generation to xAI API (grok-imagine-video)...
+2026-09-11 07:00:39 [INFO] Waiting for video render (request_id=efc06b22-fbfb-976e-bb3f-1f4fd243bad6)...
+2026-09-11 07:00:43 [INFO]   Video progress: status=pending (1%)
+2026-09-11 07:00:46 [INFO]   Video progress: status=pending (1%)
+2026-09-11 07:00:50 [INFO]   Video progress: status=pending (1%)
+2026-09-11 07:00:53 [INFO]   Video progress: status=pending (25%)
+2026-09-11 07:00:57 [INFO]   Video progress: status=pending (43%)
+2026-09-11 07:01:00 [INFO]   Video progress: status=pending (62%)
+2026-09-11 07:01:04 [INFO]   Video progress: status=pending (87%)
+2026-09-11 07:01:08 [INFO]   Video progress: status=pending (87%)
+2026-09-11 07:01:11 [INFO]   Video progress: status=done (100%)
+2026-09-11 07:01:12 [INFO] Video saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-07.mp4
+2026-09-11 07:01:12 [INFO] Generating image via xAI API directly (grok-imagine-image)...
+2026-09-11 07:01:20 [INFO] Image saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-08.png
+2026-09-11 07:01:20 [INFO] Submitting video generation to xAI API (grok-imagine-video)...
+2026-09-11 07:01:20 [INFO] Waiting for video render (request_id=31322314-0d77-9d4a-84e8-08317ee5f7ae)...
+2026-09-11 07:01:24 [INFO]   Video progress: status=pending (1%)
+2026-09-11 07:01:27 [INFO]   Video progress: status=pending (1%)
+2026-09-11 07:01:31 [INFO]   Video progress: status=pending (1%)
+2026-09-11 07:01:34 [INFO]   Video progress: status=pending (1%)
+2026-09-11 07:01:37 [INFO]   Video progress: status=pending (1%)
+2026-09-11 07:01:41 [INFO]   Video progress: status=pending (31%)
+2026-09-11 07:01:44 [INFO]   Video progress: status=pending (50%)
+2026-09-11 07:01:48 [INFO]   Video progress: status=pending (68%)
+2026-09-11 07:01:51 [INFO]   Video progress: status=pending (87%)
+2026-09-11 07:01:55 [INFO]   Video progress: status=pending (94%)
+2026-09-11 07:01:58 [INFO]   Video progress: status=done (100%)
+2026-09-11 07:01:59 [INFO] Video saved successfully: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-08.mp4
+2026-09-11 07:01:59 [INFO] Report sidecar: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/FC-S07_run_20260911T070159Z.json
+2026-09-11 07:01:59 [INFO] Status sidecar: /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/FC-S07_status.json
+2026-09-11 07:01:59 [INFO] Done. ok=8 fail=0 total=8
+
+=== PLANNED SHOTS ===
+  [1] FC-S07-01  5s  | wide establishing | Post-Delta quiet: dry biting air in unused vent shaft; amber sodium lamp...
+       image -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-01.png
+       video -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-01.mp4
+  [2] FC-S07-02  5s  | extreme close-up | Mileo thumb-traces geometric dermal scars on LEFT forearm; indigo biolum...
+       image -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-02.png
+       video -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-02.mp4
+  [3] FC-S07-03  6s  | medium portrait | Mileo sits in shaft penumbra; vivid green eyes; bandaged nape Link scar;...
+       image -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-03.png
+       video -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-03.mp4
+  [4] FC-S07-04  5s  | wide atmospheric insert | Sanctuary air: smell of pulse propellant and scorched boards; cold-sweat...
+       image -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-04.png
+       video -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-04.mp4
+  [5] FC-S07-05  5s  | medium doorway / hatch frame | Shadow cuts across shaft entrance; Kora leans on blast hatch frame arms ...
+       image -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-05.png
+       video -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-05.mp4
+  [6] FC-S07-06  6s  | medium two-shot | It's time, specialist — Sierra wants jump point in five; Mileo stands; b...
+       image -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-06.png
+       video -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-06.mp4
+  [7] FC-S07-07  5s  | extreme close-up resonance pair | Kora locks eyes; pupils constrict; temples faint violet Cascade shimmer ...
+       image -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-07.png
+       video -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-07.mp4
+  [8] FC-S07-08  6s  | wide tracking / reverse | Let's move — Kora leads; Mileo follows still recalibrating; corridor tow...
+       image -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-08.png
+       video -> /data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-08.mp4
+=== END PLAN ===
+

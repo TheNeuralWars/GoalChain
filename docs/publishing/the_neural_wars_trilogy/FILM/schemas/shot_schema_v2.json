@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "shot_schema_v2.json",
+  "title": "NeuralWarsFilmShotV2",
+  "description": "Shot object for The Neural Wars FILM. Requires character_ids[] + location_id from WORLD_TOKENS.json; lock_sheet_id + reference_images for continuity. Legacy `characters` (display names) and `location` (free prose) remain allowed but must not contradict token ids.",
+  "type": "object",
+  "required": [
+    "id",
+    "order",
+    "image_prompt",
+    "video_prompt",
+    "character_ids",
+    "location_id"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Shot id, e.g. FC-S03-02"
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "duration_s": {
+      "type": "number",
+      "minimum": 0
+    },
+    "camera": {
+      "type": "string"
+    },
+    "framing": {
+      "type": "string"
+    },
+    "characters": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Legacy display names (e.g. Kora Vega). Must align with character_ids[]; do not contradict."
+    },
+    "wardrobe_ref": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "description": "Legacy free-prose location label. Must align with location_id; do not contradict WORLD_TOKENS lock."
+    },
+    "action": {
+      "type": "string",
+      "description": "Editorial/action beat; NOT sent verbatim to image models if it contains cue words"
+    },
+    "image_prompt": {
+      "type": "string"
+    },
+    "video_prompt": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "description": "e.g. draft, pending, rendered, failed, failed_video"
+    },
+    "lock_sheet_id": {
+      "type": "string",
+      "description": "Primary lock sheet id (e.g. LOCK_SHEET_KORA_VEGA). Required by CANON when a locked principal is in frame."
+    },
+    "lock_sheet_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Optional multi-character lock sheet ids"
+    },
+    "reference_images": {
+      "type": "array",
+      "description": "Paths to locks/refs/<character_id>/ stills or approved continuity stills.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Non-rendered screenplay cues (e.g. hand signal beat). Never copy into image_prompt/video_prompt."
+    },
+    "image_path": {
+      "type": "string"
+    },
+    "video_path": {
+      "type": "string"
+    },
+    "backend": {
+      "type": "string"
+    },
+    "render": {
+      "type": "object"
+    },
+    "character_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "Stable ids from WORLD_TOKENS.characters (e.g. mileo_chen, kora_vega). Required."
+    },
+    "character_id": {
+      "type": "string",
+      "description": "Optional singular lead id; prefer character_ids[]. Must match WORLD_TOKENS.characters key."
+    },
+    "location_id": {
+      "type": "string",
+      "description": "Stable id from WORLD_TOKENS.locations (e.g. tunnel_six, fracturados_redoubt). Required."
+    }
+  },
+  "additionalProperties": true
+}

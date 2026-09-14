@@ -1,0 +1,106 @@
+{
+  "queue_doc": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/REGEN_QUEUE_v1.md",
+  "generated_at": "2026-09-14T10:17:11.241098Z",
+  "ok": 14,
+  "fail": 0,
+  "results": [
+    {
+      "id": "FC-S03-02",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-02.png",
+      "bytes": 150469
+    },
+    {
+      "id": "FC-S03-03",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-03.png",
+      "bytes": 160016
+    },
+    {
+      "id": "FC-S03-04",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-04.png",
+      "bytes": 192969
+    },
+    {
+      "id": "FC-S03-05",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-05.png",
+      "bytes": 176149
+    },
+    {
+      "id": "FC-S03-06",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-06.png",
+      "bytes": 133506
+    },
+    {
+      "id": "FC-S03-07",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-07.png",
+      "bytes": 195305
+    },
+    {
+      "id": "FC-S03-08",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-08.png",
+      "bytes": 174196
+    },
+    {
+      "id": "FC-S04-02",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-02.png",
+      "bytes": 200998
+    },
+    {
+      "id": "FC-S04-03",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-03.png",
+      "bytes": 154100
+    },
+    {
+      "id": "FC-S04-04",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-04.png",
+      "bytes": 144883
+    },
+    {
+      "id": "FC-S04-05",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-05.png",
+      "bytes": 177624
+    },
+    {
+      "id": "FC-S04-06",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-06.png",
+      "bytes": 233876
+    },
+    {
+      "id": "FC-S04-07",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-07.png",
+      "bytes": 202290
+    },
+    {
+      "id": "FC-S04-08",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-08.png",
+      "bytes": 143810
+    }
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "scene_id": "FC-S04",
+  "storyboard": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/scenes/FC-S04.json",
+  "generated_at": "2026-09-14T10:26:38.087845Z",
+  "results": [
+    {
+      "id": "FC-S04-02",
+      "order": 2,
+      "status": "skipped_existing",
+      "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-02.png",
+      "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-02.mp4"
+    },
+    {
+      "id": "FC-S04-03",
+      "order": 3,
+      "status": "skipped_existing",
+      "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-03.png",
+      "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-03.mp4"
+    }
+  ],
+  "shots_snapshot": [
+    {
+      "id": "FC-S04-01",
+      "order": 1,
+      "duration_s": 5,
+      "camera": "slow push toward sealed metro blast doors",
+      "framing": "extreme wide establishing",
+      "characters": [],
+      "wardrobe_ref": "n/a",
+      "location": "Fracturados redoubt — decommissioned metro station outer blast doors",
+      "action": "Establish The Fractured subterranean redoubt: heavy lead blast doors, braided copper mesh scattering radar; warm practical glow leaking from seams",
+      "image_prompt": "Extreme wide cinematic establishing of a sealed decommissioned metro station redoubt under Neo-Citania. Heavy lead blast doors framed by braided copper mesh panels designed to scatter sweeps. Warm gas-lamp and recycled solar glow leaks through door seams into cold tunnel Approach. Brick barrel vault ribs, dust motes, volumetric haze. Empty approach corridor — no people, no readable markings. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Slow push toward sealed lead blast doors; copper mesh catches warm practical flicker; dust drifts; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-01.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-01.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -23.2,
+        "max_volume_db": -10.2,
+        "backend": "xAI API (image+video)"
+      }
+    },
+    {
+      "id": "FC-S04-02",
+      "order": 2,
+      "duration_s": 5,
+      "camera": "over-shoulder past Kora into living vault",
+      "framing": "wide over-shoulder reveal",
+      "characters": [
+        "Kora Vega",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Kora copper-gold; Mileo AFTER cut + Coil",
+      "location": "Fracturados redoubt — brick barrel vault living hall",
+      "action": "Kora hauls Mileo past checkpoint into the vault; Mileo wide-eyed shock at free human life under gas lamps",
+      "image_prompt": "Cinematic film still, one camera setup per shot (never a multi-panel layout), the characters kept consistent with the described identities. Lighting: hard practical key cutting deep shadow, volumetric haze always present, scale contrast. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog; practical sources amber sodium / warm filament / cold glass bounce / indigo bioluminescence post-awakening only. [LOCK_SHEET_KORA_VEGA] Kora Vega: Latina mestiza woman ~24, angular cheekbones, defined jaw, dark unkempt shoulder-length hair 28-35 cm, warm dark BROWN iris with a few indigo flecks (the eyes are NOT blue, NOT cyan, NOT grey, NOT glowing), NO cybernetic implant anywhere, NO earpiece, NO metal or glowing device on the ear or temple, NO scar on the cheek and NO scar on the forehead; her only marker is a pale healed fibrous surgical scar ridge BEHIND HER RIGHT EAR (her right ear, viewer's left) plus a subtle subcutaneous ridge at the LEFT clavicle. [LOCK_SHEET_MILEO_CHEN] Mileo Chen: East Asian male ~32, lean-athletic analyst frame, oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, black regulation hair cut exactly 3.2 cm (neat, never long), vivid saturated GREEN iris (never brown, never blue). Scene content: Wide over-shoulder cinematic: consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots. consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots. Kora in worn copper-bronze tactical vest steadies Mileo (dark practical underlayer, LEFT wrist faint indigo Serpent Coil) as they enter a brick barrel-vault metro hall lit by warm gas lamps and recycled solar spotlights. Soft background clusters of people sharing steam bowls, repairing a diesel generator — faces soft-focus, NO readable text on crates or gear. Mileo expression: bandages-torn-away shock. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos. NO cybernetic ear implants, NO glowing ear hardware, NO cheek scars on the young woman, NO blue eyes. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO glowing lettering, NO numbers, NO floor projections, NO cybernetic ear implants, NO readable text, NO logos.",
+      "video_prompt": "Camera drifts past Kora shoulder; Mileo head turns taking in the vault; soft crowd motion and steam rise; horizontal 16:9 motion from still.",
+      "status": "still_regenerated",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-02.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-02.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -30.2,
+        "max_volume_db": -14.2,
+        "backend": "xAI API (image+video)"
+      },
+      "reference_images": [
+        "locksheets/KORA_VEGA_3Q.png",
+        "locksheets/KORA_VEGA_PROFILE.png",
+        "locksheets/KORA_VEGA_FULL.png",
+        "locksheets/MILEO_CHEN_3Q.png",
+        "locksheets/MILEO_CHEN_PROFILE.png",
+        "locksheets/MILEO_CHEN_FULL.png"
+      ],
+      "lock_sheet_ids": [
+        "LOCK_SHEET_KORA_VEGA",
+        "LOCK_SHEET_MILEO_CHEN"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_KORA_VEGA",
+      "regen_note": "REGEN_QUEUE_v1 still replaced v3 (lock-sheet face block + per-shot wardrobe, no faction text, no readable text)"
+    },
+    {
+      "id": "FC-S04-03",
+      "order": 3,
+      "duration_s": 5,
+      "camera": "tracking two-shot through crowded vault",
+      "framing": "medium tracking two-shot",
+      "characters": [
+        "Kora Vega",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Kora copper-gold; Mileo AFTER cut + Coil",
+      "location": "Fracturados redoubt — path toward command post",
+      "action": "Kora steers Mileo toward command post; chaotic life: laughter, broth steam, children chasing rag ball near ammo crates (soft, PG-13)",
+      "image_prompt": "Cinematic film still, one camera setup per shot (never a multi-panel layout), the characters kept consistent with the described identities. Lighting: hard practical key cutting deep shadow, volumetric haze always present, scale contrast. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog; practical sources amber sodium / warm filament / cold glass bounce / indigo bioluminescence post-awakening only. [LOCK_SHEET_KORA_VEGA] Kora Vega: Latina mestiza woman ~24, angular cheekbones, defined jaw, dark unkempt shoulder-length hair 28-35 cm, warm dark BROWN iris with a few indigo flecks (the eyes are NOT blue, NOT cyan, NOT grey, NOT glowing), NO cybernetic implant anywhere, NO earpiece, NO metal or glowing device on the ear or temple, NO scar on the cheek and NO scar on the forehead; her only marker is a pale healed fibrous surgical scar ridge BEHIND HER RIGHT EAR (her right ear, viewer's left) plus a subtle subcutaneous ridge at the LEFT clavicle. [LOCK_SHEET_MILEO_CHEN] Mileo Chen: East Asian male ~32, lean-athletic analyst frame, oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, black regulation hair cut exactly 3.2 cm (neat, never long), vivid saturated GREEN iris (never brown, never blue). Scene content: Medium tracking two-shot through underground vault: consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots. consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots. Kora copper-bronze vest guides Mileo dark underlayer toward heavy rubber blast drapes ahead. Soft background: steaming broth bowls, unscripted laughter silhouettes, children chasing a rag ball past stacked crates — NO logos, NO readable text on crates. Warm practicals vs Atmosphere shadows; Coil indigo faint at Mileo LEFT wrist. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos. NO cybernetic ear implants, NO glowing ear hardware, NO cheek scars on the young woman, NO blue eyes. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO glowing lettering, NO numbers, NO floor projections, NO cybernetic ear implants, NO readable text, NO logos.",
+      "video_prompt": "Tracking move through warm vault; Mileo glances at children soft-focus; Kora keeps him moving; steam drifts; horizontal 16:9 motion from still.",
+      "status": "still_regenerated",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-03.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-03.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -25.7,
+        "max_volume_db": -6.8,
+        "backend": "xAI API (image+video)"
+      },
+      "reference_images": [
+        "locksheets/KORA_VEGA_3Q.png",
+        "locksheets/KORA_VEGA_PROFILE.png",
+        "locksheets/KORA_VEGA_FULL.png",
+        "locksheets/MILEO_CHEN_3Q.png",
+        "locksheets/MILEO_CHEN_PROFILE.png",
+        "locksheets/MILEO_CHEN_FULL.png"
+      ],
+      "lock_sheet_ids": [
+        "LOCK_SHEET_KORA_VEGA",
+        "LOCK_SHEET_MILEO_CHEN"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_KORA_VEGA",
+      "regen_note": "REGEN_QUEUE_v1 still replaced v2 (lock-sheet face block + per-shot wardrobe, no faction text, no readable text)"
+    },
+    {
+      "id": "FC-S04-04",
+      "order": 4,
+      "duration_s": 4,
+      "camera": "push through rubber blast drapes into command chamber",
+      "framing": "medium push through threshold",
+      "characters": [
+        "Kora Vega",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Kora copper-gold; Mileo AFTER cut",
+      "location": "Fracturados command post threshold — rubber blast drapes",
+      "action": "Push through heavy rubber blast drapes into fortified command chamber; holographic tactical table glow ahead",
+      "image_prompt": "Cinematic film still, one camera setup per shot (never a multi-panel layout), the characters kept consistent with the described identities. Lighting: hard practical key cutting deep shadow, volumetric haze always present, scale contrast. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog; practical sources amber sodium / warm filament / cold glass bounce / indigo bioluminescence post-awakening only. [LOCK_SHEET_KORA_VEGA] Kora Vega: Latina mestiza woman ~24, angular cheekbones, defined jaw, dark unkempt shoulder-length hair 28-35 cm, warm dark BROWN iris with a few indigo flecks (the eyes are NOT blue, NOT cyan, NOT grey, NOT glowing), NO cybernetic implant anywhere, NO earpiece, NO metal or glowing device on the ear or temple, NO scar on the cheek and NO scar on the forehead; her only marker is a pale healed fibrous surgical scar ridge BEHIND HER RIGHT EAR (her right ear, viewer's left) plus a subtle subcutaneous ridge at the LEFT clavicle. [LOCK_SHEET_MILEO_CHEN] Mileo Chen: East Asian male ~32, lean-athletic analyst frame, oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, black regulation hair cut exactly 3.2 cm (neat, never long), vivid saturated GREEN iris (never brown, never blue). Scene content: Medium cinematic push through heavy black rubber blast drapes into a fortified command chamber. consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots in copper-bronze vest parts drapes; consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots in dark underlayer follows, still trembling. Ahead: abstract electric-blue holographic table glow powered by a salvaged truck battery silhouette — NO UI text, NO map labels, NO logos. Chiaroscuro, warm spill vs cold holo. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos. NO cybernetic ear implants, NO glowing ear hardware, NO cheek scars on the young woman, NO blue eyes. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO glowing lettering, NO numbers, NO floor projections, NO cybernetic ear implants, NO readable text, NO logos.",
+      "video_prompt": "Rubber drapes part; camera pushes into chamber; blue holo shimmer rises; Mileo hesitates then follows; horizontal 16:9 motion from still.",
+      "status": "still_regenerated",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-04.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-04.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -25.5,
+        "max_volume_db": -11.1,
+        "backend": "xAI API (image+video)"
+      },
+      "reference_images": [
+        "locksheets/KORA_VEGA_3Q.png",
+        "locksheets/KORA_VEGA_PROFILE.png",
+        "locksheets/KORA_VEGA_FULL.png",
+        "locksheets/MILEO_CHEN_3Q.png",
+        "locksheets/MILEO_CHEN_PROFILE.png",
+        "locksheets/MILEO_CHEN_FULL.png"
+      ],
+      "lock_sheet_ids": [
+        "LOCK_SHEET_KORA_VEGA",
+        "LOCK_SHEET_MILEO_CHEN"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_KORA_VEGA",
+      "regen_note": "REGEN_QUEUE_v1 still replaced v2 (lock-sheet face block + per-shot wardrobe, no faction text, no readable text)"
+    },
+    {
+      "id": "FC-S04-05",
+      "order": 5,
+      "duration_s": 6,
+      "camera": "hero intro slow orbit / push on Sierra at holo table",
+      "framing": "medium close hero intro",
+      "characters": [
+        "Sierra Catalano"
+      ],
+      "wardrobe_ref": "Sierra Catalano Keystone commander — leather jacket + black combat pants",
+      "location": "Fracturados command chamber — holographic tactical table",
+      "action": "Sierra Catalano first appearance: leaning over holographic tactical table; pale LEFT cheek scar; calculating dark eyes; Keystone commander",
+      "image_prompt": "Cinematic film still, one camera setup per shot (never a multi-panel layout), the characters kept consistent with the described identities. Lighting: hard practical key cutting deep shadow, volumetric haze always present, scale contrast. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog; practical sources amber sodium / warm filament / cold glass bounce / indigo bioluminescence post-awakening only. [LOCK_SHEET_SIERRA_CATALANO] Sierra Catalano: European-descent field commander woman, visual age ~33-38, strong angular jaw, high cheekbones, composed brow, hazel mixed brown-green eyes (never vivid green, never blue), dark practical commander hair 8-12 cm above the collar, and ONE pale temple-to-jaw scar on her LEFT cheek only (no scar on the right cheek, no forehead scars). Scene content: Medium close cinematic hero intro of Sierra Catalano leaning over a holographic tactical table. consistent character lock Sierra Catalano: field commander woman, hazel/dark calculating eyes, pale scar across LEFT cheek from temple to jaw, dark practical commander hair, same face across shots. Wardrobe: black combat pants and weathered leather jacket, subtle copper-gold seam accents, NO logos. Pale scar tracks LEFT cheek temple to jaw in soft holo rim light. Dark calculating eyes look up from abstract electric-blue topography glow — NO readable text, NO logos, NO UI labels. Salvaged truck battery power cable soft in frame. Command bunker brick and rubber drapes behind. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos. NO cybernetic ear implants, NO glowing ear hardware, NO cheek scars on the young woman, NO blue eyes. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO glowing lettering, NO numbers, NO floor projections, NO cybernetic ear implants, NO readable text, NO logos.",
+      "video_prompt": "Slow push on Sierra as she looks up from the holo table; blue light shifts across LEFT cheek scar; jacket creases; horizontal 16:9 motion from still.",
+      "status": "still_regenerated",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-05.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-05.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -20.2,
+        "max_volume_db": -8.2,
+        "backend": "xAI API (image+video)"
+      },
+      "reference_images": [
+        "locksheets/SIERRA_CATALANO_3Q.png",
+        "locksheets/SIERRA_CATALANO_PROFILE.png",
+        "locksheets/SIERRA_CATALANO_FULL.png"
+      ],
+      "lock_sheet_ids": [
+        "LOCK_SHEET_SIERRA_CATALANO"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_SIERRA_CATALANO",
+      "regen_note": "REGEN_QUEUE_v1 still replaced v2 (lock-sheet face block + per-shot wardrobe, no faction text, no readable text)"
+    },
+    {
+      "id": "FC-S04-06",
+      "order": 6,
+      "duration_s": 5,
+      "camera": "over-table two-shot Sierra vs Mileo",
+      "framing": "medium two-shot confrontation",
+      "characters": [
+        "Sierra Catalano",
+        "Mileo Chen",
+        "Kora Vega"
+      ],
+      "wardrobe_ref": "Sierra leather; Mileo AFTER cut + Coil; Kora copper-gold soft flank",
+      "location": "Fracturados command chamber — across holographic table",
+      "action": "Sierra confronts Specialist Chen without preamble; Mileo meets her gaze despite finger tremors; Kora flanks soft",
+      "image_prompt": "Cinematic film still, one camera setup per shot (never a multi-panel layout), the characters kept consistent with the described identities. Lighting: hard practical key cutting deep shadow, volumetric haze always present, scale contrast. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog; practical sources amber sodium / warm filament / cold glass bounce / indigo bioluminescence post-awakening only. [LOCK_SHEET_SIERRA_CATALANO] Sierra Catalano: European-descent field commander woman, visual age ~33-38, strong angular jaw, high cheekbones, composed brow, hazel mixed brown-green eyes (never vivid green, never blue), dark practical commander hair 8-12 cm above the collar, and ONE pale temple-to-jaw scar on her LEFT cheek only (no scar on the right cheek, no forehead scars). [LOCK_SHEET_MILEO_CHEN] Mileo Chen: East Asian male ~32, lean-athletic analyst frame, oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, black regulation hair cut exactly 3.2 cm (neat, never long), vivid saturated GREEN iris (never brown, never blue). [LOCK_SHEET_KORA_VEGA] Kora Vega: Latina mestiza woman ~24, angular cheekbones, defined jaw, dark unkempt shoulder-length hair 28-35 cm, warm dark BROWN iris with a few indigo flecks (the eyes are NOT blue, NOT cyan, NOT grey, NOT glowing), NO cybernetic implant anywhere, NO earpiece, NO metal or glowing device on the ear or temple, NO scar on the cheek and NO scar on the forehead; her only marker is a pale healed fibrous surgical scar ridge BEHIND HER RIGHT EAR (her right ear, viewer's left) plus a subtle subcutaneous ridge at the LEFT clavicle. Scene content: Medium two-shot across holographic tactical table: consistent character lock Sierra Catalano: field commander woman, hazel/dark calculating eyes, pale scar across LEFT cheek from temple to jaw, dark practical commander hair, same face across shots in weathered leather jacket faces consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots in dark underlayer with LEFT wrist indigo Coil and residual tremors. Soft flank: consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots copper-bronze vest. Abstract electric-blue holo between them — NO text, NO logos. Tension: field-general cost calculus vs defector resolve. Warm bunker practicals + cold holo. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos. NO cybernetic ear implants, NO glowing ear hardware, NO cheek scars on the young woman, NO blue eyes. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO glowing lettering, NO numbers, NO floor projections, NO cybernetic ear implants, NO readable text, NO logos.",
+      "video_prompt": "Subtle stare-down breathe; Mileo fingers tremble then still; holo shimmer; Kora shifts weight; horizontal 16:9 motion from still.",
+      "status": "still_regenerated",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-06.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-06.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -29.0,
+        "max_volume_db": -14.0,
+        "backend": "xAI API (image+video)"
+      },
+      "reference_images": [
+        "locksheets/SIERRA_CATALANO_3Q.png",
+        "locksheets/SIERRA_CATALANO_PROFILE.png",
+        "locksheets/SIERRA_CATALANO_FULL.png",
+        "locksheets/MILEO_CHEN_3Q.png",
+        "locksheets/MILEO_CHEN_PROFILE.png",
+        "locksheets/MILEO_CHEN_FULL.png",
+        "locksheets/KORA_VEGA_3Q.png",
+        "locksheets/KORA_VEGA_PROFILE.png",
+        "locksheets/KORA_VEGA_FULL.png"
+      ],
+      "lock_sheet_ids": [
+        "LOCK_SHEET_SIERRA_CATALANO",
+        "LOCK_SHEET_MILEO_CHEN",
+        "LOCK_SHEET_KORA_VEGA"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_SIERRA_CATALANO",
+      "regen_note": "REGEN_QUEUE_v1 still replaced v2 (lock-sheet face block + per-shot wardrobe, no faction text, no readable text)"
+    },
+    {
+      "id": "FC-S04-07",
+      "order": 7,
+      "duration_s": 5,
+      "camera": "insert scanner then table projection ECU",
+      "framing": "medium insert → ECU table projection",
+      "characters": [
+        "Sierra Catalano",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Sierra leather; Mileo AFTER cut nape patch area",
+      "location": "Fracturados command chamber — neural scanner beat",
+      "action": "Sierra scans Mileo bowed head; handheld neural scanner projects fractured electric-blue micro-fissure web — genuine synaptic rebellion",
+      "image_prompt": "Cinematic film still, one camera setup per shot (never a multi-panel layout), the characters kept consistent with the described identities. Lighting: hard practical key cutting deep shadow, volumetric haze always present, scale contrast. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog; practical sources amber sodium / warm filament / cold glass bounce / indigo bioluminescence post-awakening only. [LOCK_SHEET_SIERRA_CATALANO] Sierra Catalano: European-descent field commander woman, visual age ~33-38, strong angular jaw, high cheekbones, composed brow, hazel mixed brown-green eyes (never vivid green, never blue), dark practical commander hair 8-12 cm above the collar, and ONE pale temple-to-jaw scar on her LEFT cheek only (no scar on the right cheek, no forehead scars). [LOCK_SHEET_MILEO_CHEN] Mileo Chen: East Asian male ~32, lean-athletic analyst frame, oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, black regulation hair cut exactly 3.2 cm (neat, never long), vivid saturated GREEN iris (never brown, never blue). Scene content: Cinematic insert: Sierra Catalano holds a handheld neural scanner near Mileo Chen bowed head. consistent character lock Sierra Catalano: field commander woman, hazel/dark calculating eyes, pale scar across LEFT cheek from temple to jaw, dark practical commander hair, same face across shots. consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots. Device emits soft abstract beep light (no UI glyphs) and projects a web of fractured electric-blue micro-fissure lines across the holographic table surface — abstract geometry only, NO readable text, NO logos. Sierra weathered leather sleeve; Mileo dark underlayer nape with dampener patch edge. PG-13 no gore, no surgery. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos. NO cybernetic ear implants, NO glowing ear hardware, NO cheek scars on the young woman, NO blue eyes. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO glowing lettering, NO numbers, NO floor projections, NO cybernetic ear implants, NO readable text, NO logos.",
+      "video_prompt": "Scanner sweeps; fractured blue web blooms across table; Sierra eyes harden in recognition; Mileo breath steadies; horizontal 16:9 motion from still.",
+      "status": "still_regenerated",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-07.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-07.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -19.8,
+        "max_volume_db": -6.8,
+        "backend": "xAI API (image+video)"
+      },
+      "reference_images": [
+        "locksheets/SIERRA_CATALANO_3Q.png",
+        "locksheets/SIERRA_CATALANO_PROFILE.png",
+        "locksheets/SIERRA_CATALANO_FULL.png",
+        "locksheets/MILEO_CHEN_3Q.png",
+        "locksheets/MILEO_CHEN_PROFILE.png",
+        "locksheets/MILEO_CHEN_FULL.png"
+      ],
+      "lock_sheet_ids": [
+        "LOCK_SHEET_SIERRA_CATALANO",
+        "LOCK_SHEET_MILEO_CHEN"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_SIERRA_CATALANO",
+      "regen_note": "REGEN_QUEUE_v1 still replaced v2 (lock-sheet face block + per-shot wardrobe, no faction text, no readable text)"
+    },
+    {
+      "id": "FC-S04-08",
+      "order": 8,
+      "duration_s": 6,
+      "camera": "rising wide then ECU Coil flare as they exit command",
+      "framing": "wide rising → ECU Coil",
+      "characters": [
+        "Sierra Catalano",
+        "Kora Vega",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Sierra leather; Kora copper-gold; Mileo AFTER cut + Coil flare",
+      "location": "Fracturados command chamber exit toward medical bay route",
+      "action": "Sierra orders medical bay / Link extraction; Kora grips Mileo shoulder; indigo Serpent Coil flares brilliant in underground gloom — war for the soul begins",
+      "image_prompt": "Cinematic film still, one camera setup per shot (never a multi-panel layout), the characters kept consistent with the described identities. Lighting: hard practical key cutting deep shadow, volumetric haze always present, scale contrast. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog; practical sources amber sodium / warm filament / cold glass bounce / indigo bioluminescence post-awakening only. [LOCK_SHEET_SIERRA_CATALANO] Sierra Catalano: European-descent field commander woman, visual age ~33-38, strong angular jaw, high cheekbones, composed brow, hazel mixed brown-green eyes (never vivid green, never blue), dark practical commander hair 8-12 cm above the collar, and ONE pale temple-to-jaw scar on her LEFT cheek only (no scar on the right cheek, no forehead scars). [LOCK_SHEET_KORA_VEGA] Kora Vega: Latina mestiza woman ~24, angular cheekbones, defined jaw, dark unkempt shoulder-length hair 28-35 cm, warm dark BROWN iris with a few indigo flecks (the eyes are NOT blue, NOT cyan, NOT grey, NOT glowing), NO cybernetic implant anywhere, NO earpiece, NO metal or glowing device on the ear or temple, NO scar on the cheek and NO scar on the forehead; her only marker is a pale healed fibrous surgical scar ridge BEHIND HER RIGHT EAR (her right ear, viewer's left) plus a subtle subcutaneous ridge at the LEFT clavicle. [LOCK_SHEET_MILEO_CHEN] Mileo Chen: East Asian male ~32, lean-athletic analyst frame, oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, black regulation hair cut exactly 3.2 cm (neat, never long), vivid saturated GREEN iris (never brown, never blue). Scene content: Wide cinematic then implied ECU: Sierra Catalano fists on tactical table edge, consistent character lock Sierra Catalano: field commander woman, hazel/dark calculating eyes, pale scar across LEFT cheek from temple to jaw, dark practical commander hair, same face across shots, weathered leather jacket. consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots grips consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots shoulder, steering him toward rubber-drape exit for medical bay. Beneath Mileo LEFT wrist skin the indigo Serpent Coil web flares sudden brilliance (#4B0082 / #3F00FF) in bunker gloom. Abstract holo still glowing — NO text, NO logos. Atmosphere + copper-gold and Cascade indigo. Point of no return. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos. NO cybernetic ear implants, NO glowing ear hardware, NO cheek scars on the young woman, NO blue eyes. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO glowing lettering, NO numbers, NO floor projections, NO cybernetic ear implants, NO readable text, NO logos.",
+      "video_prompt": "Sierra nods them out; Kora steers Mileo; Coil flares brighter under wrist skin; camera rises then snaps to Coil pulse; horizontal 16:9 motion from still.",
+      "status": "still_regenerated",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-08.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-08.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -20.8,
+        "max_volume_db": -0.8,
+        "backend": "xAI API (image+video)"
+      },
+      "reference_images": [
+        "locksheets/SIERRA_CATALANO_3Q.png",
+        "locksheets/SIERRA_CATALANO_PROFILE.png",
+        "locksheets/SIERRA_CATALANO_FULL.png",
+        "locksheets/KORA_VEGA_3Q.png",
+        "locksheets/KORA_VEGA_PROFILE.png",
+        "locksheets/KORA_VEGA_FULL.png",
+        "locksheets/MILEO_CHEN_3Q.png",
+        "locksheets/MILEO_CHEN_PROFILE.png",
+        "locksheets/MILEO_CHEN_FULL.png"
+      ],
+      "lock_sheet_ids": [
+        "LOCK_SHEET_SIERRA_CATALANO",
+        "LOCK_SHEET_KORA_VEGA",
+        "LOCK_SHEET_MILEO_CHEN"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_SIERRA_CATALANO",
+      "regen_note": "REGEN_QUEUE_v1 still replaced v2 (lock-sheet face block + per-shot wardrobe, no faction text, no readable text)"
+    }
+  ]
+}

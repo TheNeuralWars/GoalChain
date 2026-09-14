@@ -1,0 +1,158 @@
+{
+  "scene_id": "FC-S07",
+  "updated_at": "2026-09-11T07:01:59.349969Z",
+  "shots": [
+    {
+      "id": "FC-S07-01",
+      "order": 1,
+      "duration_s": 5,
+      "camera": "slow push into decommissioned ventilation shaft mouth",
+      "framing": "wide establishing",
+      "characters": [],
+      "wardrobe_ref": "n/a",
+      "location": "Fracturados sanctuary — decommissioned ventilation shaft / blast-hatch corridor",
+      "action": "Post-Delta quiet: dry biting air in unused vent shaft; amber sodium lamps; brick and steel; sanctuary after eastern breach evacuation",
+      "image_prompt": "Wide cinematic establishing of Fracturados underground sanctuary: mouth of a decommissioned industrial ventilation shaft, corrugated metal ducting, damp concrete, hanging cables, amber sodium practical lamps cutting chiaroscuro through dry dusty air. Post-evacuation quiet after eastern breach — empty corridor beyond blast hatch frame, scorched circuit smell suggested by blackened board scraps, pulse-rifle racks blurred in deep background only as abstract shapes. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm sodium-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Slow push into shaft mouth; sodium lamp flicker; dust motes drift; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": null,
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-01.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-01.mp4"
+    },
+    {
+      "id": "FC-S07-02",
+      "order": 2,
+      "duration_s": 5,
+      "camera": "ECU tracking thumb along LEFT forearm scar circuit",
+      "framing": "extreme close-up",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo FROZEN AFTER-cut + Coil",
+      "location": "Inside decommissioned ventilation shaft — Mileo seated in shadow",
+      "action": "Mileo thumb-traces geometric dermal scars on LEFT forearm; indigo bioluminescent Coil pulses under skin like living neural data refusing to go dark",
+      "image_prompt": "Extreme close-up cinematic: consistent character lock Mileo Chen: East Asian male ~32, vivid green eyes, black regulation 3.2 cm hair, same face across shots, AFTER-cut dark practical underlayer, LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin, LEFT forearm geometric dermal scar circuit pulsing indigo, pad of thumb tracing raised geometric scar circuitry along LEFT forearm; beneath flesh deep indigo bioluminescent Serpent Coil lines pulse like a living neural network of raw data. Dark underlayer sleeve pushed back; shaft shadow; amber sodium rim light. PG-13 medical scar detail only — no gore. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm sodium-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Thumb slowly traces scar lines; indigo Coil pulse brightens then dims; micro camera track along forearm; horizontal 16:9.",
+      "status": "rendered",
+      "render": null,
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-02.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-02.mp4"
+    },
+    {
+      "id": "FC-S07-03",
+      "order": 3,
+      "duration_s": 6,
+      "camera": "medium low angle on seated Mileo then slight Dutch tilt for vertigo",
+      "framing": "medium portrait",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo FROZEN; nape bandage visible",
+      "location": "Ventilation shaft interior — Fracturados sanctuary",
+      "action": "Mileo sits in shaft penumbra; vivid green eyes; bandaged nape Link scar; post-amputation spatial vertigo — body not yet trusted",
+      "image_prompt": "Medium cinematic portrait: consistent character lock Mileo Chen: East Asian male ~32, vivid green eyes, black regulation 3.2 cm hair, same face across shots, AFTER-cut dark practical underlayer, LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin, LEFT forearm geometric dermal scar circuit pulsing indigo, seated in decommissioned ventilation shaft penumbra, knees drawn, subtle bandage at nape Link-extraction scar, vivid green eyes unfocused with post-amputation vertigo, LEFT wrist Coil faintly glowing indigo, LEFT forearm geometric scars visible. Amber sodium backlight; dry dusty air. Same face lock. PG-13. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm sodium-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Slight Dutch tilt for vertigo; Mileo blinks slow; Coil pulse at wrist; dust drifts; horizontal 16:9.",
+      "status": "rendered",
+      "render": null,
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-03.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-03.mp4"
+    },
+    {
+      "id": "FC-S07-04",
+      "order": 4,
+      "duration_s": 5,
+      "camera": "atmospheric insert pan across sanctuary bay",
+      "framing": "wide atmospheric insert",
+      "characters": [],
+      "wardrobe_ref": "n/a",
+      "location": "Fracturados sanctuary bay beyond the shaft",
+      "action": "Sanctuary air: smell of pulse propellant and scorched boards; cold-sweat of statistical survivors; trust still withheld",
+      "image_prompt": "Wide atmospheric cinematic insert of Fracturados underground bay: stacked abstract pulse-rifle shapes on racks (NO logos), scorched circuit boards on workbenches, hanging copper cabling, sodium amber pools and deep purple shadow, empty cots and salvaged gear after Protocol Delta — tense quiet sanctuary of statistical survivors. No people in frame. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm sodium-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Slow pan across rifle racks and scorched boards; lamp flicker; tense stillness; horizontal 16:9.",
+      "status": "rendered",
+      "render": null,
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-04.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-04.mp4"
+    },
+    {
+      "id": "FC-S07-05",
+      "order": 5,
+      "duration_s": 5,
+      "camera": "silhouette then rack-focus to Kora at blast hatch",
+      "framing": "medium doorway / hatch frame",
+      "characters": [
+        "Kora Vega"
+      ],
+      "wardrobe_ref": "Kora FROZEN copper vest",
+      "location": "Ventilation shaft blast-hatch entrance",
+      "action": "Shadow cuts across shaft entrance; Kora leans on blast hatch frame arms crossed; copper tactical vest; stubby carbine slung; sodium glow",
+      "image_prompt": "Medium cinematic doorway: consistent character lock Kora Vega: Latina/mestiza ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous ridge scar behind RIGHT ear, same face across shots, street/resistance copper-bronze tactical vest over dark underlayer, Resistencia copper-gold accents, scuffed boots, compact shock pistol/carbine abstract non-branded shape, leaning against industrial blast hatch frame arms crossed, stubby abstract carbine slung across back (NO logos), copper-bronze tactical vest catching amber sodium glow, fibrous ridge scar behind RIGHT ear, sharp Underbelly operative presence looking into shaft shadows. Same face lock. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm sodium-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Shadow crosses hatch; rack-focus from silhouette to Kora face; slight lean; horizontal 16:9.",
+      "status": "rendered",
+      "render": null,
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-05.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-05.mp4"
+    },
+    {
+      "id": "FC-S07-06",
+      "order": 6,
+      "duration_s": 6,
+      "camera": "two-shot: Kora hatch then Mileo rising with balance slip",
+      "framing": "medium two-shot",
+      "characters": [
+        "Kora Vega",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Kora/Mileo FROZEN",
+      "location": "Shaft interior toward hatch — damp concrete floor",
+      "action": "It's time, specialist — Sierra wants jump point in five; Mileo stands; body lags will; boots skid on damp concrete before inner ear recalibrates",
+      "image_prompt": "Medium two-shot cinematic: consistent character lock Kora Vega: Latina/mestiza ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous ridge scar behind RIGHT ear, same face across shots, street/resistance copper-bronze tactical vest over dark underlayer, Resistencia copper-gold accents, scuffed boots, compact shock pistol/carbine abstract non-branded shape at hatch speaking with Underbelly rasp presence; consistent character lock Mileo Chen: East Asian male ~32, vivid green eyes, black regulation 3.2 cm hair, same face across shots, AFTER-cut dark practical underlayer, LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin, LEFT forearm geometric dermal scar circuit pulsing indigo rising from shaft floor, body a fraction late, boots skidding on damp concrete, LEFT wrist Coil indigo pulse, nape bandage, vivid green eyes fighting vertigo. Sodium amber + indigo. Same faces. PG-13. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm sodium-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Mileo stands; brief balance slip on damp concrete; Kora watches arms still crossed; Coil pulse; horizontal 16:9.",
+      "status": "rendered",
+      "render": null,
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-06.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-06.mp4"
+    },
+    {
+      "id": "FC-S07-07",
+      "order": 7,
+      "duration_s": 5,
+      "camera": "intercut ECU: Kora temples violet then Mileo LEFT forearm Coil",
+      "framing": "extreme close-up resonance pair",
+      "characters": [
+        "Kora Vega",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Kora/Mileo FROZEN; Cascade-Coil resonance",
+      "location": "Shaft / hatch — intimate resonance beat",
+      "action": "Kora locks eyes; pupils constrict; temples faint violet Cascade shimmer resonating with Mileo forearm bio-data — hatred has a scent; different roads same mass grave",
+      "image_prompt": "Intimate cinematic dual close composition: consistent character lock Kora Vega: Latina/mestiza ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous ridge scar behind RIGHT ear, same face across shots, street/resistance copper-bronze tactical vest over dark underlayer, Resistencia copper-gold accents, scuffed boots, compact shock pistol/carbine abstract non-branded shape eyes locking with predatory focus, faint violet Cascade shimmer at temples (PG-13 luminous veins only); paired with consistent character lock Mileo Chen: East Asian male ~32, vivid green eyes, black regulation 3.2 cm hair, same face across shots, AFTER-cut dark practical underlayer, LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin, LEFT forearm geometric dermal scar circuit pulsing indigo LEFT forearm indigo Coil pulsing in sympathetic rhythm. Amber sodium rim; no readable text. Same face locks. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm sodium-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Temple violet shimmer pulses in sync with Coil glow; micro push on eyes then forearm; horizontal 16:9.",
+      "status": "rendered",
+      "render": null,
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-07.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-07.mp4"
+    },
+    {
+      "id": "FC-S07-08",
+      "order": 8,
+      "duration_s": 6,
+      "camera": "tracking reverse as they exit shaft toward jump-point corridor",
+      "framing": "wide tracking / reverse",
+      "characters": [
+        "Kora Vega",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Kora/Mileo FROZEN",
+      "location": "Shaft hatch then Fracturados corridor toward jump point",
+      "action": "Let's move — Kora leads; Mileo follows still recalibrating; corridor toward Sierra jump point; surface raid unspoken ahead",
+      "image_prompt": "Wide tracking cinematic reverse: consistent character lock Kora Vega: Latina/mestiza ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous ridge scar behind RIGHT ear, same face across shots, street/resistance copper-bronze tactical vest over dark underlayer, Resistencia copper-gold accents, scuffed boots, compact shock pistol/carbine abstract non-branded shape leading from blast hatch into brick-steel Fracturados corridor, copper vest and abstract carbine; consistent character lock Mileo Chen: East Asian male ~32, vivid green eyes, black regulation 3.2 cm hair, same face across shots, AFTER-cut dark practical underlayer, LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin, LEFT forearm geometric dermal scar circuit pulsing indigo following half a step behind, dark underlayer, LEFT wrist Coil indigo, nape bandage, vivid green eyes steadying; sodium lamps recede into purple Atmosphere shadow toward jump point. Same faces. Destination implied only — no signage. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm sodium-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Track reverse as they exit shaft; Kora ahead; Mileo steadies gait; lamps pass; hold toward corridor dark; horizontal 16:9.",
+      "status": "rendered",
+      "render": null,
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-08.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-08.mp4"
+    }
+  ],
+  "last_run": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/FC-S07_run_20260911T070159Z.json"
+}

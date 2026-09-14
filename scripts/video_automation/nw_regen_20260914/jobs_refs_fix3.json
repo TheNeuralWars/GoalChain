@@ -1,0 +1,35 @@
+[
+  {
+    "id": "REF-MILEO_CHEN-front-FIX3",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/mileo_chen/front.png",
+    "model": "grok-imagine-image-quality",
+    "aspect": "3:4",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-02.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/LOCK_SHEET_MILEO_CHEN/3q.jpg"
+    ],
+    "prompt": "CRITICAL FACE RULE: clean unscarred face, no cheek/brow/forehead marks. Hair: flat short black regulation cut 3.2 cm, forehead fully exposed, NO fringe, NO bangs, NO bowl cut, NO undercut fade, no hair clip. Chest and tunic carry NO rectangular name tag, NO plate, NO label \u2014 only one blank abstract hexagonal patch of empty metal, zero characters. Character reference still, three-quarter front medium close-up reference view, head-and-shoulders, camera at eye height, subject turned 30-45 degrees from camera, both eyes visible, neutral expression, subject seen from the side that shows the characteristic scar. Characterization: East Asian male ~32, oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, vivid green eyes, black regulation hair 3.2 cm, lean-athletic analyst build. Wardrobe \u2014 pre-cut state: plain dark grey-steel Level-7 utility tunic (#708090 / #C0C0C0) over dark underlay (#000000 / #301934), abstract blank hexagonal badge geometry with no letters, belt with abstract EMP dampener pouch; link nodule subtle at nape. Continuity markers \u2014 link nodule subtle under skin at base of skull (nape); no wrist glow in this state. Environment: plain industrial undercity concrete bay, sodium amber practical (#FF8C00) rim light, deep shadow atmosphere (#000000 / #301934), volumetric haze. Keep the same face, hair and wardrobe as the reference image(s); only change the camera view. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "REF-MILEO_CHEN-profile-FIX3",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/mileo_chen/profile.png",
+    "model": "grok-imagine-image-quality",
+    "aspect": "3:4",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-02.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/LOCK_SHEET_MILEO_CHEN/3q.jpg"
+    ],
+    "prompt": "CRITICAL FACE RULE: clean unscarred face, no cheek/brow/forehead marks. Hair: flat short black regulation cut 3.2 cm, forehead fully exposed, NO fringe, NO bangs, NO bowl cut, NO undercut fade, no hair clip. Chest and tunic carry NO rectangular name tag, NO plate, NO label \u2014 only one blank abstract hexagonal patch of empty metal, zero characters. Character reference still, true profile medium close-up reference view showing the characteristic scar side in clear silhouette, head-and-shoulders, neutral expression, clean jawline and nasal bridge silhouette. Characterization: East Asian male ~32, oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, vivid green eyes, black regulation hair 3.2 cm, lean-athletic analyst build. Wardrobe \u2014 pre-cut state: plain dark grey-steel Level-7 utility tunic (#708090 / #C0C0C0) over dark underlay (#000000 / #301934), abstract blank hexagonal badge geometry with no letters, belt with abstract EMP dampener pouch; link nodule subtle at nape. Continuity markers \u2014 link nodule subtle under skin at base of skull (nape); no wrist glow in this state. Environment: plain industrial undercity concrete bay, sodium amber practical (#FF8C00) rim light, deep shadow atmosphere (#000000 / #301934), volumetric haze. Keep the same face, hair and wardrobe as the reference image(s); only change the camera view. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "REF-KORA_VEGA-front-TEXTONLY",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/kora_vega/front.png",
+    "model": "grok-imagine-image-quality",
+    "aspect": "3:4",
+    "refs": [],
+    "prompt": "CRITICAL SCAR RULE: her face is COMPLETELY FREE of scars \u2014 absolutely no scar, no mark, no blemish on either cheek, on the chin, forehead or near the eyes. The ONLY scar on her is a thick raised fibrous keloid ridge BEHIND THE RIGHT EAR, in the hollow between the right ear and the back of the skull; it must be clearly visible. She wears NO earrings and NO jewellery of any kind. Hair: dark, slightly unkempt, shoulder-brushing 28-35 cm, combed back behind the ears so both ears read clearly. Do NOT imitate any reference photograph: this is a new face. Character reference still, three-quarter front medium close-up reference view, head-and-shoulders, camera at eye height, subject turned 30-45 degrees from camera, both eyes visible, neutral expression, subject seen from the side that shows the characteristic scar. Characterization: Latina mestiza woman ~24, angular cheekbones, defined jaw, slightly wide-set brown eyes with faint indigo flecks (#4B0082 flecks only, not a solid indigo iris), fullish lips, dark practical Underbelly hair shoulder-brushing 28-35 cm, compact agile street-operative build \u2014 FEMALE lead, never a male figure in this vest. Wardrobe \u2014 worn copper-bronze tactical vest (#B87333 / #FFBF00 / #FF8C00) with BLANK unmarked plates (zero lettering, zero patches) over dark underlayer (#000000 / #301934), dark pants (#301934), scuffed boots, compact abstract non-branded shock pistol shape. Continuity markers \u2014 fibrous raised extraction scar ridge behind RIGHT ear (must read clearly); subtle subcutaneous bone-conduction ridge at LEFT clavicle, faint copper #B87333 glow, no UI text. Environment: plain industrial undercity concrete bay, sodium amber practical (#FF8C00) rim light, deep shadow atmosphere (#000000 / #301934), volumetric haze. Keep the same face, hair and wardrobe as the reference image(s); only change the camera view. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  }
+]

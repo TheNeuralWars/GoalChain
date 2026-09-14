@@ -1,0 +1,645 @@
+{
+  "version": 1,
+  "project": "the_neural_wars_fractured_code_film",
+  "film_root": "docs/publishing/the_neural_wars_trilogy/FILM",
+  "global_negatives": [
+    "readable text",
+    "letters on clothing",
+    "logo",
+    "watermarks",
+    "signage",
+    "carteles",
+    "HUD text",
+    "faction name labels on clothes",
+    "Resistencia as printed label",
+    "Resistance as printed label",
+    "NeuroSys lettering",
+    "Nivel 7 badge text",
+    "Mark",
+    "SIERRA MARK",
+    "upper frame",
+    "lower frame",
+    "quad-split",
+    "diptych",
+    "split-screen",
+    "multi-panel collage",
+    "storyboard tiles",
+    "title cards",
+    "panel language"
+  ],
+  "palette": {
+    "cascade": [
+      "#4B0082",
+      "#0080FF",
+      "#3F00FF"
+    ],
+    "neo_citania": [
+      "#F8F8FF",
+      "#FFFFFF",
+      "#708090",
+      "#4682B4",
+      "#C0C0C0"
+    ],
+    "copper_gold_accents": [
+      "#B87333",
+      "#FFD700",
+      "#FFBF00",
+      "#FF8C00"
+    ],
+    "atmosphere": [
+      "#000000",
+      "#301934"
+    ],
+    "resistance_metal": [
+      "#B87333",
+      "#FFD700",
+      "#FFBF00",
+      "#FF8C00"
+    ]
+  },
+  "aspect": {
+    "canon_feel": "2.39",
+    "interim_pipeline": "16:9"
+  },
+  "characters": {
+    "mileo_chen": {
+      "id": "mileo_chen",
+      "lock_sheet": "locks/LOCK_SHEET_MILEO_CHEN.md",
+      "lock_sheet_id": "LOCK_SHEET_MILEO_CHEN",
+      "refs_dir": "locks/refs/mileo_chen/",
+      "qc": "strong_fc_s01_refs_verified",
+      "display_name": "Mileo Chen",
+      "eyes": "vivid green",
+      "hex_accents": [
+        "#4B0082",
+        "#3F00FF",
+        "#0080FF"
+      ],
+      "scars": [
+        "Link nodule base of skull (pre-cut)",
+        "nape extraction scar (post-cut)",
+        "Serpent Coil LEFT wrist indigo bioluminescence (post-cut only)"
+      ],
+      "invariants": [
+        "East Asian male ~32",
+        "black regulation hair 3.2 cm",
+        "Coil NEVER on right wrist",
+        "blank hexagonal badge geometry only \u2014 no readable text",
+        "same face lock LOCK_SHEET_MILEO_CHEN"
+      ],
+      "reference_images": [
+        "locks/refs/mileo_chen/front.png",
+        "locks/refs/mileo_chen/profile.png",
+        "locks/refs/mileo_chen/fullbody.png"
+      ],
+      "refs_status": "ready"
+    },
+    "kora_vega": {
+      "id": "kora_vega",
+      "lock_sheet": "locks/LOCK_SHEET_KORA_VEGA.md",
+      "lock_sheet_id": "LOCK_SHEET_KORA_VEGA",
+      "refs_dir": "locks/refs/kora_vega/",
+      "qc": "refs_verified_face_clean_scar_placement_deviation",
+      "display_name": "Kora Vega",
+      "eyes": "brown with indigo flecks",
+      "hex_accents": [
+        "#B87333",
+        "#FFD700",
+        "#FFBF00",
+        "#FF8C00"
+      ],
+      "scars": [
+        "fibrous Link extraction ridge behind RIGHT ear",
+        "bone-conduction implant under LEFT clavicle"
+      ],
+      "invariants": [
+        "Latina mestiza woman ~24",
+        "dark practical shoulder-length hair 28-35 cm",
+        "copper-bronze vest on female Kora only",
+        "shock pistol abstract no logos",
+        "same face lock LOCK_SHEET_KORA_VEGA"
+      ],
+      "reference_images": [
+        "locks/refs/kora_vega/front.png",
+        "locks/refs/kora_vega/profile.png",
+        "locks/refs/kora_vega/fullbody.png"
+      ],
+      "refs_status": "ready"
+    },
+    "sierra_catalano": {
+      "id": "sierra_catalano",
+      "lock_sheet": "locks/LOCK_SHEET_SIERRA_CATALANO.md",
+      "lock_sheet_id": "LOCK_SHEET_SIERRA_CATALANO",
+      "refs_dir": "locks/refs/sierra_catalano/",
+      "qc": "refs_verified_left_cheek_scar_minor_drift",
+      "display_name": "Sierra Catalano",
+      "eyes": "hazel",
+      "hex_accents": [
+        "#B87333",
+        "#FF8C00"
+      ],
+      "scars": [
+        "pale scar LEFT cheek temple to jaw"
+      ],
+      "invariants": [
+        "European-descent commander ~33-38",
+        "dark practical commander hair 8-12 cm",
+        "black combat pants + weathered leather jacket",
+        "scar NEVER on right cheek",
+        "same face lock LOCK_SHEET_SIERRA_CATALANO"
+      ],
+      "reference_images": [
+        "locks/refs/sierra_catalano/front.png",
+        "locks/refs/sierra_catalano/profile.png",
+        "locks/refs/sierra_catalano/fullbody.png"
+      ],
+      "refs_status": "ready"
+    },
+    "okafor": {
+      "id": "okafor",
+      "display_name": "Dr. Marcus Okafor",
+      "lock_sheet": null,
+      "lock_sheet_id": null,
+      "refs_dir": "locks/refs/okafor/",
+      "eyes": "kind exhausted dark",
+      "hex_accents": [
+        "#B87333",
+        "#708090"
+      ],
+      "scars": [],
+      "invariants": [
+        "West African-descent features ~50s",
+        "short greying hair",
+        "stained field-medic apron over dark layers",
+        "NO logos NO readable text",
+        "biomedical scanner wand abstract glow only"
+      ],
+      "qc": "ensemble_fc_s05"
+    },
+    "riv": {
+      "id": "riv",
+      "display_name": "Riv",
+      "lock_sheet": null,
+      "lock_sheet_id": null,
+      "refs_dir": "locks/refs/riv/",
+      "eyes": "sleep-deprived red-rimmed",
+      "hex_accents": [
+        "#0080FF",
+        "#B87333"
+      ],
+      "scars": [],
+      "invariants": [
+        "wiry transmissions engineer",
+        "fingers stained cobalt-blue conductive gel",
+        "small silver compass pendant no logos",
+        "grease-stained tech layers",
+        "same face once introduced"
+      ],
+      "qc": "ensemble_fc_s05"
+    }
+  },
+  "locations": {
+    "sector_17_link": {
+      "id": "sector_17_link",
+      "lock": "locks/locations/SECTOR_17_LINK.md",
+      "status": "ready",
+      "palette_hex": [
+        "#708090",
+        "#C0C0C0",
+        "#4682B4",
+        "#000000",
+        "#301934",
+        "#0080FF"
+      ],
+      "fog": "medium-high rust vapor + cold rain mist",
+      "aliases": [
+        "Sector 17 alley grate link",
+        "ventilation grate mouth"
+      ]
+    },
+    "tunnel_six": {
+      "id": "tunnel_six",
+      "lock": "locks/locations/TUNNEL_SIX.md",
+      "status": "ready",
+      "palette_hex": [
+        "#FF8C00",
+        "#FFBF00",
+        "#B87333",
+        "#708090",
+        "#301934",
+        "#000000"
+      ],
+      "fog": "high mildew/steam haze",
+      "aliases": [
+        "legacy storm-drain",
+        "steam main corridor"
+      ]
+    },
+    "medical_bay_yggdrasil": {
+      "id": "medical_bay_yggdrasil",
+      "lock": "locks/locations/MEDICAL_BAY_YGGDRASIL.md",
+      "status": "ready",
+      "palette_hex": [
+        "#C0C0C0",
+        "#708090",
+        "#B87333",
+        "#0080FF",
+        "#4682B4",
+        "#000000",
+        "#301934"
+      ],
+      "fog": "low-medium clinical haze",
+      "aliases": [
+        "makeshift medical extraction bay",
+        "surgical gurney bay"
+      ]
+    },
+    "vent_shaft": {
+      "id": "vent_shaft",
+      "lock": "locks/locations/VENT_SHAFT.md",
+      "status": "ready",
+      "palette_hex": [
+        "#708090",
+        "#C0C0C0",
+        "#B87333",
+        "#FF8C00",
+        "#000000",
+        "#301934"
+      ],
+      "fog": "medium dust/steam vertical",
+      "aliases": [
+        "Sector 17 ventilation shaft",
+        "blast-hatch corridor",
+        "vent_shaft_sanctuary"
+      ]
+    },
+    "underbelly_alley": {
+      "id": "underbelly_alley",
+      "lock": "locks/locations/UNDERBELLY_ALLEY.md",
+      "status": "ready",
+      "palette_hex": [
+        "#708090",
+        "#C0C0C0",
+        "#F8F8FF",
+        "#4682B4",
+        "#000000",
+        "#301934"
+      ],
+      "fog": "medium rust vapor",
+      "aliases": [
+        "sector_17_alley",
+        "Sector 17 alley night"
+      ]
+    },
+    "neo_citania_glass": {
+      "id": "neo_citania_glass",
+      "lock": "locks/locations/NEO_CITANIA_GLASS.md",
+      "status": "ready",
+      "palette_hex": [
+        "#F8F8FF",
+        "#FFFFFF",
+        "#4682B4",
+        "#C0C0C0",
+        "#708090",
+        "#301934"
+      ],
+      "fog": "low desalted haze",
+      "aliases": [
+        "neo_citania_skyline",
+        "surface towers"
+      ]
+    },
+    "forgotten_tunnels": {
+      "id": "forgotten_tunnels",
+      "lock": "locks/locations/FORGOTTEN_TUNNELS.md",
+      "status": "ready",
+      "palette_hex": [
+        "#708090",
+        "#301934",
+        "#FF8C00",
+        "#B87333",
+        "#000000",
+        "#4B0082"
+      ],
+      "fog": "high mildew labyrinth haze",
+      "aliases": [
+        "forgotten labyrinth",
+        "branching tunnels"
+      ]
+    },
+    "fracturados_redoubt": {
+      "id": "fracturados_redoubt",
+      "lock": "locks/locations/FRACTURADOS_REDOUBT.md",
+      "status": "ready",
+      "palette_hex": [
+        "#B87333",
+        "#FFD700",
+        "#FFBF00",
+        "#FF8C00",
+        "#708090",
+        "#C0C0C0",
+        "#0080FF",
+        "#000000",
+        "#301934"
+      ],
+      "fog": "low-medium warm dust",
+      "aliases": [
+        "metro redoubt",
+        "copper-mesh blast doors",
+        "command chamber"
+      ]
+    },
+    "residential_mauve_district": {
+      "id": "residential_mauve_district",
+      "lock": "locks/locations/RESIDENTIAL_MAUVE_DISTRICT.md",
+      "status": "ready",
+      "palette_hex": [
+        "#301934",
+        "#F8F8FF",
+        "#FFFFFF",
+        "#4682B4",
+        "#C0C0C0",
+        "#708090",
+        "#000000"
+      ],
+      "fog": "low mauve civic veil",
+      "aliases": [
+        "Subsector Seventeen residential",
+        "surface sidewalk"
+      ]
+    },
+    "node_17_sanitation_lock": {
+      "id": "node_17_sanitation_lock",
+      "lock": "locks/locations/NODE_17_SANITATION_LOCK.md",
+      "status": "ready",
+      "palette_hex": [
+        "#708090",
+        "#C0C0C0",
+        "#4682B4",
+        "#B87333",
+        "#FF8C00",
+        "#F8F8FF",
+        "#000000",
+        "#301934"
+      ],
+      "fog": "low-medium hatch void mix",
+      "aliases": [
+        "Residential Server Node 17 hatch",
+        "sanitation lock"
+      ]
+    }
+  },
+  "assembly_order_hint": [
+    "FC-S01",
+    "FC-S02",
+    "FC-S03",
+    "FC-S04",
+    "FC-S05",
+    "FC-S06",
+    "FC-S06A",
+    "FC-S07",
+    "FC-S08"
+  ],
+  "version_label": "1.0.0",
+  "props": {
+    "emp_dampener": {
+      "id": "emp_dampener",
+      "where": "Mileo belt pouch pre-cut",
+      "look": "abstract compact dampener shape in belt pouch",
+      "hex": [
+        "#708090",
+        "#C0C0C0"
+      ],
+      "negatives": [
+        "no logos",
+        "no readable text"
+      ]
+    },
+    "link_nodule": {
+      "id": "link_nodule",
+      "where": "base of skull / nape under skin",
+      "look": "subtle subcutaneous nodule",
+      "hex": [
+        "#708090"
+      ],
+      "negatives": [
+        "no HUD",
+        "no readable glyphs on skin"
+      ]
+    },
+    "serpent_coil_left_wrist": {
+      "id": "serpent_coil_left_wrist",
+      "where": "LEFT wrist (optional LEFT forearm) \u2014 post-cut only",
+      "look": "deep indigo bioluminescent dermal circuit lines under skin",
+      "hex": [
+        "#4B0082",
+        "#3F00FF",
+        "#0080FF"
+      ],
+      "negatives": [
+        "never right wrist",
+        "never glowing in Level-7 tunic",
+        "no readable HUD"
+      ]
+    },
+    "bone_conduction_left_clavicle": {
+      "id": "bone_conduction_left_clavicle",
+      "where": "Kora LEFT clavicle under scar tissue",
+      "look": "subtle subcutaneous ridge; faint copper glow when active",
+      "hex": [
+        "#B87333",
+        "#FFBF00"
+      ],
+      "negatives": [
+        "never UI text",
+        "never right clavicle"
+      ]
+    },
+    "shock_pistol": {
+      "id": "shock_pistol",
+      "where": "Kora primary sidearm",
+      "look": "compact abstract non-branded pistol shape",
+      "hex": [
+        "#708090",
+        "#C0C0C0",
+        "#B87333"
+      ],
+      "negatives": [
+        "no logos",
+        "no readable text",
+        "no real-brand silhouettes labeled"
+      ]
+    },
+    "copper_mesh_blast_doors": {
+      "id": "copper_mesh_blast_doors",
+      "where": "fracturados_redoubt outer threshold",
+      "look": "heavy blast doors with braided copper mesh panels",
+      "hex": [
+        "#B87333",
+        "#FFBF00",
+        "#708090",
+        "#C0C0C0"
+      ],
+      "negatives": [
+        "no faction words on mesh",
+        "no unit plaques"
+      ]
+    },
+    "sanitation_cart": {
+      "id": "sanitation_cart",
+      "where": "residential_mauve_district / node_17 cover",
+      "look": "utilitarian sanitation/maintenance cart blank panels",
+      "hex": [
+        "#708090",
+        "#C0C0C0"
+      ],
+      "negatives": [
+        "no readable labels",
+        "no logos",
+        "no Node numbers"
+      ]
+    },
+    "cloned_chip_palm": {
+      "id": "cloned_chip_palm",
+      "where": "story prop \u2014 palm-held cloned chip",
+      "look": "small blank chip / wafer in palm; abstract electronics",
+      "hex": [
+        "#C0C0C0",
+        "#0080FF"
+      ],
+      "negatives": [
+        "no readable serials",
+        "no logos",
+        "no UI text"
+      ]
+    },
+    "compass_pendant_riv": {
+      "id": "compass_pendant_riv",
+      "where": "Riv necklace",
+      "look": "small silver compass pendant",
+      "hex": [
+        "#C0C0C0"
+      ],
+      "negatives": [
+        "no logos",
+        "no readable markings"
+      ]
+    }
+  },
+  "lighting": {
+    "lut_verbal": {
+      "chiaroscuro": "hard practical key cutting deep shadow; faces half-lit",
+      "key_fill_rim_ratios": {
+        "underbelly_default": "key 1.0 / fill 0.20-0.35 / rim 0.40-0.60",
+        "medical_bay": "key 1.0 / fill 0.30-0.40 / rim 0.50-0.70 (scan or Coil)",
+        "neo_citania_surface": "key 1.0 / fill 0.45-0.55 / rim 0.30-0.45 glass bounce",
+        "tunnel_six": "key filament 1.0 flickering / fill 0.20 wet bounce / rim Coil optional"
+      },
+      "volumetric_fog_density": {
+        "low": "desalted civic / medical haze",
+        "medium": "alley rust vapor / shaft dust",
+        "high": "tunnel mildew / labyrinth steam"
+      },
+      "cascade_indigo_vs_steel_gray": "Cascade indigo (#4B0082/#3F00FF/#0080FF) only as Coil/biolume accents on characters or abstract energy \u2014 never as architecture paint labels; steel gray Neo-Citania (#708090/#C0C0C0/#F8F8FF) owns civic surfaces"
+    },
+    "lighting_ids": {
+      "lut_underbelly_night": {
+        "key": "hard practical / cold glass bounce",
+        "fog": "medium"
+      },
+      "lut_tunnel_filament": {
+        "key": "orange filament #FF8C00",
+        "fog": "high"
+      },
+      "lut_medical_scan": {
+        "key": "surgical practical + blue scan rim #0080FF",
+        "fog": "low-medium"
+      },
+      "lut_redoubt_warm": {
+        "key": "gas amber + copper glints",
+        "fog": "low-medium"
+      },
+      "lut_surface_mauve": {
+        "key": "soft mauve afternoon skylight",
+        "fog": "low"
+      },
+      "lut_shaft_sodium": {
+        "key": "sodium amber / hatch spill",
+        "fog": "medium"
+      }
+    }
+  },
+  "camera": {
+    "aspect_target": "2.39",
+    "interim_pipeline": "16:9",
+    "shot_rule": "one_camera",
+    "feel": "anamorphic widescreen",
+    "forbidden": [
+      "multi-panel",
+      "quad-split",
+      "diptych",
+      "split-screen",
+      "upper frame",
+      "lower frame",
+      "storyboard tiles"
+    ]
+  },
+  "negatives_global": [
+    "readable text",
+    "letters on clothing",
+    "logo",
+    "watermarks",
+    "signage",
+    "carteles",
+    "HUD text",
+    "faction name labels on clothes",
+    "Resistencia as printed label",
+    "Resistance as printed label",
+    "NeuroSys lettering",
+    "Nivel 7 badge text",
+    "Mark",
+    "SIERRA MARK",
+    "upper frame",
+    "lower frame",
+    "quad-split",
+    "diptych",
+    "split-screen",
+    "multi-panel collage",
+    "storyboard tiles",
+    "title cards",
+    "panel language"
+  ],
+  "prompt_contract": {
+    "required_fields": [
+      "character_id",
+      "location_id",
+      "lock_sheet_id",
+      "image_prompt",
+      "video_prompt"
+    ],
+    "required_fields_notes": {
+      "character_id": "use character_ids[] for multi-character shots; values must be keys under WORLD_TOKENS.characters",
+      "location_id": "must be key under WORLD_TOKENS.locations",
+      "lock_sheet_id": "primary face lock; multi \u2192 lock_sheet_ids[]",
+      "reference_images": "optional but mandatory once locks/refs stills exist"
+    },
+    "forbidden": [
+      "Mark",
+      "SIERRA MARK",
+      "upper frame",
+      "lower frame",
+      "insert as layout",
+      "quad-split",
+      "diptych",
+      "split-screen",
+      "panel",
+      "Resistencia as printed label",
+      "Resistance as printed label",
+      "faction names as cloth color labels in prompts",
+      "Nivel 7 readable badge text",
+      "cut to as on-screen direction inside image_prompt",
+      "contradicting free prose vs character_id/location_id"
+    ],
+    "rule": "EVERY new storyboard/prompt MUST reference character_id (or character_ids[]) + location_id from WORLD_TOKENS; lock_sheet_id; optional reference_images"
+  }
+}

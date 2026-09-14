@@ -1,0 +1,258 @@
+{
+  "FC-S06-01": {
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "44100",
+          "channels": 2,
+          "channel_layout": "stereo"
+        },
+        {
+          "codec_name": "mjpeg",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        }
+      ],
+      "format": {
+        "duration": "8.041667",
+        "size": "2021832"
+      }
+    },
+    "mean_volume_db": -17.7,
+    "max_volume_db": -4.7
+  },
+  "FC-S06-02": {
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "44100",
+          "channels": 2,
+          "channel_layout": "stereo"
+        },
+        {
+          "codec_name": "mjpeg",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        }
+      ],
+      "format": {
+        "duration": "8.041667",
+        "size": "1343615"
+      }
+    },
+    "mean_volume_db": -15.7,
+    "max_volume_db": -1.2
+  },
+  "FC-S06-03": {
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "44100",
+          "channels": 2,
+          "channel_layout": "stereo"
+        },
+        {
+          "codec_name": "mjpeg",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        }
+      ],
+      "format": {
+        "duration": "8.041667",
+        "size": "1479596"
+      }
+    },
+    "mean_volume_db": -21.1,
+    "max_volume_db": -6.8
+  },
+  "FC-S06-04": {
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "44100",
+          "channels": 2,
+          "channel_layout": "stereo"
+        },
+        {
+          "codec_name": "mjpeg",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        }
+      ],
+      "format": {
+        "duration": "8.041667",
+        "size": "1182272"
+      }
+    },
+    "mean_volume_db": -21.9,
+    "max_volume_db": -6.2
+  },
+  "FC-S06-05": {
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "44100",
+          "channels": 2,
+          "channel_layout": "stereo"
+        },
+        {
+          "codec_name": "mjpeg",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        }
+      ],
+      "format": {
+        "duration": "8.041667",
+        "size": "5015473"
+      }
+    },
+    "mean_volume_db": -14.4,
+    "max_volume_db": -0.3
+  },
+  "FC-S06-06": {
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "44100",
+          "channels": 2,
+          "channel_layout": "stereo"
+        },
+        {
+          "codec_name": "mjpeg",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        }
+      ],
+      "format": {
+        "duration": "8.041667",
+        "size": "1805973"
+      }
+    },
+    "mean_volume_db": -25.3,
+    "max_volume_db": -9.9
+  },
+  "FC-S06-07": {
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "44100",
+          "channels": 2,
+          "channel_layout": "stereo"
+        },
+        {
+          "codec_name": "mjpeg",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        }
+      ],
+      "format": {
+        "duration": "8.041667",
+        "size": "1541180"
+      }
+    },
+    "mean_volume_db": -31.9,
+    "max_volume_db": -15.9
+  },
+  "FC-S06-08": {
+    "ffprobe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "sample_rate": "44100",
+          "channels": 2,
+          "channel_layout": "stereo"
+        },
+        {
+          "codec_name": "mjpeg",
+          "codec_type": "video",
+          "width": 848,
+          "height": 480
+        }
+      ],
+      "format": {
+        "duration": "8.041667",
+        "size": "2849666"
+      }
+    },
+    "mean_volume_db": -21.1,
+    "max_volume_db": -2.6
+  }
+}

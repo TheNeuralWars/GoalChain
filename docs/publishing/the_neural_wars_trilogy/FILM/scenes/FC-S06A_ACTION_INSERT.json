@@ -1,0 +1,146 @@
+{
+  "scene_id": "FC-S06A",
+  "title": "Protocol Delta Breach — Action Insert (docs only)",
+  "book": "Fractured Code",
+  "phase": "climax_approach",
+  "insert_after": "FC-S06",
+  "insert_before": "FC-S07",
+  "max_shots": 4,
+  "notes": "NEW shots to LENGTHEN timeline between existing cuts. Do not delete prior scenes. NO generation this pass. reference_images empty for Hermes. reference_images filled from FILM/locksheets (2026-09-14).",
+  "visual_grammar": {
+    "aspect": "16:9 horizontal target feel anamorphic 2.39",
+    "lighting": "chiaroscuro, volumetric fog, sodium amber vs Cascade indigo flare, cold sweep beams",
+    "rating": "PG-13",
+    "forbidden_in_prompts": [
+      "readable text",
+      "logos",
+      "carteles",
+      "signage",
+      "Mark",
+      "upper frame",
+      "quad-split",
+      "Resistencia as text"
+    ]
+  },
+  "wardrobe_doc": "../wardrobe.md",
+  "status": "ready_for_render",
+  "shots": [
+    {
+      "id": "FC-S06A-01",
+      "order": 1,
+      "duration_s": 6,
+      "camera": "low wide tracking sprint",
+      "framing": "wide to medium",
+      "characters": [
+        "Kora Vega",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Kora copper tactical; Mileo AFTER cut + Coil",
+      "location": "Eastern service corridor during Protocol Delta breach",
+      "action": "Kora hauls Mileo through collapsing corridor as sweep drones silhouette at far junction; dust and sparks; urgency toward sealed hatch.",
+      "cues": [
+        "breaching alarm beat — editorial only"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_KORA_VEGA",
+      "lock_sheet_ids": [
+        "LOCK_SHEET_KORA_VEGA",
+        "LOCK_SHEET_MILEO_CHEN"
+      ],
+      "reference_images": [
+        "locksheets/KORA_VEGA_3Q.png",
+        "locksheets/KORA_VEGA_PROFILE.png",
+        "locksheets/KORA_VEGA_FULL.png",
+        "locksheets/MILEO_CHEN_3Q.png",
+        "locksheets/MILEO_CHEN_PROFILE.png",
+        "locksheets/MILEO_CHEN_FULL.png"
+      ],
+      "image_prompt": "Wide low-angle cinematic single camera: consistent locks — Kora Vega Latina mestiza ~24 brown eyes with indigo flecks dark shoulder-length hair fibrous scar ridge behind RIGHT ear worn copper-bronze tactical vest (#B87333 / #FFBF00 / #FF8C00) over dark underlayer; Mileo Chen East Asian male ~32 vivid green eyes black regulation 3.2 cm hair AFTER-cut dark underlayer LEFT wrist deep indigo Serpent Coil lines (#4B0082 / #3F00FF) — both sprinting through crumbling eastern service corridor, volumetric dust, distant abstract drone silhouettes NO logos NO unit text, sodium amber sparks, Atmosphere black/purple (#000000 / #301934). Cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro, PG-13. One camera only. NO readable text, NO logos, NO signage, NO carteles in frame.",
+      "video_prompt": "Continuous low tracking sprint; dust blooms; Coil indigo pulse on Mileo LEFT wrist; Kora pulls him forward; distant cold sweep beams rake walls; no cuts inside shot; horizontal motion from still. NO readable text, NO logos.",
+      "status": "ready_for_render"
+    },
+    {
+      "id": "FC-S06A-02",
+      "order": 2,
+      "duration_s": 5,
+      "camera": "handheld medium chase whip-pan settle",
+      "framing": "medium",
+      "characters": [
+        "Sierra Catalano"
+      ],
+      "wardrobe_ref": "Sierra tactical leather + black combat pants",
+      "location": "Copper-mesh blast threshold",
+      "action": "Sierra holds the blast threshold, waving survivors through; pale LEFT cheek scar catching amber; sealed door beginning to close.",
+      "cues": [
+        "hand signal: hurry through — do not name Mark"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_SIERRA_CATALANO",
+      "lock_sheet_ids": [
+        "LOCK_SHEET_SIERRA_CATALANO"
+      ],
+      "reference_images": [
+        "locksheets/SIERRA_CATALANO_3Q.png",
+        "locksheets/SIERRA_CATALANO_PROFILE.png",
+        "locksheets/SIERRA_CATALANO_FULL.png"
+      ],
+      "image_prompt": "Medium cinematic single camera: consistent character lock Sierra Catalano European-descent commander hazel calculating eyes pale scar LEFT cheek temple to jaw dark practical short commander hair, weathered leather jacket with copper seam accents (#B87333 / #FF8C00) over black combat pants (#000000), holding open a heavy blast threshold framed by braided copper mesh, amber practicals and deep purple shadow (#301934), urging unseen survivors through with a small urgent hand gesture (no title cards). Abstract drone searchlight rim at corridor mouth. Cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric fog, PG-13. One camera. NO readable text, NO logos, NO signage, NO carteles in frame.",
+      "video_prompt": "Handheld settle on Sierra at threshold; jacket leather flexes; scar catches amber; door edge creeps closed; searchlight sweeps past; single continuous beat. NO readable text, NO logos.",
+      "status": "ready_for_render"
+    },
+    {
+      "id": "FC-S06A-03",
+      "order": 3,
+      "duration_s": 6,
+      "camera": "over-shoulder tight into hatch",
+      "framing": "medium-close over-shoulder",
+      "characters": [
+        "Kora Vega",
+        "Mileo Chen",
+        "Sierra Catalano"
+      ],
+      "wardrobe_ref": "Kora copper; Mileo AFTER + Coil; Sierra tactical",
+      "location": "Blast hatch interior lip",
+      "action": "Trio clears the hatch lip as decompression vapor bursts; Sierra shoves hatch wheel; Kora covers rear with abstract shock pistol; Mileo Coil flares.",
+      "cues": [],
+      "lock_sheet_id": "LOCK_SHEET_MILEO_CHEN",
+      "lock_sheet_ids": [
+        "LOCK_SHEET_KORA_VEGA",
+        "LOCK_SHEET_MILEO_CHEN",
+        "LOCK_SHEET_SIERRA_CATALANO"
+      ],
+      "reference_images": [
+        "locksheets/KORA_VEGA_3Q.png",
+        "locksheets/KORA_VEGA_PROFILE.png",
+        "locksheets/KORA_VEGA_FULL.png",
+        "locksheets/MILEO_CHEN_3Q.png",
+        "locksheets/MILEO_CHEN_PROFILE.png",
+        "locksheets/MILEO_CHEN_FULL.png",
+        "locksheets/SIERRA_CATALANO_3Q.png",
+        "locksheets/SIERRA_CATALANO_PROFILE.png",
+        "locksheets/SIERRA_CATALANO_FULL.png"
+      ],
+      "image_prompt": "Medium-close over-shoulder cinematic single camera into blast hatch lip: Sierra Catalano hazel eyes LEFT cheek scar leather jacket turning hatch wheel; Kora Vega brown indigo-flecked eyes RIGHT ear scar copper-bronze vest (#B87333 / #FFBF00) covering rear with compact abstract shock pistol NO logos; Mileo Chen vivid green eyes dark underlayer LEFT wrist indigo Coil (#4B0082 / #3F00FF) stumbling through decompress vapor haze. Atmosphere (#000000 / #301934), sodium amber rim. PG-13. Cinematic photoreal, anamorphic 2.39 feel, chiaroscuro. One camera no multi-panel. NO readable text, NO logos, NO signage, NO carteles in frame.",
+      "video_prompt": "Vapor bursts outward; hatch wheel turns; Kora pistol rises briefly then lowers; Coil pulses; trio clears lip in one continuous push. NO readable text, NO logos.",
+      "status": "ready_for_render"
+    },
+    {
+      "id": "FC-S06A-04",
+      "order": 4,
+      "duration_s": 5,
+      "camera": "extreme wide reverse lock-off",
+      "framing": "extreme wide",
+      "characters": [],
+      "wardrobe_ref": "n/a",
+      "location": "Corridor sealed — drones beyond mesh",
+      "action": "Hatch seals; corridor beyond fills with cold sweep beams and abstract drone shapes; sanctuary side goes quiet — bridge into FC-S07 quiet aftermath.",
+      "cues": [
+        "end insert → cut to FC-S07-01 establishing"
+      ],
+      "lock_sheet_id": "",
+      "lock_sheet_ids": [],
+      "reference_images": [],
+      "image_prompt": "Extreme wide cinematic single camera reverse: sealed lead blast hatch and braided copper mesh from sanctuary side, corridor beyond partially visible through mesh slits filled with cold sweep beams and abstract assault-drone silhouettes NO logos NO unit markings NO readable IDs, volumetric fog, Atmosphere black/purple (#000000 / #301934), faint copper glints (#B87333), dying sodium sparks. Empty of people. Cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, scale contrast. One camera. NO readable text, NO logos, NO signage, NO carteles in frame.",
+      "video_prompt": "Hatch seal thud implied; sweep beams rake mesh; drones drift as abstract shapes; fog settles; hold wide lock-off. NO readable text, NO logos.",
+      "status": "ready_for_render"
+    }
+  ]
+}

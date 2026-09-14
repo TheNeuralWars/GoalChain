@@ -1,0 +1,193 @@
+{
+  "scene_id": "FC-S02",
+  "storyboard": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/scenes/FC-S02.json",
+  "generated_at": "2026-09-11T05:37:27.807028Z",
+  "results": [
+    {
+      "id": "FC-S02-01",
+      "order": 1,
+      "status": "skipped_existing",
+      "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-01.png",
+      "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-01.mp4"
+    },
+    {
+      "id": "FC-S02-02",
+      "order": 2,
+      "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-02.png",
+      "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-02.mp4",
+      "status": "rendered"
+    },
+    {
+      "id": "FC-S02-03",
+      "order": 3,
+      "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-03.png",
+      "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-03.mp4",
+      "status": "rendered"
+    },
+    {
+      "id": "FC-S02-04",
+      "order": 4,
+      "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-04.png",
+      "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-04.mp4",
+      "status": "rendered"
+    },
+    {
+      "id": "FC-S02-05",
+      "order": 5,
+      "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-05.png",
+      "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-05.mp4",
+      "status": "rendered"
+    },
+    {
+      "id": "FC-S02-06",
+      "order": 6,
+      "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-06.png",
+      "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-06.mp4",
+      "status": "rendered"
+    },
+    {
+      "id": "FC-S02-07",
+      "order": 7,
+      "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-07.png",
+      "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-07.mp4",
+      "status": "rendered"
+    },
+    {
+      "id": "FC-S02-08",
+      "order": 8,
+      "image": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-08.png",
+      "video": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-08.mp4",
+      "status": "rendered"
+    }
+  ],
+  "shots_snapshot": [
+    {
+      "id": "FC-S02-01",
+      "order": 1,
+      "duration_s": 5,
+      "camera": "high overhead looking down shaft, slow descend",
+      "framing": "extreme wide high angle into shaft",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen AFTER cut + Serpent Coil marker",
+      "location": "Sector 17 ventilation shaft — maintenance ladder into undercity",
+      "action": "Looking down the wet maintenance shaft: Mileo begins scrambling down the iron ladder into Neo-Citania forgotten tunnels",
+      "image_prompt": "High-angle cinematic shot looking down a wet Neo-Citania Sector 17 ventilation maintenance shaft. Mileo Chen scrambling down a rusted iron ladder into darkness. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Mileo Chen AFTER cut: dark practical underlayer suitable for tunnel escape; LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin. Indigo Coil glow faintly lights wet metal rungs and dripping walls. Atmosphere black and deep purple (#000000 / #301934), Cascade indigo accents, Neo-Citania steel-gray. Point-of-no-return descent. Anamorphic 2.39, chiaroscuro, volumetric fog, photoreal PG-13. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Slow camera descend into the shaft following Mileo climbing down the ladder; water drips; indigo Coil glow pulses on wet metal; volumetric fog breathes; horizontal 16:9 motion from still.",
+      "status": "pending"
+    },
+    {
+      "id": "FC-S02-02",
+      "order": 2,
+      "duration_s": 5,
+      "camera": "medium tracking side-on climb",
+      "framing": "medium full profile",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen AFTER cut + Serpent Coil marker",
+      "location": "Maintenance ladder mid-shaft under Sector 17",
+      "action": "Mileo climbs down urgently; Coil on LEFT wrist flares with each heartbeat; muddied boots on rungs",
+      "image_prompt": "Mileo Chen mid-climb on a rusted maintenance ladder inside a dark ventilation shaft. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Mileo Chen AFTER cut: dark practical underlayer suitable for tunnel escape; LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin. Profile medium-full: dark underlayer, vivid green eyes focused downward, LEFT wrist Coil glowing Cascade indigo (#4B0082 / #3F00FF) against wet steel. Muddy boots on rungs, drips, volumetric fog, chiaroscuro rim light. Anamorphic 2.39, chiaroscuro, volumetric fog, photoreal PG-13. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Mileo climbs down urgently rung by rung; LEFT wrist Coil flares with heartbeat pulses; camera tracks side-on with subtle handheld; drips fall; horizontal 16:9 motion from still.",
+      "status": "pending"
+    },
+    {
+      "id": "FC-S02-03",
+      "order": 3,
+      "duration_s": 4,
+      "camera": "low angle as boots hit tunnel floor then whip-pan",
+      "framing": "low angle medium to wide",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen AFTER cut + Serpent Coil marker",
+      "location": "Tunnel floor at base of ventilation shaft",
+      "action": "Boots splash into stagnant runoff; Mileo drops into the forgotten labyrinth threshold",
+      "image_prompt": "Low-angle shot of Mileo Chen dropping from a ladder into a flooded forgotten tunnel under Neo-Citania. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Mileo Chen AFTER cut: dark practical underlayer suitable for tunnel escape; LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin. Boots splash stagnant runoff, Coil indigo reflecting in black water, crumbling concrete ribs, rusted pipes, volumetric fog, deep shadows with sparse emergency filament glow. Atmosphere #000000 / #301934. Anamorphic 2.39, chiaroscuro, volumetric fog, photoreal PG-13. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Boots hit water with a splash; Mileo steadies then turns into the tunnel; camera low whip-pan following; water ripples catch indigo glow; horizontal 16:9 motion from still.",
+      "status": "pending"
+    },
+    {
+      "id": "FC-S02-04",
+      "order": 4,
+      "duration_s": 6,
+      "camera": "slow push-in establishing labyrinth",
+      "framing": "extreme wide establishing",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen AFTER cut + Serpent Coil marker",
+      "location": "Forgotten labyrinth of tunnels under Neo-Citania / Sector 17 underbelly",
+      "action": "Establish the forgotten subterranean labyrinth: Mileo a small figure swallowed by branching wet tunnels",
+      "image_prompt": "Extreme wide cinematic establishing of Neo-Citania forgotten subterranean labyrinth under Sector 17. Branching wet concrete tunnels, rusted steam mains, crumbling ribs, orange filament emergency lamps flickering irregularly. Tiny figure of Mileo Chen in dark underlayer with faint indigo Coil glow walking into the maze. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Scale contrast, volumetric fog, chiaroscuro, Cascade indigo + Resistencia filament amber accents against Atmosphere black/purple. Anamorphic 2.39, chiaroscuro, volumetric fog, photoreal PG-13. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Slow push-in into the labyrinth; distant orange filament lamps flicker; fog drifts; Mileo walks deeper as a small figure; Coil glow is a moving indigo point; horizontal 16:9 motion from still.",
+      "status": "pending"
+    },
+    {
+      "id": "FC-S02-05",
+      "order": 5,
+      "duration_s": 5,
+      "camera": "ECU LEFT wrist then rack to face",
+      "framing": "extreme close-up wrist → close-up face",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen AFTER cut + Serpent Coil marker",
+      "location": "Tunnel corridor — Coil as guide light",
+      "action": "Serpent Coil pulses deep indigo in lockstep with blood/heartbeat; Mileo reads it as living compass in the dark",
+      "image_prompt": "Extreme close-up of Mileo Chen LEFT wrist: deep indigo bioluminescent Serpent Coil lines pulsing under skin like a living compass (#4B0082 / #3F00FF). consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Dark underlayer sleeve pulled back. Soft Coil light paints wet tunnel walls. Partial face edge with vivid green eyes reflecting indigo. No gore, PG-13. Anamorphic 2.39, chiaroscuro, volumetric fog, photoreal PG-13. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Coil lines pulse awake in heartbeat rhythm; camera racks from wrist ECU to Mileo face; green eyes catch indigo; subtle breathe; horizontal 16:9 motion from still.",
+      "status": "pending"
+    },
+    {
+      "id": "FC-S02-06",
+      "order": 6,
+      "duration_s": 5,
+      "camera": "telephoto through grate upward + reverse on Mileo freeze",
+      "framing": "wide grate insert + medium reaction",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen AFTER cut + Serpent Coil marker",
+      "location": "Tunnel under street grate — NeuroSec pursuit above",
+      "action": "Distant cold white/crimson NeuroSec searchlights sweep through a street grate above; Mileo freezes hunted in the dark",
+      "image_prompt": "Looking up through a rusted street grate from forgotten tunnels: cold white and crimson NeuroSec searchlights sweep above. Below, Mileo Chen pressed to wet concrete in dark underlayer, Coil indigo dimmed, hunted vivid green eyes. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Mileo Chen AFTER cut: dark practical underlayer suitable for tunnel escape; LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin. No readable text, no logos, no vehicle markings — only abstract light geometry. Volumetric fog, chiaroscuro. Anamorphic 2.39, chiaroscuro, volumetric fog, photoreal PG-13. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Searchlights sweep across the grate slits; Mileo freezes then sinks lower; camera telephoto compression with subtle shake; dust motes in beams; horizontal 16:9 motion from still.",
+      "status": "pending"
+    },
+    {
+      "id": "FC-S02-07",
+      "order": 7,
+      "duration_s": 5,
+      "camera": "handheld tracking chase through branches",
+      "framing": "medium tracking over-shoulder",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen AFTER cut + Serpent Coil marker",
+      "location": "Branching forgotten tunnels — deeper into labyrinth",
+      "action": "Mileo staggers/runs deeper through branching tunnels; sensory rawness; Coil lights the path ahead",
+      "image_prompt": "Handheld cinematic tracking of Mileo Chen running deeper through branching forgotten tunnels under Neo-Citania. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Mileo Chen AFTER cut: dark practical underlayer suitable for tunnel escape; LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin. Dark practical underlayer, muddy, breathing hard, vivid green eyes wide with raw sensory overload. LEFT wrist Coil casts moving indigo pools on crumbling concrete forks. Flickering orange filament lamps, volumetric fog, chiaroscuro urgency. PG-13 no gore. Anamorphic 2.39, chiaroscuro, volumetric fog, photoreal PG-13. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Mileo runs/staggers through a tunnel fork; camera handheld tracks over-shoulder; Coil light swings; lamps flicker; fog streaks past; chase urgency without showing pursuers; horizontal 16:9 motion from still.",
+      "status": "pending"
+    },
+    {
+      "id": "FC-S02-08",
+      "order": 8,
+      "duration_s": 6,
+      "camera": "slow push to silhouette in tunnel mouth then fade-hold",
+      "framing": "wide to medium silhouette",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen AFTER cut + Serpent Coil marker",
+      "location": "Deep confluence of forgotten tunnels — approach to Tunnel Six / storm-drain network",
+      "action": "Point of no return underground: Mileo silhouette enters a deeper storm-drain confluence; Coil pulse final; no turning back",
+      "image_prompt": "Wide cinematic silhouette of Mileo Chen at a deep confluence of Neo-Citania forgotten storm-drain tunnels. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Mileo Chen AFTER cut: dark practical underlayer suitable for tunnel escape; LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin. He stands at the mouth of a darker tunnel ahead (legacy drainage network), LEFT wrist Coil pulsing indigo as the only guide light. Crumbling concrete ribs, mildew air suggested by haze, sparse orange filament glow behind him, Atmosphere #000000 / #301934 ahead. Point of no return underground, anamorphic 2.39, chiaroscuro, photoreal PG-13. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Slow push toward Mileo silhouette as he steps into the darker tunnel mouth; Coil pulses once brighter then steadies; fog swallows the frame edges; point-of-no-return hold; horizontal 16:9 motion from still.",
+      "status": "pending"
+    }
+  ]
+}
