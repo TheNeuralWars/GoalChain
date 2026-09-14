@@ -29,11 +29,15 @@
         </a>
         <div class="gw-nav-links">
           <a href="/" class="gw-nav-link">World</a>
-          <a href="goalchain.html" class="gw-nav-link">⚽ Matchday</a>
+          <a href="goalchain.html" class="gw-nav-link" style="color: #94a3b8; opacity: 0.8; font-size: 0.8rem;">⚽ Matchday</a>
           <a href="/go/reader" class="gw-nav-link" style="color: #c084fc; font-weight: 700;">📖 Kindle E-Reader</a>
           <a href="pitch.html" class="gw-nav-link">Pitch Deck</a>
           <a href="mega-guide.html" class="gw-nav-link">Whitepaper</a>
           <a href="https://github.com/theneuralwars/goalchain" target="_blank" class="gw-nav-link">GitHub</a>
+          <a href="#film-draft" onclick="GW.jumpToFilm(); return false;" class="gw-nav-btn-portal" style="background: linear-gradient(135deg, #fbbf24 0%, #a855f7 100%); color: #0b0c10; box-shadow: 0 4px 16px rgba(251, 191, 36, 0.4);">
+            <span>🎥 FRACTURED CODE (BORRADOR)</span>
+            <span style="font-size: 0.9rem;">➔</span>
+          </a>
           <a href="https://play.goalworld.fun/" class="gw-nav-btn-portal">
             <span>ABRIR PLAY DAPP</span>
             <span style="font-size: 0.9rem;">➔</span>
@@ -53,6 +57,26 @@
         <p class="gw-hero-subtitle">
           El paraguas maestro que une la co-creación literaria con Inteligencia Artificial, auto-publicación masiva en <strong>Amazon KDP (Web2)</strong>, <strong>Tokenización de Regalías On-Chain en Solana (Web3)</strong> y el enjambre de <strong>Agentes Hermes 24/7</strong>.
         </p>
+
+        <!-- ================================================================
+             CTA PRIMARIA (decisión Nico 2026-09-14): film Fractured Code.
+             GoalChain / Well quedan como secundarios (texto pequeño).
+             ================================================================ -->
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 26px 0 10px;">
+          <a href="#film-draft" onclick="GW.jumpToFilm(); return false;" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #fbbf24 0%, #a855f7 100%); color: #0b0c10; font-weight: 900; font-size: 1.02rem; padding: 15px 30px; border-radius: 999px; text-decoration: none; box-shadow: 0 10px 30px rgba(168, 85, 247, 0.45); letter-spacing: 0.3px;">
+            ▶ Ver Fractured Code — borrador de la Serie Cinemática
+          </a>
+          <div style="color: #94a3b8; font-size: 0.82rem; line-height: 1.5;">
+            Avance de producción sin aprobación editorial · 8 cortes reproducibles + samples de audio/acción en
+            <a href="assets/film/improve_20260914/" style="color: #fbbf24; font-weight: 700; text-decoration: none;">improve_20260914/</a>
+          </div>
+          <div style="color: #64748b; font-size: 0.78rem;">
+            Secundarios:
+            <a href="goalchain.html" style="color: #94a3b8; text-decoration: none; border-bottom: 1px dotted #475569;">⚽ GoalChain Matchday</a>
+            ·
+            <a href="https://well.goalworld.fun/" style="color: #94a3b8; text-decoration: none; border-bottom: 1px dotted #475569;">Well · LukooFit</a>
+          </div>
+        </div>
 
         <!-- PILLARS TAB NAVIGATION -->
         <div class="gw-pillars-nav">
@@ -362,7 +386,8 @@
           </div>
 
           <!-- Section 2.6: Serie cinemática - avance de produccion en BORRADOR (sin aprobacion editorial) -->
-          <div style="background: rgba(15, 17, 26, 0.85); border: 1px dashed rgba(251, 191, 36, 0.5); border-radius: 20px; padding: 2.25rem; margin-bottom: 3.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.7);">
+          <!-- Anchor de la CTA primaria (#film-draft): el nav/hero apuntan acá. -->
+          <div id="film-draft" style="background: rgba(15, 17, 26, 0.85); border: 1px dashed rgba(251, 191, 36, 0.5); border-radius: 20px; padding: 2.25rem; margin-bottom: 3.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.7); scroll-margin-top: 90px;">
             <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem;">
               <span style="background: rgba(251, 191, 36, 0.15); border: 1px solid rgba(251, 191, 36, 0.5); color: #fbbf24; padding: 4px 14px; border-radius: 20px; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">
                 ⚠ BORRADOR DE PRODUCCIÓN — PENDIENTE DE APROBACIÓN
@@ -372,12 +397,23 @@
               </span>
             </div>
             <h3 style="font-size: 1.7rem; font-weight: 900; color: #fff; text-align: center; margin: 0 0 0.5rem;">
-              🎥 Serie Cinemática — Avance de Producción (Pilotos 2026)
+              🎥 Serie Cinemática — BORRADOR · 8 videos reproducibles (Pilotos 2026)
             </h3>
-            <p style="color: #94a3b8; font-size: 0.92rem; max-width: 760px; margin: 0 auto 1.75rem; text-align: center; line-height: 1.65;">
+            <p style="color: #94a3b8; font-size: 0.92rem; max-width: 760px; margin: 0 auto 1rem; text-align: center; line-height: 1.65;">
               Cortes de video en borrador (FC-S01 → FC-S08). Siete escenas con cut completo (~62–64 s);
               FC-S08 es parcial (~48 s, faltan planos 07–08). <strong style="color: #cbd5e1;">0 de 8 aprobados por Obra</strong> — no son publicación editorial.
             </p>
+            <p style="color: #cbd5e1; font-size: 0.92rem; max-width: 760px; margin: 0 auto 1.25rem; text-align: center; line-height: 1.65;">
+              <strong style="color: #fff;">Mirá el borrador.</strong> Dale play a cualquiera de los 8 cortes de abajo, o entrá al paquete de mejoras
+              <a href="assets/film/improve_20260914/" style="color: #fbbf24; font-weight: 800;">assets/film/improve_20260914/</a>
+              con el <strong style="color: #e2e8f0;">conform completo</strong> (<em>FC_full_conform_v1.mp4</em>), el corte conformado de <em>S01</em>,
+              los cuatro planos del <strong style="color: #e2e8f0;">puente S06A</strong> y el sample i2v — audio/acción más recientes, siempre sin gate de Obra.
+            </p>
+            <div style="text-align: center; margin: 0 auto 1.75rem;">
+              <a href="assets/film/improve_20260914/" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(251, 191, 36, 0.15); border: 1px solid rgba(251, 191, 36, 0.6); color: #fbbf24; font-weight: 800; font-size: 0.88rem; padding: 10px 20px; border-radius: 999px; text-decoration: none;">
+                🎧 Ver samples de conform + S06A (borrador)
+              </a>
+            </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
               <div style="background: rgba(10, 11, 20, 0.9); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.5);">
                 <video controls preload="metadata" poster="assets/img/neuralwars/film_draft/FC-S01-01.jpg" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: #000;">
@@ -1042,6 +1078,18 @@ La tormenta no cesaba, pero las runas brillaban con fuerza.</textarea>
         window.scrollTo({ top: 220, behavior: 'smooth' });
       };
 
+      // 1b. CTA primaria (film Fractured Code): abrir la pestaña de la saga y bajar al
+      // ancla #film-draft de la Sección 2.6 (borrador).
+      GW.jumpToFilm = function() {
+        GW.switchTab('universe');
+        var target = document.getElementById('film-draft');
+        if (!target) return;
+        setTimeout(function() {
+          var y = target.getBoundingClientRect().top + window.pageYOffset - 90;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }, 80);
+      };
+
       // 2. Open Reader with Context
       GW.openReader = function(worldName) {
         var titleEl = document.getElementById('gwReaderUniverse');
@@ -1349,6 +1397,8 @@ La tormenta no cesaba, pero las runas brillaban con fuerza.</textarea>
         GW.updatePromptPreview();
         GW.updateCalculator(2500);
         GW.updateKdpSpine(280);
+        // Deep link: /goalworld.html#film-draft debe revelar la pestaña de la saga.
+        if (window.location.hash === '#film-draft') GW.jumpToFilm();
       });
     </script>
   <script src="assets/js/gw-shell.js"></script>
