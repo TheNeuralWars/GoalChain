@@ -118,3 +118,14 @@ For cinematic treatments, pitch decks, and showrunner bibles:
 * **Logline Formula**: `When [INCITING INCIDENT OCCURS], a [FLAWED PROTAGONIST] must [TAKE PROACTIVE ACTION] against [FORMIDABLE ANTAGONIST] before [CATASTROPHIC STAKES].`
 * **Scene Beats (Fountain Format)**: Break chapters into standard screenplay scenes with Sluglines (`INT. RESIDENTIAL TOWER - DAY`), Action lines (present tense, active verbs), and Dialogue.
 * **Visual Asset Generation Prompts**: Cinematic lighting descriptors (anamorphic lens flare, chiaroscuro, volumetric smog, neon-indigo bioluminescence) for Midjourney/Imagen prompts.
+
+---
+
+## 📚 VI. Mastercraft Intelligence Modules
+For deep craft principles and underlying narrative physics:
+- **Master Playbook**: [NOVELIST_CRAFT_PLAYBOOK.md](file:///c:/Users/NicoPez/goalchain/ai_context/craft/NOVELIST_CRAFT_PLAYBOOK.md)
+- **Module 1**: [01_THE_LIVING_PROSE_CANON.md](file:///c:/Users/NicoPez/goalchain/ai_context/craft/01_THE_LIVING_PROSE_CANON.md) (Prose aesthetics, 5-voice cadence, sensory triangulation, anti-filter words)
+- **Module 2**: [02_DRAMATIC_CAUSALITY_AND_PACING.md](file:///c:/Users/NicoPez/goalchain/ai_context/craft/02_DRAMATIC_CAUSALITY_AND_PACING.md) (Therefore/But causality, Scene & Sequel, micro-tension, scene triage)
+- **Module 3**: [03_CHARACTER_PSYCHOLOGY_AND_VOICE.md](file:///c:/Users/NicoPez/goalchain/ai_context/craft/03_CHARACTER_PSYCHOLOGY_AND_VOICE.md) (Wound/Lie/Need, dialogue as weaponry, subtext iceberg, idiolects)
+- **Module 4**: [04_SPECULATIVE_WORLD_EMBEDDING.md](file:///c:/Users/NicoPez/goalchain/ai_context/craft/04_SPECULATIVE_WORLD_EMBEDDING.md) (Second-glance worldbuilding, somatic costs of tech, used-future realism)
+
