@@ -38,6 +38,8 @@ exclude:
   - PLAYER_IMAGE_PROMPTS.md
   - GOALCHAIN_PITCH_DECK.md
   - ceo-log.txt
+  - ART_PIPELINE.md
+  - CHASSIS_V13_COORDINATES.md
   # Unpublished manuscript trees + series canon (issue #881 follow-up). The reader page is
   # built from these on the VPS; the sources themselves must never be downloadable.
   - publishing/the_neural_wars_trilogy/00_SERIES_BIBLE_AND_CANON

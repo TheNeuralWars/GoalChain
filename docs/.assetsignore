@@ -66,6 +66,8 @@ publishing/*/FILM
 publishing/the_neural_wars_trilogy/00_SERIES_BIBLE_AND_CANON/*
 publishing/the_neural_wars_trilogy/AI_AGENT_EDITORIAL_WORKBENCH/*
 ceo-log.txt
+ART_PIPELINE.md
+CHASSIS_V13_COORDINATES.md
 
 # --- Media that is SERVED by the site (goalworld.html embeds the trailers; the press kit
 # is a public download). These used to be excluded to keep the Cloudflare Pages upload
