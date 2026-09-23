@@ -217,6 +217,13 @@ def main() -> int:
     out.write_text(body, encoding="utf-8")
     print(f"x_scout: wrote {out} ({len(body)} bytes, x_hits={x_hits})")
 
+    # v2 anti-spam gate: si Grok marcó el ciclo como silencioso, no llamar al
+    # publisher. Esto evita la llamada RPC innecesaria cuando no hay señal.
+    quiet_marker = "<!-- x_scout_quiet -->"
+    if quiet_marker in body.lower():
+        print("x_scout: skip discord (X_SCOUT_QUIET — no signal this cycle)")
+        return 0
+
     if getenv("OA_RESEARCH_PUBLISHER_ENABLED", "false").lower() in ("1", "true", "yes"):
         return publish_to_discord(out)
     print("x_scout: discord publish skipped (OA_RESEARCH_PUBLISHER_ENABLED=false)")
