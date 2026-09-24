@@ -1,0 +1,110 @@
+{
+  "shots": [
+    {
+      "id": "FC-S05-01",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-01.mp4",
+      "dur": 8.041667,
+      "size": 2359918,
+      "res": "848x480",
+      "vcodec": "h264",
+      "has_audio": true,
+      "audio": "aac 44100Hz stereo (NO mute)",
+      "mean_db": -25.0,
+      "max_db": -6.9
+    },
+    {
+      "id": "FC-S05-02",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-02.mp4",
+      "dur": 8.041667,
+      "size": 1336861,
+      "res": "848x480",
+      "vcodec": "h264",
+      "has_audio": true,
+      "audio": "aac 44100Hz stereo (NO mute)",
+      "mean_db": -31.9,
+      "max_db": -12.7
+    },
+    {
+      "id": "FC-S05-03",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-03.mp4",
+      "dur": 8.041667,
+      "size": 1614721,
+      "res": "848x480",
+      "vcodec": "h264",
+      "has_audio": true,
+      "audio": "aac 44100Hz stereo (NO mute)",
+      "mean_db": -19.4,
+      "max_db": -6.1
+    },
+    {
+      "id": "FC-S05-04",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-04.mp4",
+      "dur": 8.041667,
+      "size": 3628053,
+      "res": "848x480",
+      "vcodec": "h264",
+      "has_audio": true,
+      "audio": "aac 44100Hz stereo (NO mute)",
+      "mean_db": -23.1,
+      "max_db": -9.2
+    },
+    {
+      "id": "FC-S05-05",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-05.mp4",
+      "dur": 8.041667,
+      "size": 1484167,
+      "res": "848x480",
+      "vcodec": "h264",
+      "has_audio": true,
+      "audio": "aac 44100Hz stereo (NO mute)",
+      "mean_db": -32.6,
+      "max_db": -16.7
+    },
+    {
+      "id": "FC-S05-06",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-06.mp4",
+      "dur": 8.041667,
+      "size": 2815813,
+      "res": "848x480",
+      "vcodec": "h264",
+      "has_audio": true,
+      "audio": "aac 44100Hz stereo (NO mute)",
+      "mean_db": -17.1,
+      "max_db": -2.1
+    },
+    {
+      "id": "FC-S05-07",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-07.mp4",
+      "dur": 8.041667,
+      "size": 7806650,
+      "res": "848x480",
+      "vcodec": "h264",
+      "has_audio": true,
+      "audio": "aac 44100Hz stereo (NO mute)",
+      "mean_db": -23.9,
+      "max_db": -10.1
+    },
+    {
+      "id": "FC-S05-08",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05-08.mp4",
+      "dur": 8.041667,
+      "size": 2352810,
+      "res": "848x480",
+      "vcodec": "h264",
+      "has_audio": true,
+      "audio": "aac 44100Hz stereo (NO mute)",
+      "mean_db": -14.4,
+      "max_db": -1.1
+    }
+  ],
+  "cut": {
+    "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05_cut_v1.mp4",
+    "dur": 64.356364,
+    "size": 23053813,
+    "res": "848x480",
+    "vcodec": "h264",
+    "audio": "aac 44100Hz stereo (NO mute)",
+    "mean_db": -20.0,
+    "max_db": -1.0
+  }
+}

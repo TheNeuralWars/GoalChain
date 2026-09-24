@@ -1,0 +1,239 @@
+{
+  "scene_id": "FC-S08",
+  "title": "Sanitation Stack — Node 17 Breach",
+  "book": "BOOK_01_FRACTURED_CODE",
+  "chapter": "Cap.4",
+  "phase": "B",
+  "max_shots": 8,
+  "source": "EDICION_2026/FC-04-Chapter_2026.md",
+  "source_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/BOOK_01_FRACTURED_CODE/EDICION_2026/FC-04-Chapter_2026.md",
+  "continuity_from": "FC-S07",
+  "notes": "Storyboard-only 2026-09-11. Cap.4 AFTER jump point (FC-S07): ONE iconic beat — surface Residential District sanitation-crew infiltration stack + eighteen-second electronic shadow + Residential Server Node 17 hatch breach. Server cathedral / neural jack / Architect relay DEFERRED to later FC-S. EN edition quote aid only — NOT manuscript. Wardrobe: no new characters; Mileo/Kora/Sierra/Okafor/Riv FROZEN. Scene overlay only: utilitarian environmental sanitation jumpsuits (abstract grey-steel workwear, NO logos/text) over frozen base locks; Kora hood drawn; Sierra leather cuff with abstract cloned chip (no readable markings).",
+  "visual_grammar": {
+    "aspect": "16:9 horizontal",
+    "feel": "anamorphic 2.39",
+    "lighting": "calculated mauve afternoon surface light; cold polarized glass; brief drone thruster glints; hatch decompress haze",
+    "palette": "Neo-Citania glass/steel + Atmosphere black + muted Resistencia under disguise + Cascade indigo Coil (hidden)",
+    "rating": "PG-13",
+    "forbidden_in_prompts": [
+      "readable text",
+      "logos",
+      "carteles",
+      "signage",
+      "on-screen code lines",
+      "UI labels",
+      "unit markings",
+      "Node 17 lettering",
+      "NeuroSys logos"
+    ]
+  },
+  "character_lock": {
+    "primary": "Sierra Catalano",
+    "secondary": "Mileo Chen",
+    "supporting": [
+      "Riv",
+      "Kora Vega"
+    ],
+    "sierra": {
+      "role": "Keystone / Resistance commander",
+      "eyes": "hazel/dark calculating",
+      "scar_cheek": "pale LEFT cheek temple to jaw",
+      "consistency": "same face across all shots",
+      "wardrobe_base": "black combat pants + weathered leather jacket; NO logos (FROZEN)",
+      "scene_overlay": "utilitarian environmental sanitation jumpsuit abstract grey-steel workwear NO logos; gloved palm; leather cuff with abstract cloned auth chip no readable markings"
+    },
+    "mileo": {
+      "ethnicity": "East Asian male",
+      "age": 32,
+      "eyes": "vivid green (post-amputation vertigo; NOT indigo-fire discs)",
+      "hair": "black regulation 3.2 cm",
+      "consistency": "same face across all shots",
+      "wardrobe_base": "AFTER cut dark underlayer + LEFT wrist Serpent Coil indigo + LEFT forearm geometric dermal scar circuit (FROZEN)",
+      "scene_overlay": "utilitarian sanitation jumpsuit over dark underlayer; Coil/scars concealed under sleeve; bandaged nape subtle under collar",
+      "nape": "bandaged Link-extraction scar at base of skull (subtle PG-13)"
+    },
+    "riv": {
+      "role": "Chief transmissions engineer",
+      "consistency": "same face across all shots",
+      "wardrobe_base": "grease-stained tech layers; cobalt gel on fingers; silver compass pendant; NO logos (FROZEN)",
+      "scene_overlay": "utilitarian sanitation jumpsuit over tech layers; cobalt-stained fingers may show at gloves; compass pendant tucked"
+    },
+    "kora": {
+      "ethnicity": "Latina/mestiza",
+      "age": 24,
+      "eyes": "brown with indigo flecks (residual glimmer — hide under hood)",
+      "scar_ear": "RIGHT ear fibrous extraction ridge",
+      "bone_conduction": "under LEFT collarbone scar",
+      "consistency": "same face across all shots",
+      "wardrobe_base": "street/resistance copper-gold tactical vest (FROZEN)",
+      "scene_overlay": "sanitation jumpsuit + hood drawn low to hide residual eye glimmer; copper vest muted under workwear",
+      "cascade_resonance": "faint violet temple shimmer when sensing Architect pulse (PG-13)"
+    },
+    "deferred_this_scene": [
+      "Dr. Marcus Okafor",
+      "neural jack / server cathedral",
+      "Architect relay possession"
+    ]
+  },
+  "wardrobe_doc": "wardrobe.md",
+  "status": "rendered_6_8",
+  "updated_at": "2026-09-11T07:29:08Z",
+  "shots": [
+    {
+      "id": "FC-S08-01",
+      "order": 1,
+      "duration_s": 5,
+      "camera": "slow crane down across Surface Residential District",
+      "framing": "wide establishing",
+      "characters": [],
+      "wardrobe_ref": "n/a",
+      "location": "Neo-Citania Surface Residential District — Subsector Seventeen approach",
+      "action": "Calculated mauve 15:00 surface light; flawless right angles; desalted fountains; polarized glass facades revealing nothing; sterile compliant silence",
+      "image_prompt": "Wide cinematic establishing of Neo-Citania Surface Residential District at calculated mauve afternoon light: flawless right-angle architecture, polarized glass facades that reveal nothing, desalted fountain jets, sterile empty sidewalks, cold compliant silence. No people close. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric atmosphere, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Neo-Citania cold glass/steel (#F8F8FF / #708090 / #4682B4), Resistencia copper accents muted under disguise (#B87333), Cascade indigo Coil (#4B0082 / #3F00FF), calculated mauve afternoon surface light. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Slow crane down across glass facades and fountain mist; mauve light shift; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-01.mp4",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-01.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-01.mp4"
+    },
+    {
+      "id": "FC-S08-02",
+      "order": 2,
+      "duration_s": 5,
+      "camera": "tracking medium ahead of lead walker",
+      "framing": "medium tracking",
+      "characters": [
+        "Sierra Catalano"
+      ],
+      "wardrobe_ref": "Sierra FROZEN base + sanitation jumpsuit overlay",
+      "location": "Surface Residential sidewalk — sanitation stack lead",
+      "action": "Sierra leads stack in utilitarian sanitation jumpsuit; precise 1.3 paces/sec compliant citizen gait; pale LEFT cheek scar; hazel calculating eyes; gloved hands",
+      "image_prompt": "Medium tracking cinematic: consistent character lock Sierra Catalano: European-descent resistance commander, hazel/dark calculating eyes, pale scar LEFT cheek temple to jaw, dark practical commander cut, same face across shots, wearing utilitarian environmental sanitation jumpsuit abstract grey-steel workwear NO logos NO text over frozen black combat layers, gloved hands, weathered leather cuff at wrist with abstract non-readable chip seam, walking with precise compliant citizen cadence on sterile Neo-Citania sidewalk, polarized glass facades behind. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric atmosphere, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Neo-Citania cold glass/steel (#F8F8FF / #708090 / #4682B4), Resistencia copper accents muted under disguise (#B87333), Cascade indigo Coil (#4B0082 / #3F00FF), calculated mauve afternoon surface light. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Track ahead of Sierra precise 1.3-pace gait; slight lateral sway of jumpsuit; horizontal 16:9.",
+      "status": "rendered",
+      "render": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-02.mp4",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-02.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-02.mp4"
+    },
+    {
+      "id": "FC-S08-03",
+      "order": 3,
+      "duration_s": 6,
+      "camera": "side tracking two-shot with cart",
+      "framing": "medium-wide two-shot",
+      "characters": [
+        "Mileo Chen",
+        "Riv"
+      ],
+      "wardrobe_ref": "Mileo+Riv FROZEN base + sanitation jumpsuit overlay",
+      "location": "Surface Residential sidewalk — maintenance cart stack",
+      "action": "Mileo and Riv 1.5m behind Sierra push maintenance tool cart concealing pulse carbines and quantum extraction drives as blocked shapes only no logos; Mileo vivid green eyes; Riv wiry cobalt-stained fingers peek; silver compass tucked",
+      "image_prompt": "Medium-wide cinematic two-shot: consistent locks — Mileo Chen East Asian male ~32 vivid green eyes black regulation hair bandaged nape subtle under collar LEFT Coil concealed under sleeve same face; Riv wiry sleep-deprived engineer cobalt-blue stained fingertips silver compass pendant tucked same face — both in utilitarian sanitation jumpsuits abstract grey-steel NO logos pushing a battered maintenance tool cart abstract industrial shapes only NO readable labels; weapons and drives implied as blocked shapes inside cart, never shown as branded gear. Sterile sidewalk; polarized glass bokeh. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric atmosphere, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Neo-Citania cold glass/steel (#F8F8FF / #708090 / #4682B4), Resistencia copper accents muted under disguise (#B87333), Cascade indigo Coil (#4B0082 / #3F00FF), calculated mauve afternoon surface light. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Side track as cart wheels roll; Mileo and Riv push in sync; faint cart rattle; horizontal 16:9.",
+      "status": "rendered",
+      "render": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-03.mp4",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-03.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-03.mp4"
+    },
+    {
+      "id": "FC-S08-04",
+      "order": 4,
+      "duration_s": 5,
+      "camera": "rear three-quarter then slight push to hooded face",
+      "framing": "medium rear / push-in",
+      "characters": [
+        "Kora Vega"
+      ],
+      "wardrobe_ref": "Kora FROZEN copper vest under sanitation + hood",
+      "location": "Surface Residential sidewalk — stack rear",
+      "action": "Kora brings up rear; hood drawn low to hide residual indigo eye glimmer; sanitation jumpsuit over copper vest; RIGHT ear ridge glimpsed; bone-conduction under collarbone implied",
+      "image_prompt": "Medium cinematic rear three-quarter: consistent character lock Kora Vega Latina/mestiza ~24 brown eyes with indigo flecks dark practical Underbelly hair fibrous ridge scar behind RIGHT ear same face, hood drawn low over face to hide residual eye glimmer, utilitarian sanitation jumpsuit over frozen copper-bronze tactical vest vest muted under workwear NO logos, closing the formation on sterile Neo-Citania sidewalk. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric atmosphere, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Neo-Citania cold glass/steel (#F8F8FF / #708090 / #4682B4), Resistencia copper accents muted under disguise (#B87333), Cascade indigo Coil (#4B0082 / #3F00FF), calculated mauve afternoon surface light. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Push from rear of hooded Kora toward partial profile; hood edge flutters; horizontal 16:9.",
+      "status": "rendered",
+      "render": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-04.mp4",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-04.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-04.mp4"
+    },
+    {
+      "id": "FC-S08-05",
+      "order": 5,
+      "duration_s": 5,
+      "camera": "low angle up to diamond drone formation then whip to Kora eyes",
+      "framing": "wide sky insert + ECU eyes",
+      "characters": [
+        "Kora Vega"
+      ],
+      "wardrobe_ref": "Kora FROZEN + hood",
+      "location": "Surface sky over Subsector Seventeen / Kora POV",
+      "action": "Four assault drones in tight diamond; Kora senses Architect pulse — copper wire and burnt sugar; faint violet temple shimmer; cold sweat bead",
+      "image_prompt": "Split cinematic beat: upper frame four abstract assault drones in tight diamond formation against mauve Neo-Citania sky abstract thruster shapes ONLY — NO logos, NO unit markings, NO readable IDs; lower/insert consistent Kora Vega under hood brown eyes with indigo flecks glancing upward, faint violet Cascade shimmer at temples PG-13, bead of cold sweat on forehead, same face lock. Sensing the Architect. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric atmosphere, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Neo-Citania cold glass/steel (#F8F8FF / #708090 / #4682B4), Resistencia copper accents muted under disguise (#B87333), Cascade indigo Coil (#4B0082 / #3F00FF), calculated mauve afternoon surface light. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Drones drift in diamond; whip-pan to Kora eyes under hood; violet temple flicker; horizontal 16:9.",
+      "status": "rendered",
+      "render": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-05.mp4",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-05.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-05.mp4"
+    },
+    {
+      "id": "FC-S08-06",
+      "order": 6,
+      "duration_s": 5,
+      "camera": "telephoto freeze on drone optical pods then cut to Sierra hand signal",
+      "framing": "ECU optics + Sierra CU",
+      "characters": [
+        "Sierra Catalano"
+      ],
+      "wardrobe_ref": "Sierra FROZEN + sanitation overlay",
+      "location": "Sky freeze / sidewalk Mark call",
+      "action": "Mark — drone thrusters whine; optical pods lock freeze three exact seconds; eighteen-second electronic shadow begins; Sierra subtle bone-conduction whisper posture",
+      "image_prompt": "Cinematic ECU of abstract assault-drone optical pods freezing mid-sweep NO logos NO readable HUD NO unit text, thruster haze; intercut consistent Sierra Catalano hazel calculating eyes pale LEFT cheek scar in sanitation jumpsuit giving a tiny Mark hand cue, bone-conduction whisper posture, same face lock. Electronic shadow moment. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric atmosphere, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Neo-Citania cold glass/steel (#F8F8FF / #708090 / #4682B4), Resistencia copper accents muted under disguise (#B87333), Cascade indigo Coil (#4B0082 / #3F00FF), calculated mauve afternoon surface light. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Optical pods lock freeze; thruster whine implied; cut to Sierra Mark cue; 3-beat hold; horizontal 16:9.",
+      "status": "rendered",
+      "render": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-06.mp4",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-06.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-06.mp4"
+    },
+    {
+      "id": "FC-S08-07",
+      "order": 7,
+      "duration_s": 6,
+      "camera": "ECU gloved palm on hatch then pull to Sierra profile",
+      "framing": "ECU hand / medium profile",
+      "characters": [
+        "Sierra Catalano"
+      ],
+      "wardrobe_ref": "Sierra FROZEN + sanitation overlay + leather cuff chip",
+      "location": "Residential Server Node 17 access hatch exterior",
+      "action": "Sierra presses gloved palm to titanium access hatch; cloned auth chip in leather cuff fools biometric abstract glow only NO UI text; hatch seam reacts",
+      "image_prompt": "ECU cinematic: Sierra Catalano gloved palm pressed to seamless titanium industrial access hatch NO readable text NO Node labels NO logos, leather cuff with abstract non-readable cloned chip seam emitting faint authentication glow only; pull out to consistent Sierra profile hazel eyes pale LEFT cheek scar sanitation jumpsuit, same face lock. Cold mauve street light. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric atmosphere, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Neo-Citania cold glass/steel (#F8F8FF / #708090 / #4682B4), Resistencia copper accents muted under disguise (#B87333), Cascade indigo Coil (#4B0082 / #3F00FF), calculated mauve afternoon surface light. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Palm presses; faint cuff glow; hatch seam micro-hiss start; pull to Sierra profile; horizontal 16:9.",
+      "status": "failed_video",
+      "render": null,
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-07.png",
+      "video_path": null,
+      "failure": "API 403 video + CLI 402; PNG kept; stopped after 3 same failures"
+    },
+    {
+      "id": "FC-S08-08",
+      "order": 8,
+      "duration_s": 6,
+      "camera": "doorway wide as hatch parts then tracking slip inside",
+      "framing": "wide hatch / tracking entry",
+      "characters": [
+        "Sierra Catalano",
+        "Mileo Chen",
+        "Riv",
+        "Kora Vega"
+      ],
+      "wardrobe_ref": "All FROZEN + sanitation overlays",
+      "location": "Residential Server Node 17 exterior hatch to threshold",
+      "action": "Titanium blast hatch parts with decompress hiss; four slip inside before streetlights flare back; stack vanishes into dark threshold — cathedral deferred",
+      "image_prompt": "Wide cinematic hatch breach: seamless titanium blast hatch parting with decompress vapor haze NO readable text NO logos NO Node lettering, four figures in utilitarian sanitation jumpsuits slipping through threshold into darkness — consistent locks Sierra lead pale LEFT cheek scar, Mileo vivid green eyes Coil concealed, Riv wiry cobalt fingertips, Kora hooded rear — same faces across shots; streetlights beginning to flare behind them as they vanish. Beat ends at threshold; no server cathedral yet. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric atmosphere, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Neo-Citania cold glass/steel (#F8F8FF / #708090 / #4682B4), Resistencia copper accents muted under disguise (#B87333), Cascade indigo Coil (#4B0082 / #3F00FF), calculated mauve afternoon surface light. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Hatch parts with vapor; stack slips through; streetlights flare behind; cut on darkness; horizontal 16:9.",
+      "status": "failed",
+      "render": null,
+      "image_path": null,
+      "video_path": null,
+      "failure": "API 403 image + CLI 402; stopped after 3 same failures"
+    }
+  ]
+}

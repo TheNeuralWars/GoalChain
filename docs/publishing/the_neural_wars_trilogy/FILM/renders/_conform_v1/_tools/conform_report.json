@@ -1,0 +1,261 @@
+{
+ "FC-S01": {
+  "source": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01_cut_v1.mp4",
+  "output": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v1/FC-S01_cut_conform.mp4",
+  "trim": "sin recorte (no se detectaron colas muertas)",
+  "dur_in_s": 62.356,
+  "dur_out_s": 62.333,
+  "bed_offset_s": 0.0,
+  "loudness_in": {
+   "input_i": -20.08,
+   "input_tp": -1.0,
+   "input_lra": 15.6
+  },
+  "loudness_out": {
+   "I": -20.07,
+   "TP": -1.9,
+   "LRA": 11.9
+  },
+  "gain_fix_db": 0.99,
+  "video": {
+   "codec": "h264",
+   "w": 848,
+   "h": 480,
+   "fps": "24/1"
+  },
+  "audio": {
+   "codec": "aac",
+   "sr": "44100",
+   "ch": 2
+  },
+  "bytes": "21294346"
+ },
+ "FC-S02": {
+  "source": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02_cut_v1.mp4",
+  "output": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v1/FC-S02_cut_conform.mp4",
+  "trim": "sin recorte (no se detectaron colas muertas)",
+  "dur_in_s": 64.356,
+  "dur_out_s": 64.333,
+  "bed_offset_s": 62.624,
+  "loudness_in": {
+   "input_i": -24.11,
+   "input_tp": -1.75,
+   "input_lra": 10.5
+  },
+  "loudness_out": {
+   "I": -19.91,
+   "TP": -2.0,
+   "LRA": 7.1
+  },
+  "gain_fix_db": null,
+  "video": {
+   "codec": "h264",
+   "w": 848,
+   "h": 480,
+   "fps": "24/1"
+  },
+  "audio": {
+   "codec": "aac",
+   "sr": "44100",
+   "ch": 2
+  },
+  "bytes": "14359633"
+ },
+ "FC-S03": {
+  "source": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03_cut_v1.mp4",
+  "output": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v1/FC-S03_cut_conform.mp4",
+  "trim": "recorte interno 24.125-24.667 s (cabeza estatica del plano) = -0.542 s",
+  "dur_in_s": 64.356,
+  "dur_out_s": 63.792,
+  "bed_offset_s": 126.98,
+  "loudness_in": {
+   "input_i": -23.05,
+   "input_tp": -3.59,
+   "input_lra": 19.5
+  },
+  "loudness_out": {
+   "I": -20.11,
+   "TP": -2.02,
+   "LRA": 12.9
+  },
+  "gain_fix_db": null,
+  "video": {
+   "codec": "h264",
+   "w": 848,
+   "h": 480,
+   "fps": "24/1"
+  },
+  "audio": {
+   "codec": "aac",
+   "sr": "44100",
+   "ch": 2
+  },
+  "bytes": "10888525"
+ },
+ "FC-S04": {
+  "source": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04_cut_v1.mp4",
+  "output": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v1/FC-S04_cut_conform.mp4",
+  "trim": "sin recorte (no se detectaron colas muertas)",
+  "dur_in_s": 64.356,
+  "dur_out_s": 64.333,
+  "bed_offset_s": 191.337,
+  "loudness_in": {
+   "input_i": -22.95,
+   "input_tp": -0.82,
+   "input_lra": 11.2
+  },
+  "loudness_out": {
+   "I": -20.12,
+   "TP": -1.81,
+   "LRA": 7.9
+  },
+  "gain_fix_db": null,
+  "video": {
+   "codec": "h264",
+   "w": 848,
+   "h": 480,
+   "fps": "24/1"
+  },
+  "audio": {
+   "codec": "aac",
+   "sr": "44100",
+   "ch": 2
+  },
+  "bytes": "15016293"
+ },
+ "FC-S05": {
+  "source": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05_cut_v1.mp4",
+  "output": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v1/FC-S05_cut_conform.mp4",
+  "trim": "recorte de cola quieta: fin en 63.050 s = -1.306 s",
+  "dur_in_s": 64.356,
+  "dur_out_s": 63.042,
+  "bed_offset_s": 255.693,
+  "loudness_in": {
+   "input_i": -20.66,
+   "input_tp": -1.04,
+   "input_lra": 15.5
+  },
+  "loudness_out": {
+   "I": -19.98,
+   "TP": -2.03,
+   "LRA": 9.2
+  },
+  "gain_fix_db": null,
+  "video": {
+   "codec": "h264",
+   "w": 848,
+   "h": 480,
+   "fps": "24/1"
+  },
+  "audio": {
+   "codec": "aac",
+   "sr": "44100",
+   "ch": 2
+  },
+  "bytes": "20661475"
+ },
+ "FC-S06": {
+  "source": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06_cut_v1.mp4",
+  "output": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v1/FC-S06_cut_conform.mp4",
+  "trim": "sin recorte (no se detectaron colas muertas)",
+  "dur_in_s": 64.356,
+  "dur_out_s": 64.333,
+  "bed_offset_s": 320.049,
+  "loudness_in": {
+   "input_i": -17.94,
+   "input_tp": -0.03,
+   "input_lra": 16.6
+  },
+  "loudness_out": {
+   "I": -20.25,
+   "TP": -1.79,
+   "LRA": 11.2
+  },
+  "gain_fix_db": null,
+  "video": {
+   "codec": "h264",
+   "w": 848,
+   "h": 480,
+   "fps": "24/1"
+  },
+  "audio": {
+   "codec": "aac",
+   "sr": "44100",
+   "ch": 2
+  },
+  "bytes": "17485715"
+ },
+ "FC-S07": {
+  "source": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07_cut_v1.mp4",
+  "output": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v1/FC-S07_cut_conform.mp4",
+  "trim": "sin recorte (no se detectaron colas muertas)",
+  "dur_in_s": 64.356,
+  "dur_out_s": 64.333,
+  "bed_offset_s": 384.406,
+  "loudness_in": {
+   "input_i": -22.26,
+   "input_tp": -1.27,
+   "input_lra": 15.6
+  },
+  "loudness_out": {
+   "I": -20.04,
+   "TP": -1.97,
+   "LRA": 7.7
+  },
+  "gain_fix_db": 0.74,
+  "video": {
+   "codec": "h264",
+   "w": 848,
+   "h": 480,
+   "fps": "24/1"
+  },
+  "audio": {
+   "codec": "aac",
+   "sr": "44100",
+   "ch": 2
+  },
+  "bytes": "14084707"
+ },
+ "FC-S08": {
+  "source": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08_cut_v1.mp4",
+  "output": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v1/FC-S08_cut_conform.mp4",
+  "trim": "sin recorte (no se detectaron colas muertas)",
+  "dur_in_s": 48.273,
+  "dur_out_s": 48.25,
+  "bed_offset_s": 448.762,
+  "loudness_in": {
+   "input_i": -21.13,
+   "input_tp": -2.73,
+   "input_lra": 14.9
+  },
+  "loudness_out": {
+   "I": -20.12,
+   "TP": -2.0,
+   "LRA": 9.3
+  },
+  "gain_fix_db": null,
+  "video": {
+   "codec": "h264",
+   "w": 848,
+   "h": 480,
+   "fps": "24/1"
+  },
+  "audio": {
+   "codec": "aac",
+   "sr": "44100",
+   "ch": 2
+  },
+  "bytes": "12875551"
+ },
+ "_master": {
+  "output": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v1/FC_full_conform_v1.mp4",
+  "duration_s": 489.167,
+  "loudness": {
+   "I": -20.22,
+   "TP": -1.94,
+   "LRA": 10.3
+  },
+  "xfade_s": 0.8,
+  "audio": "programa acrossfade 0.8s + cama continua"
+ }
+}

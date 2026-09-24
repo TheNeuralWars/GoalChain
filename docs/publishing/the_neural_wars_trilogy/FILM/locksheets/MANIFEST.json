@@ -1,0 +1,122 @@
+{
+  "generator": "locksheet_gen.py",
+  "film": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM",
+  "updated_at": "2026-09-14T10:12:00Z",
+  "items": [
+    {
+      "name": "MILEO_CHEN_3Q.png",
+      "character": "MILEO_CHEN",
+      "lock_sheet_id": "LOCK_SHEET_MILEO_CHEN",
+      "view": "3q",
+      "anchor": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-04.png",
+      "prompt": "Character continuity reference still for a film, neutral expression, neutral stance, one camera, one subject only, no other people in frame. Lighting: hard practical key with deep shadow (half-lit face), volumetric haze always present. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog. East Asian male ~32, lean-athletic analyst frame (not bodybuilder), same face as the reference still: oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, no freckles, subtle under-eye fatigue. Hair: black regulation cut exactly 3.2 cm, neat trim, never longer, no undercut fade. Eyes: vivid saturated GREEN iris, bright and unmistakable, the character's signature feature (not hazel, not brown, not blue). Wardrobe PRE Link cut: NeuroSys-gray regulation tunic, cloth tones approx #708090 / #C0C0C0 / #F8F8FF, belt pouch with an abstract EMP dampener shape, optional blank hexagonal badge geometry on the chest with no lettering, small link nodule implied under the collar at the nape. View 3/4 front: medium close-up head-and-shoulders, camera at eye height, subject turned about 30-45 degrees from camera, both eyes clearly visible, left ear lightly suggested, soft volumetric rim light from behind-right, neutral mouth. Hair must read clearly as 3.2 cm black regulation. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO readable text, NO logos.",
+      "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/MILEO_CHEN_3Q.png",
+      "mode": "anchor",
+      "status": "rendered",
+      "bytes": 115419,
+      "ts": "2026-09-14T10:05:24.104429Z"
+    },
+    {
+      "name": "MILEO_CHEN_PROFILE.png",
+      "character": "MILEO_CHEN",
+      "lock_sheet_id": "LOCK_SHEET_MILEO_CHEN",
+      "view": "profile",
+      "anchor": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-04.png",
+      "prompt": "Character continuity reference still for a film, neutral expression, neutral stance, one camera, one subject only, no other people in frame. Lighting: hard practical key with deep shadow (half-lit face), volumetric haze always present. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog. East Asian male ~32, lean-athletic analyst frame (not bodybuilder), same face as the reference still: oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, no freckles, subtle under-eye fatigue. Hair: black regulation cut exactly 3.2 cm, neat trim, never longer, no undercut fade. Eyes: vivid saturated GREEN iris, bright and unmistakable, the character's signature feature (not hazel, not brown, not blue). Wardrobe PRE Link cut: NeuroSys-gray regulation tunic, cloth tones approx #708090 / #C0C0C0 / #F8F8FF, belt pouch with an abstract EMP dampener shape, optional blank hexagonal badge geometry on the chest with no lettering, small link nodule implied under the collar at the nape. View true LEFT profile: medium close-up, clean silhouette of ear, jawline and nasal bridge, head in neutral stance, deep Atmosphere fog behind, no signage. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO readable text, NO logos.",
+      "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/MILEO_CHEN_PROFILE.png",
+      "mode": "anchor",
+      "status": "rendered",
+      "bytes": 116872,
+      "ts": "2026-09-14T10:05:33.047609Z"
+    },
+    {
+      "name": "MILEO_CHEN_FULL.png",
+      "character": "MILEO_CHEN",
+      "lock_sheet_id": "LOCK_SHEET_MILEO_CHEN",
+      "view": "full",
+      "anchor": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-04.png",
+      "prompt": "Character continuity reference still for a film, neutral expression, neutral stance, one camera, one subject only, no other people in frame. Lighting: hard practical key with deep shadow (half-lit face), volumetric haze always present. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog. East Asian male ~32, lean-athletic analyst frame (not bodybuilder), same face as the reference still: oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, no freckles, subtle under-eye fatigue. Hair: black regulation cut exactly 3.2 cm, neat trim, never longer, no undercut fade. Eyes: vivid saturated GREEN iris, bright and unmistakable, the character's signature feature (not hazel, not brown, not blue). Wardrobe PRE Link cut: NeuroSys-gray regulation tunic, cloth tones approx #708090 / #C0C0C0 / #F8F8FF, belt pouch with an abstract EMP dampener shape, optional blank hexagonal badge geometry on the chest with no lettering, small link nodule implied under the collar at the nape. View full-body: full figure head-to-toe, standing neutral, arms relaxed at the sides with one hand near the belt pouch, feet planted, camera eye level at mid distance, slight anamorphic wide feel. Environment: plain industrial Underbelly concrete, no props that introduce logos. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO readable text, NO logos.",
+      "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/MILEO_CHEN_FULL.png",
+      "mode": "anchor",
+      "status": "rendered",
+      "bytes": 139729,
+      "ts": "2026-09-14T10:05:42.458896Z"
+    },
+    {
+      "name": "KORA_VEGA_FULL.png",
+      "character": "KORA_VEGA",
+      "lock_sheet_id": "LOCK_SHEET_KORA_VEGA",
+      "view": "full",
+      "anchor": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-02.png",
+      "prompt": "Character continuity reference still for a film, neutral expression, neutral stance, one camera, one subject only, no other people in frame. Lighting: hard practical key with deep shadow (half-lit face), volumetric haze always present. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog. IDENTITY MARKERS (highest priority, must be exactly this): a woman, dark shoulder-length hair 28-35 cm, brown eyes with indigo flecks, and a fibrous pale scar ridge BEHIND THE RIGHT EAR (her right ear, viewer's left) — no scar on the cheek, no scar on the forehead. Latina mestiza woman ~24, compact agile street-operative build (not tall), same face as the reference still: angular cheekbones, defined jaw, slightly wide-set eyes, straight-to-soft nasal bridge, fullish lips, no freckle map. Hair: dark, practical Underbelly cut, shoulder-brushing 28-35 cm nape to tip, slightly unkempt, never waist-length, never buzz cut. Eyes: clearly readable BROWN iris with a few indigo flecks, never a solid indigo iris. Marker: fibrous Link-extraction scar ridge behind the RIGHT ear (must be readable when that ear is visible); bone-conduction analog shortwave ridge embedded under the scar tissue at the LEFT clavicle, may glow faint copper #B87333 / #FFBF00, never any UI text. Wardrobe: worn copper-bronze vest over a dark underlayer, accents #B87333 / #FFD700 / #FFBF00 / #FF8C00, underlayer and pants #000000 / #301934 / dark #708090, scuffed boots, no logos, compact abstract non-branded shock pistol shape. View full-body: head-to-toe neutral stance, shock pistol held low-ready or holstered as an abstract non-branded shape, scuffed boots planted, copper-bronze vest clearly readable, mid-distance single camera, industrial tunnel or metro bay environment with no signage. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO readable text, NO logos.",
+      "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/KORA_VEGA_FULL.png",
+      "mode": "anchor",
+      "status": "rendered",
+      "bytes": 112688,
+      "ts": "2026-09-14T10:09:02.100645Z"
+    },
+    {
+      "name": "SIERRA_CATALANO_3Q.png",
+      "character": "SIERRA_CATALANO",
+      "lock_sheet_id": "LOCK_SHEET_SIERRA_CATALANO",
+      "view": "3q",
+      "anchor": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-05.png",
+      "prompt": "Character continuity reference still for a film, neutral expression, neutral stance, one camera, one subject only, no other people in frame. Lighting: hard practical key with deep shadow (half-lit face), volumetric haze always present. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog. IDENTITY MARKERS (highest priority, must be exactly this): a woman with HAZEL mixed brown-green eyes, short dark commander hair 8-12 cm above the collar, and ONE pale temple-to-jaw scar on her LEFT cheek only (her left cheek, on the viewer's right side) — absolutely no scar on the right cheek, no forehead scars. European-descent woman resistance commander, visual age ~33-38, athletic tactical build, upright command posture, same face as the reference still: strong angular jaw, high cheekbones, composed brow, cool closed-mouth default, no soft teen features. Hair: dark practical commander cut 8-12 cm above the collar, neat, never flowing long. Eyes: HAZEL, mixed brown-green with dark calculating chill, clearly readable (never vivid green, never solid blue). Marker: pale scar on the LEFT cheek running from temple to jaw, always present when the face is visible, never on the right cheek. No bioluminescent lines, no Coil. Wardrobe: black combat pants #000000, weathered dark brown-black leather jacket with optional copper seam accents #B87333 / #FF8C00 at the seams only, dark underlayer #301934 / #708090, no logos, no rank plates, no lettering. View 3/4 front: medium close-up head-and-shoulders, about 30-40 degree turn, LEFT cheek toward camera so the pale temple-to-jaw scar is unmistakable, hazel eyes catching the practical light, cool command expression, neutral mouth. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO readable text, NO logos.",
+      "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/SIERRA_CATALANO_3Q.png",
+      "mode": "anchor",
+      "status": "rendered",
+      "bytes": 128640,
+      "ts": "2026-09-14T10:09:09.862362Z"
+    },
+    {
+      "name": "SIERRA_CATALANO_PROFILE.png",
+      "character": "SIERRA_CATALANO",
+      "lock_sheet_id": "LOCK_SHEET_SIERRA_CATALANO",
+      "view": "profile",
+      "anchor": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-05.png",
+      "prompt": "Character continuity reference still for a film, neutral expression, neutral stance, one camera, one subject only, no other people in frame. Lighting: hard practical key with deep shadow (half-lit face), volumetric haze always present. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog. IDENTITY MARKERS (highest priority, must be exactly this): a woman with HAZEL mixed brown-green eyes, short dark commander hair 8-12 cm above the collar, and ONE pale temple-to-jaw scar on her LEFT cheek only (her left cheek, on the viewer's right side) — absolutely no scar on the right cheek, no forehead scars. European-descent woman resistance commander, visual age ~33-38, athletic tactical build, upright command posture, same face as the reference still: strong angular jaw, high cheekbones, composed brow, cool closed-mouth default, no soft teen features. Hair: dark practical commander cut 8-12 cm above the collar, neat, never flowing long. Eyes: HAZEL, mixed brown-green with dark calculating chill, clearly readable (never vivid green, never solid blue). Marker: pale scar on the LEFT cheek running from temple to jaw, always present when the face is visible, never on the right cheek. No bioluminescent lines, no Coil. Wardrobe: black combat pants #000000, weathered dark brown-black leather jacket with optional copper seam accents #B87333 / #FF8C00 at the seams only, dark underlayer #301934 / #708090, no logos, no rank plates, no lettering. View LEFT profile: medium close, locks the scar silhouette from temple to jaw, dark Atmosphere backdrop with soft fog, no signage. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO readable text, NO logos.",
+      "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/SIERRA_CATALANO_PROFILE.png",
+      "mode": "anchor",
+      "status": "rendered",
+      "bytes": 110964,
+      "ts": "2026-09-14T10:09:16.997698Z"
+    },
+    {
+      "name": "SIERRA_CATALANO_FULL.png",
+      "character": "SIERRA_CATALANO",
+      "lock_sheet_id": "LOCK_SHEET_SIERRA_CATALANO",
+      "view": "full",
+      "anchor": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-05.png",
+      "prompt": "Character continuity reference still for a film, neutral expression, neutral stance, one camera, one subject only, no other people in frame. Lighting: hard practical key with deep shadow (half-lit face), volumetric haze always present. Background: deep Atmosphere black / dark purple (#000000 / #301934) with soft fog. IDENTITY MARKERS (highest priority, must be exactly this): a woman with HAZEL mixed brown-green eyes, short dark commander hair 8-12 cm above the collar, and ONE pale temple-to-jaw scar on her LEFT cheek only (her left cheek, on the viewer's right side) — absolutely no scar on the right cheek, no forehead scars. European-descent woman resistance commander, visual age ~33-38, athletic tactical build, upright command posture, same face as the reference still: strong angular jaw, high cheekbones, composed brow, cool closed-mouth default, no soft teen features. Hair: dark practical commander cut 8-12 cm above the collar, neat, never flowing long. Eyes: HAZEL, mixed brown-green with dark calculating chill, clearly readable (never vivid green, never solid blue). Marker: pale scar on the LEFT cheek running from temple to jaw, always present when the face is visible, never on the right cheek. No bioluminescent lines, no Coil. Wardrobe: black combat pants #000000, weathered dark brown-black leather jacket with optional copper seam accents #B87333 / #FF8C00 at the seams only, dark underlayer #301934 / #708090, no logos, no rank plates, no lettering. View full-body: head-to-toe neutral standing command stance, hands at the sides or one near the jacket seam, black combat pants and weathered leather jacket readable, mid-distance single camera, sealed metro redoubt or bunker environment, plain dark concrete and cold glass bounce only — no holograms, no glowing lettering, no numbers, no floor projections. Cinematic photoreal, chiaroscuro, volumetric fog, scale contrast, anamorphic 2.39 widescreen feel, PG-13, single model sheet still of one character. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO faction name labels on clothing or props, NO signage, NO carteles, NO HUD text, NO multi-panel, NO diptych, NO split-screen, NO storyboard tiles, one camera only, NO glowing lettering, NO numbers, NO floor projections, NO cybernetic ear implants, NO readable text, NO logos.",
+      "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/SIERRA_CATALANO_FULL.png",
+      "mode": "anchor",
+      "status": "rendered",
+      "bytes": 133345,
+      "ts": "2026-09-14T10:10:33.950464Z"
+    },
+    {
+      "name": "KORA_VEGA_3Q.png",
+      "character": "KORA_VEGA",
+      "lock_sheet_id": "LOCK_SHEET_KORA_VEGA",
+      "view": "3q",
+      "anchor": null,
+      "prompt": "Photorealistic casting portrait of a real human woman, natural unaugmented person, plain studio-style dark background. She is a 24 year old Latina mestiza street operative with angular cheekbones, defined jaw, fullish lips, slightly wide-set eyes, dark unkempt shoulder-length hair. Her eyes are BROWN. The iris colour is brown / dark brown. Not blue, not cyan, not grey, not green, not glowing. She has no electronic device, no implant, no earpiece, no earpiece light, no glowing hardware, no metal on her head: hidden behind her right ear there is only a pale healed surgical scar ridge in the skin. She wears a worn copper-bronze tactical vest (#B87333 / #FFBF00 / #FF8C00) over a dark underlayer (#000000 / #301934). Her hands are empty. No weapon, no gun. Cinematic chiaroscuro, hard practical key with deep shadow, half-lit face, volumetric haze, PG-13, single camera, one subject only. NO readable text, NO letters, NO numbers, NO logos, NO badges with lettering, NO signage, NO multi-panel, NO split-screen, one camera only, NO cyberpunk, NO sci-fi augmentations, NO glowing implants, NO blue eyes, NO readable text, NO logos. Medium close-up head-and-shoulders, camera at eye height, turned 30-45 degrees, both eyes clearly visible and brown, right ear slightly toward camera, neutral mouth, neutral expression.",
+      "dest": "docs/publishing/the_neural_wars_trilogy/FILM/locksheets/KORA_VEGA_3Q.png",
+      "mode": "text",
+      "status": "rendered",
+      "bytes": 275830
+    },
+    {
+      "name": "KORA_VEGA_PROFILE.png",
+      "character": "KORA_VEGA",
+      "lock_sheet_id": "LOCK_SHEET_KORA_VEGA",
+      "view": "profile",
+      "anchor": null,
+      "prompt": "Photorealistic casting portrait, true RIGHT profile medium close-up of a real human woman aged 24, natural unaugmented, plain dark studio background with haze. Dark unkempt shoulder-length hair, angular cheekbones, defined jaw. Her iris is BROWN (dark warm brown), definitively not blue and not cyan and not grey and not heterochromatic; both eyes the same brown. She has NO earpiece, NO wire, NO antenna, NO headset, NO metallic cuff, NO piercing, NO metal on the ear; behind her right ear there is only a pale slender healed surgical scar ridge in the bare skin. She wears a weathered copper-bronze tactical vest (#B87333 / #FFBF00) over a dark underlayer (#000000). Cinematic chiaroscuro, half-lit face, volumetric haze, PG-13, single camera, one subject only, no weapon. NO readable text, NO letters, NO numbers, NO logos, NO signage, NO multi-panel, one camera only, NO cyberpunk, NO implants, NO blue eyes, NO wiring, NO readable text, NO logos.",
+      "dest": "docs/publishing/the_neural_wars_trilogy/FILM/locksheets/KORA_VEGA_PROFILE.png",
+      "mode": "text",
+      "status": "rendered",
+      "bytes": 222899
+    }
+  ]
+}

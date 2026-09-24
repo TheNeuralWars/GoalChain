@@ -1,0 +1,539 @@
+{
+  "project": "the_neural_wars_trilogy",
+  "book": "BOOK_01_FRACTURED_CODE",
+  "created": "2026-09-11",
+  "status": "fc_s06_storyboard_ready",
+  "next_pending": "FC-S06",
+  "scenes": {
+    "FC-S01": {
+      "title": "Sector 17 Link Cut",
+      "source": "EDICION_2026/FC-01-Chapter_2026.md",
+      "status": "rendered_8_8",
+      "shots_planned": 8,
+      "shots_approved": [],
+      "renders_dir": "renders/FC-S01",
+      "storyboard": "scenes/FC-S01.json",
+      "notes": "Smoke+full gen 2026-09-10T23:04-23:22Z via direct xAI API (grok-imagine-image/video). FC-S01-01 smoke OK. Gen: 01 skipped_existing in full run (already from smoke); 02-07 API image+video; 08 API image + CLI video fallback after SSL handshake timeout on download. Cut: renders/FC-S01/FC-S01_cut_v1.mp4 (~62.36s). No publish.",
+      "shots_attempted": 8,
+      "shots_succeeded": [
+        "FC-S01-01",
+        "FC-S01-02",
+        "FC-S01-03",
+        "FC-S01-04",
+        "FC-S01-05",
+        "FC-S01-06",
+        "FC-S01-07",
+        "FC-S01-08"
+      ],
+      "shots_failed": [],
+      "successful_renders": [
+        {
+          "id": "FC-S01-01",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-01.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-01.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -34.6,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S01-02",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-02.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-02.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -27.0,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S01-03",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-03.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-03.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -20.6,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S01-04",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-04.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-04.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -24.4,
+          "backend": "xAI API (image+video); polling warnings (timeout/DNS)"
+        },
+        {
+          "id": "FC-S01-05",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-05.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-05.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -16.1,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S01-06",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-06.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-06.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -30.3,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S01-07",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-07.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-07.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -17.5,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S01-08",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-08.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-08.mp4",
+          "duration_s": 6.041667,
+          "resolution": "736x400",
+          "audio": true,
+          "mean_volume_db": -22.3,
+          "backend": "xAI API image OK; video API SSL handshake timeout -> Grok CLI fallback"
+        }
+      ],
+      "failure_summary": null,
+      "last_run_log": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/FC-S01_gen_api_20260910_230530.log",
+      "updated_at": "2026-09-10T23:25:08.515613Z",
+      "last_qc": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/FC-S01_qc.md",
+      "smoke_log": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/FC-S01_smoke_api_20260910_230438.log",
+      "cut": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01_cut_v1.mp4",
+      "api_vs_cli": {
+        "primary": "xAI direct API (auth.json)",
+        "images_api": [
+          "FC-S01-01",
+          "FC-S01-02",
+          "FC-S01-03",
+          "FC-S01-04",
+          "FC-S01-05",
+          "FC-S01-06",
+          "FC-S01-07",
+          "FC-S01-08"
+        ],
+        "videos_api": [
+          "FC-S01-01",
+          "FC-S01-02",
+          "FC-S01-03",
+          "FC-S01-04",
+          "FC-S01-05",
+          "FC-S01-06",
+          "FC-S01-07"
+        ],
+        "videos_cli_fallback": [
+          "FC-S01-08"
+        ]
+      },
+      "cut_ffprobe": {
+        "duration_s": 62.356,
+        "video": "h264 848x480",
+        "audio": "aac",
+        "mute": false
+      }
+    },
+    "FC-S02": {
+      "title": "Forgotten Labyrinth Descent",
+      "source": "EDICION_2026/FC-01-Chapter_2026.md",
+      "status": "rendered_8_8",
+      "shots_planned": 8,
+      "shots_approved": [],
+      "storyboard": "scenes/FC-S02.json",
+      "renders_dir": "renders/FC-S02",
+      "notes": "Smoke+full gen 2026-09-11T05:39:24Z via direct xAI API (grok-imagine-image/video). FC-S02-01 smoke OK. Full run: 01 skipped_existing; 02-08 API image+video. First full attempt aborted: transient API 403 then Grok CLI hang (no timeout); killed and restarted. Cut: renders/FC-S02/FC-S02_cut_v1.mp4 (~64.36s). No publish.",
+      "shots_attempted": 8,
+      "shots_succeeded": [
+        "FC-S02-01",
+        "FC-S02-02",
+        "FC-S02-03",
+        "FC-S02-04",
+        "FC-S02-05",
+        "FC-S02-06",
+        "FC-S02-07",
+        "FC-S02-08"
+      ],
+      "shots_failed": [],
+      "successful_renders": [
+        {
+          "id": "FC-S02-01",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-01.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-01.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -24.6,
+          "max_volume_db": -10.9,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S02-02",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-02.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-02.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -26.0,
+          "max_volume_db": -11.4,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S02-03",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-03.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-03.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -26.3,
+          "max_volume_db": -11.9,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S02-04",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-04.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-04.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -24.2,
+          "max_volume_db": -10.5,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S02-05",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-05.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-05.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -26.9,
+          "max_volume_db": -14.3,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S02-06",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-06.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-06.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -25.9,
+          "max_volume_db": -9.3,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S02-07",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-07.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-07.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -19.4,
+          "max_volume_db": -1.8,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S02-08",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-08.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02-08.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -22.5,
+          "max_volume_db": -9.8,
+          "backend": "xAI API (image+video)"
+        }
+      ],
+      "cut": {
+        "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02_cut_v1.mp4",
+        "duration_s": 64.356364,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -23.7,
+        "max_volume_db": -1.8,
+        "method": "ffmpeg concat demuxer -c copy (all shots already 848x480/44100)"
+      },
+      "updated_at": "2026-09-11T05:39:24Z"
+    },
+    "FC-S03": {
+      "title": "Tunnel Six First Contact",
+      "source": "EDICION_2026/FC-02-Chapter_2026.md",
+      "status": "rendered_8_8",
+      "shots_planned": 8,
+      "shots_approved": [],
+      "renders_dir": "renders/FC-S03",
+      "storyboard": "scenes/FC-S03.json",
+      "notes": "Full gen 2026-09-11T05:47-05:53Z via direct xAI API (grok-imagine-image/video). 8/8 OK, no CLI fallback. Cut: renders/FC-S03/FC-S03_cut_v1.mp4 (~64.36s). No publish. FC-S04 storyboard absent.",
+      "shots_attempted": 8,
+      "shots_succeeded": [
+        "FC-S03-01",
+        "FC-S03-02",
+        "FC-S03-03",
+        "FC-S03-04",
+        "FC-S03-05",
+        "FC-S03-06",
+        "FC-S03-07",
+        "FC-S03-08"
+      ],
+      "shots_failed": [],
+      "successful_renders": [
+        {
+          "id": "FC-S03-01",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-01.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-01.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -37.2,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S03-02",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-02.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-02.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -29.2,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S03-03",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-03.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-03.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -30.5,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S03-04",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-04.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-04.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -22.2,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S03-05",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-05.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-05.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -28.4,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S03-06",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-06.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-06.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -27.0,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S03-07",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-07.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-07.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -32.5,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S03-08",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-08.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-08.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -20.0,
+          "backend": "xAI API (image+video)"
+        }
+      ],
+      "cut": {
+        "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03_cut_v1.mp4",
+        "duration_s": 64.356364,
+        "size": 11879385,
+        "audio": true,
+        "mean_volume_db": -25.5,
+        "max_volume_db": -3.6
+      }
+    },
+    "FC-S04": {
+      "title": "Fracturados Redoubt — Sierra Keystone",
+      "source": "EDICION_2026/FC-02-Chapter_2026.md",
+      "status": "rendered_8_8",
+      "shots_planned": 8,
+      "shots_approved": [],
+      "renders_dir": "renders/FC-S04",
+      "storyboard": "scenes/FC-S04.json",
+      "breakdown": "reports/FC-S04_breakdown.md",
+      "notes": "Full gen 2026-09-11T06:06-06:12Z via direct xAI API (grok-imagine-image/video). 8/8 OK, no CLI fallback. Cut: renders/FC-S04/FC-S04_cut_v1.mp4 (~64.36s). No publish. FC-S05 storyboard absent.",
+      "shots_attempted": 8,
+      "shots_succeeded": [
+        "FC-S04-01",
+        "FC-S04-02",
+        "FC-S04-03",
+        "FC-S04-04",
+        "FC-S04-05",
+        "FC-S04-06",
+        "FC-S04-07",
+        "FC-S04-08"
+      ],
+      "shots_failed": [],
+      "successful_renders": [
+        {
+          "id": "FC-S04-01",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-01.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-01.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -23.2,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S04-02",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-02.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-02.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -30.2,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S04-03",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-03.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-03.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -25.7,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S04-04",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-04.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-04.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -25.5,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S04-05",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-05.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-05.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -20.2,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S04-06",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-06.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-06.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -29.0,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S04-07",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-07.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-07.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -19.8,
+          "backend": "xAI API (image+video)"
+        },
+        {
+          "id": "FC-S04-08",
+          "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-08.png",
+          "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-08.mp4",
+          "duration_s": 8.041667,
+          "resolution": "848x480",
+          "audio": true,
+          "mean_volume_db": -20.8,
+          "backend": "xAI API (image+video)"
+        }
+      ],
+      "cut": {
+        "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04_cut_v1.mp4",
+        "duration_s": 64.356364,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -22.9,
+        "max_volume_db": -0.8,
+        "size_bytes": 14497268,
+        "method": "ffmpeg concat demuxer -c copy (todos ya 848x480 / 44100 AAC stereo; sin normalize)"
+      },
+      "qc": "reports/FC-S04_qc.md",
+      "updated_at": "2026-09-11T06:14:04Z"
+    },
+    "FC-S05": {
+      "title": "Medical Bay — Yggdrasil Fracture",
+      "source": "EDICION_2026/FC-03-Chapter_2026.md",
+      "status": "rendered_8_8",
+      "shots_planned": 8,
+      "shots_approved": [],
+      "renders_dir": "renders/FC-S05",
+      "storyboard": "scenes/FC-S05.json",
+      "breakdown": "reports/FC-S05_breakdown.md",
+      "notes": "Full gen 2026-09-11T06:20-06:27Z via direct xAI API (grok-imagine-image/video). 8/8 OK, no CLI fallback. Cut: renders/FC-S05/FC-S05_cut_v1.mp4 (~64.36s). No publish. FC-S06 storyboard absent -> next_pending null.",
+      "updated_at": "2026-09-11T06:19:19Z",
+      "cut": "renders/FC-S05/FC-S05_cut_v1.mp4",
+      "qc": "reports/FC-S05_qc.md"
+    },
+    "FC-S06": {
+      "title": "Protocol Delta — Eastern Breach",
+      "source": "EDICION_2026/FC-03-Chapter_2026.md",
+      "status": "storyboard_ready",
+      "shots_planned": 8,
+      "shots_approved": [],
+      "renders_dir": "renders/FC-S06",
+      "storyboard": "scenes/FC-S06.json",
+      "notes": "Storyboard-only 2026-09-11. Cap.3 close after Yggdrasil medical beat (FC-S05): NeuroSec eastern breach + Evacuation Protocol Delta + Sierra parapet stand. NO generation. Wardrobe frozen; no new characters.",
+      "breakdown": "reports/FC-S06_breakdown.md",
+      "updated_at": "2026-09-11T06:31:42Z"
+    }
+  },
+  "rules": {
+    "max_new_shots_per_iteration": 8,
+    "stop_after_same_failure_type": 3,
+    "pg13": true,
+    "no_regenerate_approved": true,
+    "image_video_prompts_language": "en",
+    "no_text_logos_on_generator": true
+  },
+  "updated_at": "2026-09-11T06:31:42Z",
+  "blockers": [
+    "FC-S01-08 native video is 736x400 (CLI fallback) vs 848x480 API shots; cut uses normalized copy"
+  ]
+}

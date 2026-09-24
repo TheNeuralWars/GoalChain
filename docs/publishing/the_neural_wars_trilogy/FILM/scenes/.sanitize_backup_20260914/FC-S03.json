@@ -1,0 +1,266 @@
+{
+  "scene_id": "FC-S03",
+  "title": "Tunnel Six First Contact",
+  "book": "BOOK_01_FRACTURED_CODE",
+  "chapter": "Cap.2",
+  "phase": "A",
+  "max_shots": 8,
+  "source": "EDICION_2026/FC-02-Chapter_2026.md",
+  "source_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/BOOK_01_FRACTURED_CODE/EDICION_2026/FC-02-Chapter_2026.md",
+  "continuity_from": "FC-S02",
+  "notes": "Cap.1 fully covered by FC-S01 (Link cut) + FC-S02 (forgotten tunnels descent ending at storm-drain confluence toward Tunnel Six). Next iconic beat in story order: Cap.2 Tunnel Six — Kora finds collapsed Mileo; bone-conduction Keystone call; first Resistance contact; neutralizer patch; haul-up escape. Sierra NOT on camera yet (deferred). Wardrobe: ADD Kora + bone-conduction only; Mileo frozen. PG-13; no readable text/logos; EN edition used as quote aid only.",
+  "visual_grammar": {
+    "aspect": "16:9 horizontal",
+    "feel": "anamorphic 2.39",
+    "lighting": "chiaroscuro, volumetric fog, orange filament practical + Coil indigo + copper bone-conduction accent",
+    "palette": "Atmosphere black/purple + Resistencia copper-gold + Cascade indigo Coil + filament amber",
+    "rating": "PG-13",
+    "forbidden_in_prompts": [
+      "readable text",
+      "logos",
+      "carteles",
+      "signage"
+    ]
+  },
+  "character_lock": {
+    "primary": "Mileo Chen",
+    "secondary": "Kora Vega",
+    "mileo": {
+      "ethnicity": "East Asian male",
+      "age": 32,
+      "eyes": "vivid green",
+      "hair": "black regulation 3.2 cm",
+      "consistency": "same face across all shots",
+      "wardrobe": "AFTER cut dark underlayer + LEFT wrist Serpent Coil indigo"
+    },
+    "kora": {
+      "ethnicity": "Latina/mestiza",
+      "age": 24,
+      "eyes": "brown with indigo flecks",
+      "scar_ear": "RIGHT ear fibrous extraction ridge",
+      "bone_conduction": "under LEFT collarbone scar",
+      "consistency": "same face across all shots",
+      "wardrobe": "street/resistance copper-gold tactical vest"
+    }
+  },
+  "wardrobe_doc": "wardrobe.md",
+  "shots": [
+    {
+      "id": "FC-S03-01",
+      "order": 1,
+      "duration_s": 5,
+      "camera": "slow push establishing into Tunnel Six mouth",
+      "framing": "extreme wide establishing",
+      "characters": [],
+      "wardrobe_ref": "n/a",
+      "location": "Tunnel Six — legacy storm-drain network under Neo-Citania",
+      "action": "Establish Tunnel Six: mildew air, stagnant runoff, orange filament emergency lamps flickering on crumbling concrete ribs",
+      "image_prompt": "Extreme wide cinematic establishing of Tunnel Six legacy storm-drain under Neo-Citania. Heavy mildew haze, stagnant black runoff reflecting sparse orange filament emergency lamps flickering irregularly on crumbling concrete ribs and rusted steam mains. Deep volumetric fog, elongated shadows, Atmosphere black and deep purple. Empty tunnel ahead — no people. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Palette: Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), orange filament emergency lamps, Neo-Citania steel-gray wet concrete. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Slow push into the wet Tunnel Six mouth; orange filament lamps flicker irregularly; fog drifts along crumbling ribs; water ripples; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-01.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-01.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -37.2,
+        "max_volume_db": -23.6,
+        "backend": "xAI API (image+video)"
+      }
+    },
+    {
+      "id": "FC-S03-02",
+      "order": 2,
+      "duration_s": 5,
+      "camera": "medium tracking over-shoulder entry",
+      "framing": "medium tracking",
+      "characters": [
+        "Kora Vega"
+      ],
+      "wardrobe_ref": "Kora Vega street/resistance copper-gold + shock pistol",
+      "location": "Tunnel Six threshold from Underbelly drainage conduit",
+      "action": "Kora advances into Tunnel Six with shock pistol drawn in right hand; feline caution; copper-gold tactical vest",
+      "image_prompt": "Kora Vega entering Tunnel Six with compact shock pistol drawn in her right hand. consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Wardrobe: worn copper-bronze resistance tactical vest over dark underlayer, Resistencia copper-gold accents, scuffed boots, NO logos. Bone-conduction scar ridge faintly visible at collarbone. Orange filament lamps cast elongated shadows on wet crumbling concrete; volumetric fog; chiaroscuro. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), orange filament emergency lamps, Neo-Citania steel-gray wet concrete. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Kora advances feline-cautious into the tunnel; pistol steady; camera tracks over-shoulder; filament lamps flicker; fog parts; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-02.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-02.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -29.2,
+        "max_volume_db": -13.1,
+        "backend": "xAI API (image+video)"
+      }
+    },
+    {
+      "id": "FC-S03-03",
+      "order": 3,
+      "duration_s": 4,
+      "camera": "ECU collarbone scar then rack to Kora eyes listening",
+      "framing": "extreme close-up → close-up",
+      "characters": [
+        "Kora Vega"
+      ],
+      "wardrobe_ref": "Kora Vega + bone-conduction marker",
+      "location": "Tunnel Six — bone-conduction Keystone priority beat",
+      "action": "Bone-conduction under collarbone scar activates with Keystone red-priority urgency; Kora eyes harden — high-value defector in Tunnel Six",
+      "image_prompt": "Extreme close-up of Kora Vega LEFT collarbone: subtle subcutaneous bone-conduction implant ridge under a pale scar, faint copper pulse under skin — no UI, no text. consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Soft rack implication toward brown eyes with indigo flecks listening intently in wet tunnel gloom. Resistencia copper accents, Atmosphere shadows, volumetric fog. PG-13. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Faint copper pulse under collarbone scar; camera racks to Kora brown eyes with indigo flecks as she listens; subtle jaw tension; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-03.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-03.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -30.5,
+        "max_volume_db": -15.4,
+        "backend": "xAI API (image+video)"
+      }
+    },
+    {
+      "id": "FC-S03-04",
+      "order": 4,
+      "duration_s": 5,
+      "camera": "long telephoto compression down tunnel",
+      "framing": "long shot telephoto",
+      "characters": [
+        "Mileo Chen",
+        "Kora Vega"
+      ],
+      "wardrobe_ref": "Mileo AFTER cut + Coil; Kora copper-gold silhouette foreground soft",
+      "location": "Tunnel Six — fifty meters to steam main",
+      "action": "Telephoto: slumped Mileo against rusted steam main fifty meters ahead; Kora soft silhouette at frame edge",
+      "image_prompt": "Long telephoto cinematic down Tunnel Six: slumped figure of Mileo Chen propped against a rusted steam main fifty meters ahead. consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots. Wardrobe AFTER cut: dark practical underlayer, regulation slacks, no tunic; LEFT wrist faint indigo Serpent Coil; cold sweat; twin dark nosebleed trails subtle PG-13 no gore; right fist clutching small medical EMP inhibitor (abstract, no logos). Soft foreground silhouette of Kora Vega with pistol. Orange filament flicker, volumetric fog, crumbling concrete ribs. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), orange filament emergency lamps, Neo-Citania steel-gray wet concrete. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Subtle telephoto breathe; distant filament flicker; Mileo figure barely stirs; fog compresses depth; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-04.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-04.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -22.2,
+        "max_volume_db": -6.7,
+        "backend": "xAI API (image+video)"
+      }
+    },
+    {
+      "id": "FC-S03-05",
+      "order": 5,
+      "duration_s": 5,
+      "camera": "slow stalking push medium two-shot",
+      "framing": "medium two-shot",
+      "characters": [
+        "Kora Vega",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Kora copper-gold + pistol; Mileo AFTER cut + Coil",
+      "location": "Tunnel Six — beside rusted steam main",
+      "action": "Kora closes with feline caution; muzzle trained on Mileo chest; first Resistance contact standoff",
+      "image_prompt": "Medium two-shot in Tunnel Six: Kora Vega closes distance with shock pistol muzzle aimed at Mileo Chen chest. consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots. consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots. Mileo slumped against rusted steam pipe in dark underlayer, vivid green eyes wild, LEFT wrist indigo Coil dim. Kora copper-bronze tactical vest, brown eyes with indigo flecks hard. Wet concrete, orange filament, volumetric fog, chiaroscuro tension. PG-13 no gore. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), orange filament emergency lamps, Neo-Citania steel-gray wet concrete. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Kora takes two careful steps closer; pistol steady; Mileo flinches; steam hisses softly; camera slow push; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-05.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-05.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -28.4,
+        "max_volume_db": -11.1,
+        "backend": "xAI API (image+video)"
+      }
+    },
+    {
+      "id": "FC-S03-06",
+      "order": 6,
+      "duration_s": 5,
+      "camera": "ECU Mileo eyes then slight pull to face",
+      "framing": "extreme close-up eyes → close-up face",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen AFTER cut + Serpent Coil marker",
+      "location": "Tunnel Six — steam main",
+      "action": "Mileo head jerks up; pupils dilated nearly swallowing vivid green irises; neural withdrawal rawness",
+      "image_prompt": "Extreme close-up of Mileo Chen face in Tunnel Six: pupils dilated so wide they nearly swallow vivid green irises; cold sweat; subtle dark nosebleed trails PG-13 no gore. consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Dark practical underlayer collar edge; LEFT wrist indigo Coil glow soft at frame edge. Orange filament rim light, volumetric fog, Atmosphere shadows. Anamorphic 2.39. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Mileo head jerks up in a violent startle; pupils tremble; shallow breaths; Coil indigo flickers at edge; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-06.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-06.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -27.0,
+        "max_volume_db": -12.0,
+        "backend": "xAI API (image+video)"
+      }
+    },
+    {
+      "id": "FC-S03-07",
+      "order": 7,
+      "duration_s": 5,
+      "camera": "medium insert patch then body reaction",
+      "framing": "medium close insert → medium",
+      "characters": [
+        "Kora Vega",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Kora copper-gold; Mileo AFTER cut",
+      "location": "Tunnel Six — steam main",
+      "action": "Kora holsters pistol, kneels, slaps crude neural shock-dampener patch on Mileo nape; brief arch then breath steadies",
+      "image_prompt": "Kora Vega kneeling beside Mileo Chen in Tunnel Six, pressing a crude neural shock-dampener patch onto the base of his neck (nape Link area). consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots. consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots. Pistol holstered; copper-bronze vest; Mileo dark underlayer, body arched in a brief PG-13 shudder then easing — no gore, no surgery detail. Orange filament, wet concrete, volumetric fog, chiaroscuro. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), orange filament emergency lamps, Neo-Citania steel-gray wet concrete. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Patch contacts nape; Mileo arches briefly then breath steadies; Kora steadies his shoulder; steam drifts; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-07.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-07.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -32.5,
+        "max_volume_db": -18.0,
+        "backend": "xAI API (image+video)"
+      }
+    },
+    {
+      "id": "FC-S03-08",
+      "order": 8,
+      "duration_s": 6,
+      "camera": "rising two-shot then push toward deeper tunnel escape",
+      "framing": "medium rising to wide",
+      "characters": [
+        "Kora Vega",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Kora copper-gold; Mileo AFTER cut + Coil",
+      "location": "Tunnel Six — exit toward Fracturados routes / northern threat",
+      "action": "Kora hauls Mileo to his feet; Coil indigo brightens; urgency — NeuroSec thermal hounds north; point of alliance",
+      "image_prompt": "Wide cinematic: Kora Vega hauling Mileo Chen to his feet in Tunnel Six, gripping his arm. consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots. consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots. Mileo LEFT wrist Serpent Coil flares deeper indigo (#4B0082 / #3F00FF) as guide light. Copper-gold resistance vest vs dark underlayer contrast. They turn toward a darker escape fork; orange filament behind; volumetric fog; Atmosphere ahead. First alliance / extraction urgency. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), orange filament emergency lamps, Neo-Citania steel-gray wet concrete. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Kora pulls Mileo up; Coil pulses brighter; they stagger toward darker fork; camera rises and pushes after them; fog swallows edges; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "render": {
+        "png": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-08.png",
+        "mp4": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-08.mp4",
+        "duration_s": 8.041667,
+        "resolution": "848x480",
+        "audio": true,
+        "mean_volume_db": -20.0,
+        "max_volume_db": -3.5,
+        "backend": "xAI API (image+video)"
+      }
+    }
+  ],
+  "status": "rendered_8_8",
+  "updated_at": "2026-09-11T05:54:35Z",
+  "cut": {
+    "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03_cut_v1.mp4",
+    "duration_s": 64.356364,
+    "method": "ffmpeg concat demuxer -c copy"
+  }
+}

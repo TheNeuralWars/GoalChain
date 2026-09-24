@@ -1,0 +1,90 @@
+{
+ "FC-S01": {
+  "duration_s": 62.356364,
+  "freeze": {
+   "freeze_start": [],
+   "freeze_end": [],
+   "freeze_duration": []
+  },
+  "rms_per_sec": [],
+  "rms_median": null,
+  "rms_last_sec": null
+ },
+ "FC-S02": {
+  "duration_s": 64.356364,
+  "freeze": {
+   "freeze_start": [],
+   "freeze_end": [],
+   "freeze_duration": []
+  },
+  "rms_per_sec": [],
+  "rms_median": null,
+  "rms_last_sec": null
+ },
+ "FC-S03": {
+  "duration_s": 64.356364,
+  "freeze": {
+   "freeze_start": [],
+   "freeze_end": [],
+   "freeze_duration": []
+  },
+  "rms_per_sec": [],
+  "rms_median": null,
+  "rms_last_sec": null
+ },
+ "FC-S04": {
+  "duration_s": 64.356364,
+  "freeze": {
+   "freeze_start": [],
+   "freeze_end": [],
+   "freeze_duration": []
+  },
+  "rms_per_sec": [],
+  "rms_median": null,
+  "rms_last_sec": null
+ },
+ "FC-S05": {
+  "duration_s": 64.356364,
+  "freeze": {
+   "freeze_start": [],
+   "freeze_end": [],
+   "freeze_duration": []
+  },
+  "rms_per_sec": [],
+  "rms_median": null,
+  "rms_last_sec": null
+ },
+ "FC-S06": {
+  "duration_s": 64.356364,
+  "freeze": {
+   "freeze_start": [],
+   "freeze_end": [],
+   "freeze_duration": []
+  },
+  "rms_per_sec": [],
+  "rms_median": null,
+  "rms_last_sec": null
+ },
+ "FC-S07": {
+  "duration_s": 64.356364,
+  "freeze": {
+   "freeze_start": [],
+   "freeze_end": [],
+   "freeze_duration": []
+  },
+  "rms_per_sec": [],
+  "rms_median": null,
+  "rms_last_sec": null
+ },
+ "FC-S08": {
+  "duration_s": 48.273031,
+  "freeze": {
+   "freeze_start": [],
+   "freeze_end": [],
+   "freeze_duration": []
+  },
+  "rms_per_sec": [],
+  "rms_median": null,
+  "rms_last_sec": null
+ }
+}

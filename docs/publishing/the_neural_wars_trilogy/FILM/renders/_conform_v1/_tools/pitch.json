@@ -1,0 +1,454 @@
+{
+ "FC-S01": {
+  "cut": {
+   "dom_hz": 35.2,
+   "nearest_note": "D1",
+   "note_hz": 36.7,
+   "spread_hz": 64.5
+  },
+  "shots": {
+   "FC-S01-01": {
+    "dom_hz": 28.8,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 10.2
+   },
+   "FC-S01-02": {
+    "dom_hz": 82.0,
+    "nearest_note": "E2",
+    "note_hz": 82.4,
+    "spread_hz": 195.8
+   },
+   "FC-S01-03": {
+    "dom_hz": 34.7,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 7.9
+   },
+   "FC-S01-04": {
+    "dom_hz": 38.1,
+    "nearest_note": "D1",
+    "note_hz": 36.7,
+    "spread_hz": 23.6
+   },
+   "FC-S01-05": {
+    "dom_hz": 34.2,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 42.7
+   },
+   "FC-S01-06": {
+    "dom_hz": 32.2,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 10.3
+   },
+   "FC-S01-07": {
+    "dom_hz": 78.1,
+    "nearest_note": "E2",
+    "note_hz": 82.4,
+    "spread_hz": 68.0
+   },
+   "FC-S01-08": {
+    "dom_hz": 64.0,
+    "nearest_note": "C2",
+    "note_hz": 65.4,
+    "spread_hz": 47.6
+   }
+  }
+ },
+ "FC-S02": {
+  "cut": {
+   "dom_hz": 37.1,
+   "nearest_note": "D1",
+   "note_hz": 36.7,
+   "spread_hz": 77.7
+  },
+  "shots": {
+   "FC-S02-01": {
+    "dom_hz": 28.8,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 46.6
+   },
+   "FC-S02-02": {
+    "dom_hz": 68.4,
+    "nearest_note": "C2",
+    "note_hz": 65.4,
+    "spread_hz": 42.1
+   },
+   "FC-S02-03": {
+    "dom_hz": 72.8,
+    "nearest_note": "D2",
+    "note_hz": 73.4,
+    "spread_hz": 77.5
+   },
+   "FC-S02-04": {
+    "dom_hz": 27.8,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 5.0
+   },
+   "FC-S02-05": {
+    "dom_hz": 49.3,
+    "nearest_note": "G1",
+    "note_hz": 49.0,
+    "spread_hz": 40.0
+   },
+   "FC-S02-06": {
+    "dom_hz": 74.2,
+    "nearest_note": "D2",
+    "note_hz": 73.4,
+    "spread_hz": 55.8
+   },
+   "FC-S02-07": {
+    "dom_hz": 64.0,
+    "nearest_note": "C2",
+    "note_hz": 65.4,
+    "spread_hz": 77.7
+   },
+   "FC-S02-08": {
+    "dom_hz": 30.8,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 6.8
+   }
+  }
+ },
+ "FC-S03": {
+  "cut": {
+   "dom_hz": 64.5,
+   "nearest_note": "C2",
+   "note_hz": 65.4,
+   "spread_hz": 88.5
+  },
+  "shots": {
+   "FC-S03-01": {
+    "dom_hz": 86.4,
+    "nearest_note": "F2",
+    "note_hz": 87.3,
+    "spread_hz": 52.9
+   },
+   "FC-S03-02": {
+    "dom_hz": 73.7,
+    "nearest_note": "D2",
+    "note_hz": 73.4,
+    "spread_hz": 74.7
+   },
+   "FC-S03-03": {
+    "dom_hz": 34.2,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 40.1
+   },
+   "FC-S03-04": {
+    "dom_hz": 32.2,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 10.8
+   },
+   "FC-S03-05": {
+    "dom_hz": 73.2,
+    "nearest_note": "D2",
+    "note_hz": 73.4,
+    "spread_hz": 80.2
+   },
+   "FC-S03-06": {
+    "dom_hz": 72.3,
+    "nearest_note": "D2",
+    "note_hz": 73.4,
+    "spread_hz": 47.6
+   },
+   "FC-S03-07": {
+    "dom_hz": 33.7,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 61.6
+   },
+   "FC-S03-08": {
+    "dom_hz": 177.2,
+    "nearest_note": "E3",
+    "note_hz": 164.8,
+    "spread_hz": 207.2
+   }
+  }
+ },
+ "FC-S04": {
+  "cut": {
+   "dom_hz": 36.1,
+   "nearest_note": "D1",
+   "note_hz": 36.7,
+   "spread_hz": 147.9
+  },
+  "shots": {
+   "FC-S04-01": {
+    "dom_hz": 32.2,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 43.1
+   },
+   "FC-S04-02": {
+    "dom_hz": 32.2,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 71.6
+   },
+   "FC-S04-03": {
+    "dom_hz": 94.7,
+    "nearest_note": "G2",
+    "note_hz": 98.0,
+    "spread_hz": 165.9
+   },
+   "FC-S04-04": {
+    "dom_hz": 53.7,
+    "nearest_note": "A1",
+    "note_hz": 55.0,
+    "spread_hz": 55.2
+   },
+   "FC-S04-05": {
+    "dom_hz": 29.3,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 9.5
+   },
+   "FC-S04-06": {
+    "dom_hz": 86.9,
+    "nearest_note": "F2",
+    "note_hz": 87.3,
+    "spread_hz": 66.9
+   },
+   "FC-S04-07": {
+    "dom_hz": 27.8,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 39.5
+   },
+   "FC-S04-08": {
+    "dom_hz": 123.0,
+    "nearest_note": "B2",
+    "note_hz": 123.5,
+    "spread_hz": 187.0
+   }
+  }
+ },
+ "FC-S05": {
+  "cut": {
+   "dom_hz": 37.1,
+   "nearest_note": "D1",
+   "note_hz": 36.7,
+   "spread_hz": 66.4
+  },
+  "shots": {
+   "FC-S05-01": {
+    "dom_hz": 42.0,
+    "nearest_note": "E1",
+    "note_hz": 41.2,
+    "spread_hz": 65.3
+   },
+   "FC-S05-02": {
+    "dom_hz": 73.2,
+    "nearest_note": "D2",
+    "note_hz": 73.4,
+    "spread_hz": 152.8
+   },
+   "FC-S05-03": {
+    "dom_hz": 36.1,
+    "nearest_note": "D1",
+    "note_hz": 36.7,
+    "spread_hz": 14.8
+   },
+   "FC-S05-04": {
+    "dom_hz": 36.6,
+    "nearest_note": "D1",
+    "note_hz": 36.7,
+    "spread_hz": 128.8
+   },
+   "FC-S05-05": {
+    "dom_hz": 73.2,
+    "nearest_note": "D2",
+    "note_hz": 73.4,
+    "spread_hz": 47.9
+   },
+   "FC-S05-06": {
+    "dom_hz": 29.3,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 10.4
+   },
+   "FC-S05-07": {
+    "dom_hz": 35.6,
+    "nearest_note": "D1",
+    "note_hz": 36.7,
+    "spread_hz": 71.3
+   },
+   "FC-S05-08": {
+    "dom_hz": 35.2,
+    "nearest_note": "D1",
+    "note_hz": 36.7,
+    "spread_hz": 33.7
+   }
+  }
+ },
+ "FC-S06": {
+  "cut": {
+   "dom_hz": 35.2,
+   "nearest_note": "D1",
+   "note_hz": 36.7,
+   "spread_hz": 131.8
+  },
+  "shots": {
+   "FC-S06-01": {
+    "dom_hz": 37.1,
+    "nearest_note": "D1",
+    "note_hz": 36.7,
+    "spread_hz": 46.6
+   },
+   "FC-S06-02": {
+    "dom_hz": 34.7,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 41.4
+   },
+   "FC-S06-03": {
+    "dom_hz": 33.7,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 43.4
+   },
+   "FC-S06-04": {
+    "dom_hz": 73.2,
+    "nearest_note": "D2",
+    "note_hz": 73.4,
+    "spread_hz": 70.0
+   },
+   "FC-S06-05": {
+    "dom_hz": 33.2,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 218.2
+   },
+   "FC-S06-06": {
+    "dom_hz": 35.6,
+    "nearest_note": "D1",
+    "note_hz": 36.7,
+    "spread_hz": 46.4
+   },
+   "FC-S06-07": {
+    "dom_hz": 29.3,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 169.6
+   },
+   "FC-S06-08": {
+    "dom_hz": 101.1,
+    "nearest_note": "G2",
+    "note_hz": 98.0,
+    "spread_hz": 188.9
+   }
+  }
+ },
+ "FC-S07": {
+  "cut": {
+   "dom_hz": 33.2,
+   "nearest_note": "C1",
+   "note_hz": 32.7,
+   "spread_hz": 166.6
+  },
+  "shots": {
+   "FC-S07-01": {
+    "dom_hz": 31.7,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 37.2
+   },
+   "FC-S07-02": {
+    "dom_hz": 29.3,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 8.2
+   },
+   "FC-S07-03": {
+    "dom_hz": 30.3,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 8.9
+   },
+   "FC-S07-04": {
+    "dom_hz": 34.2,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 73.4
+   },
+   "FC-S07-05": {
+    "dom_hz": 32.7,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 33.7
+   },
+   "FC-S07-06": {
+    "dom_hz": 60.1,
+    "nearest_note": "B1",
+    "note_hz": 61.7,
+    "spread_hz": 45.3
+   },
+   "FC-S07-07": {
+    "dom_hz": 196.8,
+    "nearest_note": "E3",
+    "note_hz": 164.8,
+    "spread_hz": 72.0
+   },
+   "FC-S07-08": {
+    "dom_hz": 107.9,
+    "nearest_note": "A2",
+    "note_hz": 110.0,
+    "spread_hz": 177.4
+   }
+  }
+ },
+ "FC-S08": {
+  "cut": {
+   "dom_hz": 35.2,
+   "nearest_note": "D1",
+   "note_hz": 36.7,
+   "spread_hz": 202.7
+  },
+  "shots": {
+   "FC-S08-01": {
+    "dom_hz": 28.3,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 42.2
+   },
+   "FC-S08-02": {
+    "dom_hz": 174.3,
+    "nearest_note": "E3",
+    "note_hz": 164.8,
+    "spread_hz": 207.7
+   },
+   "FC-S08-03": {
+    "dom_hz": 116.7,
+    "nearest_note": "A2",
+    "note_hz": 110.0,
+    "spread_hz": 137.4
+   },
+   "FC-S08-04": {
+    "dom_hz": 86.4,
+    "nearest_note": "F2",
+    "note_hz": 87.3,
+    "spread_hz": 127.0
+   },
+   "FC-S08-05": {
+    "dom_hz": 32.2,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 8.5
+   },
+   "FC-S08-06": {
+    "dom_hz": 31.2,
+    "nearest_note": "C1",
+    "note_hz": 32.7,
+    "spread_hz": 6.9
+   }
+  }
+ }
+}

@@ -1,0 +1,395 @@
+{
+ "FC-S01": {
+  "FC-S01-01": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S01-02": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S01-03": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S01-04": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S01-05": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S01-06": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S01-07": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S01-08": {
+   "dur": 6.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  }
+ },
+ "FC-S02": {
+  "FC-S02-01": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S02-02": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S02-03": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S02-04": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S02-05": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S02-06": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S02-07": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S02-08": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  }
+ },
+ "FC-S03": {
+  "FC-S03-01": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S03-02": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S03-03": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S03-04": {
+   "dur": 8.042,
+   "spans": [
+    [
+     0.0,
+     0.38
+    ]
+   ],
+   "head_static_end": 0.375,
+   "tail_static_start": null
+  },
+  "FC-S03-05": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S03-06": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S03-07": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S03-08": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  }
+ },
+ "FC-S04": {
+  "FC-S04-01": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S04-02": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S04-03": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S04-04": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S04-05": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S04-06": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S04-07": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S04-08": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  }
+ },
+ "FC-S05": {
+  "FC-S05-01": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S05-02": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S05-03": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S05-04": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S05-05": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S05-06": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S05-07": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S05-08": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  }
+ },
+ "FC-S06": {
+  "FC-S06-01": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S06-02": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S06-03": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S06-04": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S06-05": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S06-06": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S06-07": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S06-08": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  }
+ },
+ "FC-S07": {
+  "FC-S07-01": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S07-02": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S07-03": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S07-04": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S07-05": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S07-06": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S07-07": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S07-08": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  }
+ },
+ "FC-S08": {
+  "FC-S08-01": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S08-02": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S08-03": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S08-04": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S08-05": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  },
+  "FC-S08-06": {
+   "dur": 8.042,
+   "spans": [],
+   "head_static_end": null,
+   "tail_static_start": null
+  }
+ }
+}

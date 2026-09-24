@@ -1,0 +1,235 @@
+{
+  "scene_id": "FC-S06",
+  "title": "Protocol Delta — Eastern Breach",
+  "book": "BOOK_01_FRACTURED_CODE",
+  "chapter": "Cap.3",
+  "phase": "A",
+  "max_shots": 8,
+  "source": "EDICION_2026/FC-03-Chapter_2026.md",
+  "source_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/BOOK_01_FRACTURED_CODE/EDICION_2026/FC-03-Chapter_2026.md",
+  "continuity_from": "FC-S05",
+  "notes": "Storyboard-only 2026-09-11. Cap.3 after medical/Yggdrasil fracture (FC-S05 ends gurney crash, Kora rising violet-smeared, Sierra racks rifle, red beacons begin, Coil faintly alive). Next iconic beat in story order: perimeter sirens + Riv eastern NeuroSec breach call → Evacuation Protocol Delta (data cores, thermite rigs, wounded to deep conduits) → Kora Architect-knows calm → Sierra parapet stand (let him come). Completes Cap.3 before Cap.4 Quantum Resonance. EN edition quote aid only — NOT manuscript. Wardrobe: NO new characters; Mileo/Kora/Sierra/Okafor/Riv FROZEN. NeuroSec = anonymous silhouettes only. PG-13; no readable text/logos; NO generation.",
+  "visual_grammar": {
+    "aspect": "16:9 horizontal",
+    "feel": "anamorphic 2.39",
+    "lighting": "chiaroscuro; spinning red emergency strobes + residual violet EM haze + thermal-cannon orange at tunnel mouth",
+    "palette": "Atmosphere black/purple + Cascade indigo Coil + Resistencia copper + red emergency + thermal orange threat",
+    "rating": "PG-13",
+    "forbidden_in_prompts": [
+      "readable text",
+      "logos",
+      "carteles",
+      "signage",
+      "on-screen code lines",
+      "UI labels",
+      "unit markings"
+    ]
+  },
+  "character_lock": {
+    "primary": "Sierra Catalano",
+    "secondary": "Kora Vega",
+    "tertiary": "Mileo Chen",
+    "supporting": [
+      "Riv",
+      "Dr. Marcus Okafor"
+    ],
+    "mileo": {
+      "ethnicity": "East Asian male",
+      "age": 32,
+      "eyes": "vivid green (terrifying new lucidity — NOT indigo-fire discs)",
+      "hair": "black regulation 3.2 cm",
+      "consistency": "same face across all shots",
+      "wardrobe": "AFTER cut dark underlayer + LEFT wrist Serpent Coil indigo + LEFT forearm geometric dermal scar circuit (FROZEN)"
+    },
+    "kora": {
+      "ethnicity": "Latina/mestiza",
+      "age": 24,
+      "eyes": "brown with indigo flecks",
+      "scar_ear": "RIGHT ear fibrous extraction ridge",
+      "bone_conduction": "under LEFT collarbone scar",
+      "consistency": "same face across all shots",
+      "wardrobe": "street/resistance copper-gold tactical vest (FROZEN)",
+      "cascade_residue": "subtle luminous violet at nostrils/temples PG-13"
+    },
+    "sierra": {
+      "role": "Keystone / Resistance commander",
+      "eyes": "hazel/dark calculating",
+      "scar_cheek": "pale LEFT cheek temple to jaw",
+      "consistency": "same face across all shots",
+      "wardrobe": "black combat pants + weathered leather jacket; NO logos (FROZEN)"
+    },
+    "okafor": {
+      "role": "Chief medical officer",
+      "ethnicity": "West African descent",
+      "age": "50s",
+      "consistency": "same face across all shots",
+      "wardrobe": "stained field-medic apron over dark resistance layers; NO logos (FROZEN)"
+    },
+    "riv": {
+      "role": "Chief transmissions engineer",
+      "consistency": "same face across all shots",
+      "wardrobe": "grease-stained tech layers; cobalt gel on fingers; silver compass pendant; NO logos (FROZEN)"
+    },
+    "neurosec": {
+      "note": "Anonymous faceless assault silhouettes only — NOT wardrobe characters; NO logos/unit markings"
+    }
+  },
+  "wardrobe_doc": "wardrobe.md",
+  "status": "storyboard_ready",
+  "updated_at": "2026-09-11T06:31:42Z",
+  "shots": [
+    {
+      "id": "FC-S06-01",
+      "order": 1,
+      "duration_s": 5,
+      "camera": "whip-pan across spinning red beacons then push to tunnel mouth",
+      "framing": "wide establishing",
+      "characters": [],
+      "wardrobe_ref": "n/a",
+      "location": "Fracturados redoubt — medical bay tunnel corners / eastern approach",
+      "action": "Perimeter sirens shatter post-Yggdrasil silence; red emergency beacons spin across brick vault corners; dust vibrates; breach imminent",
+      "image_prompt": "Wide cinematic establishing of Fracturados underground redoubt after electromagnetic surge: red emergency beacon globes spinning at brick tunnel corners, harsh rotating crimson strobe cutting through violet residual haze from prior medical bay overload. Empty approach corridor toward eastern sector mouth; overturned carts, hanging cables, volumetric dust. Abstract alarm light only — NO readable text, NO logos, NO signage, NO carteles. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Red beacons spin faster; dust shakes; camera whip-pans to eastern tunnel mouth; horizontal 16:9 motion from still.",
+      "status": "storyboard",
+      "render": null,
+      "image_path": null,
+      "video_path": null
+    },
+    {
+      "id": "FC-S06-02",
+      "order": 2,
+      "duration_s": 5,
+      "camera": "tight push on Riv shortwave shout",
+      "framing": "medium close to ECU radio hand",
+      "characters": [
+        "Riv"
+      ],
+      "wardrobe_ref": "Riv FROZEN tech + cobalt gel + silver compass",
+      "location": "Medical bay / transmission bank — shortwave radio",
+      "action": "Riv bellows into analog shortwave: eastern breach — multiple heavy NeuroSec squads in assault armor with thermal cannons (visual urgency only; NO on-screen text)",
+      "image_prompt": "Medium-close cinematic: consistent character lock Riv: wiry resistance engineer man ~30s, sleep-deprived red-rimmed eyes, fingers stained cobalt-blue conductive gel, small silver compass pendant at throat, same face across shots in grease-stained tech layers with optional Resistencia copper accents shouting into scavenged analog shortwave handset, cobalt-blue gel on fingers gripping mic, silver compass pendant swinging at throat, red-rimmed exhausted eyes wide with alarm. Behind him smoking blank analog monitors (NO readable UI). Red beacon wash across grease-stained tech layers. PG-13 intensity. NO readable text, NO logos. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Riv leans into mic; compass pendant swings; red strobe pulses; horizontal 16:9 motion from still.",
+      "status": "storyboard",
+      "render": null,
+      "image_path": null,
+      "video_path": null
+    },
+    {
+      "id": "FC-S06-03",
+      "order": 3,
+      "duration_s": 6,
+      "camera": "telephoto compression down eastern tunnel toward silhouettes",
+      "framing": "extreme long to medium telephoto",
+      "characters": [],
+      "wardrobe_ref": "anonymous NeuroSec silhouettes only — no named character locks",
+      "location": "Eastern sector tunnel approach outside redoubt",
+      "action": "Heavy NeuroSec assault silhouettes advance in formation; abstract thermal-cannon glow at weapon muzzles; braided copper mesh and brick vault — faceless corporate stormtroopers PG-13",
+      "image_prompt": "Extreme long cinematic telephoto: eastern metro tunnel choked with dust and red emergency glow. Anonymous faceless NeuroSec heavy assault silhouettes in bulky abstract armor advance in tight formation (no faces readable, NO logos, NO unit markings, NO readable text). Abstract thermal-cannon muzzles glow dull orange heat — PG-13 threat, no gore. Brick barrel vault, copper mesh panels, volumetric haze. Faceless corporate storm. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Silhouettes advance in lockstep; thermal muzzles pulse orange; dust kicks; horizontal 16:9 motion from still.",
+      "status": "storyboard",
+      "render": null,
+      "image_path": null,
+      "video_path": null
+    },
+    {
+      "id": "FC-S06-04",
+      "order": 4,
+      "duration_s": 5,
+      "camera": "hero ECU Sierra racking bolt then pull to medium",
+      "framing": "ECU hands/rifle to medium portrait",
+      "characters": [
+        "Sierra Catalano"
+      ],
+      "wardrobe_ref": "Sierra FROZEN leather + combat pants",
+      "location": "Medical bay / blast-door parapet approach",
+      "action": "Sierra racks pulse-rifle bolt with glacial calm; pulse held at sixty-two; pale LEFT cheek scar lit by red strobe — commander resolve",
+      "image_prompt": "Hero cinematic: consistent character lock Sierra Catalano: resistance commander woman, hazel/dark calculating eyes, pale scar across LEFT cheek from temple to jaw, dark practical commander hair, same face across shots in black combat pants and weathered leather jacket racks abstract pulse rifle bolt with glacial calm; pale LEFT cheek scar lit by spinning red emergency strobe; hazel/dark calculating eyes steady; weathered leather jacket; NO logos on weapon or clothing. Controlled commander presence amid chaos. PG-13. NO readable text. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Bolt racks with metallic click energy; red strobe crosses scar; eyes unblinking; horizontal 16:9 motion from still.",
+      "status": "storyboard",
+      "render": null,
+      "image_path": null,
+      "video_path": null
+    },
+    {
+      "id": "FC-S06-05",
+      "order": 5,
+      "duration_s": 6,
+      "camera": "handheld chaos track through bay evacuation",
+      "framing": "wide tracking / documentary chaos",
+      "characters": [
+        "Sierra Catalano",
+        "Dr. Marcus Okafor",
+        "Riv"
+      ],
+      "wardrobe_ref": "Sierra/Okafor/Riv FROZEN",
+      "location": "Medical bay — evacuation scramble",
+      "action": "Protocol Delta: fighters load Mileo data-core canisters; thermite charges spark on stationary extraction rigs; Okafor moves wounded toward deep-conduit hatch; three-minute abandon",
+      "image_prompt": "Wide handheld-feel cinematic chaos: consistent character lock Sierra Catalano: resistance commander woman, hazel/dark calculating eyes, pale scar across LEFT cheek from temple to jaw, dark practical commander hair, same face across shots in black combat pants and weathered leather jacket barking orders mid-frame (mouth open, no readable captions); consistent character lock Dr. Marcus Okafor: West African-descent man ~50s, weathered healer presence, short greying hair, kind exhausted eyes, same face across shots in stained field-medic apron over dark resistance layers guiding a wounded fighter toward a dark deep-conduit hatch; consistent character lock Riv: wiry resistance engineer man ~30s, sleep-deprived red-rimmed eyes, fingers stained cobalt-blue conductive gel, small silver compass pendant at throat, same face across shots in grease-stained tech layers with optional Resistencia copper accents sealing scavenged data-core canisters (abstract glowing cylinders — NO labels). Thermite sparks bloom white-orange on stationary fiber-optic extraction rigs (PG-13 sparks, no gore). Red strobes, overturned gurney, hanging cables. Resistance scramble. NO readable text, NO logos. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Thermite sparks flare; cores handed off; Okafor hustles wounded; Sierra points deep hatch; horizontal 16:9 motion from still.",
+      "status": "storyboard",
+      "render": null,
+      "image_path": null,
+      "video_path": null
+    },
+    {
+      "id": "FC-S06-06",
+      "order": 6,
+      "duration_s": 5,
+      "camera": "slow push on Kora rising to shared look with Sierra",
+      "framing": "medium two-shot",
+      "characters": [
+        "Kora Vega",
+        "Sierra Catalano"
+      ],
+      "wardrobe_ref": "Kora/Sierra FROZEN; Cascade residue on Kora",
+      "location": "Medical bay floor beside crashed gurney",
+      "action": "Kora rises — face smeared with subtle luminous violet Cascade residue (PG-13); eerie calm knowing: Architect saw what they saw; Sierra meets her eyes",
+      "image_prompt": "Medium two-shot cinematic: consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots in street/resistance copper-gold tactical vest over dark underlayer, scuffed boots rising from concrete, face with subtle luminous violet Cascade residue at nostrils and temples — PG-13, not graphic; brown eyes with indigo flecks eerily calm; copper-gold vest. Opposite: consistent character lock Sierra Catalano: resistance commander woman, hazel/dark calculating eyes, pale scar across LEFT cheek from temple to jaw, dark practical commander hair, same face across shots in black combat pants and weathered leather jacket glancing back mid-command, pale LEFT cheek scar, leather jacket, mutual recognition. Red strobe rim-light. Shared dread without panic. NO readable text, NO logos. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Kora rises; violet residue catches light; eyes lock with Sierra; strobe pulse; horizontal 16:9 motion from still.",
+      "status": "storyboard",
+      "render": null,
+      "image_path": null,
+      "video_path": null
+    },
+    {
+      "id": "FC-S06-07",
+      "order": 7,
+      "duration_s": 5,
+      "camera": "low ECU Mileo eyes opening then tilt to LEFT wrist Coil",
+      "framing": "ECU eyes to ECU Coil",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo FROZEN after-cut + Coil + dermal circuit",
+      "location": "Medical bay floor — crashed gurney area",
+      "action": "Mileo eyes flutter open with terrifying new lucidity (vivid green, not indigo-fire); LEFT wrist Coil pulses once; he is conscious cargo for the deep conduits",
+      "image_prompt": "Low ECU cinematic: consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots in dark practical underlayer, LEFT wrist Serpent Coil indigo bioluminescent lines under skin, LEFT forearm geometric dermal scar circuit eyes fluttering open — vivid green with terrifying new lucidity (NOT indigo-fire discs; aftermath clarity); dark underlayer; camera tilts to LEFT wrist where Serpent Coil indigo bioluminescent lines pulse once under skin; LEFT forearm geometric dermal scar circuit visible. Red strobe reflection in iris. PG-13. NO readable text, NO logos. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Eyes open to green lucidity; Coil pulses once indigo; breath steadies; horizontal 16:9 motion from still.",
+      "status": "storyboard",
+      "render": null,
+      "image_path": null,
+      "video_path": null
+    },
+    {
+      "id": "FC-S06-08",
+      "order": 8,
+      "duration_s": 6,
+      "camera": "rising hero wide behind parapet then hold on Sierra silhouette vs tunnel glow",
+      "framing": "wide hero / reverse toward eastern breach glow",
+      "characters": [
+        "Sierra Catalano",
+        "Kora Vega",
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Sierra/Kora/Mileo FROZEN; Sierra at parapet stand",
+      "location": "Main blast-door reinforced parapet — eastern approach",
+      "action": "Sierra takes position behind reinforced parapet of main blast door — let him come; truth will not die; Kora supports Mileo toward deep conduits behind her; eastern tunnel glows with NeuroSec advance",
+      "image_prompt": "Rising wide hero cinematic: consistent character lock Sierra Catalano: resistance commander woman, hazel/dark calculating eyes, pale scar across LEFT cheek from temple to jaw, dark practical commander hair, same face across shots in black combat pants and weathered leather jacket planted behind reinforced concrete/steel parapet at main blast door, abstract pulse rifle braced, pale LEFT cheek scar, weathered leather, glacial defiance facing eastern tunnel orange-thermal glow of advancing anonymous NeuroSec silhouettes (faceless, NO logos). Background soft: consistent character lock Kora Vega: Latina/mestiza woman ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous scar ridge behind RIGHT ear, same face across shots in street/resistance copper-gold tactical vest over dark underlayer, scuffed boots supporting consistent character lock Mileo Chen: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots in dark practical underlayer, LEFT wrist Serpent Coil indigo bioluminescent lines under skin, LEFT forearm geometric dermal scar circuit toward dark deep-conduit hatch — copper vest, vivid green eyes lucid, LEFT wrist Coil faint indigo. Point of no return Cap.3 close. PG-13. NO readable text, NO logos, NO signage. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Resistencia copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm gas-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Sierra braces on parapet; eastern glow brightens; Kora hauls Mileo to hatch; hold on Sierra silhouette; horizontal 16:9 motion from still.",
+      "status": "storyboard",
+      "render": null,
+      "image_path": null,
+      "video_path": null
+    }
+  ]
+}

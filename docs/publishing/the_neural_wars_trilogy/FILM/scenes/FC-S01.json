@@ -1,0 +1,284 @@
+{
+  "scene_id": "FC-S01",
+  "title": "Sector 17 Link Cut",
+  "book": "BOOK_01_FRACTURED_CODE",
+  "chapter": "Cap.1",
+  "phase": "A+B",
+  "max_shots": 8,
+  "visual_grammar": {
+    "aspect": "16:9 horizontal",
+    "feel": "anamorphic 2.39",
+    "lighting": "chiaroscuro, volumetric fog",
+    "palette": "Neo-Citania steel/gray + Cascade indigo post-awakening",
+    "rating": "PG-13",
+    "forbidden_in_prompts": [
+      "readable text",
+      "logos",
+      "carteles",
+      "signage"
+    ]
+  },
+  "character_lock": {
+    "primary": "Mileo Chen",
+    "ethnicity": "East Asian male",
+    "age": 32,
+    "eyes": "vivid green",
+    "hair": "black regulation 3.2 cm",
+    "consistency": "same face across all shots"
+  },
+  "wardrobe_doc": "wardrobe.md",
+  "shots": [
+    {
+      "id": "FC-S01-01",
+      "order": 1,
+      "duration_s": 5,
+      "camera": "slow push-in establishing wide",
+      "framing": "extreme wide to wide",
+      "characters": [],
+      "wardrobe_ref": "n/a",
+      "location": "Sector 17 alley, Neo-Citania underbelly, night",
+      "action": "Establish cracked concrete alley with rust vapor and sparse rain under reduced neural coverage night sky",
+      "image_prompt": "Cinematic establishing shot of Sector 17 alley at night, Neo-Citania underbelly. Cracked wet concrete walls, rust-colored vapor drifting between steel pipes, sparse cold rain. Reduced neural coverage night: dim amber and cold steel-gray practicals, deep shadows, volumetric fog. Scale contrast: towering gray megastructure walls dwarf the narrow alley. Anamorphic 2.39 widescreen, chiaroscuro, photoreal science-fiction noir. No people. NO readable text, NO logos, NO signage. Horizontal 16:9.",
+      "video_prompt": "Slow cinematic push-in down the wet alley; sparse rain drifts; rust vapor coils; subtle anamorphic lens flare from distant cold practical lights; fog breathes; camera eases forward, no cuts, horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "last_attempt_at": "2026-09-10T23:24:18.649701Z",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-01.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-01.mp4",
+      "backend": "xAI API (image+video)",
+      "ffprobe": {
+        "duration_s": 8.041667,
+        "width": 848,
+        "height": 480,
+        "has_audio_stream": true,
+        "audio_not_mute": true,
+        "mean_volume_db": -34.6,
+        "max_volume_db": -19.3,
+        "sample_rate": 44100
+      }
+    },
+    {
+      "id": "FC-S01-02",
+      "order": 2,
+      "duration_s": 5,
+      "camera": "medium tracking then low kneel hold",
+      "framing": "medium to medium-close",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen ON (pre-cut)",
+      "location": "Sector 17 alley mud patch beside ventilation grate",
+      "action": "Mileo arrives, kneels, presses EMP dampener toward nape Link nodule; countdown tension",
+      "image_prompt": "Mileo Chen kneeling in a dark Sector 17 alley mud patch beside a metal ventilation grate. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Wearing NeuroSys Level 7 gray regulation tunic (prefer no readable text on badge), subtle Link nodule under skin at base of skull, belt pouch with small EMP dampener device held toward the nape. Vivid green eyes focused, tense countdown expression. Steel-gray Neo-Citania palette, wet concrete, sparse rain, volumetric fog, chiaroscuro. Anamorphic 2.39 feel, photoreal. Horizontal 16:9. NO logos, NO readable text.",
+      "video_prompt": "Mileo steadies breath, slowly raises EMP dampener toward the Link nodule at the base of his skull; fingers tremble slightly; sparse rain beads on gray tunic; camera holds low medium-close with subtle push; tension builds, horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "last_attempt_at": "2026-09-10T23:24:18.649701Z",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-02.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-02.mp4",
+      "backend": "xAI API (image+video)",
+      "ffprobe": {
+        "duration_s": 8.041667,
+        "width": 848,
+        "height": 480,
+        "has_audio_stream": true,
+        "audio_not_mute": true,
+        "mean_volume_db": -27.0,
+        "max_volume_db": -8.1,
+        "sample_rate": 44100
+      }
+    },
+    {
+      "id": "FC-S01-03",
+      "order": 3,
+      "duration_s": 4,
+      "camera": "handheld jolt then collapse tilt",
+      "framing": "medium-close to low angle",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen ON (pre-cut)",
+      "location": "Sector 17 alley mud",
+      "action": "Silent thunder inside skull; collapses to knees in mud; mute scream; burnt-circuits feel without gore",
+      "image_prompt": "Mileo Chen collapsing to his knees in wet mud in Sector 17 alley after illegal Link disconnect. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Gray Level 7 regulation tunic, mouth open in a mute scream, eyes squeezed then flaring green, body arched as if struck by silent thunder inside the skull. Burnt-circuits sensation suggested by subtle skin tension and heat haze near nape — NO gore, NO blood, PG-13. Mud splash, sparse rain, deep chiaroscuro, cold steel and indigo rim light. Anamorphic 2.39, photoreal. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Sudden body jolt as if silent thunder hits inside the skull; Mileo collapses harder into mud; mute scream; camera handheld micro-shake then slight downward tilt; heat haze flickers at nape; no gore; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "last_attempt_at": "2026-09-10T23:24:18.649701Z",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-03.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-03.mp4",
+      "backend": "xAI API (image+video)",
+      "ffprobe": {
+        "duration_s": 8.041667,
+        "width": 848,
+        "height": 480,
+        "has_audio_stream": true,
+        "audio_not_mute": true,
+        "mean_volume_db": -20.6,
+        "max_volume_db": -2.6,
+        "sample_rate": 44100
+      }
+    },
+    {
+      "id": "FC-S01-04",
+      "order": 4,
+      "duration_s": 6,
+      "camera": "extreme close-up locked, subtle breathe",
+      "framing": "extreme close-up face",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen ON (pre-cut)",
+      "location": "Sector 17 alley — sensory flood POV on face",
+      "action": "Sensory flood money-shot: world explodes in stimuli; orange rust, oil/sweat atmosphere; triumphant heartbeat vibe",
+      "image_prompt": "Extreme close-up of Mileo Chen face during sensory flood after Link cut. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Vivid green eyes wide open catching fierce orange rust light, rain and sweat mixed on skin, oil sheen atmosphere, pores and micro-detail, triumphant stunned heartbeat energy. Background abstracted into exploding orange-rust and indigo light streaks, volumetric haze. Chiaroscuro, anamorphic 2.39, photoreal PG-13. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Subtle breathing micro-motion on face; green eyes dilate; orange-rust light pulses like a heartbeat; sweat and rain trails slide; background light streaks bloom outward; camera locked extreme close with tiny anamorphic breathe; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "last_attempt_at": "2026-09-10T23:24:18.649701Z",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-04.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-04.mp4",
+      "backend": "xAI API (image+video); polling warnings (timeout/DNS)",
+      "ffprobe": {
+        "duration_s": 8.041667,
+        "width": 848,
+        "height": 480,
+        "has_audio_stream": true,
+        "audio_not_mute": true,
+        "mean_volume_db": -24.4,
+        "max_volume_db": -11.4,
+        "sample_rate": 44100
+      }
+    },
+    {
+      "id": "FC-S01-05",
+      "order": 5,
+      "duration_s": 5,
+      "camera": "dutch-angle medium reacting to scan wash",
+      "framing": "medium",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen ON (pre-cut)",
+      "location": "Sector 17 alley under alert scan wash",
+      "action": "Crimson/white scan light washes alley (no readable text); Mileo reacts as hunted",
+      "image_prompt": "Mileo Chen half-kneeling in Sector 17 alley as crimson and cold-white scan light washes across wet walls. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Gray Level 7 tunic, hunted expression, green eyes reflecting sweeping scan beams. Atmosphere of NeuroSec alert without any readable hologram text, logos, or carteles — only abstract crimson/white light geometry. Mud, rain, volumetric fog, chiaroscuro, Neo-Citania steel-gray + alert red. Anamorphic 2.39, photoreal PG-13. Horizontal 16:9.",
+      "video_prompt": "Crimson and white scan beams sweep across alley walls and Mileo; he flinches and turns hunted; camera dutch-angle micro-pan; rain intensifies slightly; no readable text appears; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "last_attempt_at": "2026-09-10T23:24:18.649701Z",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-05.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-05.mp4",
+      "backend": "xAI API (image+video)",
+      "ffprobe": {
+        "duration_s": 8.041667,
+        "width": 848,
+        "height": 480,
+        "has_audio_stream": true,
+        "audio_not_mute": true,
+        "mean_volume_db": -16.1,
+        "max_volume_db": -1.0,
+        "sample_rate": 44100
+      }
+    },
+    {
+      "id": "FC-S01-06",
+      "order": 6,
+      "duration_s": 5,
+      "camera": "tracking medium following discard and first run steps",
+      "framing": "medium full",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "transition ON → AFTER cut",
+      "location": "Sector 17 alley toward ventilation grate",
+      "action": "Rips off gray tunic into mud; dark underlayer revealed; starts run toward ventilation grate",
+      "image_prompt": "Mileo Chen ripping off his gray NeuroSys Level 7 tunic and casting it into mud, revealing a dark practical underlayer suitable for tunnel escape. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Motion freeze mid-discard: tunic flying toward mud, dark underlayer, determined green-eyed expression, body angled toward a metal ventilation grate ahead. Wet alley, sparse rain, steel-gray palette with indigo undertones beginning. Anamorphic 2.39, chiaroscuro, photoreal PG-13. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Mileo tears the gray tunic free and flings it into mud, then starts a low urgent run toward the ventilation grate; camera tracks beside him; fabric lands with a wet slap; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "last_attempt_at": "2026-09-10T23:24:18.649701Z",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-06.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-06.mp4",
+      "backend": "xAI API (image+video)",
+      "ffprobe": {
+        "duration_s": 8.041667,
+        "width": 848,
+        "height": 480,
+        "has_audio_stream": true,
+        "audio_not_mute": true,
+        "mean_volume_db": -30.3,
+        "max_volume_db": -8.7,
+        "sample_rate": 44100
+      }
+    },
+    {
+      "id": "FC-S01-07",
+      "order": 7,
+      "duration_s": 5,
+      "camera": "telephoto compression deep background + foreground grate",
+      "framing": "wide with deep background",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen AFTER cut",
+      "location": "Sector 17 alley — grate + distant NeuroSec drone lights",
+      "action": "Distant NeuroSec drone approach (cold white/crimson lights ~3 blocks); chase tension; Mileo reaches grate",
+      "image_prompt": "Mileo Chen in dark practical underlayer reaching a heavy metal ventilation grate in Sector 17 alley. consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Background deep: cold white and crimson drone lights approaching from about three blocks away, telephoto compression, chase tension. Muddy boots, rain, volumetric fog, scale contrast of megastructures. NO readable text, NO logos, NO vehicle markings. Anamorphic 2.39, chiaroscuro, photoreal PG-13. Horizontal 16:9.",
+      "video_prompt": "Distant cold white/crimson drone lights advance slowly toward camera depth; Mileo hauls open the grate; camera holds telephoto compression with subtle shake; rain streaks; chase tension builds; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "last_attempt_at": "2026-09-10T23:24:18.649701Z",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-07.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-07.mp4",
+      "backend": "xAI API (image+video)",
+      "ffprobe": {
+        "duration_s": 8.041667,
+        "width": 848,
+        "height": 480,
+        "has_audio_stream": true,
+        "audio_not_mute": true,
+        "mean_volume_db": -17.5,
+        "max_volume_db": -1.8,
+        "sample_rate": 44100
+      }
+    },
+    {
+      "id": "FC-S01-08",
+      "order": 8,
+      "duration_s": 6,
+      "camera": "insert ECU wrist then tilt into tunnel descent",
+      "framing": "extreme close-up LEFT wrist → descent POV",
+      "characters": [
+        "Mileo Chen"
+      ],
+      "wardrobe_ref": "Mileo Chen AFTER cut + Serpent Coil marker",
+      "location": "Ventilation threshold into tunnels under Sector 17",
+      "action": "Close LEFT wrist: deep indigo bioluminescent Serpent Coil lines awaken under skin; descent into tunnels; point of no return",
+      "image_prompt": "Close-up of Mileo Chen LEFT wrist as deep indigo bioluminescent Serpent Coil lines awaken under the skin, glowing soft Cascade indigo (#4B0082 / #3F00FF). consistent character lock: East Asian male ~32 years old, vivid green eyes, black regulation short hair 3.2 cm, same face across shots, cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame visible partially at edge of frame if face appears. Dark practical underlayer sleeve pulled back. Beyond the wrist: threshold into dark ventilation tunnels, point of no return, wet metal, atmosphere black and deep purple (#000000 / #301934). Anamorphic 2.39, chiaroscuro, photoreal PG-13, no gore. Horizontal 16:9. NO readable text, NO logos.",
+      "video_prompt": "Indigo bioluminescent lines pulse awake under the LEFT wrist skin; camera slowly tilts from wrist insert toward the dark tunnel mouth as Mileo begins descent; glow lights wet metal edges; point-of-no-return mood; horizontal 16:9 motion from still.",
+      "status": "rendered",
+      "last_attempt_at": "2026-09-10T23:24:18.649701Z",
+      "image_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-08.png",
+      "video_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-08.mp4",
+      "backend": "xAI API image OK; video API SSL handshake timeout → Grok CLI fallback",
+      "ffprobe": {
+        "duration_s": 6.041667,
+        "width": 736,
+        "height": 400,
+        "has_audio_stream": true,
+        "audio_not_mute": true,
+        "mean_volume_db": -22.3,
+        "max_volume_db": -6.1,
+        "sample_rate": 48000
+      },
+      "qc_note": "native CLI output 736x400; cut used FC-S01-08_norm.mp4 @848x480"
+    }
+  ],
+  "status": "rendered_8_8",
+  "updated_at": "2026-09-10T23:25:29.270844Z",
+  "last_qc": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/FC-S01_qc.md",
+  "cut": {
+    "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01_cut_v1.mp4",
+    "duration_s": 62.356364,
+    "width": 848,
+    "height": 480,
+    "has_audio": true,
+    "mean_volume_db": -21.0,
+    "max_volume_db": -1.0,
+    "method": "ffmpeg concat demuxer; shot08 pre-normalized to 848x480/44100"
+  }
+}

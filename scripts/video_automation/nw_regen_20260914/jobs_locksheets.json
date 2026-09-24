@@ -1,0 +1,143 @@
+[
+  {
+    "id": "LOCK-MILEO_CHEN-3q",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/LOCK_SHEET_MILEO_CHEN/3q.jpg",
+    "model": "grok-imagine-image-quality",
+    "aspect": "3:4",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-02.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-04.png"
+    ],
+    "prompt": "Character reference still, three-quarter front medium close-up reference view, head-and-shoulders, camera at eye height, subject turned 30-45 degrees from camera, both eyes visible, neutral expression, subject seen from the side that shows the characteristic scar. Characterization: East Asian male ~32, oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, vivid green eyes, black regulation hair 3.2 cm, lean-athletic analyst build. Wardrobe \u2014 pre-cut state: plain dark grey-steel Level-7 utility tunic (#708090 / #C0C0C0) over dark underlay (#000000 / #301934), abstract blank hexagonal badge geometry with no letters, belt with abstract EMP dampener pouch; link nodule subtle at nape. Continuity markers \u2014 link nodule subtle under skin at base of skull (nape); no wrist glow in this state. Environment: plain industrial undercity concrete bay, sodium amber practical (#FF8C00) rim light, deep shadow atmosphere (#000000 / #301934), volumetric haze. Keep the same face, hair and wardrobe as the reference image(s); only change the camera view. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "LOCK-MILEO_CHEN-profile",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/LOCK_SHEET_MILEO_CHEN/profile.jpg",
+    "model": "grok-imagine-image-quality",
+    "aspect": "3:4",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-02.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-04.png"
+    ],
+    "prompt": "Character reference still, true profile medium close-up reference view showing the characteristic scar side in clear silhouette, head-and-shoulders, neutral expression, clean jawline and nasal bridge silhouette. Characterization: East Asian male ~32, oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, vivid green eyes, black regulation hair 3.2 cm, lean-athletic analyst build. Wardrobe \u2014 pre-cut state: plain dark grey-steel Level-7 utility tunic (#708090 / #C0C0C0) over dark underlay (#000000 / #301934), abstract blank hexagonal badge geometry with no letters, belt with abstract EMP dampener pouch; link nodule subtle at nape. Continuity markers \u2014 link nodule subtle under skin at base of skull (nape); no wrist glow in this state. Environment: plain industrial undercity concrete bay, sodium amber practical (#FF8C00) rim light, deep shadow atmosphere (#000000 / #301934), volumetric haze. Keep the same face, hair and wardrobe as the reference image(s); only change the camera view. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "LOCK-MILEO_CHEN-full",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/LOCK_SHEET_MILEO_CHEN/full.jpg",
+    "model": "grok-imagine-image-quality",
+    "aspect": "2:3",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-02.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01-04.png"
+    ],
+    "prompt": "Character reference still, full-body head-to-toe reference view, standing neutral, arms relaxed at sides, feet planted, camera eye-level mid-distance, whole figure in frame from hair to boots, slight anamorphic wide feel. Characterization: East Asian male ~32, oval-to-rectangular jaw, medium cheekbones, straight nasal bridge, moderate brow, clean-shaven, vivid green eyes, black regulation hair 3.2 cm, lean-athletic analyst build. Wardrobe \u2014 pre-cut state: plain dark grey-steel Level-7 utility tunic (#708090 / #C0C0C0) over dark underlay (#000000 / #301934), abstract blank hexagonal badge geometry with no letters, belt with abstract EMP dampener pouch; link nodule subtle at nape. Continuity markers \u2014 link nodule subtle under skin at base of skull (nape); no wrist glow in this state. Environment: plain industrial undercity concrete bay, sodium amber practical (#FF8C00) rim light, deep shadow atmosphere (#000000 / #301934), volumetric haze. Keep the same face, hair and wardrobe as the reference image(s); only change the camera view. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "LOCK-KORA_VEGA-3q",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/LOCK_SHEET_KORA_VEGA/3q.jpg",
+    "model": "grok-imagine-image-quality",
+    "aspect": "3:4",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-05.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-02.png"
+    ],
+    "prompt": "Character reference still, three-quarter front medium close-up reference view, head-and-shoulders, camera at eye height, subject turned 30-45 degrees from camera, both eyes visible, neutral expression, subject seen from the side that shows the characteristic scar. Characterization: Latina mestiza woman ~24, angular cheekbones, defined jaw, slightly wide-set brown eyes with faint indigo flecks (#4B0082 flecks only, not a solid indigo iris), fullish lips, dark practical Underbelly hair shoulder-brushing 28-35 cm, compact agile street-operative build \u2014 FEMALE lead, never a male figure in this vest. Wardrobe \u2014 worn copper-bronze tactical vest (#B87333 / #FFBF00 / #FF8C00) with BLANK unmarked plates (zero lettering, zero patches) over dark underlayer (#000000 / #301934), dark pants (#301934), scuffed boots, compact abstract non-branded shock pistol shape. Continuity markers \u2014 fibrous raised extraction scar ridge behind RIGHT ear (must read clearly); subtle subcutaneous bone-conduction ridge at LEFT clavicle, faint copper #B87333 glow, no UI text. Environment: plain industrial undercity concrete bay, sodium amber practical (#FF8C00) rim light, deep shadow atmosphere (#000000 / #301934), volumetric haze. Keep the same face, hair and wardrobe as the reference image(s); only change the camera view. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "LOCK-KORA_VEGA-profile",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/LOCK_SHEET_KORA_VEGA/profile.jpg",
+    "model": "grok-imagine-image-quality",
+    "aspect": "3:4",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-05.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-02.png"
+    ],
+    "prompt": "Character reference still, true profile medium close-up reference view showing the characteristic scar side in clear silhouette, head-and-shoulders, neutral expression, clean jawline and nasal bridge silhouette. Characterization: Latina mestiza woman ~24, angular cheekbones, defined jaw, slightly wide-set brown eyes with faint indigo flecks (#4B0082 flecks only, not a solid indigo iris), fullish lips, dark practical Underbelly hair shoulder-brushing 28-35 cm, compact agile street-operative build \u2014 FEMALE lead, never a male figure in this vest. Wardrobe \u2014 worn copper-bronze tactical vest (#B87333 / #FFBF00 / #FF8C00) with BLANK unmarked plates (zero lettering, zero patches) over dark underlayer (#000000 / #301934), dark pants (#301934), scuffed boots, compact abstract non-branded shock pistol shape. Continuity markers \u2014 fibrous raised extraction scar ridge behind RIGHT ear (must read clearly); subtle subcutaneous bone-conduction ridge at LEFT clavicle, faint copper #B87333 glow, no UI text. Environment: plain industrial undercity concrete bay, sodium amber practical (#FF8C00) rim light, deep shadow atmosphere (#000000 / #301934), volumetric haze. Keep the same face, hair and wardrobe as the reference image(s); only change the camera view. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "LOCK-KORA_VEGA-full",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/LOCK_SHEET_KORA_VEGA/full.jpg",
+    "model": "grok-imagine-image-quality",
+    "aspect": "2:3",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-05.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-02.png"
+    ],
+    "prompt": "Character reference still, full-body head-to-toe reference view, standing neutral, arms relaxed at sides, feet planted, camera eye-level mid-distance, whole figure in frame from hair to boots, slight anamorphic wide feel. Characterization: Latina mestiza woman ~24, angular cheekbones, defined jaw, slightly wide-set brown eyes with faint indigo flecks (#4B0082 flecks only, not a solid indigo iris), fullish lips, dark practical Underbelly hair shoulder-brushing 28-35 cm, compact agile street-operative build \u2014 FEMALE lead, never a male figure in this vest. Wardrobe \u2014 worn copper-bronze tactical vest (#B87333 / #FFBF00 / #FF8C00) with BLANK unmarked plates (zero lettering, zero patches) over dark underlayer (#000000 / #301934), dark pants (#301934), scuffed boots, compact abstract non-branded shock pistol shape. Continuity markers \u2014 fibrous raised extraction scar ridge behind RIGHT ear (must read clearly); subtle subcutaneous bone-conduction ridge at LEFT clavicle, faint copper #B87333 glow, no UI text. Environment: plain industrial undercity concrete bay, sodium amber practical (#FF8C00) rim light, deep shadow atmosphere (#000000 / #301934), volumetric haze. Keep the same face, hair and wardrobe as the reference image(s); only change the camera view. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "LOCK-SIERRA_CATALANO-3q",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/LOCK_SHEET_SIERRA_CATALANO/3q.jpg",
+    "model": "grok-imagine-image-quality",
+    "aspect": "3:4",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-05.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-07.png"
+    ],
+    "prompt": "Character reference still, three-quarter front medium close-up reference view, head-and-shoulders, camera at eye height, subject turned 30-45 degrees from camera, both eyes visible, neutral expression, subject seen from the side that shows the characteristic scar. Characterization: European-descent woman ~38 commander, hazel calculating eyes, dark practical short commander hair, weathered angular face with a pale scar from LEFT cheek temple to jaw, upright composed posture. Wardrobe \u2014 weathered dark leather jacket with copper seam accents (#B87333 / #FF8C00) over black combat pants (#000000), no insignia, no lettering, no patches. Continuity markers \u2014 pale scar LEFT cheek temple to jaw (must read); no other facial scarring. Environment: plain industrial undercity concrete bay, sodium amber practical (#FF8C00) rim light, deep shadow atmosphere (#000000 / #301934), volumetric haze. Keep the same face, hair and wardrobe as the reference image(s); only change the camera view. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "LOCK-SIERRA_CATALANO-profile",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/LOCK_SHEET_SIERRA_CATALANO/profile.jpg",
+    "model": "grok-imagine-image-quality",
+    "aspect": "3:4",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-05.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-07.png"
+    ],
+    "prompt": "Character reference still, true profile medium close-up reference view showing the characteristic scar side in clear silhouette, head-and-shoulders, neutral expression, clean jawline and nasal bridge silhouette. Characterization: European-descent woman ~38 commander, hazel calculating eyes, dark practical short commander hair, weathered angular face with a pale scar from LEFT cheek temple to jaw, upright composed posture. Wardrobe \u2014 weathered dark leather jacket with copper seam accents (#B87333 / #FF8C00) over black combat pants (#000000), no insignia, no lettering, no patches. Continuity markers \u2014 pale scar LEFT cheek temple to jaw (must read); no other facial scarring. Environment: plain industrial undercity concrete bay, sodium amber practical (#FF8C00) rim light, deep shadow atmosphere (#000000 / #301934), volumetric haze. Keep the same face, hair and wardrobe as the reference image(s); only change the camera view. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "LOCK-SIERRA_CATALANO-full",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locksheets/LOCK_SHEET_SIERRA_CATALANO/full.jpg",
+    "model": "grok-imagine-image-quality",
+    "aspect": "2:3",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-05.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-07.png"
+    ],
+    "prompt": "Character reference still, full-body head-to-toe reference view, standing neutral, arms relaxed at sides, feet planted, camera eye-level mid-distance, whole figure in frame from hair to boots, slight anamorphic wide feel. Characterization: European-descent woman ~38 commander, hazel calculating eyes, dark practical short commander hair, weathered angular face with a pale scar from LEFT cheek temple to jaw, upright composed posture. Wardrobe \u2014 weathered dark leather jacket with copper seam accents (#B87333 / #FF8C00) over black combat pants (#000000), no insignia, no lettering, no patches. Continuity markers \u2014 pale scar LEFT cheek temple to jaw (must read); no other facial scarring. Environment: plain industrial undercity concrete bay, sodium amber practical (#FF8C00) rim light, deep shadow atmosphere (#000000 / #301934), volumetric haze. Keep the same face, hair and wardrobe as the reference image(s); only change the camera view. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "REGEN-FC-S07-07",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-07.png",
+    "model": "grok-imagine-image-quality",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-06.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-05.png"
+    ],
+    "prompt": "Intimate cinematic dual close composition: consistent character lock Kora Vega: Latina/mestiza ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous ridge scar behind RIGHT ear, same face across shots, copper-bronze tactical vest over dark underlayer, copper-bronze tactical vestscuffed boots, compact shock pistol/carbine abstract non-branded shape eyes locking with predatory focus, faint violet Cascade shimmer at temples (PG-13 luminous veins only); paired with consistent character lock Mileo Chen: East Asian male ~32, vivid green eyes, black regulation 3.2 cm hair, same face across shots, AFTER-cut dark practical underlayer, LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin, LEFT forearm geometric dermal scar circuit pulsing indigo LEFT forearm indigo Coil pulsing in sympathetic rhythm. Amber sodium rim; no readable text. Same face locks. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), unmarked copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm sodium-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos. Wardrobe plates are BLANK and unmarked: no lettering, no words, no patches, no partial letters, no fabric text \u2014 only abstract copper #B87333 geometry. Remove any lettering on clothing. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "REGEN-FC-S07-08",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-08.png",
+    "model": "grok-imagine-image-quality",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-06.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03-05.png"
+    ],
+    "prompt": "Wide tracking cinematic reverse: consistent character lock Kora Vega: Latina/mestiza ~24, brown eyes with indigo flecks, dark practical Underbelly hair, fibrous ridge scar behind RIGHT ear, same face across shots, copper-bronze tactical vest over dark underlayer, copper-bronze tactical vestscuffed boots, compact shock pistol/carbine abstract non-branded shape leading from blast hatch into brick-steel Fracturados corridor, copper vest and abstract carbine; consistent character lock Mileo Chen: East Asian male ~32, vivid green eyes, black regulation 3.2 cm hair, same face across shots, AFTER-cut dark practical underlayer, LEFT wrist deep indigo bioluminescent Serpent Coil lines under skin, LEFT forearm geometric dermal scar circuit pulsing indigo following half a step behind, dark underlayer, LEFT wrist Coil indigo, nape bandage, vivid green eyes steadying; sodium lamps recede into purple Atmosphere shadow toward jump point. Same faces. Destination implied only \u2014 no signage. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric fog, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), unmarked copper-gold (#B87333 / #FFBF00 / #FF8C00), Cascade indigo Coil (#4B0082 / #3F00FF), warm sodium-lamp / recycled solar practicals, Neo-Citania brick and steel. Horizontal 16:9. NO readable text, NO logos. Wardrobe plates are BLANK and unmarked: no lettering, no words, no patches, no partial letters, no fabric text \u2014 only abstract copper #B87333 geometry. Remove any lettering on clothing. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  },
+  {
+    "id": "REGEN-FC-S08-06",
+    "kind": "image",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-06.png",
+    "model": "grok-imagine-image-quality",
+    "refs": [
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-05.png",
+      "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-05.png"
+    ],
+    "prompt": "Cinematic ECU of abstract assault-drone optical pods freezing mid-sweep NO logos NO readable HUD NO unit text, thruster haze; intercut consistent Sierra Catalano hazel calculating eyes pale LEFT cheek scar in sanitation jumpsuit giving a tiny Mark hand cue, bone-conduction whisper posture, same face lock. Electronic shadow moment. cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro lighting, volumetric atmosphere, PG-13, NO readable text, NO logos, NO signage, NO carteles in frame. Atmosphere black/purple (#000000 / #301934), Neo-Citania cold glass/steel (#F8F8FF / #708090 / #4682B4), unmarked copper accents muted under disguise (#B87333), Cascade indigo Coil (#4B0082 / #3F00FF), calculated mauve afternoon surface light. Horizontal 16:9. NO readable text, NO logos. Extreme close-up optics beat: cold abstract cyan-amber lens flare over the frozen sky, cut to a Sierra close-up portrait with a small urgent hand gesture. No title cards, no caption text, no on-screen words, no diptych, no split frame, one camera only. The hand gesture is depicted physically and never labelled. single camera, one view only, no multi-panel, no contact sheet collage, NO readable text, NO letters, NO logos, NO signage, NO badges with lettering, no faction names on cloth, PG-13, cinematic photoreal, anamorphic 2.39 feel, chiaroscuro, volumetric haze."
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "queue_doc": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/REGEN_QUEUE_v1.md",
+  "generated_at": "2026-09-14T10:26:33.244173Z",
+  "ok": 1,
+  "fail": 0,
+  "results": [
+    {
+      "id": "FC-S04-02",
+      "status": "rendered",
+      "mode": "text",
+      "still": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-02.png",
+      "bytes": 202806
+    }
+  ]
+}

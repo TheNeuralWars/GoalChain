@@ -1,0 +1,2099 @@
+{
+ "cuts": {
+  "FC-S01": {
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S01/FC-S01_cut_v1.mp4",
+   "duration_s": 62.356364,
+   "loudness": {
+    "input_i": -20.08,
+    "input_tp": -1.0,
+    "input_lra": 15.6,
+    "input_thresh": -30.94,
+    "output_i": -22.85,
+    "output_tp": -5.07,
+    "output_lra": 8.1,
+    "output_thresh": -33.0,
+    "target_offset": -1.15
+   },
+   "astats": {
+    "RMS level dB": "-20.951419",
+    "Peak level dB": "-1.005448",
+    "Flat factor": "0.000000",
+    "Noise floor dB": "-32.545499",
+    "Dynamic range": "166.121510",
+    "Zero crossings rate": "0.026052",
+    "Entropy": "0.785017"
+   },
+   "silence_-45_0.30": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "silence_-40_0.50": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "spectral": null,
+   "shots": [
+    {
+     "id": "FC-S01-01",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -33.27,
+      "input_tp": -19.3,
+      "input_lra": 3.7,
+      "input_thresh": -43.27,
+      "output_i": -23.49,
+      "output_tp": -9.53,
+      "output_lra": 3.9,
+      "output_thresh": -33.49,
+      "target_offset": -0.51
+     },
+     "astats": {
+      "RMS level dB": "-34.557504",
+      "Peak level dB": "-19.298445",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-31.667959",
+      "Dynamic range": "133.381410",
+      "Zero crossings rate": "0.044584",
+      "Entropy": "0.637025"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S01-02",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -25.64,
+      "input_tp": -8.1,
+      "input_lra": 4.9,
+      "input_thresh": -35.64,
+      "output_i": -22.07,
+      "output_tp": -3.81,
+      "output_lra": 3.9,
+      "output_thresh": -32.07,
+      "target_offset": -1.93
+     },
+     "astats": {
+      "RMS level dB": "-26.974490",
+      "Peak level dB": "-8.101184",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-23.648324",
+      "Dynamic range": "155.090629",
+      "Zero crossings rate": "0.020195",
+      "Entropy": "0.731702"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S01-03",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -22.83,
+      "input_tp": -2.64,
+      "input_lra": 10.8,
+      "input_thresh": -32.83,
+      "output_i": -26.4,
+      "output_tp": -8.3,
+      "output_lra": 5.1,
+      "output_thresh": -36.4,
+      "target_offset": 2.4
+     },
+     "astats": {
+      "RMS level dB": "-20.556343",
+      "Peak level dB": "-2.646267",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-24.025885",
+      "Dynamic range": "157.499553",
+      "Zero crossings rate": "0.017432",
+      "Entropy": "0.785399"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S01-04",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -27.7,
+      "input_tp": -11.37,
+      "input_lra": 3.2,
+      "input_thresh": -37.7,
+      "output_i": -22.78,
+      "output_tp": -6.8,
+      "output_lra": 1.7,
+      "output_thresh": -32.78,
+      "target_offset": -1.22
+     },
+     "astats": {
+      "RMS level dB": "-24.406308",
+      "Peak level dB": "-11.368872",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-25.913202",
+      "Dynamic range": "147.090254",
+      "Zero crossings rate": "0.008159",
+      "Entropy": "0.763861"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S01-05",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -16.36,
+      "input_tp": -1.0,
+      "input_lra": 6.4,
+      "input_thresh": -26.36,
+      "output_i": -26.12,
+      "output_tp": -12.01,
+      "output_lra": 4.0,
+      "output_thresh": -36.12,
+      "target_offset": 2.12
+     },
+     "astats": {
+      "RMS level dB": "-16.103440",
+      "Peak level dB": "-1.001231",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-17.715189",
+      "Dynamic range": "137.823849",
+      "Zero crossings rate": "0.028534",
+      "Entropy": "0.866291"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S01-06",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -28.81,
+      "input_tp": -8.55,
+      "input_lra": 2.4,
+      "input_thresh": -38.81,
+      "output_i": -23.04,
+      "output_tp": -2.39,
+      "output_lra": 2.3,
+      "output_thresh": -33.04,
+      "target_offset": -0.96
+     },
+     "astats": {
+      "RMS level dB": "-30.336555",
+      "Peak level dB": "-8.704943",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-32.529719",
+      "Dynamic range": "148.902811",
+      "Zero crossings rate": "0.041092",
+      "Entropy": "0.684220"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S01-07",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -17.11,
+      "input_tp": -1.81,
+      "input_lra": 2.2,
+      "input_thresh": -27.11,
+      "output_i": -24.66,
+      "output_tp": -10.04,
+      "output_lra": 1.4,
+      "output_thresh": -34.66,
+      "target_offset": 0.66
+     },
+     "astats": {
+      "RMS level dB": "-17.495578",
+      "Peak level dB": "-1.816988",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-13.714625",
+      "Dynamic range": "133.720451",
+      "Zero crossings rate": "0.029905",
+      "Entropy": "0.853616"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S01-08",
+     "duration_s": 6.041667,
+     "loudness": {
+      "input_i": -23.45,
+      "input_tp": -6.13,
+      "input_lra": 5.7,
+      "input_thresh": -33.45,
+      "output_i": -25.69,
+      "output_tp": -9.61,
+      "output_lra": 5.6,
+      "output_thresh": -35.69,
+      "target_offset": 1.69
+     },
+     "astats": {
+      "RMS level dB": "-22.284481",
+      "Peak level dB": "-6.136182",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-25.043349",
+      "Dynamic range": "133.067935",
+      "Zero crossings rate": "0.011057",
+      "Entropy": "0.788338"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    }
+   ]
+  },
+  "FC-S02": {
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S02/FC-S02_cut_v1.mp4",
+   "duration_s": 64.356364,
+   "loudness": {
+    "input_i": -24.11,
+    "input_tp": -1.75,
+    "input_lra": 10.5,
+    "input_thresh": -34.11,
+    "output_i": -24.03,
+    "output_tp": -6.52,
+    "output_lra": 7.0,
+    "output_thresh": -34.08,
+    "target_offset": 0.03
+   },
+   "astats": {
+    "RMS level dB": "-23.745444",
+    "Peak level dB": "-1.757386",
+    "Flat factor": "0.000000",
+    "Noise floor dB": "-26.686265",
+    "Dynamic range": "151.781935",
+    "Zero crossings rate": "0.019457",
+    "Entropy": "0.765294"
+   },
+   "silence_-45_0.30": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "silence_-40_0.50": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "spectral": null,
+   "shots": [
+    {
+     "id": "FC-S02-01",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -24.8,
+      "input_tp": -10.94,
+      "input_lra": 1.7,
+      "input_thresh": -34.8,
+      "output_i": -23.35,
+      "output_tp": -9.33,
+      "output_lra": 1.3,
+      "output_thresh": -33.35,
+      "target_offset": -0.65
+     },
+     "astats": {
+      "RMS level dB": "-24.604364",
+      "Peak level dB": "-10.943507",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-20.133412",
+      "Dynamic range": "139.014873",
+      "Zero crossings rate": "0.013844",
+      "Entropy": "0.764034"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S02-02",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -25.14,
+      "input_tp": -11.41,
+      "input_lra": 1.0,
+      "input_thresh": -35.14,
+      "output_i": -23.75,
+      "output_tp": -10.15,
+      "output_lra": 0.7,
+      "output_thresh": -33.75,
+      "target_offset": -0.25
+     },
+     "astats": {
+      "RMS level dB": "-25.996247",
+      "Peak level dB": "-11.421133",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-21.450643",
+      "Dynamic range": "137.890034",
+      "Zero crossings rate": "0.026719",
+      "Entropy": "0.747151"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S02-03",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -24.79,
+      "input_tp": -11.93,
+      "input_lra": 2.2,
+      "input_thresh": -34.79,
+      "output_i": -23.04,
+      "output_tp": -10.16,
+      "output_lra": 1.0,
+      "output_thresh": -33.04,
+      "target_offset": -0.96
+     },
+     "astats": {
+      "RMS level dB": "-26.302500",
+      "Peak level dB": "-11.930939",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-22.825671",
+      "Dynamic range": "137.582313",
+      "Zero crossings rate": "0.028112",
+      "Entropy": "0.743629"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S02-04",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -28.76,
+      "input_tp": -10.48,
+      "input_lra": 2.4,
+      "input_thresh": -38.76,
+      "output_i": -23.51,
+      "output_tp": -5.16,
+      "output_lra": 2.0,
+      "output_thresh": -33.51,
+      "target_offset": -0.49
+     },
+     "astats": {
+      "RMS level dB": "-24.203505",
+      "Peak level dB": "-10.488732",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-25.877902",
+      "Dynamic range": "138.888971",
+      "Zero crossings rate": "0.006811",
+      "Entropy": "0.770589"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S02-05",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -30.72,
+      "input_tp": -14.32,
+      "input_lra": 1.4,
+      "input_thresh": -40.72,
+      "output_i": -23.57,
+      "output_tp": -6.82,
+      "output_lra": 1.0,
+      "output_thresh": -33.57,
+      "target_offset": -0.43
+     },
+     "astats": {
+      "RMS level dB": "-26.850414",
+      "Peak level dB": "-14.328185",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-24.412035",
+      "Dynamic range": "139.985560",
+      "Zero crossings rate": "0.012290",
+      "Entropy": "0.735385"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S02-06",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -24.16,
+      "input_tp": -9.29,
+      "input_lra": 5.2,
+      "input_thresh": -34.16,
+      "output_i": -21.86,
+      "output_tp": -6.4,
+      "output_lra": 4.2,
+      "output_thresh": -31.86,
+      "target_offset": -2.14
+     },
+     "astats": {
+      "RMS level dB": "-25.896211",
+      "Peak level dB": "-9.295283",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-24.164013",
+      "Dynamic range": "133.385282",
+      "Zero crossings rate": "0.018349",
+      "Entropy": "0.745941"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S02-07",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -15.22,
+      "input_tp": -1.77,
+      "input_lra": 15.1,
+      "input_thresh": -27.38,
+      "output_i": -17.92,
+      "output_tp": -2.0,
+      "output_lra": 9.4,
+      "output_thresh": -27.92,
+      "target_offset": -6.08
+     },
+     "astats": {
+      "RMS level dB": "-19.399690",
+      "Peak level dB": "-1.770200",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-26.792609",
+      "Dynamic range": "152.136156",
+      "Zero crossings rate": "0.032089",
+      "Entropy": "0.782077"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S02-08",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -24.36,
+      "input_tp": -9.75,
+      "input_lra": 1.4,
+      "input_thresh": -34.36,
+      "output_i": -23.2,
+      "output_tp": -7.89,
+      "output_lra": 0.9,
+      "output_thresh": -33.2,
+      "target_offset": -0.8
+     },
+     "astats": {
+      "RMS level dB": "-22.495992",
+      "Peak level dB": "-9.753947",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-25.304657",
+      "Dynamic range": "153.826378",
+      "Zero crossings rate": "0.014266",
+      "Entropy": "0.790945"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    }
+   ]
+  },
+  "FC-S03": {
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S03/FC-S03_cut_v1.mp4",
+   "duration_s": 64.356364,
+   "loudness": {
+    "input_i": -23.0,
+    "input_tp": -3.58,
+    "input_lra": 18.6,
+    "input_thresh": -34.45,
+    "output_i": -22.68,
+    "output_tp": -2.85,
+    "output_lra": 7.7,
+    "output_thresh": -32.96,
+    "target_offset": -1.32
+   },
+   "astats": {
+    "RMS level dB": "-25.549173",
+    "Peak level dB": "-3.577353",
+    "Flat factor": "0.000000",
+    "Noise floor dB": "-61.910944",
+    "Dynamic range": "191.974759",
+    "Zero crossings rate": "0.018018",
+    "Entropy": "0.722340"
+   },
+   "silence_-45_0.30": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "silence_-40_0.50": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "spectral": null,
+   "shots": [
+    {
+     "id": "FC-S03-01",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -36.79,
+      "input_tp": -23.56,
+      "input_lra": 1.3,
+      "input_thresh": -46.79,
+      "output_i": -24.31,
+      "output_tp": -11.29,
+      "output_lra": 1.2,
+      "output_thresh": -34.31,
+      "target_offset": 0.31
+     },
+     "astats": {
+      "RMS level dB": "-37.191476",
+      "Peak level dB": "-23.577023",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-34.526600",
+      "Dynamic range": "130.385067",
+      "Zero crossings rate": "0.024332",
+      "Entropy": "0.605085"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S03-02",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -27.59,
+      "input_tp": -13.09,
+      "input_lra": 8.2,
+      "input_thresh": -37.59,
+      "output_i": -20.8,
+      "output_tp": -5.43,
+      "output_lra": 6.7,
+      "output_thresh": -30.8,
+      "target_offset": -3.2
+     },
+     "astats": {
+      "RMS level dB": "-29.210392",
+      "Peak level dB": "-13.096879",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-30.455819",
+      "Dynamic range": "179.625092",
+      "Zero crossings rate": "0.012712",
+      "Entropy": "0.699913"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S03-03",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -33.09,
+      "input_tp": -15.41,
+      "input_lra": 8.4,
+      "input_thresh": -43.09,
+      "output_i": -21.77,
+      "output_tp": -4.46,
+      "output_lra": 3.2,
+      "output_thresh": -31.77,
+      "target_offset": -2.23
+     },
+     "astats": {
+      "RMS level dB": "-30.512230",
+      "Peak level dB": "-15.412287",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-36.285395",
+      "Dynamic range": "147.854030",
+      "Zero crossings rate": "0.009878",
+      "Entropy": "0.681885"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S03-04",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -23.73,
+      "input_tp": -6.65,
+      "input_lra": 3.2,
+      "input_thresh": -33.73,
+      "output_i": -24.15,
+      "output_tp": -6.69,
+      "output_lra": 3.5,
+      "output_thresh": -34.15,
+      "target_offset": 0.15
+     },
+     "astats": {
+      "RMS level dB": "-22.188990",
+      "Peak level dB": "-6.652343",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-23.846132",
+      "Dynamic range": "158.120004",
+      "Zero crossings rate": "0.009450",
+      "Entropy": "0.789205"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S03-05",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -28.65,
+      "input_tp": -11.12,
+      "input_lra": 5.6,
+      "input_thresh": -38.65,
+      "output_i": -21.91,
+      "output_tp": -3.83,
+      "output_lra": 4.4,
+      "output_thresh": -31.91,
+      "target_offset": -2.09
+     },
+     "astats": {
+      "RMS level dB": "-28.417142",
+      "Peak level dB": "-11.123214",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-42.760675",
+      "Dynamic range": "184.368588",
+      "Zero crossings rate": "0.014536",
+      "Entropy": "0.708139"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S03-06",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -28.48,
+      "input_tp": -12.04,
+      "input_lra": 5.5,
+      "input_thresh": -38.48,
+      "output_i": -21.91,
+      "output_tp": -4.95,
+      "output_lra": 4.2,
+      "output_thresh": -31.91,
+      "target_offset": -2.09
+     },
+     "astats": {
+      "RMS level dB": "-27.024007",
+      "Peak level dB": "-12.036485",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-27.378222",
+      "Dynamic range": "124.091487",
+      "Zero crossings rate": "0.013427",
+      "Entropy": "0.730646"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S03-07",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -33.45,
+      "input_tp": -17.95,
+      "input_lra": 7.4,
+      "input_thresh": -43.45,
+      "output_i": -21.17,
+      "output_tp": -2.15,
+      "output_lra": 4.5,
+      "output_thresh": -31.17,
+      "target_offset": -2.83
+     },
+     "astats": {
+      "RMS level dB": "-32.464404",
+      "Peak level dB": "-17.951241",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-36.092631",
+      "Dynamic range": "148.865469",
+      "Zero crossings rate": "0.010264",
+      "Entropy": "0.661558"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S03-08",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -16.7,
+      "input_tp": -3.55,
+      "input_lra": 3.7,
+      "input_thresh": -27.89,
+      "output_i": -24.71,
+      "output_tp": -11.68,
+      "output_lra": 3.1,
+      "output_thresh": -35.7,
+      "target_offset": 0.71
+     },
+     "astats": {
+      "RMS level dB": "-19.979842",
+      "Peak level dB": "-3.545469",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-35.598921",
+      "Dynamic range": "151.306154",
+      "Zero crossings rate": "0.045631",
+      "Entropy": "0.788006"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    }
+   ]
+  },
+  "FC-S04": {
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04_cut_v1.mp4",
+   "duration_s": 64.356364,
+   "loudness": {
+    "input_i": -22.95,
+    "input_tp": -0.82,
+    "input_lra": 11.2,
+    "input_thresh": -33.44,
+    "output_i": -23.41,
+    "output_tp": -4.52,
+    "output_lra": 7.7,
+    "output_thresh": -33.81,
+    "target_offset": -0.59
+   },
+   "astats": {
+    "RMS level dB": "-22.927856",
+    "Peak level dB": "-0.827341",
+    "Flat factor": "0.000000",
+    "Noise floor dB": "-35.644426",
+    "Dynamic range": "172.285075",
+    "Zero crossings rate": "0.018877",
+    "Entropy": "0.773128"
+   },
+   "silence_-45_0.30": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "silence_-40_0.50": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "spectral": null,
+   "shots": [
+    {
+     "id": "FC-S04-01",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -24.15,
+      "input_tp": -10.15,
+      "input_lra": 1.1,
+      "input_thresh": -34.15,
+      "output_i": -24.03,
+      "output_tp": -9.99,
+      "output_lra": 1.0,
+      "output_thresh": -34.03,
+      "target_offset": 0.03
+     },
+     "astats": {
+      "RMS level dB": "-23.162643",
+      "Peak level dB": "-10.154779",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-22.889699",
+      "Dynamic range": "129.518951",
+      "Zero crossings rate": "0.008328",
+      "Entropy": "0.783866"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S04-02",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -28.87,
+      "input_tp": -14.17,
+      "input_lra": 5.1,
+      "input_thresh": -38.87,
+      "output_i": -21.68,
+      "output_tp": -6.61,
+      "output_lra": 3.3,
+      "output_thresh": -31.68,
+      "target_offset": -2.32
+     },
+     "astats": {
+      "RMS level dB": "-30.229013",
+      "Peak level dB": "-14.182163",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-30.674952",
+      "Dynamic range": "124.776098",
+      "Zero crossings rate": "0.017297",
+      "Entropy": "0.691583"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S04-03",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -21.04,
+      "input_tp": -6.8,
+      "input_lra": 7.1,
+      "input_thresh": -34.41,
+      "output_i": -23.3,
+      "output_tp": -9.55,
+      "output_lra": 5.6,
+      "output_thresh": -36.42,
+      "target_offset": -0.7
+     },
+     "astats": {
+      "RMS level dB": "-25.726219",
+      "Peak level dB": "-6.815739",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-35.644426",
+      "Dynamic range": "172.299405",
+      "Zero crossings rate": "0.022233",
+      "Entropy": "0.713385"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S04-04",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -25.74,
+      "input_tp": -11.15,
+      "input_lra": 3.2,
+      "input_thresh": -35.74,
+      "output_i": -23.06,
+      "output_tp": -8.16,
+      "output_lra": 2.4,
+      "output_thresh": -33.06,
+      "target_offset": -0.94
+     },
+     "astats": {
+      "RMS level dB": "-25.463005",
+      "Peak level dB": "-11.149268",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-26.675762",
+      "Dynamic range": "134.123909",
+      "Zero crossings rate": "0.015946",
+      "Entropy": "0.752518"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S04-05",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -22.58,
+      "input_tp": -8.15,
+      "input_lra": 3.4,
+      "input_thresh": -32.58,
+      "output_i": -22.63,
+      "output_tp": -6.97,
+      "output_lra": 2.2,
+      "output_thresh": -32.63,
+      "target_offset": -1.37
+     },
+     "astats": {
+      "RMS level dB": "-20.220388",
+      "Peak level dB": "-8.151912",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-22.592608",
+      "Dynamic range": "124.537860",
+      "Zero crossings rate": "0.006020",
+      "Entropy": "0.817877"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S04-06",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -28.47,
+      "input_tp": -13.95,
+      "input_lra": 0.9,
+      "input_thresh": -38.47,
+      "output_i": -23.4,
+      "output_tp": -8.58,
+      "output_lra": 0.6,
+      "output_thresh": -33.4,
+      "target_offset": -0.6
+     },
+     "astats": {
+      "RMS level dB": "-29.009387",
+      "Peak level dB": "-13.951496",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-28.982259",
+      "Dynamic range": "133.528376",
+      "Zero crossings rate": "0.011330",
+      "Entropy": "0.709484"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S04-07",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -23.02,
+      "input_tp": -6.81,
+      "input_lra": 1.9,
+      "input_thresh": -33.1,
+      "output_i": -22.95,
+      "output_tp": -6.41,
+      "output_lra": 1.3,
+      "output_thresh": -33.06,
+      "target_offset": -1.05
+     },
+     "astats": {
+      "RMS level dB": "-19.775707",
+      "Peak level dB": "-6.815476",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-29.899177",
+      "Dynamic range": "138.260046",
+      "Zero crossings rate": "0.016846",
+      "Entropy": "0.825835"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S04-08",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -18.78,
+      "input_tp": -0.81,
+      "input_lra": 9.7,
+      "input_thresh": -29.23,
+      "output_i": -26.08,
+      "output_tp": -9.77,
+      "output_lra": 6.1,
+      "output_thresh": -36.72,
+      "target_offset": 2.08
+     },
+     "astats": {
+      "RMS level dB": "-20.809982",
+      "Peak level dB": "-0.814901",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-34.627152",
+      "Dynamic range": "128.036832",
+      "Zero crossings rate": "0.049684",
+      "Entropy": "0.779167"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    }
+   ]
+  },
+  "FC-S05": {
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S05/FC-S05_cut_v1.mp4",
+   "duration_s": 64.356364,
+   "loudness": {
+    "input_i": -19.91,
+    "input_tp": -0.88,
+    "input_lra": 16.6,
+    "input_thresh": -30.76,
+    "output_i": -22.78,
+    "output_tp": -3.74,
+    "output_lra": 7.7,
+    "output_thresh": -33.09,
+    "target_offset": -1.22
+   },
+   "astats": {
+    "RMS level dB": "-19.976077",
+    "Peak level dB": "-0.961245",
+    "Flat factor": "0.000000",
+    "Noise floor dB": "-54.748468",
+    "Dynamic range": "189.420107",
+    "Zero crossings rate": "0.023051",
+    "Entropy": "0.798265"
+   },
+   "silence_-45_0.30": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "silence_-40_0.50": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "spectral": null,
+   "shots": [
+    {
+     "id": "FC-S05-01",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -24.91,
+      "input_tp": -6.94,
+      "input_lra": 7.3,
+      "input_thresh": -34.91,
+      "output_i": -21.07,
+      "output_tp": -2.38,
+      "output_lra": 5.5,
+      "output_thresh": -31.07,
+      "target_offset": -2.93
+     },
+     "astats": {
+      "RMS level dB": "-24.993374",
+      "Peak level dB": "-6.937879",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-26.110732",
+      "Dynamic range": "132.347836",
+      "Zero crossings rate": "0.017508",
+      "Entropy": "0.750806"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S05-02",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -27.93,
+      "input_tp": -12.74,
+      "input_lra": 16.6,
+      "input_thresh": -39.64,
+      "output_i": -20.78,
+      "output_tp": -4.08,
+      "output_lra": 4.5,
+      "output_thresh": -30.78,
+      "target_offset": -3.22
+     },
+     "astats": {
+      "RMS level dB": "-31.867678",
+      "Peak level dB": "-12.738240",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-42.728635",
+      "Dynamic range": "146.612305",
+      "Zero crossings rate": "0.014266",
+      "Entropy": "0.642987"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S05-03",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -22.12,
+      "input_tp": -6.08,
+      "input_lra": 4.6,
+      "input_thresh": -32.12,
+      "output_i": -22.53,
+      "output_tp": -5.1,
+      "output_lra": 1.8,
+      "output_thresh": -32.53,
+      "target_offset": -1.47
+     },
+     "astats": {
+      "RMS level dB": "-19.405044",
+      "Peak level dB": "-6.082656",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-23.086143",
+      "Dynamic range": "184.298695",
+      "Zero crossings rate": "0.013520",
+      "Entropy": "0.830412"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S05-04",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -24.84,
+      "input_tp": -9.24,
+      "input_lra": 1.2,
+      "input_thresh": -34.84,
+      "output_i": -23.45,
+      "output_tp": -6.67,
+      "output_lra": 1.6,
+      "output_thresh": -33.45,
+      "target_offset": -0.55
+     },
+     "astats": {
+      "RMS level dB": "-23.122779",
+      "Peak level dB": "-9.242545",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-22.460455",
+      "Dynamic range": "120.744545",
+      "Zero crossings rate": "0.018042",
+      "Entropy": "0.782973"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S05-05",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -32.26,
+      "input_tp": -16.64,
+      "input_lra": 2.2,
+      "input_thresh": -42.26,
+      "output_i": -23.09,
+      "output_tp": -8.04,
+      "output_lra": 1.1,
+      "output_thresh": -33.09,
+      "target_offset": -0.91
+     },
+     "astats": {
+      "RMS level dB": "-32.628895",
+      "Peak level dB": "-16.654573",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-52.930035",
+      "Dynamic range": "153.518932",
+      "Zero crossings rate": "0.024448",
+      "Entropy": "0.660445"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S05-06",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -20.67,
+      "input_tp": -2.04,
+      "input_lra": 10.2,
+      "input_thresh": -30.67,
+      "output_i": -26.43,
+      "output_tp": -9.89,
+      "output_lra": 4.9,
+      "output_thresh": -36.43,
+      "target_offset": 2.43
+     },
+     "astats": {
+      "RMS level dB": "-17.064120",
+      "Peak level dB": "-2.058387",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-22.675831",
+      "Dynamic range": "137.568073",
+      "Zero crossings rate": "0.041238",
+      "Entropy": "0.843361"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S05-07",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -24.91,
+      "input_tp": -10.06,
+      "input_lra": 1.5,
+      "input_thresh": -34.91,
+      "output_i": -23.62,
+      "output_tp": -8.29,
+      "output_lra": 1.5,
+      "output_thresh": -33.62,
+      "target_offset": -0.38
+     },
+     "astats": {
+      "RMS level dB": "-23.913083",
+      "Peak level dB": "-10.064131",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-21.835705",
+      "Dynamic range": "143.584369",
+      "Zero crossings rate": "0.017280",
+      "Entropy": "0.773892"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S05-08",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -14.83,
+      "input_tp": -1.11,
+      "input_lra": 1.3,
+      "input_thresh": -24.83,
+      "output_i": -24.11,
+      "output_tp": -10.82,
+      "output_lra": 1.1,
+      "output_thresh": -34.11,
+      "target_offset": 0.11
+     },
+     "astats": {
+      "RMS level dB": "-14.407150",
+      "Peak level dB": "-1.112185",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-15.899636",
+      "Dynamic range": "123.831794",
+      "Zero crossings rate": "0.035778",
+      "Entropy": "0.894489"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    }
+   ]
+  },
+  "FC-S06": {
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06_cut_v1.mp4",
+   "duration_s": 64.356364,
+   "loudness": {
+    "input_i": -17.94,
+    "input_tp": -0.03,
+    "input_lra": 16.6,
+    "input_thresh": -28.76,
+    "output_i": -24.34,
+    "output_tp": -6.74,
+    "output_lra": 11.0,
+    "output_thresh": -34.78,
+    "target_offset": 0.34
+   },
+   "astats": {
+    "RMS level dB": "-18.789477",
+    "Peak level dB": "-0.047845",
+    "Flat factor": "0.000000",
+    "Noise floor dB": "-32.149729",
+    "Dynamic range": "184.170735",
+    "Zero crossings rate": "0.020666",
+    "Entropy": "0.821623"
+   },
+   "silence_-45_0.30": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "silence_-40_0.50": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "spectral": null,
+   "shots": [
+    {
+     "id": "FC-S06-01",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -19.35,
+      "input_tp": -4.68,
+      "input_lra": 4.8,
+      "input_thresh": -29.35,
+      "output_i": -24.14,
+      "output_tp": -10.74,
+      "output_lra": 1.8,
+      "output_thresh": -34.14,
+      "target_offset": 0.14
+     },
+     "astats": {
+      "RMS level dB": "-17.727182",
+      "Peak level dB": "-4.675324",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-18.592972",
+      "Dynamic range": "179.543256",
+      "Zero crossings rate": "0.013286",
+      "Entropy": "0.852452"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S06-02",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -16.67,
+      "input_tp": -1.24,
+      "input_lra": 1.7,
+      "input_thresh": -26.67,
+      "output_i": -23.84,
+      "output_tp": -8.1,
+      "output_lra": 1.3,
+      "output_thresh": -33.84,
+      "target_offset": -0.16
+     },
+     "astats": {
+      "RMS level dB": "-15.671874",
+      "Peak level dB": "-1.241464",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-18.910175",
+      "Dynamic range": "154.360868",
+      "Zero crossings rate": "0.008989",
+      "Entropy": "0.876672"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S06-03",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -22.78,
+      "input_tp": -6.75,
+      "input_lra": 1.2,
+      "input_thresh": -32.78,
+      "output_i": -23.5,
+      "output_tp": -7.4,
+      "output_lra": 1.0,
+      "output_thresh": -33.5,
+      "target_offset": -0.5
+     },
+     "astats": {
+      "RMS level dB": "-21.099196",
+      "Peak level dB": "-6.750208",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-18.313309",
+      "Dynamic range": "136.298361",
+      "Zero crossings rate": "0.009549",
+      "Entropy": "0.809041"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S06-04",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -22.35,
+      "input_tp": -6.2,
+      "input_lra": 3.6,
+      "input_thresh": -32.35,
+      "output_i": -23.97,
+      "output_tp": -8.65,
+      "output_lra": 1.8,
+      "output_thresh": -33.97,
+      "target_offset": -0.03
+     },
+     "astats": {
+      "RMS level dB": "-21.907411",
+      "Peak level dB": "-6.213899",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-20.316481",
+      "Dynamic range": "140.866621",
+      "Zero crossings rate": "0.018403",
+      "Entropy": "0.798320"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S06-05",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -12.76,
+      "input_tp": -0.27,
+      "input_lra": 2.6,
+      "input_thresh": -23.17,
+      "output_i": -24.7,
+      "output_tp": -12.57,
+      "output_lra": 1.8,
+      "output_thresh": -35.09,
+      "target_offset": 0.7
+     },
+     "astats": {
+      "RMS level dB": "-14.375577",
+      "Peak level dB": "-0.275146",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-23.768663",
+      "Dynamic range": "144.995655",
+      "Zero crossings rate": "0.051246",
+      "Entropy": "0.878594"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S06-06",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -26.75,
+      "input_tp": -9.94,
+      "input_lra": 4.6,
+      "input_thresh": -36.75,
+      "output_i": -22.45,
+      "output_tp": -6.1,
+      "output_lra": 1.9,
+      "output_thresh": -32.45,
+      "target_offset": -1.55
+     },
+     "astats": {
+      "RMS level dB": "-25.258927",
+      "Peak level dB": "-9.946807",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-26.922494",
+      "Dynamic range": "131.228012",
+      "Zero crossings rate": "0.008724",
+      "Entropy": "0.750933"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S06-07",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -30.42,
+      "input_tp": -15.94,
+      "input_lra": 7.3,
+      "input_thresh": -40.42,
+      "output_i": -21.48,
+      "output_tp": -6.85,
+      "output_lra": 4.1,
+      "output_thresh": -31.48,
+      "target_offset": -2.52
+     },
+     "astats": {
+      "RMS level dB": "-31.900406",
+      "Peak level dB": "-15.949217",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-32.191110",
+      "Dynamic range": "126.171497",
+      "Zero crossings rate": "0.025323",
+      "Entropy": "0.665953"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S06-08",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -20.43,
+      "input_tp": -2.54,
+      "input_lra": 8.4,
+      "input_thresh": -31.05,
+      "output_i": -24.94,
+      "output_tp": -8.88,
+      "output_lra": 2.2,
+      "output_thresh": -35.82,
+      "target_offset": 0.94
+     },
+     "astats": {
+      "RMS level dB": "-21.131254",
+      "Peak level dB": "-2.551589",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-27.753222",
+      "Dynamic range": "163.703398",
+      "Zero crossings rate": "0.026744",
+      "Entropy": "0.794043"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    }
+   ]
+  },
+  "FC-S07": {
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07_cut_v1.mp4",
+   "duration_s": 64.356364,
+   "loudness": {
+    "input_i": -22.26,
+    "input_tp": -1.27,
+    "input_lra": 15.6,
+    "input_thresh": -33.0,
+    "output_i": -24.45,
+    "output_tp": -3.61,
+    "output_lra": 8.6,
+    "output_thresh": -34.64,
+    "target_offset": 0.45
+   },
+   "astats": {
+    "RMS level dB": "-20.929593",
+    "Peak level dB": "-1.268569",
+    "Flat factor": "0.000000",
+    "Noise floor dB": "-48.112065",
+    "Dynamic range": "171.967102",
+    "Zero crossings rate": "0.015941",
+    "Entropy": "0.795067"
+   },
+   "silence_-45_0.30": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "silence_-40_0.50": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "spectral": null,
+   "shots": [
+    {
+     "id": "FC-S07-01",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -21.72,
+      "input_tp": -6.49,
+      "input_lra": 2.6,
+      "input_thresh": -31.72,
+      "output_i": -23.58,
+      "output_tp": -7.94,
+      "output_lra": 2.5,
+      "output_thresh": -33.58,
+      "target_offset": -0.42
+     },
+     "astats": {
+      "RMS level dB": "-19.993288",
+      "Peak level dB": "-6.490218",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-19.658034",
+      "Dynamic range": "123.782210",
+      "Zero crossings rate": "0.006374",
+      "Entropy": "0.824217"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S07-02",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -22.28,
+      "input_tp": -6.73,
+      "input_lra": 0.6,
+      "input_thresh": -32.28,
+      "output_i": -24.12,
+      "output_tp": -8.67,
+      "output_lra": 0.3,
+      "output_thresh": -34.12,
+      "target_offset": 0.12
+     },
+     "astats": {
+      "RMS level dB": "-19.310149",
+      "Peak level dB": "-6.727249",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-19.624732",
+      "Dynamic range": "126.745599",
+      "Zero crossings rate": "0.009698",
+      "Entropy": "0.832554"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S07-03",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -20.91,
+      "input_tp": -2.77,
+      "input_lra": 7.3,
+      "input_thresh": -30.91,
+      "output_i": -25.84,
+      "output_tp": -9.65,
+      "output_lra": 4.7,
+      "output_thresh": -35.84,
+      "target_offset": 1.84
+     },
+     "astats": {
+      "RMS level dB": "-16.641677",
+      "Peak level dB": "-2.771220",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-42.063215",
+      "Dynamic range": "171.828563",
+      "Zero crossings rate": "0.009937",
+      "Entropy": "0.860593"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S07-04",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -29.25,
+      "input_tp": -13.69,
+      "input_lra": 5.4,
+      "input_thresh": -39.48,
+      "output_i": -23.94,
+      "output_tp": -8.16,
+      "output_lra": 5.4,
+      "output_thresh": -34.15,
+      "target_offset": -0.06
+     },
+     "astats": {
+      "RMS level dB": "-29.652851",
+      "Peak level dB": "-13.695475",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-37.561910",
+      "Dynamic range": "133.122711",
+      "Zero crossings rate": "0.014637",
+      "Entropy": "0.695081"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S07-05",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -27.08,
+      "input_tp": -10.33,
+      "input_lra": 3.1,
+      "input_thresh": -37.08,
+      "output_i": -22.89,
+      "output_tp": -5.47,
+      "output_lra": 3.1,
+      "output_thresh": -32.89,
+      "target_offset": -1.11
+     },
+     "astats": {
+      "RMS level dB": "-23.110711",
+      "Peak level dB": "-10.336246",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-25.001567",
+      "Dynamic range": "121.020319",
+      "Zero crossings rate": "0.007033",
+      "Entropy": "0.784346"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S07-06",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -22.31,
+      "input_tp": -2.58,
+      "input_lra": 3.3,
+      "input_thresh": -32.31,
+      "output_i": -24.64,
+      "output_tp": -5.35,
+      "output_lra": 2.8,
+      "output_thresh": -34.64,
+      "target_offset": 0.64
+     },
+     "astats": {
+      "RMS level dB": "-20.427365",
+      "Peak level dB": "-2.583487",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-25.114614",
+      "Dynamic range": "140.647913",
+      "Zero crossings rate": "0.019101",
+      "Entropy": "0.799544"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S07-07",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -33.82,
+      "input_tp": -22.13,
+      "input_lra": 1.0,
+      "input_thresh": -43.82,
+      "output_i": -23.45,
+      "output_tp": -11.26,
+      "output_lra": 0.6,
+      "output_thresh": -33.45,
+      "target_offset": -0.55
+     },
+     "astats": {
+      "RMS level dB": "-35.466310",
+      "Peak level dB": "-22.134521",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-33.489234",
+      "Dynamic range": "148.095322",
+      "Zero crossings rate": "0.026125",
+      "Entropy": "0.627409"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S07-08",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -19.86,
+      "input_tp": -1.28,
+      "input_lra": 10.3,
+      "input_thresh": -31.07,
+      "output_i": -25.44,
+      "output_tp": -8.76,
+      "output_lra": 6.1,
+      "output_thresh": -36.84,
+      "target_offset": 1.44
+     },
+     "astats": {
+      "RMS level dB": "-22.182859",
+      "Peak level dB": "-1.275748",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-32.646065",
+      "Dynamic range": "171.300289",
+      "Zero crossings rate": "0.031849",
+      "Entropy": "0.761918"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    }
+   ]
+  },
+  "FC-S08": {
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08_cut_v1.mp4",
+   "duration_s": 48.273031,
+   "loudness": {
+    "input_i": -21.13,
+    "input_tp": -2.73,
+    "input_lra": 14.9,
+    "input_thresh": -32.04,
+    "output_i": -23.25,
+    "output_tp": -2.23,
+    "output_lra": 8.7,
+    "output_thresh": -33.37,
+    "target_offset": -0.75
+   },
+   "astats": {
+    "RMS level dB": "-20.292617",
+    "Peak level dB": "-2.735461",
+    "Flat factor": "0.000000",
+    "Noise floor dB": "-41.549773",
+    "Dynamic range": "157.607532",
+    "Zero crossings rate": "0.018461",
+    "Entropy": "0.788218"
+   },
+   "silence_-45_0.30": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "silence_-40_0.50": {
+    "silence_start": [],
+    "silence_end": [],
+    "silence_duration": []
+   },
+   "spectral": null,
+   "shots": [
+    {
+     "id": "FC-S08-01",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -25.33,
+      "input_tp": -12.08,
+      "input_lra": 2.8,
+      "input_thresh": -35.33,
+      "output_i": -23.04,
+      "output_tp": -8.96,
+      "output_lra": 2.1,
+      "output_thresh": -33.04,
+      "target_offset": -0.96
+     },
+     "astats": {
+      "RMS level dB": "-25.101167",
+      "Peak level dB": "-12.076763",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-22.694297",
+      "Dynamic range": "136.783714",
+      "Zero crossings rate": "0.021026",
+      "Entropy": "0.758874"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S08-02",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -20.26,
+      "input_tp": -8.66,
+      "input_lra": 17.5,
+      "input_thresh": -32.44,
+      "output_i": -18.72,
+      "output_tp": -2.0,
+      "output_lra": 10.8,
+      "output_thresh": -29.17,
+      "target_offset": -5.28
+     },
+     "astats": {
+      "RMS level dB": "-26.045783",
+      "Peak level dB": "-8.662837",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-41.496675",
+      "Dynamic range": "145.349852",
+      "Zero crossings rate": "0.021034",
+      "Entropy": "0.692828"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S08-03",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -29.37,
+      "input_tp": -17.82,
+      "input_lra": 2.5,
+      "input_thresh": -39.37,
+      "output_i": -22.79,
+      "output_tp": -11.18,
+      "output_lra": 1.5,
+      "output_thresh": -32.79,
+      "target_offset": -1.21
+     },
+     "astats": {
+      "RMS level dB": "-31.971663",
+      "Peak level dB": "-17.835099",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-28.143119",
+      "Dynamic range": "134.577640",
+      "Zero crossings rate": "0.027918",
+      "Entropy": "0.671844"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S08-04",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -28.44,
+      "input_tp": -11.45,
+      "input_lra": 5.2,
+      "input_thresh": -39.06,
+      "output_i": -21.83,
+      "output_tp": -2.8,
+      "output_lra": 6.8,
+      "output_thresh": -32.05,
+      "target_offset": -2.17
+     },
+     "astats": {
+      "RMS level dB": "-29.896674",
+      "Peak level dB": "-11.454053",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-33.798850",
+      "Dynamic range": "144.827424",
+      "Zero crossings rate": "0.014817",
+      "Entropy": "0.687590"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S08-05",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -18.32,
+      "input_tp": -2.75,
+      "input_lra": 5.2,
+      "input_thresh": -28.32,
+      "output_i": -25.63,
+      "output_tp": -11.29,
+      "output_lra": 2.8,
+      "output_thresh": -35.63,
+      "target_offset": 1.63
+     },
+     "astats": {
+      "RMS level dB": "-15.068582",
+      "Peak level dB": "-2.749062",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-17.965435",
+      "Dynamic range": "148.796196",
+      "Zero crossings rate": "0.008136",
+      "Entropy": "0.884880"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    },
+    {
+     "id": "FC-S08-06",
+     "duration_s": 8.041667,
+     "loudness": {
+      "input_i": -19.95,
+      "input_tp": -5.28,
+      "input_lra": 2.1,
+      "input_thresh": -29.95,
+      "output_i": -24.29,
+      "output_tp": -9.94,
+      "output_lra": 1.7,
+      "output_thresh": -34.29,
+      "target_offset": 0.29
+     },
+     "astats": {
+      "RMS level dB": "-17.473747",
+      "Peak level dB": "-5.283654",
+      "Flat factor": "0.000000",
+      "Noise floor dB": "-18.908463",
+      "Dynamic range": "140.842348",
+      "Zero crossings rate": "0.015175",
+      "Entropy": "0.855764"
+     },
+     "silence": {
+      "silence_start": [],
+      "silence_end": [],
+      "silence_duration": []
+     }
+    }
+   ]
+  }
+ },
+ "shots": {}
+}

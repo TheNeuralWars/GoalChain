@@ -1,0 +1,27 @@
+{
+  "id": "FC-S03-02",
+  "order": 2,
+  "duration_s": 8,
+  "camera": "medium tracking over-shoulder entry",
+  "framing": "medium tracking",
+  "characters": [
+    "Kora Vega"
+  ],
+  "wardrobe_ref": "Kora Vega street/copper tactical + shock pistol",
+  "location": "Tunnel Six mouth",
+  "action": "Kora advances into Tunnel Six with shock pistol drawn; feline caution",
+  "lock_sheet_id": "LOCK_SHEET_KORA_VEGA",
+  "lock_sheet_ids": [
+    "LOCK_SHEET_KORA_VEGA"
+  ],
+  "reference_images": [],
+  "cues": [],
+  "image_prompt": "Medium tracking cinematic: consistent character lock Kora Vega Latina mestiza woman ~24, brown eyes with indigo flecks, dark practical shoulder-length hair, fibrous scar ridge behind RIGHT ear, same face lock, worn copper-bronze tactical vest (#B87333 / #FFBF00 / #FF8C00) over dark underlayer, scuffed boots, compact abstract shock pistol no logos, entering wet Tunnel Six with orange filament lamps and volumetric fog. Cinematic photoreal, anamorphic 2.39 widescreen feel, chiaroscuro, PG-13. Horizontal single camera. NO readable text, NO logos, NO signage, NO carteles in frame.",
+  "video_prompt": "Kora advances cautiously into the tunnel; pistol steady; camera tracks over-shoulder; filament lamps flicker; fog parts; single continuous move; horizontal motion from still. NO readable text, NO logos.",
+  "status": "pending_regen",
+  "character_ids": [
+    "kora_vega"
+  ],
+  "character_id": "kora_vega",
+  "location_id": "tunnel_six"
+}
