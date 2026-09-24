@@ -1,5 +1,5 @@
 {
-  "timestamp_iso": "2026-06-21T11:03:56.533Z",
+  "timestamp_iso": "2026-09-24T06:20:26.561Z",
   "mode": "dry-run",
   "principal_sol": 5000,
   "current_sol": 5032.7,
@@ -13,9 +13,9 @@
   "gch_price_usd": 0.01,
   "estimated_gch_burned": 353159.999999998,
   "tx_hashes": [
-    "dryrun_harvest_ujh0q5ul7sg",
-    "dryrun_swap_vqawurefco9",
-    "dryrun_burn_tjr43nhx4l"
+    "dryrun_harvest_mc4sw28vph",
+    "dryrun_swap_4er4at27tsa",
+    "dryrun_burn_e00hb24qw1c"
   ],
   "notes": [
     "Dry-run mode only: no on-chain state modified."
