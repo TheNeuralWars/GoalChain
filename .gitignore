@@ -18,6 +18,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+# --- Press kit (64 MB binary — served from the VPS, never committed) ---
+# PressKit_GoalChain.zip lives on disk only (kept in docs/assets/ and
+# goalchain_webapp/public/ after `git rm --cached`) and is re-shipped into the served
+# tree by scripts/deploy_goalworld_site.sh (press/ + assets/). The landing manifest
+# preserves it across deploy_origin.sh restages.
+PressKit_GoalChain.zip
 # --- Node / JS ---
 node_modules/
 **/node_modules/

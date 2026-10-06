@@ -92,7 +92,28 @@ What the script guarantees:
   (`/data/work/goalworld-site-backups/<target-name>/`), covering every path the
   deploy overwrites (use `--full-backup` for a full-tree tarball);
 - `rollback` restores that tarball over the target;
-- never replaces the target directory itself (it is a docker bind mount).
+- never replaces the target directory itself (it is a docker bind mount);
+- re-ships the **press-kit zip** (`PressKit_GoalChain.zip`, 64 MB, gitignored — kept on
+  disk only) into `press/` and `assets/` on every deploy, and writes the **landing
+  manifest** (`/data/work/goalworld-landing.paths`, override with
+  `GOALWORLD_LANDING_MANIFEST`) listing every path the landing owns in the target;
+- holds `git-dir/deploy-origin.lock` (the same lock `scripts/pages/deploy_origin.sh`
+  takes for its whole run) so the 5-min origin restage cannot race the deploy.
+
+### Why the landing manifest exists (origin restage interplay)
+
+The 5-min `goalworld-origin-deploy.timer` restages `docs/` into the served tree with
+`rsync --delete` (that pipeline publishes `data/`, `assets/data/`, film media, the
+burn-tracker, …). The landing is **not** part of `docs/`, so a restage would delete it
+again and revert `/index.html` to `docs/index.html`. Since this deploy, every restage
+preserves exactly the manifest paths verbatim (landing files win over same-path `docs/`
+files): `scripts/pages/stage_public_tree.py` copies them from the served tree into the
+new staged tree before the rsync. No manifest → staging behaves as before.
+
+The press kit is also staged from `docs/assets/PressKit_GoalChain.zip` when that file
+exists on disk (it is gitignored), so the legacy
+`https://goalworld.fun/assets/PressKit_GoalChain.zip` download self-heals through the
+staging pipeline too.
 
 The target tree is served by `twenty-caddy` at `goalworld.fun` (mount
 `/data/apps/GoalChain/_site_public` → `/srv/goalworld`). A proposed Caddyfile diff
