@@ -1,18 +1,28 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "node ../goalworld_site/build.mjs && node ../goalworld_site/tools/build_vercel_output.mjs",
+  "outputDirectory": ".site_out",
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/goalworld", "destination": "/goalworld.html" },
-    { "source": "/protocol", "destination": "/protocol.html" },
-    { "source": "/reader", "destination": "/reader.html" },
-    { "source": "/read", "destination": "/reader.html" },
-    { "source": "/go/reader", "destination": "/go/reader/index.html" },
-    { "source": "/go/goalworld", "destination": "/go/goalworld/index.html" },
-    { "source": "/go/estadio", "destination": "/go/estadio/index.html" },
-    { "source": "/go/defi", "destination": "/go/defi/index.html" },
-    { "source": "/go/club", "destination": "/go/club/index.html" },
-    { "source": "/go", "destination": "/go/index.html" },
-    { "source": "/go/(.*)", "destination": "/go/index.html" }
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- goalworld_site docs/vercel.json",
+  "redirects": [
+    {
+      "source": "/:slug(agents|app|arcade|ceo|cinema|colabs|goalchain|goalworld|legal|map|mega-guide-v1|mega-guide|pitch|pre-nft|protocol|read|reader|studio|tokenomics)",
+      "has": [{ "type": "host", "value": "docs.goalchain.fun" }],
+      "destination": "https://goalworld.fun/:slug.html",
+      "permanent": true
+    },
+    {
+      "source": "/play/:slug(pack|penalty)",
+      "has": [{ "type": "host", "value": "docs.goalchain.fun" }],
+      "destination": "https://goalworld.fun/play/:slug.html",
+      "permanent": true
+    },
+    {
+      "source": "/:path((?!data/|assets/data/|[A-Z0-9_]+\\.json$).*)",
+      "has": [{ "type": "host", "value": "docs.goalchain.fun" }],
+      "destination": "https://goalworld.fun/:path*",
+      "permanent": true
+    }
   ]
 }

@@ -26,6 +26,8 @@ coverage/
 .tmp/
 # GitHub Pages staging output (scripts/pages/stage_public_tree.py)
 _site_public/
+# Vercel build output dir (docs/.site_out, assembled by goalworld_site/tools/build_vercel_output.mjs)
+.site_out/
 .temp/
 # Do NOT ignore goalchain_oracle/dist and goalchain-sdk/dist (we commit them for CI/Vercel)
 !goalchain_oracle/dist/
