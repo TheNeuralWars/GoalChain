@@ -11,6 +11,8 @@ Thumbs.db
 # --- Logs ---
 *.log
 *.txt
+# ...but the site robots.txt is content, not a log
+!goalworld_site/src/robots.txt
 scripts/*.txt
 npm-debug.log*
 yarn-debug.log*
