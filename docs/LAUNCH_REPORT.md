@@ -302,6 +302,14 @@ labeled READY-TO-RUN were intentionally NOT executed.
 
   Degenerate cases (unknown parent, shallow clone, non-git upload) exit 1 → always build.
 
+  **End-to-end on Vercel** (commit `d14a1c69`, touches only `docs/LAUNCH_REPORT.md`):
+  `Vercel – goalchain_webapp` went `pending` → **success — "Canceled by Ignored Build Step"**
+  (deployment `Fpu51xnCTeeAafC37bPnqaiCdAES`) without running a build, and `goal-chain`
+  behaved identically ("Canceled by Ignored Build Step", deployment
+  `F8N8fjpZKGzQP9GhuKhGyqu1xSHH`). Commits touching `goalchain_webapp/` (`8f4e280b`,
+  `fca14e40`) built normally (both `success`). Both directions are therefore verified on
+  Vercel, not just locally.
+
 ### 2) Bundle split (before/after `vite build`)
 
 Architecture: `src/wallet/gate.tsx` (tiny gate, imports NO Solana libs) +
@@ -465,9 +473,11 @@ OG validation:
 - Webapp: previously title-only; now has full OG/Twitter meta pointing at
   `https://play.goalworld.fun/` + the same `og:image`. ✓
 
-### Commits on `launch-web` vs `origin/main` (11)
+### Commits on `launch-web` vs `origin/main` (13; last two are report-only docs commits)
 
 ```
+(this commit) docs: LAUNCH_REPORT — ignoreCommand live verification
+d14a1c69 docs: LAUNCH_REPORT Task B — webapp bundle split, onboarding, Vercel config, QA AFTER
 fca14e40 qa(webapp): OG/description meta, valid robots.txt, a11y fixes
 8f4e280b webapp(onboarding): clear first-30-seconds landing + reliable SW shell
 6ac29b4e perf(webapp): lazy Solana wallet stack — main JS 1.60MB -> 799KB
@@ -481,7 +491,8 @@ f44ad59a fix(site): track goalworld_site/src/robots.txt (root .gitignore has *.t
 a7cef5a4 site(goalworld_site): single-source-of-truth GoalWorld landing + pages
 ```
 
-`git diff --stat origin/main...launch-web`: **92 files changed, 3,397 insertions(+),
+`git diff --stat origin/main...launch-web` (as of `fca14e40`; the last commits are docs-only
+additions to this report): **92 files changed, 3,397 insertions(+),
 104 deletions(-)**. No big binaries added; `goalchain_webapp/public/PressKit_GoalChain.zip`
 (64 MB) predates this branch (tracked on `main`) — flagged below, untouched here.
 
