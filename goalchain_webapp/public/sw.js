@@ -4,7 +4,7 @@
  * Non-blocking by design — errors are logged, never throw.
  */
 
-const CACHE_NAME = 'goalchain-v1';
+const CACHE_NAME = 'goalchain-v2';
 const ASSET_URLS = [
   '/',
   '/index.html',
@@ -45,7 +45,16 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// ─── Fetch: stale-while-revalidate for assets, network-first for API ────────
+// ─── Activate: drop old cache versions ─────────────────────────────────────
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) => Promise.all(
+      keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k))
+    )).then(() => self.clients.claim())
+  );
+});
+
+// ─── Fetch: network-first for navigations/API, stale-while-revalidate for assets
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
@@ -55,6 +64,21 @@ self.addEventListener('fetch', (event) => {
   if (!url.origin.startsWith(self.location.origin) &&
       !url.hostname.includes('solana') &&
       !url.hostname.includes('github.com')) return;
+
+  // Navigations: network-first. A cached index.html would reference stale
+  // asset hashes after a deploy and break the first paint.
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then((res) => {
+          const clone = res.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+          return res;
+        })
+        .catch(() => caches.match(request).then((m) => m || caches.match('/index.html')))
+    );
+    return;
+  }
 
   // API calls: network-first, fall back to cache.
   if (url.pathname.startsWith('/api/')) {

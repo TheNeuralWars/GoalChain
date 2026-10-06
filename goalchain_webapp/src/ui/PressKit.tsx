@@ -77,7 +77,7 @@ export function PressKit() {
 
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a
-              href="/PressKit_GoalChain.zip"
+              href="https://goalworld.fun/press/PressKit_GoalChain.zip"
               download="PressKit_GoalChain.zip"
               className="press-kit-download-btn"
               style={{

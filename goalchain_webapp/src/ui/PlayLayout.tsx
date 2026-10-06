@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { ConnectButton } from '../wallet/ConnectButton';
 import { PlayNav, PlayBottomTab } from './PlayNav';
 import { ModalRoot } from './ModalRoot';
 import { Toaster } from './Toaster';
@@ -118,13 +118,13 @@ export function PlayLayout() {
             >
               {t('nav_full_site' as never) || 'Full site'} ↗
             </a>
-            <WalletMultiButton />
+            <ConnectButton />
           </div>
         </header>
 
-        <div className="play-body">
+        <main className="play-body">
           <Outlet />
-        </div>
+        </main>
       </div>
 
       {/* Bottom-tab bar (móvil) */}

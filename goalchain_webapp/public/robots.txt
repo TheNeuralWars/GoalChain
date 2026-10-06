@@ -1,0 +1,5 @@
+# GoalWorld play app — https://play.goalworld.fun
+User-agent: *
+Allow: /
+
+Sitemap: https://goalworld.fun/sitemap.xml

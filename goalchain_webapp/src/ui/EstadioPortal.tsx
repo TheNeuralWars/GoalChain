@@ -1,11 +1,12 @@
 import React, { lazy, Suspense, useState } from 'react';
-import { LiveEventFeed } from './LiveEventFeed';
 import { useTranslation } from '../i18n/index';
+import { WalletRequired } from '../wallet/gate';
 
 const FixturesPanel = lazy(() => import('./FixturesPanel').then(m => ({ default: m.FixturesPanel })));
 const AICommentator = lazy(() => import('./AICommentator').then(m => ({ default: m.AICommentator })));
 const WorldCupPredictor = lazy(() => import('./WorldCupPredictor').then(m => ({ default: m.WorldCupPredictor })));
 const MatchSimulator = lazy(() => import('./MatchSimulator').then(m => ({ default: m.MatchSimulator })));
+const LiveEventFeed = lazy(() => import('./LiveEventFeed').then(m => ({ default: m.LiveEventFeed })));
 
 export function EstadioPortal() {
   const { t } = useTranslation();
@@ -46,9 +47,11 @@ export function EstadioPortal() {
       <div className="portal-content-wrapper">
         {activeSubTab === 'fixtures' && (
           <div className="portal-fade-in">
-            <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal_loading_fixtures')}</div>}>
-              <FixturesPanel />
-            </Suspense>
+            <WalletRequired fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal_loading_fixtures')}</div>}>
+              <Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>{t('estadio_portal_loading_fixtures')}</div>}>
+                <FixturesPanel />
+              </Suspense>
+            </WalletRequired>
           </div>
         )}
         {activeSubTab === 'commentator' && (
@@ -60,7 +63,11 @@ export function EstadioPortal() {
         )}
         {activeSubTab === 'feed' && (
           <div className="portal-fade-in">
-            <LiveEventFeed />
+            <WalletRequired>
+              <Suspense fallback={<div className="wallet-gate-loading">Loading live feed…</div>}>
+                <LiveEventFeed />
+              </Suspense>
+            </WalletRequired>
           </div>
         )}
         {activeSubTab === 'predictor' && (

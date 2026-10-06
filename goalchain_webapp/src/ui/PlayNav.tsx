@@ -315,6 +315,7 @@ export function PlayBottomTab() {
                 to={it.to}
                 end={it.to === '/'}
                 className={({ isActive }) => `${baseClass}${isActive ? ` ${baseClass}--active` : ''}`}
+                aria-label={it.label}
               >
                 <span aria-hidden>{it.icon}</span>
               </NavLink>

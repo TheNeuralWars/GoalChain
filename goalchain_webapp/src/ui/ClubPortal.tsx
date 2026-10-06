@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { SimulationBadge } from '../components/SimulationBadge';
 import { SquadGallery } from './SquadGallery';
-import { UserProfile } from './UserProfile';
-import { CreateUser } from './CreateUser';
-import { NFTMarketplace } from './NFTMarketplace';
 import { AICoach } from './AICoach';
 import { useUser } from '../contexts/UserContext';
 import { MatchSimulator } from './MatchSimulator';
 import { useTranslation } from '../i18n/index';
+import { WalletRequired } from '../wallet/gate';
+
+// Wallet-gated panels are lazy: their @solana/* imports load on demand.
+const UserProfile = lazy(() => import('./UserProfile').then(m => ({ default: m.UserProfile })));
+const CreateUser = lazy(() => import('./CreateUser').then(m => ({ default: m.CreateUser })));
+const NFTMarketplace = lazy(() => import('./NFTMarketplace').then(m => ({ default: m.NFTMarketplace })));
 
 
 export function ClubPortal() {
@@ -64,7 +67,11 @@ export function ClubPortal() {
         )}
         {activeSubTab === 'market' && (
           <div className="portal-fade-in">
-            <NFTMarketplace />
+            <WalletRequired>
+              <Suspense fallback={<div className="wallet-gate-loading">Loading marketplace…</div>}>
+                <NFTMarketplace />
+              </Suspense>
+            </WalletRequired>
           </div>
         )}
         {activeSubTab === 'coach' && (
@@ -75,7 +82,11 @@ export function ClubPortal() {
         {activeSubTab === 'profile' && (
           <div className="portal-fade-in">
             {isLoggedIn ? (
-              <UserProfile username={user?.username} />
+              <WalletRequired>
+                <Suspense fallback={<div className="wallet-gate-loading">Loading profile…</div>}>
+                  <UserProfile username={user?.username} />
+                </Suspense>
+              </WalletRequired>
             ) : (
               <div className="registration-wrapper glass-card">
                 <div className="registration-promo">
@@ -84,9 +95,13 @@ export function ClubPortal() {
                     {t('club_portal_registration.description')}
                   </p>
                 </div>
-                <CreateUser onUserCreated={() => {
-                  setActiveSubTab('profile');
-                }} />
+                <WalletRequired>
+                  <Suspense fallback={<div className="wallet-gate-loading">Loading registration…</div>}>
+                    <CreateUser onUserCreated={() => {
+                      setActiveSubTab('profile');
+                    }} />
+                  </Suspense>
+                </WalletRequired>
               </div>
             )}
           </div>
