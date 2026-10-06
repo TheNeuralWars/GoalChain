@@ -11,6 +11,7 @@
   --line: rgba(255, 255, 255, 0.1);
   --green: #14f195;
   --purple: #9945ff;
+  --purple-text: #c084fc;   /* AA-compliant purple for small text */
   --cyan: #7ee8ff;
   --amber: #fbbf24;
   --grad: linear-gradient(120deg, #14f195, #7ee8ff 45%, #9945ff);
@@ -489,7 +490,7 @@ p { margin: 0 0 1.1em; }
   margin-bottom: 2.25rem;
 }
 @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; } }
-.site-footer h4 {
+.site-footer .footer-h {
   margin: 0 0 0.85rem;
   font-size: 0.82rem;
   letter-spacing: 0.18em;
