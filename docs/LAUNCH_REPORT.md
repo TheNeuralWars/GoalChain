@@ -113,7 +113,12 @@ verified against the live deployed tree; external targets `x.com/nicopez` and Gi
 - Deployed with the deploy script: `--ref launch-web --target /data/work/launch-staging/goalworld`.
 - Served in tmux session `gw-staging`: `npx -y serve -l 8787 /data/work/launch-staging/goalworld`
   → QA URL **http://127.0.0.1:8787** (404 page verified: unknown URL returns HTTP 404 with the
-  branded "Lost in the Link" page).
+  branded "Lost in the Link" page; extensionless `/terms` and `/about` resolve).
+- Rollback verified on staging: deploy #2 backed up 71 paths, `index.html` deleted on purpose,
+  `rollback` restored all 71 paths including `index.html`.
+- **Nothing went live** — re-verified after all deploys: `goalworld.fun`, `docs.goalchain.fun`
+  and `goalchain.fun` all still serve the old 15,380 B hub (HTTP 200), and
+  `docs.goalchain.fun/data/burn_tracker.json` still returns JSON.
 
 ### Vercel (`goal-chain` project → docs.goalchain.fun)
 
@@ -147,6 +152,20 @@ New `docs/vercel.json` (kept `docs/` files in place — nothing moved):
   (no changes in those paths) skips the build.
 - The old `rewrites` list (pointing into `docs/*.html`) was dropped: those files are not part of
   this deployment; on the production host the redirects above handle them.
+
+**Preview deployment (commit `580f59b4` on `launch-web`) — verified built:**
+
+- GitHub status `Vercel – goal-chain` → **success** (deployment `5tgLRWXFR8XkMrYmWN2SVLDuEpPv`).
+- Preview URL (git-branch alias):
+  **https://goal-chain-git-launch-web-theneuralwars-projects.vercel.app**
+- ⚠️ The preview is behind Vercel **Deployment Protection (team SSO)** — anonymous curl
+  gets `302 → vercel.com/sso-api`. Nico can open it from a Vercel-team browser session.
+  For public QA access: Vercel → project `goal-chain` → Settings → Deployment Protection →
+  add a Protection Bypass Password (or allow public previews). Content could therefore not be
+  rendered from this box; build status is green and the same `buildCommand` was exercised
+  locally end-to-end (`node goalworld_site/build.mjs && node ../goalworld_site/tools/build_vercel_output.mjs`
+  from `docs/`, output verified: pages + `data/` + `assets/data/` + root JSONs).
+- After merge (never done from here): confirm the two post-merge checks below.
 - ⚠️ Post-merge verification (production-only behaviour, cannot be tested from a preview):
   `curl -sIL https://docs.goalchain.fun/` must show `301 → https://goalworld.fun/`, while
   `curl -s https://docs.goalchain.fun/data/burn_tracker.json` must still return JSON.
