@@ -4,7 +4,7 @@
   "outputDirectory": ".site_out",
   "cleanUrls": true,
   "trailingSlash": false,
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- goalworld_site docs/vercel.json",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- ':(top)goalworld_site' ':(top)docs/vercel.json'",
   "redirects": [
     {
       "source": "/:slug(agents|app|arcade|ceo|cinema|colabs|goalchain|goalworld|legal|map|mega-guide-v1|mega-guide|pitch|pre-nft|protocol|read|reader|studio|tokenomics)",

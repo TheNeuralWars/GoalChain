@@ -128,3 +128,7 @@ The target tree is served by `twenty-caddy` at `goalworld.fun` (mount
 Production host `docs.goalchain.fun` 301s to `https://goalworld.fun/:path*`;
 preview `*.vercel.app` hosts serve the site and never redirect.
 `ignoreCommand` limits builds to changes under `goalworld_site/` or `docs/vercel.json`.
+The pathspecs are `:(top)`-anchored on purpose: Vercel runs the Ignored Build Step from
+the project Root Directory (`docs/`), where unanchored pathspecs resolve to
+`docs/goalworld_site` and silently match nothing (every build was skipped until this
+was fixed on 2026-10-06 — same anchoring trick as `goalchain_webapp/scripts/vercel-ignore.sh`).
