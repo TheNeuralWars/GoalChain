@@ -122,9 +122,9 @@ export function PlayLayout() {
           </div>
         </header>
 
-        <div className="play-body">
+        <main className="play-body">
           <Outlet />
-        </div>
+        </main>
       </div>
 
       {/* Bottom-tab bar (móvil) */}
