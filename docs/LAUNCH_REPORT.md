@@ -566,3 +566,94 @@ git revert -m 1 <merge-commit-sha> && git push origin main
 *Task B executed by Hermes-CEO on 2026-10-06. Nothing outside `goalchain_webapp/`,
 `scripts/deploy_goalworld_site.sh` and this report was modified; `main`, live
 `goalworld.fun` files, DNS, tunnels, Caddy and Vercel project settings were not touched.*
+
+---
+
+## Production release (Task D — 2026-10-06, Nico-approved)
+
+Everything below is LIVE. Full machine-checked detail: `/data/work/launch-reports/PROD_RESULT.md`.
+
+### Git
+- Prep on `launch-web` (commit `5418e159`): the two tracked copies of the 64 MB
+  `PressKit_GoalChain.zip` (`docs/assets/`, `goalchain_webapp/public/`) removed from
+  tracking (`git rm --cached`, files kept on disk, now gitignored — blob was added in
+  `37e5118b`, already on `origin/main`; history NOT rewritten), webapp Press Kit page now
+  links `https://goalworld.fun/press/PressKit_GoalChain.zip`, plus the deploy/staging
+  safeguards below.
+- **Merge commit `da1fa6c9192ef9448c881820659ffbe772630520`** ("Merge launch-web: GoalWorld
+  public launch website", `--no-ff`) pushed to `origin/main` as fast-forward
+  `db876dc2..da1fa6c9`. The 2 unpushed trading-sim commits (`92d0b4cd`, `6812368e`) and the
+  film commit `db876dc2` are in `origin/main` (verified by ancestry). Film/trading paths
+  (`crons/`, `data/`, `docs/publishing/`, `ops/`) unchanged vs `main`; `scripts/` diff is
+  exactly `deploy_goalworld_site.sh` + `stage_public_tree.py`. Webapp builds locally
+  (`npm ci` 424 pkgs + `tsc && vite build`, main JS 809 KB) and the site build is green.
+  Primary checkout `/data/apps/GoalChain` fast-forwarded to `da1fa6c9` cleanly (dirty
+  pipeline files untouched).
+- Follow-up `41da8cfa`: Vercel ignoreCommand fix (below). This section's commit follows.
+
+### Deploy (live goalworld.fun)
+- `scripts/deploy_goalworld_site.sh` (dry-run reviewed, then real deploy) at
+  **12:19:35 UTC** from `origin/main`. Backup (deploy surface):
+  `/data/work/goalworld-site-backups/_site_public/20261006T121935Z-da1fa6c9.tar.gz`.
+- Rollback: `bash scripts/deploy_goalworld_site.sh rollback --target /data/apps/GoalChain/_site_public`
+  (or `--backup <tarball>`; restores overwritten pre-existing paths — the new pages stay on
+  disk unreferenced; the script never deletes).
+
+### Press-kit zip handling
+Served at `https://goalworld.fun/press/PressKit_GoalChain.zip` (new canonical, linked from
+the webapp Press Kit page) **and** the legacy `https://goalworld.fun/assets/…` download —
+both `200 application/zip`, 67,456,380 B. `deploy_goalworld_site.sh` now re-ships the zip
+into `dist/press/` + `dist/assets/` on every deploy (kept out of backup tarballs —
+content-stable), so it survives redeploys and rollbacks.
+
+### Critical fix: the 5-min origin restage would have wiped the launch
+`goalworld-origin-deploy.timer` → `scripts/pages/deploy_origin.sh` restages `docs/` into
+`_site_public` with `rsync -a --delete` — the first restage after the merge would have
+deleted every landing file and reverted `/index.html` to `docs/index.html`. Now:
+`deploy_goalworld_site.sh` writes the landing manifest `/data/work/goalworld-landing.paths`
+(73 paths) and holds `git-dir/deploy-origin.lock` (the lock `deploy_origin.sh` uses);
+`scripts/pages/stage_public_tree.py` preserves exactly the manifest paths across restages
+(landing wins over same-path `docs/` files; no manifest = unchanged behaviour; 7/7 guard
+tests + fixture tests incl. `rsync --delete` survival). Verified live: the first
+post-merge restage (12:16:43 UTC) kept the press-kit copies and published 0 internal paths
+(`verify_live_site.py` 21/21 PASS).
+
+### Vercel (inferred via GitHub statuses + curl — CLI not logged in here)
+- `goalchain_webapp` **READY** (dep `7yW2uWB7vNrUtSbt7YDJbaah6Csm`): `play.goalworld.fun`
+  200, main JS 809,725 B, `/assets/*` `cache-control: public, max-age=31536000, immutable`.
+- `goal-chain` **READY** (dep `3EXLErwxLFkhFJZeYKbtnRU8uMnP`): `docs.goalchain.fun/` now
+  **308 → https://goalworld.fun/** (Vercel `permanent` = 308), path-preserving;
+  exclusions intact: `/data/burn_tracker.json` 200 JSON, `/assets/data/players.json` 200,
+  root `*.json` 200.
+- **Bug found & fixed (`41da8cfa`)**: the merge push came back "success — **Canceled by
+  Ignored Build Step**" for `goal-chain`. `docs/vercel.json`'s `ignoreCommand` pathspecs
+  are resolved from the Vercel project Root Directory (`docs/`), so `goalworld_site` /
+  `docs/vercel.json` matched nothing and **every** goal-chain build was silently skipped
+  (local repro: exit=0 from `docs/`, exit=1 from repo root) — including Task B's
+  "verified built" `580f59b4`. Fixed with `':(top)'`-anchored pathspecs (same anchoring
+  as `goalchain_webapp/scripts/vercel-ignore.sh`); rebuild green.
+
+### Verification (live)
+| URL | status | title / og | notes |
+|---|---|---|---|
+| `/`, `/about`, `/roadmap`, `/faq`, `/press`, `/privacy`, `/terms` | 200 | unique `<title>`, `og:title`, `og:image`, `twitter:card=summary_large_image` | og:image 200 `image/jpeg` 140,859 B |
+| `/sitemap.xml`, `/robots.txt` | 200 | | |
+| `/zz-not-found-123` | 404, **empty body** | | custom 404 needs the unapplied Caddyfile `handle_errors` diff (hard limit); `/404.html` deployed (200) |
+| `/press/PressKit_GoalChain.zip`, `/assets/PressKit_GoalChain.zip` | 200 `application/zip` 67,456,380 B | | |
+| `www.goalworld.fun` | 200, no redirect | same landing | apex redirect needs Caddyfile (PENDING) |
+| `goalchain.fun` | 301 → `https://goalworld.fun/` | | path-preserving |
+| `play.goalworld.fun` / `play.goalchain.fun` | 200 | app boots | |
+| `docs.goalchain.fun` | 308 → `https://goalworld.fun/` | | data exclusions live |
+
+Lighthouse 13.5 mobile (live): `goalworld.fun` **92/100/100/100** (LCP 3.0 s),
+`play.goalworld.fun` **66/100/100/100** (LCP 6.5 s — perf follow-up, not a blocker).
+JSON: `/data/work/launch-reports/lighthouse/prod_*.json`.
+
+### Still PENDING (Nico)
+Vercel domain removal + Preview env vars (need login/`VERCEL_TOKEN`), Privacy/Terms legal
+review, repo-root `CLAUDE.md` review (harness-flagged, never loaded), the Caddyfile diff
+(404 page, cache headers, clean URLs, www redirect), unverified presale/rarity marketing
+numbers, 64 MB blob still in git history (`37e5118b` — not rewritten), webapp mobile LCP,
+`llms.txt`/`ai-catalog.json` extras, in-app ES strings. Hard limits all respected:
+twenty-caddy, DNS/tunnels, OAuth/keys/.env/omniroute, Vercel settings untouched; no
+force-push; no social posts; primary-checkout dirty files never stashed/reset/committed.
