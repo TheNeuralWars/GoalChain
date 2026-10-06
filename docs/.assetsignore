@@ -74,3 +74,12 @@ CHASSIS_V13_COORDINATES.md
 # is a public download). These used to be excluded to keep the Cloudflare Pages upload
 # small. goalworld.fun is now served from the VPS through the tunnel, so they must be
 # present in the staged tree -- the live acceptance suite checks them.
+
+# --- Task G (2026-10-06): NEVER publish *.md / TODO / REPORT working files -------------
+# https://goalworld.fun/LAUNCH_REPORT.md was publicly served (63 internal .md shipped).
+# Checked 2026-10-06: no published page links a served .md (README_v3_audio.md is linked
+# only from the internal film review page; manuscript sources are embedded into
+# reader.html at build time and never need to be downloadable).
+*.md
+*TODO*
+*REPORT*

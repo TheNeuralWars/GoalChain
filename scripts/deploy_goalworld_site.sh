@@ -162,6 +162,12 @@ do_deploy() {
     fi
   fi
 
+  # 2a. scrub internal docs (task G 2026-10-06): the landing must never ship
+  # *.md / *TODO* / *REPORT* working files even if one lands under goalworld_site/src/.
+  if [ "$DRY" = 0 ] && [ -n "$DIST" ]; then
+    find "$DIST" -type f \( -name '*.md' -o -iname '*TODO*' -o -iname '*REPORT*' \) -print -delete | sed 's/^/  scrubbed: /' || true
+  fi
+
   # 2c. landing manifest (see header): written BEFORE the rsync so any later restage
   # preserves the full new surface
   if [ "$DRY" = 0 ] && [ -n "$DIST" ]; then
@@ -220,7 +226,7 @@ do_deploy() {
     echo "  (dry-run: nothing written; backup not created)"
     exit 0
   fi
-  rsync -a "$DIST/" "$TARGET/"
+  rsync -a --exclude='*.md' --exclude='*TODO*' --exclude='*REPORT*' "$DIST/" "$TARGET/"
   chmod -R a+rX "$TARGET" 2>/dev/null || true
 
   # sanity: the hub must exist after deploy (bind mount stays intact)
