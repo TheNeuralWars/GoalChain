@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{DESC}}" />
+    <link rel="canonical" href="{{CANONICAL}}" />
+    <meta name="theme-color" content="#030307" />
+    <meta name="color-scheme" content="dark" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GoalWorld" />
+    <meta property="og:url" content="{{CANONICAL}}" />
+    <meta property="og:title" content="{{TITLE}}" />
+    <meta property="og:description" content="{{DESC}}" />
+    <meta property="og:image" content="https://goalworld.fun/assets/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="GoalWorld — World of Achievements. The Neural Wars saga, Matchday and AI Cinema." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{TITLE}}" />
+    <meta name="twitter:description" content="{{DESC}}" />
+    <meta name="twitter:image" content="https://goalworld.fun/assets/img/og-image.jpg" />
+
+    <link rel="icon" href="/assets/img/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/img/logo-mark.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="preload" href="/assets/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/css/site.css" />
+    {{PRELOAD}}
+    <script src="/assets/js/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <img src="/assets/img/apple-touch-icon.png" alt="" width="38" height="38" />
+          <span>Goal<span class="dim">World</span></span>
+        </a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav class="nav" id="site-nav" aria-label="Main">
+          <a href="/about.html"{{NAV_ABOUT}}>Lore</a>
+          <a href="/roadmap.html"{{NAV_ROADMAP}}>Roadmap</a>
+          <a href="/faq.html"{{NAV_FAQ}}>FAQ</a>
+          <a href="/press.html"{{NAV_PRESS}}>Press</a>
+          <a class="btn btn-primary" href="https://play.goalworld.fun/">Play &rarr;</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">{{BODY}}</main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="/">
+              <img src="/assets/img/apple-touch-icon.png" alt="" width="38" height="38" />
+              <span>Goal<span class="dim">World</span></span>
+            </a>
+            <p class="muted" style="margin-top: 0.9rem; max-width: 34ch">
+              World of Achievements. The Neural Wars saga, football on Solana, and AI cinema —
+              one world, built in the open.
+            </p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="/about.html">About &amp; Lore</a></li>
+              <li><a href="/roadmap.html">Roadmap</a></li>
+              <li><a href="/faq.html">FAQ</a></li>
+              <li><a href="/press.html">Press kit</a></li>
+              <li><a href="https://play.goalworld.fun/">Play GoalChain</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Community &amp; Legal</h4>
+            <ul>
+              <li><a href="https://x.com/nicopez">X &middot; @nicopez</a></li>
+              <li><a href="https://github.com/TheNeuralWars/GoalChain">GitHub</a></li>
+              <li><a href="/privacy.html">Privacy</a></li>
+              <li><a href="/terms.html">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; 2026 GoalWorld &middot; World of Achievements</span>
+          <span>goalworld.fun &middot; built in the open on Solana</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
