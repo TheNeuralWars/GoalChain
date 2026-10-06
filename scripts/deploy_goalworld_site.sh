@@ -111,31 +111,40 @@ do_deploy() {
     echo "  would: node $WORKTREE/goalworld_site/build.mjs"
   fi
   DIST="$WORKTREE/goalworld_site/dist"
-  [ -s "$DIST/index.html" ] || { echo "build output missing: $DIST/index.html" >&2; exit 1; }
+  if [ ! -s "$DIST/index.html" ]; then
+    if [ "$DRY" = 1 ]; then
+      DIST=""   # nothing built yet in dry-run — skip the rsync preview
+    else
+      echo "build output missing: $DIST/index.html" >&2
+      exit 1
+    fi
+  fi
 
   # 3. backup the deploy surface (or the full tree with --full-backup)
   mkdir -p "$BACKUP_DIR"
   STAMP="$(ts)"
   BK="$BACKUP_DIR/${STAMP}-${SHA}.tar.gz"
   mkdir -p "$TARGET"
-  if [ "$FULL_BACKUP" = 1 ]; then
-    log "backup (FULL target) -> $BK"
-    [ "$DRY" = 1 ] || tar -czf "$BK" -C "$TARGET" .
-  else
-    # only the paths this deploy will overwrite (nothing is ever deleted)
-    LIST="$BACKUP_DIR/${STAMP}-${SHA}.paths"
-    ( cd "$DIST" && find . -type f | sed 's|^\./||' ) > "$LIST.tmp"
-    : > "$LIST"
-    while read -r p; do
-      [ -e "$TARGET/$p" ] && echo "$p" >> "$LIST"
-    done < "$LIST.tmp"
-    rm -f "$LIST.tmp"
-    log "backup (deploy surface: $(wc -l < "$LIST") existing paths) -> $BK"
-    if [ "$DRY" = 0 ]; then
-      if [ -s "$LIST" ]; then
-        tar -czf "$BK" -C "$TARGET" -T "$LIST"
-      else
-        tar -czf "$BK" -C "$TARGET" --files-from /dev/null
+  if [ -n "$DIST" ]; then
+    if [ "$FULL_BACKUP" = 1 ]; then
+      log "backup (FULL target) -> $BK"
+      [ "$DRY" = 1 ] || tar -czf "$BK" -C "$TARGET" .
+    else
+      # only the paths this deploy will overwrite (nothing is ever deleted)
+      LIST="$BACKUP_DIR/${STAMP}-${SHA}.paths"
+      ( cd "$DIST" && find . -type f | sed 's|^\./||' ) > "$LIST.tmp"
+      : > "$LIST"
+      while read -r p; do
+        [ -e "$TARGET/$p" ] && echo "$p" >> "$LIST"
+      done < "$LIST.tmp"
+      rm -f "$LIST.tmp"
+      log "backup (deploy surface: $(wc -l < "$LIST") existing paths) -> $BK"
+      if [ "$DRY" = 0 ]; then
+        if [ -s "$LIST" ]; then
+          tar -czf "$BK" -C "$TARGET" -T "$LIST"
+        else
+          tar -czf "$BK" -C "$TARGET" --files-from /dev/null
+        fi
       fi
     fi
   fi
@@ -143,7 +152,11 @@ do_deploy() {
   # 4. rsync dist/ into the target — merge mode, no --delete (see header)
   log "rsync dist/ -> $TARGET"
   if [ "$DRY" = 1 ]; then
-    rsync -ain --out-format='  %n%L' "$DIST/" "$TARGET/" | head -40
+    if [ -n "$DIST" ]; then
+      rsync -ain --out-format='  %n%L' "$DIST/" "$TARGET/" | head -40
+    else
+      echo "  (dry-run: no build output yet to preview)"
+    fi
     echo "  (dry-run: nothing written; backup not created)"
     exit 0
   fi
