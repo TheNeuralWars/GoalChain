@@ -34,7 +34,7 @@ curl -s -X POST http://127.0.0.1:8790/v1/run \
 systemctl --user enable --now goalchain-multiagent.service
 ```
 
-Puerto **8790** solo en loopback. Antigravity integra merge; Hermes añade hook `empresa:` cuando esté validado.
+Puerto **8790** solo en loopback. Hermes integra merge; Hermes añade hook `empresa:` cuando esté validado.
 
 ## Fase 1 — LLM real (CEO)
 

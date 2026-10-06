@@ -3,7 +3,7 @@
 ## GitHub Label Contract for OA/FCC (oa-worker.sh)
 - `status:ready` + `agent:hermes|antigravity|grok` : eligible for pick_next.
 - Dispatch: remove ready, add in_progress.
-- **Success**: (exit 0 and no error strings in log): remove ready/in_progress, add `status:done`; THEN `touch .../issue-N.done`. Comment with tier, PR or "direct-main (cambio urgente)", log.
+- **Success**: (exit 0 and no error strings in log): remove ready/in_progress, add `status:done`; THEN `touch .../issue-N.done`. Comment with tier and PR link, log.
 - **model_not_supported**: comment explaining, remove in_progress add `status:ready` (requeue retry); **DO NOT** touch .done.
 - Other failure: add `status:blocked`; no .done.
 - pick_next and reconcile respect .done OR status:done as terminal.

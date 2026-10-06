@@ -1,6 +1,6 @@
 # GoalChain Workflow (Permanent Rules)
 
-This document defines the mandatory workflow for all agents working on GoalChain (FCC, Cursor, Antigravity, Manager, etc.).
+This document defines the mandatory workflow for all agents working on GoalChain (Hermes CEO, Cursor, Antigravity, Manager, etc.).
 
 ## 1. Planning Mode (Mandatory)
 
@@ -46,13 +46,15 @@ All statements must be backed by evidence using these tags:
 - Use **DevGoaL wallets** for Solana Devnet testing and transaction mocks.
 - Never hardcode private keys or secrets.
 
-## 5. FCC Delivery Rule (Specific)
+## 5. Code Agent Delivery Rule (Specific)
 
-When Free Claude Code (opencode) receives a task:
+When the code agent (Hermes CEO) receives a task:
 
 - It **must** complete the full objective.
 - It **must** open a Pull Request with the changes.
 - It should not consider the task finished until a PR exists.
+- Hermes owns merges: the PR is merged to `main` and deployed automatically when
+  build/tests/QA are green and a rollback is ready; if production breaks, Hermes reverts on its own and reports.
 
 ## 6. Agent Coordination
 

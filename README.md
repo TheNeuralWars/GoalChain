@@ -23,13 +23,13 @@ The core of GoalChain's economy is designed for perpetual growth and stability:
 - **Phase 4 (2027):** Favela Streets (3v3 PvP) & RWA Stadium Management.
 
 ## 📂 Repository Structure
-- **/docs:** Marketing site (live at [goalchain.fun](https://goalchain.fun)); CTAs → play.
+- **/docs:** Marketing site (official: [goalworld.fun](https://goalworld.fun) — goalchain.fun redirects there); CTAs → play.
 - **/goalchain_webapp:** Transactional Play ([play.goalchain.fun](https://play.goalchain.fun)) — Mundial devnet MVP (bet + claim).
 - **/goalchain_api:** Economy + ops HTTP API.
 - **/ai_context:** Agent orchestration, Hermes setup, META charter.
 - **/goalchain_program:** Solana smart contracts (Rust/Anchor).
 - **/goalchain_oracle:** Fixture oracle + economy helpers.
-- **/ops/hermes:** 24/7 Manager (FCC dispatch, Discord, GBrain).
+- **/ops/hermes:** 24/7 Manager (issue dispatch, Discord, GBrain).
 - **goalchain_backend:** Archived — see `goalchain_backend/ARCHIVED.md`.
 
 ## 🛠️ Technical Stack

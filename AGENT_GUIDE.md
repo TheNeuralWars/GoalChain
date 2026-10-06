@@ -22,7 +22,7 @@ graph TD
    - **Neural Asset Forge**: AI generation of 3D vinyl figurines, book covers, and lore assets.
    - **Play dApp (`play.goalworld.fun`)**: The interactive Web3 gaming and simulation arena.
 
-2. **`goalchain.fun` (Infrastructure & Protocol Layer - Option A)**:
+2. **`goalchain.fun` (Infrastructure & Protocol Layer - Option A)** — note: `goalchain.fun` redirects to the official site `https://goalworld.fun`:
    - **Sports Oracles**: Low-latency verifiable sports feeds with Jito MEV protection.
    - **Anchor Smart Contracts**: Non-custodial prediction pools and zero-loss vaults (`FbDhM4itBS2Cco7c7PbNvC98Fx7Y5HxqXS1JuXdNcBwg`).
    - **Developer SDK**: `@goalchain/sdk` TypeScript package for builders.

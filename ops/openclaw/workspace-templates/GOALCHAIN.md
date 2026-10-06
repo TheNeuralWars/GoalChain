@@ -37,11 +37,9 @@ This creates a GitHub issue with labels:
 
 Then reply to Nico with the issue URL.
 
-If task text contains `cambio urgente`, include in issue objective:
-
-`Policy: direct main push requested by Nico via keyword cambio urgente.`
-
-This means emergency direct-main mode for the assigned agent.
+Merge policy (2026-10-06): Hermes owns merges — work is merged to `main` and deployed
+automatically when build/tests/QA are green and a rollback is ready.
+There is no `cambio urgente` keyword and no manual merge approval.
 
 ## OA (OpenCode Autonomous) control
 

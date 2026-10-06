@@ -53,7 +53,7 @@
 - **Scope policy:** `docs/intake/HERMES-MUNDIAL-SCOPE-FREEZE.md`
 - **Master plan hub:** `ai_context/MASTER_PLAN.md` · index `docs/governance/MASTER_PLAN_INDEX.md`
 
-New `ready` issues outside Mundial require CEO exception (`cambio urgente`) noted in intake body.
+New `ready` issues outside Mundial require a CEO exception noted in intake body.
 
 ## Discovery
 

@@ -8,7 +8,7 @@
   - Small PRs, one implementer per task
   - Copy-pasteable commands without broken `\n` literals
   - Intake briefs before non-trivial implementation
-  - Cursor merges integration; Grok/Antigravity advise or spike only
+  - Hermes merges integration; Grok/Antigravity advise or spike only
   - Explain technical topics in plain language (beginner-friendly by default)
   - Use short steps and practical examples before jargon
   - If a term is unavoidable, define it in one simple sentence

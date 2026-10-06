@@ -14,7 +14,7 @@
 ```bash
 # Motor de código unificado
 OA_CODE_ENGINE=hermes
-OA_CODE_MODEL=nvidia/nemotron-3-super-120b-a12b  # Issue #832: NVIDIA NIM (was: Nemotron-3-Ultra-free)
+OA_CODE_MODEL=xiaomi/mimo-v2.6-pro  # default actual: MiMo 2.6 Pro via nous (era: Nemotron-3 / NIM)
 
 # Manager (conversación)
 OA_MODEL=xai/grok-4.3
@@ -23,21 +23,21 @@ OA_MODEL=xai/grok-4.3
 GITHUB_TOKEN=...  # permisos Issues + Contents
 ```
 
-**No hay tier mapping** — Hermes CEO usa Nemotron-3-Ultra-free para P0, P1 y P2.
+**No hay tier mapping** — Hermes CEO usa MiMo 2.6 Pro (`xiaomi/mimo-v2.6-pro`, nous) para P0, P1 y P2.
 
-Manager **no** comparte cupo con code engine: Grok para charlar, Nemotron para código.
+Manager **no** comparte cupo con code engine: Grok para charlar, MiMo para código.
 
 ---
 
 ## Discord mañana — sin elegir modelos
 
-Vos hablás normal; Hermes elige **P0 / P1 / P2** al crear el issue. El worker **no traduce a tier**, usa Nemotron directamente:
+Vos hablás normal; Hermes elige **P0 / P1 / P2** al crear el issue. El worker **no traduce a tier**, usa MiMo directamente:
 
 | Vos decís (ejemplos) | Hermes usa | Hermes CEO ejecuta |
 |----------------------|------------|-------------------|
-| "refactor play", "tokenomics", "on-chain" | P0 | `oa-run-code.sh` (Nemotron) |
-| "arreglá el panel", "nueva card" | P1 | `oa-run-code.sh` (Nemotron) |
-| "cambiá un texto", "css chico" | P2 | `oa-run-code.sh` (Nemotron) |
+| "refactor play", "tokenomics", "on-chain" | P0 | `oa-run-code.sh` (MiMo) |
+| "arreglá el panel", "nueva card" | P1 | `oa-run-code.sh` (MiMo) |
+| "cambiá un texto", "css chico" | P2 | `oa-run-code.sh` (MiMo) |
 
 La concurrencia la controla el **semáforo 4 slots** en `oa-run-code.sh` (no el modelo).
 
@@ -47,8 +47,8 @@ La concurrencia la controla el **semáforo 4 slots** en `oa-run-code.sh` (no el 
 
 1. Un issue `agent:opencode` por tarea (no workers paralelos en el mismo issue).
 2. Pedí cambios de UI en el issue con criterios claros; Hermes CEO trabaja la rama `exp/opencode-issue-N`.
-3. Revisión/merge: **Antigravity** o vos — Hermes no mergea a `main` solo.
-4. Si `cambio urgente` en el prompt: push directo a `main` (skip draft PR).
+3. Revisión/merge: **Hermes** mergea a `main` cuando build/tests/QA están verdes y hay rollback listo (auto-revert si producción se rompe).
+4. Ya no existe el keyword `cambio urgente`: Hermes es dueño de los merges y no necesita aprobación manual para mergear.
 
 ---
 
