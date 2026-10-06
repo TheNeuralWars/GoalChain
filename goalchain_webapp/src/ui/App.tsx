@@ -1,16 +1,10 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
-import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
-import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
-import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
-import { clusterApiUrl } from '@solana/web3.js';
-
-import '@solana/wallet-adapter-react-ui/styles.css';
 
 import { LanguageProvider, useTranslation } from '../i18n/index';
 import type { Language, TranslationKeys } from '../i18n/translations';
 import { UserProvider } from '../contexts/UserContext';
+import { WalletGateProvider, WalletGateBridge, WalletRequired } from '../wallet/gate';
 
 import { PlayLayout } from './PlayLayout';
 import { DashboardGrid } from './DashboardGrid';
@@ -18,8 +12,6 @@ import { LandingPage } from './LandingPage';
 import { EstadioPortal } from './EstadioPortal';
 import { DeFiPortal } from './DeFiPortal';
 import { ClubPortal } from './ClubPortal';
-import { CreateUser } from './CreateUser';
-import { UserProfile } from './UserProfile';
 import { ClassicHub } from './ClassicHub';
 import { MarketingControlCenter } from './MarketingControlCenter';
 import { PressKit } from './PressKit';
@@ -30,6 +22,9 @@ import { GoalWorldPortal } from './GoalWorldPortal';
 import { KindleReader } from './KindleReader';
 import { AuthorStudio } from './AuthorStudio';
 const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
+// Wallet-gated pages are lazy: their @solana/* imports land in on-demand chunks.
+const CreateUser = React.lazy(() => import('./CreateUser').then(m => ({ default: m.CreateUser })));
+const UserProfile = React.lazy(() => import('./UserProfile').then(m => ({ default: m.UserProfile })));
 
 function PlayPage({
   titleKey,
@@ -53,7 +48,11 @@ function PlayPage({
 
 const ProfilePage = () => {
   const { username } = useParams<{ username: string }>();
-  return <UserProfile username={username} />;
+  return (
+    <WalletRequired>
+      <UserProfile username={username} />
+    </WalletRequired>
+  );
 };
 
 const ReaderPage = () => {
@@ -62,10 +61,6 @@ const ReaderPage = () => {
 };
 
 function App() {
-  const network = WalletAdapterNetwork.Devnet;
-  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
-  const wallets = useMemo(() => [new PhantomWalletAdapter()], [network]);
-
   const [language, setLanguage] = useState<Language>(localStorage.getItem('gc_lang') as Language || 'en');
 
   const toggleLanguage = () => {
@@ -77,10 +72,9 @@ function App() {
   return (
     <LanguageProvider initialLanguage={language}>
       <UserProvider>
-        <BrowserRouter>
-          <ConnectionProvider endpoint={endpoint}>
-            <WalletProvider wallets={wallets} autoConnect>
-              <WalletModalProvider>
+        <WalletGateProvider>
+          <BrowserRouter>
+            <WalletGateBridge>
                 <div style={{ position: 'fixed', top: '10px', right: '10px', zIndex: 1000 }}>
                   <button onClick={toggleLanguage} style={{ padding: '8px 16px', background: '#64748b', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
                     {language === 'en' ? 'EN' : 'ES'}
@@ -184,7 +178,7 @@ function App() {
                       }
                     />
                     <Route path="/hub" element={<ClassicHub />} />
-                    <Route path="/crear-usuario" element={<CreateUser />} />
+                    <Route path="/crear-usuario" element={<WalletRequired><CreateUser /></WalletRequired>} />
                     <Route path="/perfil/:username" element={<ProfilePage />} />
                     <Route path="/reader" element={<ReaderPage />} />
                     <Route path="/reader/:bookId" element={<ReaderPage />} />
@@ -193,10 +187,9 @@ function App() {
                     <Route path="/editorial" element={<AuthorStudio />} />
                   </Route>
                 </Routes>
-              </WalletModalProvider>
-            </WalletProvider>
-          </ConnectionProvider>
-        </BrowserRouter>
+            </WalletGateBridge>
+          </BrowserRouter>
+        </WalletGateProvider>
       </UserProvider>
     </LanguageProvider>
   );

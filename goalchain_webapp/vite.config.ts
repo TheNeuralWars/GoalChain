@@ -27,6 +27,35 @@ export default defineConfig({
     exclude: ['react-native'],
     include: ['@solana/web3.js', '@solana/spl-token', '@coral-xyz/anchor'],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        // Group the heavy vendor libs into stable, cacheable chunks. The Solana
+        // groups are only referenced from lazy (on-demand) modules — see
+        // src/wallet/gate.tsx — so they are fetched when a wallet/chain feature
+        // is used, not on first paint.
+        manualChunks(id: string) {
+          if (!id.includes('node_modules')) return undefined;
+          const norm = id.replace(/\\/g, '/');
+          if (/node_modules\/(@solana\/web3\.js|@solana\/spl-token|@coral-xyz\/)/.test(norm)) {
+            return 'solana-core';
+          }
+          if (/node_modules\/(@solana\/wallet-adapter|@solana\/wallet-standard|@wallet-standard\/)/.test(norm)) {
+            return 'wallet-adapter';
+          }
+          if (/node_modules\/(react|react-dom|scheduler)\//.test(norm)) {
+            return 'react-vendor';
+          }
+          // buffer is needed eagerly by src/polyfills.ts — keep it out of the
+          // on-demand Solana chunks so they stay lazy.
+          if (/node_modules\/buffer\//.test(norm)) {
+            return 'polyfill';
+          }
+          return undefined;
+        },
+      },
+    },
+  },
   server: {
     port: 5173,
     strictPort: true,

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../i18n/index';
-import { useWalletModal } from '@solana/wallet-adapter-react-ui';
-import { useWallet } from '@solana/wallet-adapter-react';
+import { useWalletGate } from '../wallet/gate';
 
 const RARITY_STATS = [
   { label: 'Mythic', count: 10 },
@@ -11,10 +10,9 @@ const RARITY_STATS = [
 
 export function LandingPage() {
   const { t } = useTranslation();
-  const { setVisible } = useWalletModal();
-  const { publicKey } = useWallet();
+  const { publicKeyBase58, openModal } = useWalletGate();
 
-  const handleConnect = () => setVisible(true);
+  const handleConnect = () => openModal();
 
   return (
     <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #0a0a0f 0%, #0d1117 100%)', color: '#fff' }}>
@@ -31,7 +29,7 @@ export function LandingPage() {
         </p>
 
         {/* Wallet Connect CTA */}
-        {publicKey ? (
+        {publicKeyBase58 ? (
           <a href="/dashboard" style={{ display: 'inline-block', padding: '14px 32px', background: 'var(--primary-neon, #00ffcc)', color: '#000', fontWeight: 700, borderRadius: '8px', textDecoration: 'none', fontSize: '1rem' }}>
             Open Dashboard
           </a>
