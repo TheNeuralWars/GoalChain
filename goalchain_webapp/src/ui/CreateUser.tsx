@@ -85,12 +85,12 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
     return (
       <div className="create-user-success">
         <div className="success-glow">{selectedAvatarObj.emoji}</div>
-        <h2 style={{ color: '#14f195', margin: '1rem 0 0.5rem' }}>{t('create_user_success.welcome', { username })}</h2>
-        <p style={{ color: '#8b9cc8', margin: '0 0 0.5rem' }}>{t('create_user_success.role')}: <span style={{ color: '#fff' }}>{selectedRoleObj.label}</span></p>
-        <p style={{ color: '#8b9cc8', fontSize: '0.85rem' }}>{t('create_user_success.wallet')}: <code style={{ color: '#14f195' }}>{shortWallet}</code></p>
-        <p style={{ color: '#8b9cc8', fontSize: '0.85rem', marginTop: '1rem' }}>{t('create_user_success.initializing')}</p>
+        <h2 style={{ color: '#14f195', margin: '1rem 0 0.5rem' }}>{t('create_user_success_welcome', { username })}</h2>
+        <p style={{ color: '#8b9cc8', margin: '0 0 0.5rem' }}>{t('create_user_success_role')}: <span style={{ color: '#fff' }}>{selectedRoleObj.label}</span></p>
+        <p style={{ color: '#8b9cc8', fontSize: '0.85rem' }}>{t('create_user_success_wallet')}: <code style={{ color: '#14f195' }}>{shortWallet}</code></p>
+        <p style={{ color: '#8b9cc8', fontSize: '0.85rem', marginTop: '1rem' }}>{t('create_user_success_initializing')}</p>
         <a href="/" className="btn-primary" style={{ display: 'inline-block', marginTop: '1.5rem', textDecoration: 'none' }}>
-          → {t('create_user_success.go_to_dashboard')}
+          → {t('create_user_success_go_to_dashboard')}
         </a>
       </div>
     );
@@ -120,14 +120,14 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
         {step === 1 && (
           <div className="step-content" id="step-wallet">
             <div className="step-icon">🔗</div>
-            <h2>{t('create_user_step1.title')}</h2>
-            <p>{t('create_user_step1.description')}</p>
+            <h2>{t('create_user_step1_title')}</h2>
+            <p>{t('create_user_step1_description')}</p>
             <div className="wallet-connect-area">
               <WalletMultiButton />
               {connected && (
                 <div className="wallet-connected-badge">
                   <span className="dot-green" />
-                  {t('create_user_step1.wallet_connected')}: <code>{shortWallet}</code>
+                  {t('create_user_step1_wallet_connected')}: <code>{shortWallet}</code>
                 </div>
               )}
             </div>
@@ -146,15 +146,15 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
         {step === 2 && (
           <div className="step-content" id="step-identity">
             <div className="step-icon">🎭</div>
-            <h2>{t('create_user_step2.title')}</h2>
+            <h2>{t('create_user_step2_title')}</h2>
 
             <div className="form-group">
-              <label htmlFor="username-input">{t('create_user_step2.username_label')}</label>
+              <label htmlFor="username-input">{t('create_user_step2_username_label')}</label>
               <input
                 id="username-input"
                 type="text"
                 className={`form-input ${usernameError ? 'input-error' : username.length >= 3 ? 'input-ok' : ''}`}
-                placeholder={t('create_user_step2.username_placeholder')}
+                placeholder={t('create_user_step2_username_placeholder')}
                 value={username}
                 onChange={handleUsernameChange}
                 maxLength={20}
@@ -162,12 +162,12 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
               />
               {usernameError && <span className="input-error-msg">{usernameError}</span>}
               {!usernameError && username.length >= 3 && (
-                <span className="input-ok-msg">✓ {t('create_user_step2.username_available')}</span>
+                <span className="input-ok-msg">✓ {t('create_user_step2_username_available')}</span>
               )}
             </div>
 
             <div className="form-group">
-              <label>{t('create_user_step2.avatar_label')}</label>
+              <label>{t('create_user_step2_avatar_label')}</label>
               <div className="avatar-grid">
                 {AVATARS.map(av => (
                   <button
@@ -202,7 +202,7 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
         {step === 3 && (
           <div className="step-content" id="step-role">
             <div className="step-icon">🏆</div>
-            <h2>{t('create_user_step3.title')}</h2>
+            <h2>{t('create_user_step3_title')}</h2>
 
             <div className="role-cards">
               {ROLES.map(role => (
@@ -236,9 +236,9 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
-                  <span className="loading-dots">{t('create_user_step3.creating_account')}<span>...</span></span>
+                  <span className="loading-dots">{t('create_user_step3_creating_account')}<span>...</span></span>
                 ) : (
-                  <>{t('create_user_step3.create_account')}</>
+                  <>{t('create_user_step3_create_account')}</>
                 )}
               </button>
             </div>

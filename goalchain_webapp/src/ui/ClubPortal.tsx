@@ -19,11 +19,11 @@ export function ClubPortal() {
   const { user, isLoggedIn } = useUser();
 
   const tabs = [
-    { id: 'squad', label: t('club_portal_tabs.squad.label'), desc: t('club_portal_tabs.squad.desc') },
-    { id: 'arena', label: t('club_portal_tabs.arena.label'), desc: t('club_portal_tabs.arena.desc') },
-    { id: 'market', label: t('club_portal_tabs.market.label'), desc: t('club_portal_tabs.market.desc') },
-    { id: 'coach', label: t('club_portal_tabs.coach.label'), desc: t('club_portal_tabs.coach.desc') },
-    { id: 'profile', label: t('club_portal_tabs.profile.label'), desc: t('club_portal_tabs.profile.desc') },
+    { id: 'squad', label: t('club_portal_tabs_squad_label'), desc: t('club_portal_tabs_squad_desc') },
+    { id: 'arena', label: t('club_portal_tabs_arena_label'), desc: t('club_portal_tabs_arena_desc') },
+    { id: 'market', label: t('club_portal_tabs_market_label'), desc: t('club_portal_tabs_market_desc') },
+    { id: 'coach', label: t('club_portal_tabs_coach_label'), desc: t('club_portal_tabs_coach_desc') },
+    { id: 'profile', label: t('club_portal_tabs_profile_label'), desc: t('club_portal_tabs_profile_desc') },
   ] as const;
 
   return (
@@ -90,9 +90,9 @@ export function ClubPortal() {
             ) : (
               <div className="registration-wrapper glass-card">
                 <div className="registration-promo">
-                  <h2>{t('club_portal_registration.title')}</h2>
+                  <h2>{t('club_portal_registration_title')}</h2>
                   <p>
-                    {t('club_portal_registration.description')}
+                    {t('club_portal_registration_description')}
                   </p>
                 </div>
                 <WalletRequired>

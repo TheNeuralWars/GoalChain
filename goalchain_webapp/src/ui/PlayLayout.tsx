@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import { ConnectButton } from '../wallet/ConnectButton';
 import { PlayNav, PlayBottomTab } from './PlayNav';
+import { LanguageToggle } from '../components/LanguageToggle';
 import { ModalRoot } from './ModalRoot';
 import { Toaster } from './Toaster';
 import { MARKETING_BASE } from '../config/playNav';
@@ -108,7 +109,7 @@ export function PlayLayout() {
               onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(20, 241, 149, 0.2)'}
               onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(20, 241, 149, 0.1)'}
             >
-              📱 Modo UGC (9:16)
+              {t('play_ugc_mode' as never) || '📱 UGC Mode (9:16)'}
             </button>
             <a
               href={MARKETING_BASE}
@@ -118,6 +119,7 @@ export function PlayLayout() {
             >
               {t('nav_full_site' as never) || 'Full site'} ↗
             </a>
+            <LanguageToggle />
             <ConnectButton />
           </div>
         </header>
@@ -153,7 +155,7 @@ export function PlayLayout() {
           onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
           onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
         >
-          ❌ Salir Modo UGC
+          {t('play_ugc_exit' as never) || '❌ Exit UGC Mode'}
         </button>
       )}
 
@@ -167,7 +169,7 @@ export function PlayLayout() {
       <button
         onClick={() => setCoachOpen(!coachOpen)}
         className="gc-floating-coach-btn"
-        title="Consultar Eliza AI Coach"
+        title={t('play_coach_open' as never) || 'Ask Eliza AI Coach'}
       >
         🤖
       </button>
@@ -181,7 +183,7 @@ export function PlayLayout() {
           borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
           background: 'rgba(153, 69, 255, 0.1)'
         }}>
-          <span style={{ fontWeight: 800, fontSize: '0.9rem', color: '#fff' }}>🤖 Asistente Táctico AI Eliza</span>
+          <span style={{ fontWeight: 800, fontSize: '0.9rem', color: '#fff' }}>{t('play_coach_title' as never) || '🤖 Eliza AI Tactical Assistant'}</span>
           <button
             onClick={() => setCoachOpen(false)}
             style={{

@@ -323,6 +323,7 @@ export type TranslationKeys = {
   nav_arcade_hub: string;
   nav_res_pitch: string;
   nav_res_guide: string;
+  nav_res_presskit: string;
   nav_res_colabs: string;
   nav_res_legal: string;
   /* ---- Fase 4: Toasts de eventos de arcade ---- */
@@ -517,12 +518,16 @@ export type TranslationKeys = {
   ai_commentator_bridge_offline: string;
   ai_commentator_ws_error: string;
   ai_commentator_ws_retry: string;
+  ai_commentator_ws_connected: string;
+  ai_commentator_ws_disconnected: string;
+  ai_commentator_live_cast: string;
   ai_commentator_ws_parse_error: string;
   ai_commentator_query_placeholder: string;
   ai_commentator_query_button: string;
   ai_commentator_speak: string;
   ai_commentator_mute: string;
   ai_commentator_noah_ai_response: string;
+  ai_commentator_noah_ai_simulated_response: string;
   ai_commentator_noah_ai_error: string;
   /* ---- Classic Hub (classic_hub.xxx → classic_hub_xxx) ---- */
   classic_hub_title: string;
@@ -578,7 +583,9 @@ export type TranslationKeys = {
   create_user_success_initializing: string;
   create_user_success_role: string;
   create_user_success_wallet: string;
+  create_user_success_welcome: string;
   create_user_success_go_to_dashboard: string;
+  create_user_bio: string;
   create_user_joined_date: string;
   create_user_location: string;
   create_user_username_invalid_chars: string;
@@ -602,6 +609,10 @@ export type TranslationKeys = {
   estadio_portal_loading_commentator: string;
   estadio_portal_loading_predictor: string;
   estadio_portal_loading_simulator: string;
+  play_ugc_mode: string;
+  play_ugc_exit: string;
+  play_coach_title: string;
+  play_coach_open: string;
 };
 
 export type Translations = Record<Language, TranslationKeys>;
