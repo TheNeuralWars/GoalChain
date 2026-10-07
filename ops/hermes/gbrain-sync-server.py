@@ -26,6 +26,9 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 HOST = os.environ.get("GBRAIN_SYNC_HOST", "0.0.0.0")
+# One bind per address: GBRAIN_SYNC_HOST may be a comma/space-separated list
+# (e.g. "127.0.0.1,100.101.211.44" to expose loopback + Tailscale only).
+HOSTS = [h for h in re.split(r"[,\s]+", HOST) if h]
 PORT = int(os.environ.get("GBRAIN_SYNC_PORT", "8648"))
 
 TAILSCALE_CIDR = "100.64.0.0/10"
@@ -195,8 +198,14 @@ def main() -> None:
     _ensure_sync_dir()
     _load_initial()
 
-    httpd = ThreadingHTTPServer((HOST, PORT), SyncHandler)
-    print(f'[gbrain-sync] listening on http://{HOST}:{PORT} (cidr allow {TAILSCALE_CIDR} + private)', flush=True)
+    servers = []
+    for h in HOSTS:
+        srv = ThreadingHTTPServer((h, PORT), SyncHandler)
+        servers.append(srv)
+        print(f'[gbrain-sync] listening on http://{h}:{PORT} (cidr allow {TAILSCALE_CIDR} + private)', flush=True)
+    for srv in servers[1:]:
+        threading.Thread(target=srv.serve_forever, daemon=True).start()
+    httpd = servers[0]
 
     signal.signal(signal.SIGTERM, _shutdown)
     signal.signal(signal.SIGINT, _shutdown)
