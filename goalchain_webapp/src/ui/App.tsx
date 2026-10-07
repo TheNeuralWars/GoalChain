@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
 
 import { LanguageProvider, useTranslation } from '../i18n/index';
-import type { Language, TranslationKeys } from '../i18n/translations';
+import type { TranslationKeys } from '../i18n/translations';
 import { UserProvider } from '../contexts/UserContext';
 import { WalletGateProvider, WalletGateBridge, WalletRequired } from '../wallet/gate';
 
@@ -61,25 +61,12 @@ const ReaderPage = () => {
 };
 
 function App() {
-  const [language, setLanguage] = useState<Language>(localStorage.getItem('gc_lang') as Language || 'en');
-
-  const toggleLanguage = () => {
-    const newLanguage = language === 'en' ? 'es' : 'en';
-    setLanguage(newLanguage);
-    localStorage.setItem('gc_lang', newLanguage);
-  };
-
   return (
-    <LanguageProvider initialLanguage={language}>
+    <LanguageProvider>
       <UserProvider>
         <WalletGateProvider>
           <BrowserRouter>
             <WalletGateBridge>
-                <div style={{ position: 'fixed', top: '10px', right: '10px', zIndex: 1000 }}>
-                  <button onClick={toggleLanguage} style={{ padding: '8px 16px', background: '#64748b', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
-                    {language === 'en' ? 'EN' : 'ES'}
-                  </button>
-                </div>
                 <Routes>
                   <Route element={<PlayLayout />}>
                     <Route

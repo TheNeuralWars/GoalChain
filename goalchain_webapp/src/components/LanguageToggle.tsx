@@ -1,12 +1,24 @@
 import React from 'react';
 import { useTranslation } from '../i18n';
 
+/**
+ * Language switcher — EN / ES.
+ *
+ * Wired to the shared LanguageProvider, so it switches the whole UI live
+ * (no reload needed) and stays in sync with every other toggle instance.
+ */
 export function LanguageToggle() {
-  const { language, setLanguage, t } = useTranslation();
+  const { language, setLanguage } = useTranslation();
 
   return (
-    <div className="language-toggle" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+    <div
+      className="language-toggle"
+      role="group"
+      aria-label="Language"
+      style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
+    >
       <button
+        type="button"
         onClick={() => setLanguage('en')}
         className={`lang-btn ${language === 'en' ? 'active' : ''}`}
         style={{
@@ -21,10 +33,14 @@ export function LanguageToggle() {
           transition: 'all 0.2s ease',
         }}
         aria-pressed={language === 'en'}
+        aria-label="English"
+        title="English"
+        lang="en"
       >
         EN
       </button>
       <button
+        type="button"
         onClick={() => setLanguage('es')}
         className={`lang-btn ${language === 'es' ? 'active' : ''}`}
         style={{
@@ -39,6 +55,9 @@ export function LanguageToggle() {
           transition: 'all 0.2s ease',
         }}
         aria-pressed={language === 'es'}
+        aria-label="Español"
+        title="Español"
+        lang="es"
       >
         ES
       </button>
