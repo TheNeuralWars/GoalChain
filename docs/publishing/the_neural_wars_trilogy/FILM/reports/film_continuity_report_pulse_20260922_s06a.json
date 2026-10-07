@@ -1,0 +1,132 @@
+{
+  "tool": "ContinuityGuard",
+  "tool_version": "0.1.5",
+  "film_root": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM",
+  "scenes": [
+    "FC-S06A"
+  ],
+  "generated_at": "2026-09-22T16:10:24Z",
+  "cg_fps": 2.3,
+  "preflight": {
+    "FC-S06A": {
+      "cut": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06A/FC-S06A_cut_v1.mp4",
+      "status": "OK",
+      "cut_info": {
+        "ok": true,
+        "duration_s": 24.187663,
+        "size_bytes": 18713508,
+        "codec": "h264",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "nb_frames": 580
+      },
+      "shots": [
+        {
+          "shot": "FC-S06A-01",
+          "ok": true,
+          "duration_s": 6.041667,
+          "size_bytes": 10053365,
+          "codec": "h264",
+          "width": 1280,
+          "height": 720,
+          "fps": 24.0,
+          "nb_frames": 145
+        },
+        {
+          "shot": "FC-S06A-02",
+          "ok": true,
+          "duration_s": 6.041667,
+          "size_bytes": 4887672,
+          "codec": "h264",
+          "width": 1280,
+          "height": 720,
+          "fps": 24.0,
+          "nb_frames": 145
+        },
+        {
+          "shot": "FC-S06A-03",
+          "ok": true,
+          "duration_s": 6.041667,
+          "size_bytes": 4630786,
+          "codec": "h264",
+          "width": 1280,
+          "height": 720,
+          "fps": 24.0,
+          "nb_frames": 145
+        },
+        {
+          "shot": "FC-S06A-04",
+          "ok": true,
+          "duration_s": 6.041667,
+          "size_bytes": 3890220,
+          "codec": "h264",
+          "width": 1280,
+          "height": 720,
+          "fps": 24.0,
+          "nb_frames": 145
+        }
+      ],
+      "shots_duration_sum_s": 24.17,
+      "cut_vs_shots_delta_s": 0.02
+    }
+  },
+  "pass1_cut_physics": {
+    "FC-S06A": {
+      "max_discontinuity_ratio": 0.0,
+      "flags_total": 0,
+      "flags_on_cut_boundary": 0,
+      "flags_within_shot": 0,
+      "flags": []
+    }
+  },
+  "pass2_shot_physics": {
+    "FC-S06A": {
+      "clips_scanned": 4,
+      "max_discontinuity_ratio": 0.0,
+      "flags_total": 0,
+      "flags": []
+    }
+  },
+  "pass3_face_consistency": {
+    "staging": {
+      "exit_code": 0,
+      "clips": [],
+      "clips_written": [],
+      "clips_skipped": [
+        {
+          "scene": "FC-S06A",
+          "reason": "no_primary_character"
+        }
+      ],
+      "stderr_tail": null
+    },
+    "note": "no face clips staged"
+  },
+  "raw_scans": {
+    "pass1_cut_physics": {
+      "_error": "No supported video clips found in /data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard_pulse_20260922_s06a/.stage/cuts\nSupported extensions: .mp4 .mov .mkv .webm .avi",
+      "_exit": 1
+    },
+    "pass2_shot_physics_FC-S06A": {
+      "scan_id": "cg-2026-09-22T16-10-26-321Z",
+      "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard_pulse_20260922_s06a/.stage/shots/FC-S06A",
+      "clips_scanned": 4,
+      "frames_extracted": 56,
+      "character_consistency": {
+        "characters_tracked": 0,
+        "similarity_threshold": 0.88,
+        "flagged_shots": []
+      },
+      "physics_plausibility": {
+        "discontinuity_multiplier": 3,
+        "flagged_shots": []
+      },
+      "generated_at": "2026-09-22T16:10:33.959Z",
+      "tool_version": "0.1.5",
+      "scan_duration_seconds": 7.638,
+      "network_calls_made": 0
+    }
+  },
+  "duration_seconds": 9.56
+}

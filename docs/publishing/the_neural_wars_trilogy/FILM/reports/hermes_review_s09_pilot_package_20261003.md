@@ -1,0 +1,75 @@
+<!-- hermes -z (default profile model) 2026-10-03T22:43:49+00:00 -->
+## Verdict
+FAIL
+
+The package is not yet safe to spend. Three blockers: 7 of 8 shots use a location token that is not registered in `WORLD_TOKENS.locations` and the runner does not honor their `gates`; the runner also sends a single reference image where the lock sheets explicitly require two. The book-fidelity and who-does-what mapping are largely correct (see Checked OK), but the anchor strategy and gate handling will waste the run.
+
+## Findings
+
+1. [severity: blocker] [category: canon] `FC-S09-02`..`FC-S09-08` `location_id: "node_17_server_cathedral"` -> unregistered location token; CANON requires `location_id` be a key under `WORLD_TOKENS.locations` with lock prose. -> Evidence: manifest `FC_SECOND_HALF_SHOTS_20261003.json` line 670 `"location_id": "node_17_server_cathedral"`; `WORLD_TOKENS.json` locations block (lines 201-390) lists only `node_17_sanitation_lock` (no server cathedral); CANON.md line 14 `lock_sheet_id... reference_images opcionales` + line 31 `pull character/location tokens from WORLD_TOKENS.json + lock prose; do not free-invent`. -> Fix: add `locks/locations/NODE_17_SERVER_CATHEDRAL.md` and register `node_17_server_cathedral` (status `ready`) in `WORLD_TOKENS.locations` before generating.
+
+2. [severity: blocker] [category: timing] Runner never reads `gates`/`location_token_status`, so `--stills`/`--videos` will spend on the 7 shots that are explicitly gated on the missing location token. -> Evidence: runner `fc_s09_pilot_runner_20261003.py` lines 114/122-123 iterate all `FC-S09-*` and call `still`/`video` with no gate check; manifest lines 691-693 `"gates": ["needs_location_token:node_17_server_cathedral"]` and line 671 `"location_token_status": "proposed"`. -> Fix: skip (or `Stop`) any shot with an unmet `needs_location_token:*` gate or `location_token_status != "ready"` before the paid call.
+
+3. [severity: blocker] [category: canon] Runner sends exactly one reference image; every lock sheet says the xAI image-edit endpoint rejects a single ref (HTTP 422) and to always pass two. -> Evidence: runner lines 21-30 (`ANCHOR` = one path per shot) and line 67 `payload["image"] = _image_payload(FILM / anc)["url"]`; `LOCK_SHEET_MILEO_CHEN.md` line 106 `the xAI image-edit endpoint rejects a single reference image (HTTP 422) — always pass 2 refs`; same in `LOCK_SHEET_KORA_VEGA.md` line 100, `LOCK_SHEET_SIERRA_CATALANO.md` line 99, `locks/refs/README.md` line 37. -> Fix: send two images (duplicate the anchor if only one is valid) or the manifest's `reference_images[]`.
+
+4. [severity: major] [category: continuity] Runner ignores the manifest's curated `reference_images[]` entirely (it uses its own `ANCHOR` map), so the chosen sanitation-jumpsuit/face refs are never sent. -> Evidence: runner lines 21-30 + line 65-67 vs manifest lines 641-649 (S09-01 has 7 refs incl. `renders/FC-S08/FC-S08-03.png`); CANON.md line 14 `reference_images... obligatorias cuando existan stills en refs`. -> Fix: drive the payload from `shot["reference_images"]` (first two), not a separate hard-coded map.
+
+5. [severity: major] [category: continuity] `FC-S09-05` anchor is `renders/FC-S08/FC-S08-03.png` — an exterior surface-sidewalk still (glass facades, maintenance cart, mauve afternoon) — but S09-05 is inside the blue server cathedral; risks importing the wrong location/props. -> Evidence: runner line 26 `"FC-S09-05": "renders/FC-S08/FC-S08-03.png"`; `FC-S08.json` lines 129-131 (S08-03 location "Surface Residential sidewalk — maintenance cart stack"); manifest line 766 S09-05 `"location_id": "node_17_server_cathedral"`. -> Fix: anchor S09-05 on an interior cathedral/sanitation still, not the surface two-shot.
+
+6. [severity: major] [category: continuity] S09-03/S09-06/S09-08 anchor on base-wardrobe lock refs while the shots require the grey-steel sanitation jumpsuit overlay; a contaminated ref overrides text. -> Evidence: runner lines 24/27 `mileo_chen/front.png`, line 29 `sierra_catalano/front.png`; `LOCK_SHEET_MILEO_CHEN.md` line 100 `Pre-cut grey tunic + blank abstract hexagonal patch`; `LOCK_SHEET_SIERRA_CATALANO.md` line 88 `dark leather jacket + black layers`; S09 prompts `all wearing utilitarian grey-steel sanitation jumpsuits (#708090 / #C0C0C0) over their base wardrobe`; `LOCK_SHEET_KORA_VEGA.md` line 98 `text instructions cannot override a contaminated reference`. -> Fix: anchor with a sanitation-jumpsuit still (e.g. `FC-S08-03`) plus the face lock, i.e. two refs.
+
+7. [severity: major] [category: continuity] Multi-character shots anchored on a single character ref -> face drift for the others. -> Evidence: runner line 29 `"FC-S09-08": "locks/refs/sierra_catalano/front.png"` for a `medium three-shot` (`character_ids` kora_vega, mileo_chen, sierra_catalano, manifest lines 848-851); line 26 anchor `FC-S08-03` (Mileo+Riv) for S09-05 which also needs Kora. -> Fix: send lock refs for every principal in frame (2+ refs).
+
+8. [severity: major] [category: canon] `character_id "the_architect"` (S09-07) is not registered in `WORLD_TOKENS.characters`. -> Evidence: manifest lines 823-824 `"character_ids": ["the_architect"]`; `WORLD_TOKENS.json` characters (lines 64-199) contain only `mileo_chen, kora_vega, sierra_catalano, okafor, riv`; `locks/refs/README.md` line 19 claims `the_architect` is a key. -> Fix: add `the_architect` to `WORLD_TOKENS.characters` with `lock_sheet_id: LOCK_SHEET_THE_ARCHITECT` (or change the id).
+
+9. [severity: minor] [category: canon] S09-07 `reference_images: []` though Architect lock refs now exist on disk. -> Evidence: manifest line 831 `"reference_images": []`; `locks/refs/the_architect/` contains `front_34.png`, `profile.png`, `bust.png` (file listing); `LOCK_SHEET_THE_ARCHITECT.md` line 87 `stills pending; reference_images: [] until Hermes lock pass`. -> Fix: add the Architect refs once vision-QC'd, or confirm they are not approved yet.
+
+10. [severity: minor] [category: canon] S09-07 stacks two Architect presence grammars (system gaze + neural-mesh flicker); the lock sheet says use ONE primary grammar per shot. -> Evidence: manifest line 834 `system presence only: cold surveillance gaze through fog, indigo neural-mesh flicker, no body, no face`; `LOCK_SHEET_THE_ARCHITECT.md` line 26 `Use one primary grammar per shot (do not stack all at once)`. -> Fix: keep system-gaze only for this insert.
+
+11. [severity: minor] [category: continuity] S09-07 injects the physical server-cathedral setting (towers, grating, helium mist) into an abstract inner-vision/data-ocean shot -> risks pulling the wrong environment into the vision. -> Evidence: manifest line 834 `Setting: subterranean server cathedral: six-meter quantum processing towers...`; action is `Inner vision: an infinite dark ocean of living data`. -> Fix: use an abstract void/indigo setting for the vision instead of the cathedral token prose.
+
+12. [severity: minor] [category: canon] Global negative minimum is incomplete: no prompt contains `NO carteles` or `NO upper frame` (VISUAL_BIBLE requires both), and every `video_prompt` carries only `NO readable text, NO logos`. -> Evidence: grep counts over the manifest = 0 for `carteles` and 0 for `upper frame`, vs 76 shots; `VISUAL_BIBLE.md` lines 149-151 minimum `NO readable text, NO logos, NO signage, NO carteles, NO faction name labels, NO multi-panel, NO upper frame, NO Mark, NO title cards`; video_prompt example line 653 ends only `... no new characters; NO readable text, NO logos.` -> Fix: append the full minimum list to every image_prompt and video_prompt.
+
+13. [severity: minor] [category: book-fidelity] S09-01 calls the hatch "steel service hatch"; the book calls it titanium and S08-07 already established titanium. -> Evidence: manifest line 651 `The heavy steel service hatch`; `FC-04-Chapter_2026.md` L49 `La esclusa de titanio se abrió`; `FC-S08.json` line 207 `seamless titanium industrial access hatch`. (Note: `NODE_17_SANITATION_LOCK.md` line 48 says steel — the lock itself is inconsistent with the book.) -> Fix: align to titanium per the book (and reconcile the location lock).
+
+14. [severity: minor] [category: continuity] S09 prompts omit the mandatory Mileo regen rule, so the known fringe/bangs drift will recur. -> Evidence: `LOCK_SHEET_MILEO_CHEN.md` line 104 `Add 'forehead fully exposed, NO fringe, NO bangs, NO bowl cut' to every future Mileo regen`; S09-03/05/06/08 prompts have no such clause. -> Fix: append it to every S09 prompt containing Mileo.
+
+15. [severity: minor] [category: continuity] S09 Kora prompts omit the required orientation rule, so the RIGHT-ear scar may render on the wrong side. -> Evidence: `LOCK_SHEET_KORA_VEGA.md` line 98 `state the orientation explicitly (nose toward the LEFT edge of frame, near ear is the RIGHT ear)`; S09-01/05/08 prompts lack it. -> Fix: append the orientation instruction.
+
+16. [severity: minor] [category: continuity] Riv has no lock sheet or approved refs, and the S09-01/S09-05 anchors don't contain him, so Riv's face will drift despite "same face as the prior approved still". -> Evidence: `locks/refs/riv/` is `placeholder only — stills TBD` (`locks/refs/README.md` line 29); runner line 22 anchor `FC-S08-07.png` is a solo Sierra still; manifest S09-01 line 651 needs Riv. -> Fix: add a Riv lock still or always anchor Riv shots on `FC-S08-03.png`.
+
+17. [severity: minor] [category: book-fidelity] Book beats are dropped without coverage: Riv's download progress (60/70/87 %) and the drive grab are absent, and Riv is omitted from S09-08 although he is present in the vault. -> Evidence: `FC-04-Chapter_2026.md` L79 `¡Sesenta por ciento... setenta por ciento!`, L87 `¡Ochenta y siete por ciento!`, L93 `arrancando el disco rígido`; manifest S09-08 `character_ids` (lines 848-851) = kora_vega, mileo_chen, sierra_catalano (no riv). -> Fix: add Riv to S09-08 or an insert shot, or document the compression as intentional.
+
+18. [severity: minor] [category: continuity] Still vs video payload shape is inconsistent — the still path assigns a bare URL string to `image`, the video path assigns the `{"url": ...}` object; one likely does not match the API schema. -> Evidence: runner line 67 `payload["image"] = _image_payload(FILM / anc)["url"]` vs line 83 `"image": _image_payload(src)`; `novel_film_builder.py` line 175 returns `{"url": "data:..."}`. -> Fix: use the same object shape on both endpoints (and verify against the API contract).
+
+19. [severity: minor] [category: timing] Non-HTTP failures (URLError/timeout in `post`/`download`) are not caught, so the runner can crash with a traceback and never write `STOPPED.json`. -> Evidence: runner lines 44-49 catch only `urllib.error.HTTPError`; lines 55-58 `download` unguarded; `main` catches only `Stop` (line 124). -> Fix: wrap network calls and convert to a recorded `Stop`.
+
+20. [severity: minor] [category: canon] S09-06 asks for "white fire" on Mileo while the global rule says the light is "never white-hot". -> Evidence: manifest line 808 `a jolt of white fire arches his back`; line 809 ends `Coil light is deep indigo #4B0082 / #3F00FF only, never cyan, never white-hot`; book L75 `Un relámpago de fuego blanco`. -> Fix: qualify it as the connector's white arc (book canon), distinct from Coil glow, to avoid the model painting white-hot Coil.
+
+21. [severity: minor] [category: book-fidelity] S09-08 says Kora's "temples blazing violet"; the book has her veins blazing violet. -> Evidence: manifest line 869 `Kora is on her knees, temples blazing violet`; `FC-04-Chapter_2026.md` L85 `sus propias venas brillaban con una luz violeta cegadora`. -> Fix: broaden to violet veins/shimmer rather than temples only.
+
+22. [severity: minor] [category: continuity] S09-01 anchor is a solo-Sierra ECU still for a four-figure back-view entry shot -> risks pulling Sierra's frontal face. -> Evidence: runner line 22 `"FC-S09-01": "renders/FC-S08/FC-S08-07.png"` (`FC-S08.json` line 199 `ECU gloved palm on hatch then pull to Sierra profile`); manifest line 651 `four figures seen from behind slip into the dark threshold`. -> Fix: pair the hatch still with the `FC-S08-03` four-person/sanitation anchor.
+
+23. [severity: minor] [category: canon] Sierra's "pistol" is not a registered prop (only Kora's `shock_pistol` exists), and the book specifies a pulse pistol. -> Evidence: manifest line 869 `strikes the connector cable with the butt of her pistol`; `FC-04-Chapter_2026.md` L89 `Sierra desenfundó su pistola de pulsos`; `WORLD_TOKENS.json` props (lines 404-528) has no Sierra sidearm. -> Fix: add a blank non-branded pulse-pistol prop or phrase it as an abstract unmarked shape.
+
+## Checked OK
+- `FC-S09-01` matches book L49 (titanium hatch, decompression hiss, cloned chip fools the scanner, four slip inside before the streetlights flare).
+- `FC-S09-02` matches L53 (six-metre quantum towers, electric-blue 482 nm, vibrating grating, liquid-helium mist).
+- `FC-S09-03` matches L55-L57 (Mileo leads the descent; he designed it).
+- `FC-S09-04` matches L57 (black-alloy octahedron in armoured glass, thousands of indigo filaments pulsing).
+- `FC-S09-05` matches L59-L67 (Riv on the console; Kora grips Mileo's arm).
+- `FC-S09-06` matches L73-L77 (two-pronged silver needle connector to the nape, white fire, knees to the grating, blood from both nostrils).
+- `FC-S09-07` matches L77 (eight-million constellation of captive minds + the Architect's central web).
+- `FC-S09-08` correct who/what: Mileo's LEFT hand clamps Sierra's wrist, Kora on her knees violet, Sierra severs the cable with the pistol butt, vault turns scarlet (L81-L91).
+- All `book_ref` line citations (L49, L53, L55-57, L57, L59-67, L73-77, L77, L81-91) are accurate against the EDICION file.
+- `v3ax_last_shot` = FC-S08-07 with timeline ending 407.6 is correct; S08-08 is absent from `v3ax_timeline`.
+- `renders/FC-S08/FC-S08-07.mp4` and `FC-S08-03.png` exist on disk, so the manifest's "S08-07.mp4 rendered / only S08-08 never rendered" note is accurate (FC-S08.json's `failed_video` is stale).
+- S09-01..05 keep the four principals in the sanitation jumpsuits with Kora's hood drawn low, matching the FC-S08 scene overlay.
+- Anchor files referenced by the runner (`FC-S08-07.png`, `FC-S08-03.png`, `mileo_chen/front.png`, `sierra_catalano/front.png`) all exist.
+- Runner: single attempt per call (no retry loops); stops on 401/402/403/429 and credit/balance/quota keywords via `fatal()`; `skip_exists` prevents overwrite; all writes target `renders/FC-S09_pilot_20261003/`; the token is never logged or printed.
+- All 8 video prompts animate the still ("Animate the approved still only"), state "one continuous camera move" and "no new characters", and are 6 s.
+- `NO readable text, NO logos` is present in all 152 prompt fields (image + video, 2/shot).
+- Lock invariants present in S09 prompts: Sierra scar LEFT cheek/never right; Mileo Coil LEFT wrist only, unmarked right arm, nape bandage; Kora RIGHT-ear ridge, copper vest, LEFT clavicle.
+- `node_17_sanitation_lock` for S09-01 is registered and `status: ready`.
+
+<!-- exit=0 end 2026-10-03T22:46:18+00:00 -->

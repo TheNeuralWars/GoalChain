@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "GoalChain Platform",
+    "output": "goalchain.architecture.html",
+    "quality_profile": "standard",
+    "views": [
+      {
+        "id": "main-path",
+        "label": "Main product path",
+        "focus": [
+          "players",
+          "webapp",
+          "api",
+          "sdk",
+          "solana"
+        ],
+        "note": "Players use React webapps; API and SDK talk to the Anchor program on Solana."
+      },
+      {
+        "id": "data-agents",
+        "label": "Data and agents",
+        "focus": [
+          "oracle",
+          "polymarket",
+          "hermes",
+          "api"
+        ],
+        "note": "Oracle/Polymarket feed data; Hermes CEO handles agent ops (gateways unchanged)."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "players",
+      "type": "external",
+      "label": "Players",
+      "sublabel": "Browser / wallet",
+      "pos": [
+        40,
+        260
+      ],
+      "size": [
+        130,
+        60
+      ]
+    },
+    {
+      "id": "webapp",
+      "type": "frontend",
+      "label": "Webapps",
+      "sublabel": "goalchain + goalworld",
+      "pos": [
+        240,
+        260
+      ],
+      "size": [
+        160,
+        64
+      ]
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "goalchain_api",
+      "sublabel": "Express / TS",
+      "pos": [
+        470,
+        260
+      ],
+      "size": [
+        140,
+        64
+      ]
+    },
+    {
+      "id": "sdk",
+      "type": "backend",
+      "label": "goalchain-sdk",
+      "sublabel": "TS client",
+      "pos": [
+        680,
+        260
+      ],
+      "size": [
+        140,
+        60
+      ]
+    },
+    {
+      "id": "solana",
+      "type": "cloud",
+      "label": "goalchain_program",
+      "sublabel": "Solana / Anchor",
+      "pos": [
+        890,
+        260
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "on-chain"
+    },
+    {
+      "id": "oracle",
+      "type": "backend",
+      "label": "goalchain_oracle",
+      "sublabel": "data feeds",
+      "pos": [
+        890,
+        420
+      ],
+      "size": [
+        150,
+        60
+      ]
+    },
+    {
+      "id": "polymarket",
+      "type": "external",
+      "label": "polymarket_bot",
+      "sublabel": "markets",
+      "pos": [
+        680,
+        420
+      ],
+      "size": [
+        140,
+        60
+      ]
+    },
+    {
+      "id": "hermes",
+      "type": "backend",
+      "label": "Hermes CEO",
+      "sublabel": "agent ops",
+      "pos": [
+        470,
+        100
+      ],
+      "size": [
+        140,
+        60
+      ]
+    },
+    {
+      "id": "docs",
+      "type": "cloud",
+      "label": "docs / ops",
+      "sublabel": "FILM + runbooks",
+      "pos": [
+        240,
+        100
+      ],
+      "size": [
+        160,
+        60
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "GoalChain monorepo",
+      "wraps": [
+        "webapp",
+        "api",
+        "sdk",
+        "solana",
+        "oracle",
+        "hermes",
+        "docs"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "c1",
+      "from": "players",
+      "to": "webapp",
+      "label": "HTTPS",
+      "variant": "emphasis"
+    },
+    {
+      "id": "c2",
+      "from": "webapp",
+      "to": "api",
+      "label": "REST"
+    },
+    {
+      "id": "c3",
+      "from": "api",
+      "to": "sdk",
+      "label": "uses"
+    },
+    {
+      "id": "c4",
+      "from": "sdk",
+      "to": "solana",
+      "label": "RPC / tx"
+    },
+    {
+      "id": "c5",
+      "from": "oracle",
+      "to": "solana",
+      "label": "feeds"
+    },
+    {
+      "id": "c6",
+      "from": "polymarket",
+      "to": "oracle",
+      "label": "signals",
+      "variant": "dashed"
+    },
+    {
+      "id": "c7",
+      "from": "hermes",
+      "to": "api",
+      "label": "ops",
+      "variant": "dashed",
+      "labelDy": 24
+    },
+    {
+      "id": "c8",
+      "from": "hermes",
+      "to": "docs",
+      "label": "publish",
+      "labelDy": -20
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Clients",
+      "items": [
+        "React webapps (goalchain_webapp, goalworld_webapp)",
+        "Wallet players via Solana adapters"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Core",
+      "items": [
+        "Express API + TypeScript SDK",
+        "Anchor program on Solana"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Agents & data",
+      "items": [
+        "Hermes CEO skills/ops (Discord/Telegram gateways not restarted)",
+        "Oracle + polymarket_bot feeds"
+      ]
+    }
+  ]
+}

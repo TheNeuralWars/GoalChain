@@ -1,0 +1,7 @@
+{
+ "scene": "FC-S09",
+ "character_lock": {
+  "primary": "Sierra Catalano",
+  "note": "staging-only face anchor for ContinuityGuard pass3, mirrors run continuity_S09_r4_20261004"
+ }
+}

@@ -13,10 +13,10 @@
 | Age | Mid-30s field commander presence (visual ~33–38) |
 | Ethnicity | European-descent features; resistance commander presence |
 | Face geometry invariants | Strong angular jaw; high cheekbones; composed brow; cool closed-mouth default; no soft teen features; same face every shot |
-| Hair | Dark; practical commander cut **~8–12 cm** (above collar, neat, not long); never flowing long hair |
+| Hair | Dark; practical commander cut **~8–12 cm** (above collar, neat, not long); **film continuity (Director decision 2026-10-05): TIED / PULLED BACK** as in FC-S08 (low tied-back / ponytail-back, not cropped-loose, never flowing long hair). Matches approved S08 stills (e.g. FC-S08-07). |
 | Build | Athletic tactical; upright command posture |
 
-**Prompt constraint (EN):** `European-descent woman resistance commander, same face lock as LOCK_SHEET_SIERRA_CATALANO, hazel eyes, pale scar LEFT cheek temple to jaw, dark practical short commander hair`
+**Prompt constraint (EN):** `European-descent woman resistance commander, same face lock as LOCK_SHEET_SIERRA_CATALANO, hazel eyes, pale scar LEFT cheek temple to jaw, dark practical short commander hair tied / pulled back tight (as FC-S08 continuity; never flowing long)`
 
 ---
 
@@ -97,3 +97,10 @@ QC: **Sierra weak**. Outfit and scar side drift are the main failures. Freeze le
 - Minor drift: a second faint scar appears on the right cheek, and a BLANK rectangular shoulder patch persists. Add `no second scar, no shoulder patch, sleeves completely plain` to future Sierra regens.
 
 **Pipeline note:** the xAI image-edit endpoint rejects a single reference image (HTTP 422) — always pass 2 refs (duplicate the same anchor if only one is valid). A 403 means the daily quota is spent.
+
+
+## Prompt negatives (PROMPT_NEGATIVES_FROM_QC_20260924)
+Before any still/i2v regen: `no logos, no insignia, no shoulder patch, no chest logo, blank plates, sleeves completely plain, pale scar LEFT cheek temple to jaw, never right cheek, no lookalike second woman`.
+
+## 9. Director hair continuity (2026-10-05)
+Nico decided **2026-10-05**: Sierra's hair is **tied / pulled back as in S08** for film continuity (closes Hermes R7/R8 note that pulled-back in S09 drifted from the cropped lock-ref look). Lock refs (`locks/refs/sierra_catalano/front.png` etc.) still show the short cropped look; prefer **approved FC-S08 stills** (e.g. `renders/FC-S08/FC-S08-07.png`) as the hair/wardrobe face anchor for S09+. No regen of lock refs in this decision. No regen of S09 shots for hair alone.

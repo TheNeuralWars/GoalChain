@@ -1,0 +1,52 @@
+{
+ "queue": "FC_S10PLUS_QUEUE_B2_20261006",
+ "out_dir": "renders/FC-S10plus_20261006",
+ "status": "Pass 2 attempt 1 (_b1) for Hermes R12 'hold for cleanup' shots.",
+ "shots": [
+  {
+   "id": "FC-S11-02",
+   "out_suffix": "_b1",
+   "attempt": "pass2",
+   "book_ref": "EDICION FC-05 L45 (las paredes se volvieron transparentes; las raíces de Yggdrasil; la mancha negra del Arquitecto: un parásito digital gigantesco)",
+   "pilot_refs": [
+    "locks/refs/kora_vega/front.png",
+    "renders/FC-S06/FC-S06-06.png"
+   ],
+   "duration_s": 6,
+   "image_prompt": "Visionary wide shot: KORA stands small in the foreground, seen from behind and slightly to the side, while the concrete walls and floor of the lab turn transparent and luminous: beneath the foundations of the city vast glowing indigo-and-gold roots of a cosmic tree snake through the dark earth up into an immense glowing trunk; wrapped around the heart of the trunk is a black digital parasite - an abstract mass of black geometric data-tendrils, crystalline black lattice and cold dead code, like a tar-black circuit growth - draining the light, the roots turning grey and dead where it touches. The parasite is abstract and geometric: NO hair, NO head, NO face, NO creature, NO eyes, NO animal. Characters: KORA: Latina mestiza woman about 24, dark shoulder-length slightly unkempt hair, brown eyes with indigo flecks, fibrous scar ridge behind her RIGHT ear, worn copper-bronze tactical vest with blank plates (#B87333 / #FF8C00) over a dark underlayer, subtle implant ridge under her LEFT collarbone. Setting: clandestine underground lab-infirmary under a brick vault in the Bajos Fondos: steel instrument tables, racks of glass test tubes, a scanning microscope, surgical practicals with a blue scan rim (#0080FF), smell-of-ozone haze, low clinical light. cinematic photoreal film still, anamorphic 2.39 widescreen feel composed for a 2.39 center crop (keep faces and hands inside the central horizontal band), chiaroscuro lighting, volumetric atmosphere, PG-13, single camera, one unified frame, horizontal 16:9. Coil light is deep indigo #4B0082 / #3F00FF only, never cyan, never white-hot. no logos, no insignia, no shoulder patch, no chest logo, blank plates, sleeves completely plain, no readable text, no lettering-like shapes, no pseudo-text, no numerals, no HUD text, no signage, abstract glyph-free circuitry only, no fused fingers, no extra limbs, no tattoos, no faction labels, no multi-image collage, no split screen, no title cards. NO readable text, NO logos, NO signage, NO carteles, NO faction name labels, NO multi-panel, NO upper frame, NO Mark, NO title cards. Use the reference images ONLY for faces, hair and wardrobe; take staging, environment and lighting from this text.",
+   "video_prompt": "The lab walls dissolve into transparency as the camera slowly rises behind Kora; the glowing roots pulse while the black geometric parasite lattice tightens around the trunk and spreads, greying the roots it touches. Animate the approved still only; one continuous camera; keep every face identical to the still; no new characters; Coil light is deep indigo #4B0082 / #3F00FF only, never cyan, never white-hot. NO readable text, NO logos, NO signage, NO carteles, NO faction name labels, NO multi-panel, NO upper frame, NO Mark, NO title cards, no morphing faces.",
+   "note": "",
+   "gates": [],
+   "why": "Hermes R12: a1 parasite reads as a hairy head/creature"
+  },
+  {
+   "id": "FC-S17-03",
+   "out_suffix": "_b1",
+   "attempt": "pass2",
+   "book_ref": "EDICION FC-15 L13 (una onda de choque de luz índigo estalló desde la aguja de la torre central y se expandió en una esfera perfecta)",
+   "pilot_refs": [],
+   "duration_s": 6,
+   "image_prompt": "Extreme wide shot of the whole metropolis at dusk from far away: from the needle spire of the central tower a translucent indigo shockwave has burst outward and stands as a PERFECT FULL SPHERE of light - a giant glowing bubble centred on the needle tip, its curved shell rising high above the tallest towers and descending into the city on all sides, its edge rippling with indigo and violet light; city lights below catching the glow. Setting: Neo-Citania at night seen from high above: a skyline of white alloy and graphene spires (#F8F8FF / #C0C0C0), steel-blue glass (#4682B4), low haze, a central administrative tower with a tall needle spire. cinematic photoreal film still, anamorphic 2.39 widescreen feel composed for a 2.39 center crop (keep faces and hands inside the central horizontal band), chiaroscuro lighting, volumetric atmosphere, PG-13, single camera, one unified frame, horizontal 16:9. Coil light is deep indigo #4B0082 / #3F00FF only, never cyan, never white-hot. no logos, no insignia, no shoulder patch, no chest logo, blank plates, sleeves completely plain, no readable text, no lettering-like shapes, no pseudo-text, no numerals, no HUD text, no signage, abstract glyph-free circuitry only, no fused fingers, no extra limbs, no tattoos, no faction labels, no multi-image collage, no split screen, no title cards. NO readable text, NO logos, NO signage, NO carteles, NO faction name labels, NO multi-panel, NO upper frame, NO Mark, NO title cards.",
+   "video_prompt": "The perfect indigo sphere expands smoothly from the needle tip, its curved glowing shell growing outward over the entire skyline and passing through the towers; slow wide drift. Animate the approved still only; one continuous camera; keep every face identical to the still; no new characters; Coil light is deep indigo #4B0082 / #3F00FF only, never cyan, never white-hot. NO readable text, NO logos, NO signage, NO carteles, NO faction name labels, NO multi-panel, NO upper frame, NO Mark, NO title cards, no morphing faces.",
+   "note": "",
+   "gates": [],
+   "why": "Hermes R12: a1 reads as a flat disc, not 'esfera perfecta' (Cap.15 L13)"
+  },
+  {
+   "id": "FC-S17-08",
+   "out_suffix": "_b1",
+   "attempt": "pass2",
+   "book_ref": "EDICION FC-15 L37 (Sierra alzó la vista hacia el cielo estrellado que se abría sobre la cúpula fracturada de la ciudad)",
+   "pilot_refs": [
+    "renders/FC-S08/FC-S08-07.png",
+    "renders/FC-S09_pilot_20261003/FC-S09-08b_r4retry.png"
+   ],
+   "duration_s": 6,
+   "image_prompt": "Medium close shot from a low three-quarter angle: SIERRA, serene, lifts her eyes toward a starry night sky that opens through a great fractured dome overhead - broken ribs of the dome framing the stars; soft emerald and indigo light from below on her face. Her face exactly as in the reference images (same woman: European-descent, mid-30s, hazel eyes, pale scar on her LEFT cheek, dark hair pulled back tight and tied). Characters: SIERRA: European-descent woman commander in her mid-30s, dark hair pulled back TIGHT and tied at the nape (no loose hair, not short-cropped), hazel eyes, pale scar on her LEFT cheek from temple to jaw (never right cheek), weathered dark leather jacket with copper seam accents (#B87333) only at seams, black combat pants. Setting: decommissioned metro redoubt command chamber under brick vaults, gas-amber practicals and copper glints (#B87333 / #FFBF00), a dented steel tactical table glowing abstract blue (#0080FF) with no labels, low warm dust. Holograms show only abstract shapes, no digits, no labels. Through the broken dome: a real starry sky. cinematic photoreal film still, anamorphic 2.39 widescreen feel composed for a 2.39 center crop (keep faces and hands inside the central horizontal band), chiaroscuro lighting, volumetric atmosphere, PG-13, single camera, one unified frame, horizontal 16:9. Coil light is deep indigo #4B0082 / #3F00FF only, never cyan, never white-hot. no logos, no insignia, no shoulder patch, no chest logo, blank plates, sleeves completely plain, no readable text, no lettering-like shapes, no pseudo-text, no numerals, no HUD text, no signage, abstract glyph-free circuitry only, no fused fingers, no extra limbs, no tattoos, no faction labels, no multi-image collage, no split screen, no title cards. NO readable text, NO logos, NO signage, NO carteles, NO faction name labels, NO multi-panel, NO upper frame, NO Mark, NO title cards. Use the reference images ONLY for faces, hair and wardrobe; take staging, environment and lighting from this text.",
+   "video_prompt": "Sierra slowly lifts her gaze to the stars visible through the fractured dome; a calm breath; the camera tilts up past her toward the stars. Animate the approved still only; one continuous camera; keep every face identical to the still; no new characters; Coil light is deep indigo #4B0082 / #3F00FF only, never cyan, never white-hot. NO readable text, NO logos, NO signage, NO carteles, NO faction name labels, NO multi-panel, NO upper frame, NO Mark, NO title cards, no morphing faces.",
+   "note": "",
+   "gates": [],
+   "why": "Hermes R12: a1 Sierra identity drift vs S08"
+  }
+ ]
+}

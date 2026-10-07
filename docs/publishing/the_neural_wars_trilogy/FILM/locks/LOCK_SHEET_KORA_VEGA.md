@@ -98,3 +98,7 @@ QC: **Kora weak**. Highest leverage = lock-sheet stills (3/4, profile, full-body
 - ROOT CAUSE: the FC-S03 stills (used as refs) encode a left-cheek scar, and the model copies it — text instructions cannot override a contaminated reference. Never use FC-S03 character stills as Kora refs again; use locks/refs/kora_vega/front.png as the anchor and state the orientation explicitly (`nose toward the LEFT edge of frame, near ear is the RIGHT ear`).
 
 **Pipeline note:** the xAI image-edit endpoint rejects a single reference image (HTTP 422) — always pass 2 refs (duplicate the same anchor if only one is valid). A 403 means the daily quota is spent.
+
+
+## Prompt negatives (PROMPT_NEGATIVES_FROM_QC_20260924)
+Before any still/i2v regen: `copper vest on female Kora only never on male, blank plates, no logos, no readable text, RIGHT ear scar when visible, LEFT clavicle ridge, no UI text`.

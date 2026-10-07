@@ -1,0 +1,106 @@
+{
+ "queue": "FC_PROPOSALS_QUEUE_A3_20261006",
+ "out_dir": "proposals/20261006",
+ "status": "PROPOSAL ONLY (not approved). Completes the proposal set for the remaining gated characters/locations.",
+ "shots": [
+  {
+   "id": "PROPOSAL_naomi_lang",
+   "out_suffix": "_front_a1",
+   "pilot_refs": [],
+   "aspect": "1:1",
+   "image_prompt": "Front-facing head-and-shoulders portrait of DR. NAOMI LANG, a foreign Alliance scientist: woman in her early 40s, composed and dignified, short practical dark hair, plain grey uniform with a high collar and no insignia, steady intelligent eyes, quiet indomitable dignity. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "EDICION FC-13 L37-L41 (científica extranjera, dignidad indomable; uniforme gris — plan brief)",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_eli_roth",
+   "out_suffix": "_front_a1",
+   "pilot_refs": [],
+   "aspect": "1:1",
+   "image_prompt": "Front-facing head-and-shoulders portrait of ELI ROTH, an ordinary Alliance father in his early 40s: tired kind face, short brown hair, plain knit sweater, holding a mug with both hands, fear in his eyes. Morning grey kitchen light. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "EDICION FC-10 L35-L56 (padre en la Alianza, aferrado a su taza con miedo)",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_mira_roth",
+   "out_suffix": "_front_a1",
+   "pilot_refs": [],
+   "aspect": "1:1",
+   "image_prompt": "Front-facing head-and-shoulders portrait of MIRA ROTH, his daughter, a girl of about eight: wide wondering eyes, tousled hair, simple pajamas, a faint indigo glow reflected in her eyes from a distant horizon, listening to a song only she can hear. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "EDICION FC-10 L37-L47 (la niña escucha la canción de la ciudad)",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_admin_tower_observation",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: observation platform atop the old administration tower at night: titanium railing, the city below a fractal mosaic of gold and indigo lights (#FFD700 / #4B0082), a warm static-charged breeze stirring dust. cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-10 L3-L13",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_alliance_residence",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: a modest kitchen in a neighbouring Alliance city, early morning grey light, a simple table with two mugs, a window framing a distant indigo glow on the horizon (#4B0082). cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-10 L35-L47",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_east_apartment_dark",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: a small dim apartment in the eastern district, blinds drawn, an unmade bed, cold grey light (#708090 / #301934), sweat-damp sheets, oppressive silence. cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-08 L43-L47",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_great_council_hall",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: great council hall of the new city: living concrete walls with micro-fissures that crack and heal, a long table, lighting shifting between warm amber and indigo (#FFBF00 / #4B0082), bluish haze. cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-13 L3-L27",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_renaissance_chamber",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: deployment chamber at the top of the central tower: a domed ceiling, a ring of ten harmonic generators around a central dais, space seeming to fold into spirals of indigo and gold light (#4B0082 / #FFD700). cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-15 L3-L11",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_central_market",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: the Central Market street at midday: fruit stalls, wicker baskets, citizens as anonymous figures, warm sunlight cutting through steel-grey architecture (#708090), dark surveillance monoliths standing between the stalls. cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-15 L19-L21",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_alliance_border_west",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: the western border at dawn: an electrified fence line across mud, watchtowers, sentinels in plain dark armour with blank visors as distant anonymous figures, cold dawn light. cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-15 L23-L27",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_cosmic_substrate",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: deep space quantum substrate: vast crystalline matrices fed by the light of dying stars, immense half-resolved silent observer forms like towering translucent shapes, a tiny blue planet far away. cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-00 Prólogo §El Tapiz Eterno; FC-16 L1-L17",
+   "video_prompt": ""
+  }
+ ]
+}

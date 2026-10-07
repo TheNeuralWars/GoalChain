@@ -1,0 +1,20 @@
+{
+ "queue": "FC_S09_REGEN_QUEUE_R4_RETRY_08b_20261004",
+ "status": "single allowed retry for 08b (r4 still: Sierra aimed muzzle at Mileo; Mileo fringe + purple shirt)",
+ "shots": [
+  {
+   "id": "FC-S09-08b",
+   "parent": "FC-S09-08",
+   "out_suffix": "_r4retry",
+   "book_ref": "EDICION_2026/FC-04-Chapter_2026.md L89–L91",
+   "pilot_refs": [
+    "renders/FC-S09_pilot_20261003/FC-S09-06_r2.png",
+    "locks/refs/sierra_catalano/front.png"
+   ],
+   "gates": [],
+   "duration_s": 6,
+   "image_prompt": "High-angle three-quarter REAR view. MILEO kneels in the foreground facing AWAY from the camera: we see the back of his head (black regulation-cut short hair, NO fringe, NO bowl cut), his grey-steel sanitation jumpsuit, and a dark physical connector cable plugged into the bandaged scar at his nape. SIERRA stands behind him on the right, hair pulled back tight, pale scar on her LEFT cheek, grey-steel sanitation jumpsuit: her right arm is raised high, her fist wrapped around the grip of an unmarked compact pistol held VERTICALLY with the muzzle pointing STRAIGHT UP at the ceiling, about to drive the bottom of the grip (the butt) down onto the cable at his nape like a hammer. The muzzle never points at anyone. No other weapons in frame. Lighting: electric-blue towers, a single dim red alarm beacon high on the ceiling. Characters: Sierra: European-descent woman commander in her mid-30s, dark practical commander hair pulled back tight, hazel eyes, pale scar on her LEFT cheek from temple to jaw (never right cheek), grey-steel sanitation jumpsuit (#708090) with copper seam accents (#B87333), NO leather jacket visible, black combat pants (#000000), same face as the reference image; Mileo: East Asian man about 32, black regulation-cut short hair, vivid green eyes, same face as the reference image, grey-steel sanitation jumpsuit (#708090), deep indigo bioluminescent circuit lines under the skin of his LEFT wrist and LEFT forearm only, unmarked right arm, bandaged extraction scar at the nape, forehead fully exposed, NO fringe, NO bangs, NO bowl cut. Setting: subterranean server cathedral: six-meter quantum processing towers in endless aisles bathed in electric blue 482 nm light (#0080FF / #4682B4), metal grating floor vibrating, liquid-helium cold mist low on the floor, steel and void (#708090 / #000000 / #301934). cinematic photoreal film still, anamorphic 2.39 widescreen feel composed for a 2.39 center crop (keep faces and hands inside the central horizontal band), chiaroscuro lighting, volumetric atmosphere, PG-13, single camera, one unified frame, horizontal 16:9. Coil light is deep indigo #4B0082 / #3F00FF only, never cyan, never white-hot. no logos, no insignia, no shoulder patch, no chest logo, blank plates, sleeves completely plain, no readable text, no lettering-like shapes, no pseudo-text, no numerals, no HUD text, no signage, abstract glyph-free circuitry only, no fused fingers, no tattoos, no faction labels, no multi-image collage, no title cards. No muzzle flash, no beams, no laser lines, no sparks from the pistol, no glowing gloves. NO readable text, NO logos, NO signage, NO carteles, NO faction name labels, NO multi-panel, NO upper frame, NO Mark, NO title cards. Use the reference images only for faces, hair and wardrobe; take the environment and lighting from this text, not from the references.",
+   "video_prompt": "Sierra drives the butt of the pistol grip straight down onto the cable at the back of Mileo's neck in one hammer stroke, muzzle pointing up the whole time; the cable snaps loose from his nape; Mileo pitches forward; a beat later the room fades to an even scarlet alarm wash from rotating ceiling beacons. Ambient light only: no beams, no laser lines, no muzzle flash, no shot fired, the pistol never points at anyone. Animate the approved still only; one continuous camera move; Coil light is deep indigo #4B0082 / #3F00FF only on Mileo's LEFT forearm, never cyan, never white-hot; no new characters; NO readable text, NO logos, NO signage, NO carteles, NO faction name labels, NO multi-panel, NO upper frame, NO Mark, NO title cards."
+  }
+ ]
+}

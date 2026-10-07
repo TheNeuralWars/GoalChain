@@ -1,0 +1,35 @@
+{
+ "FC-S10": [
+  {"clip": "renders/FC-S10plus_20261006/FC-S10-01_a2.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S10-02_a1.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S10-03_a1.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S10-04_a2.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S10-05_b1.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S10-06_a1.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S10-07_b1.mp4"}
+ ],
+ "FC-S11": [
+  {"clip": "renders/FC-S10plus_20261006/FC-S11-01_a1.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S11-02_a1.mp4"},
+  {"slug": "FC-S11-03  harvest pods - pending location approval (admin_district_pod_hall)", "dur": 1.5},
+  {"clip": "renders/FC-S10plus_20261006/FC-S11-04_a1.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S11-05_b1.mp4"},
+  {"slug": "FC-S11-06 / 07  Riv night market raid - pending location approval (sector_7_night_market)", "dur": 2.0},
+  {"clip": "renders/FC-S10plus_20261006/FC-S11-08_b1.mp4"}
+ ],
+ "FC-S12": [
+  {"clip": "renders/FC-S10plus_20261006/FC-S12-01_a1.mp4"},
+  {"slug": "FC-S12-02  Jansen slams the table - pending character lock (jansen)", "dur": 1.5},
+  {"clip": "renders/FC-S10plus_20261006/FC-S12-03_a2.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S12-04_a1.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S12-05_a1.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S12-06_a1.mp4"},
+  {"still": "renders/FC-S10plus_20261006/FC-S12-07_b1.png", "dur": 5, "label": "FC-S12-07_b1 STILL HOLD - i2v lost at quota stop"}
+ ],
+ "FC-S13-S17_inserts": [
+  {"clip": "renders/FC-S10plus_20261006/FC-S13-08_a1.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S17-03_a1.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S17-07_a1.mp4"},
+  {"clip": "renders/FC-S10plus_20261006/FC-S17-08_a1.mp4"}
+ ]
+}

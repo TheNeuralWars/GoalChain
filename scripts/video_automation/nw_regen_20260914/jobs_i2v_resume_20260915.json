@@ -1,0 +1,227 @@
+[
+  {
+    "id": "FC-S04-06",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-06.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-06.png",
+    "prompt": "Subtle stare-down breathe; Mileo fingers tremble then still; holo shimmer; Kora shifts weight; horizontal 16:9 motion from still.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S04-07",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-07.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-07.png",
+    "prompt": "Scanner sweeps; fractured blue web blooms across table; Sierra eyes harden in recognition; Mileo breath steadies; horizontal 16:9 motion from still.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S04-08",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-08.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S04/FC-S04-08.png",
+    "prompt": "Sierra nods them out; Kora steers Mileo; Coil flares brighter under wrist skin; camera rises then snaps to Coil pulse; horizontal 16:9 motion from still.",
+    "duration": 6,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S06-02",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-02.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-02.png",
+    "prompt": "Riv leans into mic; compass pendant swings; red strobe pulses; horizontal 16:9 motion from still.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S06-03",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-03.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-03.png",
+    "prompt": "Silhouettes advance in lockstep; thermal muzzles pulse orange; dust kicks; horizontal 16:9 motion from still.",
+    "duration": 6,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S06-04",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-04.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-04.png",
+    "prompt": "Bolt racks with metallic click energy; red strobe crosses scar; eyes unblinking; horizontal 16:9 motion from still.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S06-05",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-05.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-05.png",
+    "prompt": "Thermite sparks flare; cores handed off; Okafor hustles wounded; Sierra points deep hatch; horizontal 16:9 motion from still.",
+    "duration": 6,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S06-06",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-06.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-06.png",
+    "prompt": "Kora rises; violet residue catches light; eyes lock with Sierra; strobe pulse; horizontal 16:9 motion from still.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S06-07",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-07.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-07.png",
+    "prompt": "Eyes open to green lucidity; Coil pulses once indigo; breath steadies; horizontal 16:9 motion from still.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S06-08",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-08.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S06/FC-S06-08.png",
+    "prompt": "Sierra braces on parapet; eastern glow brightens; Kora hauls Mileo to hatch; hold on Sierra silhouette; horizontal 16:9 motion from still.",
+    "duration": 6,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S07-01",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-01.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-01.png",
+    "prompt": "Slow push into shaft mouth; sodium lamp flicker; dust motes drift; horizontal 16:9 motion from still.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S07-02",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-02.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-02.png",
+    "prompt": "Thumb slowly traces scar lines; indigo Coil pulse brightens then dims; micro camera track along forearm; horizontal 16:9.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S07-03",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-03.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-03.png",
+    "prompt": "Slight Dutch tilt for vertigo; Mileo blinks slow; Coil pulse at wrist; dust drifts; horizontal 16:9.",
+    "duration": 6,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S07-04",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-04.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-04.png",
+    "prompt": "Slow pan across rifle racks and scorched boards; lamp flicker; tense stillness; horizontal 16:9.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S07-05",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-05.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-05.png",
+    "prompt": "Shadow crosses hatch; rack-focus from silhouette to Kora face; slight lean; horizontal 16:9.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S07-06",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-06.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-06.png",
+    "prompt": "Mileo stands; brief balance slip on damp concrete; Kora watches arms still crossed; Coil pulse; horizontal 16:9.",
+    "duration": 6,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S07-07",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-07.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-07.png",
+    "prompt": "Temple violet shimmer pulses in sync with Coil glow; micro push on eyes then forearm; horizontal 16:9.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S07-08",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-08.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S07/FC-S07-08.png",
+    "prompt": "Track reverse as they exit shaft; Kora ahead; Mileo steadies gait; lamps pass; hold toward corridor dark; horizontal 16:9.",
+    "duration": 6,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S08-01",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-01.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-01.png",
+    "prompt": "Slow crane down across glass facades and fountain mist; mauve light shift; horizontal 16:9 motion from still.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S08-02",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-02.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-02.png",
+    "prompt": "Track ahead of Sierra precise 1.3-pace gait; slight lateral sway of jumpsuit; horizontal 16:9.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S08-03",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-03.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-03.png",
+    "prompt": "Side track as cart wheels roll; Mileo and Riv push in sync; faint cart rattle; horizontal 16:9.",
+    "duration": 6,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S08-04",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-04.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-04.png",
+    "prompt": "Push from rear of hooded Kora toward partial profile; hood edge flutters; horizontal 16:9.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S08-05",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-05.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-05.png",
+    "prompt": "Drones drift in diamond; whip-pan to Kora eyes under hood; violet temple flicker; horizontal 16:9.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S08-06",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-06.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-06.png",
+    "prompt": "Optical pods lock freeze; thruster whine implied; cut to Sierra hand signal cue; 3-beat hold; horizontal 16:9.",
+    "duration": 5,
+    "model": "grok-imagine-video-1.5"
+  },
+  {
+    "id": "FC-S08-07",
+    "kind": "video",
+    "dest": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-07.mp4",
+    "src": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-S08/FC-S08-07.png",
+    "prompt": "Palm presses; faint cuff glow; hatch seam micro-hiss start; pull to Sierra profile; horizontal 16:9.",
+    "duration": 6,
+    "model": "grok-imagine-video-1.5"
+  }
+]
