@@ -84,7 +84,7 @@
         "East Asian male ~32",
         "black regulation hair 3.2 cm",
         "Coil NEVER on right wrist",
-        "blank hexagonal badge geometry only \u2014 no readable text",
+        "blank hexagonal badge geometry only — no readable text",
         "same face lock LOCK_SHEET_MILEO_CHEN"
       ],
       "reference_images": [
@@ -143,7 +143,7 @@
       ],
       "invariants": [
         "European-descent commander ~33-38",
-        "dark practical commander hair 8-12 cm",
+        "dark practical commander hair 8-12 cm, tied/pulled back as FC-S08 (Director 2026-10-05)",
         "black combat pants + weathered leather jacket",
         "scar NEVER on right cheek",
         "same face lock LOCK_SHEET_SIERRA_CATALANO"
@@ -153,7 +153,9 @@
         "locks/refs/sierra_catalano/profile.png",
         "locks/refs/sierra_catalano/fullbody.png"
       ],
-      "refs_status": "ready"
+      "refs_status": "ready",
+      "hair": "dark practical short commander hair tied/pulled back (as FC-S08; Director decision 2026-10-05)",
+      "hair_continuity_note": "Director 2026-10-05: tied/pulled back as S08; prefer FC-S08-07 as hair anchor over cropped lock refs for film continuity. No lock-ref regen."
     },
     "okafor": {
       "id": "okafor",
@@ -387,6 +389,29 @@
         "Residential Server Node 17 hatch",
         "sanitation lock"
       ]
+    },
+    "node_17_server_cathedral": {
+      "id": "node_17_server_cathedral",
+      "lock": "locks/locations/NODE_17_SERVER_CATHEDRAL.md",
+      "status": "ready",
+      "palette_hex": [
+        "#0080FF",
+        "#4682B4",
+        "#708090",
+        "#C0C0C0",
+        "#000000",
+        "#301934",
+        "#4B0082",
+        "#3F00FF",
+        "#B22222"
+      ],
+      "fog": "medium cold liquid-helium floor mist + blue volumetric shafts",
+      "aliases": [
+        "Residential Server Node 17 interior",
+        "server cathedral",
+        "central vault / core capsule"
+      ],
+      "approved": "Nico 2026-10-04 (plans/PROPOSED_LOCATION_NODE_17_SERVER_CATHEDRAL_20261003.md)"
     }
   },
   "assembly_order_hint": [
@@ -429,7 +454,7 @@
     },
     "serpent_coil_left_wrist": {
       "id": "serpent_coil_left_wrist",
-      "where": "LEFT wrist (optional LEFT forearm) \u2014 post-cut only",
+      "where": "LEFT wrist (optional LEFT forearm) — post-cut only",
       "look": "deep indigo bioluminescent dermal circuit lines under skin",
       "hex": [
         "#4B0082",
@@ -501,7 +526,7 @@
     },
     "cloned_chip_palm": {
       "id": "cloned_chip_palm",
-      "where": "story prop \u2014 palm-held cloned chip",
+      "where": "story prop — palm-held cloned chip",
       "look": "small blank chip / wafer in palm; abstract electronics",
       "hex": [
         "#C0C0C0",
@@ -540,7 +565,7 @@
         "medium": "alley rust vapor / shaft dust",
         "high": "tunnel mildew / labyrinth steam"
       },
-      "cascade_indigo_vs_steel_gray": "Cascade indigo (#4B0082/#3F00FF/#0080FF) only as Coil/biolume accents on characters or abstract energy \u2014 never as architecture paint labels; steel gray Neo-Citania (#708090/#C0C0C0/#F8F8FF) owns civic surfaces"
+      "cascade_indigo_vs_steel_gray": "Cascade indigo (#4B0082/#3F00FF/#0080FF) only as Coil/biolume accents on characters or abstract energy — never as architecture paint labels; steel gray Neo-Citania (#708090/#C0C0C0/#F8F8FF) owns civic surfaces"
     },
     "lighting_ids": {
       "lut_underbelly_night": {
@@ -620,7 +645,7 @@
     "required_fields_notes": {
       "character_id": "use character_ids[] for multi-character shots; values must be keys under WORLD_TOKENS.characters",
       "location_id": "must be key under WORLD_TOKENS.locations",
-      "lock_sheet_id": "primary face lock; multi \u2192 lock_sheet_ids[]",
+      "lock_sheet_id": "primary face lock; multi → lock_sheet_ids[]",
       "reference_images": "optional but mandatory once locks/refs stills exist"
     },
     "forbidden": [

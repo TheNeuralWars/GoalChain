@@ -14,6 +14,7 @@ Deterministic environment briefs for prompt injection. **ids must match `../WORL
 | `fracturados_redoubt` | [FRACTURADOS_REDOUBT.md](./FRACTURADOS_REDOUBT.md) | Metro redoubt + copper mesh |
 | `residential_mauve_district` | [RESIDENTIAL_MAUVE_DISTRICT.md](./RESIDENTIAL_MAUVE_DISTRICT.md) | FC-S08 sidewalk ops |
 | `node_17_sanitation_lock` | [NODE_17_SANITATION_LOCK.md](./NODE_17_SANITATION_LOCK.md) | Hatch threshold |
+| `node_17_server_cathedral` | [NODE_17_SERVER_CATHEDRAL.md](./NODE_17_SERVER_CATHEDRAL.md) | Node 17 interior: tower aisles + core vault (approved 2026-10-04) |
 
 ## Usage
 

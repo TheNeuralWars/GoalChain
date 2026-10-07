@@ -1,0 +1,172 @@
+{
+ "queue": "FC_PROPOSALS_QUEUE_A1_20261006",
+ "out_dir": "proposals/20261006",
+ "status": "PROPOSAL ONLY (not approved by Nico). Not in locks/ or WORLD_TOKENS.json. For director review.",
+ "shots": [
+  {
+   "id": "PROPOSAL_martin_catalano",
+   "out_suffix": "_front_a1",
+   "pilot_refs": [
+    "renders/FC-S08/FC-S08-07.png",
+    "renders/FC-S08/FC-S08-07.png"
+   ],
+   "aspect": "1:1",
+   "image_prompt": "Front-facing head-and-shoulders portrait of MARTIN CATALANO, Sierra Catalano's brother: European-descent man in his early 30s with a clear family resemblance to his sister (same strong cheekbones and jaw, same straight dark brows), dark brown hair cut short and slightly unkempt, DARK brown irises, a crooked mischievous half-smile as a defining trait, lean build thinned by long illness, faint healed surgical scar of an old neural Link implant at the base of the skull, plain soft grey-lavender patient tunic with a simple round collar, calm tired expression, looking straight into the lens. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers. Use the reference image ONLY to give him a sibling resemblance to the woman (bone structure), NOT her hair, scar or clothes; he is a man with short hair and no facial scar.",
+   "book_basis": "EDICION FC-09 L11 (hermano de Sierra), FC-12 L39 (iris oscuros), FC-14 L9 (cicatriz del antiguo Link en la base del cráneo), L31 (túnica), L45 (sonrisa torcida/pícara), FC-10 L29 (infancia, el viejo roble)",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_martin_catalano",
+   "out_suffix": "_profile_a1",
+   "pilot_refs": [],
+   "aspect": "1:1",
+   "image_prompt": "Left-facing strict profile head-and-shoulders portrait of MARTIN CATALANO, Sierra Catalano's brother: European-descent man in his early 30s with a clear family resemblance to his sister (same strong cheekbones and jaw, same straight dark brows), dark brown hair cut short and slightly unkempt, DARK brown irises, a crooked mischievous half-smile as a defining trait, lean build thinned by long illness, faint healed surgical scar of an old neural Link implant at the base of the skull, plain soft grey-lavender patient tunic with a simple round collar, the faint healed Link scar at the base of the skull visible at the nape. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "same",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_martin_catalano",
+   "out_suffix": "_fullbody_a1",
+   "pilot_refs": [],
+   "aspect": "9:16",
+   "image_prompt": "Full-body standing portrait of MARTIN CATALANO, Sierra Catalano's brother: European-descent man in his early 30s with a clear family resemblance to his sister (same strong cheekbones and jaw, same straight dark brows), dark brown hair cut short and slightly unkempt, DARK brown irises, a crooked mischievous half-smile as a defining trait, lean build thinned by long illness, faint healed surgical scar of an old neural Link implant at the base of the skull, plain soft grey-lavender patient tunic with a simple round collar, grey-lavender patient tunic and loose matching trousers, barefoot soft slippers, standing relaxed with hands at his sides. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "same",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_martin_catalano",
+   "out_suffix": "_postcascade_eyes_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Extreme close-up of the eyes and upper face of MARTIN CATALANO, Sierra Catalano's brother: European-descent man in his early 30s with a clear family resemblance to his sister (same strong cheekbones and jaw, same straight dark brows), dark brown hair cut short and slightly unkempt, DARK brown irises, a crooked mischievous half-smile as a defining trait, lean build thinned by long illness, faint healed surgical scar of an old neural Link implant at the base of the skull, plain soft grey-lavender patient tunic with a simple round collar after the Cascade: a permanent thin ring of violet-indigo light (#4B0082 / #8A2BE2) glows around his DARK brown irises, pupils dilated with infinite wonder, a faint crooked smile at the corner of the mouth; serene. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "EDICION FC-12 L39 (anillo permanente de luz índigo alrededor de sus iris oscuros) + FC-14 L37 (aro de luz violeta) -> film: violet-indigo ring (plan §4)",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_jansen",
+   "out_suffix": "_front_a1",
+   "pilot_refs": [],
+   "aspect": "1:1",
+   "image_prompt": "Front-facing head-and-shoulders portrait of JANSEN, a hard old resistance combatant in his late 50s: weathered battle-worn face, grizzled grey stubble, cropped grey hair, deep-set suspicious eyes, a thick scar above his RIGHT ear running into the temple, scars on the temple, worn dark combat jacket; his RIGHT hand is a plain dark-metal prosthetic visible at the bottom of frame with blank metal knuckles. Stern distrustful expression. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "EDICION FC-07 L7 (cicatriz sobre su oreja derecha, carmesí por la rabia), FC-11 L19 (cicatrices de la sien), FC-13 L11 (nudillo de su prótesis metálica), L41 (viejo combatiente)",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_elena_vasquez",
+   "out_suffix": "_lightbeing_a1",
+   "pilot_refs": [],
+   "aspect": "9:16",
+   "image_prompt": "Full-figure portrait of DR. ELENA VASQUEZ as a being of refracted light: a woman in her late 40s whose form is made of translucent refracted deep-indigo quantum light, gentle wise face only softly readable, the air around her refracting in an indigo halo, not quite touching the ground, a glittering trail of white frost on dark cobblestones below her feet; warm and serene, never menacing, NOT a hologram of a machine, NOT a mask, no wires, no cold white. photoreal cinematic character reference portrait, dark night street background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "EDICION FC-08 L33-L35 (no caminaba del todo sobre el suelo; halo de luz cuántica índigo; estela de escarcha sobre los adoquines); FC-05 L9 (pionera de la interfaz cuántica)",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_elara_reyes",
+   "out_suffix": "_front_a1",
+   "pilot_refs": [],
+   "aspect": "1:1",
+   "image_prompt": "Front-facing head-and-shoulders portrait of DR. ELARA REYES, a born sensitive and integration lead: Latina woman in her early 40s, warm intelligent eyes, dark hair in a practical low bun with loose strands, soft violet glow pulsing gently in the veins of her neck and wrists, simple earth-toned lab coat over a dark sweater with a little greenhouse soil on the cuffs. Calm, caring, focused. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "EDICION FC-09 L17 (sensitiva nata; venas de muñecas y cuello con fulgor violeta; aroma a tierra húmeda de los invernaderos), FC-12 L11 (fulgor violeta en sus sienes)",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_amara_lin",
+   "out_suffix": "_front_a1",
+   "pilot_refs": [],
+   "aspect": "1:1",
+   "image_prompt": "Front-facing head-and-shoulders portrait of AMARA LIN, a resource-division civil servant in her mid-40s: East Asian woman, severe neat hair pulled back, plain steel-grey administrative uniform with a high collar, faint implant ridge at the base of her skull, a single tear rolling down her cheek, expression cracking from fifteen years of numbness into raw feeling. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "EDICION FC-08 L5-L11 (funcionaria de la División de Asignación de Recursos; implante en la base del cráneo; la primera lágrima en quince años)",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_daniel_mercer",
+   "out_suffix": "_front_a1",
+   "pilot_refs": [],
+   "aspect": "1:1",
+   "image_prompt": "Front-facing head-and-shoulders portrait of DANIEL MERCER, former Chief Distribution Coordinator: pale man in his early 50s, thinning neatly combed hair now disheveled, cold sweat on his forehead, hands pressed to his temples, sweat-soaked plain grey tunic, eyes wide with terror. Dim cold grey light. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "EDICION FC-08 L43-L47 (antiguo Coordinador Jefe de Distribución; se retorcía sobre su cama con las manos crispadas sobre las sienes; sudor frío le empapaba la túnica)",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_architect_core_chamber",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: the central quantum core of the Architect deep beneath the Administrative District: a vast spherical chamber whose walls are light-absorbing dark metal, quantum processors arranged in fractal spirals around the inner surface, a three-dimensional web of cables pulsing deep indigo (#4B0082 / #3F00FF) converging on a central interface, freezing air with hanging frost crystals, two tiny human figures at the threshold for scale (seen from behind, unreadable). cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "MANUSCRIPT FC-07 L315-L343",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_recovery_pavilion",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: a recovery pavilion: curved walls of living biopolymer projecting slow indigo and blue light patterns like a forest of neurons (#4B0082 / #0080FF), a central clinical bed with soft white sheets, floating translucent projection of a mind like a re-assembling stained-glass mosaic above it, soft lavender haze, potted botanical stabilizer plants. cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-09 L3-L13",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_cascade_chamber",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: a crystalline quantum amplification chamber in the depths of the Central District: walls of refractory alloy with crystalline circuits pulsing indigo light (#4B0082 / #3F00FF), the air itself tinted iridescent indigo and seeming to thicken, a biological interface chair with crystalline sensors at the center, a control console to one side. cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-12 L3, FC-14 L5-L9",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_sector_7_night_market",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: a clandestine night market in narrow concrete alleys of Sector 7: improvised stalls selling hot circuit boards and salvaged parts, steam, a gutted transport capsule used as a drink stand, sodium and amber practical lights (#FF8C00 / #FFBF00) against cold steel (#708090), crowds as anonymous silhouettes. cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-06 L25-L39",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_resonance_district",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: a cracked concrete city crossing where colors return after fifteen years of grey: a graphene wall, street stalls with fresh bread, warm market light, a rough concrete platform in a memorial plaza, faint indigo shimmer in the air (#4B0082) against steel-grey facades (#708090). cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-08 L5-L19",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_fracturados_rooftop",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: the highest terrace of the old resistance redoubt at night: broken concrete parapet, wind-blown dust, an open sky dense with stars, the city below glowing indigo and gold (#4B0082 / #FFD700). cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-16 L37-L45",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_admin_district_pod_hall",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: a hidden hall beneath the Administrative District: endless rows of tall glass harvest capsules filled with pale conductive gel, each holding a floating citizen with glassy open eyes (anonymous, PG-13, clothed in plain grey), cold white strip light (#F8F8FF), steel-blue reflections, condensation, deep shadows between rows. cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-05 L47",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_interface_zone_east",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: a border avenue in chaos: streetlamps flickering between cold white and amber (#F8F8FF / #FFBF00), abandoned cars with open doors, shattered glass raining from overheated windows, violet lightning under a leaden sky (#301934). cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-11 L41-L61",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_LOC_crystal_gallery",
+   "out_suffix": "_a1",
+   "pilot_refs": [],
+   "aspect": "16:9",
+   "image_prompt": "Establishing shot: a gallery of millennial quartz crystals beneath the city, awakened after a million years: tall crystals softly brightening and dimming as if breathing, a central monolith of translucent obsidian with a pulsing violet core (#4B0082), cold mist. cinematic photoreal establishing film still, anamorphic 2.39 widescreen feel, chiaroscuro, volumetric atmosphere, no people unless stated, one unified frame, horizontal 16:9. no readable text, no signage, no logos, no numerals, no HUD text, no multi-panel, no title cards.",
+   "book_basis": "EDICION FC-16 L21-L25",
+   "video_prompt": ""
+  }
+ ]
+}

@@ -1,0 +1,498 @@
+{
+  "master": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v3/FC_full_conform_v3_ax.mp4",
+  "tech": {
+    "duration_s": 407.625,
+    "size_bytes": 237487103,
+    "bit_rate": 4660893,
+    "video_codec": "h264",
+    "width": 1280,
+    "height": 720,
+    "fps": 24.0,
+    "audio_codec": "aac",
+    "sample_rate": 44100,
+    "channels": 2,
+    "has_audio": true
+  },
+  "vol": {
+    "mean_volume_db": -22.8,
+    "max_volume_db": -1.9
+  },
+  "lufs": {
+    "integrated_lufs": -20.0,
+    "loudness_range_lu": 18.5,
+    "true_peak_dbfs": null
+  },
+  "silences": [
+    {
+      "start": 0.0,
+      "end": 0.790635,
+      "duration": 0.790635
+    },
+    {
+      "start": 406.396,
+      "end": 407.069,
+      "duration": 0.67263
+    }
+  ],
+  "scenes": [
+    {
+      "id": "FC-S01",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v2/FC-S01_cut_conform.mp4",
+      "duration_s": 48.353353,
+      "start_s": 0.0,
+      "vol": {
+        "mean_volume_db": -20.8,
+        "max_volume_db": -1.8
+      },
+      "lufs": {
+        "integrated_lufs": -20.1,
+        "loudness_range_lu": 13.1,
+        "true_peak_dbfs": null
+      },
+      "motion": {
+        "mean_mad": 8.892027854919434,
+        "median_mad": 7.1289544105529785,
+        "p95_mad": 23.598003387451165,
+        "min_mad": 1.4093364477157593,
+        "max_mad": 51.11458206176758,
+        "frames": 193,
+        "fps_sample": 4.0,
+        "static_flag": false
+      },
+      "tech": {
+        "duration_s": 48.353353,
+        "size_bytes": 35946246,
+        "bit_rate": 5947260,
+        "video_codec": "h264",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "audio_codec": "aac",
+        "sample_rate": 44100,
+        "channels": 2,
+        "has_audio": true
+      }
+    },
+    {
+      "id": "FC-S02",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v2/FC-S02_cut_conform.mp4",
+      "duration_s": 48.353353,
+      "start_s": 48.353353,
+      "vol": {
+        "mean_volume_db": -20.4,
+        "max_volume_db": -1.9
+      },
+      "lufs": {
+        "integrated_lufs": -19.9,
+        "loudness_range_lu": 10.5,
+        "true_peak_dbfs": null
+      },
+      "motion": {
+        "mean_mad": 9.228118896484375,
+        "median_mad": 7.236207485198975,
+        "p95_mad": 24.62588768005371,
+        "min_mad": 0.4243827164173126,
+        "max_mad": 55.016204833984375,
+        "frames": 193,
+        "fps_sample": 4.0,
+        "static_flag": false
+      },
+      "tech": {
+        "duration_s": 48.353353,
+        "size_bytes": 33230482,
+        "bit_rate": 5497940,
+        "video_codec": "h264",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "audio_codec": "aac",
+        "sample_rate": 44100,
+        "channels": 2,
+        "has_audio": true
+      }
+    },
+    {
+      "id": "FC-S03",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v2/FC-S03_cut_conform.mp4",
+      "duration_s": 48.353353,
+      "start_s": 96.706706,
+      "vol": {
+        "mean_volume_db": -23.1,
+        "max_volume_db": -1.9
+      },
+      "lufs": {
+        "integrated_lufs": -22.0,
+        "loudness_range_lu": 12.6,
+        "true_peak_dbfs": null
+      },
+      "motion": {
+        "mean_mad": 4.889585971832275,
+        "median_mad": 3.8858025074005127,
+        "p95_mad": 10.993779230117795,
+        "min_mad": 0.4037422835826874,
+        "max_mad": 33.82118225097656,
+        "frames": 193,
+        "fps_sample": 4.0,
+        "static_flag": false
+      },
+      "tech": {
+        "duration_s": 48.353353,
+        "size_bytes": 18895859,
+        "bit_rate": 3126295,
+        "video_codec": "h264",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "audio_codec": "aac",
+        "sample_rate": 44100,
+        "channels": 2,
+        "has_audio": true
+      }
+    },
+    {
+      "id": "FC-S04",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v2/FC-S04_cut_conform.mp4",
+      "duration_s": 46.353353,
+      "start_s": 145.060059,
+      "vol": {
+        "mean_volume_db": -21.7,
+        "max_volume_db": -2.0
+      },
+      "lufs": {
+        "integrated_lufs": -20.0,
+        "loudness_range_lu": 13.8,
+        "true_peak_dbfs": null
+      },
+      "motion": {
+        "mean_mad": 8.107540130615234,
+        "median_mad": 5.831693649291992,
+        "p95_mad": 22.408025550842268,
+        "min_mad": 0.6143904328346252,
+        "max_mad": 36.70833206176758,
+        "frames": 185,
+        "fps_sample": 4.0,
+        "static_flag": false
+      },
+      "tech": {
+        "duration_s": 46.353353,
+        "size_bytes": 24139519,
+        "bit_rate": 4166174,
+        "video_codec": "h264",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "audio_codec": "aac",
+        "sample_rate": 44100,
+        "channels": 2,
+        "has_audio": true
+      }
+    },
+    {
+      "id": "FC-S05",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v2/FC-S05_cut_conform.mp4",
+      "duration_s": 48.353353,
+      "start_s": 191.413412,
+      "vol": {
+        "mean_volume_db": -21.7,
+        "max_volume_db": -1.7
+      },
+      "lufs": {
+        "integrated_lufs": -20.0,
+        "loudness_range_lu": 12.2,
+        "true_peak_dbfs": null
+      },
+      "motion": {
+        "mean_mad": 10.192005157470703,
+        "median_mad": 7.339988708496094,
+        "p95_mad": 24.748746395111077,
+        "min_mad": 0.9546682238578796,
+        "max_mad": 51.84857177734375,
+        "frames": 193,
+        "fps_sample": 4.0,
+        "static_flag": false
+      },
+      "tech": {
+        "duration_s": 48.353353,
+        "size_bytes": 35905177,
+        "bit_rate": 5940465,
+        "video_codec": "h264",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "audio_codec": "aac",
+        "sample_rate": 44100,
+        "channels": 2,
+        "has_audio": true
+      }
+    },
+    {
+      "id": "FC-S06",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v2/FC-S06_cut_conform.mp4",
+      "duration_s": 44.353353,
+      "start_s": 239.766765,
+      "vol": {
+        "mean_volume_db": -21.8,
+        "max_volume_db": -3.7
+      },
+      "lufs": {
+        "integrated_lufs": -20.1,
+        "loudness_range_lu": 11.3,
+        "true_peak_dbfs": null
+      },
+      "motion": {
+        "mean_mad": 10.22639274597168,
+        "median_mad": 7.964602470397949,
+        "p95_mad": 27.398919582366943,
+        "min_mad": 0.9967206716537476,
+        "max_mad": 45.34085464477539,
+        "frames": 177,
+        "fps_sample": 4.0,
+        "static_flag": false
+      },
+      "tech": {
+        "duration_s": 44.353353,
+        "size_bytes": 30136661,
+        "bit_rate": 5435739,
+        "video_codec": "h264",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "audio_codec": "aac",
+        "sample_rate": 44100,
+        "channels": 2,
+        "has_audio": true
+      }
+    },
+    {
+      "id": "FC-S06A",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v2/FC-S06A_cut_conform.mp4",
+      "duration_s": 24.186687,
+      "start_s": 284.120118,
+      "vol": {
+        "mean_volume_db": -20.9,
+        "max_volume_db": -5.1
+      },
+      "lufs": {
+        "integrated_lufs": -19.9,
+        "loudness_range_lu": 12.1,
+        "true_peak_dbfs": null
+      },
+      "motion": {
+        "mean_mad": 13.939675331115723,
+        "median_mad": 12.393325805664062,
+        "p95_mad": 25.28178071975708,
+        "min_mad": 0.7094907164573669,
+        "max_mad": 46.90104293823242,
+        "frames": 97,
+        "fps_sample": 4.0,
+        "static_flag": false
+      },
+      "tech": {
+        "duration_s": 24.186687,
+        "size_bytes": 18818189,
+        "bit_rate": 6224313,
+        "video_codec": "h264",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "audio_codec": "aac",
+        "sample_rate": 44100,
+        "channels": 2,
+        "has_audio": true
+      }
+    },
+    {
+      "id": "FC-S07",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v2/FC-S07_cut_conform.mp4",
+      "duration_s": 43.353353,
+      "start_s": 308.306805,
+      "vol": {
+        "mean_volume_db": -20.4,
+        "max_volume_db": -2.0
+      },
+      "lufs": {
+        "integrated_lufs": -20.5,
+        "loudness_range_lu": 9.0,
+        "true_peak_dbfs": null
+      },
+      "motion": {
+        "mean_mad": 6.763654708862305,
+        "median_mad": 5.754340171813965,
+        "p95_mad": 12.356240415573113,
+        "min_mad": 1.1381173133850098,
+        "max_mad": 40.76852035522461,
+        "frames": 173,
+        "fps_sample": 4.0,
+        "static_flag": false
+      },
+      "tech": {
+        "duration_s": 43.353353,
+        "size_bytes": 29558963,
+        "bit_rate": 5454519,
+        "video_codec": "h264",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "audio_codec": "aac",
+        "sample_rate": 44100,
+        "channels": 2,
+        "has_audio": true
+      }
+    },
+    {
+      "id": "FC-S08",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/_conform_v2/FC-S08_cut_conform.mp4",
+      "duration_s": 37.311687,
+      "start_s": 351.660158,
+      "vol": {
+        "mean_volume_db": -21.2,
+        "max_volume_db": -1.9
+      },
+      "lufs": {
+        "integrated_lufs": -19.9,
+        "loudness_range_lu": 12.9,
+        "true_peak_dbfs": null
+      },
+      "motion": {
+        "mean_mad": 11.468603134155273,
+        "median_mad": 8.973186492919922,
+        "p95_mad": 27.84814777374268,
+        "min_mad": 0.9899691343307495,
+        "max_mad": 55.108219146728516,
+        "frames": 149,
+        "fps_sample": 4.0,
+        "static_flag": false
+      },
+      "tech": {
+        "duration_s": 37.311687,
+        "size_bytes": 20533207,
+        "bit_rate": 4402525,
+        "video_codec": "h264",
+        "width": 1280,
+        "height": 720,
+        "fps": 24.0,
+        "audio_codec": "aac",
+        "sample_rate": 44100,
+        "channels": 2,
+        "has_audio": true
+      }
+    }
+  ],
+  "jumps": [
+    {
+      "a": "FC-S01",
+      "b": "FC-S02",
+      "mean_a": -20.8,
+      "mean_b": -20.4,
+      "delta_db": 0.40000000000000213,
+      "boundary_s": 48.353353
+    },
+    {
+      "a": "FC-S02",
+      "b": "FC-S03",
+      "mean_a": -20.4,
+      "mean_b": -23.1,
+      "delta_db": -2.700000000000003,
+      "boundary_s": 96.706706
+    },
+    {
+      "a": "FC-S03",
+      "b": "FC-S04",
+      "mean_a": -23.1,
+      "mean_b": -21.7,
+      "delta_db": 1.4000000000000021,
+      "boundary_s": 145.060059
+    },
+    {
+      "a": "FC-S04",
+      "b": "FC-S05",
+      "mean_a": -21.7,
+      "mean_b": -21.7,
+      "delta_db": 0.0,
+      "boundary_s": 191.413412
+    },
+    {
+      "a": "FC-S05",
+      "b": "FC-S06",
+      "mean_a": -21.7,
+      "mean_b": -21.8,
+      "delta_db": -0.10000000000000142,
+      "boundary_s": 239.766765
+    },
+    {
+      "a": "FC-S06",
+      "b": "FC-S06A",
+      "mean_a": -21.8,
+      "mean_b": -20.9,
+      "delta_db": 0.9000000000000021,
+      "boundary_s": 284.120118
+    },
+    {
+      "a": "FC-S06A",
+      "b": "FC-S07",
+      "mean_a": -20.9,
+      "mean_b": -20.4,
+      "delta_db": 0.5,
+      "boundary_s": 308.306805
+    },
+    {
+      "a": "FC-S07",
+      "b": "FC-S08",
+      "mean_a": -20.4,
+      "mean_b": -21.2,
+      "delta_db": -0.8000000000000007,
+      "boundary_s": 351.660158
+    }
+  ],
+  "motion": {
+    "mean_mad": 8.90672492980957,
+    "median_mad": 6.743634223937988,
+    "p95_mad": 24.83746175765991,
+    "min_mad": 0.4187885820865631,
+    "max_mad": 54.754051208496094,
+    "frames": 1631,
+    "fps_sample": 4.0,
+    "static_flag": false
+  },
+  "contact_dir": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/_digest_work_20260918/contact_1fps",
+  "midframes": [
+    {
+      "id": "FC-S01",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/_digest_work_20260918/midframes/FC-S01_mid.jpg"
+    },
+    {
+      "id": "FC-S02",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/_digest_work_20260918/midframes/FC-S02_mid.jpg"
+    },
+    {
+      "id": "FC-S03",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/_digest_work_20260918/midframes/FC-S03_mid.jpg"
+    },
+    {
+      "id": "FC-S04",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/_digest_work_20260918/midframes/FC-S04_mid.jpg"
+    },
+    {
+      "id": "FC-S05",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/_digest_work_20260918/midframes/FC-S05_mid.jpg"
+    },
+    {
+      "id": "FC-S06",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/_digest_work_20260918/midframes/FC-S06_mid.jpg"
+    },
+    {
+      "id": "FC-S06A",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/_digest_work_20260918/midframes/FC-S06A_mid.jpg"
+    },
+    {
+      "id": "FC-S07",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/_digest_work_20260918/midframes/FC-S07_mid.jpg"
+    },
+    {
+      "id": "FC-S08",
+      "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/_digest_work_20260918/midframes/FC-S08_mid.jpg"
+    }
+  ],
+  "report": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/reports/film_digest_v3_ax_20260918.md",
+  "assembly": "v3_ax"
+}

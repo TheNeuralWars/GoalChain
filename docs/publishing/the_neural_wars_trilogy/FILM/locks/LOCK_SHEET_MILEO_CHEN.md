@@ -104,3 +104,7 @@ From FILM_QC_CEO: **Mileo strong** — FC-S01 stills hold face + wardrobe arc (g
 - Model keeps adding a short fringe/bangs over the forehead instead of the exposed 3.2 cm regulation cut. Add `forehead fully exposed, NO fringe, NO bangs, NO bowl cut` to every future Mileo regen.
 
 **Pipeline note:** the xAI image-edit endpoint rejects a single reference image (HTTP 422) — always pass 2 refs (duplicate the same anchor if only one is valid). A 403 means the daily quota is spent.
+
+
+## Prompt negatives (PROMPT_NEGATIVES_FROM_QC_20260924)
+Before any still/i2v regen: `no logos, blank plates, no readable text, no tattoos, unmarked forearm, Coil indigo LEFT wrist only as abstract glow`.

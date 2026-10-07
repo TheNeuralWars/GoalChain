@@ -1,0 +1,22 @@
+{
+ "queue": "FC_S09_REGEN_QUEUE_R5_20261006",
+ "status": "APPROVED by Nico 2026-10-06: 08b r5, butt strike on cable visible (L89-L91); up to 2 attempts",
+ "source_review": "reports/hermes_review_s09_r4_20261004.md (open: strike not shown; Coil glow on Sierra's forearm; beacon at muzzle tip)",
+ "shots": [
+  {
+   "id": "FC-S09-08b",
+   "parent": "FC-S09-08",
+   "out_suffix": "_r5",
+   "book_ref": "EDICION_2026/FC-04-Chapter_2026.md L89–L91",
+   "attempt": 1,
+   "pilot_refs": [
+    "renders/FC-S09_pilot_20261003/FC-S09-06_r2.png",
+    "renders/FC-S09_pilot_20261003/FC-S09-08a_r4.png"
+   ],
+   "gates": [],
+   "duration_s": 6,
+   "image_prompt": "TIGHT INSERT close-up, camera just behind and above Mileo's right shoulder: in the foreground the back of MILEO's neck and head (black regulation-cut short hair, NO fringe, bandaged extraction scar at the nape, grey-steel sanitation jumpsuit collar #708090) with a thick dark physical neural connector cable plugged into the nape port. Entering from the top right: SIERRA's gloved RIGHT hand in a plain grey-steel jumpsuit sleeve (plain dark tactical glove, NO glow, NO circuit lines, NO light on her hand, wrist or forearm) gripping the pistol grip in a hammer-fist so that ONLY the lower half of an unmarked compact pistol is visible — the grip and its flat BUTT pointing straight DOWN, a few centimetres above the connector where the cable meets his nape, about to strike. The pistol's barrel and muzzle are OUT OF FRAME above; no muzzle is visible. Edge of frame: a strand of Sierra's dark hair tied back tight (ponytail, as in FC-S08). Setting: subterranean server cathedral: six-meter quantum processing towers in endless aisles bathed in electric blue 482 nm light (#0080FF / #4682B4), metal grating floor vibrating, liquid-helium cold mist low on the floor, steel and void (#708090 / #000000 / #301934). Lighting: steady cold electric-blue server light only; no red light yet, no beacons in frame. cinematic photoreal film still, anamorphic 2.39 widescreen feel composed for a 2.39 center crop (keep faces and hands inside the central horizontal band), chiaroscuro lighting, volumetric atmosphere, PG-13, single camera, one unified frame, horizontal 16:9. Coil light is deep indigo #4B0082 / #3F00FF only, never cyan, never white-hot. no logos, no insignia, no shoulder patch, no chest logo, blank plates, sleeves completely plain, no readable text, no lettering-like shapes, no pseudo-text, no numerals, no HUD text, no signage, abstract glyph-free circuitry only, no fused fingers, no tattoos, no faction labels, no multi-image collage, no title cards. Only Mileo carries indigo Coil light (on his LEFT forearm, out of this frame); nothing in this frame glows except blue server bokeh. No muzzle, no muzzle flash, no beams, no laser lines, no second weapon, no other people. NO readable text, NO logos, NO signage, NO carteles, NO faction name labels, NO multi-panel, NO upper frame, NO Mark, NO title cards. Use the reference images only for Mileo's hair/neck/jumpsuit and the environment palette; take staging and lighting from this text.",
+   "video_prompt": "In one sharp motion Sierra's fist drives the pistol BUTT straight down onto the connector at the back of Mileo's neck: the butt visibly HITS the cable at the nape port, a short burst of white-blue sparks bursts from the connector at the point of impact (at his neck, not from the pistol), the cable severs and whips loose from the port, and THEN Mileo pitches forward out of frame. In the last second the cold blue light gives way to an even scarlet alarm wash across the whole room from above (ambient only). The pistol barrel and muzzle stay out of frame the whole time; the pistol never points at anyone; no muzzle flash, no beams, no laser lines, no shot fired. Sierra's hand and forearm never glow. No other people enter. Animate the approved still only; one continuous tight camera; Coil light is deep indigo #4B0082 / #3F00FF only and only on Mileo's LEFT forearm (out of frame here), never cyan, never white-hot; no new characters; NO readable text, NO logos, NO signage, NO carteles, NO faction name labels, NO multi-panel, NO upper frame, NO Mark, NO title cards."
+  }
+ ]
+}

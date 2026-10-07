@@ -1,0 +1,71 @@
+{
+ "queue": "FC_PROPOSALS_QUEUE_A2_20261006",
+ "out_dir": "proposals/20261006",
+ "status": "PROPOSAL ONLY (not approved). Consistency pass anchored on front_a1.",
+ "shots": [
+  {
+   "id": "PROPOSAL_martin_catalano",
+   "out_suffix": "_profile_a2",
+   "pilot_refs": [
+    "proposals/20261006/PROPOSAL_martin_catalano_front_a1.png"
+   ],
+   "aspect": "1:1",
+   "image_prompt": "Left-facing strict profile head-and-shoulders portrait of MARTIN CATALANO, Sierra Catalano's brother: European-descent man in his early 30s with a clear family resemblance to his sister (same strong cheekbones and jaw, same straight dark brows), dark brown hair cut short and slightly unkempt, DARK brown irises, a crooked mischievous half-smile as a defining trait, lean build thinned by long illness, faint healed surgical scar of an old neural Link implant at the base of the skull, plain soft grey-lavender patient tunic with a simple round collar, the faint healed Link scar at the base of the skull visible at the nape. Same man as the reference image: identical face, hair, age and build. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "consistency pass from front_a1",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_martin_catalano",
+   "out_suffix": "_fullbody_a2",
+   "pilot_refs": [
+    "proposals/20261006/PROPOSAL_martin_catalano_front_a1.png"
+   ],
+   "aspect": "9:16",
+   "image_prompt": "Full-body standing portrait of MARTIN CATALANO, Sierra Catalano's brother: European-descent man in his early 30s with a clear family resemblance to his sister (same strong cheekbones and jaw, same straight dark brows), dark brown hair cut short and slightly unkempt, DARK brown irises, a crooked mischievous half-smile as a defining trait, lean build thinned by long illness, faint healed surgical scar of an old neural Link implant at the base of the skull, plain soft grey-lavender patient tunic with a simple round collar, grey-lavender patient tunic and loose matching trousers, soft slippers, standing relaxed. Same man as the reference image: identical face, hair, age and build. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "consistency pass from front_a1",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_martin_catalano",
+   "out_suffix": "_postcascade_a2",
+   "pilot_refs": [
+    "proposals/20261006/PROPOSAL_martin_catalano_front_a1.png"
+   ],
+   "aspect": "16:9",
+   "image_prompt": "Close-up head-and-shoulders portrait of MARTIN CATALANO, Sierra Catalano's brother: European-descent man in his early 30s with a clear family resemblance to his sister (same strong cheekbones and jaw, same straight dark brows), dark brown hair cut short and slightly unkempt, DARK brown irises, a crooked mischievous half-smile as a defining trait, lean build thinned by long illness, faint healed surgical scar of an old neural Link implant at the base of the skull, plain soft grey-lavender patient tunic with a simple round collar after the Cascade: a permanent THIN, crisp ring of violet-indigo light (#4B0082 / #8A2BE2) glows around the outer edge of each DARK brown iris only - the eyelids, skin and whites of the eyes are natural, no eyeshadow glow, no glowing skin; pupils slightly dilated with wonder; his crooked mischievous half-smile. Same man as the reference image: identical face, hair, age and build. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "EDICION FC-12 L39 / FC-14 L37 / FC-14 L45",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_martin_catalano",
+   "out_suffix": "_threequarter_a2",
+   "pilot_refs": [
+    "proposals/20261006/PROPOSAL_martin_catalano_front_a1.png"
+   ],
+   "aspect": "1:1",
+   "image_prompt": "Three-quarter view head-and-shoulders portrait of MARTIN CATALANO, Sierra Catalano's brother: European-descent man in his early 30s with a clear family resemblance to his sister (same strong cheekbones and jaw, same straight dark brows), dark brown hair cut short and slightly unkempt, DARK brown irises, a crooked mischievous half-smile as a defining trait, lean build thinned by long illness, faint healed surgical scar of an old neural Link implant at the base of the skull, plain soft grey-lavender patient tunic with a simple round collar, gentle crooked smile, eyes slightly toward camera. Same man as the reference image: identical face, hair, age and build. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "consistency pass from front_a1",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_elena_vasquez",
+   "out_suffix": "_lightbeing_a2",
+   "pilot_refs": [],
+   "aspect": "9:16",
+   "image_prompt": "Full-figure portrait of DR. ELENA VASQUEZ as a manifestation of living light standing in a dark cobbled street among awed silhouettes: a woman in her late 40s with a kind, wise, softly readable face, her whole body made of translucent refracted deep-indigo light like light through a prism, hair drifting as if underwater, feet hovering a few centimetres above the cobblestones, a glittering trail of white frost on the cobbles behind her; warm, human, serene; NO capsule, NO oval frame, NO screen, NO wires, NOT a machine. photoreal cinematic character reference portrait, dark night street background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "EDICION FC-08 L33-L35",
+   "video_prompt": ""
+  },
+  {
+   "id": "PROPOSAL_jansen",
+   "out_suffix": "_profile_a2",
+   "pilot_refs": [
+    "proposals/20261006/PROPOSAL_jansen_front_a1.png"
+   ],
+   "aspect": "1:1",
+   "image_prompt": "Right-facing profile head-and-shoulders portrait of JANSEN, a hard old resistance combatant in his late 50s, cropped grey hair, grizzled stubble, the thick scar above his RIGHT ear running into the temple clearly visible, worn dark combat jacket. Same man as the reference image: identical face, hair, age and build. photoreal cinematic character reference portrait, neutral dark-grey seamless studio background, soft key light with gentle rim, sharp focus on the face, natural skin texture, single person, one unified frame, PG-13. no text, no labels, no logos, no insignia, no watermark, no numerals, no multi-panel, no collage, no tattoos, no fused fingers.",
+   "book_basis": "EDICION FC-07 L7 / FC-11 L19 / FC-13 L11",
+   "video_prompt": ""
+  }
+ ]
+}

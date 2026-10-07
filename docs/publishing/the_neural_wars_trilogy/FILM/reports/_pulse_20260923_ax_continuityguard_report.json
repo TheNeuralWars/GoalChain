@@ -1,0 +1,19 @@
+{
+  "scan_id": "cg-2026-09-23T16-18-37-094Z",
+  "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard_pulse_20260923_ax/.stage/shots/FC-AX",
+  "clips_scanned": 5,
+  "frames_extracted": 59,
+  "character_consistency": {
+    "characters_tracked": 0,
+    "similarity_threshold": 0.88,
+    "flagged_shots": []
+  },
+  "physics_plausibility": {
+    "discontinuity_multiplier": 3,
+    "flagged_shots": []
+  },
+  "generated_at": "2026-09-23T16:18:44.613Z",
+  "tool_version": "0.1.5",
+  "scan_duration_seconds": 7.519,
+  "network_calls_made": 0
+}

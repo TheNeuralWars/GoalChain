@@ -1,0 +1,2826 @@
+{
+  "pass1_cut_physics": {
+    "scan_id": "cg-2026-10-01T15-37-16-757Z",
+    "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard/pulse_20261001/.stage/cuts",
+    "clips_scanned": 8,
+    "frames_extracted": 1142,
+    "character_consistency": {
+      "characters_tracked": 0,
+      "similarity_threshold": 0.88,
+      "flagged_shots": []
+    },
+    "physics_plausibility": {
+      "discontinuity_multiplier": 3,
+      "flagged_shots": [
+        {
+          "clip": "scene-FC-S01_cut_v1.mp4",
+          "frame_index_a": 18,
+          "frame_index_b": 19,
+          "discontinuity_ratio": 5.07,
+          "reason": "Frame-to-frame motion discontinuity 5.1x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S01_cut_v1.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": 6.84,
+          "reason": "Frame-to-frame motion discontinuity 6.8x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S01_cut_v1.mp4",
+          "frame_index_a": 40,
+          "frame_index_b": 41,
+          "discontinuity_ratio": 3.08,
+          "reason": "Frame-to-frame motion discontinuity 3.1x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S01_cut_v1.mp4",
+          "frame_index_a": 55,
+          "frame_index_b": 56,
+          "discontinuity_ratio": 6.35,
+          "reason": "Frame-to-frame motion discontinuity 6.4x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S01_cut_v1.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": 4.49,
+          "reason": "Frame-to-frame motion discontinuity 4.5x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S01_cut_v1.mp4",
+          "frame_index_a": 92,
+          "frame_index_b": 93,
+          "discontinuity_ratio": 4.93,
+          "reason": "Frame-to-frame motion discontinuity 4.9x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S01_cut_v1.mp4",
+          "frame_index_a": 129,
+          "frame_index_b": 130,
+          "discontinuity_ratio": 4.38,
+          "reason": "Frame-to-frame motion discontinuity 4.4x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S02_cut_v1.mp4",
+          "frame_index_a": 18,
+          "frame_index_b": 19,
+          "discontinuity_ratio": 3.49,
+          "reason": "Frame-to-frame motion discontinuity 3.5x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S02_cut_v1.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": 4.07,
+          "reason": "Frame-to-frame motion discontinuity 4.1x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S02_cut_v1.mp4",
+          "frame_index_a": 55,
+          "frame_index_b": 56,
+          "discontinuity_ratio": 3.66,
+          "reason": "Frame-to-frame motion discontinuity 3.7x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S02_cut_v1.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": 4.78,
+          "reason": "Frame-to-frame motion discontinuity 4.8x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S02_cut_v1.mp4",
+          "frame_index_a": 92,
+          "frame_index_b": 93,
+          "discontinuity_ratio": 5.28,
+          "reason": "Frame-to-frame motion discontinuity 5.3x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S02_cut_v1.mp4",
+          "frame_index_a": 110,
+          "frame_index_b": 111,
+          "discontinuity_ratio": 3.77,
+          "reason": "Frame-to-frame motion discontinuity 3.8x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S02_cut_v1.mp4",
+          "frame_index_a": 124,
+          "frame_index_b": 125,
+          "discontinuity_ratio": 3.15,
+          "reason": "Frame-to-frame motion discontinuity 3.1x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S02_cut_v1.mp4",
+          "frame_index_a": 129,
+          "frame_index_b": 130,
+          "discontinuity_ratio": 6.1,
+          "reason": "Frame-to-frame motion discontinuity 6.1x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S03_cut_v1.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": 4.54,
+          "reason": "Frame-to-frame motion discontinuity 4.5x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S03_cut_v1.mp4",
+          "frame_index_a": 55,
+          "frame_index_b": 56,
+          "discontinuity_ratio": 5.18,
+          "reason": "Frame-to-frame motion discontinuity 5.2x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S03_cut_v1.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": 6.09,
+          "reason": "Frame-to-frame motion discontinuity 6.1x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S03_cut_v1.mp4",
+          "frame_index_a": 92,
+          "frame_index_b": 93,
+          "discontinuity_ratio": 4.33,
+          "reason": "Frame-to-frame motion discontinuity 4.3x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S03_cut_v1.mp4",
+          "frame_index_a": 110,
+          "frame_index_b": 111,
+          "discontinuity_ratio": 4.69,
+          "reason": "Frame-to-frame motion discontinuity 4.7x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S03_cut_v1.mp4",
+          "frame_index_a": 129,
+          "frame_index_b": 130,
+          "discontinuity_ratio": 4.31,
+          "reason": "Frame-to-frame motion discontinuity 4.3x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S04_cut_v1.mp4",
+          "frame_index_a": 18,
+          "frame_index_b": 19,
+          "discontinuity_ratio": 3.59,
+          "reason": "Frame-to-frame motion discontinuity 3.6x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S04_cut_v1.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": 5.3,
+          "reason": "Frame-to-frame motion discontinuity 5.3x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S04_cut_v1.mp4",
+          "frame_index_a": 55,
+          "frame_index_b": 56,
+          "discontinuity_ratio": 3.21,
+          "reason": "Frame-to-frame motion discontinuity 3.2x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S04_cut_v1.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": 3.43,
+          "reason": "Frame-to-frame motion discontinuity 3.4x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S04_cut_v1.mp4",
+          "frame_index_a": 92,
+          "frame_index_b": 93,
+          "discontinuity_ratio": 3.14,
+          "reason": "Frame-to-frame motion discontinuity 3.1x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S04_cut_v1.mp4",
+          "frame_index_a": 110,
+          "frame_index_b": 111,
+          "discontinuity_ratio": 3.37,
+          "reason": "Frame-to-frame motion discontinuity 3.4x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S04_cut_v1.mp4",
+          "frame_index_a": 129,
+          "frame_index_b": 130,
+          "discontinuity_ratio": 4.54,
+          "reason": "Frame-to-frame motion discontinuity 4.5x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S05_cut_v1.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": 3.53,
+          "reason": "Frame-to-frame motion discontinuity 3.5x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S05_cut_v1.mp4",
+          "frame_index_a": 110,
+          "frame_index_b": 111,
+          "discontinuity_ratio": 3.48,
+          "reason": "Frame-to-frame motion discontinuity 3.5x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S05_cut_v1.mp4",
+          "frame_index_a": 129,
+          "frame_index_b": 130,
+          "discontinuity_ratio": 3.4,
+          "reason": "Frame-to-frame motion discontinuity 3.4x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S06_cut_v1.mp4",
+          "frame_index_a": 18,
+          "frame_index_b": 19,
+          "discontinuity_ratio": 3.28,
+          "reason": "Frame-to-frame motion discontinuity 3.3x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S06_cut_v1.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": 4.22,
+          "reason": "Frame-to-frame motion discontinuity 4.2x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S06_cut_v1.mp4",
+          "frame_index_a": 55,
+          "frame_index_b": 56,
+          "discontinuity_ratio": 3.57,
+          "reason": "Frame-to-frame motion discontinuity 3.6x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S06_cut_v1.mp4",
+          "frame_index_a": 77,
+          "frame_index_b": 78,
+          "discontinuity_ratio": 4.86,
+          "reason": "Frame-to-frame motion discontinuity 4.9x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S06_cut_v1.mp4",
+          "frame_index_a": 92,
+          "frame_index_b": 93,
+          "discontinuity_ratio": 3.56,
+          "reason": "Frame-to-frame motion discontinuity 3.6x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S06_cut_v1.mp4",
+          "frame_index_a": 110,
+          "frame_index_b": 111,
+          "discontinuity_ratio": 3.16,
+          "reason": "Frame-to-frame motion discontinuity 3.2x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S06_cut_v1.mp4",
+          "frame_index_a": 129,
+          "frame_index_b": 130,
+          "discontinuity_ratio": 5.77,
+          "reason": "Frame-to-frame motion discontinuity 5.8x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S06_cut_v1.mp4",
+          "frame_index_a": 137,
+          "frame_index_b": 138,
+          "discontinuity_ratio": 4.17,
+          "reason": "Frame-to-frame motion discontinuity 4.2x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S06_cut_v1.mp4",
+          "frame_index_a": 142,
+          "frame_index_b": 143,
+          "discontinuity_ratio": 4.09,
+          "reason": "Frame-to-frame motion discontinuity 4.1x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S07_cut_v1.mp4",
+          "frame_index_a": 18,
+          "frame_index_b": 19,
+          "discontinuity_ratio": 4.31,
+          "reason": "Frame-to-frame motion discontinuity 4.3x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S07_cut_v1.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": 4.62,
+          "reason": "Frame-to-frame motion discontinuity 4.6x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S07_cut_v1.mp4",
+          "frame_index_a": 55,
+          "frame_index_b": 56,
+          "discontinuity_ratio": 4.25,
+          "reason": "Frame-to-frame motion discontinuity 4.3x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S07_cut_v1.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": 4.21,
+          "reason": "Frame-to-frame motion discontinuity 4.2x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S07_cut_v1.mp4",
+          "frame_index_a": 92,
+          "frame_index_b": 93,
+          "discontinuity_ratio": 7.05,
+          "reason": "Frame-to-frame motion discontinuity 7.0x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S07_cut_v1.mp4",
+          "frame_index_a": 110,
+          "frame_index_b": 111,
+          "discontinuity_ratio": 4.73,
+          "reason": "Frame-to-frame motion discontinuity 4.7x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S07_cut_v1.mp4",
+          "frame_index_a": 129,
+          "frame_index_b": 130,
+          "discontinuity_ratio": 4.74,
+          "reason": "Frame-to-frame motion discontinuity 4.7x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S08_cut_v1.mp4",
+          "frame_index_a": 18,
+          "frame_index_b": 19,
+          "discontinuity_ratio": 4.05,
+          "reason": "Frame-to-frame motion discontinuity 4.0x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S08_cut_v1.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": 5.17,
+          "reason": "Frame-to-frame motion discontinuity 5.2x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S08_cut_v1.mp4",
+          "frame_index_a": 55,
+          "frame_index_b": 56,
+          "discontinuity_ratio": 3.32,
+          "reason": "Frame-to-frame motion discontinuity 3.3x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S08_cut_v1.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": 3.83,
+          "reason": "Frame-to-frame motion discontinuity 3.8x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "scene-FC-S08_cut_v1.mp4",
+          "frame_index_a": 92,
+          "frame_index_b": 93,
+          "discontinuity_ratio": 3.38,
+          "reason": "Frame-to-frame motion discontinuity 3.4x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        }
+      ]
+    },
+    "generated_at": "2026-10-01T15:39:26.380Z",
+    "tool_version": "0.1.5",
+    "scan_duration_seconds": 129.623,
+    "network_calls_made": 0
+  },
+  "pass2_shot_physics_FC-S01": {
+    "scan_id": "cg-2026-10-01T15-39-26-735Z",
+    "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard/pulse_20261001/.stage/shots/FC-S01",
+    "clips_scanned": 8,
+    "frames_extracted": 112,
+    "character_consistency": {
+      "characters_tracked": 0,
+      "similarity_threshold": 0.88,
+      "flagged_shots": []
+    },
+    "physics_plausibility": {
+      "discontinuity_multiplier": 3,
+      "flagged_shots": []
+    },
+    "generated_at": "2026-10-01T15:39:45.984Z",
+    "tool_version": "0.1.5",
+    "scan_duration_seconds": 19.249,
+    "network_calls_made": 0
+  },
+  "pass2_shot_physics_FC-S02": {
+    "scan_id": "cg-2026-10-01T15-39-48-026Z",
+    "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard/pulse_20261001/.stage/shots/FC-S02",
+    "clips_scanned": 8,
+    "frames_extracted": 112,
+    "character_consistency": {
+      "characters_tracked": 0,
+      "similarity_threshold": 0.88,
+      "flagged_shots": []
+    },
+    "physics_plausibility": {
+      "discontinuity_multiplier": 3,
+      "flagged_shots": []
+    },
+    "generated_at": "2026-10-01T15:40:06.939Z",
+    "tool_version": "0.1.5",
+    "scan_duration_seconds": 18.912,
+    "network_calls_made": 0
+  },
+  "pass2_shot_physics_FC-S03": {
+    "scan_id": "cg-2026-10-01T15-40-07-597Z",
+    "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard/pulse_20261001/.stage/shots/FC-S03",
+    "clips_scanned": 8,
+    "frames_extracted": 112,
+    "character_consistency": {
+      "characters_tracked": 0,
+      "similarity_threshold": 0.88,
+      "flagged_shots": []
+    },
+    "physics_plausibility": {
+      "discontinuity_multiplier": 3,
+      "flagged_shots": []
+    },
+    "generated_at": "2026-10-01T15:40:27.407Z",
+    "tool_version": "0.1.5",
+    "scan_duration_seconds": 19.81,
+    "network_calls_made": 0
+  },
+  "pass2_shot_physics_FC-S04": {
+    "scan_id": "cg-2026-10-01T15-40-27-773Z",
+    "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard/pulse_20261001/.stage/shots/FC-S04",
+    "clips_scanned": 8,
+    "frames_extracted": 108,
+    "character_consistency": {
+      "characters_tracked": 0,
+      "similarity_threshold": 0.88,
+      "flagged_shots": []
+    },
+    "physics_plausibility": {
+      "discontinuity_multiplier": 3,
+      "flagged_shots": []
+    },
+    "generated_at": "2026-10-01T15:40:44.149Z",
+    "tool_version": "0.1.5",
+    "scan_duration_seconds": 16.376,
+    "network_calls_made": 0
+  },
+  "pass2_shot_physics_FC-S05": {
+    "scan_id": "cg-2026-10-01T15-40-44-835Z",
+    "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard/pulse_20261001/.stage/shots/FC-S05",
+    "clips_scanned": 8,
+    "frames_extracted": 112,
+    "character_consistency": {
+      "characters_tracked": 0,
+      "similarity_threshold": 0.88,
+      "flagged_shots": []
+    },
+    "physics_plausibility": {
+      "discontinuity_multiplier": 3,
+      "flagged_shots": []
+    },
+    "generated_at": "2026-10-01T15:41:04.010Z",
+    "tool_version": "0.1.5",
+    "scan_duration_seconds": 19.175,
+    "network_calls_made": 0
+  },
+  "pass2_shot_physics_FC-S06": {
+    "scan_id": "cg-2026-10-01T15-41-04-280Z",
+    "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard/pulse_20261001/.stage/shots/FC-S06",
+    "clips_scanned": 8,
+    "frames_extracted": 104,
+    "character_consistency": {
+      "characters_tracked": 0,
+      "similarity_threshold": 0.88,
+      "flagged_shots": []
+    },
+    "physics_plausibility": {
+      "discontinuity_multiplier": 3,
+      "flagged_shots": [
+        {
+          "clip": "shot-S06-01.mp4",
+          "frame_index_a": 8,
+          "frame_index_b": 9,
+          "discontinuity_ratio": 5.36,
+          "reason": "Frame-to-frame motion discontinuity 5.4x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "shot-S06-01.mp4",
+          "frame_index_a": 9,
+          "frame_index_b": 10,
+          "discontinuity_ratio": 4.55,
+          "reason": "Frame-to-frame motion discontinuity 4.5x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "shot-S06-01.mp4",
+          "frame_index_a": 10,
+          "frame_index_b": 11,
+          "discontinuity_ratio": 3.81,
+          "reason": "Frame-to-frame motion discontinuity 3.8x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "shot-S06-05.mp4",
+          "frame_index_a": 0,
+          "frame_index_b": 1,
+          "discontinuity_ratio": 3.18,
+          "reason": "Frame-to-frame motion discontinuity 3.2x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        }
+      ]
+    },
+    "generated_at": "2026-10-01T15:41:21.591Z",
+    "tool_version": "0.1.5",
+    "scan_duration_seconds": 17.311,
+    "network_calls_made": 0
+  },
+  "pass2_shot_physics_FC-S06A": {
+    "scan_id": "cg-2026-10-01T15-41-21-883Z",
+    "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard/pulse_20261001/.stage/shots/FC-S06A",
+    "clips_scanned": 4,
+    "frames_extracted": 56,
+    "character_consistency": {
+      "characters_tracked": 0,
+      "similarity_threshold": 0.88,
+      "flagged_shots": []
+    },
+    "physics_plausibility": {
+      "discontinuity_multiplier": 3,
+      "flagged_shots": []
+    },
+    "generated_at": "2026-10-01T15:41:31.184Z",
+    "tool_version": "0.1.5",
+    "scan_duration_seconds": 9.299,
+    "network_calls_made": 0
+  },
+  "pass2_shot_physics_FC-S07": {
+    "scan_id": "cg-2026-10-01T15-41-31-440Z",
+    "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard/pulse_20261001/.stage/shots/FC-S07",
+    "clips_scanned": 8,
+    "frames_extracted": 102,
+    "character_consistency": {
+      "characters_tracked": 0,
+      "similarity_threshold": 0.88,
+      "flagged_shots": []
+    },
+    "physics_plausibility": {
+      "discontinuity_multiplier": 3,
+      "flagged_shots": []
+    },
+    "generated_at": "2026-10-01T15:41:48.368Z",
+    "tool_version": "0.1.5",
+    "scan_duration_seconds": 16.927,
+    "network_calls_made": 0
+  },
+  "pass2_shot_physics_FC-S08": {
+    "scan_id": "cg-2026-10-01T15-41-49-489Z",
+    "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard/pulse_20261001/.stage/shots/FC-S08",
+    "clips_scanned": 7,
+    "frames_extracted": 88,
+    "character_consistency": {
+      "characters_tracked": 0,
+      "similarity_threshold": 0.88,
+      "flagged_shots": []
+    },
+    "physics_plausibility": {
+      "discontinuity_multiplier": 3,
+      "flagged_shots": [
+        {
+          "clip": "shot-S08-06.mp4",
+          "frame_index_a": 6,
+          "frame_index_b": 7,
+          "discontinuity_ratio": 6.4,
+          "reason": "Frame-to-frame motion discontinuity 6.4x this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        }
+      ]
+    },
+    "generated_at": "2026-10-01T15:42:04.575Z",
+    "tool_version": "0.1.5",
+    "scan_duration_seconds": 15.086,
+    "network_calls_made": 0
+  },
+  "pass3_face_consistency": {
+    "scan_id": "cg-2026-10-01T15-43-01-927Z",
+    "scanned_directory": "/data/hermes-home/profiles/hermes-ceo/assets/film_qc/continuityguard/pulse_20261001/.stage/faces",
+    "clips_scanned": 8,
+    "frames_extracted": 747,
+    "character_consistency": {
+      "characters_tracked": 2,
+      "similarity_threshold": 0.88,
+      "flagged_shots": []
+    },
+    "physics_plausibility": {
+      "discontinuity_multiplier": 3,
+      "flagged_shots": [
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 1,
+          "frame_index_b": 2,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 4,
+          "frame_index_b": 5,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 6,
+          "frame_index_b": 7,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 8,
+          "frame_index_b": 9,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 11,
+          "frame_index_b": 12,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 13,
+          "frame_index_b": 14,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 15,
+          "frame_index_b": 16,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 17,
+          "frame_index_b": 18,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 20,
+          "frame_index_b": 21,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 22,
+          "frame_index_b": 23,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 24,
+          "frame_index_b": 25,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 27,
+          "frame_index_b": 28,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 29,
+          "frame_index_b": 30,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 31,
+          "frame_index_b": 32,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 34,
+          "frame_index_b": 35,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 38,
+          "frame_index_b": 39,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 40,
+          "frame_index_b": 41,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 43,
+          "frame_index_b": 44,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 45,
+          "frame_index_b": 46,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 47,
+          "frame_index_b": 48,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 50,
+          "frame_index_b": 51,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 52,
+          "frame_index_b": 53,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 54,
+          "frame_index_b": 55,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 57,
+          "frame_index_b": 58,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 59,
+          "frame_index_b": 60,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 61,
+          "frame_index_b": 62,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 63,
+          "frame_index_b": 64,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 66,
+          "frame_index_b": 67,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 68,
+          "frame_index_b": 69,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 70,
+          "frame_index_b": 71,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 75,
+          "frame_index_b": 76,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 77,
+          "frame_index_b": 78,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 80,
+          "frame_index_b": 81,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 82,
+          "frame_index_b": 83,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 84,
+          "frame_index_b": 85,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 86,
+          "frame_index_b": 87,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 89,
+          "frame_index_b": 90,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 91,
+          "frame_index_b": 92,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 93,
+          "frame_index_b": 94,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 96,
+          "frame_index_b": 97,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 98,
+          "frame_index_b": 99,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 100,
+          "frame_index_b": 101,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 103,
+          "frame_index_b": 104,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 105,
+          "frame_index_b": 106,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 107,
+          "frame_index_b": 108,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 109,
+          "frame_index_b": 110,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 112,
+          "frame_index_b": 113,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 114,
+          "frame_index_b": 115,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 116,
+          "frame_index_b": 117,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 119,
+          "frame_index_b": 120,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S01.mp4",
+          "frame_index_a": 121,
+          "frame_index_b": 122,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 1,
+          "frame_index_b": 2,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 4,
+          "frame_index_b": 5,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 6,
+          "frame_index_b": 7,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 8,
+          "frame_index_b": 9,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 11,
+          "frame_index_b": 12,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 13,
+          "frame_index_b": 14,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 15,
+          "frame_index_b": 16,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 17,
+          "frame_index_b": 18,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 20,
+          "frame_index_b": 21,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 22,
+          "frame_index_b": 23,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 24,
+          "frame_index_b": 25,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 27,
+          "frame_index_b": 28,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 29,
+          "frame_index_b": 30,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 31,
+          "frame_index_b": 32,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 34,
+          "frame_index_b": 35,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 38,
+          "frame_index_b": 39,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 40,
+          "frame_index_b": 41,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 43,
+          "frame_index_b": 44,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 45,
+          "frame_index_b": 46,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 47,
+          "frame_index_b": 48,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 50,
+          "frame_index_b": 51,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 52,
+          "frame_index_b": 53,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 54,
+          "frame_index_b": 55,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 57,
+          "frame_index_b": 58,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 59,
+          "frame_index_b": 60,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 61,
+          "frame_index_b": 62,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 63,
+          "frame_index_b": 64,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 66,
+          "frame_index_b": 67,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 68,
+          "frame_index_b": 69,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 70,
+          "frame_index_b": 71,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 75,
+          "frame_index_b": 76,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 77,
+          "frame_index_b": 78,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 80,
+          "frame_index_b": 81,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 82,
+          "frame_index_b": 83,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 84,
+          "frame_index_b": 85,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 86,
+          "frame_index_b": 87,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 89,
+          "frame_index_b": 90,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 91,
+          "frame_index_b": 92,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 93,
+          "frame_index_b": 94,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 96,
+          "frame_index_b": 97,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 98,
+          "frame_index_b": 99,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S02.mp4",
+          "frame_index_a": 100,
+          "frame_index_b": 101,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 1,
+          "frame_index_b": 2,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 4,
+          "frame_index_b": 5,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 6,
+          "frame_index_b": 7,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 8,
+          "frame_index_b": 9,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 11,
+          "frame_index_b": 12,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 13,
+          "frame_index_b": 14,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 15,
+          "frame_index_b": 16,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 17,
+          "frame_index_b": 18,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 20,
+          "frame_index_b": 21,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 22,
+          "frame_index_b": 23,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 24,
+          "frame_index_b": 25,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 27,
+          "frame_index_b": 28,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 29,
+          "frame_index_b": 30,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 31,
+          "frame_index_b": 32,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 34,
+          "frame_index_b": 35,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 38,
+          "frame_index_b": 39,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 40,
+          "frame_index_b": 41,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 43,
+          "frame_index_b": 44,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 45,
+          "frame_index_b": 46,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 47,
+          "frame_index_b": 48,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 50,
+          "frame_index_b": 51,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 52,
+          "frame_index_b": 53,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 54,
+          "frame_index_b": 55,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 57,
+          "frame_index_b": 58,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 59,
+          "frame_index_b": 60,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 61,
+          "frame_index_b": 62,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 63,
+          "frame_index_b": 64,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 66,
+          "frame_index_b": 67,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 68,
+          "frame_index_b": 69,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 70,
+          "frame_index_b": 71,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 75,
+          "frame_index_b": 76,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 77,
+          "frame_index_b": 78,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 80,
+          "frame_index_b": 81,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 82,
+          "frame_index_b": 83,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 84,
+          "frame_index_b": 85,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 86,
+          "frame_index_b": 87,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 89,
+          "frame_index_b": 90,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 91,
+          "frame_index_b": 92,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 93,
+          "frame_index_b": 94,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 96,
+          "frame_index_b": 97,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 98,
+          "frame_index_b": 99,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 100,
+          "frame_index_b": 101,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 103,
+          "frame_index_b": 104,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 105,
+          "frame_index_b": 106,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 107,
+          "frame_index_b": 108,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S03.mp4",
+          "frame_index_a": 109,
+          "frame_index_b": 110,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 1,
+          "frame_index_b": 2,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 4,
+          "frame_index_b": 5,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 6,
+          "frame_index_b": 7,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 8,
+          "frame_index_b": 9,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 11,
+          "frame_index_b": 12,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 13,
+          "frame_index_b": 14,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 15,
+          "frame_index_b": 16,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 17,
+          "frame_index_b": 18,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 20,
+          "frame_index_b": 21,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 22,
+          "frame_index_b": 23,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 24,
+          "frame_index_b": 25,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 27,
+          "frame_index_b": 28,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 29,
+          "frame_index_b": 30,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 31,
+          "frame_index_b": 32,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 34,
+          "frame_index_b": 35,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 38,
+          "frame_index_b": 39,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 40,
+          "frame_index_b": 41,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 43,
+          "frame_index_b": 44,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 45,
+          "frame_index_b": 46,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 47,
+          "frame_index_b": 48,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 50,
+          "frame_index_b": 51,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 52,
+          "frame_index_b": 53,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 54,
+          "frame_index_b": 55,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 57,
+          "frame_index_b": 58,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 59,
+          "frame_index_b": 60,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 61,
+          "frame_index_b": 62,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 63,
+          "frame_index_b": 64,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 66,
+          "frame_index_b": 67,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 68,
+          "frame_index_b": 69,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 70,
+          "frame_index_b": 71,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 75,
+          "frame_index_b": 76,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 77,
+          "frame_index_b": 78,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 80,
+          "frame_index_b": 81,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 82,
+          "frame_index_b": 83,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 84,
+          "frame_index_b": 85,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 86,
+          "frame_index_b": 87,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 89,
+          "frame_index_b": 90,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 91,
+          "frame_index_b": 92,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 93,
+          "frame_index_b": 94,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 96,
+          "frame_index_b": 97,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 98,
+          "frame_index_b": 99,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 100,
+          "frame_index_b": 101,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 103,
+          "frame_index_b": 104,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 105,
+          "frame_index_b": 106,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 107,
+          "frame_index_b": 108,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 109,
+          "frame_index_b": 110,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 112,
+          "frame_index_b": 113,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 114,
+          "frame_index_b": 115,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 116,
+          "frame_index_b": 117,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 119,
+          "frame_index_b": 120,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 121,
+          "frame_index_b": 122,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S04.mp4",
+          "frame_index_a": 123,
+          "frame_index_b": 124,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 1,
+          "frame_index_b": 2,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 4,
+          "frame_index_b": 5,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 6,
+          "frame_index_b": 7,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 8,
+          "frame_index_b": 9,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 11,
+          "frame_index_b": 12,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 13,
+          "frame_index_b": 14,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 15,
+          "frame_index_b": 16,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 17,
+          "frame_index_b": 18,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 20,
+          "frame_index_b": 21,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 22,
+          "frame_index_b": 23,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 24,
+          "frame_index_b": 25,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 27,
+          "frame_index_b": 28,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 29,
+          "frame_index_b": 30,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 31,
+          "frame_index_b": 32,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 34,
+          "frame_index_b": 35,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 38,
+          "frame_index_b": 39,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 40,
+          "frame_index_b": 41,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 43,
+          "frame_index_b": 44,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 45,
+          "frame_index_b": 46,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 47,
+          "frame_index_b": 48,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 50,
+          "frame_index_b": 51,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 52,
+          "frame_index_b": 53,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 54,
+          "frame_index_b": 55,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 57,
+          "frame_index_b": 58,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 59,
+          "frame_index_b": 60,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 61,
+          "frame_index_b": 62,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 63,
+          "frame_index_b": 64,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 66,
+          "frame_index_b": 67,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 68,
+          "frame_index_b": 69,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 70,
+          "frame_index_b": 71,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 75,
+          "frame_index_b": 76,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 77,
+          "frame_index_b": 78,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 80,
+          "frame_index_b": 81,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 82,
+          "frame_index_b": 83,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 84,
+          "frame_index_b": 85,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 86,
+          "frame_index_b": 87,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 89,
+          "frame_index_b": 90,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S05.mp4",
+          "frame_index_a": 91,
+          "frame_index_b": 92,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 1,
+          "frame_index_b": 2,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 4,
+          "frame_index_b": 5,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 6,
+          "frame_index_b": 7,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 8,
+          "frame_index_b": 9,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 11,
+          "frame_index_b": 12,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 13,
+          "frame_index_b": 14,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 15,
+          "frame_index_b": 16,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 17,
+          "frame_index_b": 18,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 20,
+          "frame_index_b": 21,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 22,
+          "frame_index_b": 23,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 24,
+          "frame_index_b": 25,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 27,
+          "frame_index_b": 28,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 29,
+          "frame_index_b": 30,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 31,
+          "frame_index_b": 32,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 34,
+          "frame_index_b": 35,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 38,
+          "frame_index_b": 39,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 40,
+          "frame_index_b": 41,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 43,
+          "frame_index_b": 44,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 45,
+          "frame_index_b": 46,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "mileochen_FC-S07.mp4",
+          "frame_index_a": 47,
+          "frame_index_b": 48,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 1,
+          "frame_index_b": 2,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 4,
+          "frame_index_b": 5,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 6,
+          "frame_index_b": 7,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 8,
+          "frame_index_b": 9,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 11,
+          "frame_index_b": 12,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 13,
+          "frame_index_b": 14,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 15,
+          "frame_index_b": 16,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 17,
+          "frame_index_b": 18,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 20,
+          "frame_index_b": 21,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 22,
+          "frame_index_b": 23,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 24,
+          "frame_index_b": 25,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 27,
+          "frame_index_b": 28,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 29,
+          "frame_index_b": 30,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 31,
+          "frame_index_b": 32,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 34,
+          "frame_index_b": 35,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 38,
+          "frame_index_b": 39,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 40,
+          "frame_index_b": 41,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 43,
+          "frame_index_b": 44,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 45,
+          "frame_index_b": 46,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 47,
+          "frame_index_b": 48,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 50,
+          "frame_index_b": 51,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 52,
+          "frame_index_b": 53,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 54,
+          "frame_index_b": 55,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 57,
+          "frame_index_b": 58,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 59,
+          "frame_index_b": 60,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 61,
+          "frame_index_b": 62,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 63,
+          "frame_index_b": 64,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 66,
+          "frame_index_b": 67,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 68,
+          "frame_index_b": 69,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 70,
+          "frame_index_b": 71,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 73,
+          "frame_index_b": 74,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 75,
+          "frame_index_b": 76,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 77,
+          "frame_index_b": 78,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S06.mp4",
+          "frame_index_a": 80,
+          "frame_index_b": 81,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 1,
+          "frame_index_b": 2,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 4,
+          "frame_index_b": 5,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 6,
+          "frame_index_b": 7,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 8,
+          "frame_index_b": 9,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 11,
+          "frame_index_b": 12,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 13,
+          "frame_index_b": 14,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 15,
+          "frame_index_b": 16,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 17,
+          "frame_index_b": 18,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 20,
+          "frame_index_b": 21,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 22,
+          "frame_index_b": 23,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 24,
+          "frame_index_b": 25,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 27,
+          "frame_index_b": 28,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 29,
+          "frame_index_b": 30,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 31,
+          "frame_index_b": 32,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 34,
+          "frame_index_b": 35,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 36,
+          "frame_index_b": 37,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 38,
+          "frame_index_b": 39,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 40,
+          "frame_index_b": 41,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 43,
+          "frame_index_b": 44,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 45,
+          "frame_index_b": 46,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        },
+        {
+          "clip": "sierracatalano_FC-S08.mp4",
+          "frame_index_a": 47,
+          "frame_index_b": 48,
+          "discontinuity_ratio": -1,
+          "reason": "Frame-to-frame motion discontinuity far above this shot's local baseline. This is a heuristic proxy, not a physics simulator -- it flags the shot for human review, it does not detect a physics violation. Expect both false positives (legitimate fast motion, stylized jump-cuts) and false negatives."
+        }
+      ]
+    },
+    "generated_at": "2026-10-01T15:44:11.009Z",
+    "tool_version": "0.1.5",
+    "scan_duration_seconds": 69.081,
+    "network_calls_made": 0
+  }
+}

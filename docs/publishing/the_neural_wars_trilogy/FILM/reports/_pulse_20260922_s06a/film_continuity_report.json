@@ -1,0 +1,35 @@
+{
+  "tool": "ContinuityGuard",
+  "tool_version": "0.1.5",
+  "film_root": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM",
+  "scenes": [
+    "FC-S06A"
+  ],
+  "generated_at": "2026-09-22T16:09:45Z",
+  "cg_fps": 2.3,
+  "preflight": {
+    "FC-S06A": {
+      "cut": null,
+      "status": "MISSING_CUT"
+    }
+  },
+  "pass1_cut_physics": {},
+  "pass2_shot_physics": {},
+  "pass3_face_consistency": {
+    "staging": {
+      "exit_code": 0,
+      "clips": [],
+      "clips_written": [],
+      "clips_skipped": [
+        {
+          "scene": "FC-S06A",
+          "reason": "no_cut_file"
+        }
+      ],
+      "stderr_tail": null
+    },
+    "note": "no face clips staged"
+  },
+  "raw_scans": {},
+  "duration_seconds": 0.85
+}

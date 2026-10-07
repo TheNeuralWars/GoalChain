@@ -1,0 +1,235 @@
+{
+ "units": [
+  {
+   "tag": "B1",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/units/B1_B1_harvest_city.mp4",
+   "dur": 0.0
+  },
+  {
+   "tag": "K1",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/knots/K1_soul_harvester_scene.mp4",
+   "dur": 15.926
+  },
+  {
+   "tag": "A",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/units/BLK_A.mp4",
+   "dur": 191.561
+  },
+  {
+   "tag": "B2",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/units/B2_B2_coil_awakening.mp4",
+   "dur": 6.041667
+  },
+  {
+   "tag": "K2",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/knots/K2_the_fracture_scene.mp4",
+   "dur": 15.756
+  },
+  {
+   "tag": "K3",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/knots/K3_the_vow_scene.mp4",
+   "dur": 8.25
+  },
+  {
+   "tag": "B",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/units/BLK_B.mp4",
+   "dur": 88.156
+  },
+  {
+   "tag": "B3",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/units/B3_B3_harvest_begins.mp4",
+   "dur": 6.041667
+  },
+  {
+   "tag": "K4",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/knots/K4_the_words_scene.mp4",
+   "dur": 9.125
+  },
+  {
+   "tag": "K5",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/knots/K5_not_me_afterward_scene.mp4",
+   "dur": 10.25
+  },
+  {
+   "tag": "S6A",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/graded/fade/FC-S06A_239_f.mp4",
+   "dur": 24.213
+  },
+  {
+   "tag": "K6",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/knots/K6_the_counterattack_scene.mp4",
+   "dur": 11.75
+  },
+  {
+   "tag": "B4",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/units/B4_B4_counterattack.mp4",
+   "dur": 6.041667
+  },
+  {
+   "tag": "C",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/units/BLK_C.mp4",
+   "dur": 80.435
+  },
+  {
+   "tag": "K7",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/knots/K7_the_chair_scene.mp4",
+   "dur": 20.166667
+  },
+  {
+   "tag": "B5",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/units/B5_B5_renaissance.mp4",
+   "dur": 6.041667
+  },
+  {
+   "tag": "K8",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/knots/K8_make_it_stop_scene.mp4",
+   "dur": 9.25
+  },
+  {
+   "tag": "B6",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/units/B6_B6_gardeners.mp4",
+   "dur": 6.041667
+  },
+  {
+   "tag": "K9",
+   "path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/v8/knots/K9_the_invitation_scene.mp4",
+   "dur": 9.0
+  }
+ ],
+ "dialogue": [
+  {
+   "knot": "K1_soul_harvester",
+   "lines": [
+    {
+     "t": 1.0,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K1_01.wav"
+    },
+    {
+     "t": 5.461633,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K1_02.wav"
+    },
+    {
+     "t": 11.830204,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K1_03.wav"
+    }
+   ]
+  },
+  {
+   "knot": "K2_the_fracture",
+   "lines": [
+    {
+     "t": 1.0,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K2_01.wav"
+    },
+    {
+     "t": 5.8273470000000005,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K2_02.wav"
+    }
+   ]
+  },
+  {
+   "knot": "K3_the_vow",
+   "lines": [
+    {
+     "t": 1.0,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K3_01.wav"
+    },
+    {
+     "t": 5.351837,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K3_02.wav"
+    }
+   ]
+  },
+  {
+   "knot": "K4_the_words",
+   "lines": [
+    {
+     "t": 1.0,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K4_01.wav"
+    },
+    {
+     "t": 4.489796,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K4_02.wav"
+    }
+   ]
+  },
+  {
+   "knot": "K5_not_me_afterward",
+   "lines": [
+    {
+     "t": 1.0,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K5_01.wav"
+    },
+    {
+     "t": 3.6069389999999997,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K5_02.wav"
+    },
+    {
+     "t": 7.676735,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K5_03.wav"
+    }
+   ]
+  },
+  {
+   "knot": "K6_the_counterattack",
+   "lines": [
+    {
+     "t": 1.0,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K6_01.wav"
+    },
+    {
+     "t": 4.808571,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K6_02.wav"
+    }
+   ]
+  },
+  {
+   "knot": "K7_the_chair",
+   "lines": [
+    {
+     "t": 1.0,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K7_01.wav"
+    },
+    {
+     "t": 8.152245,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K7_02.wav"
+    },
+    {
+     "t": 10.988980000000002,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K7_03.wav"
+    },
+    {
+     "t": 15.215511000000001,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K7_04.wav"
+    }
+   ]
+  },
+  {
+   "knot": "K8_make_it_stop",
+   "lines": [
+    {
+     "t": 1.0,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K8_01.wav"
+    },
+    {
+     "t": 3.166531,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K8_02.wav"
+    }
+   ]
+  },
+  {
+   "knot": "K9_the_invitation",
+   "lines": [
+    {
+     "t": 1.0,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K9_01.wav"
+    },
+    {
+     "t": 4.103265,
+     "wav": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/edit/knots/vo2/K9_02.wav"
+    }
+   ]
+  }
+ ],
+ "xfade": 0.7
+}

@@ -1,0 +1,228 @@
+{
+  "scene_id": "FC-AX",
+  "title": "The Architect Presence \u2014 Insert Shots (docs only)",
+  "book": "Fractured Code",
+  "phase": "antagonist_presence_v3",
+  "max_shots": 5,
+  "notes": "Architect threat/surveillance inserts. Do NOT delete S01\u2013S08 or S06A. Lengthens conform (~382s v2). NO generation this pass. reference_images empty for Hermes. Presence: almost null body \u2014 indigo Coil motif, drones, mesh flicker, empty eyes, distant silhouette or system gaze. PG-13. | Gate C complete 2026-09-16: all 5 i2v clips QC PASS.",
+  "visual_grammar": {
+    "aspect": "16:9 horizontal target feel anamorphic 2.39",
+    "lighting": "chiaroscuro, volumetric fog, Cascade indigo residual vs steel Neo-Citania, cold sweep beams",
+    "rating": "PG-13",
+    "presence_rule": "threat/surveillance \u2014 NOT full-body face reveal",
+    "forbidden_in_prompts": [
+      "readable text",
+      "logos",
+      "carteles",
+      "signage",
+      "Mark",
+      "upper frame",
+      "quad-split",
+      "HUD text",
+      "unit IDs",
+      "Resistencia as text",
+      "NeuroSys as text",
+      "Architect as on-screen label"
+    ]
+  },
+  "wardrobe_doc": "../wardrobe.md",
+  "lock_sheet_id": "LOCK_SHEET_THE_ARCHITECT",
+  "status": "rendered_qc_pass",
+  "shots": [
+    {
+      "id": "FC-AX01",
+      "order": 1,
+      "duration_s": 5,
+      "insert_slot": "between_S02_S03",
+      "assembly_after": "FC-S02",
+      "assembly_before": "FC-S03",
+      "camera": "descending POV through surveillance aperture \u2014 single lock-off drift",
+      "framing": "POV wide settling to medium",
+      "character_ids": [
+        "the_architect"
+      ],
+      "characters": [
+        "The Architect"
+      ],
+      "wardrobe_ref": "n/a \u2014 system gaze; steel + Cascade indigo residual only",
+      "location_id": "vent_shaft",
+      "location": "Sector 17 ventilation shaft \u2014 system gaze down the ladder well",
+      "action": "After Forgotten Labyrinth descent: cold system-gaze POV peers down the vent shaft; indigo residual flickers in the metal throat; fog swallows depth \u2014 Architect as surveillance, not body.",
+      "cues": [
+        "editorial: insert between S02 cut and S03 establishing"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_THE_ARCHITECT",
+      "lock_sheet_ids": [
+        "LOCK_SHEET_THE_ARCHITECT"
+      ],
+      "reference_images": [
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX01.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX01.mp4",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/front_34.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/bust.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/profile.png"
+      ],
+      "image_prompt": "Cinematic single-camera POV through a cold surveillance aperture looking down a Neo-Citania ventilation shaft ladder well, volumetric fog Atmosphere (#000000 / #301934), steel grey walls (#708090 / #C0C0C0), faint Cascade indigo residual rim light (#4B0082 / #3F00FF / #0080FF) flickering along wet metal ribs, depth swallowing into black \u2014 The Architect presence as system gaze only, no human face readable, blank optics glow shapes only. Photoreal anamorphic 2.39 feel, chiaroscuro, PG-13. One camera. NO readable text, NO logos, NO signage, NO HUD strings, NO carteles in frame.",
+      "video_prompt": "Slow downward drift through aperture; indigo residual pulse once then fade; fog rolls; ladder rungs slide past; continuous single beat from still. NO readable text, NO logos, NO HUD.",
+      "status": "rendered_qc_pass",
+      "render_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX01.mp4",
+      "seed_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX01.png"
+    },
+    {
+      "id": "FC-AX02",
+      "order": 2,
+      "duration_s": 5,
+      "insert_slot": "between_S05_S06",
+      "assembly_after": "FC-S05",
+      "assembly_before": "FC-S06",
+      "camera": "medium lock-off on vacant linked faces \u2014 slow push-in",
+      "framing": "medium",
+      "character_ids": [
+        "the_architect"
+      ],
+      "characters": [
+        "The Architect"
+      ],
+      "wardrobe_ref": "anonymous linked civilians \u2014 steel grey layers hex only; Architect off-screen",
+      "location_id": "medical_bay_yggdrasil",
+      "location": "Fracturados medical bay threshold \u2014 corridor beyond with linked compliance ghosts",
+      "action": "Bridge from Yggdrasil fracture to Protocol Delta pressure: mid-distance anonymous linked figures with empty compliant eyes; neural mesh indigo flicker across glass; Architect felt as off-screen surveillance, not a body in frame.",
+      "cues": [
+        "editorial: empty eyes of compliance \u2014 no named leads required"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_THE_ARCHITECT",
+      "lock_sheet_ids": [
+        "LOCK_SHEET_THE_ARCHITECT"
+      ],
+      "reference_images": [
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX02.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX02.mp4",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/front_34.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/bust.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/profile.png"
+      ],
+      "image_prompt": "Medium cinematic single camera: anonymous mid-distance linked civilians in steel-grey utilitarian layers (#708090 / #C0C0C0 / #000000), vacant compliant eyes catching a cold practical, faint neural-mesh indigo flicker (#4B0082 / #3F00FF) ghosting across medical glass and fog Atmosphere (#000000 / #301934) \u2014 The Architect as off-screen surveillance pressure, no antagonist face, no named leads. Photoreal anamorphic 2.39 feel, chiaroscuro, volumetric haze, PG-13. One camera. NO readable text, NO logos, NO signage, NO carteles in frame.",
+      "video_prompt": "Slow push-in; mesh indigo flicker across glass then dies; vacant stares hold; fog drifts; continuous from still. NO readable text, NO logos.",
+      "status": "rendered_qc_pass",
+      "render_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX02.mp4",
+      "seed_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX02.png"
+    },
+    {
+      "id": "FC-AX03",
+      "order": 3,
+      "duration_s": 6,
+      "insert_slot": "pre_S06A",
+      "assembly_after": "FC-S06",
+      "assembly_before": "FC-S06A",
+      "camera": "extreme wide corridor \u2014 cold sweep beams rake mesh",
+      "framing": "extreme wide",
+      "character_ids": [
+        "the_architect"
+      ],
+      "characters": [
+        "The Architect"
+      ],
+      "wardrobe_ref": "n/a \u2014 drones + Coil residual",
+      "location_id": "fracturados_redoubt",
+      "location": "Eastern service corridor mouth \u2014 pre-breach stillness",
+      "action": "Pre-action insert before Protocol Delta sprint: corridor holds empty; abstract drone silhouettes gather at far junction; indigo Coil residual crawls the copper mesh \u2014 Architect threat grammar before Kora/Mileo run.",
+      "cues": [
+        "editorial: hold threat then cut into FC-S06A-01 sprint"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_THE_ARCHITECT",
+      "lock_sheet_ids": [
+        "LOCK_SHEET_THE_ARCHITECT"
+      ],
+      "reference_images": [
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX03.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX03.mp4",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/front_34.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/bust.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/profile.png"
+      ],
+      "image_prompt": "Extreme wide cinematic single camera: empty eastern service corridor in Fracturados redoubt, braided copper mesh accents (#B87333) without lettering, Atmosphere fog (#000000 / #301934), abstract assault-drone silhouettes at far junction NO logos NO unit markings, cold sweep beams, deep indigo Coil residual crawling along mesh edges (#4B0082 / #3F00FF / #0080FF) \u2014 The Architect presence as drone swarm and Coil motif only, no human antagonist body. Photoreal anamorphic 2.39 feel, chiaroscuro, scale contrast, PG-13. One camera. NO readable text, NO logos, NO signage, NO carteles in frame.",
+      "video_prompt": "Sweep beams rake mesh; drones drift as abstract shapes; indigo Coil residual pulses once; fog settles; lock-off hold. NO readable text, NO logos.",
+      "status": "rendered_qc_pass",
+      "render_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX03.mp4",
+      "seed_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX03.png"
+    },
+    {
+      "id": "FC-AX04",
+      "order": 4,
+      "duration_s": 5,
+      "insert_slot": "pre_S08",
+      "assembly_after": "FC-S07",
+      "assembly_before": "FC-S08",
+      "camera": "long-lens compressed wide \u2014 distant silhouette",
+      "framing": "extreme wide compressed",
+      "character_ids": [
+        "the_architect"
+      ],
+      "characters": [
+        "The Architect"
+      ],
+      "wardrobe_ref": "veiled monolithic silhouette \u2014 steel/void hex; Coil as light only",
+      "location_id": "residential_mauve_district",
+      "location": "Neo-Citania surface residential canyon \u2014 far end of street before Node 17",
+      "action": "Pre-S08: distant veiled Architect silhouette at the far end of a residential canyon; face unreadable in fog; indigo Coil glow at chest height only \u2014 threat without reveal before sanitation-stack breach.",
+      "cues": [
+        "editorial: silhouette only \u2014 never clear face"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_THE_ARCHITECT",
+      "lock_sheet_ids": [
+        "LOCK_SHEET_THE_ARCHITECT"
+      ],
+      "reference_images": [
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX04.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX04.mp4",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/front_34.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/bust.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/profile.png"
+      ],
+      "image_prompt": "Extreme wide long-lens cinematic single camera: Neo-Citania residential canyon steel and glass (#708090 / #C0C0C0 / #F8F8FF / #4682B4), volumetric night fog Atmosphere (#000000 / #301934), a distant veiled monolithic silhouette at street vanishing point \u2014 face fully unreadable, no portrait detail \u2014 faint Cascade indigo Coil glow at chest height (#4B0082 / #3F00FF / #0080FF), tiny empty street, The Architect as distant threat silhouette only. Photoreal anamorphic 2.39 feel, chiaroscuro, scale contrast, PG-13. One camera. NO readable text, NO logos, NO signage, NO carteles in frame.",
+      "video_prompt": "Fog breathes; indigo chest glow pulses once; silhouette holds motionless; distant cold practicals flicker; continuous from still. NO readable text, NO logos.",
+      "status": "rendered_qc_pass",
+      "render_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX04.mp4",
+      "seed_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX04.png"
+    },
+    {
+      "id": "FC-AX05",
+      "order": 5,
+      "duration_s": 4,
+      "insert_slot": "pre_S08",
+      "assembly_after": "FC-AX04",
+      "assembly_before": "FC-S08",
+      "camera": "tight abstract neural-mesh detail \u2014 micro push",
+      "framing": "extreme close abstract",
+      "character_ids": [
+        "the_architect"
+      ],
+      "characters": [
+        "The Architect"
+      ],
+      "wardrobe_ref": "n/a \u2014 Coil / mesh motif only",
+      "location_id": "node_17_sanitation_lock",
+      "location": "Node 17 sanitation lock \u2014 mesh residue on hatch glass",
+      "action": "Second pre-S08 beat: extreme close indigo neural-mesh flicker on sanitation hatch glass \u2014 Architect as symbol/system before surface breach; bridge into FC-S08.",
+      "cues": [
+        "editorial: motif sting then cut to FC-S08-01"
+      ],
+      "lock_sheet_id": "LOCK_SHEET_THE_ARCHITECT",
+      "lock_sheet_ids": [
+        "LOCK_SHEET_THE_ARCHITECT"
+      ],
+      "reference_images": [
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX05.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX05.mp4",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/front_34.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/bust.png",
+        "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/locks/refs/the_architect/profile.png"
+      ],
+      "image_prompt": "Extreme close cinematic single camera on sanitation hatch glass: faint geometric neural-mesh lines flickering in Cascade indigo (#4B0082 / #3F00FF / #0080FF) over steel wet surface (#708090 / #C0C0C0), Atmosphere purple-black reflection (#301934 / #000000), blank glow geometry only \u2014 The Architect as Coil/mesh motif, no face, no body. Photoreal anamorphic 2.39 feel, chiaroscuro, PG-13. One camera. NO readable text, NO logos, NO signage, NO HUD, NO carteles in frame.",
+      "video_prompt": "Mesh lines flicker awake then fade; micro push into glass reflection; single continuous sting. NO readable text, NO logos, NO HUD.",
+      "status": "rendered_qc_pass",
+      "render_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX05.mp4",
+      "seed_path": "/data/apps/GoalChain/docs/publishing/the_neural_wars_trilogy/FILM/renders/FC-AX/FC-AX05.png"
+    }
+  ]
+}

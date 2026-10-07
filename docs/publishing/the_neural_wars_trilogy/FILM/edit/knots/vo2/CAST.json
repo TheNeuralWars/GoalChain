@@ -1,0 +1,30 @@
+{
+ "K3_01": {
+  "character": "SIERRA",
+  "voice": "Lily",
+  "voice_id": "pFZP5JQG7iQjIQuC4Bku",
+  "text": "I'll find you. Whatever's left of you. I promise.",
+  "pacing": 0.85
+ },
+ "K4_01": {
+  "character": "SIERRA",
+  "voice": "Lily",
+  "voice_id": "pFZP5JQG7iQjIQuC4Bku",
+  "text": "Please don't make me forget the words.",
+  "pacing": 0.82
+ },
+ "K5_03": {
+  "character": "SIERRA",
+  "voice": "Lily",
+  "voice_id": "pFZP5JQG7iQjIQuC4Bku",
+  "text": "What if I'm not me afterward?",
+  "pacing": 0.85
+ },
+ "K7_03": {
+  "character": "SIERRA",
+  "voice": "Lily",
+  "voice_id": "pFZP5JQG7iQjIQuC4Bku",
+  "text": "Martin, do you maintain identity cohesion? Are you still you?",
+  "pacing": 0.85
+ }
+}
