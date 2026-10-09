@@ -9,6 +9,9 @@
  *   - dist/sitemap.xml            stamped with the build date
  *   - dist/robots.txt, dist/site.webmanifest, dist/assets/** (copied as-is)
  *   - dist/press/press-kit.zip    best-effort (python3 zipfile), skip if unavailable
+ *   - JSON-LD (schema.org) per page: WebPage everywhere, Organization + WebSite on
+ *     the home page, FAQPage on /faq generated from the visible <details> Q&As
+ *     (validated at build time — the build fails if the schema would drift)
  *
  * Page files start with a meta comment:
  *   <!-- meta {"slug":"about","title":"…","description":"…","nav":"ABOUT","preload":"…"} -->
@@ -43,6 +46,92 @@ function fill(tpl, vars) {
   );
 }
 
+// ---- JSON-LD structured data (schema.org) ----
+// Generated from the same page source as the visible HTML so the markup can never
+// drift from what visitors read (search engines require FAQ answers to be visible).
+
+const SITE_ID = `${ORIGIN}/#website`;
+const ORG_ID = `${ORIGIN}/#organization`;
+
+const ENTITY_MAP = {
+  amp: "&", lt: "<", gt: ">", quot: '"', nbsp: "\u00a0",
+  mdash: "\u2014", ndash: "\u2013", hellip: "\u2026",
+  rarr: "\u2192", larr: "\u2190", middot: "\u00b7", copy: "\u00a9",
+  ldquo: "\u201c", rdquo: "\u201d", lsquo: "\u2018", rsquo: "\u2019",
+};
+
+function decodeEntities(s) {
+  return s
+    .replace(/&#x([0-9a-f]+);/gi, (all, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (all, d) => String.fromCodePoint(Number(d)))
+    .replace(/&([a-z]+);/gi, (all, name) => ENTITY_MAP[name] ?? all);
+}
+
+function plainText(html) {
+  return decodeEntities(html.replace(/<[^>]*>/g, " ")).replace(/\s+/g, " ").trim();
+}
+
+function extractFaqs(body) {
+  const faqs = [];
+  const re = /<details[^>]*class="faq-item"[^>]*>\s*<summary>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g;
+  let m;
+  while ((m = re.exec(body))) {
+    const q = plainText(m[1]);
+    const a = plainText(m[2]);
+    if (q && a) faqs.push({ q, a });
+  }
+  return faqs;
+}
+
+function buildJsonLd(slug, canonical, meta, body) {
+  if (slug === "404") return "";
+  const graph = [
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: meta.title,
+      description: meta.description,
+      inLanguage: "en",
+      isPartOf: { "@id": SITE_ID },
+    },
+  ];
+  if (slug === "index") {
+    graph.push({
+      "@type": "WebSite",
+      "@id": SITE_ID,
+      url: `${ORIGIN}/`,
+      name: "GoalWorld",
+      description: meta.description,
+      inLanguage: "en",
+      publisher: { "@id": ORG_ID },
+    });
+    graph.push({
+      "@type": "Organization",
+      "@id": ORG_ID,
+      name: "GoalWorld",
+      url: `${ORIGIN}/`,
+      logo: { "@type": "ImageObject", url: `${ORIGIN}/assets/img/icon-512.png` },
+      sameAs: ["https://x.com/nicopez", "https://github.com/TheNeuralWars/GoalChain"],
+    });
+  }
+  if (slug === "faq") {
+    const faqs = extractFaqs(body);
+    if (!faqs.length) throw new Error("faq page: no faq-item blocks found for FAQPage schema");
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${canonical}#faqpage`,
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
+  // Escape "<" so the payload can never terminate the <script> block early.
+  return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c");
+}
+
 function build() {
   rmSync(DIST, { recursive: true, force: true });
   mkdirSync(DIST, { recursive: true });
@@ -57,11 +146,13 @@ function build() {
     const isHome = slug === "index";
     const canonical = isHome ? `${ORIGIN}/` : `${ORIGIN}/${slug}.html`;
     const nav = Object.fromEntries(NAV_KEYS.map((k) => [`NAV_${k}`, meta.nav === k ? ' aria-current="page"' : ""]));
+    const jsonLd = buildJsonLd(slug, canonical, meta, body);
     const html = fill(layout, {
       TITLE: meta.title,
       DESC: meta.description,
       CANONICAL: canonical,
       PRELOAD: meta.preload || "",
+      JSONLD: jsonLd ? `<script type="application/ld+json">${jsonLd}</script>` : "",
       BODY: body,
       ...nav,
     });
@@ -111,6 +202,35 @@ function build() {
     if (!/rel="canonical"/.test(html)) throw new Error(`missing canonical: ${f}`);
     if (!/og:image/.test(html)) throw new Error(`missing og:image: ${f}`);
     if (!/<meta name="description"/.test(html)) throw new Error(`missing description: ${f}`);
+
+    // JSON-LD sanity: parse back what actually landed in the page
+    const ldBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+    if (f === "404.html") {
+      if (ldBlocks.length) throw new Error(`404.html should carry no JSON-LD`);
+      continue;
+    }
+    if (!ldBlocks.length) throw new Error(`missing JSON-LD: ${f}`);
+    const graph = ldBlocks.flatMap((b) => {
+      const parsed = JSON.parse(b[1]);
+      return Array.isArray(parsed["@graph"]) ? parsed["@graph"] : [parsed];
+    });
+    const canonicalHref = (html.match(/rel="canonical" href="([^"]+)"/) || [])[1];
+    const webPage = graph.find((n) => n["@type"] === "WebPage");
+    if (!webPage || webPage.url !== canonicalHref) {
+      throw new Error(`WebPage url != canonical in ${f}: ${webPage && webPage.url} vs ${canonicalHref}`);
+    }
+    if (f === "index.html") {
+      for (const t of ["Organization", "WebSite"]) {
+        if (!graph.some((n) => n["@type"] === t)) throw new Error(`index.html missing ${t} node`);
+      }
+    }
+    if (f === "faq.html") {
+      const faqPage = graph.find((n) => n["@type"] === "FAQPage");
+      const itemCount = (html.match(/class="faq-item"/g) || []).length;
+      if (!faqPage || !Array.isArray(faqPage.mainEntity) || faqPage.mainEntity.length !== itemCount) {
+        throw new Error(`FAQPage mainEntity (${faqPage && faqPage.mainEntity && faqPage.mainEntity.length}) != visible faq-item count (${itemCount})`);
+      }
+    }
   }
   console.log(`  sanity OK — ${pageFiles.length} pages built into ${DIST}`);
 }

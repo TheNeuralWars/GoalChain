@@ -34,6 +34,11 @@ Output: `dist/` with `index.html`, `<page>.html`, an extensionless mirror
 `sitemap.xml`, `robots.txt`, `site.webmanifest`, `assets/`, and
 `assets/img/press/press-kit.zip`.
 
+Every page also ships JSON-LD structured data (schema.org): a `WebPage` node on all
+pages, `Organization` + `WebSite` on the home page, and `FAQPage` on `/faq` generated
+from the visible Q&A text (build-time validation keeps the schema in lockstep with the
+page — the build fails before shipping if they would drift).
+
 ## Pages
 
 | Page | URL | What |
