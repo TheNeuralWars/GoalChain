@@ -122,3 +122,47 @@ One entry per daily run (newest last).
   total weight), so the JSON-LD is perf- and CLS-neutral. a11y/BP/SEO 100 everywhere —
   no regression.
 - **Reverted:** n (deploy verified healthy on live; rollback point kept).
+
+
+## 2026-10-10 run 20261010T024706Z
+
+- **What:** Route-level code splitting for the webapp (play.goalworld.fun): the heavy
+  route portals (GoalWorldPortal, KindleReader + 357 KB booksData lore,
+  CorporateAutopilot, MarketingControlCenter, PressKit, GenesisCollectionGallery,
+  TokenizedAgentsDashboard, AuthorStudio, Estadio/DeFi/Club portals) are now
+  `React.lazy` on-demand chunks instead of being eagerly imported in `App.tsx`.
+  PlayLayout / DashboardGrid / LandingPage / ClassicHub stay eager for first paint.
+  A shared Suspense fallback with a new `route_loading` i18n key (en/es +
+  TranslationKeys) replaces nothing user-visible — it only shows during chunk fetch.
+- **Why:** Every visitor downloaded all portals + the entire lore corpus in the
+  first-paint bundle (810 KB main JS) before seeing anything. First-paint JS is now
+  165 KB (-80%): live main bundle 810,870 → 165,112 bytes; biggest new on-demand
+  chunks KindleReader 374 KB (lore), CorporateAutopilot 70 KB, GoalWorldPortal 63 KB.
+- **Commit SHA (merge):** `0f1c9ea7` (PR #891, feature commit `dc7594cb`).
+  Pre-merge `origin/main` = `e0b5840e` (rollback: `git revert -m 1 0f1c9ea7` + push —
+  Vercel redeploys the previous build automatically). Landing site untouched.
+- **Live link:** https://play.goalworld.fun (routes /goalworld, /reader, /autopilot,
+  /coleccion re-verified on production after deploy).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261010T024706Z/`
+  (build-before.txt / build-after.txt exit 0 — tsc + vite; tests.txt exit 0 —
+  check-i18n 282 used keys, en/es/type in sync; chunks-before.txt /
+  chunks-after.txt; smoke-before.txt / smoke-after.txt — HTTP 200, main JS
+  810,870 → 165,112; dom/ 16-route headless-Chrome checks on local preview +
+  dom-live/ 5-route checks on production — all expected headings render, zero raw
+  i18n-key leaks, zero stuck "Loading..." fallbacks; linkcheck.txt — 0 broken
+  internal links incl. new chunk URLs, 2 pre-existing external 404s in untouched
+  PressKit.tsx; lighthouse-live-before.json / lighthouse-preview-after.json /
+  lighthouse-live-after.json).
+  Lighthouse (mobile throttled, home page):
+  | run | perf | a11y | BP | SEO | CLS | LCP | FCP |
+  |---|---|---|---|---|---|---|---|
+  | live before | 68 | 100 | 100 | 100 | 0 | 6.5 s | 3.8 s |
+  | local preview after | 94 | 100 | 96* | 100 | 0 | 2.5 s | 2.5 s |
+  | live after | 93 | 100 | 100 | 100 | 0 | 2.6 s | 2.5 s |
+  *BP 96 on localhost is an environment artifact only: `/_vercel/insights/script.js`
+  404s outside Vercel (live serves it — BP 100 before and after).
+- **Reverted:** n (deploy verified healthy on live; rollback point kept).
+- **Follow-ups noted (not done):** wallet-adapter's own strings and the logged-out
+  "✨ Create account" label remain English-only (deferred from 2026-10-07);
+  en+es locale JSON (~68 KB) is still bundled in the main chunk — lazy locale
+  loading is a possible next win.
