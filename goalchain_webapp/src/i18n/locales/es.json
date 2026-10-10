@@ -239,6 +239,7 @@
   "stad_aether_desc": "Sede Épica. Cúpula geodésica iluminada con luces de neón Electric Cyan. Rápida conectividad de oráculos y volumen estable.",
   "stad_explore_btn": "EXPLORAR ACCIONES",
   "route_home": "Panel de Inicio",
+  "route_loading": "Cargando...",
   "route_estadio": "Portal del Estadio",
   "route_defi": "Terminal DeFi",
   "route_club": "Mi Club & Manager",

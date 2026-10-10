@@ -9,18 +9,20 @@ import { WalletGateProvider, WalletGateBridge, WalletRequired } from '../wallet/
 import { PlayLayout } from './PlayLayout';
 import { DashboardGrid } from './DashboardGrid';
 import { LandingPage } from './LandingPage';
-import { EstadioPortal } from './EstadioPortal';
-import { DeFiPortal } from './DeFiPortal';
-import { ClubPortal } from './ClubPortal';
 import { ClassicHub } from './ClassicHub';
-import { MarketingControlCenter } from './MarketingControlCenter';
-import { PressKit } from './PressKit';
-import { GenesisCollectionGallery } from './GenesisCollectionGallery';
-import { CorporateAutopilot } from './CorporateAutopilot';
-import { TokenizedAgentsDashboard } from './TokenizedAgentsDashboard';
-import { GoalWorldPortal } from './GoalWorldPortal';
-import { KindleReader } from './KindleReader';
-import { AuthorStudio } from './AuthorStudio';
+// Heavy route portals are lazy: each lands in an on-demand chunk so the
+// first-paint JS stays small (booksData.ts lore + portal bundles stay out).
+const EstadioPortal = React.lazy(() => import('./EstadioPortal').then(m => ({ default: m.EstadioPortal })));
+const DeFiPortal = React.lazy(() => import('./DeFiPortal').then(m => ({ default: m.DeFiPortal })));
+const ClubPortal = React.lazy(() => import('./ClubPortal').then(m => ({ default: m.ClubPortal })));
+const MarketingControlCenter = React.lazy(() => import('./MarketingControlCenter').then(m => ({ default: m.MarketingControlCenter })));
+const PressKit = React.lazy(() => import('./PressKit').then(m => ({ default: m.PressKit })));
+const GenesisCollectionGallery = React.lazy(() => import('./GenesisCollectionGallery').then(m => ({ default: m.GenesisCollectionGallery })));
+const CorporateAutopilot = React.lazy(() => import('./CorporateAutopilot').then(m => ({ default: m.CorporateAutopilot })));
+const TokenizedAgentsDashboard = React.lazy(() => import('./TokenizedAgentsDashboard').then(m => ({ default: m.TokenizedAgentsDashboard })));
+const GoalWorldPortal = React.lazy(() => import('./GoalWorldPortal').then(m => ({ default: m.GoalWorldPortal })));
+const KindleReader = React.lazy(() => import('./KindleReader').then(m => ({ default: m.KindleReader })));
+const AuthorStudio = React.lazy(() => import('./AuthorStudio').then(m => ({ default: m.AuthorStudio })));
 const StakingBurnDashboard = React.lazy(() => import('./StakingBurnDashboard').then(m => ({ default: m.StakingBurnDashboard })));
 // Wallet-gated pages are lazy: their @solana/* imports land in on-demand chunks.
 const CreateUser = React.lazy(() => import('./CreateUser').then(m => ({ default: m.CreateUser })));
@@ -60,6 +62,15 @@ const ReaderPage = () => {
   return <KindleReader initialBookId={bookId || 'the-neural-wars-book-1'} />;
 };
 
+function RouteFallback() {
+  const { t } = useTranslation();
+  return (
+    <div role="status" style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>
+      {t('route_loading')}
+    </div>
+  );
+}
+
 function App() {
   return (
     <LanguageProvider>
@@ -67,6 +78,7 @@ function App() {
         <WalletGateProvider>
           <BrowserRouter>
             <WalletGateBridge>
+              <React.Suspense fallback={<RouteFallback />}>
                 <Routes>
                   <Route element={<PlayLayout />}>
                     <Route
@@ -174,6 +186,7 @@ function App() {
                     <Route path="/editorial" element={<AuthorStudio />} />
                   </Route>
                 </Routes>
+              </React.Suspense>
             </WalletGateBridge>
           </BrowserRouter>
         </WalletGateProvider>
