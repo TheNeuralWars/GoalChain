@@ -213,6 +213,7 @@ export type TranslationKeys = {
   route_defi: string;
   route_estadio: string;
   route_home: string;
+  route_loading: string;
   route_marketing: string;
   route_presskit: string;
   route_staking: string;
