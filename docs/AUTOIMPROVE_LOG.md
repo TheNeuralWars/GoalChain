@@ -186,9 +186,9 @@ One entry per daily run (newest last).
   create-account flow and the persistent nav) — the exact follow-up deferred in the
   2026-10-07 and 2026-10-10 runs. EN users saw Spanish avatar/role text and ES users saw
   an English CTA.
-- **Commit SHA (merge):** feature `02df122c`; merge via PR #892 (SHA pinned in the
-  follow-up `docs:` commit to main). Pre-merge `origin/main` = `8a8721f5` (rollback:
-  `git revert -m 1 <merge>` + push — Vercel redeploys the previous build automatically).
+- **Commit SHA (merge):** `3eb5806a` (PR #892; feature `02df122c`, docs `b49c9108`).
+  Pre-merge `origin/main` = `8a8721f5` (rollback:
+  `git revert -m 1 3eb5806a` + push — Vercel redeploys the previous build automatically).
   Landing site untouched — no landing deploy needed.
 - **Live link:** https://play.goalworld.fun — nav account label EN "✨ Create account" /
   ES "✨ Crear cuenta"; /crear-usuario avatar + role labels localized EN/ES.
@@ -199,17 +199,20 @@ One entry per daily run (newest last).
   dom/ + dom-assertions.txt — headless-Chrome DOM checks of the real CreateUser component
   via a throwaway wallet-stubbed Vite harness: 4/4 PASS (EN/ES × avatar step/role step),
   correct language strings, zero cross-language leakage, zero raw-key leaks, with
-  screenshots; nav-check.json + nav-en.png/nav-es.png — real preview build at 1440px:
-  EN "✨ Create account" / ES "✨ Crear cuenta", html[lang] flips, no key leaks;
+  screenshots; nav-check-preview.json / nav-en-preview.png / nav-es-preview.png (preview
+  build at 1440px) and nav-check-live.json / nav-check-live.txt / nav-en-live.png /
+  nav-es-live.png (live after deploy): EN "✨ Create account" / ES "✨ Crear cuenta",
+  html[lang] flips, no key leaks;
   linkcheck.txt — no links added/changed in the diff, touched routes 200;
-  smoke-before.txt — live 200s, bundle index-CkKiuuiW.js; lighthouse-live-before.json /
-  lighthouse-preview-after.json / lighthouse-live-after.json).
+  smoke-before.txt — live 200s, bundle index-CkKiuuiW.js; smoke-after.txt — live 200s,
+  bundle index-CkKiuuiW.js → index-LYAJc3uO.js (new build live, verified post-deploy);
+  lighthouse-live-before.json / lighthouse-preview-after.json / lighthouse-live-after.json).
   Lighthouse (mobile throttled):
   | run | perf | a11y | BP | SEO | CLS | LCP |
   |---|---|---|---|---|---|---|
   | live before | 91 | 100 | 100 | 100 | 0 | 2.8 s |
   | local preview (new build) | 93 | 100 | 96* | 100 | 0 | 2.6 s |
-  | live after | see follow-up docs commit | | | | | |
+  | live after | 92 | 100 | 100 | 100 | 0 | 2.8 s |
   *BP 96 on localhost is the known environment artifact (`/_vercel/insights/script.js`
   404s outside Vercel; live serves it). Text-only change — no perf/a11y/SEO surface
   affected; no regression vs baseline.
