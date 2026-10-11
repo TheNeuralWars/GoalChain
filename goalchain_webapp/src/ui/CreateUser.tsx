@@ -9,20 +9,22 @@ interface CreateUserProps {
 }
 
 const AVATARS = [
-  { id: 'eagle',    emoji: '🦅', label: 'Águila' },
-  { id: 'lion',     emoji: '🦁', label: 'León' },
-  { id: 'wolf',     emoji: '🐺', label: 'Lobo' },
-  { id: 'dragon',   emoji: '🐉', label: 'Dragón' },
-  { id: 'phoenix',  emoji: '🔥', label: 'Fénix' },
-  { id: 'shark',    emoji: '🦈', label: 'Tiburón' },
-  { id: 'bull',     emoji: '🐂', label: 'Toro' },
-  { id: 'falcon',   emoji: '🦆', label: 'Halcón' },
+  { id: 'eagle',    emoji: '🦅', labelKey: 'create_user_avatar_eagle' },
+  { id: 'lion',     emoji: '🦁', labelKey: 'create_user_avatar_lion' },
+  { id: 'wolf',     emoji: '🐺', labelKey: 'create_user_avatar_wolf' },
+  { id: 'dragon',   emoji: '🐉', labelKey: 'create_user_avatar_dragon' },
+  { id: 'phoenix',  emoji: '🔥', labelKey: 'create_user_avatar_phoenix' },
+  { id: 'shark',    emoji: '🦈', labelKey: 'create_user_avatar_shark' },
+  { id: 'bull',     emoji: '🐂', labelKey: 'create_user_avatar_bull' },
+  { id: 'falcon',   emoji: '🦆', labelKey: 'create_user_avatar_falcon' },
 ];
 
 const ROLES = [
-  { id: 'manager',  label: 'Manager',    desc: 'Gestiona equipos y hace apuestas estratégicas' },
-  { id: 'scout',    label: 'Scout',      desc: 'Descubre talento y acumula jugadores raros' },
-  { id: 'trader',   label: 'Trader',     desc: 'Opera en el mercado de derivados deportivos' },
+  // `label` is the canonical (language-independent) role name stored in user data;
+  // labelKey/descKey are the localized strings shown in the UI.
+  { id: 'manager',  label: 'Manager', labelKey: 'create_user_role_manager',  descKey: 'create_user_role_manager_desc' },
+  { id: 'scout',    label: 'Scout',   labelKey: 'create_user_role_scout',    descKey: 'create_user_role_scout_desc' },
+  { id: 'trader',   label: 'Trader',  labelKey: 'create_user_role_trader',   descKey: 'create_user_role_trader_desc' },
 ];
 
 
@@ -69,7 +71,7 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
       avatar: selectedAvatarObj.emoji,
       role: selectedRoleObj.label,
       joinedDate: t('create_user_joined_date'),
-      bio: t('create_user_bio', { role: selectedRoleObj.label }),
+      bio: t('create_user_bio', { role: t(selectedRoleObj.labelKey) }),
       location: t('create_user_location'),
       following: [],
       accentColor: '#14f195',
@@ -86,7 +88,7 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
       <div className="create-user-success">
         <div className="success-glow">{selectedAvatarObj.emoji}</div>
         <h2 style={{ color: '#14f195', margin: '1rem 0 0.5rem' }}>{t('create_user_success_welcome', { username })}</h2>
-        <p style={{ color: '#8b9cc8', margin: '0 0 0.5rem' }}>{t('create_user_success_role')}: <span style={{ color: '#fff' }}>{selectedRoleObj.label}</span></p>
+        <p style={{ color: '#8b9cc8', margin: '0 0 0.5rem' }}>{t('create_user_success_role')}: <span style={{ color: '#fff' }}>{t(selectedRoleObj.labelKey)}</span></p>
         <p style={{ color: '#8b9cc8', fontSize: '0.85rem' }}>{t('create_user_success_wallet')}: <code style={{ color: '#14f195' }}>{shortWallet}</code></p>
         <p style={{ color: '#8b9cc8', fontSize: '0.85rem', marginTop: '1rem' }}>{t('create_user_success_initializing')}</p>
         <a href="/" className="btn-primary" style={{ display: 'inline-block', marginTop: '1.5rem', textDecoration: 'none' }}>
@@ -175,10 +177,10 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
                     className={`avatar-btn ${selectedAvatar === av.id ? 'selected' : ''}`}
                     id={`avatar-${av.id}`}
                     onClick={() => setSelectedAvatar(av.id)}
-                    title={av.label}
+                    title={t(av.labelKey)}
                   >
                     <span className="avatar-emoji">{av.emoji}</span>
-                    <span className="avatar-label">{av.label}</span>
+                    <span className="avatar-label">{t(av.labelKey)}</span>
                   </button>
                 ))}
               </div>
@@ -212,8 +214,8 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
                   id={`role-${role.id}`}
                   onClick={() => setSelectedRole(role.id)}
                 >
-                  <div className="role-card-label">{role.label}</div>
-                  <div className="role-card-desc">{role.desc}</div>
+                  <div className="role-card-label">{t(role.labelKey)}</div>
+                  <div className="role-card-desc">{t(role.descKey)}</div>
                 </button>
               ))}
             </div>
@@ -223,7 +225,7 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
               <div className="summary-avatar">{selectedAvatarObj.emoji}</div>
               <div className="summary-info">
                 <div className="summary-username">@{username}</div>
-                <div className="summary-meta">{selectedRoleObj.label} · {shortWallet}</div>
+                <div className="summary-meta">{t(selectedRoleObj.labelKey)} · {shortWallet}</div>
               </div>
             </div>
 
