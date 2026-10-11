@@ -592,6 +592,22 @@ export type TranslationKeys = {
   create_user_username_invalid_chars: string;
   create_user_username_min_length: string;
   create_user_username_max_length: string;
+  /* ---- Create User avatar/role labels + nav account label ---- */
+  create_user_avatar_eagle: string;
+  create_user_avatar_lion: string;
+  create_user_avatar_wolf: string;
+  create_user_avatar_dragon: string;
+  create_user_avatar_phoenix: string;
+  create_user_avatar_shark: string;
+  create_user_avatar_bull: string;
+  create_user_avatar_falcon: string;
+  create_user_role_manager: string;
+  create_user_role_scout: string;
+  create_user_role_trader: string;
+  create_user_role_manager_desc: string;
+  create_user_role_scout_desc: string;
+  create_user_role_trader_desc: string;
+  nav_create_account: string;
   /* ---- Estadio Portal (estadio_portal.xxx → estadio_portal_xxx) ---- */
   estadio_portal_title: string;
   estadio_portal_subtitle: string;

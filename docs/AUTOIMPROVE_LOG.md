@@ -166,3 +166,58 @@ One entry per daily run (newest last).
   "✨ Create account" label remain English-only (deferred from 2026-10-07);
   en+es locale JSON (~68 KB) is still bundled in the main chunk — lazy locale
   loading is a possible next win.
+
+## 2026-10-11 run 20261011T024735Z
+
+- **What:** i18n completion on the account-creation path (play.goalworld.fun):
+  1) CreateUser.tsx shipped hardcoded labels — 8 Spanish avatar names (Águila, León,
+  Lobo, Dragón, Fénix, Tiburón, Toro, Halcón) and 3 Spanish role descriptions
+  ("Gestiona equipos y hace apuestas estratégicas" …) rendered to EN users, with the
+  role names hardcoded English for ES users. All are now `t()` lookups backed by 15 new
+  keys in en.json + es.json + TranslationKeys (`create_user_avatar_*`, `create_user_role_*`,
+  `create_user_role_*_desc`, `nav_create_account`). The stored user-data `role` field keeps
+  the canonical English name (unchanged persisted data); `labelKey`/`descKey` drive the UI,
+  and the bio `{role}` param is now localized. 2) PlayNav's logged-out account label
+  ("✨ Create account") was English-only — now `nav_create_account` (EN "Create account" /
+  ES "Crear cuenta"). 3) check-i18n-keys.mjs now also validates `labelKey`/`descKey`
+  data-record literals so dynamically-looked-up labels can't drift (negative-tested:
+  a typo'd labelKey fails the check).
+- **Why:** Wrong-language text on the two most important onboarding surfaces (the
+  create-account flow and the persistent nav) — the exact follow-up deferred in the
+  2026-10-07 and 2026-10-10 runs. EN users saw Spanish avatar/role text and ES users saw
+  an English CTA.
+- **Commit SHA (merge):** feature `02df122c`; merge via PR #892 (SHA pinned in the
+  follow-up `docs:` commit to main). Pre-merge `origin/main` = `8a8721f5` (rollback:
+  `git revert -m 1 <merge>` + push — Vercel redeploys the previous build automatically).
+  Landing site untouched — no landing deploy needed.
+- **Live link:** https://play.goalworld.fun — nav account label EN "✨ Create account" /
+  ES "✨ Crear cuenta"; /crear-usuario avatar + role labels localized EN/ES.
+- **QA evidence:** `/data/work/autoimprove/evidence/20261011T024735Z/`
+  (build.txt exit 0 — tsc + vite, main chunk 165,592 B vs 165,112 B live, +15 dict
+  strings; tests.txt exit 0 — check:i18n 297 used keys, 609 dictionary keys, en/es/type
+  in sync; tests-negative-selftest.txt — typo'd labelKey → exit 1 as expected, then OK;
+  dom/ + dom-assertions.txt — headless-Chrome DOM checks of the real CreateUser component
+  via a throwaway wallet-stubbed Vite harness: 4/4 PASS (EN/ES × avatar step/role step),
+  correct language strings, zero cross-language leakage, zero raw-key leaks, with
+  screenshots; nav-check.json + nav-en.png/nav-es.png — real preview build at 1440px:
+  EN "✨ Create account" / ES "✨ Crear cuenta", html[lang] flips, no key leaks;
+  linkcheck.txt — no links added/changed in the diff, touched routes 200;
+  smoke-before.txt — live 200s, bundle index-CkKiuuiW.js; lighthouse-live-before.json /
+  lighthouse-preview-after.json / lighthouse-live-after.json).
+  Lighthouse (mobile throttled):
+  | run | perf | a11y | BP | SEO | CLS | LCP |
+  |---|---|---|---|---|---|---|
+  | live before | 91 | 100 | 100 | 100 | 0 | 2.8 s |
+  | local preview (new build) | 93 | 100 | 96* | 100 | 0 | 2.6 s |
+  | live after | see follow-up docs commit | | | | | |
+  *BP 96 on localhost is the known environment artifact (`/_vercel/insights/script.js`
+  404s outside Vercel; live serves it). Text-only change — no perf/a11y/SEO surface
+  affected; no regression vs baseline.
+- **Reverted:** n
+- **Follow-ups noted (not done):** wallet-adapter's own strings ("Select Wallet",
+  "Change wallet") remain English-only (third-party library); UserProfile renders
+  `user.role` raw (canonical English "Manager"/"Scout"/"Trader") and its mock profiles
+  are hardcoded English — translating the profile surface is a candidate next run;
+  LandingPage.tsx still ships its marketing copy hardcoded English (bigger copy+translation
+  task); en+es locale JSON (~70 KB) still bundled in the main chunk (lazy locale loading
+  noted 2026-10-10).

@@ -145,7 +145,7 @@ export function PlayNav({
   const { user, isLoggedIn } = useUser();
 
   const accountTo = isLoggedIn && user ? `/perfil/${user.username}` : '/crear-usuario';
-  const accountLabel = isLoggedIn && user ? `${user.avatar} @${user.username}` : '✨ Create account';
+  const accountLabel = isLoggedIn && user ? `${user.avatar} @${user.username}` : `✨ ${t('nav_create_account')}`;
 
   // Grupo expandido en el acordeón. Persistente.
   const [openGroup, setOpenGroup] = useState<string>(() => {
