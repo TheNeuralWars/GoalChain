@@ -249,8 +249,7 @@ One entry per daily run (newest last).
   to both audiences: EN users got Spanish mailbox status and Spanish seed-feed prose,
   ES users got an all-English stats/edit surface. It also bypassed the check:i18n drift
   guard entirely.
-- **Commit SHA (merge):** pending pin in follow-up docs commit (feature `42a5c84e` on
-  branch `auto/improve-20261012T024706Z`). Pre-merge `origin/main` = `507c36d9`
+- **Commit SHA (merge):** `5b42238e` (PR #893; feature `42a5c84e`, docs `ac14934a`). Pre-merge `origin/main` = `507c36d9`
   (rollback: `git revert -m 1 <merge>` + push — Vercel redeploys the previous build
   automatically). Landing site untouched — no landing deploy needed.
 - **Live link:** https://play.goalworld.fun/perfil/demo_user (profile surface; nav
@@ -275,13 +274,24 @@ One entry per daily run (newest last).
   | live before, profile | 91 | 94 | 100 | 100 | 0 | 2.9 s |
   | preview (new build), home | 94 | 100 | 96* | 100 | 0 | 2.5 s |
   | preview (new build), profile | 92 | 94 | 96* | 100 | 0 | 2.8 s |
+  | live after, home | 92 | 100 | 100 | 100 | 0 | 2.6 s |
+  | live after, profile | 92 | 94 | 100 | 100 | 0 | 2.7 s |
   *BP 96 on localhost is the known environment artifact (`/_vercel/insights/script.js`
   404s outside Vercel; live serves it). a11y 94 on the profile is pre-existing and
   unchanged (live-before shows the same 94: inactive-tab color contrast, h1→h3
   heading-order skip, language-toggle accessible-name mismatch — noted as follow-ups);
   home live perf 78 is lab-throttle noise (page untouched). Text-only change — no
   perf/a11y/SEO surface affected; no regression vs baseline.
-- **Reverted:** n
+- **Reverted:** n (deploy verified healthy on live; rollback point kept: `git revert
+  -m 1 5b42238e` + push.)
+- **Deploy verify (live, post-merge):** smoke-after.txt — live 200s, bundle
+  index-LYAJc3uO.js → index-CKdJMF6j.js (new build live; main chunk carries the new
+  keys/strings, old `tText(` helper and the "Joined Mayo" bug string absent);
+  dom-live-assertions.txt — 22/22 live DOM spot-checks EN+ES (correct language, no raw
+  keys, Intl formats; 'OJEADOR' role badge verified on the feed tab);
+  profile-after-live-{en,es}.png + profile-after-live-es-feed.png;
+  lighthouse-live-after-{home,profile}.json — no regression vs live-before
+  (a11y 94→94 pre-existing items unchanged, SEO/BP 100, perf 91→92 on profile).
 - **Follow-ups noted (not done):** profile a11y items above (tab contrast, heading
   order, LanguageToggle names) — cheap fixes, pre-existing, out of this run's scope;
   wallet-adapter's own strings remain English-only (third-party library);
