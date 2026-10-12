@@ -224,3 +224,67 @@ One entry per daily run (newest last).
   LandingPage.tsx still ships its marketing copy hardcoded English (bigger copy+translation
   task); en+es locale JSON (~70 KB) still bundled in the main chunk (lazy locale loading
   noted 2026-10-10).
+
+## 2026-10-12 run 20261012T024706Z
+
+- **What:** i18n completion on the profile surface (play.goalworld.fun, /perfil/...):
+  UserProfile.tsx shipped ~60 inline bilingual strings via a `tText(en, es)` helper and
+  hardcoded labels outside it — including Spanish shown to EN users ("Reenvío Activo/
+  Inactivo"), English-only labels for ES users (XP progress, stat labels, tab labels,
+  "Level N", "Joined", placeholders, tooltips), raw canonical role text ("Manager"/
+  "Scout"/"Trader") and mixed-language mock/seed content. All UI strings are now `t()`
+  dictionary lookups backed by 85 new keys in en.json + es.json + TranslationKeys.
+  Data-driven labels localize without touching persisted data: role badges reuse the
+  `create_user_role_*` labels (user records keep the canonical English role), tier/rarity
+  (Gold/Silver/Bronze/Platinum) and activity types (BET/NFT/UPGRADE) use label maps,
+  mock bios + seed-feed posts use `bioKey`/`contentKey`, seed timestamps use `timeKey`
+  (legacy localStorage feed entries still render via raw-string fallback). Number and
+  date formatting now follows the app language via Intl (balance was hardcoded
+  `toLocaleString('es')`, dates were mixed-language strings; mock joinedDate/activity
+  dates re-expressed as ISO and rendered per locale). `check-i18n-keys.mjs` now also
+  validates `bioKey`/`contentKey`/`timeKey` data-record literals (the 2026-10-11
+  labelKey/descKey guard extended) so dynamically-looked-up strings cannot drift.
+- **Why:** The profile page (own profile, other profiles, edit form, 4 tabs — the exact
+  surface deferred as "candidate next run" on 2026-10-11) rendered wrong-language text
+  to both audiences: EN users got Spanish mailbox status and Spanish seed-feed prose,
+  ES users got an all-English stats/edit surface. It also bypassed the check:i18n drift
+  guard entirely.
+- **Commit SHA (merge):** pending pin in follow-up docs commit (feature `42a5c84e` on
+  branch `auto/improve-20261012T024706Z`). Pre-merge `origin/main` = `507c36d9`
+  (rollback: `git revert -m 1 <merge>` + push — Vercel redeploys the previous build
+  automatically). Landing site untouched — no landing deploy needed.
+- **Live link:** https://play.goalworld.fun/perfil/demo_user (profile surface; nav
+  account/profile links land here).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261012T024706Z/`
+  (build.txt exit 0 — tsc + vite; tests.txt exit 0 — check:i18n 381 used keys, 694
+  dictionary keys, en/es/type in sync; tests-negative-selftest.txt — typo'd bioKey →
+  exit 1 as expected, then OK (new data-key validation verified); dom-assertions.txt —
+  86/86 headless-browser DOM assertions on the real profile route via local preview
+  build, EN + ES × (all 4 tabs + edit form + placeholders + tooltips): correct language
+  strings, zero cross-language leakage, zero raw-key leaks, Intl number/date formats
+  ('4,210 XP'/'4210 XP', 'Joined May 2026'/'Desde mayo de 2026'), role badge
+  'Scout'/'Ojeador', with DOM dumps + screenshots (profile-before-live-{en,es}.png =
+  live old UI, profile-after-preview-{en,es}.png = new build); linkcheck.txt — no new
+  href/src in the diff, touched route 200 on preview; smoke-before.txt — live 200s,
+  bundle index-LYAJc3uO.js; lighthouse-live-before-{home,profile}.json /
+  lighthouse-preview-after-{home,profile}.json).
+  Lighthouse (mobile throttled):
+  | run | perf | a11y | BP | SEO | CLS | LCP |
+  |---|---|---|---|---|---|---|
+  | live before, home | 78 | 100 | 100 | 100 | 0 | 5.2 s |
+  | live before, profile | 91 | 94 | 100 | 100 | 0 | 2.9 s |
+  | preview (new build), home | 94 | 100 | 96* | 100 | 0 | 2.5 s |
+  | preview (new build), profile | 92 | 94 | 96* | 100 | 0 | 2.8 s |
+  *BP 96 on localhost is the known environment artifact (`/_vercel/insights/script.js`
+  404s outside Vercel; live serves it). a11y 94 on the profile is pre-existing and
+  unchanged (live-before shows the same 94: inactive-tab color contrast, h1→h3
+  heading-order skip, language-toggle accessible-name mismatch — noted as follow-ups);
+  home live perf 78 is lab-throttle noise (page untouched). Text-only change — no
+  perf/a11y/SEO surface affected; no regression vs baseline.
+- **Reverted:** n
+- **Follow-ups noted (not done):** profile a11y items above (tab contrast, heading
+  order, LanguageToggle names) — cheap fixes, pre-existing, out of this run's scope;
+  wallet-adapter's own strings remain English-only (third-party library);
+  LandingPage.tsx marketing copy still hardcoded English (bigger copy+translation
+  task); en+es locale JSON (~72 KB) still bundled in the main chunk (lazy locale
+  loading noted 2026-10-10).
