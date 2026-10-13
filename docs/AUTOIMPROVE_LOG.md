@@ -298,3 +298,89 @@ One entry per daily run (newest last).
   LandingPage.tsx marketing copy still hardcoded English (bigger copy+translation
   task); en+es locale JSON (~72 KB) still bundled in the main chunk (lazy locale
   loading noted 2026-10-10).
+
+## 2026-10-13 run 20261013T024735Z
+
+- **What:** Profile-surface a11y fixes (the follow-up deferred on 2026-10-11 and
+  2026-10-12) on play.goalworld.fun /perfil/...: (1) the profile tab bar and
+  overview cards were completely unstyled (no CSS existed for `.profile-tabs`,
+  `.profile-tab`, `.overview-grid`, `.overview-card`) so the tabs rendered as raw
+  UA buttons whose default button face made both the active (accent `#14f195`)
+  and inactive (`#64748b`) labels fail color-contrast (3.56:1 and 1.11:1 vs 4.5
+  required); they now have deliberate theme styling with WCAG-safe state colors —
+  accent background + `#000` label on active (verified ≥4.5:1 for all 5 preset
+  accents + defaults; worst case `#9945ff` = 4.71:1), `#b6c2d2` on dark glass for
+  inactive, plus hover and `:focus-visible` states; the inline `color`/
+  `borderColor` overrides on the buttons were removed (states now driven by the
+  CSS `--accent-theme` custom property). Overview cards got matching glass-card
+  styling + a responsive `auto-fit` grid. (2) overview card headings `h3` → `h2`
+  (heading-order: h1 jumped straight to h3). (3) LanguageToggle `aria-label`s now
+  include the visible text (`EN — English` / `ES — Español`) fixing
+  label-content-name-mismatch on both header and sidebar instances.
+- **Why:** These were the only three failing Lighthouse accessibility audits on
+  the profile route (a11y 94), explicitly logged as cheap pending fixes on
+  2026-10-12 ("tab contrast, heading order, LanguageToggle names"). Tab contrast
+  1.11:1 made inactive tabs genuinely unreadable; the fix also resolves the
+  unstyled-tab-bar/stacked-card look the surface had shipped with.
+- **Commit SHA (merge):** `a6c70f1b` (PR #894; feature `8fd6a2a8`). Pre-merge
+  `origin/main` = `d5cfbd19` (rollback: `git revert -m 1 a6c70f1b` + push — Vercel
+  redeploys the previous build automatically). Landing site untouched — no
+  landing deploy needed.
+- **Live link:** https://play.goalworld.fun/perfil/demo_user (tab bar + overview
+  cards; language toggle in header/sidebar).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261013T024735Z/`
+  (build.txt exit 0 — tsc + vite, main chunk 174,460 B; tests.txt exit 0 —
+  check:i18n 381 used keys, 694 dictionary keys, en/es/type in sync;
+  linkcheck.txt — no href/src/url added or changed in the diff;
+  smoke-before.txt — live 200s, bundle index-CKdJMF6j.js;
+  lighthouse-preview-after-{profile,home}.json — new build at 4173:
+  | run | perf | a11y | BP | SEO | CLS |
+  |---|---|---|---|---|---|
+  | preview, profile | 81 | 100 | 96* | 100 | 0 |
+  | preview, home | 98 | 100 | 96* | 100 | 0 |
+  color-contrast / heading-order / label-content-name-mismatch all score 1.0
+  (baseline: 0 / 0 / 0); dom-assertions.txt — EN+ES headless DOM checks:
+  1 active + 3 inactive tabs with zero inline color styles, h1→h2 heading
+  sequence, both new aria-labels present, ES tab labels localized (Descripción/
+  NFTs/Actividad/Feed Social), no raw-key leaks;
+  smoke-after.txt — live 200s, bundle index-CKdJMF6j.js → index-B4KiCYEH.js with
+  the new CSS rules (.profile-tabs/.profile-tab.active/.overview-card) and both
+  aria-label strings verified in the deployed assets, old inline tab color style
+  absent; dom-live-assertions.txt — 6/6 live checks pass;
+  lighthouse-live-after-{profile,home}.json + lighthouse-live-after2-{profile,home}.json
+  + lighthouse-live-after2-profile-nothrottle.json + lighthouse-exp-{old,new}-profile-r{1,2}.json;
+  profile-preview-{en,es}.png, profile-live-after-en.png).
+  Lighthouse (mobile throttled unless noted), live:
+  | run | perf | a11y | BP | SEO | CLS | LCP |
+  |---|---|---|---|---|---|---|
+  | live before (10-12 evidence, same bundle CKdJMF6j), home | 92 | 100 | 100 | 100 | 0 | 2.6 s |
+  | live before (10-12), profile | 92 | 94 | 100 | 100 | 0 | 2.7 s |
+  | live after, home (run 1 / run 2) | 73 / 96 | 100 | 100 | 100 | 0 | 5.4 s / 2.3 s |
+  | live after, profile (3 runs) | 66–67 | 100 | 100 | 100 | 0 | 6.6–6.7 s |
+  | live after, profile, no throttle | 91 | 100 | 100 | 100 | 0 | 3.0 s |
+  Accessibility 94 → **100** on the profile route, zero failing a11y/SEO audits,
+  CLS 0.00 everywhere. The throttled live perf dip (92→66 on profile) is
+  **environment, not this change** — proven by a controlled experiment (old build
+  d5cfbd19 vs new build 8fd6a2a8 served side-by-side on the same host, same hour):
+  identical scores (round 1: old 81 vs new 95 — the cold first run of a batch is
+  the slow one; round 2: 95 vs 95; LCP 2.5–2.6 s both), new build's main-thread
+  work lower (bootup 1304 ms vs 1973 ms, TBT 0 vs 69 ms) and payload slightly
+  smaller (923 KB vs 933 KB). Unthrottled live scores 91 ≈ baseline 92. The
+  throttled swings track external font/CDN latency under Lighthouse's simulated
+  mobile throttle (same-session home run scored 96 with the identical assets);
+  the LCP element also shifted between runs (header brand text vs stats value),
+  the signature of timing noise, not a code path change.
+  *BP 96 on localhost is the known environment artifact (/_vercel/insights
+  script.js 404s outside Vercel).
+- **Reverted:** n (deploy verified healthy on live; rollback point kept:
+  `git revert -m 1 a6c70f1b` + push.)
+- **Follow-ups noted (not done):** profile route LCP sits behind the lazy
+  UserProfile chunk render (shell → chunk → content; the stats value paints after
+  FCP) — candidate: route prefetch/modulepreload or an early skeleton; the live
+  Vercel build renders the "Full site ↗" links as goalchain.fun while the local
+  default is goalworld.fun (goalchain.fun redirects, but aligning the env to the
+  canonical goalworld.fun is a candidate); pre-existing muted inline label colors
+  (0.85rem `#94a3b8`) pass WCAG but read faint in visual review; wallet-adapter's
+  own strings remain English-only (third-party library); LandingPage.tsx
+  marketing copy still hardcoded English; en+es locale JSON still bundled in the
+  main chunk (lazy locale loading noted 2026-10-10).
