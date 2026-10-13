@@ -33,7 +33,7 @@ export function LanguageToggle() {
           transition: 'all 0.2s ease',
         }}
         aria-pressed={language === 'en'}
-        aria-label="English"
+        aria-label="EN — English"
         title="English"
         lang="en"
       >
@@ -55,7 +55,7 @@ export function LanguageToggle() {
           transition: 'all 0.2s ease',
         }}
         aria-pressed={language === 'es'}
-        aria-label="Español"
+        aria-label="ES — Español"
         title="Español"
         lang="es"
       >

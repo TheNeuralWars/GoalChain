@@ -718,7 +718,6 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
             id={`tab-${tab}`}
             className={`profile-tab ${activeTab === tab ? 'active' : ''}`}
             onClick={() => setActiveTab(tab)}
-            style={{ borderColor: activeTab === tab ? accentColor : 'transparent', color: activeTab === tab ? accentColor : '#64748b' }}
           >
             {{ 
               overview: `📋 ${t('profile_tab_overview')}`, 
@@ -738,7 +737,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
             <div className="overview-grid">
               
               <div className="overview-card">
-                <h3>💰 {t('profile_current_balance')}</h3>
+                <h2>💰 {t('profile_current_balance')}</h2>
                 <div className="big-number" style={{ color: '#14f195', fontSize: '1.8rem', fontWeight: 900, marginTop: '8px' }}>
                   {chainStats ? t('profile_base_units', { value: fmtNum(effectiveBalance) }) : `$${fmtNum(profile.stats.balance, { minimumFractionDigits: 2 })} USDC`}
                 </div>
@@ -750,7 +749,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
               </div>
 
               <div className="overview-card">
-                <h3>🎯 Performance</h3>
+                <h2>🎯 Performance</h2>
                 <div className="perf-ring-wrap" style={{ display: 'flex', alignItems: 'center', gap: '15px', marginTop: '8px' }}>
                   <svg viewBox="0 0 80 80" className="perf-ring" style={{ width: 64, height: 64 }}>
                     <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="6" />
@@ -770,7 +769,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
               </div>
 
               <div className="overview-card">
-                <h3>📊 {t('profile_operation_stats')}</h3>
+                <h2>📊 {t('profile_operation_stats')}</h2>
                 <div className="ops-breakdown" style={{ marginTop: '8px', fontSize: '0.85rem', display: 'flex', flexDirection: 'column', gap: '4px', color: '#94a3b8' }}>
                   <div>{t('profile_total_bets_label')} <strong style={{ color: '#fff' }}>{effectiveTotalBets}</strong></div>
                   <div>{t('profile_won_label')} <strong style={{ color: '#14f195' }}>{effectiveClaimedBets}</strong></div>
