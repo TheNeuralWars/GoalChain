@@ -384,3 +384,70 @@ One entry per daily run (newest last).
   own strings remain English-only (third-party library); LandingPage.tsx
   marketing copy still hardcoded English; en+es locale JSON still bundled in the
   main chunk (lazy locale loading noted 2026-10-10).
+
+## 2026-10-14 run 20261014T024706Z
+
+- **What:** Lazy locale loading (play.goalworld.fun) — the follow-up deferred in the
+  2026-10-10 → 2026-10-13 runs. `src/i18n/index.tsx` statically imported both locale
+  dictionaries (en.json + es.json = 81 KB raw), so every visitor downloaded and parsed
+  BOTH languages inside the main chunk. Dictionaries are now code-split per language:
+  each is its own chunk (`en-*.js` / `es-*.js`) and only the active one is fetched. The
+  initial locale's fetch starts at module eval (overlaps app mount + lazy route chunks);
+  a language switch lazy-fetches the other dictionary and keeps the current text
+  rendered until it arrives (no blank flash, no raw-key flash). First paint is gated on
+  the initial dictionary being present. Compile-time locale drift guard preserved via
+  type-only JSON imports + assignability assert against `TranslationKeys` (the old
+  static `{ en, es }` typing strength); `check:i18n` still covers both directions.
+- **Why:** first-paint JS carried ~72 KB of dictionary JSON of which a visitor uses
+  half; the deferred follow-up was logged in four consecutive runs.
+- **Commit SHA (merge):** `05440dd3` (PR #895; feature `d17d20f3`, retrigger
+  `bcd8f9a5` — see deploy note). Pre-merge `origin/main` = `7ca2c3f5` (rollback:
+  `git revert -m 1 05440dd3` + push — Vercel redeploys the previous build
+  automatically). Landing site untouched — no landing deploy needed.
+- **Live link:** https://play.goalworld.fun (nav "Full site" EN / "Sitio completo" ES;
+  /perfil/demo_user).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261014T024706Z/`
+  (build-before.txt / build.txt exit 0 — tsc + vite; tests.txt exit 0 — check:i18n
+  381 used keys, 694 dictionary keys, en/es/type in sync;
+  chunks-before-after.txt — main first-paint chunk 174,460 B / 62.94 kB gzip → 94,790 B
+  / 30.15 kB gzip local (live 95,219 B), new locale chunks en 56.5 KB / es 58.5 KB;
+  linkcheck.txt — diff touches only src/i18n/index.tsx (no href/src changes), touched
+  routes + new chunk URLs 200 on preview; smoke-before.txt — live 200s, bundle
+  index-B4KiCYEH.js; dom-assertions.txt — preview 10/10 + live 9/9 headless-Chrome
+  checks EN+ES (home + profile: correct language strings, zero raw-key leaks,
+  html[lang] flips; resource-timing proves one locale chunk per visit — EN visit fetches
+  only en-*.js, ES visit only es-*.js, switch lazy-fetches the other) with screenshots
+  {home,profile}-preview-{en,es}.png + home-live-after-{en,es}.png +
+  profile-live-after-es.png; smoke-after.txt — live 200s, bundle index-B4KiCYEH.js →
+  index-C7-14XsM.js, main chunk has zero dictionary strings, both locale chunks 200 as
+  real JS). Lighthouse (mobile throttled):
+  | run | perf | a11y | BP | SEO | CLS | LCP |
+  |---|---|---|---|---|---|---|
+  | live before, home | 73 | 100 | 100 | 100 | 0 | 5.4 s |
+  | live before, profile | 67 | 100 | 100 | 100 | 0 | 6.5 s |
+  | preview (new build), home | 78 | 100 | 96* | 100 | 0 | 5.0 s |
+  | preview (new build), profile | 74 | 100 | 96* | 100 | 0 | 5.9 s |
+  | live after, home | 74 | 100 | 100 | 100 | 0 | 5.2 s |
+  | live after, profile | 67 | 100 | 100 | 100 | 0 | 6.5 s |
+  *BP 96 on localhost is the known environment artifact (/_vercel/insights/script.js
+  404s outside Vercel). No regression vs live baseline (home 73→74, profile 67→67,
+  a11y/BP/SEO 100, CLS 0); the throttled perf swings remain the documented external
+  CDN/font-latency noise band (66–98 across runs).
+- **Deploy note:** the Vercel production build for the merge push (03:04Z) never
+  triggered — 80+ min with no "Production – goalchain_webapp" deployment record and no
+  commit status (the Vercel GitHub App processed the PR preview normally and the
+  ignore-script was verified to pass: "changes under goalchain_webapp — building").
+  A one-line empty retrigger commit (`bcd8f9a5` "chore: retrigger Vercel production
+  deploy for 05440dd3") made Vercel pick up main within ~2 min and the deployment
+  completed healthy. Cause is on Vercel's event-processing side (dropped push event),
+  not the repo; if it recurs, an empty commit to main re-arms the pipeline.
+- **Reverted:** n (deploy verified healthy on live; rollback point kept:
+  `git revert -m 1 05440dd3` + push.)
+- **Follow-ups noted (not done):** profile route LCP still sits behind the lazy
+  UserProfile chunk render (candidate: route prefetch/modulepreload or early skeleton);
+  live Vercel build renders "Full site ↗" links as goalchain.fun (VITE_MARKETING_URL env
+  on the Vercel project) while the code default is the canonical goalworld.fun — env
+  alignment is a candidate; LandingPage.tsx marketing copy still hardcoded English
+  (bigger copy+translation task); wallet-adapter's own strings remain English-only
+  (third-party library); `src/i18n/locales/{en,es}/translation.json` are unreferenced
+  leftovers of an older i18n layout (candidate: remove).
