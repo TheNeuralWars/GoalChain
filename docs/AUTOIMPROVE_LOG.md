@@ -451,3 +451,69 @@ One entry per daily run (newest last).
   (bigger copy+translation task); wallet-adapter's own strings remain English-only
   (third-party library); `src/i18n/locales/{en,es}/translation.json` are unreferenced
   leftovers of an older i18n layout (candidate: remove).
+
+## 2026-10-15 run 20261015T024735Z
+
+- **What:** Parallel wallet-gated route chunk loading (play.goalworld.fun). On
+  wallet-gated lazy routes (`/perfil/:username`, `/crear-usuario`) the route
+  chunk only started fetching after the wallet stack chunk finished loading —
+  `React.lazy` renders behind `<WalletRequired>`, so the two chunks loaded
+  strictly serially (measured dead gap: wallet stack done → +85–270 ms → route
+  chunk fetch starts). New `src/ui/routeChunk.ts` `lazyRoute()` = React.lazy +
+  shared cached loader with an exposed `prefetch()`; `ProfilePage`/
+  `CreateUserPage` (new wrapper) prefetch their chunk on mount, in parallel with
+  the wallet stack fetch that `<WalletRequired>` kicks off in the same commit.
+  Prefetch timing stays at the wallet-gate phase by design: a module-eval
+  prefetch variant (built and measured, then discarded) pulled
+  goalchainClient → solana-core (118 KB) + wallet-adapter (43 KB) into the
+  critical font/locale phase and delayed FCP ~200 ms under Lantern throttle;
+  at the gate phase the Solana chunks load anyway, so the parallel route fetch
+  costs zero extra critical-path bandwidth.
+- **Why:** the profile route's direct-entry waterfall (shell → wallet stack →
+  route chunk → content) was the LCP driver logged as a follow-up candidate in
+  four consecutive runs (2026-10-10 → 2026-10-14). This collapses the last
+  serial hop without touching first-paint JS size (main chunk 94,790 B →
+  94,930 B local).
+- **Commit SHA (merge):** `814e3ab2` (feature `96ca92b2`). Pre-merge
+  `origin/main` = `d9a5109e` (rollback: `git revert -m 1 814e3ab2` + push —
+  Vercel redeploys the previous build automatically). Landing site untouched —
+  no landing deploy needed.
+- **Live link:** https://play.goalworld.fun/perfil/demo_user
+- **QA evidence:** `/data/work/autoimprove/evidence/20261015T024735Z/`
+  (build.txt exit 0 — tsc + vite; tests.txt exit 0 — check:i18n 381 used keys,
+  694 dictionary keys, en/es/type in sync; build-baseline.txt — same-host A/B
+  baseline build of d9a5109e; linkcheck.txt — diff touches only
+  goalchain_webapp/src/ui/{App.tsx,routeChunk.ts}, zero href/src/url changes,
+  touched routes 200; smoke-before.txt — live 200s, bundle index-C7-14XsM.js;
+  mechanism.txt + dom-live-assertions.txt — the serial→parallel proof, Lighthouse
+  network-requests (baseline: wallet 322→349 then UserProfile 476→495, serial;
+  new: wallet 338→381 ∥ UserProfile 339→353) and real-Chrome resource timing
+  (baseline: profile fetch starts 87–88 ms after wallet stack done; new: starts
+  WITH it; live after deploy: 826 vs 825 ms and 116 vs 115 ms = parallel,
+  profile DOM fully rendered, 6 stat boxes + hero); profile-preview-{before,
+  after}.png; smoke-after.txt — live 200s, bundle index-C7-14XsM.js →
+  index-C6wV-Pco.js). Lighthouse (mobile throttled), live:
+  | run | perf | a11y | BP | SEO | CLS | LCP |
+  |---|---|---|---|---|---|---|
+  | live before, profile | 66 | 100 | 100 | 100 | 0 | 6.6 s |
+  | live after, profile | 67 | 100 | 100 | 100 | 0 | 6.6 s |
+  | live before, home | 73 | 100 | 100 | 100 | 0 | 5.4 s |
+  | live after, home | 73 | 100 | 100 | 100 | 0 | 5.4 s |
+  No regression vs live baseline on any axis (profile perf 66→67, LCP −48 ms;
+  home flat, LCP −48 ms; CLS 0 everywhere). Preview A/B (old vs new build
+  served side-by-side on the same host, interleaved runs) stays inside the
+  documented throttled noise band (old perf 75–77, LCP 5.4–6.2 s; new perf
+  69–76, LCP 6.2 s; identical LCP samples in old r4 and both new runs — the
+  throttled LCP is gated by Google-Fonts latency, not by the route chunk).
+- **Reverted:** n (deploy verified healthy on live; rollback point kept:
+  `git revert -m 1 814e3ab2` + push.)
+- **Follow-ups noted (not done):** throttled LCP on the profile route is gated
+  by the third-party Google Fonts downloads (2 stylesheets + 3 woff2 trickle
+  after the JS phase) — candidate: self-host/preload the used font subsets or
+  an early skeleton; the same lazyRoute().prefetch() pattern could be applied
+  to ClubPortal's nested lazies (UserProfile/CreateUser/NFTMarketplace) and
+  EstadioPortal's five panels; live Vercel build renders "Full site ↗" links as
+  goalchain.fun (VITE_MARKETING_URL env) while the code default is the
+  canonical goalworld.fun; LandingPage.tsx marketing copy still hardcoded
+  English; `src/i18n/locales/{en,es}/translation.json` are unreferenced
+  leftovers of an older i18n layout (candidate: remove).
