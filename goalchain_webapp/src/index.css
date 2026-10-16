@@ -2,6 +2,7 @@
    Importado al inicio: define --gc-* (fuente de verdad) y los
    alias --primary-neon / --card-bg etc. que consumen las clases
    heredadas. Ver styles/tokens.css para la documentación completa. */
+@import './styles/fonts.css';
 @import './styles/tokens.css';
 
 :root {
