@@ -259,6 +259,23 @@
   </div>
 </section>
 
+<section class="section" id="waitlist">
+  <div class="wrap" style="text-align: center">
+    <p class="kicker" style="justify-content: center">Waitlist</p>
+    <h2>Get the next drop first</h2>
+    <p class="lead" style="margin-inline: auto">
+      New chapters, matchdays and Neural Wars episodes. One email when there is something new. No spam.
+    </p>
+    <form class="waitlist-form" action="/api/waitlist" method="post" style="display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;max-width:32rem;margin:1.25rem auto 0">
+      <label for="wl-email" class="sr-only" style="position:absolute;left:-9999px">Email</label>
+      <input id="wl-email" type="email" name="email" required maxlength="254" autocomplete="email" placeholder="you@example.com" style="flex:1 1 16rem;padding:.8rem 1rem;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);color:inherit;font:inherit" />
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
+      <button class="btn btn-primary" type="submit">Join the waitlist</button>
+    </form>
+    <p class="waitlist-msg" role="status" aria-live="polite" style="min-height:1.5em;margin-top:.75rem"></p>
+    <p style="font-size:.85rem;opacity:.7">We only use your email to send GoalWorld updates. See <a href="/privacy.html">privacy</a>.</p>
+  </div>
+</section>
 <section class="section band" id="community">
   <div class="wrap" style="text-align: center">
     <p class="kicker" style="justify-content: center">Community</p>
