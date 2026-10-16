@@ -517,3 +517,67 @@ One entry per daily run (newest last).
   canonical goalworld.fun; LandingPage.tsx marketing copy still hardcoded
   English; `src/i18n/locales/{en,es}/translation.json` are unreferenced
   leftovers of an older i18n layout (candidate: remove).
+
+## 2026-10-16 run 20261016T024706Z
+
+- **What:** Self-host the webapp's web fonts to drop the render-blocking
+  third-party Google Fonts request. `goalchain_webapp/index.html` loaded
+  `https://fonts.googleapis.com/css2?family=Outfit...&family=Plus+Jakarta+Sans...`
+  as a render-blocking stylesheet; the browser had to resolve DNS+TLS to
+  `fonts.googleapis.com` and download that CSS before first paint. Added the
+  latin-subset variable faces to `public/fonts/` (outfit-latin.woff2 32 KB,
+  plus-jakarta-sans-latin.woff2 27 KB, OFL-licensed), a new
+  `src/styles/fonts.css` with `@font-face` (`font-display: optional` = preserves
+  the prior no-swap / CLS-0 behaviour) imported first in `src/index.css`, and an
+  `index.html` preload of the critical Outfit face (same-origin, `crossorigin`,
+  parallel with CSS/JS). Removed the Google Fonts stylesheet + both preconnects.
+  Applied body font is `--gc-font` = Outfit (via tokens.css); Plus Jakarta Sans
+  is only a stack fallback.
+- **Why:** the render-blocking Google Fonts stylesheet was logged as the LCP
+  driver / LCP follow-up candidate in four consecutive runs (2026-10-10 →
+  2026-10-15). Removing the third-party render-blocking hop is the highest-
+  impact perf fix available and directly targets the flagged LCP bottleneck.
+- **Commit SHA (merge):** `dee03c25` (PR #896, feature `ef007ec7`). Pre-merge
+  `origin/main` = `67718187` (rollback: `git revert -m 1 dee03c25` + push —
+  Vercel redeploys the previous build automatically). Webapp-only change; no
+  landing deploy needed.
+- **Live link:** https://play.goalworld.fun/ (bundle index-C6wV-Pco.js →
+  index-BKHQ6WoR.js)
+- **QA evidence:** `/data/work/autoimprove/evidence/20261016T024706Z/`
+  (build.txt exit 0 — tsc + vite; tests.txt exit 0 — check:i18n 381 used keys,
+  694 dictionary keys, en/es/type in sync; linkcheck — all local href/src on `/`
+  and `/perfil/demo_user` resolve 200 incl. new `/fonts/outfit-latin.woff2`;
+  smoke-before.txt live 200s w/ fonts.googleapis, smoke-after.txt live 200s w/
+  outfit-latin preload + NO fonts.googleapis/gstatic, live
+  `/fonts/outfit-latin.woff2` = 200 32292B font/woff2; summary.txt; screenshots
+  preview-home/profile + live-after-home-hydrated (prod Outfit renders crisp,
+  layout intact, no tofu). Lighthouse (mobile throttled), live same-host
+  before → after:
+  | route | perf | a11y | BP | SEO | FCP | LCP | CLS |
+  |---|---|---|---|---|---|---|---|
+  | home | 73→80 | 100 | 100 | 100 | 2.77→1.73 s | 5.52→4.65 s | 0 |
+  | profile | 68→77 | 100 | 100 | 100 | 3.36→1.61 s | 6.39→6.49 s | 0→0.008 |
+  No regression on the gate axes (performance/accessibility/SEO): perf +7 home /
+  +9 profile, a11y & SEO 100→100. FCP improved 1.04 s home / 1.75 s profile (the
+  removed render-blocking 3P stylesheet). Profile LCP +0.10 s is throttled noise
+  (prior runs document a ±0.8 s LCP noise band; profile LCP is wallet-stack-
+  gated, not font-gated). CLS 0.008 is green (<0.1) and not from
+  `font-display: optional` (no swap) — attributed to wallet-gated content render
+  variance. Preview (local build) sanity: home perf 82 FCP 1.61 LCP 4.81 CLS 0;
+  fonts load same-origin, no fonts.googleapis on critical path (preview BP=96 is
+  the localhost-http "uses HTTPS" artifact, not a real regression).
+- **Reverted:** n (deploy verified healthy on live; rollback point kept:
+  `git revert -m 1 dee03c25` + push.)
+- **Follow-ups noted (not done):** profile route still lazily injects `DM Sans`
+  (`fonts.googleapis`, `display=swap`) via the third-party Solana wallet-adapter
+  modal bundle (`wallet-adapter-*.js/css`) — non-render-blocking, only on wallet
+  modal mount, not the LCP element; overriding a third-party lib's font injection
+  is riskier than the value (candidate: leave, or map the modal to the self-
+  hosted stack). `public/classic-dashboard.html` (a standalone legacy page) still
+  references Google Fonts `Outfit` with `display=swap` (candidate: point it at
+  the self-hosted font). `--gc-font-mono` = 'JetBrains Mono' is referenced but
+  never loaded (falls back to system mono) — pre-existing inconsistency. Live
+  Vercel build renders "Full site ↗" links as goalchain.fun (VITE_MARKETING_URL
+  env) while the code default is the canonical goalworld.fun; LandingPage.tsx
+  marketing copy still hardcoded English; `src/i18n/locales/{en,es}/translation.json`
+  are unreferenced leftovers of an older i18n layout (candidate: remove).
