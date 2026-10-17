@@ -43,3 +43,37 @@ export function lazyRoute<T extends React.ComponentType<any>>(
   };
   return Lazy;
 }
+
+/**
+ * Start prefetching chunks once the browser is idle (auto-improve 2026-10-17).
+ *
+ * Portal sub-panels behind tab switches used to fetch only on first click, so
+ * every tab switch paid a full chunk fetch after the click. Prefetching them at
+ * portal mount would instead contend with the portal's own first render and the
+ * default panel's fetch (same lesson as the 2026-10-15 run: prefetch timing
+ * matters). Idle timing keeps them off the critical phase while still warming
+ * the cache before the user reaches a tab. `timeoutMs` guarantees the prefetch
+ * even on pages that stay busy (e.g. while the wallet stack loads).
+ */
+export function prefetchOnIdle(
+  loaders: ReadonlyArray<{ prefetch: () => void }>,
+  timeoutMs = 2000,
+): void {
+  if (typeof window === 'undefined') return;
+  const run = () => {
+    for (const loader of loaders) loader.prefetch();
+  };
+  const ric = (
+    window as Window & {
+      requestIdleCallback?: (
+        cb: () => void,
+        opts?: { timeout: number },
+      ) => number;
+    }
+  ).requestIdleCallback;
+  if (typeof ric === 'function') {
+    ric.call(window, run, { timeout: timeoutMs });
+  } else {
+    window.setTimeout(run, timeoutMs);
+  }
+}
