@@ -581,3 +581,69 @@ One entry per daily run (newest last).
   env) while the code default is the canonical goalworld.fun; LandingPage.tsx
   marketing copy still hardcoded English; `src/i18n/locales/{en,es}/translation.json`
   are unreferenced leftovers of an older i18n layout (candidate: remove).
+
+## 2026-10-17 run 20261017T024707Z
+
+- **What:** Prefetch portal sub-panel chunks (play.goalworld.fun) — the
+  follow-up candidate logged in the 2026-10-15 and 2026-10-16 runs (apply the
+  lazyRoute().prefetch() pattern to ClubPortal's nested lazies and
+  EstadioPortal's five panels). Both portals used plain `React.lazy` for their
+  sub-panels, so each panel chunk only started fetching after first render of
+  that panel — behind `<WalletRequired>` that is strictly after the wallet
+  stack chunk finishes (serial waterfall), and every tab switch paid a full
+  chunk fetch after the click. Changes: `routeChunk.ts` gains
+  `prefetchOnIdle()` (requestIdleCallback + 2 s timeout fallback); EstadioPortal
+  converts its 5 panels to `lazyRoute` and prefetches the wallet-gated default
+  panel (FixturesPanel) at mount — in parallel with the wallet stack, the
+  proven 2026-10-15 `/perfil` pattern — while the 4 sibling panels warm on
+  idle; ClubPortal converts NFTMarketplace/UserProfile/CreateUser to
+  `lazyRoute` and warms all 3 on idle (no lazy panel renders on its default
+  tab, so nothing is urgent there).
+- **Why:** kills the nested wallet-gate waterfall on /estadio's default panel
+  and the per-tab chunk-fetch latency across all 8 sub-panels of the two
+  portals; direct continuation of the route-level work (10-15/10-16) — no
+  repeated or reverted work.
+- **Commit SHA (merge):** `b9140040` (PR #897, feature `f5eb05d8`). Pre-merge
+  `origin/main` = `3c7cce980fb9e196b0a6d7861336c7ca1d7e6b8c` (rollback:
+  `git revert -m 1 b9140040` + push). Webapp-only change; no landing deploy.
+- **Live link:** https://play.goalworld.fun/estadio and https://play.goalworld.fun/club
+  (bundle index-BKHQ6WoR.js → index-CIg5YxTR.js)
+- **QA evidence:** `/data/work/autoimprove/evidence/20261017T024707Z/`
+  (build.txt exit 0 — tsc + vite; tests.txt exit 0 — check:i18n 381 used keys,
+  694 dictionary keys, en/es/type in sync; linkcheck.txt — diff touches only
+  goalchain_webapp/src/ui/{routeChunk.ts,EstadioPortal.tsx,ClubPortal.tsx},
+  zero href/src/url changes, /, /estadio, /club 200 on preview and live;
+  smoke-before.txt live 200s bundle index-BKHQ6WoR.js, smoke-after.txt live
+  200s bundle index-CIg5YxTR.js + outfit-latin preload intact, 0
+  fonts.googleapis refs; mechanism.txt + mechanism-{baseline,preview,
+  live-after}.json — same-host A/B in real Chrome with NO interaction:
+  baseline FixturesPanel started only after the wallet stack (334 ms vs wallet
+  ready ~258 ms) with sibling panels 0/4 and club panels 0/3 fetched without
+  clicks; new build fetches FixturesPanel WITH the wallet stack (339 vs
+  338 ms) and all 8 panel chunks with zero clicks; live after deploy:
+  FixturesPanel 801 ms with wallet-adapter 800 ms, 5/5 + 3/3 chunks without
+  clicks; preview-estadio.png, preview-club.png). Lighthouse (mobile
+  throttled), same-host interleaved A/B on /estadio, n=5 per build:
+  | build | perf (min/med/max) | LCP (min/med/max) |
+  |---|---|---|
+  | old | 69 / 71 / 74 | 5.12 / 5.87 / 6.32 s |
+  | new | 67 / 72 / 74 | 5.12 / 5.27 / 6.17 s |
+  No regression from the change (perf median +1, LCP median −0.60 s);
+  accessibility 100 and SEO 100 in all 16 runs. Live before → after (home
+  control + touched routes): home 84→72,80 | estadio 78→64,74 | club
+  81→68,80 — run 1 dipped on ALL routes including untouched /home (and
+  /estadio FCP 3.67 s vs 1.62 s baseline, a pre-paint metric this change
+  cannot touch) = environment noise (cold CDN + loaded VPS), run 2 back in
+  band; the interleaved same-host A/B is the change-caused-regression judge
+  and is clean. full table in lighthouse-summary.txt.
+- **Reverted:** n (deploy verified healthy on live: 200s, new behavior proven
+  on live browser probe; rollback point kept: `git revert -m 1 b9140040` + push.)
+- **Follow-ups noted (not done):** `public/classic-dashboard.html` (standalone
+  legacy page) still references Google Fonts `Outfit` with `display=swap`
+  (candidate: point it at the self-hosted font); `--gc-font-mono` = 'JetBrains
+  Mono' is referenced but never loaded (falls back to system mono);
+  `src/i18n/locales/{en,es}/translation.json` are unreferenced leftovers of an
+  older i18n layout (candidate: remove); live Vercel build renders "Full site
+  ↗" links as goalchain.fun (VITE_MARKETING_URL env) while the code default is
+  the canonical goalworld.fun (needs a Vercel env change); wallet-adapter modal
+  lazily injects DM Sans (third-party, leave).
