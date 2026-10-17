@@ -1,16 +1,30 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { useTranslation } from '../i18n/index';
 import { WalletRequired } from '../wallet/gate';
+import { lazyRoute, prefetchOnIdle } from './routeChunk';
 
-const FixturesPanel = lazy(() => import('./FixturesPanel').then(m => ({ default: m.FixturesPanel })));
-const AICommentator = lazy(() => import('./AICommentator').then(m => ({ default: m.AICommentator })));
-const WorldCupPredictor = lazy(() => import('./WorldCupPredictor').then(m => ({ default: m.WorldCupPredictor })));
-const MatchSimulator = lazy(() => import('./MatchSimulator').then(m => ({ default: m.MatchSimulator })));
-const LiveEventFeed = lazy(() => import('./LiveEventFeed').then(m => ({ default: m.LiveEventFeed })));
+// Sub-panels are lazy: each lands in an on-demand chunk. lazyRoute keeps them
+// prefetchable (auto-improve 2026-10-17) — see the mount effect below.
+const FixturesPanel = lazyRoute(() => import('./FixturesPanel').then(m => ({ default: m.FixturesPanel })));
+const AICommentator = lazyRoute(() => import('./AICommentator').then(m => ({ default: m.AICommentator })));
+const WorldCupPredictor = lazyRoute(() => import('./WorldCupPredictor').then(m => ({ default: m.WorldCupPredictor })));
+const MatchSimulator = lazyRoute(() => import('./MatchSimulator').then(m => ({ default: m.MatchSimulator })));
+const LiveEventFeed = lazyRoute(() => import('./LiveEventFeed').then(m => ({ default: m.LiveEventFeed })));
 
 export function EstadioPortal() {
   const { t } = useTranslation();
   const [activeSubTab, setActiveSubTab] = useState<'fixtures' | 'commentator' | 'feed' | 'predictor' | 'simulator'>('fixtures');
+
+  useEffect(() => {
+    // Default panel: prefetch at mount, in parallel with the wallet stack that
+    // <WalletRequired> kicks off in the same commit — otherwise FixturesPanel
+    // only starts fetching after the wallet chunk is done (serial waterfall,
+    // the same one fixed for /perfil/:username on 2026-10-15).
+    FixturesPanel.prefetch();
+    // Sibling panels: warm on idle so tab switches are instant without
+    // contending with the portal's first render or the default panel's fetch.
+    prefetchOnIdle([MatchSimulator, WorldCupPredictor, AICommentator, LiveEventFeed]);
+  }, []);
 
   const tabs = [
     { id: 'fixtures',   label: t('estadio_portal_tabs_fixtures_label'),    desc: t('estadio_portal_tabs_fixtures_desc') },

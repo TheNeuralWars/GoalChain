@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { SimulationBadge } from '../components/SimulationBadge';
 import { SquadGallery } from './SquadGallery';
 import { AICoach } from './AICoach';
@@ -6,17 +6,28 @@ import { useUser } from '../contexts/UserContext';
 import { MatchSimulator } from './MatchSimulator';
 import { useTranslation } from '../i18n/index';
 import { WalletRequired } from '../wallet/gate';
+import { lazyRoute, prefetchOnIdle } from './routeChunk';
 
 // Wallet-gated panels are lazy: their @solana/* imports load on demand.
-const UserProfile = lazy(() => import('./UserProfile').then(m => ({ default: m.UserProfile })));
-const CreateUser = lazy(() => import('./CreateUser').then(m => ({ default: m.CreateUser })));
-const NFTMarketplace = lazy(() => import('./NFTMarketplace').then(m => ({ default: m.NFTMarketplace })));
+// lazyRoute keeps the chunks prefetchable (auto-improve 2026-10-17) — the
+// mount effect below warms them on idle so tab switches don't pay a chunk
+// fetch after the click.
+const UserProfile = lazyRoute(() => import('./UserProfile').then(m => ({ default: m.UserProfile })));
+const CreateUser = lazyRoute(() => import('./CreateUser').then(m => ({ default: m.CreateUser })));
+const NFTMarketplace = lazyRoute(() => import('./NFTMarketplace').then(m => ({ default: m.NFTMarketplace })));
 
 
 export function ClubPortal() {
   const { t } = useTranslation();
   const [activeSubTab, setActiveSubTab] = useState<'squad' | 'market' | 'coach' | 'profile' | 'arena'>('squad');
   const { user, isLoggedIn } = useUser();
+
+  useEffect(() => {
+    // No lazy panel renders on the default tab, so nothing is urgent here:
+    // warm the panel chunks once the browser is idle, well after the portal's
+    // own first render, and before the user reaches a wallet-gated tab.
+    prefetchOnIdle([NFTMarketplace, UserProfile, CreateUser]);
+  }, []);
 
   const tabs = [
     { id: 'squad', label: t('club_portal_tabs_squad_label'), desc: t('club_portal_tabs_squad_desc') },
