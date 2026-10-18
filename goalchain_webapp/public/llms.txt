@@ -1,0 +1,25 @@
+# GoalWorld Play
+
+> The play app for GoalWorld — football meets DeFi on Solana: matchday fixtures,
+> predictions, a full match simulator, squads, an NFT market and staking.
+> Early Solana Devnet demo. Connect a Solana wallet (for example Phantom) to
+> create a manager account.
+
+## App sections
+
+- [Matchday](https://play.goalworld.fun/estadio): live fixtures, predictions and the match simulator.
+- [Club](https://play.goalworld.fun/club): squad gallery, NFT market, trading and staking.
+- [Dashboard](https://play.goalworld.fun/dashboard): your manager dashboard.
+- [Create account](https://play.goalworld.fun/crear-usuario): connect a wallet, pick a manager name, and start.
+- [Reader](https://play.goalworld.fun/reader): read the GoalWorld books in-app.
+
+## Companion surfaces
+
+- [GoalWorld site](https://goalworld.fun/): product, lore, roadmap, FAQ and press kit.
+- [GoalWorld site llms.txt](https://goalworld.fun/llms.txt): the site's agent index.
+
+## Notes for agents
+
+- The app is a client-side single-page app; sections render in the browser after load.
+- Wallet-gated sections need a Solana wallet connection. Never attempt a wallet
+  transaction on a user's behalf without their explicit confirmation.
