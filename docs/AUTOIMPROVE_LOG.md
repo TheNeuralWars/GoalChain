@@ -647,3 +647,93 @@ One entry per daily run (newest last).
   ↗" links as goalchain.fun (VITE_MARKETING_URL env) while the code default is
   the canonical goalworld.fun (needs a Vercel env change); wallet-adapter modal
   lazily injects DM Sans (third-party, leave).
+
+## 2026-10-18 run 20261018T024752Z
+
+- **What:** Agent discoverability (AEO) for both public surfaces — `llms.txt` +
+  ARD `/.well-known/ai-catalog.json` + `/.well-known/ard.json` (identical files;
+  the ARD spec treats the two names as equivalent entry sources) + Agent Skills
+  (`/.well-known/agent-skills/{goalworld-play,goalworld-site}/SKILL.md`), plus
+  `<link rel="ard">` + `<link rel="ai-catalog">` in both `<head>`s. This fixes
+  the two failing Lighthouse 13.5 `agentic-browsing` audits on
+  play.goalworld.fun (`llms-txt`, `ard-schema`): `/llms.txt` and
+  `/.well-known/ai-catalog.json` were answering with SPA-fallback HTML (the
+  audit's "missing H1 / no links" and "malformed JSON" errors) — the exact
+  defect flagged as pending in `docs/LAUNCH_REPORT.md` item 6. Catalogs follow
+  ARD spec 1.0 / ADR-0003 (`urn:air:` identifiers, whitelisted discovery media
+  types, 2–5 `representativeQueries` per entry) and validate against
+  Lighthouse's bundled ARD conformance tester with **0 errors, 0 warnings**.
+  Also: `scripts/deploy_goalworld_site.sh` gets a narrow allowlist so public
+  ARD `SKILL.md` files survive the landing `*.md` internal-docs scrub (scratch
+  test: only `.well-known/agent-skills/*/SKILL.md` passes; TODO/REPORT/other
+  `.md` still scrubbed), and `.gitignore` un-ignores the two `llms.txt`
+  content files. All copy English-only, zero invented figures/dates.
+- **Why:** AI-agent discovery (llms.txt + the ARD ai-catalog standard, added to
+  Lighthouse in 13.3/13.5) is a growth surface for both public URLs — agents
+  and AI search read these files before citing or navigating a site; both of
+  ours were silently failing. Highest-value remaining item after five
+  consecutive webapp-perf runs (perf is now 98–99 on both origins); no repeated
+  or reverted work.
+- **Commit SHA (merge):** `7c639b6c` (PR #898, feature `7621e47a`). Pre-merge
+  `origin/main` = `3136eb0c` (rollback: `git revert -m 1 7c639b6c` + push;
+  landing `scripts/deploy_goalworld_site.sh rollback`). Webapp deployed via
+  Vercel on push to main. Landing deployed with
+  `scripts/deploy_goalworld_site.sh deploy --ref origin/deploy/agentic-20261018`
+  — that deploy ref = `feat/goalworld-waitlist` (exactly what was live) +
+  cherry-pick `7621e47a`, because the live tree currently runs Nico's
+  UNMERGED waitlist feature and a plain `origin/main` deploy would have
+  overwritten it away (see Decisions for Nico). Landing rollback tarball:
+  `20261018T032713Z-8d575e70.tar.gz` under
+  `/data/work/goalworld-site-backups/_site_public/`.
+- **Live link:** https://play.goalworld.fun/llms.txt and
+  https://goalworld.fun/llms.txt (+ `/.well-known/ai-catalog.json` on both).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261018T024752Z/`
+  (build.txt exit 0 — tsc+vite; tests.txt exit 0 — check:i18n 381 used keys,
+  694 dictionary keys, en/es/type in sync; build-landing.txt exit 0 — sanity OK
+  8 pages; ARD conformance 4/4 catalogs 0 errors 0 warnings; smoke-before.txt —
+  play served SPA HTML for every agent URL and the landing 404'd them;
+  webapp-smoke-after.txt + landing-smoke-after.txt — all 200
+  text/plain|application/json|text/markdown + both head-link pairs live;
+  linkcheck-landing{,-baseline}.txt — check_links.py output identical to a
+  pristine-build baseline (457 links, same pre-existing intentional absences);
+  linkcheck-newfiles-live.txt — 19/19 URLs referenced by the new files return
+  200; landing-production-delta-files.txt — production delta proven purely
+  additive: +2 head-link lines per page, sitemap lastmod stamp, new files,
+  site.js/robots/webmanifest byte-identical → Nico's waitlist preserved
+  (waitlist ×5, form ×1, site.js handler ×4 identical pre/post).
+  Lighthouse (mobile throttled) live before → after:
+  | route | perf | a11y | BP | SEO | agentic | FCP | LCP |
+  |---|---|---|---|---|---|---|---|
+  | play / | 98→79,99 | 100 | 100 | 100 | 50→100 | 1.6→1.8,1.5 s | 1.8→4.7,1.8 s |
+  | landing / | 99→96,99 | 100 | 100 | 100 | 100→100 | 1.0→1.1,1.0 s | 2.1→2.3,2.1 s |
+  The one after-run dips (play 79/LCP 4.7 s, landing 96) are the documented
+  throttled-VPS noise (re-runs back in band; the change is two link tags +
+  static files and cannot move LCP/FCP). Gate axes clean on both origins:
+  accessibility 100, best-practices 100, SEO 100 — no regression. Agentic
+  details: play llms-txt 0→1 and ard-schema 0→1 (the run's fix); landing now
+  scores 4/4 applicable audits (was 2/2 — the two new ones were n/a on 404).
+  Preview (pre-merge) Lighthouse also green on both builds (agentic 100/100).
+- **Reverted:** n (both deploys verified healthy on live; rollback points kept:
+  `git revert -m 1 7c639b6c` + push / `deploy_goalworld_site.sh rollback`).
+- **Decisions for Nico:** (1) The live landing runs your UNMERGED
+  `feat/goalworld-waitlist` (waitlist form + privacy update + site.js handler,
+  live since Oct 16) while `origin/main` lacks it — this run deployed a deploy
+  ref preserving it exactly (delta proven additive), but **any plain
+  `origin/main` landing deploy will overwrite the waitlist away** until that
+  branch is merged (or reverted). Suggested: merge `feat/goalworld-waitlist`
+  into main when ready, then normal deploys carry waitlist + agent files
+  together. (2) The landing `*.md` scrub now allows exactly
+  `.well-known/agent-skills/*/SKILL.md` (public ARD skills) — everything else
+  `.md`/TODO/REPORT stays blocked (scratch-tested).
+- **Follow-ups noted (not done):** advertise real capabilities in the catalogs
+  if/when public MCP/A2A endpoints exist (entries currently list the two
+  verified resources per surface: the Agent Skill + the sibling catalog);
+  `/.well-known/ard.json` + `rel="ard"` on the landing legacy pages tree
+  (`docs/` staged surfaces are outside the landing build); goalworld_site
+  TODO.md items still need human facts (dead Discord invite, X handle 404,
+  legal review); webapp `public/classic-dashboard.html` still references Google
+  Fonts `Outfit` with `display=swap` (candidate: self-hosted); `--gc-font-mono`
+  = 'JetBrains Mono' referenced but never loaded; `src/i18n/locales/{en,es}/
+  translation.json` unreferenced leftovers (candidate: remove); live Vercel
+  env `VITE_MARKETING_URL` renders "Full site ↗" as goalchain.fun (needs a
+  Vercel env change).
