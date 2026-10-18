@@ -7,7 +7,8 @@
  *   - dist/<slug>/index.html      extensionless mirror so /about and /about/ resolve
  *                                 on plain static file servers (Caddy) as well as Vercel
  *   - dist/sitemap.xml            stamped with the build date
- *   - dist/robots.txt, dist/site.webmanifest, dist/assets/** (copied as-is)
+ *   - dist/robots.txt, dist/llms.txt, dist/.well-known/**, dist/site.webmanifest,
+ *     dist/assets/** (copied as-is)
  *   - dist/press/press-kit.zip    best-effort (python3 zipfile), skip if unavailable
  *   - JSON-LD (schema.org) per page: WebPage everywhere, Organization + WebSite on
  *     the home page, FAQPage on /faq generated from the visible <details> Q&As
@@ -170,6 +171,8 @@ function build() {
   // static files
   copyFileSync(join(SRC, "robots.txt"), join(DIST, "robots.txt"));
   copyFileSync(join(SRC, "site.webmanifest"), join(DIST, "site.webmanifest"));
+  copyFileSync(join(SRC, "llms.txt"), join(DIST, "llms.txt"));
+  cpSync(join(SRC, ".well-known"), join(DIST, ".well-known"), { recursive: true });
   cpSync(join(SRC, "assets"), join(DIST, "assets"), { recursive: true });
 
   // sitemap
