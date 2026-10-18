@@ -1,0 +1,36 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "GoalWorld",
+    "identifier": "goalworld.fun",
+    "documentationUrl": "https://goalworld.fun/faq.html"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:goalworld.fun:skill:goalworld-site",
+      "displayName": "GoalWorld site — Agent Skill",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://goalworld.fun/.well-known/agent-skills/goalworld-site/SKILL.md",
+      "description": "Agent Skill teaching a compatible agent when and how to answer questions about GoalWorld — product, books and lore, roadmap, FAQ, press kit and legal pages.",
+      "tags": ["agent-skill", "documentation", "press", "lore"],
+      "representativeQueries": [
+        "what is GoalWorld about",
+        "where can I find the GoalWorld press kit",
+        "what books are part of The Neural Wars"
+      ]
+    },
+    {
+      "identifier": "urn:air:goalworld.fun:catalog:play",
+      "displayName": "GoalWorld Play — catalog",
+      "type": "application/ai-catalog+json",
+      "url": "https://play.goalworld.fun/.well-known/ai-catalog.json",
+      "description": "Nested catalog for the GoalWorld play app: matchday, club and NFT surfaces, account creation and the books reader on Solana Devnet.",
+      "tags": ["catalog", "web-app"],
+      "representativeQueries": [
+        "how do I play GoalWorld matchday",
+        "what does the GoalWorld club section do",
+        "how do I create a GoalWorld account"
+      ]
+    }
+  ]
+}

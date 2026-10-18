@@ -13,6 +13,9 @@ Thumbs.db
 *.txt
 # ...but the site robots.txt is content, not a log
 !goalworld_site/src/robots.txt
+# ...and llms.txt agent indexes are content too
+!goalworld_site/src/llms.txt
+!goalchain_webapp/public/llms.txt
 scripts/*.txt
 npm-debug.log*
 yarn-debug.log*

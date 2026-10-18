@@ -1,0 +1,36 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "GoalWorld Play",
+    "identifier": "play.goalworld.fun",
+    "documentationUrl": "https://goalworld.fun/"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:goalworld.fun:skill:goalworld-play",
+      "displayName": "GoalWorld Play — Agent Skill",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://play.goalworld.fun/.well-known/agent-skills/goalworld-play/SKILL.md",
+      "description": "Agent Skill teaching a compatible agent when and how to help users with the GoalWorld play app — matchday fixtures and predictions, the club and NFT surfaces, and account creation on Solana Devnet.",
+      "tags": ["agent-skill", "solana", "football", "web-app", "demo"],
+      "representativeQueries": [
+        "how do I create a GoalWorld manager account",
+        "what can I do in GoalWorld Matchday",
+        "does GoalWorld run on Solana mainnet or devnet"
+      ]
+    },
+    {
+      "identifier": "urn:air:goalworld.fun:catalog:site",
+      "displayName": "GoalWorld site — catalog",
+      "type": "application/ai-catalog+json",
+      "url": "https://goalworld.fun/.well-known/ai-catalog.json",
+      "description": "Nested catalog for the GoalWorld marketing site: product and lore pages, roadmap, FAQ, press kit and legal pages.",
+      "tags": ["catalog", "documentation"],
+      "representativeQueries": [
+        "what is GoalWorld about",
+        "where is the GoalWorld press kit",
+        "what does the GoalWorld roadmap say"
+      ]
+    }
+  ]
+}

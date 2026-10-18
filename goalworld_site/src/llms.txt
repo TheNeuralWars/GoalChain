@@ -1,0 +1,25 @@
+# GoalWorld
+
+> GoalWorld · World of Achievements — books, stadium and AI cinema in one living
+> world. Read Fractured Code, play World Cup 2026 matchday on Solana, and watch
+> The Neural Wars come alive.
+
+## Pages
+
+- [Home](https://goalworld.fun/): the GoalWorld overview and Play CTA.
+- [About & lore](https://goalworld.fun/about.html): Neo-Citania, the Link, and the world of The Neural Wars.
+- [Roadmap](https://goalworld.fun/roadmap.html): what is live today, what is next, and what comes later — deliberately no dates.
+- [FAQ](https://goalworld.fun/faq.html): what GoalWorld is, how GoalChain Play works, and what the demo does and does not do.
+- [Press kit](https://goalworld.fun/press.html): logos, key art, covers and screenshots.
+- [Privacy](https://goalworld.fun/privacy.html) and [Terms](https://goalworld.fun/terms.html): plain-language legal pages.
+
+## Play app
+
+- [GoalWorld Play](https://play.goalworld.fun/): matchday fixtures and predictions, squads, NFT market and staking on Solana.
+- [GoalWorld Play llms.txt](https://play.goalworld.fun/llms.txt): the play app's agent index.
+
+## Notes for agents
+
+- goalworld.fun is a static site; the play app at play.goalworld.fun is a
+  client-side single-page app that needs a Solana wallet connection for
+  account creation and wallet-gated sections.
