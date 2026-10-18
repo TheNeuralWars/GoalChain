@@ -164,8 +164,10 @@ do_deploy() {
 
   # 2a. scrub internal docs (task G 2026-10-06): the landing must never ship
   # *.md / *TODO* / *REPORT* working files even if one lands under goalworld_site/src/.
+  # Sole allowlist: public Agent Skills (ARD) served under /.well-known/agent-skills/.
   if [ "$DRY" = 0 ] && [ -n "$DIST" ]; then
-    find "$DIST" -type f \( -name '*.md' -o -iname '*TODO*' -o -iname '*REPORT*' \) -print -delete | sed 's/^/  scrubbed: /' || true
+    find "$DIST" -type f -not -path '*/.well-known/agent-skills/*/SKILL.md' \
+      \( -name '*.md' -o -iname '*TODO*' -o -iname '*REPORT*' \) -print -delete | sed 's/^/  scrubbed: /' || true
   fi
 
   # 2c. landing manifest (see header): written BEFORE the rsync so any later restage
@@ -226,7 +228,7 @@ do_deploy() {
     echo "  (dry-run: nothing written; backup not created)"
     exit 0
   fi
-  rsync -a --exclude='*.md' --exclude='*TODO*' --exclude='*REPORT*' "$DIST/" "$TARGET/"
+  rsync -a --include='.well-known/agent-skills/*/SKILL.md' --exclude='*.md' --exclude='*TODO*' --exclude='*REPORT*' "$DIST/" "$TARGET/"
   chmod -R a+rX "$TARGET" 2>/dev/null || true
 
   # sanity: the hub must exist after deploy (bind mount stays intact)
