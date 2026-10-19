@@ -14,36 +14,33 @@ interface FeedPost {
   avatar: string;
   customPhotoUrl?: string;
   role: string;
-  content?: string;
-  timestamp?: string;
-  contentKey?: string;
-  timeKey?: string;
+  content: string;
+  timestamp: string;
   likes: number;
   likedByMe?: boolean;
 }
 
-// Mock profiles dictionary for fallback stats (display strings go through i18n
-// keys; joinedDate/activity dates are ISO so they format per language)
+// Mock profiles dictionary for fallback stats
 const MOCK_PROFILES: Record<string, any> = {
   demo_user: {
     avatar: '🦅',
     role: 'Manager',
     wallet: 'GoAL...c4in',
-    joinedDate: '2026-05-01',
-    bioKey: 'profile_bio_demo_user',
+    joinedDate: 'Mayo 2026',
+    bio: 'GoalChain Manager apasionado por la analítica de fútbol y las finanzas descentralizadas.',
     location: 'España',
     accentColor: '#14f195',
     followersCount: 84,
     stats: { balance: 2340.50, totalBets: 47, winRate: 68.1, nftsOwned: 12, upgradesDone: 3, totalVolume: 18920.00, rank: 'Gold', xp: 4210 },
     recentActivity: [
-      { type: 'BET',     descKey: 'profile_act_1', amount: '+320 USDC', date: '2026-05-23', positive: true },
-      { type: 'NFT',     descKey: 'profile_act_2', amount: '-180 USDC', date: '2026-05-22', positive: false },
-      { type: 'UPGRADE', descKey: 'profile_act_3', amount: '-50 USDC',  date: '2026-05-21', positive: false },
-      { type: 'BET',     descKey: 'profile_act_4', amount: '+150 USDC', date: '2026-05-20', positive: true },
+      { type: 'BET',     desc: 'ARG vs FRA — Long x5',   amount: '+320 USDC', date: '23 May',  positive: true },
+      { type: 'NFT',     desc: 'Enzo Bit Gold — Adquirido', amount: '-180 USDC', date: '22 May', positive: false },
+      { type: 'UPGRADE', desc: 'Enzo Bit → Platinum',     amount: '-50 USDC',  date: '21 May',  positive: false },
+      { type: 'BET',     desc: 'BRA vs ESP — Short x3',   amount: '+150 USDC', date: '20 May',  positive: true },
     ],
     nfts: [
       { name: 'Enzo Bit', rarity: 'Gold',   emoji: '⚽', level: 3 },
-      { name: 'Julian Satoshi', rarity: 'Silver', emoji: '🥇', level: 2 },
+      { name: 'Julian Satoshi', rarity: 'Silver', emoji: '🥈', level: 2 },
       { name: 'Lucas Zero', rarity: 'Bronze', emoji: '🥉', level: 1 },
     ],
   },
@@ -51,15 +48,15 @@ const MOCK_PROFILES: Record<string, any> = {
     avatar: '🐐',
     role: 'Manager',
     wallet: 'LeO5...mEsS',
-    joinedDate: '2026-01-01',
-    bioKey: 'profile_bio_messi',
+    joinedDate: 'Enero 2026',
+    bio: 'El diez en la cancha y en la gobernanza. ⚽✨',
     location: 'Argentina',
     accentColor: '#ffd700',
     followersCount: 1250452,
     stats: { balance: 99420.00, totalBets: 154, winRate: 88.5, nftsOwned: 35, upgradesDone: 15, totalVolume: 992450.00, rank: 'Gold', xp: 48900 },
     recentActivity: [
-      { type: 'BET', descKey: 'profile_act_5', amount: '+5,000 USDC', date: '2026-05-25', positive: true },
-      { type: 'NFT', descKey: 'profile_act_6', amount: '+0 USDC', date: '2026-05-20', positive: true },
+      { type: 'BET', desc: 'MIA vs NYC — Long x10', amount: '+5,000 USDC', date: '25 May', positive: true },
+      { type: 'NFT', desc: 'Messi Satoshi Mythic — Minted', amount: '+0 USDC', date: '20 May', positive: true },
     ],
     nfts: [
       { name: 'Messi Satoshi', rarity: 'Gold', emoji: '👑', level: 5 },
@@ -77,14 +74,14 @@ const getProfileData = (username: string) => {
     avatar: '👤',
     role: 'Manager',
     wallet: 'Cx72...99ab',
-    joinedDate: '2026-06-01',
-    bioKey: 'profile_bio_default',
+    joinedDate: 'Junio 2026',
+    bio: 'Nuevo Manager listo para competir.',
     location: 'Latam',
     accentColor: '#14f195',
     followersCount: 12,
     stats: { balance: 50.00, totalBets: 2, winRate: 50.0, nftsOwned: 0, upgradesDone: 0, totalVolume: 100.00, rank: 'Bronze', xp: 120 },
     recentActivity: [
-      { type: 'BET', descKey: 'profile_act_7', amount: '+10 USDC', date: '2026-06-25', positive: true },
+      { type: 'BET', desc: 'LP vs SP — Long x1', amount: '+10 USDC', date: '25 Jun', positive: true },
     ],
     nfts: [],
   };
@@ -104,38 +101,18 @@ const ACTIVITY_COLORS: Record<string, string> = {
 };
 
 const ACCENT_PRESETS = [
-  { color: '#14f195', nameKey: 'profile_color_neon_green' },
-  { color: '#9945ff', nameKey: 'profile_color_neon_purple' },
-  { color: '#00e0ff', nameKey: 'profile_color_cyan' },
-  { color: '#fbbf24', nameKey: 'profile_color_gold' },
-  { color: '#ef4444', nameKey: 'profile_color_vibrant_red' },
-];
-
-// Display labels for data-driven values (persisted data keeps the canonical value)
-const ROLE_LABELS = [
-  { value: 'Manager', labelKey: 'create_user_role_manager' },
-  { value: 'Scout', labelKey: 'create_user_role_scout' },
-  { value: 'Trader', labelKey: 'create_user_role_trader' },
-];
-
-const TIER_LABELS = [
-  { value: 'Gold', labelKey: 'profile_rarity_gold' },
-  { value: 'Silver', labelKey: 'profile_rarity_silver' },
-  { value: 'Bronze', labelKey: 'profile_rarity_bronze' },
-  { value: 'Platinum', labelKey: 'profile_rarity_platinum' },
-];
-
-const ACTIVITY_TYPE_LABELS = [
-  { value: 'BET', labelKey: 'profile_activity_type_bet' },
-  { value: 'NFT', labelKey: 'profile_activity_type_nft' },
-  { value: 'UPGRADE', labelKey: 'profile_activity_type_upgrade' },
+  { color: '#14f195', name: 'Neon Green' },
+  { color: '#9945ff', name: 'Neon Purple' },
+  { color: '#00e0ff', name: 'Cyan' },
+  { color: '#fbbf24', name: 'Gold' },
+  { color: '#ef4444', name: 'Vibrant Red' },
 ];
 
 export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername }) => {
   const { connection } = useConnection();
   const { publicKey } = useWallet();
   const { user: currentUser, setUser } = useUser();
-  const { language, t } = useTranslation();
+  const { language } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const urlUsername = window.location.pathname.split('/perfil/')[1];
@@ -174,10 +151,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
     if (currentUser.wallet) {
       profile.wallet = `${currentUser.wallet.slice(0, 4)}...${currentUser.wallet.slice(-4)}`;
     }
-    if (currentUser.bio !== undefined) {
-      profile.bio = currentUser.bio;
-      delete (profile as any).bioKey;
-    }
+    profile.bio = currentUser.bio !== undefined ? currentUser.bio : profile.bio;
     profile.location = currentUser.location !== undefined ? currentUser.location : profile.location;
     profile.twitter = currentUser.twitter || '';
     profile.telegram = currentUser.telegram || '';
@@ -246,8 +220,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
         username: 'LionelMessi',
         avatar: '🐐',
         role: 'Manager',
-        contentKey: 'profile_feed_seed_1',
-        timeKey: 'profile_feed_time_2h',
+        content: 'Preparando el análisis para el próximo partido. El Cronista IA tiene unas predicciones muy interesantes sobre el rendimiento físico del plantel. 📊⚽',
+        timestamp: 'Hace 2 horas',
         likes: 342,
       },
       {
@@ -255,8 +229,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
         username: 'demo_user',
         avatar: '🦅',
         role: 'Manager',
-        contentKey: 'profile_feed_seed_2',
-        timeKey: 'profile_feed_time_4h',
+        content: 'NemoClaw me acaba de auditar un comando de alto riesgo en la terminal de derivados. La seguridad con la firma del Genesis Squad es impecable. ¡Por fin utilidad real para mis NFTs! ⚖️🛡️',
+        timestamp: 'Hace 4 horas',
         likes: 128,
         likedByMe: true,
       },
@@ -265,8 +239,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
         username: 'scout_master',
         avatar: '🐺',
         role: 'Scout',
-        contentKey: 'profile_feed_seed_3',
-        timeKey: 'profile_feed_time_1d',
+        content: '¿Alguien tiene un delantero legendario con stats de tiro > 90 en el Transfer Market? Pago en SOL o Cash directos. Ofertas al inbox. 🛒',
+        timestamp: 'Hace 1 día',
         likes: 45,
       }
     ];
@@ -298,7 +272,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
 
     // Validate size (< 1.5MB to stay safe in localStorage)
     if (file.size > 1.5 * 1024 * 1024) {
-      alert(t('profile_photo_too_big'));
+      alert(language === 'es' ? 'La imagen debe pesar menos de 1.5MB' : 'Image size must be under 1.5MB');
       return;
     }
 
@@ -333,13 +307,12 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
     if (!newPostText.trim()) return;
     const newPost: FeedPost = {
       id: `post_${Date.now()}`,
-      username: currentUser?.username || t('profile_feed_guest'),
+      username: currentUser?.username || 'Guest',
       avatar: currentUser?.avatar || '👤',
       customPhotoUrl: currentUser?.customPhotoUrl,
       role: currentUser?.role || 'Manager',
       content: newPostText,
-      timestamp: t('profile_feed_time_now'),
-      timeKey: 'profile_feed_time_now',
+      timestamp: language === 'es' ? 'Hace unos instantes' : 'Just now',
       likes: 0,
     };
     const updated = [newPost, ...feed];
@@ -375,22 +348,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
   const effectiveOpenBets = chainStats?.openBets ?? Math.round(profile.stats.totalBets * (1 - profile.stats.winRate / 100));
   const effectiveClaimedBets = chainStats?.claimedBets ?? Math.round(profile.stats.totalBets * profile.stats.winRate / 100);
 
-  const jsLocale = language === 'es' ? 'es-ES' : 'en-US';
-  const fmtNum = (n: number, opts?: Intl.NumberFormatOptions) => n.toLocaleString(jsLocale, opts);
-  const fmtMonthYear = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString(jsLocale, { month: 'long', year: 'numeric' });
-  const fmtShortDate = (iso: string) => new Date(`${iso}T12:00:00`).toLocaleDateString(jsLocale, { day: 'numeric', month: 'short' });
-  const roleLabel = (role: string) => {
-    const key = ROLE_LABELS.find(r => r.value === role)?.labelKey;
-    return key ? t(key) : role;
-  };
-  const tierLabel = (tier: string) => {
-    const key = TIER_LABELS.find(r => r.value === tier)?.labelKey;
-    return key ? t(key) : tier;
-  };
-  const activityTypeLabel = (type: string) => {
-    const key = ACTIVITY_TYPE_LABELS.find(r => r.value === type)?.labelKey;
-    return key ? t(key) : type;
-  };
+  const tText = (en: string, es: string) => (language === 'es' ? es : en);
 
   return (
     <div className="profile-page" style={{ '--accent-theme': accentColor } as React.CSSProperties}>
@@ -418,7 +376,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                     style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.15)', color: '#fff' }}
                     onClick={() => setIsEditing(prev => !prev)}
                   >
-                    {isEditing ? `✕ ${t('profile_close')}` : `⚙️ ${t('profile_edit_profile')}`}
+                    {isEditing ? tText('✕ Close', '✕ Cerrar') : tText('⚙️ Edit Profile', '⚙️ Editar Perfil')}
                   </button>
                 ) : (
                   currentUser && (
@@ -426,7 +384,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                       className={`profile-follow-btn ${isFollowing ? 'following-active' : ''}`}
                       onClick={handleFollowToggle}
                     >
-                      {isFollowing ? `✓ ${t('profile_btn_following')}` : `＋ ${t('profile_btn_follow')}`}
+                      {isFollowing ? tText('✓ Following', '✓ Siguiendo') : tText('＋ Follow', '＋ Seguir')}
                     </button>
                   )
                 )}
@@ -434,22 +392,22 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
             </div>
 
             <div className="profile-meta-row" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', fontSize: '0.78rem', color: '#64748b' }}>
-              <span className="profile-role-badge" style={{ color: accentColor, fontWeight: 800 }}>{roleLabel(profile.role)}</span>
-              <span className="profile-rank-badge" style={{ color: '#fbbf24', fontWeight: 800 }}>⭐ {tierLabel(profile.stats.rank)}</span>
-              <span>{t('profile_joined', { date: fmtMonthYear(profile.joinedDate) })}</span>
+              <span className="profile-role-badge" style={{ color: accentColor, fontWeight: 800 }}>{profile.role}</span>
+              <span className="profile-rank-badge" style={{ color: '#fbbf24', fontWeight: 800 }}>⭐ {profile.stats.rank}</span>
+              <span>{tText(`Joined ${profile.joinedDate}`, `Desde ${profile.joinedDate}`)}</span>
             </div>
 
-            <p className="profile-bio-text">{profile.bioKey ? t(profile.bioKey) : profile.bio}</p>
+            <p className="profile-bio-text">{profile.bio}</p>
 
             <div style={{ display: 'flex', gap: '15px', alignItems: 'center', flexWrap: 'wrap' }}>
               {profile.location && (
                 <span className="profile-location-tag">📍 {profile.location}</span>
               )}
               <span style={{ fontSize: '0.78rem', color: '#64748b' }}>
-                <strong>{fmtNum(followersCount)}</strong> {t('profile_label_followers')}
+                <strong>{followersCount.toLocaleString()}</strong> {tText('followers', 'seguidores')}
               </span>
               <span style={{ fontSize: '0.78rem', color: '#64748b' }}>
-                <strong>{currentUser?.following?.length || 0}</strong> {t('profile_label_following')}
+                <strong>{currentUser?.following?.length || 0}</strong> {tText('following', 'siguiendo')}
               </span>
             </div>
 
@@ -484,14 +442,14 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
         {/* Experience point progress bar */}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.04)', paddingTop: '1rem', marginTop: '0.5rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: '#64748b', fontWeight: 700, marginBottom: '6px' }}>
-            <span>{t('profile_xp_progress')}</span>
-            <span>{fmtNum(profile.stats.xp)} XP</span>
+            <span>XP LEVEL PROGRESS</span>
+            <span>{profile.stats.xp.toLocaleString()} XP</span>
           </div>
           <div style={{ height: 6, borderRadius: 3, background: 'rgba(255,255,255,0.05)', overflow: 'hidden' }}>
             <div style={{ height: '100%', width: `${(profile.stats.xp % 5000) / 50}%`, background: `linear-gradient(90deg, ${accentColor}, ${accentColor}aa)`, borderRadius: 3 }} />
           </div>
           <div style={{ display: 'flex', justifyContent: 'flex-end', fontSize: '0.62rem', color: '#64748b', marginTop: '4px' }}>
-            {t('profile_next_level', { xp: fmtNum(5000 - (profile.stats.xp % 5000)) })}
+            {tText(`Next level in ${5000 - (profile.stats.xp % 5000)} XP`, `Próximo nivel en ${5000 - (profile.stats.xp % 5000)} XP`)}
           </div>
         </div>
       </div>
@@ -500,14 +458,14 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
       {isMyProfile && isEditing && (
         <div className="profile-hero-glass" style={{ borderStyle: 'dashed', borderColor: accentColor }}>
           <h2 style={{ fontSize: '1.2rem', fontWeight: 900, margin: '0 0 1rem', color: accentColor }}>
-            ⚙️ {t('profile_edit_settings')}
+            ⚙️ {tText('Edit Profile Settings', 'Configuración del Perfil')}
           </h2>
 
           <div className="profile-edit-grid">
             
             {/* Left Column: Avatar & Basic Details */}
             <div className="edit-section-card">
-              <h3>🎨 {t('profile_identity_section')}</h3>
+              <h3>🎨 {tText('Identity & Customization', 'Identidad y Personalización')}</h3>
               
               {/* Photo Uploader */}
               <div className="avatar-upload-container">
@@ -524,7 +482,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                     onChange={handlePhotoUpload}
                   />
                   <label htmlFor="avatar-upload-file" className="avatar-file-label">
-                    {t('profile_upload_photo')}
+                    {tText('Upload Photo', 'Subir Foto')}
                   </label>
                   {editPhotoUrl && (
                     <button 
@@ -532,16 +490,16 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                       style={{ background: 'rgba(239, 68, 68, 0.1)', borderColor: 'rgba(239, 68, 68, 0.25)', color: '#ef4444', marginTop: '4px' }}
                       onClick={() => setEditPhotoUrl('')}
                     >
-                      {t('profile_remove_photo')}
+                      {tText('Remove', 'Remover')}
                     </button>
                   )}
-                  <span>{t('profile_photo_max_size')}</span>
+                  <span>{tText('Max size 1.5MB (PNG/JPG)', 'Peso máx 1.5MB (PNG/JPG)')}</span>
                 </div>
               </div>
 
               {/* Accent Color picker */}
               <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                <label style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 700 }}>{t('profile_accent_color')}</label>
+                <label style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 700 }}>{tText('Accent Theme Color', 'Color de Acento')}</label>
                 <div className="color-picker-row">
                   {ACCENT_PRESETS.map(p => (
                     <button 
@@ -549,7 +507,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                       className={`color-picker-dot ${editAccentColor === p.color ? 'active' : ''}`}
                       style={{ background: p.color }}
                       onClick={() => setEditAccentColor(p.color)}
-                      title={t(p.nameKey)}
+                      title={p.name}
                     />
                   ))}
                 </div>
@@ -557,13 +515,13 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
 
               {/* Location Input */}
               <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                <label htmlFor="edit-location-input" style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 700 }}>{t('profile_location_label')}</label>
+                <label htmlFor="edit-location-input" style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 700 }}>{tText('Location', 'Ubicación')}</label>
                 <input 
                   id="edit-location-input"
                   type="text" 
                   className="social-input-wrapper"
                   style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8, padding: 10, color: '#fff', fontSize: '0.8rem', outline: 'none' }}
-                  placeholder={t('profile_location_placeholder')}
+                  placeholder="ej: Argentina"
                   value={editLocation}
                   onChange={e => setEditLocation(e.target.value)}
                 />
@@ -571,13 +529,13 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
 
               {/* Bio Textarea */}
               <div className="form-group" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                <label htmlFor="edit-bio-input" style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 700 }}>{t('profile_bio_label')}</label>
+                <label htmlFor="edit-bio-input" style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 700 }}>Bio</label>
                 <textarea 
                   id="edit-bio-input"
                   rows={3}
                   className="social-input-wrapper"
                   style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8, padding: 10, color: '#fff', fontSize: '0.8rem', outline: 'none', resize: 'none', fontFamily: 'inherit' }}
-                  placeholder={t('profile_bio_placeholder')}
+                  placeholder={tText('Tell us about yourself...', 'Cuéntanos sobre ti...')}
                   value={editBio}
                   onChange={e => setEditBio(e.target.value)}
                 />
@@ -586,14 +544,14 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
 
             {/* Right Column: Socials & Email Forwarder */}
             <div className="edit-section-card">
-              <h3>🔗 {t('profile_socials_section')}</h3>
+              <h3>🔗 {tText('Social Links & Integrations', 'Redes Sociales e Integraciones')}</h3>
               
               <div className="socials-edit-inputs">
                 <div className="social-input-wrapper">
                   <span className="social-input-icon">𝕏</span>
                   <input 
                     type="text" 
-                    placeholder={t('profile_social_twitter_placeholder')} 
+                    placeholder="Twitter username" 
                     value={editTwitter}
                     onChange={e => setEditTwitter(e.target.value)}
                   />
@@ -602,7 +560,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                   <span className="social-input-icon">TG</span>
                   <input 
                     type="text" 
-                    placeholder={t('profile_social_telegram_placeholder')} 
+                    placeholder="Telegram username" 
                     value={editTelegram}
                     onChange={e => setEditTelegram(e.target.value)}
                   />
@@ -611,7 +569,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                   <span className="social-input-icon">DC</span>
                   <input 
                     type="text" 
-                    placeholder={t('profile_social_discord_placeholder')} 
+                    placeholder="Discord invite code" 
                     value={editDiscord}
                     onChange={e => setEditDiscord(e.target.value)}
                   />
@@ -620,7 +578,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                   <span className="social-input-icon">GH</span>
                   <input 
                     type="text" 
-                    placeholder={t('profile_social_github_placeholder')} 
+                    placeholder="GitHub username" 
                     value={editGithub}
                     onChange={e => setEditGithub(e.target.value)}
                   />
@@ -629,26 +587,29 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
 
               {/* Email Forwarding setup */}
               <div className="email-setup-box">
-                <h4>📬 {t('profile_mailbox_title')}</h4>
+                <h4>📬 GoalChain Mail Box</h4>
                 <p>
-                  {t('profile_mailbox_desc')}
+                  {tText(
+                    'Obtain a custom forwarding inbox. Any emails sent here will automatically forward to your destination email address.',
+                    'Obtén una casilla de reenvío personalizada. Todos los correos enviados aquí se reenviarán automáticamente a tu email destino.'
+                  )}
                 </p>
                 
                 <div className="email-address-preview">
-                  <span style={{ fontSize: '0.72rem', color: '#64748b' }}>{t('profile_mailbox_yours')}</span>
+                  <span style={{ fontSize: '0.72rem', color: '#64748b' }}>{tText('Your mailbox:', 'Tu casilla:')}</span>
                   <code>{profile.username.toLowerCase()}@goalchain.fun</code>
                 </div>
 
                 <div className="email-input-line">
                   <input 
                     type="email" 
-                    placeholder={t('profile_mailbox_dest_placeholder')}
+                    placeholder={tText('Your destination email (e.g. gmail)', 'Tu email destino (ej. gmail)')}
                     value={editForwardingEmail}
                     onChange={e => setEditForwardingEmail(e.target.value)}
                   />
                 </div>
                 <span style={{ fontSize: '0.62rem', color: editForwardingEmail ? '#14f195' : '#64748b', fontWeight: 700 }}>
-                  {editForwardingEmail ? `🟢 ${t('profile_mailbox_active')}` : `🔴 ${t('profile_mailbox_inactive')}`}
+                  {editForwardingEmail ? '🟢 Reenvío Activo' : '🔴 Reenvío Inactivo (Email vacío)'}
                 </span>
               </div>
             </div>
@@ -660,13 +621,13 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
               style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.1)', color: '#94a3b8' }}
               onClick={() => setIsEditing(false)}
             >
-              {t('profile_cancel')}
+              {tText('Cancel', 'Cancelar')}
             </button>
             <button 
               className="profile-follow-btn"
               onClick={handleSaveProfile}
             >
-              💾 {t('profile_save_changes')}
+              💾 {tText('Save Changes', 'Guardar Cambios')}
             </button>
           </div>
         </div>
@@ -677,36 +638,36 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
         <div className="profile-stat-box-vertical">
           <span className="icon">💰</span>
           <span className="value">
-            {chainStats ? t('profile_base_short', { value: fmtNum(effectiveBalance) }) : `$${fmtNum(profile.stats.balance, { minimumFractionDigits: 2 })}`}
+            {chainStats ? `${effectiveBalance.toLocaleString()} base` : `$${profile.stats.balance.toLocaleString('es', { minimumFractionDigits: 2 })}`}
           </span>
-          <span className="label">{t('profile_stat_balance')}</span>
+          <span className="label">{tText('Balance', 'Balance')}</span>
         </div>
         <div className="profile-stat-box-vertical">
           <span className="icon">🎯</span>
           <span className="value">{profile.stats.winRate}%</span>
-          <span className="label">{t('profile_stat_win_rate')}</span>
+          <span className="label">Win Rate</span>
         </div>
         <div className="profile-stat-box-vertical">
           <span className="icon">📊</span>
           <span className="value">{effectiveTotalBets}</span>
-          <span className="label">{t('profile_stat_total_bets')}</span>
+          <span className="label">Total Bets</span>
         </div>
         <div className="profile-stat-box-vertical">
           <span className="icon">🃏</span>
           <span className="value">{profile.stats.nftsOwned}</span>
-          <span className="label">{t('profile_stat_nfts')}</span>
+          <span className="label">NFTs</span>
         </div>
         <div className="profile-stat-box-vertical">
           <span className="icon">📈</span>
           <span className="value">
-            {chainStats ? `${fmtNum(effectiveVolume)} u` : `$${(profile.stats.totalVolume / 1000).toFixed(1)}K`}
+            {chainStats ? `${effectiveVolume.toLocaleString()} u` : `$${(profile.stats.totalVolume / 1000).toFixed(1)}K`}
           </span>
-          <span className="label">{t('profile_stat_volume')}</span>
+          <span className="label">Volume</span>
         </div>
         <div className="profile-stat-box-vertical">
           <span className="icon">⚡</span>
           <span className="value">{profile.stats.upgradesDone}</span>
-          <span className="label">{t('profile_stat_upgrades')}</span>
+          <span className="label">Upgrades</span>
         </div>
       </div>
 
@@ -718,12 +679,13 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
             id={`tab-${tab}`}
             className={`profile-tab ${activeTab === tab ? 'active' : ''}`}
             onClick={() => setActiveTab(tab)}
+            style={{ borderColor: activeTab === tab ? accentColor : 'transparent', color: activeTab === tab ? accentColor : '#64748b' }}
           >
             {{ 
-              overview: `📋 ${t('profile_tab_overview')}`, 
-              nfts: `🃏 ${t('profile_stat_nfts')}`, 
-              activity: `⚡ ${t('profile_tab_activity')}`, 
-              feed: `💬 ${t('profile_tab_feed')}` 
+              overview: tText('📋 Overview', '📋 Descripción'), 
+              nfts: tText('🃏 NFTs', '🃏 NFTs'), 
+              activity: tText('⚡ Activity', '⚡ Actividad'), 
+              feed: tText('💬 Social Feed', '💬 Feed Social') 
             }[tab]}
           </button>
         ))}
@@ -737,19 +699,19 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
             <div className="overview-grid">
               
               <div className="overview-card">
-                <h2>💰 {t('profile_current_balance')}</h2>
+                <h3>💰 {tText('Current Balance', 'Balance Actual')}</h3>
                 <div className="big-number" style={{ color: '#14f195', fontSize: '1.8rem', fontWeight: 900, marginTop: '8px' }}>
-                  {chainStats ? t('profile_base_units', { value: fmtNum(effectiveBalance) }) : `$${fmtNum(profile.stats.balance, { minimumFractionDigits: 2 })} USDC`}
+                  {chainStats ? `${effectiveBalance.toLocaleString()} base units` : `$${profile.stats.balance.toLocaleString('es', { minimumFractionDigits: 2 })} USDC`}
                 </div>
                 {chainStats && (
                   <div style={{ marginTop: 6, fontSize: '0.75rem', opacity: 0.8, color: '#64748b' }}>
-                    {t('profile_stake_label')} {t('profile_base_units', { value: fmtNum(effectiveStaked) })}
+                    Stake: {effectiveStaked.toLocaleString()} base units
                   </div>
                 )}
               </div>
 
               <div className="overview-card">
-                <h2>🎯 Performance</h2>
+                <h3>🎯 Performance</h3>
                 <div className="perf-ring-wrap" style={{ display: 'flex', alignItems: 'center', gap: '15px', marginTop: '8px' }}>
                   <svg viewBox="0 0 80 80" className="perf-ring" style={{ width: 64, height: 64 }}>
                     <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="6" />
@@ -764,16 +726,16 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                       {profile.stats.winRate}%
                     </text>
                   </svg>
-                  <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>{t('profile_stat_win_rate')}</span>
+                  <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Win Rate</span>
                 </div>
               </div>
 
               <div className="overview-card">
-                <h2>📊 {t('profile_operation_stats')}</h2>
+                <h3>📊 {tText('Operation Stats', 'Estadísticas')}</h3>
                 <div className="ops-breakdown" style={{ marginTop: '8px', fontSize: '0.85rem', display: 'flex', flexDirection: 'column', gap: '4px', color: '#94a3b8' }}>
-                  <div>{t('profile_total_bets_label')} <strong style={{ color: '#fff' }}>{effectiveTotalBets}</strong></div>
-                  <div>{t('profile_won_label')} <strong style={{ color: '#14f195' }}>{effectiveClaimedBets}</strong></div>
-                  <div>{t('profile_open_label')} <strong style={{ color: '#f35d7b' }}>{effectiveOpenBets}</strong></div>
+                  <div>{tText('Total bets:', 'Total apuestas:')} <strong style={{ color: '#fff' }}>{effectiveTotalBets}</strong></div>
+                  <div>{tText('Won:', 'Ganadas:')} <strong style={{ color: '#14f195' }}>{effectiveClaimedBets}</strong></div>
+                  <div>{tText('Open:', 'Abiertas:')} <strong style={{ color: '#f35d7b' }}>{effectiveOpenBets}</strong></div>
                 </div>
               </div>
 
@@ -788,8 +750,8 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                 <div key={i} className="nft-profile-card" style={{ borderColor: RARITY_COLORS[nft.rarity], background: 'rgba(255,255,255,0.01)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '12px', padding: '16px', textAlign: 'center', transition: 'all 0.3s' }}>
                   <div className="nft-emoji" style={{ fontSize: '2.5rem', marginBottom: '8px' }}>{nft.emoji}</div>
                   <div className="nft-name" style={{ fontWeight: 800, color: '#fff' }}>{nft.name}</div>
-                  <div className="nft-rarity" style={{ color: RARITY_COLORS[nft.rarity], fontSize: '0.78rem', fontWeight: 800, textTransform: 'uppercase', marginTop: '4px' }}>{tierLabel(nft.rarity)}</div>
-                  <div className="nft-level" style={{ fontSize: '0.7rem', color: '#64748b', marginTop: '2px' }}>{t('profile_level', { level: nft.level })}</div>
+                  <div className="nft-rarity" style={{ color: RARITY_COLORS[nft.rarity], fontSize: '0.78rem', fontWeight: 800, textTransform: 'uppercase', marginTop: '4px' }}>{nft.rarity}</div>
+                  <div className="nft-level" style={{ fontSize: '0.7rem', color: '#64748b', marginTop: '2px' }}>Level {nft.level}</div>
                 </div>
               ))}
               
@@ -797,7 +759,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
               {Array.from({ length: Math.max(0, 6 - profile.nfts.length) }).map((_, i) => (
                 <div key={`empty-${i}`} className="nft-profile-card nft-empty" style={{ background: 'rgba(255,255,255,0.01)', border: '1px dashed rgba(255,255,255,0.06)', borderRadius: '12px', padding: '16px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '120px' }}>
                   <div className="nft-emoji" style={{ opacity: 0.15, fontSize: '2rem' }}>🃏</div>
-                  <div style={{ opacity: 0.3, fontSize: '0.7rem', color: '#64748b', marginTop: '4px' }}>{t('profile_empty_slot')}</div>
+                  <div style={{ opacity: 0.3, fontSize: '0.7rem', color: '#64748b', marginTop: '4px' }}>{tText('Empty slot', 'Casilla vacía')}</div>
                 </div>
               ))}
             </div>
@@ -810,10 +772,10 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
               {profile.recentActivity.map((act: any, i: number) => (
                 <div key={i} className="activity-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 16px', background: 'rgba(255,255,255,0.01)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '8px' }}>
                   <span className="activity-badge" style={{ background: ACTIVITY_COLORS[act.type] + '18', color: ACTIVITY_COLORS[act.type], fontSize: '0.68rem', padding: '3px 8px', borderRadius: '4px', fontWeight: 800 }}>
-                    {activityTypeLabel(act.type)}
+                    {act.type}
                   </span>
-                  <span className="activity-desc" style={{ flex: 1, marginLeft: '12px', fontSize: '0.82rem', color: '#e2e8f0' }}>{act.descKey ? t(act.descKey) : act.desc}</span>
-                  <span className="activity-date" style={{ fontSize: '0.72rem', color: '#64748b', marginRight: '15px' }}>{fmtShortDate(act.date)}</span>
+                  <span className="activity-desc" style={{ flex: 1, marginLeft: '12px', fontSize: '0.82rem', color: '#e2e8f0' }}>{act.desc}</span>
+                  <span className="activity-date" style={{ fontSize: '0.72rem', color: '#64748b', marginRight: '15px' }}>{act.date}</span>
                   <span className={`activity-amount ${act.positive ? 'positive' : 'negative'}`} style={{ fontWeight: 800, fontSize: '0.85rem', color: act.positive ? '#14f195' : '#f35d7b' }}>
                     {act.amount}
                   </span>
@@ -832,7 +794,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                 <div className="feed-new-post">
                   <textarea 
                     rows={3} 
-                    placeholder={t('profile_feed_placeholder')}
+                    placeholder={tText("Share your thoughts about current matches or agent tasks...", "Comparte tus opiniones sobre partidos o tareas de agentes...")}
                     value={newPostText}
                     onChange={e => setNewPostText(e.target.value)}
                     maxLength={280}
@@ -843,7 +805,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                       disabled={!newPostText.trim()}
                       onClick={handlePublishPost}
                     >
-                      📣 {t('profile_feed_post_btn')}
+                      📣 {tText('Post Update', 'Publicar')}
                     </button>
                   </div>
                 </div>
@@ -864,13 +826,13 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                         </div>
                         <div className="feed-post-meta">
                           <a href={`/perfil/${post.username}`} className="feed-post-username">@{post.username}</a>
-                          <span className="feed-post-role-badge">{roleLabel(post.role)}</span>
+                          <span className="feed-post-role-badge">{post.role}</span>
                         </div>
                       </div>
-                      <span className="feed-post-date">{post.timeKey ? t(post.timeKey) : post.timestamp}</span>
+                      <span className="feed-post-date">{post.timestamp}</span>
                     </div>
 
-                    <p className="feed-post-body">{post.contentKey ? t(post.contentKey) : post.content}</p>
+                    <p className="feed-post-body">{post.content}</p>
 
                     <div className="feed-post-actions">
                       <button 

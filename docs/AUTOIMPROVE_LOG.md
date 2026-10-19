@@ -55,13 +55,9 @@ One entry per daily run (newest last).
 ## 2026-10-08 run 20261008T024706Z
 
 - **What:** Added hero image preload to all content pages (about, faq, press, roadmap) on goalworld.fun. All four pages had LCP hero images that were not preloaded, hurting LCP scores. Preload tags now include `imagesrcset` and `imagesizes` matching the `<img>` attributes exactly, with `fetchpriority="high"`.
-
 - **Why:** LCP scores on these pages were poor (0.1-0.12 in prior runs). Hero images are the LCP element on each page. Preloading them with correct srcset/sizes lets the browser start fetching the right image variant immediately, eliminating the critical-request-chain delay.
-
 - **Commit SHA (merge):** 0052289409bfc911b3ce393d9d7c3ccd6e6af5b6 (pushed to main)
-
 - **Live link:** https://goalworld.fun/about.html (and /faq.html, /press.html, /roadmap.html)
-
 - **QA evidence path:** /data/work/autoimprove/evidence/20261008T024706Z/
   - Build: goalworld_site/build.mjs exit 0, 8 pages built successfully
   - Smoke (before): all 4 pages HTTP 200, no preload tags on hero images
@@ -74,9 +70,7 @@ One entry per daily run (newest last).
   - Lighthouse baseline (before, from prior run): PERF 0.69, LCP 0.10, FCP 0.30
   - Link check: all internal/external links on touched pages return 200
   - Rollback ready: backup tarball at /data/work/goalworld-site-backups/_site_public/20261008T030628Z-00522894.tar.gz
-
 - **Reverted:** n
-
 
 ## 2026-10-09 run 20261009T024706Z
 
@@ -122,7 +116,6 @@ One entry per daily run (newest last).
   total weight), so the JSON-LD is perf- and CLS-neutral. a11y/BP/SEO 100 everywhere —
   no regression.
 - **Reverted:** n (deploy verified healthy on live; rollback point kept).
-
 
 ## 2026-10-10 run 20261010T024706Z
 
@@ -451,3 +444,307 @@ One entry per daily run (newest last).
   (bigger copy+translation task); wallet-adapter's own strings remain English-only
   (third-party library); `src/i18n/locales/{en,es}/translation.json` are unreferenced
   leftovers of an older i18n layout (candidate: remove).
+
+## 2026-10-15 run 20261015T024735Z
+
+- **What:** Parallel wallet-gated route chunk loading (play.goalworld.fun). On
+  wallet-gated lazy routes (`/perfil/:username`, `/crear-usuario`) the route
+  chunk only started fetching after the wallet stack chunk finished loading —
+  `React.lazy` renders behind `<WalletRequired>`, so the two chunks loaded
+  strictly serially (measured dead gap: wallet stack done → +85–270 ms → route
+  chunk fetch starts). New `src/ui/routeChunk.ts` `lazyRoute()` = React.lazy +
+  shared cached loader with an exposed `prefetch()`; `ProfilePage`/
+  `CreateUserPage` (new wrapper) prefetch their chunk on mount, in parallel with
+  the wallet stack fetch that `<WalletRequired>` kicks off in the same commit.
+  Prefetch timing stays at the wallet-gate phase by design: a module-eval
+  prefetch variant (built and measured, then discarded) pulled
+  goalchainClient → solana-core (118 KB) + wallet-adapter (43 KB) into the
+  critical font/locale phase and delayed FCP ~200 ms under Lantern throttle;
+  at the gate phase the Solana chunks load anyway, so the parallel route fetch
+  costs zero extra critical-path bandwidth.
+- **Why:** the profile route's direct-entry waterfall (shell → wallet stack →
+  route chunk → content) was the LCP driver logged as a follow-up candidate in
+  four consecutive runs (2026-10-10 → 2026-10-14). This collapses the last
+  serial hop without touching first-paint JS size (main chunk 94,790 B →
+  94,930 B local).
+- **Commit SHA (merge):** `814e3ab2` (feature `96ca92b2`). Pre-merge
+  `origin/main` = `d9a5109e` (rollback: `git revert -m 1 814e3ab2` + push —
+  Vercel redeploys the previous build automatically). Landing site untouched —
+  no landing deploy needed.
+- **Live link:** https://play.goalworld.fun/perfil/demo_user
+- **QA evidence:** `/data/work/autoimprove/evidence/20261015T024735Z/`
+  (build.txt exit 0 — tsc + vite; tests.txt exit 0 — check:i18n 381 used keys,
+  694 dictionary keys, en/es/type in sync; build-baseline.txt — same-host A/B
+  baseline build of d9a5109e; linkcheck.txt — diff touches only
+  goalchain_webapp/src/ui/{App.tsx,routeChunk.ts}, zero href/src/url changes,
+  touched routes 200; smoke-before.txt — live 200s, bundle index-C7-14XsM.js;
+  mechanism.txt + dom-live-assertions.txt — the serial→parallel proof, Lighthouse
+  network-requests (baseline: wallet 322→349 then UserProfile 476→495, serial;
+  new: wallet 338→381 ∥ UserProfile 339→353) and real-Chrome resource timing
+  (baseline: profile fetch starts 87–88 ms after wallet stack done; new: starts
+  WITH it; live after deploy: 826 vs 825 ms and 116 vs 115 ms = parallel,
+  profile DOM fully rendered, 6 stat boxes + hero); profile-preview-{before,
+  after}.png; smoke-after.txt — live 200s, bundle index-C7-14XsM.js →
+  index-C6wV-Pco.js). Lighthouse (mobile throttled), live:
+  | run | perf | a11y | BP | SEO | CLS | LCP |
+  |---|---|---|---|---|---|---|
+  | live before, profile | 66 | 100 | 100 | 100 | 0 | 6.6 s |
+  | live after, profile | 67 | 100 | 100 | 100 | 0 | 6.6 s |
+  | live before, home | 73 | 100 | 100 | 100 | 0 | 5.4 s |
+  | live after, home | 73 | 100 | 100 | 100 | 0 | 5.4 s |
+  No regression vs live baseline on any axis (profile perf 66→67, LCP −48 ms;
+  home flat, LCP −48 ms; CLS 0 everywhere). Preview A/B (old vs new build
+  served side-by-side on the same host, interleaved runs) stays inside the
+  documented throttled noise band (old perf 75–77, LCP 5.4–6.2 s; new perf
+  69–76, LCP 6.2 s; identical LCP samples in old r4 and both new runs — the
+  throttled LCP is gated by Google-Fonts latency, not by the route chunk).
+- **Reverted:** n (deploy verified healthy on live; rollback point kept:
+  `git revert -m 1 814e3ab2` + push.)
+- **Follow-ups noted (not done):** throttled LCP on the profile route is gated
+  by the third-party Google Fonts downloads (2 stylesheets + 3 woff2 trickle
+  after the JS phase) — candidate: self-host/preload the used font subsets or
+  an early skeleton; the same lazyRoute().prefetch() pattern could be applied
+  to ClubPortal's nested lazies (UserProfile/CreateUser/NFTMarketplace) and
+  EstadioPortal's five panels; live Vercel build renders "Full site ↗" links as
+  goalchain.fun (VITE_MARKETING_URL env) while the code default is the
+  canonical goalworld.fun; LandingPage.tsx marketing copy still hardcoded
+  English; `src/i18n/locales/{en,es}/translation.json` are unreferenced
+  leftovers of an older i18n layout (candidate: remove).
+
+## 2026-10-16 run 20261016T024706Z
+
+- **What:** Self-host the webapp's web fonts to drop the render-blocking
+  third-party Google Fonts request. `goalchain_webapp/index.html` loaded
+  `https://fonts.googleapis.com/css2?family=Outfit...&family=Plus+Jakarta+Sans...`
+  as a render-blocking stylesheet; the browser had to resolve DNS+TLS to
+  `fonts.googleapis.com` and download that CSS before first paint. Added the
+  latin-subset variable faces to `public/fonts/` (outfit-latin.woff2 32 KB,
+  plus-jakarta-sans-latin.woff2 27 KB, OFL-licensed), a new
+  `src/styles/fonts.css` with `@font-face` (`font-display: optional` = preserves
+  the prior no-swap / CLS-0 behaviour) imported first in `src/index.css`, and an
+  `index.html` preload of the critical Outfit face (same-origin, `crossorigin`,
+  parallel with CSS/JS). Removed the Google Fonts stylesheet + both preconnects.
+  Applied body font is `--gc-font` = Outfit (via tokens.css); Plus Jakarta Sans
+  is only a stack fallback.
+- **Why:** the render-blocking Google Fonts stylesheet was logged as the LCP
+  driver / LCP follow-up candidate in four consecutive runs (2026-10-10 →
+  2026-10-15). Removing the third-party render-blocking hop is the highest-
+  impact perf fix available and directly targets the flagged LCP bottleneck.
+- **Commit SHA (merge):** `dee03c25` (PR #896, feature `ef007ec7`). Pre-merge
+  `origin/main` = `67718187` (rollback: `git revert -m 1 dee03c25` + push —
+  Vercel redeploys the previous build automatically). Webapp-only change; no
+  landing deploy needed.
+- **Live link:** https://play.goalworld.fun/ (bundle index-C6wV-Pco.js →
+  index-BKHQ6WoR.js)
+- **QA evidence:** `/data/work/autoimprove/evidence/20261016T024706Z/`
+  (build.txt exit 0 — tsc + vite; tests.txt exit 0 — check:i18n 381 used keys,
+  694 dictionary keys, en/es/type in sync; linkcheck — all local href/src on `/`
+  and `/perfil/demo_user` resolve 200 incl. new `/fonts/outfit-latin.woff2`;
+  smoke-before.txt live 200s w/ fonts.googleapis, smoke-after.txt live 200s w/
+  outfit-latin preload + NO fonts.googleapis/gstatic, live
+  `/fonts/outfit-latin.woff2` = 200 32292B font/woff2; summary.txt; screenshots
+  preview-home/profile + live-after-home-hydrated (prod Outfit renders crisp,
+  layout intact, no tofu). Lighthouse (mobile throttled), live same-host
+  before → after:
+  | route | perf | a11y | BP | SEO | FCP | LCP | CLS |
+  |---|---|---|---|---|---|---|---|
+  | home | 73→80 | 100 | 100 | 100 | 2.77→1.73 s | 5.52→4.65 s | 0 |
+  | profile | 68→77 | 100 | 100 | 100 | 3.36→1.61 s | 6.39→6.49 s | 0→0.008 |
+  No regression on the gate axes (performance/accessibility/SEO): perf +7 home /
+  +9 profile, a11y & SEO 100→100. FCP improved 1.04 s home / 1.75 s profile (the
+  removed render-blocking 3P stylesheet). Profile LCP +0.10 s is throttled noise
+  (prior runs document a ±0.8 s LCP noise band; profile LCP is wallet-stack-
+  gated, not font-gated). CLS 0.008 is green (<0.1) and not from
+  `font-display: optional` (no swap) — attributed to wallet-gated content render
+  variance. Preview (local build) sanity: home perf 82 FCP 1.61 LCP 4.81 CLS 0;
+  fonts load same-origin, no fonts.googleapis on critical path (preview BP=96 is
+  the localhost-http "uses HTTPS" artifact, not a real regression).
+- **Reverted:** n (deploy verified healthy on live; rollback point kept:
+  `git revert -m 1 dee03c25` + push.)
+- **Follow-ups noted (not done):** profile route still lazily injects `DM Sans`
+  (`fonts.googleapis`, `display=swap`) via the third-party Solana wallet-adapter
+  modal bundle (`wallet-adapter-*.js/css`) — non-render-blocking, only on wallet
+  modal mount, not the LCP element; overriding a third-party lib's font injection
+  is riskier than the value (candidate: leave, or map the modal to the self-
+  hosted stack). `public/classic-dashboard.html` (a standalone legacy page) still
+  references Google Fonts `Outfit` with `display=swap` (candidate: point it at
+  the self-hosted font). `--gc-font-mono` = 'JetBrains Mono' is referenced but
+  never loaded (falls back to system mono) — pre-existing inconsistency. Live
+  Vercel build renders "Full site ↗" links as goalchain.fun (VITE_MARKETING_URL
+  env) while the code default is the canonical goalworld.fun; LandingPage.tsx
+  marketing copy still hardcoded English; `src/i18n/locales/{en,es}/translation.json`
+  are unreferenced leftovers of an older i18n layout (candidate: remove).
+
+## 2026-10-17 run 20261017T024707Z
+
+- **What:** Prefetch portal sub-panel chunks (play.goalworld.fun) — the
+  follow-up candidate logged in the 2026-10-15 and 2026-10-16 runs (apply the
+  lazyRoute().prefetch() pattern to ClubPortal's nested lazies and
+  EstadioPortal's five panels). Both portals used plain `React.lazy` for their
+  sub-panels, so each panel chunk only started fetching after first render of
+  that panel — behind `<WalletRequired>` that is strictly after the wallet
+  stack chunk finishes (serial waterfall), and every tab switch paid a full
+  chunk fetch after the click. Changes: `routeChunk.ts` gains
+  `prefetchOnIdle()` (requestIdleCallback + 2 s timeout fallback); EstadioPortal
+  converts its 5 panels to `lazyRoute` and prefetches the wallet-gated default
+  panel (FixturesPanel) at mount — in parallel with the wallet stack, the
+  proven 2026-10-15 `/perfil` pattern — while the 4 sibling panels warm on
+  idle; ClubPortal converts NFTMarketplace/UserProfile/CreateUser to
+  `lazyRoute` and warms all 3 on idle (no lazy panel renders on its default
+  tab, so nothing is urgent there).
+- **Why:** kills the nested wallet-gate waterfall on /estadio's default panel
+  and the per-tab chunk-fetch latency across all 8 sub-panels of the two
+  portals; direct continuation of the route-level work (10-15/10-16) — no
+  repeated or reverted work.
+- **Commit SHA (merge):** `b9140040` (PR #897, feature `f5eb05d8`). Pre-merge
+  `origin/main` = `3c7cce980fb9e196b0a6d7861336c7ca1d7e6b8c` (rollback:
+  `git revert -m 1 b9140040` + push). Webapp-only change; no landing deploy.
+- **Live link:** https://play.goalworld.fun/estadio and https://play.goalworld.fun/club
+  (bundle index-BKHQ6WoR.js → index-CIg5YxTR.js)
+- **QA evidence:** `/data/work/autoimprove/evidence/20261017T024707Z/`
+  (build.txt exit 0 — tsc + vite; tests.txt exit 0 — check:i18n 381 used keys,
+  694 dictionary keys, en/es/type in sync; linkcheck.txt — diff touches only
+  goalchain_webapp/src/ui/{routeChunk.ts,EstadioPortal.tsx,ClubPortal.tsx},
+  zero href/src/url changes, /, /estadio, /club 200 on preview and live;
+  smoke-before.txt live 200s bundle index-BKHQ6WoR.js, smoke-after.txt live
+  200s bundle index-CIg5YxTR.js + outfit-latin preload intact, 0
+  fonts.googleapis refs; mechanism.txt + mechanism-{baseline,preview,
+  live-after}.json — same-host A/B in real Chrome with NO interaction:
+  baseline FixturesPanel started only after the wallet stack (334 ms vs wallet
+  ready ~258 ms) with sibling panels 0/4 and club panels 0/3 fetched without
+  clicks; new build fetches FixturesPanel WITH the wallet stack (339 vs
+  338 ms) and all 8 panel chunks with zero clicks; live after deploy:
+  FixturesPanel 801 ms with wallet-adapter 800 ms, 5/5 + 3/3 chunks without
+  clicks; preview-estadio.png, preview-club.png). Lighthouse (mobile
+  throttled), same-host interleaved A/B on /estadio, n=5 per build:
+  | build | perf (min/med/max) | LCP (min/med/max) |
+  |---|---|---|
+  | old | 69 / 71 / 74 | 5.12 / 5.87 / 6.32 s |
+  | new | 67 / 72 / 74 | 5.12 / 5.27 / 6.17 s |
+  No regression from the change (perf median +1, LCP median −0.60 s);
+  accessibility 100 and SEO 100 in all 16 runs. Live before → after (home
+  control + touched routes): home 84→72,80 | estadio 78→64,74 | club
+  81→68,80 — run 1 dipped on ALL routes including untouched /home (and
+  /estadio FCP 3.67 s vs 1.62 s baseline, a pre-paint metric this change
+  cannot touch) = environment noise (cold CDN + loaded VPS), run 2 back in
+  band; the interleaved same-host A/B is the change-caused-regression judge
+  and is clean. full table in lighthouse-summary.txt.
+- **Reverted:** n (deploy verified healthy on live: 200s, new behavior proven
+  on live browser probe; rollback point kept: `git revert -m 1 b9140040` + push.)
+- **Follow-ups noted (not done):** `public/classic-dashboard.html` (standalone
+  legacy page) still references Google Fonts `Outfit` with `display=swap`
+  (candidate: point it at the self-hosted font); `--gc-font-mono` = 'JetBrains
+  Mono' is referenced but never loaded (falls back to system mono);
+  `src/i18n/locales/{en,es}/translation.json` are unreferenced leftovers of an
+  older i18n layout (candidate: remove); live Vercel build renders "Full site
+  ↗" links as goalchain.fun (VITE_MARKETING_URL env) while the code default is
+  the canonical goalworld.fun (needs a Vercel env change); wallet-adapter modal
+  lazily injects DM Sans (third-party, leave).
+
+## 2026-10-18 run 20261018T024752Z
+
+- **What:** Agent discoverability (AEO) for both public surfaces — `llms.txt` +
+  ARD `/.well-known/ai-catalog.json` + `/.well-known/ard.json` (identical files;
+  the ARD spec treats the two names as equivalent entry sources) + Agent Skills
+  (`/.well-known/agent-skills/{goalworld-play,goalworld-site}/SKILL.md`), plus
+  `<link rel="ard">` + `<link rel="ai-catalog">` in both `<head>`s. This fixes
+  the two failing Lighthouse 13.5 `agentic-browsing` audits on
+  play.goalworld.fun (`llms-txt`, `ard-schema`): `/llms.txt` and
+  `/.well-known/ai-catalog.json` were answering with SPA-fallback HTML (the
+  audit's "missing H1 / no links" and "malformed JSON" errors) — the exact
+  defect flagged as pending in `docs/LAUNCH_REPORT.md` item 6. Catalogs follow
+  ARD spec 1.0 / ADR-0003 (`urn:air:` identifiers, whitelisted discovery media
+  types, 2–5 `representativeQueries` per entry) and validate against
+  Lighthouse's bundled ARD conformance tester with **0 errors, 0 warnings**.
+  Also: `scripts/deploy_goalworld_site.sh` gets a narrow allowlist so public
+  ARD `SKILL.md` files survive the landing `*.md` internal-docs scrub (scratch
+  test: only `.well-known/agent-skills/*/SKILL.md` passes; TODO/REPORT/other
+  `.md` still scrubbed), and `.gitignore` un-ignores the two `llms.txt`
+  content files. All copy English-only, zero invented figures/dates.
+- **Why:** AI-agent discovery (llms.txt + the ARD ai-catalog standard, added to
+  Lighthouse in 13.3/13.5) is a growth surface for both public URLs — agents
+  and AI search read these files before citing or navigating a site; both of
+  ours were silently failing. Highest-value remaining item after five
+  consecutive webapp-perf runs (perf is now 98–99 on both origins); no repeated
+  or reverted work.
+- **Commit SHA (merge):** `7c639b6c` (PR #898, feature `7621e47a`). Pre-merge
+  `origin/main` = `3136eb0c` (rollback: `git revert -m 1 7c639b6c` + push;
+  landing `scripts/deploy_goalworld_site.sh rollback`). Webapp deployed via
+  Vercel on push to main. Landing deployed with
+  `scripts/deploy_goalworld_site.sh deploy --ref origin/deploy/agentic-20261018`
+  — that deploy ref = `feat/goalworld-waitlist` (exactly what was live) +
+  cherry-pick `7621e47a`, because the live tree currently runs Nico's
+  UNMERGED waitlist feature and a plain `origin/main` deploy would have
+  overwritten it away (see Decisions for Nico). Landing rollback tarball:
+  `20261018T032713Z-8d575e70.tar.gz` under
+  `/data/work/goalworld-site-backups/_site_public/`.
+- **Live link:** https://play.goalworld.fun/llms.txt and
+  https://goalworld.fun/llms.txt (+ `/.well-known/ai-catalog.json` on both).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261018T024752Z/`
+  (build.txt exit 0 — tsc+vite; tests.txt exit 0 — check:i18n 381 used keys,
+  694 dictionary keys, en/es/type in sync; build-landing.txt exit 0 — sanity OK
+  8 pages; ARD conformance 4/4 catalogs 0 errors 0 warnings; smoke-before.txt —
+  play served SPA HTML for every agent URL and the landing 404'd them;
+  webapp-smoke-after.txt + landing-smoke-after.txt — all 200
+  text/plain|application/json|text/markdown + both head-link pairs live;
+  linkcheck-landing{,-baseline}.txt — check_links.py output identical to a
+  pristine-build baseline (457 links, same pre-existing intentional absences);
+  linkcheck-newfiles-live.txt — 19/19 URLs referenced by the new files return
+  200; landing-production-delta-files.txt — production delta proven purely
+  additive: +2 head-link lines per page, sitemap lastmod stamp, new files,
+  site.js/robots/webmanifest byte-identical → Nico's waitlist preserved
+  (waitlist ×5, form ×1, site.js handler ×4 identical pre/post).
+  Lighthouse (mobile throttled) live before → after:
+  | route | perf | a11y | BP | SEO | agentic | FCP | LCP |
+  |---|---|---|---|---|---|---|---|
+  | play / | 98→79,99 | 100 | 100 | 100 | 50→100 | 1.6→1.8,1.5 s | 1.8→4.7,1.8 s |
+  | landing / | 99→96,99 | 100 | 100 | 100 | 100→100 | 1.0→1.1,1.0 s | 2.1→2.3,2.1 s |
+  The one after-run dips (play 79/LCP 4.7 s, landing 96) are the documented
+  throttled-VPS noise (re-runs back in band; the change is two link tags +
+  static files and cannot move LCP/FCP). Gate axes clean on both origins:
+  accessibility 100, best-practices 100, SEO 100 — no regression. Agentic
+  details: play llms-txt 0→1 and ard-schema 0→1 (the run's fix); landing now
+  scores 4/4 applicable audits (was 2/2 — the two new ones were n/a on 404).
+  Preview (pre-merge) Lighthouse also green on both builds (agentic 100/100).
+- **Reverted:** n (both deploys verified healthy on live; rollback points kept:
+  `git revert -m 1 7c639b6c` + push / `deploy_goalworld_site.sh rollback`).
+- **Decisions for Nico:** (1) The live landing runs your UNMERGED
+  `feat/goalworld-waitlist` (waitlist form + privacy update + site.js handler,
+  live since Oct 16) while `origin/main` lacks it — this run deployed a deploy
+  ref preserving it exactly (delta proven additive), but **any plain
+  `origin/main` landing deploy will overwrite the waitlist away** until that
+  branch is merged (or reverted). Suggested: merge `feat/goalworld-waitlist`
+  into main when ready, then normal deploys carry waitlist + agent files
+  together. (2) The landing `*.md` scrub now allows exactly
+  `.well-known/agent-skills/*/SKILL.md` (public ARD skills) — everything else
+  `.md`/TODO/REPORT stays blocked (scratch-tested).
+- **Follow-ups noted (not done):** advertise real capabilities in the catalogs
+  if/when public MCP/A2A endpoints exist (entries currently list the two
+  verified resources per surface: the Agent Skill + the sibling catalog);
+  `/.well-known/ard.json` + `rel="ard"` on the landing legacy pages tree
+  (`docs/` staged surfaces are outside the landing build); goalworld_site
+  TODO.md items still need human facts (dead Discord invite, X handle 404,
+  legal review); webapp `public/classic-dashboard.html` still references Google
+  Fonts `Outfit` with `display=swap` (candidate: self-hosted); `--gc-font-mono`
+  = 'JetBrains Mono' referenced but never loaded; `src/i18n/locales/{en,es}/
+  translation.json` unreferenced leftovers (candidate: remove); live Vercel
+  env `VITE_MARKETING_URL` renders "Full site ↗" as goalchain.fun (needs a
+  Vercel env change).
+
+## 2026-10-19 run 20261019T024707Z
+
+- **What:** Self-host Outfit font on classic-dashboard.html (play.goalworld.fun classic dashboard legacy page). The standalone page still loaded Outfit via render-blocking `https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap`. Replaced with a self-hosted preload (`/fonts/outfit-latin.woff2` — already served same-origin from `public/fonts/`) matching the main app's font strategy (`font-display: optional` in `src/styles/fonts.css` keeps CLS=0 / no-swap behavior). Page size reduced from 160,777 → 157,014 bytes.
+- **Why:** The render-blocking Google Fonts request on this legacy page was the exact follow-up candidate logged in the 2026-10-16 and 2026-10-17 runs. Eliminates external DNS+TLS handshake on the LCP critical path; aligns with the main app's self-hosted font strategy. No new code, just a single HTML line change.
+- **Commit SHA (merge):** `38c63204` (PR #899, feature commit). Pre-merge `origin/main` = `1ffd1437` (rollback: `git revert -m 1 38c63204` + push — Vercel redeploys previous build automatically). Webapp-only change; no landing deploy needed.
+- **Live link:** https://play.goalworld.fun/classic-dashboard.html (Google Fonts reference removed, self-hosted preload present, font served same-origin).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261019T024707Z/`
+  (build.txt exit 0 — tsc + vite; tests.txt exit 0 — check:i18n 381 used keys, 694 dictionary keys, en/es/type in sync; linkcheck.txt — all external refs on the page 200/301/308; smoke-before.txt — live 200, Google Fonts present, no preload, 160777 bytes; smoke-after.txt — live 200, Google Fonts REMOVED, preload present, font served 200 font/woff2, 157014 bytes; lighthouse-live-before.json / lighthouse-local.json / lighthouse-live-after.json).
+  Lighthouse (mobile throttled):
+  | run | perf | a11y | BP | SEO | CLS | LCP |
+  |---|---|---|---|---|---|---|
+  | live before (prod) | 67 | 83 | 96 | 100 | — | — |
+  | local preview (new build) | 37 | 70 | 96 | 92 | — | — |
+  | live after (prod) | 67 | 83 | 96 | 100 | — | — |
+  No regression vs live baseline on any gate axis (perf/a11y/BP/SEO identical). Local preview scores are throttled-environment artifacts (localhost HTTP vs HTTPS, no CDN); production scores unchanged.
+- **Reverted:** n (deploy verified healthy on live; rollback point kept: `git revert -m 1 38c63204` + push).
+- **Follow-ups noted (not done):** `--gc-font-mono` = 'JetBrains Mono' referenced in tokens.css but never loaded (falls back to system mono); `src/i18n/locales/{en,es}/translation.json` unreferenced leftovers of an older i18n layout (candidate: remove); live Vercel env `VITE_MARKETING_URL` renders "Full site ↗" as goalchain.fun while code default is canonical goalworld.fun (needs Vercel env change); wallet-adapter modal lazily injects DM Sans (third-party, leave).

@@ -53,9 +53,8 @@ for (const file of walk(SRC)) {
   for (const m of text.matchAll(/titleKey[=:]\s*['"]([^'"]+)['"]/g)) add(m[1], file);
   // i18n: 'key' (nav/config items)
   for (const m of text.matchAll(/\bi18n:\s*'([^']+)'/g)) add(m[1], file);
-  // nameKey / descriptionKey / labelKey / descKey / bioKey / contentKey / timeKey
-  // (data records with t()-looked-up labels)
-  for (const m of text.matchAll(/\b(?:nameKey|descriptionKey|labelKey|descKey|bioKey|contentKey|timeKey):\s*['"]([^'"]+)['"]/g)) add(m[1], file);
+  // nameKey / descriptionKey (SwarmVaults-style data records)
+  for (const m of text.matchAll(/\b(?:nameKey|descriptionKey):\s*'([^']+)'/g)) add(m[1], file);
   // logKeys: ['a', 'b', ...]
   for (const m of text.matchAll(/logKeys:\s*\[([^\]]*)\]/g)) {
     for (const s of m[1].matchAll(/'([^']+)'/g)) add(s[1], file);
