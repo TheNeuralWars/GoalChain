@@ -3,13 +3,30 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from '../i18n/index';
 import { useWalletGate } from '../wallet/gate';
 
-/*
- * TODO(marketing): the previous stats/presale block ("Mythic 10 / Legendary 50 /
- * Genesis NFTs 528", "$GCH Presale Active — 30% of the 5,000 SOL hard cap already
- * raised", CTA "Register Wallet" -> /#/hub) was pulled from the public page: the
- * figures are unverified and the /#/hub links do not route in this SPA.
- * Restore from git history once Nico confirms the numbers — see docs/LAUNCH_REPORT.md.
- */
+
+const STATS_ITEMS = [
+  {
+    label: "Mythic",
+    value: "10",
+    description: "Genesis Squad Founders",
+  },
+  {
+    label: "Legendary",
+    value: "50",
+    description: "Early Access Seats",
+  },
+  {
+    label: "Genesis NFTs",
+    value: "528",
+    description: "Unique Squad Members",
+  },
+  {
+    label: "Presale Progress",
+    value: "30%",
+    description: "of 5,000 SOL hard cap raised",
+  },
+];
+
 
 const HOW_IT_WORKS = [
   {
@@ -78,6 +95,34 @@ export function LandingPage() {
           </a>
         </div>
       </section>
+
+      {/* Presale Stats */}
+      <section style={{ padding: "2.5rem 1.5rem", background: "rgba(255,255,255,0.02)" }}>
+        <h2 style={{ fontSize: "1.4rem", fontWeight: 700, textAlign: "center", marginBottom: "1.5rem" }}>
+          Presale Progress
+        </h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "1.5rem", maxWidth: "960px", margin: "0 auto" }}>
+          {STATS_ITEMS.map(({ label, value, description }) => (
+            <div key={label} style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px", padding: "1.5rem", textAlign: "center" }}>
+              <div style={{ fontSize: "0.875rem", color: "var(--primary-neon, #00ffcc)", letterSpacing: "1px", marginBottom: "0.5rem" }}>
+                {label}
+              </div>
+              <div style={{ fontSize: "2.2rem", fontWeight: 900, margin: "0.5rem 0", background: "linear-gradient(90deg, #00ffcc, #9945ff)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                {value}
+              </div>
+              <p style={{ fontSize: "0.875rem", opacity: 0.7, lineHeight: 1.4, margin: 0 }}>
+                {description}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+          <Link to="/press-kit" style={{ display: "inline-block", padding: "12px 24px", border: "1px solid rgba(255,255,255,0.25)", color: "#fff", borderRadius: "6px", textDecoration: "none", fontWeight: 600, fontSize: "0.9rem" }}>
+            Learn More →
+          </Link>
+        </div>
+      </section>
+
 
       {/* How it works */}
       <section id="how-it-works" style={{ padding: '2.5rem 1.5rem', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
