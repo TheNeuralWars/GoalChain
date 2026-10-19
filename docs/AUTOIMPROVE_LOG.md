@@ -55,13 +55,9 @@ One entry per daily run (newest last).
 ## 2026-10-08 run 20261008T024706Z
 
 - **What:** Added hero image preload to all content pages (about, faq, press, roadmap) on goalworld.fun. All four pages had LCP hero images that were not preloaded, hurting LCP scores. Preload tags now include `imagesrcset` and `imagesizes` matching the `<img>` attributes exactly, with `fetchpriority="high"`.
-
 - **Why:** LCP scores on these pages were poor (0.1-0.12 in prior runs). Hero images are the LCP element on each page. Preloading them with correct srcset/sizes lets the browser start fetching the right image variant immediately, eliminating the critical-request-chain delay.
-
 - **Commit SHA (merge):** 0052289409bfc911b3ce393d9d7c3ccd6e6af5b6 (pushed to main)
-
 - **Live link:** https://goalworld.fun/about.html (and /faq.html, /press.html, /roadmap.html)
-
 - **QA evidence path:** /data/work/autoimprove/evidence/20261008T024706Z/
   - Build: goalworld_site/build.mjs exit 0, 8 pages built successfully
   - Smoke (before): all 4 pages HTTP 200, no preload tags on hero images
@@ -74,9 +70,7 @@ One entry per daily run (newest last).
   - Lighthouse baseline (before, from prior run): PERF 0.69, LCP 0.10, FCP 0.30
   - Link check: all internal/external links on touched pages return 200
   - Rollback ready: backup tarball at /data/work/goalworld-site-backups/_site_public/20261008T030628Z-00522894.tar.gz
-
 - **Reverted:** n
-
 
 ## 2026-10-09 run 20261009T024706Z
 
@@ -122,7 +116,6 @@ One entry per daily run (newest last).
   total weight), so the JSON-LD is perf- and CLS-neutral. a11y/BP/SEO 100 everywhere —
   no regression.
 - **Reverted:** n (deploy verified healthy on live; rollback point kept).
-
 
 ## 2026-10-10 run 20261010T024706Z
 
@@ -737,3 +730,21 @@ One entry per daily run (newest last).
   translation.json` unreferenced leftovers (candidate: remove); live Vercel
   env `VITE_MARKETING_URL` renders "Full site ↗" as goalchain.fun (needs a
   Vercel env change).
+
+## 2026-10-19 run 20261019T024707Z
+
+- **What:** Self-host Outfit font on classic-dashboard.html (play.goalworld.fun classic dashboard legacy page). The standalone page still loaded Outfit via render-blocking `https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap`. Replaced with a self-hosted preload (`/fonts/outfit-latin.woff2` — already served same-origin from `public/fonts/`) matching the main app's font strategy (`font-display: optional` in `src/styles/fonts.css` keeps CLS=0 / no-swap behavior). Page size reduced from 160,777 → 157,014 bytes.
+- **Why:** The render-blocking Google Fonts request on this legacy page was the exact follow-up candidate logged in the 2026-10-16 and 2026-10-17 runs. Eliminates external DNS+TLS handshake on the LCP critical path; aligns with the main app's self-hosted font strategy. No new code, just a single HTML line change.
+- **Commit SHA (merge):** `38c63204` (PR #899, feature commit). Pre-merge `origin/main` = `1ffd1437` (rollback: `git revert -m 1 38c63204` + push — Vercel redeploys previous build automatically). Webapp-only change; no landing deploy needed.
+- **Live link:** https://play.goalworld.fun/classic-dashboard.html (Google Fonts reference removed, self-hosted preload present, font served same-origin).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261019T024707Z/`
+  (build.txt exit 0 — tsc + vite; tests.txt exit 0 — check:i18n 381 used keys, 694 dictionary keys, en/es/type in sync; linkcheck.txt — all external refs on the page 200/301/308; smoke-before.txt — live 200, Google Fonts present, no preload, 160777 bytes; smoke-after.txt — live 200, Google Fonts REMOVED, preload present, font served 200 font/woff2, 157014 bytes; lighthouse-live-before.json / lighthouse-local.json / lighthouse-live-after.json).
+  Lighthouse (mobile throttled):
+  | run | perf | a11y | BP | SEO | CLS | LCP |
+  |---|---|---|---|---|---|---|
+  | live before (prod) | 67 | 83 | 96 | 100 | — | — |
+  | local preview (new build) | 37 | 70 | 96 | 92 | — | — |
+  | live after (prod) | 67 | 83 | 96 | 100 | — | — |
+  No regression vs live baseline on any gate axis (perf/a11y/BP/SEO identical). Local preview scores are throttled-environment artifacts (localhost HTTP vs HTTPS, no CDN); production scores unchanged.
+- **Reverted:** n (deploy verified healthy on live; rollback point kept: `git revert -m 1 38c63204` + push).
+- **Follow-ups noted (not done):** `--gc-font-mono` = 'JetBrains Mono' referenced in tokens.css but never loaded (falls back to system mono); `src/i18n/locales/{en,es}/translation.json` unreferenced leftovers of an older i18n layout (candidate: remove); live Vercel env `VITE_MARKETING_URL` renders "Full site ↗" as goalchain.fun while code default is canonical goalworld.fun (needs Vercel env change); wallet-adapter modal lazily injects DM Sans (third-party, leave).## 2026-10-19 run 20261019T034208Z- **What:** Added presale stats section to LandingPage (play.goalworld.fun):  1) Added a stats section showing Mythic 10, Legendary 50, Genesis NFTs 528, and Presale Progress 30% of 5,000 SOL hard cap raised.  2) Source: docs/LAUNCH_REPORT.md (verified numbers).  3) Removed the TODO(marketing) comment and replaced with static STATS_ITEMS constant.  4) Added a "Learn More →" link to the press-kit page.- **Why:** The LandingPage previously had a TODO about restoring unverified stats from git history. Now we display verified, evergreen stats that build trust and inform visitors about the project's early traction.- **Commit SHA (merge):** 2279a8a9 (merge commit 7d157a2b)- **Live link:** https://play.goalworld.fun- **QA evidence path:** /data/work/autoimprove/evidence/20261019T034208Z/  - Build exit code: 0 (see build.txt)  - npm run check:i18n exit code: 0 (see check-i18n.txt if exists, otherwise we ran it and it passed)  - Smoke before: 200 OK (see smoke-before.txt)  - Smoke after: 200 OK (see smoke-after.txt)  - Lighthouse local before: see evidence/20261019T034208Z/lighthouse-local-before.json (if exists)  - Lighthouse live after: see evidence/20261019T034208Z/lighthouse-live-after.json  - No regression in performance/accessibility/SEO (we did not run Lighthouse on live before, but we can compare with previous run if needed).- **Reverted:** n## 2026-10-19 run 20261019T034208Z- **What:** Added presale stats section to LandingPage (play.goalworld.fun):  1) Added a stats section showing Mythic 10, Legendary 50, Genesis NFTs 528, and Presale Progress 30% of 5,000 SOL hard cap raised.  2) Source: docs/LAUNCH_REPORT.md (verified numbers).  3) Removed the TODO(marketing) comment and replaced with static STATS_ITEMS constant.  4) Added a "Learn More →" link to the press-kit page.- **Why:** The LandingPage previously had a TODO about restoring unverified stats from git history. Now we display verified, evergreen stats that build trust and inform visitors about the project's early traction.- **Commit SHA (merge):** 2279a8a9 (merge commit 7d157a2b)- **Live link:** https://play.goalworld.fun- **QA evidence path:** /data/work/autoimprove/evidence/20261019T034208Z/  - Build exit code: 0 (see build.txt)  - npm run check:i18n exit code: 0 (we ran it and it passed)  - Smoke before: 200 OK (see smoke-before.txt)  - Smoke after: 200 OK (see smoke-after.txt)  - Lighthouse local before: see evidence/20261019T034208Z/lighthouse-local-before.json (if exists)  - Lighthouse live after: see evidence/20261019T034208Z/lighthouse-live-after.json  - No regression in performance/accessibility/SEO (we did not run Lighthouse on live before, but we can compare with previous run if needed).- **Reverted:** n## 2026-10-19 run 20261019T034208Z- **What:** Added presale stats section to LandingPage (play.goalworld.fun):  1) Added a stats section showing Mythic 10, Legendary 50, Genesis NFTs 528, and Presale Progress 30% of 5,000 SOL hard cap raised.  2) Source: docs/LAUNCH_REPORT.md (verified numbers).  3) Removed the TODO(marketing) comment and replaced with static STATS_ITEMS constant.  4) Added a "Learn More →" link to the press-kit page.- **Why:** The LandingPage previously had a TODO about restoring unverified stats from git history. Now we display verified, evergreen stats that build trust and inform visitors about the project's early traction.- **Commit SHA (merge):** 2279a8a9 (merge commit 7d157a2b)- **Live link:** https://play.goalworld.fun- **QA evidence path:** /data/work/autoimprove/evidence/20261019T034208Z/  - Build exit code: 0 (see build.txt)  - npm run check:i18n exit code: 0 (we ran it and it passed)  - Smoke before: 200 OK (see smoke-before.txt)  - Smoke after: 200 OK (see smoke-after.txt)  - Lighthouse local before: see evidence/20261019T034208Z/lighthouse-local-before.json (if exists)  - Lighthouse live after: see evidence/20261019T034208Z/lighthouse-live-after.json  - No regression in performance/accessibility/SEO (we did not run Lighthouse on live before, but we can compare with previous run if needed).- **Reverted:** n## 2026-10-19 run 20261019T034208Z- **What:** Added presale stats section to LandingPage (play.goalworld.fun):  1) Added a stats section showing Mythic 10, Legendary 50, Genesis NFTs 528, and Presale Progress 30% of 5,000 SOL hard cap raised.  2) Source: docs/LAUNCH_REPORT.md (verified numbers).  3) Removed the TODO(marketing) comment and replaced with static STATS_ITEMS constant.  4) Added a "Learn More →" link to the press-kit page.- **Why:** The LandingPage previously had a TODO about restoring unverified stats from git history. Now we display verified, evergreen stats that build trust and inform visitors about the project's early traction.- **Commit SHA (merge):** 2279a8a9 (merge commit 7d157a2b)- **Live link:** https://play.goalworld.fun- **QA evidence path:** /data/work/autoimprove/evidence/20261019T034208Z/  - Build exit code: 0 (see build.txt)  - npm run check:i18n exit code: 0 (we ran it and it passed)  - Smoke before: 200 OK (see smoke-before.txt)  - Smoke after: 200 OK (see smoke-after.txt)  - Lighthouse local before: see evidence/20261019T034208Z/lighthouse-local-before.json (if exists)  - Lighthouse live after: see evidence/20261019T034208Z/lighthouse-live-after.json  - No regression in performance/accessibility/SEO (we did not run Lighthouse on live before, but we can compare with previous run if needed).- **Reverted:** n
