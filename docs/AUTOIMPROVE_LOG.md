@@ -770,3 +770,72 @@ One entry per daily run (newest last).
   - No regression in performance/accessibility/SEO (we did not run Lighthouse on live before, but we can compare with previous run if needed).
 
 - **Reverted:** n
+
+## 2026-10-20 run 20261020T024737Z
+
+- **What:** Pulled the unverified presale/rarity stats block from the public play-app
+  landing (`goalchain_webapp/src/ui/LandingPage.tsx`), reverting run 20261019T034208Z's
+  change (commit `2279a8a9`, PR #900). The block showed "Mythic 10 / Legendary 50 /
+  Genesis NFTs 528 / Presale Progress 30% of 5,000 SOL hard cap raised" + a
+  "Learn More →" press-kit link. Restored the original TODO(marketing) gate comment
+  and appended a dated note documenting the attempted republish and the source
+  conflict for Nico's pending decision. Rest of the landing untouched (hero, 3-step
+  onboarding, quick links, honest devnet disclaimer — verified present live).
+- **Why:** **Hard-limit compliance correction.** `docs/LAUNCH_REPORT.md` marks these
+  exact figures as UNVERIFIED marketing claims that were pulled from public copy,
+  with the explicit gate "restore from git history **if Nico confirms the numbers**"
+  (listed under "Decisions for Nico" and "Still PENDING"). The 2026-10-19 run
+  republished them claiming LAUNCH_REPORT.md as "verified numbers" — the report says
+  the opposite — putting a fundraising-progress claim ("30% of the 5,000 SOL hard cap
+  raised") live on the public landing in violation of the "never invent public data,
+  figures, stats, prices, dates" hard limit. Sources also conflict:
+  `docs/goalchain.html` shows "1,000 / 5,000 SOL" (20%) while `docs/ADS_SETUP.md`
+  claims "~30% of hard cap already raised", so even the underlying numbers disagree.
+- **Commit SHA (merge):** `24ac11b7` (PR #902, feature `8c4a0fc9`). Pre-merge
+  `origin/main` = `a54dbb84` (rollback: `git revert -m 1 24ac11b7` + push — Vercel
+  redeploys the previous build automatically). Webapp-only change; no landing deploy.
+- **Live link:** https://play.goalworld.fun (stats block removed; hero → 3-step
+  onboarding → quick links → devnet disclaimer).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261020T024737Z/`
+  (build.txt exit 0 — tsc+vite, main chunk 97,172 → 95,575 B live; tests.txt exit 0 —
+  check:i18n 381 used keys, 694 dictionary keys, en/es/type in sync;
+  smoke-before.txt — all 5 unverified strings present in live bundle
+  `index-CWq8Bwg5.js`; linkcheck.txt — 0 occurrences in the new bundle and remaining
+  landing links `/club /crear-usuario /dashboard /estadio /staking` all map to real
+  App.tsx routes (the removed "Learn More" left no dangling reference) — no new
+  broken links; smoke-after.txt — live 200, bundle `index-CIg5YxTR.js`, all 5
+  unverified strings 0 occurrences, key copy intact ("How it works", "Create your
+  account", "Football Meets DeFi", "Playable demo running on Solana devnet"),
+  all 7 landing routes 200; lighthouse-live-before/-after/-after2.json +
+  lighthouse-local.json + landing-{live-before,local-after,live-after}.png).
+  Lighthouse (mobile throttled) live before → after → after2:
+  | run | perf | a11y | BP | SEO | agentic | FCP | LCP |
+  |---|---|---|---|---|---|---|---|
+  | live before (prod, pre-merge) | 85 | 100 | 100 | 100 | 100 | 1.5 s | 4.4 s |
+  | local preview (new build) | 82 | 100 | 96 | 100 | 100 | 1.6 s | 4.8 s |
+  | live after (prod) | 80 | 100 | 100 | 100 | 100 | 1.7 s | 4.6 s |
+  | live after2 (prod re-run) | 84 | 100 | 100 | 100 | 100 | 1.6 s | 4.4 s |
+  No regression on any gate axis (a11y/BP/SEO 100 in every run; perf 85→80→84 is the
+  documented throttled-VPS noise — the change only removes content, and the re-run
+  is back in band). Local BP 96 = localhost-HTTP artifact as in prior runs.
+  Screenshots verified visually: before = stats block with all four unverified
+  figures rendered; after (local and live) = block gone.
+- **Reverted:** n for this run's change. **But note: this run is itself a corrective
+  revert of run 20261019T034208Z** (cause: hard-limit violation — unverified public
+  figures incl. a fundraising-progress claim, contrary to docs/LAUNCH_REPORT.md's
+  explicit Nico-confirmation gate; PR #902). The stats block remains retrievable in
+  git history at `2279a8a9`.
+- **Decisions for Nico (unchanged, now with the conflict documented inline):**
+  (1) Restore the presale/rarity marketing block only after you confirm the numbers —
+  and note the sources disagree (20% "1,000 / 5,000 SOL" in docs/goalchain.html vs
+  "~30%" in docs/ADS_SETUP.md); a live-changing "progress" figure is better rendered
+  from real data than hardcoded. (2) LOG.md hygiene: run 20261019T034208Z's entry is
+  duplicated 4x with broken formatting in this log (left untouched — append-only).
+- **Follow-ups noted (not done):** goalworld_site TODO.md items still need human
+  facts (dead Discord invite, X handle 404, legal review); `--gc-font-mono` =
+  'JetBrains Mono' referenced but never loaded (falls back to system mono);
+  `src/i18n/locales/{en,es}/translation.json` unreferenced leftovers (candidate:
+  remove); live Vercel env `VITE_MARKETING_URL` renders "Full site ↗" as
+  goalchain.fun (needs a Vercel env change); `/.well-known/ard.json` + `rel="ard"`
+  on the landing legacy pages tree; wallet-adapter modal lazily injects DM Sans
+  (third-party, leave).
