@@ -839,3 +839,55 @@ One entry per daily run (newest last).
   goalchain.fun (needs a Vercel env change); `/.well-known/ard.json` + `rel="ard"`
   on the landing legacy pages tree; wallet-adapter modal lazily injects DM Sans
   (third-party, leave).
+
+## 2026-10-21 run 20261021T024737Z
+
+- **What:** Self-hosted JetBrains Mono (variable, latin subset, SIL OFL 1.1) for the
+  webapp (play.goalworld.fun): added
+  `goalchain_webapp/public/fonts/jetbrains-mono-latin.woff2` (40,404 B, fetched from
+  Google Fonts' gstatic CDN) + one `@font-face` in
+  `goalchain_webapp/src/styles/fonts.css` (`font-display: optional`, same latin
+  unicode-range as the existing Outfit / Plus Jakarta Sans faces). This completes
+  the 2026-10-16 font self-hosting: `--gc-font-mono` = 'JetBrains Mono'
+  (src/styles/tokens.css) and the 10 hardcoded `'JetBrains Mono'` stacks
+  (index.css calculator/stats/number blocks, YieldCalculator, CorporateAutopilot,
+  KindleReader) previously fell back to the platform system mono. The font loads
+  lazily only where mono glyphs render (verified: `/staking` requests it, the
+  `/` landing does not), so the landing's first-load payload is unchanged. Ops
+  hygiene done alongside: killed two orphaned `vite preview` servers left behind
+  by runs 20261017T024707Z (port 4173) and 20261020T024737Z (port 4177) that were
+  squatting on preview ports and broke this run's preview/Lighthouse initially.
+- **Why:** Typographic consistency and perceived quality for a DeFi product where
+  numbers, ratios and addresses render in mono across calculator, stats and
+  dashboard surfaces; removes a platform-dependent font fallback. Flagged as an
+  unfixed follow-up in three consecutive runs (2026-10-16, 10-19, 10-20). No
+  public copy, data, figures or links touched — zero invented content.
+- **Commit SHA (merge):** (this merge; exact SHA in the follow-up `docs:` commit
+  that finalizes this entry). Pre-merge `origin/main` = `477aa1ad` (rollback:
+  `git revert -m 1 <merge>` + push — Vercel redeploys the previous build
+  automatically). Webapp-only change; no landing deploy.
+- **Live link:** https://play.goalworld.fun (post-deploy the face serves at
+  https://play.goalworld.fun/fonts/jetbrains-mono-latin.woff2).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261021T024737Z/`
+  - build.txt: exit 0 (`tsc && vite build`; main chunk `index-DeImqVyL.js` 95.14 kB).
+  - tests.txt: exit 0 (`check:i18n` — 381 used keys, 694 dictionary keys, en/es/type in sync).
+  - smoke-before.txt: live 200 (2,193 B SPA shell, `outfit-latin.woff2` preload
+    present); `/fonts/outfit-latin.woff2` 200 `font/woff2` 32,292 B;
+    `/fonts/jetbrains-mono-latin.woff2` pre-deploy = SPA-fallback 200 HTML (as
+    expected before the deploy; becomes real `font/woff2` after).
+  - linkcheck.txt: change adds no links (binary asset + one @font-face); all 3
+    same-origin `url(/fonts/...)` refs resolve into `dist/fonts/`; 0 third-party
+    font URLs in built CSS (pre-existing wallet-adapter DM Sans untouched).
+  - Lighthouse (mobile default) live before (baseline, prod): perf 99 / a11y 100 /
+    BP 100 / SEO 100 / agentic 100; FCP 1.6 s, LCP 1.8 s, CLS 0, TBT 40 ms
+    (lighthouse-live-before.json).
+  - Lighthouse local preview (new build, pre-merge): a11y 100 / SEO 100 /
+    agentic 100 / CLS 0; BP 96 = the documented localhost-HTTP artifact from
+    prior runs; perf 81 local-vs-99 live is the known localhost/no-CDN gap
+    (lighthouse-local.json). No gate-axis regression.
+  - lighthouse-local-staking.json: runtime proof on the mono-heavy `/staking`
+    route — network audit shows `jetbrains-mono-latin.woff2` requested → 200
+    (landing `/` correctly does not request it).
+  - Live-after smoke + Lighthouse: recorded below after deploy (finalized in the
+    follow-up `docs:` commit).
+- **Reverted:** n (post-deploy verification pending at merge time; updated below).
