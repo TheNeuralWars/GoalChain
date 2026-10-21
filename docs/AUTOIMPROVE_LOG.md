@@ -862,8 +862,7 @@ One entry per daily run (newest last).
   dashboard surfaces; removes a platform-dependent font fallback. Flagged as an
   unfixed follow-up in three consecutive runs (2026-10-16, 10-19, 10-20). No
   public copy, data, figures or links touched — zero invented content.
-- **Commit SHA (merge):** (this merge; exact SHA in the follow-up `docs:` commit
-  that finalizes this entry). Pre-merge `origin/main` = `477aa1ad` (rollback:
+- **Commit SHA (merge):** `d45ef1db` (PR #903, feature `21c79c8a`). Pre-merge `origin/main` = `477aa1ad` (rollback:
   `git revert -m 1 <merge>` + push — Vercel redeploys the previous build
   automatically). Webapp-only change; no landing deploy.
 - **Live link:** https://play.goalworld.fun (post-deploy the face serves at
@@ -888,6 +887,19 @@ One entry per daily run (newest last).
   - lighthouse-local-staking.json: runtime proof on the mono-heavy `/staking`
     route — network audit shows `jetbrains-mono-latin.woff2` requested → 200
     (landing `/` correctly does not request it).
-  - Live-after smoke + Lighthouse: recorded below after deploy (finalized in the
-    follow-up `docs:` commit).
-- **Reverted:** n (post-deploy verification pending at merge time; updated below).
+  - Post-deploy verify (live, 2026-10-21T03:06Z): smoke-after.txt — landing 200
+    (2,193 B shell), all three fonts 200 `font/woff2` (outfit 32,292 B / jetbrains
+    40,404 B / plus-jakarta 27,348 B), live CSS `index-DuuGM5Gj.css` (87,098 B)
+    references all 3 same-origin font URLs, live main bundle `index-CDYNTdHQ.js`
+    95,575 B (hash/size differ from the local build only because Vercel injects
+    `VITE_*` env at build time — known, pre-existing difference) with all 4 landing
+    copy strings intact, all 7 landing routes 200. Lighthouse live after
+    (lighthouse-live-after.json): perf 99 / a11y 100 / BP 100 / SEO 100 / agentic
+    100, FCP 1.6 s, LCP 1.9 s, CLS 0, TBT 20 ms — identical to the live-before
+    baseline, zero regression on every axis. Real-browser verification on live
+    `/staking`: `document.fonts` reports "JetBrains Mono 100 800 loaded",
+    `document.fonts.check("16px 'JetBrains Mono'")` = true, and rendered number
+    elements ("50.5K", "6.32M", "6,265,748.57") compute
+    `"JetBrains Mono", monospace` (staking-live-after.png) — change confirmed
+    visible on production.
+- **Reverted:** n
