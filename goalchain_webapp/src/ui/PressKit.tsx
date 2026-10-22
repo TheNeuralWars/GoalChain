@@ -367,7 +367,7 @@ export function PressKit() {
             <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>📢</span>
             <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>3. The Call to Action</h4>
             <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: '1.5' }}>
-              Always direct viewers to try it themselves: *"Play for free at http://goalchain.fun"*. You can place this in the comments, bio, or as a caption overlay inside the video.
+              Always direct viewers to try it themselves: *"Play for free at https://goalworld.fun"*. You can place this in the comments, bio, or as a caption overlay inside the video.
             </p>
           </div>
 

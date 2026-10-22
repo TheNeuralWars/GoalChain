@@ -15,9 +15,31 @@
  */
 
 /** Canonical marketing site (read-only). Override with VITE_MARKETING_URL. */
-export const MARKETING_BASE =
-  (import.meta.env.VITE_MARKETING_URL as string | undefined)?.replace(/\/$/, '') ||
-  'https://goalworld.fun';
+const CANONICAL_MARKETING_BASE = 'https://goalworld.fun';
+
+/**
+ * `goalchain.fun` is a legacy alias that 301s to `goalworld.fun` (see CLAUDE.md),
+ * so an override pointing at it only adds a redirect hop for every "Full site"
+ * link. Normalize the legacy host to the canonical one; any other override wins.
+ */
+function resolveMarketingBase(): string {
+  const raw = (import.meta.env.VITE_MARKETING_URL as string | undefined)?.replace(/\/$/, '') ||
+    CANONICAL_MARKETING_BASE;
+  try {
+    const { protocol, hostname } = new URL(raw);
+    if (
+      (protocol === 'https:' || protocol === 'http:') &&
+      /^(www\.)?goalchain\.fun$/i.test(hostname)
+    ) {
+      return CANONICAL_MARKETING_BASE;
+    }
+  } catch {
+    // Not an absolute URL — keep the raw value.
+  }
+  return raw;
+}
+
+export const MARKETING_BASE = resolveMarketingBase();
 
 /** Id de juego rápido del ARCADE (abre modal, no ruta). */
 export type ArcadeGameId = 'penalty' | 'pack' | 'modifiers';
