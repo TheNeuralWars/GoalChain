@@ -21,18 +21,50 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from pages_patterns import classify, load_patterns  # noqa: E402
 
 INDEX_NAMES = {"README.md", "index.md"}
+LANDING_MANIFEST_DEFAULT = "/data/work/goalworld-landing.paths"
 
 
-def scan(root, patterns):
+def manifest_exempt_paths(path):
+    """Relative paths owned by the separately-deployed landing (goalworld_site).
+
+    These are published ON PURPOSE (e.g. .well-known/agent-skills/goalworld-site/
+    SKILL.md, which the broad internal `*.md` pattern would otherwise match) and
+    are declared in the manifest written by scripts/deploy_goalworld_site.sh.
+    Only these EXACT paths are exempt from .assetsignore matching; hard secret
+    patterns (*.done, *.keypair.json, *.secret*, .env*, *.pem, id_rsa*) still
+    apply to them. A missing/unreadable manifest means no exemptions: the guard
+    stays fail-closed."""
+    out = set()
+    if not path or not os.path.isfile(path):
+        return out
+    with open(path, encoding="utf-8") as fh:
+        for raw in fh:
+            line = raw.split("#", 1)[0].strip().strip("/")
+            if not line or os.path.isabs(line) or ".." in line.split("/"):
+                continue  # never escape the tree
+            out.add(line)
+    return out
+
+
+def scan(root, patterns, exempt=None):
     """Return (violations, index_leaks): internal paths found under root, and index files
-    that sit in a directory holding internal-pattern files (browsable-listing vector)."""
+    that sit in a directory holding internal-pattern files (browsable-listing vector).
+
+    `exempt` = exact relative paths from the landing manifest: skipped for
+    .assetsignore matching (classify with empty patterns still checks HARD_PATTERNS)."""
+    exempt = exempt or set()
     violations, files, internal_dirs = [], [], set()
+
+    def classify_entry(rel):
+        if rel in exempt:
+            return classify(rel, [])  # landing-owned: hard secret patterns only
+        return classify(rel, patterns)
     for dirpath, dirnames, filenames in os.walk(root, followlinks=False):
         rel_dir = os.path.relpath(dirpath, root).replace(os.sep, "/")
         rel_dir = "" if rel_dir == "." else rel_dir
         for name in sorted(dirnames):
             rel = "%s/%s" % (rel_dir, name) if rel_dir else name
-            entry = classify(rel, patterns)
+            entry = classify_entry(rel)
             if entry:
                 violations.append((rel + "/", entry))
                 internal_dirs.add(rel_dir or ".")
@@ -42,7 +74,7 @@ def scan(root, patterns):
             if os.path.islink(full):
                 violations.append((rel, "symlink"))
                 continue
-            entry = classify(rel, patterns)
+            entry = classify_entry(rel)
             if entry:
                 violations.append((rel, entry))
                 internal_dirs.add(rel_dir or ".")
@@ -59,6 +91,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", required=True, help="tree that would be published")
     ap.add_argument("--patterns", default="docs", help="dir holding .assetsignore")
+    ap.add_argument("--landing-manifest", default=LANDING_MANIFEST_DEFAULT,
+                    help="landing-owned paths exempt from .assetsignore matching "
+                         "(default: %s)" % LANDING_MANIFEST_DEFAULT)
     ap.add_argument("--advisory", action="store_true", help="report but exit 0")
     ap.add_argument("--repo", action="store_true", help="repo tree mode: report pre-existing docs")
     args = ap.parse_args()
@@ -67,7 +102,8 @@ def main():
     if not patterns:
         sys.exit("FATAL: no patterns in %s/.assetsignore - guard cannot verify the tree"
                  % args.patterns)
-    violations, index_leaks = scan(args.root, patterns)
+    violations, index_leaks = scan(args.root, patterns,
+                                   exempt=manifest_exempt_paths(args.landing_manifest))
     print("Guard: scanned %s (%d internal patterns from %s/.assetsignore)"
           % (args.root, len(patterns), args.patterns))
     print("  internal-only paths found: %d" % len(violations))
