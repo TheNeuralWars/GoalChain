@@ -903,3 +903,100 @@ One entry per daily run (newest last).
     `"JetBrains Mono", monospace` (staking-live-after.png) — change confirmed
     visible on production.
 - **Reverted:** n
+
+## 2026-10-22 run 20261022T024752Z
+
+- **What:** Canonical-domain sweep for the webapp (play.goalworld.fun): point every
+  asset and public URL at `goalworld.fun` instead of the legacy `goalchain.fun`
+  alias, which 301s there (path-preserving) — so every card asset, script and
+  "Full site" link paid an extra redirect round-trip.
+  (1) `goalchain_webapp/src/ui/LayeredNftCard.tsx` — composed NFT images, stadium
+  background images and stadium videos now load from `goalworld.fun` directly
+  (3 URL builders).
+  (2) `goalchain_webapp/public/classic-dashboard.html` — all 20
+  `goalchain.fun/assets` refs (CSS, favicon/logo, sim-card image, 14 scripts) →
+  `goalworld.fun/assets`.
+  (3) `nft_gallery_manifest.json` (webapp `public/assets/data/` + `docs/assets/data/`
+  copies, kept byte-identical after edit): 1,057 composed_card/player_cutout asset
+  URLs per copy; the 529 `api.goalchain.fun` grok URLs untouched.
+  (4) `goalchain_webapp/src/ui/PressKit.tsx` — creator CTA copy
+  "Play for free at http://goalchain.fun" → "Play for free at https://goalworld.fun".
+  (5) `goalchain_webapp/src/config/playNav.ts` — `MARKETING_BASE` normalizes an env
+  override pointing at the legacy `goalchain.fun`/`www.goalchain.fun` host to
+  `https://goalworld.fun`, fixing the flagged "Full site ↗" link that rendered
+  goalchain.fun from the stale live Vercel `VITE_MARKETING_URL` env — no Vercel
+  change needed; any other override still wins.
+  Deliberately untouched: `opsClient.ts` `crm.goalchain.fun` API host (infra),
+  `UserProfile.tsx` `@goalchain.fun` mailbox display (product/infra fact — see
+  Decisions), `CorporateAutopilot.tsx` play-goalchain.com mock ledger rows (demo
+  data), `api.goalchain.fun` manifest URLs.
+- **Why:** Brand consistency (CLAUDE.md: goalworld.fun is the official site) plus
+  real latency: goalchain.fun 301s every asset to goalworld.fun, so a full NFT-card
+  grid (composed image + stadium bg + optional stadium video per card) and the
+  classic dashboard's 20 refs each paid an extra round-trip. Verified 25/25
+  referenced URLs return 200 directly on goalworld.fun before changing. Zero
+  invented copy/figures/dates — one CTA string updated to the canonical URL.
+- **Commit SHA (merge):** `3420cb43` (PR #904, feature `7aa3ecc2`). Pre-merge
+  `origin/main` = `325902f6` (rollback: `git revert -m 1 3420cb43` + push — Vercel
+  redeploys the previous build automatically). Webapp-only change; no goalworld_site
+  build touched → no landing deploy needed.
+- **Live link:** https://play.goalworld.fun (+ https://play.goalworld.fun/classic-dashboard.html).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261022T024752Z/`
+  - build.txt: exit 0 (`tsc && vite build`; main chunk `index-DsTXWR6C.js` local /
+    `index-BNdfJGB_.js` live — hash differs by Vercel's `VITE_*` env injection, known).
+  - tests.txt: exit 0 (`check:i18n` — 381 used keys, 694 dictionary keys, en/es/type in sync).
+  - smoke-before.txt: live pre-change — classic-dashboard 20 goalchain.fun refs,
+    play-host manifest 1,057 stale asset URLs, redirect-cost proof (goalchain.fun
+    asset = 301 → goalworld.fun 200).
+  - dist-string-check.txt: 0 `https://goalchain.fun/assets` in dist; 1,082
+    `https://goalworld.fun/assets`; remaining goalchain.fun strings only the crm API
+    host, the mailbox display and api.goalchain.fun.
+  - linkcheck.txt: 25/25 URLs referenced by the touched files return 200 (19
+    classic-dashboard URLs, 3 LayeredNftCard patterns, 3 manifest sample entries
+    incl. grok_jpg, CTA target).
+  - Lighthouse (mobile throttled) live before → local preview (new build) → live after:
+    | route | perf | a11y | BP | SEO | agentic | FCP | LCP |
+    |---|---|---|---|---|---|---|---|
+    | / live before (2 runs) | 81, 84 | 100 | 100 | 100 | 100 | 1.4–1.6 s | 4.4–4.5 s |
+    | / local preview | 82 | 100 | 96 | 100 | 100 | 1.6 s | 4.8 s |
+    | / live after | 80 | 100 | 100 | 100 | 100 | 1.7 s | 4.6 s |
+    | classic live before | 67 | 83 | 96 | 100 | 75 | 3.0 s | 13.4 s |
+    | classic local preview | 74 | 83 | 96 | 100 | 75 | 1.8 s | 8.8 s |
+    | classic live after | 73 | 83 | 96 | 100 | 75 | 2.0 s | 8.4 s |
+    No regression on any gate axis; classic improved (perf 67→73, FCP 3.0→2.0 s,
+    LCP 13.4→8.4 s — the removed per-asset 301s). Classic's agentic 75 is the
+    pre-existing `agent-accessibility-tree` audit failure, identical before/after.
+    Local BP 96 = the documented localhost-HTTP artifact. NOTE: the first
+    live-before run (lighthouse-live-before.json) flaked — SEO 91 / agentic 50 with
+    `robots-txt`/`llms-txt`/`ard-schema` failing and EMPTY details although all three
+    files serve fine (curl 200, correct types); immediate re-run was 100/100
+    (lighthouse-live-before2.json) — recorded as fetch flakiness, not a regression.
+  - smoke-after.txt (live post-deploy 2026-10-22T03:20Z): new bundle
+    `index-BNdfJGB_.js`; 0 stale `goalchain.fun/assets` across the main bundle and
+    all 22 referenced chunks (3 `goalworld.fun/assets` in the card chunk); live
+    classic-dashboard 0 goalchain.fun refs / 20 goalworld.fun/assets (160,756 B);
+    play-host manifest 0 stale (1,057 goalworld / 529 api.goalchain.fun untouched);
+    CTA live as "Play for free at https://goalworld.fun"; all 7 landing routes 200.
+  - classic-live-before.png / classic-live-after.png + real-browser DOM check on live
+    classic: 0 goalchain.fun refs in the rendered DOM; all 3 images (logo,
+    bg_mythic_golden.png, 001_lionel_satoshi.webp) load from goalworld.fun with
+    naturalWidth 1024; all 14 scripts + CSS from goalworld.fun. Live app DOM:
+    "Full site ↗" now renders `https://goalworld.fun/` despite the stale Vercel env.
+- **Reverted:** n
+- **Decisions for Nico:** (1) `UserProfile.tsx` shows the vanity mailbox as
+  `username@goalchain.fun`, but `goalchain.fun` has NO MX records while
+  `goalworld.fun` has Cloudflare Email Routing MX (route1-3.mx.cloudflare.net) —
+  the displayed forwarding address cannot receive mail as shown. Left untouched
+  (product/infra fact): confirm the real mail domain and I'll align the display.
+  (2) Live Vercel env `VITE_MARKETING_URL` still holds the legacy URL — the app
+  now normalizes it away in code, but the env value itself can be cleaned up
+  whenever convenient.
+- **Follow-ups noted (not done):** the landing-host legacy tree still serves the OLD
+  `docs/assets/data/nft_gallery_manifest.json` (1,057 stale URLs, still functional
+  via 301) — no restage timer/cron exists on this VPS (15 systemd timers listed,
+  none related) and `scripts/pages/deploy_origin.sh` would fail its `--ff-only`
+  pull because /data/apps/GoalChain has local-only commits + a dirty worktree (not
+  mine to touch); the in-repo docs copy is ready for the next legacy restage.
+  Earlier follow-ups unchanged: goalworld_site TODO.md human facts (dead Discord
+  invite, X handle 404, legal review), `src/i18n/locales/{en,es}/translation.json`
+  leftovers, wallet-adapter DM Sans (third-party, leave).
