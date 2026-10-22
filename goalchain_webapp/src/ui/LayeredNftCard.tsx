@@ -73,7 +73,7 @@ function getCountryFlag(country: string) {
 
 function getPlayerImagePath(player: PlayerRow): string {
   const formattedName = player.name.replace(/ /g, '_').replace(/'/g, '_').replace(/\.+$/, '');
-  return `https://goalchain.fun/assets/img/nfts/composed/${String(player.id).padStart(3, '0')}_${formattedName}.webp`;
+  return `https://goalworld.fun/assets/img/nfts/composed/${String(player.id).padStart(3, '0')}_${formattedName}.webp`;
 }
 
 export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
@@ -170,8 +170,8 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
   };
 
   // Resolve backgrounds
-  const stadiumBgImg = `https://goalchain.fun/assets/img/stadiums/${BG_IMAGE_MAP[player.bg_type || ''] || 'bg_common_street.png'}`;
-  const stadiumBgVideo = `https://goalchain.fun/assets/video/stadiums/${BG_VIDEO_MAP[player.bg_type || ''] || 'dome_kronos_vertical.mp4'}`;
+  const stadiumBgImg = `https://goalworld.fun/assets/img/stadiums/${BG_IMAGE_MAP[player.bg_type || ''] || 'bg_common_street.png'}`;
+  const stadiumBgVideo = `https://goalworld.fun/assets/video/stadiums/${BG_VIDEO_MAP[player.bg_type || ''] || 'dome_kronos_vertical.mp4'}`;
 
   return (
     <div 
