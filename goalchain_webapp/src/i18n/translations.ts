@@ -613,6 +613,8 @@ export type TranslationKeys = {
   play_ugc_exit: string;
   play_coach_title: string;
   play_coach_open: string;
+  author_title: string;
+  genesis_title: string;
 };
 
 export type Translations = Record<Language, TranslationKeys>;
