@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoalChain App | Dashboard Alpha</title>
     <meta name="description" content="Gestiona tu equipo de GoalChain, apuesta en el Mundial 2026 y explora el mercado de derivados sobre Solana.">
+    <link rel="stylesheet" href="https://goalworld.fun/assets/css/tokens.css?v=1.0">
     <link rel="stylesheet" href="https://goalworld.fun/assets/css/style.css?v=4.2">
     <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/png" href="https://goalworld.fun/assets/img/logo_3d_clean.png?v=2.0">
@@ -226,7 +227,7 @@
         <div class="sidebar-header sidebar-logo-block" style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 30px;">
             <a href="index.html" class="logo-link" style="display:flex; align-items:center; text-decoration:none; color:inherit;">
                 <div class="logo" style="display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 900;">
-                    <img src="https://goalworld.fun/assets/img/logo_3d_clean.png" alt="Logo" style="height: 35px; filter: drop-shadow(0 0 10px rgba(20, 241, 149, 0.3));">
+                    <img src="https://goalworld.fun/assets/img/logo_3d_clean.png" alt="Logo" width="1024" height="1024" style="height: 35px; width: auto; filter: drop-shadow(0 0 10px rgba(20, 241, 149, 0.3));">
                     Goal<span style="color:var(--primary);">Chain</span>
                 </div>
             </a>
@@ -421,7 +422,7 @@
 
                         <!-- Deposit Form -->
                         <div style="display:flex; gap:10px; margin-bottom:15px;">
-                            <input type="number" id="vaultDepositAmount" value="5" min="1" max="1000" style="width:65px; background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:6px; border-radius:6px; font-size:0.7rem; text-align:center;">
+                            <input type="number" id="vaultDepositAmount" value="5" min="1" max="1000" aria-label="Deposit amount in SOL" style="width:65px; background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:6px; border-radius:6px; font-size:0.7rem; text-align:center;">
                             <button id="btnVaultDeposit" onclick="depositToInfinityVault()" class="btn btn-primary btn-sm" style="flex:1; font-size:0.65rem; padding:6px; font-weight:bold; background:var(--primary); color:#000; border-radius:6px;">
                                 DEPOSIT SOL VIA PHANTOM
                             </button>
@@ -2131,7 +2132,8 @@
         // Simulación de carga de balance
         window.addEventListener('load', () => {
             const balance = localStorage.getItem('gch_balance') || '1,240';
-            document.getElementById('userBalanceApp').innerText = `Balance: ${balance} $GCH`;
+            const balanceEl = document.getElementById('userBalanceApp');
+            if (balanceEl) balanceEl.innerText = `Balance: ${balance} $GCH`;
         });
     </script>
 
