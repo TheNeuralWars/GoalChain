@@ -1000,3 +1000,94 @@ One entry per daily run (newest last).
   Earlier follow-ups unchanged: goalworld_site TODO.md human facts (dead Discord
   invite, X handle 404, legal review), `src/i18n/locales/{en,es}/translation.json`
   leftovers, wallet-adapter DM Sans (third-party, leave).
+
+## 2026-10-23 run 20261023T024737Z
+
+- **What:** Restored the design-token layer on `goalchain_webapp/public/classic-dashboard.html`
+  (play.goalworld.fun classic dashboard) + fixed 3 a11y/reliability defects on the
+  same page. (1) ROOT CAUSE: the page loaded `https://goalworld.fun/assets/css/style.css`
+  without `tokens.css` — style.css delegates the whole palette to `--gc-*` variables
+  defined only in `tokens.css` ("se carga ANTES que este archivo"), so on live every
+  token was undefined: `--primary`/`--text-dim`/`--text-main` computed to empty,
+  all token-colored text rendered `rgb(0,0,0)` on the `#0d0d14` sidebar (invisible
+  logo "GoalChain", black nav items) and the deposit button background rendered
+  transparent `rgba(0,0,0,0)`. Verified in a real browser on live before the fix
+  (computed-styles-before.json). Added the canonical `<link>` to
+  `assets/css/tokens.css?v=1.0` BEFORE style.css — the exact order used by all 15
+  other repo pages that load style.css (this was the only page missing it, checked
+  repo-wide). (2) `aria-label="Deposit amount in SOL"` on `#vaultDepositAmount`
+  (was the sole `label` audit failure AND the sole `agent-accessibility-tree`
+  failure). (3) Explicit `width="1024" height="1024"` (intrinsic, verified from the
+  asset bytes — it's a JPEG named .png) + `width:auto` on the sidebar logo `img`
+  (`unsized-images`; layout unchanged at 35x35, screenshot-verified). (4) Null
+  guard for the removed `#userBalanceApp` element — `document.getElementById(...).innerText`
+  threw an uncaught TypeError on EVERY page load (element exists nowhere in the
+  page). Public copy added is English only.
+- **Why:** The page is a live product surface whose primary UI (sidebar nav, logo,
+  deposit form) was rendering black-on-dark — invisible text and an unstyled button.
+  Also lifts the page's a11y/agentic quality gates and removes a guaranteed console
+  crash. Small, root-cause, one-file fix with measurable before/after.
+- **Commit SHA (merge):** `85931412` (PR #905, feature `df5396bd`). Pre-merge
+  `origin/main` = `9a45bc08` (rollback: `git revert -m 1 85931412` + push — Vercel
+  redeploys the previous build automatically; landing not touched, no landing deploy
+  needed).
+- **Live link:** https://play.goalworld.fun/classic-dashboard.html
+- **QA evidence:** `/data/work/autoimprove/evidence/20261023T024737Z/`
+  - build.txt: exit 0 (`tsc && vite build`; local main chunk `index-DsTXWR6C.js`
+    — same hash as live, static public/ HTML is the only change).
+  - tests.txt: exit 0 (`check:i18n` — 381 used keys, 694 dictionary keys, en/es/type in sync).
+  - smoke-before.txt (live pre-change 2026-10-23T02:58Z): classic 200 (160,756 B),
+    0 tokens.css refs, tokens.css/style.css assets themselves 200 (5,982 / 74,283 B).
+  - computed-styles-before.json + classic-before.png (real browser on live):
+    `--primary`/`--gc-green`/`--text-dim`/`--text-main` all `(undefined)`; body,
+    `.logo`, `.logo span`, `.nav-item`, deposit button color all `rgb(0,0,0)`;
+    button bg `rgba(0,0,0,0)`.
+  - lighthouse-live-before.json (baseline): perf 0.71 / a11y 0.83 / BP 0.96 /
+    SEO 1.0 / agentic 0.75; failing audits: color-contrast (logo 1.08:1 black-on-dark),
+    label (#vaultDepositAmount), unsized-images (logo img), agent-accessibility-tree
+    ("Form elements must have labels"), FCP 1.87 s, LCP 13.1 s, CLS 0, TBT 115 ms.
+  - lighthouse-local.json (new build, pre-merge local preview): a11y **1.0**,
+    agentic **1.0**, SEO 1.0, BP 0.96, perf 0.72 — all four failing audits now pass
+    (color-contrast/label/unsized-images/agent-accessibility-tree = 1); the in-page
+    `userBalanceApp` TypeError gone from `errors-in-console` (2 pre-existing external
+    script errors remain: `@solana/web3.js@latest` drift in contract_data.js
+    `findProgramAddressSync`, anchor browser build ESM import — unchanged, follow-up).
+  - linkcheck.txt: 24/24 referenced URLs return 200 (incl. the new tokens.css ref).
+  - smoke-after.txt (live post-deploy 2026-10-23T03:12Z): classic 200 (160,972 B),
+    tokens.css ref present BEFORE style.css (order True), aria-label present, logo
+    img carries 1024x1024 + `width:auto`, `balanceEl` guard present; tokens.css /
+    style.css 200.
+  - lighthouse-live-after.json / lighthouse-live-after2.json (live, 2 runs):
+    | run | perf | a11y | BP | SEO | agentic | FCP | LCP | TBT | CLS |
+    |---|---|---|---|---|---|---|---|---|---|
+    | live before | 0.71 | 0.83 | 0.96 | 1.0 | 0.75 | 1.87 s | 13.1 s | 115 ms | 0 |
+    | live after | 0.61 | 1.0 | 0.96 | 1.0 | 1.0 | 3.04 s | 13.4 s | 116 ms | 0 |
+    | live after 2 | 0.69 | 1.0 | 0.96 | 1.0 | 1.0 | 2.98 s | 14.3 s | 0 ms | 0 |
+    a11y 0.83→1.0 and agentic 0.75→1.0 are the change; SEO/BP flat. Perf score
+    0.61–0.69 after vs 0.71 before sits INSIDE this page's documented historical
+    swing (0.67–0.84 across runs 20261022/20261019: live-before FCP has been 3.0 s
+    and 1.8 s on different days). Waterfall evidence (in the JSONs): tokens.css
+    (2.5 KB compressed) fetches PARALLEL to style.css (start 211.8 vs 212.4 ms,
+    both done by 336 ms) — the one deterministic new cost is one small same-origin
+    stylesheet that the page has always required to render correctly; LCP/TBT/CLS
+    unchanged. The 0.61 first run (SI 7.7 s vs 3.4 s on re-run) is run-to-run
+    noise. Judged no material regression on any gate axis.
+  - computed-styles-after.json + classic-local-after.png + computed-styles-live-after.json
+    + classic-live-after.png (real browser on LIVE production, 2026-10-23T03:15Z):
+    `--primary`/`--gc-green` = `#14f195`, body/logo text `rgb(240,240,245)`,
+    "Chain" span + active nav `rgb(20,241,149)`, deposit button bg `rgb(20,241,149)`,
+    `aria-label="Deposit amount in SOL"` present, logo img still 35x35,
+    `tokens.css` in `document.styleSheets` — change confirmed visible in production.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) classic-dashboard keeps 2 pre-existing
+  external-script console errors (`@solana/web3.js@latest` version drift breaks
+  `contract_data.js` `findProgramAddressSync`; `@coral-xyz/anchor@0.29.0` browser
+  build is ESM and throws "Cannot use import statement outside a module") — fixing
+  needs a script-loading strategy change (pin versions / module loading), separate
+  run. (2) classic-dashboard.html still carries Spanish legacy copy (meta
+  description "Gestiona tu equipo...", "Salir / Logout", "Bucle Reflexivo...") —
+  violates the English Max Law on a public page; needs a careful copy-translation
+  sweep (separate run, no invented data). (3) Unchanged earlier follow-ups:
+  goalworld_site TODO.md human facts (dead Discord invite, X handle 404, legal
+  review), `src/i18n/locales/{en,es}/translation.json` leftovers, wallet-adapter
+  DM Sans (third-party), landing-host legacy manifest restage.
