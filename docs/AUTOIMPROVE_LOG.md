@@ -1091,3 +1091,85 @@ One entry per daily run (newest last).
   goalworld_site TODO.md human facts (dead Discord invite, X handle 404, legal
   review), `src/i18n/locales/{en,es}/translation.json` leftovers, wallet-adapter
   DM Sans (third-party), landing-host legacy manifest restage.
+
+
+## 2026-10-24 run 20261024T024752Z
+
+- **What:** English Max Law sweep on `goalchain_webapp/public/classic-dashboard.html`
+  (live product surface https://play.goalworld.fun/classic-dashboard.html) — the only
+  public page still shipping Spanish legacy copy. ROOT CAUSE: the page was built as a
+  Spanish prototype and never went through the English-only conversion applied to the
+  rest of the sites. Faithful, non-inventive translation of every user-visible string
+  (209 lines changed, text-only): SEO meta description, nav, oracle ticker, all 12
+  feature panels (Office/Vault, Bracket, Oracle stream, Derivatives, Academy, Lending,
+  3D Gallery, Faremeter banner, AI Hub/Predictor, Scout Agency, Bundler, Optimizer,
+  Coach, Terminal, Hedging, Sentinel, Ecosystem, Minigames, Modifiers Sim, Rental,
+  Country Synergy, Match Resolution sim, Faremeter modal), select options, labels,
+  placeholders, dynamic JS UI strings (pull-to-refresh), plus HTML/JS comments.
+  No logic, layout, element IDs, `value` attributes or asset references changed;
+  inline JS passes `node --check` (3/3). Parody player names (e.g. `Kylian M-bag-pé`)
+  intentionally kept as product naming.
+- **Why:** Repo law (CLAUDE.md English Max Law): all public copy is 100% English. A
+  Spanish `<meta name="description">` and mixed-language UI on a live product page hurt
+  SEO, user trust and the agentic-browsing quality gates. Explicitly flagged as the
+  needed follow-up in run 20261023T024737Z. Single-file, root-cause, measurable.
+- **Commit SHA (merge):** `0b900d3f` (PR #906, feature `9eb7f05d`). Pre-merge
+  `origin/main` = `832695a0` (rollback: `git revert -m 1 0b900d3f` + push — Vercel
+  redeploys the previous build; landing `goalworld_site/` untouched, no landing deploy
+  needed).
+- **Live link:** https://play.goalworld.fun/classic-dashboard.html
+- **QA evidence:** `/data/work/autoimprove/evidence/20261024T024752Z/`
+  - build.txt: exit 0 (`tsc && vite build`, 7.33 s; static public/ HTML is the only
+    change — same app bundles).
+  - tests.txt: exit 0 (`check:i18n` — 381 used keys, 694 dictionary keys, en/es/type
+    in sync).
+  - smoke-before.txt (live pre-change 2026-10-24T02:58Z): 200, 160,972 B, 75 lines
+    with Spanish accents, "Gestiona tu equipo" / "LOGOUT / SALIR" / "Bucle Reflexivo"
+    present.
+  - lighthouse-live-before.json (live baseline): perf 0.64 / a11y 1.0 / BP 0.96 /
+    SEO 1.0 / agentic 1.0; FCP 3.2 s, LCP 14.7 s, TBT 120 ms, CLS 0;
+    failing binary audits: errors-in-console only (the 2 known pre-existing external
+    script errors — untouched).
+  - lighthouse-local.json (new build, pre-merge local preview): perf 0.73 / a11y 1.0 /
+    BP 0.96 / SEO 1.0 / agentic 1.0; FCP 1.8 s, LCP 13.8 s, TBT 50 ms, CLS 0.001 —
+    no regression on any gate axis.
+  - linkcheck.txt: 26/26 referenced URLs OK (2 via 3xx→200 redirect — flash.trade and
+    `@solana/web3.js@latest`, both pre-existing; no new links added by this change).
+    Post-deploy live re-check: 26/26, broken=0.
+  - dom-check.txt + classic-local-after.png: real browser on the new build — meta
+    description English, `lang="en"`, 0 of 75 Spanish markers in the rendered DOM
+    incl. hidden tab panels; all English replacements present.
+  - classic-live-before.png (live pre-deploy): Spanish meta + "LOGOUT / SALIR" visible.
+  - smoke-after.txt (live post-deploy 2026-10-24T03:14Z): 200, 159,959 B, new English
+    meta present (1) / old Spanish meta (0), "LOGOUT" (1) / "LOGOUT / SALIR" (0),
+    "Drift Perps Reflexive Loop" / "Home win (1)" / "Pull to refresh" (2) /
+    "National Synergies & Bonding Curve" / "Smart Rental (Rent-to-Earn)" /
+    "PROCESS 402 PAYMENT WITH FAREMETER" all present; Spanish counterparts all 0;
+    accent lines = 1 (the kept parody name); tokens.css ref intact.
+  - lighthouse-live-after.json / lighthouse-live-after2.json (live, 2 runs):
+    | run | perf | a11y | BP | SEO | agentic | FCP | LCP | TBT | CLS |
+    |---|---|---|---|---|---|---|---|---|---|
+    | live before | 0.64 | 1.0 | 0.96 | 1.0 | 1.0 | 3.2 s | 14.7 s | 120 ms | 0 |
+    | live after | 0.61 | 1.0 | 0.96 | 1.0 | 1.0 | 3.0 s | 13.4 s | 130 ms | 0 |
+    | live after 2 | 0.74 | 1.0 | 0.96 | 1.0 | 1.0 | 2.0 s | 9.3 s | 20 ms | 0.001 |
+    Perf 0.61–0.74 after brackets the 0.64 baseline — run-to-run noise on this page's
+    documented historical swing (0.61–0.84); a11y/BP/SEO/agentic flat. Pure text
+    change: zero network/asset delta (same refs, same count).
+  - classic-live-after.png + live DOM check (real browser on LIVE production):
+    meta description now "Manage your GoalChain team, bet on the 2026 World Cup and
+    explore the derivatives market on Solana.", `lang="en"`, 0 Spanish markers across
+    24 spot probes in the full rendered DOM, all 10 English probes present —
+    change confirmed visible in production.
+- **Reverted:** n
+- **Decisions for Nico:** none — pure copy translation, no product claim changed or
+  added (numbers, yields, dates, names and links preserved verbatim).
+- **Follow-ups noted (not done):** (1) classic-dashboard keeps 2 pre-existing
+  external-script console errors (`@solana/web3.js@latest` version drift breaks
+  `contract_data.js` `findProgramAddressSync`; `@coral-xyz/anchor@0.29.0` browser
+  build is ESM) — needs a script-loading strategy change (pin versions / module
+  loading), separate run. (2) Pre-existing HTML tag-nesting quirks in
+  classic-dashboard.html (browser-recovered; identical before/after) — cosmetic
+  cleanup candidate. (3) Unchanged earlier follow-ups: goalworld_site TODO.md human
+  facts (dead Discord invite, X handle 404, legal review),
+  `src/i18n/locales/{en,es}/translation.json` leftovers, wallet-adapter DM Sans
+  (third-party, leave), landing-host legacy manifest restage.
