@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoalChain App | Dashboard Alpha</title>
-    <meta name="description" content="Gestiona tu equipo de GoalChain, apuesta en el Mundial 2026 y explora el mercado de derivados sobre Solana.">
+    <meta name="description" content="Manage your GoalChain team, bet on the 2026 World Cup and explore the derivatives market on Solana.">
     <link rel="stylesheet" href="https://goalworld.fun/assets/css/tokens.css?v=1.0">
     <link rel="stylesheet" href="https://goalworld.fun/assets/css/style.css?v=4.2">
     <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -232,7 +232,7 @@
                 </div>
             </a>
             <div style="display: flex; align-items: center; gap: 15px;">
-                <a href="index.html" onclick="goalchainLogout()" class="mobile-logout-btn" style="display: none; font-size: 1.2rem; text-decoration: none; color: #ff4d6a;" title="Salir / Logout">🚪</a>
+                <a href="index.html" onclick="goalchainLogout()" class="mobile-logout-btn" style="display: none; font-size: 1.2rem; text-decoration: none; color: #ff4d6a;" title="Log out">🚪</a>
                 <div class="mobile-nav-toggle" style="display: none;" onclick="document.querySelector('.sidebar nav').classList.toggle('active')">☰</div>
             </div>
         </div>
@@ -282,7 +282,7 @@
 
         <!-- EXIT BUTTON -->
         <a href="index.html" onclick="goalchainLogout()" class="nav-item" style="margin-top: 0; color: #ff4d6a; border-color: rgba(255, 77, 106, 0.1); background: rgba(255, 77, 106, 0.05);">
-            <span>🚪</span> <span style="font-weight: 800;">LOGOUT / SALIR</span>
+            <span>🚪</span> <span style="font-weight: 800;">LOGOUT</span>
         </a>
         </nav>
     </aside>
@@ -296,15 +296,15 @@
         
         <!-- GLOBAL ACTIVITY TICKER -->
         <div class="ticker-wrap">
-                <span class="ticker-item">🏟️ <b>Oráculo:</b> Messi anotó! +10% Yield Airdrop despachado...</span>
-                <span class="ticker-item">☠️ <b>Oráculo:</b> Tarjeta Roja para De Paul. Slash -20% aplicado...</span>
-                <span class="ticker-item">⚡ <b>The Vault:</b> Manager @NicoPez quemó 500 $GCH para recargar Stamina...</span>
-                <span class="ticker-item">🏛️ <b>Protocolo:</b> Impuesto del 1% recolectado hacia tesorería comunitaria...</span>
+                <span class="ticker-item">🏟️ <b>Oracle:</b> Messi scored! +10% Yield Airdrop dispatched...</span>
+                <span class="ticker-item">☠️ <b>Oracle:</b> Red Card for De Paul. Slash -20% applied...</span>
+                <span class="ticker-item">⚡ <b>The Vault:</b> Manager @NicoPez burned 500 $GCH to refill Stamina...</span>
+                <span class="ticker-item">🏛️ <b>Protocol:</b> 1% tax collected toward the community treasury...</span>
                 <!-- Repeat for loop -->
-                <span class="ticker-item">🏟️ <b>Oráculo:</b> Messi anotó! +10% Yield Airdrop despachado...</span>
-                <span class="ticker-item">☠️ <b>Oráculo:</b> Tarjeta Roja para De Paul. Slash -20% aplicado...</span>
-                <span class="ticker-item">⚡ <b>The Vault:</b> Manager @NicoPez quemó 500 $GCH para recargar Stamina...</span>
-                <span class="ticker-item">🏛️ <b>Protocolo:</b> Impuesto del 1% recolectado hacia tesorería comunitaria...</span>
+                <span class="ticker-item">🏟️ <b>Oracle:</b> Messi scored! +10% Yield Airdrop dispatched...</span>
+                <span class="ticker-item">☠️ <b>Oracle:</b> Red Card for De Paul. Slash -20% applied...</span>
+                <span class="ticker-item">⚡ <b>The Vault:</b> Manager @NicoPez burned 500 $GCH to refill Stamina...</span>
+                <span class="ticker-item">🏛️ <b>Protocol:</b> 1% tax collected toward the community treasury...</span>
             </div>
         </div>
 
@@ -394,7 +394,7 @@
                             🤖 AI Infinity Vault v4
                         </h4>
                         <p style="font-size: 0.7rem; line-height: 1.4; color: var(--text-dim); margin-bottom:12px;">
-                            Tu capital de tesorería y LP está gestionado 100% de forma autónoma por agentes de <b>Phi Protocol AI</b> y <b>Hyre Agent</b>.
+                            Your treasury and LP capital is managed 100% autonomously by agents from <b>Phi Protocol AI</b> and <b>Hyre Agent</b>.
                         </p>
                         
                         <!-- Allocation Split Bar -->
@@ -431,11 +431,11 @@
                         <!-- Reflexive Loop Selector -->
                         <div style="background: rgba(153, 69, 255, 0.05); padding:10px; border-radius:8px; border:1px solid rgba(153, 69, 255, 0.15); font-size:0.65rem; margin-bottom:15px;">
                             <div style="display:flex; justify-content:space-between; align-items:center; font-weight:bold; color:#fff; margin-bottom:4px;">
-                                <span>Bucle Reflexivo Drift Perps</span>
-                                <span style="color: var(--primary);">[ACTIVO]</span>
+                                <span>Drift Perps Reflexive Loop</span>
+                                <span style="color: var(--primary);">[ACTIVE]</span>
                             </div>
                             <span style="color:var(--text-dim); font-size:0.55rem; line-height:1.2; display:block;">
-                                Abre largos apalancados automáticamente en GCH ante shocks de oferta crítica (burn acelerado).
+                                Opens leveraged longs in GCH automatically on critical supply shocks (accelerated burn).
                             </span>
                         </div>
 
@@ -445,7 +445,7 @@
                         </div>
 
                         <button id="btnTreasuryShock" onclick="simulateTreasuryShock()" class="btn btn-secondary btn-glow" style="width: 100%; font-size:0.7rem; font-weight:bold;">
-                            SIMULAR SHOCK DE OFERTA 🚀
+                            SIMULATE SUPPLY SHOCK 🚀
                         </button>
                     </div>
                 </div>
@@ -606,11 +606,11 @@
                             <span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-dim);">Upcoming</span>
                         </div>
                         <div class="bracket-match-team">
-                            <span>🇧🇷 Brasil</span>
+                            <span>🇧🇷 Brazil</span>
                             <span class="bracket-score">-</span>
                         </div>
                         <div class="bracket-match-team">
-                            <span>🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra</span>
+                            <span>🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</span>
                             <span class="bracket-score">-</span>
                         </div>
                     </div>
@@ -621,11 +621,11 @@
                             <span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-dim);">Upcoming</span>
                         </div>
                         <div class="bracket-match-team">
-                            <span>🇫🇷 Francia</span>
+                            <span>🇫🇷 France</span>
                             <span class="bracket-score">-</span>
                         </div>
                         <div class="bracket-match-team">
-                            <span>🇩🇪 Alemania</span>
+                            <span>🇩🇪 Germany</span>
                             <span class="bracket-score">-</span>
                         </div>
                     </div>
@@ -636,11 +636,11 @@
                             <span class="badge" style="background: rgba(255,255,255,0.05); color: var(--text-dim);">Upcoming</span>
                         </div>
                         <div class="bracket-match-team">
-                            <span>🇪🇸 España</span>
+                            <span>🇪🇸 Spain</span>
                             <span class="bracket-score">-</span>
                         </div>
                         <div class="bracket-match-team">
-                            <span>🇮🇹 Italia</span>
+                            <span>🇮🇹 Italy</span>
                             <span class="bracket-score">-</span>
                         </div>
                     </div>
@@ -655,7 +655,7 @@
                             <span class="bracket-score" id="score-teamA">0</span>
                         </div>
                         <div class="bracket-match-team" id="bracket-teamB">
-                            <span>🇫🇷 Francia</span>
+                            <span>🇫🇷 France</span>
                             <span class="bracket-score" id="score-teamB">0</span>
                         </div>
                     </div>
@@ -746,13 +746,13 @@
             <div class="app-card" style="margin-top: 30px; background: rgba(0,0,0,0.5);">
                 <h4 style="color: #fff; font-size: 0.9rem; margin-bottom: 12px;">📣 Oracle Stream & Status Events</h4>
                 <div id="bracketLiveLogs" style="background: #080808; border-radius: 8px; padding: 12px; font-family: monospace; font-size: 0.75rem; color: #a0aec0; overflow-y: auto; height: 120px; border: 1px solid rgba(255,255,255,0.02); display: flex; flex-direction: column; gap: 6px;">
-                    <div style="color: var(--primary);">[Oracle] Conectado al stream de Solana Devnet. Derivando PDAs...</div>
+                    <div style="color: var(--primary);">[Oracle] Connected to the Solana Devnet stream. Deriving PDAs...</div>
                 </div>
             </div>
 
             <div id="matchDisplay" class="app-card" style="text-align: center; margin-top: 30px; display: none;">
                 <!-- Loaded from contract_data.js -->
-                <p style="color:var(--text-dim);">Cargando fixtures desde Solana...</p>
+                <p style="color:var(--text-dim);">Loading fixtures from Solana...</p>
             </div>
         </section>
 
@@ -768,13 +768,13 @@
             <div class="app-card" style="display:grid; grid-template-columns: 1fr 1.5fr; gap: 20px;">
                 <!-- Trade Terminal -->
                 <div class="glass-card" style="padding:0; border:none; background:none;">
-                    <h3>⚡ Ejecución</h3>
+                    <h3>⚡ Execution</h3>
                     <div style="margin: 15px 0;">
-                        <label style="font-size: 0.7rem; color: var(--text-dim);">MERCADO</label>
+                        <label style="font-size: 0.7rem; color: var(--text-dim);">MARKET</label>
                         <select id="marketSelector" style="width: 100%; background: #111; color: white; border: 1px solid var(--border); padding: 10px; border-radius: 8px;">
                             <option value="arg">🇦🇷 Argentina Index</option>
-                            <option value="bra">🇧🇷 Brasil Index</option>
-                            <option value="fra">🇫🇷 Francia Index</option>
+                            <option value="bra">🇧🇷 Brazil Index</option>
+                            <option value="fra">🇫🇷 France Index</option>
                         </select>
                     </div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
@@ -789,7 +789,7 @@
 
                 <!-- Price Chart -->
                 <div class="glass-card" style="padding:0; border:none; background:none;">
-                    <h3>📊 Chart & Posiciones</h3>
+                    <h3>📊 Chart & Positions</h3>
                     <div id="priceChartSim" style="height: 100px; background: rgba(0,0,0,0.3); border-radius: 12px; display: flex; align-items: flex-end; gap: 3px; padding: 10px; margin: 10px 0;"></div>
                     <table style="width: 100%; font-size: 0.65rem; border-collapse: collapse;">
                         <tbody id="activePositions"></tbody>
@@ -805,11 +805,11 @@
                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
                     <div>
                         <h3>🔍 Scout Tool</h3>
-                        <p style="font-size:0.75rem; color:var(--text-dim); margin-bottom:15px;">Emite cNFTs vía Merkle Trees.</p>
-                        <button id="scoutBtn" class="btn btn-secondary" style="width:100%;">MINT 10 PROSPECTOS</button>
+                        <p style="font-size:0.75rem; color:var(--text-dim); margin-bottom:15px;">Mints cNFTs via Merkle Trees.</p>
+                        <button id="scoutBtn" class="btn btn-secondary" style="width:100%;">MINT 10 PROSPECTS</button>
                     </div>
                     <div>
-                        <h3>🏃 Cantera</h3>
+                        <h3>🏃 Youth Pool</h3>
                         <div id="prospectsList" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(80px, 1fr)); gap:5px; max-height:150px; overflow-y:auto;"></div>
                     </div>
                 </div>
@@ -829,38 +829,38 @@
         <!-- SECTION: LENDING -->
         <section id="lendingTab" class="tab-section">
             <h2>🏦 NFT Collateralized Lending</h2>
-            <p style="color:var(--text-dim); margin-bottom: 20px;">Liquidez instantánea usando tus cromos de la Genesis Squad como colateral (protocolo Sharky.fi / Banx).</p>
+            <p style="color:var(--text-dim); margin-bottom: 20px;">Instant liquidity using your Genesis Squad cards as collateral (Sharky.fi / Banx protocol).</p>
             <div class="app-card" style="display:grid; grid-template-columns: 1fr 1.2fr; gap:30px;">
                 <!-- Left: NFT Selector -->
                 <div>
-                    <h3 style="font-size:0.9rem; margin-bottom:15px;">🎴 Selecciona tu Colateral</h3>
+                    <h3 style="font-size:0.9rem; margin-bottom:15px;">🎴 Select Your Collateral</h3>
                     <div id="lendingInventory" style="display:flex; flex-direction:column; gap:8px;"></div>
                 </div>
                 <!-- Right: Loan Calculator & Action -->
                 <div style="display:flex; flex-direction:column; gap:15px;">
-                    <h3 style="font-size:0.9rem; margin-bottom:5px;">💸 Detalles del Préstamo</h3>
+                    <h3 style="font-size:0.9rem; margin-bottom:5px;">💸 Loan Details</h3>
                     <div style="background:rgba(0,0,0,0.3); padding:15px; border-radius:10px; font-size:0.75rem; display:flex; flex-direction:column; gap:10px;">
                         <div style="display:flex; justify-content:space-between;">
-                            <span style="color:var(--text-dim);">SOL Disponible (LTV 75%)</span>
+                            <span style="color:var(--text-dim);">SOL Available (LTV 75%)</span>
                             <strong id="solAvailable" style="color:var(--primary);">— SOL</strong>
                         </div>
                         <div style="display:flex; justify-content:space-between;">
-                            <span style="color:var(--text-dim);">APR Estimado</span>
+                            <span style="color:var(--text-dim);">Estimated APR</span>
                             <strong style="color:#ffcc00;">14.5%</strong>
                         </div>
                         <div style="display:flex; justify-content:space-between;">
-                            <span style="color:var(--text-dim);">Duración</span>
-                            <strong style="color:#fff;">7 días</strong>
+                            <span style="color:var(--text-dim);">Duration</span>
+                            <strong style="color:#fff;">7 days</strong>
                         </div>
                         <div style="display:flex; justify-content:space-between;">
-                            <span style="color:var(--text-dim);">Préstamos Activos</span>
+                            <span style="color:var(--text-dim);">Active Loans</span>
                             <strong id="activeLoans" style="color:#fff;">0</strong>
                         </div>
                     </div>
                     <button id="requestLoanBtn" class="btn btn-primary" disabled style="opacity:0.5; cursor:not-allowed; font-weight:bold; padding:12px;">
-                        SELECCIONA UN NFT PRIMERO
+                        SELECT AN NFT FIRST
                     </button>
-                    <p style="font-size:0.6rem; color:var(--text-dim); text-align:center; line-height:1.4;">Tu NFT se transfiere a un escrow en cadena. Al repagar el préstamo + interés, el NFT se libera automáticamente.</p>
+                    <p style="font-size:0.6rem; color:var(--text-dim); text-align:center; line-height:1.4;">Your NFT is transferred to an on-chain escrow. Repay the loan + interest and the NFT is released automatically.</p>
                 </div>
             </div>
         </section>
@@ -874,23 +874,23 @@
                     <span class="badge" style="background:#ffcc00; color:black;">AAA HIGH-FIDELITY</span>
                 </div>
             </div>
-            <p style="color:var(--text-dim); margin-bottom: 30px;">Explora los 528 cromos interactivos. Cada NFT contiene Lore de Élite y una estética visual única ("Oportunidad de Oro") diseñada por Gemini 3.1 (High).</p>
+            <p style="color:var(--text-dim); margin-bottom: 30px;">Explore the 528 interactive cards. Each NFT contains Elite Lore and a unique visual aesthetic ("Golden Opportunity") designed by Gemini 3.1 (High).</p>
             
-            <!-- BANNER INFORMATIVO DE FAREMETER.XYZ -->
+            <!-- FAREMETER.XYZ INFO BANNER -->
             <div style="background: linear-gradient(135deg, rgba(153, 69, 255, 0.15) 0%, rgba(20, 241, 149, 0.1) 100%); border: 1px solid rgba(20, 241, 149, 0.25); border-radius: 12px; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-color: rgba(20, 241, 149, 0.25);">
                 <div style="display:flex; align-items:center; gap:15px; text-align:left;">
                     <div style="font-size: 1.5rem; background: rgba(0,0,0,0.3); width:45px; height:45px; border-radius:50%; display:flex; align-items:center; justify-content:center; border: 1px solid rgba(153, 69, 255, 0.3);">
                         ⚡
                     </div>
                     <div>
-                        <h4 style="margin:0 0 5px 0; color:#fff; font-size:0.85rem; font-weight:bold;">Adquisición sin fricciones vía Faremeter.xyz (Cash & HTTP 402)</h4>
+                        <h4 style="margin:0 0 5px 0; color:#fff; font-size:0.85rem; font-weight:bold;">Frictionless acquisition via Faremeter.xyz (Cash & HTTP 402)</h4>
                         <p style="margin:0; color:var(--text-dim); font-size:0.7rem; line-height:1.4;">
-                            ¿Sin Solana ni Wallet? Compra tus Genesis NFTs directamente con dinero fiat o USDC mediante nuestro proxy de pago <b>Faremeter</b>. Nuestra IA asume la firma y el gas por ti.
+                            No Solana or Wallet? Buy your Genesis NFTs directly with fiat or USDC through our payment proxy <b>Faremeter</b>. Our AI handles the signature and gas for you.
                         </p>
                     </div>
                 </div>
                 <button onclick="openFaremeterCheckout()" class="btn btn-secondary" style="font-size: 0.65rem; font-weight: bold; background: var(--primary); color: #000; border-radius: 8px; border:none; padding: 10px 18px; cursor: pointer; transition: transform 0.2s;">
-                    ABRIR CHECKOUT FAREMETER
+                    OPEN FAREMETER CHECKOUT
                 </button>
             </div>
             
@@ -1047,7 +1047,7 @@
                     <span class="badge" style="background:rgba(153, 69, 255, 0.1); color:var(--secondary); border: 1px solid var(--secondary);">ELIZAOS AGENT KIT</span>
                 </div>
                 <p class="ai-description">
-                    Optimiza tu Starting XI de forma 100% autónoma y obtén una ventaja estadística institucional utilizando Oráculos en tiempo real y predictivos para apuestas. La fusión de DeFi y SportsFi en Solana.
+                    Optimize your Starting XI 100% autonomously and gain an institutional statistical edge using real-time and predictive Oracles for betting. The fusion of DeFi and SportsFi on Solana.
                 </p>
             </div>
 
@@ -1061,20 +1061,20 @@
                             <span class="badge" style="background:rgba(20,241,149,0.1); color:var(--primary); border:1px solid var(--primary);">WC2026 LIVE</span>
                         </div>
                         <div class="node-details">
-                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px;">Predicciones de partidos en tiempo real basadas en el índice de poder por país (ATK, DEF, HYPE) calculado desde los 528 cromos de la Genesis Squad.</p>
+                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px;">Real-time match predictions based on the per-country power index (ATK, DEF, HYPE) calculated from the 528 Genesis Squad cards.</p>
                             
                             <!-- Prediction Display -->
                             <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.03);">
                                 <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px;">
                                     <span id="predTeam1Name">Argentina 🇦🇷</span>
                                     <span style="color: var(--primary);">VS</span>
-                                    <span id="predTeam2Name">Francia 🇫🇷</span>
+                                    <span id="predTeam2Name">France 🇫🇷</span>
                                 </div>
-                                <p id="predVenue" style="font-size: 0.9rem; color:var(--text-dim); text-align:center; margin-bottom:15px;">📍 MetLife Stadium, Nueva York · 2026-06-11</p>
+                                <p id="predVenue" style="font-size: 0.9rem; color:var(--text-dim); text-align:center; margin-bottom:15px;">📍 MetLife Stadium, New York · 2026-06-11</p>
                                 
                                 <div style="margin-bottom: 12px;">
                                     <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 4px;">
-                                        <span>Victoria local (1)</span>
+                                        <span>Home win (1)</span>
                                         <strong id="txtTeam1" style="color: var(--primary);">74%</strong>
                                     </div>
                                     <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
@@ -1084,7 +1084,7 @@
                                 
                                 <div style="margin-bottom: 12px;">
                                     <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 4px;">
-                                        <span>Empate (X)</span>
+                                        <span>Draw (X)</span>
                                         <strong id="txtDraw" style="color: var(--gold);">12%</strong>
                                     </div>
                                     <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
@@ -1094,7 +1094,7 @@
                                 
                                 <div style="margin-bottom: 12px;">
                                     <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 4px;">
-                                        <span>Victoria visitante (2)</span>
+                                        <span>Away win (2)</span>
                                         <strong id="txtTeam2" style="color: #ff4d6a;">14%</strong>
                                     </div>
                                     <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
@@ -1103,15 +1103,15 @@
                                 </div>
 
                                 <p id="predictReasoning" style="font-size: 0.9rem; color: var(--text-dim); line-height: 1.4; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px; margin-top: 10px; font-style: italic;">
-                                    Cargando análisis de Rainmaker AI v2.0...
+                                    Loading Rainmaker AI v2.0 analysis...
                                 </p>
                             </div>
 
                             <div style="display:flex; gap:10px; margin-bottom:10px;">
-                                <button onclick="cycleNextMatch()" class="btn btn-secondary" style="flex:1; font-size: 0.85rem;">⏭ Siguiente Partido</button>
-                                <button id="betbotToggleBtn" onclick="toggleBetbot()" class="btn btn-secondary btn-glow" style="flex:1; font-size: 0.85rem;">ACTIVAR BETBOT</button>
+                                <button onclick="cycleNextMatch()" class="btn btn-secondary" style="flex:1; font-size: 0.85rem;">⏭ Next Match</button>
+                                <button id="betbotToggleBtn" onclick="toggleBetbot()" class="btn btn-secondary btn-glow" style="flex:1; font-size: 0.85rem;">ENABLE BETBOT</button>
                             </div>
-                            <p id="betbotIndicator" style="font-size: 0.85rem; color: var(--text-dim); text-align: center; margin-top: 10px;">🔴 <span style="color: var(--danger);">INACTIVO</span></p>
+                            <p id="betbotIndicator" style="font-size: 0.85rem; color: var(--text-dim); text-align: center; margin-top: 10px;">🔴 <span style="color: var(--danger);">INACTIVE</span></p>
                         </div>
                     </div>
                 </div>
@@ -1125,27 +1125,27 @@
                         </div>
                         <div class="node-details">
                             <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-dim); margin-bottom:15px; margin-top:0;">
-                                Nuestros agentes autónomos no pueden estar en el campo de juego. Por eso, contratan humanos de la comunidad a través de <b>Wurk.fun</b> mediante micropagos <b>x402</b> de USDC para recopilar reportes tácticos exclusivos del mundial.
+                                Our autonomous agents can't be on the pitch. So they hire humans from the community through <b>Wurk.fun</b> via micropayments <b>x402</b> in USDC to collect exclusive World Cup tactical reports.
                             </p>
 
                             <div style="background: rgba(0,0,0,0.3); border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); padding: 12px; margin-bottom: 15px; font-size: 0.95rem;">
                                 <div style="display:flex; justify-content:space-between; align-items:center; font-weight:bold; margin-bottom:5px; color:#fff;">
-                                    <span>📋 GIG ACTIVO [WURK-982]</span>
-                                    <span style="color:var(--primary);">ABIERTO</span>
+                                    <span>📋 ACTIVE GIG [WURK-982]</span>
+                                    <span style="color:var(--primary);">OPEN</span>
                                 </div>
                                 <span style="color:#aaa; font-size: 0.9rem; display:block; margin-bottom:8px;">
-                                    "Inspeccionar estado del césped y humedad en el MetLife Stadium de New Jersey para el partido contra Francia."
+                                    "Inspect the pitch condition and humidity at MetLife Stadium in New Jersey for the match against France."
                                 </span>
                                 <div style="display:flex; justify-content:space-between; font-size: 0.85rem; color:var(--text-dim); border-top: 1px solid rgba(255,255,255,0.05); padding-top:6px;">
-                                    <span>Pago del Contrato: <strong>0.50 USDC (x402 SOL)</strong></span>
-                                    <span>Emisor: <strong>Rainmaker AI</strong></span>
+                                    <span>Contract Payout: <strong>0.50 USDC (x402 SOL)</strong></span>
+                                    <span>Issuer: <strong>Rainmaker AI</strong></span>
                                 </div>
                             </div>
 
                             <div id="scoutFormBlock" style="margin-bottom:0; display:flex; flex-direction:column; gap:8px;">
-                                <textarea id="scoutReportInput" placeholder="Escribe tu reporte táctico... Ej: 'Césped húmedo, favorece desmarques rápidos por las bandas de Argentina.'" style="width:100%; height:50px; background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:8px; border-radius:6px; font-size: 0.95rem; resize:none; outline:none; font-family:inherit;"></textarea>
+                                <textarea id="scoutReportInput" placeholder="Write your tactical report... e.g. 'Wet pitch, favors quick runs down the wings for Argentina.'" style="width:100%; height:50px; background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:8px; border-radius:6px; font-size: 0.95rem; resize:none; outline:none; font-family:inherit;"></textarea>
                                 <button id="btnSubmitScoutReport" onclick="submitScoutReport()" class="btn btn-primary btn-sm" style="width:100%; font-size: 0.95rem; font-weight:bold; background:var(--primary); color:#000; border:none; border-radius:6px; padding:8px; cursor:pointer;">
-                                    ENVIAR REPORTE & COBRAR MICROPAGO 🕵️‍♂️
+                                    SUBMIT REPORT & COLLECT MICROPAYMENT 🕵️‍♂️
                                 </button>
                             </div>
                         </div>
@@ -1160,10 +1160,10 @@
                             <span class="badge" style="background:rgba(255, 189, 46, 0.1); color:#ffbd2e; border:1px solid #ffbd2e;">NFT PORTFOLIOS</span>
                         </div>
                         <div class="node-details">
-                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px;">Agrupa varios cromos NFT de tu plantilla en un solo "NFT de Portafolio" transferible y vendible de alto rendimiento. ¡Atractivo total para inversores!</p>
+                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px;">Bundle several NFT cards from your roster into a single "Portfolio NFT" transferable, sellable, high-performance. A total draw for investors!</p>
                             
                             <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); margin-bottom: 20px;">
-                                <h4 style="font-size: 0.9rem; color: #fff; margin-bottom: 12px;">Selecciona hasta 3 cromos colaterales:</h4>
+                                <h4 style="font-size: 0.9rem; color: #fff; margin-bottom: 12px;">Select up to 3 collateral cards:</h4>
                                 <div id="vaultPlayerSelection" style="max-height: 180px; overflow-y: auto; padding-right: 5px;">
                                     <!-- Dynamic options injected by JS -->
                                 </div>
@@ -1171,17 +1171,17 @@
 
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: rgba(153,69,255,0.05); padding: 12px 20px; border-radius: 10px;">
                                 <div>
-                                    <div style="font-size: 0.9rem; color: var(--text-dim);">EMISIONES ESTIMADAS DEL VAULT</div>
-                                    <strong id="vaultEstimatedEmissions" style="font-size: 1.1rem; color: var(--primary);">+0 $GCH/día</strong>
+                                    <div style="font-size: 0.9rem; color: var(--text-dim);">ESTIMATED VAULT EMISSIONS</div>
+                                    <strong id="vaultEstimatedEmissions" style="font-size: 1.1rem; color: var(--primary);">+0 $GCH/day</strong>
                                 </div>
                                 <div style="text-align: right;">
-                                    <div style="font-size: 0.9rem; color: var(--text-dim);">ELEMENTOS AGRUPADOS</div>
-                                    <strong id="vaultSelectedCount" style="font-size: 1rem; color: #fff;">0 / 3 cromos</strong>
+                                    <div style="font-size: 0.9rem; color: var(--text-dim);">BUNDLED ITEMS</div>
+                                    <strong id="vaultSelectedCount" style="font-size: 1rem; color: #fff;">0 / 3 cards</strong>
                                 </div>
                             </div>
 
-                            <button id="mintVaultBtn" onclick="mintVaultPortfolio()" class="btn btn-secondary btn-glow" style="width: 100%;" disabled>MINTEAR PORTAFOLIO VAULT NFT</button>
-                            <p style="font-size: 0.9rem; color: var(--text-dim); text-align: center; margin-top: 8px;">Costo de creación: 200 $GCH (100% de la tarifa es quemada en el Circular Feed).</p>
+                            <button id="mintVaultBtn" onclick="mintVaultPortfolio()" class="btn btn-secondary btn-glow" style="width: 100%;" disabled>MINT PORTFOLIO VAULT NFT</button>
+                            <p style="font-size: 0.9rem; color: var(--text-dim); text-align: center; margin-top: 8px;">Creation cost: 200 $GCH (100% of the fee is burned in the Circular Feed).</p>
                         </div>
                     </div>
                 </div>
@@ -1194,34 +1194,34 @@
                             <span class="badge" style="background:rgba(0, 255, 189, 0.1); color:#00ffbd; border:1px solid #00ffbd;">AUTONOMOUS MANAGER</span>
                         </div>
                         <div class="node-details">
-                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px;">Permite que un agente inteligente autónomo gestione tu equipo, reemplace jugadores cansados, compre pociones y reinvierta las ganancias automáticamente.</p>
+                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px;">Let an autonomous AI agent manage your team, replace tired players, buy potions and reinvest earnings automatically.</p>
                             
                             <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); margin-bottom: 20px; font-size: 0.9rem;">
-                                <h4 style="color: #fff; margin-bottom: 15px; font-size: 0.95rem;">Parámetros del Agente:</h4>
+                                <h4 style="color: #fff; margin-bottom: 15px; font-size: 0.95rem;">Agent Parameters:</h4>
                                 
                                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                                    <span>Reemplazo automático de jugadores fatigados</span>
+                                    <span>Automatic replacement of fatigued players</span>
                                     <input type="checkbox" checked style="accent-color: var(--primary);">
                                 </div>
                                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                                    <span>Compra automática de Pociones de Energía con $GCH</span>
+                                    <span>Automatic purchase of Energy Potions with $GCH</span>
                                     <input type="checkbox" checked style="accent-color: var(--primary);">
                                 </div>
                                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                                    <span>Re-inversión y Staking automático en JitoSOL (+12% APR)</span>
+                                    <span>Automatic re-investment and staking in JitoSOL (+12% APR)</span>
                                     <input type="checkbox" checked style="accent-color: var(--primary);">
                                 </div>
                             </div>
 
                             <div style="flex: 1; min-height: 200px; background: rgba(0,0,0,0.5); border-radius: 12px; padding: 15px; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; margin-bottom: 20px;">
-                                <h4 style="font-size: 0.85rem; color: var(--primary); letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase;">⚡ Bitácora de Acciones</h4>
+                                <h4 style="font-size: 0.85rem; color: var(--primary); letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase;">⚡ Action Log</h4>
                                 <div id="agentLogContainer" style="flex: 1; overflow-y: auto;">
                                     <!-- Dynamic Logs injected by JS -->
                                 </div>
                             </div>
 
-                            <button id="optimizerToggleBtn" onclick="toggleOptimizer()" class="btn btn-secondary btn-glow" style="width: 100%;">ACTIVAR AUTO-OPTIMIZER AGENT</button>
-                            <p id="optimizerIndicator" style="font-size: 0.85rem; color: var(--text-dim); text-align: center; margin-top: 10px;">🔴 <span style="color: var(--danger);">INACTIVO</span></p>
+                            <button id="optimizerToggleBtn" onclick="toggleOptimizer()" class="btn btn-secondary btn-glow" style="width: 100%;">ENABLE AUTO-OPTIMIZER AGENT</button>
+                            <p id="optimizerIndicator" style="font-size: 0.85rem; color: var(--text-dim); text-align: center; margin-top: 10px;">🔴 <span style="color: var(--danger);">INACTIVE</span></p>
                         </div>
                     </div>
                 </div>
@@ -1234,14 +1234,14 @@
                     </div>
                     
                     <p style="font-size: 0.85rem; color: var(--text-dim); margin-top:0; margin-bottom: 18px;">
-                        Monitoreo táctico de tu plantilla en tiempo real. Analiza estamina, alineaciones, sinergias y equipamientos para darte recomendaciones de máxima rentabilidad.
+                        Real-time tactical monitoring of your roster. Analyzes stamina, lineups, synergies and gear to give you maximum-profitability recommendations.
                     </p>
                     
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <!-- Column 1: Active Advisory Feed -->
                         <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.03); border-radius: 12px; padding: 15px; display: flex; flex-direction: column;">
                             <h5 style="color: #fff; margin-top:0; margin-bottom: 12px; font-size: 0.85rem; display:flex; align-items:center; gap:6px;">
-                                🔍 Vigilancia de Rentabilidad (Live Feed)
+                                🔍 Profitability Watch (Live Feed)
                             </h5>
                             <div id="coachAdvisoriesContainer" style="flex:1; min-height: 180px; max-height: 220px; overflow-y:auto; display:flex; flex-direction:column; gap:8px;">
                                 <!-- Injected via JS -->
@@ -1251,8 +1251,8 @@
                         <!-- Column 2: Interactive AI Chat -->
                         <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.03); border-radius: 12px; padding: 15px; display: flex; flex-direction: column; justify-content: space-between;">
                             <h5 style="color: #fff; margin-top:0; margin-bottom: 12px; font-size: 0.85rem; display:flex; align-items:center; justify-content:space-between; gap:6px;">
-                                <span>💬 Consultar al Coach IA</span>
-                                <button onclick="toggleCoachSettings()" class="btn-sm btn-secondary" style="font-size: 0.65rem !important; padding: 2px 6px; border-radius:4px; background:rgba(255,255,255,0.05); color:#fff; border:1px solid rgba(255,255,255,0.1); cursor:pointer;">Configurar API</button>
+                                <span>💬 Ask the AI Coach</span>
+                                <button onclick="toggleCoachSettings()" class="btn-sm btn-secondary" style="font-size: 0.65rem !important; padding: 2px 6px; border-radius:4px; background:rgba(255,255,255,0.05); color:#fff; border:1px solid rgba(255,255,255,0.1); cursor:pointer;">Configure API</button>
                             </h5>
                             
                             <!-- API Key Settings Section (Hidden by default) -->
@@ -1260,20 +1260,20 @@
                                 <label style="font-size:0.65rem; color:var(--text-dim); display:block; margin-bottom:4px;">Google Gemini API Key (Pro):</label>
                                 <div style="display:flex; gap:6px;">
                                     <input type="password" id="coachApiKeyInput" placeholder="AIzaSy..." style="flex:1; background:#111; border:1px solid rgba(255,255,255,0.1); padding:4px 8px; border-radius:4px; color:#fff; font-size:0.75rem; outline:none;">
-                                    <button onclick="saveCoachApiKey()" class="btn btn-primary btn-sm" style="font-size:0.7rem !important; padding:4px 8px; border-radius:4px; font-weight:bold; background:var(--primary); border:none; cursor:pointer; color:#000;">Guardar</button>
+                                    <button onclick="saveCoachApiKey()" class="btn btn-primary btn-sm" style="font-size:0.7rem !important; padding:4px 8px; border-radius:4px; font-weight:bold; background:var(--primary); border:none; cursor:pointer; color:#000;">Save</button>
                                 </div>
-                                <span style="font-size:0.6rem; color:#888; display:block; margin-top:4px; line-height:1.2;">Guardada localmente en tu navegador. Si no se provee, se usará window.ai (Gemini Nano) o simulación heurística local.</span>
+                                <span style="font-size:0.6rem; color:#888; display:block; margin-top:4px; line-height:1.2;">Stored locally in your browser. If not provided, window.ai (Gemini Nano) or a local heuristic simulation will be used.</span>
                             </div>
 
                             <div id="coachChatContainer" style="flex:1; min-height: 130px; max-height: 160px; overflow-y:auto; background:rgba(0,0,0,0.5); padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.03); margin-bottom:10px; text-align:left; display:flex; flex-direction:column; gap:8px;">
                                 <div style="font-size:0.7rem; color:var(--text-dim); line-height:1.4;">
-                                    <span style="color:#a855f7; font-weight:bold;">[ELIZA]</span> ¡Hola Manager! Soy tu Coach de Sinergia y Rentabilidad. Hazme cualquier pregunta sobre tu alineación actual o cómo ganar más $GCH/día. 🏟️📈
+                                    <span style="color:#a855f7; font-weight:bold;">[ELIZA]</span> Hi Manager! I'm your Synergy & Profitability Coach. Ask me anything about your current lineup or how to earn more $GCH/day. 🏟️📈
                                 </div>
                             </div>
 
                             <div style="display:flex; gap:8px;">
-                                <input type="text" id="coachChatInput" placeholder="Pregunta algo... Ej: ¿Cómo subo el yield?" onkeydown="if(event.key === 'Enter') submitCoachMessage()" style="flex:1; background:#111; border:1px solid rgba(255,255,255,0.1); padding:6px 10px; border-radius:6px; color:#fff; font-size:0.75rem; outline:none; font-family:inherit;">
-                                <button onclick="submitCoachMessage()" class="btn btn-primary btn-sm" style="padding:6px 12px; border-radius:6px; font-size:0.75rem !important; font-weight:bold; background:var(--primary); border:none; color:#000; cursor:pointer;">PREGUNTAR</button>
+                                <input type="text" id="coachChatInput" placeholder="Ask something... e.g. How do I raise the yield?" onkeydown="if(event.key === 'Enter') submitCoachMessage()" style="flex:1; background:#111; border:1px solid rgba(255,255,255,0.1); padding:6px 10px; border-radius:6px; color:#fff; font-size:0.75rem; outline:none; font-family:inherit;">
+                                <button onclick="submitCoachMessage()" class="btn btn-primary btn-sm" style="padding:6px 12px; border-radius:6px; font-size:0.75rem !important; font-weight:bold; background:var(--primary); border:none; color:#000; cursor:pointer;">ASK</button>
                             </div>
                         </div>
                     </div>
@@ -1293,8 +1293,8 @@
 
                             <div style="display: flex; align-items: center; gap: 8px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 6px; padding: 6px 12px; font-family: monospace; font-size: 0.8rem !important;">
                                 <span style="color: var(--secondary); font-weight: bold; font-size: 0.8rem !important;">[manager@solana ~]$</span>
-                                <input type="text" id="terminalInput" placeholder="Escribe un comando... Ej: /optimize" onkeydown="if(event.key === 'Enter') submitTerminalCommand()" style="background: none; border: none; outline: none; color: #fff; font-family: monospace; font-size: 0.8rem !important; flex: 1;">
-                                <button onclick="submitTerminalCommand()" class="btn-sm btn-primary" style="padding: 3px 8px; border-radius: 4px; font-size: 0.8rem !important; font-weight: bold;">ENVIAR</button>
+                                <input type="text" id="terminalInput" placeholder="Type a command... e.g. /optimize" onkeydown="if(event.key === 'Enter') submitTerminalCommand()" style="background: none; border: none; outline: none; color: #fff; font-family: monospace; font-size: 0.8rem !important; flex: 1;">
+                                <button onclick="submitTerminalCommand()" class="btn-sm btn-primary" style="padding: 3px 8px; border-radius: 4px; font-size: 0.8rem !important; font-weight: bold;">SEND</button>
                             </div>
                         </div>
                     </div>
@@ -1305,14 +1305,14 @@
                     <div class="ai-node" style="border-color: rgba(20, 241, 149, 0.3);">
                         <div class="node-summary">
                             <h4 style="color:var(--primary);">📈 FlashTrade Hedging</h4>
-                            <span class="badge" style="background:rgba(20, 241, 149, 0.1); color:var(--primary); border:1px solid var(--primary);">DERIVADOS</span>
+                            <span class="badge" style="background:rgba(20, 241, 149, 0.1); color:var(--primary); border:1px solid var(--primary);">DERIVATIVES</span>
                         </div>
                         <div class="node-details">
-                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px;">Protege el valor de tu plantilla de la volatilidad abriendo posiciones cortas en SOL/GCH perpetuos.</p>
+                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px;">Protect your roster value from volatility by opening short positions in SOL/GCH perpetuals.</p>
                             
                             <div style="display:flex; flex-direction:column; gap:15px;">
                                 <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03);">
-                                    <h4 style="font-size: 0.95rem; margin:0 0 10px 0; color:#fff;">Calculadora de Cobertura Inteligente</h4>
+                                    <h4 style="font-size: 0.95rem; margin:0 0 10px 0; color:#fff;">Smart Hedge Calculator</h4>
                                     
                                     <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px; margin-bottom: 10px;">
                                         <div>
@@ -1320,20 +1320,20 @@
                                             <input type="number" id="hedgeYieldInput" value="452" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 6px; font-size: 0.9rem;">
                                         </div>
                                         <div>
-                                            <label style="font-size: 0.95rem; color: var(--text-dim); display:block; margin-bottom:5px;">VOLATILIDAD (24H)</label>
-                                            <div style="background: #111; color: #ff4d6a; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 6px; font-size: 0.9rem; font-weight:bold;">⚡ 8.4% ALTA</div>
+                                            <label style="font-size: 0.95rem; color: var(--text-dim); display:block; margin-bottom:5px;">VOLATILITY (24H)</label>
+                                            <div style="background: #111; color: #ff4d6a; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 6px; font-size: 0.9rem; font-weight:bold;">⚡ 8.4% HIGH</div>
                                         </div>
                                     </div>
 
                                     <div style="background: rgba(153, 69, 255, 0.05); padding: 10px; border-radius: 8px; border: 1px solid rgba(153, 69, 255, 0.15); font-size: 0.85rem; line-height:1.4; margin-bottom: 15px;">
-                                        <span style="color:#aaa;">Recomendación:</span><br>
-                                        <span style="color:#fff; font-weight:800;">Abrir SHORT SOL Perpetuo de 1.2 SOL con apalancamiento 5x.</span>
+                                        <span style="color:#aaa;">Recommendation:</span><br>
+                                        <span style="color:#fff; font-weight:800;">Open a 1.2 SOL SHORT SOL Perpetual with 5x leverage.</span>
                                     </div>
 
                                     <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-                                        <button id="btnSimulateHedge" onclick="simulateHedgeTrade()" class="btn btn-secondary btn-glow" style="width: 100%; font-size: 0.85rem;">SIMULAR COBERTURA</button>
+                                        <button id="btnSimulateHedge" onclick="simulateHedgeTrade()" class="btn btn-secondary btn-glow" style="width: 100%; font-size: 0.85rem;">SIMULATE HEDGE</button>
                                         <a href="https://flash.trade?ref=goalchain" target="_blank" class="btn btn-primary" style="width: 100%; font-size: 0.85rem; display:flex; align-items:center; justify-content:center; text-decoration:none; color:#000; font-weight:bold; background:var(--primary);">
-                                            OPERAR EN MAINNET 🚀
+                                            TRADE ON MAINNET 🚀
                                         </a>
                                     </div>
                                 </div>
@@ -1341,11 +1341,11 @@
                                 <div style="background: rgba(0,0,0,0.4); border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); padding: 15px;">
                                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
                                         <h4 style="font-size: 0.95rem; margin:0; color:#fff; font-family:monospace;">LIVE CHART</h4>
-                                        <span id="hedgeStatusLabel" style="font-size: 0.9rem; color: var(--text-dim); font-family:monospace;">🔴 SIN COBERTURA</span>
+                                        <span id="hedgeStatusLabel" style="font-size: 0.9rem; color: var(--text-dim); font-family:monospace;">🔴 UNHEDGED</span>
                                     </div>
                                     <div id="hedgeChart" style="height: 100px; background: rgba(0,0,0,0.5); border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); position:relative; overflow:hidden;">
                                         <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.15); font-size: 0.95rem; font-family:monospace;">
-                                            ESPERANDO EJECUCIÓN...
+                                            AWAITING EXECUTION...
                                         </div>
                                     </div>
                                     <div id="hedgeStatsRow" style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; margin-top:10px; opacity:0.4;">
@@ -1373,18 +1373,18 @@
                     <div class="ai-node" style="border-color: rgba(153, 69, 255, 0.4);">
                         <div class="node-summary">
                             <h4 style="color:#b266ff;">🛡️ Sentinel Controller</h4>
-                            <span class="badge" style="background:rgba(153, 69, 255, 0.1); color:var(--secondary); border:1px solid var(--secondary);">SEGURIDAD AUTÓNOMA</span>
+                            <span class="badge" style="background:rgba(153, 69, 255, 0.1); color:var(--secondary); border:1px solid var(--secondary);">AUTONOMOUS SECURITY</span>
                         </div>
                         <div class="node-details">
-                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px;">Monitorea en tiempo real el estado de RPC y previene el colapso del sistema.</p>
+                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px;">Monitors RPC health in real time and prevents system collapse.</p>
 
                             <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); margin-bottom: 15px;">
                                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; font-size: 0.85rem; margin-bottom: 15px;">
                                     <div>
-                                        <label style="font-size: 0.9rem; color: var(--text-dim); display:block; margin-bottom:3px;">AUTONOMÍA</label>
+                                        <label style="font-size: 0.9rem; color: var(--text-dim); display:block; margin-bottom:3px;">AUTONOMY</label>
                                         <select style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 6px; border-radius: 6px; font-size: 0.85rem;">
-                                            <option>Alta (Auto-Paradas)</option>
-                                            <option>Media (Alertas)</option>
+                                            <option>High (Auto-Stops)</option>
+                                            <option>Medium (Alerts)</option>
                                         </select>
                                     </div>
                                     <div>
@@ -1400,7 +1400,7 @@
                                         <span>Emergency Circuit Breaker</span>
                                         <input type="checkbox" checked style="accent-color: #ff4d6a;">
                                     </div>
-                                    <span style="color:#ffb3bf;">Si la liquidez cae por debajo de 50 SOL de forma anómala, el Sentinel congela los retiros del Vault.</span>
+                                    <span style="color:#ffb3bf;">If liquidity drops abnormally below 50 SOL, the Sentinel freezes Vault withdrawals.</span>
                                 </div>
                             </div>
                             
@@ -1410,7 +1410,7 @@
                                     <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#14f195; animation: blink 1.2s infinite;"></span>
                                 </div>
                                 <div id="sentinelLogsBox" style="flex:1; overflow-y:auto; font-family:monospace; font-size: 0.95rem; color:#8a8a9a;">
-                                    <div>[SYSTEM] Esperando conexión de Sentinel...</div>
+                                    <div>[SYSTEM] Waiting for Sentinel connection...</div>
                                 </div>
                             </div>
                         </div>
@@ -1425,17 +1425,17 @@
                             <span class="badge" style="background:rgba(20, 241, 149, 0.1); color:var(--primary); border:1px solid var(--primary);">MOLT.ID & SWITCHBOARD</span>
                         </div>
                         <div class="node-details">
-                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px;">Registra tu dominio en Molt.id, visualiza telemetría de Switchboard y sigue el chat en Moltbook.</p>
+                            <p style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 15px;">Register your domain on Molt.id, view Switchboard telemetry and follow the chat on Moltbook.</p>
 
                             <div style="display:flex; flex-direction:column; gap:15px;">
                                 <div style="background: rgba(153, 69, 255, 0.05); padding: 15px; border-radius: 12px; border: 1px solid rgba(153, 69, 255, 0.15);">
                                     <h4 style="font-size: 0.95rem; margin:0 0 10px 0; color:#fff; display:flex; justify-content:space-between; align-items:center;">
-                                        <span>🪪 Registro Molt.id (.molt)</span>
+                                        <span>🪪 Molt.id Registration (.molt)</span>
                                     </h4>
                                     <div style="display:flex; gap:10px;">
                                         <input type="text" id="moltDomainName" value="nicopez" style="width: 120px; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 8px; border-radius: 6px; font-size: 0.9rem;">
                                         <button onclick="mintMoltDomain()" id="btnMintMolt" class="btn btn-primary btn-sm" style="flex:1; font-size: 0.95rem; font-weight:bold; background:var(--primary); color:#000; border-radius:6px; border:none;">
-                                            REGISTRAR
+                                            REGISTER
                                         </button>
                                     </div>
                                 </div>
@@ -1443,7 +1443,7 @@
                                 <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03);">
                                     <h4 style="font-size: 0.95rem; margin:0 0 10px 0; color:#fff; display:flex; justify-content:space-between; align-items:center;">
                                         <span>📡 Switchboard Feeds</span>
-                                        <span style="font-size: 0.9rem; color:#ffbd2e;">🟢 CONECTADO</span>
+                                        <span style="font-size: 0.9rem; color:#ffbd2e;">🟢 CONNECTED</span>
                                     </h4>
                                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; font-size: 0.95rem; font-family:monospace;">
                                         <div style="background:rgba(255,255,255,0.02); padding:8px; border-radius:6px; text-align:center;">
@@ -1462,7 +1462,7 @@
                                         <h4 style="font-size: 0.9rem; margin:0; color:#fff; font-family:monospace;">💬 Moltbook Social Feed</h4>
                                     </div>
                                     <div id="moltbookLogsBox" style="flex:1; overflow-y:auto; font-size: 0.95rem; color:#aaa; display:flex; flex-direction:column; gap:8px;">
-                                        <div style="color:var(--text-dim);">[SYSTEM] Sincronizando logs...</div>
+                                        <div style="color:var(--text-dim);">[SYSTEM] Syncing logs...</div>
                                     </div>
                                 </div>
                             </div>
@@ -1564,12 +1564,12 @@
                     <span class="badge" style="background:rgba(255, 77, 106, 0.1); color:#ff4d6a; border: 1px solid #ff4d6a;">GOVERNED BURN FOR $GCH</span>
                 </div>
             </div>
-            <p style="color:var(--text-dim); margin-bottom: 30px;">Crea tus propios minijuegos interactivos de fútbol y lanza automáticamente un token de juego registrado en Kamino. El volumen y las tarifas del juego compran y queman $GCH, beneficiando a todo el ecosistema de GoalChain.</p>
+            <p style="color:var(--text-dim); margin-bottom: 30px;">Create your own interactive football minigames and automatically launch a game token registered on Kamino. Game volume and fees buy and burn $GCH, benefiting the entire GoalChain ecosystem.</p>
 
             <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px;">
                 <!-- Left Column: Active Minigames Catalog -->
                 <div class="app-card" style="border-color: rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; gap: 20px;">
-                    <h3>🏟️ Catálogo de Minijuegos en Vivo</h3>
+                    <h3>🏟️ Live Minigame Catalog</h3>
                     <div id="minigamesList" style="display: flex; flex-direction: column; gap: 15px; max-height: 520px; overflow-y: auto; padding-right: 5px;">
                         <!-- Injected dynamically by JS -->
                     </div>
@@ -1578,12 +1578,12 @@
                 <!-- Right Column: Minigame Deployer Panel -->
                 <div style="display: flex; flex-direction: column; gap: 30px;">
                     <div class="app-card" style="border-color: rgba(20, 241, 149, 0.25);">
-                        <h3 style="display:flex; align-items:center; gap:8px; margin:0;">🚀 Lanzador Autónomo de Minijuegos</h3>
-                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px; margin-top:5px;">Elige una plantilla deportiva, configura el token de tu juego y colateralízalo en un Kamino Liquidity Vault en un solo clic.</p>
+                        <h3 style="display:flex; align-items:center; gap:8px; margin:0;">🚀 Autonomous Minigame Launcher</h3>
+                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px; margin-top:5px;">Pick a sports template, configure your game token and collateralize it in a Kamino Liquidity Vault in one click.</p>
                         
                         <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); margin-bottom: 20px; font-size: 0.75rem; display: flex; flex-direction: column; gap: 15px;">
                             <div>
-                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px;">1. SELECCIONA PLANTILLA DE JUEGO</label>
+                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px;">1. SELECT GAME TEMPLATE</label>
                                 <select id="gameTemplate" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem;">
                                     <option value="penalty">Penalty Shootout (2D Canvas)</option>
                                     <option value="trivia">Solana Football Trivia (AI-Powered)</option>
@@ -1592,7 +1592,7 @@
                             </div>
 
                             <div>
-                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px;">2. NOMBRE DEL JUEGO / CROMO ASOCIADO</label>
+                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px;">2. GAME NAME / LINKED CARD</label>
                                 <input type="text" id="gameName" value="Lionel Satoshi Strike" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem;">
                             </div>
 
@@ -1602,22 +1602,22 @@
                                     <input type="text" id="gameToken" value="$SATSTRIKE" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem;">
                                 </div>
                                 <div>
-                                    <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px;">COSTO ENTRADA ($GCH)</label>
+                                    <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px;">ENTRY COST ($GCH)</label>
                                     <input type="number" id="gameFee" value="10" min="1" max="100" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem;">
                                 </div>
                             </div>
 
                             <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; display: flex; flex-direction: column; gap: 8px;">
                                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                                    <span>Lanzar Token del Minijuego en Kamino CLMM</span>
+                                    <span>Launch Minigame Token on Kamino CLMM</span>
                                     <span style="color: var(--primary); font-weight: bold;">[AUTO-LOCKED]</span>
                                 </div>
                                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                                    <span>5% de Swap Fees compra y quema $GCH</span>
+                                    <span>5% of Swap Fees buy and burn $GCH</span>
                                     <span style="color: var(--primary); font-weight: bold;">[AUTO-LOCKED]</span>
                                 </div>
                                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                                    <span>70% de ganancias va directo al Creador</span>
+                                    <span>70% of profits go straight to the Creator</span>
                                     <span style="color: var(--primary); font-weight: bold;">[AUTO-LOCKED]</span>
                                 </div>
                             </div>
@@ -1626,23 +1626,23 @@
                         <!-- Deploy Cost -->
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: rgba(20,241,149,0.05); padding: 12px 20px; border-radius: 10px; border: 1px solid rgba(20,241,149,0.1);">
                             <div>
-                                <div style="font-size: 0.6rem; color: var(--text-dim);">COSTO DE DESPLIEGUE</div>
+                                <div style="font-size: 0.6rem; color: var(--text-dim);">DEPLOYMENT COST</div>
                                 <strong style="font-size: 1.1rem; color: var(--primary);">500 $GCH</strong>
                             </div>
                             <div style="text-align: right;">
-                                <div style="font-size: 0.6rem; color: var(--text-dim);">TARIFA DE REGISTRO EN RED</div>
+                                <div style="font-size: 0.6rem; color: var(--text-dim);">NETWORK REGISTRATION FEE</div>
                                 <strong style="font-size: 0.95rem; color: #fff;">0.05 SOL</strong>
                             </div>
                         </div>
 
-                        <button id="deployGameBtn" onclick="deployMinigameOnKamino()" class="btn btn-secondary btn-glow" style="width: 100%;">CREAR MINIJUEGO & LANZAR TOKEN</button>
+                        <button id="deployGameBtn" onclick="deployMinigameOnKamino()" class="btn btn-secondary btn-glow" style="width: 100%;">CREATE MINIGAME & LAUNCH TOKEN</button>
                     </div>
 
                     <!-- Minigame Terminal Output Log -->
                     <div class="app-card" style="border-color: rgba(255, 255, 255, 0.1); padding: 20px;">
                         <h4 style="font-size: 0.75rem; color: var(--primary); letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; font-family: monospace;">⚡ KAMINO ORACLE DEPLOYER LOG</h4>
                         <div id="gameDeployerLog" style="height: 120px; overflow-y: auto; background: rgba(0,0,0,0.5); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); font-family: monospace; font-size: 0.7rem; color: #8a8a9a; line-height: 1.4; text-align: left;">
-                            <div>[SYSTEM] Esperando parámetros de despliegue...</div>
+                            <div>[SYSTEM] Waiting for deployment parameters...</div>
                         </div>
                     </div>
                 </div>
@@ -1654,7 +1654,7 @@
             <div class="tab-header">
                 <div>
                     <h2 style="margin:0;">🧪 Dynamic Economy & Modifiers Simulator</h2>
-                    <p style="color:var(--text-dim); margin-top:5px; font-size:0.85rem;">Prueba, visualiza y experimenta las fórmulas de la economía del token $GCH y modificadores de Solana en vivo.</p>
+                    <p style="color:var(--text-dim); margin-top:5px; font-size:0.85rem;">Test, visualize and experiment with the $GCH token economy formulas and Solana modifiers live.</p>
                 </div>
                 <div class="tab-header-badges">
                     <span class="badge" style="background:rgba(153, 69, 255, 0.1); color:var(--secondary); border: 1px solid var(--secondary);">DEVNET SIMULATOR ACTIVE</span>
@@ -1670,12 +1670,12 @@
                     <!-- Panel 1: Player & Stats Customization -->
                     <div class="app-card" style="border-color: rgba(255, 255, 255, 0.05); padding: 25px;">
                         <h3 style="margin-top:0; margin-bottom:20px; display:flex; align-items:center; gap:8px;">
-                            <span>👤</span> Configuración de Jugador del Genesis Squad
+                            <span>👤</span> Genesis Squad Player Setup
                         </h3>
                         
                         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 20px;">
                             <div>
-                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 6px; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Selecciona Jugador Parodia</label>
+                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 6px; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Select Parody Player</label>
                                 <select id="simPlayerSelect" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.8rem; cursor:pointer;">
                                     <option value="1">Lionel Satoshi 🇦🇷 (Mythic)</option>
                                     <option value="53">Kylian M-bag-pé 🇫🇷 (Mythic)</option>
@@ -1689,15 +1689,15 @@
                             </div>
                             
                             <div>
-                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 6px; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Torneo Activo Oráculo</label>
+                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 6px; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Active Oracle Tournament</label>
                                 <select id="simActiveLeague" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.8rem; cursor:pointer;">
-                                    <option value="world_cup">Copa del Mundo 🌍 (Selección)</option>
+                                    <option value="world_cup">World Cup 🌍 (National Team)</option>
                                     <option value="mls">MLS Club Cup ⚽ (Inter Miami)</option>
                                 </select>
                             </div>
                             
                             <div>
-                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 6px; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Estado de Estamina (Decaimiento)</label>
+                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 6px; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px;">Stamina State (Decay)</label>
                                 <div style="display:flex; align-items:center; gap:10px;">
                                     <input type="range" id="simStaminaSlider" min="0" max="100" value="100" style="flex:1; cursor:pointer; accent-color: var(--primary);">
                                     <span id="simStaminaVal" style="font-weight:bold; font-family:monospace; color:#fff; font-size:0.9rem; min-width:42px; text-align:right;">100%</span>
@@ -1708,91 +1708,91 @@
                         <!-- Stamina Potion Burn Widget -->
                         <div style="background: rgba(255, 77, 106, 0.05); border: 1px solid rgba(255, 77, 106, 0.15); border-radius: 12px; padding: 15px; display:flex; justify-content:space-between; align-items:center;">
                             <div>
-                                <strong style="color:#ff4d6a; font-size:0.8rem; display:block;">Poción de Estamina Restauradora</strong>
-                                <span style="font-size:0.65rem; color:var(--text-dim);">Quema 10 $GCH para recuperar estamina al 100% / 105%.</span>
+                                <strong style="color:#ff4d6a; font-size:0.8rem; display:block;">Restoring Stamina Potion</strong>
+                                <span style="font-size:0.65rem; color:var(--text-dim);">Burn 10 $GCH to recover stamina to 100% / 105%.</span>
                             </div>
-                            <button onclick="feedSimPotion()" class="btn btn-secondary btn-glow" style="background:#ff4d6a; border-color:#ff4d6a; padding: 8px 16px; font-size:0.75rem;">BEBER POCIÓN (-10 $GCH 🔥)</button>
+                            <button onclick="feedSimPotion()" class="btn btn-secondary btn-glow" style="background:#ff4d6a; border-color:#ff4d6a; padding: 8px 16px; font-size:0.75rem;">DRINK POTION (-10 $GCH 🔥)</button>
                         </div>
                     </div>
 
                     <!-- Panel 2: Locker Room & Reversible Escrow Slots -->
                     <div class="app-card" style="border-color: rgba(153, 69, 255, 0.15); padding: 25px;">
                         <h3 style="margin-top:0; margin-bottom:10px; display:flex; align-items:center; gap:8px;">
-                            <span>👕</span> Vestuario (Locker Room Escrow & Slots)
+                            <span>👕</span> Locker Room (Escrow & Slots)
                         </h3>
-                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px; margin-top:5px;">Simula el depósito en garantía (Escrow PDA) de tus camisetas y accesorios NFT para equiparlos/desequiparlos de forma dinámica sin quemarlos de forma destructiva.</p>
+                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px; margin-top:5px;">Simulate the escrow deposit (Escrow PDA) of your NFT jerseys and accessories to equip/unequip them dynamically without destructively burning them.</p>
 
                         <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); margin-bottom: 20px; font-size: 0.75rem; display: flex; flex-direction: column; gap: 15px;">
                             <div>
-                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px; font-weight:bold;">1. SELECCIONA EL COSMÉTICO NFT A EQUIPAR / DESEQUIPAR</label>
+                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px; font-weight:bold;">1. SELECT THE NFT COSMETIC TO EQUIP / UNEQUIP</label>
                                 <select id="simFuseItem" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem; cursor:pointer;">
-                                    <option value="jersey_arg">👕 Camiseta Argentina Selección (+5 Max Stamina, +3% Yield en Copa del Mundo)</option>
-                                    <option value="jersey_club">💗 Camiseta Inter Miami MLS Pink (+5 Max Stamina, +5% Yield en MLS)</option>
-                                    <option value="boots_gold">🪙 Botines de Oro (+8 speed/atk, +5% Yield permanent)</option>
-                                    <option value="armband_cap">🎖️ Brazalete Capitán (Shield Effect: Protege 15% Yield ante eliminación, +10% Yield)</option>
+                                    <option value="jersey_arg">👕 Argentina National Team Jersey (+5 Max Stamina, +3% Yield in World Cup)</option>
+                                    <option value="jersey_club">💗 Inter Miami MLS Pink Jersey (+5 Max Stamina, +5% Yield in MLS)</option>
+                                    <option value="boots_gold">🪙 Golden Boots (+8 speed/atk, +5% permanent Yield)</option>
+                                    <option value="armband_cap">🎖️ Captain Armband (Shield Effect: Protects 15% Yield on elimination, +10% Yield)</option>
                                 </select>
                             </div>
 
                             <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; font-size:0.7rem; color:var(--text-dim); display:flex; flex-direction:column; gap:6px;">
                                 <div style="display:flex; justify-content:space-between;">
-                                    <span>Instrucción Solana:</span>
+                                    <span>Solana Instruction:</span>
                                     <span style="color:#fff; font-weight:bold;">equip_locker_room_item / unequip_locker_room_item</span>
                                 </div>
                                 <div style="display:flex; justify-content:space-between;">
-                                    <span>Custodia de Activo:</span>
-                                    <span style="color:var(--primary); font-weight:bold;">PDA ESCROW DEPÓSITO REVERSIBLE</span>
+                                    <span>Asset Custody:</span>
+                                    <span style="color:var(--primary); font-weight:bold;">PDA ESCROW REVERSIBLE DEPOSIT</span>
                                 </div>
                             </div>
                         </div>
 
                         <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap: 10px;">
-                            <button onclick="fuseSimItem()" class="btn btn-secondary btn-glow" style="background:var(--secondary); border-color:var(--secondary); font-size:0.7rem; padding: 12px 10px;">EQUIPAR ACCESORIO</button>
-                            <button onclick="unequipSimItem()" class="btn btn-glow" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.1); color:#fff; font-size:0.7rem; padding: 12px 10px;">DESEQUIPAR ACCESORIO</button>
+                            <button onclick="fuseSimItem()" class="btn btn-secondary btn-glow" style="background:var(--secondary); border-color:var(--secondary); font-size:0.7rem; padding: 12px 10px;">EQUIP ITEM</button>
+                            <button onclick="unequipSimItem()" class="btn btn-glow" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.1); color:#fff; font-size:0.7rem; padding: 12px 10px;">UNEQUIP ITEM</button>
                         </div>
                     </div>
 
                     <!-- Panel 3: Rental Escrow & Golden Recall -->
                     <div class="app-card" style="border-color: rgba(255, 183, 3, 0.15); padding: 25px;">
                         <h3 style="margin-top:0; margin-bottom:10px; display:flex; align-items:center; gap:8px;">
-                            <span>🏦</span> Alquiler Inteligente (Rent-to-Earn) & Golden Recall Escrow
+                            <span>🏦</span> Smart Rental (Rent-to-Earn) & Golden Recall Escrow
                         </h3>
-                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px; margin-top:5px;">Prueba el listado de tus cromos o la ejecución del Golden Recall que devuelve tu jugador pagando la compensación en $GCH.</p>
+                        <p style="font-size: 0.75rem; color: var(--text-dim); margin-bottom: 20px; margin-top:5px;">Try listing your cards or executing the Golden Recall that returns your player by paying the $GCH compensation.</p>
 
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
                             <div>
-                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px; font-weight:bold;">PRECIO DE ALQUILER ($GCH)</label>
+                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px; font-weight:bold;">RENTAL PRICE ($GCH)</label>
                                 <input type="number" id="simRentalPrice" value="200" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; font-size: 0.75rem;">
                             </div>
                             <div>
-                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px; font-weight:bold;">CONTRATO DE ALQUILER ACTUAL</label>
+                                <label style="font-size: 0.7rem; color: var(--text-dim); display: block; margin-bottom: 5px; font-weight:bold;">CURRENT RENTAL CONTRACT</label>
                                 <div id="simRentalStatusText" style="padding:10px; background:rgba(0,0,0,0.3); border-radius:8px; border:1px solid rgba(255,255,255,0.05); font-size:0.75rem; text-align:center;">
-                                    Starting XI (Dueño)
+                                    Starting XI (Owner)
                                 </div>
                             </div>
                         </div>
 
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;">
                             <div>
-                                <label style="font-size: 0.65rem; color: var(--text-dim); display: block; margin-bottom: 4px; font-weight:bold;">INQUILINO ACTUAL</label>
+                                <label style="font-size: 0.65rem; color: var(--text-dim); display: block; margin-bottom: 4px; font-weight:bold;">CURRENT TENANT</label>
                                 <input type="text" id="simBorrower" value="@DegenManager42" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.05); padding: 8px; border-radius: 6px; font-size: 0.7rem;">
                             </div>
                             <div>
-                                <label style="font-size: 0.65rem; color: var(--text-dim); display: block; margin-bottom: 4px; font-weight:bold;">COLA DE RESERVAS (SIGUIENTE)</label>
+                                <label style="font-size: 0.65rem; color: var(--text-dim); display: block; margin-bottom: 4px; font-weight:bold;">RESERVES QUEUE (NEXT)</label>
                                 <input type="text" id="simNextBorrower" value="@WhaleTrader" style="width: 100%; background: #111; color: white; border: 1px solid rgba(255,255,255,0.05); padding: 8px; border-radius: 6px; font-size: 0.7rem;">
                             </div>
                         </div>
 
                         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
-                            <button id="simListBtn" onclick="toggleRentalListing()" class="btn btn-glow" style="padding: 10px 5px; font-size: 0.65rem; background:rgba(255,255,255,0.05); color:#fff; border:1px solid rgba(255,255,255,0.1);">LISTAR JUGADOR</button>
-                            <button id="simRentBtn" onclick="simulateBorrowerRent()" class="btn btn-glow" style="padding: 10px 5px; font-size: 0.65rem; background:rgba(20, 241, 149, 0.15); color:var(--primary); border:1px solid var(--primary);" disabled>SIMULAR CONTRATO</button>
+                            <button id="simListBtn" onclick="toggleRentalListing()" class="btn btn-glow" style="padding: 10px 5px; font-size: 0.65rem; background:rgba(255,255,255,0.05); color:#fff; border:1px solid rgba(255,255,255,0.1);">LIST PLAYER</button>
+                            <button id="simRentBtn" onclick="simulateBorrowerRent()" class="btn btn-glow" style="padding: 10px 5px; font-size: 0.65rem; background:rgba(20, 241, 149, 0.15); color:var(--primary); border:1px solid var(--primary);" disabled>SIMULATE CONTRACT</button>
                             <button id="simRecallBtn" onclick="triggerGoldenRecall()" class="btn btn-glow" style="padding: 10px 5px; font-size: 0.65rem; background:rgba(255, 183, 3, 0.15); color:#ffb703; border:1px solid #ffb703;" disabled>GOLDEN RECALL (-50%)</button>
                         </div>
                     </div>
 
-                    <!-- Panel 4: Country Sinergy & Stadium Localía -->
+                    <!-- Panel 4: Country Synergy & Stadium Home Advantage -->
                     <div class="app-card" style="border-color: rgba(255,255,255,0.05); padding: 25px;">
                         <h3 style="margin-top:0; margin-bottom:15px; display:flex; align-items:center; gap:8px;">
-                            <span>🏟️</span> Sinergias Nacionales y Bonding Curve
+                            <span>🏟️</span> National Synergies & Bonding Curve
                         </h3>
                         
                         <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px;">
@@ -1800,34 +1800,34 @@
                                 <strong style="font-size:0.75rem; color:#fff; display:block;">Starting XI Chemistry Board</strong>
                                 
                                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                                    <span style="font-size:0.7rem; color:var(--text-dim);">¿Posees Nation License de este país?</span>
+                                    <span style="font-size:0.7rem; color:var(--text-dim);">Do you hold this country's Nation License?</span>
                                     <input type="checkbox" id="simLicenseCheck" style="width:16px; height:16px; accent-color:var(--primary); cursor:pointer;">
                                 </div>
                                 
                                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                                    <span style="font-size:0.7rem; color:var(--text-dim);">Jugadores de la Selección alineados:</span>
+                                    <span style="font-size:0.7rem; color:var(--text-dim);">National Team players fielded:</span>
                                     <select id="simSynergyCount" style="background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:4px 8px; border-radius:6px; font-size:0.7rem; cursor:pointer;">
-                                        <option value="1">1 Jugador (x1.00)</option>
-                                        <option value="3">3 Jugadores (+5% Stats)</option>
-                                        <option value="5">5 Jugadores (+12% Stats)</option>
-                                        <option value="11">11 Jugadores (+25% Stats, +15% Yield 🔥)</option>
+                                        <option value="1">1 Player (x1.00)</option>
+                                        <option value="3">3 Players (+5% Stats)</option>
+                                        <option value="5">5 Players (+12% Stats)</option>
+                                        <option value="11">11 Players (+25% Stats, +15% Yield 🔥)</option>
                                     </select>
                                 </div>
                                 
                                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                                    <span style="font-size:0.7rem; color:var(--text-dim);">Jugadores del mismo Club alineados:</span>
+                                    <span style="font-size:0.7rem; color:var(--text-dim);">Same-club players fielded:</span>
                                     <select id="simClubSynergyCount" style="background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:4px 8px; border-radius:6px; font-size:0.7rem; cursor:pointer;">
-                                        <option value="1">1 Jugador (x1.00)</option>
-                                        <option value="2">2 Jugadores (+5% Stats Pareja)</option>
-                                        <option value="4">4 Jugadores (+10% Stats)</option>
-                                        <option value="6">6 Jugadores (+15% Stats)</option>
-                                        <option value="8">8 Jugadores (+20% Stats)</option>
-                                        <option value="11">11 Jugadores (+25% Stats, +15% Yield 🔥)</option>
+                                        <option value="1">1 Player (x1.00)</option>
+                                        <option value="2">2 Players (+5% Pair Stats)</option>
+                                        <option value="4">4 Players (+10% Stats)</option>
+                                        <option value="6">6 Players (+15% Stats)</option>
+                                        <option value="8">8 Players (+20% Stats)</option>
+                                        <option value="11">11 Players (+25% Stats, +15% Yield 🔥)</option>
                                     </select>
                                 </div>
                                 
                                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                                    <span style="font-size:0.7rem; color:var(--text-dim);">Fondo de Estadio de la localía:</span>
+                                    <span style="font-size:0.7rem; color:var(--text-dim);">Home-stadium fund:</span>
                                     <select id="simStadiumSelect" style="background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:4px 8px; border-radius:6px; font-size:0.7rem; cursor:pointer;">
                                         <option value="cyber">Cyber Dome (Cyber Background)</option>
                                         <option value="snow">Snow Coliseum (Snow Background)</option>
@@ -1841,17 +1841,17 @@
                                 
                                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
                                     <div>
-                                        <label style="font-size:0.6rem; color:var(--text-dim); display:block;">VICTORIAS</label>
+                                        <label style="font-size:0.6rem; color:var(--text-dim); display:block;">WINS</label>
                                         <input type="number" id="curveWins" value="2" min="0" style="width:100%; background:#111; color:#fff; border:1px solid rgba(255,255,255,0.1); padding:4px; border-radius:4px; font-size:0.7rem;">
                                     </div>
                                     <div>
-                                        <label style="font-size:0.6rem; color:var(--text-dim); display:block;">DERROTAS</label>
+                                        <label style="font-size:0.6rem; color:var(--text-dim); display:block;">LOSSES</label>
                                         <input type="number" id="curveLosses" value="1" min="0" style="width:100%; background:#111; color:#fff; border:1px solid rgba(255,255,255,0.1); padding:4px; border-radius:4px; font-size:0.7rem;">
                                     </div>
                                 </div>
                                 
                                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                                    <span style="font-size:0.65rem; color:var(--text-dim);">¿Campeón del Mundo?</span>
+                                    <span style="font-size:0.65rem; color:var(--text-dim);">World Champion?</span>
                                     <input type="checkbox" id="curveChampion" style="cursor:pointer; accent-color:var(--secondary);">
                                 </div>
                                 
@@ -1878,7 +1878,7 @@
                             
                             <div class="yield-badge-card" style="z-index: 10;">
                                 <span class="y-icon">💎</span>
-                                <span class="y-val" id="simCardYieldText">850 $GCH/día</span>
+                                <span class="y-val" id="simCardYieldText">850 $GCH/day</span>
                             </div>
 
                             <div class="card-inner" style="transform:none;">
@@ -1903,8 +1903,8 @@
                                             <!-- Locker Room cosmetic badges on card -->
                                             <div style="display:flex; justify-content:center; gap:5px; margin-bottom:8px;">
                                                 <span class="badge" id="simJerseyBadge" style="display:none; background:rgba(20, 241, 149, 0.2); color:var(--primary); font-size:0.55rem; padding: 2px 6px; border:1px solid var(--primary);">👕 Arg 2026</span>
-                                                <span class="badge" id="simBootsBadge" style="display:none; background:rgba(255, 183, 3, 0.2); color:#ffb703; font-size:0.55rem; padding: 2px 6px; border:1px solid #ffb703;">🪙 Botines Oro</span>
-                                                <span id="simShieldIcon" style="display:none; font-size:0.9rem;" title="Brazalete Escudo Activo">🛡️</span>
+                                                <span class="badge" id="simBootsBadge" style="display:none; background:rgba(255, 183, 3, 0.2); color:#ffb703; font-size:0.55rem; padding: 2px 6px; border:1px solid #ffb703;">🪙 Golden Boots</span>
+                                                <span id="simShieldIcon" style="display:none; font-size:0.9rem;" title="Active Shield Armband">🛡️</span>
                                             </div>
 
                                             <div class="mini-stats" style="margin-top: 5px; font-size:0.65rem;">
@@ -1925,7 +1925,7 @@
                             
                             <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
                                 <div>
-                                    <label style="font-size:0.6rem; color:var(--text-dim); display:block; margin-bottom:5px; font-weight:bold;">ÚLTIMO RESULTADO SELECCIÓN</label>
+                                    <label style="font-size:0.6rem; color:var(--text-dim); display:block; margin-bottom:5px; font-weight:bold;">LAST NATIONAL TEAM RESULT</label>
                                     <div style="display:flex; gap:10px;">
                                         <label style="display:flex; align-items:center; gap:4px; font-size:0.7rem; cursor:pointer;">
                                             <input type="radio" name="simResult" value="win" checked style="accent-color:var(--primary);"> Win (+15%)
@@ -1939,7 +1939,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <label style="font-size:0.6rem; color:var(--text-dim); display:block; margin-bottom:5px; font-weight:bold;">RACHA DE VICTORIAS (STREAK)</label>
+                                    <label style="font-size:0.6rem; color:var(--text-dim); display:block; margin-bottom:5px; font-weight:bold;">WIN STREAK</label>
                                     <div style="display:flex; gap:10px;">
                                         <label style="display:flex; align-items:center; gap:4px; font-size:0.7rem; cursor:pointer;">
                                             <input type="radio" name="simStreak" value="0" checked style="accent-color:var(--primary);"> 0
@@ -1984,7 +1984,7 @@
                                     <span>Stamina Modifier Coef:</span> <span id="breakdownStamina" style="color:#fff;">x1.00</span>
                                 </div>
                                 <div style="display:flex; justify-content:space-between;">
-                                    <span>World Cup Knockout Shield:</span> <span id="breakdownDeath" style="color:var(--primary);">Activo (100%)</span>
+                                    <span>World Cup Knockout Shield:</span> <span id="breakdownDeath" style="color:var(--primary);">Active (100%)</span>
                                 </div>
                             </div>
                         </div>
@@ -2018,7 +2018,7 @@
 
         <h3 style="font-size: 0.8rem; letter-spacing: 1px; color: var(--primary); margin-bottom: 20px;">⚡ LIVE ON-CHAIN FEED</h3>
         <div id="heliusEvents" style="display: flex; flex-direction: column; gap: 10px; overflow-y: auto;">
-            <p style="font-size: 0.7rem; color: var(--text-dim); text-align: center; padding: 20px;">Sincronizando con Helius Webhooks...</p>
+            <p style="font-size: 0.7rem; color: var(--text-dim); text-align: center; padding: 20px;">Syncing with Helius Webhooks...</p>
         </div>
     </aside>
 
@@ -2042,7 +2042,7 @@
     <script src="https://goalworld.fun/assets/js/modifiers_simulator.js"></script>
     
     <script>
-        // Soporte para tecla ESC — cierra modales abiertos en lugar de navegar
+        // ESC key support — closes open modals instead of navigating
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 const fareModal = document.getElementById('faremeterModal');
@@ -2050,12 +2050,12 @@
                     fareModal.style.display = 'none';
                     return;
                 }
-                // Si no hay modal abierto, volver al home
+                // If no modal is open, go back home
                 location.href = 'index.html';
             }
         });
 
-        // Logout: limpia localStorage antes de navegar
+        // Logout: clears localStorage before navigating
         function goalchainLogout() {
             ['goalchain_wallet', 'gch_balance', 'gch_burned_total', 'gc_wallet_pubkey', 'gch_wallet_balance'].forEach(k => localStorage.removeItem(k));
         }
@@ -2067,12 +2067,12 @@
             document.getElementById(tabId + 'Tab').classList.add('active');
             event.currentTarget.classList.add('active');
 
-            // Cerrar menú móvil si está abierto
+            // Close the mobile menu if it is open
             if (window.innerWidth <= 768) {
                 document.querySelector('.sidebar nav')?.classList.remove('active');
             }
 
-            // Cleanup: detener intervalos del AI tab si salimos de él
+            // Cleanup: stop the AI tab intervals when leaving it
             if (tabId !== 'ai') {
                 if (typeof moltbookInterval !== 'undefined' && moltbookInterval) {
                     clearInterval(moltbookInterval); moltbookInterval = null;
@@ -2082,7 +2082,7 @@
                 }
             }
             
-            // Re-inicializar componentes si es necesario
+            // Re-initialize components if needed
             if (tabId === 'markets') initMarketsView();
             if (tabId === 'academy') initAcademyView();
             if (tabId === 'lending') initLendingView();
@@ -2092,10 +2092,10 @@
             if (tabId === 'simulator' && typeof initSimulatorView === 'function') initSimulatorView();
         }
 
-        // Inicializar mercados Drift — re-instanciar clase si el DOM ya tiene los elementos
+        // Initialize Drift markets — re-instantiate the class if the DOM already has the elements
         function initMarketsView() {
-            // Los elementos del markets tab ya están en el HTML estático; solo (re)arrancar la lógica
-            if (window.gcMarkets && window.gcMarkets.selector) return; // Ya activo
+            // The markets tab elements are already in the static HTML; just (re)start the logic
+            if (window.gcMarkets && window.gcMarkets.selector) return; // Already active
             if (window.DriftMarkets) {
                 window.gcMarkets = new window.DriftMarkets();
             } else {
@@ -2115,7 +2115,7 @@
             }
         }
 
-        // Inicializar Lending — re-hidratar la clase LendingApp en el nuevo HTML
+        // Initialize Lending — re-hydrate the LendingApp class in the new HTML
         function initLendingView() {
             if (document.getElementById('lendingInventory') && !document.getElementById('lendingInventory').children.length) {
                 if (window.goalchainFinance) {
@@ -2129,7 +2129,7 @@
             }
         }
 
-        // Simulación de carga de balance
+        // Balance loading simulation
         window.addEventListener('load', () => {
             const balance = localStorage.getItem('gch_balance') || '1,240';
             const balanceEl = document.getElementById('userBalanceApp');
@@ -2151,7 +2151,7 @@
             </div>
 
             <p style="font-size:0.7rem; color:var(--text-dim); margin-bottom:20px; line-height:1.4; margin-top:0;">
-                Faremeter es un framework open-source de <b>ABK Labs</b> que permite transaccionar APIs y activos digitales (NFTs) usando el estándar <b>HTTP 402 (Payment Required)</b>. Facilita la adquisición a usuarios tradicionales abstrayendo el gas de Solana y la firma criptográfica en nuestro Sentinel Agent.
+                Faremeter is an open-source framework by <b>ABK Labs</b> that lets you transact APIs and digital assets (NFTs) using the <b>HTTP 402 (Payment Required)</b>. It makes acquisition easy for everyday users by abstracting Solana gas and the cryptographic signature into our Sentinel Agent.
             </p>
 
             <!-- Card Preview & Selector -->
@@ -2163,19 +2163,19 @@
                 </div>
                 <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
                     <span style="color:#fff; font-size:0.8rem; font-weight:bold;">Lionel Parody (Genesis Cromo #004)</span>
-                    <span style="color:var(--primary); font-size:0.75rem; font-weight:bold; margin-top:3px;">Precio: 15.00 USDC / SOL (o $15 USD Cash)</span>
-                    <span style="color:var(--text-dim); font-size:0.6rem; margin-top:2px;">Rendimiento estimado: <b>+150 GCH/d</b> en Vault</span>
+                    <span style="color:var(--primary); font-size:0.75rem; font-weight:bold; margin-top:3px;">Price: 15.00 USDC / SOL (or $15 USD Cash)</span>
+                    <span style="color:var(--text-dim); font-size:0.6rem; margin-top:2px;">Estimated yield: <b>+150 GCH/d</b> in Vault</span>
                 </div>
             </div>
 
             <!-- Form -->
             <div style="display:flex; flex-direction:column; gap:15px; margin-bottom:20px;">
                 <div>
-                    <label style="display:block; font-size:0.6rem; color:var(--text-dim); margin-bottom:5px; font-weight:bold; text-transform:uppercase;">1. Método de Pago (Faremeter Route)</label>
+                    <label style="display:block; font-size:0.6rem; color:var(--text-dim); margin-bottom:5px; font-weight:bold; text-transform:uppercase;">1. Payment Method (Faremeter Route)</label>
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
                         <label style="background:rgba(20, 241, 149, 0.05); border:1px solid var(--primary); border-radius:8px; padding:10px; display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.65rem; color:#fff;">
                             <input type="radio" name="farePay" checked style="accent-color:var(--primary);">
-                            <span>💳 Tarjeta / Cash Rampa</span>
+                            <span>💳 Card / Cash Ramp</span>
                         </label>
                         <label style="background:rgba(0,0,0,0.3); border:1px solid rgba(255,255,255,0.05); border-radius:8px; padding:10px; display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.65rem; color:var(--text-dim);">
                             <input type="radio" name="farePay" style="accent-color:var(--primary);">
@@ -2185,9 +2185,9 @@
                 </div>
 
                 <div>
-                    <label style="display:block; font-size:0.6rem; color:var(--text-dim); margin-bottom:5px; font-weight:bold; text-transform:uppercase;">2. Correo de Entrega (Custody Wallet Delivery)</label>
+                    <label style="display:block; font-size:0.6rem; color:var(--text-dim); margin-bottom:5px; font-weight:bold; text-transform:uppercase;">2. Delivery Email (Custody Wallet Delivery)</label>
                     <input type="email" id="fareEmail" value="nicopez@example.com" style="width:100%; box-sizing:border-box; background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:10px; border-radius:6px; font-size:0.75rem; outline:none;">
-                    <span style="font-size:0.55rem; color:var(--text-dim); display:block; margin-top:4px;">Asociaremos este e-mail a una Custodial Wallet instantánea para que no requieras manejar claves privadas.</span>
+                    <span style="font-size:0.55rem; color:var(--text-dim); display:block; margin-top:4px;">We'll associate this email with an instant Custodial Wallet so you never have to handle private keys.</span>
                 </div>
             </div>
 
@@ -2198,7 +2198,7 @@
 
             <!-- Action Button -->
             <button onclick="executeFaremeterPayment()" id="btnFarePay" class="btn btn-primary" style="width:100%; background:var(--primary); color:#000; font-size:0.8rem; font-weight:bold; padding:12px; border-radius:8px; border:none; cursor:pointer; transition:background 0.2s;">
-                PROCESAR PAGO 402 CON FAREMETER 💸
+                PROCESS 402 PAYMENT WITH FAREMETER 💸
             </button>
         </div>
     <!-- Pull to Refresh initialization script -->
@@ -2214,7 +2214,7 @@
             ptr.innerHTML = `
                 <span class="ptr-arrow">⬇️</span>
                 <span class="ptr-spinner"></span>
-                <span class="ptr-text">Desliza para recargar</span>
+                <span class="ptr-text">Pull to refresh</span>
             `;
             
             // Ensure relative position on parent
@@ -2254,10 +2254,10 @@
 
                     if (pullDistance >= threshold) {
                         arrow.style.transform = 'rotate(180deg)';
-                        text.innerText = 'Suelta para recargar';
+                        text.innerText = 'Release to refresh';
                     } else {
                         arrow.style.transform = 'rotate(0deg)';
-                        text.innerText = 'Desliza para recargar';
+                        text.innerText = 'Pull to refresh';
                     }
                 }
             }, { passive: true });
