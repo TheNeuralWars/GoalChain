@@ -51,7 +51,7 @@
         if (cachedIdl) return cachedIdl;
         const res = await fetch(IDL_URL, { cache: "no-store" });
         if (!res.ok) {
-            throw new Error(`No se pudo cargar IDL generado (${res.status})`);
+            throw new Error(`Could not load generated IDL (${res.status})`);
         }
         cachedIdl = await res.json();
         return cachedIdl;
@@ -67,7 +67,8 @@
             signAllTransactions: async (txs) => txs,
         };
         const provider = new anchor.AnchorProvider(connection, readOnlyWallet, { commitment: "confirmed" });
-        const program = new anchor.Program(idl, new solanaWeb3.PublicKey(PROGRAM_ID), provider);
+        // Anchor 0.30+ takes the program id from the IDL's `address` field.
+        const program = new anchor.Program(idl, provider);
 
         const fixture = await program.account.fixture.fetchNullable(fixturePda);
         const liveState = await program.account.liveMatchState.fetchNullable(livePda);
@@ -82,7 +83,7 @@
         if (!match) {
             fixtureSection.innerHTML = `
                 <div style="padding:1rem; color:var(--text-dim); text-align:center;">
-                    No hay fixture on-chain para este Match ID.
+                    No on-chain fixture for this Match ID.
                 </div>
             `;
             return;
@@ -106,20 +107,20 @@
                 </div>
                 <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:1rem;">
                     <div style="text-align:center; background:rgba(255,255,255,0.05); padding:10px; border-radius:8px;">
-                        <div style="font-size:0.7rem; color:var(--text-dim);">GANA A</div>
+                        <div style="font-size:0.7rem; color:var(--text-dim);">A WINS</div>
                         <div style="color:var(--primary); font-weight:bold;">${totalA}</div>
                     </div>
                     <div style="text-align:center; background:rgba(255,255,255,0.05); padding:10px; border-radius:8px;">
-                        <div style="font-size:0.7rem; color:var(--text-dim);">EMPATE</div>
+                        <div style="font-size:0.7rem; color:var(--text-dim);">DRAW</div>
                         <div style="color:var(--primary); font-weight:bold;">${totalDraw}</div>
                     </div>
                     <div style="text-align:center; background:rgba(255,255,255,0.05); padding:10px; border-radius:8px;">
-                        <div style="font-size:0.7rem; color:var(--text-dim);">GANA B</div>
+                        <div style="font-size:0.7rem; color:var(--text-dim);">B WINS</div>
                         <div style="color:var(--primary); font-weight:bold;">${totalB}</div>
                     </div>
                 </div>
                 <div style="margin-top:1rem; text-align:center;">
-                    <span style="font-size:0.8rem; color:var(--text-dim);">POZO TOTAL: </span>
+                    <span style="font-size:0.8rem; color:var(--text-dim);">TOTAL POOL: </span>
                     <span style="font-size:1rem; color:var(--primary); font-weight:bold;">${totalPool} SOL</span>
                 </div>
             </div>
@@ -160,12 +161,12 @@
             const payload = await loadFixtureData(activeMatchId);
             renderFixture(payload.fixture);
             renderLiveState(payload.liveState, payload.fixture?.status);
-            logBracketEvent(`[RPC] Fixture ${activeMatchId} actualizado desde Devnet.`, "var(--primary)");
+            logBracketEvent(`[RPC] Fixture ${activeMatchId} refreshed from Devnet.`, "var(--primary)");
         } catch (err) {
             console.error("Error fetching fixture/live state:", err);
             renderFixture(null);
             renderLiveState(null, null);
-            logBracketEvent(`[RPC] Error consultando ${activeMatchId}: ${err.message}`, "var(--danger)");
+            logBracketEvent(`[RPC] Error querying ${activeMatchId}: ${err.message}`, "var(--danger)");
         }
     }
 
@@ -178,7 +179,7 @@
     window.selectBracketMatch = async function selectBracketMatch(matchId) {
         activeMatchId = matchId;
         highlightMatch(matchId);
-        logBracketEvent(`[System] Match seleccionado: ${matchId}`);
+        logBracketEvent(`[System] Match selected: ${matchId}`);
         await refreshSelectedMatch();
     };
 

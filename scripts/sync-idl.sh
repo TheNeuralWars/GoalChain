@@ -8,6 +8,7 @@ TARGETS=(
   "${ROOT}/goalchain-sdk/src/goalchain_program.json"
   "${ROOT}/goalchain-sdk/dist/goalchain_program.json"
   "${ROOT}/docs/assets/js/generated/goalchain_program.idl.json"
+  "${ROOT}/goalchain_webapp/public/assets/js/generated/goalchain_program.idl.json"
 )
 
 CHECK_ONLY="${1:-}"
