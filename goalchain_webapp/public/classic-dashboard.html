@@ -2024,13 +2024,22 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
-    <script src="https://unpkg.com/@coral-xyz/anchor@0.29.0/dist/browser/index.js"></script>
+    <!-- Pinned on purpose: @solana/web3.js@latest drifted to v3.x (different API, no
+         PublicKey.findProgramAddressSync). The 1.x IIFE exposes the `solanaWeb3` global
+         every page script expects. -->
+    <script src="https://unpkg.com/@solana/web3.js@1.98.2/lib/index.iife.min.js"></script>
+    <!-- Anchor only ships its browser build as a bare ES module, so it cannot run as a
+         classic script. Load it as a module and expose the classic `anchor` global
+         before any user-driven code path calls it. Matches repo Anchor 0.30.1. -->
+    <script type="module">
+        import * as anchor from 'https://esm.sh/@coral-xyz/anchor@0.30.1';
+        window.anchor = anchor;
+    </script>
     <script src="https://goalworld.fun/assets/js/i18n.js?v=3.0"></script>
     <script src="https://goalworld.fun/assets/js/notification_manager.js?v=3.0"></script>
     <script src="https://goalworld.fun/assets/js/wallet_connect.js?v=3.0"></script>
-    <script src="https://goalworld.fun/assets/js/solana_connector.js"></script>
-    <script src="https://goalworld.fun/assets/js/contract_data.js"></script>
+    <script src="https://goalworld.fun/assets/js/solana_connector.js?v=3.1"></script>
+    <script src="https://goalworld.fun/assets/js/contract_data.js?v=3.1"></script>
     <script src="https://goalworld.fun/assets/js/drift_markets.js"></script>
     <script src="https://goalworld.fun/assets/js/cnft_scout.js"></script>
     <script src="https://goalworld.fun/assets/js/lending_app.js"></script>

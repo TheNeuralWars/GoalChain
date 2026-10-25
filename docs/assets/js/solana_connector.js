@@ -44,7 +44,8 @@
                 this.provider = anchorProvider;
 
                 const idl = await this.loadIdl();
-                this.program = new anchor.Program(idl, new solanaWeb3.PublicKey(PROGRAM_ID), this.provider);
+                // Anchor 0.30+ takes the program id from the IDL's `address` field.
+                this.program = new anchor.Program(idl, this.provider);
 
                 console.log("GoalChain Smart Contract inicializado correctamente.");
                 return true;
