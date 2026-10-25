@@ -1173,3 +1173,120 @@ One entry per daily run (newest last).
   facts (dead Discord invite, X handle 404, legal review),
   `src/i18n/locales/{en,es}/translation.json` leftovers, wallet-adapter DM Sans
   (third-party, leave), landing-host legacy manifest restage.
+
+## 2026-10-25 run 20261025T034707Z
+
+- **What:** Stopped third-party CDN version drift on the Solana scripts and restored
+  the on-chain fixture panel on `classic-dashboard.html` (live product surface
+  https://play.goalworld.fun/classic-dashboard.html) + the same drift bug class on 5
+  legacy public pages (colabs/arcade/goalchain/tokenomics/agents). THREE root causes
+  fixed: (1) `@solana/web3.js@latest` drifted to **v3.1.1** (API rewrite — no
+  `PublicKey.findProgramAddressSync`, no `Transaction/SystemProgram` shape), breaking
+  every `solanaWeb3.*` call on all 6 public pages → pinned to verified
+  `@solana/web3.js@1.98.2` IIFE (PDA derivation re-verified in node). (2) Anchor
+  `0.29.0/dist/browser/index.js` is a bare ES module (all its browser builds are) and
+  can never have run as a classic script ("Cannot use import statement outside a
+  module") → load Anchor **0.30.1** (= the repo's own `goalchain_api` version, and the
+  only line that can read the deployed IDL's 0.30-format `address`/explicit
+  discriminators) via esm.sh `?bundle` as an idle-scheduled dynamic import exposing
+  `window.anchor`; `contract_data.js`/`solana_connector.js` await `window.loadAnchor()`
+  and use the 0.30+ `Program(idl, provider)` constructor (empirically: 3-arg throws on
+  0.30.1; account namespaces `fixture`/`liveMatchState` match the call sites). (3) The
+  relative IDL fetch from the webapp origin hit the Vercel SPA fallback and got HTML,
+  not JSON → shipped `goalchain_program.idl.json` to
+  `goalchain_webapp/public/assets/js/generated/` (same-origin fetch, no CORS — the
+  landing host sends no ACAO header) and registered it in `scripts/sync-idl.sh` so the
+  copies stay in lockstep. Also: English Max Law sweep of `contract_data.js`
+  user-visible strings (bracket panel "GANA A/EMPATE/GANA B/POZO TOTAL"/"No hay
+  fixture…" + 3 bracket-log lines — they render on the now-working panel); cache-busted
+  the shared script refs (`?v=3.3`); and fixed `scripts/pages/deploy_origin.sh` to run
+  `git pull --ff-only` BEFORE the LAST_DEPLOYED diff check (commits pushed from another
+  worktree only exist on origin/main, so the old order reported "no docs changes"
+  forever and the legacy `docs/` surface silently never restaged — this run hit it).
+- **Why:** This was the #1 named follow-up of runs 20261023/20261024 (2 console errors
+  on the live app page) and worse than logged: the errors were symptoms of the whole
+  on-chain fixture/oracle panel being dead in production (PDA derivation threw before
+  any RPC). Single root cause class (`@latest` drift + unrunnable script + wrong
+  fetch), fleet-wide, measurable (console errors 2→0, panel renders).
+- **Commit SHA (merge):** `3d46a882` (feature `634607f7`), follow-ups on main:
+  `b7c1e532` (cache-bust v3.2 + deploy_origin.sh fix), `024194d5` (esm.sh ?bundle),
+  `8ede221e` (idle-scheduled loader). Pre-merge `origin/main` = `a9251b1c` (rollback:
+  `git revert -m 1 3d46a882` + push + revert follow-ups; landing
+  `scripts/deploy_goalworld_site.sh rollback --target …/20261025T041145Z-3d46a882.tar.gz`).
+- **Live link:** https://play.goalworld.fun/classic-dashboard.html (plus the 5 pinned
+  docs pages on https://goalworld.fun/)
+- **QA evidence:** `/data/work/autoimprove/evidence/20261025T034707Z/`
+  - build.txt: exit 0 (`tsc && vite build`, ~7-10 s); tests.txt: exit 0 (check:i18n —
+    381 used keys, 694 dictionary keys, en/es/type in sync). `node --check` clean on
+    both shared JS files; `bash -n` clean on deploy_origin.sh.
+  - smoke-before.txt (live 2026-10-25T03:57Z): 6 URLs 200; every page had 1
+    `web3.js@latest` ref; play-origin IDL URL returned **HTML** (SPA fallback,
+    2,193 B) vs real 119,431 B JSON on goalworld.fun — confirmed root cause (3).
+  - lighthouse-live-before.json (baseline): perf 0.69 / a11y 1.0 / BP 0.96 / SEO 1.0;
+    FCP 2.7 s, LCP 12.9 s, TBT 0 ms, CLS 0.001; **2 console errors** (exactly
+    `findProgramAddressSync is not a function` + `Cannot use import statement outside
+    a module`); 31 requests.
+  - lighthouse-local.json (full-chain pre-merge preview, test copy remapped to local
+    script host): perf 0.69 / a11y 1.0 / BP 1.0 / SEO 1.0; **0 console errors**; 0
+    failing binary audits — no regression vs baseline on any gate axis.
+  - dom checks (real browser, preview + LIVE production after deploy):
+    `solanaWeb3.PublicKey.findProgramAddressSync` = function, `window.anchor.Program` =
+    function, fixturePda `7zxrCJRSijAugrvGCqq7Cz14aWkfVH43VKLoXvh1NLVE` (matches node
+    ground truth), livePda `4UAVbNdt…`, panel renders "No on-chain fixture for this
+    Match ID." (fixture is genuinely absent on devnet — the whole fetch+decode path now
+    completes), bracket log shows "[RPC] Fixture ARG_FRA_FINAL refreshed from Devnet.",
+    0 Spanish markers. classic-local-after.png saved.
+  - linkcheck.txt: no NEW broken links (3 pre-existing: JS-template-literal false
+    positive, `x.com/GoalChainDotFun` 404 (known TODO.md human fact), one tweet-intent
+    URL). No new links added by this change.
+  - smoke-after.txt (live 04:28Z): all 6 URLs 200, `web3.js@latest` refs 0 / pinned
+    refs 1 on every page; play-origin IDL now serves the real 119,431 B JSON.
+  - lighthouse-live-after{,2,3,4}.json + lighthouse-arcade-live-{before,after}.json:
+    | run | perf | a11y | BP | SEO | FCP | LCP | TBT | CLS | req | err |
+    |---|---|---|---|---|---|---|---|---|---|---|
+    | classic before | 0.69 | 1.0 | 0.96 | 1.0 | 2.7 s | 12.9 s | 0 ms | 0.001 | 31 | 2 |
+    | classic after | 0.57 | 1.0 | 1.0 | 1.0 | 4.6 s | 17.6 s | 150 ms | 0.001 | 114 | 0 |
+    | classic after2 | 0.59 | 1.0 | 1.0 | 1.0 | 4.0 s | 16.7 s | 210 ms | 0 | 114 | 0 |
+    | classic after3 (bundle) | 0.59 | 1.0 | 1.0 | 1.0 | 3.2 s | 15.3 s | 300 ms | 0 | 36 | 0 |
+    | classic after4 (idle) | 0.51 | 1.0 | 1.0 | 1.0 | 3.4 s | 14.3 s | 400 ms | 0 | 36 | 0 |
+    | arcade before | 0.76 | 0.91 | 1.0 | 1.0 | 2.6 s | 5.0 s | 0 ms | 0.086 | - | 0 |
+    | arcade after | 0.70 | 0.91 | 1.0 | 1.0 | 2.5 s | 8.4 s | 80 ms | 0.068 | - | 0 |
+    Console errors 2→0 (the change's goal), a11y/SEO flat, BP 0.96→1.0, CLS flat/better.
+    **Perf score honestly below the baseline sample (0.51-0.59 vs 0.69)** — measured and
+    mitigated twice (esm.sh `?bundle` cut requests 114→36; idle-scheduled loader pulled
+    the 493 KB Anchor bundle out of the first-paint path, FCP back to 3.2-3.4 s ≈ the
+    page's documented 1.8-3.2 s band). Residual delta is the intrinsic cost of the
+    feature working at all: the 493 KB one-time (edge-cached) Anchor bundle eval,
+    parsing the 119 KB IDL, building the account coders, and the devnet RPC round-trip —
+    on the baseline page none of this ran (it died at the first line). Judged NOT
+    revert-worthy: reverting would restore 2 console errors and re-kill the on-chain
+    fixture/oracle panel to reclaim a perf score on a page whose LCP is 12.9 s either
+    way. This page's documented swing is 0.61-0.84, so today's runs sit just under the
+    band; flagged as a follow-up below.
+  - CF edge note: goalworld.fun serves `cache-control: max-age=14400`, so stale
+    ?v=3.1/bare entries (pre-fix content) linger ≤4 h; the page now requests
+    ?v=3.3 (fresh keys verified serving the fixed files on first request).
+- **Reverted:** n
+- **Incident note (handled):** merging via a local branch move (`checkout -B main`)
+  moved the shared `main` ref under the live checkout at /data/apps/GoalChain (it holds
+  `main`), leaving its worktree stale under HEAD; the 5-min restage then staged that
+  stale content while recording the new SHA. Repaired: verified every stale path
+  byte-matched a historical commit (no local work lost), `git checkout HEAD -- <paths>`
+  restored consistency (the 3 pre-existing runtime-modified files untouched), then
+  `DEPLOY_FORCE=1 deploy_origin.sh` restaged. Later commits used the same
+  repair+restage cycle. Future runs: prefer `gh pr create` + `gh pr merge --merge`
+  (server-side merge, no local ref move), or repeat the repair cycle if merging locally.
+- **Follow-ups noted (not done):** (1) perf: replace the Anchor read path in
+  `contract_data.js` with raw `getAccountInfo` + minimal borsh decode (drops the 493 KB
+  bundle) — needs a live on-chain fixture to verify decoding against (devnet
+  `ARG_FRA_FINAL` has no fixture, so a hand decoder can't be validated today). (2)
+  docs/goalchain.html has 143 lines of legacy Spanish public copy (incl. a share-text
+  URL) — English Max Law sweep needed (same class as run 20261024's classic-dashboard
+  sweep). (3) `docs/assets/js/*.js` still carry Spanish dev-facing strings
+  (console/error messages in solana_connector.js etc.). (4) Arcade a11y 0.91 and the
+  LCP cost of web3 v1 pinning on the legacy pages (5.0→8.4 s single samples). (5)
+  Unchanged earlier follow-ups: goalworld_site TODO.md human facts (dead Discord
+  invite, X handle 404, legal review), `src/i18n/locales/{en,es}/translation.json`
+  leftovers, wallet-adapter DM Sans (third-party, leave), landing-host legacy manifest
+  restage, docs/goalchain.html loads solana_connector.js without any anchor loader
+  (wallet connect there stays broken — separate run).
