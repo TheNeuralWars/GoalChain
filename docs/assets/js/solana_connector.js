@@ -35,6 +35,9 @@
                 this.wallet = resp.publicKey;
                 this.isConnected = true;
 
+                if (!window.anchor && typeof window.loadAnchor === "function") {
+                    await window.loadAnchor();
+                }
                 const anchorProvider = new anchor.AnchorProvider(
                     this.connection,
                     window.solana,

@@ -66,6 +66,9 @@
             signTransaction: async (tx) => tx,
             signAllTransactions: async (txs) => txs,
         };
+        if (!window.anchor && typeof window.loadAnchor === "function") {
+            await window.loadAnchor();
+        }
         const provider = new anchor.AnchorProvider(connection, readOnlyWallet, { commitment: "confirmed" });
         // Anchor 0.30+ takes the program id from the IDL's `address` field.
         const program = new anchor.Program(idl, provider);
