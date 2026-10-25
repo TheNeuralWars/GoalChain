@@ -23,17 +23,20 @@ if ! flock -w 900 9; then
 fi
 
 git fetch --quiet origin main
-# BUGFIX: comparing HEAD against origin/main says "no docs changes" when the commit was
-# made ON THIS HOST (push makes them identical), so local commits silently never deployed.
-# Compare against the LAST DEPLOYED commit instead; fall back to origin/main on first run.
+# Pull BEFORE the change check: commits pushed from another worktree/host only exist on
+# origin/main at this point, and diffing LAST_DEPLOYED..HEAD would say "no docs changes"
+# forever (both stay put) — the pull is what moves HEAD. Same-host local commits are
+# covered too: the ff pull says "Already up to date" and the diff below still fires.
+git pull --ff-only origin main
+# BUGFIX (earlier): comparing HEAD against origin/main said "no docs changes" when the
+# commit was made ON THIS HOST (push makes them identical), so local commits silently
+# never deployed. Compare against the LAST DEPLOYED commit instead.
 LAST_DEPLOYED="$(cat "$REPO/.deploy-last.head" 2>/dev/null || echo origin/main)"
 # DEPLOY_FORCE=1 restages even when nothing changed (used to repair a broken served tree).
 if [ "${DEPLOY_FORCE:-0}" != 1 ] && git diff --quiet "$LAST_DEPLOYED" HEAD -- docs scripts/pages; then
   echo "$(date -u '+%F %T UTC') no docs changes since ${LAST_DEPLOYED:0:8}"
   exit 0
 fi
-
-git pull --quiet --ff-only origin main
 
 rm -rf "$SCRATCH"
 python3 scripts/pages/stage_public_tree.py --src docs --dst "$SCRATCH" >/dev/null
