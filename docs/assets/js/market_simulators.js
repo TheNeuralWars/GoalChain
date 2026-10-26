@@ -555,7 +555,7 @@ window.openMarketSimulator = (player, marketType) => {
                 if (window.notifier) {
                     window.notifier.show('SUCCESS', `Successfully purchased ${player.name} via ${marketType.toUpperCase()}! 🎉`, 'success');
                 } else {
-                    alert(`¡Compra confirmada! ${player.name} ya es parte de tu inventario.`);
+                    alert(`Purchase confirmed! ${player.name} is now part of your inventory.`);
                 }
             }, 1500);
         }, 1500);

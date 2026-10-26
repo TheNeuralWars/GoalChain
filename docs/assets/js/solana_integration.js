@@ -6,7 +6,7 @@ async function connectWallet() {
     const { solana } = window;
 
     // Si estamos en un archivo local (file://), la extensión de Phantom no se comunica por seguridad del Sandbox de Chrome.
-    // Ofrecemos un fallback automático en "Modo Desarrollo/Simulación" para no bloquear tus pruebas locales.
+    // Ofrecemos un fallback automático en "Development/Simulation Mode" para no bloquear tus pruebas locales.
     if (window.location.protocol === 'file:') {
         console.warn("⚠️ Entorno 'file://' detectado. Conectando en 'Modo Dev/Simulado' para omitir restricciones del Sandbox de Chrome.");
         const mockAddress = "DevGoaL888888888888888888888888888888888888";
@@ -20,7 +20,7 @@ async function connectWallet() {
                 'success'
             );
         } else {
-            alert("✅ Modo Desarrollador: Conectado con Wallet Simulada.");
+            alert("✅ Developer Mode: Connected with Simulated Wallet.");
         }
         
         updateWalletUI();
@@ -40,7 +40,7 @@ async function connectWallet() {
 
     try {
         if (!solana || !solana.isPhantom) {
-            alert("🛡️ Phantom Wallet no detectada.\n\nTe llevamos a descargarla...");
+            alert("🛡️ Phantom Wallet not detected.\n\nTaking you to download it...");
             window.open("https://phantom.app/", "_blank");
             return;
         }
@@ -61,10 +61,10 @@ async function connectWallet() {
             localStorage.setItem('goalchain_wallet', userWalletAddress);
             console.log("✅ Wallet conectada y verificada:", userWalletAddress);
             
-            if (window.notifier) window.notifier.show('¡CONECTADO!', 'Wallet verificada con éxito.', 'success');
+            if (window.notifier) window.notifier.show('CONNECTED!', 'Wallet verified successfully.', 'success');
         } catch (signError) {
             console.error("Firma rechazada:", signError);
-            alert("⚠️ Debes firmar el mensaje para verificar tu identidad y acceder a la dApp.");
+            alert("⚠️ You must sign the message to verify your identity and access the dApp.");
             return;
         }
 
@@ -83,9 +83,9 @@ async function connectWallet() {
     } catch (error) {
         console.error("Error al conectar wallet:", error);
         if (error.code === 4001) {
-            alert("Conexión cancelada por el usuario.");
+            alert("Connection canceled by the user.");
         } else {
-            alert("Error al conectar con Phantom. Inténtalo de nuevo.");
+            alert("Error connecting to Phantom. Try again.");
         }
     }
 }
@@ -147,7 +147,7 @@ function updateWalletUI() {
     // 2. Habilitar y configurar Whitelist
     const emailInput = document.getElementById('whitelistEmail');
     if (emailInput) {
-        emailInput.placeholder = "Escribe tu email para registrarte...";
+        emailInput.placeholder = "Enter your email to sign up...";
         emailInput.disabled = false;
     }
 
@@ -168,14 +168,14 @@ function updateWalletUI() {
 
                 const result = await response.json();
                 if (result.success) {
-                    alert("¡Éxito! Te has unido a la Whitelist de GoalChain. ⚽🔥");
-                    whitelistForm.innerHTML = `<h3 style='color:var(--primary); margin: 20px 0;'>✅ ¡Ya estás dentro!</h3><p style='font-size:0.8rem; color:var(--text-dim);'>Wallet: ${wallet.slice(0,6)}...${wallet.slice(-4)}</p>`;
+                    alert("Success! You have joined the GoalChain Whitelist. ⚽🔥");
+                    whitelistForm.innerHTML = `<h3 style='color:var(--primary); margin: 20px 0;'>✅ You are in!</h3><p style='font-size:0.8rem; color:var(--text-dim);'>Wallet: ${wallet.slice(0,6)}...${wallet.slice(-4)}</p>`;
                 } else {
-                    alert("Hubo un problema al registrarte.");
+                    alert("There was a problem signing you up.");
                 }
             } catch (err) {
                 console.error("Whitelist Error:", err);
-                alert("Error de conexión con la API (Asegúrate de que el servidor esté corriendo).");
+                alert("API connection error (make sure the server is running).");
             }
         });
     }
@@ -191,7 +191,7 @@ function updateWalletUI() {
     // Actualizar link de X (Twitter) si existe el botón de tarea
     const shareBtn = document.getElementById('share-x-task');
     if (shareBtn) {
-        const tweetText = encodeURIComponent(`¡Acabo de unirme a la Whitelist de GoalChain! ⚽🚀 Jugando para ganar en @Solana. Únete aquí: ${refLink} #GoalChain #Solana`);
+        const tweetText = encodeURIComponent(`I just joined the GoalChain Whitelist! ⚽🚀 Playing to win on @Solana. Join here: ${refLink} #GoalChain #Solana`);
         shareBtn.href = `https://twitter.com/intent/tweet?text=${tweetText}`;
     }
 
@@ -208,9 +208,9 @@ function disconnectWallet() {
 
 function copyReferralLink() {
     const referralDisplay = document.getElementById('referral-link-display');
-    if (referralDisplay && referralDisplay.innerText !== "Conecta tu wallet para generar...") {
+    if (referralDisplay && referralDisplay.innerText !== "Connect your wallet to generate...") {
         navigator.clipboard.writeText(referralDisplay.innerText).then(() => {
-            alert("¡Enlace de referidos copiado! 🚀");
+            alert("Referral link copied! 🚀");
         });
     }
 }
@@ -256,7 +256,7 @@ document.addEventListener('click', (e) => {
     if (btn) {
         e.preventDefault();
         if (userWalletAddress) {
-            if (confirm("¿Quieres desconectar tu wallet?")) {
+            if (confirm("Do you want to disconnect your wallet?")) {
                 disconnectWallet();
             }
         } else {
@@ -271,10 +271,10 @@ async function claimTokens() {
         if (window.notifier) {
             window.notifier.show(
                 typeof currentLang !== 'undefined' && currentLang === 'en' ? "CONNECT WALLET" : "CONECTAR WALLET",
-                typeof currentLang !== 'undefined' && currentLang === 'en' ? "Connect your wallet at the top right first." : "Primero conectá tu wallet en el botón superior."
+                typeof currentLang !== 'undefined' && currentLang === 'en' ? "Connect your wallet at the top right first." : "Connect your wallet first using the button at the top."
             );
         } else {
-            alert("Primero conectá tu wallet en el botón superior.");
+            alert("Connect your wallet first using the button at the top.");
         }
         return;
     }
@@ -295,7 +295,7 @@ async function claimTokens() {
                 typeof currentLang !== 'undefined' && currentLang === 'en' ? "Received 1,000 $GCH to keep playing!" : "¡Recibiste 1,000 $GCH gratis para seguir jugando!"
             );
         } else {
-            alert("⚡ ¡Recarga exitosa! Recibiste 1,000 $GCH.");
+            alert("⚡ Top-up successful! You received 1,000 $GCH.");
         }
         return;
     }
@@ -318,11 +318,11 @@ async function claimTokens() {
             if (window.notifier) {
                 window.notifier.show(
                     typeof currentLang !== 'undefined' && currentLang === 'en' ? "AIRDROP CLAIMED 🎉" : "AIRDROP COMPLETADO 🎉",
-                    typeof currentLang !== 'undefined' && currentLang === 'en' ? `Validated ${balanceToClaim} $GCH in dev mode.` : `Se validaron tus ${balanceToClaim} $GCH en modo desarrollo.`,
+                    typeof currentLang !== 'undefined' && currentLang === 'en' ? `Validated ${balanceToClaim} $GCH in dev mode.` : `Se validaron tus ${balanceToClaim} $GCH have been validated in development mode.`,
                     'success'
                 );
             } else {
-                alert(`¡AIRDROP SIMULADO! 🎉\n\nSe han validado tus ${balanceToClaim} $GCH en modo desarrollo.`);
+                alert(`SIMULATED AIRDROP! 🎉\n\nYour ${balanceToClaim} $GCH have been validated in development mode.`);
             }
             
             // Resetear balance local
@@ -366,7 +366,7 @@ async function claimTokens() {
 
         // 4. Solicitar firma a Phantom Wallet
         const provider = window.solana;
-        if (!provider) throw new Error("Phantom Wallet no encontrada.");
+        if (!provider) throw new Error("Phantom Wallet not found.");
 
         const { signature } = await provider.signAndSendTransaction(transaction);
         console.log("Transacción enviada con firma:", signature);
@@ -376,7 +376,7 @@ async function claimTokens() {
         console.log("Transacción confirmada en la Blockchain.");
 
         // Éxito: Mostrar alerta con el enlace a Solana Explorer
-        alert(`¡AIRDROP CONFIRMADO EN SOLANA! 🎉\n\nSe han validado tus GoalPoints.\n\nTx ID: ${signature.substring(0, 10)}...\n\nPuedes ver tu transacción en Solana Explorer.`);
+        alert(`AIRDROP CONFIRMED ON SOLANA! 🎉\n\nYour GoalPoints have been validated.\n\nTx ID: ${signature.substring(0, 10)}...\n\nYou can view your transaction on Solana Explorer.`);
         
         // Abrir Explorer en pestaña nueva
         window.open(`https://explorer.solana.com/tx/${signature}?cluster=devnet`, '_blank');
@@ -392,7 +392,7 @@ async function claimTokens() {
 
     } catch (error) {
         console.error("Error en la transacción real de Solana:", error);
-        alert("La transacción fue cancelada o falló por falta de fondos (Devnet SOL).");
+        alert("The transaction was canceled or failed due to insufficient funds (Devnet SOL).");
     } finally {
         if (claimBtn) {
             claimBtn.innerHTML = 'RECLAMAR AIRDROP';

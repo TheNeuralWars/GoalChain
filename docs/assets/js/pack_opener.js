@@ -21,12 +21,12 @@ async function initPackOpener() {
         // Override UI texts dynamically for the Survivor Pack launch
         const openBtn = document.getElementById('openPackBtn');
         if (openBtn) {
-            openBtn.innerHTML = '<span>ABRIR SOBRE SURVIVOR (250 $GCH)</span>';
+            openBtn.innerHTML = '<span>OPEN SURVIVOR PACK (250 $GCH)</span>';
         }
         const title = document.querySelector('.section-title');
         if (title) title.innerText = "Survivor Pack Opener (Eliminatorias)";
         const sub = document.querySelector('.section-subtitle');
-        if (sub) sub.innerText = "Exclusivo early adopters. Solo selecciones clasificadas. ¡Probabilidades aumentadas de cartas Legendarias y Míticas!";
+        if (sub) sub.innerText = "Exclusive early adopters. Only qualified teams. Increased odds of Legendary and Mythic cards!";
         const oddsText = document.querySelector('.pack-odds');
         if (oddsText) oddsText.innerText = "Mythic chance: 1.0% | Legendary: 4.0% | Epic: 10.0% | Rare: 25.0%";
 
@@ -71,7 +71,7 @@ function setupPackEvents() {
 async function triggerPackOpening() {
     const walletAddress = localStorage.getItem('goalchain_wallet');
     if (!walletAddress) {
-        if (window.notifier) window.notifier.show('ERROR', 'Debes conectar tu wallet para abrir un sobre.', 'error');
+        if (window.notifier) window.notifier.show('ERROR', 'You must connect your wallet to open a pack.', 'error');
         return;
     }
 
@@ -105,7 +105,7 @@ async function triggerPackOpening() {
             transaction.feePayer = fromPubkey;
 
             const provider = window.solana;
-            if (!provider) throw new Error("Phantom Wallet no encontrada.");
+            if (!provider) throw new Error("Phantom Wallet not found.");
 
             const { signature } = await provider.signAndSendTransaction(transaction);
             console.log("Transacción de sobre enviada:", signature);
@@ -114,14 +114,14 @@ async function triggerPackOpening() {
             await connection.confirmTransaction(signature, "confirmed");
             console.log("Transacción de sobre confirmada!");
 
-            if (window.notifier) window.notifier.show('ÉXITO', 'Transacción de sobre confirmada en Devnet!', 'success');
+            if (window.notifier) window.notifier.show('SUCCESS', 'Pack transaction confirmed on Devnet!', 'success');
 
         } catch (error) {
             console.error("Error en la transacción real de Solana:", error);
-            if (window.notifier) window.notifier.show('ERROR', 'La transacción fue cancelada o falló.', 'error');
+            if (window.notifier) window.notifier.show('ERROR', 'The transaction was canceled or failed.', 'error');
             if (openBtn) {
                 openBtn.disabled = false;
-                openBtn.innerText = "ABRIR SOBRE (100 $GCH)";
+                openBtn.innerText = "OPEN PACK (100 $GCH)";
             }
             packState.isOpening = false;
             return;
@@ -158,7 +158,7 @@ async function triggerPackOpening() {
             pack.style.transform = "";
         }
         executeReveal();
-        if (openBtn) openBtn.innerText = "ABRIR SOBRE (100 $GCH)";
+        if (openBtn) openBtn.innerText = "OPEN PACK (100 $GCH)";
     }, 2500);
 }
 
@@ -250,7 +250,7 @@ function renderInventory(filter = 'all') {
         : packState.inventory.filter(p => p.rarity === filter);
 
     if (filteredItems.length === 0) {
-        grid.innerHTML = `<div class="empty-inventory" style="grid-column: 1/-1; text-align: center; padding: 40px;"><p>No tenés jugadores en esta categoría.</p></div>`;
+        grid.innerHTML = `<div class="empty-inventory" style="grid-column: 1/-1; text-align: center; padding: 40px;"><p>You have no players in this category.</p></div>`;
         return;
     }
 

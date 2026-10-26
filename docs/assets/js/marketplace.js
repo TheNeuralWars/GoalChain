@@ -95,8 +95,8 @@ function renderMarket(filter = 'all') {
     if (filtered.length === 0) {
         grid.innerHTML = `
             <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
-                <p style="color: var(--text-dim);">No hay jugadores de esta categoría a la venta actualmente.</p>
-                <button class="btn-solana mt-3" onclick="filterMarket('all')">VER TODO EL MERCADO</button>
+                <p style="color: var(--text-dim);">There are no players of this category for sale right now.</p>
+                <button class="btn-solana mt-3" onclick="filterMarket('all')">VIEW FULL MARKET</button>
             </div>
         `;
         return;
@@ -245,19 +245,19 @@ window.buyPlayer = async (id) => {
 
     const walletAddress = localStorage.getItem('goalchain_wallet');
     if (!walletAddress) {
-        if (window.notifier) window.notifier.show('ERROR', 'Debes conectar tu wallet para comprar.', 'error');
-        else alert('Debes conectar tu wallet para comprar.');
+        if (window.notifier) window.notifier.show('ERROR', 'You must connect your wallet to buy.', 'error');
+        else alert('You must connect your wallet to buy.');
         return;
     }
 
     if (window.notifier) {
-        window.notifier.show('PROCESANDO', `Iniciando transacción para ${player.name}...`, 'info');
+        window.notifier.show('PROCESSING', `Starting transaction for ${player.name}...`, 'info');
     }
 
     // Si es una wallet mock, simulamos
     if (walletAddress.startsWith("DevGoaL")) {
         setTimeout(() => {
-            if (window.notifier) window.notifier.show('ÉXITO', `¡${player.name} ahora es parte de tu equipo!`, 'success');
+            if (window.notifier) window.notifier.show('SUCCESS', `${player.name} is now part of your team!`, 'success');
             
             const inventory = JSON.parse(localStorage.getItem('goalchain_inventory') || '[]');
             inventory.push(player);
@@ -294,16 +294,16 @@ window.buyPlayer = async (id) => {
         transaction.feePayer = fromPubkey;
 
         const provider = window.solana;
-        if (!provider) throw new Error("Phantom Wallet no encontrada.");
+        if (!provider) throw new Error("Phantom Wallet not found.");
 
         const { signature } = await provider.signAndSendTransaction(transaction);
         console.log("Transacción enviada:", signature);
 
-        if (window.notifier) window.notifier.show('CONFIRMANDO', 'Esperando confirmación en Devnet...', 'info');
+        if (window.notifier) window.notifier.show('CONFIRMING', 'Waiting for confirmation on Devnet...', 'info');
         await connection.confirmTransaction(signature, "confirmed");
         console.log("Transacción confirmada!");
 
-        if (window.notifier) window.notifier.show('ÉXITO', `¡${player.name} ahora es parte de tu equipo!`, 'success');
+        if (window.notifier) window.notifier.show('SUCCESS', `${player.name} is now part of your team!`, 'success');
 
         const inventory = JSON.parse(localStorage.getItem('goalchain_inventory') || '[]');
         inventory.push(player);
@@ -315,13 +315,13 @@ window.buyPlayer = async (id) => {
         if (window.renderInventory) window.renderInventory();
 
         setTimeout(() => {
-            alert(`¡COMPRA CONFIRMADA EN SOLANA! 🎉\n\nEl jugador ${player.name} ha sido transferido.\n\nTx ID: ${signature.substring(0, 10)}...\n\nPuedes ver tu transacción en Solana Explorer.`);
+            alert(`PURCHASE CONFIRMED ON SOLANA! 🎉\n\nPlayer ${player.name} has been transferred.\n\nTx ID: ${signature.substring(0, 10)}...\n\nYou can view your transaction on Solana Explorer.`);
             window.open(`https://explorer.solana.com/tx/${signature}?cluster=devnet`, '_blank');
         }, 500);
 
     } catch (error) {
         console.error("Error en la transacción real de Solana:", error);
-        if (window.notifier) window.notifier.show('ERROR', 'La transacción fue cancelada o falló.', 'error');
+        if (window.notifier) window.notifier.show('ERROR', 'The transaction was canceled or failed.', 'error');
     }
 };
 

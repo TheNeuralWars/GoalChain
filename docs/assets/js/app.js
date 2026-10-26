@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 countdownContainer.style.animation = 'kickoffPulse 1.5s infinite';
                 countdownContainer.innerHTML = `
                     <div style="grid-column: span 4; text-align:center; padding:15px; width: 100%;">
-                        <span style="font-size:2.2rem; font-weight:900; color:var(--primary); text-shadow:0 0 25px var(--primary);">¡KICK-OFF!</span>
-                        <p style="color:var(--secondary); margin-top:8px; font-size:1rem; font-weight: 800;">EL MUNDIAL 2026 YA EMPEZÓ ⚽🔥</p>
+                        <span style="font-size:2.2rem; font-weight:900; color:var(--primary); text-shadow:0 0 25px var(--primary);">KICK-OFF!</span>
+                        <p style="color:var(--secondary); margin-top:8px; font-size:1rem; font-weight: 800;">THE 2026 WORLD CUP HAS STARTED ⚽🔥</p>
                     </div>`;
             }
             return;
@@ -220,12 +220,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.renderSocialTasks = function() {
         const grid = document.getElementById('socialGrid');
         const tasks = [
-            { id: 't1', icon: '🐦', bg: '#1DA1F2', pts: 200, title: 'Sigue a GoalChain', desc: 'Únete a nuestra comunidad en X', link: 'https://twitter.com/intent/follow?screen_name=GoalChainDotFun' },
-            { id: 't2', icon: '🔁', bg: '#17bf63', pts: 300, title: 'Difunde la Palabra', desc: 'Retuitea nuestro post fijado', link: 'https://twitter.com/intent/retweet?tweet_id=2055329044292411708' },
-            { id: 't3', icon: '💬', bg: '#5865F2', pts: 250, title: 'Discord Oficial', desc: 'Entra a nuestro vestuario VIP', link: 'https://discord.gg/nzjHNBfSh' },
-            { id: 't4', icon: '📸', bg: '#e4405f', pts: 200, title: 'Instagram', desc: 'Mira el arte de la Genesis Squad', link: 'https://instagram.com/goalchain.fun' },
-            { id: 't5', icon: '🤝', bg: '#9945ff', pts: '100/ref', title: 'Invita Amigos', desc: 'Copia tu link de referido único', link: 'COPY_REF' },
-            { id: 't6', icon: '⚽', bg: '#14f195', pts: 500, title: 'Juega Penaltis', desc: 'Haz tu primer tiro en el estadio', link: '#gameplay' },
+            { id: 't1', icon: '🐦', bg: '#1DA1F2', pts: 200, title: 'Follow GoalChain', desc: 'Join our community on X', link: 'https://twitter.com/intent/follow?screen_name=GoalChainDotFun' },
+            { id: 't2', icon: '🔁', bg: '#17bf63', pts: 300, title: 'Spread the Word', desc: 'Retweet our pinned post', link: 'https://twitter.com/intent/retweet?tweet_id=2055329044292411708' },
+            { id: 't3', icon: '💬', bg: '#5865F2', pts: 250, title: 'Official Discord', desc: 'Enter our VIP locker room', link: 'https://discord.gg/nzjHNBfSh' },
+            { id: 't4', icon: '📸', bg: '#e4405f', pts: 200, title: 'Instagram', desc: 'See the Genesis Squad art', link: 'https://instagram.com/goalchain.fun' },
+            { id: 't5', icon: '🤝', bg: '#9945ff', pts: '100/ref', title: 'Invite Friends', desc: 'Copy your unique referral link', link: 'COPY_REF' },
+            { id: 't6', icon: '⚽', bg: '#14f195', pts: 500, title: 'Play Penalties', desc: 'Take your first shot in the stadium', link: '#gameplay' },
         ];
 
         const completed = JSON.parse(localStorage.getItem('completed_tasks') || '[]');
@@ -245,14 +245,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.handleTask = function(id, link, pts) {
         const wallet = localStorage.getItem('goalchain_wallet');
         if (!wallet && id !== 't6') {
-            alert('Por favor, conecta tu wallet antes de realizar tareas sociales para asegurar tus puntos.');
+            alert('Please connect your wallet before doing social tasks to secure your points.');
             return;
         }
 
         if (link === 'COPY_REF') {
             const refLink = `https://goalchain.fun?ref=${wallet.substring(wallet.length - 6)}`;
             navigator.clipboard.writeText(refLink);
-            alert('¡Enlace de referido copiado! Compártelo para ganar 100 $GCH por cada amigo.');
+            alert('Referral link copied! Share it to earn 100 $GCH for each friend.');
             return;
         }
 
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let total = parseInt(localStorage.getItem('goalpoints') || '0');
                 total += pts;
                 localStorage.setItem('goalpoints', total);
-                if (window.notifier) window.notifier.show('¡TAREA COMPLETADA!', `Has ganado ${pts} GoalPoints. ¡Registrado en el ranking global!`);
+                if (window.notifier) window.notifier.show('TASK COMPLETED!', `You earned ${pts} GoalPoints. Logged in the global ranking!`);
                 
                 // ☁️ Sincronizar puntos con el servidor de Google Sheets
                 if (window.GoalPointsAPI) window.GoalPointsAPI.sync();
@@ -410,15 +410,15 @@ if(wlForm) {
                 document.getElementById('whitelistForm').style.display = 'block';
                 document.getElementById('wlSuccess').style.display = 'none';
                 wlForm.reset();
-                submitBtn.innerText = '¡QUIERO ENTRAR!';
+                submitBtn.innerText = 'I WANT IN!';
                 submitBtn.disabled = false;
             }, 3000);
 
         } catch (error) {
             console.error('Error:', error);
-            alert('Hubo un problema. Inténtalo de nuevo.');
+            alert('There was a problem. Try again.');
             submitBtn.disabled = false;
-            submitBtn.innerText = '¡QUIERO ENTRAR!';
+            submitBtn.innerText = 'I WANT IN!';
         }
     }
 }
