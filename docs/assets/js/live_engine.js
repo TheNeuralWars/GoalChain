@@ -21,7 +21,7 @@ class LiveEngine {
     this.marketCapVal = 14.8;
     this.holdersVal = 18294;
 
-    this.defaultDAOText = "SÉ PARTE DE LA DAO Y PROPONE UN NUEVO JUEGO 🏛️";
+    this.defaultDAOText = "BE PART OF THE DAO AND PROPOSE A NEW GAME 🏛️";
 
     this.init();
   }
@@ -183,7 +183,7 @@ class LiveMatchArena {
   init() {
     if (!this.logsContainer) return;
 
-    this.log("[Oracle] 📡 Conexión con validador de Solana establecida.");
+    this.log("[Oracle] 📡 Connection to Solana validator established.");
     this.log(
       "[Oracle] 🛡️ Oracle Authority verificado: E4hdW2ba7B6x2rPdNd9msmPFv86UtAUgGQuPePTHL2Ra",
     );
@@ -227,7 +227,7 @@ class LiveMatchArena {
 
     if (min === 15) {
       this.log(
-        "[Oracle] 📈 Creando Live Market de 'Próximo Gol' en Blockchain...",
+        "[Oracle] 📈 Creating 'Next Goal' Live Market on the Blockchain...",
       );
       this.log(
         "[Oracle] ✅ Live Market ID 1 abierto exitosamente. Tx: 571LEZF...",
@@ -236,25 +236,25 @@ class LiveMatchArena {
       this.scoreA = 1;
       if (this.scoreEl)
         this.scoreEl.innerText = `${this.scoreA} - ${this.scoreB}`;
-      this.log("[Oracle] ⚽ ¡GOOOOOOL DE ARGENTINA! (Min 23)", "#14f195");
+      this.log("[Oracle] ⚽ GOOOOOAL FOR ARGENTINA! (Min 23)", "#14f195");
       this.log("[Oracle] 📈 Cerrando Live Market ID 1...");
       this.resolveMarket("teamA");
     } else if (min === 45) {
-      if (this.phaseEl) this.phaseEl.innerText = "Entretiempo (HT)";
+      if (this.phaseEl) this.phaseEl.innerText = "Half Time (HT)";
       this.log(
-        "[Oracle] ⏳ Final del primer tiempo. Estado de fixture actualizado.",
+        "[Oracle] ⏳ End of the first half. Fixture state updated.",
       );
     } else if (min === 47) {
       if (this.phaseEl) this.phaseEl.innerText = "Second Half";
       this.log(
-        "[Oracle] 📈 Abriendo Live Market ID 2 ('Siguiente Gol'). Status: ABIERTO",
+        "[Oracle] 📈 Opening Live Market ID 2 ('Next Goal'). Status: OPEN",
       );
       this.reopenMarket();
     } else if (min === 68) {
       this.scoreB = 1;
       if (this.scoreEl)
         this.scoreEl.innerText = `${this.scoreA} - ${this.scoreB}`;
-      this.log("[Oracle] ⚽ ¡GOOOOOOL DE FRANCIA! (Min 68)", "#ff4d6a");
+      this.log("[Oracle] ⚽ GOOOOOAL FOR FRANCE! (Min 68)", "#ff4d6a");
       this.log("[Oracle] 📈 Cerrando Live Market ID 2...");
       this.resolveMarket("teamB");
     }
@@ -263,17 +263,17 @@ class LiveMatchArena {
   resolveMarket(winningTeam) {
     this.isMarketOpen = false;
     if (this.marketStatusEl) {
-      this.marketStatusEl.innerText = "RESOLVIDO / CERRADO";
+      this.marketStatusEl.innerText = "RESOLVED / CLOSED";
       this.marketStatusEl.style.color = "#ff4d6a";
       this.marketStatusEl.style.background = "rgba(255, 77, 106, 0.1)";
       this.marketStatusEl.style.borderColor = "rgba(255, 77, 106, 0.2)";
     }
 
     this.log(
-      `[Oracle] ⚖️ Resolviendo Live Market para ${winningTeam === "teamA" ? "Argentina" : "Francia"}...`,
+      `[Oracle] ⚖️ Resolving Live Market for ${winningTeam === "teamA" ? "Argentina" : "Francia"}...`,
     );
     this.log(
-      "[Oracle] ✅ Liquidando pools de apuestas y distribuyendo $GCH atómicamente.",
+      "[Oracle] ✅ Settling betting pools and distributing $GCH atomically.",
     );
 
     if (this.activeBet) {
@@ -298,7 +298,7 @@ class LiveMatchArena {
         }
 
         this.log(
-          `[User] 🎉 ¡GANASTE TU APUESTA! Recibiste +${winAmount} $GCH y +500 GoalPoints.`,
+          `[User] 🎉 YOU WON YOUR BET! You received +${winAmount} $GCH and +500 GoalPoints.`,
           "#14f195",
         );
 
@@ -311,7 +311,7 @@ class LiveMatchArena {
         }
       } else {
         this.log(
-          "[User] ❌ Apuesta perdida. ¡Mejor suerte para la próxima!",
+          "[User] ❌ Bet lost. Better luck next time!",
           "#ff4d6a",
         );
       }
@@ -335,15 +335,15 @@ class LiveMatchArena {
   }
 
   finishMatch() {
-    if (this.phaseEl) this.phaseEl.innerText = "Finalizado (FT)";
+    if (this.phaseEl) this.phaseEl.innerText = "Full Time (FT)";
     this.log(
-      "[Oracle] 🏁 ¡FIN DEL PARTIDO! Resolviendo pools generales pre-match...",
+      "[Oracle] 🏁 FULL TIME! Resolving general pre-match pools...",
     );
     this.log(
       "[Oracle] 🏆 Fixture completado exitosamente en Blockchain. Tx: 2cgzGm6MKcz...",
     );
     this.log("====================================================");
-    this.log("🟢 ORACLE ESPERANDO NUEVO PARTIDO EN VIVO.");
+    this.log("🟢 ORACLE WAITING FOR NEW LIVE MATCH.");
   }
 }
 
@@ -352,7 +352,7 @@ let liveArenaInstance = null;
 
 window.selectLiveBet = function (team) {
   if (!liveArenaInstance || !liveArenaInstance.isMarketOpen) {
-    alert("El mercado está actualmente cerrado o resolviéndose.");
+    alert("The market is currently closed or being resolved.");
     return;
   }
 
@@ -381,24 +381,24 @@ window.placeLiveBet = function () {
   if (!wallet) {
     if (window.notifier) {
       window.notifier.show(
-        "CONECTAR WALLET",
-        "Primero conecta tu Phantom Wallet en el menú superior.",
+        "CONNECT WALLET",
+        "Connect your Phantom Wallet first in the top menu.",
         "warning",
       );
     } else {
-      alert("Primero conecta tu Phantom Wallet en el menú superior.");
+      alert("Connect your Phantom Wallet first in the top menu.");
     }
     return;
   }
 
   if (!liveArenaInstance || !liveArenaInstance.isMarketOpen) {
-    alert("El mercado de apuestas está cerrado en este momento.");
+    alert("The betting market is closed right now.");
     return;
   }
 
   const team = liveArenaInstance.selectedBet;
   if (!team) {
-    alert("Selecciona un equipo (Argentina o Francia) para apostar.");
+    alert("Select a team (Argentina or Francia) to bet on.");
     return;
   }
 
@@ -406,13 +406,13 @@ window.placeLiveBet = function () {
   const amount = parseInt(input ? input.value : "0");
 
   if (isNaN(amount) || amount <= 0) {
-    alert("Por favor introduce una cantidad de tokens válida.");
+    alert("Please enter a valid token amount.");
     return;
   }
 
   let balance = parseInt(localStorage.getItem("gch_balance") || "1000");
   if (amount > balance) {
-    alert(`Saldo insuficiente. Tu balance actual es de ${balance} $GCH.`);
+    alert(`Insufficient balance. Your current balance is ${balance} $GCH.`);
     return;
   }
 
@@ -430,14 +430,14 @@ window.placeLiveBet = function () {
 
   const teamName = team === "teamA" ? "Argentina" : "Francia";
   liveArenaInstance.log(
-    `[User] 💸 Colocada apuesta de ${amount} $GCH a ${teamName}. Esperando resolución del Oráculo...`,
+    `[User] 💸 Placed a bet of ${amount} $GCH a ${teamName}. Waiting for Oracle resolution...`,
     "#ffd700",
   );
 
   if (window.notifier) {
     window.notifier.show(
-      "APUESTA CONFIRMADA ⚽",
-      `Apuestas ${amount} $GCH en vivo por ${teamName}.`,
+      "BET CONFIRMED ⚽",
+      `Betting ${amount} $GCH live on ${teamName}.`,
       "success",
     );
   }
@@ -461,12 +461,12 @@ function submitDAOProposal() {
   const desc = document.getElementById("daoGameDesc").value;
 
   if (!name || !desc) {
-    alert("Por favor completa los campos de la propuesta.");
+    alert("Please fill in the proposal fields.");
     return;
   }
 
   alert(
-    `✅ Propuesta enviada a la DAO: ${name}\nGracias por contribuir al ecosistema GoalChain.`,
+    `✅ Proposal sent to the DAO: ${name}\nThank you for contributing to the GoalChain ecosystem.`,
   );
 
   // Clear and close

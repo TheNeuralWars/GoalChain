@@ -9,7 +9,7 @@ const TREASURY_WALLET = "6v6yVpWp5Z6T8f7Qz4J6x6m5Y6x6Y6x6Y6x6Y6x6Y6x6"; // Place
 const MintEngine = {
     async processMint(player) {
         if (!window.solana || !window.solana.isConnected) {
-            if (window.notifier) window.notifier.show('ERROR', 'Conecta tu wallet para mintear.', 'error');
+            if (window.notifier) window.notifier.show('ERROR', 'Connect your wallet to mint.', 'error');
             return null;
         }
 
@@ -21,7 +21,7 @@ const MintEngine = {
             // 1. Simulación de Costo (0.01 SOL en Devnet para la prueba)
             const lamports = 10000000; // 0.01 SOL
             
-            if (window.notifier) window.notifier.show('PROCESANDO', `Preparando contrato para ${player.name}...`, 'info');
+            if (window.notifier) window.notifier.show('PROCESSING', `Preparing contract for ${player.name}...`, 'info');
 
             // 2. Crear Transacción Real
             const transaction = new solanaWeb3.Transaction().add(
@@ -39,7 +39,7 @@ const MintEngine = {
             // 3. Firma y Envío
             const { signature } = await provider.signAndSendTransaction(transaction);
             
-            if (window.notifier) window.notifier.show('BLOCKCHAIN', 'Esperando confirmación de la red...', 'info');
+            if (window.notifier) window.notifier.show('BLOCKCHAIN', 'Waiting for network confirmation...', 'info');
 
             // 4. Esperar Confirmación
             await connection.confirmTransaction(signature);
@@ -49,7 +49,7 @@ const MintEngine = {
 
         } catch (error) {
             console.error("Mint Error:", error);
-            if (window.notifier) window.notifier.show('MINT CANCELADO', 'La transacción no se completó.', 'error');
+            if (window.notifier) window.notifier.show('MINT CANCELLED', 'The transaction did not complete.', 'error');
             return null;
         }
     }

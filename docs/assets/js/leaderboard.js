@@ -97,7 +97,7 @@ function renderLeaderboard(players) {
                 ${rankDisplay}${isUser ? ' ⭐' : ''}
             </td>
             <td style="padding: 14px 10px; color: ${isUser ? 'var(--primary)' : 'var(--text)'} ; font-weight: ${isUser ? '700' : '400'};">
-                ${p.display}${isUser ? ' <span style="font-size:0.65rem;color:var(--primary);border:1px solid var(--primary);padding:1px 5px;border-radius:3px;margin-left:4px;">TÚ</span>' : ''}
+                ${p.display}${isUser ? ' <span style="font-size:0.65rem;color:var(--primary);border:1px solid var(--primary);padding:1px 5px;border-radius:3px;margin-left:4px;">YOU</span>' : ''}
             </td>
             <td style="padding: 14px 10px; color: var(--primary); font-weight: 700; font-size: 1.05rem;">
                 ${p.points.toLocaleString()} <span style="font-size:0.65rem;color:var(--text-dim);font-weight:400;">pts</span>
@@ -113,7 +113,7 @@ function renderLeaderboard(players) {
     // Mostrar posición del usuario si está fuera del Top 10
     const userPositionEl = document.getElementById('userPosition');
     if (userPositionEl && userRank && userRank > 10) {
-        userPositionEl.innerHTML = `Tu posición actual: <strong style="color:var(--primary);">#${userRank}</strong> con ${userPts.toLocaleString()} pts`;
+        userPositionEl.innerHTML = `Your current position: <strong style="color:var(--primary);">#${userRank}</strong> with ${userPts.toLocaleString()} pts`;
         userPositionEl.style.display = 'block';
     } else if (userPositionEl) {
         userPositionEl.style.display = 'none';

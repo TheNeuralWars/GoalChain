@@ -46,7 +46,7 @@ class DialectApp {
             this.isSubscribed = true;
             localStorage.setItem('gc_notif_subscribed', 'true');
             this.optInContainer.style.display = 'none';
-            this.notify("🚀 ¡Bienvenido a GoalChain Alerts!", "Ya estás suscrito. Recibirás actualizaciones críticas aquí.");
+            this.notify("🚀 Welcome to GoalChain Alerts!", "You are now subscribed. You will receive critical updates here.");
         }, 1500);
     }
 

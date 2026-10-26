@@ -267,7 +267,7 @@ async function handleBuy(playerId) {
     if (!player) return;
 
     if (!window.MintEngine) {
-        alert("El motor de minteo no está listo.");
+        alert("The minting engine is not ready.");
         return;
     }
 
@@ -284,7 +284,7 @@ async function handleBuy(playerId) {
     if (signature) {
         // ÉXITO: Actualizar la carta en vivo
         const shortSig = `${signature.slice(0, 6)}...${signature.slice(-6)}`;
-        if (window.notifier) window.notifier.show('🚀 ¡ÉXITO!', `${player.name} ya es tuyo en la Devnet.`, 'success');
+        if (window.notifier) window.notifier.show('🚀 SUCCESS!', `${player.name} is now yours on Devnet.`, 'success');
         
         // Simular actualización de la metadata on-chain en la UI
         const card = btn.closest('.nft-card-3d');
