@@ -1290,3 +1290,89 @@ One entry per daily run (newest last).
   leftovers, wallet-adapter DM Sans (third-party, leave), landing-host legacy manifest
   restage, docs/goalchain.html loads solana_connector.js without any anchor loader
   (wallet connect there stays broken — separate run).
+
+## 2026-10-27 run 20261027T034752Z
+
+- **What:** WCAG AA accessibility pass on the three legacy `gc-site-nav` pages
+  (`arcade.html` / `tokenomics.html` / `agents.html` at goalworld.fun) — every failing
+  audit fixed at its ROOT CAUSE, not just the reported site: (1) `.gc-site-nav` links
+  had NO stylesheet rule anywhere in the repo → UA-default `#0000ee` (2.19:1) on the
+  `#030307` shell; `style.css` now colors them `--text-main` (16.6:1) with `--primary`
+  hover/focus. (2) The shared gw-chrome brand link LOST its accessible name under
+  720px (brand text is `display:none`, logo img is decorative — link-name audit on
+  every marketing page, mobile viewport): `gw-shell.js` sets
+  `aria-label="GoalWorld home"`. (3) `#6b7280` small text (4.15:1) → the AA-safe
+  `--text-dim` token (5.91:1): arcade `p.pack-odds` + `.empty-inventory`, tokenomics
+  `.metric-subtitle` + KPI timestamp; arcade LEGENDARY filter button `#9945ff`
+  (4.31:1) → `#a570ff` (5.9:1, rarity color coding kept). (4) agents extras:
+  unlabeled `select#agentSelector` → `aria-label="Select agent"`; JS-injected card
+  heading `h3` before any `h2` → `h2` (inline styles preserved, no CSS selector
+  depends on the h3). Chosen from run 20261025's named follow-up (4) "Arcade a11y
+  0.91"; measured the other two pages live first and found the identical class
+  (tokenomics 0.91, agents 0.84) → fixed the class.
+- **Why:** Accessibility is a named improvement axis; the failing audits were real
+  user-facing bugs (nameless link for screen-reader users at mobile widths on EVERY
+  marketing page; unreadable 2-4:1 text). Single concern (a11y), class-wide fix,
+  measurable per page. Copy (Spanish legacy strings on these pages) intentionally NOT
+  mixed in — one concern per run (see follow-ups).
+- **Commit SHA (merge):** `d01c9e26` (PR #908, feature `46e98da5`); follow-ups on main:
+  `7e073cd4` (cache-bust shared refs `gw-shell.js?v=2.0` ×23 pages + `style.css?v=4.5`
+  ×3), `1920bd73` (cache-bust `agents.js?v=1.0→1.1`). Pre-merge `origin/main` = `f389fc8e`
+  (rollback: `git revert -m 1 d01c9e26` + revert follow-ups + push +
+  `scripts/pages/deploy_origin.sh` restage — docs-surface only, no landing/Vercel
+  change needed).
+- **Live link:** https://goalworld.fun/arcade.html + /tokenomics.html + /agents.html
+  (shared fixes ride on every page loading gw-shell.js / style.css).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261027T034752Z/`
+  - build.txt: exit 0 (`tsc && vite build`, 6.9 s — webapp untouched, regression
+    sanity). tests.txt: `node --check` gw-shell.js + agents.js OK; `check:i18n` OK
+    (381 used keys, en/es/type in sync); `docs/tests/test_gw_chrome` 9 tests —
+    1 failure is PRE-EXISTING on origin/main (`test_marketing_html_loads_shell`, 5
+    pages missing gw-shell.js — verified via git-stash baseline) and the pre-merge
+    `test_live_mirror_matches_when_present` divergence cleared post-deploy (final run:
+    1 failure = pre-existing only). site-build.txt: exit 0. linkcheck.txt: 532 links,
+    all internal resolve (2 external 200).
+  - Lighthouse (mobile) LIVE before → after:
+    | page | a11y | perf | BP | SEO |
+    |---|---|---|---|---|
+    | arcade | 0.91 → **1.0** | 0.69 → 0.70 | 1.0 | 1.0 |
+    | tokenomics | 0.91 → **1.0** | (a11y-only) | | |
+    | agents | 0.84 → **1.0** | (a11y-only) | | |
+    All flagged audits cleared (color-contrast, link-name ×3 pages, select-name,
+    heading-order). Arcade single-sample LCP 8.1 s sits in this page's documented
+    5.0–8.4 s band (the web3-v1 pin cost logged by run 20261025, untouched here);
+    FCP 2.5 s, TBT 99 ms, CLS 0. Pre-merge local preview (lighthouse-local-*.json):
+    arcade a11y 1.0 / perf 0.72, tokenomics 1.0, agents 1.0 — no regression vs live
+    baseline on any gate axis.
+  - dom-check.txt + arcade-live-before.png / arcade-local-after.png /
+    arcade-live-after.png (real Chromium, 360×740): live before = brand link with NO
+    accessible name at <720px (`strong` display:none), nav `rgb(0,0,238)` 2.19:1,
+    pack-odds `#6b7280` 4.15:1, LEGENDARY `#9945ff` 4.31:1 → live after =
+    `"GoalWorld home"`, `rgb(240,240,245)` 16.6:1, `#8a8a9a` 5.91:1, `#a570ff`
+    5.9:1; agents `select aria-label="Select agent"`, card headings H2,H2,H2.
+  - smoke-before.txt / smoke-after.txt: all URLs 200; fingerprints flipped as
+    designed (`color:#9945ff` 1→0, `color:#6b7280` 2→0, new colors/labels present).
+  - **Edge-cache incident (handled in-run):** CF serves goalworld.fun JS/CSS with
+    `cache-control: max-age=14400` on unchanged URL keys — post-restage
+    `gw-shell.js`/`style.css`/`agents.js` still served stale bytes
+    (`cf-cache-status: HIT, age: 1415`) while HTML is `no-cache`/`DYNAMIC`. Same
+    class as run 20261025: fixed with fresh query keys (`7e073cd4`, `1920bd73`),
+    verified the new keys serve the fixed files AND the pages request them. Residual:
+    `docs/index.html`'s bumped ref is shadowed live by the landing manifest index
+    (harmless); old asset keys serve stale copies for any un-reloaded client ≤ 4 h.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) English Max Law sweep of the Spanish legacy
+  copy on arcade/tokenomics/agents (e.g. "ABRIR SOBRE (250 $GCH)", "Tu inventario está
+  vacío.", "Último chequeo", "TODOS" — same class as runs 20261024/20261026 sweeps).
+  (2) Pre-existing `test_marketing_html_loads_shell` failure: 5 pages missing
+  gw-shell.js (architecture/archify/goalchain.architecture.html,
+  assets/film/improve_20260914/index.html, assets/film/improve_20260915/index.html,
+  go/reader/index.html, reader.html). (3) **Log gap:** run 20261026T034752Z shipped
+  PR #907 (merge `f389fc8e` — English Max Law sweep of goalchain.html + JS-injected
+  UI copy in docs/assets/js/*) but never wrote its LOG.md entry; reconstructed here
+  from the merge. (4) Unchanged earlier follow-ups: contract_data.js Anchor → raw
+  getAccountInfo/borsh read path (needs a live on-chain fixture to validate), webapp
+  in-app ES strings (~500 strings / 40 files — multi-run sweep), legacy pages' LCP
+  cost of web3 v1 pinning, goalworld_site TODO.md human facts (dead Discord invite,
+  X handle 404, legal review), Caddyfile diff (hard limit), i18n
+  translation.json leftovers, wallet-adapter DM Sans (third-party, leave).
