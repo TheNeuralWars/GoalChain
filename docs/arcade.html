@@ -305,7 +305,7 @@
           >
             ABRIR SOBRE (250 $GCH)
           </button>
-          <p class="pack-odds" style="color:#6b7280; font-size:0.75rem; margin:10px 0 0;">
+          <p class="pack-odds" style="font-size:0.75rem; margin:10px 0 0;">
             Mythic: 1.0% | Legendary: 4.0% | Epic: 10.0% | Rare: 25.0%
           </p>
         </div>
@@ -321,14 +321,14 @@
       <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:30px;">
         <button class="filter-btn active" onclick="filterCollection('all')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#fff; cursor:pointer; font-weight:600;">TODOS</button>
         <button class="filter-btn" onclick="filterCollection('mythic')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#ffd700; cursor:pointer; font-weight:600;">MYTHIC</button>
-        <button class="filter-btn" onclick="filterCollection('legendary')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#9945ff; cursor:pointer; font-weight:600;">LEGENDARY</button>
+        <button class="filter-btn" onclick="filterCollection('legendary')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#a570ff; cursor:pointer; font-weight:600;">LEGENDARY</button>
         <button class="filter-btn" onclick="filterCollection('epic')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#00e5ff; cursor:pointer; font-weight:600;">EPIC</button>
         <button class="filter-btn" onclick="filterCollection('rare')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#14f195; cursor:pointer; font-weight:600;">RARE</button>
       </div>
 
       <!-- Collection Grid -->
       <div id="collectionGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:20px; padding:20px 0;">
-        <div class="empty-inventory" style="grid-column:1/-1; padding:40px; color:#6b7280;">
+        <div class="empty-inventory" style="grid-column:1/-1; padding:40px; color:var(--text-dim);">
           <p>Tu inventario está vacío.</p>
           <p style="font-size:0.8rem;">Los jugadores que obtengas en los sobres aparecerán en esta sección.</p>
         </div>

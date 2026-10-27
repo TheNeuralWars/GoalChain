@@ -127,6 +127,18 @@ body {
 }
 .nav-links-desktop a:hover { color: var(--primary); }
 
+/* Shared legacy top nav (arcade / tokenomics / agents) — AA-safe link colors
+   on the dark shell (default UA link blue was 2.19:1 on #030307). */
+.gc-site-nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.gc-site-nav a:hover,
+.gc-site-nav a:focus-visible {
+    color: var(--primary);
+}
+
 .mobile-menu {
     display: none;
     position: fixed;

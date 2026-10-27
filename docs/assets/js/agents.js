@@ -71,7 +71,7 @@
               <span>${agent.category}</span>
               <span class="status-indicator ${statusClass}">● ${agent.status}</span>
             </div>
-            <h3 style="margin: 5px 0 10px; font-weight:800; font-size:1.3rem; color:#fff;">${agent.name}</h3>
+            <h2 style="margin: 5px 0 10px; font-weight:800; font-size:1.3rem; color:#fff;">${agent.name}</h2>
             <p style="color:#9ca3af; font-size:0.8rem; margin:0 0 15px; min-height:40px;">${agent.role}</p>
             
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:15px; background:rgba(255,255,255,0.02); padding:10px; border-radius:12px;">
