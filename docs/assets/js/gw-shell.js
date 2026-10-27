@@ -78,6 +78,9 @@
     var brand = document.createElement('a');
     brand.className = 'gw-chrome-brand';
     brand.href = origin + '/';
+    // The brand text is display:none under 720px (logo-only), so give the
+    // link a persistent accessible name for screen readers (link-name a11y).
+    brand.setAttribute('aria-label', 'GoalWorld home');
     var img = document.createElement('img');
     img.src = origin + '/assets/img/logo_3d_clean.png';
     img.alt = '';
