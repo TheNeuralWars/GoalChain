@@ -1376,3 +1376,89 @@ One entry per daily run (newest last).
   cost of web3 v1 pinning, goalworld_site TODO.md human facts (dead Discord invite,
   X handle 404, legal review), Caddyfile diff (hard limit), i18n
   translation.json leftovers, wallet-adapter DM Sans (third-party, leave).
+
+## 2026-10-28 run 20261028T034752Z
+
+- **What:** English Max Law sweep of the Spanish legacy public copy on the three
+  `gc-site-nav` pages (`arcade.html` / `tokenomics.html` / `agents.html` at
+  goalworld.fun) — run 20261027's named follow-up (1) — fixed at ROOT CAUSE:
+  (1) 36 static HTML strings translated (hero copy, "APUESTA POR TIRO" / "TU
+  BOLSA" / "RECLAMAR AIRDROP", daily-challenge banner, stat labels
+  Goles/Atajadas/Racha, pack subtitle, "ABRIR SOBRE (250 $GCH)", "TODOS",
+  empty-inventory copy, "AGREGAR A MI COLECCIÓN", tokenomics metric subtitles +
+  "Último chequeo", agents ledger heading + 4 ledger labels).
+  (2) JS-injected UI copy: `solana_integration.js` "PROCESANDO FIRMA (MOCK)..."
+  button states and `pack_opener.js` "Survivor Pack Opener (Eliminatorias)"
+  title override → English.
+  (3) ROOT CAUSE of JS-rendered Spanish: the `currentLang === 'en' ? EN : ES`
+  ternaries render the SPANISH branch whenever `currentLang` is undefined — i.e.
+  on every page that does not load `i18n.js`, arcade/tokenomics/agents among
+  them (wallet/claim alerts showed Spanish to every default visitor). Flipped to
+  `currentLang === 'es' ? ES : EN` in `solana_integration.js` (5 sites) and
+  `penalty_game.js` (4 sites): English is now the default everywhere, and
+  explicit ES selection on i18n pages (goalchain.html, play/*) is
+  behavior-neutral since `i18n.js` always defines `currentLang`.
+  (4) Cache-bust per the CF 4h JS-cache discipline: `solana_integration.js
+  ?v=3.0→3.1` ×4 pages, `penalty_game.js →4.2` ×3, `pack_opener.js →3.2` ×3
+  (every referencing page incl. goalchain.html and play/*).
+- **Why:** English Max Law (CLAUDE.md): all public copy is 100% English — these
+  three `<html lang="en">` pages rendered Spanish to every default visitor.
+  Single concern (public copy on the three named pages), root-cause fixed,
+  measurable per page. Scope guard: `SURVIVOR_COUNTRIES` / `PACK_FLAG_MAP`
+  country names left as-is — they are `players.json` data identifiers (filter +
+  flag-lookup keys), never rendered as text.
+- **Commit SHA (merge):** `22455626` (PR #909, feature `6bf4e7b`). Pre-merge
+  `origin/main` = `4e8c285e` (rollback: `git revert -m 1 22455626` + push +
+  `scripts/pages/deploy_origin.sh` restage — docs-surface only, no landing/Vercel
+  change needed).
+- **Live link:** https://goalworld.fun/arcade.html + /tokenomics.html +
+  /agents.html (ternary fix also rides on goalchain.html, play/pack.html,
+  play/penalty.html).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261028T034752Z/`
+  - build.txt: exit 0 (`tsc && vite build`, 11.0 s — webapp untouched, regression
+    sanity). tests.txt: `node --check` ×3 changed JS OK; `check:i18n` exit 0 (381
+    used keys, en/es/type in sync); `test_gw_chrome` 9 tests — 1 failure is the
+    PRE-EXISTING `test_marketing_html_loads_shell` (same 5-page list as
+    origin/main per run 20261027's baseline). linkcheck.txt: 107 internal links
+    on the touched/ref pages, 0 broken.
+  - Lighthouse (mobile) LIVE before → after:
+    | page | perf | a11y | BP | SEO |
+    |---|---|---|---|---|
+    | arcade | 0.95 → 0.95 | 1.0 | 1.0 | 1.0 |
+    | tokenomics | 0.84 → 0.91 | 1.0 | 0.96 | 1.0 |
+    | agents | 0.69 → 0.66 | 1.0 | 1.0 | 1.0 |
+    No regression on any gate axis; perf deltas are single-sample noise on
+    copy-only changes (agents −0.03 — LCP is web3-bundle-dominated; arcade's
+    documented swing band). Pre-merge local preview (lighthouse-local-*.json):
+    arcade 0.95/1.0/1.0/1.0, tokenomics 0.91/1.0/1.0/1.0, agents 0.68/1.0/1.0/1.0
+    — no regression vs live baseline.
+  - dom-check.txt (local) + dom-check-live.txt (live after): real Chromium
+    innerText render of all three pages = **0 Spanish markers** (before: 7/8/7
+    accent-marker lines per page plus the ternary-rendered strings).
+    smoke-before.txt / smoke-after.txt: all URLs 200 (sizes 16163→16081,
+    10622→10473, 10399→10336); bumped JS keys ?v=3.1/4.2/3.2 serve 200 fresh
+    bytes on first request; Spanish fingerprint lines 0 on all pages, English
+    fingerprints present (4/1/3). shot-before/local/after PNGs ×3 pages (360×740).
+  - Deploy: `scripts/pages/deploy_origin.sh` → guard clean (0 internal-only
+    paths), `restaged 22455626` 04:13 UTC.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) ES locale feature kept: `i18n.js` /
+  `lang-toggle.js` dictionaries and ES ternaries on i18n pages (goalchain.html,
+  play/*) remain — behavior-neutral here; removing ES entirely is the pending
+  "i18n translation.json leftovers" decision. (2) `docs/play/{pack,penalty}.html`
+  own static copy not audited this run (their shared JS now defaults to
+  English). (3) Pack price copy inconsistency: `pack_opener.js` error/finish
+  resets say "OPEN PACK (100 $GCH)" while the launch override/static button say
+  250 $GCH — NOT changed (figures are hard-limit territory); needs a human
+  decision on which price is real. (4) Dev-facing Spanish (code comments,
+  console/error strings in solana_integration.js, arcade.js, agents.js, etc.)
+  remains — same class as run 20261025 follow-up (3). (5) Pre-existing
+  `test_marketing_html_loads_shell` failure: 5 pages missing gw-shell.js
+  (architecture/archify/goalchain.architecture.html,
+  assets/film/improve_20260914/index.html, assets/film/improve_20260915/index.html,
+  go/reader/index.html, reader.html). (6) Unchanged earlier follow-ups:
+  contract_data.js Anchor → raw getAccountInfo/borsh read path (needs a live
+  on-chain fixture), webapp in-app ES strings (~500 strings / 40 files —
+  multi-run sweep), legacy pages' LCP cost of web3 v1 pinning, goalworld_site
+  TODO.md human facts (dead Discord invite, X handle 404, legal review),
+  Caddyfile diff (hard limit), wallet-adapter DM Sans (third-party, leave).
