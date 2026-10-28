@@ -189,7 +189,7 @@
     <!-- Hero -->
     <header class="tokenomics-hero">
       <h1>🔥 Tokenomics & Observability</h1>
-      <p>Monitorea en tiempo real la deflación de $GCH, la liquidez y las variables económicas del Infinity Engine.</p>
+      <p>Monitor $GCH deflation, liquidity, and the Infinity Engine economic variables in real time.</p>
     </header>
 
     <!-- Main Dashboard Section -->
@@ -204,7 +204,7 @@
         </div>
         <div class="metric-value highlight" id="liveBurnVal">--</div>
         <div class="metric-subtitle">
-          Total de tokens $GCH sacados de circulación permanentemente. Actualizado por última vez: <span id="burnTrackerTs" style="color:#fff;">--</span>
+          Total $GCH tokens permanently removed from circulation. Last updated: <span id="burnTrackerTs" style="color:#fff;">--</span>
         </div>
       </section>
 
@@ -215,7 +215,7 @@
           <span>◎ SOL</span>
         </div>
         <div class="metric-value" id="statStaked">--</div>
-        <div class="metric-subtitle">Fondos bloqueados en contratos inteligentes de staking de GoalChain.</div>
+        <div class="metric-subtitle">Funds locked in GoalChain staking smart contracts.</div>
       </section>
 
       <section class="metric-card">
@@ -224,7 +224,7 @@
           <span>USD</span>
         </div>
         <div class="metric-value" id="statMarketCap">--</div>
-        <div class="metric-subtitle">Valor de capitalización de mercado sintética calculada sobre tokens quemados.</div>
+        <div class="metric-subtitle">Synthetic market cap value calculated over burned tokens.</div>
       </section>
 
       <!-- Economy Observability KPIs -->
@@ -234,16 +234,16 @@
           <span>Ratio</span>
         </div>
         <div class="metric-value" id="kpiEmitBurnRatio" style="color: #a5b4fc;">--</div>
-        <div class="metric-subtitle">Relación entre la emisión de tokens y la quema durante los últimos 7 días.</div>
+        <div class="metric-subtitle">Ratio between token emission and burning over the last 7 days.</div>
       </section>
 
       <section class="metric-card">
         <div class="metric-title">
           <span>On-chain Sink Coverage</span>
-          <span>Porcentaje</span>
+          <span>Percentage</span>
         </div>
         <div class="metric-value" id="kpiSinkCoverage" style="color: #14f195;">--</div>
-        <div class="metric-subtitle">Porcentaje de sumideros de tokens cubiertos e implementados en la red.</div>
+        <div class="metric-subtitle">Percentage of token sinks covered and deployed on the network.</div>
       </section>
 
       <section class="metric-card">
@@ -252,27 +252,27 @@
           <span>Drift</span>
         </div>
         <div class="metric-value" id="kpiConfigDrift" style="color: #ff9a33;">--</div>
-        <div class="metric-subtitle">Desviación detectada respecto a los parámetros óptimos del Infinity Engine.</div>
+        <div class="metric-subtitle">Deviation detected from the Infinity Engine's optimal parameters.</div>
       </section>
 
       <section class="metric-card">
         <div class="metric-title">
           <span>Net Emission (24h)</span>
-          <span>Flujo GCH</span>
+          <span>GCH Flow</span>
         </div>
         <div class="metric-value" id="kpiNetEmission24h">--</div>
-        <div class="metric-subtitle">Variación neta del suministro en circulación durante las últimas 24 horas.</div>
+        <div class="metric-subtitle">Net change in circulating supply over the last 24 hours.</div>
       </section>
 
       <!-- System Health -->
       <section class="metric-card" style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
         <div>
           <div class="metric-title" style="margin-bottom: 5px;">Infinity Engine Health Status</div>
-          <div style="font-size: 0.9rem; color: #9ca3af;">Verificación automatizada de consistencia y estabilidad económica.</div>
+          <div style="font-size: 0.9rem; color: #9ca3af;">Automated verification of economic consistency and stability.</div>
         </div>
         <div style="text-align: right;">
           <div id="kpiHealthStatus" class="status-indicator status-offline">Checking...</div>
-          <div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 5px;">Último chequeo: <span id="kpiUpdatedAt">--</span></div>
+          <div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 5px;">Last check: <span id="kpiUpdatedAt">--</span></div>
         </div>
       </section>
 
@@ -280,7 +280,7 @@
 
     <!-- Scripts: load in correct order for proper DOMContentLoaded execution -->
     <script src="https://unpkg.com/@solana/web3.js@1.98.2/lib/index.iife.min.js"></script>
-    <script src="assets/js/solana_integration.js?v=3.0"></script>
+    <script src="assets/js/solana_integration.js?v=3.1"></script>
     <script src="assets/js/tokenomics.js?v=1.0"></script>
     <script src="assets/js/burn_tracker.js?v=1.1"></script>
     <script src="assets/js/economy_observability.js?v=1.1"></script>

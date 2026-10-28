@@ -15,8 +15,8 @@ async function connectWallet() {
         
         if (window.notifier) {
             window.notifier.show(
-                typeof currentLang !== 'undefined' && currentLang === 'en' ? "DEV MODE CONNECTED" : "MODO DEV CONECTADO",
-                typeof currentLang !== 'undefined' && currentLang === 'en' ? "Simulating Solana Wallet on local environment." : "Simulando Wallet Solana en entorno local.",
+                typeof currentLang !== 'undefined' && currentLang === 'es' ? "MODO DEV CONECTADO" : "DEV MODE CONNECTED",
+                typeof currentLang !== 'undefined' && currentLang === 'es' ? "Simulando Wallet Solana en entorno local." : "Simulating Solana Wallet on local environment.",
                 'success'
             );
         } else {
@@ -270,8 +270,8 @@ async function claimTokens() {
     if (!userWalletAddress) {
         if (window.notifier) {
             window.notifier.show(
-                typeof currentLang !== 'undefined' && currentLang === 'en' ? "CONNECT WALLET" : "CONECTAR WALLET",
-                typeof currentLang !== 'undefined' && currentLang === 'en' ? "Connect your wallet at the top right first." : "Connect your wallet first using the button at the top."
+                typeof currentLang !== 'undefined' && currentLang === 'es' ? "CONECTAR WALLET" : "CONNECT WALLET",
+                typeof currentLang !== 'undefined' && currentLang === 'es' ? "Conecta tu wallet primero con el botón de arriba." : "Connect your wallet at the top right first."
             );
         } else {
             alert("Connect your wallet first using the button at the top.");
@@ -291,8 +291,8 @@ async function claimTokens() {
         
         if (window.notifier) {
             window.notifier.show(
-                typeof currentLang !== 'undefined' && currentLang === 'en' ? "REFUEL SUCCESSFUL ⚡" : "RECARGA EXITOSA ⚡",
-                typeof currentLang !== 'undefined' && currentLang === 'en' ? "Received 1,000 $GCH to keep playing!" : "¡Recibiste 1,000 $GCH gratis para seguir jugando!"
+                typeof currentLang !== 'undefined' && currentLang === 'es' ? "RECARGA EXITOSA ⚡" : "REFUEL SUCCESSFUL ⚡",
+                typeof currentLang !== 'undefined' && currentLang === 'es' ? "¡Recibiste 1,000 $GCH gratis para seguir jugando!" : "Received 1,000 $GCH to keep playing!"
             );
         } else {
             alert("⚡ Top-up successful! You received 1,000 $GCH.");
@@ -303,7 +303,7 @@ async function claimTokens() {
     // UI Feedback
     const claimBtn = document.getElementById('claimGCHBtn');
     if (claimBtn) {
-        claimBtn.innerHTML = 'PROCESANDO FIRMA...';
+        claimBtn.innerHTML = 'PROCESSING SIGNATURE...';
         claimBtn.disabled = true;
     }
 
@@ -311,14 +311,14 @@ async function claimTokens() {
     if (userWalletAddress.startsWith("DevGoaL")) {
         console.log("Simulando firma de transacción en Devnet para entorno local...");
         if (claimBtn) {
-            claimBtn.innerHTML = 'PROCESANDO FIRMA (MOCK)...';
+            claimBtn.innerHTML = 'PROCESSING SIGNATURE (MOCK)...';
         }
         
         setTimeout(() => {
             if (window.notifier) {
                 window.notifier.show(
-                    typeof currentLang !== 'undefined' && currentLang === 'en' ? "AIRDROP CLAIMED 🎉" : "AIRDROP COMPLETADO 🎉",
-                    typeof currentLang !== 'undefined' && currentLang === 'en' ? `Validated ${balanceToClaim} $GCH in dev mode.` : `Se validaron tus ${balanceToClaim} $GCH have been validated in development mode.`,
+                    typeof currentLang !== 'undefined' && currentLang === 'es' ? "AIRDROP COMPLETADO 🎉" : "AIRDROP CLAIMED 🎉",
+                    typeof currentLang !== 'undefined' && currentLang === 'es' ? `Se validaron tus ${balanceToClaim} $GCH en modo desarrollo.` : `Validated ${balanceToClaim} $GCH in dev mode.`,
                     'success'
                 );
             } else {
@@ -333,7 +333,7 @@ async function claimTokens() {
             }
             
             if (claimBtn) {
-                claimBtn.innerHTML = typeof currentLang !== 'undefined' && currentLang === 'en' ? "CLAIM AIRDROP" : "RECLAMAR AIRDROP";
+                claimBtn.innerHTML = typeof currentLang !== 'undefined' && currentLang === 'es' ? "RECLAMAR AIRDROP" : "CLAIM AIRDROP";
                 claimBtn.disabled = false;
             }
         }, 1500);

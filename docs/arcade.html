@@ -206,7 +206,7 @@
     <!-- Hero -->
     <header class="arcade-hero">
       <h1>🎮 GoalChain Arcade</h1>
-      <p>Patea penales para multiplicar tus $GCH, y abre sobres NFT para armar tu plantilla.</p>
+      <p>Take penalty shots to multiply your $GCH, and open NFT packs to build your squad.</p>
     </header>
 
     <!-- Main Grid -->
@@ -218,7 +218,7 @@
         <!-- Panel superior de apuestas y bolsa -->
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px; margin-bottom:15px;">
           <div class="bet-bar">
-            <span style="font-size:0.75rem; font-weight:800; color:#14f195; letter-spacing:1px; margin-right:5px;">APUESTA POR TIRO:</span>
+            <span style="font-size:0.75rem; font-weight:800; color:#14f195; letter-spacing:1px; margin-right:5px;">BET PER SHOT:</span>
             <button class="bet-btn active" data-amount="10">10 $GCH</button>
             <button class="bet-btn" data-amount="50">50 $GCH</button>
             <button class="bet-btn" data-amount="100">100 $GCH</button>
@@ -226,7 +226,7 @@
           
           <div style="font-weight:900; color:#fff; font-size:0.9rem; display:flex; align-items:center; gap:15px;">
             <div>
-              <span>TU BOLSA:</span>
+              <span>YOUR BAG:</span>
               <span id="userGCH" style="color:#14f195">1,000</span> $GCH
             </div>
             <button
@@ -245,20 +245,20 @@
                 transition: all 0.3s;
               "
             >
-              RECLAMAR AIRDROP
+              CLAIM AIRDROP
             </button>
           </div>
         </div>
 
         <!-- Desafío Diario -->
         <div style="background: rgba(20, 241, 149, 0.08); border: 1px solid rgba(20, 241, 149, 0.25); border-radius: 12px; padding: 12px; margin-bottom: 20px; text-align: center;">
-          <strong>🔥 DESAFÍO DIARIO:</strong> Meté 5 goles seguidos hoy para ganar <span style="color:#14f195; font-weight:700;">+250 $GCH</span>
+          <strong>🔥 DAILY CHALLENGE:</strong> Score 5 goals in a row today to earn <span style="color:#14f195; font-weight:700;">+250 $GCH</span>
         </div>
 
         <!-- Canvas Container -->
         <div style="text-align: center; margin-bottom: 20px;">
           <div id="playerOnField" style="display:inline-block; margin-bottom:10px; background:rgba(0,0,0,0.5); padding:6px 16px; border-radius:999px; border:1px solid rgba(20, 241, 149, 0.25); font-size:0.8rem;">
-            <span>En el campo:</span>
+            <span>On the pitch:</span>
             <span id="activePlayerName" style="font-weight:900; color:#fff; margin-left:5px;">Rookie</span>
           </div>
           
@@ -270,15 +270,15 @@
         <!-- Marcadores -->
         <div style="display:flex; justify-content:space-around; background:rgba(255,255,255,0.02); border-radius:16px; padding:15px; border:1px solid rgba(255,255,255,0.04);">
           <div style="text-align:center;">
-            <div style="font-size:0.75rem; color:#9ca3af; text-transform:uppercase;">Goles</div>
+            <div style="font-size:0.75rem; color:#9ca3af; text-transform:uppercase;">Goals</div>
             <div id="statGoals" style="font-size:1.8rem; font-weight:900; color:#14f195;">0</div>
           </div>
           <div style="text-align:center;">
-            <div style="font-size:0.75rem; color:#9ca3af; text-transform:uppercase;">Atajadas</div>
+            <div style="font-size:0.75rem; color:#9ca3af; text-transform:uppercase;">Saves</div>
             <div id="statSaves" style="font-size:1.8rem; font-weight:900; color:#ff4d6a;">0</div>
           </div>
           <div style="text-align:center;">
-            <div style="font-size:0.75rem; color:#9ca3af; text-transform:uppercase;">Racha</div>
+            <div style="font-size:0.75rem; color:#9ca3af; text-transform:uppercase;">Streak</div>
             <div id="statStreak" style="font-size:1.8rem; font-weight:900; color:#ffd700;">0</div>
           </div>
         </div>
@@ -289,7 +289,7 @@
         <div>
           <span style="font-size:0.7rem; font-weight:800; background:rgba(153, 69, 255, 0.15); color:#a5b4fc; padding:4px 10px; border-radius:999px; letter-spacing:1px;" class="section-title-badge">MARKETPLACE</span>
           <h2 class="section-title" style="margin:10px 0 5px; font-weight:800; font-size:1.5rem;">Mystery Pack Opener</h2>
-          <p class="section-subtitle" style="color:#9ca3af; font-size:0.85rem; margin:0 0 20px;">Consigue capitanes de la Copa Mundial. Requiere transacción de Sol en Devnet para cNFT acuñado.</p>
+          <p class="section-subtitle" style="color:#9ca3af; font-size:0.85rem; margin:0 0 20px;">Collect World Cup captains. Requires a Devnet SOL transaction to mint the cNFT.</p>
         </div>
 
         <div id="mysteryPack" class="pack-sealed">
@@ -303,7 +303,7 @@
             class="btn btn-primary btn-glow"
             style="width:100%; padding:15px; font-weight:900; border-radius:12px; border:none; background:linear-gradient(135deg, #9945ff 0%, #14f195 100%); color:#fff; cursor:pointer;"
           >
-            ABRIR SOBRE (250 $GCH)
+            OPEN PACK (250 $GCH)
           </button>
           <p class="pack-odds" style="font-size:0.75rem; margin:10px 0 0;">
             Mythic: 1.0% | Legendary: 4.0% | Epic: 10.0% | Rare: 25.0%
@@ -314,12 +314,12 @@
 
     <!-- Collection Gallery Section -->
     <section class="arcade-section" style="max-width:1200px; margin:40px auto; padding:30px 20px; border-radius:24px; text-align:center;">
-      <h2 style="font-weight:900; font-size:1.8rem; margin:0 0 5px;">Tu Plantilla Genesis Squad</h2>
-      <p style="color:#9ca3af; font-size:0.9rem; margin:0 0 25px;">Tus cartas obtenidas en la apertura de sobres aparecerán aquí.</p>
+      <h2 style="font-weight:900; font-size:1.8rem; margin:0 0 5px;">Your Genesis Squad</h2>
+      <p style="color:#9ca3af; font-size:0.9rem; margin:0 0 25px;">Cards you pull from packs will appear here.</p>
 
       <!-- Filter buttons -->
       <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:30px;">
-        <button class="filter-btn active" onclick="filterCollection('all')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#fff; cursor:pointer; font-weight:600;">TODOS</button>
+        <button class="filter-btn active" onclick="filterCollection('all')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#fff; cursor:pointer; font-weight:600;">ALL</button>
         <button class="filter-btn" onclick="filterCollection('mythic')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#ffd700; cursor:pointer; font-weight:600;">MYTHIC</button>
         <button class="filter-btn" onclick="filterCollection('legendary')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#a570ff; cursor:pointer; font-weight:600;">LEGENDARY</button>
         <button class="filter-btn" onclick="filterCollection('epic')" style="padding:8px 20px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:#00e5ff; cursor:pointer; font-weight:600;">EPIC</button>
@@ -329,8 +329,8 @@
       <!-- Collection Grid -->
       <div id="collectionGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:20px; padding:20px 0;">
         <div class="empty-inventory" style="grid-column:1/-1; padding:40px; color:var(--text-dim);">
-          <p>Tu inventario está vacío.</p>
-          <p style="font-size:0.8rem;">Los jugadores que obtengas en los sobres aparecerán en esta sección.</p>
+          <p>Your inventory is empty.</p>
+          <p style="font-size:0.8rem;">Players you pull from packs will appear in this section.</p>
         </div>
       </div>
     </section>
@@ -356,16 +356,16 @@
           cursor: pointer;
         "
       >
-        <span>AGREGAR A MI COLECCIÓN</span>
+        <span>ADD TO MY COLLECTION</span>
       </button>
     </div>
 
     <!-- Scripts: load in correct order for proper DOMContentLoaded execution -->
     <script src="https://unpkg.com/@solana/web3.js@1.98.2/lib/index.iife.min.js"></script>
-    <script src="assets/js/solana_integration.js?v=3.0"></script>
+    <script src="assets/js/solana_integration.js?v=3.1"></script>
     <script src="assets/js/arcade.js?v=1.0"></script>
-    <script src="assets/js/penalty_game.js?v=4.1"></script>
-    <script src="assets/js/pack_opener.js?v=3.1"></script>
+    <script src="assets/js/penalty_game.js?v=4.2"></script>
+    <script src="assets/js/pack_opener.js?v=3.2"></script>
   <script src="assets/js/gw-shell.js?v=2.0"></script>
   </body>
 </html>
