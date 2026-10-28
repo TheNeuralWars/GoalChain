@@ -24,7 +24,7 @@ async function initPackOpener() {
             openBtn.innerHTML = '<span>OPEN SURVIVOR PACK (250 $GCH)</span>';
         }
         const title = document.querySelector('.section-title');
-        if (title) title.innerText = "Survivor Pack Opener (Eliminatorias)";
+        if (title) title.innerText = "Survivor Pack Opener (Qualifiers)";
         const sub = document.querySelector('.section-subtitle');
         if (sub) sub.innerText = "Exclusive early adopters. Only qualified teams. Increased odds of Legendary and Mythic cards!";
         const oddsText = document.querySelector('.pack-odds');

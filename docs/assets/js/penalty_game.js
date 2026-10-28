@@ -104,11 +104,11 @@ class PenaltyGame {
         if (this.balance < this.currentBet) {
             if (window.notifier) {
                 window.notifier.show(
-                    typeof currentLang !== 'undefined' && currentLang === 'en' ? "Insufficient Balance ❌" : "Saldo Insuficiente ❌",
-                    typeof currentLang !== 'undefined' && currentLang === 'en' ? "Claim more $GCH to keep shooting!" : "¡Reclama tu airdrop de prueba para seguir pateando!"
+                    typeof currentLang !== 'undefined' && currentLang === 'es' ? "Saldo Insuficiente ❌" : "Insufficient Balance ❌",
+                    typeof currentLang !== 'undefined' && currentLang === 'es' ? "¡Reclama tu airdrop de prueba para seguir pateando!" : "Claim more $GCH to keep shooting!"
                 );
             } else {
-                alert(typeof currentLang !== 'undefined' && currentLang === 'en' ? "Insufficient Balance!" : "¡Saldo Insuficiente!");
+                alert(typeof currentLang !== 'undefined' && currentLang === 'es' ? "¡Saldo Insuficiente!" : "Insufficient Balance!");
             }
             return;
         }
@@ -257,13 +257,13 @@ class PenaltyGame {
         // Actualizar botón de reclamar según el saldo
         const claimBtn = document.getElementById('claimGCHBtn');
         if (claimBtn) {
-            const isEn = (typeof currentLang !== 'undefined' && currentLang === 'en');
+            const isEs = (typeof currentLang !== 'undefined' && currentLang === 'es');
             if (this.balance <= 0) {
-                claimBtn.innerText = isEn ? "REFUEL BAG (+1K)" : "RECARGAR BOLSA (+1K)";
+                claimBtn.innerText = isEs ? "RECARGAR BOLSA (+1K)" : "REFUEL BAG (+1K)";
                 claimBtn.style.background = "linear-gradient(90deg, #ff4d6a, #ff9a33)";
                 claimBtn.style.borderColor = "#ff4d6a";
             } else {
-                claimBtn.innerText = isEn ? "CLAIM AIRDROP" : "RECLAMAR AIRDROP";
+                claimBtn.innerText = isEs ? "RECLAMAR AIRDROP" : "CLAIM AIRDROP";
                 claimBtn.style.background = "rgba(153, 69, 255, 0.2)";
                 claimBtn.style.borderColor = "#9945ff";
             }
