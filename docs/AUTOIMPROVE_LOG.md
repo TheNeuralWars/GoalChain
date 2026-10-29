@@ -1462,3 +1462,90 @@ One entry per daily run (newest last).
   multi-run sweep), legacy pages' LCP cost of web3 v1 pinning, goalworld_site
   TODO.md human facts (dead Discord invite, X handle 404, legal review),
   Caddyfile diff (hard limit), wallet-adapter DM Sans (third-party, leave).
+
+## 2026-10-29 run 20261029T034707Z
+
+- **What:** Repaired the dead public Books reader (goalworld.fun/reader.html +
+  /go/reader/ — the shared-nav "Books" target) at generator root cause
+  (`scripts/build_static_reader.py`, both pages regenerated) and made the now-live
+  copy English-first. The page was broken on arrival (verified live): chapter area
+  empty, prices empty, controls dead. Root causes: (1) an un-evaluated Python
+  template expression left `PRICING` as JS strings, so top-level
+  `updateSampleCopy('es')` threw at parse time and killed `state`/`init`
+  (reader never booted); (2) latent 2nd crash: dead
+  `booksWithPricing = JSON.parse(BOOKS_DATA)` block (JSON.parse on an array);
+  (3) chapter markup never emitted (no `<article>` open, no `#reader-body` /
+  `#chapter-meta-*` for `renderChapter()`); (4) `main` row-flex put the nav to the
+  right of the pricing box. Fixes: PRICING emitted as real JSON from
+  `data/publishing/kdp_manifest.json` ($0.99/$2.99/KU — authoritative, not
+  invented); default view (EN, chapter 0) server-rendered into the markup (static
+  first paint → zero-CLS, LCP=FCP) with init() running synchronously; English Max
+  Law (`lang="en"`, EN title/meta, all UI chrome + JS strings EN by default; ES/EN
+  **content** toggle kept as the i18n locale class — ?lang= + changeLang + lang
+  attr sync); layout column-flex; perf/a11y: Google Fonts trimmed (unused
+  JetBrains Mono + unused Merriweather weights/italics dropped, display=optional),
+  puter.js (135 KB) lazy-loads on first AI narration (browser TTS fallback stays),
+  aria-labels on 3 selects, #9333ea active chips (white-on-accent contrast
+  3.95 → ~5.5). Size 59,611 chars (<60 KB issue-#879 budget).
+- **Why:** The Books page is a main-nav destination and a conversion surface
+  (sample → preorder); it rendered nothing to every visitor and shipped Spanish
+  UI copy on an `<html lang="es">` page — English Max Law (CLAUDE.md) + broken
+  product. Unrequested high-impact fix, single concern (the Books reader works),
+  measurable per gate.
+- **Commit SHA (merge):** `9f3b1bf2` (PR #910, feature `e9ea9b2f`). Pre-merge
+  `origin/main` = `458f7221` (rollback: `git revert -m 1 9f3b1bf2` + push +
+  `DEPLOY_FORCE=1 bash scripts/pages/deploy_origin.sh` restage — docs-surface
+  only; no landing repo / Vercel / webapp change).
+- **Live link:** https://goalworld.fun/go/reader/ + https://goalworld.fun/reader.html
+  (identical pages; deploy `scripts/pages/deploy_origin.sh` → guard clean,
+  0 internal-only paths, `restaged 9f3b1bf2` 04:36 UTC).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261029T034707Z/`
+  - build.txt: exit 0 (py_compile + generator rebuild of both pages + webapp
+    regression sanity `npm ci && tsc && vite build` exit 0). tests.txt:
+    `node --check` on the extracted inline script OK, pages byte-identical,
+    `test_gw_chrome` 9 tests — 1 failure is the PRE-EXISTING
+    `test_marketing_html_loads_shell` (same 5-page list as origin/main baseline).
+    linkcheck.txt: internal refs OK (only /goalworld.html; all URLs 200 live+local).
+  - Lighthouse (mobile) LIVE before → after:
+    | page | perf | a11y | BP | SEO | LCP | CLS |
+    |---|---|---|---|---|---|---|
+    | reader.html | 0.97 → 0.98 | 0.73 → 1.0 | 0.96 | 1.0 | 1.9s → 1.8s | 0 → 0 |
+    | go/reader/ | 0.98 → 0.98 | 0.73 → 1.0 | 0.96 | 1.0 | 1.8s → 1.8s | 0 → 0 |
+    No regression on any gate axis; a11y +0.27 (select-name + color-contrast
+    fixed, link-name fixed as a side effect of the crash fix). Pre-merge local
+    preview: 0.99/1.0/0.96/1.0, CLS 0, LCP=FCP 1.7s.
+  - Throttled CDP probe (4x CPU, 1.6 Mbps/150 ms, 412×731): **0 layout shifts**
+    after (was 0.56 at t=580ms — empty→filled content injected post-first-paint,
+    `#sample-cta` 100×61→280×91, article moving +173px). Root-fixed by static
+    SSR of the default view. Probe script: evidence cdp-probe.mjs.
+  - dom-check.txt 11/11 local (EN renders EN chapter + $0.99/$2.99 prices +
+  sample copy; ES via ?lang= renders ES + ES sample copy + lang attr; 0 Spanish
+    UI markers in EN); dom-check-live.txt 4/4 on live /go/reader/. smoke-before/
+    smoke-after.txt: all URLs 200 (58,239 → 60,184 bytes); bug fingerprint
+    `str(pricing_info` 1→0; `const PRICING = {"preorder_usd":0.99,...}` present;
+    ES UI fingerprints 6→0; static chapter text present. Screenshots
+    shot-live-before-*.png (broken) / shot-local-after-*.png /
+    shot-live-after-*.png (1280×900 + 360×740).
+  - **Transient 502 (handled in-run):** the first live-after Lighthouse run on
+    /reader.html hit `ERRORED_DOCUMENT_REQUEST (502)` — 10/10 immediate curl
+    probes on both URLs plus / and /goalchain returned 200, so a one-off
+    CF/Caddy blip, not an outage; the re-run produced the table above.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) `test_marketing_html_loads_shell` 5-page
+  pre-existing failure (architecture/archify/goalchain.architecture.html,
+  assets/film/improve_20260914/index.html, assets/film/improve_20260915/index.html,
+  go/reader/index.html, reader.html) — classifying app/generated/internal pages
+  vs adding gw-shell nav is a UX decision for a future run (the reader pair could
+  gain the shared nav chrome; it currently has its own header + "← GoalWorld"). 
+  (2) `?lang=es` / `?ch=N` deep links re-render after parse (one-time shift on
+  param'd loads only; the default URL is fully server-rendered). (3) ES locale
+  kept: SAMPLE_COPY.es + ES chapter content behind the toggle — pending the
+  standing "remove ES entirely" decision. (4) goalworld.html (the "Lore" nav
+  page) is still fully Spanish (`lang="es"`, ~1,400 lines) — largest remaining
+  English Max Law item on the public site. (5) Unchanged earlier follow-ups:
+  pack price copy inconsistency (needs human decision), dev-facing Spanish in
+  code comments/console strings, contract_data.js Anchor→borsh read path, webapp
+  in-app ES strings (~500 strings / 40 files), legacy pages' LCP cost of web3 v1
+  pinning, goalworld_site TODO.md human facts (dead Discord invite, X handle
+  404, legal review), Caddyfile diff (hard limit), i18n translation.json
+  leftovers, wallet-adapter DM Sans (third-party, leave).
