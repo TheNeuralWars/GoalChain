@@ -1,0 +1,13 @@
+{
+  "updated": "2026-10-29",
+  "items": [
+    {"id":"qloo-canon-compass","title":"Canon Compass (Qloo hackathon)","status":"wip","kind":"hackathon","url":"https://canon-compass.vercel.app","deadline":"2026-10-31T04:45:00+01:00","updated":"2026-10-29","blurb":"Taste-graph compass that maps what you love to stories in the GoalWorld canon.","provisional":true},
+    {"id":"nebius-hermes","title":"Hermes Personal AI (Nebius × NVIDIA)","status":"submitted","kind":"hackathon","url":"https://devpost.com/software/hermes-personal-ai-the-agent-that-remembers-why-it-knows","deadline":null,"updated":"2026-10-29","blurb":"The agent that remembers why it knows. Submitted on Devpost.","provisional":false},
+    {"id":"matchmind","title":"MatchMind","status":"submitted","kind":"hackathon","url":null,"deadline":null,"updated":"2026-10-29","blurb":"Football match intelligence agent. Submitted, awaiting judging.","provisional":false},
+    {"id":"sandbase","title":"SandBase","status":"submitted","kind":"hackathon","url":null,"deadline":null,"updated":"2026-10-29","blurb":"Sandbox build submitted; pending review.","provisional":true},
+    {"id":"fractured-code-v7","title":"Fractured Code — v7 & Book 2","status":"wip","kind":"book","url":"https://goalworld.fun/go/reader/","deadline":null,"updated":"2026-10-29","blurb":"Book 1 free in the reader. Book 2 signed off for release; store edition coming soon.","provisional":false},
+    {"id":"android-bridge","title":"Android Bridge","status":"wip","kind":"ops","url":null,"deadline":null,"updated":"2026-10-29","blurb":"Phase 1 live on the studio server; device pairing next.","provisional":true},
+    {"id":"matchday-devnet","title":"GoalChain Matchday","status":"shipped","kind":"product","url":"https://play.goalworld.fun/","deadline":null,"updated":"2026-10-29","blurb":"Football game demo on Solana Devnet. Free, no real money.","provisional":false},
+    {"id":"neural-wars-trailer","title":"The Neural Wars — trailer & film drafts","status":"shipped","kind":"film","url":"/#cinema","deadline":null,"updated":"2026-10-29","blurb":"Official cinematic trailer plus AI film-draft clips.","provisional":false}
+  ]
+}

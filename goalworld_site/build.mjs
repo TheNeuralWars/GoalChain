@@ -30,7 +30,7 @@ const DIST = join(HERE, "dist");
 const ORIGIN = "https://goalworld.fun";
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
-const NAV_KEYS = ["ABOUT", "ROADMAP", "FAQ", "PRESS"];
+const NAV_KEYS = ["ABOUT", "LIVE", "ROADMAP", "FAQ", "PRESS"];
 
 function parsePage(file) {
   const raw = readFileSync(file, "utf8");
@@ -174,6 +174,8 @@ function build() {
   copyFileSync(join(SRC, "llms.txt"), join(DIST, "llms.txt"));
   cpSync(join(SRC, ".well-known"), join(DIST, ".well-known"), { recursive: true });
   cpSync(join(SRC, "assets"), join(DIST, "assets"), { recursive: true });
+  // live feed: editable data, served same-origin at /data/live-feed.json (fetched at runtime)
+  if (existsSync(join(SRC, "data"))) cpSync(join(SRC, "data"), join(DIST, "data"), { recursive: true });
 
   // sitemap
   const urls = sitemap
