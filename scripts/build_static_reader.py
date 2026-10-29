@@ -100,17 +100,81 @@ for _book in books_payload:
             _chs[0]["wordCount"] = len(_txt.split())
             _chs[0]["readTime"] = max(1, round(len(_txt.split()) / 220))
 
+# --- Static first paint -------------------------------------------------------------
+# The page's first paint can happen before the (large) inline script executes, so any
+# content the script injects late shows up as layout shift (CLS) and delays LCP.
+# Server-render the DEFAULT view (English, chapter 0) into the markup with the exact
+# same strings/HTML renderChapter()+updateSampleCopy() produce client-side; init()
+# then re-renders identical content (no visual change, no shift) and wires behavior.
+SAMPLE_COPY = {
+    "es": {"line": "Muestra gratuita: Prólogo y Capítulo 1.", "cta": "Ver preventa y novedades",
+           "note": "El libro completo sale en preventa. Aquí solo se publican el Prólogo y el Capítulo 1.",
+           "pre": "Preventa", "reg": "Precio normal", "ku": "En Kindle Unlimited"},
+    "en": {"line": "Free sample: Prologue and Chapter 1.", "cta": "Preorder and release news",
+           "note": "The complete book launches with a preorder. Only the Prologue and Chapter 1 are published here.",
+           "pre": "Preorder", "reg": "Regular", "ku": "In Kindle Unlimited"},
+}
+
+
+def render_chapter_body(content):
+    """Mirror of the client-side markdown renderer in renderChapter()."""
+    out = []
+    for l in content.split("\n\n"):
+        t = l.strip()
+        if not t:
+            continue
+        if t.startswith("# "):
+            out.append("<h1>%s</h1>" % t.replace("# ", "", 1))
+        elif t.startswith("## "):
+            out.append("<h2>%s</h2>" % t.replace("## ", "", 1))
+        elif t.startswith("### "):
+            out.append("<h3>%s</h3>" % t.replace("### ", "", 1))
+        elif t.startswith("---") or t.startswith("***"):
+            out.append("<hr />")
+        elif t.startswith(">"):
+            out.append("<blockquote>%s</blockquote>" % re.sub(r"^>\s*", "", t))
+        else:
+            cls = "dialogue" if (t.startswith("—") or t.startswith("-")) else ""
+            out.append('<p class="%s">%s</p>' % (cls, t))
+    return "".join(out)
+
+
+def read_time_text(rt):
+    return ("%s min" % rt) if isinstance(rt, (int, float)) else str(rt)
+
+
+_b0 = books_payload[0]
+_ch0 = _b0["chapters"]["en"][0]
+_pre = float(pricing_info.get("preorder_usd", 0.99))
+_reg = float(pricing_info.get("regular_usd", 2.99))
+static_fill = {
+    "%%BOOK_OPTIONS%%": "".join(
+        '<option value="%s"%s>%s</option>'
+        % (b["id"], " selected" if b["id"] == _b0["id"] else "", b["title"].get("en") or b["title"].get("es"))
+        for b in books_payload
+    ),
+    "%%SAMPLE_LINE%%": SAMPLE_COPY["en"]["line"] + " $%.2f preorder · $%.2f after" % (_pre, _reg),
+    "%%PRICE_PREORDER%%": "$%.2f" % _pre,
+    "%%PRICE_REGULAR%%": "$%.2f" % _reg,
+    "%%SAMPLE_CTA%%": SAMPLE_COPY["en"]["cta"],
+    "%%SAMPLE_NOTE%%": SAMPLE_COPY["en"]["note"],
+    "%%META_TAG%%": "%s • %s" % (_b0["title"].get("en") or _b0["title"].get("es"), _ch0["title"]),
+    "%%META_TIME%%": "%s read • %d words" % (read_time_text(_ch0["readTime"]), _ch0["wordCount"]),
+    "%%BODY%%": render_chapter_body(_ch0["content"]),
+    "%%PAGE_NUM%%": "1 / %d" % len(_b0["chapters"]["en"]),
+    "%%SAMPLE_COPY%%": json.dumps(SAMPLE_COPY, ensure_ascii=False),
+}
+
 html_template = """<!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GoalWorld Kindle E-Reader & Audiolibro HD • The Neural Wars Saga</title>
-  <meta name="description" content="Lector inmersivo y audiolibro gratuito con voces IA HD de GoalWorld para The Neural Wars Trilogy." />
+  <title>GoalWorld Kindle E-Reader & HD Audiobook • The Neural Wars Saga</title>
+  <meta name="description" content="Immersive reader and free audiobook with HD AI voices by GoalWorld for The Neural Wars Trilogy." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://js.puter.com/v2/" async></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:wght@400&display=optional" rel="stylesheet">
   <style>
     :root {
       --bg: #0a0a10;
@@ -286,7 +350,8 @@ html_template = """<!DOCTYPE html>
     main {
       flex: 1;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       padding: 2.5rem 1.5rem 5rem;
     }
 
@@ -381,7 +446,7 @@ html_template = """<!DOCTYPE html>
 <body>
   <div id="sidebar" class="sidebar">
     <div style="padding: 1.2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
-      <h3 style="font-size: 1rem; font-weight: 800; color: var(--accent);">Índice de Capítulos</h3>
+      <h3 style="font-size: 1rem; font-weight: 800; color: var(--accent);">Chapter Index</h3>
       <button class="btn" onclick="toggleToc()">✕</button>
     </div>
     <div id="toc-list" style="flex: 1; overflow-y: auto;"></div>
@@ -390,21 +455,21 @@ html_template = """<!DOCTYPE html>
   <header>
     <div style="display: flex; align-items: center; gap: 0.75rem;">
       <a href="/goalworld.html" class="btn">← GoalWorld</a>
-      <button class="btn" onclick="toggleToc()">☰ Capítulos</button>
-      <select id="book-select" class="picker" onchange="changeBook(this.value)"></select>
+      <button class="btn" onclick="toggleToc()">☰ Chapters</button>
+      <select id="book-select" class="picker" aria-label="Select book" onchange="changeBook(this.value)">%%BOOK_OPTIONS%%</select>
     </div>
 
     <div style="display: flex; align-items: center; gap: 0.8rem;">
-      <div class="vip-badge">★ VIP PASS ACTIVO</div>
+      <div class="vip-badge">★ VIP PASS ACTIVE</div>
       <div style="display: flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
-        <button id="btn-lang-es" class="btn" style="border:none; border-radius:0; background:var(--accent); color:#fff;" onclick="changeLang('es')">🇪🇸 ES</button>
-        <button id="btn-lang-en" class="btn" style="border:none; border-radius:0;" onclick="changeLang('en')">🇺🇸 EN</button>
+        <button id="btn-lang-es" class="btn" style="border:none; border-radius:0;" onclick="changeLang('es')">🇪🇸 ES</button>
+        <button id="btn-lang-en" class="btn" style="border:none; border-radius:0; background:#9333ea; color:#fff;" onclick="changeLang('en')">🇺🇸 EN</button>
       </div>
-      <button class="btn" id="btn-audio-toggle" onclick="toggleAudioPanel()" style="color:var(--accent);">🎧 Audiolibro</button>
+      <button class="btn" id="btn-audio-toggle" onclick="toggleAudioPanel()" style="color:var(--accent);">🎧 Audiobook</button>
     </div>
 
     <div style="display: flex; align-items: center; gap: 0.5rem;">
-      <button class="btn" onclick="toggleTheme()">🎨 Tema</button>
+      <button class="btn" onclick="toggleTheme()">🎨 Theme</button>
       <button class="btn" onclick="changeFontSize(-1)">A-</button>
       <button class="btn" onclick="changeFontSize(1)">A+</button>
     </div>
@@ -413,26 +478,26 @@ html_template = """<!DOCTYPE html>
   <!-- AUDIOBOOK CONTROL BAR -->
   <div id="audio-bar" class="audio-panel" style="display: none;">
     <div style="display: flex; align-items: center; gap: 8px;">
-      <button id="btn-tts-play" class="btn btn-primary" onclick="toggleTtsPlay()">▶ Iniciar Narración</button>
-      <button id="btn-tts-stop" class="btn" style="display:none; background:rgba(239,68,68,0.2); border-color:#ef4444; color:#ef4444;" onclick="stopTts()">⏹ Detener</button>
+      <button id="btn-tts-play" class="btn btn-primary" onclick="toggleTtsPlay()">▶ Start Narration</button>
+      <button id="btn-tts-stop" class="btn" style="display:none; background:rgba(239,68,68,0.2); border-color:#ef4444; color:#ef4444;" onclick="stopTts()">⏹ Stop</button>
       <span id="tts-status" style="color: var(--muted); font-size: 0.8rem; font-weight:700;"></span>
     </div>
 
     <div style="display: flex; align-items: center; flex-wrap:wrap; gap: 10px;">
       <!-- Engine Selector -->
       <div style="display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden;">
-        <button id="btn-engine-ai" class="btn" style="padding:3px 8px; font-size:0.75rem; border:none; border-radius:0; background:var(--accent); color:#fff;" onclick="setEngine('ai')">✨ Voces IA HD</button>
-        <button id="btn-engine-browser" class="btn" style="padding:3px 8px; font-size:0.75rem; border:none; border-radius:0;" onclick="setEngine('browser')">💻 Navegador</button>
+        <button id="btn-engine-ai" class="btn" style="padding:3px 8px; font-size:0.75rem; border:none; border-radius:0; background:#9333ea; color:#fff;" onclick="setEngine('ai')">✨ HD AI Voices</button>
+        <button id="btn-engine-browser" class="btn" style="padding:3px 8px; font-size:0.75rem; border:none; border-radius:0;" onclick="setEngine('browser')">💻 Browser</button>
       </div>
 
       <div id="browser-voice-wrap" style="display:none;">
-        <span style="color: var(--muted); font-size: 0.75rem;">Voz:</span>
-        <select id="tts-voice-select" class="picker" style="padding: 4px 8px; font-size: 0.75rem;" onchange="onVoiceChange()"></select>
+        <span style="color: var(--muted); font-size: 0.75rem;">Voice:</span>
+        <select id="tts-voice-select" class="picker" aria-label="Narrator voice" style="padding: 4px 8px; font-size: 0.75rem;" onchange="onVoiceChange()"></select>
       </div>
 
       <div style="display: flex; align-items: center; gap: 4px;">
-        <span style="color: var(--muted); font-size: 0.75rem;">Velocidad:</span>
-        <select id="tts-rate-select" class="picker" style="padding: 4px 6px; font-size: 0.75rem;" onchange="onRateChange(this.value)">
+        <span style="color: var(--muted); font-size: 0.75rem;">Speed:</span>
+        <select id="tts-rate-select" class="picker" aria-label="Narration speed" style="padding: 4px 6px; font-size: 0.75rem;" onchange="onRateChange(this.value)">
           <option value="0.8">0.8x</option>
           <option value="1.0" selected>1.0x</option>
           <option value="1.2">1.2x</option>
@@ -452,30 +517,37 @@ html_template = """<!DOCTYPE html>
   <div class="pricing-section" style="display: flex; justify-content: center; align-items: center; padding: 2rem 0; margin-bottom: 2rem; background: var(--header-bg); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
     <div style="text-align: center; max-width: 500px; padding: 0 1.5rem;">
       <h2 style="color: var(--accent); font-size: 1.2rem; margin-bottom: 0.8rem; font-family: 'Inter', sans-serif;">The Neural Wars: Fractured Code</h2>
-      <p id="sample-copy" style="color: var(--muted); margin-bottom: 1.5rem; font-size: 0.9rem;"></p>
+      <p id="sample-copy" style="color: var(--muted); margin-bottom: 1.5rem; font-size: 0.9rem;">%%SAMPLE_LINE%%</p>
       <div style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
         <div style="text-align: center;">
           <div id="price-preorder-label" style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Preorder</div>
-          <div id="price-preorder" style="font-size: 1.5rem; font-weight: 800; color: var(--accent);"></div>
+          <div id="price-preorder" style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">%%PRICE_PREORDER%%</div>
         </div>
         <div style="text-align: center;">
           <div id="price-regular-label" style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Regular</div>
-          <div id="price-regular" style="font-size: 1.5rem; font-weight: 800; color: var(--text);"></div>
+          <div id="price-regular" style="font-size: 1.5rem; font-weight: 800; color: var(--text);">%%PRICE_REGULAR%%</div>
         </div>
         <div id="ku-block" style="text-align: center;">
           <div style="font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px;">Kindle Unlimited</div>
           <div style="font-size: 1rem; font-weight: 800; color: #fbbf24;">&#10003;</div>
         </div>
       </div>
-      <a id="sample-cta" href="/goalworld.html" style="display: inline-block; text-decoration: none; background: linear-gradient(135deg, #a855f7 0%, #38bdf8 100%); color: white; border: none; padding: 0.8rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4); transition: all 0.2s;"></a>
-      <p id="sample-note" style="font-size: 0.75rem; color: var(--muted); margin-top: 0.8rem;"></p>
+      <a id="sample-cta" href="/goalworld.html" style="display: inline-block; text-decoration: none; background: linear-gradient(135deg, #a855f7 0%, #38bdf8 100%); color: white; border: none; padding: 0.8rem 2rem; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4); transition: all 0.2s;">%%SAMPLE_CTA%%</a>
+      <p id="sample-note" style="font-size: 0.75rem; color: var(--muted); margin-top: 0.8rem;">%%SAMPLE_NOTE%%</p>
     </div>
   </div>
 
+  <article>
+    <div class="chapter-header">
+      <div class="chapter-tag" id="chapter-meta-tag">%%META_TAG%%</div>
+      <div id="chapter-meta-time" style="font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem;">%%META_TIME%%</div>
+    </div>
+    <div class="reader-body" id="reader-body">%%BODY%%</div>
+
       <nav style="margin-top: 4.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-family: 'Inter', sans-serif;">
-        <button id="btn-prev" class="btn" onclick="navigateChapter(-1)">◀ Anterior</button>
-        <span id="chapter-page-num" style="font-size: 0.85rem; color: var(--muted);"></span>
-        <button id="btn-next" class="btn btn-primary" onclick="navigateChapter(1)">Siguiente ▶</button>
+        <button id="btn-prev" class="btn" onclick="navigateChapter(-1)" disabled>◀ Previous</button>
+        <span id="chapter-page-num" style="font-size: 0.85rem; color: var(--muted);">%%PAGE_NUM%%</span>
+        <button id="btn-next" class="btn btn-primary" onclick="navigateChapter(1)">Next ▶</button>
       </nav>
     </article>
   </main>
@@ -491,15 +563,13 @@ html_template = """<!DOCTYPE html>
   </footer>
 
         <script>
-    // BOOKS_DATA contains the book content for the reader
+    // BOOKS_DATA contains the book content for the reader (repo-embedded static
+    // manuscripts — not user input; interpolated into innerHTML below).
     const BOOKS_DATA = """ + json.dumps(books_payload, ensure_ascii=False, separators=(",", ":")) + """;
     
-    // Inject pricing information into books data for UI access
-    const PRICING = {"preorder_usd": " + str(pricing_info.get('preorder_usd', 0.99)) + ", "regular_usd": " + str(pricing_info.get('regular_usd', 2.99)) + ", "kindle_unlimited": " + ('true' if pricing_info.get('kindle_unlimited') else 'false') + "};
-    const SAMPLE_COPY = {
-      es: {line: 'Muestra gratuita: Prólogo y Capítulo 1.', cta: 'Ver preventa y novedades', note: 'El libro completo sale en preventa. Aquí solo se publican el Prólogo y el Capítulo 1.', pre: 'Preventa', reg: 'Precio normal', ku: 'En Kindle Unlimited'},
-      en: {line: 'Free sample: Prologue and Chapter 1.', cta: 'Preorder and release news', note: 'The complete book launches with a preorder. Only the Prologue and Chapter 1 are published here.', pre: 'Preorder', reg: 'Regular', ku: 'In Kindle Unlimited'}
-    };
+    // Real prices from data/publishing/kdp_manifest.json (issue #879).
+    const PRICING = """ + json.dumps({"preorder_usd": pricing_info.get("preorder_usd", 0.99), "regular_usd": pricing_info.get("regular_usd", 2.99), "kindle_unlimited": bool(pricing_info.get("kindle_unlimited", True))}, separators=(",", ":")) + """;
+    const SAMPLE_COPY = %%SAMPLE_COPY%%;
     function updateSampleCopy(lang) {
       const c = SAMPLE_COPY[lang] || SAMPLE_COPY.en;
       const set = (id, txt) => { const el = document.getElementById(id); if (el) el.textContent = txt; };
@@ -513,20 +583,11 @@ html_template = """<!DOCTYPE html>
       const ku = document.getElementById('ku-block');
       if (ku) ku.style.display = PRICING.kindle_unlimited ? '' : 'none';
     }
-    updateSampleCopy('es');
-    const booksWithPricing = JSON.parse(BOOKS_DATA);
-    booksWithPricing.forEach(book => {
-        book.pricing = book.pricing || {
-            preorder_usd: 0.99,
-            regular_usd: 2.99,
-            kindle_unlimited: true
-        };
-    });
-    const BOOKS_DATA_WITH_PRICING = JSON.stringify(booksWithPricing);
+    updateSampleCopy('en');
 
     let state = {
       bookId: 'the-neural-wars-book-1',
-      lang: 'es',
+      lang: 'en',
       chapterIndex: 0,
       theme: 'dark',
       fontSize: 18,
@@ -545,11 +606,32 @@ html_template = """<!DOCTYPE html>
     let solfeggioGain = null;
     let currentAiAudio = null;
 
+    // Puter.js (135 KB) powers AI narration only — load on demand so the reading
+    // experience doesn't pay for it up front (and ad-blocked/offline readers still
+    // get the browser TTS fallback).
+    let puterLoading = null;
+    function loadPuter() {
+      if (window.puter) return Promise.resolve(window.puter);
+      if (!puterLoading) {
+        puterLoading = new Promise(function (resolve, reject) {
+          var s = document.createElement('script');
+          s.src = 'https://js.puter.com/v2/';
+          s.async = true;
+          s.onload = function () { resolve(window.puter); };
+          s.onerror = function () { reject(new Error('puter.js failed to load')); };
+          document.head.appendChild(s);
+        });
+      }
+      return puterLoading;
+    }
+
     function init() {
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get('book')) state.bookId = urlParams.get('book');
       if (urlParams.get('lang')) state.lang = urlParams.get('lang');
       if (urlParams.get('ch')) state.chapterIndex = parseInt(urlParams.get('ch')) || 0;
+      document.documentElement.lang = state.lang;
+      updateSampleCopy(state.lang);
 
       populateBookSelect();
       loadVoices();
@@ -569,9 +651,9 @@ html_template = """<!DOCTYPE html>
     function setEngine(eng) {
       stopTts();
       state.engine = eng;
-      document.getElementById('btn-engine-ai').style.background = eng === 'ai' ? 'var(--accent)' : 'transparent';
+      document.getElementById('btn-engine-ai').style.background = eng === 'ai' ? '#9333ea' : 'transparent';
       document.getElementById('btn-engine-ai').style.color = eng === 'ai' ? '#fff' : 'var(--muted)';
-      document.getElementById('btn-engine-browser').style.background = eng === 'browser' ? 'var(--accent)' : 'transparent';
+      document.getElementById('btn-engine-browser').style.background = eng === 'browser' ? '#9333ea' : 'transparent';
       document.getElementById('btn-engine-browser').style.color = eng === 'browser' ? '#fff' : 'var(--muted)';
       document.getElementById('browser-voice-wrap').style.display = eng === 'browser' ? 'block' : 'none';
     }
@@ -604,7 +686,7 @@ html_template = """<!DOCTYPE html>
             window.speechSynthesis.resume();
           }
           state.isTtsPaused = false;
-          btn.textContent = '⏸ Pausar';
+          btn.textContent = '⏸ Pause';
           status.textContent = ' ▂▃▅';
         } else {
           if (currentAiAudio) {
@@ -613,8 +695,8 @@ html_template = """<!DOCTYPE html>
             window.speechSynthesis.pause();
           }
           state.isTtsPaused = true;
-          btn.textContent = '▶ Reanudar';
-          status.textContent = '(Pausado)';
+          btn.textContent = '▶ Resume';
+          status.textContent = '(Paused)';
         }
         return;
       }
@@ -628,12 +710,19 @@ html_template = """<!DOCTYPE html>
 
       state.isTtsPlaying = true;
       state.isTtsPaused = false;
-      btn.textContent = '⏸ Pausar';
+      btn.textContent = '⏸ Pause';
       stopBtn.style.display = 'inline-flex';
       status.textContent = ' ▂▃▅▆▇';
 
-      if (state.engine === 'ai' && window.puter && window.puter.ai) {
-        playNextAI(paras, 0);
+      if (state.engine === 'ai') {
+        status.textContent = '⏳ Loading AI...';
+        loadPuter().then(function () {
+          if (state.isCanceled) return;
+          if (window.puter && window.puter.ai) playNextAI(paras, 0);
+          else playNextBrowser(paras, 0);
+        }).catch(function () {
+          if (!state.isCanceled) playNextBrowser(paras, 0);
+        });
       } else {
         playNextBrowser(paras, 0);
       }
@@ -652,7 +741,7 @@ html_template = """<!DOCTYPE html>
       const status = document.getElementById('tts-status');
 
       try {
-        status.textContent = '⏳ Cargando IA...';
+        status.textContent = '⏳ Loading AI...';
         const audio = await window.puter.ai.txt2speech(clean, {
           provider: 'aws-polly',
           voice: state.lang === 'es' ? 'Lucia' : 'Joanna'
@@ -662,7 +751,7 @@ html_template = """<!DOCTYPE html>
 
         currentAiAudio = audio;
         audio.playbackRate = state.speechRate;
-        status.textContent = ' ▂▃▅▆▇ (Voz HD)';
+        status.textContent = ' ▂▃▅▆▇ (HD Voice)';
 
         audio.onended = () => {
           if (!state.isCanceled) playNextAI(paras, idx + 1);
@@ -710,7 +799,7 @@ html_template = """<!DOCTYPE html>
       if (window.speechSynthesis) window.speechSynthesis.cancel();
       state.isTtsPlaying = false;
       state.isTtsPaused = false;
-      document.getElementById('btn-tts-play').textContent = '▶ Iniciar Narración';
+      document.getElementById('btn-tts-play').textContent = '▶ Start Narration';
       document.getElementById('btn-tts-stop').style.display = 'none';
       document.getElementById('tts-status').textContent = '';
       highlightPara(-1);
@@ -761,7 +850,7 @@ html_template = """<!DOCTYPE html>
         solfeggioOsc.start();
 
         state.solfeggioActive = true;
-        btn.textContent = '🌊 432 Hz Activo';
+        btn.textContent = '🌊 432 Hz Active';
         btn.style.color = '#38bdf8';
       }
     }
@@ -800,9 +889,10 @@ html_template = """<!DOCTYPE html>
     function changeLang(lang) {
       stopTts();
       state.lang = lang;
-      document.getElementById('btn-lang-es').style.background = lang === 'es' ? 'var(--accent)' : 'transparent';
+      document.documentElement.lang = lang;
+      document.getElementById('btn-lang-es').style.background = lang === 'es' ? '#9333ea' : 'transparent';
       document.getElementById('btn-lang-es').style.color = lang === 'es' ? '#fff' : 'var(--text)';
-      document.getElementById('btn-lang-en').style.background = lang === 'en' ? 'var(--accent)' : 'transparent';
+      document.getElementById('btn-lang-en').style.background = lang === 'en' ? '#9333ea' : 'transparent';
       document.getElementById('btn-lang-en').style.color = lang === 'en' ? '#fff' : 'var(--text)';
       populateBookSelect();
       updateSampleCopy(lang);
@@ -822,7 +912,7 @@ html_template = """<!DOCTYPE html>
       const ch = chapters[state.chapterIndex];
 
       document.getElementById('chapter-meta-tag').textContent = `${book.title[state.lang] || book.title.es} • ${ch.title}`;
-      document.getElementById('chapter-meta-time').textContent = `${ch.readTime} de lectura • ${ch.wordCount} palabras`;
+      document.getElementById('chapter-meta-time').textContent = `${typeof ch.readTime === 'number' ? ch.readTime + ' min' : ch.readTime} read • ${ch.wordCount} words`;
       document.getElementById('footer-chapter-title').textContent = ch.title;
       document.getElementById('chapter-page-num').textContent = `${state.chapterIndex + 1} / ${chapters.length}`;
 
@@ -862,7 +952,7 @@ html_template = """<!DOCTYPE html>
       chapters.forEach((c, idx) => {
         const item = document.createElement('div');
         item.className = `toc-item ${idx === state.chapterIndex ? 'active' : ''}`;
-        item.innerHTML = `<div>${c.title}</div><div style="font-size:0.75rem; color:var(--muted);">${c.readTime} • ${c.wordCount} pal.</div>`;
+        item.innerHTML = `<div>${c.title}</div><div style="font-size:0.75rem; color:var(--muted);">${typeof c.readTime === 'number' ? c.readTime + ' min' : c.readTime} • ${c.wordCount} words</div>`;
         item.onclick = () => {
           stopTts();
           state.chapterIndex = idx;
@@ -910,7 +1000,9 @@ html_template = """<!DOCTYPE html>
       document.getElementById('scroll-progress-text').textContent = `${percent}%`;
     }
 
-    window.onload = init;
+    // Script sits at end of body: init synchronously so content is filled
+    // before first paint (no late-injection layout shift, faster LCP).
+    init();
   </script>
 </body>
 </html>
@@ -929,10 +1021,24 @@ def minify_for_delivery(html):
     html = re.sub(r"<style>(.*?)</style>", css_repl, html, flags=re.S)
     html = re.sub(r"[ \t]*<!--(?!\[if).*?-->[ \t]*\n?", "", html, flags=re.S)
     html = re.sub(r"\n{3,}", "\n\n", html)
-    return html
+    # Collapse newline+indent between HTML tags (scripts stay verbatim — the size
+    # budget of issue #879 must hold with the static-first-paint body included).
+    parts = re.split(r"(<script>.*?</script>)", html, flags=re.S)
+    for i in range(0, len(parts), 2):
+        parts[i] = re.sub(r"\n\s*", "", parts[i])
+    return "".join(parts)
 
 
 html_template = minify_for_delivery(html_template)
+
+# Fill the static-first-paint placeholders (after minify: it strips HTML comments and
+# would not touch tokens, but content must survive verbatim — so replace last).
+for _tok, _val in static_fill.items():
+    if _tok not in html_template:
+        raise SystemExit("missing template token %s" % _tok)
+    html_template = html_template.replace(_tok, _val)
+if re.findall(r"%%[A-Z_]+%%", html_template):
+    raise SystemExit("unresolved template tokens left in output: %s" % re.findall(r"%%[A-Z_]+%%", html_template))
 
 # Write reader.html and go/reader/index.html (repo-relative, same reason as above)
 out_reader = os.path.join(REPO_ROOT, "docs", "reader.html")
