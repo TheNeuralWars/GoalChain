@@ -1549,3 +1549,79 @@ One entry per daily run (newest last).
   pinning, goalworld_site TODO.md human facts (dead Discord invite, X handle
   404, legal review), Caddyfile diff (hard limit), i18n translation.json
   leftovers, wallet-adapter DM Sans (third-party, leave).
+
+## 2026-10-30 run 20261030T034752Z
+
+- **What:** Translated the public "Lore" page `docs/goalworld.html`
+  (https://goalworld.fun/goalworld.html) fully to English — the largest remaining
+  English Max Law item on the public site (flagged in the follow-ups of runs
+  20261025/20261028/20261029). All public copy ES→EN: title/meta, nav, hero, the
+  7 tab panels (world cards, trilogy books, character dossiers, trailer, film
+  draft section, keyframes gallery, author manifesto, storefronts, immersive
+  reader sample, SaaS demo, Hermes swarm, asset forge, GoalChain bridge), footer,
+  and every user-facing JS string (alerts, prompts, dynamic labels, spine
+  calculator labels, download-manifest keywords). `lang="es"` → `lang="en"`. The
+  reader-tab sample prose was aligned with the English canon in
+  `docs/publishing/the_neural_wars_trilogy/.../FC-00-Prologue_2026_EN.md`
+  ("In the beginning was the network"). Also repaired a pre-existing broken
+  paragraph in the trilogy intro (unclosed `<p>`, mid-word cutoff "Explora los
+  e") — tag balance `p` 1→0. Figures, names, URLs and structure unchanged: the
+  href/src ref set is identical (54 refs, 0 new). Proper names kept as-is
+  ("Valerius de Aethelgard"); dev-facing code comments left in Spanish (same
+  class as earlier follow-ups).
+- **Why:** A 100% Spanish `<html lang="es">` page sat in the English-first main
+  nav (Lore door) and in the shared gw-shell chrome — English Max Law
+  (CLAUDE.md) violation plus SEO/lang mismatch and a broken truncated paragraph
+  visible on arrival. Unrequested single-concern fix, measurable per gate.
+- **Commit SHA (merge):** `d3fc30ae` (PR #911, feature `a256761c`). Pre-merge
+  `origin/main` = `18d71e10` (rollback: `git revert -m 1 d3fc30ae` + push +
+  `DEPLOY_FORCE=1 bash scripts/pages/deploy_origin.sh` restage — docs surface
+  only; no goalworld_site / Vercel / webapp change).
+- **Live link:** https://goalworld.fun/goalworld.html (deploy
+  `scripts/pages/deploy_origin.sh` → guard clean, 0 internal-only paths,
+  `restaged d3fc30ae` 04:07 UTC).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261030T034752Z/`
+  - build.txt: exit 0 (tag-balance check OK, `lang=en`, `node --check` on the
+    extracted inline JS EXIT 0). tests.txt: `test_gw_chrome` 9 tests — 1 failure
+    is the PRE-EXISTING `test_marketing_html_loads_shell` (same 5-page list as
+    the origin/main baseline; goalworld.html not in it). linkcheck.txt: href/src
+    ref set identical old vs new (54 refs, 0 new refs), all local targets OK and
+    the 8 gitignored `film_draft/*_cut_v2.mp4` verified 200 on live (35.7 MB /
+    20.4 MB samples) — 0 broken links.
+  - Lighthouse (mobile) LIVE before → after:
+    | axis | before | after |
+    |---|---|---|
+    | performance | 0.73 | 0.74 |
+    | accessibility | 1.0 | 1.0 |
+    | best-practices | 1.0 | 1.0 |
+    | SEO | 1.0 | 1.0 |
+    | LCP | 14.5 s | 12.0 s |
+    | CLS | 0.065 | 0.009 |
+    No regression on any axis (LCP/CLS deltas measured, likely run-to-run
+    variance — the change is copy-only). Pre-merge local preview
+    (lighthouse-local-preview.json): a11y 1.0 / BP 0.96 / SEO 1.0 (local
+    http.server perf not representative of the CF-fronted live site).
+  - dom-check-before.txt: 88 Spanish-marker lines on live before → 4 after in
+    source (all dev comments) → dom-check-live-after.txt: real Chromium
+    render of live page = **0 Spanish markers** in visible text, 20 EN
+    fingerprints. smoke-before.txt / smoke-after.txt: all URLs 200 (goalworld.html
+    103,746 → 102,041 bytes); 12/12 content checks PASS (EN title/hero/nav/reader/
+    goalchain strings present, ES fingerprints gone, fixed paragraph closed).
+  - verify-live-site.txt: `scripts/pages/verify_live_site.py` 21/21 PASS (internal
+    docs still off the site, public pages up).
+  - Screenshots: shot-live-before.png / shot-local-after.png / shot-live-after.png
+    (1280×2400).
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) Dev-facing Spanish remains in this page's
+  HTML/JS comments (same class as runs 20261025/20261028 follow-ups). (2) The
+  reader-tab sample is a condensed adaptation of the canon prologue — a future
+  run could server-render it from the manuscript like `reader.html` does. (3)
+  Unchanged earlier follow-ups: `test_marketing_html_loads_shell` 5-page
+  pre-existing failure (classify app/generated pages vs adding gw-shell nav),
+  `?lang=es` locale feature + i18n leftovers pending the "remove ES entirely"
+  decision, ES locale on `goalchain.html`/`play/*` pages, webapp in-app ES strings
+  (~500 strings / 40 files), pack price copy inconsistency (needs human
+  decision), contract_data.js Anchor→borsh read path, legacy pages' LCP cost of
+  web3 v1 pinning, goalworld_site TODO.md human facts (dead Discord invite, X
+  handle 404, legal review), Caddyfile diff (hard limit), wallet-adapter DM Sans
+  (third-party, leave).
