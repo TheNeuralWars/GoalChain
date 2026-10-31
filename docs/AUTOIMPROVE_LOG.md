@@ -1625,3 +1625,81 @@ One entry per daily run (newest last).
   web3 v1 pinning, goalworld_site TODO.md human facts (dead Discord invite, X
   handle 404, legal review), Caddyfile diff (hard limit), wallet-adapter DM Sans
   (third-party, leave).
+
+## 2026-10-31 run 20261031T034707Z
+
+- **What:** Zero-flash deep links on the public Books reader
+  (https://goalworld.fun/reader.html?lang=es&ch=N and /go/reader/?ch=N) — run
+  20261029's named follow-up (2). Deep links painted the static default view
+  (English Prologue) first and re-rendered the requested chapter only after the
+  47 KB inline script parsed. Fixed at the generator
+  (`scripts/build_static_reader.py`, both mirrors regenerated): (1) pre-paint
+  guard — when `book`/`lang`/`ch` params are present, a head script marks
+  `<html>` with `dl-guard` (`body>*` visibility:hidden) so nothing paints until
+  `init()` renders the requested view; an 8 s safety timeout falls back to the
+  static default view if the main script dies. (2) `init()` try/finally lifts
+  the guard only after `renderChapter()` (first paint = final content) and
+  clamps invalid/negative `?ch` instead of throwing. (3) `renderChapter()`
+  clamps out-of-range AND negative chapter indexes to 0 — previously `?ch=-1`
+  threw inside init and left the whole page dead (no listeners, no TOC).
+  Default (param-less) URL render path is byte-for-byte the same behavior.
+- **Why:** A shared/bookmarked deep link is a first-impression surface: the
+  reader showed the WRONG chapter/language for ~0.5-1 s (measured 978 ms flash
+  at 50 KB/s) then jumped — wrong-content flash + wasted LCP + the param'd-load
+  layout shift logged by run 20261029 (0.0027 CLS residual). Single concern
+  (reader deep-link render path), generator-level fix, both mirrors identical.
+- **Commit SHA (merge):** `c241c420` (PR #912, feature `b9049c3a`). Pre-merge
+  `origin/main` = `3e9c6946` (rollback: `git revert -m 1 c241c420` + push +
+  `DEPLOY_FORCE=1 bash scripts/pages/deploy_origin.sh` restage).
+- **Live link:** https://goalworld.fun/reader.html?lang=es&ch=1 (deploy
+  `scripts/pages/deploy_origin.sh` → guard clean, 0 internal-only paths,
+  `restaged c241c420` 04:38 UTC; `verify_live_site.py` 21/21 PASS).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261031T034707Z/`
+  - build.txt: generator exit 0 (both mirrors written, byte-identical, size
+    60,561 chars / 61,136 B = +952 B over the 60,184 B baseline — the issue
+    #879 60 KB soft budget was already exceeded by run 20261029's static
+    first-paint pass; documented, not worsened beyond this fix's ~1%).
+    build-checks.txt: `node --check` on both inline script blocks EXIT 0;
+    guard wiring 4/4 present in generated output.
+  - tests.txt: `test_gw_chrome` 9 tests — 8 green; the 1 failure
+    (`test_marketing_html_loads_shell`) is the PRE-EXISTING 5-page list,
+    re-verified identical on the origin/main baseline (live checkout at
+    3e9c6946) — not introduced by this run.
+  - Paced A/B (deterministic 50 KB/s server, old vs new HTML, cache-off CDP
+    probe, mobile 412×731): OLD (origin/main) — FCP 424 ms painted the WRONG
+    English Prologue (`paintedSig` "PROLOGUEThe rain falls in sevens."), swap
+    to the requested ES ch-1 only at t=1453 ms (≈1 s wrong-content flash, LCP
+    1468 wasted on the swap). NEW — guard set t=328 ms, wrong view never
+    painted (observed hidden at t=488), reveal+swap at t=1461 ms, FCP 1492 ms
+    = the requested "CAPÍTULO 1" first. Screenshots
+    shot-paced-OLD/NEW-deeplink-t700/t2500.png (t700 OLD shows EN Prologue for
+    a ES-ch1 URL; NEW shows no chapter content until the correct view).
+  - CLS (CDP 4× CPU / 1.6 Mbps, 3 runs each): deep-link 0.0027 → 0 (live
+    after: 0 shifts), default URL 0 → 0 (no regression).
+  - Lighthouse (mobile) live before → after (default URL, deep-link URL):
+    perf 0.98 → 0.98, a11y 1.0 → 1.0, BP 0.96 → 0.96, SEO 1.0 → 1.0, LCP
+    1.86 s → 1.83 s / 1.82 s → 1.85 s, CLS 0 → 0. Pre-merge local preview:
+    0.99/1.0/0.96/1.0 both URLs, CLS 0. No regression on any axis.
+  - dom-check.txt 4/4: default EN (PROLOGUE, EN copy, lang=en);
+    ?lang=es&ch=1 (CAPÍTULO 1, ES copy, html lang=es, guard lifted);
+    ?ch=-1 and ?ch=99&book=bogus render the Prologue safely (previously
+    ?ch=-1 crashed init). linkcheck.txt: href/src ref set identical old vs
+    new (4 refs, 0 new) — no new links. smoke-before.txt/smoke-after.txt:
+    all 4 URLs 200 (60,184 → 61,136 B), guard fingerprints present after.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) `test_marketing_html_loads_shell`
+  5-page pre-existing failure unchanged (app/generated pages vs gw-shell nav —
+  UX decision; the reader pair has its own header + "← GoalWorld"). (2) The
+  60 KB soft size budget on reader.html is exceeded (was already at run
+  20261029); a future run could move BOOKS_DATA to an external JSON (smaller
+  first paint, extra request) or trim the sample copy. (3) Deep-link state is
+  read once at init — navigating chapters doesn't sync the URL (no history
+  entries for ?ch=); a future run could update the URL on renderChapter for
+  shareable in-page links. (4) Unchanged earlier follow-ups: `?lang=es` locale
+  feature + i18n leftovers pending the "remove ES entirely" decision, webapp
+  in-app ES strings (~500 strings / 40 files), dev-facing Spanish in code
+  comments, pack price copy inconsistency (needs human decision),
+  contract_data.js Anchor→borsh read path, legacy pages' LCP cost of web3 v1
+  pinning, goalworld_site TODO.md human facts (dead Discord invite, X handle
+  404, legal review), Caddyfile diff (hard limit), wallet-adapter DM Sans
+  (third-party, leave).
