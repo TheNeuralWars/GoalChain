@@ -175,6 +175,19 @@ html_template = """<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:wght@400&display=optional" rel="stylesheet">
+  <script>
+    // Deep-link pre-paint guard (?book/?lang/?ch): hide the page until init()
+    // renders the requested view — no wrong-view flash, no layout shift. The
+    // timeout falls back to the static default view if the main script dies.
+    (function () {
+      var p = new URLSearchParams(location.search);
+      if (p.get('book') || p.get('lang') || p.get('ch')) {
+        var d = document.documentElement;
+        d.className += ' dl-guard';
+        setTimeout(function () { d.classList.remove('dl-guard'); }, 8000);
+      }
+    })();
+  </script>
   <style>
     :root {
       --bg: #0a0a10;
@@ -224,6 +237,9 @@ html_template = """<!DOCTYPE html>
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Deep-link pre-paint guard (see head script): while 'dl-guard' is on <html>,
+       nothing paints until init() has rendered the requested view. */
+    html.dl-guard body > * { visibility: hidden; }
     body {
       background: var(--bg);
       color: var(--text);
@@ -626,21 +642,28 @@ html_template = """<!DOCTYPE html>
     }
 
     function init() {
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('book')) state.bookId = urlParams.get('book');
-      if (urlParams.get('lang')) state.lang = urlParams.get('lang');
-      if (urlParams.get('ch')) state.chapterIndex = parseInt(urlParams.get('ch')) || 0;
-      document.documentElement.lang = state.lang;
-      updateSampleCopy(state.lang);
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('book')) state.bookId = urlParams.get('book');
+        if (urlParams.get('lang')) state.lang = urlParams.get('lang');
+        const chIdx = parseInt(urlParams.get('ch'), 10);
+        if (!isNaN(chIdx) && chIdx >= 0) state.chapterIndex = chIdx;
+        document.documentElement.lang = state.lang;
+        updateSampleCopy(state.lang);
 
-      populateBookSelect();
-      loadVoices();
-      if (window.speechSynthesis) {
-        window.speechSynthesis.onvoiceschanged = loadVoices;
+        populateBookSelect();
+        loadVoices();
+        if (window.speechSynthesis) {
+          window.speechSynthesis.onvoiceschanged = loadVoices;
+        }
+
+        renderChapter();
+        window.addEventListener('scroll', updateProgress);
+      } finally {
+        // Lift the deep-link guard only after the requested view renders (first
+        // paint = final content); runs even if init throws (never a blank page).
+        document.documentElement.classList.remove('dl-guard');
       }
-
-      renderChapter();
-      window.addEventListener('scroll', updateProgress);
     }
 
     function toggleAudioPanel() {
@@ -907,7 +930,7 @@ html_template = """<!DOCTYPE html>
     function renderChapter() {
       const book = BOOKS_DATA.find(b => b.id === state.bookId) || BOOKS_DATA[0];
       const chapters = book.chapters[state.lang] || book.chapters.es;
-      if (state.chapterIndex >= chapters.length) state.chapterIndex = 0;
+      if (!(state.chapterIndex >= 0 && state.chapterIndex < chapters.length)) state.chapterIndex = 0;
 
       const ch = chapters[state.chapterIndex];
 
