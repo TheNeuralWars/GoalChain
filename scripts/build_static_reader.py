@@ -649,6 +649,7 @@ html_template = """<!DOCTYPE html>
         const chIdx = parseInt(urlParams.get('ch'), 10);
         if (!isNaN(chIdx) && chIdx >= 0) state.chapterIndex = chIdx;
         document.documentElement.lang = state.lang;
+        updateLangButtons();
         updateSampleCopy(state.lang);
 
         populateBookSelect();
@@ -659,6 +660,7 @@ html_template = """<!DOCTYPE html>
 
         renderChapter();
         window.addEventListener('scroll', updateProgress);
+        window.addEventListener('popstate', applyStateFromUrl);
       } finally {
         // Lift the deep-link guard only after the requested view renders (first
         // paint = final content); runs even if init throws (never a blank page).
@@ -906,6 +908,7 @@ html_template = """<!DOCTYPE html>
       stopTts();
       state.bookId = bookId;
       state.chapterIndex = 0;
+      syncUrl(true);
       renderChapter();
     }
 
@@ -913,13 +916,11 @@ html_template = """<!DOCTYPE html>
       stopTts();
       state.lang = lang;
       document.documentElement.lang = lang;
-      document.getElementById('btn-lang-es').style.background = lang === 'es' ? '#9333ea' : 'transparent';
-      document.getElementById('btn-lang-es').style.color = lang === 'es' ? '#fff' : 'var(--text)';
-      document.getElementById('btn-lang-en').style.background = lang === 'en' ? '#9333ea' : 'transparent';
-      document.getElementById('btn-lang-en').style.color = lang === 'en' ? '#fff' : 'var(--text)';
+      updateLangButtons();
       populateBookSelect();
       updateSampleCopy(lang);
       loadVoices();
+      syncUrl(true);
       renderChapter();
     }
 
@@ -980,6 +981,7 @@ html_template = """<!DOCTYPE html>
           stopTts();
           state.chapterIndex = idx;
           toggleToc();
+          syncUrl(true);
           renderChapter();
           window.scrollTo({ top: 0, behavior: 'smooth' });
         };
@@ -992,13 +994,54 @@ html_template = """<!DOCTYPE html>
 
     function navigateChapter(dir) {
       stopTts();
-      const book = BOOKS_DATA.find(b => b.id === state.bookId);
+      const book = BOOKS_DATA.find(b => b.id === state.bookId) || BOOKS_DATA[0];
       const chapters = book.chapters[state.lang] || book.chapters.es;
       const next = state.chapterIndex + dir;
       if (next >= 0 && next < chapters.length) {
         state.chapterIndex = next;
+        syncUrl(true);
         renderChapter();
       }
+    }
+
+    // URL sync: every book/lang/chapter view gets a shareable ?book/?lang/?ch URL
+    // and back/forward walk viewed chapters. Nav pushes; init() never rewrites the
+    // URL (param-less default link stays clean).
+    function syncUrl(push) {
+      const qs = '?book=' + encodeURIComponent(state.bookId) +
+        '&lang=' + encodeURIComponent(state.lang) +
+        '&ch=' + state.chapterIndex;
+      try {
+        if (push) history.pushState(null, '', qs);
+        else history.replaceState(null, '', qs);
+      } catch (e) { /* file:// or sandboxed contexts: sync is best-effort */ }
+    }
+
+    function updateLangButtons() {
+      const esOn = state.lang === 'es';
+      const bEs = document.getElementById('btn-lang-es');
+      const bEn = document.getElementById('btn-lang-en');
+      // Empty string drops the inline override: .btn CSS default = initial markup.
+      bEs.style.background = esOn ? '#9333ea' : '';
+      bEs.style.color = esOn ? '#fff' : '';
+      bEn.style.background = esOn ? '' : '#9333ea';
+      bEn.style.color = esOn ? '' : '#fff';
+    }
+
+    // popstate: re-apply URL state (absent params = defaults), no URL write back.
+    function applyStateFromUrl() {
+      stopTts();
+      const p = new URLSearchParams(location.search);
+      state.bookId = p.get('book') || BOOKS_DATA[0].id;
+      state.lang = p.get('lang') || 'en';
+      const chIdx = parseInt(p.get('ch'), 10);
+      state.chapterIndex = (!isNaN(chIdx) && chIdx >= 0) ? chIdx : 0;
+      document.documentElement.lang = state.lang;
+      updateLangButtons();
+      populateBookSelect();
+      updateSampleCopy(state.lang);
+      loadVoices();
+      renderChapter();
     }
 
     function toggleTheme() {
