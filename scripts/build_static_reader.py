@@ -175,6 +175,7 @@ html_template = """<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Merriweather:wght@400&display=optional" rel="stylesheet">
+  <link rel="preload" href="/go/reader/books-data.json" as="fetch" crossorigin>
   <script>
     // Deep-link pre-paint guard (?book/?lang/?ch): hide the page until init()
     // renders the requested view — no wrong-view flash, no layout shift. The
@@ -240,6 +241,7 @@ html_template = """<!DOCTYPE html>
     /* Deep-link pre-paint guard (see head script): while 'dl-guard' is on <html>,
        nothing paints until init() has rendered the requested view. */
     html.dl-guard body > * { visibility: hidden; }
+    .data-error-note { margin: 1rem 0; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-size: 0.95rem; text-align: center; }
     body {
       background: var(--bg);
       color: var(--text);
@@ -579,9 +581,46 @@ html_template = """<!DOCTYPE html>
   </footer>
 
         <script>
-    // BOOKS_DATA contains the book content for the reader (repo-embedded static
-    // manuscripts — not user input; interpolated into innerHTML below).
-    const BOOKS_DATA = """ + json.dumps(books_payload, ensure_ascii=False, separators=(",", ":")) + """;
+    // Book content ships OUTSIDE the HTML as /go/reader/books-data.json (issue
+    // #877 size budget: this page must stay under 60 KB). The <link rel=preload>
+    // in <head> fetches it in parallel with the HTML, and the server-rendered
+    // default view above means the first paint never waits for it.
+    let BOOKS_DATA = null;
+    let dataReady = null;
+    function loadBooksData() {
+      if (!dataReady) {
+        dataReady = fetch('/go/reader/books-data.json', { credentials: 'same-origin' })
+          .then(function (r) {
+            if (!r.ok) throw new Error('books-data.json HTTP ' + r.status);
+            return r.json();
+          })
+          .then(function (d) { BOOKS_DATA = d; return d; });
+      }
+      return dataReady;
+    }
+    // Clicks can land before the JSON arrives (user interacts during load):
+    // run the action once the data is in instead of dropping it or crashing.
+    function withData(fn) {
+      if (BOOKS_DATA) { fn(); return; }
+      loadBooksData().then(fn).catch(function () {});
+    }
+    // Data fetch failed: the server-rendered sample stays visible, but chapter
+    // navigation needs the book data — say so and disable it instead of failing
+    // silently.
+    function showDataError() {
+      var note = document.createElement('p');
+      note.className = 'data-error-note';
+      note.setAttribute('role', 'status');
+      note.textContent = state.lang === 'es'
+        ? 'No se pudo cargar el contenido del libro. Recarga la página para seguir leyendo.'
+        : 'Book content could not be loaded. Refresh the page to keep reading.';
+      var body = document.getElementById('reader-body');
+      if (body) body.insertBefore(note, body.firstChild);
+      ['btn-prev', 'btn-next', 'book-select', 'btn-lang-es', 'btn-lang-en', 'btn-tts-play'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.disabled = true;
+      });
+    }
     
     // Real prices from data/publishing/kdp_manifest.json (issue #879).
     const PRICING = """ + json.dumps({"preorder_usd": pricing_info.get("preorder_usd", 0.99), "regular_usd": pricing_info.get("regular_usd", 2.99), "kindle_unlimited": bool(pricing_info.get("kindle_unlimited", True))}, separators=(",", ":")) + """;
@@ -652,18 +691,28 @@ html_template = """<!DOCTYPE html>
         updateLangButtons();
         updateSampleCopy(state.lang);
 
-        populateBookSelect();
         loadVoices();
         if (window.speechSynthesis) {
           window.speechSynthesis.onvoiceschanged = loadVoices;
         }
 
-        renderChapter();
+        // Book content is external (books-data.json, preloaded in <head>):
+        // render as soon as it arrives; early clicks queue via withData().
+        loadBooksData().then(function () {
+          populateBookSelect();
+          renderChapter();
+        }).catch(function () {
+          showDataError();
+        }).finally(function () {
+          // Lift the deep-link guard only after the requested view renders
+          // (first paint = final content); on fetch failure the static default
+          // view shows instead (never a blank page).
+          document.documentElement.classList.remove('dl-guard');
+        });
         window.addEventListener('scroll', updateProgress);
-        window.addEventListener('popstate', applyStateFromUrl);
-      } finally {
-        // Lift the deep-link guard only after the requested view renders (first
-        // paint = final content); runs even if init throws (never a blank page).
+        window.addEventListener('popstate', function () { withData(applyStateFromUrl); });
+      } catch (e) {
+        // Even if init throws, never leave the guard up (never a blank page).
         document.documentElement.classList.remove('dl-guard');
       }
     }
@@ -699,6 +748,7 @@ html_template = """<!DOCTYPE html>
     }
 
     function toggleTtsPlay() {
+      if (!BOOKS_DATA) { withData(function () { toggleTtsPlay(); }); return; }
       const btn = document.getElementById('btn-tts-play');
       const stopBtn = document.getElementById('btn-tts-stop');
       const status = document.getElementById('tts-status');
@@ -905,6 +955,7 @@ html_template = """<!DOCTYPE html>
     }
 
     function changeBook(bookId) {
+      if (!BOOKS_DATA) { withData(function () { changeBook(bookId); }); return; }
       stopTts();
       state.bookId = bookId;
       state.chapterIndex = 0;
@@ -913,6 +964,7 @@ html_template = """<!DOCTYPE html>
     }
 
     function changeLang(lang) {
+      if (!BOOKS_DATA) { withData(function () { changeLang(lang); }); return; }
       stopTts();
       state.lang = lang;
       document.documentElement.lang = lang;
@@ -993,6 +1045,7 @@ html_template = """<!DOCTYPE html>
     }
 
     function navigateChapter(dir) {
+      if (!BOOKS_DATA) { withData(function () { navigateChapter(dir); }); return; }
       stopTts();
       const book = BOOKS_DATA.find(b => b.id === state.bookId) || BOOKS_DATA[0];
       const chapters = book.chapters[state.lang] || book.chapters.es;
@@ -1066,8 +1119,9 @@ html_template = """<!DOCTYPE html>
       document.getElementById('scroll-progress-text').textContent = `${percent}%`;
     }
 
-    // Script sits at end of body: init synchronously so content is filled
-    // before first paint (no late-injection layout shift, faster LCP).
+    // Script sits at end of body. The default view is server-rendered (no
+    // late-injection layout shift, faster LCP); init() wires behavior once the
+    // preloaded books-data.json arrives.
     init();
   </script>
 </body>
@@ -1118,3 +1172,13 @@ with open(out_go_reader, "w", encoding="utf-8") as f:
     f.write(html_template)
 print(f"[+] Wrote {out_go_reader}")
 print(f"[+] Size: {len(html_template)} chars ({'OK <60KB' if len(html_template) < 60000 else 'OVER BUDGET'})")
+
+# Book content ships as an external JSON next to the /go/reader/ mirror (issue
+# #877 size budget): the reader fetches it via the <head> preload link. Writing
+# it as a file also removes the "</script> in book text" injection risk the old
+# inline <script> const had.
+out_books = os.path.join(REPO_ROOT, "docs", "go", "reader", "books-data.json")
+books_json = json.dumps(books_payload, ensure_ascii=False, separators=(",", ":"))
+with open(out_books, "w", encoding="utf-8") as f:
+    f.write(books_json)
+print(f"[+] Wrote {out_books} ({len(books_json.encode('utf-8'))} bytes)")
