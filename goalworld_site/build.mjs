@@ -30,7 +30,7 @@ const DIST = join(HERE, "dist");
 const ORIGIN = "https://goalworld.fun";
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
-const NAV_KEYS = ["ABOUT", "LIVE", "ROADMAP", "FAQ", "PRESS"];
+const NAV_KEYS = ["BOOK", "CINEMA", "STUDIO", "LIVE", "ROADMAP", "ABOUT", "FAQ", "PRESS", "COLLECT"];
 
 function parsePage(file) {
   const raw = readFileSync(file, "utf8");
