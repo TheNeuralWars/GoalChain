@@ -487,16 +487,21 @@
       }
     }
 
-    // URL sync: every book/lang/chapter view gets a shareable ?book/?lang/?ch URL
-    // and back/forward walk viewed chapters. Nav pushes; init() never rewrites the
-    // URL (param-less default link stays clean).
+    // URL sync: every book/lang/chapter view gets a shareable short URL — only
+    // non-default params are written (?ch=N, ?lang=es&ch=N, ?book=ID&ch=N) and an
+    // all-default view syncs to the clean param-less URL. Absent params parse as
+    // defaults (init()/applyStateFromUrl), so full-triple links keep working.
+    // Back/forward walk viewed chapters; init() never rewrites the URL.
     function syncUrl(push) {
-      const qs = '?book=' + encodeURIComponent(state.bookId) +
-        '&lang=' + encodeURIComponent(state.lang) +
-        '&ch=' + state.chapterIndex;
+      const defaultBook = (BOOKS_DATA && BOOKS_DATA[0]) ? BOOKS_DATA[0].id : null;
+      const parts = [];
+      if (state.bookId !== defaultBook) parts.push('book=' + encodeURIComponent(state.bookId));
+      if (state.lang !== 'en') parts.push('lang=' + encodeURIComponent(state.lang));
+      if (state.chapterIndex !== 0) parts.push('ch=' + state.chapterIndex);
+      const target = parts.length ? '?' + parts.join('&') : location.pathname;
       try {
-        if (push) history.pushState(null, '', qs);
-        else history.replaceState(null, '', qs);
+        if (push) history.pushState(null, '', target);
+        else history.replaceState(null, '', target);
       } catch (e) { /* file:// or sandboxed contexts: sync is best-effort */ }
     }
 
