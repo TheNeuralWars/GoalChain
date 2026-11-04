@@ -1949,3 +1949,93 @@ One entry per daily run (newest last).
   diff incl. cache headers for `/assets/*` (hard limit), wallet-adapter DM Sans
   (third-party, leave), `test_marketing_html_loads_shell` 5-page pre-existing
   failure (UX decision).
+
+## 2026-11-04 run 20261104T034752Z
+
+- **What:** Stopped the eager stadium hover-video downloads on the Matchday page
+  (`docs/goalchain.html`, https://goalworld.fun/goalchain). ROOT CAUSE: the
+  DOMContentLoaded stadium-card init created the 5 hover-preview `<video>`
+  elements with `.src` set and no `preload`, so Chrome eagerly downloaded every
+  full MP4 (~15 MB total) on every page load just to back hover previews.
+  Fix: `video.preload = "none"` set BEFORE `.src` — the exact pattern the
+  sibling `marketplace.js` / `nft_registry.js` hover cards already use (and
+  which measurably fetch nothing). Each video now fetches only on first hover
+  `play()`; the user-initiated "Watch" modal path is unchanged. Single concern,
+  one root cause, one file (the same bug class exists nowhere else —
+  `createElement("video")` occurs only here; `cinema.html`/`goalworld.html`/
+  `index.html` `<video>` tags already declare explicit `preload`).
+- **Why:** Measured the worst page in the property before choosing: goalchain
+  (top-nav "Matchday") was perf 0.32 mobile, **20.9 MB / 104 requests per
+  view**, 5/5 stadium MP4s downloading eagerly at load (Lighthouse network
+  audit + CDP Network domain). A 21 MB page view on mobile data is a product
+  reliability problem on the core game surface — and the fix is a 1-line
+  root-cause change (plus comment), zero new binaries, zero public-copy change.
+  (Also measured this run: goalworld.html "Lore" 16 MB of master-quality JPGs,
+  LCP 12.6 s — logged as follow-up; arcade.html is healthy at 0.94.)
+- **Commit SHA (merge):** `ca8afcc5` (PR #916, feature `6dae3299`). Pre-merge
+  `origin/main` = `78eac3ed` (rollback: `git revert -m 1 ca8afcc5` + push +
+  `bash scripts/pages/deploy_origin.sh` — docs-surface only, no landing/Vercel
+  change needed).
+- **Live link:** https://goalworld.fun/goalchain (also /goalchain.html;
+  `deploy_origin.sh` restaged `ca8afcc5` at 2026-11-04 04:25:53 UTC — guard 0
+  internal-only paths; live HTML sha256 `bbb86508…` == repo file — no edge-cache
+  staleness).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261104T034752Z/`
+  - build.txt: `node --check` on all 5 inline script blocks of goalchain.html
+    exit 0; new-code fingerprint `video.preload = "none";` ×1,
+    `createElement("video")` ×1, HTML 207,645 B (was 207,310). Diff vs the
+    live pre-change HTML is exactly this patch (byte-level verified).
+  - tests.txt: `docs/tests/test_gw_chrome.py` 9 tests — 8 green; the 1 failure
+    (`test_marketing_html_loads_shell`) is the PRE-EXISTING 5-page baseline
+    (architecture/archify, 2 film pages, reader pair) — same failure list
+    re-verified on the pre-change live checkout this run.
+  - videopreload-check (new CDP harness, 13 checks) **local 13/13 + live-after
+    13/13 PASS**: 0 mp4 requests after page load (before: 5/5 eager), 5/5 hover
+    videos `preload=none` with src matching `data-video`, hover fetches+plays on
+    demand (fade-in opacity 1, playing t≈2.5 s), mouseleave pauses+resets,
+    Watch modal opens + plays its video, 0 uncaught JS exceptions. Session mp4
+    totals: live-before 6 (5 eager + 1 hover) → live-after 1 (hover only).
+    live-before run (bug documented on live): A1/B2 FAIL = 5 eager downloads,
+    preload=metadata. Screenshots videopreload-{live-before,live-after,local}-*
+    {idle-top,hover,modal}.png.
+  - Lighthouse (mobile) live before ×2 → after ×2 (samples consistent):
+    | run | perf | a11y | BP | SEO | FCP | LCP | TBT | CLS | SI | transfer | mp4 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|
+    | before 1 | 0.32 | 0.81 | 0.73 | 1.0 | 2.1 s | 17.7 s | 43.3 s | 0.081 | 27.6 s | 20.9 MB | 5 |
+    | before 2 | 0.32 | 0.81 | 0.73 | 1.0 | 2.3 s | 18.0 s | 51.3 s | 0.000 | 28.4 s | 20.9 MB | 5 |
+    | after 1 | 0.33 | 0.81 | 0.73 | 1.0 | 2.3 s | 15.5 s | 54.7 s | 0.000 | 26.8 s | 6.8 MB | 0 |
+    | after 2 | 0.33 | 0.81 | 0.73 | 1.0 | 2.3 s | 15.5 s | 54.6 s | 0.016 | 26.8 s | 6.8 MB | 0 |
+    No regression on any gate axis (a11y/BP/SEO flat, perf +0.01, LCP −2.3 s,
+    SI −0.8…1.6 s); transfer −14.1 MB/view (−67%). Pre-merge local new build
+    (local-goalchain-new.json): 0 mp4 requests, 8.0 MB transfer, a11y 0.81 /
+    BP 0.73 / SEO 1.0 — no regression (its LCP/TBT numbers are not comparable:
+    single-threaded local server + this page's churn).
+  - linkcheck.txt: href/src/data-video ref set identical to live-before
+    (66/66 refs — 0 added, 0 removed); no new broken links possible.
+    smoke-before.txt / smoke-after.txt: goalchain.html + /goalchain 200
+    (207,310 → 207,645 B), fingerprint 1/1 new-code + 0/0 old-code,
+    live-sha == repo file.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) goalworld.html (Lore, top-nav) ships
+  16 MB of master-quality JPGs (biggest 1,265 KB `Keyframe_09…jpg`) to render
+  ≤560 px cards — LCP 12.6 s, perf 0.70 this run. Most images already have
+  optimized webp derivatives in `goalworld_site/src/assets/img/`
+  (`char-*.webp`, `keyframe-*.webp`, `loc-*.webp`, `cover-*.webp` — all
+  <220 KB, deployed at `goalworld.fun/assets/img/…`); a future run can point
+  the page at those + `loading="lazy"` (and generate the 2–3 missing
+  derivatives via `goalworld_site/tools/make_assets.py`). (2) goalchain.html
+  main-thread churn: TBT 43–55 s and styleLayout/paint ~45–58 s (throttled)
+  dominate LCP even after this fix — the live-feed/observability polling +
+  animation loops deserve a dedicated perf pass (this run kept single-scope).
+  (3) `logo_3d_clean.png` is 517 KB and rendered at 32 px everywhere
+  (gw-shell brand + page logos — arcade's biggest request); needs a resized
+  brand asset. (4) Unchanged earlier follow-ups: books-data.json key
+  slimming/precompress (precompress = Caddyfile hard limit), `?lang=es` locale
+  feature + i18n leftovers pending the "remove ES entirely" decision, webapp
+  in-app ES strings (~500 strings / 40 files — multi-run sweep), dev-facing
+  Spanish in code comments, pack price copy inconsistency (needs human
+  decision), contract_data.js Anchor→borsh read path (needs a live on-chain
+  fixture), goalworld_site TODO.md human facts (dead Discord invite, X handle
+  404, legal review), Caddyfile diff incl. cache headers for `/assets/*` (hard
+  limit), wallet-adapter DM Sans (third-party, leave),
+  `test_marketing_html_loads_shell` 5-page pre-existing failure (UX decision).
