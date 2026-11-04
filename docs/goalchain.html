@@ -6200,8 +6200,13 @@
           const videoSrc = imgDiv.getAttribute("data-video");
           if (!videoSrc) return;
 
-          // Create video element
+          // Create video element.
+          // preload="none" BEFORE setting .src: without it Chrome eagerly
+          // downloads every full MP4 (~15 MB total) just to back the hover
+          // preview. Same pattern as the marketplace.js / nft_registry.js
+          // hover cards — the file only fetches on first hover play().
           const video = document.createElement("video");
+          video.preload = "none";
           video.src = videoSrc;
           video.muted = true;
           video.playsInline = true;
