@@ -61,9 +61,12 @@ page — the build fails before shipping if they would drift).
 - **After Gate 2 (G2)**: the public sample should be the official Chapter 1 from `MANUSCRIPT_v7` (or `MANUSCRIPT_COMPLETE_2026_EN.md` / `EDICION_2026`).
 - **TODO**: Swap in the full G2-signed Chapter 1 text for `/go/reader/` and `/book.html#sample` once author sign-off is confirmed. Do not invent or alter chapter text. Ensure the free excerpt remains within KDP Select rules (~6% of 74k words) if Select distribution is selected.
 
-Internal links to legacy surfaces (`goalworld.html`, `cinema.html`, `/go/reader`, …)
-are absolute `https://goalworld.fun/...` URLs — those pages live in the deployed
-tree (`docs/` staged to `_site_public`) and are intentionally NOT rebuilt here.
+Internal links between `goalworld_site` pages (`/book.html`, `/book.html#sample`,
+`/cinema.html`, `/studio.html`, `/collect.html`, `/live.html`, `/about.html`,
+`/roadmap.html`, `/faq.html`, `/press.html`) are site-relative so preview deployments
+resolve locally without leaking clicks to production. Standalone sub-apps hosted on the
+VPS (`/blast-radius/`, `/hermes-demo/`) and external video streams
+(`https://goalworld.fun/assets/img/neuralwars/...`) use explicit URLs.
 
 ## Content rules
 

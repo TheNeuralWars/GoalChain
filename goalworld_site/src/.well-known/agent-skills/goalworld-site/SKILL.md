@@ -20,6 +20,11 @@ The Neural Wars come alive.
 1. Read the site's agent index: <https://goalworld.fun/llms.txt>.
 2. Answer from the canonical pages:
    - Overview: <https://goalworld.fun/>
+   - Book 1 (Fractured Code & Chapter 1 sample): <https://goalworld.fun/book.html>
+   - AI Cinema: <https://goalworld.fun/cinema.html>
+   - Studio & Living Canon: <https://goalworld.fun/studio.html>
+   - Live board: <https://goalworld.fun/live.html>
+   - Collectors & creators (provenance): <https://goalworld.fun/collect.html>
    - About & lore (The Neural Wars): <https://goalworld.fun/about.html>
    - Roadmap (now / next / later, no dates): <https://goalworld.fun/roadmap.html>
    - FAQ: <https://goalworld.fun/faq.html>

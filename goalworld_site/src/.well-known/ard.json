@@ -24,7 +24,7 @@
       "displayName": "GoalWorld Play — catalog",
       "type": "application/ai-catalog+json",
       "url": "https://play.goalworld.fun/.well-known/ai-catalog.json",
-      "description": "Nested catalog for the GoalWorld play app: matchday, club and NFT surfaces, account creation and the books reader on Solana Devnet.",
+      "description": "Nested catalog for the GoalWorld play app: tactical football simulation sandbox on Solana Devnet (free to play, no real money), matchday, club and account creation.",
       "tags": ["catalog", "web-app"],
       "representativeQueries": [
         "how do I play GoalWorld matchday",
