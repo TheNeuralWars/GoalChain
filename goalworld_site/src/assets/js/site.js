@@ -150,7 +150,7 @@
   // 404 quick search
   var nf = document.querySelector("[data-nf-search]");
   if (nf) {
-    var MAP = [["lore|about|story|character|neo|book|studio", "/about.html"], ["faq|question|help|wallet|token", "/faq.html"], ["press|logo|kit|media|asset", "/press.html"], ["roadmap|plan|next", "/roadmap.html"], ["live|hackathon|status|project", "/live.html"], ["read|reader|fractured", "https://goalworld.fun/go/reader/"], ["play|game|match|goalchain", "https://play.goalworld.fun/"], ["privacy|data|cookie", "/privacy.html"], ["terms|legal", "/terms.html"]];
+    var MAP = [["lore|about|story|character|neo|book|studio", "/about.html"], ["faq|question|help|wallet|token", "/faq.html"], ["press|logo|kit|media|asset", "/press.html"], ["roadmap|plan|next", "/roadmap.html"], ["live|hackathon|status|project", "/live.html"], ["read|reader|fractured", "/book.html#sample"], ["play|game|match|goalchain", "https://play.goalworld.fun/"], ["privacy|data|cookie", "/privacy.html"], ["terms|legal", "/terms.html"]];
     nf.addEventListener("submit", function (e) {
       e.preventDefault();
       var v = nf.querySelector("input").value.toLowerCase();

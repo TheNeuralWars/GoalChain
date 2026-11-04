@@ -6,7 +6,12 @@
 
 ## Pages
 
-- [Home](https://goalworld.fun/): the GoalWorld overview and Play CTA.
+- [Home](https://goalworld.fun/): the GoalWorld overview, canon, cinema and Play CTA.
+- [Book — Fractured Code](https://goalworld.fun/book.html): Book 1 of The Neural Wars (G2 signed off, in release preparation) with free Chapter 1 preview at `/book.html#sample`.
+- [AI Cinema](https://goalworld.fun/cinema.html): official cinematic trailer, AI film-draft clips, 6-step pipeline and festival holdback notice.
+- [Studio](https://goalworld.fun/studio.html): how a manuscript becomes a living world, Living Canon engine, slate and author cohort.
+- [Live board](https://goalworld.fun/live.html): runtime feed of studio projects, hackathons, books and film.
+- [Collectors & creators](https://goalworld.fun/collect.html): provenance-first plan for signed media and editions (no token sale, no yield).
 - [About & lore](https://goalworld.fun/about.html): Neo-Citania, the Link, and the world of The Neural Wars.
 - [Roadmap](https://goalworld.fun/roadmap.html): what is live today, what is next, and what comes later — deliberately no dates.
 - [FAQ](https://goalworld.fun/faq.html): what GoalWorld is, how GoalChain Play works, and what the demo does and does not do.
@@ -15,7 +20,7 @@
 
 ## Play app
 
-- [GoalWorld Play](https://play.goalworld.fun/): matchday fixtures and predictions, squads, NFT market and staking on Solana.
+- [GoalWorld Play](https://play.goalworld.fun/): tactical football simulation sandbox on Solana Devnet (free to play, no real money).
 - [GoalWorld Play llms.txt](https://play.goalworld.fun/llms.txt): the play app's agent index.
 
 ## Notes for agents

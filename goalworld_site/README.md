@@ -43,17 +43,30 @@ page — the build fails before shipping if they would drift).
 
 | Page | URL | What |
 |---|---|---|
-| index | `/` | landing: hero + Play CTA, lore, how to play, teasers, roadmap, community |
+| index | `/` | landing: hero + Read/Play CTAs, bento pillars, featured canon, cinema, code, live feed, roadmap, community |
+| book | `/book.html` | Fractured Code (Book 1): blurb, cover, free Chapter 1 preview, saga ladder |
+| cinema | `/cinema.html` | AI cinema: official trailer + film-draft clips, 6-step pipeline, festival holdback notice |
+| studio | `/studio.html` | From manuscript to living world: case study, Living Canon engine, slate, author waitlist |
+| live | `/live.html` | live studio board: runtime feed of shipped, submitted and WIP projects |
+| collect | `/collect.html` | collectors & creators: provenance first, no token sale / no yield |
 | about | `/about.html` | The Neural Wars lore: Neo-Citania, the Link, cast, the saga |
 | roadmap | `/roadmap.html` | now / next / later (real items only, no dates) |
 | faq | `/faq.html` | honest answers incl. "this is a Devnet demo" |
-| press | `/press.html` | boilerplate + downloadable logos/art |
+| press | `/press.html` | boilerplate + downloadable logos/art + press contact |
 | privacy, terms | `/privacy.html`, `/terms.html` | plain-language legal (TODO: lawyer review, see TODO.md) |
-| 404 | `/404.html` | on-brand not-found (wire it via Caddy `handle_errors`, see the launch report) |
+| 404 | `/404.html` | on-brand not-found with search |
 
-Internal links to legacy surfaces (`goalworld.html`, `cinema.html`, `/go/reader`, …)
-are absolute `https://goalworld.fun/...` URLs — those pages live in the deployed
-tree (`docs/` staged to `_site_public`) and are intentionally NOT rebuilt here.
+### Reader sample (`/go/reader/` & `/book.html#sample`)
+- The free preview on `/book.html#sample` currently carries an opening excerpt placeholder.
+- **After Gate 2 (G2)**: the public sample should be the official Chapter 1 from `MANUSCRIPT_v7` (or `MANUSCRIPT_COMPLETE_2026_EN.md` / `EDICION_2026`).
+- **TODO**: Swap in the full G2-signed Chapter 1 text for `/go/reader/` and `/book.html#sample` once author sign-off is confirmed. Do not invent or alter chapter text. Ensure the free excerpt remains within KDP Select rules (~6% of 74k words) if Select distribution is selected.
+
+Internal links between `goalworld_site` pages (`/book.html`, `/book.html#sample`,
+`/cinema.html`, `/studio.html`, `/collect.html`, `/live.html`, `/about.html`,
+`/roadmap.html`, `/faq.html`, `/press.html`) are site-relative so preview deployments
+resolve locally without leaking clicks to production. Standalone sub-apps hosted on the
+VPS (`/blast-radius/`, `/hermes-demo/`) and external video streams
+(`https://goalworld.fun/assets/img/neuralwars/...`) use explicit URLs.
 
 ## Content rules
 

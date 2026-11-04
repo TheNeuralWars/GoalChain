@@ -36,9 +36,15 @@ class Collector(HTMLParser):
             self.links.append(("href", a["href"]))
 
 def main():
-    dist = os.path.abspath(sys.argv[1])
+    here = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    pos_args = [
+        a for i, a in enumerate(sys.argv[1:], 1)
+        if not a.startswith("--") and sys.argv[i - 1] not in ("--merge-root", "--base")
+    ]
+    dist = os.path.abspath(pos_args[0]) if pos_args else os.path.join(here, "dist")
     external = "--external" in sys.argv
-    merge_root = None
+    default_merge = os.path.normpath(os.path.join(here, "..", "docs"))
+    merge_root = default_merge if os.path.isdir(default_merge) else None
     if "--merge-root" in sys.argv:
         merge_root = os.path.abspath(sys.argv[sys.argv.index("--merge-root") + 1])
     base = "http://127.0.0.1:8787"

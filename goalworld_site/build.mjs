@@ -21,7 +21,7 @@
  */
 import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync, statSync } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { dirname, join, resolve } from "node:path";
+import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -30,7 +30,7 @@ const DIST = join(HERE, "dist");
 const ORIGIN = "https://goalworld.fun";
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
-const NAV_KEYS = ["ABOUT", "LIVE", "ROADMAP", "FAQ", "PRESS"];
+const NAV_KEYS = ["BOOK", "CINEMA", "STUDIO", "LIVE", "ROADMAP", "ABOUT", "FAQ", "PRESS", "COLLECT"];
 
 function parsePage(file) {
   const raw = readFileSync(file, "utf8");
@@ -237,6 +237,49 @@ function build() {
       }
     }
   }
+
+  // banned-claims contract: fail build if output contains unverified/banned claims
+  const BANNED_ALLOWLIST = [/\bno\s+yield\b/gi];
+  const BANNED_CLAIMS = [
+    { label: "pre-order", re: /\bpre-order\b/i },
+    { label: "preorder", re: /\bpreorder\b/i },
+    { label: "prerreserva", re: /\bprerreserva\b/i },
+    { label: "available on Kindle", re: /available\s+on\s+kindle/i },
+    { label: "KDP", re: /\bKDP\b/i },
+    { label: "yield", re: /\byield\b/i },
+    { label: "staking", re: /\bstaking\b/i },
+    { label: "NFT market", re: /NFT\s+market/i },
+    { label: "definitive English edition is complete", re: /definitive\s+english\s+edition\s+is\s+complete/i },
+    { label: "game you own", re: /game\s+you\s+own/i },
+    { label: "USDC royalties", re: /USDC\s+royalties/i },
+    { label: "Zero Value Loss", re: /zero\s+value\s+loss/i },
+    { label: "Infinity Burn", re: /infinity\s+burn/i },
+    { label: "audited facial likeness", re: /audited\s+facial\s+likeness/i },
+    { label: "C2PA-verified", re: /C2PA-verified/i },
+    { label: "Kora Chen", re: /\bKora\s+Chen\b/i },
+  ];
+  function walkTextFiles(dir, out = []) {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) walkTextFiles(full, out);
+      else if (/\.(html|txt|json|md|webmanifest)$/i.test(entry.name)) out.push(full);
+    }
+    return out;
+  }
+  const checkedFiles = walkTextFiles(DIST);
+  for (const file of checkedFiles) {
+    let text = readFileSync(file, "utf8");
+    for (const allowRe of BANNED_ALLOWLIST) {
+      text = text.replace(allowRe, "");
+    }
+    for (const { label, re } of BANNED_CLAIMS) {
+      const m = text.match(re);
+      if (m) {
+        throw new Error(`banned claim "${label}" (${m[0]}) found in dist/${relative(DIST, file)}`);
+      }
+    }
+  }
+  console.log(`  banned-claims check OK — 0 violations across ${checkedFiles.length} output files`);
   console.log(`  sanity OK — ${pageFiles.length} pages built into ${DIST}`);
 }
 
