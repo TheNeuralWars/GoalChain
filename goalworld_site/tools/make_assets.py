@@ -195,6 +195,13 @@ def main():
          os.path.join(OUT, "loc-sub-grid.webp"), 1200, 70)
     webp(os.path.join(NW, "03_Locations/Location_Pavilion_9_Medical_Recovery_Ward.jpg"),
          os.path.join(OUT, "loc-pavilion-9.webp"), 1200, 70)
+    # gallery art used by docs/goalworld.html (was shipping master JPGs)
+    webp(os.path.join(NW, "04_Keyframes_and_Concept_Art/Keyframe_02_Mileo_Chen_Quantum_Console_Discovery.jpg"),
+         os.path.join(OUT, "keyframe-console.webp"), 1200, 70)
+    webp(os.path.join(NW, "04_Keyframes_and_Concept_Art/Keyframe_04_Mileo_Skybridge_Rooftop_Pursuit.jpg"),
+         os.path.join(OUT, "keyframe-skybridge.webp"), 1200, 70)
+    webp(os.path.join(NW, "03_Locations/Location_Earth_Dawn_Orbital_Awakening.jpg"),
+         os.path.join(OUT, "loc-earth-dawn.webp"), 1200, 70)
 
     # responsive variants (srcset in the pages references these)
     print("== responsive variants ==")
@@ -206,9 +213,12 @@ def main():
         ("keyframe-severing", "04_Keyframes_and_Concept_Art/Keyframe_03_The_Severing_Neural_Disconnection.jpg"),
         ("keyframe-kora-trance", "04_Keyframes_and_Concept_Art/Keyframe_06_Kora_Vega_432Hz_Resonance_Trance.jpg"),
         ("keyframe-core-pulse", "04_Keyframes_and_Concept_Art/Keyframe_09_The_432Hz_Core_Pulse_Awakening_Climax.jpg"),
+        ("keyframe-console", "04_Keyframes_and_Concept_Art/Keyframe_02_Mileo_Chen_Quantum_Console_Discovery.jpg"),
+        ("keyframe-skybridge", "04_Keyframes_and_Concept_Art/Keyframe_04_Mileo_Skybridge_Rooftop_Pursuit.jpg"),
         ("loc-kuiper-monolith", "03_Locations/Location_Kuiper_Monolith_Deep_Space.jpg"),
         ("loc-sub-grid", "03_Locations/Location_Sub_Grid_Subway_Tunnels_Platform_B.jpg"),
         ("loc-pavilion-9", "03_Locations/Location_Pavilion_9_Medical_Recovery_Ward.jpg"),
+        ("loc-earth-dawn", "03_Locations/Location_Earth_Dawn_Orbital_Awakening.jpg"),
     ]:
         webp(os.path.join(NW, src), os.path.join(OUT, f"{name}-640.webp"), 640, 62)
     for name, src in [
@@ -223,6 +233,8 @@ def main():
         ("char-darius-thorne", "02_Characters/Character_Dr_Darius_Thorne_Biophysicist.jpg"),
     ]:
         webp(os.path.join(NW, src), os.path.join(OUT, f"{name}-400.webp"), 400, 70)
+    webp(os.path.join(NW, "03_Locations/Location_Neo_Veridia_Sector_4_Canyon.jpg"),
+         os.path.join(OUT, "hero-neo-veridia-400.webp"), 400, 70)
 
     print("== og + favicons ==")
     make_og()
