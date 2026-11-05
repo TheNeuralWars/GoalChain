@@ -2039,3 +2039,87 @@ One entry per daily run (newest last).
   404, legal review), Caddyfile diff incl. cache headers for `/assets/*` (hard
   limit), wallet-adapter DM Sans (third-party, leave),
   `test_marketing_html_loads_shell` 5-page pre-existing failure (UX decision).
+
+## 2026-11-05 run 20261105T034752Z
+
+- **What:** Lore page image diet (`docs/goalworld.html`, https://goalworld.fun/goalworld.html).
+  Swapped all 15 local master-JPG `<img>` refs (~11.7 MB, biggest 1.29 MB
+  `Keyframe_09…`) for the `goalworld_site` webp derivatives + generated the 3
+  missing responsive families through `goalworld_site/tools/make_assets.py`
+  (`keyframe-console`, `keyframe-skybridge`, `loc-earth-dawn`, +
+  `hero-neo-veridia-400`; `loc_neo_veridia_sector4.jpg` ==
+  `Location_Neo_Veridia_Sector_4_Canyon.jpg` byte-identical masters, so those
+  slots reuse the `hero-neo-veridia` family — no duplicate assets committed).
+  Also: `loading="lazy"` + `decoding="async"` on all 19 below-fold images
+  (hero banner stays eager with `fetchpriority="high"`), `srcset`+`sizes` on
+  16 slots, brand logo 528 KB `logo_3d_clean.png` -> 12 KB `logo-96.png`
+  (38 px display), favicons 528 KB -> 7 KB `favicon.ico`, and the trailer
+  `<video>` got `preload="metadata"` + its poster moved off the 1.29 MB
+  master onto `keyframe-core-pulse-800.webp`. Single concern (page ships
+  master-sized art), 0 public-copy changes.
+- **Why:** Top logged follow-up of the previous two runs (measured there:
+  16 MB / LCP 12.6 s). Re-measured this run pre-change: 29 image requests /
+  12.33 MB images + 528 KB logo fetched per view for cards rendered ≤560 px.
+  After: 14 image requests / 2.12 MB images — **image transfer −83% per
+  view** (Lighthouse mobile network-requests), LCP 13.5 s -> 6.2 s on the
+  flagship lore surface, zero new binaries beyond 7 small webp derivatives.
+- **Commit SHA (merge):** `8a777df4` (PR #918, feature `40ad5e72`). Pre-merge
+  `origin/main` = `b4bf1508` (rollback: `git revert -m 1 8a777df4` + push +
+  `bash scripts/pages/deploy_origin.sh`; landing assets
+  `bash scripts/deploy_goalworld_site.sh rollback` -> backup
+  `20261105T042126Z-8a777df4.tar.gz`).
+- **Live link:** https://goalworld.fun/goalworld.html (both deploys at
+  04:21-04:22 UTC: `deploy_goalworld_site.sh deploy` from `8a777df4` first —
+  ships webp + regenerates the landing manifest (95 paths, includes the 7 new
+  files, so later origin restages preserve them) — then
+  `scripts/pages/deploy_origin.sh` restaged `8a777df4`; guard 0 internal-only
+  paths. Deployed back-to-back to beat the 5-min `goalworld-origin-deploy.timer`
+  tick; live HTML sha256 `68f1326e…` == repo file).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261105T034752Z/`
+  - build.txt: `py_compile` make_assets + HTML parse = exit 0 (parser noise
+    identical to pre-change baseline: 4 pre-existing mismatch notes).
+    site-build-linkcheck.txt: goalworld_site build + check_links exit 0 —
+    24 pages / 939 links resolve / banned-claims 0.
+  - tests.txt: `docs/tests/test_gw_chrome.py` 9 tests — 8 green; the 1 failure
+    is the documented pre-existing 5-page `test_marketing_html_loads_shell`
+    baseline (architecture/archify, 2 film pages, reader pair) — re-verified
+    identical list this run.
+  - linkcheck: local-ref missing set identical before/after (8 pre-existing
+    live-only film-draft MP4s) — 0 new refs broken; smoke-after confirms all
+    9 changed/new asset URLs 200 (10-106 KB each).
+  - Lighthouse (mobile) live before x2 -> after x2 (consistent samples):
+    | run | perf | a11y | BP | SEO | FCP | LCP | TBT | CLS | transfer | img |
+    |---|---|---|---|---|---|---|---|---|---|---|
+    | before 1 | 0.62 | 1.00 | 1.00 | 1.00 | 4.6 s | 13.5 s | 0 ms | 0 | 15.4 MB | 12.33 MB / 29 |
+    | before 2 | 0.64 | 1.00 | 1.00 | 1.00 | 2.3 s | 9.0 s | 0 ms | 0.083 | 15.8 MB | 12.33 MB / 29 |
+    | after 1 | 0.75 | 1.00 | 1.00 | 1.00 | 1.8 s | 6.2 s | 0 ms | 0 | 5.4 MB | 2.12 MB / 14 |
+    | after 2 | 0.75 | 1.00 | 1.00 | 1.00 | 1.8 s | 6.3 s | 0 ms | 0 | 5.4 MB | 2.12 MB / 14 |
+    No regression on any gate axis (a11y/BP/SEO flat 1.00; perf +0.11..0.13,
+    LCP −7.3 s, transfer −10 MB/view). Pre-merge local new build
+    (lighthouse-local-new.json): a11y 1.00 / SEO 1.00, images 2.12 MB; its
+    BP 0.96 + inflated media bytes are localhost artifacts (python
+    http.server has no Range support so preload=metadata videos download
+    whole, and the 8 gitignored film MP4s 404 locally but are live) — live
+    console errors 0.
+  - visual parity: contact-sheet-old-vs-new.png (19 old-master vs new-webp
+    pairs, cover-cropped as CSS renders them) — vision verdict ALL MATCH;
+    shot-live-{before,after}-top.png mean abs diff 0.265 (layout identical);
+    shot-local-new-{top,full}.png in evidence.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) The other docs pages still reference
+  `logo_3d_clean.png` (528 KB) for favicons/nav logos (arcade's biggest
+  request) — same swap pattern as this run, multi-page sweep. (2) goalchain.html
+  main-thread churn (TBT 43-55 s) — dedicated perf pass. (3) film-draft video
+  posters on goalworld.html (90-267 KB each, `FC-S0x-01.jpg`) could use webp
+  derivatives; masters-as-posters pattern also on cinema/other pages. (4) The 8
+  film-draft `FC-S0x_cut_v2.mp4` refs are gitignored live-only files — the
+  in-repo HTML can't resolve them offline (pre-existing; kept). (5) Unchanged
+  earlier follow-ups: books-data.json key slimming/precompress (precompress =
+  Caddyfile hard limit), `?lang=es` locale + i18n leftovers pending the
+  "remove ES entirely" decision, webapp in-app ES strings (~500 strings / 40
+  files), dev-facing Spanish in code comments, pack price copy inconsistency
+  (needs human decision), contract_data.js Anchor→borsh read path,
+  goalworld_site TODO.md human facts (dead Discord invite, X handle 404, legal
+  review), Caddyfile diff incl. cache headers for `/assets/*` (hard limit),
+  wallet-adapter DM Sans (third-party, leave),
+  `test_marketing_html_loads_shell` 5-page pre-existing failure (UX decision).
