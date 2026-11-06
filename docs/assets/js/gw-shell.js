@@ -3,7 +3,8 @@
    * GoalWorld shared top chrome.
    * Purpose: one nav on every marketing HTML page except pitch-mode.
    * Items (fixed order): World | Matchday | Books | Lore | Play.
-   * Tokens: Outfit, #14f195, logo_3d_clean. All hrefs are absolute.
+   * Tokens: Outfit, #14f195, logo_3d_clean (brand mark served optimized as
+   * logo-96.png — the 528 KB master is never a nav asset). All hrefs are absolute.
    * Edge cases: body.pitch-mode is a no-op; Matchday keeps its own .main-nav
    * (this file only offsets it via gw-shell.css — do not restyle Matchday).
    */
@@ -82,7 +83,7 @@
     // link a persistent accessible name for screen readers (link-name a11y).
     brand.setAttribute('aria-label', 'GoalWorld home');
     var img = document.createElement('img');
-    img.src = origin + '/assets/img/logo_3d_clean.png';
+    img.src = origin + '/assets/img/logo-96.png';
     img.alt = '';
     img.width = 32;
     img.height = 32;
