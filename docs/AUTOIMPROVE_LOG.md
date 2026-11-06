@@ -2123,3 +2123,108 @@ One entry per daily run (newest last).
   review), Caddyfile diff incl. cache headers for `/assets/*` (hard limit),
   wallet-adapter DM Sans (third-party, leave),
   `test_marketing_html_loads_shell` 5-page pre-existing failure (UX decision).
+
+## 2026-11-06 run 20261106T034752Z
+
+- **What:** Brand-logo weight sweep across the goalworld.fun marketing surface
+  (`docs/`, top logged follow-up of run 20261105T034752Z). Replaced every
+  per-view use of the 528 KB `logo_3d_clean.png` master with the optimized
+  derivatives the landing already ships: 19 favicon `<link>`s on 15 docs pages
+  -> `favicon.ico` (7 KB); 8 header `<img>` slots at 25-42 px + the
+  `gw-shell.js` top chrome (loaded on every marketing page) -> `logo-96.png`
+  (12 KB); arcade's 80 px mystery-pack slot -> `icon-192.png` (41 KB). Also
+  dropped the false `type="image/png"` on the `.ico` links (incl. normalizing
+  goalworld.html's two). Master kept only for its correct uses: og/twitter
+  social-card metas on the landing-shadowed cinema/studio copies, the
+  `make_assets.py` source, the press-kit download. `test_gw_chrome.py`
+  assertion updated to the actually-shipped asset. Zero public-copy changes.
+  All slots are square/aspect-constrained -> zero layout change. Note:
+  `docs/index.html`/`cinema.html`/`studio.html` are landing-owned on live
+  (per `/data/work/goalworld-landing.paths`) — edits there are repo-consistency
+  only; the live pages were already optimized by the landing build.
+- **Why:** Top logged follow-up (measured earlier: 528 KB master fetched per
+  cold view as the 32 px nav logo — "arcade's biggest request"). Measured
+  pre-change on live: every docs page pulled 517-1034 KB of logo bytes per
+  cold view (plain master + `?v=2.0` favicon variant = 2 requests).
+- **Commits (merge):** `22e48237` (PR #919, feature `1834fa18`) + follow-up
+  `1995afcc` (PR #920, feature `200f8655` cache-buster `gw-shell.js?v=2.0` ->
+  `?v=2.1`, 17 script tags). Pre-merge `origin/main` = `5f10139f` (rollback:
+  `git revert -m 1 1995afcc && git revert -m 1 22e48237` + push +
+  `bash scripts/pages/deploy_origin.sh` — docs-surface only, no landing/Vercel).
+- **Cache wrinkle found + fixed (the reason for PR #920):** HTML is
+  `no-cache`/CF `DYNAMIC` (page-level swaps effective immediately everywhere),
+  but `/assets/js/*` carry `cache-control: public, max-age=14400` and
+  Cloudflare edge-cached the OLD shell under the stable `?v=2.0` key on some
+  PoPs, so fresh pages still loaded the master via the top chrome
+  (`smoke-after-round1-stale-shell.txt`, `lighthouse-live-after-*` round 1).
+  Fixed deterministically (no CF purge — creds are a hard limit) by bumping the
+  shell cache key to `?v=2.1`: `cf-cache-status: MISS` -> origin-fresh shell
+  immediately; stale `?v=2.0` entries expire unused within their 4h TTL
+  (~08:35 UTC).
+- **Live link:** https://goalworld.fun/colabs.html (pattern identical on
+  agents/arcade/ceo/goalchain/map/mega-guide/mega-guide-v1/pitch/pre-nft/
+  protocol/tokenomics + shell on every marketing page).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261106T034752Z/`
+  - build.txt: HTML parse regressions 0/16 touched pages (per-page mismatch
+    counts identical to pre-change), py_compile OK, build exit=0.
+    site-build-linkcheck.txt: goalworld_site build + check_links exit 0 —
+    24 pages / 939 links resolve / banned-claims 0.
+  - tests.txt (pre-merge): 7/9 green; 2 understood failures annotated —
+    (1) documented pre-existing `test_marketing_html_loads_shell` 5-page
+    baseline (identical list), (2) `test_live_mirror_matches_when_present`
+    deploy-gated (compares gw-shell.* vs /data/apps/GoalChain, which syncs to
+    origin/main only at deploy). tests-post-deploy.txt: 8/9 — mirror green
+    exactly as predicted; only the documented baseline remains.
+    tests-bump.txt (PR #920): 8/9.
+  - linkcheck.txt: 0 newly-broken refs (pre-existing unresolved set = 9
+    gitignored live-only film/trailer mp4s, identical before/after); ref delta
+    exactly `{+assets/img/icon-192.png, −assets/img/logo_3d_clean.png}`; all
+    3 swap targets present in the landing manifest (deployed + restage-safe).
+  - Lighthouse (mobile) live before -> after (after = post-cache-bust round;
+    full 12-page table in lighthouse-summary-live-before-vs-after.txt,
+    lighthouse-summary-final.txt; pre-merge local build in
+    lighthouse-summary-premerge.txt + lighthouse-local-new-*.json):
+    | page | perf | a11y | BP | SEO | transfer | logo bytes |
+    |---|---|---|---|---|---|---|
+    | colabs before x2 | 0.88-0.89 | 0.98 | 1.00 | 0.92 | 1.27 MB | 1034 KB |
+    | colabs after x2 | 0.91 | 0.98 | 1.00 | 0.92 | 0.23 MB | 20 KB |
+    | arcade before x2 | 0.94 | 1.00 | 1.00 | 1.00 | 1.31 MB | 1034 KB |
+    | arcade after x2 | 0.97 | 1.00 | 1.00 | 1.00 | 0.31 MB | 61 KB |
+    | ceo | 0.88 | 0.94 | 0.96 | 0.92 | 0.58 -> 0.07 MB | 517 -> 20 KB |
+    | agents | 0.91 | 1.00 | 1.00 | 1.00 | 1.23 -> 0.20 MB | 1034 -> 20 KB |
+    Strict gate axes (a11y/BP/SEO): 0 regressions across all sampled pages;
+    perf flat-or-better on every sampled page (full 12-page live table also
+    0 regressions).
+  - smoke-before.txt / smoke-after.txt / smoke-sha-check.txt: all 16 pages +
+    shell 200; master-refs per live page 1-3 -> 0; live sha256 == repo file
+    for 13 pages + gw-shell.js (14/14 MATCH); swap targets 200 at exact sizes
+    (7,075 / 12,157 / 42,075 B). Final shell request key `?v=2.1` serves the
+    new brand line (`cf-cache-status: MISS`).
+  - screenshots: shot-live-{before,after2}-{colabs,arcade}-top.png +
+    shot-local-new-*.png + diff heatmap; colabs pixel mean-abs-diff 0.683
+    (localized to the logo slots), vision verdict on live-after: logos sharp
+    and clean, no box mismatch, no layout breakage. Asset parity verified at
+    pixel level: master and icon-192 share identical pure-black edges
+    (0,0,0) — no visual delta introduced by the resize.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) Webapp still references the master in
+  `goalchain_webapp/public/classic-dashboard.html` (favicon + 35 px header
+  logo, absolute goalworld.fun URLs — same swap pattern, needs Vercel-deploy
+  QA) — `PressKit.tsx` keeps the master deliberately (press kit = full-res
+  download). (2) Arcade pack-logo "black box" on the purple card is
+  pre-existing asset behavior (master is also pure-black background; the
+  pre-nft jersey overlay's `mix-blend-mode: screen` trick or a transparent
+  derivative would polish it). (3) `logo.png` (789 KB) remains an onerror
+  fallback on arcade/pack/goalchain (only loads on primary failure).
+  (4) goalchain.html main-thread churn (TBT) — unchanged follow-up.
+  (5) Unchanged earlier follow-ups: books-data.json key
+  slimming/precompress (precompress = Caddyfile hard limit), `?lang=es` locale
+  + i18n leftovers pending the "remove ES entirely" decision, webapp in-app ES
+  strings (~500 strings / 40 files), dev-facing Spanish in code comments, pack
+  price copy inconsistency (needs human decision), contract_data.js
+  Anchor->borsh read path, goalworld_site TODO.md human facts (dead Discord
+  invite, X handle 404, legal review), Caddyfile diff incl. cache headers for
+  `/assets/*` (note: /assets/js 4h + /assets/img 7d TTLs already exist;
+  purge-on-deploy needs CF API creds = hard limit), wallet-adapter DM Sans
+  (third-party, leave), `test_marketing_html_loads_shell` 5-page pre-existing
+  failure (UX decision).
