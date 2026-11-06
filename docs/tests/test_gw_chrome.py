@@ -72,7 +72,7 @@ class SharedDocsChrome(unittest.TestCase):
         self.assertIn("origin + '/go/reader'", js)
         self.assertIn("origin + '/goalworld.html'", js)
         self.assertIn("play.goalworld.fun", js)
-        self.assertIn("logo_3d_clean.png", js)
+        self.assertIn("logo-96.png", js)  # brand mark: optimized logo_3d_clean derivative
         self.assertNotRegex(js, r"href:\s*'assets/")
         self.assertNotRegex(js, r"href:\s*'\.\./")
 
