@@ -2228,3 +2228,77 @@ One entry per daily run (newest last).
   purge-on-deploy needs CF API creds = hard limit), wallet-adapter DM Sans
   (third-party, leave), `test_marketing_html_loads_shell` 5-page pre-existing
   failure (UX decision).
+
+## 2026-11-07 run 20261107T034707Z
+
+- **What:** Webapp icon + classic-dashboard logo weight sweep (play.goalworld.fun) —
+  the top logged follow-up of run 20261106T034752Z, extended to the app-wide icon
+  surface found during review. (1) `goalchain_webapp/public/favicon.png` was
+  byte-identical (sha256) to the 1024x1024 `logo_3d_clean.png` master — **528,537 B
+  served as favicon + apple-touch-icon + manifest icon on every app visit** — now
+  the 192x192 optimized landing derivative (42,075 B), which also makes
+  `manifest.json`'s `sizes: 192x192` declaration truthful (it claimed 192 while
+  shipping 1024). (2) New `public/favicon.ico` (7,075 B, landing's shipped ico);
+  `index.html` + `classic-dashboard.html` favicon links point at it (drops the
+  false `type="image/png"` on ico semantics; index.html gains an explicit
+  `sizes=192x192` png icon link). Before this, `play.goalworld.fun/favicon.ico`
+  404'd into the SPA HTML fallback. (3) `classic-dashboard.html` 35 px sidebar
+  header logo -> same-origin `/assets/img/logo-96.png` (12,157 B) instead of the
+  cross-origin 528 KB master (that page pulled the master 3x: 2 favicons + header);
+  width/height attrs corrected 1024 -> 96 (1:1 aspect, zero layout change).
+  Derivatives are sha256-identical copies of the goalworld_site landing assets
+  (pixel-parity proven in run 20261106). PressKit.tsx master ref kept deliberately
+  (press kit = full-res download). Zero public-copy changes.
+- **Why:** Top logged follow-up + bigger same-class find: the entire play app
+  shipped the 528 KB master as its icon set (favicon.png sha256 == logo master),
+  ~516 KB of pure waste on every visit; classic-dashboard.html additionally loaded
+  the master 3x per view (measured live before: 3 `logo_3d_clean` refs).
+- **Commit SHA (merge):** `0b5ab2e4` (PR #921, feature `70364dc8`). Pre-merge
+  `origin/main` = `98620aa9` (rollback: `git revert -m 1 0b5ab2e4` + push —
+  Vercel redeploys the previous build automatically). Landing site untouched —
+  no landing deploy needed.
+- **Live link:** https://play.goalworld.fun/classic-dashboard.html (icons apply
+  app-wide, incl. `/` and PWA manifest).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261107T034707Z/`
+  - build.txt: exit 0 (tsc + vite build). tests.txt: exit 0 (check:i18n — 381 used
+    keys, 694 dict keys, en/es/type in sync; the touched package's only check script).
+  - smoke-before.txt / smoke-after.txt: all URLs 200; favicon.png 528,537 ->
+    42,075 B, favicon.ico 2,193 B HTML fallback -> 7,075 B real ico,
+    logo-96.png 200 at 12,157 B; master refs per live page 3 -> 0 on
+    classic-dashboard, 0 -> 0 on home; live classic-dashboard serves exactly
+    2x favicon.ico + 1x logo-96.png refs. Manifest 200 unchanged.
+  - linkcheck.txt: 0 broken refs on touched pages (all local refs resolve in the
+    dist build at exact sizes; external refs all 200/308 — the 308 is the
+    pre-existing flash.trade redirect, untouched).
+  - Lighthouse (mobile) before -> after (full JSONs saved):
+    | page | perf | a11y | BP | SEO |
+    |---|---|---|---|---|
+    | home live before -> live after | 0.99 -> 0.98 | 1.00 | 1.00 | 1.00 |
+    | classic-dashboard live before -> live after | 0.82 -> 0.92 | 1.00 | 1.00 | 1.00 |
+    | classic-dashboard local preview (pre-merge) | 0.95 | 1.00 | 1.00 | 1.00 |
+    Strict gate axes (a11y/BP/SEO): 0 regressions; home perf delta within lab
+    noise (0.98-0.99 across runs), classic-dashboard +0.10 on live.
+    *home local-preview BP 0.96 = known localhost /_vercel/insights artifact.
+  - screenshots: shot-live-{before,after}-classic-dashboard.png — logo-slot region
+    mean-abs-diff 0.059 (visually identical); overall pixel diff localized to
+    dynamic dashboard widgets (ticker/feeds), sidebar static regions unchanged;
+    vision verdict on live-after: logo sharp and clean, no box, no layout breakage.
+  - Asset parity: favicon.png/favicon.ico/logo-96.png sha256-identical to the
+    goalworld_site shipped derivatives (192x192 / 48x48-ico / 96x96).
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) classic-dashboard.html still pulls big
+  cross-origin assets from goalworld.fun (stadium bg PNG 697 KB, style.css 75 KB,
+  unpkg solana web3.js IIFE 463 KB — render-blocking third-party script; a
+  same-origin/defer pass is a candidate next perf run). (2) Arcade pack-logo
+  "black box" polish (transparent derivative / mix-blend-mode) unchanged.
+  (3) logo.png (789 KB) onerror fallback on arcade/pack/goalchain unchanged.
+  (4) goalchain.html main-thread churn (TBT) unchanged. (5) Unchanged earlier
+  follow-ups: books-data.json key slimming/precompress (precompress = Caddyfile
+  hard limit), `?lang=es` locale + i18n leftovers pending the "remove ES
+  entirely" decision, webapp in-app ES strings (~500 strings / 40 files),
+  dev-facing Spanish in code comments, pack price copy inconsistency (needs human
+  decision), contract_data.js Anchor->borsh read path, goalworld_site TODO.md
+  human facts (dead Discord invite, X handle 404, legal review), Caddyfile diff
+  incl. cache headers for `/assets/*` (purge-on-deploy needs CF creds = hard
+  limit), wallet-adapter DM Sans (third-party, leave),
+  `test_marketing_html_loads_shell` 5-page pre-existing failure (UX decision).
