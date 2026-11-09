@@ -1,0 +1,4013 @@
+{
+  "generatedAt": "2026-11-09T17:45:09.963Z",
+  "results": [
+    {
+      "slug": "gw-home",
+      "url": "https://goalworld.fun/",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalWorld · Indie studio — Canon. Code. Cinema.",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "a",
+            "text": "Follow @nicopez on X for updates →",
+            "w": 242,
+            "h": 24
+          },
+          {
+            "tag": "a",
+            "text": "Fractured Code",
+            "w": 107,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "AI Cinema",
+            "w": 70,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Studio & authors",
+            "w": 111,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Collectors & creators",
+            "w": 141,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "About & Lore",
+            "w": 89,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Matchday Lab (Devnet) ↗",
+            "w": 176,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "X · @nicopez",
+            "w": 82,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "GitHub",
+            "w": 49,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "FAQ",
+            "w": 30,
+            "h": 19
+          }
+        ],
+        "headingsCount": 20,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "One universe.Three mediums."
+          },
+          {
+            "level": "h3",
+            "text": "The Neural Wars"
+          },
+          {
+            "level": "h3",
+            "text": "GoalChain Matchday"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-home-390x844.jpg",
+      "screenshotBytes": 41386
+    },
+    {
+      "slug": "gw-book",
+      "url": "https://goalworld.fun/book.html",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Fractured Code · The Neural Wars, Book 1",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "a",
+            "text": "Fractured Code",
+            "w": 107,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "AI Cinema",
+            "w": 70,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Studio & authors",
+            "w": 111,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Collectors & creators",
+            "w": 141,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "About & Lore",
+            "w": 89,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Matchday Lab (Devnet) ↗",
+            "w": 176,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "X · @nicopez",
+            "w": 82,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "GitHub",
+            "w": 49,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "FAQ",
+            "w": 30,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Press kit",
+            "w": 56,
+            "h": 19
+          }
+        ],
+        "headingsCount": 9,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Fractured Code"
+          },
+          {
+            "level": "h2",
+            "text": "1: Threshold"
+          },
+          {
+            "level": "h3",
+            "text": "Keep reading on launch day."
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-book-390x844.jpg",
+      "screenshotBytes": 54253
+    },
+    {
+      "slug": "gw-cinema",
+      "url": "https://goalworld.fun/cinema.html",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "AI Cinema · The Neural Wars",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "a",
+            "text": "Fractured Code",
+            "w": 107,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "AI Cinema",
+            "w": 70,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Studio & authors",
+            "w": 111,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Collectors & creators",
+            "w": 141,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "About & Lore",
+            "w": 89,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Matchday Lab (Devnet) ↗",
+            "w": 176,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "X · @nicopez",
+            "w": 82,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "GitHub",
+            "w": 49,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "FAQ",
+            "w": 30,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Press kit",
+            "w": 56,
+            "h": 19
+          }
+        ],
+        "headingsCount": 11,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "The book, on screen."
+          },
+          {
+            "level": "h2",
+            "text": "Canon in. Cinema out."
+          },
+          {
+            "level": "h3",
+            "text": "Lock the canon"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-cinema-390x844.jpg",
+      "screenshotBytes": 38536
+    },
+    {
+      "slug": "gw-studio",
+      "url": "https://goalworld.fun/studio.html",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "The Studio · GoalWorld",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "a",
+            "text": "Fractured Code",
+            "w": 107,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "AI Cinema",
+            "w": 70,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Studio & authors",
+            "w": 111,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Collectors & creators",
+            "w": 141,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "About & Lore",
+            "w": 89,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Matchday Lab (Devnet) ↗",
+            "w": 176,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "X · @nicopez",
+            "w": 82,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "GitHub",
+            "w": 49,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "FAQ",
+            "w": 30,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Press kit",
+            "w": 56,
+            "h": 19
+          }
+        ],
+        "headingsCount": 13,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "From manuscript to living world."
+          },
+          {
+            "level": "h2",
+            "text": "Fractured Code: draft → book."
+          },
+          {
+            "level": "h3",
+            "text": "Diagnose & redesign"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-studio-390x844.jpg",
+      "screenshotBytes": 35523
+    },
+    {
+      "slug": "gw-collect",
+      "url": "https://goalworld.fun/collect.html",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Collectors & creators · GoalWorld",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "a",
+            "text": "Fractured Code",
+            "w": 107,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "AI Cinema",
+            "w": 70,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Studio & authors",
+            "w": 111,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Collectors & creators",
+            "w": 141,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "About & Lore",
+            "w": 89,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Matchday Lab (Devnet) ↗",
+            "w": 176,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "X · @nicopez",
+            "w": 82,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "GitHub",
+            "w": 49,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "FAQ",
+            "w": 30,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Press kit",
+            "w": 56,
+            "h": 19
+          }
+        ],
+        "headingsCount": 8,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Provenance first."
+          },
+          {
+            "level": "h2",
+            "text": "Three steps. Each one waits for the last."
+          },
+          {
+            "level": "h3",
+            "text": "Disclose everything"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "gw-live",
+      "url": "https://goalworld.fun/live.html",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Live board · GoalWorld",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "a",
+            "text": "Open project →",
+            "w": 106,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Open project →",
+            "w": 106,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Open project →",
+            "w": 106,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Open project →",
+            "w": 106,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Open project →",
+            "w": 106,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Open project →",
+            "w": 106,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Open project →",
+            "w": 106,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Fractured Code",
+            "w": 107,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "AI Cinema",
+            "w": 70,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Studio & authors",
+            "w": 111,
+            "h": 19
+          }
+        ],
+        "headingsCount": 13,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Studio projects, live."
+          },
+          {
+            "level": "h3",
+            "text": "Fractured Code — G2 Signed Manuscript"
+          },
+          {
+            "level": "h3",
+            "text": "Android Bridge"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-live-390x844.jpg",
+      "screenshotBytes": 39031
+    },
+    {
+      "slug": "gw-roadmap",
+      "url": "https://goalworld.fun/roadmap.html",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Roadmap · GoalWorld",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "a",
+            "text": "Read sample →",
+            "w": 120,
+            "h": 16
+          },
+          {
+            "tag": "a",
+            "text": "Play now →",
+            "w": 95,
+            "h": 16
+          },
+          {
+            "tag": "a",
+            "text": "Watch →",
+            "w": 71,
+            "h": 16
+          },
+          {
+            "tag": "a",
+            "text": "live board",
+            "w": 74,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "Fractured Code",
+            "w": 107,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "AI Cinema",
+            "w": 70,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Studio & authors",
+            "w": 111,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Collectors & creators",
+            "w": 141,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "About & Lore",
+            "w": 89,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Matchday Lab (Devnet) ↗",
+            "w": 176,
+            "h": 19
+          }
+        ],
+        "headingsCount": 16,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "What we're building."
+          },
+          {
+            "level": "h2",
+            "text": "Live today"
+          },
+          {
+            "level": "h3",
+            "text": "Fractured Code, Chapter 1 sample"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "gw-about",
+      "url": "https://goalworld.fun/about.html",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "About & Lore · GoalWorld — The Neural Wars",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "a",
+            "text": "Read Chapter 1 →",
+            "w": 141,
+            "h": 16
+          },
+          {
+            "tag": "a",
+            "text": "live board",
+            "w": 74,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "GitHub",
+            "w": 54,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "@nicopez",
+            "w": 70,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "press kit",
+            "w": 61,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "Fractured Code",
+            "w": 107,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "AI Cinema",
+            "w": 70,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Studio & authors",
+            "w": 111,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Collectors & creators",
+            "w": 141,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "About & Lore",
+            "w": 89,
+            "h": 19
+          }
+        ],
+        "headingsCount": 15,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "The world behind the world."
+          },
+          {
+            "level": "h2",
+            "text": "Eight million minds. One architecture."
+          },
+          {
+            "level": "h2",
+            "text": "The night the grid paused."
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "gw-faq",
+      "url": "https://goalworld.fun/faq.html",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "FAQ · GoalWorld",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "a",
+            "text": "Chapter 1 preview free",
+            "w": 170,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "/book.html#sample",
+            "w": 148,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "play.goalworld.fun",
+            "w": 141,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "@nicopez",
+            "w": 70,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "GitHub",
+            "w": 54,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "@nicopez",
+            "w": 70,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "GitHub",
+            "w": 54,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "Fractured Code",
+            "w": 107,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "AI Cinema",
+            "w": 70,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Studio & authors",
+            "w": 111,
+            "h": 19
+          }
+        ],
+        "headingsCount": 4,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Questions, answered."
+          },
+          {
+            "level": "h2",
+            "text": "Still curious?"
+          },
+          {
+            "level": "h2",
+            "text": "Explore"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "gw-press",
+      "url": "https://goalworld.fun/press.html",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Press Kit · GoalWorld",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "a",
+            "text": "Chapter 1 sample",
+            "w": 130,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "x.com/nicopez",
+            "w": 109,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "nico@goalworld.fun",
+            "w": 149,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "github.com/TheNeuralWars/GoalChain",
+            "w": 296,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "nico@goalworld.fun",
+            "w": 149,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "x.com/nicopez",
+            "w": 109,
+            "h": 21
+          },
+          {
+            "tag": "a",
+            "text": "Fractured Code",
+            "w": 107,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "AI Cinema",
+            "w": 70,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Studio & authors",
+            "w": 111,
+            "h": 19
+          },
+          {
+            "tag": "a",
+            "text": "Collectors & creators",
+            "w": 141,
+            "h": 19
+          }
+        ],
+        "headingsCount": 7,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Cover the world."
+          },
+          {
+            "level": "h2",
+            "text": "The world in one paragraph"
+          },
+          {
+            "level": "h2",
+            "text": "Brand assets"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "sub-blast-radius",
+      "url": "https://goalworld.fun/blast-radius/",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "CanonGuard · Living Canon — Blast Radius Zero",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "a",
+            "text": "github.com/TheNeuralWars/living-canon-vu",
+            "w": 280,
+            "h": 18
+          }
+        ],
+        "headingsCount": 6,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "An agent that cannot break your canon."
+          },
+          {
+            "level": "h2",
+            "text": "Blast-radius report"
+          },
+          {
+            "level": "h2",
+            "text": "Continuity findings"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 0,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgba(0, 0, 0, 0)",
+        "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/sub-blast-radius-390x844.jpg",
+      "screenshotBytes": 53027
+    },
+    {
+      "slug": "sub-hermes-demo",
+      "url": "https://goalworld.fun/hermes-demo/",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Hermes Personal AI — live on Nebius Token Factory + NVIDIA Nemotron",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "button",
+            "text": "▶ Grounded answer from memory",
+            "w": 244,
+            "h": 34
+          },
+          {
+            "tag": "button",
+            "text": "▶ Bad draft → CanonGuard repair",
+            "w": 243,
+            "h": 34
+          },
+          {
+            "tag": "input",
+            "text": "",
+            "w": 269,
+            "h": 33
+          },
+          {
+            "tag": "button",
+            "text": "Ask",
+            "w": 56,
+            "h": 34
+          },
+          {
+            "tag": "a",
+            "text": "github.com/TheNeuralWars/nebius-personal",
+            "w": 354,
+            "h": 22
+          }
+        ],
+        "headingsCount": 1,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Hermes Personal AI"
+          }
+        ],
+        "landmarks": {
+          "header": 0,
+          "nav": 0,
+          "main": 0,
+          "footer": 0
+        },
+        "bodyBg": "rgb(11, 15, 20)",
+        "bodyFont": "system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/sub-hermes-demo-390x844.jpg",
+      "screenshotBytes": 53534
+    },
+    {
+      "slug": "sub-go-reader",
+      "url": "https://goalworld.fun/go/reader/",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalWorld Kindle E-Reader & HD Audiobook • The Neural Wars Saga",
+        "scrollWidth": 970,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": true,
+        "overflowingElements": [
+          {
+            "selector": "div#sidebar.sidebar",
+            "right": 0,
+            "left": -340,
+            "width": 340
+          },
+          {
+            "selector": "div",
+            "right": -1,
+            "left": -340,
+            "width": 339
+          },
+          {
+            "selector": "h3",
+            "right": -210,
+            "left": -321,
+            "width": 111
+          },
+          {
+            "selector": "button.btn",
+            "right": -20,
+            "left": -57,
+            "width": 37
+          },
+          {
+            "selector": "div#toc-list",
+            "right": -1,
+            "left": -340,
+            "width": 339
+          },
+          {
+            "selector": "div.toc-item.active",
+            "right": -1,
+            "left": -340,
+            "width": 339
+          },
+          {
+            "selector": "div",
+            "right": -17,
+            "left": -320,
+            "width": 303
+          },
+          {
+            "selector": "div",
+            "right": -17,
+            "left": -320,
+            "width": 303
+          }
+        ],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "button",
+            "text": "✕",
+            "w": 37,
+            "h": 29
+          },
+          {
+            "tag": "select",
+            "text": "The Neural Wars: Fractured Code (Book 1)",
+            "w": 302,
+            "h": 31
+          },
+          {
+            "tag": "button",
+            "text": "A-",
+            "w": 40,
+            "h": 29
+          },
+          {
+            "tag": "button",
+            "text": "A+",
+            "w": 43,
+            "h": 29
+          },
+          {
+            "tag": "button",
+            "text": "◀ Previous",
+            "w": 95,
+            "h": 29
+          },
+          {
+            "tag": "button",
+            "text": "Next ▶",
+            "w": 66,
+            "h": 27
+          }
+        ],
+        "headingsCount": 3,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h3",
+            "text": "Chapter Index"
+          },
+          {
+            "level": "h2",
+            "text": "The Neural Wars: Fractured Code"
+          },
+          {
+            "level": "h1",
+            "text": "PROLOGUE"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 10, 16)",
+        "bodyFont": "Merriweather, Georgia, serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/sub-go-reader-390x844.jpg",
+      "screenshotBytes": 31369
+    },
+    {
+      "slug": "legacy-goalworld",
+      "url": "https://goalworld.fun/goalworld.html",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@400;600;700&family=Georgia&display=swap",
+          "failure": "net::ERR_BLOCKED_BY_ORB"
+        }
+      ],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalWorld | The Autonomous Nexus of Living Universes & Web3 Self-Publishing",
+        "scrollWidth": 921,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": true,
+        "overflowingElements": [
+          {
+            "selector": "div.gw-nav-links",
+            "right": 921,
+            "left": 165,
+            "width": 756
+          },
+          {
+            "selector": "a.gw-nav-link",
+            "right": 406,
+            "left": 338,
+            "width": 68
+          },
+          {
+            "selector": "a.gw-nav-link",
+            "right": 477,
+            "left": 422,
+            "width": 55
+          },
+          {
+            "selector": "a.gw-nav-link",
+            "right": 590,
+            "left": 493,
+            "width": 97
+          },
+          {
+            "selector": "a.gw-nav-link",
+            "right": 674,
+            "left": 606,
+            "width": 68
+          },
+          {
+            "selector": "a.gw-nav-btn-portal",
+            "right": 817,
+            "left": 690,
+            "width": 127
+          },
+          {
+            "selector": "span",
+            "right": 782,
+            "left": 708,
+            "width": 74
+          },
+          {
+            "selector": "span",
+            "right": 799,
+            "left": 788,
+            "width": 11
+          }
+        ],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "a",
+            "text": "GoalWorld",
+            "w": 32,
+            "h": 32
+          },
+          {
+            "tag": "a",
+            "text": "← Lore door — the hub is goalworld.fun",
+            "w": 222,
+            "h": 16
+          },
+          {
+            "tag": "a",
+            "text": "World",
+            "w": 61,
+            "h": 33
+          },
+          {
+            "tag": "a",
+            "text": "Whitepaper",
+            "w": 97,
+            "h": 33
+          },
+          {
+            "tag": "a",
+            "text": "GitHub",
+            "w": 68,
+            "h": 33
+          },
+          {
+            "tag": "a",
+            "text": "improve_20260915/",
+            "w": 113,
+            "h": 15
+          },
+          {
+            "tag": "a",
+            "text": "⚽ GoalChain Matchday",
+            "w": 127,
+            "h": 16
+          },
+          {
+            "tag": "a",
+            "text": "Well · LukooFit",
+            "w": 73,
+            "h": 16
+          },
+          {
+            "tag": "button",
+            "text": "All",
+            "w": 41,
+            "h": 34
+          },
+          {
+            "tag": "button",
+            "text": "High Fantasy",
+            "w": 77,
+            "h": 34
+          }
+        ],
+        "headingsCount": 44,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "The Autonomous Nexus of \n          Living Universes & Web3 S"
+          },
+          {
+            "level": "h2",
+            "text": "🏆 Literary Universes & Active Intellectual Property"
+          },
+          {
+            "level": "h3",
+            "text": "The Neural Wars (The Awakening Trilogy)"
+          }
+        ],
+        "landmarks": {
+          "header": 2,
+          "nav": 2,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(5, 5, 14)",
+        "bodyFont": "Outfit, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/legacy-goalworld-390x844.jpg",
+      "screenshotBytes": 51486
+    },
+    {
+      "slug": "play-home",
+      "url": "https://play.goalworld.fun/",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "button",
+            "text": "EN",
+            "w": 38,
+            "h": 22
+          },
+          {
+            "tag": "button",
+            "text": "ES",
+            "w": 37,
+            "h": 22
+          },
+          {
+            "tag": "a",
+            "text": "Create account →",
+            "w": 114,
+            "h": 18
+          },
+          {
+            "tag": "a",
+            "text": "Open Matchday →",
+            "w": 119,
+            "h": 18
+          },
+          {
+            "tag": "a",
+            "text": "Open Club →",
+            "w": 84,
+            "h": 18
+          }
+        ],
+        "headingsCount": 8,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "GoalChain"
+          },
+          {
+            "level": "h2",
+            "text": "New here? You are playing in three steps."
+          },
+          {
+            "level": "h3",
+            "text": "Create your account"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 1,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-home-390x844.jpg",
+      "screenshotBytes": 30285
+    },
+    {
+      "slug": "play-dashboard",
+      "url": "https://play.goalworld.fun/dashboard",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "button",
+            "text": "EN",
+            "w": 38,
+            "h": 22
+          },
+          {
+            "tag": "button",
+            "text": "ES",
+            "w": 37,
+            "h": 22
+          }
+        ],
+        "headingsCount": 9,
+        "h1Count": 2,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Home Panel"
+          },
+          {
+            "level": "h1",
+            "text": "Welcome to GoalChain"
+          },
+          {
+            "level": "h3",
+            "text": "My Club"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-dashboard-390x844.jpg",
+      "screenshotBytes": 32693
+    },
+    {
+      "slug": "play-estadio",
+      "url": "https://play.goalworld.fun/estadio",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "button",
+            "text": "EN",
+            "w": 38,
+            "h": 22
+          },
+          {
+            "tag": "button",
+            "text": "ES",
+            "w": 37,
+            "h": 22
+          }
+        ],
+        "headingsCount": 5,
+        "h1Count": 2,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Stadium Portal"
+          },
+          {
+            "level": "h1",
+            "text": "Stadium Portal"
+          },
+          {
+            "level": "h2",
+            "text": "AI Coach"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-estadio-390x844.jpg",
+      "screenshotBytes": 29289
+    },
+    {
+      "slug": "play-club",
+      "url": "https://play.goalworld.fun/club",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "button",
+            "text": "EN",
+            "w": 38,
+            "h": 22
+          },
+          {
+            "tag": "button",
+            "text": "ES",
+            "w": 37,
+            "h": 22
+          },
+          {
+            "tag": "button",
+            "text": "ANALYZE 📊",
+            "w": 120,
+            "h": 27
+          },
+          {
+            "tag": "button",
+            "text": "ANALYZE 📊",
+            "w": 120,
+            "h": 27
+          },
+          {
+            "tag": "button",
+            "text": "ANALYZE 📊",
+            "w": 120,
+            "h": 27
+          },
+          {
+            "tag": "button",
+            "text": "ANALYZE 📊",
+            "w": 120,
+            "h": 27
+          }
+        ],
+        "headingsCount": 10,
+        "h1Count": 2,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "My Club & Manager"
+          },
+          {
+            "level": "h1",
+            "text": "My Club"
+          },
+          {
+            "level": "h2",
+            "text": "🏆 Mi Cantera (Youth Academy)SIMULACIÓN"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "play-goalworld",
+      "url": "https://play.goalworld.fun/goalworld",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "button",
+            "text": "EN",
+            "w": 38,
+            "h": 22
+          },
+          {
+            "tag": "button",
+            "text": "ES",
+            "w": 37,
+            "h": 22
+          },
+          {
+            "tag": "button",
+            "text": "🪐 Universo",
+            "w": 104,
+            "h": 33
+          },
+          {
+            "tag": "button",
+            "text": "📖 Leer",
+            "w": 78,
+            "h": 33
+          },
+          {
+            "tag": "button",
+            "text": "🪐 Universo",
+            "w": 104,
+            "h": 33
+          },
+          {
+            "tag": "button",
+            "text": "📖 Leer",
+            "w": 78,
+            "h": 33
+          },
+          {
+            "tag": "button",
+            "text": "📖 Leer",
+            "w": 78,
+            "h": 33
+          }
+        ],
+        "headingsCount": 12,
+        "h1Count": 2,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "GoalWorld Lore"
+          },
+          {
+            "level": "h1",
+            "text": "Nexo de Gestión Editorial Descentralizada & Universos de Fan"
+          },
+          {
+            "level": "h2",
+            "text": "🏆 Ranking de Ligas de Fantasía (Sagas Tokenizadas)"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-goalworld-390x844.jpg",
+      "screenshotBytes": 40545
+    },
+    {
+      "slug": "play-reader",
+      "url": "https://play.goalworld.fun/reader",
+      "viewport": "390x844",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "innerWidth": 390,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [
+          {
+            "tag": "button",
+            "text": "EN",
+            "w": 38,
+            "h": 22
+          },
+          {
+            "tag": "button",
+            "text": "ES",
+            "w": 37,
+            "h": 22
+          },
+          {
+            "tag": "select",
+            "text": "The Neural Wars: Código Fracturado (Libr",
+            "w": 240,
+            "h": 31
+          },
+          {
+            "tag": "button",
+            "text": "🎧Audiolibro",
+            "w": 118,
+            "h": 29
+          },
+          {
+            "tag": "button",
+            "text": "Aa",
+            "w": 43,
+            "h": 29
+          }
+        ],
+        "headingsCount": 9,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "PRÓLOGO CÓSMICO\n## The Neural Wars: Fractured Code"
+          },
+          {
+            "level": "h3",
+            "text": "El Tapiz Eterno"
+          },
+          {
+            "level": "h3",
+            "text": "El Patrón Primigenio"
+          }
+        ],
+        "landmarks": {
+          "header": 2,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-reader-390x844.jpg",
+      "screenshotBytes": 37776
+    },
+    {
+      "slug": "gw-home",
+      "url": "https://goalworld.fun/",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalWorld · Indie studio — Canon. Code. Cinema.",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 20,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "One universe.Three mediums."
+          },
+          {
+            "level": "h3",
+            "text": "The Neural Wars"
+          },
+          {
+            "level": "h3",
+            "text": "GoalChain Matchday"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-home-820x1180.jpg",
+      "screenshotBytes": 110199
+    },
+    {
+      "slug": "gw-book",
+      "url": "https://goalworld.fun/book.html",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Fractured Code · The Neural Wars, Book 1",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 9,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Fractured Code"
+          },
+          {
+            "level": "h2",
+            "text": "1: Threshold"
+          },
+          {
+            "level": "h3",
+            "text": "Keep reading on launch day."
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-book-820x1180.jpg",
+      "screenshotBytes": 108994
+    },
+    {
+      "slug": "gw-cinema",
+      "url": "https://goalworld.fun/cinema.html",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "AI Cinema · The Neural Wars",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 11,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "The book, on screen."
+          },
+          {
+            "level": "h2",
+            "text": "Canon in. Cinema out."
+          },
+          {
+            "level": "h3",
+            "text": "Lock the canon"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-cinema-820x1180.jpg",
+      "screenshotBytes": 97510
+    },
+    {
+      "slug": "gw-studio",
+      "url": "https://goalworld.fun/studio.html",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "The Studio · GoalWorld",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 13,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "From manuscript to living world."
+          },
+          {
+            "level": "h2",
+            "text": "Fractured Code: draft → book."
+          },
+          {
+            "level": "h3",
+            "text": "Diagnose & redesign"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-studio-820x1180.jpg",
+      "screenshotBytes": 71427
+    },
+    {
+      "slug": "gw-collect",
+      "url": "https://goalworld.fun/collect.html",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Collectors & creators · GoalWorld",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 8,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Provenance first."
+          },
+          {
+            "level": "h2",
+            "text": "Three steps. Each one waits for the last."
+          },
+          {
+            "level": "h3",
+            "text": "Disclose everything"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "gw-live",
+      "url": "https://goalworld.fun/live.html",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Live board · GoalWorld",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 13,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Studio projects, live."
+          },
+          {
+            "level": "h3",
+            "text": "Fractured Code — G2 Signed Manuscript"
+          },
+          {
+            "level": "h3",
+            "text": "Android Bridge"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-live-820x1180.jpg",
+      "screenshotBytes": 102587
+    },
+    {
+      "slug": "gw-roadmap",
+      "url": "https://goalworld.fun/roadmap.html",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Roadmap · GoalWorld",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 16,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "What we're building."
+          },
+          {
+            "level": "h2",
+            "text": "Live today"
+          },
+          {
+            "level": "h3",
+            "text": "Fractured Code, Chapter 1 sample"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "gw-about",
+      "url": "https://goalworld.fun/about.html",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "About & Lore · GoalWorld — The Neural Wars",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 15,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "The world behind the world."
+          },
+          {
+            "level": "h2",
+            "text": "Eight million minds. One architecture."
+          },
+          {
+            "level": "h2",
+            "text": "The night the grid paused."
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "gw-faq",
+      "url": "https://goalworld.fun/faq.html",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "FAQ · GoalWorld",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 4,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Questions, answered."
+          },
+          {
+            "level": "h2",
+            "text": "Still curious?"
+          },
+          {
+            "level": "h2",
+            "text": "Explore"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "gw-press",
+      "url": "https://goalworld.fun/press.html",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Press Kit · GoalWorld",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 7,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Cover the world."
+          },
+          {
+            "level": "h2",
+            "text": "The world in one paragraph"
+          },
+          {
+            "level": "h2",
+            "text": "Brand assets"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "sub-blast-radius",
+      "url": "https://goalworld.fun/blast-radius/",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "CanonGuard · Living Canon — Blast Radius Zero",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 6,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "An agent that cannot break your canon."
+          },
+          {
+            "level": "h2",
+            "text": "Blast-radius report"
+          },
+          {
+            "level": "h2",
+            "text": "Continuity findings"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 0,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgba(0, 0, 0, 0)",
+        "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/sub-blast-radius-820x1180.jpg",
+      "screenshotBytes": 113812
+    },
+    {
+      "slug": "sub-hermes-demo",
+      "url": "https://goalworld.fun/hermes-demo/",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Hermes Personal AI — live on Nebius Token Factory + NVIDIA Nemotron",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 1,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Hermes Personal AI"
+          }
+        ],
+        "landmarks": {
+          "header": 0,
+          "nav": 0,
+          "main": 0,
+          "footer": 0
+        },
+        "bodyBg": "rgb(11, 15, 20)",
+        "bodyFont": "system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/sub-hermes-demo-820x1180.jpg",
+      "screenshotBytes": 60415
+    },
+    {
+      "slug": "sub-go-reader",
+      "url": "https://goalworld.fun/go/reader/",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalWorld Kindle E-Reader & HD Audiobook • The Neural Wars Saga",
+        "scrollWidth": 970,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": true,
+        "overflowingElements": [
+          {
+            "selector": "div#sidebar.sidebar",
+            "right": 0,
+            "left": -340,
+            "width": 340
+          },
+          {
+            "selector": "div",
+            "right": -1,
+            "left": -340,
+            "width": 339
+          },
+          {
+            "selector": "h3",
+            "right": -210,
+            "left": -321,
+            "width": 111
+          },
+          {
+            "selector": "button.btn",
+            "right": -20,
+            "left": -57,
+            "width": 37
+          },
+          {
+            "selector": "div#toc-list",
+            "right": -1,
+            "left": -340,
+            "width": 339
+          },
+          {
+            "selector": "div.toc-item.active",
+            "right": -1,
+            "left": -340,
+            "width": 339
+          },
+          {
+            "selector": "div",
+            "right": -17,
+            "left": -320,
+            "width": 303
+          },
+          {
+            "selector": "div",
+            "right": -17,
+            "left": -320,
+            "width": 303
+          }
+        ],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 3,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h3",
+            "text": "Chapter Index"
+          },
+          {
+            "level": "h2",
+            "text": "The Neural Wars: Fractured Code"
+          },
+          {
+            "level": "h1",
+            "text": "PROLOGUE"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 10, 16)",
+        "bodyFont": "Merriweather, Georgia, serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/sub-go-reader-820x1180.jpg",
+      "screenshotBytes": 86718
+    },
+    {
+      "slug": "legacy-goalworld",
+      "url": "https://goalworld.fun/goalworld.html",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@400;600;700&family=Georgia&display=swap",
+          "failure": "net::ERR_BLOCKED_BY_ORB"
+        }
+      ],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalWorld | The Autonomous Nexus of Living Universes & Web3 Self-Publishing",
+        "scrollWidth": 973,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": true,
+        "overflowingElements": [
+          {
+            "selector": "div.gw-nav-links",
+            "right": 973,
+            "left": 189,
+            "width": 783
+          },
+          {
+            "selector": "a.gw-nav-btn-portal",
+            "right": 866,
+            "left": 733,
+            "width": 133
+          },
+          {
+            "selector": "span",
+            "right": 830,
+            "left": 751,
+            "width": 79
+          },
+          {
+            "selector": "span",
+            "right": 848,
+            "left": 836,
+            "width": 12
+          },
+          {
+            "selector": "a.gw-nav-btn-portal",
+            "right": 973,
+            "left": 882,
+            "width": 91
+          },
+          {
+            "selector": "span",
+            "right": 937,
+            "left": 900,
+            "width": 37
+          },
+          {
+            "selector": "span",
+            "right": 955,
+            "left": 943,
+            "width": 12
+          }
+        ],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 44,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "The Autonomous Nexus of \n          Living Universes & Web3 S"
+          },
+          {
+            "level": "h2",
+            "text": "🏆 Literary Universes & Active Intellectual Property"
+          },
+          {
+            "level": "h3",
+            "text": "The Neural Wars (The Awakening Trilogy)"
+          }
+        ],
+        "landmarks": {
+          "header": 2,
+          "nav": 2,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(5, 5, 14)",
+        "bodyFont": "Outfit, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/legacy-goalworld-820x1180.jpg",
+      "screenshotBytes": 102067
+    },
+    {
+      "slug": "play-home",
+      "url": "https://play.goalworld.fun/",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 8,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "GoalChain"
+          },
+          {
+            "level": "h2",
+            "text": "New here? You are playing in three steps."
+          },
+          {
+            "level": "h3",
+            "text": "Create your account"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 1,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-home-820x1180.jpg",
+      "screenshotBytes": 67399
+    },
+    {
+      "slug": "play-dashboard",
+      "url": "https://play.goalworld.fun/dashboard",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 9,
+        "h1Count": 2,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Home Panel"
+          },
+          {
+            "level": "h1",
+            "text": "Welcome to GoalChain"
+          },
+          {
+            "level": "h3",
+            "text": "My Club"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-dashboard-820x1180.jpg",
+      "screenshotBytes": 56916
+    },
+    {
+      "slug": "play-estadio",
+      "url": "https://play.goalworld.fun/estadio",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 5,
+        "h1Count": 2,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Stadium Portal"
+          },
+          {
+            "level": "h1",
+            "text": "Stadium Portal"
+          },
+          {
+            "level": "h2",
+            "text": "AI Coach"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-estadio-820x1180.jpg",
+      "screenshotBytes": 43851
+    },
+    {
+      "slug": "play-club",
+      "url": "https://play.goalworld.fun/club",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 10,
+        "h1Count": 2,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "My Club & Manager"
+          },
+          {
+            "level": "h1",
+            "text": "My Club"
+          },
+          {
+            "level": "h2",
+            "text": "🏆 Mi Cantera (Youth Academy)SIMULACIÓN"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "play-goalworld",
+      "url": "https://play.goalworld.fun/goalworld",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 12,
+        "h1Count": 2,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "GoalWorld Lore"
+          },
+          {
+            "level": "h1",
+            "text": "Nexo de Gestión Editorial Descentralizada & Universos de Fan"
+          },
+          {
+            "level": "h2",
+            "text": "🏆 Ranking de Ligas de Fantasía (Sagas Tokenizadas)"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-goalworld-820x1180.jpg",
+      "screenshotBytes": 89229
+    },
+    {
+      "slug": "play-reader",
+      "url": "https://play.goalworld.fun/reader",
+      "viewport": "820x1180",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 820,
+        "clientWidth": 820,
+        "innerWidth": 820,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 9,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "PRÓLOGO CÓSMICO\n## The Neural Wars: Fractured Code"
+          },
+          {
+            "level": "h3",
+            "text": "El Tapiz Eterno"
+          },
+          {
+            "level": "h3",
+            "text": "El Patrón Primigenio"
+          }
+        ],
+        "landmarks": {
+          "header": 2,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-reader-820x1180.jpg",
+      "screenshotBytes": 121473
+    },
+    {
+      "slug": "gw-home",
+      "url": "https://goalworld.fun/",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalWorld · Indie studio — Canon. Code. Cinema.",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 20,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "One universe.Three mediums."
+          },
+          {
+            "level": "h3",
+            "text": "The Neural Wars"
+          },
+          {
+            "level": "h3",
+            "text": "GoalChain Matchday"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-home-1440x900.jpg",
+      "screenshotBytes": 117447
+    },
+    {
+      "slug": "gw-book",
+      "url": "https://goalworld.fun/book.html",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Fractured Code · The Neural Wars, Book 1",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 9,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Fractured Code"
+          },
+          {
+            "level": "h2",
+            "text": "1: Threshold"
+          },
+          {
+            "level": "h3",
+            "text": "Keep reading on launch day."
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-book-1440x900.jpg",
+      "screenshotBytes": 136661
+    },
+    {
+      "slug": "gw-cinema",
+      "url": "https://goalworld.fun/cinema.html",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "AI Cinema · The Neural Wars",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 11,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "The book, on screen."
+          },
+          {
+            "level": "h2",
+            "text": "Canon in. Cinema out."
+          },
+          {
+            "level": "h3",
+            "text": "Lock the canon"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-cinema-1440x900.jpg",
+      "screenshotBytes": 99244
+    },
+    {
+      "slug": "gw-studio",
+      "url": "https://goalworld.fun/studio.html",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "The Studio · GoalWorld",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 13,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "From manuscript to living world."
+          },
+          {
+            "level": "h2",
+            "text": "Fractured Code: draft → book."
+          },
+          {
+            "level": "h3",
+            "text": "Diagnose & redesign"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-studio-1440x900.jpg",
+      "screenshotBytes": 82872
+    },
+    {
+      "slug": "gw-collect",
+      "url": "https://goalworld.fun/collect.html",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Collectors & creators · GoalWorld",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 8,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Provenance first."
+          },
+          {
+            "level": "h2",
+            "text": "Three steps. Each one waits for the last."
+          },
+          {
+            "level": "h3",
+            "text": "Disclose everything"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "gw-live",
+      "url": "https://goalworld.fun/live.html",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Live board · GoalWorld",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 13,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Studio projects, live."
+          },
+          {
+            "level": "h3",
+            "text": "Fractured Code — G2 Signed Manuscript"
+          },
+          {
+            "level": "h3",
+            "text": "Android Bridge"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/gw-live-1440x900.jpg",
+      "screenshotBytes": 113780
+    },
+    {
+      "slug": "gw-roadmap",
+      "url": "https://goalworld.fun/roadmap.html",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Roadmap · GoalWorld",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 16,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "What we're building."
+          },
+          {
+            "level": "h2",
+            "text": "Live today"
+          },
+          {
+            "level": "h3",
+            "text": "Fractured Code, Chapter 1 sample"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "gw-about",
+      "url": "https://goalworld.fun/about.html",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "About & Lore · GoalWorld — The Neural Wars",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 15,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "The world behind the world."
+          },
+          {
+            "level": "h2",
+            "text": "Eight million minds. One architecture."
+          },
+          {
+            "level": "h2",
+            "text": "The night the grid paused."
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "gw-faq",
+      "url": "https://goalworld.fun/faq.html",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "FAQ · GoalWorld",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 4,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Questions, answered."
+          },
+          {
+            "level": "h2",
+            "text": "Still curious?"
+          },
+          {
+            "level": "h2",
+            "text": "Explore"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "gw-press",
+      "url": "https://goalworld.fun/press.html",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Press Kit · GoalWorld",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 7,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Cover the world."
+          },
+          {
+            "level": "h2",
+            "text": "The world in one paragraph"
+          },
+          {
+            "level": "h2",
+            "text": "Brand assets"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 11, 14)",
+        "bodyFont": "Outfit, system-ui, -apple-system, \"Segoe UI\", sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "sub-blast-radius",
+      "url": "https://goalworld.fun/blast-radius/",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "CanonGuard · Living Canon — Blast Radius Zero",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 6,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "An agent that cannot break your canon."
+          },
+          {
+            "level": "h2",
+            "text": "Blast-radius report"
+          },
+          {
+            "level": "h2",
+            "text": "Continuity findings"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 0,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgba(0, 0, 0, 0)",
+        "bodyFont": "system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/sub-blast-radius-1440x900.jpg",
+      "screenshotBytes": 127797
+    },
+    {
+      "slug": "sub-hermes-demo",
+      "url": "https://goalworld.fun/hermes-demo/",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "Hermes Personal AI — live on Nebius Token Factory + NVIDIA Nemotron",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 1,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Hermes Personal AI"
+          }
+        ],
+        "landmarks": {
+          "header": 0,
+          "nav": 0,
+          "main": 0,
+          "footer": 0
+        },
+        "bodyBg": "rgb(11, 15, 20)",
+        "bodyFont": "system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/sub-hermes-demo-1440x900.jpg",
+      "screenshotBytes": 61596
+    },
+    {
+      "slug": "sub-go-reader",
+      "url": "https://goalworld.fun/go/reader/",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalWorld Kindle E-Reader & HD Audiobook • The Neural Wars Saga",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 3,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h3",
+            "text": "Chapter Index"
+          },
+          {
+            "level": "h2",
+            "text": "The Neural Wars: Fractured Code"
+          },
+          {
+            "level": "h1",
+            "text": "PROLOGUE"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 1,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(10, 10, 16)",
+        "bodyFont": "Merriweather, Georgia, serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/sub-go-reader-1440x900.jpg",
+      "screenshotBytes": 72214
+    },
+    {
+      "slug": "legacy-goalworld",
+      "url": "https://goalworld.fun/goalworld.html",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@400;600;700&family=Georgia&display=swap",
+          "failure": "net::ERR_BLOCKED_BY_ORB"
+        }
+      ],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalWorld | The Autonomous Nexus of Living Universes & Web3 Self-Publishing",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 44,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "The Autonomous Nexus of \n          Living Universes & Web3 S"
+          },
+          {
+            "level": "h2",
+            "text": "🏆 Literary Universes & Active Intellectual Property"
+          },
+          {
+            "level": "h3",
+            "text": "The Neural Wars (The Awakening Trilogy)"
+          }
+        ],
+        "landmarks": {
+          "header": 2,
+          "nav": 2,
+          "main": 1,
+          "footer": 1
+        },
+        "bodyBg": "rgb(5, 5, 14)",
+        "bodyFont": "Outfit, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/legacy-goalworld-1440x900.jpg",
+      "screenshotBytes": 98614
+    },
+    {
+      "slug": "play-home",
+      "url": "https://play.goalworld.fun/",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 8,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "GoalChain"
+          },
+          {
+            "level": "h2",
+            "text": "New here? You are playing in three steps."
+          },
+          {
+            "level": "h3",
+            "text": "Create your account"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 1,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-home-1440x900.jpg",
+      "screenshotBytes": 73562
+    },
+    {
+      "slug": "play-dashboard",
+      "url": "https://play.goalworld.fun/dashboard",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 9,
+        "h1Count": 2,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Home Panel"
+          },
+          {
+            "level": "h1",
+            "text": "Welcome to GoalChain"
+          },
+          {
+            "level": "h3",
+            "text": "My Club"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-dashboard-1440x900.jpg",
+      "screenshotBytes": 64152
+    },
+    {
+      "slug": "play-estadio",
+      "url": "https://play.goalworld.fun/estadio",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 5,
+        "h1Count": 2,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "Stadium Portal"
+          },
+          {
+            "level": "h1",
+            "text": "Stadium Portal"
+          },
+          {
+            "level": "h2",
+            "text": "AI Coach"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-estadio-1440x900.jpg",
+      "screenshotBytes": 58550
+    },
+    {
+      "slug": "play-club",
+      "url": "https://play.goalworld.fun/club",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 10,
+        "h1Count": 2,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "My Club & Manager"
+          },
+          {
+            "level": "h1",
+            "text": "My Club"
+          },
+          {
+            "level": "h2",
+            "text": "🏆 Mi Cantera (Youth Academy)SIMULACIÓN"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": null,
+      "screenshotBytes": 0
+    },
+    {
+      "slug": "play-goalworld",
+      "url": "https://play.goalworld.fun/goalworld",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 12,
+        "h1Count": 2,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "GoalWorld Lore"
+          },
+          {
+            "level": "h1",
+            "text": "Nexo de Gestión Editorial Descentralizada & Universos de Fan"
+          },
+          {
+            "level": "h2",
+            "text": "🏆 Ranking de Ligas de Fantasía (Sagas Tokenizadas)"
+          }
+        ],
+        "landmarks": {
+          "header": 1,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-goalworld-1440x900.jpg",
+      "screenshotBytes": 120383
+    },
+    {
+      "slug": "play-reader",
+      "url": "https://play.goalworld.fun/reader",
+      "viewport": "1440x900",
+      "status": 200,
+      "navError": null,
+      "consoleErrors": [],
+      "consoleWarnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "metrics": {
+        "title": "GoalChain Dashboard | Alpha",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "innerWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "overflowingElements": [],
+        "brokenImages": [],
+        "smallTapTargets": [],
+        "headingsCount": 9,
+        "h1Count": 1,
+        "firstThreeHeadings": [
+          {
+            "level": "h1",
+            "text": "PRÓLOGO CÓSMICO\n## The Neural Wars: Fractured Code"
+          },
+          {
+            "level": "h3",
+            "text": "El Tapiz Eterno"
+          },
+          {
+            "level": "h3",
+            "text": "El Patrón Primigenio"
+          }
+        ],
+        "landmarks": {
+          "header": 2,
+          "nav": 2,
+          "main": 2,
+          "footer": 0
+        },
+        "bodyBg": "rgb(3, 3, 7)",
+        "bodyFont": "Outfit, \"Plus Jakarta Sans\", system-ui, sans-serif"
+      },
+      "screenshotPath": "_work/site-overhaul-20261109/evidence/audit/screenshots/play-reader-1440x900.jpg",
+      "screenshotBytes": 107453
+    }
+  ]
+}

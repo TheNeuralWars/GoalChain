@@ -1,0 +1,71 @@
+{
+  "surface": "book",
+  "url": "https://goalworld.fun/book.html",
+  "mode": "mobile",
+  "fetchTime": "2026-11-09T17:45:57.457Z",
+  "scores": {
+    "performance": 95,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "coreVitals": {
+    "fcp": "0.8 s",
+    "lcp": "0.8 s",
+    "tbt": "250 ms",
+    "cls": "0",
+    "si": "1.3 s"
+  },
+  "topOpportunities": [
+    {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0,
+      "displayValue": null,
+      "savingsMs": null,
+      "savingsBytes": null
+    },
+    {
+      "id": "max-potential-fid",
+      "title": "Max Potential First Input Delay",
+      "score": 48,
+      "displayValue": "250 ms",
+      "savingsMs": null,
+      "savingsBytes": null
+    },
+    {
+      "id": "cache-insight",
+      "title": "Use efficient cache lifetimes",
+      "score": 50,
+      "displayValue": "Est savings of 20 KiB",
+      "savingsMs": null,
+      "savingsBytes": null
+    },
+    {
+      "id": "image-delivery-insight",
+      "title": "Improve image delivery",
+      "score": 50,
+      "displayValue": "Est savings of 32 KiB",
+      "savingsMs": null,
+      "savingsBytes": null
+    },
+    {
+      "id": "render-blocking-insight",
+      "title": "Render-blocking requests",
+      "score": 50,
+      "displayValue": null,
+      "savingsMs": null,
+      "savingsBytes": null
+    }
+  ],
+  "additionalDiagnostics": [
+    {
+      "id": "total-blocking-time",
+      "title": "Total Blocking Time",
+      "score": 84,
+      "displayValue": "250 ms",
+      "savingsMs": null,
+      "savingsBytes": null
+    }
+  ]
+}

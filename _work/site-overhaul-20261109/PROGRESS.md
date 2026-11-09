@@ -4,7 +4,11 @@ Branch: feat/site-overhaul-20261109 (from origin/main 9beaaeee) · Model: Gemini
 Done when: every phase 0–6 is `done` in BACKLOG.json with evidence, and the self-review (phase 6) verdict is PASS.
 
 ## Now
-Phase: 0 (audit) — not started
+Phase: 0 (audit — doing)
+- Step 1: Inventory all routes/pages across `goalworld_site/`, `docs/`, `goalchain_webapp/`, and sub-sites (`/blast-radius/`, `/hermes-demo/`, `/go/reader/`) → write `_work/site-overhaul-20261109/AUDIT_MAP.md`.
+- Step 2: Live crawl & Playwright multi-viewport audit (`390x844`, `820x1180`, `1440x900`) on `https://goalworld.fun/` and `https://play.goalworld.fun/` → save screenshots and logs to `_work/site-overhaul-20261109/evidence/audit/`.
+- Step 3: Run Lighthouse (mobile + desktop) on home, book, cinema, studio, play home → save JSON summaries to `_work/site-overhaul-20261109/evidence/audit/lighthouse/`.
+- Step 4: Deep code review (`goalworld_site/`, `docs/`, `goalchain_webapp/`) → produce `_work/site-overhaul-20261109/AUDIT.md` (≥40 findings with evidence) and populate `BACKLOG.json`.
 
 ## Next
 - Phase 0: deep audit → fill BACKLOG.json with prioritized findings.

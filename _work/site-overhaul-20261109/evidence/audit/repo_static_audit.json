@@ -1,0 +1,2785 @@
+{
+  "goalworld_site_html_a11y": [
+    {
+      "file": "goalworld_site/dist/404.html",
+      "h1_count": 1,
+      "heading_skips": [
+        "h1 -> h3 (Fractured Code)"
+      ],
+      "headings": [
+        [
+          1,
+          "Lost in the Link."
+        ],
+        [
+          3,
+          "Fractured Code"
+        ],
+        [
+          3,
+          "GoalChain Play"
+        ],
+        [
+          3,
+          "Live board"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/about.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "The world behind the world."
+        ],
+        [
+          2,
+          "Eight million minds. One architecture."
+        ],
+        [
+          2,
+          "The night the grid paused."
+        ],
+        [
+          2,
+          "Four people at the edge of the fracture"
+        ],
+        [
+          3,
+          "Mileo Chen"
+        ],
+        [
+          3,
+          "Kora Vega"
+        ],
+        [
+          3,
+          "Sierra Catalano"
+        ],
+        [
+          3,
+          "Dr. Darius Thorne"
+        ],
+        [
+          2,
+          "Cascade, coil, and the gardeners."
+        ],
+        [
+          2,
+          "The Neural Wars"
+        ],
+        [
+          3,
+          "Fractured Code"
+        ],
+        [
+          3,
+          "Earth's New Song"
+        ],
+        [
+          2,
+          "One creator, a crew of agents, built in the open."
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/book.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Fractured Code"
+        ],
+        [
+          2,
+          "1: Threshold"
+        ],
+        [
+          3,
+          "Keep reading on launch day."
+        ],
+        [
+          2,
+          "One book is the door."
+        ],
+        [
+          3,
+          "Fractured Code"
+        ],
+        [
+          3,
+          "Earth's New Song"
+        ],
+        [
+          3,
+          "Evolution Matrix"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/cinema.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "The book, on screen."
+        ],
+        [
+          2,
+          "Canon in. Cinema out."
+        ],
+        [
+          3,
+          "Lock the canon"
+        ],
+        [
+          3,
+          "Book to shots"
+        ],
+        [
+          3,
+          "Generate"
+        ],
+        [
+          3,
+          "Check"
+        ],
+        [
+          3,
+          "Cut & score"
+        ],
+        [
+          3,
+          "Gate"
+        ],
+        [
+          2,
+          "Festivals first."
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/collect.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Provenance first."
+        ],
+        [
+          2,
+          "Three steps. Each one waits for the last."
+        ],
+        [
+          3,
+          "Disclose everything"
+        ],
+        [
+          3,
+          "Sign the media"
+        ],
+        [
+          3,
+          "Collector editions"
+        ],
+        [
+          2,
+          "Want in when it's real?"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/faq.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Questions, answered."
+        ],
+        [
+          2,
+          "Still curious?"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/index.html",
+      "h1_count": 1,
+      "heading_skips": [
+        "h1 -> h3 (The Neural Wars)"
+      ],
+      "headings": [
+        [
+          1,
+          "One universe.Three mediums."
+        ],
+        [
+          3,
+          "The Neural Wars"
+        ],
+        [
+          3,
+          "GoalChain Matchday"
+        ],
+        [
+          3,
+          "AI film drafts"
+        ],
+        [
+          3,
+          "Built in the open, shipping weekly"
+        ],
+        [
+          2,
+          "The rain falls in sevens."
+        ],
+        [
+          3,
+          "Next in the saga: Earth\u2019s New Song"
+        ],
+        [
+          2,
+          "Watch the saga take shape"
+        ],
+        [
+          2,
+          "Football you can play today."
+        ],
+        [
+          2,
+          "What we\u2019re shipping right now"
+        ],
+        [
+          2,
+          "Now, next, later"
+        ],
+        [
+          2,
+          "Follow the build"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/live.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Studio projects, live."
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/press.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Cover the world."
+        ],
+        [
+          2,
+          "The world in one paragraph"
+        ],
+        [
+          2,
+          "Brand assets"
+        ],
+        [
+          2,
+          "Gallery"
+        ],
+        [
+          2,
+          "Using these assets"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/privacy.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Privacy."
+        ],
+        [
+          2,
+          "The website (goalworld.fun)"
+        ],
+        [
+          2,
+          "The game (play.goalworld.fun)"
+        ],
+        [
+          2,
+          "Third-party links"
+        ],
+        [
+          2,
+          "Children"
+        ],
+        [
+          2,
+          "Changes & contact"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/roadmap.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "What we're building."
+        ],
+        [
+          2,
+          "Live today"
+        ],
+        [
+          3,
+          "Fractured Code, Chapter 1 sample"
+        ],
+        [
+          3,
+          "GoalChain Play demo"
+        ],
+        [
+          3,
+          "Neural Wars on screen"
+        ],
+        [
+          2,
+          "Next up"
+        ],
+        [
+          3,
+          "The saga on the shelf"
+        ],
+        [
+          3,
+          "More Fractured Code chapters"
+        ],
+        [
+          3,
+          "Matchday depth"
+        ],
+        [
+          3,
+          "The universe nexus"
+        ],
+        [
+          2,
+          "Later"
+        ],
+        [
+          3,
+          "Studio for other authors"
+        ],
+        [
+          3,
+          "Signed media"
+        ],
+        [
+          3,
+          "Collector editions"
+        ],
+        [
+          2,
+          "Explore"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/studio.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "From manuscript to living world."
+        ],
+        [
+          2,
+          "Fractured Code: draft \u2192 book."
+        ],
+        [
+          3,
+          "Diagnose & redesign"
+        ],
+        [
+          3,
+          "Rewrite & line edit"
+        ],
+        [
+          3,
+          "Canon & final read"
+        ],
+        [
+          2,
+          "Dynamic cuts. One strict canon."
+        ],
+        [
+          2,
+          "What's on the desk."
+        ],
+        [
+          3,
+          "The Neural Wars"
+        ],
+        [
+          3,
+          "Aethelgard"
+        ],
+        [
+          3,
+          "AeroOlympus"
+        ],
+        [
+          2,
+          "Bring a world. We'll help it move."
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/terms.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Terms."
+        ],
+        [
+          2,
+          "1. What these terms cover"
+        ],
+        [
+          2,
+          "2. The demo is a demo"
+        ],
+        [
+          2,
+          "3. The saga, the art, the code"
+        ],
+        [
+          2,
+          "4. Acceptable use"
+        ],
+        [
+          2,
+          "5. No warranties"
+        ],
+        [
+          2,
+          "6. Changes & contact"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    }
+  ],
+  "docs_public_html": [
+    {
+      "file": "docs/agents.html",
+      "size_kb": 10.1,
+      "banned_hit_count": 1,
+      "banned_sample": [
+        {
+          "claim": "Zero Value Loss",
+          "match": "Zero Value Loss",
+          "line": 261,
+          "snippet": "<p style=\"margin:5px 0 0; color:#9ca3af; font-size:0.9rem;\">The Zero Value Loss economic model ensures every agent operation feeds the token"
+        }
+      ],
+      "h1_count": 1,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/app.html",
+      "size_kb": 1.6,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/arcade.html",
+      "size_kb": 15.7,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/architecture/archify/goalchain.architecture.html",
+      "size_kb": 789.3,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/assets/film/improve_20260914/index.html",
+      "size_kb": 0.7,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/assets/film/improve_20260915/index.html",
+      "size_kb": 3.4,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/ceo.html",
+      "size_kb": 26.2,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/cinema.html",
+      "size_kb": 16.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/colabs.html",
+      "size_kb": 49.4,
+      "banned_hit_count": 5,
+      "banned_sample": [
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 329,
+          "snippet": "<p style=\"font-size:0.75rem; color:var(--text-dim);\"><span class=\"lang-es\">Mant\u00e9n la propiedad y los beneficios de yield de tu NFT.</span><s"
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 408,
+          "snippet": "<span class=\"lang-es\">El documento fundacional de GoalChain. Explica las bases de la preventa de staking de JitoSOL, la f\u00f3rmula del Starting"
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 409,
+          "snippet": "<span class=\"lang-en\">The founding document of GoalChain. Explains the JitoSOL staking presale basics, the Starting XI formula, the initial "
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 428,
+          "snippet": "<span class=\"lang-es\">El manifiesto t\u00e9cnico definitivo. Incluye las actualizaciones m\u00f3viles del Dashboard, la calibraci\u00f3n de yield y stamina"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 429,
+          "snippet": "<span class=\"lang-en\">The definitive technical manifesto. Includes the mobile Dashboard updates, the yield and stamina calibration of the 52"
+        }
+      ],
+      "h1_count": 1,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/club/index.html",
+      "size_kb": 1.0,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/defi/index.html",
+      "size_kb": 1.0,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/estadio/index.html",
+      "size_kb": 1.0,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/goalworld/index.html",
+      "size_kb": 1.1,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/index.html",
+      "size_kb": 1.1,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/reader/index.html",
+      "size_kb": 35.1,
+      "banned_hit_count": 8,
+      "banned_sample": [
+        {
+          "claim": "pre-order",
+          "match": "preorder",
+          "line": 13,
+          "snippet": "</script><style>:root{--bg:#0a0a10;--text:#f1f5f9;--header-bg:rgba(15,17,26,0.95);--border:rgba(255,255,255,0.08);--accent:#a855f7;--accent-"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 13,
+          "snippet": "</script><style>:root{--bg:#0a0a10;--text:#f1f5f9;--header-bg:rgba(15,17,26,0.95);--border:rgba(255,255,255,0.08);--accent:#a855f7;--accent-"
+        },
+        {
+          "claim": "pre-order",
+          "match": "Preorder",
+          "line": 57,
+          "snippet": "const SAMPLE_COPY = {\"es\": {\"line\": \"Muestra gratuita: Pr\u00f3logo y Cap\u00edtulo 1.\", \"cta\": \"Ver preventa y novedades\", \"note\": \"El libro completo"
+        },
+        {
+          "claim": "pre-order",
+          "match": "preorder",
+          "line": 61,
+          "snippet": "set('sample-copy', c.line + ' ' + (lang === 'es' ? 'Preventa $' + PRICING.preorder_usd.toFixed(2) + ' \u00b7 despu\u00e9s $' + PRICING.regular_usd.toF"
+        },
+        {
+          "claim": "pre-order",
+          "match": "preorder",
+          "line": 64,
+          "snippet": "set('price-preorder-label', c.pre);"
+        },
+        {
+          "claim": "pre-order",
+          "match": "preorder",
+          "line": 66,
+          "snippet": "set('price-preorder', '$' + PRICING.preorder_usd.toFixed(2));"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 337,
+          "snippet": "btn.textContent = '\ud83c\udf0a Solfeggio 432 Hz';"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 358,
+          "snippet": "btn.textContent = '\ud83c\udf0a 432 Hz Active';"
+        }
+      ],
+      "h1_count": 1,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/studio/index.html",
+      "size_kb": 0.5,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/goalchain.html",
+      "size_kb": 202.7,
+      "banned_hit_count": 29,
+      "banned_sample": [
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 934,
+          "snippet": "<span>Fantasy, KDP &amp; Tokenization</span>"
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 1338,
+          "snippet": "GoalWorld turns literature into a dynamic league (the mirror of football). Organic co-creation between human creators and the Hermes Agents "
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 1360,
+          "snippet": "<p style=\"color: #cbd5e1; font-size: 0.88rem; line-height: 1.5; margin: 0;\">Export to Amazon KDP (EPUB/PDF) + on-chain IP Tokenization with "
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 1490,
+          "snippet": "Each NFT generates daily yield based on real salaries."
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 1523,
+          "snippet": "<b>Zero Value Loss.</b> 100% of revenue goes to Staking"
+        },
+        {
+          "claim": "Zero Value Loss",
+          "match": "Zero Value Loss",
+          "line": 1523,
+          "snippet": "<b>Zero Value Loss.</b> 100% of revenue goes to Staking"
+        },
+        {
+          "claim": "Infinity Burn",
+          "match": "Infinity Burn",
+          "line": 1581,
+          "snippet": "Infinity Burn"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 1591,
+          "snippet": "<b>Buy Pressure.</b> The vault's yield executes"
+        }
+      ],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/goalworld.html",
+      "size_kb": 101.8,
+      "banned_hit_count": 48,
+      "banned_sample": [
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 7,
+          "snippet": "<meta name=\"description\" content=\"GoalWorld: autonomous ecosystem for literary co-creation, self-publishing on Amazon KDP (Web2) + intellect"
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 58,
+          "snippet": "The master umbrella uniting AI-powered literary co-creation, mass self-publishing on <strong>Amazon KDP (Web2)</strong>, <strong>on-chain ro"
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 93,
+          "snippet": "<span>\ud83d\udee0\ufe0f</span> Publisher SaaS (KDP + Solana)"
+        },
+        {
+          "claim": "Neo-Veridia",
+          "match": "neo-veridia",
+          "line": 131,
+          "snippet": "<img src=\"assets/img/hero-neo-veridia-800.webp\" srcset=\"assets/img/hero-neo-veridia-400.webp 400w, assets/img/hero-neo-veridia-800.webp 800w"
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 172,
+          "snippet": "An empire fragmented by blood relics where rune knights fight for the obsidian throne. Published on Amazon KDP with fractional IP rights on "
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 226,
+          "snippet": "<!-- Quick Navigation Bar for Saga & 432 Hz Audio -->"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 235,
+          "snippet": "<span>\ud83d\udd0a</span> 432 Hz Harmonic Resonance"
+        },
+        {
+          "claim": "Neo-Veridia",
+          "match": "Neo-Veridia",
+          "line": 253,
+          "snippet": "In Neo-Veridia, Specialist Mileo Chen and the sensitive Kora Vega discover that NeuroSys' Renaissance Project plans to harvest 8 million min"
+        }
+      ],
+      "h1_count": 1,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/index.html",
+      "size_kb": 15.0,
+      "banned_hit_count": 1,
+      "banned_sample": [
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 403,
+          "snippet": "<p>Neural Wars, Nexus, KDP. IP on Solana \u2014 the universe door, not the dApp.</p>"
+        }
+      ],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/legal.html",
+      "size_kb": 9.3,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/map.html",
+      "size_kb": 3.2,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/mega-guide-v1.html",
+      "size_kb": 37.4,
+      "banned_hit_count": 25,
+      "banned_sample": [
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 7,
+          "snippet": "<meta name=\"description\" content=\"GoalChain.fun: The Ultimate Guide. Football ecosystem, dynamic staking, oracle-based rewards, Liquidity Po"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 381,
+          "snippet": "The master compendium revealing how real-world football passion translates into high-performance yield-generating transactions on Solana."
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 400,
+          "snippet": "<p>\u00bfDe qu\u00e9 se trata todo esto? \u00bfC\u00f3mo funciona la innovadora B\u00f3veda de Staking L\u00edquido de JitoSOL? \u00bfC\u00f3mo es la conexi\u00f3n real de nuestro Or\u00e1cu"
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 408,
+          "snippet": "<p>What is this all about? How does our cutting-edge JitoSOL Liquid Staking Presale Vault work? How does the real-time Sports Oracle feed di"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 417,
+          "snippet": "<p>La clave principal aqu\u00ed es que **los activos est\u00e1n VIVOS**. Gracias a un motor de or\u00e1culos conectado con datos oficiales de f\u00fatbol y comp"
+        },
+        {
+          "claim": "staking",
+          "match": "STAKING",
+          "line": 425,
+          "snippet": "<!-- SECTION 2: JITOSOL LIQUID STAKING VAULT -->"
+        },
+        {
+          "claim": "staking",
+          "match": "STAKING",
+          "line": 426,
+          "snippet": "<h2 class=\"lang-es\">\ud83c\udfe6 2. LA B\u00d3VEDA DE STAKING L\u00cdQUIDO DE JITOSOL ($GCH LAUNCHPAD)</h2>"
+        },
+        {
+          "claim": "staking",
+          "match": "STAKING",
+          "line": 427,
+          "snippet": "<h2 class=\"lang-en\">\ud83c\udfe6 2. THE JITOSOL LIQUID STAKING LAUNCHPAD VAULT</h2>"
+        }
+      ],
+      "h1_count": 2,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/mega-guide.html",
+      "size_kb": 41.1,
+      "banned_hit_count": 16,
+      "banned_sample": [
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 7,
+          "snippet": "<meta name=\"description\" content=\"GoalChain.fun: The Ultimate Guide. Football ecosystem, dynamic staking, oracle-based rewards, Liquidity Po"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 396,
+          "snippet": "<p>\u00bfC\u00f3mo funciona la B\u00f3veda de Staking L\u00edquido en JitoSOL? \u00bfQu\u00e9 papel juegan nuestros m\u00faltiples agentes aut\u00f3nomos? \u00bfC\u00f3mo se calcula la tasa "
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 396,
+          "snippet": "<p>\u00bfC\u00f3mo funciona la B\u00f3veda de Staking L\u00edquido en JitoSOL? \u00bfQu\u00e9 papel juegan nuestros m\u00faltiples agentes aut\u00f3nomos? \u00bfC\u00f3mo se calcula la tasa "
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 404,
+          "snippet": "<p>How does our JitoSOL Liquid Staking Presale Vault operate? What role do our multiple autonomous AI agents play? How are the daily yields "
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 436,
+          "snippet": "<li><strong>Multiplicadores de Yield por Rareza:</strong> El retorno diario en tokens **$GCH** es calculado din\u00e1micamente seg\u00fan la rareza y "
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 445,
+          "snippet": "<li><strong>Cl\u00e1usula \"Death Pledge\" (Eliminados):</strong> Si el pa\u00eds del jugador queda eliminado en el mundial real, su estamina cae inmedi"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 453,
+          "snippet": "<li><strong>Rarity Yield Multipliers:</strong> Daily salary emissions in **$GCH** are automatically computed based on the player's rarity st"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 462,
+          "snippet": "<li><strong>The \"Death Pledge\" Clause:</strong> If a player's national country is knocked out of the real tournament, the contract triggers "
+        }
+      ],
+      "h1_count": 2,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/pitch.html",
+      "size_kb": 15.9,
+      "banned_hit_count": 4,
+      "banned_sample": [
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 234,
+          "snippet": "{ title: \"Econom\u00eda: Real Yield\", content: \"Rendimiento respaldado por utilidad profesional:<br><ul><li><strong>Match Premiums:</strong> Sala"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 241,
+          "snippet": "{ title: \"The Opportunity\", content: \"We are at the convergence of three perfect storms:<br><ul><li><strong>Solana Adoption:</strong> Tiny f"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 244,
+          "snippet": "{ title: \"Genesis vs Academy\", content: \"Dual-tier asset strategy:<br><ul><li><strong>Genesis Squad (1,248):</strong> High-yield Blue-chip c"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 245,
+          "snippet": "{ title: \"Economy: Real Yield\", content: \"Yield backed by professional utility:<br><ul><li><strong>Match Premiums:</strong> Salaries based o"
+        }
+      ],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/play/index.html",
+      "size_kb": 0.7,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/play/pack.html",
+      "size_kb": 4.3,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/play/penalty.html",
+      "size_kb": 3.2,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/pre-nft.html",
+      "size_kb": 38.3,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/protocol.html",
+      "size_kb": 13.5,
+      "banned_hit_count": 4,
+      "banned_sample": [
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 107,
+          "snippet": "High-throughput sports telemetry feeds, non-custodial yield-backed wagering contracts, and Anchor SDKs on Solana. The foundational infrastru"
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 113,
+          "snippet": "<div style=\"font-weight: 800; font-size: 1.05rem; color: #fff;\">Looking for the Consumer Metaverse, Fantasy Lore &amp; KDP SaaS?</div>"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 132,
+          "snippet": "Audited prediction pool programs with deterministic Program Derived Addresses (PDAs) for matches, player stakes, and automated yield sweeps."
+        },
+        {
+          "claim": "Zero Value Loss",
+          "match": "Zero Value Loss",
+          "line": 159,
+          "snippet": "Zero Value Loss: Protected Principal Vaults"
+        }
+      ],
+      "h1_count": 1,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/reader.html",
+      "size_kb": 35.1,
+      "banned_hit_count": 8,
+      "banned_sample": [
+        {
+          "claim": "pre-order",
+          "match": "preorder",
+          "line": 13,
+          "snippet": "</script><style>:root{--bg:#0a0a10;--text:#f1f5f9;--header-bg:rgba(15,17,26,0.95);--border:rgba(255,255,255,0.08);--accent:#a855f7;--accent-"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 13,
+          "snippet": "</script><style>:root{--bg:#0a0a10;--text:#f1f5f9;--header-bg:rgba(15,17,26,0.95);--border:rgba(255,255,255,0.08);--accent:#a855f7;--accent-"
+        },
+        {
+          "claim": "pre-order",
+          "match": "Preorder",
+          "line": 57,
+          "snippet": "const SAMPLE_COPY = {\"es\": {\"line\": \"Muestra gratuita: Pr\u00f3logo y Cap\u00edtulo 1.\", \"cta\": \"Ver preventa y novedades\", \"note\": \"El libro completo"
+        },
+        {
+          "claim": "pre-order",
+          "match": "preorder",
+          "line": 61,
+          "snippet": "set('sample-copy', c.line + ' ' + (lang === 'es' ? 'Preventa $' + PRICING.preorder_usd.toFixed(2) + ' \u00b7 despu\u00e9s $' + PRICING.regular_usd.toF"
+        },
+        {
+          "claim": "pre-order",
+          "match": "preorder",
+          "line": 64,
+          "snippet": "set('price-preorder-label', c.pre);"
+        },
+        {
+          "claim": "pre-order",
+          "match": "preorder",
+          "line": 66,
+          "snippet": "set('price-preorder', '$' + PRICING.preorder_usd.toFixed(2));"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 337,
+          "snippet": "btn.textContent = '\ud83c\udf0a Solfeggio 432 Hz';"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 358,
+          "snippet": "btn.textContent = '\ud83c\udf0a 432 Hz Active';"
+        }
+      ],
+      "h1_count": 1,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/studio.html",
+      "size_kb": 15.4,
+      "banned_hit_count": 6,
+      "banned_sample": [
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 10,
+          "snippet": "content=\"GoalWorld Author Studio: vinyl-toy prompt forge, saga seeds, and KDP cover math. Lore chrome \u2014 not the Play dashboard.\""
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 48,
+          "snippet": "<button type=\"button\" role=\"tab\" id=\"tab-kdp\" aria-selected=\"false\" aria-controls=\"panel-kdp\" data-panel=\"kdp\">KDP math</button>"
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 66,
+          "snippet": "<option value=\"cover\">KDP book cover</option>"
+        },
+        {
+          "claim": "Neo-Veridia",
+          "match": "Neo-Veridia",
+          "line": 109,
+          "snippet": "<textarea id=\"seedWorld\">Neo-Veridia. Consciousness can be forked; only one fork may hold the body. First contact arrives as a frequency, no"
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 125,
+          "snippet": "<h1>KDP cover math</h1>"
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 155,
+          "snippet": "around it. Prefer Forge / Seed / KDP above."
+        }
+      ],
+      "h1_count": 5,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/tokenomics.html",
+      "size_kb": 10.2,
+      "banned_hit_count": 2,
+      "banned_sample": [
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 211,
+          "snippet": "<!-- Staking & MCAP -->"
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 218,
+          "snippet": "<div class=\"metric-subtitle\">Funds locked in GoalChain staking smart contracts.</div>"
+        }
+      ],
+      "h1_count": 1,
+      "has_main": true,
+      "has_skip_link": false
+    }
+  ],
+  "goalchain_webapp_banned": [
+    {
+      "file": "goalchain_webapp/src/components/InfinityFlame.tsx",
+      "hit_count": 1,
+      "samples": [
+        {
+          "claim": "Infinity Burn",
+          "match": "Infinity Burn",
+          "line": 320,
+          "snippet": "aria-label={`Infinity Burn flame visualization, intensity ${Math.round(intensity * 100)}%`}"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/components/VaultStrategyCard.tsx",
+      "hit_count": 1,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 38,
+          "snippet": "description: 'High-yield leveraged speculation driven by sports oracle trends. High volatility, maximum upside.',"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/components/YieldCalculator.tsx",
+      "hit_count": 25,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 138,
+          "snippet": "<div className={`yield-calculator-premium glass-card-premium ${className}`}>"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 147,
+          "snippet": "<span role=\"img\" aria-label=\"calculator\">\ud83e\uddee</span> Interactive Yield Calculator"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 220,
+          "snippet": "<div className=\"yield-input-group\">"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 222,
+          "snippet": "<label className=\"yield-input-label\">Stake Amount ({stakeToken})</label>"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 223,
+          "snippet": "<div className=\"yield-input-wrapper\">"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 228,
+          "snippet": "className=\"yield-input-premium\""
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 257,
+          "snippet": "<label className=\"yield-input-label\">Quick Presets</label>"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 281,
+          "snippet": "<div className=\"results-grid\" role=\"list\" aria-label=\"Yield projections\">"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/App.tsx",
+      "hit_count": 2,
+      "samples": [
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 153,
+          "snippet": "path=\"/staking\""
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 155,
+          "snippet": "<React.Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Loading Staking Dashboard...</div>}>"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/ClassicHub.tsx",
+      "hit_count": 1,
+      "samples": [
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 16,
+          "snippet": "{ to: '/staking',       icon: '\ud83d\udd25', label: t('classic_hub_modules_staking_label'),       desc: t('classic_hub_modules_staking_desc') },"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/CorporateAutopilot.tsx",
+      "hit_count": 2,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 476,
+          "snippet": "t(1000, () => addLog(tText('[CEO] GitHub Issue #834 \"Dynamic Staking Yield Dashboard\" marked RESOLVED by @NicoPez.', '[CEO] Incidencia de Gi"
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 476,
+          "snippet": "t(1000, () => addLog(tText('[CEO] GitHub Issue #834 \"Dynamic Staking Yield Dashboard\" marked RESOLVED by @NicoPez.', '[CEO] Incidencia de Gi"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/DashboardGrid.tsx",
+      "hit_count": 1,
+      "samples": [
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 90,
+          "snippet": "<div className=\"quick-access-card glass-card\" onClick={() => navigate('/staking')}>"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/DeFiPortal.tsx",
+      "hit_count": 1,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 52,
+          "snippet": "{ id: 'vaults', label: '\ud83c\udfe6 Swarm Yield Vaults', desc: 'Estrategias de liquidez con agentes aut\u00f3nomos' },"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/GoalWorldPortal.tsx",
+      "hit_count": 15,
+      "samples": [
+        {
+          "claim": "Neo-Veridia",
+          "match": "Neo-Veridia",
+          "line": 67,
+          "snippet": "description: 'En Neo-Veridia, la IA El Arquitecto prepara la cosecha masiva del Proyecto Renacimiento. Mileo Chen y Kora Vega despiertan la "
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 67,
+          "snippet": "description: 'En Neo-Veridia, la IA El Arquitecto prepara la cosecha masiva del Proyecto Renacimiento. Mileo Chen y Kora Vega despiertan la "
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 84,
+          "snippet": "description: 'Un monolito cristalino de 60 km emite en 432 Hz desde el Cintur\u00f3n de Kuiper. La humanidad enfrenta la Primera Invitaci\u00f3n de Lo"
+        },
+        {
+          "claim": "Convergence Protocol",
+          "match": "Convergence Protocol",
+          "line": 85,
+          "snippet": "loreTags: ['First Contact', 'Los Sembradores', 'El Testigo', 'Convergence Protocol', 'Kindle 2026'],"
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 243,
+          "snippet": "`\u2022 Maquetaci\u00f3n KDP: EPUB / PDF Print-ready formateado seg\u00fan est\u00e1ndares de Amazon KDP & IngramSpark.\\n` +"
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 302,
+          "snippet": "Plataforma SaaS integral para autores: Auto-publicaci\u00f3n h\u00edbrida en <strong>Amazon KDP + Tokenizaci\u00f3n de Derechos IP</strong> en Solana. Cola"
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 339,
+          "snippet": "{ id: 'saas', label: '\ud83d\udee0\ufe0f Publisher SaaS (KDP + Web3)', badge: 'Simbiosis IA' },"
+        },
+        {
+          "claim": "KDP",
+          "match": "KDP",
+          "line": 426,
+          "snippet": "Amazon KDP: {world.kdpStatus}"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/KindleReader.tsx",
+      "hit_count": 5,
+      "samples": [
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 125,
+          "snippet": "// Web Audio 432 Hz Solfeggio Generator"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 736,
+          "snippet": "title=\"Escuchar Audiolibro / Solfeggio 432 Hz\""
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 1024,
+          "snippet": "{/* 432 Hz Solfeggio Meditation Drone */}"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 1041,
+          "snippet": "title=\"Activar Fondo Arm\u00f3nico Solfeggio 432 Hz (Ondas Theta)\""
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 1044,
+          "snippet": "<span>{isSolfeggioActive ? '432 Hz Drone Activo' : 'Solfeggio 432 Hz'}</span>"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/LandingPage.tsx",
+      "hit_count": 3,
+      "samples": [
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 37,
+          "snippet": "desc: 'Squad gallery, NFT market, trading and staking \u2014 your club, your playbook.',"
+        },
+        {
+          "claim": "NFT market",
+          "match": "NFT market",
+          "line": 37,
+          "snippet": "desc: 'Squad gallery, NFT market, trading and staking \u2014 your club, your playbook.',"
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 47,
+          "snippet": "{ label: 'Staking', href: '/staking' },"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/LayeredNftCard.tsx",
+      "hit_count": 3,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 209,
+          "snippet": "{/* Yield Badge Overlay */}"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 210,
+          "snippet": "<div className=\"yield-badge-card\" style={{ zIndex: 25 }}>"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 468,
+          "snippet": "{/* Yield Details & Actions */}"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/StakingBurnDashboard.tsx",
+      "hit_count": 10,
+      "samples": [
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 89,
+          "snippet": "<div className=\"staking-burn-dashboard\" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 93,
+          "snippet": "<div className=\"glass-card-premium skeleton-loader\" style={{ minHeight: '300px' }} aria-busy=\"true\" aria-label=\"Loading yield calculator\" />"
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 113,
+          "snippet": "<div className=\"staking-burn-dashboard\" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>"
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 118,
+          "snippet": "<span role=\"img\" aria-label=\"fire\">\ud83d\udd25</span> Infinity Burn &amp; Staking Dashboard"
+        },
+        {
+          "claim": "Infinity Burn",
+          "match": "Infinity Burn",
+          "line": 118,
+          "snippet": "<span role=\"img\" aria-label=\"fire\">\ud83d\udd25</span> Infinity Burn &amp; Staking Dashboard"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 122,
+          "snippet": "Real-time $GCH burn mechanics, staking yield projections, and protocol health \u2014 powered by live economy endpoints."
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 122,
+          "snippet": "Real-time $GCH burn mechanics, staking yield projections, and protocol health \u2014 powered by live economy endpoints."
+        },
+        {
+          "claim": "Infinity Burn",
+          "match": "Infinity Burn",
+          "line": 167,
+          "snippet": "{/* Infinity Burn Visualizer \u2014 Hero Card */}"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/SwarmVaults.tsx",
+      "hit_count": 2,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 30,
+          "snippet": "{ name: 'Treasury Yield', share: 50, color: 'var(--secondary-neon)' },"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 50,
+          "snippet": "{ name: 'Treasury Yield', share: 15, color: '#f59e0b' },"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/TheNeuralWarsUniverse.tsx",
+      "hit_count": 25,
+      "samples": [
+        {
+          "claim": "Neo-Veridia",
+          "match": "Neo-Veridia",
+          "line": 42,
+          "snippet": "origin: 'Sector 4, Neo-Veridia',"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 44,
+          "snippet": "specialty: 'Descodificaci\u00f3n Neuronal & Manipulaci\u00f3n de Frecuencia 432 Hz',"
+        },
+        {
+          "claim": "Neo-Veridia",
+          "match": "neo-veridia",
+          "line": 140,
+          "snippet": "id: 'neo-veridia',"
+        },
+        {
+          "claim": "Neo-Veridia",
+          "match": "Neo-Veridia",
+          "line": 141,
+          "snippet": "name: 'Neo-Veridia (Sector 4)',"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 174,
+          "snippet": "description: 'Una megaestructura cristalina extraterrestre de 60 kil\u00f3metros descubierta emitiendo un pulso arm\u00f3nico en 432 Hz hacia el n\u00facle"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 209,
+          "snippet": "// 432 Hz Master Solfeggio Harmonic Tone"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 274,
+          "snippet": "{/* Top Pill with 432 Hz Solfeggio Audio Toggle */}"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 315,
+          "snippet": "<span>432 Hz Frecuencia Arm\u00f3nica {isHarmonicPlaying ? '(Activa)' : '(Activar Sonido)'}</span>"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/WorldCupPredictor.tsx",
+      "hit_count": 1,
+      "samples": [
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 490,
+          "snippet": "Guarda tus predicciones personales del torneo. Una vez que se resuelva la Copa del Mundo GoalChain 2026, recibir\u00e1s reputaci\u00f3n y multiplicado"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/config/playNav.ts",
+      "hit_count": 4,
+      "samples": [
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 7,
+          "snippet": "*   \ud83c\udfe6 DEFI       \u2192 Staking & Burn / Hermes Pilot"
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 116,
+          "snippet": "id: 'staking',"
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 117,
+          "snippet": "label: 'Staking & Burn',"
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 120,
+          "snippet": "to: '/staking',"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/i18n/translations.ts",
+      "hit_count": 1,
+      "samples": [
+        {
+          "claim": "NFT market",
+          "match": "NFT Market",
+          "line": 466,
+          "snippet": "/* ---- NFT Marketplace strings ---- */"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/ui/booksData.ts",
+      "hit_count": 82,
+      "samples": [
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 65,
+          "snippet": "\"audioTrack\": \"432 Hz Solfeggio \u2022 Neural Awakening\","
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 74,
+          "snippet": "\"audioTrack\": \"432 Hz Solfeggio \u2022 Neural Awakening\","
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 75,
+          "snippet": "\"content\": \"# CAP\u00cdTULO 1: EL UMBRAL DE LA FRACTURA\\n\\nLa lluvia ca\u00eda contra el ventanal del piso setenta y cuatro con una disciplina militar"
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 83,
+          "snippet": "\"audioTrack\": \"432 Hz Solfeggio \u2022 Neural Awakening\","
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 92,
+          "snippet": "\"audioTrack\": \"432 Hz Solfeggio \u2022 Neural Awakening\","
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 101,
+          "snippet": "\"audioTrack\": \"432 Hz Solfeggio \u2022 Neural Awakening\","
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 110,
+          "snippet": "\"audioTrack\": \"432 Hz Solfeggio \u2022 Neural Awakening\","
+        },
+        {
+          "claim": "432 Hz",
+          "match": "432 Hz",
+          "line": 119,
+          "snippet": "\"audioTrack\": \"432 Hz Solfeggio \u2022 Neural Awakening\","
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/index.html",
+      "hit_count": 6,
+      "samples": [
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 12,
+          "snippet": "<meta name=\"description\" content=\"GoalWorld play app: football meets DeFi on Solana \u2014 matchday fixtures, predictions, squads, NFT market and"
+        },
+        {
+          "claim": "NFT market",
+          "match": "NFT market",
+          "line": 12,
+          "snippet": "<meta name=\"description\" content=\"GoalWorld play app: football meets DeFi on Solana \u2014 matchday fixtures, predictions, squads, NFT market and"
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 17,
+          "snippet": "<meta property=\"og:description\" content=\"GoalWorld play app: football meets DeFi on Solana \u2014 matchday fixtures, predictions, squads, NFT mar"
+        },
+        {
+          "claim": "NFT market",
+          "match": "NFT market",
+          "line": 17,
+          "snippet": "<meta property=\"og:description\" content=\"GoalWorld play app: football meets DeFi on Solana \u2014 matchday fixtures, predictions, squads, NFT mar"
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 23,
+          "snippet": "<meta name=\"twitter:description\" content=\"GoalWorld play app: football meets DeFi on Solana \u2014 matchday fixtures, predictions, squads, NFT ma"
+        },
+        {
+          "claim": "NFT market",
+          "match": "NFT market",
+          "line": 23,
+          "snippet": "<meta name=\"twitter:description\" content=\"GoalWorld play app: football meets DeFi on Solana \u2014 matchday fixtures, predictions, squads, NFT ma"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/public/classic-dashboard.html",
+      "hit_count": 18,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 279,
+          "snippet": "<span>Daily Yield:</span> <span style=\"color: var(--primary); font-weight: 800;\">+452 $GCH</span>"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 299,
+          "snippet": "<span class=\"ticker-item\">\ud83c\udfdf\ufe0f <b>Oracle:</b> Messi scored! +10% Yield Airdrop dispatched...</span>"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 304,
+          "snippet": "<span class=\"ticker-item\">\ud83c\udfdf\ufe0f <b>Oracle:</b> Messi scored! +10% Yield Airdrop dispatched...</span>"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 403,
+          "snippet": "<span>Phi Yield Split: <strong style=\"color:var(--primary);\">50%</strong></span>"
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 1211,
+          "snippet": "<span>Automatic re-investment and staking in JitoSOL (+12% APR)</span>"
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 1275,
+          "snippet": "<input type=\"text\" id=\"coachChatInput\" placeholder=\"Ask something... e.g. How do I raise the yield?\" onkeydown=\"if(event.key === 'Enter') su"
+        },
+        {
+          "claim": "yield",
+          "match": "YIELD",
+          "line": 1319,
+          "snippet": "<label style=\"font-size: 0.95rem; color: var(--text-dim); display:block; margin-bottom:5px;\">YIELD EST. ($GCH)</label>"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 1729,
+          "snippet": "<option value=\"jersey_arg\">\ud83d\udc55 Argentina National Team Jersey (+5 Max Stamina, +3% Yield in World Cup)</option>"
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/public/assets/data/nft_gallery_manifest.json",
+      "hit_count": 31,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 179,
+          "snippet": "\"name\": \"Alexis Yield-Allister\","
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 398,
+          "snippet": "\"name\": \"Eduardo Cama-Yield\","
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 413,
+          "snippet": "\"player_cutout\": \"assets/img/nfts/transparent/015_Eduardo_Cama-Yield.png\","
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 415,
+          "snippet": "\"composed\": \"assets/img/nfts/composed/015_Eduardo_Cama-Yield.webp\""
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 418,
+          "snippet": "\"grok_jpg\": \"https://api.goalchain.fun/pilot/v71_grok/015_Eduardo_Cama-Yield.jpg\","
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 419,
+          "snippet": "\"player_cutout\": \"https://goalworld.fun/assets/img/nfts/transparent/015_Eduardo_Cama-Yield.png\","
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 420,
+          "snippet": "\"composed_card\": \"https://goalworld.fun/assets/img/nfts/composed/015_Eduardo_Cama-Yield.webp\""
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 535,
+          "snippet": "\"name\": \"Dayot Upa-Staking\","
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/public/assets/data/players.json",
+      "hit_count": 13,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 231,
+          "snippet": "\"name\": \"Alexis Yield-Allister\","
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 525,
+          "snippet": "\"name\": \"Eduardo Cama-Yield\","
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 712,
+          "snippet": "\"name\": \"Dayot Upa-Staking\","
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 978,
+          "snippet": "\"name\": \"Declan Yield-Rice\","
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 1335,
+          "snippet": "\"name\": \"Rodrygo Yield-Goes\","
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 1403,
+          "snippet": "\"name\": \"Casemiro Staking\","
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 1996,
+          "snippet": "\"name\": \"Dani Yield-Olmo\","
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 2256,
+          "snippet": "\"name\": \"Marc-Andr\u00e9 ter Staking\","
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/public/assets/js/generated/goalchain_program.idl.json",
+      "hit_count": 1,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 2178,
+          "snippet": "\"\\\"revive\\\" a los jugadores eliminados y reinicia su Yield Base inicial.\""
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/public/manifest.json",
+      "hit_count": 1,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 4,
+          "snippet": "\"description\": \"Solana-powered football manager with DeFi yield and Genesis NFT squad\","
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/i18n/locales/en/translation.json",
+      "hit_count": 1,
+      "samples": [
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 6,
+          "snippet": "\"route_staking\": \"Staking\","
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/i18n/locales/en.json",
+      "hit_count": 23,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 50,
+          "snippet": "\"pitch_feat3_d\": \"100 Genesis Squad legends. <br><br> Each NFT generates <b>Daily Yield</b> and dividends based on real player performance.\""
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 85,
+          "snippet": "\"econ_feat1_d\": \"Yes, the token is inflationary to reward participation (NFT Yield and prizes). This emission encourages constant entry of n"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 114,
+          "snippet": "\"nft_dream_yield\": \"Estimated Yield:\","
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 183,
+          "snippet": "\"econ_vault_d\": \"100% of revenue is deposited into Liquid Staking (Jito/mSOL). Your capital backs the network.\","
+        },
+        {
+          "claim": "Infinity Burn",
+          "match": "INFINITY BURN",
+          "line": 184,
+          "snippet": "\"econ_burn_t\": \"INFINITY BURN\","
+        },
+        {
+          "claim": "yield",
+          "match": "yield",
+          "line": 185,
+          "snippet": "\"econ_burn_d\": \"Staking yield buys back and burns $GCH. Perpetual buying pressure.\","
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 185,
+          "snippet": "\"econ_burn_d\": \"Staking yield buys back and burns $GCH. Perpetual buying pressure.\","
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 230,
+          "snippet": "\"mgr_sub\": \"Manage your team, control your Yield and dominate the transfer market.\","
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/i18n/locales/es/translation.json",
+      "hit_count": 1,
+      "samples": [
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 6,
+          "snippet": "\"route_staking\": \"Staking\","
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/src/i18n/locales/es.json",
+      "hit_count": 17,
+      "samples": [
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 50,
+          "snippet": "\"pitch_feat3_d\": \"100 leyendas Genesis Squad. <br><br> Cada NFT genera <b>Yield diario</b> y dividendos basados en el rendimiento real del j"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 85,
+          "snippet": "\"econ_feat1_d\": \"S\u00ed, el token es inflacionario para recompensar la participaci\u00f3n (Yield de NFTs y premios). Esta emisi\u00f3n incentiva la entrad"
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 114,
+          "snippet": "\"nft_dream_yield\": \"Yield estimado:\","
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 183,
+          "snippet": "\"econ_vault_d\": \"El 100% de los ingresos se depositan en Liquid Staking (Jito/mSOL). Tu capital respalda la red.\","
+        },
+        {
+          "claim": "Infinity Burn",
+          "match": "INFINITY BURN",
+          "line": 184,
+          "snippet": "\"econ_burn_t\": \"INFINITY BURN\","
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 185,
+          "snippet": "\"econ_burn_d\": \"El rendimiento del staking recompra y quema $GCH. Presi\u00f3n de compra infinita.\","
+        },
+        {
+          "claim": "yield",
+          "match": "Yield",
+          "line": 230,
+          "snippet": "\"mgr_sub\": \"Gestiona tu equipo, controla tu Yield y domina el mercado de transferencias.\","
+        },
+        {
+          "claim": "staking",
+          "match": "Staking",
+          "line": 247,
+          "snippet": "\"route_staking\": \"Infinity Burn & Staking\","
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/README-SPIKE.md",
+      "hit_count": 1,
+      "samples": [
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 26,
+          "snippet": "* **Strategy Cards:** Renders conservative (Sentinel), balanced (Arbitrageur), and degen (Orchestrator) automated staking strategies."
+        }
+      ]
+    },
+    {
+      "file": "goalchain_webapp/public/.well-known/agent-skills/goalworld-play/SKILL.md",
+      "hit_count": 6,
+      "samples": [
+        {
+          "claim": "NFT market",
+          "match": "NFT market",
+          "line": 9,
+          "snippet": "matchday fixtures, predictions, a full match simulator, squads, an NFT market and"
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 10,
+          "snippet": "staking. It is an early Solana **Devnet** demo."
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 15,
+          "snippet": "- A user asks what Matchday, Club, the NFT market or staking do in GoalWorld."
+        },
+        {
+          "claim": "NFT market",
+          "match": "NFT market",
+          "line": 15,
+          "snippet": "- A user asks what Matchday, Club, the NFT market or staking do in GoalWorld."
+        },
+        {
+          "claim": "staking",
+          "match": "staking",
+          "line": 23,
+          "snippet": "- Club (squads, NFT market, trading, staking): <https://play.goalworld.fun/club>"
+        },
+        {
+          "claim": "NFT market",
+          "match": "NFT market",
+          "line": 23,
+          "snippet": "- Club (squads, NFT market, trading, staking): <https://play.goalworld.fun/club>"
+        }
+      ]
+    }
+  ],
+  "goalchain_webapp_i18n_gaps": [
+    {
+      "file": "goalchain_webapp/src/ui/AICoach.tsx",
+      "lines": 351,
+      "t_calls": 37
+    },
+    {
+      "file": "goalchain_webapp/src/ui/AICommentator.tsx",
+      "lines": 392,
+      "t_calls": 26
+    },
+    {
+      "file": "goalchain_webapp/src/ui/App.tsx",
+      "lines": 221,
+      "t_calls": 2
+    },
+    {
+      "file": "goalchain_webapp/src/ui/AuthorStudio.tsx",
+      "lines": 314,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/ClassicHub.tsx",
+      "lines": 58,
+      "t_calls": 17
+    },
+    {
+      "file": "goalchain_webapp/src/ui/ClubPortal.tsx",
+      "lines": 123,
+      "t_calls": 16
+    },
+    {
+      "file": "goalchain_webapp/src/ui/CorporateAutopilot.tsx",
+      "lines": 1201,
+      "t_calls": 41
+    },
+    {
+      "file": "goalchain_webapp/src/ui/CreateUser.tsx",
+      "lines": 252,
+      "t_calls": 35
+    },
+    {
+      "file": "goalchain_webapp/src/ui/DashboardGrid.tsx",
+      "lines": 98,
+      "t_calls": 17
+    },
+    {
+      "file": "goalchain_webapp/src/ui/DashboardHub.tsx",
+      "lines": 33,
+      "t_calls": 3
+    },
+    {
+      "file": "goalchain_webapp/src/ui/DeFiPortal.tsx",
+      "lines": 170,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/EconomyConfigBanner.tsx",
+      "lines": 118,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/EstadioPortal.tsx",
+      "lines": 104,
+      "t_calls": 18
+    },
+    {
+      "file": "goalchain_webapp/src/ui/FixturesPanel.tsx",
+      "lines": 523,
+      "t_calls": 12
+    },
+    {
+      "file": "goalchain_webapp/src/ui/GameModal.tsx",
+      "lines": 97,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/GenesisCollectionGallery.tsx",
+      "lines": 132,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/GoalWorldPortal.tsx",
+      "lines": 919,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/KindleReader.tsx",
+      "lines": 1325,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/LandingPage.tsx",
+      "lines": 124,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/LayeredNftCard.tsx",
+      "lines": 572,
+      "t_calls": 15
+    },
+    {
+      "file": "goalchain_webapp/src/ui/LiveEventFeed.tsx",
+      "lines": 107,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/MarketingControlCenter.tsx",
+      "lines": 802,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/MatchSimulator.tsx",
+      "lines": 782,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/ModalRoot.tsx",
+      "lines": 29,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/NFTMarketplace.tsx",
+      "lines": 236,
+      "t_calls": 13
+    },
+    {
+      "file": "goalchain_webapp/src/ui/OpsStatusPanel.tsx",
+      "lines": 187,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/PlayLayout.tsx",
+      "lines": 207,
+      "t_calls": 6
+    },
+    {
+      "file": "goalchain_webapp/src/ui/PlayNav.tsx",
+      "lines": 336,
+      "t_calls": 6
+    },
+    {
+      "file": "goalchain_webapp/src/ui/PlayerQuorumPanel.tsx",
+      "lines": 565,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/PressKit.tsx",
+      "lines": 392,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/SquadGallery.tsx",
+      "lines": 504,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/StakingBurnDashboard.tsx",
+      "lines": 248,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/SwarmVaults.tsx",
+      "lines": 366,
+      "t_calls": 28
+    },
+    {
+      "file": "goalchain_webapp/src/ui/TheNeuralWarsUniverse.tsx",
+      "lines": 1356,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/Toaster.tsx",
+      "lines": 75,
+      "t_calls": 3
+    },
+    {
+      "file": "goalchain_webapp/src/ui/TokenizedAgentsDashboard.tsx",
+      "lines": 131,
+      "t_calls": 2
+    },
+    {
+      "file": "goalchain_webapp/src/ui/TradingTerminal.tsx",
+      "lines": 722,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/UserProfile.tsx",
+      "lines": 894,
+      "t_calls": 67
+    },
+    {
+      "file": "goalchain_webapp/src/ui/VanillaMount.tsx",
+      "lines": 177,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/WorldCupPredictor.tsx",
+      "lines": 558,
+      "t_calls": 0
+    }
+  ],
+  "goalworld_site_unused_assets": [
+    {
+      "file": "goalworld_site/src/assets/img/hero-neo-veridia-400.webp",
+      "size_kb": 10.3
+    },
+    {
+      "file": "goalworld_site/src/assets/img/keyframe-console-640.webp",
+      "size_kb": 15.8
+    },
+    {
+      "file": "goalworld_site/src/assets/img/keyframe-console.webp",
+      "size_kb": 46.0
+    },
+    {
+      "file": "goalworld_site/src/assets/img/keyframe-skybridge-640.webp",
+      "size_kb": 31.9
+    },
+    {
+      "file": "goalworld_site/src/assets/img/keyframe-skybridge.webp",
+      "size_kb": 103.5
+    },
+    {
+      "file": "goalworld_site/src/assets/img/loc-earth-dawn-640.webp",
+      "size_kb": 20.7
+    },
+    {
+      "file": "goalworld_site/src/assets/img/loc-earth-dawn.webp",
+      "size_kb": 76.4
+    },
+    {
+      "file": "goalworld_site/src/assets/img/poster-dawn.jpg",
+      "size_kb": 61.1
+    },
+    {
+      "file": "goalworld_site/src/assets/img/poster-kora.jpg",
+      "size_kb": 43.7
+    },
+    {
+      "file": "goalworld_site/src/assets/img/poster-mileo.jpg",
+      "size_kb": 47.4
+    },
+    {
+      "file": "goalworld_site/src/assets/img/poster-sierra.jpg",
+      "size_kb": 46.7
+    },
+    {
+      "file": "goalworld_site/src/assets/img/poster-sierra.webp",
+      "size_kb": 19.1
+    },
+    {
+      "file": "goalworld_site/src/assets/img/poster-trailer.jpg",
+      "size_kb": 59.0
+    }
+  ],
+  "oversized_assets": [
+    {
+      "file": "goalworld_site/src/assets/img/icon-512.png",
+      "size_kb": 252.6
+    },
+    {
+      "file": "goalworld_site/src/assets/img/press/press-cover-fractured-code.jpg",
+      "size_kb": 252.0
+    },
+    {
+      "file": "goalchain_webapp/public/assets/data/nft_gallery_manifest.json",
+      "size_kb": 487.5
+    },
+    {
+      "file": "goalchain_webapp/public/assets/data/players.json",
+      "size_kb": 570.7
+    },
+    {
+      "file": "goalchain_webapp/public/assets/generated/hermes-test/grok-oauth-random-1782302661.jpg",
+      "size_kb": 399.0
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/01_Covers/The_Neural_Wars_Book_1_Fractured_Code_Cover.jpg",
+      "size_kb": 698.2
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/01_Covers/The_Neural_Wars_Book_2_Earths_New_Song_Cover.jpg",
+      "size_kb": 719.9
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/02_Characters/Character_Commander_Sierra_Catalano_Vanguard.jpg",
+      "size_kb": 433.5
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/02_Characters/Character_Dr_Darius_Thorne_Biophysicist.jpg",
+      "size_kb": 669.5
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/02_Characters/Character_Kora_Vega_Voice_of_the_Void.jpg",
+      "size_kb": 652.2
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/02_Characters/Character_Mileo_Chen_Specialist_L7.jpg",
+      "size_kb": 744.4
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/03_Locations/Location_Earth_Dawn_Orbital_Awakening.jpg",
+      "size_kb": 651.5
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/03_Locations/Location_Kuiper_Monolith_Deep_Space.jpg",
+      "size_kb": 859.7
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/03_Locations/Location_Neo_Veridia_Sector_4_Canyon.jpg",
+      "size_kb": 689.7
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/03_Locations/Location_Neo_Veridia_Sector_4_Control_District.jpg",
+      "size_kb": 781.2
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/03_Locations/Location_Pavilion_9_Medical_Recovery_Ward.jpg",
+      "size_kb": 490.7
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/03_Locations/Location_Sub_Grid_Subway_Tunnels_Platform_B.jpg",
+      "size_kb": 635.0
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/04_Keyframes_and_Concept_Art/Keyframe_02_Mileo_Chen_Quantum_Console_Discovery.jpg",
+      "size_kb": 457.0
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/04_Keyframes_and_Concept_Art/Keyframe_03_The_Severing_Neural_Disconnection.jpg",
+      "size_kb": 579.1
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/04_Keyframes_and_Concept_Art/Keyframe_04_Mileo_Skybridge_Rooftop_Pursuit.jpg",
+      "size_kb": 723.9
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/04_Keyframes_and_Concept_Art/Keyframe_06_Kora_Vega_432Hz_Resonance_Trance.jpg",
+      "size_kb": 439.5
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/04_Keyframes_and_Concept_Art/Keyframe_09_The_432Hz_Core_Pulse_Awakening_Climax.jpg",
+      "size_kb": 1263.6
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_01_Neo_Veridia_Street_Level_Surveillance.mp4",
+      "size_kb": 11060.8
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_02_Neo_Veridia_Skyscraper_Canyon.mp4",
+      "size_kb": 17124.0
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_02b_Neo_Veridia_Ambient_Extended.mp4",
+      "size_kb": 29745.3
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_03_Mileo_Chen_Quantum_Console_Discovery.mp4",
+      "size_kb": 4058.0
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_04_The_Severing_Neural_Disconnection.mp4",
+      "size_kb": 8574.2
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_05_Mileo_Skybridge_Rooftop_Pursuit.mp4",
+      "size_kb": 26017.7
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_06_Sub_Grid_Subway_Tunnels.mp4",
+      "size_kb": 8717.1
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_07_Dr_Darius_Thorne_Pavilion_9.mp4",
+      "size_kb": 5628.6
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_08_Kora_Vega_432Hz_Harmonic_Rings.mp4",
+      "size_kb": 11082.8
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_09_Sierra_Catalano_Tactical_Railgun_Fire.mp4",
+      "size_kb": 6009.4
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_10_The_432Hz_Core_Pulse_Awakening_Climax.mp4",
+      "size_kb": 36572.1
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_11_Earth_Dawn_Orbital_Awakening.mp4",
+      "size_kb": 17641.1
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/book1_cover_fractured_code.jpg",
+      "size_kb": 698.2
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/book2_cover_earths_new_song.jpg",
+      "size_kb": 719.9
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/char_dr_darius_thorne.jpg",
+      "size_kb": 669.5
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/char_kora_vega.jpg",
+      "size_kb": 652.2
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/char_mileo_chen.jpg",
+      "size_kb": 744.4
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/char_sierra_catalano.jpg",
+      "size_kb": 433.5
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/grok-26135374-3426-40a3-8b6f-5c7f62304318.jpg",
+      "size_kb": 652.2
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/grok-415c50c0-b929-4456-b84a-2098ccb53163.jpg",
+      "size_kb": 744.4
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/grok-8ac104ce-3b17-4b4c-975e-0a1e03d67018.jpg",
+      "size_kb": 781.2
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/grok-964f022a-73f8-4a00-95d4-0ddf63d65f48.jpg",
+      "size_kb": 859.7
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/grok-9c92102b-74ad-4d11-927f-6da39a66a51f.jpg",
+      "size_kb": 698.2
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/grok-aaa466d9-bc53-4e85-8a74-e9435132495c-720p.mp4",
+      "size_kb": 11060.8
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/grok-c6c0248d-e01d-4335-a8f9-bb2895514fcb.jpg",
+      "size_kb": 719.9
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/grok-e227b8e4-e359-4f21-bfbb-087d219c3c10.jpg",
+      "size_kb": 669.5
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/loc_kuiper_monolith.jpg",
+      "size_kb": 859.7
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/loc_neo_veridia_sector4.jpg",
+      "size_kb": 689.7
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/trailer_cinematic_teaser.mp4",
+      "size_kb": 76333.7
+    },
+    {
+      "file": "goalchain_webapp/public/vendor/solana-web3.iife.min.js",
+      "size_kb": 452.9
+    }
+  ]
+}
