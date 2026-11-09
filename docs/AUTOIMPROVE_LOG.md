@@ -2380,3 +2380,92 @@ One entry per daily run (newest last).
   404, legal review), Caddyfile cache headers for /assets/* (purge needs CF
   creds = hard limit), wallet-adapter DM Sans (third-party, leave),
   `test_marketing_html_loads_shell` 5-page pre-existing failure (UX decision).
+
+## 20261109 run 20261109T034753Z
+
+- **What:** Shipped the classic-dashboard same-origin + defer pass
+  (play.goalworld.fun) — completed the QA gate that run 20261108T034716Z could
+  not finish (its implementation commit d5b33f91 was already written and
+  verified at code level; only the evidence gate was missing). This run
+  cherry-picked d5b33f91 onto `auto/improve-20261109T034753Z` (as 238d0609),
+  ran the full mandatory QA gate green, and shipped it. Effect on
+  classic-dashboard.html: ZERO eager cross-origin requests (was 18 assets from
+  goalworld.fun via CF + 3 third-party CDNs; now 0 — only the flash.trade user
+  link and the lazy-on-demand esm.sh anchor import remain), zero
+  render-blocking third-party scripts (all 16 classic <script src> deferred),
+  pinned same-origin copies of the 14 goalworld.fun JS modules +
+  tokens.css/style.css in `goalchain_webapp/public/assets/` (source of truth
+  stays `docs/assets/js`), vendored @solana/web3.js@1.98.2 IIFE (MIT) +
+  canvas-confetti@1.9.3 (ISC) in `public/vendor/` with licenses + NOTICE.md,
+  stadium card bg 684 KB PNG -> 23.6 KB 720x720 webp. ~660 KB less transfer.
+- **Why:** Top logged follow-up of run 20261108T034716Z: the page's 18
+  cross-origin assets + parser-blocking scripts made one origin/CDN hiccup
+  stall the whole page (observed live during that run's infra incident). Same
+  reliability + perf class as the 20261107 icon sweep.
+- **Commit SHA (merge):** `4a287a0b` (PR #922, merge commit; feature commit
+  `238d0609` cherry-picked from `d5b33f91`). Pre-merge `origin/main` =
+  `c5d7d709` (rollback: `git revert -m 1 4a287a0b` + push; Vercel redeploys
+  previous build automatically). Landing untouched — no landing deploy.
+- **Live link:** https://play.goalworld.fun/classic-dashboard.html (deployed
+  via Vercel on push to main, verified live ~4 min after push).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261109T034753Z/`
+  - build.txt: exit 0 (tsc + vite build, 11.5s). tests.txt: exit 0
+    (check:i18n — 381 used keys, 694 dict keys, en/es/type in sync).
+    npm-ci.txt: exit 0 (424 packages).
+  - smoke-before.txt / smoke-after.txt: all URLs 200. classic-dashboard
+    cross-origin eager refs 20 -> 0; same-origin vendor/asset refs 0 -> 15;
+    vendor/solana-web3.iife.min.js 200 at 463,802 B (was 200-but-SPA-fallback
+    before); home 200 unchanged. (Note: /vendor/* returned the SPA index
+    fallback before deploy — first "live" poll was a false positive; actual
+    rollout confirmed by content-signature polling.)
+  - linkcheck.txt (pre-merge, against dist) + linkcheck-live-after.txt (live):
+    0 broken refs; 24/24 local refs resolve at exact sizes on live; external
+    ref flash.trade 200. The 3 css url() misses (img/templates/master_frame_v9.png,
+    img/bg/license_pattern.png, images/hero.png) are pre-existing 404s on live
+    goalworld.fun today (verified before/after) — no new broken links.
+  - Lighthouse (mobile) before -> after (full JSONs saved), live
+    classic-dashboard, same-run same-box:
+    | metric | live before | live after |
+    |---|---|---|
+    | performance | 0.51 | 0.69 |
+    | accessibility | 1.00 | 1.00 |
+    | best-practices | 1.00 | 1.00 |
+    | seo | 1.00 | 1.00 |
+    | FCP / LCP | 3.2 s | 1.8 s |
+    | TBT | 4,220 ms | 2,060 ms |
+    | Speed Index | 6.8 s | 3.4 s |
+    | TTI | 9.6 s | 5.5 s |
+    Strict gate axes (a11y/BP/SEO): 0 regressions. Performance +0.18 live.
+    Local pre-merge preview: perf 0.70 / a11y 1.00 / BP 1.00 / SEO 1.00.
+    (Note: live perf 0.51 baseline this run is lower than 20261107's 0.92 —
+    lab conditions vary run to run; the same-run before/after comparison above
+    is the valid one, and every metric improved.)
+  - screenshots: shot-live-before-classic-dashboard.png,
+    shot-local-preview-classic-dashboard.png (pre-merge: renders fully, visually
+    identical to live), shot-live-after-classic-dashboard.png (post-deploy:
+    renders fully — header/sidebar/cards/art all intact, no black boxes).
+    Live before/after pixel diff: 0.11% of pixels (>15/255), bbox localized to
+    dynamic widget regions (ticker/feeds); layout + art unchanged (intended:
+    perf-only change).
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) classic-dashboard inline script churn
+  (TBT still 2.0s on live; "Unattributable" + classic-dashboard.html inline
+  bootup dominates) — a defer/ordering pass on the inline blocks is the next
+  perf candidate. (2) style.css `.layer-frame` / `.manager-license` reference
+  `img/templates/master_frame_v9.png` and `img/bg/license_pattern.png` which
+  do not exist (pre-existing 404 background art on live) — restoring the frame
+  art would polish the NFT card. (3) Zetaris stack still wedged (3 containers,
+  CPU/pids caps as standing mitigation; `docker rm -f` + re-up is a Nico
+  decision). (4) omniroute node fork storm + ~540 zombies on the box — a
+  cleanup/health pass is due. (5) Unchanged earlier follow-ups: arcade
+  pack-logo black-box polish, logo.png (789 KB) onerror fallback,
+  goalchain.html TBT churn, books-data.json key slimming/precompress
+  (precompress = Caddyfile hard limit), `?lang=es` locale + i18n leftovers
+  pending the "remove ES entirely" decision, webapp in-app ES strings
+  (~500 strings / 40 files), dev-facing Spanish in code comments, pack price
+  copy inconsistency (needs human decision), contract_data.js Anchor->borsh
+  read path, goalworld_site TODO.md human facts (dead Discord invite, X handle
+  404, legal review), Caddyfile diff incl. cache headers for `/assets/*`
+  (purge-on-deploy needs CF creds = hard limit), wallet-adapter DM Sans
+  (third-party, leave), `test_marketing_html_loads_shell` 5-page pre-existing
+  failure (UX decision).
