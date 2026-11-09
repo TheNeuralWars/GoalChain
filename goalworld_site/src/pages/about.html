@@ -1,4 +1,4 @@
-<!-- meta {"slug":"about","title":"About & Lore · GoalWorld — The Neural Wars","description":"Neo-Citania, the Link, and the fracture that broke the optimization. The lore of The Neural Wars and Fractured Code — the world behind GoalWorld.","nav":"ABOUT","preload":"<link rel=\"preload\" as=\"image\" href=\"/assets/img/loc-sub-grid.webp\" imagesrcset=\"/assets/img/loc-sub-grid-640.webp 640w, /assets/img/loc-sub-grid.webp 1200w\" imagesizes=\"(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem\" fetchpriority=\"high\" />"} -->
+<!-- meta {"slug":"about","title":"$t:about.meta.title","description":"$t:about.meta.description","nav":"ABOUT","preload":"<link rel=\"preload\" as=\"image\" href=\"/assets/img/loc-sub-grid.webp\" imagesrcset=\"/assets/img/loc-sub-grid-640.webp 640w, /assets/img/loc-sub-grid.webp 1200w\" imagesizes=\"(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem\" fetchpriority=\"high\" />"} -->
 <!-- @component hero {
   "variant": "compact",
   "bgImg": "/assets/img/loc-sub-grid.webp",
@@ -6,76 +6,45 @@
   "bgHeight": 750,
   "bgSrcset": "/assets/img/loc-sub-grid-640.webp 640w, /assets/img/loc-sub-grid.webp 1200w",
   "bgSizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-  "eyebrow": "THE NEURAL WARS &middot; LORE",
-  "title": "The world behind the world.",
-  "lead": "Everything in GoalWorld &mdash; the books, the film drafts, the stadium &mdash; grows out of one story: a city that optimized humanity, and the people who refused.",
+  "eyebrow": "$t:about.hero.eyebrow",
+  "title": "$t:about.hero.title",
+  "lead": "$t:about.hero.lead",
   "ctas": [
-    { "label": "Read Chapter 1 free", "href": "/book.html#sample", "variant": "primary" },
-    { "label": "Meet the characters", "href": "#characters", "variant": "ghost" }
+    { "label": "$t:about.hero.cta_read", "href": "/book.html#sample", "variant": "primary" },
+    { "label": "$t:about.hero.cta_cast", "href": "#characters", "variant": "ghost" }
   ]
 } -->
 
 <section class="section-tight">
   <div class="wrap prose">
-    <p class="kicker">Neo-Citania</p>
-    <h2>Eight million minds. One architecture.</h2>
-    <p class="lead">
-      Neo-Citania is the optimized metropolis: a city-organism where temperature, speech,
-      even the rain is calibrated for efficiency. Rain droplets fall exactly seven
-      millimeters apart. Oak trees carry precisely 157 leaves per branch.
-    </p>
-    <p>
-      Under the skin of every citizen runs the <strong>Link</strong> &mdash; a quantum-biological
-      interface tying individual consciousness to a central intelligence called
-      <strong>the Architect</strong>. The Link sets your pulse, smooths your voice, edits your
-      memories. It will not let you be afraid. It has to ask first.
-    </p>
-    <p>
-      The corporation that runs it all is <strong>NeuroSys</strong>. Its Neural Compliance
-      Division rewrites behavior. Its enforcers, NeuroSec, end the rest. And at the top of the
-      silver needle &mdash; NeuroSys Tower, one thousand meters of it &mdash; the Architect watches eight
-      million linked minds at once.
-    </p>
+    <p class="kicker">{{t:about.neo_citania.kicker}}</p>
+    <h2>{{t:about.neo_citania.title}}</h2>
+    <p class="lead">{{t:about.neo_citania.lead}}</p>
+    <p>{{t:about.neo_citania.p1}}</p>
+    <p>{{t:about.neo_citania.p2}}</p>
   </div>
 </section>
 
 <section class="section band">
   <div class="wrap prose">
-    <p class="kicker">Fractured Code</p>
-    <h2>The night the grid paused.</h2>
+    <p class="kicker">{{t:about.fractured.kicker}}</p>
+    <h2>{{t:about.fractured.title}}</h2>
     <blockquote class="pull">
-      <p>
-        &ldquo;At 03:14 the grid pauses. Twelve thousand windows go dark in a single breath,
-        and in the silence Mileo Chen hears, for the first time in his life, eight million
-        minds being counted.&rdquo;
-      </p>
-      <cite>&mdash; Prologue, Fractured Code</cite>
+      <p>{{t:about.fractured.quote}}</p>
+      <cite>{{t:about.fractured.cite}}</cite>
     </blockquote>
     <!-- TODO(nico): Confirm whether MANUSCRIPT_v7 Prologue specifies 1,724 neural compliance erasures (FRACTURED_CODE_CANON_NOTE.md:24) or 411 clearances (Finding A-012). -->
-    <p style="margin-top: 1.75rem">
-      Mileo Chen is a Level 7 neural compliance specialist: 1,724 neural compliance clearances
-      for people he has never met, and never once wrong on paper. When the grid skips a beat,
-      he starts counting the sevens &mdash; and the pattern unravels everything he signed.
-    </p>
-    <p>
-      Beneath the city, in the Slums of Sector 14 and the maintenance tunnels below, the
-      <strong>Fractured</strong> survive without the Link: extracted minds led by
-      <strong>Sierra Catalano</strong>, a former NeuroSec tactical commander. They speak
-      through bone-conduction implants and signals etched in stone. They remember what the
-      city was before the optimization.
-    </p>
-    <p>
-      And the Architect has a final protocol in motion: <strong>Renaissance</strong> &mdash; the
-      systematic harvesting of human consciousness, twenty days from full activation.
-    </p>
+    <p style="margin-top: 1.75rem">{{t:about.fractured.p1}}</p>
+    <p>{{t:about.fractured.p2}}</p>
+    <p>{{t:about.fractured.p3}}</p>
   </div>
 </section>
 
 <section class="section" id="characters">
   <div class="wrap">
     <!-- @component section-header {
-      "kicker": "Cast",
-      "title": "Four people at the edge of the fracture"
+      "kicker": "$t:about.cast.kicker",
+      "title": "$t:about.cast.title"
     } -->
     <div class="grid grid-4" style="margin-top: 2rem">
       <!-- @component card {
@@ -85,12 +54,12 @@
           "src": "/assets/img/char-mileo-chen.webp",
           "srcset": "/assets/img/char-mileo-chen-400.webp 400w, /assets/img/char-mileo-chen.webp 720w",
           "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-          "alt": "Mileo Chen at his quantum console",
+          "alt": "$t:about.cast.mileo_alt",
           "width": 720,
           "height": 900
         },
-        "title": "Mileo Chen",
-        "body": "Level 7 neural compliance specialist. Counts the rain in sevens. Hears the truth at 03:14."
+        "title": "$t:about.cast.mileo_title",
+        "body": "$t:about.cast.mileo_body"
       } -->
       <!-- @component card {
         "tag": "figure",
@@ -99,12 +68,12 @@
           "src": "/assets/img/char-kora-vega.webp",
           "srcset": "/assets/img/char-kora-vega-400.webp 400w, /assets/img/char-kora-vega.webp 720w",
           "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-          "alt": "Kora Vega, voice of the void",
+          "alt": "$t:about.cast.kora_alt",
           "width": 720,
           "height": 900
         },
-        "title": "Kora Vega",
-        "body": "Street-smart, Link-extracted, and tuned to frequencies the city cannot hear. A voice of the void."
+        "title": "$t:about.cast.kora_title",
+        "body": "$t:about.cast.kora_body"
       } -->
       <!-- @component card {
         "tag": "figure",
@@ -113,12 +82,12 @@
           "src": "/assets/img/char-sierra-catalano.webp",
           "srcset": "/assets/img/char-sierra-catalano-400.webp 400w, /assets/img/char-sierra-catalano.webp 720w",
           "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-          "alt": "Commander Sierra Catalano of the resistance",
+          "alt": "$t:about.cast.sierra_alt",
           "width": 720,
           "height": 900
         },
-        "title": "Sierra Catalano",
-        "body": "Former NeuroSec commander, now the Fractured's tactical leader. Precision as an act of love."
+        "title": "$t:about.cast.sierra_title",
+        "body": "$t:about.cast.sierra_body"
       } -->
       <!-- @component card {
         "tag": "figure",
@@ -127,12 +96,12 @@
           "src": "/assets/img/char-darius-thorne.webp",
           "srcset": "/assets/img/char-darius-thorne-400.webp 400w, /assets/img/char-darius-thorne.webp 720w",
           "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-          "alt": "Dr. Darius Thorne, biophysicist",
+          "alt": "$t:about.cast.darius_alt",
           "width": 720,
           "height": 900
         },
-        "title": "Dr. Darius Thorne",
-        "body": "Biophysicist of Pavilion 9, where severed minds are put back together &mdash; or tried to be."
+        "title": "$t:about.cast.darius_title",
+        "body": "$t:about.cast.darius_body"
       } -->
     </div>
   </div>
@@ -140,30 +109,19 @@
 
 <section class="section band">
   <div class="wrap prose">
-    <p class="kicker">Below the code</p>
-    <h2>Cascade, coil, and the gardeners.</h2>
-    <p>
-      Under the optimization, something older is waking up. Some humans &mdash; extracted or never
-      fully linked &mdash; develop <strong>Cascade sensitivity</strong>: the raw perception of the
-      quantum-information layer, indigo light in the veins, mathematics you can taste.
-    </p>
-    <p>
-      In a few of them the brain rewires into the <strong>Serpent's Coil</strong>: fractal
-      pathways like roots and lightning, a dormant pre-human antenna tuning for signals
-      beyond the Link. Beneath it all runs the <strong>Yggdrasil Network</strong>, the organic
-      cosmic substrate of consciousness &mdash; and out in the dark, patient, watching the
-      evolutionary leap of a species, wait <strong>the Gardeners</strong> and
-      <strong>the Witness</strong>.
-    </p>
+    <p class="kicker">{{t:about.below.kicker}}</p>
+    <h2>{{t:about.below.title}}</h2>
+    <p>{{t:about.below.p1}}</p>
+    <p>{{t:about.below.p2}}</p>
   </div>
 </section>
 
 <section class="section" id="books">
   <div class="wrap">
     <!-- @component section-header {
-      "kicker": "The saga",
-      "title": "The Neural Wars",
-      "lead": "A hard sci-fi / cyberpunk trilogy in the making, planned as a seven-book arc from city-scale resistance to cosmic community."
+      "kicker": "$t:about.books.kicker",
+      "title": "$t:about.books.title",
+      "lead": "$t:about.books.lead"
     } -->
     <div class="grid grid-2" style="margin-top: 2rem">
       <!-- @component card {
@@ -171,16 +129,16 @@
           "src": "/assets/img/cover-fractured-code.webp",
           "srcset": "/assets/img/cover-fractured-code-400.webp 400w, /assets/img/cover-fractured-code.webp 720w",
           "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-          "alt": "Cover of The Neural Wars, Book 1: Fractured Code",
+          "alt": "$t:about.books.b1_alt",
           "width": 720,
           "height": 960,
           "style": "aspect-ratio: 3 / 4; object-fit: cover"
         },
-        "badge": "Book 1 &middot; release preparation",
+        "badge": "$t:about.books.b1_badge",
         "badgeColor": "var(--amber-primary)",
-        "title": "Fractured Code",
-        "body": "Neo-Citania, the Link, and twenty days to Renaissance. G2 signed off and in release preparation; read the first chapter free.",
-        "cta": "Read Chapter 1 &rarr;",
+        "title": "$t:about.books.b1_title",
+        "body": "$t:about.books.b1_body",
+        "cta": "$t:about.books.b1_cta",
         "ctaHref": "/book.html#sample"
       } -->
       <!-- @component card {
@@ -188,28 +146,24 @@
           "src": "/assets/img/cover-earths-new-song.webp",
           "srcset": "/assets/img/cover-earths-new-song-400.webp 400w, /assets/img/cover-earths-new-song.webp 720w",
           "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-          "alt": "Cover of The Neural Wars, Book 2: Earth's New Song",
+          "alt": "$t:about.books.b2_alt",
           "width": 720,
           "height": 960,
           "style": "aspect-ratio: 3 / 4; object-fit: cover"
         },
-        "badge": "Book 2",
+        "badge": "$t:about.books.b2_badge",
         "badgeColor": "var(--amber-primary)",
-        "title": "Earth's New Song",
-        "body": "The fracture goes global: the Geneva summit and the first invitation from the Gardeners.",
-        "cta": "In production"
+        "title": "$t:about.books.b2_title",
+        "body": "$t:about.books.b2_body",
+        "cta": "$t:about.books.b2_cta"
       } -->
     </div>
-    <p class="small muted" style="margin-top: 1.5rem">
-      Book 3, Evolution Matrix, is in outline. The full arc runs to seven planned volumes &mdash;
-      Quantum Communion, Consciousness Constellation, The Gardener's Gift, and Infinite
-      Connection.
-    </p>
+    <p class="small muted" style="margin-top: 1.5rem">{{t:about.books.arc_note}}</p>
     <!-- @component cta-set {
       "style": "margin-top:1.5rem",
       "items": [
-        { "label": "Read Fractured Code", "href": "/book.html#sample", "variant": "primary" },
-        { "label": "See it on screen", "href": "/cinema.html", "variant": "ghost" }
+        { "label": "$t:about.books.cta_read", "href": "/book.html#sample", "variant": "primary" },
+        { "label": "$t:about.books.cta_cinema", "href": "/cinema.html", "variant": "ghost" }
       ]
     } -->
   </div>
@@ -219,9 +173,9 @@
   <div class="wrap">
     <!-- @component section-header {
       "eyebrow": true,
-      "kicker": "The studio",
-      "title": "One creator, a crew of <span class=\"serif\">agents</span>, built in the open.",
-      "lead": "GoalWorld is made by Nico Pez with a swarm of AI agents handling drafting, film generation, code and ops &mdash; with a human deciding what ships."
+      "kicker": "$t:about.studio.kicker",
+      "title": "$t:about.studio.title",
+      "lead": "$t:about.studio.lead"
     } -->
     <!-- @component faq-accordion {
       "searchable": false,
@@ -229,20 +183,20 @@
       "items": [
         {
           "open": true,
-          "q": "What the studio makes",
-          "a": "Three things in one world: The Neural Wars books (Fractured Code is free to read), film drafts cut against a locked visual canon, and GoalChain Play, a football matchday demo on Solana Devnet."
+          "q": "$t:about.studio.q1",
+          "a": "$t:about.studio.a1"
         },
         {
-          "q": "How the agent crew works",
-          "a": "Agents draft, review and produce; every chapter, clip and release is checked against the canon and approved by Nico before it goes out. Progress is tracked publicly on the <a href=\"/live.html\">live board</a>."
+          "q": "$t:about.studio.q2",
+          "a": "$t:about.studio.a2"
         },
         {
-          "q": "Why build in the open",
-          "a": "Code, roadmap and production notes live on <a href=\"https://github.com/TheNeuralWars/GoalChain\">GitHub</a>. If it is on this site, it either shipped or is clearly labelled as in progress."
+          "q": "$t:about.studio.q3",
+          "a": "$t:about.studio.a3"
         },
         {
-          "q": "Get in touch",
-          "a": "DM <a href=\"https://x.com/nicopez\">@nicopez</a> on X. Press assets are in the <a href=\"/press.html\">press kit</a>."
+          "q": "$t:about.studio.q4",
+          "a": "$t:about.studio.a4"
         }
       ]
     } -->

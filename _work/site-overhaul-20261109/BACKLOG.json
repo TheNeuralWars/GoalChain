@@ -3,7 +3,7 @@
     "0": "done",
     "1": "done",
     "2": "done",
-    "3": "todo",
+    "3": "doing",
     "4": "todo",
     "5": "todo",
     "6": "todo"
@@ -151,23 +151,23 @@
     },
     {
       "id": "A-036",
-      "phase": 4,
+      "phase": 3,
       "priority": "P1",
       "title": "Extend goalworld_site/build.mjs to generate full Spanish (/es/) and Italian (/it/) editions for all 13 pages with hreflang tags and localized JSON-LD/sitemap",
-      "evidence": "live_crawl.log:43-44 ([404] https://goalworld.fun/es/ and /it/); repo_static_audit.json:37,109,157 (hreflangs: [] across dist/*.html); goalworld_site/build.mjs:140-189",
-      "fix": "Extend build.mjs and add localized page/dictionary content to emit dist/es/<slug>.html (+ dist/es/<slug>/index.html) and dist/it/<slug>.html (+ dist/it/<slug>/index.html), inject hreflang=en|es|it|x-default links, localize WebPage/FAQPage JSON-LD, and include all localized URLs in sitemap.xml.",
+      "evidence": "goalworld_site/src/i18n/{en,es,it}.json (567 keys each); goalworld_site/build.mjs (39 localized pages + 36 sitemap URLs with xhtml:link hreflang)",
+      "fix": "Externalize all user-facing strings to src/i18n/{en,es,it}.json, extend build.mjs to emit dist/<slug>.html, dist/es/<slug>.html, and dist/it/<slug>.html (+ extensionless mirrors), inject hreflang=en|es|it|x-default links, localize WebPage/WebSite/FAQPage JSON-LD with inLanguage, mark ES/IT privacy & terms with legal draft-translation notices, and include all 36 localized URLs in sitemap.xml.",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-037",
-      "phase": 4,
+      "phase": 3,
       "priority": "P1",
       "title": "Add EN | ES | IT language switcher to goalworld_site/src/layout.html and localize runtime UI strings in site.js",
-      "evidence": "goalworld_site/src/layout.html:42-105; goalworld_site/src/assets/js/site.js:39-160",
-      "fix": "Add accessible EN / ES / IT language switcher links in layout.html header/footer preserving the current page slug, and localize runtime live-board, FAQ-search, and 404-search strings in site.js based on document.documentElement.lang.",
+      "evidence": "goalworld_site/build.mjs (renderLangSwitcher); goalworld_site/src/assets/js/site.js (GW_RUNTIME_I18N + localStorage gw_lang/gc_lang persistence, bot-safe)",
+      "fix": "Add accessible EN / ES / IT language switcher links in header/footer preserving the current page slug, persist language choice in localStorage (gw_lang + gc_lang) without auto-redirecting bots, and localize runtime live-board, FAQ-search, and 404-search strings in site.js based on document.documentElement.lang.",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-038",
@@ -471,23 +471,23 @@
     },
     {
       "id": "A-042",
-      "phase": 4,
+      "phase": 3,
       "priority": "P3",
       "title": "Localize live-feed.json items (es and it title/blurb fields) and render active locale in site.js",
-      "evidence": "goalworld_site/src/data/live-feed.json; goalworld_site/src/assets/js/site.js:45-82",
+      "evidence": "goalworld_site/src/data/live-feed.json; goalworld_site/src/assets/js/site.js",
       "fix": "Add es and it localized title/blurb fields to src/data/live-feed.json and update site.js to select the active language.",
       "verify": "node goalworld_site/build.mjs",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-048",
-      "phase": 5,
+      "phase": 3,
       "priority": "P3",
       "title": "Upgrade goalworld_site/tools/check_links.py to validate localized /es/ and /it/ pages, hreflang tags, and Atom/JSON feeds",
-      "evidence": "goalworld_site/tools/check_links.py",
-      "fix": "Update check_links.py to crawl all generated HTML files across dist/, dist/es/, and dist/it/, verify hreflang reciprocity, and check feed links.",
+      "evidence": "goalworld_site/tools/check_links.py (pages: 72, links checked: 3373, sitemap urls: 36)",
+      "fix": "Update check_links.py to crawl all generated HTML files across dist/, dist/es/, and dist/it/, verify hreflang reciprocity, html[lang], and sitemap URLs.",
       "verify": "python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-049",

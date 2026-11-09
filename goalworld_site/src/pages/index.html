@@ -1,30 +1,30 @@
-<!-- meta {"slug": "index", "title": "GoalWorld · Indie studio — Canon. Code. Cinema.", "description": "GoalWorld is an indie studio building The Neural Wars: read Fractured Code free, play the Matchday demo on Solana Devnet, and watch the AI cinema drafts. Book 2 coming soon.", "nav": "", "preload": "<link rel=\"preload\" as=\"image\" href=\"/assets/img/hero-neo-citania.webp\" imagesrcset=\"/assets/img/hero-neo-citania-400.webp 400w, /assets/img/hero-neo-citania-800.webp 800w, /assets/img/hero-neo-citania.webp 1600w\" imagesizes=\"100vw\" fetchpriority=\"high\" />"} -->
+<!-- meta {"slug": "index", "title": "$t:index.meta.title", "description": "$t:index.meta.description", "nav": "", "preload": "<link rel=\"preload\" as=\"image\" href=\"/assets/img/hero-neo-citania.webp\" imagesrcset=\"/assets/img/hero-neo-citania-400.webp 400w, /assets/img/hero-neo-citania-800.webp 800w, /assets/img/hero-neo-citania.webp 1600w\" imagesizes=\"100vw\" fetchpriority=\"high\" />"} -->
 <!-- @component hero {
   "variant": "studio",
   "bgImg": "/assets/img/hero-neo-citania.webp",
   "bgSrcset": "/assets/img/hero-neo-citania-400.webp 400w, /assets/img/hero-neo-citania-800.webp 800w, /assets/img/hero-neo-citania.webp 1600w",
   "bgSizes": "100vw",
-  "eyebrow": "GoalWorld Studio &middot; Canon. Code. Cinema.",
-  "title": "One universe.<br /><span class=\"serif grad-text\">Three mediums.</span>",
-  "lead": "An independent studio building <strong>The Neural Wars</strong> &mdash; a hard sci-fi saga you can read, a football game you can play, and an AI film you can watch take shape.",
+  "eyebrow": "$t:index.hero.eyebrow",
+  "title": "$t:index.hero.title",
+  "lead": "$t:index.hero.lead",
   "ctas": [
-    { "label": "Read Fractured Code &mdash; free", "href": "/book.html#sample", "variant": "primary" },
-    { "label": "Play Matchday", "href": "https://play.goalworld.fun/", "variant": "secondary", "badge": "DEVNET" },
-    { "label": "&#9654; Watch the trailer", "href": "/cinema.html", "variant": "link" }
+    { "label": "$t:index.hero.cta_read", "href": "/book.html#sample", "variant": "primary" },
+    { "label": "$t:index.hero.cta_play", "href": "https://play.goalworld.fun/", "variant": "secondary", "badge": "DEVNET" },
+    { "label": "$t:index.hero.cta_trailer", "href": "/cinema.html", "variant": "link" }
   ],
   "notify": {
-    "prefix": "Coming soon:",
-    "text": "Book 2, <em>Earth&rsquo;s New Song</em> (in production).",
+    "prefix": "$t:index.hero.notify_prefix",
+    "text": "$t:index.hero.notify_text",
     "href": "https://x.com/nicopez",
-    "linkLabel": "Follow @nicopez on X for updates &rarr;",
+    "linkLabel": "$t:index.hero.notify_link",
     "secondaryHref": "#book2",
-    "secondaryLabel": "Book 2 details"
+    "secondaryLabel": "$t:index.hero.notify_secondary"
   }
 } -->
 
 <section class="section-tight" aria-labelledby="pillars-heading">
   <div class="wrap">
-    <!-- @component section-header { "srOnly": true, "title": "Studio Pillars: Canon, Code, Cinema, and Studio" } -->
+    <!-- @component section-header { "srOnly": true, "title": "$t:index.pillars.sr_title" } -->
     <div class="bento" id="pillars-heading">
       <!-- @component card {
         "href": "/book.html",
@@ -34,14 +34,14 @@
           "src": "/assets/img/keyframe-severing.webp",
           "srcset": "/assets/img/keyframe-severing-640.webp 640w, /assets/img/keyframe-severing.webp 1200w",
           "sizes": "(max-width: 720px) 92vw, (max-width: 980px) 88vw, 46rem",
-          "alt": "A mind breaking free of the Link — keyframe from The Neural Wars",
+          "alt": "$t:index.pillars.p1_alt",
           "width": 1200,
           "height": 750
         },
-        "label": "01 &middot; Canon",
-        "title": "The Neural Wars",
-        "body": "Hard sci-fi about consciousness and control. Book 1, <em>Fractured Code</em>, is free to read in your browser today.",
-        "cta": "Start reading &rarr;"
+        "label": "$t:index.pillars.p1_label",
+        "title": "$t:index.pillars.p1_title",
+        "body": "$t:index.pillars.p1_body",
+        "cta": "$t:index.pillars.p1_cta"
       } -->
       <!-- @component card {
         "href": "https://play.goalworld.fun/",
@@ -51,14 +51,14 @@
           "src": "/assets/img/keyframe-core-pulse.webp",
           "srcset": "/assets/img/keyframe-core-pulse-640.webp 640w, /assets/img/keyframe-core-pulse.webp 1200w",
           "sizes": "(max-width: 720px) 92vw, (max-width: 980px) 44vw, 24rem",
-          "alt": "The core pulse — keyframe from The Neural Wars",
+          "alt": "$t:index.pillars.p2_alt",
           "width": 1200,
           "height": 675
         },
-        "label": "02 &middot; Code",
-        "title": "GoalChain Matchday",
-        "body": "A football game demo on Solana Devnet. Pure play &mdash; no real money.",
-        "cta": "Open Play &rarr;"
+        "label": "$t:index.pillars.p2_label",
+        "title": "$t:index.pillars.p2_title",
+        "body": "$t:index.pillars.p2_body",
+        "cta": "$t:index.pillars.p2_cta"
       } -->
       <!-- @component card {
         "href": "/cinema.html",
@@ -67,23 +67,23 @@
           "src": "/assets/img/keyframe-kora-trance.webp",
           "srcset": "/assets/img/keyframe-kora-trance-640.webp 640w, /assets/img/keyframe-kora-trance.webp 1200w",
           "sizes": "(max-width: 720px) 92vw, (max-width: 980px) 44vw, 24rem",
-          "alt": "Kora Vega in a resonance trance — keyframe from The Neural Wars",
+          "alt": "$t:index.pillars.p3_alt",
           "width": 1200,
           "height": 750
         },
-        "label": "03 &middot; Cinema",
-        "title": "AI film drafts",
-        "body": "The saga on screen: trailer, animatics and film-draft clips.",
-        "cta": "Watch &rarr;"
+        "label": "$t:index.pillars.p3_label",
+        "title": "$t:index.pillars.p3_title",
+        "body": "$t:index.pillars.p3_body",
+        "cta": "$t:index.pillars.p3_cta"
       } -->
       <!-- @component card {
         "href": "/studio.html",
         "pillar": true,
         "span": 2,
-        "label": "04 &middot; Studio",
-        "title": "Built in the open, shipping weekly",
-        "body": "Hackathon entries, tools and experiments from the studio and its AI agents. From manuscript to screen to live code.",
-        "cta": "Enter the studio &rarr;"
+        "label": "$t:index.pillars.p4_label",
+        "title": "$t:index.pillars.p4_title",
+        "body": "$t:index.pillars.p4_body",
+        "cta": "$t:index.pillars.p4_cta"
       } -->
     </div>
   </div>
@@ -92,23 +92,23 @@
 <section class="section band" id="canon">
   <div class="wrap feature">
     <figure class="feature-cover reveal" style="margin:0">
-      <img src="/assets/img/cover-fractured-code.webp" alt="Cover of The Neural Wars, Book 1: Fractured Code" width="720" height="1080" loading="lazy" srcset="/assets/img/cover-fractured-code-400.webp 400w, /assets/img/cover-fractured-code.webp 720w" sizes="(max-width: 860px) 320px, 26rem" />
+      <img src="/assets/img/cover-fractured-code.webp" alt="{{t:index.canon.cover_alt}}" width="720" height="1080" loading="lazy" srcset="/assets/img/cover-fractured-code-400.webp 400w, /assets/img/cover-fractured-code.webp 720w" sizes="(max-width: 860px) 320px, 26rem" />
     </figure>
     <div class="reveal">
-      <p class="kicker">Featured canon</p>
-      <h2>The rain falls in <span class="serif">sevens</span>.</h2>
-      <p class="lead">In Neo-Citania every mind is optimized, measured and connected to the Link. Mileo Chen signs off on perfect mental health for people he has never met &mdash; until the grid pauses at 03:14 and he hears eight million minds being counted.</p>
+      <p class="kicker">{{t:index.canon.kicker}}</p>
+      <h2>{{t:index.canon.title}}</h2>
+      <p class="lead">{{t:index.canon.lead}}</p>
       <!-- @component cta-set {
         "items": [
-          { "label": "Read Book 1 free", "href": "/book.html#sample", "variant": "primary" },
-          { "label": "Lore &amp; characters", "href": "/about.html", "variant": "secondary" }
+          { "label": "$t:index.canon.cta_read", "href": "/book.html#sample", "variant": "primary" },
+          { "label": "$t:index.canon.cta_lore", "href": "/about.html", "variant": "secondary" }
         ]
       } -->
-      <p class="small muted" style="margin-top:.9rem">Free Chapter 1 preview &mdash; no wallet, no signup.</p>
+      <p class="small muted" style="margin-top:.9rem">{{t:index.canon.note}}</p>
       <div class="next-book" id="book2">
-        <h3>Next in the saga: <span class="serif">Earth&rsquo;s New Song</span></h3>
-        <p>Book 1 (<em>Fractured Code</em>) is G2 signed off and in release preparation; Book 2 (<em>Earth&rsquo;s New Song</em>) is in production. Follow the studio to hear the moment each volume drops.</p>
-        <a class="btn btn-ghost" href="https://x.com/nicopez">Follow @nicopez on X for updates &rarr;</a>
+        <h3>{{t:index.canon.book2_title}}</h3>
+        <p>{{t:index.canon.book2_body}}</p>
+        <a class="btn btn-ghost" href="https://x.com/nicopez">{{t:index.canon.book2_cta}}</a>
       </div>
     </div>
   </div>
@@ -117,51 +117,51 @@
 <section class="section" id="cinema">
   <div class="wrap">
     <!-- @component section-header {
-      "kicker": "Cinema",
-      "title": "Watch the saga take shape",
-      "lead": "The official cinematic trailer, plus film-draft clips adapted from <em>Fractured Code</em>."
+      "kicker": "$t:index.cinema.kicker",
+      "title": "$t:index.cinema.title",
+      "lead": "$t:index.cinema.lead"
     } -->
     <div class="cinema-grid reveal" style="margin-top:2rem">
       <!-- @component media-card {
         "kind": "video",
         "poster": "/assets/img/poster-trailer.webp",
-        "ariaLabel": "The Neural Wars official cinematic trailer",
+        "ariaLabel": "$t:index.cinema.trailer_aria",
         "sources": ["https://goalworld.fun/assets/img/neuralwars/The_Neural_Wars_Official_Cinematic_Trailer_2026.mp4"],
-        "aiTag": "Official trailer &middot; AI-generated",
-        "title": "The Neural Wars &mdash; Cinematic Trailer"
+        "aiTag": "$t:index.cinema.trailer_tag",
+        "title": "$t:index.cinema.trailer_title"
       } -->
       <div class="cinema-side">
         <!-- @component media-card {
           "kind": "video",
           "poster": "/assets/img/poster-mileo.webp",
-          "ariaLabel": "Clip: Mileo Chen's quantum console discovery",
+          "ariaLabel": "$t:index.cinema.clip03_aria",
           "sources": ["https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_03_Mileo_Chen_Quantum_Console_Discovery.mp4"],
-          "aiTag": "Film draft &middot; Clip 03 &middot; AI-generated",
-          "title": "Mileo Chen &mdash; Quantum Console Discovery"
+          "aiTag": "$t:index.cinema.clip03_tag",
+          "title": "$t:index.cinema.clip03_title"
         } -->
       </div>
     </div>
-    <button class="expand-btn" data-expand aria-expanded="false" aria-controls="more-clips" data-more="More film-draft clips" data-less="Fewer clips"><span class="lbl">More film-draft clips</span> <span class="chev">&#9662;</span></button>
+    <button class="expand-btn" data-expand aria-expanded="false" aria-controls="more-clips" data-more="{{t:index.cinema.more_clips}}" data-less="{{t:index.cinema.fewer_clips}}"><span class="lbl">{{t:index.cinema.more_clips}}</span> <span class="chev">&#9662;</span></button>
     <div class="expand-panel" id="more-clips"><div>
       <div class="grid grid-2" style="margin-top:1.25rem">
         <!-- @component media-card {
           "kind": "video",
           "poster": "/assets/img/poster-kora.webp",
-          "ariaLabel": "Clip: Kora Vega and the harmonic rings",
+          "ariaLabel": "$t:index.cinema.clip08_aria",
           "sources": [
             "https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_08_Kora_Vega_Harmonic_Rings.mp4",
             "https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_08_Kora_Vega_432Hz_Harmonic_Rings.mp4"
           ],
-          "aiTag": "Film draft &middot; Clip 08 &middot; AI-generated",
-          "title": "Kora Vega &mdash; Harmonic Rings"
+          "aiTag": "$t:index.cinema.clip08_tag",
+          "title": "$t:index.cinema.clip08_title"
         } -->
         <!-- @component media-card {
           "kind": "video",
           "poster": "/assets/img/poster-dawn.webp",
-          "ariaLabel": "Clip: Earth dawn, orbital awakening",
+          "ariaLabel": "$t:index.cinema.clip11_aria",
           "sources": ["https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_11_Earth_Dawn_Orbital_Awakening.mp4"],
-          "aiTag": "Film draft &middot; Clip 11 &middot; AI-generated",
-          "title": "Earth Dawn &mdash; Orbital Awakening"
+          "aiTag": "$t:index.cinema.clip11_tag",
+          "title": "$t:index.cinema.clip11_title"
         } -->
       </div>
     </div></div>
@@ -171,28 +171,28 @@
 <section class="section band" id="play">
   <div class="wrap feature" style="grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)">
     <div class="reveal">
-      <!-- @component status-pill { "state": "devnet", "label": "Solana Devnet &middot; Free Sandbox" } -->
-      <p class="kicker">Code &middot; GoalChain Play</p>
-      <h2>Football you can play today.</h2>
-      <p class="lead">Build a club, run the Arena, call the World Cup bracket. The Matchday demo runs on Solana Devnet &mdash; free to play, no real money, no real transactions.</p>
+      <!-- @component status-pill { "state": "devnet", "label": "$t:index.play.pill" } -->
+      <p class="kicker">{{t:index.play.kicker}}</p>
+      <h2>{{t:index.play.title}}</h2>
+      <p class="lead">{{t:index.play.lead}}</p>
       <!-- @component cta-set {
         "items": [
-          { "label": "Play Matchday", "href": "https://play.goalworld.fun/", "variant": "primary" },
-          { "label": "FAQ", "href": "/faq.html", "variant": "secondary" }
+          { "label": "$t:index.play.cta_play", "href": "https://play.goalworld.fun/", "variant": "primary" },
+          { "label": "$t:index.play.cta_faq", "href": "/faq.html", "variant": "secondary" }
         ]
       } -->
-      <button class="expand-btn" data-expand aria-expanded="false" aria-controls="how-play" data-more="How it works" data-less="Hide steps"><span class="lbl">How it works</span> <span class="chev">&#9662;</span></button>
+      <button class="expand-btn" data-expand aria-expanded="false" aria-controls="how-play" data-more="{{t:index.play.how_more}}" data-less="{{t:index.play.how_less}}"><span class="lbl">{{t:index.play.how_more}}</span> <span class="chev">&#9662;</span></button>
       <div class="expand-panel" id="how-play"><div>
         <ol class="roadmap-list" style="list-style:decimal;padding-left:1.2rem;margin-top:1rem">
-          <li><b>Connect &amp; register</b> &mdash; Phantom wallet, username, avatar, role (Manager, Scout or Analyst).</li>
-          <li><b>Build your club</b> &mdash; assemble a squad from the Genesis collection.</li>
-          <li><b>Play the matches</b> &mdash; tactics, stamina, substitutions.</li>
-          <li><b>Call the World Cup</b> &mdash; fill the bracket and save your Pick&rsquo;Em.</li>
+          <li>{{t:index.play.step1}}</li>
+          <li>{{t:index.play.step2}}</li>
+          <li>{{t:index.play.step3}}</li>
+          <li>{{t:index.play.step4}}</li>
         </ol>
       </div></div>
     </div>
     <div class="card reveal" style="padding:0;overflow:hidden">
-      <img src="/assets/img/loc-kuiper-monolith.webp" alt="The Kuiper Monolith drifting in deep space" width="1200" height="750" loading="lazy" srcset="/assets/img/loc-kuiper-monolith-640.webp 640w, /assets/img/loc-kuiper-monolith.webp 1200w" sizes="(max-width: 860px) 92vw, 30rem" />
+      <img src="/assets/img/loc-kuiper-monolith.webp" alt="{{t:index.play.img_alt}}" width="1200" height="750" loading="lazy" srcset="/assets/img/loc-kuiper-monolith-640.webp 640w, /assets/img/loc-kuiper-monolith.webp 1200w" sizes="(max-width: 860px) 92vw, 30rem" />
     </div>
   </div>
 </section>
@@ -200,14 +200,14 @@
 <section class="section" id="live">
   <div class="wrap">
     <!-- @component section-header {
-      "kicker": "Live from the studio",
-      "title": "What we&rsquo;re shipping right now"
+      "kicker": "$t:index.live.kicker",
+      "title": "$t:index.live.title"
     } -->
-    <p class="muted small">Board updated <span data-live-updated>recently</span>. Some entries are provisional.</p>
-    <div class="live-board" data-live-feed data-max="6" aria-live="polite" aria-busy="true"><p class="muted">Loading the live board&hellip;</p></div>
+    <p class="muted small">{{t:index.live.updated_prefix}} <span data-live-updated>{{t:index.live.updated_default}}</span>{{t:index.live.updated_suffix}}</p>
+    <div class="live-board" data-live-feed data-max="6" aria-live="polite" aria-busy="true"><p class="muted">{{t:index.live.loading}}</p></div>
     <!-- @component cta-set {
       "style": "margin-top:1.5rem",
-      "items": [{ "label": "All projects &rarr;", "href": "/live.html", "variant": "ghost" }]
+      "items": [{ "label": "$t:index.live.cta_all", "href": "/live.html", "variant": "ghost" }]
     } -->
   </div>
 </section>
@@ -215,48 +215,48 @@
 <section class="section band" id="roadmap">
   <div class="wrap">
     <!-- @component section-header {
-      "kicker": "Roadmap",
-      "title": "Now, next, later"
+      "kicker": "$t:index.roadmap.kicker",
+      "title": "$t:index.roadmap.title"
     } -->
     <!-- @component timeline {
       "columns": 3,
       "numbered": false,
       "items": [
         {
-          "badge": "Now &middot; live",
+          "badge": "$t:index.roadmap.now_badge",
           "badgeColor": "#4ade80",
-          "title": "Live &amp; Playable",
+          "title": "$t:index.roadmap.now_title",
           "list": [
-            "<b>Canon</b> Fractured Code (G2 signed off, Chapter 1 sample live).",
-            "<b>Code</b> Matchday demo on Devnet.",
-            "<b>Cinema</b> Trailer and first film drafts."
+            "$t:index.roadmap.now_1",
+            "$t:index.roadmap.now_2",
+            "$t:index.roadmap.now_3"
           ]
         },
         {
-          "badge": "Next &middot; in production",
+          "badge": "$t:index.roadmap.next_badge",
           "badgeColor": "var(--amber-primary)",
-          "title": "In Production",
+          "title": "$t:index.roadmap.next_title",
           "list": [
-            "<b>Canon</b> Book 1 release preparation; Book 2 in production.",
-            "<b>Code</b> Matchday core-loop and UI upgrades.",
-            "<b>Cinema</b> Longer shorts from key chapters."
+            "$t:index.roadmap.next_1",
+            "$t:index.roadmap.next_2",
+            "$t:index.roadmap.next_3"
           ]
         },
         {
-          "badge": "Later &middot; exploring",
+          "badge": "$t:index.roadmap.later_badge",
           "badgeColor": "var(--cyan)",
-          "title": "Studio Horizon",
+          "title": "$t:index.roadmap.later_title",
           "list": [
-            "<b>Canon</b> Lore archive and audio formats.",
-            "<b>Code</b> Reader milestones linked to in-game cosmetics.",
-            "<b>Cinema</b> Episodic AI animation and screenings."
+            "$t:index.roadmap.later_1",
+            "$t:index.roadmap.later_2",
+            "$t:index.roadmap.later_3"
           ]
         }
       ]
     } -->
     <!-- @component cta-set {
       "style": "margin-top:1.5rem",
-      "items": [{ "label": "Full roadmap &rarr;", "href": "/roadmap.html", "variant": "ghost" }]
+      "items": [{ "label": "$t:index.roadmap.cta_full", "href": "/roadmap.html", "variant": "ghost" }]
     } -->
   </div>
 </section>
@@ -264,16 +264,16 @@
 <section class="section" id="community">
   <div class="wrap reveal" style="text-align:center">
     <!-- @component section-header {
-      "kicker": "Community",
-      "title": "Follow the build",
-      "lead": "GoalWorld is built in public by Nico Pez and a crew of AI agents. Follow along, read the code, ask anything.",
+      "kicker": "$t:index.community.kicker",
+      "title": "$t:index.community.title",
+      "lead": "$t:index.community.lead",
       "align": "center"
     } -->
     <!-- @component cta-set {
       "align": "center",
       "items": [
-        { "label": "Follow @nicopez", "href": "https://x.com/nicopez", "variant": "primary" },
-        { "label": "GitHub", "href": "https://github.com/TheNeuralWars/GoalChain", "variant": "secondary" }
+        { "label": "$t:index.community.cta_x", "href": "https://x.com/nicopez", "variant": "primary" },
+        { "label": "$t:index.community.cta_gh", "href": "https://github.com/TheNeuralWars/GoalChain", "variant": "secondary" }
       ]
     } -->
   </div>

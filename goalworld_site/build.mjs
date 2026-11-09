@@ -2,12 +2,13 @@
 /**
  * GoalWorld site build — zero dependencies.
  *
- * Assembles src/layout.html + src/partials/*.html + src/pages/*.html into dist/:
+ * Assembles src/layout.html + src/partials/*.html + src/pages/*.html + src/i18n/{en,es,it}.json into dist/:
  *   - Verifies design token synchronization via `design/sync-tokens.mjs --check`
- *   - Expands component library macros (`<!-- @component <type> <json> -->`)
- *   - Emits dist/<slug>.html + dist/<slug>/index.html extensionless mirrors
- *   - Generates JSON-LD (schema.org) per page: WebPage everywhere, Organization +
- *     WebSite on index, FAQPage on /faq validated against visible <details class="faq-item">
+ *   - Verifies 3-way i18n key parity across src/i18n/{en,es,it}.json (fails on missing keys unless --allow-missing-i18n)
+ *   - Expands component library macros (`<!-- @component <type> <json> -->`) with localized strings & internal paths
+ *   - Emits EN at `/`, ES at `/es/`, and IT at `/it/` (plus extensionless `<slug>/index.html` mirrors)
+ *   - Injects `<html lang>`, `hreflang` alternates (`en`, `es`, `it`, `x-default`), localized meta/OG, and localized `sitemap.xml`
+ *   - Generates JSON-LD (schema.org) per page & locale (`inLanguage`)
  *   - Runs build-time banned-claims contract across all output files
  *
  * Run: node goalworld_site/build.mjs
@@ -21,90 +22,144 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(HERE);
 const SRC = join(HERE, "src");
 const PARTIALS = join(SRC, "partials");
+const I18N_DIR = join(SRC, "i18n");
 const DIST = join(HERE, "dist");
 const ORIGIN = "https://goalworld.fun";
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 
 const NAV_KEYS = ["BOOK", "CINEMA", "STUDIO", "LIVE", "ROADMAP", "ABOUT", "FAQ", "PRESS", "COLLECT"];
-const ACTIVE_LOCALES = ["en"]; // Phase 4 expands to ["en", "es", "it"]
-
-const CHROME_I18N = {
-  en: {
-    I18N_SKIP: "Skip to content",
-    I18N_MENU: "Menu",
-    I18N_MAIN_NAV: "Main",
-    I18N_NAV_BOOK: "Book",
-    I18N_NAV_CINEMA: "Cinema",
-    I18N_NAV_STUDIO: "Studio",
-    I18N_NAV_LIVE: "Live",
-    I18N_NAV_ROADMAP: "Roadmap",
-    I18N_NAV_CTA: "Read free",
-    I18N_STICKY_READ: "Read Book 1 free",
-    I18N_STICKY_PLAY: "Play",
-    I18N_FOOTER_BLURB:
-      "An independent story studio. Books first, then the screen. Home of The Neural Wars &mdash; built in the open by Nico Pez and an AI crew.",
-    I18N_FOOTER_EXPLORE: "Explore",
-    I18N_FOOTER_CINEMA: "AI Cinema",
-    I18N_FOOTER_STUDIO: "Studio &amp; authors",
-    I18N_FOOTER_COLLECT: "Collectors &amp; creators",
-    I18N_FOOTER_ABOUT: "About &amp; Lore",
-    I18N_FOOTER_COMMUNITY: "Community &amp; Legal",
-    I18N_FOOTER_PRESS: "Press kit",
-    I18N_FOOTER_PRIVACY: "Privacy",
-    I18N_FOOTER_TERMS: "Terms",
-    I18N_LANG_LABEL: "Language",
-  },
-  es: {
-    I18N_SKIP: "Saltar al contenido",
-    I18N_MENU: "Menú",
-    I18N_MAIN_NAV: "Principal",
-    I18N_NAV_BOOK: "Libro",
-    I18N_NAV_CINEMA: "Cine IA",
-    I18N_NAV_STUDIO: "Estudio",
-    I18N_NAV_LIVE: "En vivo",
-    I18N_NAV_ROADMAP: "Hoja de ruta",
-    I18N_NAV_CTA: "Leer gratis",
-    I18N_STICKY_READ: "Leer Libro 1 gratis",
-    I18N_STICKY_PLAY: "Jugar",
-    I18N_FOOTER_BLURB:
-      "Un estudio narrativo independiente. Primero los libros, luego la pantalla. Hogar de The Neural Wars &mdash; creado en abierto por Nico Pez y un equipo de agentes IA.",
-    I18N_FOOTER_EXPLORE: "Explorar",
-    I18N_FOOTER_CINEMA: "Cine IA",
-    I18N_FOOTER_STUDIO: "Estudio y autores",
-    I18N_FOOTER_COLLECT: "Coleccionistas y creadores",
-    I18N_FOOTER_ABOUT: "Lore y universo",
-    I18N_FOOTER_COMMUNITY: "Comunidad y legal",
-    I18N_FOOTER_PRESS: "Kit de prensa",
-    I18N_FOOTER_PRIVACY: "Privacidad",
-    I18N_FOOTER_TERMS: "Términos",
-    I18N_LANG_LABEL: "Idioma",
-  },
-  it: {
-    I18N_SKIP: "Vai al contenuto",
-    I18N_MENU: "Menu",
-    I18N_MAIN_NAV: "Principale",
-    I18N_NAV_BOOK: "Libro",
-    I18N_NAV_CINEMA: "Cinema IA",
-    I18N_NAV_STUDIO: "Studio",
-    I18N_NAV_LIVE: "Live",
-    I18N_NAV_ROADMAP: "Roadmap",
-    I18N_NAV_CTA: "Leggi gratis",
-    I18N_STICKY_READ: "Leggi Libro 1 gratis",
-    I18N_STICKY_PLAY: "Gioca",
-    I18N_FOOTER_BLURB:
-      "Uno studio narrativo indipendente. Prima i libri, poi lo schermo. Casa di The Neural Wars &mdash; costruito in pubblico da Nico Pez e una crew di agenti IA.",
-    I18N_FOOTER_EXPLORE: "Esplora",
-    I18N_FOOTER_CINEMA: "Cinema IA",
-    I18N_FOOTER_STUDIO: "Studio e autori",
-    I18N_FOOTER_COLLECT: "Collezionisti e autori",
-    I18N_FOOTER_ABOUT: "Lore e universo",
-    I18N_FOOTER_COMMUNITY: "Community e note legali",
-    I18N_FOOTER_PRESS: "Press kit",
-    I18N_FOOTER_PRIVACY: "Privacy",
-    I18N_FOOTER_TERMS: "Termini",
-    I18N_LANG_LABEL: "Lingua",
-  },
+const ACTIVE_LOCALES = ["en", "es", "it"];
+const OG_LOCALE_MAP = {
+  en: "en_US",
+  es: "es_AR",
+  it: "it_IT",
 };
+const INTERNAL_SLUGS = new Set([
+  "index",
+  "book",
+  "cinema",
+  "studio",
+  "collect",
+  "about",
+  "roadmap",
+  "live",
+  "faq",
+  "press",
+  "privacy",
+  "terms",
+  "404",
+]);
+
+const ALLOW_MISSING_I18N =
+  process.argv.includes("--allow-missing-i18n") || process.env.ALLOW_MISSING_I18N === "1";
+
+function flattenDict(obj, prefix = "", out = {}) {
+  for (const [k, v] of Object.entries(obj || {})) {
+    const key = prefix ? `${prefix}.${k}` : k;
+    if (v && typeof v === "object" && !Array.isArray(v)) {
+      flattenDict(v, key, out);
+    } else {
+      out[key] = v;
+    }
+  }
+  return out;
+}
+
+function loadI18nDictionaries() {
+  const dicts = {};
+  for (const loc of ACTIVE_LOCALES) {
+    const p = join(I18N_DIR, `${loc}.json`);
+    if (!existsSync(p)) {
+      throw new Error(`missing i18n dictionary file: ${p}`);
+    }
+    dicts[loc] = flattenDict(JSON.parse(readFileSync(p, "utf8")));
+  }
+
+  const enKeys = Object.keys(dicts.en);
+  const missingErrors = [];
+  for (const loc of ACTIVE_LOCALES) {
+    if (loc === "en") continue;
+    for (const k of enKeys) {
+      const val = dicts[loc][k];
+      if (typeof val !== "string" || val.trim() === "") {
+        console.warn(`  [i18n warn] missing/empty key "${k}" in ${loc}.json — falling back to EN`);
+        missingErrors.push(`${loc}.json missing key "${k}"`);
+      }
+    }
+    for (const k of Object.keys(dicts[loc])) {
+      if (!(k in dicts.en)) {
+        missingErrors.push(`${loc}.json has orphan key "${k}" not present in en.json`);
+      }
+    }
+  }
+
+  if (missingErrors.length > 0 && !ALLOW_MISSING_I18N) {
+    throw new Error(
+      `i18n parity check failed (${missingErrors.length} issue(s)):\n  - ${missingErrors.join("\n  - ")}`
+    );
+  }
+  return dicts;
+}
+
+const I18N = loadI18nDictionaries();
+
+function t(key, locale = "en", context = "") {
+  const locDict = I18N[locale] || {};
+  const val = locDict[key];
+  if (typeof val === "string" && val.trim() !== "") {
+    return val;
+  }
+  const fallback = I18N.en[key];
+  if (typeof fallback === "string") {
+    if (locale !== "en") {
+      console.warn(`  [i18n warn] key "${key}" missing in ${locale} (${context}) — using EN fallback`);
+    }
+    return fallback;
+  }
+  throw new Error(`unknown i18n key "${key}" referenced in ${context}`);
+}
+
+function localizeInternalHref(href, locale = "en") {
+  if (!href || locale === "en" || typeof href !== "string") return href;
+  if (href === "/") return `/${locale}/`;
+  const m = href.match(/^\/([a-z0-9-]+)\.html(#.*)?$/i);
+  if (m && INTERNAL_SLUGS.has(m[1].toLowerCase())) {
+    const slug = m[1].toLowerCase();
+    const hash = m[2] || "";
+    return slug === "index" ? `/${locale}/${hash}` : `/${locale}/${slug}.html${hash}`;
+  }
+  return href;
+}
+
+function resolveI18nString(str, locale, context) {
+  if (typeof str !== "string") return str;
+  if (str.startsWith("$t:")) {
+    const key = str.slice(3).trim();
+    return t(key, locale, context);
+  }
+  return str.replace(/\{\{t:([a-z0-9_.]+)\}\}/gi, (_, key) => t(key, locale, context));
+}
+
+function resolveI18nInObject(node, locale, context, propKey = "") {
+  if (typeof node === "string") {
+    const resolved = resolveI18nString(node, locale, context);
+    if (propKey === "href" || propKey === "ctaHref" || propKey === "secondaryHref") {
+      return localizeInternalHref(resolved, locale);
+    }
+    return resolved;
+  }
+  if (Array.isArray(node)) {
+    return node.map((item, idx) => resolveI18nInObject(item, locale, `${context}[${idx}]`, propKey));
+  }
+  if (node && typeof node === "object") {
+    const out = {};
+    for (const [k, v] of Object.entries(node)) {
+      out[k] = resolveI18nInObject(v, locale, `${context}.${k}`, k);
+    }
+    return out;
+  }
+  return node;
+}
 
 function escAttr(s) {
   return String(s ?? "")
@@ -259,7 +314,7 @@ function renderCard(props) {
   return `<${tag} class="${classes.join(" ")}"${hrefAttr}${styleAttr}>${imgHtml}${labelHtml}${badgeHtml}${pillHtml}${titleHtml}${bodyHtml}${listHtml}${ctaHtml}</${tag}>`;
 }
 
-function renderMediaCard(props) {
+function renderMediaCard(props, locale = "en") {
   const kind = props.kind || "video";
   const aiTag = props.aiTag || "AI-generated &middot; Film draft";
   const title = props.title || "";
@@ -281,8 +336,9 @@ function renderMediaCard(props) {
   const sourceTags = sources
     .map((s) => `<source src="${escAttr(typeof s === "string" ? s : s.src)}" type="${escAttr((s && s.type) || "video/mp4")}" />`)
     .join("");
+  const fallbackText = t("chrome.video_fallback", locale, "media-card");
 
-  return `<figure class="${cls.join(" ")}" style="margin:0"><video controls preload="none" poster="${escAttr(props.poster || "")}" width="${escAttr(props.width || 960)}" height="${escAttr(props.height || 540)}" aria-label="${escAttr(props.ariaLabel || props.alt || title)}">${sourceTags}Your browser does not support HTML video.</video><figcaption><span class="video-tag">${aiTag}</span><strong>${title}</strong>${caption}</figcaption></figure>`;
+  return `<figure class="${cls.join(" ")}" style="margin:0"><video controls preload="none" poster="${escAttr(props.poster || "")}" width="${escAttr(props.width || 960)}" height="${escAttr(props.height || 540)}" aria-label="${escAttr(props.ariaLabel || props.alt || title)}">${sourceTags}${fallbackText}</video><figcaption><span class="video-tag">${aiTag}</span><strong>${title}</strong>${caption}</figcaption></figure>`;
 }
 
 function renderTimeline(props) {
@@ -311,7 +367,7 @@ function renderFaqAccordion(props) {
     return `<div class="accordion"${props.style ? ` style="${escAttr(props.style)}"` : ""}>${items.map(renderItem).join("\n")}</div>`;
   }
   const [first, ...rest] = items;
-  const searchBar = `<div class="filter-bar faq-tools"><input type="search" class="faq-search" data-faq-search placeholder="${escAttr(props.searchPlaceholder || "Search questions…")}" aria-label="${escAttr(props.searchLabel || "Search FAQ")}" /><button class="chip" type="button" data-faq-all>${props.expandLabel || "Expand all"}</button></div><p class="small faint" data-faq-count aria-live="polite"></p>`;
+  const searchBar = `<div class="filter-bar faq-tools"><input type="search" class="faq-search" data-faq-search placeholder="${escAttr(props.searchPlaceholder || "Search questions…")}" aria-label="${escAttr(props.searchLabel || "Search FAQ")}" /><button class="chip" type="button" data-faq-all data-expanded="false">${props.expandLabel || "Expand all"}</button></div><p class="small faint" data-faq-count aria-live="polite"></p>`;
   return `${first ? renderItem(first) : ""}\n${searchBar}\n${rest.map(renderItem).join("\n")}`;
 }
 
@@ -328,15 +384,15 @@ function renderLangSwitcher(slug, locale = "en", variant = "header") {
       const isAvailable = ACTIVE_LOCALES.includes(l.code);
       const href = l.code === "en" ? `/${filePart}` : `/${l.code}/${filePart}`;
       if (isCurrent) {
-        return `<a class="lang-pill active" href="${href}" lang="${l.code}" aria-current="true" title="${l.title}">${l.label}</a>`;
+        return `<a class="lang-pill active" href="${href}" lang="${l.code}" hreflang="${l.code}" data-lang-choice="${l.code}" aria-current="page" title="${l.title}">${l.label}</a>`;
       }
       if (isAvailable) {
-        return `<a class="lang-pill" href="${href}" lang="${l.code}" hreflang="${l.code}" title="${l.title}">${l.label}</a>`;
+        return `<a class="lang-pill" href="${href}" lang="${l.code}" hreflang="${l.code}" data-lang-choice="${l.code}" title="${l.title}">${l.label}</a>`;
       }
       return `<span class="lang-pill lang-pill--soon" lang="${l.code}" aria-disabled="true" title="${l.title} (coming soon)">${l.label}</span>`;
     })
     .join("");
-  const label = (CHROME_I18N[locale] || CHROME_I18N.en).I18N_LANG_LABEL;
+  const label = t("chrome.lang_label", locale, "lang-switcher");
   return `<div class="lang-switch lang-switch--${variant}" role="group" aria-label="${escAttr(label)}" data-lang-switcher>${pills}</div>`;
 }
 
@@ -351,19 +407,20 @@ const COMPONENT_RENDERERS = {
   "faq-accordion": renderFaqAccordion,
 };
 
-function expandComponents(html, fileLabel) {
+function expandComponents(html, locale, fileLabel) {
   return html.replace(/<!--\s*@component\s+([a-z0-9-]+)\s+([\s\S]*?)-->/g, (all, type, rawJson) => {
     const renderer = COMPONENT_RENDERERS[type];
     if (!renderer) {
       throw new Error(`unknown @component "${type}" in ${fileLabel}`);
     }
-    let props;
+    let parsedProps;
     try {
-      props = JSON.parse(rawJson.trim());
+      parsedProps = JSON.parse(rawJson.trim());
     } catch (err) {
       throw new Error(`invalid JSON in @component "${type}" (${fileLabel}): ${err.message}`);
     }
-    return renderer(props);
+    const resolvedProps = resolveI18nInObject(parsedProps, locale, `${fileLabel}:@component(${type})`);
+    return renderer(resolvedProps, locale);
   });
 }
 
@@ -418,7 +475,7 @@ function buildJsonLd(slug, canonical, meta, body, locale = "en") {
     graph.push({
       "@type": "WebSite",
       "@id": SITE_ID,
-      url: `${ORIGIN}/`,
+      url: locale === "en" ? `${ORIGIN}/` : `${ORIGIN}/${locale}/`,
       name: "GoalWorld",
       description: meta.description,
       inLanguage: locale,
@@ -435,10 +492,11 @@ function buildJsonLd(slug, canonical, meta, body, locale = "en") {
   }
   if (slug === "faq") {
     const faqs = extractFaqs(body);
-    if (!faqs.length) throw new Error("faq page: no faq-item blocks found for FAQPage schema");
+    if (!faqs.length) throw new Error(`faq page (${locale}): no faq-item blocks found for FAQPage schema`);
     graph.push({
       "@type": "FAQPage",
       "@id": `${canonical}#faqpage`,
+      inLanguage: locale,
       mainEntity: faqs.map((f) => ({
         "@type": "Question",
         name: f.q,
@@ -460,12 +518,21 @@ function buildHreflangs(slug) {
   return tags.join("\n    ");
 }
 
+function buildOgLocaleAlternates(locale) {
+  return ACTIVE_LOCALES.filter((l) => l !== locale)
+    .map((l) => `<meta property="og:locale:alternate" content="${OG_LOCALE_MAP[l] || l}" />`)
+    .join("\n    ");
+}
+
 function build() {
   // 0. Verify design tokens have zero drift between design/tokens.json, goalworld_site, and goalchain_webapp
   const tokenSyncScript = join(ROOT, "design/sync-tokens.mjs");
   if (existsSync(tokenSyncScript)) {
     execFileSync(process.execPath, [tokenSyncScript, "--check"], { stdio: "inherit" });
   }
+  console.log(
+    `  i18n check OK — ${Object.keys(I18N.en).length} keys in sync across ${ACTIVE_LOCALES.join(", ")}`
+  );
 
   rmSync(DIST, { recursive: true, force: true });
   mkdirSync(DIST, { recursive: true });
@@ -479,52 +546,78 @@ function build() {
   const pages = pageFiles.map((f) => ({ file: f, ...parsePage(join(SRC, "pages", f)) }));
 
   const sitemap = [];
-  for (const { file, meta, body: rawBody } of pages) {
-    const slug = meta.slug;
-    const locale = meta.lang || "en";
+  let builtPageCount = 0;
+
+  for (const locale of ACTIVE_LOCALES) {
+    const localeDist = locale === "en" ? DIST : join(DIST, locale);
+    mkdirSync(localeDist, { recursive: true });
     const prefix = locale === "en" ? "" : `/${locale}`;
     const homeHref = locale === "en" ? "/" : `/${locale}/`;
-    const isHome = slug === "index";
-    const canonical = isHome ? `${ORIGIN}${homeHref}` : `${ORIGIN}${prefix}/${slug}.html`;
-    const nav = Object.fromEntries(NAV_KEYS.map((k) => [`NAV_${k}`, meta.nav === k ? ' aria-current="page"' : ""]));
 
-    const expandedBody = expandComponents(rawBody, file);
-    const jsonLd = buildJsonLd(slug, canonical, meta, expandedBody, locale);
-    const chromeVars = {
-      ...(CHROME_I18N[locale] || CHROME_I18N.en),
-      LANG: locale,
-      PREFIX: prefix,
-      HOME_HREF: homeHref,
-      LANG_SWITCHER: renderLangSwitcher(slug, locale, "header"),
-      LANG_SWITCHER_FOOTER: renderLangSwitcher(slug, locale, "footer"),
-      ...nav,
-    };
+    for (const { file, meta: rawMeta, body: rawBody } of pages) {
+      const fileLabel = `${locale}:${file}`;
+      const meta = resolveI18nInObject(rawMeta, locale, `${fileLabel}:meta`);
+      const slug = meta.slug;
+      const isHome = slug === "index";
+      const canonical = isHome ? `${ORIGIN}${homeHref}` : `${ORIGIN}${prefix}/${slug}.html`;
+      const nav = Object.fromEntries(
+        NAV_KEYS.map((k) => [`NAV_${k}`, meta.nav === k ? ' aria-current="page"' : ""])
+      );
 
-    const assembledLayout = fill(layout, {
-      PARTIAL_HEADER: fill(partialHeader, chromeVars),
-      PARTIAL_STICKY_CTA: fill(partialSticky, chromeVars),
-      PARTIAL_FOOTER: fill(partialFooter, chromeVars),
-    });
+      const expandedComponentsBody = expandComponents(rawBody, locale, fileLabel);
+      const localizedBody = resolveI18nString(expandedComponentsBody, locale, fileLabel);
+      const jsonLd = buildJsonLd(slug, canonical, meta, localizedBody, locale);
 
-    const html = fill(assembledLayout, {
-      ...chromeVars,
-      TITLE: meta.title,
-      DESC: meta.description,
-      CANONICAL: canonical,
-      HREFLANGS: buildHreflangs(slug),
-      PRELOAD: meta.preload || "",
-      JSONLD: jsonLd ? `<script type="application/ld+json">${jsonLd}</script>` : "",
-      BODY: expandedLayoutBody(expandedBody, chromeVars),
-    });
+      const chromeVars = {
+        LANG: locale,
+        OG_LOCALE: OG_LOCALE_MAP[locale] || locale,
+        OG_LOCALE_ALTERNATES: buildOgLocaleAlternates(locale),
+        PREFIX: prefix,
+        HOME_HREF: homeHref,
+        LANG_SWITCHER: renderLangSwitcher(slug, locale, "header"),
+        LANG_SWITCHER_FOOTER: renderLangSwitcher(slug, locale, "footer"),
+        ...nav,
+      };
 
-    const outFile = join(DIST, `${slug}.html`);
-    writeFileSync(outFile, html);
-    if (!isHome && slug !== "404") {
-      mkdirSync(join(DIST, slug), { recursive: true });
-      writeFileSync(join(DIST, slug, "index.html"), html);
+      const assembledLayout = fill(layout, {
+        PARTIAL_HEADER: resolveI18nString(fill(partialHeader, chromeVars), locale, `${fileLabel}:header`),
+        PARTIAL_STICKY_CTA: resolveI18nString(fill(partialSticky, chromeVars), locale, `${fileLabel}:sticky`),
+        PARTIAL_FOOTER: resolveI18nString(fill(partialFooter, chromeVars), locale, `${fileLabel}:footer`),
+      });
+
+      const filledHtml = fill(assembledLayout, {
+        ...chromeVars,
+        TITLE: meta.title,
+        DESC: meta.description,
+        CANONICAL: canonical,
+        HREFLANGS: buildHreflangs(slug),
+        PRELOAD: meta.preload || "",
+        JSONLD: jsonLd ? `<script type="application/ld+json">${jsonLd}</script>` : "",
+        BODY: fill(localizedBody, chromeVars),
+      });
+
+      const html = resolveI18nString(filledHtml, locale, fileLabel);
+
+      const outFile = join(localeDist, `${slug}.html`);
+      writeFileSync(outFile, html);
+      if (!isHome && slug !== "404") {
+        mkdirSync(join(localeDist, slug), { recursive: true });
+        writeFileSync(join(localeDist, slug, "index.html"), html);
+      }
+      if (slug !== "404") {
+        sitemap.push({
+          loc: canonical,
+          slug,
+          locale,
+          priority: isHome ? (locale === "en" ? "1.0" : "0.9") : "0.7",
+        });
+      }
+      builtPageCount++;
+      const relOut = locale === "en" ? `${slug}.html` : `${locale}/${slug}.html`;
+      console.log(
+        `  page  ${relOut}${!isHome && slug !== "404" ? ` + ${locale === "en" ? "" : `${locale}/`}${slug}/` : ""}  (${(html.length / 1024).toFixed(1)} KB)`
+      );
     }
-    if (slug !== "404") sitemap.push({ loc: canonical, priority: isHome ? "1.0" : "0.7" });
-    console.log(`  page  ${slug}.html${!isHome && slug !== "404" ? ` + ${slug}/` : ""}  (${(html.length / 1024).toFixed(1)} KB)`);
   }
 
   // static files
@@ -535,15 +628,23 @@ function build() {
   cpSync(join(SRC, "assets"), join(DIST, "assets"), { recursive: true });
   if (existsSync(join(SRC, "data"))) cpSync(join(SRC, "data"), join(DIST, "data"), { recursive: true });
 
-  // sitemap
+  // sitemap with xhtml:link hreflang alternates
   const urls = sitemap
-    .map((u) => `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${BUILD_DATE}</lastmod>\n    <priority>${u.priority}</priority>\n  </url>`)
+    .map((u) => {
+      const filePart = u.slug === "index" ? "" : `${u.slug}.html`;
+      const altLinks = ACTIVE_LOCALES.map((loc) => {
+        const href = loc === "en" ? `${ORIGIN}/${filePart}` : `${ORIGIN}/${loc}/${filePart}`;
+        return `    <xhtml:link rel="alternate" hreflang="${loc}" href="${href}" />`;
+      });
+      altLinks.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${ORIGIN}/${filePart}" />`);
+      return `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${BUILD_DATE}</lastmod>\n    <priority>${u.priority}</priority>\n${altLinks.join("\n")}\n  </url>`;
+    })
     .join("\n");
   writeFileSync(
     join(DIST, "sitemap.xml"),
-    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`
   );
-  console.log(`  sitemap.xml  (${sitemap.length} urls, lastmod ${BUILD_DATE})`);
+  console.log(`  sitemap.xml  (${sitemap.length} urls across ${ACTIVE_LOCALES.length} locales, lastmod ${BUILD_DATE})`);
 
   // best-effort press zip
   try {
@@ -555,44 +656,77 @@ function build() {
     console.log("  press-kit.zip  SKIPPED (python3 unavailable) — individual files still served");
   }
 
-  // sanity: no unresolved placeholders or unexpanded @component tags
-  for (const f of readdirSync(DIST)) {
-    if (!f.endsWith(".html")) continue;
-    const html = readFileSync(join(DIST, f), "utf8");
-    const left = html.match(/\{\{[A-Z0-9_]+\}\}/g);
-    if (left) throw new Error(`unresolved placeholders in ${f}: ${left.join(", ")}`);
-    if (/<!--\s*@component\b/.test(html)) throw new Error(`unexpanded @component macro in ${f}`);
-    if (!/<title>[^<]{10,}<\/title>/.test(html)) throw new Error(`missing/short title: ${f}`);
-    if (!/rel="canonical"/.test(html)) throw new Error(`missing canonical: ${f}`);
-    if (!/og:image/.test(html)) throw new Error(`missing og:image: ${f}`);
-    if (!/<meta name="description"/.test(html)) throw new Error(`missing description: ${f}`);
+  // sanity: validate all primary HTML files across all locales
+  const rawKeyRe = /\b(?:chrome|index|book|cinema|studio|collect|about|roadmap|live|faq|press|privacy|terms|notfound)\.[a-z0-9_]+(?:\.[a-z0-9_]+)+\b/i;
 
-    // JSON-LD sanity
-    const ldBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
-    if (f === "404.html") {
-      if (ldBlocks.length) throw new Error(`404.html should carry no JSON-LD`);
-      continue;
-    }
-    if (!ldBlocks.length) throw new Error(`missing JSON-LD: ${f}`);
-    const graph = ldBlocks.flatMap((b) => {
-      const parsed = JSON.parse(b[1]);
-      return Array.isArray(parsed["@graph"]) ? parsed["@graph"] : [parsed];
-    });
-    const canonicalHref = (html.match(/rel="canonical" href="([^"]+)"/) || [])[1];
-    const webPage = graph.find((n) => n["@type"] === "WebPage");
-    if (!webPage || webPage.url !== canonicalHref) {
-      throw new Error(`WebPage url != canonical in ${f}: ${webPage && webPage.url} vs ${canonicalHref}`);
-    }
-    if (f === "index.html") {
-      for (const t of ["Organization", "WebSite"]) {
-        if (!graph.some((n) => n["@type"] === t)) throw new Error(`index.html missing ${t} node`);
+  for (const locale of ACTIVE_LOCALES) {
+    const localeDir = locale === "en" ? DIST : join(DIST, locale);
+    for (const f of readdirSync(localeDir)) {
+      if (!f.endsWith(".html")) continue;
+      const relLabel = locale === "en" ? f : `${locale}/${f}`;
+      const html = readFileSync(join(localeDir, f), "utf8");
+      const left = html.match(/\{\{[^}]+\}\}/g);
+      if (left) throw new Error(`unresolved placeholders in ${relLabel}: ${left.join(", ")}`);
+      if (/\$t:[a-z0-9_.]+/i.test(html)) throw new Error(`unresolved $t: token in ${relLabel}`);
+      if (rawKeyRe.test(html)) {
+        const m = html.match(rawKeyRe);
+        throw new Error(`untranslated raw i18n key "${m[0]}" visible in ${relLabel}`);
       }
-    }
-    if (f === "faq.html") {
-      const faqPage = graph.find((n) => n["@type"] === "FAQPage");
-      const itemCount = (html.match(/class="faq-item"/g) || []).length;
-      if (!faqPage || !Array.isArray(faqPage.mainEntity) || faqPage.mainEntity.length !== itemCount) {
-        throw new Error(`FAQPage mainEntity (${faqPage && faqPage.mainEntity && faqPage.mainEntity.length}) != visible faq-item count (${itemCount})`);
+      if (/<!--\s*@component\b/.test(html)) throw new Error(`unexpanded @component macro in ${relLabel}`);
+      if (!new RegExp(`<html lang="${locale}">`).test(html)) {
+        throw new Error(`expected <html lang="${locale}"> in ${relLabel}`);
+      }
+      if (!/<title>[^<]{10,}<\/title>/.test(html)) throw new Error(`missing/short title: ${relLabel}`);
+      if (!/rel="canonical"/.test(html)) throw new Error(`missing canonical: ${relLabel}`);
+      if (!/og:image/.test(html)) throw new Error(`missing og:image: ${relLabel}`);
+      if (!/<meta name="description"/.test(html)) throw new Error(`missing description: ${relLabel}`);
+
+      // Legal draft-translation notice check on ES/IT privacy & terms
+      if ((f === "privacy.html" || f === "terms.html") && locale !== "en") {
+        if (!html.includes("Draft translation — the English version prevails")) {
+          throw new Error(`missing required legal draft-translation disclaimer in ${relLabel}`);
+        }
+      }
+
+      // JSON-LD + hreflang sanity
+      const ldBlocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+      if (f === "404.html") {
+        if (ldBlocks.length) throw new Error(`${relLabel} should carry no JSON-LD`);
+        continue;
+      }
+
+      for (const hl of [...ACTIVE_LOCALES, "x-default"]) {
+        if (!new RegExp(`hreflang="${hl}"`).test(html)) {
+          throw new Error(`missing hreflang="${hl}" in ${relLabel}`);
+        }
+      }
+
+      if (!ldBlocks.length) throw new Error(`missing JSON-LD: ${relLabel}`);
+      const graph = ldBlocks.flatMap((b) => {
+        const parsed = JSON.parse(b[1]);
+        return Array.isArray(parsed["@graph"]) ? parsed["@graph"] : [parsed];
+      });
+      const canonicalHref = (html.match(/rel="canonical" href="([^"]+)"/) || [])[1];
+      const webPage = graph.find((n) => n["@type"] === "WebPage");
+      if (!webPage || webPage.url !== canonicalHref) {
+        throw new Error(`WebPage url != canonical in ${relLabel}: ${webPage && webPage.url} vs ${canonicalHref}`);
+      }
+      if (webPage.inLanguage !== locale) {
+        throw new Error(`WebPage inLanguage != ${locale} in ${relLabel}`);
+      }
+      if (f === "index.html") {
+        for (const tType of ["Organization", "WebSite"]) {
+          if (!graph.some((n) => n["@type"] === tType)) throw new Error(`${relLabel} missing ${tType} node`);
+        }
+      }
+      if (f === "faq.html") {
+        const faqPage = graph.find((n) => n["@type"] === "FAQPage");
+        const itemCount = (html.match(/class="faq-item"/g) || []).length;
+        if (!faqPage || !Array.isArray(faqPage.mainEntity) || faqPage.mainEntity.length !== itemCount) {
+          throw new Error(
+            `FAQPage mainEntity (${faqPage && faqPage.mainEntity && faqPage.mainEntity.length}) != visible faq-item count (${itemCount}) in ${relLabel}`
+          );
+        }
       }
     }
   }
@@ -603,6 +737,8 @@ function build() {
     { label: "pre-order", re: /\bpre-order\b/i },
     { label: "preorder", re: /\bpreorder\b/i },
     { label: "prerreserva", re: /\bprerreserva\b/i },
+    { label: "pre-ordine", re: /\bpre-ordine\b/i },
+    { label: "preordine", re: /\bpreordine\b/i },
     { label: "available on Kindle", re: /available\s+on\s+kindle/i },
     { label: "KDP", re: /\bKDP\b/i },
     { label: "yield", re: /\byield\b/i },
@@ -618,6 +754,8 @@ function build() {
     { label: "Kora Chen", re: /\bKora\s+Chen\b/i },
     { label: "Neo-Veridia", re: /\bNeo-Veridia\b/i },
     { label: "seven days", re: /\bseven\s+days\b/i },
+    { label: "siete días", re: /\bsiete\s+d[ií]as\b/i },
+    { label: "sette giorni", re: /\bsette\s+giorni\b/i },
     { label: "432 Hz", re: /\b432\s+Hz\b/i },
     { label: "$1M", re: /\$1M\b/i },
     { label: "Convergence Protocol", re: /Convergence\s+Protocol/i },
@@ -644,11 +782,7 @@ function build() {
     }
   }
   console.log(`  banned-claims check OK — 0 violations across ${checkedFiles.length} output files`);
-  console.log(`  sanity OK — ${pageFiles.length} pages built into ${DIST}`);
-}
-
-function expandedLayoutBody(body, vars) {
-  return fill(body, vars);
+  console.log(`  sanity OK — ${builtPageCount} localized pages (${pageFiles.length} routes × ${ACTIVE_LOCALES.length} locales) built into ${DIST}`);
 }
 
 build();

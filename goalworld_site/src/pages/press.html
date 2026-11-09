@@ -1,4 +1,4 @@
-<!-- meta {"slug":"press","title":"Press Kit · GoalWorld","description":"Logos, key art, covers and screenshots for GoalWorld and The Neural Wars — downloadable brand assets, the world in one paragraph, and where to reach us.","nav":"PRESS","preload":"<link rel=\"preload\" as=\"image\" href=\"/assets/img/keyframe-core-pulse.webp\" imagesrcset=\"/assets/img/keyframe-core-pulse-640.webp 640w, /assets/img/keyframe-core-pulse-800.webp 800w, /assets/img/keyframe-core-pulse.webp 1200w\" imagesizes=\"(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem\" fetchpriority=\"high\" />"} -->
+<!-- meta {"slug":"press","title":"$t:press.meta.title","description":"$t:press.meta.description","nav":"PRESS","preload":"<link rel=\"preload\" as=\"image\" href=\"/assets/img/keyframe-core-pulse.webp\" imagesrcset=\"/assets/img/keyframe-core-pulse-640.webp 640w, /assets/img/keyframe-core-pulse-800.webp 800w, /assets/img/keyframe-core-pulse.webp 1200w\" imagesizes=\"(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem\" fetchpriority=\"high\" />"} -->
 <!-- @component hero {
   "variant": "compact",
   "bgImg": "/assets/img/keyframe-core-pulse.webp",
@@ -6,31 +6,26 @@
   "bgHeight": 675,
   "bgSrcset": "/assets/img/keyframe-core-pulse-640.webp 640w, /assets/img/keyframe-core-pulse-800.webp 800w, /assets/img/keyframe-core-pulse.webp 1200w",
   "bgSizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-  "eyebrow": "Press kit",
-  "title": "Cover the world.",
-  "lead": "Logos, key art, covers and screenshots &mdash; everything you need to write about GoalWorld and The Neural Wars, in web-friendly sizes."
+  "eyebrow": "$t:press.hero.eyebrow",
+  "title": "$t:press.hero.title",
+  "lead": "$t:press.hero.lead"
 } -->
 
 <section class="section-tight">
   <div class="wrap prose" style="max-width: 78ch">
-    <p class="kicker">Boilerplate</p>
-    <h2>The world in one paragraph</h2>
+    <p class="kicker">{{t:press.boilerplate.kicker}}</p>
+    <h2>{{t:press.boilerplate.title}}</h2>
     <blockquote class="pull">
-      <p>
-        &ldquo;GoalWorld &mdash; World of Achievements &mdash; is the world layer where a
-        saga and a stadium share the same universe: <em>The Neural Wars</em> cyberpunk book
-        series and its film adaptation, plus GoalChain Play, a tactical football sandbox on
-        Solana Devnet. Built in the open by creator Nico Pez and a swarm of AI agents.&rdquo;
-      </p>
+      <p>{{t:press.boilerplate.quote}}</p>
     </blockquote>
     <ul>
-      <li><strong>Brand:</strong> GoalWorld &middot; World of Achievements</li>
-      <li><strong>Site:</strong> https://goalworld.fun</li>
-      <li><strong>App:</strong> https://play.goalworld.fun</li>
-      <li><strong>Saga:</strong> The Neural Wars &mdash; Book 1: Fractured Code (G2 signed off, in release preparation; <a href="/book.html#sample">Chapter 1 sample</a>) &middot; Book 2: Earth's New Song (in production)</li>
-      <li><strong>Creator:</strong> Nico Pez &mdash; <a href="https://x.com/nicopez">x.com/nicopez</a></li>
-      <li><strong>Press contact:</strong> <a href="mailto:nico@goalworld.fun">nico@goalworld.fun</a></li>
-      <li><strong>Code:</strong> <a href="https://github.com/TheNeuralWars/GoalChain">github.com/TheNeuralWars/GoalChain</a></li>
+      <li>{{t:press.boilerplate.li_brand}}</li>
+      <li>{{t:press.boilerplate.li_site}}</li>
+      <li>{{t:press.boilerplate.li_app}}</li>
+      <li>{{t:press.boilerplate.li_saga}}</li>
+      <li>{{t:press.boilerplate.li_creator}}</li>
+      <li>{{t:press.boilerplate.li_contact}}</li>
+      <li>{{t:press.boilerplate.li_code}}</li>
     </ul>
   </div>
 </section>
@@ -38,33 +33,33 @@
 <section class="section band">
   <div class="wrap">
     <!-- @component section-header {
-      "kicker": "Downloads",
-      "title": "Brand assets"
+      "kicker": "$t:press.downloads.kicker",
+      "title": "$t:press.downloads.title"
     } -->
     <div class="dl-list" style="margin-top: 1.75rem">
       <a class="dl dl-feature" href="/assets/img/press/press-kit.zip" download>
-        <span><span class="name">Full press kit (.zip)</span><br /><span class="meta">Logos, key art, cover &mdash; everything below in one file</span></span>
-        <span class="get">Download zip</span>
+        <span><span class="name">{{t:press.downloads.zip_name}}</span><br /><span class="meta">{{t:press.downloads.zip_meta}}</span></span>
+        <span class="get">{{t:press.downloads.zip_btn}}</span>
       </a>
       <a class="dl" href="/assets/img/press/goalworld-logo.svg" download>
-        <span><span class="name">GoalWorld logo mark</span><br /><span class="meta">SVG &middot; vector, scales anywhere</span></span>
-        <span class="get">Download</span>
+        <span><span class="name">{{t:press.downloads.svg_name}}</span><br /><span class="meta">{{t:press.downloads.svg_meta}}</span></span>
+        <span class="get">{{t:press.downloads.dl_btn}}</span>
       </a>
       <a class="dl" href="/assets/img/press/goalworld-logo-512.png" download>
-        <span><span class="name">GoalWorld logo mark</span><br /><span class="meta">PNG &middot; 512&times;512, dark background</span></span>
-        <span class="get">Download</span>
+        <span><span class="name">{{t:press.downloads.png_name}}</span><br /><span class="meta">{{t:press.downloads.png_meta}}</span></span>
+        <span class="get">{{t:press.downloads.dl_btn}}</span>
       </a>
       <a class="dl" href="/assets/img/press/press-hero-neo-citania.jpg" download>
-        <span><span class="name">Hero art &mdash; Neo-Citania, Sector 4</span><br /><span class="meta">JPEG &middot; 1600px wide</span></span>
-        <span class="get">Download</span>
+        <span><span class="name">{{t:press.downloads.hero_name}}</span><br /><span class="meta">{{t:press.downloads.hero_meta}}</span></span>
+        <span class="get">{{t:press.downloads.dl_btn}}</span>
       </a>
       <a class="dl" href="/assets/img/press/press-keyframe-severing.jpg" download>
-        <span><span class="name">Keyframe &mdash; The Severing</span><br /><span class="meta">JPEG &middot; 1600px wide</span></span>
-        <span class="get">Download</span>
+        <span><span class="name">{{t:press.downloads.sever_name}}</span><br /><span class="meta">{{t:press.downloads.sever_meta}}</span></span>
+        <span class="get">{{t:press.downloads.dl_btn}}</span>
       </a>
       <a class="dl" href="/assets/img/press/press-cover-fractured-code.jpg" download>
-        <span><span class="name">Book cover &mdash; Fractured Code</span><br /><span class="meta">JPEG &middot; 1200px wide</span></span>
-        <span class="get">Download</span>
+        <span><span class="name">{{t:press.downloads.cover_name}}</span><br /><span class="meta">{{t:press.downloads.cover_meta}}</span></span>
+        <span class="get">{{t:press.downloads.dl_btn}}</span>
       </a>
     </div>
   </div>
@@ -73,8 +68,8 @@
 <section class="section">
   <div class="wrap">
     <!-- @component section-header {
-      "kicker": "Screens &amp; stills",
-      "title": "Gallery"
+      "kicker": "$t:press.gallery.kicker",
+      "title": "$t:press.gallery.title"
     } -->
     <div class="grid grid-3" style="margin-top: 1.75rem">
       <!-- @component media-card {
@@ -82,66 +77,66 @@
         "src": "/assets/img/hero-neo-citania.webp",
         "srcset": "/assets/img/hero-neo-citania-400.webp 400w, /assets/img/hero-neo-citania-800.webp 800w, /assets/img/hero-neo-citania.webp 1600w",
         "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-        "alt": "Neo-Citania Sector 4 canyon — establishing art",
+        "alt": "$t:press.gallery.g1_alt",
         "width": 1600,
         "height": 900,
-        "aiTag": "Establishing still &middot; AI-generated",
-        "title": "Neo-Citania &mdash; Sector 4 canyon"
+        "aiTag": "$t:press.gallery.g1_tag",
+        "title": "$t:press.gallery.g1_title"
       } -->
       <!-- @component media-card {
         "kind": "image",
         "src": "/assets/img/keyframe-severing.webp",
         "srcset": "/assets/img/keyframe-severing-640.webp 640w, /assets/img/keyframe-severing.webp 1200w",
         "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-        "alt": "Keyframe: the Severing, neural disconnection",
+        "alt": "$t:press.gallery.g2_alt",
         "width": 1200,
         "height": 750,
-        "aiTag": "Keyframe &middot; AI-generated",
-        "title": "The Severing"
+        "aiTag": "$t:press.gallery.g2_tag",
+        "title": "$t:press.gallery.g2_title"
       } -->
       <!-- @component media-card {
         "kind": "image",
         "src": "/assets/img/keyframe-kora-trance.webp",
         "srcset": "/assets/img/keyframe-kora-trance-640.webp 640w, /assets/img/keyframe-kora-trance.webp 1200w",
         "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-        "alt": "Keyframe: Kora Vega in a resonance trance",
+        "alt": "$t:press.gallery.g3_alt",
         "width": 1200,
         "height": 750,
-        "aiTag": "Keyframe &middot; AI-generated",
-        "title": "Kora Vega, resonance trance"
+        "aiTag": "$t:press.gallery.g3_tag",
+        "title": "$t:press.gallery.g3_title"
       } -->
       <!-- @component media-card {
         "kind": "image",
         "src": "/assets/img/char-mileo-chen.webp",
         "srcset": "/assets/img/char-mileo-chen-400.webp 400w, /assets/img/char-mileo-chen.webp 720w",
         "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-        "alt": "Character art: Mileo Chen",
+        "alt": "$t:press.gallery.g4_alt",
         "width": 720,
         "height": 900,
-        "aiTag": "Character study &middot; AI-generated",
-        "title": "Mileo Chen"
+        "aiTag": "$t:press.gallery.g4_tag",
+        "title": "$t:press.gallery.g4_title"
       } -->
       <!-- @component media-card {
         "kind": "image",
         "src": "/assets/img/char-sierra-catalano.webp",
         "srcset": "/assets/img/char-sierra-catalano-400.webp 400w, /assets/img/char-sierra-catalano.webp 720w",
         "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-        "alt": "Character art: Commander Sierra Catalano",
+        "alt": "$t:press.gallery.g5_alt",
         "width": 720,
         "height": 900,
-        "aiTag": "Character study &middot; AI-generated",
-        "title": "Sierra Catalano"
+        "aiTag": "$t:press.gallery.g5_tag",
+        "title": "$t:press.gallery.g5_title"
       } -->
       <!-- @component media-card {
         "kind": "image",
         "src": "/assets/img/loc-kuiper-monolith.webp",
         "srcset": "/assets/img/loc-kuiper-monolith-640.webp 640w, /assets/img/loc-kuiper-monolith.webp 1200w",
         "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
-        "alt": "Location art: the Kuiper Monolith in deep space",
+        "alt": "$t:press.gallery.g6_alt",
         "width": 1200,
         "height": 750,
-        "aiTag": "Location study &middot; AI-generated",
-        "title": "Kuiper Monolith"
+        "aiTag": "$t:press.gallery.g6_tag",
+        "title": "$t:press.gallery.g6_title"
       } -->
     </div>
   </div>
@@ -149,18 +144,11 @@
 
 <section class="section band">
   <div class="wrap prose" style="max-width: 78ch">
-    <p class="kicker">Usage</p>
-    <h2>Using these assets</h2>
-    <p>
-      You may use these assets in coverage of GoalWorld and The Neural Wars. Please keep the
-      wordmark unaltered and pair images with their captions above. The artwork depicts the
-      saga's world and characters &mdash; credit &ldquo;GoalWorld / The Neural Wars&rdquo;.
-    </p>
+    <p class="kicker">{{t:press.usage.kicker}}</p>
+    <h2>{{t:press.usage.title}}</h2>
+    <p>{{t:press.usage.body}}</p>
     <div class="callout">
-      <p style="margin: 0">
-        <strong>Press contact:</strong> email <a href="mailto:nico@goalworld.fun">nico@goalworld.fun</a> or reach Nico Pez on X at
-        <a href="https://x.com/nicopez">x.com/nicopez</a> &mdash; DMs are open.
-      </p>
+      <p style="margin: 0">{{t:press.usage.callout}}</p>
     </div>
   </div>
 </section>

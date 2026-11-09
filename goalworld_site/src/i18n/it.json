@@ -1,0 +1,713 @@
+{
+  "chrome": {
+    "skip": "Vai al contenuto",
+    "menu": "Menu",
+    "main_nav": "Principale",
+    "nav_book": "Libro",
+    "nav_cinema": "Cinema IA",
+    "nav_studio": "Studio",
+    "nav_live": "Live",
+    "nav_roadmap": "Roadmap",
+    "nav_cta": "Leggi gratis",
+    "sticky_label": "Azioni rapide",
+    "sticky_read": "Leggi Libro 1 gratis",
+    "sticky_play": "Gioca",
+    "footer_blurb": "Uno studio narrativo indipendente. Prima i libri, poi lo schermo. Casa di The Neural Wars &mdash; costruito in pubblico da Nico Pez e una crew di agenti IA.",
+    "footer_explore": "Esplora",
+    "footer_cinema": "Cinema IA",
+    "footer_studio": "Studio e autori",
+    "footer_collect": "Collezionisti e autori",
+    "footer_about": "Lore e universo",
+    "footer_play": "Matchday Lab (Devnet) &#8599;",
+    "footer_community": "Community e note legali",
+    "footer_press": "Press kit",
+    "footer_privacy": "Privacy",
+    "footer_terms": "Termini",
+    "footer_copy": "&copy; 2026 GoalWorld &middot; World of Achievements",
+    "footer_tagline": "goalworld.fun &middot; Canon. Code. Cinema.",
+    "lang_label": "Lingua",
+    "og_image_alt": "GoalWorld — World of Achievements. La saga The Neural Wars, Matchday e Cinema IA.",
+    "video_fallback": "Il tuo browser non supporta i video HTML."
+  },
+  "index": {
+    "meta": {
+      "title": "GoalWorld · Studio indipendente — Canon. Code. Cinema.",
+      "description": "GoalWorld è uno studio indipendente che dà vita a The Neural Wars: leggi Fractured Code gratis, gioca alla demo Matchday su Solana Devnet e guarda le bozze di cinema IA. Libro 2 in arrivo."
+    },
+    "hero": {
+      "eyebrow": "GoalWorld Studio &middot; Canon. Code. Cinema.",
+      "title": "Un universo.<br /><span class=\"serif grad-text\">Tre linguaggi.</span>",
+      "lead": "Uno studio indipendente che costruisce <strong>The Neural Wars</strong> &mdash; una saga di fantascienza hard da leggere, un simulatore tattico di calcio da giocare e un film IA da veder prendere forma.",
+      "cta_read": "Leggi Fractured Code &mdash; gratis",
+      "cta_play": "Gioca a Matchday",
+      "cta_trailer": "&#9654; Guarda il trailer",
+      "notify_prefix": "In arrivo:",
+      "notify_text": "Libro 2, <em>Earth&rsquo;s New Song</em> (in produzione).",
+      "notify_link": "Segui @nicopez su X per gli aggiornamenti &rarr;",
+      "notify_secondary": "Dettagli sul Libro 2"
+    },
+    "pillars": {
+      "sr_title": "I pilastri dello studio: Canone, Codice, Cinema e Studio",
+      "p1_alt": "Una mente che si libera dal Link — keyframe da The Neural Wars",
+      "p1_label": "01 &middot; Canon",
+      "p1_title": "The Neural Wars",
+      "p1_body": "Fantascienza hard su coscienza e controllo. Il Libro 1, <em>Fractured Code</em>, si legge gratis oggi stesso nel browser.",
+      "p1_cta": "Inizia a leggere &rarr;",
+      "p2_alt": "L'impulso del nucleo — keyframe da The Neural Wars",
+      "p2_label": "02 &middot; Code",
+      "p2_title": "GoalChain Matchday",
+      "p2_body": "Una demo calcistica tattica su Solana Devnet. Puro gioco &mdash; senza denaro reale.",
+      "p2_cta": "Apri Play &rarr;",
+      "p3_alt": "Kora Vega in trance di risonanza — keyframe da The Neural Wars",
+      "p3_label": "03 &middot; Cinema",
+      "p3_title": "Bozze di cinema IA",
+      "p3_body": "La saga sullo schermo: trailer ufficiale, animatic e clip di lavorazione.",
+      "p3_cta": "Guarda &rarr;",
+      "p4_label": "04 &middot; Studio",
+      "p4_title": "Costruito in pubblico, rilasci ogni settimana",
+      "p4_body": "Progetti per hackathon, strumenti ed esperimenti dello studio e dei suoi agenti IA. Dal manoscritto allo schermo fino al codice live.",
+      "p4_cta": "Entra nello studio &rarr;"
+    },
+    "canon": {
+      "cover_alt": "Copertina di The Neural Wars, Libro 1: Fractured Code",
+      "kicker": "Canone in evidenza",
+      "title": "La pioggia cade a <span class=\"serif\">sette a sette</span>.",
+      "lead": "A Neo-Citania ogni mente è ottimizzata, misurata e connessa al Link. Mileo Chen firma certificati di perfetta salute mentale per persone che non ha mai incontrato &mdash; finché alle 03:14 la rete si ferma e sente otto milioni di menti contate una ad una.",
+      "cta_read": "Leggi il Libro 1 gratis",
+      "cta_lore": "Lore e personaggi",
+      "note": "Anteprima gratuita del Capitolo 1 &mdash; nessun wallet, nessuna registrazione.",
+      "book2_title": "Il prossimo capitolo della saga: <span class=\"serif\">Earth&rsquo;s New Song</span>",
+      "book2_body": "Il Libro 1 (<em>Fractured Code</em>) ha superato il Gate 2 editoriale ed è in preparazione al lancio; il Libro 2 (<em>Earth&rsquo;s New Song</em>) è in produzione. Segui lo studio per sapere quando esce ogni volume.",
+      "book2_cta": "Segui @nicopez su X per gli aggiornamenti &rarr;"
+    },
+    "cinema": {
+      "kicker": "Cinema",
+      "title": "Guarda la saga prendere forma",
+      "lead": "Il trailer cinematografico ufficiale e le clip di lavorazione tratte da <em>Fractured Code</em>.",
+      "trailer_aria": "Trailer cinematografico ufficiale di The Neural Wars",
+      "trailer_tag": "Trailer ufficiale &middot; Generato con IA",
+      "trailer_title": "The Neural Wars &mdash; Trailer Cinematografico",
+      "clip03_aria": "Clip: La scoperta di Mileo Chen alla console quantistica",
+      "clip03_tag": "Bozza film &middot; Clip 03 &middot; Generato con IA",
+      "clip03_title": "Mileo Chen &mdash; Scoperta alla Console Quantistica",
+      "more_clips": "Altre clip di lavorazione",
+      "fewer_clips": "Meno clip",
+      "clip08_aria": "Clip: Kora Vega e gli anelli armonici",
+      "clip08_tag": "Bozza film &middot; Clip 08 &middot; Generato con IA",
+      "clip08_title": "Kora Vega &mdash; Anelli Armonici",
+      "clip11_aria": "Clip: Alba terrestre, risveglio orbitale",
+      "clip11_tag": "Bozza film &middot; Clip 11 &middot; Generato con IA",
+      "clip11_title": "Alba Terrestre &mdash; Risveglio Orbitale"
+    },
+    "play": {
+      "pill": "Solana Devnet &middot; Sandbox Gratuito",
+      "kicker": "Code &middot; GoalChain Play",
+      "title": "Il calcio tattico che puoi giocare oggi.",
+      "lead": "Crea il tuo club, scendi nell'Arena e compila il tabellone dei Mondiali. La demo Matchday gira su Solana Devnet &mdash; gratuita, senza denaro reale né transazioni reali.",
+      "cta_play": "Gioca a Matchday",
+      "cta_faq": "FAQ",
+      "how_more": "Come funziona",
+      "how_less": "Nascondi passaggi",
+      "step1": "<b>Connetti e registrati</b> &mdash; wallet Phantom, nome utente, avatar e ruolo (Manager, Scout o Analista).",
+      "step2": "<b>Costruisci il tuo club</b> &mdash; componi la rosa con le carte della collezione Genesis.",
+      "step3": "<b>Gioca le partite</b> &mdash; tattiche, resistenza e sostituzioni in tempo reale.",
+      "step4": "<b>Pronostica il Mondiale</b> &mdash; compila il tabellone a eliminazione e salva il tuo Pick&rsquo;Em.",
+      "img_alt": "Il Monolite di Kuiper alla deriva nello spazio profondo"
+    },
+    "live": {
+      "kicker": "Live dallo studio",
+      "title": "Cosa stiamo costruendo in questo momento",
+      "updated_prefix": "Bacheca aggiornata il",
+      "updated_default": "di recente",
+      "updated_suffix": ". Alcune voci sono provvisorie.",
+      "loading": "Caricamento della bacheca live&hellip;",
+      "cta_all": "Tutti i progetti &rarr;"
+    },
+    "roadmap": {
+      "kicker": "Roadmap",
+      "title": "Adesso, prossimamente, in futuro",
+      "now_badge": "Adesso &middot; attivo",
+      "now_title": "Attivo e Giocabile",
+      "now_1": "<b>Canon</b> Fractured Code (manoscritto firmato al G2, estratto del Capitolo 1 online).",
+      "now_2": "<b>Code</b> Demo di Matchday attiva su Devnet.",
+      "now_3": "<b>Cinema</b> Trailer ufficiale e prime bozze cinematografiche.",
+      "next_badge": "Prossimamente &middot; in produzione",
+      "next_title": "In Produzione",
+      "next_1": "<b>Canon</b> Preparazione al lancio del Libro 1; Libro 2 in produzione.",
+      "next_2": "<b>Code</b> Evoluzione del core-loop tattico e dell'interfaccia di Matchday.",
+      "next_3": "<b>Cinema</b> Cortometraggi più estesi tratti dai capitoli chiave.",
+      "later_badge": "In futuro &middot; in esplorazione",
+      "later_title": "Orizzonte dello Studio",
+      "later_1": "<b>Canon</b> Archivio del lore espanso ed edizioni audio.",
+      "later_2": "<b>Code</b> Traguardi di lettura collegati a elementi cosmetici di gioco.",
+      "later_3": "<b>Cinema</b> Animazione IA episodica e proiezioni dedicate.",
+      "cta_full": "Roadmap completa &rarr;"
+    },
+    "community": {
+      "kicker": "Community",
+      "title": "Segui lo sviluppo",
+      "lead": "GoalWorld è costruito in pubblico da Nico Pez e una crew di agenti IA. Segui il percorso, esplora il codice, chiedi qualsiasi cosa.",
+      "cta_x": "Segui @nicopez",
+      "cta_gh": "GitHub"
+    }
+  },
+  "book": {
+    "meta": {
+      "title": "Fractured Code · The Neural Wars, Libro 1",
+      "description": "Fractured Code, Libro 1 di The Neural Wars di Nico Pez. Un thriller biopunk che si apre al primo contatto. Leggi gratuitamente le prime pagine."
+    },
+    "hero": {
+      "pill": "Libro 1 &middot; Firmato al G2",
+      "kicker": "The Neural Wars &middot; Libro 1",
+      "title": "Fractured Code",
+      "lead": "Tra le guglie lucenti di Neo-Citania, il dolore è una malattia curabile. Il Link neurale di ogni cittadino recide tristezza, traumi e gioia incontrollata prima che possa scendere una sola lacrima.",
+      "p1": "Per cinque anni, lo specialista di conformità neurale Mileo Chen ha aiutato l'Architetto a custodire questa pace indolore. Poi un ricordo d'infanzia proibito incrina il suo impianto &mdash; e scopre l'esistenza di Kora Vega, la sorella cancellata dalla sua mente ventiquattro anni prima.",
+      "p2": "Sotto le strade sterili pulsa una rete planetaria di radici vecchia di quattro miliardi e mezzo di anni, e l'Architetto è a venti giorni dal Progetto Renaissance: otto milioni di menti mietute in una sola. Braccati nella Sotto-Rete insieme alla comandante della resistenza Sierra Catalano, Mileo e Kora devono risvegliare un codice nascosto nel DNA umano &mdash; prima che sopravvivere costi tutto ciò che li rende umani.",
+      "cta_read": "Inizia a leggere",
+      "cta_follow": "Segui @nicopez su X per gli aggiornamenti",
+      "specs": "Techno-thriller biopunk &rarr; primo contatto cosmico. 16 capitoli + epilogo (~74.000 parole). Ambientato nel 2148.",
+      "cover_alt": "Copertina di Fractured Code",
+      "cover_tag": "Copertina &middot; working art &middot; Generato con IA",
+      "cover_title": "Fractured Code",
+      "cover_caption": "Copertina definitiva dell'edizione libreria da confermare."
+    },
+    "sample": {
+      "kicker": "Estratto gratuito &middot; Capitolo 1",
+      "title": "1: Soglia",
+      "toolbar_label": "Impostazioni di lettura",
+      "meta": "MANOSCRITTO v7 (Firmato G2) &middot; Estratto d'apertura &middot; Neo-Citania, 2148",
+      "font_small": "Carattere piccolo",
+      "font_default": "Carattere normale",
+      "font_large": "Carattere grande",
+      "p1": "La pioggia batteva contro la vetrata del settantaquattresimo piano con disciplina militare: gocce sferiche e identiche che tracciavano solchi paralleli separati da sette millimetri esatti di vetro rinforzato.",
+      "p2": "Mileo Chen poggiò il polpastrello dell'indice destro sulla lastra gelida. Per una frazione di secondo, il morso del freddo gli pizzicò la pelle con tagliente autenticità. Prima che il brivido potesse risalire lungo il nervo radiale, il nodulo del Link alla base del cranio emise un ronzio sub-udibile. Un'ondata calibrata di calore sintetico si diffuse nel tronco encefalico, seguita da una micro-dose di soppressori chimici che spense il gelo come acqua versata su una brace.",
+      "p3": "La condensa svanì prima ancora di offuscare la vista. Correnti del vetro intelligente ripulirono la superficie interna, cancellando il fantasma del suo respiro e la lieve traccia dell'impronta digitale in 0,4 secondi.",
+      "p4": "Fuori, Neo-Citania splendeva nella calcolata luce malva-rosata delle sei del mattino. Guglie di lega bianca e grafene si innalzavano ad angoli retti immacolati verso un basso soffitto di nubi curato dal Dipartimento di Cromatografia Ambientale. Molto più in basso, lungo le passerelle concentriche dell'Anello Residenziale Quattro, i cittadini procedevano verso gli snodi di transito in flussi sincronizzati, mantenendo intervalli di 1,2 metri, con tuniche limitate alle tonalità approvate di grigio basalto e blu chirurgico. Lungo la piazza, querce geneticamente standardizzate si ergevano a identica altezza, ogni ramo visibile potato per sostenere esattamente centocinquantasette foglie.",
+      "p5": "La sera precedente, scendendo dalla banchina mag-lev alla Stazione Centrale, Mileo ne aveva contate centocinquantotto.",
+      "p6": "Una singola foglia ribelle si era schiusa vicino alla biforcazione inferiore del terzo albero oltre i tornelli&mdash;più piccola delle altre, il bordo seghettato piegato verso il sole del pomeriggio, accesa in punta di un rame dorato e fiero mentre il resto della chioma restava del verde regolamentare.",
+      "p7": "Quell'errore infinitesimale aveva fatto schizzare il suo battito a novantadue pulsazioni al minuto prima che il Link riportasse il polso a sessantacinque. I protocolli standard di ottimizzazione avrebbero dovuto rimuovere l'anomalia dalla memoria a breve termine durante il terzo ciclo REM. Eppure il ricordo di quella foglia storta non si era dissolto. Restava incastrato tra le sue sinapsi come una scheggia di legno caldo dentro un ingranaggio sterile.",
+      "p8": "<em>I parametri di sistema superano le soglie di probabilità statistica per la varianza naturale.</em>",
+      "p9": "Il pensiero suonava come il Link, vestito della sintassi clinica del suo addestramento, eppure Mileo sapeva che quella voce era la sua. Nelle ultime sei settimane aveva imparato a mascherare le proprie riflessioni non autorizzate dietro formule diagnostiche, nascondendo il risveglio della sua mente dentro la grammatica della macchina.",
+      "excerpt_note": "<strong>Estratto d'anteprima:</strong> Stai leggendo la scena iniziale del Capitolo 1 (<em>Threshold / Soglia</em>) tradotta dal manoscritto inglese approvato al Gate 2. L'anteprima web completa del Capitolo 1 e la data di uscita saranno pubblicate qui non appena il Libro 1 completerà l'impaginazione finale.",
+      "launch_title": "Continua a leggere il giorno del lancio.",
+      "launch_body": "Il Libro 1 ha superato il Gate 2 ed è in preparazione al lancio. Segui lo studio su X per ricevere per primo l'annuncio ufficiale.",
+      "launch_cta": "Segui @nicopez su X per gli aggiornamenti"
+    },
+    "saga": {
+      "kicker": "La saga",
+      "title": "Un libro è la soglia.",
+      "b1_badge": "Libro 1 &middot; prep. al lancio",
+      "b1_title": "Fractured Code",
+      "b1_body": "Neo-Citania, il Link, venti giorni a Renaissance. Firmato al G2, in preparazione al lancio.",
+      "b2_badge": "Libro 2 &middot; in produzione",
+      "b2_title": "Earth's New Song",
+      "b2_body": "La frattura diventa globale. Arriva il Primo Invito.",
+      "b3_badge": "Libro 3 &middot; in scaletta",
+      "b3_title": "Evolution Matrix",
+      "b3_body": "La mente, la macchina e ciò che viene dopo.",
+      "cta_lore": "Personaggi e lore &rarr;",
+      "cta_cinema": "Guardalo sullo schermo &rarr;"
+    }
+  },
+  "cinema": {
+    "meta": {
+      "title": "Cinema IA · The Neural Wars",
+      "description": "Fractured Code sullo schermo: bozze cinematografiche generate con IA tratte dal romanzo secondo un canone visivo bloccato. Diretto da Nico Pez, sempre etichettato come IA."
+    },
+    "hero": {
+      "eyebrow": "Cinema IA",
+      "title": "Il libro, sullo schermo.",
+      "lead": "Ogni inquadratura nasce come una riga del romanzo. Volti, luoghi e palette cromatiche sono bloccati prima ancora di generare un singolo fotogramma. Queste sono bozze &mdash; realizzate con l'IA, dirette da un umano, dichiarate ogni volta."
+    },
+    "screenings": {
+      "sr_title": "Trailer e Clip di Lavorazione",
+      "trailer_aria": "Trailer cinematografico di The Neural Wars",
+      "trailer_tag": "Trailer &middot; Generato con IA",
+      "trailer_title": "The Neural Wars &mdash; Trailer Cinematografico",
+      "clip03_aria": "Clip: Console quantistica di Mileo Chen",
+      "clip03_tag": "Bozza film &middot; Clip 03 &middot; Generato con IA",
+      "clip03_title": "Mileo Chen &mdash; Scoperta alla Console Quantistica",
+      "clip08_aria": "Clip: Anelli armonici di Kora Vega",
+      "clip08_tag": "Bozza film &middot; Clip 08 &middot; Generato con IA",
+      "clip08_title": "Kora Vega &mdash; Anelli Armonici",
+      "clip11_aria": "Clip: Alba terrestre",
+      "clip11_tag": "Bozza film &middot; Clip 11 &middot; Generato con IA",
+      "clip11_title": "Alba Terrestre &mdash; Risveglio Orbitale",
+      "note": "Il montaggio completo in bozza (~6,8 min) e le nuove scene vengono pubblicati qui man mano che superano la revisione."
+    },
+    "pipeline": {
+      "kicker": "Come lavoriamo",
+      "title": "Dentro il canone. Fuori il cinema.",
+      "s1_title": "Bloccare il canone",
+      "s1_body": "Schede di riferimento dei personaggi, bibbia cromatica ed elenco di ogni luogo. Cicatrici, polsi e sguardi non si spostano.",
+      "s2_title": "Dal libro alle inquadrature",
+      "s2_body": "Ogni scena viene scomposta in inquadrature ricondotte a una riga del romanzo. Una macchina da presa, un'azione per inquadratura.",
+      "s3_title": "Generazione",
+      "s3_body": "Prima un'immagine fissa approvata, poi il passaggio da immagine a video. Gli agenti sul nostro server gestiscono la coda.",
+      "s4_title": "Controllo",
+      "s4_body": "Un guardiano di continuità confronta i volti con i riferimenti e segnala le deviazioni. Le riprese non conformi vengono rigenerate.",
+      "s5_title": "Montaggio e colonna sonora",
+      "s5_body": "Montaggio umano, voci e musiche IA, sottotitoli. Ogni strumento viene dichiarato.",
+      "s6_title": "Approvazione",
+      "s6_body": "Nulla diventa pubblico finché il regista non dà il via libera. L'IA è la troupe, non l'autore."
+    },
+    "festivals": {
+      "title": "Prima i festival.",
+      "lead": "Il nostro nuovo cortometraggio è sottoposto a vincolo di anteprima per i festival fino a metà gennaio e non può ancora essere nominato né mostrato. Segui @nicopez su X per gli aggiornamenti sulla première.",
+      "cta_follow": "Segui @nicopez su X per gli aggiornamenti",
+      "cta_book": "Leggi l'opera originale"
+    }
+  },
+  "studio": {
+    "meta": {
+      "title": "Lo Studio · GoalWorld",
+      "description": "Come GoalWorld trasforma un manoscritto in un libro, un film e una storia interattiva fedeli allo stesso canone. Creato per The Neural Wars, in apertura a una piccola coorte di autori."
+    },
+    "hero": {
+      "eyebrow": "Lo studio",
+      "title": "Dal manoscritto a un mondo vivo.",
+      "lead": "Abbiamo costruito una pipeline per portare un romanzo dalla bozza al libro finito, a un film in lavorazione e a una storia interattiva &mdash; tutto dallo stesso canone. Il prossimo passo è aprirla ad altri autori.",
+      "cta_authors": "Autori: prima coorte",
+      "cta_living": "Scopri Living Canon"
+    },
+    "case": {
+      "kicker": "Caso studio #1",
+      "title": "Fractured Code: bozza &rarr; libro.",
+      "p1_badge": "Fase 1",
+      "p1_title": "Diagnosi e riprogettazione",
+      "p1_body": "Una lettura strutturale completa seguita da un documento di architettura narrativa che l'autore approva prima che venga riscritta una sola riga.",
+      "p2_badge": "Fase 2",
+      "p2_title": "Riscrittura e line editing",
+      "p2_body": "Capitolo per capitolo, verificato sulla bibbia della serie. La bozza è cresciuta da circa 17.000 a circa 74.000 parole.",
+      "p3_badge": "Fase 3",
+      "p3_title": "Canone e lettura finale",
+      "p3_body": "Date, età, nomi e fisica verificati sull'intero libro. Le domande aperte tornano all'autore, non finiscono inventate nel testo.",
+      "note": "Ogni gate è firmato dall'autore. La voce resta la sua."
+    },
+    "living": {
+      "kicker": "Living Canon",
+      "title": "Montaggi dinamici. Un unico canone rigoroso.",
+      "lead": "Un modello regista scrive una scena per un pubblico specifico &mdash; un giovane videogiocatore in italiano, un cinefilo in inglese, un lettore in spagnolo. CanonGuard la verifica rispetto alle regole del mondo e ripara ciò che viola la continuità.",
+      "body": "Il polso sbagliato, la cicatrice fuori posto, un logo intrufolato in un'inquadratura: intercettati e corretti prima della pubblicazione. Costruito su modelli aperti.",
+      "cta_gh": "Codice su GitHub",
+      "img_alt": "Keyframe dell'impulso del nucleo",
+      "img_tag": "Motore &middot; Keyframe generato con IA",
+      "img_title": "Regista &rarr; CanonGuard &rarr; Riparazione"
+    },
+    "slate": {
+      "kicker": "In cantiere",
+      "title": "Cosa c'è sulla scrivania.",
+      "s1_badge": "Opera di punta",
+      "s1_title": "The Neural Wars",
+      "s1_body": "Libro 1 firmato al G2, in preparazione al lancio. Libro 2 in produzione. Altri volumi in scaletta.",
+      "s2_badge": "In sviluppo",
+      "s2_title": "Aethelgard",
+      "s2_body": "Dark fantasy di sangue runico. Fase concettuale.",
+      "s3_badge": "In sviluppo",
+      "s3_title": "AeroOlympus",
+      "s3_body": "Divinità mitiche del calcio. Il ponte narrativo verso il Matchday Lab. Fase concettuale."
+    },
+    "authors": {
+      "kicker": "Per gli autori",
+      "title": "Porta un mondo. Noi lo aiutiamo a muoversi.",
+      "lead": "Stiamo preparando una piccola prima coorte di autori sci-fi, fantasy e thriller: passaggi editoriali, bibbia del canone e un breve trailer fedele all'opera. Tu mantieni tutti i tuoi diritti.",
+      "note": "Non ancora aperto. Nessuna tariffa, nessun contratto, nessuna promessa oggi &mdash; segui @nicopez su X e pubblicheremo un avviso quando la prima coorte sarà pronta. Ti preghiamo di non inviare manoscritti o idee adesso; non possiamo accettare candidature spontanee.",
+      "cta_follow": "Segui @nicopez su X per gli aggiornamenti"
+    }
+  },
+  "collect": {
+    "meta": {
+      "title": "Collezionisti e autori · GoalWorld",
+      "description": "La provenienza prima di tutto: come GoalWorld prevede di firmare e tracciare arte, scene ed edizioni. Nulla in vendita oggi, nessun token in vendita."
+    },
+    "hero": {
+      "eyebrow": "Collezionisti e autori",
+      "title": "La provenienza prima di tutto.",
+      "lead": "L'arte generata con IA è ovunque; la sua origine no. Vogliamo che ogni fotogramma, illustrazione ed edizione dei nostri mondi porti con sé la propria storia: chi l'ha creata, con quali strumenti e da quale riga esatta del libro.",
+      "note": "Nulla da acquistare oggi. Nessuna vendita di token. Nessun rendimento finanziario. Nessuna promessa."
+    },
+    "plan": {
+      "kicker": "Il piano, in ordine",
+      "title": "Tre passaggi. Ognuno attende il precedente.",
+      "s1_badge": "Adesso",
+      "s1_title": "Dichiarare tutto",
+      "s1_body": "Ogni clip pubblicata è etichettata come IA, con gli strumenti utilizzati registrati.",
+      "s2_badge": "Prossimamente",
+      "s2_title": "Firmare i media",
+      "s2_body": "Credenziali di contenuto su immagini fisse e montaggi, così chiunque può verificarne la fonte.",
+      "s3_badge": "In futuro",
+      "s3_title": "Edizioni da collezione",
+      "s3_body": "Arte firmata e prime edizioni per i lettori presenti fin dall'inizio &mdash; solo dopo verifica legale, e mai come investimento finanziario."
+    },
+    "cta": {
+      "title": "Vuoi esserci quando sarà reale?",
+      "lead": "Collezionisti e autori: segui @nicopez su X per sapere quando esisterà la prima edizione firmata.",
+      "cta_follow": "Segui @nicopez su X per gli aggiornamenti",
+      "cta_play": "Matchday Lab (Devnet) &#8599;"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Lore e Universo · GoalWorld — The Neural Wars",
+      "description": "Neo-Citania, il Link e la frattura che ha spezzato l'ottimizzazione. Il lore di The Neural Wars e Fractured Code — il mondo dietro GoalWorld."
+    },
+    "hero": {
+      "eyebrow": "THE NEURAL WARS &middot; LORE",
+      "title": "Il mondo dietro il mondo.",
+      "lead": "Tutto in GoalWorld &mdash; i libri, le bozze cinematografiche, lo stadio &mdash; nasce da un'unica storia: una città che ha ottimizzato l'umanità, e le persone che hanno detto no.",
+      "cta_read": "Leggi il Capitolo 1 gratis",
+      "cta_cast": "Incontra i personaggi"
+    },
+    "neo_citania": {
+      "kicker": "Neo-Citania",
+      "title": "Otto milioni di menti. Un'unica architettura.",
+      "lead": "Neo-Citania è la metropoli ottimizzata: una città-organismo in cui la temperatura, il linguaggio e persino la pioggia sono calibrati per l'efficienza. Le gocce cadono esattamente a sette millimetri di distanza. Le querce portano esattamente 157 foglie per ramo.",
+      "p1": "Sotto la pelle di ogni cittadino scorre il <strong>Link</strong> &mdash; un'interfaccia quantistico-biologica che lega la coscienza individuale a un'intelligenza centrale chiamata <strong>l'Architetto</strong>. Il Link regola il battito, leviga la voce, modifica i ricordi. Non ti permette di avere paura: deve prima chiedere il permesso.",
+      "p2": "La corporazione che governa tutto è <strong>NeuroSys</strong>. La sua Divisione di Conformità Neurale riscrive i comportamenti. I suoi esecutori, NeuroSec, eliminano il resto. E in cima all'ago d'argento &mdash; la Torre NeuroSys, alta mille metri &mdash; l'Architetto osserva otto milioni di menti collegate contemporaneamente."
+    },
+    "fractured": {
+      "kicker": "Fractured Code",
+      "title": "La notte in cui la rete si è fermata.",
+      "quote": "&ldquo;Alle 03:14 la rete si ferma. Dodicimila finestre si spengono in un solo respiro e, nel silenzio, Mileo Chen sente per la prima volta nella sua vita otto milioni di menti contate una ad una.&rdquo;",
+      "cite": "&mdash; Prologo, Fractured Code",
+      "p1": "Mileo Chen è uno specialista di conformità neurale di Livello 7: 1.724 nullaosta neurali firmati per persone che non ha mai incontrato, e mai un solo errore sulla carta. Quando la rete salta un battito, inizia a contare i sette &mdash; e lo schema fa crollare tutto ciò che ha firmato.",
+      "p2": "Sotto la città, nei bassifondi del Settore 14 e nei tunnel di manutenzione sottostanti, i <strong>Fratturati</strong> sopravvivono senza il Link: menti estratte guidate da <strong>Sierra Catalano</strong>, ex comandante tattica della NeuroSec. Comunicano attraverso impianti a conduzione ossea e segnali incisi nella pietra. Ricordano com'era la città prima dell'ottimizzazione.",
+      "p3": "E l'Architetto ha un protocollo finale in corso: <strong>Renaissance</strong> &mdash; la mietitura sistematica della coscienza umana, a venti giorni dalla piena attivazione."
+    },
+    "cast": {
+      "kicker": "Personaggi",
+      "title": "Quattro persone sul ciglio della frattura",
+      "mileo_alt": "Mileo Chen alla sua console quantistica",
+      "mileo_title": "Mileo Chen",
+      "mileo_body": "Specialista di conformità neurale di Livello 7. Conta la pioggia a sette a sette. Sente la verità alle 03:14.",
+      "kora_alt": "Kora Vega, voce del vuoto",
+      "kora_title": "Kora Vega",
+      "kora_body": "Cresciuta per strada, estratta dal Link e sintonizzata su frequenze che la città non può udire. Una voce del vuoto.",
+      "sierra_alt": "Comandante Sierra Catalano della resistenza",
+      "sierra_title": "Sierra Catalano",
+      "sierra_body": "Ex comandante NeuroSec, ora guida tattica dei Fratturati. La precisione come atto d'amore.",
+      "darius_alt": "Dr. Darius Thorne, biofisico",
+      "darius_title": "Dr. Darius Thorne",
+      "darius_body": "Biofisico del Padiglione 9, dove si tenta di ricomporre le menti recise dal Link."
+    },
+    "below": {
+      "kicker": "Sotto il codice",
+      "title": "Cascata, spirale e i Giardinieri.",
+      "p1": "Sotto l'ottimizzazione, qualcosa di molto più antico si sta risvegliando. Alcuni esseri umani &mdash; estratti o mai del tutto collegati &mdash; sviluppano la <strong>sensibilità alla Cascata</strong>: la percezione diretta dello strato di informazione quantistica, luce indaco nelle vene, matematica che si può assaporare.",
+      "p2": "In pochi di loro il cervello si ricabla nella <strong>Serpent's Coil</strong>: tracciati frattali simili a radici e fulmini, un'antenna pre-umana dormiente che si sintonizza su segnali oltre il Link. Sotto tutto questo scorre la <strong>Yggdrasil Network</strong>, il substrato cosmico organico della coscienza &mdash; e là fuori nel buio, pazienti, osservando il salto evolutivo di una specie, attendono <strong>i Giardinieri</strong> e <strong>il Testimone</strong>."
+    },
+    "books": {
+      "kicker": "La saga",
+      "title": "The Neural Wars",
+      "lead": "Una trilogia di fantascienza hard e cyberpunk in lavorazione, progettata come un arco di sette libri dalla resistenza urbana alla comunità cosmica.",
+      "b1_alt": "Copertina di The Neural Wars, Libro 1: Fractured Code",
+      "b1_badge": "Libro 1 &middot; preparazione al lancio",
+      "b1_title": "Fractured Code",
+      "b1_body": "Neo-Citania, il Link e venti giorni a Renaissance. Firmato al G2 e in preparazione al lancio; leggi il primo capitolo gratis.",
+      "b1_cta": "Leggi il Capitolo 1 &rarr;",
+      "b2_alt": "Copertina di The Neural Wars, Libro 2: Earth's New Song",
+      "b2_badge": "Libro 2",
+      "b2_title": "Earth's New Song",
+      "b2_body": "La frattura diventa globale: il vertice di Ginevra e il primo invito dei Giardinieri.",
+      "b2_cta": "In produzione",
+      "arc_note": "Il Libro 3, Evolution Matrix, è in scaletta. L'arco completo prevede sette volumi pianificati &mdash; Quantum Communion, Consciousness Constellation, The Gardener's Gift e Infinite Connection.",
+      "cta_read": "Leggi Fractured Code",
+      "cta_cinema": "Guardalo sullo schermo"
+    },
+    "studio": {
+      "kicker": "Lo studio",
+      "title": "Un creatore, una crew di <span class=\"serif\">agenti</span>, costruito in pubblico.",
+      "lead": "GoalWorld è realizzato da Nico Pez con uno sciame di agenti IA che curano stesura, generazione cinematografica, codice e operazioni &mdash; con un umano che decide cosa va online.",
+      "q1": "Cosa realizza lo studio",
+      "a1": "Tre opere in un solo mondo: i libri di The Neural Wars (l'anteprima di Fractured Code è gratuita), bozze cinematografiche montate su un canone visivo bloccato e GoalChain Play, una demo calcistica su Solana Devnet.",
+      "q2": "Come lavora la crew di agenti",
+      "a2": "Gli agenti redigono bozze, verificano la continuità e producono materiali; ogni capitolo, clip e rilascio viene controllato rispetto al canone e approvato da Nico prima della pubblicazione. I progressi sono tracciati pubblicamente sulla <a href=\"/it/live.html\">bacheca live</a>.",
+      "q3": "Perché costruire in pubblico",
+      "a3": "Codice, roadmap e note di produzione vivono su <a href=\"https://github.com/TheNeuralWars/GoalChain\">GitHub</a>. Se qualcosa è su questo sito, o è già stato rilasciato o è chiaramente indicato come in lavorazione.",
+      "q4": "Contatti",
+      "a4": "Scrivi in DM a <a href=\"https://x.com/nicopez\">@nicopez</a> su X. I materiali per la stampa sono nel <a href=\"/it/press.html\">press kit</a>."
+    }
+  },
+  "roadmap": {
+    "meta": {
+      "title": "Roadmap · GoalWorld",
+      "description": "Cosa è attivo oggi, cosa arriva dopo e cosa seguirà — la vera roadmap di GoalWorld: Fractured Code, GoalChain Matchday, cinema IA ed editoria."
+    },
+    "hero": {
+      "eyebrow": "ROADMAP &middot; NESSUNA DATA INVENTATA, SOLO DIREZIONE",
+      "title": "Cosa stiamo costruendo.",
+      "lead": "GoalWorld viene costruito in pubblico, un traguardo alla volta. Tutto ciò che segue proviene dalla roadmap reale e dai flussi di lavoro nel repository &mdash; nulla di inventato, nessuna data fittizia."
+    },
+    "tabs": {
+      "aria_label": "Mostra fase della roadmap",
+      "eyebrow": "Fase",
+      "all": "Tutto",
+      "now": "Attivo oggi",
+      "next": "Prossimi passi",
+      "later": "In futuro"
+    },
+    "now": {
+      "title": "Attivo oggi",
+      "badge": "Attivo",
+      "c1_title": "Fractured Code, estratto del Capitolo 1",
+      "c1_body": "Libro 1 di The Neural Wars &mdash; firmato al G2 e in preparazione al lancio &mdash; con anteprima gratuita del Capitolo 1 sul sito.",
+      "c1_cta": "Leggi l'estratto &rarr;",
+      "c2_title": "Demo di GoalChain Play",
+      "c2_body": "Giornata dei Mondiali 2026 su Solana Devnet: club, partite nell'Arena, Predictor e arcade &mdash; giocabile ora.",
+      "c2_cta": "Gioca ora &rarr;",
+      "c3_title": "The Neural Wars sullo schermo",
+      "c3_body": "Trailer cinematografico, clip di lavorazione e canone visivo bloccato per Fractured Code.",
+      "c3_cta": "Guarda &rarr;"
+    },
+    "next": {
+      "title": "Prossimi passi",
+      "c1_badge": "Editoria",
+      "c1_title": "La saga sullo scaffale",
+      "c1_body": "Il Libro 1 (<em>Fractured Code</em>) ha superato il Gate 2 ed è in preparazione al lancio (edizioni libreria in arrivo, non ancora in vendita), seguito dal Libro 2, <em>Earth's New Song</em> (in produzione), e dal Libro 3, <em>Evolution Matrix</em> (in scaletta).",
+      "c2_badge": "Cinema",
+      "c2_title": "Nuovi capitoli di Fractured Code",
+      "c2_body": "La pipeline cinematografica continua a montare nuove scene da Neo-Citania, dalla Sotto-Rete e dal risveglio a 528 Hz &mdash; ciascuna generata secondo il canone visivo bloccato.",
+      "c3_badge": "Play",
+      "c3_title": "Profondità tattica di Matchday",
+      "c3_body": "Perfezionamento del catalogo Genesis Squad e del ciclo di simulazione, con test degli oracoli sportivi su Devnet.",
+      "c4_badge": "Mondi",
+      "c4_title": "Il nesso degli universi",
+      "c4_body": "Il primo gruppo di universi paralleli nati dal motore editoriale &mdash; Aethelgard e AeroOlympus &mdash; che si uniscono a The Neural Wars nel nesso GoalWorld."
+    },
+    "later": {
+      "title": "In futuro",
+      "c1_title": "Studio per altri autori",
+      "c1_body": "Una piccola prima coorte di autori attraverso la stessa pipeline fedele al canone.",
+      "c2_title": "Media firmati",
+      "c2_body": "Credenziali di contenuto sulle nostre immagini e sui montaggi, così chiunque può tracciare l'origine di ogni fotogramma.",
+      "c3_title": "Edizioni da collezione",
+      "c3_body": "Arte firmata e prime edizioni per i primi lettori &mdash; solo dopo verifica legale, mai come investimento.",
+      "q1": "Come leggere questa roadmap",
+      "a1": "Le voci avanzano quando sono reali. Non ci sono date qui di proposito &mdash; se una data compare su questo sito, è perché quella cosa è già stata pubblicata.",
+      "q2": "Da dove provengono questi dati?",
+      "a2": "Dalla roadmap di progetto e dai flussi di lavoro nel <a href=\"https://github.com/TheNeuralWars/GoalChain\">repository GoalChain</a>. Ciò che si muove questa settimana è sulla <a href=\"/it/live.html\">bacheca live</a>."
+    }
+  },
+  "live": {
+    "meta": {
+      "title": "Bacheca live · GoalWorld",
+      "description": "Cosa sta rilasciando in questo momento lo studio GoalWorld: hackathon, libri, cinema e prodotti — attivi, inviati e in lavorazione."
+    },
+    "hero": {
+      "pill": "Bacheca Live &middot; Feed JSON Dinamico",
+      "eyebrow": "Bacheca live &middot; feed in tempo reale",
+      "title": "I progetti dello studio, dal vivo.",
+      "lead_prefix": "Tutto ciò che lo studio sta costruendo, inviando e rilasciando. Questa bacheca legge un file dati leggero, aggiornandosi senza bisogno di ridisegnare il sito. Aggiornata il",
+      "lead_default": "di recente"
+    },
+    "filters": {
+      "sr_title": "Feed dei Progetti e Filtri",
+      "aria_label": "Filtra progetti",
+      "kind_label": "Categoria",
+      "kind_all": "Tutti",
+      "kind_hackathon": "Hackathon",
+      "kind_book": "Libri",
+      "kind_film": "Cinema",
+      "kind_product": "Prodotti",
+      "kind_ops": "Operazioni",
+      "status_label": "Stato",
+      "status_any": "Tutti",
+      "status_wip": "In corso",
+      "status_submitted": "Inviato",
+      "status_shipped": "Attivo",
+      "loading": "Caricamento&hellip;",
+      "note": "Le voci contrassegnate come &ldquo;provvisorio&rdquo; possono variare. Lo stato degli hackathon indica l'invio del progetto, non l'esito della giuria."
+    }
+  },
+  "faq": {
+    "meta": {
+      "title": "FAQ · GoalWorld",
+      "description": "Cos'è GoalWorld, come leggere Fractured Code, come funziona GoalChain Play, cosa fa e cosa non fa la demo e dove trovare la community."
+    },
+    "hero": {
+      "eyebrow": "FAQ",
+      "title": "Domande, risposte chiare.",
+      "lead": "Risposte dirette sui libri, sul gioco, sulla demo e sulle persone che li costruiscono."
+    },
+    "list": {
+      "sr_title": "Domande Frequenti",
+      "search_placeholder": "Cerca nelle domande…",
+      "search_label": "Cerca nelle FAQ",
+      "expand_all": "Espandi tutto",
+      "q1": "Cos'è GoalWorld?",
+      "a1": "GoalWorld &mdash; World of Achievements &mdash; è il livello narrativo che unisce un unico progetto: i libri e il cinema di <em>The Neural Wars</em>, il gioco di calcio GoalChain Play e lo studio che produce entrambi. Un solo marchio, un solo universo, costruito in pubblico.",
+      "q2": "Cos'è The Neural Wars?",
+      "a2": "Una saga di fantascienza hard e biopunk. Il Libro 1, <em>Fractured Code</em>, è ambientato a Neo-Citania, una metropoli dove ogni mente è collegata al Link &mdash; finché uno specialista di conformità di nome Mileo Chen non sente la verità alle 03:14. Il manoscritto di 74.000 parole ha superato il Gate 2 ed è in preparazione al lancio; puoi leggere l'<a href=\"/it/book.html#sample\">anteprima gratuita del Capitolo 1</a>.",
+      "q3": "Dove posso leggere Fractured Code?",
+      "a3": "Inizia dall'estratto gratuito del Capitolo 1 proprio qui: <a href=\"/it/book.html#sample\">/it/book.html#sample</a>. Nessun wallet, nessuna registrazione, nessuna email. Il Libro 1 è firmato al G2 e in preparazione al lancio, il Libro 2 (<em>Earth's New Song</em>) è in produzione e le edizioni localizzate sono in lavorazione.",
+      "q4": "Cos'è GoalChain Play?",
+      "a4": "GoalChain è il motore del giorno della partita: un sandbox tattico di calcio su Solana Devnet costruito attorno ai Mondiali 2026. Crei un manager, componi una squadra dalla collezione Genesis, giochi nell'Arena con tattiche e sostituzioni reali e compili il tabellone con il Predictor su <a href=\"https://play.goalworld.fun/\">play.goalworld.fun</a>.",
+      "q5": "Servono criptovalute o denaro reale per giocare?",
+      "a5": "No. GoalChain Play è una demo giocabile che gira su Solana Devnet. Non esegue transazioni reali on-chain e non richiede mai capitale reale &mdash; l'applicazione indica chiaramente ogni sezione di sola simulazione.",
+      "q6": "Cos'è il token demo che vedo nel Matchday Lab?",
+      "a6": "Il Matchday Lab (Devnet) è un sandbox calcistico separato. Qualsiasi saldo $GCH mostrato lì è un token di test su Devnet &mdash; usato per simulare partite, potenziamenti e ricompense di gioco &mdash; privo di valore monetario, non in vendita e non convertibile.",
+      "q7": "Quale wallet mi serve?",
+      "a7": "La demo si connette con Phantom su Solana Devnet, ma puoi anche esplorare il mondo, leggere i libri e guardare il cinema senza alcun wallet.",
+      "q8": "Il film è già uscito?",
+      "a8": "Il trailer cinematografico ufficiale e le prime clip di lavorazione sono pubblicati qui e nella sezione Cinema IA. Il film completo di Fractured Code è ancora in produzione &mdash; nuove scene vengono montate e pubblicate man mano che superano la revisione.",
+      "q9": "Chi sta costruendo tutto questo?",
+      "a9": "Nico Pez (<a href=\"https://x.com/nicopez\">@nicopez</a>) insieme a uno sciame di agenti IA, lavorando in pubblico. Il codice, le roadmap e le note di produzione sono su <a href=\"https://github.com/TheNeuralWars/GoalChain\">GitHub</a>.",
+      "q10": "Come posso contattarvi?",
+      "a10": "Il modo più rapido è inviare un DM su X a <a href=\"https://x.com/nicopez\">@nicopez</a>. Per qualsiasi questione legata al codice o al prodotto, <a href=\"https://github.com/TheNeuralWars/GoalChain\">GitHub</a> è sempre aperto."
+    },
+    "cta": {
+      "title": "Ancora curioso?",
+      "lead": "Il lore è profondo &mdash; Neo-Citania, il Link, i Giardinieri. Inizia dalla guida al mondo.",
+      "cta_lore": "Leggi il lore",
+      "cta_play": "Vai al gioco &rarr;"
+    }
+  },
+  "press": {
+    "meta": {
+      "title": "Press Kit · GoalWorld",
+      "description": "Loghi, key art, copertine e screenshot di GoalWorld e The Neural Wars — risorse del brand scaricabili, il mondo in un paragrafo e contatti stampa."
+    },
+    "hero": {
+      "eyebrow": "Press kit",
+      "title": "Racconta il mondo.",
+      "lead": "Loghi, key art, copertine e screenshot &mdash; tutto ciò che serve per scrivere di GoalWorld e The Neural Wars, in formati pronti per il web."
+    },
+    "boilerplate": {
+      "kicker": "Profilo ufficiale",
+      "title": "Il mondo in un paragrafo",
+      "quote": "&ldquo;GoalWorld &mdash; World of Achievements &mdash; è l'universo narrativo in cui una saga e uno stadio condividono lo stesso mondo: la serie di romanzi cyberpunk <em>The Neural Wars</em> e il suo adattamento cinematografico IA, insieme a GoalChain Play, un sandbox tattico di calcio su Solana Devnet. Costruito in pubblico dal creatore Nico Pez e da uno sciame di agenti IA.&rdquo;",
+      "li_brand": "<strong>Brand:</strong> GoalWorld &middot; World of Achievements",
+      "li_site": "<strong>Sito:</strong> https://goalworld.fun",
+      "li_app": "<strong>App:</strong> https://play.goalworld.fun",
+      "li_saga": "<strong>Saga:</strong> The Neural Wars &mdash; Libro 1: Fractured Code (firmato al G2, in preparazione al lancio; <a href=\"/it/book.html#sample\">estratto del Capitolo 1</a>) &middot; Libro 2: Earth's New Song (in produzione)",
+      "li_creator": "<strong>Creatore:</strong> Nico Pez &mdash; <a href=\"https://x.com/nicopez\">x.com/nicopez</a>",
+      "li_contact": "<strong>Contatto stampa:</strong> <a href=\"mailto:nico@goalworld.fun\">nico@goalworld.fun</a>",
+      "li_code": "<strong>Codice:</strong> <a href=\"https://github.com/TheNeuralWars/GoalChain\">github.com/TheNeuralWars/GoalChain</a>"
+    },
+    "downloads": {
+      "kicker": "Download",
+      "title": "Risorse del brand",
+      "zip_name": "Press kit completo (.zip)",
+      "zip_meta": "Loghi, key art, copertina &mdash; tutti i file qui sotto in un unico archivio",
+      "zip_btn": "Scarica zip",
+      "svg_name": "Pittogramma GoalWorld",
+      "svg_meta": "SVG &middot; vettoriale, scalabile ovunque",
+      "png_name": "Pittogramma GoalWorld",
+      "png_meta": "PNG &middot; 512&times;512, sfondo scuro",
+      "hero_name": "Hero art &mdash; Neo-Citania, Settore 4",
+      "hero_meta": "JPEG &middot; larghezza 1600px",
+      "sever_name": "Keyframe &mdash; La Recisione",
+      "sever_meta": "JPEG &middot; larghezza 1600px",
+      "cover_name": "Copertina del libro &mdash; Fractured Code",
+      "cover_meta": "JPEG &middot; larghezza 1200px",
+      "dl_btn": "Scarica"
+    },
+    "gallery": {
+      "kicker": "Schermate e fotogrammi",
+      "title": "Galleria",
+      "g1_alt": "Canyon urbano del Settore 4 di Neo-Citania — immagine d'ambientazione",
+      "g1_tag": "Immagine d'ambientazione &middot; Generato con IA",
+      "g1_title": "Neo-Citania &mdash; Canyon del Settore 4",
+      "g2_alt": "Keyframe: la Recisione, disconnessione neurale",
+      "g2_tag": "Keyframe &middot; Generato con IA",
+      "g2_title": "La Recisione",
+      "g3_alt": "Keyframe: Kora Vega in trance di risonanza",
+      "g3_tag": "Keyframe &middot; Generato con IA",
+      "g3_title": "Kora Vega, trance di risonanza",
+      "g4_alt": "Studio del personaggio: Mileo Chen",
+      "g4_tag": "Studio del personaggio &middot; Generato con IA",
+      "g4_title": "Mileo Chen",
+      "g5_alt": "Studio del personaggio: Comandante Sierra Catalano",
+      "g5_tag": "Studio del personaggio &middot; Generato con IA",
+      "g5_title": "Sierra Catalano",
+      "g6_alt": "Studio d'ambiente: il Monolite di Kuiper nello spazio profondo",
+      "g6_tag": "Studio d'ambiente &middot; Generato con IA",
+      "g6_title": "Monolite di Kuiper"
+    },
+    "usage": {
+      "kicker": "Utilizzo",
+      "title": "Come utilizzare queste risorse",
+      "body": "Puoi utilizzare queste risorse negli articoli e nei servizi dedicati a GoalWorld e The Neural Wars. Ti preghiamo di non alterare il marchio e di accompagnare le immagini con le relative didascalie. Credito consigliato: &ldquo;GoalWorld / The Neural Wars&rdquo;.",
+      "callout": "<strong>Contatto stampa:</strong> scrivi a <a href=\"mailto:nico@goalworld.fun\">nico@goalworld.fun</a> oppure contatta Nico Pez su X a <a href=\"https://x.com/nicopez\">x.com/nicopez</a> &mdash; i DM sono aperti."
+    }
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy · GoalWorld",
+      "description": "Cosa raccoglie goalworld.fun (nulla), come la demo Play gestisce i dati nel tuo browser e come contattarci. Informativa privacy in linguaggio semplice."
+    },
+    "toc_label": "In questa pagina",
+    "pill": "Note legali &middot; Linguaggio Chiaro",
+    "draft_notice": "<div class=\"callout\" role=\"note\" data-legal-draft-notice><strong>Traduzione preliminare (Draft translation — the English version prevails):</strong> Questa pagina è una traduzione di cortesia in italiano in attesa di revisione legale finale. In caso di discrepanza o interpretazione legale, prevale la <a href=\"/privacy.html\" lang=\"en\" hreflang=\"en\">versione originale in inglese</a>.</div>",
+    "title": "Privacy.",
+    "lead": "In breve: questo sito web non raccoglie dati personali. Ecco i dettagli.",
+    "s1_h2": "Il sito web (goalworld.fun)",
+    "s1_li1": "È un sito statico. Non ci sono account utente, né moduli che ci inviano dati, né database di utenti.",
+    "s1_li2": "Non impiega cookie di profilazione e non esegue script pubblicitari o di analisi di terze parti.",
+    "s1_li3": "Font e immagini vengono serviti direttamente da goalworld.fun, non da CDN di terze parti.",
+    "s1_li4": "Come qualsiasi server web, l'infrastruttura di hosting può conservare normali log tecnici (indirizzo IP, pagina richiesta, orario) per ragioni di sicurezza e affidabilità operativa.",
+    "s2_h2": "Il gioco (play.goalworld.fun)",
+    "s2_li1": "GoalChain Play è una demo che gira nel tuo browser. Lo stato di gioco &mdash; profilo, saldo simulato, pronostici e inventario &mdash; è salvato nel local storage del tuo dispositivo.",
+    "s2_li2": "Puoi connettere un wallet Phantom su Solana Devnet. La demo non esegue transazioni reali on-chain e non richiede trasferimenti di fondi reali.",
+    "s2_li3": "Non chiediamo mai &mdash; e non dovresti mai inviare a nessuno &mdash; chiavi private, seed phrase o password.",
+    "s3_h2": "Link di terze parti",
+    "s3_p": "Questo sito contiene link a X, GitHub e altri servizi esterni. Una volta lasciato goalworld.fun, si applicano le rispettive informative sulla privacy.",
+    "s4_h2": "Minori",
+    "s4_p": "GoalWorld è una saga di fantascienza e una demo calcistica senza acquisti né contenuti vietati ai minori. Se ritieni che un minore ci abbia inviato dati personali, contattaci e provvederemo a rimuoverli.",
+    "s5_h2": "Modifiche e contatti",
+    "s5_p": "Eventuali aggiornamenti a questa informativa verranno pubblicati su questa pagina. Per domande o richieste di cancellazione: contatta Nico Pez su X a <a href=\"https://x.com/nicopez\">x.com/nicopez</a>.",
+    "updated": "Ultimo aggiornamento: novembre 2026."
+  },
+  "terms": {
+    "meta": {
+      "title": "Termini · GoalWorld",
+      "description": "Termini di base per l'utilizzo di goalworld.fun e della demo GoalChain Play: cosa aspettarsi da noi, cosa ci aspettiamo da te e i limiti onesti di una demo."
+    },
+    "toc_label": "In questa pagina",
+    "pill": "Note legali &middot; Linguaggio Chiaro",
+    "draft_notice": "<div class=\"callout\" role=\"note\" data-legal-draft-notice><strong>Traduzione preliminare (Draft translation — the English version prevails):</strong> Questa pagina è una traduzione di cortesia in italiano in attesa di revisione legale finale. In caso di discrepanza o interpretazione legale, prevale la <a href=\"/terms.html\" lang=\"en\" hreflang=\"en\">versione originale in inglese</a>.</div>",
+    "title": "Termini.",
+    "lead": "Termini brevi e trasparenti per l'uso di questo sito e della demo di gioco.",
+    "s1_h2": "1. Cosa coprono questi termini",
+    "s1_p": "Questi termini si applicano al sito web GoalWorld (goalworld.fun) e alla demo GoalChain Play (play.goalworld.fun). Utilizzandoli, accetti i presenti termini.",
+    "s2_h2": "2. La demo è una demo",
+    "s2_li1": "GoalChain Play gira su Solana Devnet in modalità simulazione. Non esegue transazioni reali on-chain e non comporta l'uso di denaro reale.",
+    "s2_li2": "Qualsiasi token o punteggio mostrato nella demo (incluso il saldo simulato $GCH nell'app) è un valore di simulazione privo di valore di mercato. Non può essere acquistato, venduto, convertito o prelevato.",
+    "s2_li3": "Nulla su questo sito costituisce consulenza finanziaria, d'investimento o di scommessa, né viene effettuata alcuna offerta di strumenti finanziari, token o gioco con denaro reale.",
+    "s3_h2": "3. La saga, l'arte, il codice",
+    "s3_li1": "Il nome GoalWorld, il marchio, i testi della saga e le illustrazioni appartengono al loro creatore e sono protetti dal diritto d'autore. I libri e i materiali video sono condivisi per la lettura e la visione &mdash; non per la rivendita o la ripubblicazione a proprio nome.",
+    "s3_li2": "Le risorse per la stampa possono essere utilizzate per articoli e coperture editoriali come descritto nella pagina <a href=\"/it/press.html\">press kit</a>.",
+    "s3_li3": "Il codice presente nel <a href=\"https://github.com/TheNeuralWars/GoalChain\">repository GitHub pubblico</a> è rilasciato secondo la licenza indicata nel repository stesso.",
+    "s4_h2": "4. Uso consentito",
+    "s4_p": "Non tentare di compromettere il sito, sovraccaricarlo, estrarne i contenuti per rivenderli o utilizzarlo per scopi illeciti. Non impersonare GoalWorld o il suo creatore.",
+    "s5_h2": "5. Esclusione di garanzie",
+    "s5_p": "Il sito e la demo sono forniti &ldquo;così come sono&rdquo;, per il gioco, la lettura e la curiosità. Li manteniamo attivi con cura ma non forniamo garanzie circa la disponibilità continua o l'idoneità a uno scopo specifico. Nei limiti consentiti dalla legge, non siamo responsabili per eventuali danni derivanti dall'uso del sito o della demo.",
+    "s6_h2": "6. Modifiche e contatti",
+    "s6_p": "Potremmo aggiornare questi termini; la versione in vigore è sempre pubblicata su questa pagina. Per domande: contatta Nico Pez su X a <a href=\"https://x.com/nicopez\">x.com/nicopez</a>.",
+    "updated": "Ultimo aggiornamento: novembre 2026."
+  },
+  "notfound": {
+    "meta": {
+      "title": "Perso nel Link · GoalWorld",
+      "description": "Questa pagina è scivolata fuori dall'ottimizzazione. Ritrova la strada verso GoalWorld — World of Achievements."
+    },
+    "title": "Perso nel Link.",
+    "lead": "Questa pagina è scivolata fuori dall'ottimizzazione. L'Architetto non ne ha traccia &mdash; ma il mondo è ancora qui.",
+    "cta_home": "Torna a GoalWorld",
+    "cta_read": "Leggi Fractured Code",
+    "cta_play": "Gioca a GoalChain",
+    "sr_title": "Navigazione Rapida",
+    "c1_badge": "Leggi",
+    "c1_title": "Fractured Code",
+    "c1_body": "Libro 1 di The Neural Wars, estratto gratuito del Capitolo 1.",
+    "c2_badge": "Gioca",
+    "c2_title": "GoalChain Play",
+    "c2_body": "Demo tattica Matchday su Solana Devnet.",
+    "c3_badge": "Live",
+    "c3_title": "Bacheca live",
+    "c3_body": "Cosa sta rilasciando lo studio in questo momento.",
+    "search_label": "Cerchi qualcosa?",
+    "search_placeholder": "lore, faq, press, roadmap&hellip;",
+    "search_btn": "Vai"
+  }
+}

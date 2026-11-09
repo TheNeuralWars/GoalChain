@@ -1,72 +1,72 @@
-<!-- meta {"slug":"cinema","title":"AI Cinema · The Neural Wars","description":"Fractured Code on screen: AI-generated film drafts cut from the book against a locked visual canon. Directed by Nico Pez, labelled as AI every time.","nav":"CINEMA","preload":"<link rel=\"preload\" as=\"image\" href=\"/assets/img/poster-trailer.webp\" fetchpriority=\"high\" />"} -->
+<!-- meta {"slug":"cinema","title":"$t:cinema.meta.title","description":"$t:cinema.meta.description","nav":"CINEMA","preload":"<link rel=\"preload\" as=\"image\" href=\"/assets/img/poster-trailer.webp\" fetchpriority=\"high\" />"} -->
 <!-- @component hero {
   "variant": "compact",
   "kicker": true,
-  "eyebrow": "AI cinema",
-  "title": "The book, on screen.",
-  "lead": "Every shot starts as a line in the novel. The faces, places and colours are locked before a single frame is generated. These are drafts &mdash; made with AI, directed by a human, labelled every time."
+  "eyebrow": "$t:cinema.hero.eyebrow",
+  "title": "$t:cinema.hero.title",
+  "lead": "$t:cinema.hero.lead"
 } -->
 
 <section class="section-tight" aria-labelledby="screenings-heading">
   <div class="wrap">
-    <!-- @component section-header { "srOnly": true, "title": "Trailer and Film-Draft Clips" } -->
+    <!-- @component section-header { "srOnly": true, "title": "$t:cinema.screenings.sr_title" } -->
     <div class="grid grid-2" id="screenings-heading">
       <!-- @component media-card {
         "kind": "video",
         "poster": "/assets/img/poster-trailer.webp",
-        "ariaLabel": "The Neural Wars cinematic trailer",
+        "ariaLabel": "$t:cinema.screenings.trailer_aria",
         "sources": ["https://goalworld.fun/assets/img/neuralwars/The_Neural_Wars_Official_Cinematic_Trailer_2026.mp4"],
-        "aiTag": "Trailer &middot; AI-generated",
-        "title": "The Neural Wars &mdash; Cinematic Trailer"
+        "aiTag": "$t:cinema.screenings.trailer_tag",
+        "title": "$t:cinema.screenings.trailer_title"
       } -->
       <!-- @component media-card {
         "kind": "video",
         "poster": "/assets/img/poster-mileo.webp",
-        "ariaLabel": "Clip: Mileo Chen quantum console",
+        "ariaLabel": "$t:cinema.screenings.clip03_aria",
         "sources": ["https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_03_Mileo_Chen_Quantum_Console_Discovery.mp4"],
-        "aiTag": "Film draft &middot; Clip 03 &middot; AI-generated",
-        "title": "Mileo Chen &mdash; Quantum Console Discovery"
+        "aiTag": "$t:cinema.screenings.clip03_tag",
+        "title": "$t:cinema.screenings.clip03_title"
       } -->
       <!-- @component media-card {
         "kind": "video",
         "poster": "/assets/img/poster-kora.webp",
-        "ariaLabel": "Clip: Kora Vega harmonic rings",
+        "ariaLabel": "$t:cinema.screenings.clip08_aria",
         "sources": [
           "https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_08_Kora_Vega_Harmonic_Rings.mp4",
           "https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_08_Kora_Vega_432Hz_Harmonic_Rings.mp4"
         ],
-        "aiTag": "Film draft &middot; Clip 08 &middot; AI-generated",
-        "title": "Kora Vega &mdash; Harmonic Rings"
+        "aiTag": "$t:cinema.screenings.clip08_tag",
+        "title": "$t:cinema.screenings.clip08_title"
       } -->
       <!-- @component media-card {
         "kind": "video",
         "poster": "/assets/img/poster-dawn.webp",
-        "ariaLabel": "Clip: Earth dawn",
+        "ariaLabel": "$t:cinema.screenings.clip11_aria",
         "sources": ["https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_11_Earth_Dawn_Orbital_Awakening.mp4"],
-        "aiTag": "Film draft &middot; Clip 11 &middot; AI-generated",
-        "title": "Earth Dawn &mdash; Orbital Awakening"
+        "aiTag": "$t:cinema.screenings.clip11_tag",
+        "title": "$t:cinema.screenings.clip11_title"
       } -->
     </div>
-    <p class="small muted" style="margin-top:1rem">Full draft conform (~6.8 min) and new scenes post here as they clear review.</p>
+    <p class="small muted" style="margin-top:1rem">{{t:cinema.screenings.note}}</p>
   </div>
 </section>
 
 <section class="section band">
   <div class="wrap">
     <!-- @component section-header {
-      "kicker": "How we make it",
-      "title": "Canon in. Cinema out."
+      "kicker": "$t:cinema.pipeline.kicker",
+      "title": "$t:cinema.pipeline.title"
     } -->
     <!-- @component timeline {
       "columns": 3,
       "numbered": true,
       "items": [
-        { "title": "Lock the canon", "body": "Character lock sheets, a colour bible and a list of every place. Scars, wrists and eyes don't move." },
-        { "title": "Book to shots", "body": "Each scene is broken into shots traced back to a line of the novel. One camera, one action per shot." },
-        { "title": "Generate", "body": "An approved still first, then image-to-video. Agents on our server run the queue." },
-        { "title": "Check", "body": "A continuity guard compares faces to the locks and flags drift. Failing shots get regenerated." },
-        { "title": "Cut &amp; score", "body": "A human edit, AI voices and music, subtitles. Every tool disclosed." },
-        { "title": "Gate", "body": "Nothing goes public until the director says so. AI is the crew, not the author." }
+        { "title": "$t:cinema.pipeline.s1_title", "body": "$t:cinema.pipeline.s1_body" },
+        { "title": "$t:cinema.pipeline.s2_title", "body": "$t:cinema.pipeline.s2_body" },
+        { "title": "$t:cinema.pipeline.s3_title", "body": "$t:cinema.pipeline.s3_body" },
+        { "title": "$t:cinema.pipeline.s4_title", "body": "$t:cinema.pipeline.s4_body" },
+        { "title": "$t:cinema.pipeline.s5_title", "body": "$t:cinema.pipeline.s5_body" },
+        { "title": "$t:cinema.pipeline.s6_title", "body": "$t:cinema.pipeline.s6_body" }
       ]
     } -->
   </div>
@@ -75,15 +75,15 @@
 <section class="section">
   <div class="wrap" style="text-align:center">
     <!-- @component section-header {
-      "title": "Festivals first.",
-      "lead": "Our new short film is under festival holdback until mid-January and can't be named or shown yet. Follow @nicopez on X for premiere updates.",
+      "title": "$t:cinema.festivals.title",
+      "lead": "$t:cinema.festivals.lead",
       "align": "center"
     } -->
     <!-- @component cta-set {
       "align": "center",
       "items": [
-        { "label": "Follow @nicopez on X for updates", "href": "https://x.com/nicopez", "variant": "primary" },
-        { "label": "Read the source", "href": "/book.html", "variant": "ghost" }
+        { "label": "$t:cinema.festivals.cta_follow", "href": "https://x.com/nicopez", "variant": "primary" },
+        { "label": "$t:cinema.festivals.cta_book", "href": "/book.html", "variant": "ghost" }
       ]
     } -->
   </div>
