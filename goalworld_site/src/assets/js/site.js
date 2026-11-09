@@ -81,6 +81,7 @@ var GW_RUNTIME_I18N = {
     },
     expandAll: "Expand all",
     collapseAll: "Collapse all",
+    copied: "Copied \u2713",
     nfNoMatch: "No match — try lore, faq, press, roadmap, live, read or play.",
     dateLocale: "en-GB",
   },
@@ -104,6 +105,7 @@ var GW_RUNTIME_I18N = {
     },
     expandAll: "Expandir todo",
     collapseAll: "Contraer todo",
+    copied: "Copiado \u2713",
     nfNoMatch: "Sin coincidencias — probá con lore, faq, prensa, ruta, vivo, leer o jugar.",
     dateLocale: "es-AR",
   },
@@ -127,6 +129,7 @@ var GW_RUNTIME_I18N = {
     },
     expandAll: "Espandi tutto",
     collapseAll: "Comprimi tutto",
+    copied: "Copiato \u2713",
     nfNoMatch: "Nessun risultato — prova con lore, faq, press, roadmap, live, leggi o gioca.",
     dateLocale: "it-IT",
   },
@@ -296,13 +299,16 @@ var GW_RUNTIME_I18N = {
   var nf = document.querySelector("[data-nf-search]");
   if (nf) {
     var MAP = [
-      ["lore|about|story|character|neo|book|studio|historia|storia|personajes|personaggi|universo", prefix + "/about.html"],
+      ["lore|about|story|character|neo|timeline|cast|historia|storia|personajes|personaggi|universo|cronologia", prefix + "/about.html"],
+      ["cinema|film|trailer|video|clip|keyframe|pelicula|cine|galleria", prefix + "/cinema.html"],
+      ["studio|author|canonguard|gate|cohort|ai|disclosure|autor|autore|estudio", prefix + "/studio.html"],
+      ["collect|provenance|devnet|sandbox|coleccion|collezionismo|procedencia", prefix + "/collect.html"],
       ["faq|question|help|wallet|token|preguntas|domande|ayuda|aiuto|billetera", prefix + "/faq.html"],
-      ["press|logo|kit|media|asset|prensa|stampa", prefix + "/press.html"],
+      ["press|logo|kit|media|asset|boilerplate|prensa|stampa", prefix + "/press.html"],
       ["roadmap|plan|next|hoja|ruta|piano", prefix + "/roadmap.html"],
-      ["live|hackathon|status|project|vivo|estado|stato|proyecto|progetto", prefix + "/live.html"],
-      ["read|reader|fractured|leer|leggi|libro", prefix + "/book.html#sample"],
-      ["play|game|match|goalchain|jugar|gioca|juego|gioco", "https://play.goalworld.fun/"],
+      ["live|hackathon|status|project|feed|atom|vivo|estado|stato|proyecto|progetto", prefix + "/live.html"],
+      ["read|reader|fractured|book|chapter|sample|lexicon|leer|leggi|libro|capitulo", prefix + "/book.html#sample"],
+      ["play|game|match|goalchain|estadio|club|jugar|gioca|juego|gioco", "https://play.goalworld.fun/"],
       ["privacy|data|cookie|privacidad|datos|dati", prefix + "/privacy.html"],
       ["terms|legal|terminos|términos|termini|legale", prefix + "/terms.html"]
     ];
@@ -311,6 +317,39 @@ var GW_RUNTIME_I18N = {
       var v = nf.querySelector("input").value.toLowerCase();
       for (var i = 0; i < MAP.length; i++) if (new RegExp(MAP[i][0]).test(v)) { location.href = MAP[i][1]; return; }
       nf.querySelector("[data-nf-hint]").textContent = L.nfNoMatch;
+    });
+  }
+
+  // Cinema Visual Canon & Keyframe Archive filter chips (A-029)
+  var cBar = document.querySelector("[data-cinema-filters]");
+  var cGrid = document.querySelector("[data-cinema-gallery]");
+  if (cBar && cGrid) {
+    var cBtns = [].slice.call(cBar.querySelectorAll("[data-cinema-cat]"));
+    var cItems = [].slice.call(cGrid.querySelectorAll("[data-cat]"));
+    cBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var cat = btn.getAttribute("data-cinema-cat") || "";
+        press(cBtns, btn);
+        cItems.forEach(function (item) {
+          item.hidden = Boolean(cat && item.getAttribute("data-cat") !== cat);
+        });
+      });
+    });
+  }
+
+  // Press Kit one-click boilerplate copy button
+  var copyBtn = document.querySelector("[data-copy-boilerplate]");
+  var copySrc = document.querySelector("[data-boilerplate-text]");
+  if (copyBtn && copySrc && navigator.clipboard) {
+    var origLabel = copyBtn.textContent;
+    copyBtn.addEventListener("click", function () {
+      var text = (copySrc.textContent || "").trim();
+      navigator.clipboard.writeText(text).then(function () {
+        copyBtn.textContent = L.copied || "Copied \u2713";
+        setTimeout(function () {
+          copyBtn.textContent = origLabel;
+        }, 2000);
+      }).catch(function () {});
     });
   }
 

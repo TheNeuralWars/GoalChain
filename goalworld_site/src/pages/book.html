@@ -12,6 +12,7 @@
         <!-- @component cta-set {
           "items": [
             { "label": "$t:book.hero.cta_read", "href": "#sample", "variant": "primary" },
+            { "label": "$t:book.hero.cta_dossier", "href": "#dossier", "variant": "secondary" },
             { "label": "$t:book.hero.cta_follow", "href": "https://x.com/nicopez", "variant": "ghost" }
           ]
         } -->
@@ -32,6 +33,42 @@
         "caption": "$t:book.hero.cover_caption"
       } -->
     </div>
+  </div>
+</section>
+
+<section class="section-tight" id="dossier">
+  <div class="wrap">
+    <!-- @component section-header {
+      "kicker": "$t:book.dossier.kicker",
+      "title": "$t:book.dossier.title",
+      "lead": "$t:book.dossier.lead"
+    } -->
+    <!-- @component timeline {
+      "columns": 4,
+      "numbered": false,
+      "items": [
+        {
+          "label": "$t:book.dossier.c1_label",
+          "title": "$t:book.dossier.c1_title",
+          "body": "$t:book.dossier.c1_body"
+        },
+        {
+          "label": "$t:book.dossier.c2_label",
+          "title": "$t:book.dossier.c2_title",
+          "body": "$t:book.dossier.c2_body"
+        },
+        {
+          "label": "$t:book.dossier.c3_label",
+          "title": "$t:book.dossier.c3_title",
+          "body": "$t:book.dossier.c3_body"
+        },
+        {
+          "label": "$t:book.dossier.c4_label",
+          "title": "$t:book.dossier.c4_title",
+          "body": "$t:book.dossier.c4_body"
+        }
+      ]
+    } -->
   </div>
 </section>
 
@@ -77,7 +114,96 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="architecture">
+  <div class="wrap">
+    <!-- @component section-header {
+      "kicker": "$t:book.acts.kicker",
+      "title": "$t:book.acts.title",
+      "lead": "$t:book.acts.lead"
+    } -->
+    <!-- @component timeline {
+      "columns": 3,
+      "numbered": true,
+      "items": [
+        { "title": "$t:book.acts.a1_title", "body": "$t:book.acts.a1_body" },
+        { "title": "$t:book.acts.a2_title", "body": "$t:book.acts.a2_body" },
+        { "title": "$t:book.acts.a3_title", "body": "$t:book.acts.a3_body" }
+      ]
+    } -->
+  </div>
+</section>
+
+<section class="section band" id="lexicon">
+  <div class="wrap" style="max-width:54rem">
+    <!-- @component section-header {
+      "kicker": "$t:book.lexicon.kicker",
+      "title": "$t:book.lexicon.title",
+      "lead": "$t:book.lexicon.lead"
+    } -->
+    <!-- @component faq-accordion {
+      "searchable": false,
+      "style": "margin-top:1.5rem",
+      "items": [
+        { "open": true, "q": "$t:book.lexicon.q1", "a": "$t:book.lexicon.a1" },
+        { "q": "$t:book.lexicon.q2", "a": "$t:book.lexicon.a2" },
+        { "q": "$t:book.lexicon.q3", "a": "$t:book.lexicon.a3" },
+        { "q": "$t:book.lexicon.q4", "a": "$t:book.lexicon.a4" },
+        { "q": "$t:book.lexicon.q5", "a": "$t:book.lexicon.a5" },
+        { "q": "$t:book.lexicon.q6", "a": "$t:book.lexicon.a6" }
+      ]
+    } -->
+  </div>
+</section>
+
+<section class="section" id="cast-preview">
+  <div class="wrap">
+    <!-- @component section-header {
+      "kicker": "$t:book.cast.kicker",
+      "title": "$t:book.cast.title",
+      "lead": "$t:book.cast.lead"
+    } -->
+    <!-- @component timeline {
+      "columns": 4,
+      "numbered": false,
+      "items": [
+        {
+          "badge": "$t:book.cast.c1_badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:book.cast.c1_title",
+          "body": "$t:book.cast.c1_body",
+          "cta": "$t:book.cast.cta_profile",
+          "ctaHref": "/about.html#characters"
+        },
+        {
+          "badge": "$t:book.cast.c2_badge",
+          "badgeColor": "var(--cyan)",
+          "title": "$t:book.cast.c2_title",
+          "body": "$t:book.cast.c2_body",
+          "cta": "$t:book.cast.cta_profile",
+          "ctaHref": "/about.html#characters"
+        },
+        {
+          "badge": "$t:book.cast.c3_badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:book.cast.c3_title",
+          "body": "$t:book.cast.c3_body",
+          "cta": "$t:book.cast.cta_profile",
+          "ctaHref": "/about.html#characters"
+        },
+        {
+          "badge": "$t:book.cast.c4_badge",
+          "badgeColor": "var(--purple-text)",
+          "title": "$t:book.cast.c4_title",
+          "body": "$t:book.cast.c4_body",
+          "cta": "$t:book.cast.cta_profile",
+          "ctaHref": "/about.html#characters"
+        }
+      ]
+    } -->
+  </div>
+</section>
+
+<section class="section band" id="saga">
   <div class="wrap">
     <!-- @component section-header {
       "kicker": "$t:book.saga.kicker",
@@ -106,6 +232,7 @@
         }
       ]
     } -->
+    <p class="small muted" style="margin-top:1.25rem">{{t:book.saga.arc_note}}</p>
     <!-- @component cta-set {
       "style": "margin-top:1.5rem",
       "items": [

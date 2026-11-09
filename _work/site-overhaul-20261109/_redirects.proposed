@@ -1,0 +1,62 @@
+# PROPOSED ONLY — DO NOT APPLY WITHOUT NICO / HERMES CEO APPROVAL.
+# Cloudflare Pages / Netlify `_redirects` equivalent for goalworld.fun legacy routes.
+
+/goalworld.html /book.html 301
+/goalworld /book.html 301
+/reader.html /book.html#sample 301
+/reader /book.html#sample 301
+/go/reader /book.html#sample 301
+/go/reader/ /book.html#sample 301
+/go/reader/index.html /book.html#sample 301
+/go/goalworld /book.html 301
+/go/goalworld/ /book.html 301
+
+/goalchain.html /collect.html 301
+/goalchain /collect.html 301
+/protocol.html /collect.html 301
+/protocol /collect.html 301
+/tokenomics.html /collect.html 301
+/tokenomics /collect.html 301
+/pre-nft.html /collect.html 301
+/pre-nft /collect.html 301
+/go/defi /collect.html 301
+/go/defi/ /collect.html 301
+
+/mega-guide.html /faq.html 301
+/mega-guide /faq.html 301
+/mega-guide-v1.html /faq.html 301
+/mega-guide-v1 /faq.html 301
+
+/pitch.html /press.html 301
+/pitch /press.html 301
+
+/colabs.html /studio.html 301
+/colabs /studio.html 301
+/agents.html /studio.html 301
+/agents /studio.html 301
+/go/studio /studio.html 301
+/go/studio/ /studio.html 301
+
+/legal.html /terms.html 301
+/legal /terms.html 301
+
+/ceo.html /about.html 301
+/ceo /about.html 301
+/architecture/archify/goalchain.architecture.html /about.html 301
+/map.html /roadmap.html 301
+/map /roadmap.html 301
+
+/app.html https://play.goalworld.fun/dashboard 301
+/arcade.html https://play.goalworld.fun/estadio 301
+/play https://play.goalworld.fun/ 301
+/play/ https://play.goalworld.fun/ 301
+/play/index.html https://play.goalworld.fun/ 301
+/play/pack.html https://play.goalworld.fun/estadio 301
+/play/penalty.html https://play.goalworld.fun/estadio 301
+/go https://play.goalworld.fun/ 301
+/go/ https://play.goalworld.fun/ 301
+/go/index.html https://play.goalworld.fun/ 301
+/go/club https://play.goalworld.fun/club 301
+/go/club/ https://play.goalworld.fun/club 301
+/go/estadio https://play.goalworld.fun/estadio 301
+/go/estadio/ https://play.goalworld.fun/estadio 301

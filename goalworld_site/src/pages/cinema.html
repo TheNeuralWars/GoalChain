@@ -51,6 +51,102 @@
   </div>
 </section>
 
+<section class="section" id="archive">
+  <div class="wrap">
+    <!-- @component section-header {
+      "kicker": "$t:cinema.archive.kicker",
+      "title": "$t:cinema.archive.title",
+      "lead": "$t:cinema.archive.lead"
+    } -->
+    <div class="filter-bar" data-cinema-filters role="toolbar" aria-label="{{t:cinema.archive.filter_aria}}">
+      <span class="eyebrow">{{t:cinema.archive.filter_label}}</span>
+      <button class="chip" type="button" aria-pressed="true" data-cinema-cat="">{{t:cinema.archive.filter_all}}</button>
+      <button class="chip" type="button" aria-pressed="false" data-cinema-cat="keyframe">{{t:cinema.archive.filter_keyframes}}</button>
+      <button class="chip" type="button" aria-pressed="false" data-cinema-cat="character">{{t:cinema.archive.filter_characters}}</button>
+      <button class="chip" type="button" aria-pressed="false" data-cinema-cat="location">{{t:cinema.archive.filter_locations}}</button>
+    </div>
+    <div class="grid grid-3" data-cinema-gallery style="margin-top:1.5rem">
+      <!-- @component media-card {
+        "kind": "image",
+        "cat": "keyframe",
+        "src": "/assets/img/keyframe-console.webp",
+        "srcset": "/assets/img/keyframe-console-640.webp 640w, /assets/img/keyframe-console.webp 1200w",
+        "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+        "alt": "$t:cinema.archive.k1_alt",
+        "width": 1200,
+        "height": 750,
+        "aiTag": "$t:cinema.archive.k1_tag",
+        "title": "$t:cinema.archive.k1_title",
+        "caption": "$t:cinema.archive.k1_caption"
+      } -->
+      <!-- @component media-card {
+        "kind": "image",
+        "cat": "keyframe",
+        "src": "/assets/img/keyframe-skybridge.webp",
+        "srcset": "/assets/img/keyframe-skybridge-640.webp 640w, /assets/img/keyframe-skybridge.webp 1200w",
+        "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+        "alt": "$t:cinema.archive.k2_alt",
+        "width": 1200,
+        "height": 750,
+        "aiTag": "$t:cinema.archive.k2_tag",
+        "title": "$t:cinema.archive.k2_title",
+        "caption": "$t:cinema.archive.k2_caption"
+      } -->
+      <!-- @component media-card {
+        "kind": "image",
+        "cat": "keyframe",
+        "src": "/assets/img/keyframe-severing.webp",
+        "srcset": "/assets/img/keyframe-severing-640.webp 640w, /assets/img/keyframe-severing.webp 1200w",
+        "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+        "alt": "$t:cinema.archive.k3_alt",
+        "width": 1200,
+        "height": 750,
+        "aiTag": "$t:cinema.archive.k3_tag",
+        "title": "$t:cinema.archive.k3_title",
+        "caption": "$t:cinema.archive.k3_caption"
+      } -->
+      <!-- @component media-card {
+        "kind": "image",
+        "cat": "character",
+        "src": "/assets/img/keyframe-kora-trance.webp",
+        "srcset": "/assets/img/keyframe-kora-trance-640.webp 640w, /assets/img/keyframe-kora-trance.webp 1200w",
+        "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+        "alt": "$t:cinema.archive.k4_alt",
+        "width": 1200,
+        "height": 750,
+        "aiTag": "$t:cinema.archive.k4_tag",
+        "title": "$t:cinema.archive.k4_title",
+        "caption": "$t:cinema.archive.k4_caption"
+      } -->
+      <!-- @component media-card {
+        "kind": "image",
+        "cat": "character",
+        "src": "/assets/img/poster-sierra.webp",
+        "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+        "alt": "$t:cinema.archive.k5_alt",
+        "width": 960,
+        "height": 540,
+        "aiTag": "$t:cinema.archive.k5_tag",
+        "title": "$t:cinema.archive.k5_title",
+        "caption": "$t:cinema.archive.k5_caption"
+      } -->
+      <!-- @component media-card {
+        "kind": "image",
+        "cat": "location",
+        "src": "/assets/img/loc-earth-dawn.webp",
+        "srcset": "/assets/img/loc-earth-dawn-640.webp 640w, /assets/img/loc-earth-dawn.webp 1200w",
+        "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+        "alt": "$t:cinema.archive.k6_alt",
+        "width": 1200,
+        "height": 750,
+        "aiTag": "$t:cinema.archive.k6_tag",
+        "title": "$t:cinema.archive.k6_title",
+        "caption": "$t:cinema.archive.k6_caption"
+      } -->
+    </div>
+  </div>
+</section>
+
 <section class="section band">
   <div class="wrap">
     <!-- @component section-header {

@@ -281,73 +281,73 @@
     },
     {
       "id": "A-028",
-      "phase": 3,
+      "phase": 4,
       "priority": "P2",
       "title": "Expand goalworld.fun/book.html with Manuscript Dossier, Three-Act Architecture, Canon Lexicon, and Cast Dossier cards",
-      "evidence": "goalworld_site/src/pages/book.html:1-60; screenshots/gw-book-1440x900.jpg",
+      "evidence": "goalworld_site/src/pages/book.html; goalworld_site/src/i18n/{en,es,it}.json; goalworld_site/build.mjs (Book JSON-LD)",
       "fix": "Expand book.html with a structured Book 1 Dossier (2148, Neo-Citania, 16 chapters + epilogue, ~74k words, G2 signed), 3-Act narrative breakdown, interactive Canon Lexicon (The Link, Pattern Suppression 17-A, Serpent's Coil, Yggdrasil Network), and character cards.",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-029",
-      "phase": 3,
+      "phase": 4,
       "priority": "P2",
       "title": "Expand goalworld.fun/cinema.html with a filterable Visual Canon & Keyframe Gallery using unused WebP stills in src/assets/img/",
-      "evidence": "goalworld_site/src/pages/cinema.html:1-63; repo_static_audit.json:2526-2549 (keyframe-console.webp, keyframe-skybridge.webp, loc-earth-dawn.webp unused)",
+      "evidence": "goalworld_site/src/pages/cinema.html; goalworld_site/src/assets/js/site.js ([data-cinema-filters]); goalworld_site/build.mjs (VideoObject JSON-LD)",
       "fix": "Add a filterable Visual Canon & Keyframe Archive section (All, Keyframes, Characters, Locations) to cinema.html with chapter provenance captions and AI-generated / Human-directed tags, wired to filter chips in site.js.",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-030",
-      "phase": 3,
+      "phase": 4,
       "priority": "P2",
       "title": "Expand goalworld.fun/studio.html with G0-G3 Editorial Gate table, CanonGuard Continuity Repair walkthrough, and live sub-site demo cards",
-      "evidence": "goalworld_site/src/pages/studio.html:1-62; screenshots/gw-studio-1440x900.jpg",
+      "evidence": "goalworld_site/src/pages/studio.html (#gates, #living-canon, #demos, #ai-disclosure); goalworld_site/src/i18n/{en,es,it}.json",
       "fix": "Add the G0-G3 editorial gate breakdown, a concrete before/after CanonGuard continuity repair example, and live demo cards linking to /blast-radius/ and /hermes-demo/ on studio.html.",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-031",
-      "phase": 3,
+      "phase": 4,
       "priority": "P2",
       "title": "Expand goalworld.fun/faq.html with 5 new Q&As (AI disclosure, Studio for authors, Book 1 release status, Collector provenance, EN/ES/IT support)",
-      "evidence": "goalworld_site/src/pages/faq.html:15-106; _work/site-overhaul-20261109/context/sitemap.md:20",
+      "evidence": "goalworld_site/src/pages/faq.html (q11..q15); goalworld_site/src/i18n/{en,es,it}.json; goalworld_site/build.mjs (FAQPage JSON-LD)",
       "fix": "Add 5 new <details class=\"faq-item\"> entries to faq.html and verify build.mjs generates matching FAQPage JSON-LD.",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-032",
-      "phase": 3,
+      "phase": 4,
       "priority": "P2",
       "title": "Generate Atom (feed.xml) and JSON Feed (feed.json) from live-feed.json in build.mjs and link on live.html",
-      "evidence": "goalworld_site/build.mjs:171-189; goalworld_site/src/pages/live.html:1-17; goalworld_site/src/layout.html:31-33",
+      "evidence": "goalworld_site/build.mjs (buildFeeds -> dist/feed.xml, dist/feed.json); goalworld_site/src/pages/live.html; goalworld_site/src/layout.html; goalworld_site/tools/check_links.py",
       "fix": "Extend build.mjs to generate dist/feed.xml and dist/feed.json from src/data/live-feed.json, add <link rel=\"alternate\"> feed discovery tags in layout.html, and add feed buttons on live.html.",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-033",
-      "phase": 3,
+      "phase": 4,
       "priority": "P2",
       "title": "Expand goalworld.fun/collect.html with a Provenance Architecture & Hard Guardrails comparison matrix",
-      "evidence": "goalworld_site/src/pages/collect.html:1-29",
+      "evidence": "goalworld_site/src/pages/collect.html (#guardrails, #matchday-lab); goalworld_site/src/i18n/{en,es,it}.json",
       "fix": "Add a structured Provenance & Guardrails comparison section to collect.html detailing what is live today on Devnet, how content credentials work, and what GoalWorld explicitly refuses to do (no presales, no yield, no speculation).",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-034",
-      "phase": 3,
+      "phase": 4,
       "priority": "P2",
       "title": "Align in-app AuthorStudio.tsx (/studio) and PressKit.tsx (/presskit) on play.goalworld.fun with canonical studio and press pages",
       "evidence": "goalchain_webapp/src/ui/AuthorStudio.tsx:1-314; goalchain_webapp/src/ui/PressKit.tsx:1-392",
       "fix": "Update AuthorStudio.tsx and PressKit.tsx to reflect canonical v7 lore seeds (Neo-Citania, Kora Vega, 528 Hz), honest studio pipeline steps, and canonical press kit links.",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-039",
@@ -461,13 +461,13 @@
     },
     {
       "id": "A-035",
-      "phase": 3,
+      "phase": 4,
       "priority": "P3",
       "title": "Document canonical/OG header snippets for /blast-radius/ and /hermes-demo/ sub-sites and link from studio.html",
-      "evidence": "evidence/audit/live_crawl.log:34-35,97; evidence/audit/live_crawl.json",
+      "evidence": "_work/site-overhaul-20261109/CADDY_REDIRECTS.proposed.caddyfile; _work/site-overhaul-20261109/VERCEL_REDIRECTS.proposed.json; _work/site-overhaul-20261109/_redirects.proposed; goalworld_site/src/pages/studio.html (#demos)",
       "fix": "Append recommended Caddy header / meta notes for /blast-radius/ and /hermes-demo/ in proposed_caddy_redirects.Caddyfile and link both demos from studio.html.",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-042",

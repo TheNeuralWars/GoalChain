@@ -322,10 +322,11 @@ function renderMediaCard(props, locale = "en") {
   const cls = ["video-card"];
   if (props.reveal) cls.push("reveal");
   if (props.className) cls.push(props.className);
+  const catAttr = props.cat ? ` data-cat="${escAttr(props.cat)}"` : "";
 
   if (kind === "image") {
     const style = props.imgStyle ? ` style="${escAttr(props.imgStyle)}"` : "";
-    return `<figure class="${cls.join(" ")}" style="margin:0"><img src="${escAttr(props.src)}" alt="${escAttr(props.alt || title)}" width="${escAttr(props.width || 1200)}" height="${escAttr(props.height || 750)}" loading="${escAttr(props.loading || "lazy")}"${props.srcset ? ` srcset="${escAttr(props.srcset)}"` : ""}${props.sizes ? ` sizes="${escAttr(props.sizes)}"` : ""}${style} /><figcaption><span class="video-tag">${aiTag}</span><strong>${title}</strong>${caption}</figcaption></figure>`;
+    return `<figure class="${cls.join(" ")}"${catAttr} style="margin:0"><img src="${escAttr(props.src)}" alt="${escAttr(props.alt || title)}" width="${escAttr(props.width || 1200)}" height="${escAttr(props.height || 750)}" loading="${escAttr(props.loading || "lazy")}"${props.srcset ? ` srcset="${escAttr(props.srcset)}"` : ""}${props.sizes ? ` sizes="${escAttr(props.sizes)}"` : ""}${style} /><figcaption><span class="video-tag">${aiTag}</span><strong>${title}</strong>${caption}</figcaption></figure>`;
   }
 
   const sources = Array.isArray(props.sources)
@@ -338,7 +339,7 @@ function renderMediaCard(props, locale = "en") {
     .join("");
   const fallbackText = t("chrome.video_fallback", locale, "media-card");
 
-  return `<figure class="${cls.join(" ")}" style="margin:0"><video controls preload="none" poster="${escAttr(props.poster || "")}" width="${escAttr(props.width || 960)}" height="${escAttr(props.height || 540)}" aria-label="${escAttr(props.ariaLabel || props.alt || title)}">${sourceTags}${fallbackText}</video><figcaption><span class="video-tag">${aiTag}</span><strong>${title}</strong>${caption}</figcaption></figure>`;
+  return `<figure class="${cls.join(" ")}"${catAttr} style="margin:0"><video controls preload="none" poster="${escAttr(props.poster || "")}" width="${escAttr(props.width || 960)}" height="${escAttr(props.height || 540)}" aria-label="${escAttr(props.ariaLabel || props.alt || title)}">${sourceTags}${fallbackText}</video><figcaption><span class="video-tag">${aiTag}</span><strong>${title}</strong>${caption}</figcaption></figure>`;
 }
 
 function renderTimeline(props) {
@@ -490,6 +491,42 @@ function buildJsonLd(slug, canonical, meta, body, locale = "en") {
       sameAs: ["https://x.com/nicopez", "https://github.com/TheNeuralWars/GoalChain"],
     });
   }
+  if (slug === "book") {
+    graph.push({
+      "@type": "Book",
+      "@id": `${canonical}#book`,
+      name: "Fractured Code",
+      alternateName: "The Neural Wars: Fractured Code",
+      author: {
+        "@type": "Person",
+        name: "Nico Pez",
+        url: "https://x.com/nicopez",
+      },
+      isPartOf: {
+        "@type": "BookSeries",
+        name: "The Neural Wars",
+      },
+      inLanguage: locale,
+      bookFormat: "https://schema.org/EBook",
+      genre: ["Science Fiction", "Biopunk", "Techno-Thriller"],
+      url: canonical,
+      image: `${ORIGIN}/assets/img/cover-fractured-code.webp`,
+      publisher: { "@id": ORG_ID },
+    });
+  }
+  if (slug === "cinema") {
+    graph.push({
+      "@type": "VideoObject",
+      "@id": `${canonical}#trailer`,
+      name: "The Neural Wars — Official Cinematic Trailer",
+      description: meta.description,
+      thumbnailUrl: [`${ORIGIN}/assets/img/poster-trailer.webp`],
+      contentUrl: `${ORIGIN}/assets/img/neuralwars/The_Neural_Wars_Official_Cinematic_Trailer_2026.mp4`,
+      uploadDate: "2026-10-15T00:00:00Z",
+      inLanguage: locale,
+      publisher: { "@id": ORG_ID },
+    });
+  }
   if (slug === "faq") {
     const faqs = extractFaqs(body);
     if (!faqs.length) throw new Error(`faq page (${locale}): no faq-item blocks found for FAQPage schema`);
@@ -505,6 +542,97 @@ function buildJsonLd(slug, canonical, meta, body, locale = "en") {
     });
   }
   return JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c");
+}
+
+function escXml(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function buildFeeds() {
+  const feedSrcPath = join(SRC, "data/live-feed.json");
+  if (!existsSync(feedSrcPath)) return;
+  const raw = JSON.parse(readFileSync(feedSrcPath, "utf8"));
+  const items = Array.isArray(raw.items) ? raw.items : [];
+  const updatedDate = raw.updated || BUILD_DATE;
+  const feedUpdatedIso = `${updatedDate}T00:00:00Z`;
+
+  // 1. Atom 1.0 (dist/feed.xml)
+  const atomEntries = items
+    .map((it) => {
+      const entryUrl = it.url
+        ? it.url.startsWith("http")
+          ? it.url
+          : `${ORIGIN}${it.url}`
+        : `${ORIGIN}/live.html#${it.id}`;
+      const itemUpdated = `${it.updated || updatedDate}T00:00:00Z`;
+      const summary = `[${(it.status || "wip").toUpperCase()} · ${it.kind || "project"}] ${it.blurb || ""}`;
+      return [
+        "  <entry>",
+        `    <id>urn:goalworld:live:${escXml(it.id)}</id>`,
+        `    <title>${escXml(it.title)}</title>`,
+        `    <updated>${escXml(itemUpdated)}</updated>`,
+        `    <link href="${escXml(entryUrl)}" rel="alternate" />`,
+        `    <category term="${escXml(it.kind || "project")}" />`,
+        `    <summary>${escXml(summary)}</summary>`,
+        "  </entry>",
+      ].join("\n");
+    })
+    .join("\n");
+
+  const atomXml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<feed xmlns="http://www.w3.org/2005/Atom">',
+    `  <id>${ORIGIN}/live.html</id>`,
+    "  <title>GoalWorld — Live Studio Build Log</title>",
+    "  <subtitle>What the GoalWorld studio is building, submitting, and shipping across Canon, Code, and Cinema.</subtitle>",
+    `  <updated>${escXml(feedUpdatedIso)}</updated>`,
+    `  <link href="${ORIGIN}/feed.xml" rel="self" type="application/atom+xml" />`,
+    `  <link href="${ORIGIN}/live.html" rel="alternate" type="text/html" />`,
+    "  <author>",
+    "    <name>Nico Pez</name>",
+    "    <uri>https://x.com/nicopez</uri>",
+    "  </author>",
+    atomEntries,
+    "</feed>",
+    "",
+  ].join("\n");
+
+  writeFileSync(join(DIST, "feed.xml"), atomXml);
+
+  // 2. JSON Feed 1.1 (dist/feed.json)
+  const jsonFeed = {
+    version: "https://jsonfeed.org/version/1.1",
+    title: "GoalWorld — Live Studio Build Log",
+    home_page_url: `${ORIGIN}/live.html`,
+    feed_url: `${ORIGIN}/feed.json`,
+    description:
+      "What the GoalWorld studio is building, submitting, and shipping across Canon, Code, and Cinema.",
+    language: "en",
+    authors: [{ name: "Nico Pez", url: "https://x.com/nicopez" }],
+    items: items.map((it) => {
+      const entryUrl = it.url
+        ? it.url.startsWith("http")
+          ? it.url
+          : `${ORIGIN}${it.url}`
+        : `${ORIGIN}/live.html#${it.id}`;
+      return {
+        id: `urn:goalworld:live:${it.id}`,
+        url: entryUrl,
+        title: it.title,
+        content_text: `${it.blurb || ""} (Status: ${it.status || "wip"}, Kind: ${it.kind || "project"})`,
+        date_modified: `${it.updated || updatedDate}T00:00:00Z`,
+        tags: [it.kind || "project", it.status || "wip"],
+      };
+    }),
+  };
+
+  writeFileSync(join(DIST, "feed.json"), JSON.stringify(jsonFeed, null, 2) + "\n");
+  console.log(`  feed.xml + feed.json  (${items.length} entries, updated ${updatedDate})`);
 }
 
 function buildHreflangs(slug) {
@@ -645,6 +773,9 @@ function build() {
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`
   );
   console.log(`  sitemap.xml  (${sitemap.length} urls across ${ACTIVE_LOCALES.length} locales, lastmod ${BUILD_DATE})`);
+
+  // Atom 1.0 (feed.xml) and JSON Feed 1.1 (feed.json) from src/data/live-feed.json (A-032)
+  buildFeeds();
 
   // best-effort press zip
   try {

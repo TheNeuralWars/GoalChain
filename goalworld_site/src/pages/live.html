@@ -5,6 +5,14 @@
     <p class="eyebrow">{{t:live.hero.eyebrow}}</p>
     <h1>{{t:live.hero.title}}</h1>
     <p class="lead">{{t:live.hero.lead_prefix}} <span data-live-updated>{{t:live.hero.lead_default}}</span>.</p>
+    <!-- @component cta-set {
+      "style": "margin-top:1.1rem;margin-bottom:0.5rem",
+      "items": [
+        { "label": "$t:live.feeds.atom", "href": "/feed.xml", "variant": "ghost" },
+        { "label": "$t:live.feeds.json", "href": "/feed.json", "variant": "ghost" },
+        { "label": "$t:live.feeds.raw", "href": "/data/live-feed.json", "variant": "ghost" }
+      ]
+    } -->
     <!-- @component section-header { "srOnly": true, "title": "$t:live.filters.sr_title" } -->
     <div class="filter-bar" data-live-filters role="toolbar" aria-label="{{t:live.filters.aria_label}}">
       <span class="eyebrow">{{t:live.filters.kind_label}}</span>

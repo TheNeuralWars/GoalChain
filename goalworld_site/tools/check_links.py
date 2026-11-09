@@ -97,8 +97,10 @@ def main():
             if val.startswith(("mailto:", "tel:", "data:", "javascript:")):
                 continue
             if val.startswith(("http://", "https://")):
-                if "goalworld.fun" in val and "play.goalworld.fun" not in val:
-                    path = urllib.parse.urlparse(val).path
+                parsed_url = urllib.parse.urlparse(val)
+                is_vps_subsite = parsed_url.path.startswith(("/blast-radius/", "/hermes-demo/"))
+                if "goalworld.fun" in val and "play.goalworld.fun" not in val and not is_vps_subsite:
+                    path = parsed_url.path
                     val = path if path else "/"
                     if val == "/":
                         val = "/index.html"
@@ -174,6 +176,27 @@ def main():
                 errors.append(f"sitemap.xml: <loc>{loc}</loc> -> missing file {target}")
     else:
         errors.append("sitemap.xml missing from dist")
+
+    # Verify Atom (feed.xml) and JSON Feed (feed.json) exist and have entries (A-032, A-048)
+    atom_path = os.path.join(dist, "feed.xml")
+    json_feed_path = os.path.join(dist, "feed.json")
+    if os.path.isfile(atom_path):
+        atom_raw = open(atom_path, encoding="utf8").read()
+        if "<entry>" not in atom_raw:
+            errors.append("feed.xml: no <entry> elements found")
+    else:
+        errors.append("feed.xml missing from dist")
+
+    if os.path.isfile(json_feed_path):
+        import json
+        try:
+            jf = json.loads(open(json_feed_path, encoding="utf8").read())
+            if not jf.get("items"):
+                errors.append("feed.json: empty items array")
+        except Exception as e:
+            errors.append(f"feed.json: invalid JSON ({e})")
+    else:
+        errors.append("feed.json missing from dist")
 
     print(f"pages: {len(pages)}   links checked: {checked}   sitemap urls: {sitemap_urls}")
     if external:

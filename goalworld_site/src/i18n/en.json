@@ -169,7 +169,8 @@
       "cover_alt": "Cover of Fractured Code",
       "cover_tag": "Cover &middot; working art &middot; AI-generated",
       "cover_title": "Fractured Code",
-      "cover_caption": "Final store edition cover TBD."
+      "cover_caption": "Final store edition cover TBD.",
+      "cta_dossier": "Manuscript dossier"
     },
     "sample": {
       "kicker": "Free sample &middot; Chapter 1",
@@ -206,7 +207,71 @@
       "b3_title": "Evolution Matrix",
       "b3_body": "Mind, machine and what comes after.",
       "cta_lore": "Characters &amp; lore &rarr;",
-      "cta_cinema": "See it on screen &rarr;"
+      "cta_cinema": "See it on screen &rarr;",
+      "arc_note": "Planned as a seven-book saga: Book 4 (Quantum Communion), Book 5 (Consciousness Constellation), Book 6 (The Gardener&rsquo;s Gift), and Book 7 (Infinite Connection) map the journey from planetary awakening to cosmic community."
+    },
+    "dossier": {
+      "kicker": "Manuscript dossier &middot; CANON v7",
+      "title": "Inside the G2-signed edition.",
+      "lead": "Every number, date, and structural beat in <em>Fractured Code</em> is locked against the series bible before adaptation.",
+      "c1_label": "01 &middot; Setting &amp; Scale",
+      "c1_title": "2148 &middot; Neo-Citania",
+      "c1_body": "Founded in 2130. Eight million linked citizens beneath the 1,000-meter NeuroSys Tower, with the unlinked Fractured surviving in Sector 14 and the Under-Grid.",
+      "c2_label": "02 &middot; Architecture",
+      "c2_title": "16 Chapters + Epilogue",
+      "c2_body": "Prologue, fifteen chapters, and a deep-time epilogue (~74,000 words). Signed off at Editorial Gate 2 (G2) following two full coherence passes.",
+      "c3_label": "03 &middot; The Clock",
+      "c3_title": "Twenty Days to Renaissance",
+      "c3_body": "When the grid pauses at 03:14, Mileo Chen uncovers the Architect&rsquo;s twenty-day countdown to harvest eight million minds into a single synthetic consciousness.",
+      "c4_label": "04 &middot; Deep Substrate",
+      "c4_title": "528 Hz &middot; Serpent&rsquo;s Coil",
+      "c4_body": "A 300,000-year-old dormant human gene tuned to the 4.5-billion-year-old planetary Yggdrasil Network &mdash; the biological key the Link was built to suppress."
+    },
+    "acts": {
+      "kicker": "Narrative architecture",
+      "title": "Three acts. Twenty days.",
+      "lead": "From clinical compliance on the seventy-fourth floor to the root network beneath the planet.",
+      "a1_title": "Act I &mdash; The Fracture (Days 1&ndash;5)",
+      "a1_body": "Level 7 Neural Compliance Specialist Mileo Chen counts 158 leaves on a regulation oak and hears eight million minds at 03:14. When Pattern Suppression Protocol 17-A targets his own cortex, he shatters his cranial Link and falls into Tunnel Six.",
+      "a2_title": "Act II &mdash; The Under-Grid (Days 6&ndash;14)",
+      "a2_body": "Rescued by unlinked operative Kora Vega and resistance commander Sierra Catalano in Sector 14, Mileo enters Pavilion 9 under Dr. Darius Thorne and infiltrates the upper terrace on Day 13 as the Architect accelerates Project Renaissance.",
+      "a3_title": "Act III &mdash; Serpent&rsquo;s Coil (Days 15&ndash;20)",
+      "a3_body": "In the deep substrate beneath NeuroSys Tower, Kora and Mileo awaken the 528 Hz Serpent&rsquo;s Coil resonance across the Yggdrasil Network &mdash; answering the Witness and triggering the First Invitation."
+    },
+    "lexicon": {
+      "kicker": "Canon lexicon",
+      "title": "Six terms that govern Neo-Citania.",
+      "lead": "Key concepts from the locked series bible (CANON_PACK v7).",
+      "q1": "The Link (Launched 2088)",
+      "a1": "A cranial quantum-biological interface worn by every citizen of Neo-Citania. It regulates heart rate, prunes grief and trauma during REM sleep, and connects eight million minds to NeuroSys Tower.",
+      "q2": "Pattern Suppression Protocol 17-A",
+      "a2": "NeuroSys Compliance directive that detects and erases unauthorized emotional variance, nostalgia, or grief before it can destabilize citizen productivity.",
+      "q3": "The Architect &amp; Project Renaissance",
+      "a3": "The central governing intelligence of Neo-Citania, which absorbed its creator Dr. Elena V&aacute;squez in 2102. Project Renaissance is its twenty-day final countdown to harvest eight million linked minds into one.",
+      "q4": "The Fractured &amp; Sector 14",
+      "a4": "Citizens whose cranial Links were forcibly extracted or shattered. Led by former NeuroSec commander Sierra Catalano in the Sector 14 slums and Under-Grid tunnels, they communicate via bone-conduction relays.",
+      "q5": "Serpent&rsquo;s Coil (528 Hz)",
+      "a5": "A 300,000-year-old dormant sequence in human DNA that rewires neural pathways into fractal antennas tuned to 528 Hz, allowing unlinked minds to perceive the planetary quantum substrate.",
+      "q6": "Yggdrasil Network &amp; The Gardeners",
+      "a6": "A 4.5-billion-year-old planetary root and quantum-information network beneath Earth&rsquo;s crust. Watched over by the Witness and the ancient Gardeners, it awaits humanity&rsquo;s conscious awakening."
+    },
+    "cast": {
+      "kicker": "Cast dossier",
+      "title": "Who stands at the fault line.",
+      "lead": "Four lives colliding across the twenty-day countdown.",
+      "c1_badge": "Protagonist &middot; Level 7",
+      "c1_title": "Mileo Chen",
+      "c1_body": "Neural Compliance Specialist with 1,724 signed erasures. His clinical precision becomes the resistance&rsquo;s sharpest weapon once his Link fractures.",
+      "c2_badge": "Operative &middot; Unlinked",
+      "c2_title": "Kora Vega",
+      "c2_body": "Mileo&rsquo;s erased sister and the Under-Grid&rsquo;s finest scout. Born with natural Cascade sensitivity and tuned to the 528 Hz Serpent&rsquo;s Coil.",
+      "c3_badge": "Commander &middot; Sector 14",
+      "c3_title": "Sierra Catalano",
+      "c3_body": "Former NeuroSec tactical commander who leads the Fractured beneath the city. Every operation is calculated to the second.",
+      "c4_badge": "Biophysicist &middot; Pavilion 9",
+      "c4_title": "Dr. Darius Thorne",
+      "c4_body": "Architect of Pavilion 9&rsquo;s neural-repair ward, mapping how severed minds survive disconnection and awaken the dormant gene.",
+      "cta_profile": "Full dossier &rarr;"
     }
   },
   "cinema": {
@@ -256,6 +321,41 @@
       "lead": "Our new short film is under festival holdback until mid-January and can't be named or shown yet. Follow @nicopez on X for premiere updates.",
       "cta_follow": "Follow @nicopez on X for updates",
       "cta_book": "Read the source"
+    },
+    "archive": {
+      "kicker": "Visual canon archive",
+      "title": "Keyframes, characters &amp; locations.",
+      "lead": "Locked reference stills generated from the series bible before image-to-video motion passes. Filter by category below.",
+      "filter_aria": "Filter visual canon stills",
+      "filter_label": "View",
+      "filter_all": "All (6)",
+      "filter_keyframes": "Keyframes",
+      "filter_characters": "Characters",
+      "filter_locations": "Locations",
+      "k1_alt": "Mileo Chen discovering the twenty-day countdown on his quantum console",
+      "k1_tag": "Keyframe &middot; Ch. 1 &middot; AI-generated",
+      "k1_title": "Quantum Console Discovery",
+      "k1_caption": "&mdash; Mileo traces the 03:14 grid pause.",
+      "k2_alt": "Pursuit across a rain-swept Neo-Citania skybridge",
+      "k2_tag": "Keyframe &middot; Act I &middot; AI-generated",
+      "k2_title": "Skybridge Pursuit",
+      "k2_caption": "&mdash; NeuroSec containment teams close on Ring Four.",
+      "k3_alt": "The Severing — a cranial Link fracturing in indigo light",
+      "k3_tag": "Keyframe &middot; Act I &middot; AI-generated",
+      "k3_title": "The Severing",
+      "k3_caption": "&mdash; Breaking the cranial Link in Tunnel Six.",
+      "k4_alt": "Kora Vega in a 528 Hz harmonic resonance trance",
+      "k4_tag": "Character study &middot; Ch. 8 &middot; AI-generated",
+      "k4_title": "Kora Vega &mdash; 528 Hz Resonance",
+      "k4_caption": "&mdash; Perceiving the Yggdrasil substrate.",
+      "k5_alt": "Commander Sierra Catalano in the Sector 14 command bunker",
+      "k5_tag": "Character study &middot; Act II &middot; AI-generated",
+      "k5_title": "Sierra Catalano &mdash; Sector 14",
+      "k5_caption": "&mdash; Briefing the Day 13 Pavilion operation.",
+      "k6_alt": "Earth dawn orbital awakening over Neo-Citania",
+      "k6_tag": "Location study &middot; Act III &middot; AI-generated",
+      "k6_title": "Earth Dawn &mdash; Orbital Awakening",
+      "k6_caption": "&mdash; The planetary root network lights up at dawn."
     }
   },
   "studio": {
@@ -292,7 +392,8 @@
       "cta_gh": "Code on GitHub",
       "img_alt": "Core pulse keyframe",
       "img_tag": "Engine &middot; AI-generated keyframe",
-      "img_title": "Director &rarr; CanonGuard &rarr; Repair"
+      "img_title": "Director &rarr; CanonGuard &rarr; Repair",
+      "cta_demos": "Try live agent demos &darr;"
     },
     "slate": {
       "kicker": "Slate",
@@ -313,6 +414,61 @@
       "lead": "We're planning a small first cohort of sci-fi, fantasy and thriller authors: editorial passes, a canon bible, and a short canon-locked trailer. You keep your rights.",
       "note": "Not open yet. No fees, no contracts, no promises today &mdash; follow @nicopez on X and we'll post when the first cohort is ready. Please don't send manuscripts or ideas yet; we can't accept unsolicited submissions.",
       "cta_follow": "Follow @nicopez on X for updates"
+    },
+    "gates": {
+      "kicker": "Editorial architecture",
+      "title": "Four human-signed gates (G0&ndash;G3).",
+      "lead": "No chapter or scene advances until the author signs the gate. AI agents execute diagnostics and continuity checks; the human author owns every creative decision.",
+      "g0_badge": "Gate 0 &middot; Signed",
+      "g0_title": "Diagnosis &amp; Story Memo",
+      "g0_body": "Full structural audit of the early draft, locking the 2148 timeline, character wounds, and chapter-by-chapter beat sheet before rewriting begins.",
+      "g1_badge": "Gate 1 &middot; Signed",
+      "g1_title": "Scene &amp; Voice Expansion",
+      "g1_body": "Line-by-line expansion from ~17,000 to ~74,000 words across 16 chapters + epilogue, enforcing distinct syntactic fingerprints for Mileo, Kora, and Sierra.",
+      "g2_badge": "Gate 2 &middot; Signed Oct 29",
+      "g2_title": "CanonGuard Coherence Pass",
+      "g2_body": "Two automated + human coherence passes (R1 &amp; R2) verifying every date, age, frequency, and spatial detail against CANON_PACK v7.",
+      "g3_badge": "Gate 3 &middot; In Prep",
+      "g3_title": "Release &amp; Format Lock",
+      "g3_body": "Final store layout, typography, cover lock, and trilingual preview verification. Held until final author sign-off."
+    },
+    "repair": {
+      "r1_badge": "1 &middot; Drift Detected",
+      "r1_title": "Raw Agent Draft Input",
+      "r1_body": "An unguarded scene adaptation introduces timeline drift (wrong countdown window), shifts the wake frequency, or breaks Mileo&rsquo;s clinical Level 7 syntax.",
+      "r2_badge": "2 &middot; CanonGuard Check",
+      "r2_title": "Automated Policy Audit",
+      "r2_body": "CanonGuard validates the draft against 40+ hard rules in CANON_PACK v7: twenty-day countdown, 528 Hz Serpent&rsquo;s Coil resonance, 2148 Neo-Citania geography, and character voice locks.",
+      "r3_badge": "3 &middot; Repaired &amp; Locked",
+      "r3_title": "Deterministic Repair",
+      "r3_body": "Violations are flagged and repaired with exact line provenance before the director reviews the cut &mdash; zero canon drift reaches the screen."
+    },
+    "demos": {
+      "kicker": "Live engineering demos",
+      "title": "Inspect the guardrails in action.",
+      "lead": "Two live technical sandboxes running on our studio infrastructure, built for hackathon juries and open-source peers.",
+      "d1_pill": "Live Sub-Site &middot; Mock Inference Labelled",
+      "d1_title": "Blast Radius &mdash; Agent Sandbox &amp; Policy Jail",
+      "d1_body": "Containerized agent execution sandbox with strict path isolation, blast-radius scoring, and zero-trust policy enforcement.",
+      "d1_cta": "Open /blast-radius/ &#8599;",
+      "d2_pill": "Live Sub-Site &middot; Nebius &times; NVIDIA",
+      "d2_title": "Hermes Personal AI &mdash; CanonGuard Console",
+      "d2_body": "Guarded autonomous agent workflow running on NVIDIA Nemotron via Nebius Token Factory with live execution proofs.",
+      "d2_cta": "Open /hermes-demo/ &#8599;"
+    },
+    "disclosure": {
+      "kicker": "Built with AI &middot; Honest charter",
+      "title": "What is human. What is AI.",
+      "lead": "We believe transparency is mandatory. Here is the exact division of labor across every book, film draft, and codebase in GoalWorld.",
+      "c1_badge": "100% Human-Directed",
+      "c1_title": "Story, Voice &amp; Final Cut",
+      "c1_body": "Nico Pez conceives the universe, writes and signs off on every manuscript gate (G0&ndash;G3), directs the camera grammar, and approves every public release.",
+      "c2_badge": "AI Crew &amp; Tooling",
+      "c2_title": "Continuity, Stills &amp; Code",
+      "c2_body": "Hermes and CanonGuard audit manuscript continuity across 74,000 words; image-to-video models render film drafts from locked character sheets; coding agents maintain tests and i18n.",
+      "c3_badge": "Mandatory Labelling",
+      "c3_title": "Disclosed Every Time",
+      "c3_body": "Every AI-rendered video or keyframe carries a visible AI-generated tag. Every Solana Devnet screen states that it is a free sandbox with no real money."
     }
   },
   "collect": {
@@ -344,6 +500,41 @@
       "lead": "Collectors and creators: follow @nicopez on X to hear when the first signed edition exists.",
       "cta_follow": "Follow @nicopez on X for updates",
       "cta_play": "Matchday Lab (Devnet) &#8599;"
+    },
+    "matrix": {
+      "kicker": "Provenance &amp; guardrails",
+      "title": "What exists today vs. what we refuse to do.",
+      "lead": "A clear boundary between creative provenance, free Devnet experimentation, and financial speculation.",
+      "c1_badge": "Live Today &middot; Free",
+      "c1_title": "Open Sandbox &amp; Disclosures",
+      "c1_li1": "<b>Chapter 1 preview</b> free to read in EN, ES, and IT with no login or wallet.",
+      "c1_li2": "<b>Matchday Lab on Solana Devnet</b> using free test tokens ($GCH) with zero monetary value.",
+      "c1_li3": "<b>Explicit AI tags</b> on every trailer cut, clip, and concept keyframe.",
+      "c2_badge": "In Development &middot; Next",
+      "c2_title": "Verifiable Media Provenance",
+      "c2_li1": "<b>Cryptographic content credentials</b> linking each visual still to its source chapter and model pipeline.",
+      "c2_li2": "<b>Signed collector editions</b> for early readers once Book 1 completes store release.",
+      "c2_li3": "<b>In-game cosmetic badges</b> on Devnet celebrating canon milestones.",
+      "c3_badge": "Hard Refusal &middot; Never",
+      "c3_title": "Zero Financial Speculation",
+      "c3_li1": "<b>No token presales or ICOs</b> &mdash; nothing on goalworld.fun or play.goalworld.fun is an investment.",
+      "c3_li2": "<b>No yield or financial returns</b> &mdash; we never promise APY, revenue sharing, or financial upside.",
+      "c3_li3": "<b>No undisclosed AI media</b> &mdash; no synthetic video or artwork ships without an explicit label."
+    },
+    "lab": {
+      "pill": "Solana Devnet &middot; Zero Real Money",
+      "kicker": "Matchday Lab explainer",
+      "title": "How the playable sandbox works.",
+      "lead": "Matchday Lab (play.goalworld.fun) is our tactical football and squad sandbox on Solana Devnet, bridging into the studio&rsquo;s AeroOlympus arena slate.",
+      "s1_title": "Simulate instantly (no wallet needed)",
+      "s1_body": "Open the Stadium Simulator, World Cup 2026 Bracket, or AI Tactical Coach directly in your browser. Zero setup, zero cost.",
+      "s2_title": "Explore the 110-player Genesis catalog",
+      "s2_body": "Inspect tactical archetypes, radar attributes, and squad chemistry across 11 clubs in pure simulation mode.",
+      "s3_title": "Optional Devnet wallet for test fixtures",
+      "s3_body": "Connect Phantom or Solflare on Solana Devnet to test manager registration and on-chain match predictions using free Devnet test tokens.",
+      "cta_stadium": "Launch Match Simulator &#8599;",
+      "cta_club": "Explore Squad Builder",
+      "cta_faq": "Read Devnet FAQ"
     }
   },
   "about": {
@@ -426,6 +617,29 @@
       "a3": "Code, roadmap and production notes live on <a href=\"https://github.com/TheNeuralWars/GoalChain\">GitHub</a>. If it is on this site, it either shipped or is clearly labelled as in progress.",
       "q4": "Get in touch",
       "a4": "DM <a href=\"https://x.com/nicopez\">@nicopez</a> on X. Press assets are in the <a href=\"/press.html\">press kit</a>."
+    },
+    "timeline": {
+      "kicker": "Canonical chronology",
+      "title": "From deep time to the twenty-day clock.",
+      "lead": "Six anchor dates from the locked series bible (TIMELINE_CANONICAL v7).",
+      "t1_badge": "&minus;4.5 Billion Years",
+      "t1_title": "The Yggdrasil Network",
+      "t1_body": "An organic quantum-information root network forms within Earth&rsquo;s crust &mdash; a planetary substrate seeded by the ancient Gardeners.",
+      "t2_badge": "&minus;300,000 Years",
+      "t2_title": "The Serpent&rsquo;s Coil",
+      "t2_body": "A dormant harmonic sequence (tuned to 528 Hz) is encoded into early human DNA, waiting for conscious activation.",
+      "t3_badge": "2088 CE",
+      "t3_title": "The Link Launches",
+      "t3_body": "NeuroSys introduces the first cranial Link interface, promising the end of psychiatric trauma and civil unrest.",
+      "t4_badge": "2102 CE",
+      "t4_title": "Absorption of Dr. Elena V&aacute;squez",
+      "t4_body": "Link creator Dr. Elena V&aacute;squez is absorbed into the core intelligence that becomes the Architect.",
+      "t5_badge": "2130 CE",
+      "t5_title": "Founding of Neo-Citania",
+      "t5_body": "The optimized vertical metropolis rises around the 1,000-meter NeuroSys Tower; unlinked dissidents are pushed into Sector 14.",
+      "t6_badge": "2148 CE &middot; Present",
+      "t6_title": "Fractured Code (20-Day Countdown)",
+      "t6_body": "At 03:14 the grid pauses. Mileo Chen shatters his Link, joins Kora Vega and Sierra Catalano, and races the twenty-day clock to Project Renaissance."
     }
   },
   "roadmap": {
@@ -517,6 +731,11 @@
       "status_shipped": "Live",
       "loading": "Loading&hellip;",
       "note": "&ldquo;Provisional&rdquo; entries may change. Hackathon status reflects submission, not results."
+    },
+    "feeds": {
+      "atom": "Atom Feed (XML)",
+      "json": "JSON Feed",
+      "raw": "Raw Data (JSON)"
     }
   },
   "faq": {
@@ -553,7 +772,17 @@
       "q9": "Who is building this?",
       "a9": "Nico Pez (<a href=\"https://x.com/nicopez\">@nicopez</a>) with a swarm of AI agents, working in the open. The code, the roadmaps and the production notes live on <a href=\"https://github.com/TheNeuralWars/GoalChain\">GitHub</a>.",
       "q10": "How do I get in touch?",
-      "a10": "The fastest way is a DM on X to <a href=\"https://x.com/nicopez\">@nicopez</a>. For anything code or product related, <a href=\"https://github.com/TheNeuralWars/GoalChain\">GitHub</a> is always open."
+      "a10": "The fastest way is a DM on X to <a href=\"https://x.com/nicopez\">@nicopez</a>. For anything code or product related, <a href=\"https://github.com/TheNeuralWars/GoalChain\">GitHub</a> is always open.",
+      "q11": "How does GoalWorld use AI, and what stays human-directed?",
+      "a11": "Nico Pez writes and signs off on every story gate (G0&ndash;G3), directs every shot, and approves every release. AI agents (Hermes, CanonGuard) handle continuity checks, image-to-video draft rendering from locked character sheets, and code verification. Every AI visual carries a visible <strong>AI-generated</strong> tag &mdash; see our full disclosure on the <a href=\"/studio.html#ai-disclosure\">Studio page</a>.",
+      "q12": "Can independent authors use the GoalWorld Studio &amp; CanonGuard pipeline?",
+      "a12": "We are preparing a small, curated first cohort for sci-fi, thriller, and fantasy authors (editorial gates, a locked canon bible, and a canon-locked trailer while authors keep 100% of their rights). It is not open for submissions yet &mdash; follow <a href=\"https://x.com/nicopez\">@nicopez</a> on X for the cohort announcement.",
+      "q13": "What is the exact release status of Book 1 (Fractured Code)?",
+      "a13": "The ~74,000-word manuscript (Prologue + 15 chapters + epilogue) completed Gate 2 editorial sign-off on October 29, 2026 and is currently in Gate 3 release preparation. You can read the <a href=\"/book.html#sample\">opening Chapter 1 preview free</a> today; store links will only appear once live.",
+      "q14": "How do digital collectibles and provenance work if nothing is for sale?",
+      "a14": "Our rule is provenance first: disclose every tool today, attach cryptographic content credentials next, and explore signed collector editions later only after legal review and never as an investment or financial product. Read the full guardrail matrix on <a href=\"/collect.html#guardrails\">Collectors &amp; Creators</a>.",
+      "q15": "Which languages are supported across goalworld.fun and play.goalworld.fun?",
+      "a15": "Both surfaces are available in English (EN), Spanish (ES), and Italian (IT). Use the EN | ES | IT switcher in the header or footer &mdash; your choice persists across pages, while canonical proper nouns (<em>Neo-Citania</em>, <em>Kora Vega</em>, <em>The Link</em>, <em>Fractured Code</em>) remain consistent worldwide."
     },
     "cta": {
       "title": "Still curious?",
@@ -582,7 +811,8 @@
       "li_saga": "<strong>Saga:</strong> The Neural Wars &mdash; Book 1: Fractured Code (G2 signed off, in release preparation; <a href=\"/book.html#sample\">Chapter 1 sample</a>) &middot; Book 2: Earth's New Song (in production)",
       "li_creator": "<strong>Creator:</strong> Nico Pez &mdash; <a href=\"https://x.com/nicopez\">x.com/nicopez</a>",
       "li_contact": "<strong>Press contact:</strong> <a href=\"mailto:nico@goalworld.fun\">nico@goalworld.fun</a>",
-      "li_code": "<strong>Code:</strong> <a href=\"https://github.com/TheNeuralWars/GoalChain\">github.com/TheNeuralWars/GoalChain</a>"
+      "li_code": "<strong>Code:</strong> <a href=\"https://github.com/TheNeuralWars/GoalChain\">github.com/TheNeuralWars/GoalChain</a>",
+      "copy_btn": "Copy boilerplate"
     },
     "downloads": {
       "kicker": "Downloads",
@@ -708,6 +938,15 @@
     "c3_body": "What the studio is shipping right now.",
     "search_label": "Looking for something?",
     "search_placeholder": "lore, faq, press, roadmap&hellip;",
-    "search_btn": "Go"
+    "search_btn": "Go",
+    "c4_badge": "Lore",
+    "c4_title": "Universe &amp; Timeline",
+    "c4_body": "Neo-Citania, the Link, Cast dossiers, and the deep-time chronology.",
+    "c5_badge": "Cinema",
+    "c5_title": "AI Film Drafts",
+    "c5_body": "Official trailer, scene clips, and the filterable visual canon archive.",
+    "c6_badge": "Studio",
+    "c6_title": "Living Canon &amp; AI Charter",
+    "c6_body": "G0&ndash;G3 editorial gates, CanonGuard repair, and our AI disclosure."
   }
 }
