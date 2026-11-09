@@ -13,6 +13,7 @@ export const LanguageToggle: React.FC = () => {
 
   return (
     <div
+      className="lang-switch"
       role="group"
       aria-label="Language selector"
       data-lang-switcher="true"
@@ -20,9 +21,9 @@ export const LanguageToggle: React.FC = () => {
         display: 'inline-flex',
         alignItems: 'center',
         gap: '2px',
-        padding: '2px',
-        background: 'rgba(19, 22, 29, 0.85)',
-        border: '1px solid rgba(255, 255, 255, 0.08)',
+        padding: '3px',
+        background: 'var(--gw-bg-elev, #12141c)',
+        border: '1px solid var(--gw-border, rgba(255, 255, 255, 0.08))',
         borderRadius: '999px',
         fontFamily: 'var(--gw-font-mono, "JetBrains Mono", monospace)',
       }}
@@ -33,20 +34,23 @@ export const LanguageToggle: React.FC = () => {
           <button
             key={code}
             type="button"
+            className={`lang-pill${active ? ' active' : ''}`}
             title={title}
             aria-label={title}
             aria-pressed={active}
             data-lang-choice={code}
             onClick={() => setLanguage(code)}
             style={{
-              background: active ? '#e5a93c' : 'transparent',
-              color: active ? '#0a0b0e' : '#9ca0ab',
-              border: 'none',
+              background: active ? 'rgba(229, 169, 60, 0.18)' : 'transparent',
+              color: active ? '#e5a93c' : '#9ca0ab',
+              border: active ? '1px solid rgba(229, 169, 60, 0.4)' : '1px solid transparent',
               borderRadius: '999px',
               padding: '4px 9px',
+              minWidth: '32px',
+              minHeight: '28px',
               fontSize: '0.72rem',
-              fontWeight: active ? 700 : 500,
-              letterSpacing: '0.08em',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
               cursor: 'pointer',
               transition: 'background 0.16s ease, color 0.16s ease',
               lineHeight: 1.2,

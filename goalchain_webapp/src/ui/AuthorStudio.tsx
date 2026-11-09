@@ -22,8 +22,9 @@ const AI_CLICHES = [
 
 const FILTER_WORDS = ['felt', 'feel', 'heard', 'hear', 'saw', 'see', 'noticed', 'wondered', 'watched', 'seemed', 'realized'];
 
-export function AuthorStudio() {
+export function AuthorStudio({ embedded = false }: { embedded?: boolean } = {}) {
   const { t } = useTranslation();
+  const HeadingTag = embedded ? 'h2' : 'h1';
   const [activeStudioTab, setActiveStudioTab] = useState<'prose' | 'characters' | 'beats' | 'cinematic'>('prose');
   const [sampleText, setSampleText] = useState<string>(
     `The rain fell against the seventy-fourth-floor bay window with military discipline: identical, perfectly spherical droplets tracing parallel furrows separated by exactly seven millimeters of reinforced glass.\n\nMileo Chen pressed the pad of his right index finger against the chilled surface. For a fraction of a second, the icy bite of the glass pinched his flesh with sharp authenticity. But before the shiver could travel up his arm, the implant at the base of his skull emitted a dull hum. An imperceptible discharge of synthetic heat spread across his brainstem, followed by a burst of chemical suppressors that extinguished the sensation like freezing water dousing an ember.`
@@ -84,9 +85,9 @@ export function AuthorStudio() {
       {/* Studio Header */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '1rem' }}>
         <div>
-          <h2 style={{ fontSize: '1.6rem', fontWeight: 900, margin: '0 0 0.25rem 0', background: 'linear-gradient(135deg, #c084fc 0%, #38bdf8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+          <HeadingTag style={{ fontSize: '1.6rem', fontWeight: 900, margin: '0 0 0.25rem 0', background: 'linear-gradient(135deg, #c084fc 0%, #38bdf8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
             {t('studio_title')}
-          </h2>
+          </HeadingTag>
           <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.88rem' }}>
             {t('studio_sub')}
           </p>

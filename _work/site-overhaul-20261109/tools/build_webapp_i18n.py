@@ -1329,6 +1329,212 @@ new_keys = {
     "es": "📖 Manual de Clippers: Guía de Video Corto",
     "it": "📖 Playbook Clipper: Guida ai Video Brevi",
   },
+  # SquadGallery, MatchSimulator, WorldCupPredictor, TradingTerminal, DeFiPortal, StakingBurnDashboard, MarketingControlCenter, CorporateAutopilot (A-039)
+  "squad_demo_notice": {
+    "en": "💡 Courtesy Academy: You haven't acquired any cards yet. Showing starter sandbox players. Acquire cards in the Transfer Market to see them here!",
+    "es": "💡 Cantera de Cortesía: Aún no tenés cartas en tu inventario. Mostrando jugadores iniciales de prueba. ¡Conseguí cartas en el Mercado de Transferencias para que aparezcan acá!",
+    "it": "💡 Vivaio di Cortesia: Non hai ancora carte nel tuo inventario. Mostriamo i giocatori iniziali di prova. Ottieni carte nel Mercato Trasferimenti per vederle qui!",
+  },
+  "squad_title": {
+    "en": "Youth Academy & Squad Roster",
+    "es": "Mi Cantera (Youth Academy)",
+    "it": "Il Mio Vivaio (Youth Academy)",
+  },
+  "squad_agent_tip": {
+    "en": "Agent Tip (FifaPhy-inspired): Each player performs differently depending on the active tactical system. Analyze compatibility (dynamic OVR) and effective fatigue time before locking your matchday lineup.",
+    "es": "Tip de Agente (FifaPhy-inspired): Cada jugador rinde diferente según el sistema táctico activo. Analizá la compatibilidad (OVR dinámico) y el tiempo efectivo de fatiga antes de confirmar tu alineación.",
+    "it": "Consiglio Agente (FifaPhy-inspired): Ogni giocatore rende diversamente in base al sistema tattico attivo. Analizza la compatibilità (OVR dinamico) e il tempo effettivo di fatica prima di confermare la formazione.",
+  },
+  "sim_init_title": {
+    "en": "Initializing Tactical Simulator...",
+    "es": "Inicializando Simulador Táctico...",
+    "it": "Inizializzazione Simulatore Tattico...",
+  },
+  "sim_init_sub": {
+    "en": "Connecting Web Worker, validating Devnet test balances, and loading squad...",
+    "es": "Conectando Web Worker, validando saldos de prueba en Devnet y cargando plantilla...",
+    "it": "Connessione Web Worker, verifica saldi di test su Devnet e caricamento rosa...",
+  },
+  "sim_arena_title": {
+    "en": "Interactive Tactical Arena 🏟️",
+    "es": "Arena Táctica Interactiva 🏟️",
+    "it": "Arena Tattica Interattiva 🏟️",
+  },
+  "sim_balance_label": {
+    "en": "💰 Test Balance:",
+    "es": "💰 Mi Balance:",
+    "it": "💰 Saldo di Test:",
+  },
+  "sim_speed_label": {
+    "en": "Speed:",
+    "es": "Velocidad:",
+    "it": "Velocità:",
+  },
+  "sim_home_label": {
+    "en": "Home",
+    "es": "Local",
+    "it": "Casa",
+  },
+  "sim_away_label": {
+    "en": "Away",
+    "es": "Visitante",
+    "it": "Ospite",
+  },
+  "sim_tactics_panel": {
+    "en": "🧠 Tactical Command Panel (Manager)",
+    "es": "🧠 Panel de Comandos Tácticos (Manager)",
+    "it": "🧠 Pannello Comandi Tattici (Manager)",
+  },
+  "wc_tab_simulator": {
+    "en": "🌳 Knockout Bracket",
+    "es": "🌳 Simulador Eliminatorias",
+    "it": "🌳 Tabellone Eliminazione",
+  },
+  "wc_tab_h2h": {
+    "en": "📊 H2H Comparator",
+    "es": "📊 Comparador H2H",
+    "it": "📊 Confronto H2H",
+  },
+  "wc_tab_standings": {
+    "en": "🏆 Group Stage",
+    "es": "🏆 Fase de Grupos",
+    "it": "🏆 Fase a Gironi",
+  },
+  "wc_tab_pickem": {
+    "en": "📝 My Pick'Em",
+    "es": "📝 Mis Predicciones",
+    "it": "📝 I Miei Pronostici",
+  },
+  "wc_sim_title": {
+    "en": "🌳 Knockout Stage Simulator",
+    "es": "🌳 Simulador de Fases Eliminatorias",
+    "it": "🌳 Simulatore Fase a Eliminazione Diretta",
+  },
+  "wc_sim_sub": {
+    "en": "Click any team to advance the winner of each round until crowning the Champion.",
+    "es": "Hacé clic en un equipo para avanzar al ganador de cada ronda hasta coronar al Campeón.",
+    "it": "Clicca su una squadra per far avanzare il vincitore di ogni turno fino a incoronare il Campione.",
+  },
+  "tt_title": {
+    "en": "Tactical Momentum Terminal (Sandbox)",
+    "es": "Terminal de Impulso Táctico (Sandbox)",
+    "it": "Terminale di Slancio Tattico (Sandbox)",
+  },
+  "tt_sub": {
+    "en": "Simulate national team momentum indices using Devnet oracle feeds and autonomous AI Vibe bots.",
+    "es": "Simulá índices de rendimiento de selecciones usando feeds de oráculo en Devnet y bots de IA.",
+    "it": "Simula gli indici di rendimento delle nazionali usando feed oracolo su Devnet e bot IA.",
+  },
+  "tt_tab_manual": {
+    "en": "🎮 Manual",
+    "es": "🎮 Manual",
+    "it": "🎮 Manuale",
+  },
+  "tt_tab_vibe": {
+    "en": "🤖 Vibe Bots",
+    "es": "🤖 Vibe Bots",
+    "it": "🤖 Vibe Bot",
+  },
+  "defi_badge": {
+    "en": "SANDBOX TELEMETRY PORTAL",
+    "es": "PORTAL DE TELEMETRÍA SANDBOX",
+    "it": "PORTALE TELEMETRIA SANDBOX",
+  },
+  "defi_title": {
+    "en": "Matchday Telemetry & Tactics Terminal",
+    "es": "Terminal de Telemetría y Táctica",
+    "it": "Terminale di Telemetria e Tattica",
+  },
+  "defi_honesty": {
+    "en": "Visual simulation on Solana Devnet — free test tokens only, zero real-money transactions.",
+    "es": "Demostración visual en Solana Devnet — solo tokens de prueba gratuitos, sin transacciones con dinero real.",
+    "it": "Dimostrazione visiva su Solana Devnet — solo token di test gratuiti, nessuna transazione con denaro reale.",
+  },
+  "defi_subtitle": {
+    "en": "Test autonomous tactical bots, oracle momentum indices, and simulated club treasury mechanics.",
+    "es": "Probá bots tácticos autónomos, índices de oráculo y mecánicas simuladas de tesorería del club.",
+    "it": "Testa bot tattici autonomi, indici oracolo e meccaniche simulate della tesoreria del club.",
+  },
+  "defi_tab_trading_label": {
+    "en": "💱 Momentum & Vibe Terminal",
+    "es": "💱 Terminal de Impulso y Vibe",
+    "it": "💱 Terminale Momentum e Vibe",
+  },
+  "defi_tab_trading_desc": {
+    "en": "Simulate tactical indices and activate vibe bots",
+    "es": "Simulá índices tácticos y activá vibe bots",
+    "it": "Simula indici tattici e attiva i vibe bot",
+  },
+  "defi_tab_vaults_label": {
+    "en": "🏦 Autonomous Swarm Strategies",
+    "es": "🏦 Estrategias de Enjambre Autónomo",
+    "it": "🏦 Strategie dello Sciame Autonomo",
+  },
+  "defi_tab_vaults_desc": {
+    "en": "Simulated squad telemetry with autonomous agents",
+    "es": "Telemetría simulada de plantel con agentes autónomos",
+    "it": "Telemetria simulata della rosa con agenti autonomi",
+  },
+  "defi_crank_title": {
+    "en": "⚙️ Engine Core Crank Console (Devnet Simulation)",
+    "es": "⚙️ Consola de Ejecución Engine Crank (Simulación Devnet)",
+    "it": "⚙️ Console di Esecuzione Engine Crank (Simulazione Devnet)",
+  },
+  "defi_crank_sub": {
+    "en": "Inspect simulated test-token burn parameters and telemetry distribution cycles.",
+    "es": "Controlá las variables simuladas de quema de tokens de prueba y ciclos de telemetría.",
+    "it": "Controlla le variabili simulate di burn dei token di test e i cicli di telemetria.",
+  },
+  "defi_crank_btn": {
+    "en": "Run Engine Crank",
+    "es": "Ejecutar Engine Crank",
+    "it": "Esegui Engine Crank",
+  },
+  "defi_crank_running": {
+    "en": "Running...",
+    "es": "Ejecutando...",
+    "it": "In esecuzione...",
+  },
+  "burn_lab_title": {
+    "en": "Devnet Supply & Burn Lab",
+    "es": "Laboratorio de Suministro y Quema (Devnet)",
+    "it": "Laboratorio Fornitura e Burn (Devnet)",
+  },
+  "burn_lab_sub": {
+    "en": "Real-time simulated $GCH test-token burn mechanics, tactical rating projections, and protocol health checks on Solana Devnet.",
+    "es": "Mecánicas simuladas en tiempo real de quema de tokens de prueba $GCH, proyecciones tácticas y chequeos de salud del protocolo en Solana Devnet.",
+    "it": "Meccaniche simulate in tempo reale di burn dei token di test $GCH, proiezioni tattiche e controlli di salute del protocollo su Solana Devnet.",
+  },
+  "hermes_pilot_title": {
+    "en": "🦅 Hermes Pilot — Editorial & Social Queue",
+    "es": "🦅 Hermes Pilot — Cola Editorial y Social",
+    "it": "🦅 Hermes Pilot — Coda Editoriale e Social",
+  },
+  "hermes_filter_all": {
+    "en": "All",
+    "es": "Todo",
+    "it": "Tutti",
+  },
+  "hermes_filter_queue": {
+    "en": "📋 Queue",
+    "es": "📋 Cola",
+    "it": "📋 Coda",
+  },
+  "hermes_generate_btn": {
+    "en": "🚀 Generate",
+    "es": "🚀 Generar",
+    "it": "🚀 Genera",
+  },
+  "hermes_fill_queue_btn": {
+    "en": "🧠 Fill Queue",
+    "es": "🧠 Llenar Cola",
+    "it": "🧠 Riempi Coda",
+  },
+  "autopilot_title": {
+    "en": "GoalWorld Autopilot Corp (Sandbox)",
+    "es": "GoalWorld Autopilot Corp (Sandbox)",
+    "it": "GoalWorld Autopilot Corp (Sandbox)",
+  },
 }
 
 # Build final en, es, it dicts preserving key order from en_data
@@ -1337,9 +1543,12 @@ final_es = dict(es_data)
 final_it = {}
 
 for k in en_data.keys():
-    if k not in it_existing:
+    if k in it_existing:
+        final_it[k] = it_existing[k]
+    elif k in new_keys:
+        final_it[k] = new_keys[k]["it"]
+    else:
         raise KeyError(f"Missing Italian translation for existing key: {k}")
-    final_it[k] = it_existing[k]
 
 for k, translations in new_keys.items():
     final_en[k] = translations["en"]

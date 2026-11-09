@@ -1,11 +1,13 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { SimulationBadge } from '../components/SimulationBadge';
 import { fetchOpsStatus, triggerVaultCrank, type OpsStatus } from '../lib/opsClient';
+import { useTranslation } from '../i18n';
 
 const TradingTerminal = lazy(() => import('./TradingTerminal').then(m => ({ default: m.TradingTerminal })));
 const SwarmVaults = lazy(() => import('./SwarmVaults').then(m => ({ default: m.SwarmVaults })));
 
 export function DeFiPortal() {
+  const { t } = useTranslation();
   const [activeSubTab, setActiveSubTab] = useState<'trading' | 'vaults'>('trading');
   const [opsData, setOpsData] = useState<OpsStatus | null>(null);
   const [crankLoading, setCrankLoading] = useState(false);
@@ -48,21 +50,21 @@ export function DeFiPortal() {
   };
 
   const tabs = [
-    { id: 'trading', label: '💱 Vibe Swap & Trading', desc: 'Negocia tokens y activa vibe bots' },
-    { id: 'vaults', label: '🏦 Swarm Yield Vaults', desc: 'Estrategias de liquidez con agentes autónomos' },
+    { id: 'trading', label: t('defi_tab_trading_label'), desc: t('defi_tab_trading_desc') },
+    { id: 'vaults', label: t('defi_tab_vaults_label'), desc: t('defi_tab_vaults_desc') },
   ] as const;
 
   return (
     <div className="play-page play-page--portal">
       <div className="portal-header glass-card">
-        <div className="portal-badge portal-badge--defi">DEFI PORTAL</div>
+        <div className="portal-badge portal-badge--defi">{t('defi_badge')}</div>
         <SimulationBadge />
-        <h1>Terminal Financiera</h1>
+        <h1>{t('defi_title')}</h1>
         <p className="portal-honesty-note">
-          Demostración visual — sin transacciones on-chain hasta post-Mundial 2026.
+          {t('defi_honesty')}
         </p>
         <p className="portal-subtitle">
-          Maximiza el rendimiento de tu club con arbitraje inteligente, vaults autónomas y liquidez automatizada.
+          {t('defi_subtitle')}
         </p>
 
         {/* Glassmorphic Tabs Navigation */}
@@ -86,10 +88,10 @@ export function DeFiPortal() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '15px' }}>
             <div>
               <h3 style={{ margin: 0, color: '#fff', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                ⚙️ Consola de Ejecución Vault Crank (Infinity Engine)
+                {t('defi_crank_title')}
               </h3>
               <p style={{ margin: '5px 0 0 0', fontSize: '0.8rem', color: '#94a3b8' }}>
-                Controla las variables de recompra de GCH y distribución de rendimiento de las bóvedas.
+                {t('defi_crank_sub')}
               </p>
             </div>
             <button
@@ -110,7 +112,7 @@ export function DeFiPortal() {
               onMouseEnter={(e) => !crankLoading && (e.currentTarget.style.transform = 'scale(1.03)')}
               onMouseLeave={(e) => !crankLoading && (e.currentTarget.style.transform = 'scale(1)')}
             >
-              {crankLoading ? 'Ejecutando...' : 'Ejecutar Vault Crank'}
+              {crankLoading ? t('defi_crank_running') : t('defi_crank_btn')}
             </button>
           </div>
 

@@ -201,8 +201,8 @@ function EconomyDiagram({ highlighted }: { highlighted: boolean }) {
 // ─────────────────────────────────────────────────────────────────────────────
 export function CorporateAutopilot() {
   const apiBase = apiBaseUrl();
-  const { language } = useTranslation();
-  const tText = useCallback((en: string, es: string) => (language === 'es' ? es : en), [language]);
+  const { language, t: translate } = useTranslation();
+  const tText = useCallback((en: string, es: string, it?: string) => (language === 'es' ? es : language === 'it' ? (it ?? en) : en), [language]);
 
   // Core state
   const [balance, setBalance]         = useState({ available: 4250.00, pending: 125.00, currency: 'USD' });
@@ -570,7 +570,7 @@ export function CorporateAutopilot() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
             <span style={{ fontSize: '1.8rem' }}>⚡</span>
             <h2 style={{ margin: 0, fontSize: '1.6rem', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              GoalChain Autopilot Corp
+              {translate('autopilot_title')}
             </h2>
           </div>
           <p style={{ margin: 0, fontSize: '0.85rem', color: '#94a3b8', maxWidth: 520 }}>

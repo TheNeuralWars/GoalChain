@@ -3,6 +3,8 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   PLAY_NAV_GROUPS,
   RESOURCE_LINKS,
+  MARKETING_BASE,
+  getLocalizedMarketingUrl,
   type PlayNavItem,
   type ArcadeGameId,
 } from '../config/playNav';
@@ -11,11 +13,19 @@ import { useTranslation } from '../i18n';
 import { gameBus } from '../hooks/useGameBus';
 import { useUser } from '../contexts/UserContext';
 
+function localizeHref(href: string, language: 'en' | 'es' | 'it'): string {
+  if (href.startsWith(MARKETING_BASE)) {
+    const subPath = href.slice(MARKETING_BASE.length) || '/';
+    return getLocalizedMarketingUrl(subPath, language);
+  }
+  return href;
+}
+
 /* ----------------------------------
    Render de un item de navegación
    ---------------------------------- */
 function NavItem({ item, collapsed }: { item: PlayNavItem; collapsed: boolean }) {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const label = item.i18n ? t(item.i18n as never) : item.label;
 
   const badge = item.badge ? (
@@ -68,9 +78,10 @@ function NavItem({ item, collapsed }: { item: PlayNavItem; collapsed: boolean })
     );
   }
   if (item.href) {
+    const resolvedHref = localizeHref(item.href, language);
     return (
       <a
-        href={item.href}
+        href={resolvedHref}
         className={`gc-nav-link${collapsed ? ' gc-nav-link--icon' : ''}`}
         target={item.external ? '_blank' : undefined}
         rel={item.external ? 'noopener noreferrer' : undefined}
@@ -266,7 +277,7 @@ export function PlayNav({
    BOTTOM-TAB BAR (móvil <768px)
    ================================================ */
 export function PlayBottomTab() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const { user, isLoggedIn } = useUser();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const location = useLocation();
@@ -336,7 +347,7 @@ export function PlayBottomTab() {
             );
           }
           return (
-            <a key={it.id} href={it.href} className={baseClass} aria-label={it.label}>
+            <a key={it.id} href={it.href ? localizeHref(it.href, language) : undefined} className={baseClass} aria-label={it.label}>
               <span aria-hidden>{it.icon}</span>
             </a>
           );

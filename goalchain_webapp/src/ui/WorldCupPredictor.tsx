@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from '../i18n';
 
 interface TeamStats {
   name: string;
@@ -28,6 +29,7 @@ const WC_TEAMS: TeamStats[] = [
 ];
 
 export function WorldCupPredictor() {
+  const { t } = useTranslation();
   const [activeSubTab, setActiveSubTab] = useState<'simulator' | 'h2h' | 'standings' | 'pickem'>('simulator');
   
   // H2H Predictor states
@@ -130,10 +132,10 @@ export function WorldCupPredictor() {
               transition: 'all 0.2s ease'
             }}
           >
-            {tab === 'simulator' && '🌳 Simulador Eliminatorias'}
-            {tab === 'h2h' && '📊 Comparador H2H'}
-            {tab === 'standings' && '🏆 Fase de Grupos'}
-            {tab === 'pickem' && '📝 Mis Predicciones'}
+            {tab === 'simulator' && t('wc_tab_simulator')}
+            {tab === 'h2h' && t('wc_tab_h2h')}
+            {tab === 'standings' && t('wc_tab_standings')}
+            {tab === 'pickem' && t('wc_tab_pickem')}
           </button>
         ))}
       </div>
@@ -142,8 +144,8 @@ export function WorldCupPredictor() {
       {activeSubTab === 'simulator' && (
         <div className="portal-fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           <div className="glass-card" style={{ padding: '1.25rem' }}>
-            <h3 style={{ margin: 0, color: '#fff', fontSize: '1rem', fontWeight: 800 }}>🌳 Simulador de Fases Eliminatorias</h3>
-            <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>Haz clic en un equipo para avanzar al ganador de cada ronda hasta coronar al Campeón.</span>
+            <h3 style={{ margin: 0, color: '#fff', fontSize: '1rem', fontWeight: 800 }}>{t('wc_sim_title')}</h3>
+            <span style={{ fontSize: '0.7rem', color: 'var(--text-dim)' }}>{t('wc_sim_sub')}</span>
           </div>
 
           {/* Interactive Bracket Grid */}

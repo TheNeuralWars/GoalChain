@@ -1,0 +1,656 @@
+{
+  "generatedAt": "2026-11-09T22:29:16.490Z",
+  "sitePagesChecked": 39,
+  "siteRoundTripsChecked": 5,
+  "webappRoutesChecked": 40,
+  "webappRoundTripsChecked": 10,
+  "screenshots": [
+    {
+      "file": "gw-es-home-1440x900.jpg",
+      "bytes": 67679
+    },
+    {
+      "file": "gw-es-home-390x844.jpg",
+      "bytes": 41231
+    },
+    {
+      "file": "gw-es-book-1440x900.jpg",
+      "bytes": 151369
+    },
+    {
+      "file": "gw-es-book-390x844.jpg",
+      "bytes": 48507
+    },
+    {
+      "file": "gw-it-home-1440x900.jpg",
+      "bytes": 68631
+    },
+    {
+      "file": "gw-it-home-390x844.jpg",
+      "bytes": 42216
+    },
+    {
+      "file": "gw-it-book-1440x900.jpg",
+      "bytes": 150480
+    },
+    {
+      "file": "gw-it-book-390x844.jpg",
+      "bytes": 50240
+    },
+    {
+      "file": "play-es-home-1440x900.jpg",
+      "bytes": 99064
+    },
+    {
+      "file": "play-it-home-1440x900.jpg",
+      "bytes": 100368
+    },
+    {
+      "file": "play-es-dashboard-1440x900.jpg",
+      "bytes": 79349
+    },
+    {
+      "file": "play-it-dashboard-1440x900.jpg",
+      "bytes": 76952
+    }
+  ],
+  "failures": [],
+  "details": {
+    "site": [
+      {
+        "locale": "en",
+        "slug": "index",
+        "routePath": "/",
+        "title": "GoalWorld · Indie studio — Canon. Code. Cinema.",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "slug": "book",
+        "routePath": "/book.html",
+        "title": "Fractured Code · The Neural Wars, Book 1",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "slug": "cinema",
+        "routePath": "/cinema.html",
+        "title": "AI Cinema · The Neural Wars",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "slug": "studio",
+        "routePath": "/studio.html",
+        "title": "The Studio · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "slug": "collect",
+        "routePath": "/collect.html",
+        "title": "Collectors & creators · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "slug": "roadmap",
+        "routePath": "/roadmap.html",
+        "title": "Roadmap · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "slug": "about",
+        "routePath": "/about.html",
+        "title": "About & Lore · GoalWorld — The Neural Wars",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "slug": "faq",
+        "routePath": "/faq.html",
+        "title": "FAQ · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "slug": "press",
+        "routePath": "/press.html",
+        "title": "Press Kit · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "slug": "live",
+        "routePath": "/live.html",
+        "title": "Live board · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "slug": "privacy",
+        "routePath": "/privacy.html",
+        "title": "Privacy · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "slug": "terms",
+        "routePath": "/terms.html",
+        "title": "Terms · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "en",
+        "slug": "404",
+        "routePath": "/404.html",
+        "title": "Lost in the Link · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "index",
+        "routePath": "/es/",
+        "title": "GoalWorld · Estudio independiente — Canon. Code. Cinema.",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "book",
+        "routePath": "/es/book.html",
+        "title": "Fractured Code · The Neural Wars, Libro 1",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "cinema",
+        "routePath": "/es/cinema.html",
+        "title": "Cine IA · The Neural Wars",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "studio",
+        "routePath": "/es/studio.html",
+        "title": "El Estudio · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "collect",
+        "routePath": "/es/collect.html",
+        "title": "Coleccionistas y creadores · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "roadmap",
+        "routePath": "/es/roadmap.html",
+        "title": "Hoja de ruta · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "about",
+        "routePath": "/es/about.html",
+        "title": "Lore y Universo · GoalWorld — The Neural Wars",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "faq",
+        "routePath": "/es/faq.html",
+        "title": "Preguntas frecuentes · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "press",
+        "routePath": "/es/press.html",
+        "title": "Kit de Prensa · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "live",
+        "routePath": "/es/live.html",
+        "title": "Tablero en vivo · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "privacy",
+        "routePath": "/es/privacy.html",
+        "title": "Privacidad · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "terms",
+        "routePath": "/es/terms.html",
+        "title": "Términos · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "es",
+        "slug": "404",
+        "routePath": "/es/404.html",
+        "title": "Perdido en el Link · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "index",
+        "routePath": "/it/",
+        "title": "GoalWorld · Studio indipendente — Canon. Code. Cinema.",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "book",
+        "routePath": "/it/book.html",
+        "title": "Fractured Code · The Neural Wars, Libro 1",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "cinema",
+        "routePath": "/it/cinema.html",
+        "title": "Cinema IA · The Neural Wars",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "studio",
+        "routePath": "/it/studio.html",
+        "title": "Lo Studio · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "collect",
+        "routePath": "/it/collect.html",
+        "title": "Collezionisti e autori · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "roadmap",
+        "routePath": "/it/roadmap.html",
+        "title": "Roadmap · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "about",
+        "routePath": "/it/about.html",
+        "title": "Lore e Universo · GoalWorld — The Neural Wars",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "faq",
+        "routePath": "/it/faq.html",
+        "title": "FAQ · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "press",
+        "routePath": "/it/press.html",
+        "title": "Press Kit · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "live",
+        "routePath": "/it/live.html",
+        "title": "Bacheca live · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "privacy",
+        "routePath": "/it/privacy.html",
+        "title": "Privacy · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "terms",
+        "routePath": "/it/terms.html",
+        "title": "Termini · GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "locale": "it",
+        "slug": "404",
+        "routePath": "/it/404.html",
+        "title": "Perso nel Link · GoalWorld",
+        "passed": true,
+        "errors": []
+      }
+    ],
+    "webapp": [
+      {
+        "route": "home",
+        "locale": "en",
+        "h1": "Matchday Lab",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "home",
+        "locale": "es",
+        "h1": "Matchday Lab",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "home",
+        "locale": "it",
+        "h1": "Matchday Lab",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "home",
+        "locale": "en",
+        "h1": "Matchday Lab",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "dashboard",
+        "locale": "en",
+        "h1": "Welcome to GoalChain",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "dashboard",
+        "locale": "es",
+        "h1": "Bienvenido a GoalChain",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "dashboard",
+        "locale": "it",
+        "h1": "Benvenuto su GoalChain",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "dashboard",
+        "locale": "en",
+        "h1": "Welcome to GoalChain",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "estadio",
+        "locale": "en",
+        "h1": "Stadium Portal",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "estadio",
+        "locale": "es",
+        "h1": "Portal Estadio",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "estadio",
+        "locale": "it",
+        "h1": "Portale Stadio",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "estadio",
+        "locale": "en",
+        "h1": "Stadium Portal",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "club",
+        "locale": "en",
+        "h1": "My Club",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "club",
+        "locale": "es",
+        "h1": "Mi Club",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "club",
+        "locale": "it",
+        "h1": "Il Mio Club",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "club",
+        "locale": "en",
+        "h1": "My Club",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "defi",
+        "locale": "en",
+        "h1": "Matchday Telemetry & Tactics Terminal",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "defi",
+        "locale": "es",
+        "h1": "Terminal de Telemetría y Táctica",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "defi",
+        "locale": "it",
+        "h1": "Terminale di Telemetria e Tattica",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "defi",
+        "locale": "en",
+        "h1": "Matchday Telemetry & Tactics Terminal",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "staking",
+        "locale": "en",
+        "h1": "🔥 Devnet Supply & Burn LabSIMULACIÓN",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "staking",
+        "locale": "es",
+        "h1": "🔥 Laboratorio de Suministro y Quema (Devnet)SIMULACIÓN",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "staking",
+        "locale": "it",
+        "h1": "🔥 Laboratorio Fornitura e Burn (Devnet)SIMULACIÓN",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "staking",
+        "locale": "en",
+        "h1": "🔥 Devnet Supply & Burn LabSIMULACIÓN",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "goalworld",
+        "locale": "en",
+        "h1": "GoalWorld Lore & Editorial Studio (Sandbox)",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "goalworld",
+        "locale": "es",
+        "h1": "Estudio Editorial y Lore de GoalWorld (Sandbox)",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "goalworld",
+        "locale": "it",
+        "h1": "Studio Editoriale e Lore di GoalWorld (Sandbox)",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "goalworld",
+        "locale": "en",
+        "h1": "GoalWorld Lore & Editorial Studio (Sandbox)",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "reader",
+        "locale": "en",
+        "h1": "CHAPTER 1: TWELVE SECONDS\n## The Neural Wars: Fractured Code · Book 1 (Verified Opening Excerpt)",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "reader",
+        "locale": "es",
+        "h1": "CAPÍTULO 1: DOCE SEGUNDOS\n## The Neural Wars: Fractured Code · Libro 1 (Extracto Inicial Verificado)",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "reader",
+        "locale": "it",
+        "h1": "CHAPTER 1: TWELVE SECONDS\n## The Neural Wars: Fractured Code · Book 1 (Verified Opening Excerpt)",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "reader",
+        "locale": "en",
+        "h1": "CHAPTER 1: TWELVE SECONDS\n## The Neural Wars: Fractured Code · Book 1 (Verified Opening Excerpt)",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "studio",
+        "locale": "en",
+        "h1": "🖋️ GoalWorld Editorial & Lore Studio",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "studio",
+        "locale": "es",
+        "h1": "🖋️ Estudio Editorial y Lore de GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "studio",
+        "locale": "it",
+        "h1": "🖋️ Studio Editoriale e Lore di GoalWorld",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "studio",
+        "locale": "en",
+        "h1": "🖋️ GoalWorld Editorial & Lore Studio",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "presskit",
+        "locale": "en",
+        "h1": "Clipper & Creator Kit",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "presskit",
+        "locale": "es",
+        "h1": "Clipper & Creator Kit",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "presskit",
+        "locale": "it",
+        "h1": "Kit Clipper & Creator",
+        "passed": true,
+        "errors": []
+      },
+      {
+        "route": "presskit",
+        "locale": "en",
+        "h1": "Clipper & Creator Kit",
+        "passed": true,
+        "errors": []
+      }
+    ]
+  }
+}

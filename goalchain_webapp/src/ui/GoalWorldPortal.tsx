@@ -602,7 +602,7 @@ export function GoalWorldPortal() {
       {activeTab === 'saas' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           {/* Integrated Author & Lore Studio */}
-          <AuthorStudio />
+          <AuthorStudio embedded />
 
           {/* SaaS Header & Step Progress */}
           <div style={{

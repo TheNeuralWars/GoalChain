@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SimulationBadge } from '../components/SimulationBadge';
 import { LayeredNftCard, PlayerRow } from './LayeredNftCard';
+import { useTranslation } from '../i18n';
 
 interface PlayerStatsBreakdown {
   fisico: number;
@@ -96,6 +97,7 @@ function mapPlayerToDetailed(p: PlayerRow): DetailedPlayer {
 }
 
 export const SquadGallery: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedPlayer, setSelectedPlayer] = useState<DetailedPlayer | null>(null);
   const [activeSystem, setActiveSystem] = useState<'4-3-3' | '4-4-2' | '3-5-2'>('4-3-3');
   const [squad, setSquad] = useState<DetailedPlayer[]>([]);
@@ -161,12 +163,12 @@ export const SquadGallery: React.FC = () => {
           fontSize: '0.8rem',
           color: '#ffd073'
         }}>
-          💡 <strong>Cantera de Cortesía:</strong> Aún no tienes cartas compradas. Mostrando jugadores iniciales de prueba. ¡Compra cartas en el <strong>Mercado de Transferencias</strong> para que aparezcan aquí!
+          {t('squad_demo_notice')}
         </div>
       )}
 
       <h2 className="text-neon-green" style={{ borderBottom: 'none', paddingBottom: 0, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-        <span style={{ fontSize: '1.4rem' }}>🏆</span> Mi Cantera (Youth Academy)
+        <span style={{ fontSize: '1.4rem' }}>🏆</span> {t('squad_title')}
         <SimulationBadge />
       </h2>
       
@@ -203,7 +205,7 @@ export const SquadGallery: React.FC = () => {
       }}>
         <span className="pulse-dot" style={{ marginTop: '5px', flexShrink: 0 }}></span>
         <p style={{ margin: 0, fontSize: '0.8rem', color: '#cbd5e1', lineHeight: '1.5' }}>
-          <strong style={{ color: 'var(--primary-neon)' }}>Tip de Agente (FifaPhy-inspired):</strong> Cada jugador rinde diferente según el sistema táctico activo. Analiza la compatibilidad (OVR dinámico) y el tiempo efectivo de fatiga antes de decidir tu alineación de recompensa on-chain.
+          {t('squad_agent_tip')}
         </p>
       </div>
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { SimulationBadge } from '../components/SimulationBadge';
+import { useTranslation } from '../i18n';
 
 interface BotState {
     isEnabled: boolean;
@@ -26,6 +27,7 @@ interface BotLog {
 }
 
 export const TradingTerminal: React.FC = () => {
+    const { t } = useTranslation();
     const [activeTab, setActiveTab] = useState<'manual' | 'vibe'>('manual');
     const [selectedPair, setSelectedPair] = useState<string>('Argentina (ARG-PERP)');
     const [position, setPosition] = useState<'Long' | 'Short'>('Long');
@@ -460,7 +462,7 @@ export const TradingTerminal: React.FC = () => {
         <div className="glass-card trading-terminal" style={{ textAlign: 'left' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '1rem' }}>
                 <h2 className="text-neon-purple" style={{ margin: 0, borderBottom: 'none', paddingBottom: 0, display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-                    <span role="img" aria-label="chart">📈</span> Drift Derivatives Terminal
+                    <span role="img" aria-label="chart">📈</span> {t('tt_title')}
                     <SimulationBadge />
                 </h2>
                 {/* Tab selector */}
@@ -469,19 +471,19 @@ export const TradingTerminal: React.FC = () => {
                         onClick={() => setActiveTab('manual')} 
                         className={`terminal-tab-btn ${activeTab === 'manual' ? 'active' : ''}`}
                     >
-                        🎮 Manual
+                        {t('tt_tab_manual')}
                     </button>
                     <button 
                         onClick={() => setActiveTab('vibe')} 
                         className={`terminal-tab-btn ${activeTab === 'vibe' ? 'active' : ''}`}
                     >
-                        🤖 Vibe Bots
+                        {t('tt_tab_vibe')}
                     </button>
                 </div>
             </div>
 
             <p style={{ opacity: 0.7, fontSize: '0.85rem', marginTop: '-4px', marginBottom: '1.5rem' }}>
-                Especula sobre el rendimiento de las selecciones con apalancamiento usando oráculos de Drift y AI Vibe trading.
+                {t('tt_sub')}
             </p>
 
             {activeTab === 'manual' ? (

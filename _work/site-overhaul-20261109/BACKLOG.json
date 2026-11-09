@@ -3,7 +3,7 @@
     "0": "done",
     "1": "done",
     "2": "done",
-    "3": "doing",
+    "3": "done",
     "4": "todo",
     "5": "todo",
     "6": "todo"
@@ -171,13 +171,13 @@
     },
     {
       "id": "A-038",
-      "phase": 4,
+      "phase": 3,
       "priority": "P1",
       "title": "Add full Italian (it) locale support to goalchain_webapp (locales/it.json, Language type, LanguageToggle, and check-i18n-keys.mjs)",
-      "evidence": "goalchain_webapp/src/i18n/index.tsx:17-41; src/i18n/translations.ts; src/components/LanguageToggle.tsx; scripts/check-i18n-keys.mjs",
+      "evidence": "goalchain_webapp/src/i18n/locales/it.json (857 keys); src/i18n/index.tsx; src/i18n/translations.ts; src/components/LanguageToggle.tsx; scripts/check-i18n-keys.mjs",
       "fix": "Create goalchain_webapp/src/i18n/locales/it.json with natural Italian translations for all keys, add 'it' to Language type and i18n loader, update LanguageToggle.tsx for EN/ES/IT selection, and update scripts/check-i18n-keys.mjs to verify 3-way en/es/it parity.",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-011",
@@ -351,33 +351,33 @@
     },
     {
       "id": "A-039",
-      "phase": 4,
+      "phase": 3,
       "priority": "P2",
       "title": "Wire hardcoded UI components in goalchain_webapp/src/ui/ (LandingPage, GoalWorldPortal, AuthorStudio, PressKit, SquadGallery, MatchSimulator, WorldCupPredictor, TradingTerminal) to useTranslation()",
-      "evidence": "evidence/audit/repo_static_audit.json:2319-2520 (22 components in src/ui/ have 0 t() calls)",
+      "evidence": "goalchain_webapp/src/ui/{LandingPage,GoalWorldPortal,AuthorStudio,PressKit,SquadGallery,MatchSimulator,WorldCupPredictor,TradingTerminal,DeFiPortal,StakingBurnDashboard,MarketingControlCenter,CorporateAutopilot,PlayLayout,PlayNav}.tsx; _work/site-overhaul-20261109/evidence/phase3/i18n_report.json",
       "fix": "Replace hardcoded English/Spanish strings in primary user-facing UI components with t() calls backed by en.json, es.json, and it.json.",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-040",
-      "phase": 4,
+      "phase": 3,
       "priority": "P2",
       "title": "Localize KindleReader.tsx and TheNeuralWarsUniverse.tsx UI chrome and lore descriptions across EN, ES, and IT",
-      "evidence": "goalchain_webapp/src/ui/KindleReader.tsx:736-1044; goalchain_webapp/src/ui/TheNeuralWarsUniverse.tsx:42-315",
+      "evidence": "goalchain_webapp/src/ui/KindleReader.tsx; goalchain_webapp/src/ui/TheNeuralWarsUniverse.tsx; src/i18n/locales/{en,es,it}.json",
       "fix": "Wire KindleReader.tsx and TheNeuralWarsUniverse.tsx UI labels and lore entries to active language (en/es/it) via useTranslation().",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-041",
-      "phase": 4,
+      "phase": 3,
       "priority": "P2",
       "title": "Add missing i18n keys for all navigation items and groups in goalchain_webapp/src/config/playNav.ts",
-      "evidence": "goalchain_webapp/src/config/playNav.ts:130-268",
+      "evidence": "goalchain_webapp/src/config/playNav.ts; goalchain_webapp/src/ui/PlayNav.tsx; src/i18n/locales/{en,es,it}.json",
       "fix": "Add i18n keys to every PlayNavItem and PlayNavGroup in playNav.ts and populate translations in en.json, es.json, and it.json.",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-043",
