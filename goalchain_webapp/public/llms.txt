@@ -1,17 +1,16 @@
-# GoalWorld Play
+# GoalWorld · Matchday Lab
 
-> The play app for GoalWorld — football meets DeFi on Solana: matchday fixtures,
-> predictions, a full match simulator, squads, an NFT market and staking.
-> Early Solana Devnet demo. Connect a Solana wallet (for example Phantom) to
-> create a manager account.
+> The playable Solana Devnet sandbox for GoalWorld — matchday fixtures,
+> tactical predictions, a 2D match simulator, squad management, and free
+> Devnet collectibles. No real money, no mainnet tokens, no financial return.
 
 ## App sections
 
-- [Matchday](https://play.goalworld.fun/estadio): live fixtures, predictions and the match simulator.
-- [Club](https://play.goalworld.fun/club): squad gallery, NFT market, trading and staking.
-- [Dashboard](https://play.goalworld.fun/dashboard): your manager dashboard.
-- [Create account](https://play.goalworld.fun/crear-usuario): connect a wallet, pick a manager name, and start.
-- [Reader](https://play.goalworld.fun/reader): read the GoalWorld books in-app.
+- [Matchday](https://play.goalworld.fun/estadio): live fixtures, predictions and the 2D match simulator.
+- [Club](https://play.goalworld.fun/club): squad gallery, Genesis player cards, and tactical setup.
+- [Dashboard](https://play.goalworld.fun/dashboard): your manager dashboard on Solana Devnet.
+- [Create account](https://play.goalworld.fun/crear-usuario): connect a Devnet wallet, pick a manager name, and start.
+- [Reader](https://play.goalworld.fun/reader): read the verified Chapter 1 excerpt of The Neural Wars: Fractured Code.
 
 ## Companion surfaces
 

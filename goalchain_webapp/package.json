@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node ../design/sync-tokens.mjs --check && tsc && vite build",
+    "build": "node ../design/sync-tokens.mjs --check && node scripts/check-banned-claims.mjs && tsc && vite build",
     "preview": "vite preview",
     "check:tokens": "node ../design/sync-tokens.mjs --check",
+    "check:claims": "node scripts/check-banned-claims.mjs",
     "check:i18n": "node scripts/check-i18n-keys.mjs",
     "smoke:devnet": "bash scripts/smoke-devnet.sh"
   },

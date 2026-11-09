@@ -115,7 +115,7 @@ export const StakingBurnDashboard: React.FC = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
           <h1 className="text-neon-green" style={{ margin: 0, fontSize: '2.2rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <span role="img" aria-label="fire">🔥</span> Infinity Burn &amp; Staking Dashboard
+            <span role="img" aria-label="fire">🔥</span> Devnet Burn Lab &amp; Staking Dashboard
             <SimulationBadge />
           </h1>
           <p style={{ opacity: 0.7, fontSize: '0.95rem', marginTop: '0.25rem', maxWidth: '600px' }}>
@@ -164,7 +164,7 @@ export const StakingBurnDashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Infinity Burn Visualizer — Hero Card */}
+      {/* Devnet Burn Lab Visualizer — Hero Card */}
       <div className="glass-card-flame infinity-burn-card" style={{ position: 'relative', overflow: 'hidden', minHeight: '320px' }}>
         {/* Background Flame Animation */}
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0 }}>

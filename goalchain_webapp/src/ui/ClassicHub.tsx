@@ -45,7 +45,7 @@ export function ClassicHub() {
             <div className="launcher-card-header">
               <div className="launcher-card-icon">{m.icon}</div>
             </div>
-            <h3>{m.label}</h3>
+            <h2>{m.label}</h2>
             <p>{m.desc}</p>
             <div className="launcher-card-footer">
               <span className="launcher-card-btn text-neon-green">{t('classic_hub_go_to_module')} →</span>

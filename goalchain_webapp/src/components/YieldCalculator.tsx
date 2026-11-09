@@ -305,7 +305,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({
         <div className="burn-contribution-section">
           <div className="burn-contribution-info">
             <div className="burn-contribution-label">
-              Your Stake's Daily Burn Contribution (Infinity Burn)
+              Your Stake's Daily Burn Contribution (Devnet Burn Lab)
             </div>
             <div className="burn-contribution-value">
               {formatNumber(values.dailyBurnContribution, 6)} $GCH

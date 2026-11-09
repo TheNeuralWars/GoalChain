@@ -273,7 +273,7 @@ export function AICoach() {
         
         {/* Advisories Tácticos */}
         <div className="glass-card" style={{ padding: '1.25rem' }}>
-          <h3 style={{ margin: '0 0 10px 0', color: '#fff', fontSize: '0.92rem', fontWeight: 800 }}>{t('ai_coach_tactical_advisories')}</h3>
+          <div style={{ margin: '0 0 10px 0', color: '#fff', fontSize: '0.92rem', fontWeight: 800 }}>{t('ai_coach_tactical_advisories')}</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {advisories.map((adv, idx) => {
               const borderCol = adv.type === 'success' ? 'rgba(20,241,149,0.3)' : adv.type === 'warning' ? 'rgba(255,77,106,0.3)' : 'rgba(153,69,255,0.3)';
@@ -297,7 +297,7 @@ export function AICoach() {
         <div className="glass-card" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
-              <h3 style={{ margin: 0, color: '#fff', fontSize: '0.92rem', fontWeight: 800 }}>{t('ai_coach_rainmaker_title')}</h3>
+              <div style={{ margin: 0, color: '#fff', fontSize: '0.92rem', fontWeight: 800 }}>{t('ai_coach_rainmaker_title')}</div>
               <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)' }}>{t('ai_coach_rainmaker_subtitle')}</span>
             </div>
             <span className="simulation-badge">PYTH LIVE</span>
