@@ -512,6 +512,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       <img
                         src="/assets/img/neuralwars/book1_cover_fractured_code.jpg"
                         alt="The Neural Wars: Fractured Code Cover"
+                        width={400}
+                        height={600}
                         style={{
                           width: '100%',
                           maxHeight: '460px',
@@ -604,6 +606,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       <img
                         src="/assets/img/neuralwars/book2_cover_earths_new_song.jpg"
                         alt="The Neural Wars: Earth's New Song Cover"
+                        width={400}
+                        height={600}
                         style={{
                           width: '100%',
                           maxHeight: '460px',
@@ -788,6 +792,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       <img
                         src={char.imageUrl}
                         alt={char.name}
+                        width={52}
+                        height={52}
                         style={{ width: '52px', height: '52px', borderRadius: '50%', objectFit: 'cover', border: `2px solid ${char.accentColor}` }}
                       />
                     )}
@@ -827,6 +833,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       <img
                         src={selectedChar.imageUrl}
                         alt={selectedChar.name}
+                        width={220}
+                        height={293}
                         style={{ width: '100%', aspectRatio: '3 / 4', objectFit: 'cover', objectPosition: 'center top', borderRadius: '14px', display: 'block' }}
                       />
                     </div>
@@ -950,6 +958,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                     <img
                       src={selectedLoc.imageUrl}
                       alt={selectedLoc.name}
+                      width={800}
+                      height={450}
                       style={{ width: '100%', aspectRatio: '16 / 9', objectFit: 'cover', display: 'block' }}
                     />
                   </div>

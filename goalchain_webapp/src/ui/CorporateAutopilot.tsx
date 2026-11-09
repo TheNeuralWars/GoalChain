@@ -663,7 +663,7 @@ export function CorporateAutopilot() {
       </section>
 
       {/* ── MAIN GRID: SWARM + TERMINAL ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
 
         {/* SWARM TOPOLOGY */}
         <section style={{
@@ -736,16 +736,17 @@ export function CorporateAutopilot() {
       </div>
 
       {/* ── BOTTOM GRID: DATA PANELS ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
 
         {/* TABBED DATA PANEL */}
         <section style={{
           background: 'rgba(10,10,22,0.7)', border: '1px solid rgba(255,255,255,0.07)',
           borderRadius: '14px', padding: '20px', backdropFilter: 'blur(10px)',
           display: 'flex', flexDirection: 'column', gap: '12px',
+          minWidth: 0,
         }}>
           {/* Tab bar */}
-          <div style={{ display: 'flex', gap: '8px', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '12px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '12px' }}>
             {([['wallet', tText('💳 Agent Wallet', '💳 Monedero Agente')], ['ledger', tText('📊 Corp Ledger', '📊 Libro Corp')], ['safety', tText('🛡️ NemoClaw', '🛡️ NemoClaw')], ['threads', tText('📟 Swarm Threads', '📟 Hilos Swarm')]] as const).map(([tab, label]) => (
               <button key={tab} onClick={() => setActiveTab(tab)} style={{
                 padding: '6px 14px', borderRadius: '8px', fontSize: '0.72rem', fontWeight: 700, cursor: 'pointer',

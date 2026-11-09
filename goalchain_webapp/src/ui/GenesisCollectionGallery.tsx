@@ -112,9 +112,10 @@ export const GenesisCollectionGallery: React.FC = () => {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 260px), 1fr))',
           gap: '40px 20px',
           justifyContent: 'center',
+          justifyItems: 'center',
           padding: '20px 0'
         }}
       >

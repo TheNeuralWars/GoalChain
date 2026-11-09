@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import { ConnectButton } from '../wallet/ConnectButton';
 import { PlayNav, PlayBottomTab } from './PlayNav';
@@ -12,9 +12,13 @@ import { AICoach } from './AICoach';
 
 export function PlayLayout() {
   const { t } = useTranslation();
+  const location = useLocation();
   const [ugcMode, setUgcMode] = useState(false);
   const [coachOpen, setCoachOpen] = useState(false);
   const [collapsed, setCollapsed] = useState<boolean>(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 1280) {
+      return true;
+    }
     const saved = localStorage.getItem('gc_nav_collapsed');
     return saved === null ? window.innerWidth < 1280 : saved === '1';
   });
@@ -25,6 +29,27 @@ export function PlayLayout() {
   useEffect(() => {
     localStorage.setItem('gc_nav_collapsed', collapsed ? '1' : '0');
   }, [collapsed]);
+
+  useEffect(() => {
+    if (window.innerWidth < 1280) {
+      setCollapsed(true);
+      setDrawerOpen(false);
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (window.innerWidth < 1280) {
+          setCollapsed(true);
+        }
+        setDrawerOpen(false);
+        setCoachOpen(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
 
   // Listener de resize con debounce: mantiene `collapsed` coherente al cambiar
   // de breakpoint (hoy sólo se inicializa desde innerWidth y nunca se actualiza).

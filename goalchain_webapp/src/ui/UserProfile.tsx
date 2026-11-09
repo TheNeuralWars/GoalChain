@@ -401,7 +401,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
           <div className="profile-avatar-wrapper">
             <div className="profile-avatar-large-circle">
               {profile.customPhotoUrl ? (
-                <img src={profile.customPhotoUrl} alt={profile.username} />
+                <img src={profile.customPhotoUrl} alt={profile.username} width={96} height={96} />
               ) : (
                 <span>{profile.avatar}</span>
               )}
@@ -512,7 +512,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
               {/* Photo Uploader */}
               <div className="avatar-upload-container">
                 <div className="avatar-upload-preview">
-                  {editPhotoUrl ? <img src={editPhotoUrl} alt="Preview" /> : <span>{profile.avatar}</span>}
+                  {editPhotoUrl ? <img src={editPhotoUrl} alt="Preview" width={64} height={64} /> : <span>{profile.avatar}</span>}
                 </div>
                 <div className="avatar-upload-btn-wrap">
                   <input 
@@ -857,7 +857,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                       <div className="feed-post-author-info">
                         <div className="feed-post-avatar">
                           {post.customPhotoUrl ? (
-                            <img src={post.customPhotoUrl} alt={post.username} />
+                            <img src={post.customPhotoUrl} alt={post.username} width={42} height={42} />
                           ) : (
                             <span>{post.avatar}</span>
                           )}

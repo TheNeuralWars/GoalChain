@@ -223,6 +223,8 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
               src={stadiumBgImg} 
               alt="Stadium Background" 
               className="bg-img" 
+              width={280}
+              height={400}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
             <video 
@@ -250,6 +252,8 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
             <img 
               src={imgPath} 
               alt={player.name} 
+              width={280}
+              height={400}
               loading="lazy" 
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
@@ -292,6 +296,8 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
               src={stadiumBgImg} 
               alt="Stadium Background Back" 
               className="bg-img" 
+              width={280}
+              height={400}
               style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.35) contrast(1.1)' }}
             />
             <video 

@@ -624,9 +624,11 @@ export function KindleReader({
       <header
         style={{
           display: 'flex',
+          flexWrap: 'wrap',
+          gap: '0.6rem',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '0.8rem 1.5rem',
+          padding: '0.8rem clamp(0.75rem, 2.5vw, 1.5rem)',
           background: activeTheme.headerBg,
           borderBottom: `1px solid ${activeTheme.border}`,
           backdropFilter: 'blur(16px)',
@@ -634,7 +636,7 @@ export function KindleReader({
         }}
       >
         {/* Left: Navigation & Book Selector */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem', maxWidth: '100%' }}>
           {onBackToPortal && (
             <button
               onClick={onBackToPortal}
@@ -702,7 +704,8 @@ export function KindleReader({
               fontWeight: 600,
               outline: 'none',
               cursor: 'pointer',
-              maxWidth: '240px',
+              maxWidth: 'min(220px, 100%)',
+              minWidth: 0,
             }}
           >
             {THE_NEURAL_WARS_BOOKS.map((b) => (
@@ -714,7 +717,7 @@ export function KindleReader({
         </div>
 
         {/* Right Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem', maxWidth: '100%' }}>
           {/* AUDIOBOOK TOGGLE */}
           <button
             onClick={() => setIsAudioOpen(!isAudioOpen)}

@@ -248,19 +248,19 @@ export function GoalWorldPortal() {
   };
 
   return (
-    <div style={{ padding: '1.5rem', color: '#e2e8f0', maxWidth: '1400px', margin: '0 auto' }}>
+    <div style={{ padding: 'clamp(0.75rem, 2.5vw, 1.5rem)', color: '#e2e8f0', maxWidth: '1400px', margin: '0 auto' }}>
       {/* Header & Hero */}
       <div style={{
         background: 'linear-gradient(135deg, rgba(26, 16, 45, 0.95) 0%, rgba(13, 10, 28, 0.98) 100%)',
         border: '1px solid rgba(147, 51, 234, 0.4)',
         borderRadius: '20px',
-        padding: '2.5rem',
+        padding: 'clamp(1.25rem, 3vw, 2.5rem)',
         marginBottom: '2rem',
         boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <div style={{
+        <div aria-hidden="true" style={{
           position: 'absolute',
           top: '-60px',
           right: '-60px',
@@ -375,12 +375,12 @@ export function GoalWorldPortal() {
       {/* TAB 1: NEXUS DE UNIVERSOS */}
       {activeTab === 'nexus' && (
         <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px', marginBottom: '1.5rem' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 800, margin: 0 }}>🏆 Ranking de Ligas de Fantasía (Sagas Tokenizadas)</h2>
             <span style={{ color: '#a855f7', fontSize: '0.9rem', fontWeight: 600 }}>3 Universos Principales Activos</span>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
             {MOCK_WORLDS.map((world) => (
               <div
                 key={world.id}
@@ -397,6 +397,8 @@ export function GoalWorldPortal() {
                   <img
                     src={world.bannerUrl}
                     alt={world.name}
+                    width={640}
+                    height={320}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <div style={{
@@ -528,7 +530,7 @@ export function GoalWorldPortal() {
           {/* Cards Gallery Section */}
           <div style={{ marginTop: '3rem' }}>
             <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '1rem' }}>🎴 Cartas de Personajes y Reliquias Coleccionables (NFTs en Solana)</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '1.25rem' }}>
               {MOCK_CARDS.map((card) => (
                 <div
                   key={card.id}
@@ -543,6 +545,8 @@ export function GoalWorldPortal() {
                   <img
                     src={card.imageUrl}
                     alt={card.name}
+                    width={400}
+                    height={360}
                     style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '10px', marginBottom: '0.75rem' }}
                   />
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

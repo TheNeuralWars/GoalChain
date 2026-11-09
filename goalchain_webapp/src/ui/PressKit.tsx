@@ -13,9 +13,9 @@ export function PressKit() {
 
   const players = [
     { name: 'Lionel Satoshi', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/001_lionel_satoshi.png', rarity: 'MYTHIC' },
-    { name: 'Cristiano Holdaldo', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/157_cristiano_holdaldo.png', rarity: 'MYTHIC' },
+    { name: 'Cristiano Siu-toshi', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/067_Cristiano_Siu-toshi.png', rarity: 'MYTHIC' },
     { name: 'Dibu De-Fi', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/002_dibu_de_fi.png', rarity: 'LEGENDARY' },
-    { name: 'Pedri Protocol', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/106_pedri_p2p.png', rarity: 'RARE' },
+    { name: 'Pedri Liquidity', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/046_Pedri_Liquidity.png', rarity: 'RARE' },
     { name: 'Neymar NFT', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/034_neymar_nft.png', rarity: 'LEGENDARY' },
     { name: 'Angel Di Merkle', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/006_angel_di_merkle.png', rarity: 'RARE' }
   ];
@@ -44,10 +44,10 @@ export function PressKit() {
         overflow: 'hidden'
       }}>
         {/* Decorative background glow */}
-        <div style={{
+        <div aria-hidden="true" style={{
           position: 'absolute',
           top: '-50%',
-          right: '-20%',
+          right: '0',
           width: '350px',
           height: '350px',
           background: 'radial-gradient(circle, rgba(153, 69, 255, 0.15) 0%, transparent 70%)',
@@ -132,6 +132,7 @@ export function PressKit() {
       {/* 🧭 Category Navigation Tabs */}
       <div style={{
         display: 'flex',
+        flexWrap: 'wrap',
         gap: '0.5rem',
         borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
         paddingBottom: '1rem',
@@ -160,7 +161,7 @@ export function PressKit() {
       </div>
 
       {/* 📦 Assets Display Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 260px), 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
         
         {/* LOGOS */}
         {(activeTab === 'all' || activeTab === 'logos') && logos.map((logo, idx) => (
@@ -186,7 +187,7 @@ export function PressKit() {
               marginBottom: '1rem',
               padding: '1rem'
             }}>
-              <img src={logo.path} alt={logo.name} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+              <img src={logo.path} alt={logo.name} width={240} height={120} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <div style={{ width: '100%', textAlign: 'left' }}>
               <h4 style={{ fontWeight: '700', fontSize: '1rem', marginBottom: '0.25rem' }}>{logo.name}</h4>
@@ -239,7 +240,7 @@ export function PressKit() {
               marginBottom: '1rem',
               overflow: 'hidden'
             }}>
-              <img src={player.path} alt={player.name} style={{ maxHeight: '110%', maxWidth: '100%', objectFit: 'contain' }} />
+              <img src={player.path} alt={player.name} width={240} height={240} style={{ maxHeight: '110%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <div style={{ width: '100%', textAlign: 'left' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem' }}>

@@ -275,6 +275,20 @@ export function PlayBottomTab() {
     setDrawerOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setDrawerOpen(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [drawerOpen]);
+
+  const accountTo = isLoggedIn && user ? `/perfil/${user.username}` : '/crear-usuario';
+  const accountLabel = isLoggedIn && user ? `${user.avatar} @${user.username}` : `✨ ${t('nav_create_account')}`;
+
   // Un icono representativo por zona (primer item de cada grupo).
   const tabItems = PLAY_NAV_GROUPS.map((g) => {
     const label = g.i18n ? t(g.i18n as never) : g.label;
@@ -327,10 +341,90 @@ export function PlayBottomTab() {
             </a>
           );
         })}
+        <button
+          type="button"
+          className={`gc-bottom-tab-item ${drawerOpen ? 'gc-bottom-tab-item--active' : ''}`}
+          data-mobile-nav-toggle="true"
+          aria-expanded={drawerOpen}
+          aria-controls="gc-mobile-drawer"
+          aria-label={drawerOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setDrawerOpen((o) => !o)}
+        >
+          <span aria-hidden>{drawerOpen ? '✕' : '☰'}</span>
+        </button>
       </nav>
 
-      {/* Drawer móvil para submenús (opcional, abre desde una tab) */}
-      {drawerOpen ? null : null}
+      {/* Drawer móvil para submenús (abre desde el botón de menú del bottom-tab) */}
+      {drawerOpen && (
+        <>
+          <div
+            className="gc-mobile-drawer-scrim"
+            onClick={() => setDrawerOpen(false)}
+            aria-hidden="true"
+          />
+          <aside
+            id="gc-mobile-drawer"
+            className="gc-mobile-drawer"
+            aria-label="Mobile navigation menu"
+          >
+            <div className="gc-mobile-drawer-head">
+              <span className="gc-mobile-drawer-title">GoalWorld · Matchday Lab</span>
+              <button
+                type="button"
+                className="gc-mobile-drawer-close"
+                aria-label="Close mobile menu"
+                onClick={() => setDrawerOpen(false)}
+              >
+                ✕
+              </button>
+            </div>
+            <div className="gc-mobile-drawer-body">
+              {PLAY_NAV_GROUPS.map((group) => {
+                const groupLabel = group.i18n ? t(group.i18n as never) : group.label;
+                return (
+                  <div key={group.id} className="gc-mobile-drawer-group">
+                    <div className="gc-mobile-drawer-group-title">
+                      <span aria-hidden>{group.icon}</span> {groupLabel}
+                    </div>
+                    <div className="gc-mobile-drawer-group-items">
+                      {group.items.map((item) => (
+                        <div key={item.id} onClick={() => setDrawerOpen(false)}>
+                          <NavItem item={item} collapsed={false} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+              <div className="gc-mobile-drawer-group">
+                <div className="gc-mobile-drawer-group-title">
+                  <span aria-hidden>🏛</span> {t('nav_zone_resources' as never) || 'Resources'}
+                </div>
+                <div className="gc-mobile-drawer-group-items">
+                  {RESOURCE_LINKS.map((item) => (
+                    <div key={item.id} onClick={() => setDrawerOpen(false)}>
+                      <NavItem item={item} collapsed={false} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="gc-mobile-drawer-footer">
+                <NavLink
+                  to={accountTo}
+                  className="gc-nav-link gc-nav-link--account"
+                  onClick={() => setDrawerOpen(false)}
+                >
+                  <span className="gc-nav-link-icon" aria-hidden>👤</span>
+                  <span className="gc-nav-link-label">{accountLabel}</span>
+                </NavLink>
+                <div className="gc-mobile-drawer-lang">
+                  <LanguageToggle />
+                </div>
+              </div>
+            </div>
+          </aside>
+        </>
+      )}
     </>
   );
 }

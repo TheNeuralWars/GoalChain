@@ -204,6 +204,8 @@ function VideoCard({
               <img
                 src={run.image_url}
                 alt="frame"
+                width={220}
+                height={390}
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
             )}

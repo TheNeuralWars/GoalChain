@@ -78,9 +78,9 @@ export function AuthorStudio() {
   }, [sampleText]);
 
   return (
-    <div style={{ background: '#0a0a12', borderRadius: '16px', border: '1px solid rgba(168, 85, 247, 0.3)', padding: '2rem', color: '#e2e8f0', fontFamily: 'Inter, sans-serif' }}>
+    <div style={{ background: '#0a0a12', borderRadius: '16px', border: '1px solid rgba(168, 85, 247, 0.3)', padding: 'clamp(1rem, 3vw, 2rem)', color: '#e2e8f0', fontFamily: 'Inter, sans-serif' }}>
       {/* Studio Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '1rem' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '1rem' }}>
         <div>
           <h2 style={{ fontSize: '1.6rem', fontWeight: 900, margin: '0 0 0.25rem 0', background: 'linear-gradient(135deg, #c084fc 0%, #38bdf8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
             🖋️ GoalWorld Editorial & Lore Studio
@@ -89,7 +89,7 @@ export function AuthorStudio() {
             Harness profesional de escritura, análisis de prosa, arquitectura dramática y control de canon para novelas bestsellers.
           </p>
         </div>
-        <div style={{ display: 'flex', gap: '8px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
           {[
             { id: 'prose', label: '🔬 Doctor de Prosa' },
             { id: 'characters', label: '🎭 Matriz de Personajes' },
@@ -118,7 +118,7 @@ export function AuthorStudio() {
 
       {/* TAB 1: PROSE DOCTOR */}
       {activeStudioTab === 'prose' && (
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '1.5rem' }}>
+        <div className="author-studio-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
               <label style={{ fontSize: '0.85rem', fontWeight: 700, color: '#c084fc' }}>Texto / Párrafo a Evaluar:</label>

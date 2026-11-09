@@ -5,6 +5,10 @@
 @import './styles/fonts.css';
 @import './styles/tokens.css';
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: var(--gc-font);
   line-height: 1.5;
@@ -5371,8 +5375,245 @@ input:checked + .slider-red:before {
   color: var(--gw-text, #f2efe9);
 }
 
+/* ================================================================
+   PHASE 2 — RESPONSIVE & ONE-HANDED MOBILE / TABLET / DESKTOP UX
+   ================================================================ */
 
+/* 1. Safe-area insets & overflow protection */
+.play-header {
+  padding-top: max(12px, env(safe-area-inset-top));
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
 
+.play-body {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
+}
 
+.play-body > * {
+  min-width: 0;
+  max-width: 100%;
+}
 
+/* 2. Mobile bottom-tab & one-handed mobile drawer (<768px) */
+.gc-bottom-tab {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: max(8px, env(safe-area-inset-left));
+  padding-right: max(8px, env(safe-area-inset-right));
+}
+
+.gc-mobile-drawer-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 6, 10, 0.72);
+  backdrop-filter: blur(6px);
+  z-index: 120;
+}
+
+.gc-mobile-drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  max-height: min(76vh, 620px);
+  background: rgba(15, 18, 25, 0.98);
+  border-top: 1px solid rgba(229, 169, 60, 0.28);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -18px 48px rgba(0, 0, 0, 0.75);
+  z-index: 130;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.gc-mobile-drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gc-mobile-drawer-title {
+  font-family: var(--gw-font-display, Georgia, serif);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--gw-text, #f2efe9);
+}
+
+.gc-mobile-drawer-close {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--gw-text, #f2efe9);
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gc-mobile-drawer-body {
+  padding: 14px 16px 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gc-mobile-drawer-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gc-mobile-drawer-group-title {
+  font-family: var(--gw-font-mono, monospace);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gw-accent, #e5a93c);
+  padding: 0 8px;
+}
+
+.gc-mobile-drawer-group-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 6px;
+}
+
+.gc-mobile-drawer-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 3. Responsive Yield Calculator, 3D Cards, and Tables */
+.yield-input-wrapper {
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.yield-input-premium {
+  min-width: 0;
+  width: 100%;
+  flex: 1 1 140px;
+}
+
+.token-switcher {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.nft-card-3d {
+  width: min(280px, 100%);
+  max-width: 100%;
+}
+
+table {
+  max-width: 100%;
+}
+
+/* 4. Touch targets >= 44x44px on touch/tablet viewports (<= 1040px) */
+@media (max-width: 1040px) {
+  button,
+  select,
+  summary,
+  input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]),
+  .premium-slider,
+  [role="button"],
+  [role="tab"],
+  .play-header-brand-link,
+  .play-header-marketing-link,
+  .play-footer-links a,
+  .gw-landing-btn,
+  .gw-landing-chip,
+  .gw-landing-card-link,
+  .gc-nav-link,
+  .gc-bottom-tab-item,
+  .profile-social-link,
+  .feed-post-username,
+  .press-kit-download-btn,
+  .avatar-file-label {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  a[href]:not(.skip-link) {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .gw-landing-card {
+    display: flex;
+  }
+}
+
+/* 5. Mobile (<768px) layout & one-handed ergonomics */
+@media (max-width: 767px) {
+  .play-main {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .play-header {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .play-header-actions {
+    flex-wrap: wrap;
+    gap: 6px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .play-header-ugc-btn {
+    display: none;
+  }
+
+  .gc-floating-coach-btn {
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+    right: 14px;
+  }
+}
+
+/* 6. Mobile font-size floor (>= 14px body/controls on <= 480px) */
+@media (max-width: 480px) {
+  body,
+  p,
+  li,
+  td,
+  dd,
+  label,
+  input,
+  select,
+  textarea,
+  button {
+    font-size: max(14px, 0.875rem) !important;
+  }
+}
+
+/* 7. Large desktop (1920x1080) comfortable max-widths */
+@media (min-width: 1600px) {
+  .gw-landing,
+  .estadio-portal,
+  .defi-portal,
+  .club-portal,
+  .profile-page {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
