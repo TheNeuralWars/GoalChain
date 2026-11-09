@@ -171,12 +171,18 @@
     });
   }
   var sampleSec = document.getElementById("sample");
+  var siteFooter = document.querySelector(".site-footer");
   var stickyBar = document.querySelector("[data-sticky-cta]");
-  if (sampleSec && stickyBar && "IntersectionObserver" in window) {
-    new IntersectionObserver(function (entries) {
+  if (stickyBar && "IntersectionObserver" in window) {
+    var activeZones = new Set();
+    var hideObs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        stickyBar.classList.toggle("is-hidden", entry.isIntersecting);
+        if (entry.isIntersecting) activeZones.add(entry.target);
+        else activeZones.delete(entry.target);
       });
-    }, { threshold: 0.15 }).observe(sampleSec);
+      stickyBar.classList.toggle("is-hidden", activeZones.size > 0);
+    }, { threshold: 0.08 });
+    if (sampleSec) hideObs.observe(sampleSec);
+    if (siteFooter) hideObs.observe(siteFooter);
   }
 })();

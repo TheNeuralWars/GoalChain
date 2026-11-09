@@ -2,7 +2,7 @@
   "phases": {
     "0": "done",
     "1": "done",
-    "2": "todo",
+    "2": "doing",
     "3": "todo",
     "4": "todo",
     "5": "todo",
@@ -488,6 +488,36 @@
       "fix": "Update check_links.py to crawl all generated HTML files across dist/, dist/es/, and dist/it/, verify hreflang reciprocity, and check feed links.",
       "verify": "python3 goalworld_site/tools/check_links.py",
       "status": "todo"
+    },
+    {
+      "id": "A-049",
+      "phase": 2,
+      "priority": "P1",
+      "title": "Build Playwright responsive & visual test suite tests/visual/ across all 6 viewports (360x740, 390x844, 820x1180, 1024x1366, 1440x900, 1920x1080) and landscape phone for every route",
+      "evidence": "tests/visual/responsive-suite.mjs; _work/site-overhaul-20261109/evidence/phase2/responsive_report.json",
+      "fix": "Create tests/visual/responsive-suite.mjs (and tests/visual/README.md) using system Chrome to verify all 13 goalworld_site routes and 17 goalchain_webapp routes at 360x740, 390x844, 820x1180, 1024x1366, 1440x900, and 1920x1080: assert scrollWidth <= innerWidth, no visible element offscreen, tap targets >= 44px on touch viewports, nav menu keyboard + touch open/close, explicit width/height on images, mobile body font-size >= 14px, sticky CTA clearance, and save screenshots to _work/site-overhaul-20261109/evidence/phase2/.",
+      "verify": "node tests/visual/responsive-suite.mjs",
+      "status": "done"
+    },
+    {
+      "id": "A-050",
+      "phase": 2,
+      "priority": "P1",
+      "title": "Fix all goalworld_site responsive issues across 360x740-1920x1080 and landscape phone (fluid layout, container queries, srcset/sizes + lazy images, safe-area insets, >=44px touch targets, >=14px mobile body text, sticky CTA clearance)",
+      "evidence": "goalworld_site/src/assets/css/site.css; goalworld_site/src/assets/js/site.js; goalworld_site/src/pages/*.html; goalworld_site/src/partials/*.html",
+      "fix": "Update site.css, site.js,partials, and pages so every route passes all 7 responsive assertions across 360x740, 390x844, 820x1180, 1024x1366, 1440x900, 1920x1080, and landscape phone (740x360).",
+      "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py && node tests/visual/responsive-suite.mjs",
+      "status": "done"
+    },
+    {
+      "id": "A-051",
+      "phase": 2,
+      "priority": "P1",
+      "title": "Fix all goalchain_webapp responsive & one-handed phone UX issues across all 17 routes (one-handed mobile action bar & wallet UI, table-to-card/scroll-container conversions, >=44px touch targets, explicit image dimensions, >=14px mobile font size, zero horizontal overflow)",
+      "evidence": "goalchain_webapp/src/index.css; goalchain_webapp/src/ui/*.tsx; goalchain_webapp/src/components/*.tsx",
+      "fix": "Add one-handed mobile quick-nav/action bar and wallet controls in PlayLayout/PlayNav, convert wide tables and fixed grids across EstadioPortal, ClubPortal, DeFiPortal, StakingBurnDashboard, GoalWorldPortal, KindleReader, AuthorStudio, PressKit, ClassicHub, MarketingControlCenter, CorporateAutopilot, TokenizedAgentsDashboard, CreateUser, and UserProfile to responsive cards/scroll containers, enforce >=44px touch targets on touch viewports, add width/height on all images, and enforce >=14px mobile body text.",
+      "verify": "cd goalchain_webapp && npm run build && npm run check:i18n && node ../tests/visual/responsive-suite.mjs",
+      "status": "doing"
     }
   ]
 }
