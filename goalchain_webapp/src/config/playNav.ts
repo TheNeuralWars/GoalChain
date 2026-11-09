@@ -41,6 +41,14 @@ function resolveMarketingBase(): string {
 
 export const MARKETING_BASE = resolveMarketingBase();
 
+export function getLocalizedMarketingUrl(path: string, language: 'en' | 'es' | 'it'): string {
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  if (language === 'es' || language === 'it') {
+    return `${MARKETING_BASE}/${language}${cleanPath}`;
+  }
+  return `${MARKETING_BASE}${cleanPath}`;
+}
+
 /** Id de juego rápido del ARCADE (abre modal, no ruta). */
 export type ArcadeGameId = 'penalty' | 'pack' | 'modifiers';
 
@@ -129,6 +137,7 @@ const DEFI_ITEMS: PlayNavItem[] = [
   {
     id: 'autopilot',
     label: 'Autopilot Corp',
+    i18n: 'nav_autopilot',
     icon: '🤖',
     to: '/autopilot',
   },
@@ -164,6 +173,7 @@ const CLUB_ITEMS: PlayNavItem[] = [
   {
     id: 'reader',
     label: 'Book 1 Sample',
+    i18n: 'nav_reader',
     icon: '📖',
     to: '/reader',
     badge: 'CH.1',
@@ -171,6 +181,7 @@ const CLUB_ITEMS: PlayNavItem[] = [
   {
     id: 'studio',
     label: 'Author & Lore Studio',
+    i18n: 'nav_studio',
     icon: '🖋️',
     to: '/studio',
   },
@@ -239,6 +250,7 @@ const WORLD_ITEMS: PlayNavItem[] = [
   {
     id: 'hub',
     label: 'GoalWorld Hub',
+    i18n: 'nav_world_hub',
     icon: '🌐',
     href: `${MARKETING_BASE}/`,
     external: true,
@@ -246,6 +258,7 @@ const WORLD_ITEMS: PlayNavItem[] = [
   {
     id: 'map',
     label: 'The Saga (Book 1)',
+    i18n: 'nav_world_book',
     icon: '📖',
     href: `${MARKETING_BASE}/book.html`,
     external: true,
@@ -253,6 +266,7 @@ const WORLD_ITEMS: PlayNavItem[] = [
   {
     id: 'matchday-site',
     label: 'Cinema & Teasers',
+    i18n: 'nav_world_cinema',
     icon: '🎬',
     href: `${MARKETING_BASE}/cinema.html`,
     external: true,
@@ -263,6 +277,7 @@ export const PLAY_NAV_GROUPS: PlayNavGroup[] = [
   {
     id: 'world',
     label: 'World',
+    i18n: 'nav_zone_world',
     icon: '🌐',
     items: WORLD_ITEMS,
   },

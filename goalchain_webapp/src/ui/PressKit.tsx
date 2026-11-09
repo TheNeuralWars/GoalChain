@@ -66,13 +66,13 @@ export function PressKit() {
             display: 'inline-block',
             marginBottom: '0.75rem'
           }}>
-            Creator economy & UGC
+            {t('presskit_eyebrow')}
           </span>
           <h2 style={{ fontSize: '2.2rem', fontWeight: '800', marginBottom: '1rem', lineHeight: '1.2' }}>
-            Clipper & Creator Resources
+            {t('presskit_title')}
           </h2>
           <p style={{ color: '#94a3b8', fontSize: '1.05rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-            Get all the high-quality assets you need to create viral clips, slideshows, and TikToks. Overlay custom characters on stadium loops, showcase pack openings, and share prediction streaks.
+            {t('presskit_sub')}
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -104,7 +104,7 @@ export function PressKit() {
                 e.currentTarget.style.boxShadow = '0 4px 20px rgba(153, 69, 255, 0.3)';
               }}
             >
-              📥 Download Full Kit (64 MB)
+              {t('presskit_download_btn')}
             </a>
             <a
               href="#guide"
@@ -123,7 +123,7 @@ export function PressKit() {
               onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)'; }}
             >
-              📖 Creator Guide & Hooks
+              {t('presskit_guide_btn')}
             </a>
           </div>
         </div>
@@ -138,14 +138,19 @@ export function PressKit() {
         paddingBottom: '1rem',
         marginBottom: '2rem'
       }}>
-        {(['all', 'players', 'backgrounds', 'logos'] as const).map((tab) => (
+        {([
+          { id: 'all', label: t('presskit_tab_all') },
+          { id: 'players', label: t('presskit_tab_players') },
+          { id: 'backgrounds', label: t('presskit_tab_backgrounds') },
+          { id: 'logos', label: t('presskit_tab_logos') },
+        ] as const).map((tab) => (
           <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
             style={{
-              background: activeTab === tab ? 'rgba(153, 69, 255, 0.15)' : 'transparent',
-              border: '1px solid ' + (activeTab === tab ? 'rgba(153, 69, 255, 0.3)' : 'transparent'),
-              color: activeTab === tab ? '#c084fc' : '#94a3b8',
+              background: activeTab === tab.id ? 'rgba(153, 69, 255, 0.15)' : 'transparent',
+              border: '1px solid ' + (activeTab === tab.id ? 'rgba(153, 69, 255, 0.3)' : 'transparent'),
+              color: activeTab === tab.id ? '#c084fc' : '#94a3b8',
               padding: '0.5rem 1.25rem',
               borderRadius: '6px',
               fontSize: '0.9rem',
@@ -155,7 +160,7 @@ export function PressKit() {
               transition: 'all 0.2s ease'
             }}
           >
-            {tab === 'all' ? 'All Assets' : tab}
+            {tab.label}
           </button>
         ))}
       </div>
@@ -210,7 +215,7 @@ export function PressKit() {
                   border: '1px solid rgba(255, 255, 255, 0.08)'
                 }}
               >
-                💾 Download Asset
+                {t('presskit_download_asset')}
               </a>
             </div>
           </div>
@@ -273,7 +278,7 @@ export function PressKit() {
                   border: '1px solid rgba(255, 255, 255, 0.08)'
                 }}
               >
-                💾 Download Character
+                {t('presskit_download_char')}
               </a>
             </div>
           </div>
@@ -327,7 +332,7 @@ export function PressKit() {
                   border: '1px solid rgba(255, 255, 255, 0.08)'
                 }}
               >
-                💾 Download Loop
+                {t('presskit_download_loop')}
               </a>
             </div>
           </div>
@@ -343,7 +348,7 @@ export function PressKit() {
         padding: '2rem'
       }}>
         <h3 style={{ fontSize: '1.4rem', fontWeight: '800', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          📖 Clipper Playbook: How to go Viral
+          {t('presskit_playbook_title')}
         </h3>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from '../i18n';
 
 export interface CharacterDossier {
   id: string;
@@ -183,6 +184,7 @@ interface TheNeuralWarsUniverseProps {
 }
 
 export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniverseProps) {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'overview' | 'characters' | 'locations' | 'lore' | 'author' | 'store'>('overview');
   const [selectedChar, setSelectedChar] = useState<CharacterDossier>(CHARACTERS[0]);
   const [selectedLoc, setSelectedLoc] = useState<UniverseLocation>(LOCATIONS[0]);
@@ -290,7 +292,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 boxShadow: '0 0 20px rgba(168, 85, 247, 0.35)',
               }}
             >
-              <span>🪐</span> EXPEDIENTE CANÓNICO DEL UNIVERSO
+              <span>🪐</span> {t('universe_badge')}
             </div>
 
             <button
@@ -312,7 +314,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
               }}
             >
               <span>{isHarmonicPlaying ? '🔊' : '🔈'}</span>
-              <span>Frecuencia Armónica Ambiental {isHarmonicPlaying ? '(Activa)' : '(Activar Sonido)'}</span>
+              <span>{isHarmonicPlaying ? t('universe_sound_active') : t('universe_sound_activate')}</span>
             </button>
           </div>
 
@@ -342,8 +344,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
               lineHeight: 1.7,
             }}
           >
-            La odisea definitiva de ciencia ficción dura, cyberpunk y primer contacto cósmico creada por <strong style={{ color: '#fff' }}>The Neural Wars Studio + Nico Pez</strong>. 
-            Explora los expedientes clasificados, megaestructuras y ediciones oficiales.
+            {t('universe_sub')}
           </p>
 
           {/* Hero Quick Action CTAs */}
@@ -366,7 +367,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 transition: 'all 0.2s',
               }}
             >
-              <span>📖</span> Leer Libro 1 (Online Gratis)
+              <span>📖</span> {t('universe_read_b1')}
             </button>
 
             <button
@@ -387,7 +388,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 transition: 'all 0.2s',
               }}
             >
-              <span>📖</span> Leer Libro 2 (Online Gratis)
+              <span>📖</span> {t('universe_read_b2')}
             </button>
 
             <button
@@ -407,7 +408,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 gap: '8px',
               }}
             >
-              <span>🛒</span> Estado Editorial & Avances
+              <span>🛒</span> {t('universe_editions_cta')}
             </button>
           </div>
         </section>
@@ -429,20 +430,20 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
           }}
         >
           {[
-            { id: 'overview', label: 'Trilogía', icon: '📚' },
-            { id: 'characters', label: 'Personajes', icon: '👤' },
-            { id: 'locations', label: 'Mundos & Mapas', icon: '🗺️' },
-            { id: 'lore', label: 'Lore & Facciones', icon: '🧬' },
-            { id: 'author', label: 'Autor & Manifiesto', icon: '🖋️' },
-            { id: 'store', label: 'Ediciones & Tiendas', icon: '🛍️' },
-          ].map((t) => (
+            { id: 'overview', label: t('universe_tab_overview'), icon: '📚' },
+            { id: 'characters', label: t('universe_tab_characters'), icon: '👤' },
+            { id: 'locations', label: t('universe_tab_locations'), icon: '🗺️' },
+            { id: 'lore', label: t('universe_tab_lore'), icon: '🧬' },
+            { id: 'author', label: t('universe_tab_author'), icon: '🖋️' },
+            { id: 'store', label: t('universe_tab_store'), icon: '🛍️' },
+          ].map((tabItem) => (
             <button
-              key={t.id}
-              onClick={() => setActiveTab(t.id as any)}
+              key={tabItem.id}
+              onClick={() => setActiveTab(tabItem.id as any)}
               style={{
-                background: activeTab === t.id ? 'rgba(168, 85, 247, 0.28)' : 'rgba(255, 255, 255, 0.03)',
-                border: activeTab === t.id ? '1px solid #a855f7' : '1px solid rgba(255, 255, 255, 0.08)',
-                color: activeTab === t.id ? '#c084fc' : '#94a3b8',
+                background: activeTab === tabItem.id ? 'rgba(168, 85, 247, 0.28)' : 'rgba(255, 255, 255, 0.03)',
+                border: activeTab === tabItem.id ? '1px solid #a855f7' : '1px solid rgba(255, 255, 255, 0.08)',
+                color: activeTab === tabItem.id ? '#c084fc' : '#94a3b8',
                 padding: '8px 18px',
                 borderRadius: '10px',
                 fontWeight: 800,
@@ -451,13 +452,13 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                boxShadow: activeTab === t.id ? '0 0 15px rgba(168, 85, 247, 0.35)' : 'none',
+                boxShadow: activeTab === tabItem.id ? '0 0 15px rgba(168, 85, 247, 0.35)' : 'none',
                 transition: 'all 0.2s',
                 whiteSpace: 'nowrap',
               }}
             >
-              <span>{t.icon}</span>
-              <span>{t.label}</span>
+              <span>{tabItem.icon}</span>
+              <span>{tabItem.label}</span>
             </button>
           ))}
         </nav>

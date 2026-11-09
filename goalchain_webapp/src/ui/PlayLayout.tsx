@@ -6,12 +6,12 @@ import { PlayNav, PlayBottomTab } from './PlayNav';
 import { LanguageToggle } from '../components/LanguageToggle';
 import { ModalRoot } from './ModalRoot';
 import { Toaster } from './Toaster';
-import { MARKETING_BASE } from '../config/playNav';
+import { MARKETING_BASE, getLocalizedMarketingUrl } from '../config/playNav';
 import { useTranslation } from '../i18n';
 import { AICoach } from './AICoach';
 
 export function PlayLayout() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const location = useLocation();
   const [ugcMode, setUgcMode] = useState(false);
   const [coachOpen, setCoachOpen] = useState(false);
@@ -88,7 +88,7 @@ export function PlayLayout() {
 
   return (
     <div className={`play-shell play-shell--grid ${collapsed ? 'play-shell--collapsed' : 'play-shell--expanded'} ${drawerOpen ? 'play-shell--drawer-open' : ''} ${ugcMode ? 'ugc-active' : ''}`}>
-      <a className="skip-link" href="#main">Skip to content</a>
+      <a className="skip-link" href="#main">{t('layout_skip_content')}</a>
 
       {/* Sidebar / icon-rail (desktop + tablet) */}
       <PlayNav collapsed={collapsed} setCollapsed={handleToggleCollapse} />
@@ -116,9 +116,9 @@ export function PlayLayout() {
                 <span className="play-header-brand-sub"> · Matchday Lab</span>
               </span>
             </Link>
-            <span className="play-header-devnet-pill" title="Solana Devnet sandbox — free test tokens, zero monetary value">
+            <span className="play-header-devnet-pill" title={t('layout_devnet_title')}>
               <span className="play-header-devnet-dot" aria-hidden />
-              DEVNET SANDBOX
+              {t('layout_devnet_pill')}
             </span>
           </div>
           <div className="play-header-actions">
@@ -127,15 +127,15 @@ export function PlayLayout() {
               className="play-header-ugc-btn"
               onClick={() => setUgcMode(true)}
             >
-              {t('play_ugc_mode' as never) || '📱 UGC Mode (9:16)'}
+              {t('play_ugc_mode') || '📱 UGC Mode (9:16)'}
             </button>
             <a
-              href={MARKETING_BASE}
+              href={getLocalizedMarketingUrl('/', language)}
               className="play-header-marketing-link"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t('nav_full_site' as never) || 'GoalWorld.fun'} ↗
+              {t('nav_full_site') || 'GoalWorld.fun'} ↗
             </a>
             <LanguageToggle />
             <ConnectButton />
@@ -149,14 +149,15 @@ export function PlayLayout() {
         <footer className="play-footer" aria-label="GoalWorld Matchday Lab footer">
           <div className="play-footer-inner">
             <div className="play-footer-brand">
-              <strong>GoalWorld · Matchday Lab</strong>
-              <span>Canon. Code. Cinema. · Solana Devnet sandbox (free test tokens, no real-money value)</span>
+              <strong>{t('layout_footer_brand')}</strong>
+              <span>{t('layout_footer_note')}</span>
             </div>
             <nav className="play-footer-links" aria-label="GoalWorld universe links">
-              <a href={`${MARKETING_BASE}/`} target="_blank" rel="noopener noreferrer">GoalWorld Hub ↗</a>
-              <a href={`${MARKETING_BASE}/book.html`} target="_blank" rel="noopener noreferrer">The Saga (Book 1) ↗</a>
-              <a href={`${MARKETING_BASE}/cinema.html`} target="_blank" rel="noopener noreferrer">AI Cinema ↗</a>
-              <a href={`${MARKETING_BASE}/terms.html`} target="_blank" rel="noopener noreferrer">Terms &amp; Honesty ↗</a>
+              <a href={getLocalizedMarketingUrl('/', language)} target="_blank" rel="noopener noreferrer">{t('layout_footer_hub')} ↗</a>
+              <a href={getLocalizedMarketingUrl('/book.html', language)} target="_blank" rel="noopener noreferrer">{t('layout_footer_book')} ↗</a>
+              <a href={getLocalizedMarketingUrl('/cinema.html', language)} target="_blank" rel="noopener noreferrer">{t('layout_footer_cinema')} ↗</a>
+              <a href={getLocalizedMarketingUrl('/privacy.html', language)} target="_blank" rel="noopener noreferrer">{t('layout_footer_privacy')} ↗</a>
+              <a href={getLocalizedMarketingUrl('/terms.html', language)} target="_blank" rel="noopener noreferrer">{t('layout_footer_terms')} ↗</a>
             </nav>
           </div>
         </footer>

@@ -3,6 +3,7 @@ import type { Language, TranslationKeys } from './translations';
 // Type-only JSON imports (erased at build): compile-time locale drift guard below.
 import type enShape from './locales/en.json';
 import type esShape from './locales/es.json';
+import type itShape from './locales/it.json';
 
 // Compile-time drift guard (same strength as the old static `{ en, es }` typing):
 // each locale JSON must stay assignable to TranslationKeys. Cross-direction
@@ -10,6 +11,7 @@ import type esShape from './locales/es.json';
 type AssertLocale<T extends TranslationKeys> = T;
 type _En = AssertLocale<typeof enShape>;
 type _Es = AssertLocale<typeof esShape>;
+type _It = AssertLocale<typeof itShape>;
 
 // Locale dictionaries are code-split: each language ships as its own chunk and
 // only the active one is downloaded (auto-improve 2026-10-14). The old static
@@ -17,6 +19,7 @@ type _Es = AssertLocale<typeof esShape>;
 const loaders: Record<Language, () => Promise<TranslationKeys>> = {
   en: () => import('./locales/en.json').then((m) => m.default),
   es: () => import('./locales/es.json').then((m) => m.default),
+  it: () => import('./locales/it.json').then((m) => m.default),
 };
 
 const dictCache = new Map<Language, TranslationKeys>();
@@ -37,12 +40,22 @@ function loadDictionary(lang: Language): Promise<TranslationKeys> {
 }
 
 function normalizeLanguage(value: string | null | undefined): Language | undefined {
-  return value === 'en' || value === 'es' ? value : undefined;
+  return value === 'en' || value === 'es' || value === 'it' ? value : undefined;
 }
 
 function getInitialLanguage(): Language {
   if (typeof window !== 'undefined') {
-    return normalizeLanguage(localStorage.getItem('gc_lang')) ?? 'en';
+    try {
+      const fromQuery = normalizeLanguage(new URLSearchParams(window.location.search).get('lang'));
+      if (fromQuery) return fromQuery;
+    } catch {
+      // ignore query parse errors
+    }
+    return (
+      normalizeLanguage(localStorage.getItem('gw_lang')) ??
+      normalizeLanguage(localStorage.getItem('gc_lang')) ??
+      'en'
+    );
   }
   return 'en';
 }
@@ -66,7 +79,7 @@ export function LanguageProvider({ children, initialLanguage = 'en' }: {
 }) {
   const [language, setLanguageState] = useState<Language>(() => {
     if (typeof window !== 'undefined') {
-      return normalizeLanguage(localStorage.getItem('gc_lang')) || initialLanguage;
+      return getInitialLanguage() || initialLanguage;
     }
     return initialLanguage;
   });
@@ -92,6 +105,7 @@ export function LanguageProvider({ children, initialLanguage = 'en' }: {
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     if (typeof window !== 'undefined') {
+      localStorage.setItem('gw_lang', lang);
       localStorage.setItem('gc_lang', lang);
       document.documentElement.lang = lang;
     }

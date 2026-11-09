@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { useTranslation } from '../i18n';
 
 const AI_CLICHES = [
   'testament to',
@@ -22,6 +23,7 @@ const AI_CLICHES = [
 const FILTER_WORDS = ['felt', 'feel', 'heard', 'hear', 'saw', 'see', 'noticed', 'wondered', 'watched', 'seemed', 'realized'];
 
 export function AuthorStudio() {
+  const { t } = useTranslation();
   const [activeStudioTab, setActiveStudioTab] = useState<'prose' | 'characters' | 'beats' | 'cinematic'>('prose');
   const [sampleText, setSampleText] = useState<string>(
     `The rain fell against the seventy-fourth-floor bay window with military discipline: identical, perfectly spherical droplets tracing parallel furrows separated by exactly seven millimeters of reinforced glass.\n\nMileo Chen pressed the pad of his right index finger against the chilled surface. For a fraction of a second, the icy bite of the glass pinched his flesh with sharp authenticity. But before the shiver could travel up his arm, the implant at the base of his skull emitted a dull hum. An imperceptible discharge of synthetic heat spread across his brainstem, followed by a burst of chemical suppressors that extinguished the sensation like freezing water dousing an ember.`
@@ -83,26 +85,26 @@ export function AuthorStudio() {
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid rgba(255, 255, 255, 0.08)', paddingBottom: '1rem' }}>
         <div>
           <h2 style={{ fontSize: '1.6rem', fontWeight: 900, margin: '0 0 0.25rem 0', background: 'linear-gradient(135deg, #c084fc 0%, #38bdf8 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            🖋️ GoalWorld Editorial & Lore Studio
+            {t('studio_title')}
           </h2>
           <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.88rem' }}>
-            Harness profesional de escritura, análisis de prosa, arquitectura dramática y control de canon para novelas bestsellers.
+            {t('studio_sub')}
           </p>
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
           {[
-            { id: 'prose', label: '🔬 Doctor de Prosa' },
-            { id: 'characters', label: '🎭 Matriz de Personajes' },
-            { id: 'beats', label: '🎬 Beat Sheet 4-Actos' },
-            { id: 'cinematic', label: '📽️ Adaptación Cine' }
-          ].map(t => (
+            { id: 'prose', label: t('studio_tab_prose') },
+            { id: 'characters', label: t('studio_tab_characters') },
+            { id: 'beats', label: t('studio_tab_beats') },
+            { id: 'cinematic', label: t('studio_tab_cinematic') }
+          ].map(tabItem => (
             <button
-              key={t.id}
-              onClick={() => setActiveStudioTab(t.id as any)}
+              key={tabItem.id}
+              onClick={() => setActiveStudioTab(tabItem.id as any)}
               style={{
-                background: activeStudioTab === t.id ? 'rgba(168, 85, 247, 0.25)' : 'rgba(255, 255, 255, 0.03)',
-                border: activeStudioTab === t.id ? '1px solid #a855f7' : '1px solid rgba(255, 255, 255, 0.08)',
-                color: activeStudioTab === t.id ? '#fff' : '#94a3b8',
+                background: activeStudioTab === tabItem.id ? 'rgba(168, 85, 247, 0.25)' : 'rgba(255, 255, 255, 0.03)',
+                border: activeStudioTab === tabItem.id ? '1px solid #a855f7' : '1px solid rgba(255, 255, 255, 0.08)',
+                color: activeStudioTab === tabItem.id ? '#fff' : '#94a3b8',
                 padding: '8px 14px',
                 borderRadius: '8px',
                 cursor: 'pointer',
@@ -110,7 +112,7 @@ export function AuthorStudio() {
                 fontSize: '0.85rem'
               }}
             >
-              {t.label}
+              {tabItem.label}
             </button>
           ))}
         </div>
@@ -121,12 +123,12 @@ export function AuthorStudio() {
         <div className="author-studio-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-              <label style={{ fontSize: '0.85rem', fontWeight: 700, color: '#c084fc' }}>Texto / Párrafo a Evaluar:</label>
+              <label style={{ fontSize: '0.85rem', fontWeight: 700, color: '#c084fc' }}>{t('studio_eval_label')}</label>
               <button
                 onClick={() => setSampleText('')}
                 style={{ background: 'none', border: 'none', color: '#94a3b8', fontSize: '0.75rem', cursor: 'pointer' }}
               >
-                Limpiar
+                {t('studio_clear_btn')}
               </button>
             </div>
             <textarea
@@ -153,7 +155,7 @@ export function AuthorStudio() {
           {/* Metrics & Diagnosis Panel */}
           <div style={{ background: 'rgba(15, 23, 42, 0.9)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', padding: '1.25rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
-              <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#94a3b8', textTransform: 'uppercase' }}>Puntuación de Calidad</span>
+              <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#94a3b8', textTransform: 'uppercase' }}>{t('studio_score_label')}</span>
               <div style={{
                 background: metrics.finalScore >= 80 ? 'rgba(34, 197, 94, 0.2)' : metrics.finalScore >= 60 ? 'rgba(245, 158, 11, 0.2)' : 'rgba(239, 68, 68, 0.2)',
                 color: metrics.finalScore >= 80 ? '#22c55e' : metrics.finalScore >= 60 ? '#f59e0b' : '#ef4444',
@@ -170,21 +172,21 @@ export function AuthorStudio() {
             {/* Quick Stats Grid */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '1.25rem' }}>
               <div style={{ background: 'rgba(0,0,0,0.3)', padding: '8px', borderRadius: '6px' }}>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Palabras Totales</div>
+                <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{t('studio_words_total')}</div>
                 <div style={{ fontSize: '1.1rem', fontWeight: 800 }}>{metrics.wordCount}</div>
               </div>
               <div style={{ background: 'rgba(0,0,0,0.3)', padding: '8px', borderRadius: '6px' }}>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Long. Media Oración</div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 800 }}>{metrics.avgLen} pal.</div>
+                <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{t('studio_avg_sentence')}</div>
+                <div style={{ fontSize: '1.1rem', fontWeight: 800 }}>{metrics.avgLen}</div>
               </div>
               <div style={{ background: 'rgba(0,0,0,0.3)', padding: '8px', borderRadius: '6px' }}>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Variabilidad Rítmica</div>
+                <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{t('studio_rhythm_var')}</div>
                 <div style={{ fontSize: '1.1rem', fontWeight: 800, color: parseFloat(metrics.stdDev) >= 4 ? '#22c55e' : '#f59e0b' }}>
-                  {metrics.stdDev} {parseFloat(metrics.stdDev) >= 4 ? '✓ Óptima' : '⚠️ Monótona'}
+                  {metrics.stdDev} {parseFloat(metrics.stdDev) >= 4 ? '✓' : '⚠️'}
                 </div>
               </div>
               <div style={{ background: 'rgba(0,0,0,0.3)', padding: '8px', borderRadius: '6px' }}>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Palabras Filtro</div>
+                <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{t('studio_filter_words')}</div>
                 <div style={{ fontSize: '1.1rem', fontWeight: 800, color: metrics.filterCount === 0 ? '#22c55e' : '#cbd5e1' }}>
                   {metrics.filterCount}
                 </div>

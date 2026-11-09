@@ -26,8 +26,8 @@ interface ArcadeBridgeMessage {
 export type VanillaGameId = 'penalty' | 'pack' | 'modifiers';
 
 export interface VanillaMountCtx {
-  /** Idioma activo ('en' | 'es'). */
-  language: 'en' | 'es';
+  /** Idioma activo ('en' | 'es' | 'it'). */
+  language: 'en' | 'es' | 'it';
   /** Tokens de tema (inyectados como CSS vars del contenedor). */
   theme?: Record<string, string>;
 }

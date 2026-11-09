@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { THE_NEURAL_WARS_BOOKS, BookData, ChapterData } from './booksData';
+import { useTranslation } from '../i18n';
 
 export type ReaderTheme = 'dark' | 'sepia' | 'light' | 'cosmic';
 export type ReaderFont = 'serif' | 'sans' | 'mono';
@@ -15,11 +16,16 @@ export function KindleReader({
   initialChapterIndex = 0,
   onBackToPortal,
 }: KindleReaderProps) {
+  const { t, language } = useTranslation();
   // Book and Chapter State
   const [selectedBook, setSelectedBook] = useState<BookData>(
     THE_NEURAL_WARS_BOOKS.find((b) => b.id === initialBookId) || THE_NEURAL_WARS_BOOKS[0]
   );
-  const [currentLang, setCurrentLang] = useState<'es' | 'en'>('es');
+  const [currentLang, setCurrentLang] = useState<'es' | 'en'>(language === 'es' ? 'es' : 'en');
+
+  useEffect(() => {
+    setCurrentLang(language === 'es' ? 'es' : 'en');
+  }, [language]);
   const [currentChapterIndex, setCurrentChapterIndex] = useState<number>(initialChapterIndex);
   const [isTocOpen, setIsTocOpen] = useState<boolean>(false);
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
@@ -654,9 +660,9 @@ export function KindleReader({
                 gap: '6px',
                 transition: 'all 0.2s',
               }}
-              title="Volver a GoalWorld Portal"
+              title={t('reader_back_portal')}
             >
-              ◀ Portal
+              {t('reader_back_portal')}
             </button>
           )}
 
@@ -677,7 +683,7 @@ export function KindleReader({
               transition: 'all 0.2s',
             }}
           >
-            <span>📑 Capítulos</span>
+            <span>{t('reader_chapters')}</span>
             <span style={{ fontSize: '0.75rem', opacity: 0.75 }}>
               ({currentChapterIndex + 1}/{chapters.length})
             </span>
@@ -736,10 +742,10 @@ export function KindleReader({
               boxShadow: isAudioOpen || speechState === 'playing' ? `0 0 15px ${activeTheme.accentGlow}` : 'none',
               transition: 'all 0.2s',
             }}
-            title="Escuchar Audiolibro / Audio Ambiental"
+            title={t('reader_audiobook')}
           >
             <span>🎧</span>
-            <span>{speechState === 'playing' ? 'Narrando...' : 'Audiolibro'}</span>
+            <span>{speechState === 'playing' ? t('reader_narrating') : t('reader_audiobook')}</span>
           </button>
 
           {/* Language Switcher */}

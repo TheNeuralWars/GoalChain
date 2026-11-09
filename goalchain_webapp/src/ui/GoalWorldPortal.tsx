@@ -286,7 +286,7 @@ export function GoalWorldPortal() {
               fontWeight: 800,
               marginBottom: '1rem'
             }}>
-              🔮 GOALWORLD NEXUS • SAAS EDITORIAL & LORE LEAGUE
+              {t('gw_portal_badge')}
             </div>
             <h1 style={{
               fontSize: '2.5rem',
@@ -296,10 +296,10 @@ export function GoalWorldPortal() {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
             }}>
-              GoalWorld Lore &amp; Editorial Studio (Sandbox)
+              {t('gw_portal_title')}
             </h1>
             <p style={{ color: '#94a3b8', fontSize: '1.05rem', maxWidth: '800px', margin: 0, lineHeight: 1.6 }}>
-              Laboratorio editorial del universo <strong>GoalWorld / The Neural Wars</strong>: explora el expediente canónico de Neo-Citania, lee el extracto verificado del Capítulo 1 y prueba las herramientas de continuidad con agentes Hermes (entorno de simulación en Solana Devnet).
+              {t('gw_portal_sub')}
             </p>
           </div>
 
@@ -318,7 +318,7 @@ export function GoalWorldPortal() {
                 transition: 'all 0.2s'
               }}
             >
-              🪐 Explorar Universo The Neural Wars
+              {t('gw_portal_explore_cta')}
             </button>
           </div>
         </div>
@@ -333,11 +333,11 @@ export function GoalWorldPortal() {
           overflowX: 'auto'
         }}>
           {[
-            { id: 'nexus', label: '🪐 Catálogo Editorial', badge: 'Canon & Demo' },
-            { id: 'universe', label: '⚡ Universo The Neural Wars', badge: 'Lore & Canon' },
-            { id: 'reader', label: '📖 Lector Web (Extracto)', badge: 'Cap. 1' },
-            { id: 'saas', label: '🛠️ Flujo Editorial (Sandbox)', badge: 'Simbiosis IA' },
-            { id: 'hermes', label: '🤖 Hermes Co-Writer Suite', badge: 'Agentes' }
+            { id: 'nexus', label: t('gw_portal_tab_nexus'), badge: 'Canon & Demo' },
+            { id: 'universe', label: t('gw_portal_tab_universe'), badge: 'Lore & Canon' },
+            { id: 'reader', label: t('gw_portal_tab_reader'), badge: 'Cap. 1' },
+            { id: 'saas', label: t('gw_portal_tab_saas'), badge: 'Sandbox' },
+            { id: 'hermes', label: t('gw_portal_tab_hermes'), badge: 'Hermes' }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -376,8 +376,8 @@ export function GoalWorldPortal() {
       {activeTab === 'nexus' && (
         <div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px', marginBottom: '1.5rem' }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, margin: 0 }}>🏆 Ranking de Ligas de Fantasía (Sagas Tokenizadas)</h2>
-            <span style={{ color: '#a855f7', fontSize: '0.9rem', fontWeight: 600 }}>3 Universos Principales Activos</span>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, margin: 0 }}>{t('gw_portal_ranking_title')}</h2>
+            <span style={{ color: '#a855f7', fontSize: '0.9rem', fontWeight: 600 }}>{t('gw_portal_active_count')}</span>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
