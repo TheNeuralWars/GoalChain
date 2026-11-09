@@ -34,18 +34,22 @@ function PlayPage({
   titleKey,
   children,
   align = 'center',
+  hideHero = false,
 }: {
   titleKey: keyof TranslationKeys;
   children: React.ReactNode;
   align?: 'center' | 'left';
+  hideHero?: boolean;
 }) {
   const { t } = useTranslation();
   return (
     <div className="play-page play-page--grid">
-      <div className="play-page-hero play-page-hero--compact">
-        <h1>{t(titleKey)}</h1>
-      </div>
-      <main className={`play-page-main play-page-main--${align}`}>{children}</main>
+      {!hideHero && (
+        <div className="play-page-hero play-page-hero--compact">
+          <h1>{t(titleKey)}</h1>
+        </div>
+      )}
+      <div className={`play-page-main play-page-main--${align}`}>{children}</div>
     </div>
   );
 }
@@ -111,7 +115,7 @@ function App() {
                     <Route
                       path="/dashboard"
                       element={
-                        <PlayPage titleKey="route_home" align="left">
+                        <PlayPage titleKey="route_home" align="left" hideHero>
                           <DashboardGrid />
                         </PlayPage>
                       }
@@ -119,7 +123,7 @@ function App() {
                     <Route
                       path="/estadio"
                       element={
-                        <PlayPage titleKey="route_estadio" align="left">
+                        <PlayPage titleKey="route_estadio" align="left" hideHero>
                           <EstadioPortal />
                         </PlayPage>
                       }
@@ -127,7 +131,7 @@ function App() {
                     <Route
                       path="/defi"
                       element={
-                        <PlayPage titleKey="route_defi" align="left">
+                        <PlayPage titleKey="route_defi" align="left" hideHero>
                           <DeFiPortal />
                         </PlayPage>
                       }
@@ -135,7 +139,7 @@ function App() {
                     <Route
                       path="/club"
                       element={
-                        <PlayPage titleKey="route_club" align="left">
+                        <PlayPage titleKey="route_club" align="left" hideHero>
                           <ClubPortal />
                         </PlayPage>
                       }
@@ -143,7 +147,7 @@ function App() {
                     <Route
                       path="/goalworld"
                       element={
-                        <PlayPage titleKey="route_goalworld" align="left">
+                        <PlayPage titleKey="route_goalworld" align="left" hideHero>
                           <GoalWorldPortal />
                         </PlayPage>
 
@@ -152,8 +156,8 @@ function App() {
                     <Route
                       path="/staking"
                       element={
-                        <React.Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Loading Staking Dashboard...</div>}>
-                          <PlayPage titleKey="route_staking" align="left">
+                        <React.Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Loading Lab Dashboard...</div>}>
+                          <PlayPage titleKey="route_staking" align="left" hideHero>
                             <StakingBurnDashboard />
                           </PlayPage>
                         </React.Suspense>
@@ -162,7 +166,7 @@ function App() {
                     <Route
                       path="/marketing-control"
                       element={
-                        <PlayPage titleKey="route_marketing" align="left">
+                        <PlayPage titleKey="route_marketing" align="left" hideHero>
                           <MarketingControlCenter />
                         </PlayPage>
                       }

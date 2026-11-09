@@ -180,11 +180,11 @@ export function PlayNav({
     >
       {/* --- Top: brand + toggle --- */}
       <div className="gc-rail-top">
-        <Link to="/" className="gc-rail-brand" title="GoalChain Play">
-          <span className="gc-rail-brand-mark" aria-hidden>⚽</span>
+        <Link to="/" className="gc-rail-brand" title="GoalWorld · Matchday Lab">
+          <img src="/favicon.png" alt="" className="gc-rail-brand-mark" width="22" height="22" style={{ borderRadius: '6px' }} aria-hidden />
           {!collapsed && (
             <span className="gc-rail-brand-text">
-              Goal<span className="gc-rail-brand-accent">Chain</span>
+              Goal<span className="gc-rail-brand-accent">World</span>
             </span>
           )}
         </Link>

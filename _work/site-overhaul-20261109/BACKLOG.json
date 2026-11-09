@@ -17,7 +17,7 @@
       "evidence": "docs/goalworld.html:7,58,93,131,172,226,235,253 (48 hits; 390x844 overflow 921/390 + 10 console ERR_FAILED, screenshots/legacy-goalworld-390x844.jpg); docs/goalchain.html:934-1591 (29 hits); docs/mega-guide-v1.html:7-427 (25 hits); docs/mega-guide.html:7-462 (16 hits); docs/colabs.html:329-429 (5 hits); docs/pitch.html:234-245 (4 hits); docs/protocol.html:107-159 (4 hits); docs/tokenomics.html:211-218 (2 hits); docs/agents.html:261 (1 hit)",
       "fix": "Move full legacy HTML files in docs/ to docs/archive/legacy-html-20261109/ with an inventory README, replace active docs/*.html routes with clean zero-claim HTML redirect stubs matching proposed_caddy_redirects.Caddyfile, and exclude docs/archive/ in scripts/pages/stage_public_tree.py.",
       "verify": "python3 _work/site-overhaul-20261109/tools/scan_repo_audit.py && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-002",
@@ -27,7 +27,7 @@
       "evidence": "docs/go/reader/index.html:13,57,61,64,66,337,358 and docs/reader.html:13-358 (8 banned hits each); Playwright 390x844 overflow 970/390 (screenshots/sub-go-reader-390x844.jpg)",
       "fix": "Move docs/reader.html and docs/go/reader/index.html to docs/archive/legacy-html-20261109/ and replace both with clean responsive redirect stubs to /book.html#sample.",
       "verify": "python3 _work/site-overhaul-20261109/tools/scan_repo_audit.py && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-003",
@@ -37,7 +37,7 @@
       "evidence": "goalchain_webapp/src/ui/LandingPage.tsx:37,47,67; goalchain_webapp/index.html:12,17,23; goalchain_webapp/public/manifest.json:4; screenshots/play-home-390x844.jpg",
       "fix": "Rewrite LandingPage.tsx, goalchain_webapp/index.html, and public/manifest.json to frame the app honestly as GoalWorld Matchday Lab on Solana Devnet (free to play, no real money, zero DeFi/staking/yield claims).",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n && python3 ../_work/site-overhaul-20261109/tools/scan_repo_audit.py",
-      "status": "doing"
+      "status": "done"
     },
     {
       "id": "A-004",
@@ -47,7 +47,7 @@
       "evidence": "goalchain_webapp/src/ui/GoalWorldPortal.tsx:67,84,85,243,302,339,426; screenshots/play-goalworld-1440x900.jpg",
       "fix": "Replace pre-v7 lore, KDP SaaS claims, and fabricated subscriber/USDC numbers in GoalWorldPortal.tsx with canonical v7 lore (Neo-Citania, Kora Vega, the Link, 20 days to Renaissance, 528 Hz, Book 1 G2 signed, Book 2 Earth's New Song in production, Book 3 Evolution Matrix outlined) and honest Devnet sandbox perks.",
       "verify": "cd goalchain_webapp && npm run build && python3 ../_work/site-overhaul-20261109/tools/scan_repo_audit.py",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-005",
@@ -57,7 +57,7 @@
       "evidence": "goalchain_webapp/src/ui/booksData.ts:65-119 (82 hits); goalchain_webapp/src/ui/KindleReader.tsx:125,736,1024,1041,1044 (5 hits); goalchain_webapp/src/ui/TheNeuralWarsUniverse.tsx:42,44,140,141,174,209,274,315 (25 hits); screenshots/play-reader-1440x900.jpg",
       "fix": "Replace booksData.ts with canonical v7 Chapter 1 sample (Threshold) and honest Book 1-3 metadata (with TODO(nico) for full Chapter 1), replace 432 Hz Solfeggio in KindleReader.tsx and TheNeuralWarsUniverse.tsx with 528 Hz ambient resonance, and replace Neo-Veridia with Neo-Citania.",
       "verify": "cd goalchain_webapp && npm run build && python3 ../_work/site-overhaul-20261109/tools/scan_repo_audit.py",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-006",
@@ -67,7 +67,7 @@
       "evidence": "goalchain_webapp/src/ui/StakingBurnDashboard.tsx:89-167; src/components/YieldCalculator.tsx:138-281; src/components/InfinityFlame.tsx:320; src/ui/DeFiPortal.tsx:52; src/ui/SwarmVaults.tsx:30,50; src/components/VaultStrategyCard.tsx:38; src/ui/LayeredNftCard.tsx:209-468; src/ui/WorldCupPredictor.tsx:490; src/ui/CorporateAutopilot.tsx:476; src/i18n/locales/{en,es}.json",
       "fix": "Reframe /defi and /staking components as Devnet Matchday Telemetry & Tactics Sandbox (Simulated, Zero Monetary Value), replacing Yield/Staking/Infinity Burn with Matchday Rating / Squad Lock (Devnet) / Engine Core Pulse across components and locale JSON files.",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n && python3 ../_work/site-overhaul-20261109/tools/scan_repo_audit.py",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-007",
@@ -77,7 +77,7 @@
       "evidence": "goalchain_webapp/public/assets/data/players.json:231,525,712,978,1335,1403,1996,2256 (13 hits); goalchain_webapp/public/assets/data/nft_gallery_manifest.json:179,398,535 (31 hits)",
       "fix": "Replace Yield and Staking in player display names and bios in players.json and nft_gallery_manifest.json with tactical/canon terms while preserving valid image asset paths.",
       "verify": "python3 _work/site-overhaul-20261109/tools/scan_repo_audit.py",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-008",
@@ -87,7 +87,7 @@
       "evidence": "goalchain_webapp/public/classic-dashboard.html:279,299,304,403,1211,1275,1319,1729 (18 banned hits in repo_static_audit.json)",
       "fix": "Move full legacy classic-dashboard.html to docs/archive/legacy-html-20261109/classic-dashboard.html and replace public/classic-dashboard.html with a clean HTML redirect stub to /dashboard.",
       "verify": "cd goalchain_webapp && npm run build && python3 ../_work/site-overhaul-20261109/tools/scan_repo_audit.py",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-009",
@@ -97,7 +97,7 @@
       "evidence": "goalchain_webapp/public/.well-known/agent-skills/goalworld-play/SKILL.md:9,10,15,23; live_crawl.log:83,86",
       "fix": "Update goalchain_webapp/public/.well-known/agent-skills/goalworld-play/SKILL.md, ard.json, ai-catalog.json, and public/llms.txt to describe Matchday Lab on Solana Devnet with zero NFT market or staking claims.",
       "verify": "python3 _work/site-overhaul-20261109/tools/scan_repo_audit.py",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-010",
@@ -137,7 +137,7 @@
       "evidence": "goalchain_webapp/src/config/playNav.ts:106,209,216,223,230,250,257",
       "fix": "Repoint external links in playNav.ts to canonical goalworld.fun routes (/book.html, /cinema.html, /studio.html, /collect.html, /roadmap.html, /faq.html, /press.html, /terms.html) and align nav groups with the unified franchise.",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n",
-      "status": "doing"
+      "status": "done"
     },
     {
       "id": "A-027",
@@ -147,7 +147,7 @@
       "evidence": "goalchain_webapp/src/ui/LandingPage.tsx:19-123; goalchain_webapp/src/ui/DashboardGrid.tsx:1-98; screenshots/play-home-1440x900.jpg; screenshots/play-dashboard-1440x900.jpg",
       "fix": "Overhaul LandingPage.tsx and DashboardGrid.tsx with GoalWorld Studio branding, The Neural Wars & AeroOlympus lore bridges, clear Solana Devnet sandbox framing, and direct cross-links to Book 1, Cinema, and Matchday modules.",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n",
-      "status": "doing"
+      "status": "done"
     },
     {
       "id": "A-036",
@@ -227,7 +227,7 @@
       "evidence": "evidence/audit/playwright_audit.json (h1Count: 2 on play-dashboard, play-estadio, play-club, play-goalworld); goalchain_webapp/src/ui/App.tsx:46",
       "fix": "Ensure each route on play.goalworld.fun renders exactly one <h1> by coordinating PlayPage in App.tsx:46 with child portal headers.",
       "verify": "cd goalchain_webapp && npm run build",
-      "status": "doing"
+      "status": "done"
     },
     {
       "id": "A-019",
@@ -267,7 +267,7 @@
       "evidence": "goalchain_webapp/src/ui/PlayLayout.tsx:64-134; goalchain_webapp/src/ui/LandingPage.tsx:57-122; evidence/audit/playwright_audit.json (landmarks.footer: 0)",
       "fix": "Add <a className=\"skip-link\" href=\"#main\"> and a compact GoalWorld studio <footer> landmark to PlayLayout.tsx, and move LandingPage.tsx inline styles to semantic CSS classes in index.css.",
       "verify": "cd goalchain_webapp && npm run build",
-      "status": "doing"
+      "status": "done"
     },
     {
       "id": "A-023",
@@ -277,7 +277,7 @@
       "evidence": "goalchain_webapp/src/ui/PlayLayout.tsx:127 and goalchain_webapp/src/ui/App.tsx:48; evidence/audit/playwright_audit.json (landmarks.main: 2)",
       "fix": "Change the inner wrapper in App.tsx:48 from <main> to <div> and keep <main id=\"main\" className=\"play-body\"> in PlayLayout.tsx:127 as the single <main> landmark.",
       "verify": "cd goalchain_webapp && npm run build",
-      "status": "doing"
+      "status": "done"
     },
     {
       "id": "A-028",
@@ -427,7 +427,7 @@
       "evidence": "goalchain_webapp/index.html:1-27; evidence/audit/live_crawl.json",
       "fix": "Add <link rel=\"canonical\" href=\"https://play.goalworld.fun/\" />, <meta name=\"theme-color\" content=\"#0a0b0e\" />, og:image:alt, WebApplication JSON-LD, and update <title> in goalchain_webapp/index.html.",
       "verify": "cd goalchain_webapp && npm run build",
-      "status": "doing"
+      "status": "done"
     },
     {
       "id": "A-014",

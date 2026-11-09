@@ -1,11 +1,11 @@
 {
-  "name": "GoalChain Dashboard",
-  "short_name": "GoalChain",
-  "description": "Solana-powered football manager with DeFi yield and Genesis NFT squad",
+  "name": "GoalWorld · Matchday Lab",
+  "short_name": "GoalWorld Lab",
+  "description": "Free browser football manager and tactical simulation sandbox on Solana Devnet inside the GoalWorld universe.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a0f",
-  "theme_color": "#00ffcc",
+  "background_color": "#0a0b0e",
+  "theme_color": "#e5a93c",
   "orientation": "portrait-primary",
   "lang": "en",
   "dir": "ltr",
@@ -17,7 +17,7 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["games", "finance", "sports"],
+  "categories": ["games", "sports"],
   "screenshots": [],
   "related_applications": [],
   "prefer_related_applications": false

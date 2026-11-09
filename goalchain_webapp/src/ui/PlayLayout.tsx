@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { Analytics } from '@vercel/analytics/react';
 import { ConnectButton } from '../wallet/ConnectButton';
 import { PlayNav, PlayBottomTab } from './PlayNav';
@@ -63,6 +63,8 @@ export function PlayLayout() {
 
   return (
     <div className={`play-shell play-shell--grid ${collapsed ? 'play-shell--collapsed' : 'play-shell--expanded'} ${drawerOpen ? 'play-shell--drawer-open' : ''} ${ugcMode ? 'ugc-active' : ''}`}>
+      <a className="skip-link" href="#main">Skip to content</a>
+
       {/* Sidebar / icon-rail (desktop + tablet) */}
       <PlayNav collapsed={collapsed} setCollapsed={handleToggleCollapse} />
 
@@ -78,36 +80,27 @@ export function PlayLayout() {
         />
       )}
 
-      {/* Columna principal: header + contenido + footer móvil */}
+      {/* Columna principal: header + contenido + footer */}
       <div className="play-main">
         <header className="play-header">
           <div className="play-header-brand">
-            <span className="play-header-brand-mark" aria-hidden>⚽</span>
-            <span className="play-header-brand-text">
-              {t('nav_app_title' as never) || 'GoalChain Play'}
+            <Link to="/" className="play-header-brand-link">
+              <img src="/favicon.png" alt="" className="play-header-brand-logo" width="22" height="22" aria-hidden />
+              <span className="play-header-brand-text">
+                Goal<span className="play-header-brand-accent">World</span>
+                <span className="play-header-brand-sub"> · Matchday Lab</span>
+              </span>
+            </Link>
+            <span className="play-header-devnet-pill" title="Solana Devnet sandbox — free test tokens, zero monetary value">
+              <span className="play-header-devnet-dot" aria-hidden />
+              DEVNET SANDBOX
             </span>
           </div>
           <div className="play-header-actions">
-            <button 
+            <button
+              type="button"
               className="play-header-ugc-btn"
               onClick={() => setUgcMode(true)}
-              style={{
-                background: 'rgba(20, 241, 149, 0.1)',
-                border: '1px solid var(--primary-neon)',
-                color: 'var(--primary-neon)',
-                padding: '6px 12px',
-                borderRadius: '8px',
-                fontSize: '0.75rem',
-                fontWeight: 'bold',
-                marginRight: '10px',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                transition: 'background 0.2s, transform 0.1s'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(20, 241, 149, 0.2)'}
-              onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(20, 241, 149, 0.1)'}
             >
               {t('play_ugc_mode' as never) || '📱 UGC Mode (9:16)'}
             </button>
@@ -117,16 +110,31 @@ export function PlayLayout() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {t('nav_full_site' as never) || 'Full site'} ↗
+              {t('nav_full_site' as never) || 'GoalWorld.fun'} ↗
             </a>
             <LanguageToggle />
             <ConnectButton />
           </div>
         </header>
 
-        <main className="play-body">
+        <main id="main" className="play-body">
           <Outlet />
         </main>
+
+        <footer className="play-footer" aria-label="GoalWorld Matchday Lab footer">
+          <div className="play-footer-inner">
+            <div className="play-footer-brand">
+              <strong>GoalWorld · Matchday Lab</strong>
+              <span>Canon. Code. Cinema. · Solana Devnet sandbox (free test tokens, no real-money value)</span>
+            </div>
+            <nav className="play-footer-links" aria-label="GoalWorld universe links">
+              <a href={`${MARKETING_BASE}/`} target="_blank" rel="noopener noreferrer">GoalWorld Hub ↗</a>
+              <a href={`${MARKETING_BASE}/book.html`} target="_blank" rel="noopener noreferrer">The Saga (Book 1) ↗</a>
+              <a href={`${MARKETING_BASE}/cinema.html`} target="_blank" rel="noopener noreferrer">AI Cinema ↗</a>
+              <a href={`${MARKETING_BASE}/terms.html`} target="_blank" rel="noopener noreferrer">Terms &amp; Honesty ↗</a>
+            </nav>
+          </div>
+        </footer>
       </div>
 
       {/* Bottom-tab bar (móvil) */}
@@ -135,25 +143,9 @@ export function PlayLayout() {
       {/* Floating Exit Button for UGC Mode */}
       {ugcMode && (
         <button
+          type="button"
+          className="play-ugc-exit-btn"
           onClick={() => setUgcMode(false)}
-          style={{
-            position: 'fixed',
-            top: '20px',
-            right: '20px',
-            zIndex: 999999,
-            background: 'var(--primary-neon)',
-            border: 'none',
-            color: '#000',
-            padding: '10px 18px',
-            borderRadius: '20px',
-            fontSize: '0.78rem',
-            fontWeight: 800,
-            cursor: 'pointer',
-            boxShadow: '0 4px 15px rgba(20, 241, 149, 0.4)',
-            transition: 'transform 0.2s'
-          }}
-          onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-          onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
         >
           {t('play_ugc_exit' as never) || '❌ Exit UGC Mode'}
         </button>
@@ -167,38 +159,28 @@ export function PlayLayout() {
 
       {/* Floating Eliza chatbot button & drawer */}
       <button
+        type="button"
         onClick={() => setCoachOpen(!coachOpen)}
         className="gc-floating-coach-btn"
+        aria-label={t('play_coach_open' as never) || 'Ask Eliza AI Coach'}
         title={t('play_coach_open' as never) || 'Ask Eliza AI Coach'}
       >
         🤖
       </button>
 
       <div className={`gc-coach-drawer ${coachOpen ? 'open' : ''}`}>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '12px 16px',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-          background: 'rgba(153, 69, 255, 0.1)'
-        }}>
-          <span style={{ fontWeight: 800, fontSize: '0.9rem', color: '#fff' }}>{t('play_coach_title' as never) || '🤖 Eliza AI Tactical Assistant'}</span>
+        <div className="gc-coach-drawer-head">
+          <span className="gc-coach-drawer-title">{t('play_coach_title' as never) || '🤖 Eliza AI Tactical Assistant'}</span>
           <button
+            type="button"
+            className="gc-coach-drawer-close"
             onClick={() => setCoachOpen(false)}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: '#94a3b8',
-              fontSize: '1.25rem',
-              cursor: 'pointer',
-              padding: 0
-            }}
+            aria-label="Close AI Coach"
           >
             ×
           </button>
         </div>
-        <div style={{ flex: 1, overflowY: 'auto', padding: '10px' }}>
+        <div className="gc-coach-drawer-body">
           <AICoach />
         </div>
       </div>
