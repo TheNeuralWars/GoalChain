@@ -1,7 +1,7 @@
 {
   "phases": {
     "0": "done",
-    "1": "todo",
+    "1": "doing",
     "2": "todo",
     "3": "todo",
     "4": "todo",
@@ -37,7 +37,7 @@
       "evidence": "goalchain_webapp/src/ui/LandingPage.tsx:37,47,67; goalchain_webapp/index.html:12,17,23; goalchain_webapp/public/manifest.json:4; screenshots/play-home-390x844.jpg",
       "fix": "Rewrite LandingPage.tsx, goalchain_webapp/index.html, and public/manifest.json to frame the app honestly as GoalWorld Matchday Lab on Solana Devnet (free to play, no real money, zero DeFi/staking/yield claims).",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n && python3 ../_work/site-overhaul-20261109/tools/scan_repo_audit.py",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-004",
@@ -107,7 +107,7 @@
       "evidence": "goalworld_site/src/pages/index.html:1,4; goalworld_site/src/pages/press.html:57,80; live_crawl.log:1,2,19,20,94",
       "fix": "Create canonical copies hero-neo-citania.webp, hero-neo-citania-800.webp, hero-neo-citania-400.webp, and press/press-hero-neo-citania.jpg (keeping legacy files as fallback aliases) and update index.html, press.html, and tools/make_press_zip.py.",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-015",
@@ -117,7 +117,7 @@
       "evidence": "goalworld_site/src/assets/css/site.css:4-26 vs goalchain_webapp/src/styles/tokens.css:17-43 and src/index.css:26-31,105,135; screenshots/gw-home-1440x900.jpg vs screenshots/play-home-1440x900.jpg",
       "fix": "Update goalchain_webapp/src/styles/tokens.css and src/index.css to adopt GoalWorld obsidian (#0a0b0e / #12141c), warm amber (#e5a93c), cobalt (#3b82f6), editorial serif, Outfit, and monospace tokens so goalworld.fun and play.goalworld.fun share one visual identity.",
       "verify": "cd goalchain_webapp && npm run build",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-017",
@@ -127,7 +127,7 @@
       "evidence": "evidence/audit/lighthouse/summary.json:11,24-30,82,95-101 (heading-order score 0 on home mobile & desktop); goalworld_site/src/pages/index.html:28; src/pages/404.html:16; src/assets/js/site.js:58",
       "fix": "Add semantic <h2> section headings before .bento in index.html, before .nf-links in 404.html, and before [data-live-feed] in live.html so heading levels descend sequentially (h1 -> h2 -> h3).",
       "verify": "node goalworld_site/build.mjs && python3 _work/site-overhaul-20261109/tools/scan_repo_audit.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-026",
@@ -137,7 +137,7 @@
       "evidence": "goalchain_webapp/src/config/playNav.ts:106,209,216,223,230,250,257",
       "fix": "Repoint external links in playNav.ts to canonical goalworld.fun routes (/book.html, /cinema.html, /studio.html, /collect.html, /roadmap.html, /faq.html, /press.html, /terms.html) and align nav groups with the unified franchise.",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-027",
@@ -147,7 +147,7 @@
       "evidence": "goalchain_webapp/src/ui/LandingPage.tsx:19-123; goalchain_webapp/src/ui/DashboardGrid.tsx:1-98; screenshots/play-home-1440x900.jpg; screenshots/play-dashboard-1440x900.jpg",
       "fix": "Overhaul LandingPage.tsx and DashboardGrid.tsx with GoalWorld Studio branding, The Neural Wars & AeroOlympus lore bridges, clear Solana Devnet sandbox framing, and direct cross-links to Book 1, Cinema, and Matchday modules.",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-036",
@@ -187,7 +187,7 @@
       "evidence": "goalworld_site/src/pages/index.html:134; goalworld_site/src/pages/cinema.html:27; live_crawl.log:65-66",
       "fix": "Configure dual <source> tags in index.html:134 and cinema.html:27 (preferring Clip_08_Kora_Vega_Harmonic_Rings.mp4 with fallback to Clip_08_Kora_Vega_432Hz_Harmonic_Rings.mp4) and document the media alias in proposed_caddy_redirects.Caddyfile.",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-012",
@@ -197,7 +197,7 @@
       "evidence": "goalworld_site/src/pages/about.html:57 vs _work/site-overhaul-20261109/context/FRACTURED_CODE_CANON_NOTE.md:24",
       "fix": "Align about.html:57 with FRACTURED_CODE_CANON_NOTE.md:24 (1,724 neural compliance erasures) and leave a clear TODO(nico) comment if Prologue v7 differs.",
       "verify": "node goalworld_site/build.mjs",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-013",
@@ -207,7 +207,7 @@
       "evidence": "goalworld_site/src/pages/book.html:30-40; _work/site-overhaul-20261109/context/AGY_QUALITY_REVIEW_20261104_1745.md:21,57",
       "fix": "Enhance the #sample reader UI on book.html (reading metadata bar, font-size toggle, clear excerpt notice, and explicit TODO(nico) comment where full MANUSCRIPT_v7 Chapter 1 prose will be pasted) without inventing manuscript text.",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-016",
@@ -217,7 +217,7 @@
       "evidence": "goalchain_webapp/src/styles/tokens/{colors,typography,spacing,borders,motion}.css; src/styles/base/{reset,typography}.css; evidence/audit/lighthouse/summary.json:514-520 (16 KiB unused CSS)",
       "fix": "Move unimported CSS files from goalchain_webapp/src/styles/{tokens,base}/ to docs/archive/webapp-unused-styles-20261109/ with a note and remove dead legacy selectors from goalchain_webapp/src/index.css.",
       "verify": "cd goalchain_webapp && npm run build",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-018",
@@ -227,7 +227,7 @@
       "evidence": "evidence/audit/playwright_audit.json (h1Count: 2 on play-dashboard, play-estadio, play-club, play-goalworld); goalchain_webapp/src/ui/App.tsx:46",
       "fix": "Ensure each route on play.goalworld.fun renders exactly one <h1> by coordinating PlayPage in App.tsx:46 with child portal headers.",
       "verify": "cd goalchain_webapp && npm run build",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-019",
@@ -237,7 +237,7 @@
       "evidence": "evidence/audit/playwright_audit.json:23-84,677-738; goalworld_site/src/assets/css/site.css:319-325,503-506,560-562",
       "fix": "Update .site-footer a, .notify-pill a, and standalone .card a.go styles in site.css to provide comfortable vertical hit areas (min-height 36px-44px on mobile/tablet).",
       "verify": "node goalworld_site/build.mjs",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-020",
@@ -247,7 +247,7 @@
       "evidence": "goalworld_site/src/layout.html:61; goalworld_site/src/assets/css/site.css:606-612; screenshots/gw-book-390x844.jpg",
       "fix": "Remove hardcoded aria-hidden=\"false\" on .sticky-cta in layout.html:61, convert to <aside class=\"sticky-cta\" aria-label=\"Quick actions\">, and increase mobile bottom padding / auto-hide while reading #sample.",
       "verify": "node goalworld_site/build.mjs",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-021",
@@ -257,7 +257,7 @@
       "evidence": "goalworld_site/src/assets/css/site.css:582-583,607-608; screenshots/gw-home-820x1180.jpg",
       "fix": "Add a @media (max-width: 980px) rule for .bento (2-column grid with .span-2 spanning 2 columns) so 820x1180 tablet viewports render a balanced layout.",
       "verify": "node goalworld_site/build.mjs",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-022",
@@ -267,7 +267,7 @@
       "evidence": "goalchain_webapp/src/ui/PlayLayout.tsx:64-134; goalchain_webapp/src/ui/LandingPage.tsx:57-122; evidence/audit/playwright_audit.json (landmarks.footer: 0)",
       "fix": "Add <a className=\"skip-link\" href=\"#main\"> and a compact GoalWorld studio <footer> landmark to PlayLayout.tsx, and move LandingPage.tsx inline styles to semantic CSS classes in index.css.",
       "verify": "cd goalchain_webapp && npm run build",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-023",
@@ -277,7 +277,7 @@
       "evidence": "goalchain_webapp/src/ui/PlayLayout.tsx:127 and goalchain_webapp/src/ui/App.tsx:48; evidence/audit/playwright_audit.json (landmarks.main: 2)",
       "fix": "Change the inner wrapper in App.tsx:48 from <main> to <div> and keep <main id=\"main\" className=\"play-body\"> in PlayLayout.tsx:127 as the single <main> landmark.",
       "verify": "cd goalchain_webapp && npm run build",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-028",
@@ -417,7 +417,7 @@
       "evidence": "evidence/audit/lighthouse/summary.json:298-304,344-350; goalworld_site/src/pages/cinema.html:1",
       "fix": "Add preload link for /assets/img/poster-trailer.webp with fetchpriority=\"high\" in cinema.html meta header.",
       "verify": "node goalworld_site/build.mjs",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-047",
@@ -427,7 +427,7 @@
       "evidence": "goalchain_webapp/index.html:1-27; evidence/audit/live_crawl.json",
       "fix": "Add <link rel=\"canonical\" href=\"https://play.goalworld.fun/\" />, <meta name=\"theme-color\" content=\"#0a0b0e\" />, og:image:alt, WebApplication JSON-LD, and update <title> in goalchain_webapp/index.html.",
       "verify": "cd goalchain_webapp && npm run build",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-014",
@@ -437,7 +437,7 @@
       "evidence": "goalworld_site/build.mjs:243-260; _work/site-overhaul-20261109/context/copy_deck.md:3",
       "fix": "Add remaining copy_deck.md banned patterns to goalworld_site/build.mjs and add a build-time banned-claims check script to goalchain_webapp.",
       "verify": "node goalworld_site/build.mjs && cd goalchain_webapp && npm run build",
-      "status": "todo"
+      "status": "doing"
     },
     {
       "id": "A-024",
@@ -447,7 +447,7 @@
       "evidence": "goalworld_site/src/assets/css/site.css:12,634",
       "fix": "Add --amber-primary: #e5a93c in site.css:12 and add box-shadow focus ring on .faq-search:focus-visible, .nf-row input:focus-visible.",
       "verify": "node goalworld_site/build.mjs",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-025",
@@ -457,7 +457,7 @@
       "evidence": "goalworld_site/src/pages/index.html:18; _work/site-overhaul-20261109/context/AGY_QUALITY_REVIEW_20261104_1745.md:31-35",
       "fix": "Point the notify-pill anchor at index.html:18 directly to https://x.com/nicopez and add a separate #book2 anchor for Book 2 details.",
       "verify": "node goalworld_site/build.mjs && python3 goalworld_site/tools/check_links.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-035",

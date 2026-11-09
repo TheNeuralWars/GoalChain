@@ -158,4 +158,25 @@
       nf.querySelector("[data-nf-hint]").textContent = "No match — try lore, faq, press, roadmap, live, read or play.";
     });
   }
+
+  // Book #sample reader font-size controls + sticky CTA auto-hide while reading (A-013, A-020)
+  var rBtns = [].slice.call(document.querySelectorAll("[data-reader-font]"));
+  var rProse = document.querySelector("[data-reader-prose]");
+  if (rBtns.length && rProse) {
+    rBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        press(rBtns, btn);
+        rProse.style.setProperty("--reader-fs", btn.dataset.readerFont);
+      });
+    });
+  }
+  var sampleSec = document.getElementById("sample");
+  var stickyBar = document.querySelector("[data-sticky-cta]");
+  if (sampleSec && stickyBar && "IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        stickyBar.classList.toggle("is-hidden", entry.isIntersecting);
+      });
+    }, { threshold: 0.15 }).observe(sampleSec);
+  }
 })();

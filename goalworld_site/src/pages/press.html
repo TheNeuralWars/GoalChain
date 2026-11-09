@@ -1,17 +1,15 @@
 <!-- meta {"slug":"press","title":"Press Kit · GoalWorld","description":"Logos, key art, covers and screenshots for GoalWorld and The Neural Wars — downloadable brand assets, the world in one paragraph, and where to reach us.","nav":"PRESS","preload":"<link rel=\"preload\" as=\"image\" href=\"/assets/img/keyframe-core-pulse.webp\" imagesrcset=\"/assets/img/keyframe-core-pulse-640.webp 640w, /assets/img/keyframe-core-pulse-800.webp 800w, /assets/img/keyframe-core-pulse.webp 1200w\" imagesizes=\"(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem\" fetchpriority=\"high\" />"} -->
-<section class="hero" style="padding-bottom: 2.5rem">
-  <div class="hero-bg" aria-hidden="true">
-    <img src="/assets/img/keyframe-core-pulse.webp" alt="" width="1200" height="675" fetchpriority="high" srcset="/assets/img/keyframe-core-pulse-640.webp 640w, /assets/img/keyframe-core-pulse-800.webp 800w, /assets/img/keyframe-core-pulse.webp 1200w" sizes="(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem" />
-  </div>
-  <div class="wrap">
-    <p class="eyebrow">Press kit</p>
-    <h1>Cover the world.</h1>
-    <p class="lead">
-      Logos, key art, covers and screenshots &mdash; everything you need to write about
-      GoalWorld and The Neural Wars, in web-friendly sizes.
-    </p>
-  </div>
-</section>
+<!-- @component hero {
+  "variant": "compact",
+  "bgImg": "/assets/img/keyframe-core-pulse.webp",
+  "bgWidth": 1200,
+  "bgHeight": 675,
+  "bgSrcset": "/assets/img/keyframe-core-pulse-640.webp 640w, /assets/img/keyframe-core-pulse-800.webp 800w, /assets/img/keyframe-core-pulse.webp 1200w",
+  "bgSizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+  "eyebrow": "Press kit",
+  "title": "Cover the world.",
+  "lead": "Logos, key art, covers and screenshots &mdash; everything you need to write about GoalWorld and The Neural Wars, in web-friendly sizes."
+} -->
 
 <section class="section-tight">
   <div class="wrap prose" style="max-width: 78ch">
@@ -39,8 +37,10 @@
 
 <section class="section band">
   <div class="wrap">
-    <p class="kicker">Downloads</p>
-    <h2>Brand assets</h2>
+    <!-- @component section-header {
+      "kicker": "Downloads",
+      "title": "Brand assets"
+    } -->
     <div class="dl-list" style="margin-top: 1.75rem">
       <a class="dl dl-feature" href="/assets/img/press/press-kit.zip" download>
         <span><span class="name">Full press kit (.zip)</span><br /><span class="meta">Logos, key art, cover &mdash; everything below in one file</span></span>
@@ -54,7 +54,7 @@
         <span><span class="name">GoalWorld logo mark</span><br /><span class="meta">PNG &middot; 512&times;512, dark background</span></span>
         <span class="get">Download</span>
       </a>
-      <a class="dl" href="/assets/img/press/press-hero-neo-veridia.jpg" download>
+      <a class="dl" href="/assets/img/press/press-hero-neo-citania.jpg" download>
         <span><span class="name">Hero art &mdash; Neo-Citania, Sector 4</span><br /><span class="meta">JPEG &middot; 1600px wide</span></span>
         <span class="get">Download</span>
       </a>
@@ -72,45 +72,77 @@
 
 <section class="section">
   <div class="wrap">
-    <p class="kicker">Screens &amp; stills</p>
-    <h2>Gallery</h2>
+    <!-- @component section-header {
+      "kicker": "Screens &amp; stills",
+      "title": "Gallery"
+    } -->
     <div class="grid grid-3" style="margin-top: 1.75rem">
-      <figure class="card" style="margin: 0">
-        <div class="card-img">
-          <img src="/assets/img/hero-neo-veridia.webp" alt="Neo-Citania Sector 4 canyon — establishing art" width="1600" height="900" loading="lazy" srcset="/assets/img/hero-neo-veridia-800.webp 800w, /assets/img/hero-neo-veridia.webp 1600w" sizes="100vw" />
-        </div>
-        <figcaption class="small muted">Neo-Citania &mdash; Sector 4 canyon</figcaption>
-      </figure>
-      <figure class="card" style="margin: 0">
-        <div class="card-img">
-          <img src="/assets/img/keyframe-severing.webp" alt="Keyframe: the Severing, neural disconnection" width="1200" height="750" loading="lazy" srcset="/assets/img/keyframe-severing-640.webp 640w, /assets/img/keyframe-severing.webp 1200w" sizes="(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem" />
-        </div>
-        <figcaption class="small muted">Keyframe &mdash; The Severing</figcaption>
-      </figure>
-      <figure class="card" style="margin: 0">
-        <div class="card-img">
-          <img src="/assets/img/keyframe-kora-trance.webp" alt="Keyframe: Kora Vega in a resonance trance" width="1200" height="750" loading="lazy" srcset="/assets/img/keyframe-kora-trance-640.webp 640w, /assets/img/keyframe-kora-trance.webp 1200w" sizes="(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem" />
-        </div>
-        <figcaption class="small muted">Keyframe &mdash; Kora Vega, resonance trance</figcaption>
-      </figure>
-      <figure class="card" style="margin: 0">
-        <div class="card-img">
-          <img src="/assets/img/char-mileo-chen.webp" alt="Character art: Mileo Chen" width="720" height="900" loading="lazy" srcset="/assets/img/char-mileo-chen-400.webp 400w, /assets/img/char-mileo-chen.webp 720w" sizes="(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem" />
-        </div>
-        <figcaption class="small muted">Character &mdash; Mileo Chen</figcaption>
-      </figure>
-      <figure class="card" style="margin: 0">
-        <div class="card-img">
-          <img src="/assets/img/char-sierra-catalano.webp" alt="Character art: Commander Sierra Catalano" width="720" height="900" loading="lazy" srcset="/assets/img/char-sierra-catalano-400.webp 400w, /assets/img/char-sierra-catalano.webp 720w" sizes="(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem" />
-        </div>
-        <figcaption class="small muted">Character &mdash; Sierra Catalano</figcaption>
-      </figure>
-      <figure class="card" style="margin: 0">
-        <div class="card-img">
-          <img src="/assets/img/loc-kuiper-monolith.webp" alt="Location art: the Kuiper Monolith in deep space" width="1200" height="750" loading="lazy" srcset="/assets/img/loc-kuiper-monolith-640.webp 640w, /assets/img/loc-kuiper-monolith.webp 1200w" sizes="(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem" />
-        </div>
-        <figcaption class="small muted">Location &mdash; Kuiper Monolith</figcaption>
-      </figure>
+      <!-- @component media-card {
+        "kind": "image",
+        "src": "/assets/img/hero-neo-citania.webp",
+        "srcset": "/assets/img/hero-neo-citania-400.webp 400w, /assets/img/hero-neo-citania-800.webp 800w, /assets/img/hero-neo-citania.webp 1600w",
+        "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+        "alt": "Neo-Citania Sector 4 canyon — establishing art",
+        "width": 1600,
+        "height": 900,
+        "aiTag": "Establishing still &middot; AI-generated",
+        "title": "Neo-Citania &mdash; Sector 4 canyon"
+      } -->
+      <!-- @component media-card {
+        "kind": "image",
+        "src": "/assets/img/keyframe-severing.webp",
+        "srcset": "/assets/img/keyframe-severing-640.webp 640w, /assets/img/keyframe-severing.webp 1200w",
+        "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+        "alt": "Keyframe: the Severing, neural disconnection",
+        "width": 1200,
+        "height": 750,
+        "aiTag": "Keyframe &middot; AI-generated",
+        "title": "The Severing"
+      } -->
+      <!-- @component media-card {
+        "kind": "image",
+        "src": "/assets/img/keyframe-kora-trance.webp",
+        "srcset": "/assets/img/keyframe-kora-trance-640.webp 640w, /assets/img/keyframe-kora-trance.webp 1200w",
+        "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+        "alt": "Keyframe: Kora Vega in a resonance trance",
+        "width": 1200,
+        "height": 750,
+        "aiTag": "Keyframe &middot; AI-generated",
+        "title": "Kora Vega, resonance trance"
+      } -->
+      <!-- @component media-card {
+        "kind": "image",
+        "src": "/assets/img/char-mileo-chen.webp",
+        "srcset": "/assets/img/char-mileo-chen-400.webp 400w, /assets/img/char-mileo-chen.webp 720w",
+        "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+        "alt": "Character art: Mileo Chen",
+        "width": 720,
+        "height": 900,
+        "aiTag": "Character study &middot; AI-generated",
+        "title": "Mileo Chen"
+      } -->
+      <!-- @component media-card {
+        "kind": "image",
+        "src": "/assets/img/char-sierra-catalano.webp",
+        "srcset": "/assets/img/char-sierra-catalano-400.webp 400w, /assets/img/char-sierra-catalano.webp 720w",
+        "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+        "alt": "Character art: Commander Sierra Catalano",
+        "width": 720,
+        "height": 900,
+        "aiTag": "Character study &middot; AI-generated",
+        "title": "Sierra Catalano"
+      } -->
+      <!-- @component media-card {
+        "kind": "image",
+        "src": "/assets/img/loc-kuiper-monolith.webp",
+        "srcset": "/assets/img/loc-kuiper-monolith-640.webp 640w, /assets/img/loc-kuiper-monolith.webp 1200w",
+        "sizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+        "alt": "Location art: the Kuiper Monolith in deep space",
+        "width": 1200,
+        "height": 750,
+        "aiTag": "Location study &middot; AI-generated",
+        "title": "Kuiper Monolith"
+      } -->
     </div>
   </div>
 </section>

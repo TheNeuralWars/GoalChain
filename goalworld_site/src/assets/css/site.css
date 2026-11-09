@@ -1,29 +1,124 @@
 /* GoalWorld site — design system (single source of truth: goalworld_site/)
    Palette (2026-10 redesign): warm editorial amber over obsidian; cobalt for Play, restrained accents. Type: Outfit (self-hosted variable). */
 
+/* === BEGIN GENERATED TOKENS (design/tokens.json) === */
 :root {
-  --bg: #0a0b0e;
-  --bg-elev: #12141c;
-  --bg-card: rgba(18, 20, 28, 0.82);
-  --ink: #f4f4f6;
-  --muted: rgba(240, 240, 245, 0.78);
-  --faint: rgba(240, 240, 245, 0.55);
-  --line: rgba(255, 255, 255, 0.08);
-  --green: #e5a93c;   /* primary accent (amber) — legacy name kept for other pages */
-  --purple: #8b7cf6;
-  --purple-text: #b8acff;   /* AA-compliant purple for small text */
-  --cyan: #7fb2ff;
-  --amber: #fbbf24;
-  --grad: linear-gradient(120deg, #f1c26b, #e5a93c 55%, #d98a3a);
-  --code: #3b82f6;
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  --radius: 18px;
-  --radius-sm: 12px;
-  --maxw: 1160px;
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  /* --- Canonical Studio Palette (Obsidian & Warm Amber) --- */
+  --gw-bg: #0a0b0e;
+  --gw-bg-elev: #12141c;
+  --gw-bg-hover: #191c26;
+  --gw-bg-deep: #050608;
+  --gw-bg-card: rgba(18, 20, 28, 0.84);
+  --gw-bg-glass: rgba(18, 20, 28, 0.72);
+  --gw-bg-glass-strong: rgba(10, 11, 14, 0.88);
+  --gw-bg-glass-frost: rgba(255, 255, 255, 0.05);
+  --gw-ink: #f4f4f6;
+  --gw-muted: #b4b9c7;
+  --gw-faint: #8e95a8;
+  --gw-ink-inverse: #0a0b0e;
+  --gw-amber: #e5a93c;
+  --gw-amber-light: #f1c26b;
+  --gw-amber-deep: #d98a3a;
+  --gw-amber-grad: linear-gradient(120deg, #f1c26b, #e5a93c 55%, #d98a3a);
+  --gw-cobalt: #3b82f6;
+  --gw-cobalt-text: #93b8ff;
+  --gw-crimson: #e11d48;
+  --gw-crimson-text: #fda4af;
+  --gw-violet: #8b7cf6;
+  --gw-violet-text: #b8acff;
+  --gw-success: #22c55e;
+  --gw-success-text: #4ade80;
+  --gw-warning: #fbbf24;
+  --gw-warning-text: #fcd34d;
+  --gw-danger: #ef4444;
+  --gw-danger-text: #f87171;
+  --gw-info: #7fb2ff;
+  --gw-line: rgba(255, 255, 255, 0.08);
+  --gw-line-strong: rgba(255, 255, 255, 0.15);
+  --gw-line-amber: rgba(229, 169, 60, 0.42);
+  --gw-line-cobalt: rgba(59, 130, 246, 0.42);
+
+  /* --- Typography & Fluid Type Scale --- */
+  --gw-font-sans: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --gw-font-serif: "Newsreader", "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --gw-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --gw-fs-xs: 0.78rem;
+  --gw-fs-sm: 0.9rem;
+  --gw-fs-base: 1.0625rem;
+  --gw-fs-lead: clamp(1.1rem, 2.2vw, 1.32rem);
+  --gw-fs-h3: clamp(1.15rem, 2.4vw, 1.45rem);
+  --gw-fs-h2: clamp(1.85rem, 4.4vw, 2.85rem);
+  --gw-fs-h1: clamp(2.45rem, 6.6vw, 4.3rem);
+  --gw-fs-display: clamp(3rem, 8vw, 5.2rem);
+  --gw-fw-regular: 400;
+  --gw-fw-medium: 500;
+  --gw-fw-semibold: 600;
+  --gw-fw-bold: 700;
+  --gw-fw-black: 800;
+
+  /* --- Spacing, Radii, Elevation & Motion --- */
+  --gw-space-1: 0.25rem;
+  --gw-space-2: 0.5rem;
+  --gw-space-3: 0.75rem;
+  --gw-space-4: 1rem;
+  --gw-space-5: 1.5rem;
+  --gw-space-6: 2rem;
+  --gw-space-7: 3rem;
+  --gw-space-8: 4.5rem;
+  --gw-radius-xs: 6px;
+  --gw-radius-sm: 12px;
+  --gw-radius-md: 16px;
+  --gw-radius-lg: 18px;
+  --gw-radius-xl: 24px;
+  --gw-radius-pill: 999px;
+  --gw-shadow-card: 0 10px 32px rgba(0, 0, 0, 0.42);
+  --gw-shadow-elev: 0 18px 46px rgba(0, 0, 0, 0.54);
+  --gw-shadow-amber: 0 12px 34px rgba(229, 169, 60, 0.22);
+  --gw-shadow-amber-hover: 0 16px 44px rgba(229, 169, 60, 0.28);
+  --gw-shadow-cobalt: 0 12px 32px rgba(59, 130, 246, 0.20);
+  --gw-focus-ring: 0 0 0 3px rgba(229, 169, 60, 0.45);
+  --gw-inset-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --gw-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --gw-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --gw-dur-fast: 150ms;
+  --gw-dur-base: 220ms;
+  --gw-dur-slow: 450ms;
+  --gw-dur-reveal: 650ms;
+  --gw-maxw: 1160px;
+
+  /* --- goalworld_site short aliases --- */
+  --bg: var(--gw-bg);
+  --bg-elev: var(--gw-bg-elev);
+  --bg-hover: var(--gw-bg-hover);
+  --bg-card: var(--gw-bg-card);
+  --ink: var(--gw-ink);
+  --muted: var(--gw-muted);
+  --faint: var(--gw-faint);
+  --line: var(--gw-line);
+  --line-strong: var(--gw-line-strong);
+  --amber-primary: var(--gw-amber);
+  --green: var(--gw-amber);
+  --amber: var(--gw-warning);
+  --grad: var(--gw-amber-grad);
+  --code: var(--gw-cobalt);
+  --code-text: var(--gw-cobalt-text);
+  --cinema: var(--gw-crimson);
+  --cinema-text: var(--gw-crimson-text);
+  --purple: var(--gw-violet);
+  --purple-text: var(--gw-violet-text);
+  --cyan: var(--gw-info);
+  --success: var(--gw-success-text);
+  --danger: var(--gw-danger-text);
+  --sans: var(--gw-font-sans);
+  --serif: var(--gw-font-serif);
+  --mono: var(--gw-font-mono);
+  --radius: var(--gw-radius-lg);
+  --radius-sm: var(--gw-radius-sm);
+  --maxw: var(--gw-maxw);
+  --ease: var(--gw-ease);
   color-scheme: dark;
 }
+/* === END GENERATED TOKENS (design/tokens.json) === */
 
 @font-face {
   font-family: "Outfit";
@@ -674,4 +769,206 @@ html, body { overflow-x: clip; }
   .notfound .code { font-size: 5rem; }
   .footer-bottom { flex-direction: column; gap: .4rem; }
   .live-board { grid-template-columns: 1fr; }
+}
+
+/* ===== PHASE 1 (2026-11-09): Unified Component Library, Motion & Responsive A11y ===== */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.section-head { margin-bottom: 1.75rem; }
+.section-head h2 { margin-bottom: 0.45em; }
+.section-head .lead { margin-bottom: 0; }
+.hero-compact { padding-bottom: 2.5rem; }
+.btn-row--center { justify-content: center; }
+
+/* Language switcher (header & footer slots) */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--gw-radius-pill);
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+}
+.lang-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 28px;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--gw-radius-pill);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: var(--muted);
+  transition: background var(--gw-dur-fast) var(--ease), color var(--gw-dur-fast) var(--ease);
+}
+a.lang-pill:hover { color: var(--ink); background: rgba(255, 255, 255, 0.06); }
+.lang-pill.active {
+  background: rgba(229, 169, 60, 0.18);
+  color: var(--amber-primary);
+  border: 1px solid rgba(229, 169, 60, 0.4);
+}
+.lang-pill--soon {
+  color: var(--faint);
+  opacity: 0.65;
+  cursor: default;
+}
+.footer-lang-slot { margin-top: 1rem; }
+
+/* Status & provenance pills */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--gw-radius-pill);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--faint);
+}
+.status-pill--live { border-color: rgba(74, 222, 128, 0.35); color: var(--gw-success-text); }
+.status-pill--live .status-dot { background: var(--gw-success-text); }
+.status-pill--production { border-color: var(--gw-line-amber); color: var(--amber-primary); }
+.status-pill--production .status-dot { background: var(--amber-primary); animation: pulse 1.8s infinite; }
+.status-pill--devnet { border-color: var(--gw-line-cobalt); color: var(--gw-cobalt-text); }
+.status-pill--devnet .status-dot { background: var(--gw-cobalt); }
+.status-pill--provisional, .status-pill--mock { border-color: var(--line-strong); color: var(--muted); }
+
+/* Book Chapter 1 Sample Reader Bar (A-013) */
+.sample-reader-box {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: rgba(12, 14, 20, 0.92);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--gw-shadow-card);
+}
+.reader-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.reader-meta {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.reader-controls { display: inline-flex; align-items: center; gap: 0.35rem; }
+.reader-font-btn {
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  border-radius: 8px;
+  padding: 0.35rem 0.65rem;
+  min-height: 36px;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color var(--gw-dur-fast), color var(--gw-dur-fast);
+}
+.reader-font-btn:hover, .reader-font-btn[aria-pressed="true"] {
+  border-color: var(--amber-primary);
+  color: var(--ink);
+}
+.reader-prose {
+  font-family: var(--serif);
+  font-size: var(--reader-fs, 1.12rem);
+  line-height: 1.82;
+  color: var(--ink);
+  transition: font-size var(--gw-dur-fast) var(--ease);
+}
+.reader-excerpt-note {
+  margin-top: 1.5rem;
+  padding: 0.95rem 1.15rem;
+  border-radius: var(--radius-sm);
+  border: 1px dashed rgba(229, 169, 60, 0.38);
+  background: rgba(229, 169, 60, 0.05);
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* Focus rings & tap-target ergonomics (A-019, A-020, A-021, A-024) */
+.faq-search:focus-visible, .nf-row input:focus-visible {
+  outline: none;
+  border-color: var(--amber-primary);
+  box-shadow: var(--gw-focus-ring);
+}
+.site-footer li { margin-bottom: 0.25rem; }
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0.2rem 0;
+}
+.notify-pill a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0.15rem 0.25rem;
+}
+.card a.go, a.card .go {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  margin-top: auto;
+}
+
+/* Tablet (820x1180) balanced 2-column bento grid (A-021) */
+@media (max-width: 980px) and (min-width: 721px) {
+  .bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bento .span-2 {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .sample-reader-box { padding: 1.25rem 1.15rem; }
+  .sticky-cta {
+    transition: transform var(--gw-dur-base) var(--ease), opacity var(--gw-dur-base) var(--ease);
+  }
+  .sticky-cta.is-hidden {
+    transform: translateY(130%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  body { padding-bottom: 5.75rem; }
 }

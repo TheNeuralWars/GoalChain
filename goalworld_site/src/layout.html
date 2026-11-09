@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{LANG}}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{{TITLE}}</title>
     <meta name="description" content="{{DESC}}" />
     <link rel="canonical" href="{{CANONICAL}}" />
+    {{HREFLANGS}}
     <meta name="theme-color" content="#0a0b0e" />
     <meta name="color-scheme" content="dark" />
 
@@ -38,70 +39,12 @@
     <script src="/assets/js/site.js" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-      <div class="wrap">
-        <a class="brand" href="/">
-          <img src="/assets/img/logo-96.png" alt="" width="38" height="38" />
-          <span>Goal<span class="dim">World</span></span>
-        </a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
-        <nav class="nav" id="site-nav" aria-label="Main">
-          <a href="/book.html"{{NAV_BOOK}}>Book</a>
-          <a href="/cinema.html"{{NAV_CINEMA}}>Cinema</a>
-          <a href="/studio.html"{{NAV_STUDIO}}>Studio</a>
-          <a href="/live.html"{{NAV_LIVE}}>Live</a>
-          <a href="/roadmap.html"{{NAV_ROADMAP}}>Roadmap</a>
-          <a class="btn btn-primary" href="/book.html#sample">Read free &rarr;</a>
-        </nav>
-      </div>
-    </header>
+    <a class="skip-link" href="#main">{{I18N_SKIP}}</a>
+    {{PARTIAL_HEADER}}
 
-    <main id="main">{{BODY}}</main>
-    <div class="sticky-cta" aria-hidden="false"><a class="btn btn-primary" href="/book.html#sample">Read Book 1 free</a><a class="btn btn-secondary" href="https://play.goalworld.fun/">Play</a></div>
+    <main id="main" class="page-main">{{BODY}}</main>
+    {{PARTIAL_STICKY_CTA}}
 
-    <footer class="site-footer">
-      <div class="wrap">
-        <div class="footer-grid">
-          <div>
-            <a class="brand" href="/">
-              <img src="/assets/img/logo-96.png" alt="" width="38" height="38" />
-              <span>Goal<span class="dim">World</span></span>
-            </a>
-            <p class="muted" style="margin-top: 0.9rem; max-width: 36ch">
-              An independent story studio. Books first, then the screen. Home of The Neural Wars &mdash;
-              built in the open by Nico Pez and an AI crew.
-            </p>
-          </div>
-          <div>
-            <h2 class="footer-h">Explore</h2>
-            <ul>
-              <li><a href="/book.html">Fractured Code</a></li>
-              <li><a href="/cinema.html">AI Cinema</a></li>
-              <li><a href="/studio.html">Studio &amp; authors</a></li>
-              <li><a href="/collect.html">Collectors &amp; creators</a></li>
-              <li><a href="/about.html">About &amp; Lore</a></li>
-              <li><a href="https://play.goalworld.fun/">Matchday Lab (Devnet) &#8599;</a></li>
-            </ul>
-          </div>
-          <div>
-            <h2 class="footer-h">Community &amp; Legal</h2>
-            <ul>
-              <li><a href="https://x.com/nicopez">X &middot; @nicopez</a></li>
-              <li><a href="https://github.com/TheNeuralWars/GoalChain">GitHub</a></li>
-              <li><a href="/faq.html">FAQ</a></li>
-              <li><a href="/press.html">Press kit</a></li>
-              <li><a href="mailto:nico@goalworld.fun">nico@goalworld.fun</a></li>
-              <li><a href="/privacy.html">Privacy</a></li>
-              <li><a href="/terms.html">Terms</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <span>&copy; 2026 GoalWorld &middot; World of Achievements</span>
-          <span>goalworld.fun &middot; Canon. Code. Cinema.</span>
-        </div>
-      </div>
-    </footer>
+    {{PARTIAL_FOOTER}}
   </body>
 </html>

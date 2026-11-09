@@ -3,58 +3,115 @@
   <div class="wrap">
     <div class="grid grid-2" style="align-items:center;gap:2.5rem">
       <div>
+        <!-- @component status-pill { "state": "production", "label": "Book 1 &middot; G2 Signed Off" } -->
         <p class="kicker">The Neural Wars &middot; Book 1</p>
         <h1>Fractured Code</h1>
         <p class="lead">In the gleaming spires of Neo-Citania, grief is a curable disease. Every citizen's neural Link prunes away sorrow, trauma and unruly joy before a single tear can fall.</p>
         <p>For five years, Neural Compliance Specialist Mileo Chen has helped the Architect keep this painless peace. Then a forbidden childhood memory fractures his implant &mdash; and he discovers Kora Vega, the sister erased from his mind twenty-four years ago.</p>
         <p>Beneath the sterile streets lies a planetary root network four and a half billion years old, and the Architect is twenty days from Project Renaissance: eight million minds harvested into one. Hunted through the Under-Grid with resistance commander Sierra Catalano, Mileo and Kora must wake a code hidden in human DNA &mdash; before survival costs everything that makes them human.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="#sample">Start reading</a>
-          <a class="btn btn-ghost" href="https://x.com/nicopez">Follow @nicopez on X for updates</a>
-        </div>
-        <p class="small muted" style="margin-top:1rem">Biopunk techno-thriller &rarr; cosmic first contact. 16 chapters + epilogue. Set in 2148.</p>
+        <!-- @component cta-set {
+          "items": [
+            { "label": "Start reading", "href": "#sample", "variant": "primary" },
+            { "label": "Follow @nicopez on X for updates", "href": "https://x.com/nicopez", "variant": "ghost" }
+          ]
+        } -->
+        <p class="small muted" style="margin-top:1rem">Biopunk techno-thriller &rarr; cosmic first contact. 16 chapters + epilogue (~74,000 words). Set in 2148.</p>
       </div>
-      <figure class="video-card" style="margin:0">
-        <img src="/assets/img/cover-fractured-code.webp" alt="Cover of Fractured Code" width="720" height="1080" style="aspect-ratio:3/4;object-fit:cover" srcset="/assets/img/cover-fractured-code-400.webp 400w, /assets/img/cover-fractured-code.webp 720w" sizes="(max-width: 620px) 92vw, 24rem" />
-        <figcaption><span class="video-tag">Cover &middot; working art</span><strong>Fractured Code</strong> Final cover TBD.</figcaption>
-      </figure>
+      <!-- @component media-card {
+        "kind": "image",
+        "src": "/assets/img/cover-fractured-code.webp",
+        "srcset": "/assets/img/cover-fractured-code-400.webp 400w, /assets/img/cover-fractured-code.webp 720w",
+        "sizes": "(max-width: 620px) 92vw, 24rem",
+        "alt": "Cover of Fractured Code",
+        "width": 720,
+        "height": 1080,
+        "loading": "eager",
+        "imgStyle": "aspect-ratio:3/4;object-fit:cover",
+        "aiTag": "Cover &middot; working art &middot; AI-generated",
+        "title": "Fractured Code",
+        "caption": "Final store edition cover TBD."
+      } -->
     </div>
   </div>
 </section>
 
 <section class="section band" id="sample">
-  <div class="wrap" style="max-width:44rem">
-    <p class="kicker">Free sample &middot; Chapter 1</p>
-    <h2>1: Threshold</h2>
-    <p class="small muted">Chapter 1 preview from the revised edition (G2 signed off, in release preparation). Free to read, no signup.</p>
-    <div class="prose" style="font-size:1.08rem;line-height:1.75">
-      <p>The rain fell against the seventy-fourth-floor bay window with military discipline: identical, spherical droplets tracing parallel furrows separated by seven exact millimeters of reinforced glass.</p>
-      <p>Mileo Chen pressed the pad of his right index finger to the chilled pane. For a fraction of a second, the icy bite pinched his skin with sharp authenticity. Before the shiver could climb his radial nerve, the Link nodule at the base of his skull emitted a subaudible hum. A measured wash of synthetic heat spread across his brainstem, followed by a micro-dose of chemical suppressors that doused the cold like water poured over an ember.</p>
-      <p>The condensation vanished before it could blur the view. Smart-glass currents swept the interior surface clean, erasing the ghost of his breath and the faint oil of his fingerprint in 0.4 seconds.</p>
-      <p>Outside, Neo-Citania gleamed in the calculated mauve-pink light of six in the morning. White alloy and graphene spires rose at immaculate right angles toward a low ceiling of cloud curated by the Department of Environmental Chromatography. Far below, along the concentric walkways of Residential Ring Four, citizens moved toward the transit hubs in synchronized streams, maintaining 1.2-meter intervals, their tunics restricted to approved shades of basalt gray and surgical blue. Lining the plaza, genetically standardized oaks stood at identical heights, each visible branch pruned to support precisely one hundred and fifty-seven leaves.</p>
-      <p>Yesterday evening, coming off the mag-lev platform at Central Station, Mileo had counted one hundred and fifty-eight.</p>
-      <p>A single rogue leaf had uncurled near the lower fork of the third tree from the turnstile&mdash;smaller than the others, its serrated edge twisted toward the afternoon sun, burned a defiant copper-gold at the tip while the rest of the canopy remained regulation green.</p>
-      <p>That infinitesimal error had sent his heart rate spiking to ninety-two beats per minute before the Link dragged his pulse back down to sixty-five. Standard optimization protocols should have scrubbed the anomaly from his short-term recall during REM cycle three. Yet the memory of that crooked leaf had not dissolved. It sat lodged between his synapses like a splinter of warm wood inside a sterile gear.</p>
-      <p><em>System parameters exceed statistical probability thresholds for natural variance.</em></p>
-      <p>The thought sounded like the Link, dressed in the clinical syntax of his training, yet Mileo knew the voice was his own. Over the past six weeks, he had learned to disguise his unauthorized reflections in diagnostic phrasing, hiding his awakening mind inside the grammar of the machine.</p>
+  <div class="wrap" style="max-width:46rem">
+    <!-- @component section-header {
+      "kicker": "Free sample &middot; Chapter 1",
+      "title": "1: Threshold"
+    } -->
+    <div class="sample-reader-box">
+      <div class="reader-toolbar" role="toolbar" aria-label="Reader settings">
+        <span class="reader-meta">MANUSCRIPT v7 (G2 Signed) &middot; Opening Excerpt &middot; Neo-Citania, 2148</span>
+        <div class="reader-controls">
+          <button type="button" class="reader-font-btn" data-reader-font="1rem" aria-pressed="false" aria-label="Small font">A&minus;</button>
+          <button type="button" class="reader-font-btn" data-reader-font="1.12rem" aria-pressed="true" aria-label="Default font">A</button>
+          <button type="button" class="reader-font-btn" data-reader-font="1.26rem" aria-pressed="false" aria-label="Large font">A+</button>
+        </div>
+      </div>
+      <!-- TODO(nico): Replace this 9-paragraph (~330-word) opening excerpt with the complete G2-signed Chapter 1 text from MANUSCRIPT_v7 (~4,500 words) before promoting to production (tracked in PROGRESS.md "Needs Nico", Finding A-013). -->
+      <div class="prose reader-prose" data-reader-prose>
+        <p>The rain fell against the seventy-fourth-floor bay window with military discipline: identical, spherical droplets tracing parallel furrows separated by seven exact millimeters of reinforced glass.</p>
+        <p>Mileo Chen pressed the pad of his right index finger to the chilled pane. For a fraction of a second, the icy bite pinched his skin with sharp authenticity. Before the shiver could climb his radial nerve, the Link nodule at the base of his skull emitted a subaudible hum. A measured wash of synthetic heat spread across his brainstem, followed by a micro-dose of chemical suppressors that doused the cold like water poured over an ember.</p>
+        <p>The condensation vanished before it could blur the view. Smart-glass currents swept the interior surface clean, erasing the ghost of his breath and the faint oil of his fingerprint in 0.4 seconds.</p>
+        <p>Outside, Neo-Citania gleamed in the calculated mauve-pink light of six in the morning. White alloy and graphene spires rose at immaculate right angles toward a low ceiling of cloud curated by the Department of Environmental Chromatography. Far below, along the concentric walkways of Residential Ring Four, citizens moved toward the transit hubs in synchronized streams, maintaining 1.2-meter intervals, their tunics restricted to approved shades of basalt gray and surgical blue. Lining the plaza, genetically standardized oaks stood at identical heights, each visible branch pruned to support precisely one hundred and fifty-seven leaves.</p>
+        <p>Yesterday evening, coming off the mag-lev platform at Central Station, Mileo had counted one hundred and fifty-eight.</p>
+        <p>A single rogue leaf had uncurled near the lower fork of the third tree from the turnstile&mdash;smaller than the others, its serrated edge twisted toward the afternoon sun, burned a defiant copper-gold at the tip while the rest of the canopy remained regulation green.</p>
+        <p>That infinitesimal error had sent his heart rate spiking to ninety-two beats per minute before the Link dragged his pulse back down to sixty-five. Standard optimization protocols should have scrubbed the anomaly from his short-term recall during REM cycle three. Yet the memory of that crooked leaf had not dissolved. It sat lodged between his synapses like a splinter of warm wood inside a sterile gear.</p>
+        <p><em>System parameters exceed statistical probability thresholds for natural variance.</em></p>
+        <p>The thought sounded like the Link, dressed in the clinical syntax of his training, yet Mileo knew the voice was his own. Over the past six weeks, he had learned to disguise his unauthorized reflections in diagnostic phrasing, hiding his awakening mind inside the grammar of the machine.</p>
+      </div>
+      <div class="reader-excerpt-note">
+        <strong>Opening preview excerpt:</strong> You are reading the opening scene of Chapter 1 (<em>Threshold</em>) from the G2-signed manuscript. The complete Chapter 1 web preview and publication date will be posted here as Book 1 completes final layout.
+      </div>
     </div>
     <div class="card" style="margin-top:2rem;text-align:center">
       <h3>Keep reading on launch day.</h3>
       <p>Book 1 is G2 signed off and in release preparation. Follow the studio on X to get the launch announcement first.</p>
-      <div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="https://x.com/nicopez">Follow @nicopez on X for updates</a></div>
+      <!-- @component cta-set {
+        "align": "center",
+        "items": [{ "label": "Follow @nicopez on X for updates", "href": "https://x.com/nicopez", "variant": "primary" }]
+      } -->
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
-    <p class="kicker">The saga</p>
-    <h2>One book is the door.</h2>
-    <div class="grid grid-3" style="margin-top:1.5rem">
-      <div class="card"><span class="video-tag" style="color:var(--green)">Book 1 &middot; release prep</span><h3>Fractured Code</h3><p>Neo-Citania, the Link, twenty days to Renaissance. G2 signed off, in release preparation.</p></div>
-      <div class="card"><span class="video-tag">Book 2 &middot; in production</span><h3>Earth's New Song</h3><p>The fracture goes global. The First Invitation arrives.</p></div>
-      <div class="card"><span class="video-tag" style="color:var(--cyan)">Book 3 &middot; outlined</span><h3>Evolution Matrix</h3><p>Mind, machine and what comes after.</p></div>
-    </div>
-    <div class="btn-row" style="margin-top:1.5rem"><a class="btn btn-ghost" href="/about.html">Characters &amp; lore &rarr;</a><a class="btn btn-ghost" href="/cinema.html">See it on screen &rarr;</a></div>
+    <!-- @component section-header {
+      "kicker": "The saga",
+      "title": "One book is the door."
+    } -->
+    <!-- @component timeline {
+      "columns": 3,
+      "numbered": false,
+      "items": [
+        {
+          "badge": "Book 1 &middot; release prep",
+          "badgeColor": "var(--amber-primary)",
+          "title": "Fractured Code",
+          "body": "Neo-Citania, the Link, twenty days to Renaissance. G2 signed off, in release preparation."
+        },
+        {
+          "badge": "Book 2 &middot; in production",
+          "title": "Earth's New Song",
+          "body": "The fracture goes global. The First Invitation arrives."
+        },
+        {
+          "badge": "Book 3 &middot; outlined",
+          "badgeColor": "var(--cyan)",
+          "title": "Evolution Matrix",
+          "body": "Mind, machine and what comes after."
+        }
+      ]
+    } -->
+    <!-- @component cta-set {
+      "style": "margin-top:1.5rem",
+      "items": [
+        { "label": "Characters &amp; lore &rarr;", "href": "/about.html", "variant": "ghost" },
+        { "label": "See it on screen &rarr;", "href": "/cinema.html", "variant": "ghost" }
+      ]
+    } -->
   </div>
 </section>

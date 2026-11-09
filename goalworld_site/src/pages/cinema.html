@@ -1,39 +1,51 @@
-<!-- meta {"slug":"cinema","title":"AI Cinema · The Neural Wars","description":"Fractured Code on screen: AI-generated film drafts cut from the book against a locked visual canon. Directed by Nico Pez, labelled as AI every time.","nav":"CINEMA","preload":""} -->
-<section class="section">
-  <div class="wrap">
-    <p class="kicker">AI cinema</p>
-    <h1>The book, on screen.</h1>
-    <p class="lead">Every shot starts as a line in the novel. The faces, places and colours are locked before a single frame is generated. These are drafts &mdash; made with AI, directed by a human, labelled every time.</p>
-  </div>
-</section>
+<!-- meta {"slug":"cinema","title":"AI Cinema · The Neural Wars","description":"Fractured Code on screen: AI-generated film drafts cut from the book against a locked visual canon. Directed by Nico Pez, labelled as AI every time.","nav":"CINEMA","preload":"<link rel=\"preload\" as=\"image\" href=\"/assets/img/poster-trailer.webp\" fetchpriority=\"high\" />"} -->
+<!-- @component hero {
+  "variant": "compact",
+  "kicker": true,
+  "eyebrow": "AI cinema",
+  "title": "The book, on screen.",
+  "lead": "Every shot starts as a line in the novel. The faces, places and colours are locked before a single frame is generated. These are drafts &mdash; made with AI, directed by a human, labelled every time."
+} -->
 
-<section class="section-tight">
+<section class="section-tight" aria-labelledby="screenings-heading">
   <div class="wrap">
-    <div class="grid grid-2">
-      <figure class="video-card" style="margin:0">
-        <video controls preload="none" poster="/assets/img/poster-trailer.webp" width="960" height="540" aria-label="The Neural Wars cinematic trailer">
-          <source src="https://goalworld.fun/assets/img/neuralwars/The_Neural_Wars_Official_Cinematic_Trailer_2026.mp4" type="video/mp4" />
-        </video>
-        <figcaption><span class="video-tag">Trailer &middot; AI-generated</span><strong>The Neural Wars &mdash; Cinematic Trailer</strong></figcaption>
-      </figure>
-      <figure class="video-card" style="margin:0">
-        <video controls preload="none" poster="/assets/img/poster-mileo.webp" width="960" height="540" aria-label="Clip: Mileo Chen quantum console">
-          <source src="https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_03_Mileo_Chen_Quantum_Console_Discovery.mp4" type="video/mp4" />
-        </video>
-        <figcaption><span class="video-tag">Film draft &middot; Clip 03</span><strong>Mileo Chen &mdash; Quantum Console Discovery</strong></figcaption>
-      </figure>
-      <figure class="video-card" style="margin:0">
-        <video controls preload="none" poster="/assets/img/poster-kora.webp" width="960" height="540" aria-label="Clip: Kora Vega harmonic rings">
-          <source src="https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_08_Kora_Vega_432Hz_Harmonic_Rings.mp4" type="video/mp4" />
-        </video>
-        <figcaption><span class="video-tag">Film draft &middot; Clip 08</span><strong>Kora Vega &mdash; Harmonic Rings</strong></figcaption>
-      </figure>
-      <figure class="video-card" style="margin:0">
-        <video controls preload="none" poster="/assets/img/poster-dawn.webp" width="960" height="540" aria-label="Clip: Earth dawn">
-          <source src="https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_11_Earth_Dawn_Orbital_Awakening.mp4" type="video/mp4" />
-        </video>
-        <figcaption><span class="video-tag">Film draft &middot; Clip 11</span><strong>Earth Dawn &mdash; Orbital Awakening</strong></figcaption>
-      </figure>
+    <!-- @component section-header { "srOnly": true, "title": "Trailer and Film-Draft Clips" } -->
+    <div class="grid grid-2" id="screenings-heading">
+      <!-- @component media-card {
+        "kind": "video",
+        "poster": "/assets/img/poster-trailer.webp",
+        "ariaLabel": "The Neural Wars cinematic trailer",
+        "sources": ["https://goalworld.fun/assets/img/neuralwars/The_Neural_Wars_Official_Cinematic_Trailer_2026.mp4"],
+        "aiTag": "Trailer &middot; AI-generated",
+        "title": "The Neural Wars &mdash; Cinematic Trailer"
+      } -->
+      <!-- @component media-card {
+        "kind": "video",
+        "poster": "/assets/img/poster-mileo.webp",
+        "ariaLabel": "Clip: Mileo Chen quantum console",
+        "sources": ["https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_03_Mileo_Chen_Quantum_Console_Discovery.mp4"],
+        "aiTag": "Film draft &middot; Clip 03 &middot; AI-generated",
+        "title": "Mileo Chen &mdash; Quantum Console Discovery"
+      } -->
+      <!-- @component media-card {
+        "kind": "video",
+        "poster": "/assets/img/poster-kora.webp",
+        "ariaLabel": "Clip: Kora Vega harmonic rings",
+        "sources": [
+          "https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_08_Kora_Vega_Harmonic_Rings.mp4",
+          "https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_08_Kora_Vega_432Hz_Harmonic_Rings.mp4"
+        ],
+        "aiTag": "Film draft &middot; Clip 08 &middot; AI-generated",
+        "title": "Kora Vega &mdash; Harmonic Rings"
+      } -->
+      <!-- @component media-card {
+        "kind": "video",
+        "poster": "/assets/img/poster-dawn.webp",
+        "ariaLabel": "Clip: Earth dawn",
+        "sources": ["https://goalworld.fun/assets/img/neuralwars/05_Clips/Clip_11_Earth_Dawn_Orbital_Awakening.mp4"],
+        "aiTag": "Film draft &middot; Clip 11 &middot; AI-generated",
+        "title": "Earth Dawn &mdash; Orbital Awakening"
+      } -->
     </div>
     <p class="small muted" style="margin-top:1rem">Full draft conform (~6.8 min) and new scenes post here as they clear review.</p>
   </div>
@@ -41,23 +53,38 @@
 
 <section class="section band">
   <div class="wrap">
-    <p class="kicker">How we make it</p>
-    <h2>Canon in. Cinema out.</h2>
-    <div class="grid grid-3 steps" style="margin-top:1.5rem">
-      <div class="step"><h3>Lock the canon</h3><p>Character lock sheets, a colour bible and a list of every place. Scars, wrists and eyes don't move.</p></div>
-      <div class="step"><h3>Book to shots</h3><p>Each scene is broken into shots traced back to a line of the novel. One camera, one action per shot.</p></div>
-      <div class="step"><h3>Generate</h3><p>An approved still first, then image-to-video. Agents on our server run the queue.</p></div>
-      <div class="step"><h3>Check</h3><p>A continuity guard compares faces to the locks and flags drift. Failing shots get regenerated.</p></div>
-      <div class="step"><h3>Cut &amp; score</h3><p>A human edit, AI voices and music, subtitles. Every tool disclosed.</p></div>
-      <div class="step"><h3>Gate</h3><p>Nothing goes public until the director says so. AI is the crew, not the author.</p></div>
-    </div>
+    <!-- @component section-header {
+      "kicker": "How we make it",
+      "title": "Canon in. Cinema out."
+    } -->
+    <!-- @component timeline {
+      "columns": 3,
+      "numbered": true,
+      "items": [
+        { "title": "Lock the canon", "body": "Character lock sheets, a colour bible and a list of every place. Scars, wrists and eyes don't move." },
+        { "title": "Book to shots", "body": "Each scene is broken into shots traced back to a line of the novel. One camera, one action per shot." },
+        { "title": "Generate", "body": "An approved still first, then image-to-video. Agents on our server run the queue." },
+        { "title": "Check", "body": "A continuity guard compares faces to the locks and flags drift. Failing shots get regenerated." },
+        { "title": "Cut &amp; score", "body": "A human edit, AI voices and music, subtitles. Every tool disclosed." },
+        { "title": "Gate", "body": "Nothing goes public until the director says so. AI is the crew, not the author." }
+      ]
+    } -->
   </div>
 </section>
 
 <section class="section">
   <div class="wrap" style="text-align:center">
-    <h2>Festivals first.</h2>
-    <p class="lead" style="margin-inline:auto">Our new short film is under festival holdback until mid-January and can't be named or shown yet. Follow @nicopez on X for premiere updates.</p>
-    <div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="https://x.com/nicopez">Follow @nicopez on X for updates</a><a class="btn btn-ghost" href="/book.html">Read the source</a></div>
+    <!-- @component section-header {
+      "title": "Festivals first.",
+      "lead": "Our new short film is under festival holdback until mid-January and can't be named or shown yet. Follow @nicopez on X for premiere updates.",
+      "align": "center"
+    } -->
+    <!-- @component cta-set {
+      "align": "center",
+      "items": [
+        { "label": "Follow @nicopez on X for updates", "href": "https://x.com/nicopez", "variant": "primary" },
+        { "label": "Read the source", "href": "/book.html", "variant": "ghost" }
+      ]
+    } -->
   </div>
 </section>
