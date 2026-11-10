@@ -471,7 +471,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
               </p>
             </div>
 
-            {/* Yield Details & Actions */}
+            {/* Tactical Rating Details & Actions */}
             <div>
               <div style={{ 
                 display: 'flex', 

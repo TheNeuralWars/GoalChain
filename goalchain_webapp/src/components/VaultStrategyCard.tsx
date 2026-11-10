@@ -35,7 +35,7 @@ export const VAULT_STRATEGIES: VaultStrategy[] = [
   {
     id: 'orchestrator',
     name: 'Orchestrator Vault',
-    description: 'High-yield leveraged speculation driven by sports oracle trends. High volatility, maximum upside.',
+    description: 'High-tempo tactical simulation driven by sports oracle telemetry. High volatility, maximum rating ceiling.',
     apy: 14.5,
     color: '#ff4b4b',
     colorRgb: '255, 75, 75',

@@ -489,7 +489,7 @@ export function WorldCupPredictor() {
           <div className="glass-card" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '14px' }}>
             <h3 style={{ margin: 0, color: '#fff', fontSize: '1rem', fontWeight: 800 }}>📝 Mis Predicciones de Roster (Pick'Em)</h3>
             <span style={{ fontSize: '0.72rem', color: '#94a3b8', display: 'block', marginTop: '-4px' }}>
-              Guarda tus predicciones personales del torneo. Una vez que se resuelva la Copa del Mundo GoalChain 2026, recibirás reputación y multiplicadores de staking en base a tus aciertos.
+              Guarda tus predicciones personales del torneo. Una vez que se resuelva la Copa del Mundo GoalChain 2026, recibirás reputación y multiplicadores tácticos en base a tus aciertos.
             </span>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>

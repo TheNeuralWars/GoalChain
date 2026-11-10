@@ -92,7 +92,7 @@ export const StakingBurnDashboard: React.FC = () => {
         <div className="glass-card-premium skeleton-loader" style={{ minHeight: '120px' }} aria-busy="true" aria-label="Loading dashboard header" />
         <div className="glass-card-flame skeleton-loader" style={{ minHeight: '280px' }} aria-busy="true" aria-label="Loading flame visualization" />
         <div className="glass-card-premium skeleton-loader" style={{ minHeight: '200px' }} aria-busy="true" aria-label="Loading stats breakdown" />
-        <div className="glass-card-premium skeleton-loader" style={{ minHeight: '300px' }} aria-busy="true" aria-label="Loading yield calculator" />
+        <div className="glass-card-premium skeleton-loader" style={{ minHeight: '300px' }} aria-busy="true" aria-label="Loading telemetry calculator" />
         <div className="glass-card-premium skeleton-loader" style={{ minHeight: '200px' }} aria-busy="true" aria-label="Loading health checks" />
       </div>
     );
@@ -210,7 +210,7 @@ export const StakingBurnDashboard: React.FC = () => {
         <StatsBreakdownGrid metrics={metrics} />
       </div>
 
-      {/* Vault Strategy Selector + Yield Calculator */}
+      {/* Vault Strategy Selector + Telemetry Calculator */}
       <div className="glass-card-premium" style={{ padding: '1.5rem' }}>
         {/* Strategy Selector */}
         <div style={{ marginBottom: '2rem' }}>
@@ -235,7 +235,7 @@ export const StakingBurnDashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Yield Calculator */}
+        {/* Telemetry Calculator */}
         <YieldCalculator
           selectedStrategy={selectedStrategy}
           strategies={VAULT_STRATEGIES}

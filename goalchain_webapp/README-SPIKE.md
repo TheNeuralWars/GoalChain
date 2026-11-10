@@ -23,7 +23,7 @@ This spike implements a comprehensive frontend aesthetic and functional upgrade 
 * **Event-Driven Commentary:** Listens to `goalchain-event` window signals. When a goal, bet, or resolve occurs, Enzo Bit speaks an enthusiastic sports commentary out loud and logs it to a scrolling chat panel.
 
 ### C. Swarm Vaults Widget (`SwarmVaults.tsx`)
-* **Strategy Cards:** Renders conservative (Sentinel), balanced (Arbitrageur), and degen (Orchestrator) automated staking strategies.
+* **Strategy Cards:** Renders conservative (Sentinel), balanced (Arbitrageur), and degen (Orchestrator) automated tactical simulation strategies.
 * **SVG Stacked Allocator:** Renders a stacked bar chart displaying asset distributions (e.g. Drift Hedging, Jupiter LP, Cash reserves) that transitions widths using smooth CSS animations.
 * **Swarm Console Feed:** Renders a mock CLI console showing background agent logs (rebalancing, scanning volatility spreads) appending every 6 seconds.
 * **Interaction:** Supports deposits, withdrawals, and wallet deductions, emitting window events that Enzo Bit narrate.

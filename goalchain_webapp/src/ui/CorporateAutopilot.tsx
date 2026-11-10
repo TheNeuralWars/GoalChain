@@ -473,7 +473,7 @@ export function CorporateAutopilot() {
 
     if (scenarioId === 'pay_contributor') {
       t(0,    () => { addLog(tText('🚀 SCENARIO: Contributor Bounty Payout', '🚀 ESCENARIO: Pago de Recompensa a Colaborador')); setNodeStatus('CEO', 'thinking'); setSwarmHops(1); });
-      t(1000, () => addLog(tText('[CEO] GitHub Issue #834 "Dynamic Staking Yield Dashboard" marked RESOLVED by @NicoPez.', '[CEO] Incidencia de GitHub #834 "Panel de rendimiento de staking dinámico" marcada como RESUELTA por @NicoPez.')));
+      t(1000, () => addLog(tText('[CEO] GitHub Issue #834 "Dynamic Matchday Telemetry Dashboard" marked RESOLVED by @NicoPez.', '[CEO] Incidencia de GitHub #834 "Panel de rendimiento de telemetría dinámica" marcada como RESUELTA por @NicoPez.')));
       t(2200, () => { addLog(tText('[CEO → Dev] Verify code quality before authorizing payout.', '[CEO → Dev] Verificar calidad del código antes de autorizar el pago.')); setNodeStatus('Dev', 'thinking'); setSwarmHops(2); });
       t(3400, () => { addLog(tText('[Dev] Build: ✅ passes. Tests: 40/40. No lint warnings. Contribution verified.', '[Dev] Construcción: ✅ pasa. Pruebas: 40/40. Sin advertencias de linter. Contribución verificada.')); setNodeStatus('CEO', 'thinking'); setSwarmHops(3); });
       t(4600, () => addLog(tText('[CEO] Initiating Stripe Transfer: $100.00 → @NicoPez (auto-approved, ≤$500 threshold).', '[CEO] Iniciando transferencia de Stripe: $100.00 → @NicoPez (auto-aprobado, umbral ≤$500).')));

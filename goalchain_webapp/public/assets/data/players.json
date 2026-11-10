@@ -180,7 +180,7 @@
   },
   {
     "id": 7,
-    "name": "Alexis Yield-Allister",
+    "name": "Alexis Pulse-Allister",
     "country": "Argentina",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -415,7 +415,7 @@
   },
   {
     "id": 15,
-    "name": "Eduardo Cama-Yield",
+    "name": "Eduardo Cama-Pulse",
     "country": "Francia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -562,7 +562,7 @@
   },
   {
     "id": 20,
-    "name": "Dayot Upa-Staking",
+    "name": "Dayot Upa-Vanguard",
     "country": "Francia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -772,7 +772,7 @@
   },
   {
     "id": 27,
-    "name": "Declan Yield-Rice",
+    "name": "Declan Pulse-Rice",
     "country": "Inglaterra",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -1067,7 +1067,7 @@
   },
   {
     "id": 37,
-    "name": "Rodrygo Yield-Goes",
+    "name": "Rodrygo Pulse-Goes",
     "country": "Brasil",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -1125,7 +1125,7 @@
   },
   {
     "id": 39,
-    "name": "Casemiro Staking",
+    "name": "Casemiro Anchor",
     "country": "Brasil",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -1596,7 +1596,7 @@
   },
   {
     "id": 55,
-    "name": "Dani Yield-Olmo",
+    "name": "Dani Pulse-Olmo",
     "country": "España",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -1800,7 +1800,7 @@
   },
   {
     "id": 62,
-    "name": "Marc-André ter Staking",
+    "name": "Marc-André ter Shield",
     "country": "Alemania",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3349,7 +3349,7 @@
   },
   {
     "id": 114,
-    "name": "Stephen E-Staking",
+    "name": "Stephen E-Vanguard",
     "country": "Canadá",
     "rarity": "epic",
     "bg_type": "BG-EPI",
@@ -3439,7 +3439,7 @@
   },
   {
     "id": 117,
-    "name": "Alistair Yield-Johnston",
+    "name": "Alistair Pulse-Johnston",
     "country": "Canadá",
     "rarity": "rare",
     "bg_type": "BG-RAR",
@@ -6229,7 +6229,7 @@
   },
   {
     "id": 211,
-    "name": "Mateo Kova-Yield",
+    "name": "Mateo Kova-Pulse",
     "country": "Croacia",
     "rarity": "legendary",
     "bg_type": "BG-LEG",
@@ -15351,7 +15351,7 @@
       "Engine Room"
     ],
     "meta": {
-      "parody_club": "Riyadh Oasis Yield",
+      "parody_club": "Riyadh Oasis FC",
       "visual_effect": "Iron Pulse",
       "narrative": "A world-class MID verified as a rare asset. Known globally for being a Defensive Shield, Engine Room, this player is a cornerstone of the GoalChain ecosystem"
     },
@@ -15441,7 +15441,7 @@
       "Positional Read"
     ],
     "meta": {
-      "parody_club": "Riyadh Oasis Yield",
+      "parody_club": "Riyadh Oasis FC",
       "visual_effect": "Shield Pulse",
       "narrative": "A world-class DEF verified as a rare asset. Known globally for being a Defensive Hustle, Positional Read, this player is a cornerstone of the GoalChain ecosystem"
     },

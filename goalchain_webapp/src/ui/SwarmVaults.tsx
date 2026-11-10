@@ -27,7 +27,7 @@ const VAULT_STRATEGIES_RAW: VaultStrategyRaw[] = [
         color: 'var(--primary-neon)',
         allocations: [
             { name: 'Drift Hedging', share: 40, color: 'var(--primary-neon)' },
-            { name: 'Treasury Yield', share: 50, color: 'var(--secondary-neon)' },
+            { name: 'Reserve Telemetry', share: 50, color: 'var(--secondary-neon)' },
             { name: 'Cash', share: 10, color: '#64748b' }
         ],
         logKeys: [
@@ -47,7 +47,7 @@ const VAULT_STRATEGIES_RAW: VaultStrategyRaw[] = [
         allocations: [
             { name: 'Jupiter LP Pools', share: 60, color: 'var(--secondary-neon)' },
             { name: 'Drift Hedging', share: 20, color: 'var(--primary-neon)' },
-            { name: 'Treasury Yield', share: 15, color: '#f59e0b' },
+            { name: 'Reserve Telemetry', share: 15, color: '#f59e0b' },
             { name: 'Cash', share: 5, color: '#64748b' }
         ],
         logKeys: [

@@ -5,7 +5,7 @@
     "2": "done",
     "3": "done",
     "4": "done",
-    "5": "todo",
+    "5": "doing",
     "6": "todo"
   },
   "items": [
@@ -384,30 +384,30 @@
       "phase": 5,
       "priority": "P2",
       "title": "Wire 7 unused WebP stills in goalworld_site/src/assets/img/ into pages and archive 5 unused legacy .jpg poster duplicates",
-      "evidence": "evidence/audit/repo_static_audit.json:2521-2574 (13 unreferenced image files totaling ~581 KB in goalworld_site/src/assets/img/)",
+      "evidence": "goalworld_site/src/pages/cinema.html; docs/archive/assets-img-20261109/README.md; _work/site-overhaul-20261109/evidence/audit/repo_static_audit.json (goalworld_site_unused_assets: 0)",
       "fix": "Use keyframe-console*, keyframe-skybridge*, loc-earth-dawn*, poster-sierra.webp, and hero-neo-citania-400.webp in cinema.html / index.html, and move unused poster-{dawn,kora,mileo,sierra,trailer}.jpg to docs/archive/assets-img-20261109/.",
       "verify": "node goalworld_site/build.mjs && python3 _work/site-overhaul-20261109/tools/scan_repo_audit.py",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-044",
       "phase": 5,
       "priority": "P2",
       "title": "Optimize icon-512.png (252 KB), press-cover-fractured-code.jpg (252 KB), and responsive image sizes attributes on goalworld_site",
-      "evidence": "evidence/audit/lighthouse/summary.json:40-46,111-117,422-428,476-482; evidence/audit/repo_static_audit.json:2576-2583",
+      "evidence": "goalworld_site/src/assets/img/icon-512.png (46.6 KB); goalworld_site/src/assets/img/press/press-cover-fractured-code.jpg (96.2 KB); goalworld_site/src/pages/{index,studio,press,cinema,book,about}.html",
       "fix": "Compress icon-512.png and press-cover-fractured-code.jpg to <100 KB and refine sizes/srcset attributes on index.html, studio.html, and press.html.",
       "verify": "node goalworld_site/build.mjs",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-045",
       "phase": 5,
       "priority": "P2",
       "title": "Archive unreferenced duplicate grok-*.jpg files in goalchain_webapp/public/assets/img/neuralwars/ and optimize oversized JPEGs",
-      "evidence": "evidence/audit/repo_static_audit.json:2596-2779",
+      "evidence": "docs/archive/neuralwars-dups-20261109/README.md; goalchain_webapp/public/assets/img/neuralwars/**/*.jpg (all <= 217 KB)",
       "fix": "Move unreferenced duplicate grok-* files in goalchain_webapp/public/assets/img/neuralwars/ to docs/archive/neuralwars-dups-20261109/ and compress oversized JPEGs.",
       "verify": "cd goalchain_webapp && npm run build",
-      "status": "todo"
+      "status": "done"
     },
     {
       "id": "A-046",

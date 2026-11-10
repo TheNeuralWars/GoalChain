@@ -223,7 +223,7 @@ function renderHero(props) {
   const style = props.style ? ` style="${escAttr(props.style)}"` : "";
 
   const bgHtml = props.bgImg
-    ? `<div class="hero-bg" aria-hidden="true"><img src="${escAttr(props.bgImg)}" alt="" width="${escAttr(props.bgWidth || 1600)}" height="${escAttr(props.bgHeight || 900)}" fetchpriority="high"${props.bgSrcset ? ` srcset="${escAttr(props.bgSrcset)}"` : ""}${props.bgSizes ? ` sizes="${escAttr(props.bgSizes)}"` : ""} /></div>`
+    ? `<div class="hero-bg" aria-hidden="true"><img src="${escAttr(props.bgImg)}" alt="" width="${escAttr(props.bgWidth || 1600)}" height="${escAttr(props.bgHeight || 900)}" fetchpriority="high"${props.bgSrcset ? ` srcset="${escAttr(props.bgSrcset)}"` : ""}${props.bgSrcset && props.bgSizes ? ` sizes="${escAttr(props.bgSizes)}"` : ""} /></div>`
     : "";
 
   const eyebrowHtml = props.eyebrow
@@ -287,7 +287,7 @@ function renderCard(props) {
   if (props.img) {
     const im = props.img;
     const imStyle = im.style ? ` style="${escAttr(im.style)}"` : "";
-    imgHtml = `<div class="card-img"><img src="${escAttr(im.src)}" alt="${escAttr(im.alt || "")}" width="${escAttr(im.width || 1200)}" height="${escAttr(im.height || 750)}" loading="${escAttr(im.loading || "lazy")}"${im.srcset ? ` srcset="${escAttr(im.srcset)}"` : ""}${im.sizes ? ` sizes="${escAttr(im.sizes)}"` : ""}${imStyle} /></div>`;
+    imgHtml = `<div class="card-img"><img src="${escAttr(im.src)}" alt="${escAttr(im.alt || "")}" width="${escAttr(im.width || 1200)}" height="${escAttr(im.height || 750)}" loading="${escAttr(im.loading || "lazy")}"${im.srcset ? ` srcset="${escAttr(im.srcset)}"` : ""}${im.srcset && im.sizes ? ` sizes="${escAttr(im.sizes)}"` : ""}${imStyle} /></div>`;
   }
 
   const labelHtml = props.label ? `<span class="label">${props.label}</span>` : "";
@@ -326,7 +326,7 @@ function renderMediaCard(props, locale = "en") {
 
   if (kind === "image") {
     const style = props.imgStyle ? ` style="${escAttr(props.imgStyle)}"` : "";
-    return `<figure class="${cls.join(" ")}"${catAttr} style="margin:0"><img src="${escAttr(props.src)}" alt="${escAttr(props.alt || title)}" width="${escAttr(props.width || 1200)}" height="${escAttr(props.height || 750)}" loading="${escAttr(props.loading || "lazy")}"${props.srcset ? ` srcset="${escAttr(props.srcset)}"` : ""}${props.sizes ? ` sizes="${escAttr(props.sizes)}"` : ""}${style} /><figcaption><span class="video-tag">${aiTag}</span><strong>${title}</strong>${caption}</figcaption></figure>`;
+    return `<figure class="${cls.join(" ")}"${catAttr} style="margin:0"><img src="${escAttr(props.src)}" alt="${escAttr(props.alt || title)}" width="${escAttr(props.width || 1200)}" height="${escAttr(props.height || 750)}" loading="${escAttr(props.loading || "lazy")}"${props.srcset ? ` srcset="${escAttr(props.srcset)}"` : ""}${props.srcset && props.sizes ? ` sizes="${escAttr(props.sizes)}"` : ""}${style} /><figcaption><span class="video-tag">${aiTag}</span><strong>${title}</strong>${caption}</figcaption></figure>`;
   }
 
   const sources = Array.isArray(props.sources)

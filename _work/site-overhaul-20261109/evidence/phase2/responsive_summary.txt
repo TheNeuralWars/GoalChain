@@ -1,0 +1,12 @@
+GoalWorld Phase 2 Responsive Suite — 2026-11-09T21:33:07.355Z
+Total route-viewport checks: 180
+Passed: 180
+Failed: 0
+  Horizontal overflow failures: 0
+  Offscreen element failures:   0
+  Tap target (<44px) failures:  0
+  Image CLS/attr failures:      0
+  Mobile font (<14px) failures: 0
+  Sticky CTA overlap failures:  0
+  Nav usability failures:       0
+  Console error failures:       0
