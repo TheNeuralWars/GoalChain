@@ -12,6 +12,7 @@ import { VaultStrategyCard, VAULT_STRATEGIES } from '../components/VaultStrategy
 import { YieldCalculator } from '../components/YieldCalculator';
 import { HealthCheckCard } from '../components/HealthCheckCard';
 import { KPIOverlay, FlameIntensityBar, RatioIndicatorLabels, StatsBreakdownGrid } from '../components/StakingDashboardComponents';
+import { useTranslation } from '../i18n';
 
 const HEALTH_STATUS_COLOR: Record<EconomyHealthStatus, string> = {
   healthy: 'var(--primary-neon)',
@@ -26,6 +27,7 @@ const HEALTH_STATUS_LABEL: Record<EconomyHealthStatus, string> = {
 };
 
 export const StakingBurnDashboard: React.FC = () => {
+  const { t } = useTranslation();
   const [metrics, setMetrics] = useState<EconomyMetricsResponse | null>(null);
   const [health, setHealth] = useState<EconomyHealthResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -90,7 +92,7 @@ export const StakingBurnDashboard: React.FC = () => {
         <div className="glass-card-premium skeleton-loader" style={{ minHeight: '120px' }} aria-busy="true" aria-label="Loading dashboard header" />
         <div className="glass-card-flame skeleton-loader" style={{ minHeight: '280px' }} aria-busy="true" aria-label="Loading flame visualization" />
         <div className="glass-card-premium skeleton-loader" style={{ minHeight: '200px' }} aria-busy="true" aria-label="Loading stats breakdown" />
-        <div className="glass-card-premium skeleton-loader" style={{ minHeight: '300px' }} aria-busy="true" aria-label="Loading yield calculator" />
+        <div className="glass-card-premium skeleton-loader" style={{ minHeight: '300px' }} aria-busy="true" aria-label="Loading telemetry calculator" />
         <div className="glass-card-premium skeleton-loader" style={{ minHeight: '200px' }} aria-busy="true" aria-label="Loading health checks" />
       </div>
     );
@@ -98,11 +100,22 @@ export const StakingBurnDashboard: React.FC = () => {
 
   if (error) {
     return (
-      <div className="glass-card-premium" style={{ textAlign: 'center', padding: '2rem' }}>
-        <p style={{ color: 'var(--accent-red)' }}>Failed to load data: {error}</p>
-        <button className="btn-neon-purple" style={{ marginTop: '1rem' }} onClick={loadData}>
-          Retry
-        </button>
+      <div className="staking-burn-dashboard" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <div>
+          <h1 className="text-neon-green" style={{ margin: 0, fontSize: '2.2rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <span role="img" aria-label="fire">🔥</span> {t('burn_lab_title')}
+            <SimulationBadge />
+          </h1>
+          <p style={{ opacity: 0.7, fontSize: '0.95rem', marginTop: '0.25rem', maxWidth: '600px' }}>
+            {t('burn_lab_sub')}
+          </p>
+        </div>
+        <div className="glass-card-premium" style={{ textAlign: 'center', padding: '2rem' }}>
+          <p style={{ color: 'var(--accent-red)' }}>Failed to load data: {error}</p>
+          <button className="btn-neon-purple" style={{ marginTop: '1rem' }} onClick={loadData}>
+            Retry
+          </button>
+        </div>
       </div>
     );
   }
@@ -115,11 +128,11 @@ export const StakingBurnDashboard: React.FC = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
         <div>
           <h1 className="text-neon-green" style={{ margin: 0, fontSize: '2.2rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <span role="img" aria-label="fire">🔥</span> Infinity Burn &amp; Staking Dashboard
+            <span role="img" aria-label="fire">🔥</span> {t('burn_lab_title')}
             <SimulationBadge />
           </h1>
           <p style={{ opacity: 0.7, fontSize: '0.95rem', marginTop: '0.25rem', maxWidth: '600px' }}>
-            Real-time $GCH burn mechanics, staking yield projections, and protocol health — powered by live economy endpoints.
+            {t('burn_lab_sub')}
           </p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
@@ -164,7 +177,7 @@ export const StakingBurnDashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* Infinity Burn Visualizer — Hero Card */}
+      {/* Devnet Burn Lab Visualizer — Hero Card */}
       <div className="glass-card-flame infinity-burn-card" style={{ position: 'relative', overflow: 'hidden', minHeight: '320px' }}>
         {/* Background Flame Animation */}
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
@@ -197,7 +210,7 @@ export const StakingBurnDashboard: React.FC = () => {
         <StatsBreakdownGrid metrics={metrics} />
       </div>
 
-      {/* Vault Strategy Selector + Yield Calculator */}
+      {/* Vault Strategy Selector + Telemetry Calculator */}
       <div className="glass-card-premium" style={{ padding: '1.5rem' }}>
         {/* Strategy Selector */}
         <div style={{ marginBottom: '2rem' }}>
@@ -222,7 +235,7 @@ export const StakingBurnDashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Yield Calculator */}
+        {/* Telemetry Calculator */}
         <YieldCalculator
           selectedStrategy={selectedStrategy}
           strategies={VAULT_STRATEGIES}

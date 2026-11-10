@@ -317,7 +317,7 @@ export const InfinityFlame: React.FC<InfinityFlameProps> = ({
         preserveAspectRatio="none"
         aria-hidden="true"
         role="img"
-        aria-label={`Infinity Burn flame visualization, intensity ${Math.round(intensity * 100)}%`}
+        aria-label={`Devnet Burn Lab flame visualization, intensity ${Math.round(intensity * 100)}%`}
       >
         <defs>
           {getFlameGradient()}

@@ -41,6 +41,14 @@ function resolveMarketingBase(): string {
 
 export const MARKETING_BASE = resolveMarketingBase();
 
+export function getLocalizedMarketingUrl(path: string, language: 'en' | 'es' | 'it'): string {
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  if (language === 'es' || language === 'it') {
+    return `${MARKETING_BASE}/${language}${cleanPath}`;
+  }
+  return `${MARKETING_BASE}${cleanPath}`;
+}
+
 /** Id de juego rápido del ARCADE (abre modal, no ruta). */
 export type ArcadeGameId = 'penalty' | 'pack' | 'modifiers';
 
@@ -75,7 +83,7 @@ export type PlayNavGroup = {
    ZONA 1 — 🏟 MATCHDAY
    ============================================================ */
 const MATCHDAY_ITEMS: PlayNavItem[] = [
-  { id: 'inicio', label: 'Dashboard', i18n: 'nav_dashboard', icon: '🏠', to: '/' },
+  { id: 'inicio', label: 'Dashboard', i18n: 'nav_dashboard', icon: '🏠', to: '/dashboard' },
   {
     id: 'fixtures',
     label: 'Fixtures',
@@ -88,33 +96,33 @@ const MATCHDAY_ITEMS: PlayNavItem[] = [
     label: 'Live Match',
     i18n: 'nav_live',
     icon: '🔴',
-    to: '/',
+    to: '/dashboard',
     badge: true,
   },
 ];
 
 /* ============================================================
-   ZONA 2 — 📈 TRADING
+   ZONA 2 — 📈 SANDBOX LAB
    ============================================================ */
 const TRADING_ITEMS: PlayNavItem[] = [
   { id: 'defi', label: 'Terminal', i18n: 'nav_terminal', icon: '📈', to: '/defi' },
   {
     id: 'swarm',
-    label: 'Swarm Vaults',
+    label: 'Collectibles & Relics',
     i18n: 'nav_swarm',
-    icon: '🐝',
-    href: `${MARKETING_BASE}/#economics`,
+    icon: '💠',
+    href: `${MARKETING_BASE}/collect.html`,
     external: true,
   },
 ];
 
 /* ============================================================
-   ZONA 3 — 🏦 DEFI
+   ZONA 3 — ⚗️ DEVNET LAB
    ============================================================ */
 const DEFI_ITEMS: PlayNavItem[] = [
   {
     id: 'staking',
-    label: 'Staking & Burn',
+    label: 'Supply & Burn Lab',
     i18n: 'nav_staking',
     icon: '🔥',
     to: '/staking',
@@ -129,12 +137,13 @@ const DEFI_ITEMS: PlayNavItem[] = [
   {
     id: 'autopilot',
     label: 'Autopilot Corp',
+    i18n: 'nav_autopilot',
     icon: '🤖',
     to: '/autopilot',
   },
   {
     id: 'agents',
-    label: 'Tokenized Agents',
+    label: 'Autonomous Agents',
     i18n: 'nav_agents',
     icon: '🧬',
     to: '/agents',
@@ -163,14 +172,16 @@ const CLUB_ITEMS: PlayNavItem[] = [
   },
   {
     id: 'reader',
-    label: 'Kindle E-Reader',
+    label: 'Book 1 Sample',
+    i18n: 'nav_reader',
     icon: '📖',
     to: '/reader',
-    badge: 'VIP',
+    badge: 'CH.1',
   },
   {
     id: 'studio',
     label: 'Author & Lore Studio',
+    i18n: 'nav_studio',
     icon: '🖋️',
     to: '/studio',
   },
@@ -204,30 +215,30 @@ export const RESOURCE_LINKS: PlayNavItem[] = [
   },
   {
     id: 'pitch-page',
-    label: 'Pitch & Motivation',
+    label: 'Press & Overview',
     i18n: 'nav_res_pitch',
-    href: `${MARKETING_BASE}/pitch.html`,
+    href: `${MARKETING_BASE}/press.html`,
     external: true,
   },
   {
     id: 'mega-guide',
-    label: 'Mega Guide v2',
+    label: 'Field Guide & FAQ',
     i18n: 'nav_res_guide',
-    href: `${MARKETING_BASE}/mega-guide.html`,
+    href: `${MARKETING_BASE}/faq.html`,
     external: true,
   },
   {
     id: 'colabs',
-    label: 'Collaborations',
+    label: 'AI Cinema Studio',
     i18n: 'nav_res_colabs',
-    href: `${MARKETING_BASE}/colabs.html`,
+    href: `${MARKETING_BASE}/studio.html`,
     external: true,
   },
   {
     id: 'legal',
-    label: 'Legal',
+    label: 'Terms & Privacy',
     i18n: 'nav_res_legal',
-    href: `${MARKETING_BASE}/legal.html`,
+    href: `${MARKETING_BASE}/terms.html`,
     external: true,
   },
 ];
@@ -238,23 +249,26 @@ export const RESOURCE_LINKS: PlayNavItem[] = [
 const WORLD_ITEMS: PlayNavItem[] = [
   {
     id: 'hub',
-    label: 'GoalWorld hub',
+    label: 'GoalWorld Hub',
+    i18n: 'nav_world_hub',
     icon: '🌐',
     href: `${MARKETING_BASE}/`,
     external: true,
   },
   {
     id: 'map',
-    label: 'Map',
-    icon: '🗺',
-    href: `${MARKETING_BASE}/map.html`,
+    label: 'The Saga (Book 1)',
+    i18n: 'nav_world_book',
+    icon: '📖',
+    href: `${MARKETING_BASE}/book.html`,
     external: true,
   },
   {
     id: 'matchday-site',
-    label: 'Matchday site',
-    icon: '⚽',
-    href: `${MARKETING_BASE}/goalchain.html`,
+    label: 'Cinema & Teasers',
+    i18n: 'nav_world_cinema',
+    icon: '🎬',
+    href: `${MARKETING_BASE}/cinema.html`,
     external: true,
   },
 ];
@@ -263,6 +277,7 @@ export const PLAY_NAV_GROUPS: PlayNavGroup[] = [
   {
     id: 'world',
     label: 'World',
+    i18n: 'nav_zone_world',
     icon: '🌐',
     items: WORLD_ITEMS,
   },
@@ -275,16 +290,16 @@ export const PLAY_NAV_GROUPS: PlayNavGroup[] = [
   },
   {
     id: 'trading',
-    label: 'Trading',
+    label: 'Sandbox',
     i18n: 'nav_zone_trading',
     icon: '📈',
     items: TRADING_ITEMS,
   },
   {
     id: 'defi',
-    label: 'DeFi',
+    label: 'Devnet Lab',
     i18n: 'nav_zone_defi',
-    icon: '🏦',
+    icon: '⚗️',
     items: DEFI_ITEMS,
   },
   {

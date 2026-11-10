@@ -1,0 +1,1364 @@
+{
+  "goalworld_site_html_a11y": [
+    {
+      "file": "goalworld_site/dist/404.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Lost in the Link."
+        ],
+        [
+          2,
+          "Quick Navigation"
+        ],
+        [
+          3,
+          "Fractured Code"
+        ],
+        [
+          3,
+          "GoalChain Play"
+        ],
+        [
+          3,
+          "Live board"
+        ],
+        [
+          3,
+          "Universe & Timeline"
+        ],
+        [
+          3,
+          "AI Film Drafts"
+        ],
+        [
+          3,
+          "Living Canon & AI Charter"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/about.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "The world behind the world."
+        ],
+        [
+          2,
+          "Eight million minds. One architecture."
+        ],
+        [
+          2,
+          "The night the grid paused."
+        ],
+        [
+          2,
+          "Four people at the edge of the fracture"
+        ],
+        [
+          3,
+          "Mileo Chen"
+        ],
+        [
+          3,
+          "Kora Vega"
+        ],
+        [
+          3,
+          "Sierra Catalano"
+        ],
+        [
+          3,
+          "Dr. Darius Thorne"
+        ],
+        [
+          2,
+          "Cascade, coil, and the gardeners."
+        ],
+        [
+          2,
+          "From deep time to the twenty-day clock."
+        ],
+        [
+          3,
+          "The Yggdrasil Network"
+        ],
+        [
+          3,
+          "The Serpent\u2019s Coil"
+        ],
+        [
+          3,
+          "The Link Launches"
+        ],
+        [
+          3,
+          "Absorption of Dr. Elena V\u00e1squez"
+        ],
+        [
+          3,
+          "Founding of Neo-Citania"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [
+        "en",
+        "es",
+        "it",
+        "x-default"
+      ],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/book.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Fractured Code"
+        ],
+        [
+          2,
+          "Inside the G2-signed edition."
+        ],
+        [
+          3,
+          "2148 \u00b7 Neo-Citania"
+        ],
+        [
+          3,
+          "16 Chapters + Epilogue"
+        ],
+        [
+          3,
+          "Twenty Days to Renaissance"
+        ],
+        [
+          3,
+          "528 Hz \u00b7 Serpent\u2019s Coil"
+        ],
+        [
+          2,
+          "1: Threshold"
+        ],
+        [
+          3,
+          "Keep reading on launch day."
+        ],
+        [
+          2,
+          "Three acts. Twenty days."
+        ],
+        [
+          3,
+          "Act I \u2014 The Fracture (Days 1\u20135)"
+        ],
+        [
+          3,
+          "Act II \u2014 The Under-Grid (Days 6\u201314)"
+        ],
+        [
+          3,
+          "Act III \u2014 Serpent\u2019s Coil (Days 15\u201320)"
+        ],
+        [
+          2,
+          "Six terms that govern Neo-Citania."
+        ],
+        [
+          2,
+          "Who stands at the fault line."
+        ],
+        [
+          3,
+          "Mileo Chen"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [
+        "en",
+        "es",
+        "it",
+        "x-default"
+      ],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/cinema.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "The book, on screen."
+        ],
+        [
+          2,
+          "Trailer and Film-Draft Clips"
+        ],
+        [
+          2,
+          "Keyframes, characters & locations."
+        ],
+        [
+          2,
+          "Canon in. Cinema out."
+        ],
+        [
+          3,
+          "Lock the canon"
+        ],
+        [
+          3,
+          "Book to shots"
+        ],
+        [
+          3,
+          "Generate"
+        ],
+        [
+          3,
+          "Check"
+        ],
+        [
+          3,
+          "Cut & score"
+        ],
+        [
+          3,
+          "Gate"
+        ],
+        [
+          2,
+          "Festivals first."
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [
+        "en",
+        "es",
+        "it",
+        "x-default"
+      ],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/collect.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Provenance first."
+        ],
+        [
+          2,
+          "Three steps. Each one waits for the last."
+        ],
+        [
+          3,
+          "Disclose everything"
+        ],
+        [
+          3,
+          "Sign the media"
+        ],
+        [
+          3,
+          "Collector editions"
+        ],
+        [
+          2,
+          "What exists today vs. what we refuse to do."
+        ],
+        [
+          3,
+          "Open Sandbox & Disclosures"
+        ],
+        [
+          3,
+          "Verifiable Media Provenance"
+        ],
+        [
+          3,
+          "Zero Financial Speculation"
+        ],
+        [
+          2,
+          "How the playable sandbox works."
+        ],
+        [
+          3,
+          "Simulate instantly (no wallet needed)"
+        ],
+        [
+          3,
+          "Explore the 110-player Genesis catalog"
+        ],
+        [
+          3,
+          "Optional Devnet wallet for test fixtures"
+        ],
+        [
+          2,
+          "Want in when it's real?"
+        ],
+        [
+          2,
+          "Explore"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [
+        "en",
+        "es",
+        "it",
+        "x-default"
+      ],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/faq.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Questions, answered."
+        ],
+        [
+          2,
+          "Frequently Asked Questions"
+        ],
+        [
+          2,
+          "Still curious?"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [
+        "en",
+        "es",
+        "it",
+        "x-default"
+      ],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/index.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "One universe.Three mediums."
+        ],
+        [
+          2,
+          "Studio Pillars: Canon, Code, Cinema, and Studio"
+        ],
+        [
+          3,
+          "The Neural Wars"
+        ],
+        [
+          3,
+          "GoalChain Matchday"
+        ],
+        [
+          3,
+          "AI film drafts"
+        ],
+        [
+          3,
+          "Built in the open, shipping weekly"
+        ],
+        [
+          2,
+          "The rain falls in sevens."
+        ],
+        [
+          3,
+          "Next in the saga: Earth\u2019s New Song"
+        ],
+        [
+          2,
+          "Watch the saga take shape"
+        ],
+        [
+          2,
+          "Football you can play today."
+        ],
+        [
+          2,
+          "What we\u2019re shipping right now"
+        ],
+        [
+          2,
+          "Now, next, later"
+        ],
+        [
+          3,
+          "Live & Playable"
+        ],
+        [
+          3,
+          "In Production"
+        ],
+        [
+          3,
+          "Studio Horizon"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [
+        "en",
+        "es",
+        "it",
+        "x-default"
+      ],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/live.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Studio projects, live."
+        ],
+        [
+          2,
+          "Project Feed and Filters"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [
+        "en",
+        "es",
+        "it",
+        "x-default"
+      ],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/press.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Cover the world."
+        ],
+        [
+          2,
+          "The world in one paragraph"
+        ],
+        [
+          2,
+          "Brand assets"
+        ],
+        [
+          2,
+          "Gallery"
+        ],
+        [
+          2,
+          "Using these assets"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [
+        "en",
+        "es",
+        "it",
+        "x-default"
+      ],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/privacy.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Privacy."
+        ],
+        [
+          2,
+          "The website (goalworld.fun)"
+        ],
+        [
+          2,
+          "The game (play.goalworld.fun)"
+        ],
+        [
+          2,
+          "Third-party links"
+        ],
+        [
+          2,
+          "Children"
+        ],
+        [
+          2,
+          "Changes & contact"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [
+        "en",
+        "es",
+        "it",
+        "x-default"
+      ],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/roadmap.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "What we're building."
+        ],
+        [
+          2,
+          "Live today"
+        ],
+        [
+          3,
+          "Fractured Code, Chapter 1 sample"
+        ],
+        [
+          3,
+          "GoalChain Play demo"
+        ],
+        [
+          3,
+          "Neural Wars on screen"
+        ],
+        [
+          2,
+          "Next up"
+        ],
+        [
+          3,
+          "The saga on the shelf"
+        ],
+        [
+          3,
+          "More Fractured Code chapters"
+        ],
+        [
+          3,
+          "Matchday depth"
+        ],
+        [
+          3,
+          "The universe nexus"
+        ],
+        [
+          2,
+          "Later"
+        ],
+        [
+          3,
+          "Studio for other authors"
+        ],
+        [
+          3,
+          "Signed media"
+        ],
+        [
+          3,
+          "Collector editions"
+        ],
+        [
+          2,
+          "Explore"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [
+        "en",
+        "es",
+        "it",
+        "x-default"
+      ],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/studio.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "From manuscript to living world."
+        ],
+        [
+          2,
+          "Fractured Code: draft \u2192 book."
+        ],
+        [
+          3,
+          "Diagnose & redesign"
+        ],
+        [
+          3,
+          "Rewrite & line edit"
+        ],
+        [
+          3,
+          "Canon & final read"
+        ],
+        [
+          2,
+          "Four human-signed gates (G0\u2013G3)."
+        ],
+        [
+          3,
+          "Diagnosis & Story Memo"
+        ],
+        [
+          3,
+          "Scene & Voice Expansion"
+        ],
+        [
+          3,
+          "CanonGuard Coherence Pass"
+        ],
+        [
+          3,
+          "Release & Format Lock"
+        ],
+        [
+          2,
+          "Dynamic cuts. One strict canon."
+        ],
+        [
+          3,
+          "Raw Agent Draft Input"
+        ],
+        [
+          3,
+          "Automated Policy Audit"
+        ],
+        [
+          3,
+          "Deterministic Repair"
+        ],
+        [
+          2,
+          "Inspect the guardrails in action."
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [
+        "en",
+        "es",
+        "it",
+        "x-default"
+      ],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    },
+    {
+      "file": "goalworld_site/dist/terms.html",
+      "h1_count": 1,
+      "heading_skips": [],
+      "headings": [
+        [
+          1,
+          "Terms."
+        ],
+        [
+          2,
+          "1. What these terms cover"
+        ],
+        [
+          2,
+          "2. The demo is a demo"
+        ],
+        [
+          2,
+          "3. The saga, the art, the code"
+        ],
+        [
+          2,
+          "4. Acceptable use"
+        ],
+        [
+          2,
+          "5. No warranties"
+        ],
+        [
+          2,
+          "6. Changes & contact"
+        ],
+        [
+          2,
+          "Explore"
+        ],
+        [
+          2,
+          "Community & Legal"
+        ]
+      ],
+      "has_main": true,
+      "has_skip_link": true,
+      "hreflangs": [
+        "en",
+        "es",
+        "it",
+        "x-default"
+      ],
+      "imgs_without_alt": [],
+      "videos_without_label": []
+    }
+  ],
+  "docs_public_html": [
+    {
+      "file": "docs/agents.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/app.html",
+      "size_kb": 1.0,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/arcade.html",
+      "size_kb": 1.0,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/architecture/archify/goalchain.architecture.html",
+      "size_kb": 789.3,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/assets/film/improve_20260914/index.html",
+      "size_kb": 0.7,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/assets/film/improve_20260915/index.html",
+      "size_kb": 3.4,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 1,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/ceo.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/cinema.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/colabs.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/club/index.html",
+      "size_kb": 1.0,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/defi/index.html",
+      "size_kb": 1.0,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/estadio/index.html",
+      "size_kb": 1.0,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/goalworld/index.html",
+      "size_kb": 1.1,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/index.html",
+      "size_kb": 1.1,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/reader/index.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/go/studio/index.html",
+      "size_kb": 0.5,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/goalchain.html",
+      "size_kb": 1.0,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/goalworld.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/index.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/legal.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/map.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/mega-guide-v1.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/mega-guide.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/pitch.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/play/index.html",
+      "size_kb": 0.7,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/play/pack.html",
+      "size_kb": 4.3,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/play/penalty.html",
+      "size_kb": 3.2,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": false,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/pre-nft.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/protocol.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/reader.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/studio.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    },
+    {
+      "file": "docs/tokenomics.html",
+      "size_kb": 0.9,
+      "banned_hit_count": 0,
+      "banned_sample": [],
+      "h1_count": 0,
+      "has_main": true,
+      "has_skip_link": false
+    }
+  ],
+  "goalchain_webapp_banned": [],
+  "goalchain_webapp_i18n_gaps": [
+    {
+      "file": "goalchain_webapp/src/ui/AICoach.tsx",
+      "lines": 351,
+      "t_calls": 37
+    },
+    {
+      "file": "goalchain_webapp/src/ui/AICommentator.tsx",
+      "lines": 392,
+      "t_calls": 26
+    },
+    {
+      "file": "goalchain_webapp/src/ui/App.tsx",
+      "lines": 375,
+      "t_calls": 10
+    },
+    {
+      "file": "goalchain_webapp/src/ui/AuthorStudio.tsx",
+      "lines": 359,
+      "t_calls": 30
+    },
+    {
+      "file": "goalchain_webapp/src/ui/ClassicHub.tsx",
+      "lines": 58,
+      "t_calls": 17
+    },
+    {
+      "file": "goalchain_webapp/src/ui/ClubPortal.tsx",
+      "lines": 123,
+      "t_calls": 16
+    },
+    {
+      "file": "goalchain_webapp/src/ui/CorporateAutopilot.tsx",
+      "lines": 1207,
+      "t_calls": 41
+    },
+    {
+      "file": "goalchain_webapp/src/ui/CreateUser.tsx",
+      "lines": 252,
+      "t_calls": 35
+    },
+    {
+      "file": "goalchain_webapp/src/ui/DashboardGrid.tsx",
+      "lines": 100,
+      "t_calls": 17
+    },
+    {
+      "file": "goalchain_webapp/src/ui/DashboardHub.tsx",
+      "lines": 33,
+      "t_calls": 3
+    },
+    {
+      "file": "goalchain_webapp/src/ui/DeFiPortal.tsx",
+      "lines": 172,
+      "t_calls": 12
+    },
+    {
+      "file": "goalchain_webapp/src/ui/EconomyConfigBanner.tsx",
+      "lines": 118,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/EstadioPortal.tsx",
+      "lines": 128,
+      "t_calls": 18
+    },
+    {
+      "file": "goalchain_webapp/src/ui/FixturesPanel.tsx",
+      "lines": 672,
+      "t_calls": 22
+    },
+    {
+      "file": "goalchain_webapp/src/ui/GameModal.tsx",
+      "lines": 97,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/GenesisCollectionGallery.tsx",
+      "lines": 133,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/GoalWorldPortal.tsx",
+      "lines": 923,
+      "t_calls": 11
+    },
+    {
+      "file": "goalchain_webapp/src/ui/KindleReader.tsx",
+      "lines": 1334,
+      "t_calls": 6
+    },
+    {
+      "file": "goalchain_webapp/src/ui/LandingPage.tsx",
+      "lines": 191,
+      "t_calls": 53
+    },
+    {
+      "file": "goalchain_webapp/src/ui/LayeredNftCard.tsx",
+      "lines": 578,
+      "t_calls": 15
+    },
+    {
+      "file": "goalchain_webapp/src/ui/LiveEventFeed.tsx",
+      "lines": 144,
+      "t_calls": 4
+    },
+    {
+      "file": "goalchain_webapp/src/ui/MarketingControlCenter.tsx",
+      "lines": 806,
+      "t_calls": 5
+    },
+    {
+      "file": "goalchain_webapp/src/ui/MatchSimulator.tsx",
+      "lines": 784,
+      "t_calls": 8
+    },
+    {
+      "file": "goalchain_webapp/src/ui/ModalRoot.tsx",
+      "lines": 29,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/NFTMarketplace.tsx",
+      "lines": 236,
+      "t_calls": 13
+    },
+    {
+      "file": "goalchain_webapp/src/ui/OpsStatusPanel.tsx",
+      "lines": 187,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/PlayLayout.tsx",
+      "lines": 215,
+      "t_calls": 16
+    },
+    {
+      "file": "goalchain_webapp/src/ui/PlayNav.tsx",
+      "lines": 441,
+      "t_calls": 9
+    },
+    {
+      "file": "goalchain_webapp/src/ui/PlayerQuorumPanel.tsx",
+      "lines": 565,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/PressKit.tsx",
+      "lines": 464,
+      "t_calls": 26
+    },
+    {
+      "file": "goalchain_webapp/src/ui/SquadGallery.tsx",
+      "lines": 506,
+      "t_calls": 3
+    },
+    {
+      "file": "goalchain_webapp/src/ui/StakingBurnDashboard.tsx",
+      "lines": 261,
+      "t_calls": 4
+    },
+    {
+      "file": "goalchain_webapp/src/ui/SwarmVaults.tsx",
+      "lines": 366,
+      "t_calls": 28
+    },
+    {
+      "file": "goalchain_webapp/src/ui/TheNeuralWarsUniverse.tsx",
+      "lines": 1367,
+      "t_calls": 13
+    },
+    {
+      "file": "goalchain_webapp/src/ui/Toaster.tsx",
+      "lines": 75,
+      "t_calls": 3
+    },
+    {
+      "file": "goalchain_webapp/src/ui/TokenizedAgentsDashboard.tsx",
+      "lines": 131,
+      "t_calls": 2
+    },
+    {
+      "file": "goalchain_webapp/src/ui/TradingTerminal.tsx",
+      "lines": 724,
+      "t_calls": 4
+    },
+    {
+      "file": "goalchain_webapp/src/ui/UserProfile.tsx",
+      "lines": 894,
+      "t_calls": 67
+    },
+    {
+      "file": "goalchain_webapp/src/ui/VanillaMount.tsx",
+      "lines": 177,
+      "t_calls": 0
+    },
+    {
+      "file": "goalchain_webapp/src/ui/WorldCupPredictor.tsx",
+      "lines": 560,
+      "t_calls": 6
+    }
+  ],
+  "goalworld_site_unused_assets": [],
+  "oversized_assets": [
+    {
+      "file": "goalchain_webapp/public/assets/data/nft_gallery_manifest.json",
+      "size_kb": 441.2
+    },
+    {
+      "file": "goalchain_webapp/public/assets/data/players.json",
+      "size_kb": 433.1
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_01_Neo_Veridia_Street_Level_Surveillance.mp4",
+      "size_kb": 11060.8
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_02_Neo_Veridia_Skyscraper_Canyon.mp4",
+      "size_kb": 17124.0
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_02b_Neo_Veridia_Ambient_Extended.mp4",
+      "size_kb": 29745.3
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_03_Mileo_Chen_Quantum_Console_Discovery.mp4",
+      "size_kb": 4058.0
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_04_The_Severing_Neural_Disconnection.mp4",
+      "size_kb": 8574.2
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_05_Mileo_Skybridge_Rooftop_Pursuit.mp4",
+      "size_kb": 26017.7
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_06_Sub_Grid_Subway_Tunnels.mp4",
+      "size_kb": 8717.1
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_07_Dr_Darius_Thorne_Pavilion_9.mp4",
+      "size_kb": 5628.6
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_08_Kora_Vega_432Hz_Harmonic_Rings.mp4",
+      "size_kb": 11082.8
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_09_Sierra_Catalano_Tactical_Railgun_Fire.mp4",
+      "size_kb": 6009.4
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_10_The_432Hz_Core_Pulse_Awakening_Climax.mp4",
+      "size_kb": 36572.1
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/05_Clips/Clip_11_Earth_Dawn_Orbital_Awakening.mp4",
+      "size_kb": 17641.1
+    },
+    {
+      "file": "goalchain_webapp/public/assets/img/neuralwars/trailer_cinematic_teaser.mp4",
+      "size_kb": 76333.7
+    },
+    {
+      "file": "goalchain_webapp/public/vendor/solana-web3.iife.min.js",
+      "size_kb": 452.9
+    }
+  ]
+}

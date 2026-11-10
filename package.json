@@ -1,0 +1,15 @@
+{
+  "name": "goalworld-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "GoalWorld — Canon, Code, Cinema (goalworld.fun + play.goalworld.fun)",
+  "scripts": {
+    "qa": "node tools/qa/run-qa.mjs",
+    "build:site": "node goalworld_site/build.mjs",
+    "build:webapp": "npm --prefix goalchain_webapp run build",
+    "check:links": "python3 goalworld_site/tools/check_links.py",
+    "check:tokens": "node design/sync-tokens.mjs --check",
+    "check:i18n": "npm --prefix goalchain_webapp run check:i18n"
+  }
+}

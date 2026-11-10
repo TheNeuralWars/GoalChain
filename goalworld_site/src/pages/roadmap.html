@@ -1,116 +1,132 @@
-<!-- meta {"slug":"roadmap","title":"Roadmap · GoalWorld","description":"What is live today, what is next, and what comes later — the real GoalWorld roadmap: Fractured Code, GoalChain matchday, AI cinema, publishing and on-chain work.","nav":"ROADMAP","preload":"<link rel=\"preload\" as=\"image\" href=\"/assets/img/loc-kuiper-monolith.webp\" imagesrcset=\"/assets/img/loc-kuiper-monolith-640.webp 640w, /assets/img/loc-kuiper-monolith.webp 1200w\" imagesizes=\"(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem\" fetchpriority=\"high\" />"} -->
-<section class="hero" style="padding-bottom: 2.5rem">
-  <div class="hero-bg" aria-hidden="true">
-    <img src="/assets/img/loc-kuiper-monolith.webp" alt="" width="1200" height="750" fetchpriority="high" srcset="/assets/img/loc-kuiper-monolith-640.webp 640w, /assets/img/loc-kuiper-monolith.webp 1200w" sizes="(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem" />
-  </div>
-  <div class="wrap">
-    <p class="eyebrow">ROADMAP &middot; NO DATES, JUST DIRECTION</p>
-    <h1>What we're building.</h1>
-    <p class="lead">
-      GoalWorld is built in the open, one milestone at a time. Everything below comes from
-      the actual project roadmap and workstreams in the repo &mdash; nothing invented, no
-      fake dates.
-    </p>
-  </div>
-</section>
+<!-- meta {"slug":"roadmap","title":"$t:roadmap.meta.title","description":"$t:roadmap.meta.description","nav":"ROADMAP","preload":"<link rel=\"preload\" as=\"image\" href=\"/assets/img/loc-kuiper-monolith.webp\" imagesrcset=\"/assets/img/loc-kuiper-monolith-640.webp 640w, /assets/img/loc-kuiper-monolith.webp 1200w\" imagesizes=\"(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem\" fetchpriority=\"high\" />"} -->
+<!-- @component hero {
+  "variant": "compact",
+  "bgImg": "/assets/img/loc-kuiper-monolith.webp",
+  "bgWidth": 1200,
+  "bgHeight": 750,
+  "bgSrcset": "/assets/img/loc-kuiper-monolith-640.webp 640w, /assets/img/loc-kuiper-monolith.webp 1200w",
+  "bgSizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+  "eyebrow": "$t:roadmap.hero.eyebrow",
+  "title": "$t:roadmap.hero.title",
+  "lead": "$t:roadmap.hero.lead"
+} -->
 
 <section class="section-tight">
   <div class="wrap">
-    <div class="filter-bar" data-roadmap-tabs role="toolbar" aria-label="Show roadmap stage">
-      <span class="eyebrow">Stage</span>
-      <button class="chip" aria-pressed="true" data-stage="">All</button><button class="chip" aria-pressed="false" data-stage="now">Live today</button><button class="chip" aria-pressed="false" data-stage="next">Next up</button><button class="chip" aria-pressed="false" data-stage="later">Later</button>
+    <div class="filter-bar" data-roadmap-tabs role="toolbar" aria-label="{{t:roadmap.tabs.aria_label}}">
+      <span class="eyebrow">{{t:roadmap.tabs.eyebrow}}</span>
+      <button type="button" class="chip" aria-pressed="true" data-stage="">{{t:roadmap.tabs.all}}</button><button type="button" class="chip" aria-pressed="false" data-stage="now">{{t:roadmap.tabs.now}}</button><button type="button" class="chip" aria-pressed="false" data-stage="next">{{t:roadmap.tabs.next}}</button><button type="button" class="chip" aria-pressed="false" data-stage="later">{{t:roadmap.tabs.later}}</button>
     </div>
   </div>
 </section>
+
 <section class="section-tight" data-stage-section="now">
   <div class="wrap">
-    <h2>Live today</h2>
-    <div class="grid grid-3" style="margin-top: 1.75rem">
-      <div class="card">
-        <span class="video-tag" style="color: var(--green)">Shipping</span>
-        <h3>Fractured Code, Chapter 1 sample</h3>
-        <p>Book 1 of The Neural Wars &mdash; G2 signed off and in release preparation &mdash; with a free Chapter 1 preview on the site.</p>
-        <a class="go" href="/book.html#sample">Read sample &rarr;</a>
-      </div>
-      <div class="card">
-        <span class="video-tag" style="color: var(--green)">Shipping</span>
-        <h3>GoalChain Play demo</h3>
-        <p>World Cup 2026 matchday on Solana Devnet: club, Arena matches, Predictor, arcade &mdash; playable now.</p>
-        <a class="go" href="https://play.goalworld.fun/">Play now &rarr;</a>
-      </div>
-      <div class="card">
-        <span class="video-tag" style="color: var(--green)">Shipping</span>
-        <h3>Neural Wars on screen</h3>
-        <p>Cinematic trailer, film-draft clips and the locked visual canon for Fractured Code.</p>
-        <a class="go" href="/cinema.html">Watch &rarr;</a>
-      </div>
-    </div>
+    <!-- @component section-header { "title": "$t:roadmap.now.title" } -->
+    <!-- @component timeline {
+      "columns": 3,
+      "numbered": false,
+      "items": [
+        {
+          "badge": "$t:roadmap.now.badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:roadmap.now.c1_title",
+          "body": "$t:roadmap.now.c1_body",
+          "cta": "$t:roadmap.now.c1_cta",
+          "ctaHref": "/book.html#sample"
+        },
+        {
+          "badge": "$t:roadmap.now.badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:roadmap.now.c2_title",
+          "body": "$t:roadmap.now.c2_body",
+          "cta": "$t:roadmap.now.c2_cta",
+          "ctaHref": "https://play.goalworld.fun/"
+        },
+        {
+          "badge": "$t:roadmap.now.badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:roadmap.now.c3_title",
+          "body": "$t:roadmap.now.c3_body",
+          "cta": "$t:roadmap.now.c3_cta",
+          "ctaHref": "/cinema.html"
+        }
+      ]
+    } -->
   </div>
 </section>
 
 <section class="section band" data-stage-section="next">
   <div class="wrap">
-    <h2>Next up</h2>
-    <div class="grid grid-2" style="margin-top: 1.75rem">
-      <div class="card card-glow-purple">
-        <span class="video-tag" style="color: var(--purple-text)">Publishing</span>
-        <h3>The saga on the shelf</h3>
-        <p>
-          Book 1 (<em>Fractured Code</em>) is G2 signed off and in release preparation (store editions coming soon, not yet on sale), followed by Book 2, <em>Earth's New Song</em> (in production), and Book 3, <em>Evolution Matrix</em> (in outline).
-        </p>
-      </div>
-      <div class="card">
-        <span class="video-tag" style="color: var(--green)">Film</span>
-        <h3>More Fractured Code chapters</h3>
-        <p>
-          The film pipeline keeps cutting: more scenes from Neo-Citania, the Sub-Grid, and
-          the 528 Hz awakening &mdash; each generated against the locked visual canon.
-        </p>
-      </div>
-      <div class="card">
-        <span class="video-tag" style="color: var(--cyan)">Play</span>
-        <h3>Matchday depth</h3>
-        <p>
-          Refining the Genesis Squad catalog and the simulation loop, with sports-oracle
-          testing on Devnet before anything touches real stakes.
-        </p>
-      </div>
-      <div class="card">
-        <span class="video-tag" style="color: var(--cyan)">Worlds</span>
-        <h3>The universe nexus</h3>
-        <p>
-          The first batch of companion universes out of the publishing engine &mdash;
-          Aethelgard and AeroOlympus &mdash; joining The Neural Wars in the GoalWorld nexus.
-        </p>
-      </div>
-    </div>
+    <!-- @component section-header { "title": "$t:roadmap.next.title" } -->
+    <!-- @component timeline {
+      "columns": 2,
+      "numbered": false,
+      "items": [
+        {
+          "variant": "purple",
+          "badge": "$t:roadmap.next.c1_badge",
+          "badgeColor": "var(--purple-text)",
+          "title": "$t:roadmap.next.c1_title",
+          "body": "$t:roadmap.next.c1_body"
+        },
+        {
+          "badge": "$t:roadmap.next.c2_badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:roadmap.next.c2_title",
+          "body": "$t:roadmap.next.c2_body"
+        },
+        {
+          "badge": "$t:roadmap.next.c3_badge",
+          "badgeColor": "var(--cyan)",
+          "title": "$t:roadmap.next.c3_title",
+          "body": "$t:roadmap.next.c3_body"
+        },
+        {
+          "badge": "$t:roadmap.next.c4_badge",
+          "badgeColor": "var(--cyan)",
+          "title": "$t:roadmap.next.c4_title",
+          "body": "$t:roadmap.next.c4_body"
+        }
+      ]
+    } -->
   </div>
 </section>
 
 <section class="section" data-stage-section="later">
   <div class="wrap">
-    <h2>Later</h2>
-    <div class="grid grid-3" style="margin-top: 1.75rem">
-      <div class="card">
-        <h3>Studio for other authors</h3>
-        <p>A small first cohort of authors through the same canon-locked pipeline.</p>
-      </div>
-      <div class="card">
-        <h3>Signed media</h3>
-        <p>Content credentials on our stills and cuts, so anyone can trace where a frame came from.</p>
-      </div>
-      <div class="card">
-        <h3>Collector editions</h3>
-        <p>Signed art and first editions for early readers &mdash; only after legal review, never as an investment.</p>
-      </div>
-    </div>
-    <details class="faq-item" style="margin-top: 2.25rem">
-      <summary>How to read this roadmap</summary>
-      <p>Items move when they are real. There are no dates here on purpose &mdash; if a date appears on this site, it is because the thing already shipped.</p>
-    </details>
-    <details class="faq-item">
-      <summary>Where does this come from?</summary>
-      <p>The project roadmap and workstreams in the <a href="https://github.com/TheNeuralWars/GoalChain">GoalChain repo</a>. What is moving this week is on the <a href="/live.html">live board</a>.</p>
-    </details>
+    <!-- @component section-header { "title": "$t:roadmap.later.title" } -->
+    <!-- @component timeline {
+      "columns": 3,
+      "numbered": false,
+      "items": [
+        {
+          "title": "$t:roadmap.later.c1_title",
+          "body": "$t:roadmap.later.c1_body"
+        },
+        {
+          "title": "$t:roadmap.later.c2_title",
+          "body": "$t:roadmap.later.c2_body"
+        },
+        {
+          "title": "$t:roadmap.later.c3_title",
+          "body": "$t:roadmap.later.c3_body"
+        }
+      ]
+    } -->
+    <!-- @component faq-accordion {
+      "searchable": false,
+      "style": "margin-top:2.25rem",
+      "items": [
+        {
+          "q": "$t:roadmap.later.q1",
+          "a": "$t:roadmap.later.a1"
+        },
+        {
+          "q": "$t:roadmap.later.q2",
+          "a": "$t:roadmap.later.a2"
+        }
+      ]
+    } -->
   </div>
 </section>

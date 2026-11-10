@@ -1,29 +1,133 @@
-<!-- meta {"slug":"collect","title":"Collectors & creators · GoalWorld","description":"Provenance first: how GoalWorld plans to sign and trace its art, scenes and editions. Nothing to buy, no tokens on sale.","nav":"COLLECT","preload":""} -->
-<section class="section">
-  <div class="wrap">
-    <p class="kicker">Collectors &amp; creators</p>
-    <h1>Provenance first.</h1>
-    <p class="lead">AI art is everywhere. Where it came from is not. We want every frame, still and edition from our worlds to carry its own history: who made it, with what, from which line of the book.</p>
-    <p class="hero-note">Nothing to buy today. No token sale. No yield. No promises.</p>
-  </div>
-</section>
+<!-- meta {"slug":"collect","title":"$t:collect.meta.title","description":"$t:collect.meta.description","nav":"COLLECT","preload":""} -->
+<!-- @component hero {
+  "variant": "compact",
+  "kicker": true,
+  "eyebrow": "$t:collect.hero.eyebrow",
+  "title": "$t:collect.hero.title",
+  "lead": "$t:collect.hero.lead",
+  "note": "$t:collect.hero.note"
+} -->
 
 <section class="section band">
   <div class="wrap">
-    <p class="kicker">The plan, in order</p>
-    <h2>Three steps. Each one waits for the last.</h2>
-    <div class="grid grid-3" style="margin-top:1.5rem">
-      <div class="card"><span class="video-tag" style="color:var(--code)">Now</span><h3>Disclose everything</h3><p>Every published clip labelled as AI, with the tools behind it logged.</p></div>
-      <div class="card"><span class="video-tag" style="color:var(--green)">Next</span><h3>Sign the media</h3><p>Content credentials on stills and cuts, so anyone can check the source.</p></div>
-      <div class="card"><span class="video-tag" style="color:var(--cyan)">Later</span><h3>Collector editions</h3><p>Signed art and first editions for readers who were there early &mdash; only after legal review, and never as an investment.</p></div>
-    </div>
+    <!-- @component section-header {
+      "kicker": "$t:collect.plan.kicker",
+      "title": "$t:collect.plan.title"
+    } -->
+    <!-- @component timeline {
+      "columns": 3,
+      "numbered": false,
+      "items": [
+        {
+          "badge": "$t:collect.plan.s1_badge",
+          "badgeColor": "var(--code-text)",
+          "title": "$t:collect.plan.s1_title",
+          "body": "$t:collect.plan.s1_body"
+        },
+        {
+          "badge": "$t:collect.plan.s2_badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:collect.plan.s2_title",
+          "body": "$t:collect.plan.s2_body"
+        },
+        {
+          "badge": "$t:collect.plan.s3_badge",
+          "badgeColor": "var(--cyan)",
+          "title": "$t:collect.plan.s3_title",
+          "body": "$t:collect.plan.s3_body"
+        }
+      ]
+    } -->
+  </div>
+</section>
+
+<section class="section" id="guardrails">
+  <div class="wrap">
+    <!-- @component section-header {
+      "kicker": "$t:collect.matrix.kicker",
+      "title": "$t:collect.matrix.title",
+      "lead": "$t:collect.matrix.lead"
+    } -->
+    <!-- @component timeline {
+      "columns": 3,
+      "numbered": false,
+      "items": [
+        {
+          "badge": "$t:collect.matrix.c1_badge",
+          "badgeColor": "var(--gw-success-text)",
+          "title": "$t:collect.matrix.c1_title",
+          "list": [
+            "$t:collect.matrix.c1_li1",
+            "$t:collect.matrix.c1_li2",
+            "$t:collect.matrix.c1_li3"
+          ]
+        },
+        {
+          "badge": "$t:collect.matrix.c2_badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:collect.matrix.c2_title",
+          "list": [
+            "$t:collect.matrix.c2_li1",
+            "$t:collect.matrix.c2_li2",
+            "$t:collect.matrix.c2_li3"
+          ]
+        },
+        {
+          "badge": "$t:collect.matrix.c3_badge",
+          "badgeColor": "var(--danger)",
+          "title": "$t:collect.matrix.c3_title",
+          "list": [
+            "$t:collect.matrix.c3_li1",
+            "$t:collect.matrix.c3_li2",
+            "$t:collect.matrix.c3_li3"
+          ]
+        }
+      ]
+    } -->
+  </div>
+</section>
+
+<section class="section band" id="matchday-lab">
+  <div class="wrap">
+    <!-- @component status-pill { "state": "devnet", "label": "$t:collect.lab.pill" } -->
+    <!-- @component section-header {
+      "kicker": "$t:collect.lab.kicker",
+      "title": "$t:collect.lab.title",
+      "lead": "$t:collect.lab.lead"
+    } -->
+    <!-- @component timeline {
+      "columns": 3,
+      "numbered": true,
+      "items": [
+        { "title": "$t:collect.lab.s1_title", "body": "$t:collect.lab.s1_body" },
+        { "title": "$t:collect.lab.s2_title", "body": "$t:collect.lab.s2_body" },
+        { "title": "$t:collect.lab.s3_title", "body": "$t:collect.lab.s3_body" }
+      ]
+    } -->
+    <!-- @component cta-set {
+      "style": "margin-top:1.75rem",
+      "items": [
+        { "label": "$t:collect.lab.cta_stadium", "href": "https://play.goalworld.fun/estadio", "variant": "primary" },
+        { "label": "$t:collect.lab.cta_club", "href": "https://play.goalworld.fun/club", "variant": "secondary", "badge": "DEVNET" },
+        { "label": "$t:collect.lab.cta_faq", "href": "/faq.html", "variant": "ghost" }
+      ]
+    } -->
   </div>
 </section>
 
 <section class="section">
   <div class="wrap" style="text-align:center">
-    <h2>Want in when it's real?</h2>
-    <p class="lead" style="margin-inline:auto">Collectors and creators: follow @nicopez on X to hear when the first signed edition exists.</p>
-    <div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="https://x.com/nicopez">Follow @nicopez on X for updates</a><a class="btn btn-ghost" href="https://play.goalworld.fun/">Matchday Lab (Devnet) &#8599;</a></div>
+    <!-- @component section-header {
+      "title": "$t:collect.cta.title",
+      "lead": "$t:collect.cta.lead",
+      "align": "center"
+    } -->
+    <!-- @component cta-set {
+      "align": "center",
+      "items": [
+        { "label": "$t:collect.cta.cta_follow", "href": "https://x.com/nicopez", "variant": "primary" },
+        { "label": "$t:collect.cta.cta_play", "href": "https://play.goalworld.fun/", "variant": "ghost" }
+      ]
+    } -->
   </div>
 </section>

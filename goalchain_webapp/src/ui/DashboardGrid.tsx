@@ -5,6 +5,7 @@ import { OpsStatusPanel } from './OpsStatusPanel';
 import { SimulationBadge } from '../components/SimulationBadge';
 import { useUser } from '../contexts/UserContext';
 import { useTranslation } from '../i18n/index';
+import { DevnetOnboardingCard } from '../components/DevnetOnboardingCard';
 
 
 export function DashboardGrid() {
@@ -16,10 +17,11 @@ export function DashboardGrid() {
   return (
     <div className="inicio-portal">
       <EconomyConfigBanner />
+      <DevnetOnboardingCard />
       {/* Welcome Hero Banner */}
       <div className="welcome-hero glass-card portal-fade-in">
         <div className="welcome-hero-content">
-          <div className="welcome-hero-badge">🏆 SPORTSFI PROTOCOL V2.0</div>
+          <div className="welcome-hero-badge">⚽ MATCHDAY LAB · SOLANA DEVNET SANDBOX</div>
           <h1>
             {user ? (
               <>
@@ -40,15 +42,15 @@ export function DashboardGrid() {
         </div>
         <div className="welcome-hero-stats">
           <div className="hero-stat-box">
-            <span className="hero-stat-val">1240</span>
+            <span className="hero-stat-val">10</span>
             <span className="hero-stat-label">{t('dashboard_players')}</span>
           </div>
           <div className="hero-stat-box">
-            <span className="hero-stat-val">1240</span>
+            <span className="hero-stat-val">11</span>
             <span className="hero-stat-label">{t('dashboard_clubs')}</span>
           </div>
           <div className="hero-stat-box">
-            <span className="hero-stat-val">1240</span>
+            <span className="hero-stat-val">DEVNET</span>
             <span className="hero-stat-label">{t('dashboard_matches')}</span>
           </div>
         </div>
@@ -74,22 +76,22 @@ export function DashboardGrid() {
       <div className="quick-access-grid">
         <div className="quick-access-card glass-card" onClick={() => navigate('/club')}>
           <div className="quick-access-icon">🏟️</div>
-          <h3>{t('dashboard_club')}</h3>
+          <h2>{t('dashboard_club')}</h2>
           <p>{t('dashboard_club_description')}</p>
         </div>
         <div className="quick-access-card glass-card" onClick={() => navigate('/estadio')}>
           <div className="quick-access-icon">⚽</div>
-          <h3>{t('dashboard_stadium')}</h3>
+          <h2>{t('dashboard_stadium')}</h2>
           <p>{t('dashboard_stadium_description')}</p>
         </div>
         <div className="quick-access-card glass-card" onClick={() => navigate('/defi')}>
-          <div className="quick-access-icon">💰</div>
-          <h3>{t('dashboard_defi')}</h3>
+          <div className="quick-access-icon">⚗️</div>
+          <h2>{t('dashboard_defi')}</h2>
           <p>{t('dashboard_defi_description')}</p>
         </div>
         <div className="quick-access-card glass-card" onClick={() => navigate('/staking')}>
           <div className="quick-access-icon">🔄</div>
-          <h3>{t('dashboard_staking')}</h3>
+          <h2>{t('dashboard_staking')}</h2>
           <p>{t('dashboard_staking_description')}</p>
         </div>
       </div>

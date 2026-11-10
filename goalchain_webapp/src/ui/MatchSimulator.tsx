@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useMatchSim, createDemoTeams, type PlayerStats } from '../hooks/useMatchSim';
 import type { Team } from '../workers/types';
 import { useUser } from '../contexts/UserContext';
+import { useTranslation } from '../i18n';
 
 const MOCK_PLAYERS: PlayerStats[] = [
   { playerId: '1', name: 'Lionel Satoshi', speed: 220, shotPower: 240, stamina: 200, nationId: 1, isEliminated: false, winStreak: 3, hasShieldJersey: true },
@@ -38,6 +39,7 @@ const EMOTION_STYLES: Record<string, { bg: string; border: string; text: string;
 };
 
 export function MatchSimulator() {
+  const { t } = useTranslation();
   const { user, setUser } = useUser();
   const { 
     state, events, commentary, isRunning, isInitialized, speed, 
@@ -283,10 +285,10 @@ export function MatchSimulator() {
       <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'center' }}>
         <div className="pulse-dot" style={{ width: '12px', height: '12px', backgroundColor: 'var(--secondary-neon)', boxShadow: '0 0 15px var(--secondary-neon-glow)', margin: '0 auto 1rem' }}></div>
         <h4 style={{ margin: 0, fontSize: '0.9rem', fontWeight: 800, color: '#ffffff' }}>
-          Inicializando Simulador Táctico...
+          {t('sim_init_title')}
         </h4>
         <p style={{ margin: '0.5rem 0 0', fontSize: '0.75rem', color: '#64748b' }}>
-          Conectando Web Worker, validando stakes de $GCH y cargando plantilla...
+          {t('sim_init_sub')}
         </p>
       </div>
     );
@@ -323,7 +325,7 @@ export function MatchSimulator() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <h3 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 800, color: '#ffffff', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span className="pulse-dot" style={{ backgroundColor: isRunning ? 'var(--primary-neon)' : 'var(--secondary-neon)', boxShadow: isRunning ? '0 0 10px var(--primary-neon-glow)' : '0 0 10px var(--secondary-neon-glow)' }}></span>
-            Arena Táctica Interactiva 🏟️
+            {t('sim_arena_title')}
           </h3>
           <span className="simulation-badge" style={{ fontSize: '0.6rem' }}>WORKER THREAD</span>
         </div>
@@ -331,10 +333,10 @@ export function MatchSimulator() {
         {/* $GCH balance & micro stakes info */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div style={{ background: 'rgba(20,241,149,0.08)', border: '1px solid rgba(20,241,149,0.2)', padding: '6px 12px', borderRadius: '10px', fontSize: '0.8rem', fontWeight: 'bold', color: 'var(--primary-neon)' }}>
-            💰 Mi Balance: <span style={{ color: '#fff' }}>{gchBalance.toLocaleString()} $GCH</span>
+            {t('sim_balance_label')} <span style={{ color: '#fff' }}>{gchBalance.toLocaleString()} $GCH</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <label style={{ fontSize: '0.7rem', color: '#94a3b8' }}>Velocidad:</label>
+            <label style={{ fontSize: '0.7rem', color: '#94a3b8' }}>{t('sim_speed_label')}</label>
             <input
               type="range"
               min="0.5"
@@ -353,7 +355,7 @@ export function MatchSimulator() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem', background: 'rgba(0,0,0,0.3)', borderRadius: '12px', marginBottom: '1rem', border: '1px solid rgba(255,255,255,0.05)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', width: '100%', justifyContent: 'space-between' }}>
           <div style={{ textAlign: 'right', flex: 1 }}>
-            <div style={{ fontSize: '0.65rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Local</div>
+            <div style={{ fontSize: '0.65rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{t('sim_home_label')}</div>
             <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff' }}>{currentHomeTeam?.name || 'GoalChain FC'}</div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', minWidth: '120px' }}>
@@ -365,7 +367,7 @@ export function MatchSimulator() {
             </div>
           </div>
           <div style={{ textAlign: 'left', flex: 1 }}>
-            <div style={{ fontSize: '0.65rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Visitante</div>
+            <div style={{ fontSize: '0.65rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{t('sim_away_label')}</div>
             <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff' }}>{currentAwayTeam?.name || 'Solana United'}</div>
           </div>
         </div>
@@ -415,7 +417,7 @@ export function MatchSimulator() {
         marginBottom: '1rem'
       }}>
         <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '0.5rem' }}>
-          🧠 Panel de Comandos Tácticos (Manager)
+          {t('sim_tactics_panel')}
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '8px' }}>
           

@@ -1,7 +1,9 @@
 import React, { Suspense, useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from '../i18n/index';
 import { WalletRequired } from '../wallet/gate';
 import { lazyRoute, prefetchOnIdle } from './routeChunk';
+import { DevnetOnboardingCard } from '../components/DevnetOnboardingCard';
 
 // Sub-panels are lazy: each lands in an on-demand chunk. lazyRoute keeps them
 // prefetchable (auto-improve 2026-10-17) — see the mount effect below.
@@ -11,9 +13,27 @@ const WorldCupPredictor = lazyRoute(() => import('./WorldCupPredictor').then(m =
 const MatchSimulator = lazyRoute(() => import('./MatchSimulator').then(m => ({ default: m.MatchSimulator })));
 const LiveEventFeed = lazyRoute(() => import('./LiveEventFeed').then(m => ({ default: m.LiveEventFeed })));
 
+type EstadioSubTab = 'fixtures' | 'commentator' | 'feed' | 'predictor' | 'simulator';
+const VALID_SUB_TABS: EstadioSubTab[] = ['fixtures', 'commentator', 'feed', 'predictor', 'simulator'];
+
 export function EstadioPortal() {
   const { t } = useTranslation();
-  const [activeSubTab, setActiveSubTab] = useState<'fixtures' | 'commentator' | 'feed' | 'predictor' | 'simulator'>('fixtures');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const paramTab = searchParams.get('tab') as EstadioSubTab | null;
+  const [activeSubTab, setActiveSubTab] = useState<EstadioSubTab>(
+    paramTab && VALID_SUB_TABS.includes(paramTab) ? paramTab : 'fixtures'
+  );
+
+  useEffect(() => {
+    if (paramTab && VALID_SUB_TABS.includes(paramTab) && paramTab !== activeSubTab) {
+      setActiveSubTab(paramTab);
+    }
+  }, [paramTab, activeSubTab]);
+
+  const handleSelectSubTab = (tab: EstadioSubTab) => {
+    setActiveSubTab(tab);
+    setSearchParams({ tab }, { replace: true });
+  };
 
   useEffect(() => {
     // Default panel: prefetch at mount, in parallel with the wallet stack that
@@ -36,6 +56,10 @@ export function EstadioPortal() {
 
   return (
     <div className="play-page play-page--portal">
+      <DevnetOnboardingCard
+        compactDefault={true}
+        onStartMatch={() => handleSelectSubTab('simulator')}
+      />
       <div className="portal-header glass-card">
         <div className="portal-badge">{t('estadio_portal_badge')}</div>
         <h1>{t('estadio_portal_title')}</h1>
@@ -48,7 +72,7 @@ export function EstadioPortal() {
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveSubTab(tab.id)}
+              onClick={() => handleSelectSubTab(tab.id)}
               className={`portal-tab-btn ${activeSubTab === tab.id ? 'portal-tab-btn--active' : ''}`}
             >
               <span className="tab-label">{tab.label}</span>

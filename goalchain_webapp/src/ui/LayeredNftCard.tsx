@@ -95,23 +95,23 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
 
   const imgPath = getPlayerImagePath(player);
 
-  const yieldMap: Record<string, string> = {
-    mythic: "25.4 SOL/mo",
-    legendary: "12.1 SOL/mo",
-    epic: "5.8 SOL/mo",
-    rare: "2.1 SOL/mo",
-    common: "0.5 SOL/mo"
+  const tierBadgeMap: Record<string, string> = {
+    mythic: "MYTHIC · DEVNET",
+    legendary: "LEGEND · DEVNET",
+    epic: "EPIC · DEVNET",
+    rare: "RARE · DEVNET",
+    common: "COMMON · DEVNET"
   };
-  const estimatedYield = yieldMap[player.rarity.toLowerCase()] || "0.1 SOL/mo";
+  const tierBadgeLabel = tierBadgeMap[player.rarity.toLowerCase()] || "DEVNET CARD";
 
   const priceMap: Record<string, string> = {
-    mythic: "10,000 $GCH",
-    legendary: "5,000 $GCH",
-    epic: "1,000 $GCH",
-    rare: "500 $GCH",
-    common: "100 $GCH"
+    mythic: "10,000 GCH (Test)",
+    legendary: "5,000 GCH (Test)",
+    epic: "1,000 GCH (Test)",
+    rare: "500 GCH (Test)",
+    common: "100 GCH (Test)"
   };
-  const nftPriceGch = priceMap[player.rarity.toLowerCase()] || "100 $GCH";
+  const nftPriceGch = priceMap[player.rarity.toLowerCase()] || "100 GCH (Test)";
 
   // Manage video playing on hover
   useEffect(() => {
@@ -206,10 +206,10 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
         </div>
       )}
 
-      {/* Yield Badge Overlay */}
+      {/* Tier Badge Overlay */}
       <div className="yield-badge-card" style={{ zIndex: 25 }}>
-        <span className="y-icon">💎</span>
-        <span className="y-val">{estimatedYield}</span>
+        <span className="y-icon">💠</span>
+        <span className="y-val">{tierBadgeLabel}</span>
       </div>
 
       <div className="glare"></div>
@@ -223,6 +223,8 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
               src={stadiumBgImg} 
               alt="Stadium Background" 
               className="bg-img" 
+              width={280}
+              height={400}
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
             <video 
@@ -250,6 +252,8 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
             <img 
               src={imgPath} 
               alt={player.name} 
+              width={280}
+              height={400}
               loading="lazy" 
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
@@ -269,7 +273,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
             </div>
             <div className="bottom-info">
               <h3 className="player-name-text">{player.name}</h3>
-              <div className="player-real-identity">{player.real_name || 'Verified Athlete'}</div>
+              <div className="player-real-identity">{player.meta?.parody_club || 'Genesis Parody Archetype'}</div>
               <div className="biometric-strip">
                 <span>📏 {player.physical?.h || '1.80m'}</span>
                 <span>⚖️ {player.physical?.w || '75kg'}</span>
@@ -292,6 +296,8 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
               src={stadiumBgImg} 
               alt="Stadium Background Back" 
               className="bg-img" 
+              width={280}
+              height={400}
               style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.35) contrast(1.1)' }}
             />
             <video 
@@ -362,7 +368,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
                   <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                     {t('card_field_real_name')}
                   </span>
-                  <strong style={{ color: '#ffffff' }}>{player.real_name || 'Verified Athlete'}</strong>
+                  <strong style={{ color: '#ffffff' }}>Parody Archetype</strong>
                 </div>
                 <div>
                   <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.58rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
@@ -381,7 +387,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
                     {t('card_field_market_value')}
                   </span>
                   <strong style={{ color: '#ffd700' }}>
-                    {player.market_value_eur ? `€${(player.market_value_eur / 1_000_000).toFixed(1)}M` : '€1.5M'}
+                    Devnet Sandbox
                   </strong>
                 </div>
               </div>
@@ -465,7 +471,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
               </p>
             </div>
 
-            {/* Yield Details & Actions */}
+            {/* Tactical Rating Details & Actions */}
             <div>
               <div style={{ 
                 display: 'flex', 
@@ -484,7 +490,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
                 <div style={{ textAlign: 'right' }}>
                   <span style={{ color: '#94a3b8', display: 'block', fontSize: '0.55rem', textTransform: 'uppercase' }}>{t('card_field_est_yield')}</span>
                   <strong style={{ color: '#14f195', fontSize: '0.72rem' }}>
-                    💎 {estimatedYield}
+                    💠 {tierBadgeLabel}
                   </strong>
                 </div>
               </div>

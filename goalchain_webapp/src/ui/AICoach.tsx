@@ -205,7 +205,7 @@ export function AICoach() {
       {/* Chat Interface */}
       <div className="glass-card" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-          <h2 style={{ margin: 0, color: '#fff', fontSize: '1.1rem', fontWeight: 800 }}>{t('ai_coach_title')}</h2>
+          <div style={{ margin: 0, color: '#fff', fontSize: '1.1rem', fontWeight: 800 }}>{t('ai_coach_title')}</div>
           <button
             onClick={() => setShowSettings(!showSettings)}
             style={{ background: 'none', border: 'none', color: 'var(--text-dim)', cursor: 'pointer', fontSize: '0.8rem' }}
@@ -217,7 +217,7 @@ export function AICoach() {
         {/* API Key Settings */}
         {showSettings && (
           <div style={{ background: 'rgba(0,0,0,0.2)', padding: '12px', borderRadius: '8px', marginBottom: '10px' }}>
-            <h4 style={{ margin: '0 0 8px 0', fontSize: '0.8rem' }}>{t('ai_coach_api_settings')}</h4>
+            <div style={{ margin: '0 0 8px 0', fontSize: '0.8rem', fontWeight: 700 }}>{t('ai_coach_api_settings')}</div>
             <input
               type="password"
               value={apiKey}
@@ -273,7 +273,7 @@ export function AICoach() {
         
         {/* Advisories Tácticos */}
         <div className="glass-card" style={{ padding: '1.25rem' }}>
-          <h3 style={{ margin: '0 0 10px 0', color: '#fff', fontSize: '0.92rem', fontWeight: 800 }}>{t('ai_coach_tactical_advisories')}</h3>
+          <div style={{ margin: '0 0 10px 0', color: '#fff', fontSize: '0.92rem', fontWeight: 800 }}>{t('ai_coach_tactical_advisories')}</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             {advisories.map((adv, idx) => {
               const borderCol = adv.type === 'success' ? 'rgba(20,241,149,0.3)' : adv.type === 'warning' ? 'rgba(255,77,106,0.3)' : 'rgba(153,69,255,0.3)';
@@ -297,7 +297,7 @@ export function AICoach() {
         <div className="glass-card" style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div>
-              <h3 style={{ margin: 0, color: '#fff', fontSize: '0.92rem', fontWeight: 800 }}>{t('ai_coach_rainmaker_title')}</h3>
+              <div style={{ margin: 0, color: '#fff', fontSize: '0.92rem', fontWeight: 800 }}>{t('ai_coach_rainmaker_title')}</div>
               <span style={{ fontSize: '0.65rem', color: 'var(--text-dim)' }}>{t('ai_coach_rainmaker_subtitle')}</span>
             </div>
             <span className="simulation-badge">PYTH LIVE</span>

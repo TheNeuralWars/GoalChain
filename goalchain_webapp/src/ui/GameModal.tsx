@@ -19,10 +19,10 @@ export interface GameModalProps {
   onClose: () => void;
 }
 
-const TITLES: Record<VanillaGameId, { en: string; es: string }> = {
-  penalty: { en: 'Penalty Shootout', es: 'Tiros de Penal' },
-  pack: { en: 'Pack Opener', es: 'Apertura de Sobres' },
-  modifiers: { en: 'Modifiers Lab', es: 'Lab de Atributos' },
+const TITLES: Record<VanillaGameId, { en: string; es: string; it: string }> = {
+  penalty: { en: 'Penalty Shootout', es: 'Tiros de Penal', it: 'Calci di Rigore' },
+  pack: { en: 'Pack Opener', es: 'Apertura de Sobres', it: 'Apertura Pacchetti' },
+  modifiers: { en: 'Modifiers Lab', es: 'Lab de Atributos', it: 'Lab Attributi' },
 };
 
 const ICONS: Record<VanillaGameId, string> = {

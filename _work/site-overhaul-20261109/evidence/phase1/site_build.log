@@ -1,0 +1,18 @@
+  tokens check OK — 0 drift across goalworld_site + goalchain_webapp (11 WCAG AA pairs verified)
+  page  404.html  (7.5 KB)
+  page  about.html + about/  (17.1 KB)
+  page  book.html + book/  (14.6 KB)
+  page  cinema.html + cinema/  (11.2 KB)
+  page  collect.html + collect/  (8.4 KB)
+  page  faq.html + faq/  (14.9 KB)
+  page  index.html  (20.3 KB)
+  page  live.html + live/  (8.3 KB)
+  page  press.html + press/  (14.5 KB)
+  page  privacy.html + privacy/  (8.8 KB)
+  page  roadmap.html + roadmap/  (11.8 KB)
+  page  studio.html + studio/  (11.1 KB)
+  page  terms.html + terms/  (9.1 KB)
+  sitemap.xml  (12 urls, lastmod 2026-11-09)
+  press-kit.zip  (767 KB)
+  banned-claims check OK — 0 violations across 31 output files
+  sanity OK — 13 pages built into /workspace/goalworld-site-overhaul/goalworld_site/dist

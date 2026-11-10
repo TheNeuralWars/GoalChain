@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../i18n';
+import { getLocalizedMarketingUrl } from '../config/playNav';
 
 export function PressKit() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const [activeTab, setActiveTab] = useState<'all' | 'players' | 'backgrounds' | 'logos'>('all');
+  const [copiedBoilerplate, setCopiedBoilerplate] = useState(false);
+
+  const handleCopyBoilerplate = async () => {
+    try {
+      await navigator.clipboard.writeText(t('presskit_boilerplate_text'));
+      setCopiedBoilerplate(true);
+      setTimeout(() => setCopiedBoilerplate(false), 2400);
+    } catch {
+      // ignore clipboard error
+    }
+  };
 
   const logos = [
     { name: 'GoalChain 3D Logo Clean', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/logo_3d_clean.png', desc: 'Transparent 3D render logo' },
@@ -13,9 +25,9 @@ export function PressKit() {
 
   const players = [
     { name: 'Lionel Satoshi', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/001_lionel_satoshi.png', rarity: 'MYTHIC' },
-    { name: 'Cristiano Holdaldo', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/157_cristiano_holdaldo.png', rarity: 'MYTHIC' },
+    { name: 'Cristiano Siu-toshi', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/067_Cristiano_Siu-toshi.png', rarity: 'MYTHIC' },
     { name: 'Dibu De-Fi', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/002_dibu_de_fi.png', rarity: 'LEGENDARY' },
-    { name: 'Pedri Protocol', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/106_pedri_p2p.png', rarity: 'RARE' },
+    { name: 'Pedri Liquidity', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/046_Pedri_Liquidity.png', rarity: 'RARE' },
     { name: 'Neymar NFT', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/034_neymar_nft.png', rarity: 'LEGENDARY' },
     { name: 'Angel Di Merkle', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/nfts/transparent/006_angel_di_merkle.png', rarity: 'RARE' }
   ];
@@ -44,10 +56,10 @@ export function PressKit() {
         overflow: 'hidden'
       }}>
         {/* Decorative background glow */}
-        <div style={{
+        <div aria-hidden="true" style={{
           position: 'absolute',
           top: '-50%',
-          right: '-20%',
+          right: '0',
           width: '350px',
           height: '350px',
           background: 'radial-gradient(circle, rgba(153, 69, 255, 0.15) 0%, transparent 70%)',
@@ -66,23 +78,24 @@ export function PressKit() {
             display: 'inline-block',
             marginBottom: '0.75rem'
           }}>
-            Creator economy & UGC
+            {t('presskit_eyebrow')}
           </span>
           <h2 style={{ fontSize: '2.2rem', fontWeight: '800', marginBottom: '1rem', lineHeight: '1.2' }}>
-            Clipper & Creator Resources
+            {t('presskit_title')}
           </h2>
           <p style={{ color: '#94a3b8', fontSize: '1.05rem', lineHeight: '1.6', marginBottom: '2rem' }}>
-            Get all the high-quality assets you need to create viral clips, slideshows, and TikToks. Overlay custom characters on stadium loops, showcase pack openings, and share prediction streaks.
+            {t('presskit_sub')}
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a
-              href="https://goalworld.fun/press/PressKit_GoalChain.zip"
-              download="PressKit_GoalChain.zip"
+              href="https://goalworld.fun/assets/img/press/press-kit.zip"
+              download="press-kit.zip"
               className="press-kit-download-btn"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
+                minHeight: '44px',
                 gap: '0.75rem',
                 background: 'linear-gradient(90deg, #9945ff 0%, #7c3aed 100%)',
                 color: '#fff',
@@ -104,13 +117,31 @@ export function PressKit() {
                 e.currentTarget.style.boxShadow = '0 4px 20px rgba(153, 69, 255, 0.3)';
               }}
             >
-              📥 Download Full Kit (64 MB)
+              {t('presskit_download_btn')}
+            </a>
+            <a
+              href={getLocalizedMarketingUrl('/press.html', language)}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                minHeight: '44px',
+                background: 'rgba(229, 169, 60, 0.14)',
+                color: '#e5a93c',
+                padding: '0.85rem 1.5rem',
+                borderRadius: '8px',
+                fontWeight: '700',
+                textDecoration: 'none',
+                border: '1px solid rgba(229, 169, 60, 0.38)'
+              }}
+            >
+              {t('presskit_canonical_btn')} ↗
             </a>
             <a
               href="#guide"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
+                minHeight: '44px',
                 background: 'rgba(255, 255, 255, 0.05)',
                 color: '#e2e8f0',
                 padding: '0.85rem 1.75rem',
@@ -123,8 +154,43 @@ export function PressKit() {
               onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'; }}
               onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)'; }}
             >
-              📖 Creator Guide & Hooks
+              {t('presskit_guide_btn')}
             </a>
+          </div>
+
+          {/* Official Studio Boilerplate */}
+          <div style={{
+            marginTop: '1.5rem',
+            padding: '1.1rem 1.25rem',
+            background: 'rgba(10, 11, 14, 0.65)',
+            border: '1px solid rgba(229, 169, 60, 0.25)',
+            borderRadius: '12px'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 8 }}>
+              <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#e5a93c', letterSpacing: '0.06em' }}>
+                {t('presskit_boilerplate_label')}
+              </span>
+              <button
+                type="button"
+                onClick={handleCopyBoilerplate}
+                style={{
+                  minHeight: '44px',
+                  padding: '6px 14px',
+                  borderRadius: '8px',
+                  background: copiedBoilerplate ? 'rgba(16, 185, 129, 0.2)' : 'rgba(255, 255, 255, 0.08)',
+                  border: '1px solid rgba(255, 255, 255, 0.18)',
+                  color: copiedBoilerplate ? '#34d399' : '#f8fafc',
+                  fontSize: '0.85rem',
+                  fontWeight: 700,
+                  cursor: 'pointer'
+                }}
+              >
+                {copiedBoilerplate ? t('presskit_copied_btn') : t('presskit_copy_btn')}
+              </button>
+            </div>
+            <p style={{ margin: 0, color: '#cbd5e1', fontSize: '0.9rem', lineHeight: 1.55 }}>
+              {t('presskit_boilerplate_text')}
+            </p>
           </div>
         </div>
       </section>
@@ -132,19 +198,25 @@ export function PressKit() {
       {/* 🧭 Category Navigation Tabs */}
       <div style={{
         display: 'flex',
+        flexWrap: 'wrap',
         gap: '0.5rem',
         borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
         paddingBottom: '1rem',
         marginBottom: '2rem'
       }}>
-        {(['all', 'players', 'backgrounds', 'logos'] as const).map((tab) => (
+        {([
+          { id: 'all', label: t('presskit_tab_all') },
+          { id: 'players', label: t('presskit_tab_players') },
+          { id: 'backgrounds', label: t('presskit_tab_backgrounds') },
+          { id: 'logos', label: t('presskit_tab_logos') },
+        ] as const).map((tab) => (
           <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
             style={{
-              background: activeTab === tab ? 'rgba(153, 69, 255, 0.15)' : 'transparent',
-              border: '1px solid ' + (activeTab === tab ? 'rgba(153, 69, 255, 0.3)' : 'transparent'),
-              color: activeTab === tab ? '#c084fc' : '#94a3b8',
+              background: activeTab === tab.id ? 'rgba(153, 69, 255, 0.15)' : 'transparent',
+              border: '1px solid ' + (activeTab === tab.id ? 'rgba(153, 69, 255, 0.3)' : 'transparent'),
+              color: activeTab === tab.id ? '#c084fc' : '#94a3b8',
               padding: '0.5rem 1.25rem',
               borderRadius: '6px',
               fontSize: '0.9rem',
@@ -154,13 +226,13 @@ export function PressKit() {
               transition: 'all 0.2s ease'
             }}
           >
-            {tab === 'all' ? 'All Assets' : tab}
+            {tab.label}
           </button>
         ))}
       </div>
 
       {/* 📦 Assets Display Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 260px), 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
         
         {/* LOGOS */}
         {(activeTab === 'all' || activeTab === 'logos') && logos.map((logo, idx) => (
@@ -186,7 +258,7 @@ export function PressKit() {
               marginBottom: '1rem',
               padding: '1rem'
             }}>
-              <img src={logo.path} alt={logo.name} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+              <img src={logo.path} alt={logo.name} width={240} height={120} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <div style={{ width: '100%', textAlign: 'left' }}>
               <h4 style={{ fontWeight: '700', fontSize: '1rem', marginBottom: '0.25rem' }}>{logo.name}</h4>
@@ -209,7 +281,7 @@ export function PressKit() {
                   border: '1px solid rgba(255, 255, 255, 0.08)'
                 }}
               >
-                💾 Download Asset
+                {t('presskit_download_asset')}
               </a>
             </div>
           </div>
@@ -239,7 +311,7 @@ export function PressKit() {
               marginBottom: '1rem',
               overflow: 'hidden'
             }}>
-              <img src={player.path} alt={player.name} style={{ maxHeight: '110%', maxWidth: '100%', objectFit: 'contain' }} />
+              <img src={player.path} alt={player.name} width={240} height={240} style={{ maxHeight: '110%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <div style={{ width: '100%', textAlign: 'left' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem' }}>
@@ -272,7 +344,7 @@ export function PressKit() {
                   border: '1px solid rgba(255, 255, 255, 0.08)'
                 }}
               >
-                💾 Download Character
+                {t('presskit_download_char')}
               </a>
             </div>
           </div>
@@ -326,7 +398,7 @@ export function PressKit() {
                   border: '1px solid rgba(255, 255, 255, 0.08)'
                 }}
               >
-                💾 Download Loop
+                {t('presskit_download_loop')}
               </a>
             </div>
           </div>
@@ -342,32 +414,32 @@ export function PressKit() {
         padding: '2rem'
       }}>
         <h3 style={{ fontSize: '1.4rem', fontWeight: '800', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          📖 Clipper Playbook: How to go Viral
+          {t('presskit_playbook_title')}
         </h3>
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
           
           <div style={{ background: 'rgba(15, 23, 42, 0.2)', padding: '1.25rem', borderRadius: '8px' }}>
             <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>🎯</span>
-            <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>1. The Hook (First 3 Seconds)</h4>
+            <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>{t('presskit_step1_title')}</h4>
             <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: '1.5' }}>
-              Grab attention immediately. Use screen recordings of the **Pack Opener** or high streaks on the **Penalty Game**. People love watching pack opening luck and interactive gameplay.
+              {t('presskit_step1_desc')}
             </p>
           </div>
 
           <div style={{ background: 'rgba(15, 23, 42, 0.2)', padding: '1.25rem', borderRadius: '8px' }}>
             <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>🎬</span>
-            <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>2. Editing for Retention</h4>
+            <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>{t('presskit_step2_title')}</h4>
             <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: '1.5' }}>
-              Keep it short (10 to 15 seconds max). Use the stadium loops (vertical format) as the background, place the transparent player in the middle, and add quick text captions or sound effects.
+              {t('presskit_step2_desc')}
             </p>
           </div>
 
           <div style={{ background: 'rgba(15, 23, 42, 0.2)', padding: '1.25rem', borderRadius: '8px' }}>
             <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>📢</span>
-            <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>3. The Call to Action</h4>
+            <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>{t('presskit_step3_title')}</h4>
             <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: '1.5' }}>
-              Always direct viewers to try it themselves: *"Play for free at https://goalworld.fun"*. You can place this in the comments, bio, or as a caption overlay inside the video.
+              {t('presskit_step3_desc')}
             </p>
           </div>
 
@@ -383,7 +455,7 @@ export function PressKit() {
           fontSize: '0.9rem',
           fontWeight: '500'
         }}>
-          💡 **Recommended Hashtags**: `#GoalChain #Solana #SportsFi #WorldCup2026 #Gaming #Crypto #UGC`
+          💡 <strong>{t('presskit_tags_label')}</strong> <code>#GoalWorld #FracturedCode #TheNeuralWars #MatchdayLab #WorldCup2026 #SolanaDevnet</code>
         </div>
       </section>
 

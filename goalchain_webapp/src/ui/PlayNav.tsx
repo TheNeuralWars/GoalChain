@@ -3,6 +3,8 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   PLAY_NAV_GROUPS,
   RESOURCE_LINKS,
+  MARKETING_BASE,
+  getLocalizedMarketingUrl,
   type PlayNavItem,
   type ArcadeGameId,
 } from '../config/playNav';
@@ -11,11 +13,19 @@ import { useTranslation } from '../i18n';
 import { gameBus } from '../hooks/useGameBus';
 import { useUser } from '../contexts/UserContext';
 
+function localizeHref(href: string, language: 'en' | 'es' | 'it'): string {
+  if (href.startsWith(MARKETING_BASE)) {
+    const subPath = href.slice(MARKETING_BASE.length) || '/';
+    return getLocalizedMarketingUrl(subPath, language);
+  }
+  return href;
+}
+
 /* ----------------------------------
    Render de un item de navegación
    ---------------------------------- */
 function NavItem({ item, collapsed }: { item: PlayNavItem; collapsed: boolean }) {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const label = item.i18n ? t(item.i18n as never) : item.label;
 
   const badge = item.badge ? (
@@ -68,9 +78,10 @@ function NavItem({ item, collapsed }: { item: PlayNavItem; collapsed: boolean })
     );
   }
   if (item.href) {
+    const resolvedHref = localizeHref(item.href, language);
     return (
       <a
-        href={item.href}
+        href={resolvedHref}
         className={`gc-nav-link${collapsed ? ' gc-nav-link--icon' : ''}`}
         target={item.external ? '_blank' : undefined}
         rel={item.external ? 'noopener noreferrer' : undefined}
@@ -180,11 +191,11 @@ export function PlayNav({
     >
       {/* --- Top: brand + toggle --- */}
       <div className="gc-rail-top">
-        <Link to="/" className="gc-rail-brand" title="GoalChain Play">
-          <span className="gc-rail-brand-mark" aria-hidden>⚽</span>
+        <Link to="/" className="gc-rail-brand" title="GoalWorld · Matchday Lab">
+          <img src="/favicon.png" alt="" className="gc-rail-brand-mark" width="22" height="22" style={{ borderRadius: '6px' }} aria-hidden />
           {!collapsed && (
             <span className="gc-rail-brand-text">
-              Goal<span className="gc-rail-brand-accent">Chain</span>
+              Goal<span className="gc-rail-brand-accent">World</span>
             </span>
           )}
         </Link>
@@ -266,7 +277,7 @@ export function PlayNav({
    BOTTOM-TAB BAR (móvil <768px)
    ================================================ */
 export function PlayBottomTab() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const { user, isLoggedIn } = useUser();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const location = useLocation();
@@ -274,6 +285,20 @@ export function PlayBottomTab() {
   useEffect(() => {
     setDrawerOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setDrawerOpen(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [drawerOpen]);
+
+  const accountTo = isLoggedIn && user ? `/perfil/${user.username}` : '/crear-usuario';
+  const accountLabel = isLoggedIn && user ? `${user.avatar} @${user.username}` : `✨ ${t('nav_create_account')}`;
 
   // Un icono representativo por zona (primer item de cada grupo).
   const tabItems = PLAY_NAV_GROUPS.map((g) => {
@@ -322,15 +347,95 @@ export function PlayBottomTab() {
             );
           }
           return (
-            <a key={it.id} href={it.href} className={baseClass} aria-label={it.label}>
+            <a key={it.id} href={it.href ? localizeHref(it.href, language) : undefined} className={baseClass} aria-label={it.label}>
               <span aria-hidden>{it.icon}</span>
             </a>
           );
         })}
+        <button
+          type="button"
+          className={`gc-bottom-tab-item ${drawerOpen ? 'gc-bottom-tab-item--active' : ''}`}
+          data-mobile-nav-toggle="true"
+          aria-expanded={drawerOpen}
+          aria-controls="gc-mobile-drawer"
+          aria-label={drawerOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setDrawerOpen((o) => !o)}
+        >
+          <span aria-hidden>{drawerOpen ? '✕' : '☰'}</span>
+        </button>
       </nav>
 
-      {/* Drawer móvil para submenús (opcional, abre desde una tab) */}
-      {drawerOpen ? null : null}
+      {/* Drawer móvil para submenús (abre desde el botón de menú del bottom-tab) */}
+      {drawerOpen && (
+        <>
+          <div
+            className="gc-mobile-drawer-scrim"
+            onClick={() => setDrawerOpen(false)}
+            aria-hidden="true"
+          />
+          <aside
+            id="gc-mobile-drawer"
+            className="gc-mobile-drawer"
+            aria-label="Mobile navigation menu"
+          >
+            <div className="gc-mobile-drawer-head">
+              <span className="gc-mobile-drawer-title">GoalWorld · Matchday Lab</span>
+              <button
+                type="button"
+                className="gc-mobile-drawer-close"
+                aria-label="Close mobile menu"
+                onClick={() => setDrawerOpen(false)}
+              >
+                ✕
+              </button>
+            </div>
+            <div className="gc-mobile-drawer-body">
+              {PLAY_NAV_GROUPS.map((group) => {
+                const groupLabel = group.i18n ? t(group.i18n as never) : group.label;
+                return (
+                  <div key={group.id} className="gc-mobile-drawer-group">
+                    <div className="gc-mobile-drawer-group-title">
+                      <span aria-hidden>{group.icon}</span> {groupLabel}
+                    </div>
+                    <div className="gc-mobile-drawer-group-items">
+                      {group.items.map((item) => (
+                        <div key={item.id} onClick={() => setDrawerOpen(false)}>
+                          <NavItem item={item} collapsed={false} />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+              <div className="gc-mobile-drawer-group">
+                <div className="gc-mobile-drawer-group-title">
+                  <span aria-hidden>🏛</span> {t('nav_zone_resources' as never) || 'Resources'}
+                </div>
+                <div className="gc-mobile-drawer-group-items">
+                  {RESOURCE_LINKS.map((item) => (
+                    <div key={item.id} onClick={() => setDrawerOpen(false)}>
+                      <NavItem item={item} collapsed={false} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="gc-mobile-drawer-footer">
+                <NavLink
+                  to={accountTo}
+                  className="gc-nav-link gc-nav-link--account"
+                  onClick={() => setDrawerOpen(false)}
+                >
+                  <span className="gc-nav-link-icon" aria-hidden>👤</span>
+                  <span className="gc-nav-link-label">{accountLabel}</span>
+                </NavLink>
+                <div className="gc-mobile-drawer-lang">
+                  <LanguageToggle />
+                </div>
+              </div>
+            </div>
+          </aside>
+        </>
+      )}
     </>
   );
 }

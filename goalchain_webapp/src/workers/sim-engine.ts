@@ -302,7 +302,7 @@ export class SimEngine {
     const teamObj = isHome ? this.homeTeam : this.awayTeam;
 
     let resolvedType = eventType;
-    let desc = '';
+    const desc = '';
 
     const player = this.selectPlayer(teamObj, resolvedType === 'SHOT' || resolvedType === 'GOAL');
     const assister = resolvedType === 'GOAL' ? this.selectPlayer(teamObj) : undefined;
@@ -312,7 +312,7 @@ export class SimEngine {
       const defenderTeam = isHome ? this.awayTeam : this.homeTeam;
       const goalkeeper = defenderTeam.players.find(p => (p as any).role === 'Portero' || (p as any).position === 'GK') || defenderTeam.players[defenderTeam.players.length - 1];
       
-      let shotPowerVal = player ? this.getPlayerEffectiveShotPower(player, isHome ? 'home' : 'away') : 150;
+      const shotPowerVal = player ? this.getPlayerEffectiveShotPower(player, isHome ? 'home' : 'away') : 150;
       let gkDefVal = goalkeeper ? (goalkeeper.stamina * 0.4 + 100) : 150;
       
       if (!isHome && this.homeTactic === 'defense_total') {
@@ -405,7 +405,7 @@ export class SimEngine {
     const score = event.team === 'home' ? `${this.state.homeScore}-${this.state.awayScore}` : `${this.state.awayScore}-${this.state.homeScore}`;
     const winner = this.state.homeScore > this.state.awayScore ? this.homeTeam.name : this.awayTeam.name;
 
-    let text = template
+    const text = template
       .replace('{homeTeam}', this.homeTeam.name)
       .replace('{awayTeam}', this.awayTeam.name)
       .replace('{team}', teamName)

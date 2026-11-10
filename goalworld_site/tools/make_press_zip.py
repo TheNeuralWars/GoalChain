@@ -8,7 +8,7 @@ d = sys.argv[1]
 out = os.path.join(d, "press-kit.zip")
 with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
     for f in sorted(os.listdir(d)):
-        if f == "press-kit.zip":
+        if f in ("press-kit.zip", "press-hero-neo-veridia.jpg"):
             continue
         z.write(os.path.join(d, f), "press-kit/" + f)
 print(out)

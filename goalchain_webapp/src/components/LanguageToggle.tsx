@@ -1,66 +1,65 @@
 import React from 'react';
 import { useTranslation } from '../i18n';
+import type { Language } from '../i18n/translations';
 
-/**
- * Language switcher — EN / ES.
- *
- * Wired to the shared LanguageProvider, so it switches the whole UI live
- * (no reload needed) and stays in sync with every other toggle instance.
- */
-export function LanguageToggle() {
+const LOCALES: Array<{ code: Language; label: string; title: string }> = [
+  { code: 'en', label: 'EN', title: 'English' },
+  { code: 'es', label: 'ES', title: 'Español' },
+  { code: 'it', label: 'IT', title: 'Italiano' },
+];
+
+export const LanguageToggle: React.FC = () => {
   const { language, setLanguage } = useTranslation();
 
   return (
     <div
-      className="language-toggle"
+      className="lang-switch"
       role="group"
-      aria-label="Language"
-      style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
+      aria-label="Language selector"
+      data-lang-switcher="true"
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '2px',
+        padding: '3px',
+        background: 'var(--gw-bg-elev, #12141c)',
+        border: '1px solid var(--gw-border, rgba(255, 255, 255, 0.08))',
+        borderRadius: '999px',
+        fontFamily: 'var(--gw-font-mono, "JetBrains Mono", monospace)',
+      }}
     >
-      <button
-        type="button"
-        onClick={() => setLanguage('en')}
-        className={`lang-btn ${language === 'en' ? 'active' : ''}`}
-        style={{
-          padding: '4px 10px',
-          borderRadius: '6px',
-          fontSize: '0.7rem',
-          fontWeight: 800,
-          cursor: 'pointer',
-          border: '1px solid rgba(255,255,255,0.15)',
-          background: language === 'en' ? 'var(--primary-neon)' : 'rgba(255,255,255,0.03)',
-          color: language === 'en' ? '#000' : '#fff',
-          transition: 'all 0.2s ease',
-        }}
-        aria-pressed={language === 'en'}
-        aria-label="EN — English"
-        title="English"
-        lang="en"
-      >
-        EN
-      </button>
-      <button
-        type="button"
-        onClick={() => setLanguage('es')}
-        className={`lang-btn ${language === 'es' ? 'active' : ''}`}
-        style={{
-          padding: '4px 10px',
-          borderRadius: '6px',
-          fontSize: '0.7rem',
-          fontWeight: 800,
-          cursor: 'pointer',
-          border: '1px solid rgba(255,255,255,0.15)',
-          background: language === 'es' ? 'var(--primary-neon)' : 'rgba(255,255,255,0.03)',
-          color: language === 'es' ? '#000' : '#fff',
-          transition: 'all 0.2s ease',
-        }}
-        aria-pressed={language === 'es'}
-        aria-label="ES — Español"
-        title="Español"
-        lang="es"
-      >
-        ES
-      </button>
+      {LOCALES.map(({ code, label, title }) => {
+        const active = language === code;
+        return (
+          <button
+            key={code}
+            type="button"
+            className={`lang-pill${active ? ' active' : ''}`}
+            title={title}
+            aria-label={title}
+            aria-pressed={active}
+            data-lang-choice={code}
+            onClick={() => setLanguage(code)}
+            style={{
+              background: active ? 'rgba(229, 169, 60, 0.18)' : 'transparent',
+              color: active ? '#e5a93c' : '#9ca0ab',
+              border: active ? '1px solid rgba(229, 169, 60, 0.4)' : '1px solid transparent',
+              borderRadius: '999px',
+              padding: '4px 10px',
+              minWidth: '44px',
+              minHeight: '44px',
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              cursor: 'pointer',
+              transition: 'background 0.16s ease, color 0.16s ease',
+              lineHeight: 1.2,
+            }}
+          >
+            {label}
+          </button>
+        );
+      })}
     </div>
   );
-}
+};

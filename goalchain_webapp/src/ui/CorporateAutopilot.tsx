@@ -201,8 +201,8 @@ function EconomyDiagram({ highlighted }: { highlighted: boolean }) {
 // ─────────────────────────────────────────────────────────────────────────────
 export function CorporateAutopilot() {
   const apiBase = apiBaseUrl();
-  const { language } = useTranslation();
-  const tText = useCallback((en: string, es: string) => (language === 'es' ? es : en), [language]);
+  const { language, t: translate } = useTranslation();
+  const tText = useCallback((en: string, es: string, it?: string) => (language === 'es' ? es : language === 'it' ? (it ?? en) : en), [language]);
 
   // Core state
   const [balance, setBalance]         = useState({ available: 4250.00, pending: 125.00, currency: 'USD' });
@@ -291,7 +291,12 @@ export function CorporateAutopilot() {
     const poll = async () => {
       try {
         const r = await fetch(`${apiBase}/api/ops/agent-wallet`);
-        if (r.ok) { const d = await r.json(); setAgentWallet(d); }
+        if (r.ok) {
+          const d = await r.json();
+          if (typeof d?.balance_usd === 'number' && Array.isArray(d?.funding_events) && Array.isArray(d?.spend_events)) {
+            setAgentWallet(d);
+          }
+        }
       } catch { /* fallback to local state */ }
     };
     poll();
@@ -307,8 +312,8 @@ export function CorporateAutopilot() {
         const d = await r.json();
         setThreads(d);
       }
-    } catch (e) {
-      console.error("Failed to fetch threads:", e);
+    } catch {
+      /* fallback to local Devnet sandbox threads */
     } finally {
       setLoadingThreads(false);
     }
@@ -321,8 +326,8 @@ export function CorporateAutopilot() {
         const d = await r.json();
         setSelectedThreadState(d);
       }
-    } catch (e) {
-      console.error("Failed to fetch thread state:", e);
+    } catch {
+      /* fallback to local state */
     }
   }, [apiBase]);
 
@@ -473,7 +478,7 @@ export function CorporateAutopilot() {
 
     if (scenarioId === 'pay_contributor') {
       t(0,    () => { addLog(tText('🚀 SCENARIO: Contributor Bounty Payout', '🚀 ESCENARIO: Pago de Recompensa a Colaborador')); setNodeStatus('CEO', 'thinking'); setSwarmHops(1); });
-      t(1000, () => addLog(tText('[CEO] GitHub Issue #834 "Dynamic Staking Yield Dashboard" marked RESOLVED by @NicoPez.', '[CEO] Incidencia de GitHub #834 "Panel de rendimiento de staking dinámico" marcada como RESUELTA por @NicoPez.')));
+      t(1000, () => addLog(tText('[CEO] GitHub Issue #834 "Dynamic Matchday Telemetry Dashboard" marked RESOLVED by @NicoPez.', '[CEO] Incidencia de GitHub #834 "Panel de rendimiento de telemetría dinámica" marcada como RESUELTA por @NicoPez.')));
       t(2200, () => { addLog(tText('[CEO → Dev] Verify code quality before authorizing payout.', '[CEO → Dev] Verificar calidad del código antes de autorizar el pago.')); setNodeStatus('Dev', 'thinking'); setSwarmHops(2); });
       t(3400, () => { addLog(tText('[Dev] Build: ✅ passes. Tests: 40/40. No lint warnings. Contribution verified.', '[Dev] Construcción: ✅ pasa. Pruebas: 40/40. Sin advertencias de linter. Contribución verificada.')); setNodeStatus('CEO', 'thinking'); setSwarmHops(3); });
       t(4600, () => addLog(tText('[CEO] Initiating Stripe Transfer: $100.00 → @NicoPez (auto-approved, ≤$500 threshold).', '[CEO] Iniciando transferencia de Stripe: $100.00 → @NicoPez (auto-aprobado, umbral ≤$500).')));
@@ -570,7 +575,7 @@ export function CorporateAutopilot() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
             <span style={{ fontSize: '1.8rem' }}>⚡</span>
             <h2 style={{ margin: 0, fontSize: '1.6rem', fontWeight: 900, letterSpacing: '-0.02em' }}>
-              GoalChain Autopilot Corp
+              {translate('autopilot_title')}
             </h2>
           </div>
           <p style={{ margin: 0, fontSize: '0.85rem', color: '#94a3b8', maxWidth: 520 }}>
@@ -663,7 +668,7 @@ export function CorporateAutopilot() {
       </section>
 
       {/* ── MAIN GRID: SWARM + TERMINAL ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
 
         {/* SWARM TOPOLOGY */}
         <section style={{
@@ -736,16 +741,17 @@ export function CorporateAutopilot() {
       </div>
 
       {/* ── BOTTOM GRID: DATA PANELS ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
 
         {/* TABBED DATA PANEL */}
         <section style={{
           background: 'rgba(10,10,22,0.7)', border: '1px solid rgba(255,255,255,0.07)',
           borderRadius: '14px', padding: '20px', backdropFilter: 'blur(10px)',
           display: 'flex', flexDirection: 'column', gap: '12px',
+          minWidth: 0,
         }}>
           {/* Tab bar */}
-          <div style={{ display: 'flex', gap: '8px', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '12px' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '12px' }}>
             {([['wallet', tText('💳 Agent Wallet', '💳 Monedero Agente')], ['ledger', tText('📊 Corp Ledger', '📊 Libro Corp')], ['safety', tText('🛡️ NemoClaw', '🛡️ NemoClaw')], ['threads', tText('📟 Swarm Threads', '📟 Hilos Swarm')]] as const).map(([tab, label]) => (
               <button key={tab} onClick={() => setActiveTab(tab)} style={{
                 padding: '6px 14px', borderRadius: '8px', fontSize: '0.72rem', fontWeight: 700, cursor: 'pointer',

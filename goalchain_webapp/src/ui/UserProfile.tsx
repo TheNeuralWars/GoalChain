@@ -36,10 +36,10 @@ const MOCK_PROFILES: Record<string, any> = {
     followersCount: 84,
     stats: { balance: 2340.50, totalBets: 47, winRate: 68.1, nftsOwned: 12, upgradesDone: 3, totalVolume: 18920.00, rank: 'Gold', xp: 4210 },
     recentActivity: [
-      { type: 'BET',     descKey: 'profile_act_1', amount: '+320 USDC', date: '2026-05-23', positive: true },
-      { type: 'NFT',     descKey: 'profile_act_2', amount: '-180 USDC', date: '2026-05-22', positive: false },
-      { type: 'UPGRADE', descKey: 'profile_act_3', amount: '-50 USDC',  date: '2026-05-21', positive: false },
-      { type: 'BET',     descKey: 'profile_act_4', amount: '+150 USDC', date: '2026-05-20', positive: true },
+      { type: 'BET',     descKey: 'profile_act_1', amount: '+320 GCH (Devnet)', date: '2026-05-23', positive: true },
+      { type: 'NFT',     descKey: 'profile_act_2', amount: '-180 GCH (Devnet)', date: '2026-05-22', positive: false },
+      { type: 'UPGRADE', descKey: 'profile_act_3', amount: '-50 GCH (Devnet)',  date: '2026-05-21', positive: false },
+      { type: 'BET',     descKey: 'profile_act_4', amount: '+150 GCH (Devnet)', date: '2026-05-20', positive: true },
     ],
     nfts: [
       { name: 'Enzo Bit', rarity: 'Gold',   emoji: '⚽', level: 3 },
@@ -58,8 +58,8 @@ const MOCK_PROFILES: Record<string, any> = {
     followersCount: 1250452,
     stats: { balance: 99420.00, totalBets: 154, winRate: 88.5, nftsOwned: 35, upgradesDone: 15, totalVolume: 992450.00, rank: 'Gold', xp: 48900 },
     recentActivity: [
-      { type: 'BET', descKey: 'profile_act_5', amount: '+5,000 USDC', date: '2026-05-25', positive: true },
-      { type: 'NFT', descKey: 'profile_act_6', amount: '+0 USDC', date: '2026-05-20', positive: true },
+      { type: 'BET', descKey: 'profile_act_5', amount: '+5,000 GCH (Devnet)', date: '2026-05-25', positive: true },
+      { type: 'NFT', descKey: 'profile_act_6', amount: '+0 GCH (Devnet)', date: '2026-05-20', positive: true },
     ],
     nfts: [
       { name: 'Messi Satoshi', rarity: 'Gold', emoji: '👑', level: 5 },
@@ -84,7 +84,7 @@ const getProfileData = (username: string) => {
     followersCount: 12,
     stats: { balance: 50.00, totalBets: 2, winRate: 50.0, nftsOwned: 0, upgradesDone: 0, totalVolume: 100.00, rank: 'Bronze', xp: 120 },
     recentActivity: [
-      { type: 'BET', descKey: 'profile_act_7', amount: '+10 USDC', date: '2026-06-25', positive: true },
+      { type: 'BET', descKey: 'profile_act_7', amount: '+10 GCH (Devnet)', date: '2026-06-25', positive: true },
     ],
     nfts: [],
   };
@@ -401,7 +401,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
           <div className="profile-avatar-wrapper">
             <div className="profile-avatar-large-circle">
               {profile.customPhotoUrl ? (
-                <img src={profile.customPhotoUrl} alt={profile.username} />
+                <img src={profile.customPhotoUrl} alt={profile.username} width={96} height={96} />
               ) : (
                 <span>{profile.avatar}</span>
               )}
@@ -512,7 +512,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
               {/* Photo Uploader */}
               <div className="avatar-upload-container">
                 <div className="avatar-upload-preview">
-                  {editPhotoUrl ? <img src={editPhotoUrl} alt="Preview" /> : <span>{profile.avatar}</span>}
+                  {editPhotoUrl ? <img src={editPhotoUrl} alt="Preview" width={64} height={64} /> : <span>{profile.avatar}</span>}
                 </div>
                 <div className="avatar-upload-btn-wrap">
                   <input 
@@ -739,7 +739,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
               <div className="overview-card">
                 <h2>💰 {t('profile_current_balance')}</h2>
                 <div className="big-number" style={{ color: '#14f195', fontSize: '1.8rem', fontWeight: 900, marginTop: '8px' }}>
-                  {chainStats ? t('profile_base_units', { value: fmtNum(effectiveBalance) }) : `$${fmtNum(profile.stats.balance, { minimumFractionDigits: 2 })} USDC`}
+                  {chainStats ? t('profile_base_units', { value: fmtNum(effectiveBalance) }) : `$${fmtNum(profile.stats.balance, { minimumFractionDigits: 2 })} GCH (Devnet)`}
                 </div>
                 {chainStats && (
                   <div style={{ marginTop: 6, fontSize: '0.75rem', opacity: 0.8, color: '#64748b' }}>
@@ -857,7 +857,7 @@ export const UserProfile: React.FC<UserProfileProps> = ({ username: propUsername
                       <div className="feed-post-author-info">
                         <div className="feed-post-avatar">
                           {post.customPhotoUrl ? (
-                            <img src={post.customPhotoUrl} alt={post.username} />
+                            <img src={post.customPhotoUrl} alt={post.username} width={42} height={42} />
                           ) : (
                             <span>{post.avatar}</span>
                           )}

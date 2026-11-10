@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useParams, Link } from 'react-router-dom';
 
 import { LanguageProvider, useTranslation } from '../i18n/index';
 import type { TranslationKeys } from '../i18n/translations';
@@ -34,18 +34,22 @@ function PlayPage({
   titleKey,
   children,
   align = 'center',
+  hideHero = false,
 }: {
   titleKey: keyof TranslationKeys;
   children: React.ReactNode;
   align?: 'center' | 'left';
+  hideHero?: boolean;
 }) {
   const { t } = useTranslation();
   return (
     <div className="play-page play-page--grid">
-      <div className="play-page-hero play-page-hero--compact">
-        <h1>{t(titleKey)}</h1>
-      </div>
-      <main className={`play-page-main play-page-main--${align}`}>{children}</main>
+      {!hideHero && (
+        <div className="play-page-hero play-page-hero--compact">
+          <h1>{t(titleKey)}</h1>
+        </div>
+      )}
+      <div className={`play-page-main play-page-main--${align}`}>{children}</div>
     </div>
   );
 }
@@ -94,6 +98,153 @@ function RouteFallback() {
   );
 }
 
+function NotFoundPage() {
+  const { t } = useTranslation();
+  return (
+    <div className="play-page play-page--grid" style={{ maxWidth: 820, margin: '2rem auto' }}>
+      <div className="glass-card" style={{ padding: '28px 30px', borderRadius: 18, border: '1px solid rgba(229, 169, 60, 0.28)' }}>
+        <div style={{ color: '#e5a93c', fontFamily: 'var(--font-mono, monospace)', fontSize: '0.82rem', fontWeight: 700, marginBottom: 8 }}>
+          404 · MATCHDAY LAB
+        </div>
+        <h1 style={{ margin: '0 0 10px 0', fontSize: 'clamp(1.4rem, 2.5vw, 1.9rem)', color: '#f8fafc' }}>
+          {t('app_404_title')}
+        </h1>
+        <p style={{ color: '#94a3b8', fontSize: '0.96rem', lineHeight: 1.55, margin: '0 0 20px 0' }}>
+          {t('app_404_sub')}
+        </p>
+        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+          <Link
+            to="/dashboard"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              minHeight: 44,
+              padding: '10px 18px',
+              borderRadius: 10,
+              background: '#e5a93c',
+              color: '#0a0b0e',
+              fontWeight: 800,
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+            }}
+          >
+            🏠 {t('route_home')}
+          </Link>
+          <Link
+            to="/estadio?tab=simulator"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              minHeight: 44,
+              padding: '10px 18px',
+              borderRadius: 10,
+              background: 'rgba(16, 185, 129, 0.16)',
+              border: '1px solid rgba(16, 185, 129, 0.35)',
+              color: '#34d399',
+              fontWeight: 700,
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+            }}
+          >
+            {t('devnet_cta_first_match')}
+          </Link>
+          <Link
+            to="/goalworld"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              minHeight: 44,
+              padding: '10px 18px',
+              borderRadius: 10,
+              background: 'rgba(255, 255, 255, 0.06)',
+              border: '1px solid rgba(255, 255, 255, 0.14)',
+              color: '#f8fafc',
+              fontWeight: 700,
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+            }}
+          >
+            🌌 {t('route_goalworld')}
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+class RouteErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <ErrorFallbackView onReset={() => this.setState({ hasError: false })} />;
+    }
+    return this.props.children;
+  }
+}
+
+function ErrorFallbackView({ onReset }: { onReset: () => void }) {
+  const { t } = useTranslation();
+  return (
+    <div role="alert" className="glass-card" style={{ maxWidth: 680, margin: '2rem auto', padding: '24px 26px', borderRadius: 16, border: '1px solid rgba(248,113,113,0.35)' }}>
+      <h2 style={{ margin: '0 0 8px 0', color: '#fca5a5', fontSize: '1.25rem' }}>
+        ⚠️ {t('app_error_title')}
+      </h2>
+      <p style={{ color: '#cbd5e1', fontSize: '0.92rem', margin: '0 0 16px 0' }}>
+        {t('app_error_sub')}
+      </p>
+      <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+        <button
+          type="button"
+          onClick={onReset}
+          style={{
+            minHeight: 44,
+            padding: '8px 16px',
+            borderRadius: 10,
+            background: '#e5a93c',
+            border: 'none',
+            color: '#0a0b0e',
+            fontWeight: 800,
+            fontSize: '0.9rem',
+            cursor: 'pointer',
+          }}
+        >
+          🔄 Reset View
+        </button>
+        <Link
+          to="/dashboard"
+          onClick={onReset}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            minHeight: 44,
+            padding: '8px 16px',
+            borderRadius: 10,
+            background: 'rgba(255,255,255,0.08)',
+            border: '1px solid rgba(255,255,255,0.18)',
+            color: '#f8fafc',
+            fontWeight: 700,
+            fontSize: '0.9rem',
+            textDecoration: 'none',
+          }}
+        >
+          🏠 {t('route_home')}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   return (
     <LanguageProvider>
@@ -101,9 +252,10 @@ function App() {
         <WalletGateProvider>
           <BrowserRouter>
             <WalletGateBridge>
-              <React.Suspense fallback={<RouteFallback />}>
-                <Routes>
-                  <Route element={<PlayLayout />}>
+              <RouteErrorBoundary>
+                <React.Suspense fallback={<RouteFallback />}>
+                  <Routes>
+                    <Route element={<PlayLayout />}>
                     <Route
                       path="/"
                       element={<LandingPage />}
@@ -111,7 +263,7 @@ function App() {
                     <Route
                       path="/dashboard"
                       element={
-                        <PlayPage titleKey="route_home" align="left">
+                        <PlayPage titleKey="route_home" align="left" hideHero>
                           <DashboardGrid />
                         </PlayPage>
                       }
@@ -119,7 +271,7 @@ function App() {
                     <Route
                       path="/estadio"
                       element={
-                        <PlayPage titleKey="route_estadio" align="left">
+                        <PlayPage titleKey="route_estadio" align="left" hideHero>
                           <EstadioPortal />
                         </PlayPage>
                       }
@@ -127,7 +279,7 @@ function App() {
                     <Route
                       path="/defi"
                       element={
-                        <PlayPage titleKey="route_defi" align="left">
+                        <PlayPage titleKey="route_defi" align="left" hideHero>
                           <DeFiPortal />
                         </PlayPage>
                       }
@@ -135,7 +287,7 @@ function App() {
                     <Route
                       path="/club"
                       element={
-                        <PlayPage titleKey="route_club" align="left">
+                        <PlayPage titleKey="route_club" align="left" hideHero>
                           <ClubPortal />
                         </PlayPage>
                       }
@@ -143,7 +295,7 @@ function App() {
                     <Route
                       path="/goalworld"
                       element={
-                        <PlayPage titleKey="route_goalworld" align="left">
+                        <PlayPage titleKey="route_goalworld" align="left" hideHero>
                           <GoalWorldPortal />
                         </PlayPage>
 
@@ -152,8 +304,8 @@ function App() {
                     <Route
                       path="/staking"
                       element={
-                        <React.Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Loading Staking Dashboard...</div>}>
-                          <PlayPage titleKey="route_staking" align="left">
+                        <React.Suspense fallback={<div style={{ color: '#64748b', padding: '2rem', textAlign: 'center' }}>Loading Lab Dashboard...</div>}>
+                          <PlayPage titleKey="route_staking" align="left" hideHero>
                             <StakingBurnDashboard />
                           </PlayPage>
                         </React.Suspense>
@@ -162,7 +314,7 @@ function App() {
                     <Route
                       path="/marketing-control"
                       element={
-                        <PlayPage titleKey="route_marketing" align="left">
+                        <PlayPage titleKey="route_marketing" align="left" hideHero>
                           <MarketingControlCenter />
                         </PlayPage>
                       }
@@ -207,10 +359,12 @@ function App() {
                     <Route path="/read" element={<ReaderPage />} />
                     <Route path="/studio" element={<AuthorStudio />} />
                     <Route path="/editorial" element={<AuthorStudio />} />
+                    <Route path="*" element={<NotFoundPage />} />
                   </Route>
                 </Routes>
               </React.Suspense>
-            </WalletGateBridge>
+            </RouteErrorBoundary>
+          </WalletGateBridge>
           </BrowserRouter>
         </WalletGateProvider>
       </UserProvider>

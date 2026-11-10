@@ -1,0 +1,58 @@
+{
+  "surface": "home",
+  "app": "goalworld_site",
+  "mode": "mobile",
+  "fetchTime": "2026-11-10T00:33:24.511Z",
+  "scores": {
+    "performance": 97,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "coreVitals": {
+    "fcp": "1.0 s",
+    "lcp": "2.6 s",
+    "tbt": "0 ms",
+    "cls": "0",
+    "si": "1.0 s"
+  },
+  "note": null,
+  "topDiagnostics": [
+    {
+      "id": "largest-contentful-paint-element",
+      "title": "Largest Contentful Paint element",
+      "score": 0,
+      "displayValue": "2,630 ms"
+    },
+    {
+      "id": "image-delivery-insight",
+      "title": "Improve image delivery",
+      "score": 0,
+      "displayValue": "Est savings of 69 KiB"
+    },
+    {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0,
+      "displayValue": null
+    },
+    {
+      "id": "max-potential-fid",
+      "title": "Max Potential First Input Delay",
+      "score": 22,
+      "displayValue": "370 ms"
+    },
+    {
+      "id": "render-blocking-resources",
+      "title": "Eliminate render-blocking resources",
+      "score": 50,
+      "displayValue": "Est savings of 0 ms"
+    },
+    {
+      "id": "modern-image-formats",
+      "title": "Serve images in next-gen formats",
+      "score": 50,
+      "displayValue": "Est savings of 10 KiB"
+    }
+  ]
+}

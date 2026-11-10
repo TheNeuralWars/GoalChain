@@ -1,0 +1,54 @@
+{
+  "surface": "play-home",
+  "url": "https://play.goalworld.fun/",
+  "mode": "desktop",
+  "fetchTime": "2026-11-09T17:47:52.611Z",
+  "scores": {
+    "performance": 99,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "coreVitals": {
+    "fcp": "0.4 s",
+    "lcp": "0.4 s",
+    "tbt": "80 ms",
+    "cls": "0",
+    "si": "0.9 s"
+  },
+  "topOpportunities": [
+    {
+      "id": "unused-css-rules",
+      "title": "Reduce unused CSS",
+      "score": 0,
+      "displayValue": "Est savings of 16 KiB",
+      "savingsMs": 40,
+      "savingsBytes": 16135
+    },
+    {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0,
+      "displayValue": null,
+      "savingsMs": null,
+      "savingsBytes": null
+    },
+    {
+      "id": "render-blocking-insight",
+      "title": "Render-blocking requests",
+      "score": 50,
+      "displayValue": null,
+      "savingsMs": null,
+      "savingsBytes": null
+    },
+    {
+      "id": "max-potential-fid",
+      "title": "Max Potential First Input Delay",
+      "score": 82,
+      "displayValue": "160 ms",
+      "savingsMs": null,
+      "savingsBytes": null
+    }
+  ],
+  "additionalDiagnostics": []
+}

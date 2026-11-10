@@ -1,0 +1,53 @@
+
+> goalchain_webapp@0.0.0 build
+> node ../design/sync-tokens.mjs --check && node scripts/check-banned-claims.mjs && tsc && vite build
+
+  tokens check OK — 0 drift across goalworld_site + goalchain_webapp (11 WCAG AA pairs verified)
+check-banned-claims: OK — 0 violations across 96 files
+vite v5.4.21 building for production...
+transforming...
+✓ 524 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                     3.23 kB │ gzip:   1.02 kB
+dist/assets/wallet-adapter-CuhqgDVu.css             4.86 kB │ gzip:   1.37 kB
+dist/assets/index-of1VLgKA.css                     99.77 kB │ gzip:  19.30 kB
+dist/assets/explorerLinks-Be7T4ckB.js               0.15 kB │ gzip:   0.14 kB
+dist/assets/WalletProviders-Cb6akrOy.js             0.82 kB │ gzip:   0.48 kB
+dist/assets/LiveEventFeed-A60vTRG_.js               2.49 kB │ gzip:   1.17 kB
+dist/assets/GenesisCollectionGallery-PkHPcl2z.js    2.82 kB │ gzip:   1.36 kB
+dist/assets/EstadioPortal-Wmq_xl1P.js               4.01 kB │ gzip:   1.15 kB
+dist/assets/NFTMarketplace-BR7xv-cg.js              4.51 kB │ gzip:   2.05 kB
+dist/assets/DeFiPortal-DghayYpB.js                  5.94 kB │ gzip:   2.35 kB
+dist/assets/CreateUser-B9tuvw9W.js                  6.58 kB │ gzip:   2.05 kB
+dist/assets/TokenizedAgentsDashboard-DbDZWXv3.js    7.47 kB │ gzip:   2.31 kB
+dist/assets/AICommentator-BycVdDJV.js               8.82 kB │ gzip:   2.94 kB
+dist/assets/SwarmVaults-DoYpe5wn.js                 8.94 kB │ gzip:   2.50 kB
+dist/assets/LayeredNftCard-DCG25tom.js             11.27 kB │ gzip:   3.61 kB
+dist/assets/PressKit-RoQAbL7E.js                   12.62 kB │ gzip:   3.18 kB
+dist/assets/AuthorStudio-DcKFCDOb.js               12.66 kB │ gzip:   4.76 kB
+dist/assets/ClubPortal-Dw8C3Rtt.js                 16.74 kB │ gzip:   5.05 kB
+dist/assets/TradingTerminal-Dh7MM8Rn.js            17.39 kB │ gzip:   4.83 kB
+dist/assets/MarketingControlCenter-DMT0AU6u.js     21.91 kB │ gzip:   6.07 kB
+dist/assets/UserProfile-Cne_oRTF.js                24.30 kB │ gzip:   6.59 kB
+dist/assets/WorldCupPredictor-DwC4O7s5.js          25.34 kB │ gzip:   4.58 kB
+dist/assets/StakingBurnDashboard-Cz-padZ2.js       27.05 kB │ gzip:   8.35 kB
+dist/assets/FixturesPanel-BdqmePvv.js              27.22 kB │ gzip:   5.65 kB
+dist/assets/polyfill-DG-Uutyh.js                   27.67 kB │ gzip:   8.44 kB
+dist/assets/KindleReader-CFrqlZT0.js               28.27 kB │ gzip:   9.23 kB
+dist/assets/MatchSimulator-B8JzCf9o.js             47.24 kB │ gzip:  12.09 kB
+dist/assets/goalchainClient-v4j1hCVN.js            48.83 kB │ gzip:   9.47 kB
+dist/assets/en-iPuUT_fs.js                         56.53 kB │ gzip:  19.99 kB
+dist/assets/es-C5aht-OU.js                         58.54 kB │ gzip:  21.07 kB
+dist/assets/GoalWorldPortal-BdKLc5J5.js            62.44 kB │ gzip:  16.48 kB
+dist/assets/CorporateAutopilot-W3Hs7RIX.js         69.60 kB │ gzip:  20.01 kB
+dist/assets/index-E8Kagb1S.js                      97.35 kB │ gzip:  31.15 kB
+dist/assets/wallet-adapter-B790VZpR.js            136.50 kB │ gzip:  43.56 kB
+dist/assets/react-vendor-CGBXU2CE.js              142.42 kB │ gzip:  45.61 kB
+dist/assets/solana-core-_inBLhuB.js               418.11 kB │ gzip: 120.57 kB
+✓ built in 3.94s
+
+> goalchain_webapp@0.0.0 check:i18n
+> node scripts/check-i18n-keys.mjs
+
+check-i18n-keys: OK — 380 used keys all present in en+es, 694 dictionary keys, en/es/type in sync

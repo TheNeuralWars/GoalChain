@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { apiBaseUrl } from '../lib/opsClient';
+import { useTranslation } from '../i18n';
 
 interface Comment {
   timestamp: string;
@@ -204,6 +205,8 @@ function VideoCard({
               <img
                 src={run.image_url}
                 alt="frame"
+                width={220}
+                height={390}
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
             )}
@@ -510,6 +513,7 @@ function EditModal({ run, onSave, onClose }: {
 
 // ── Main Component ────────────────────────────────────────────────────────────
 export function MarketingControlCenter() {
+  const { t } = useTranslation();
   const apiBase = apiBaseUrl();
 
   const [runs, setRuns] = useState<MarketingRun[]>([]);
@@ -667,7 +671,7 @@ export function MarketingControlCenter() {
       {/* ── HEADER ── */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <h1 style={{ margin: 0, fontSize: '1.4rem' }}>🦅 Hermes Pilot</h1>
+          <h1 style={{ margin: 0, fontSize: '1.4rem' }}>{t('hermes_pilot_title')}</h1>
           <span style={{ fontSize: '0.7rem', color: daemonColor, fontWeight: 800, letterSpacing: '0.5px' }}>
             {daemonLabel}
           </span>
@@ -686,7 +690,7 @@ export function MarketingControlCenter() {
               border: `1px solid ${filter === f ? 'rgba(153,69,255,0.5)' : 'rgba(255,255,255,0.06)'}`,
               color: filter === f ? '#9945ff' : 'rgba(255,255,255,0.5)', cursor: 'pointer',
             }}>
-              {f === 'all' ? 'Todo' : f === 'planned' ? '📋 Cola' : f}
+              {f === 'all' ? t('hermes_filter_all') : f === 'planned' ? t('hermes_filter_queue') : f}
             </button>
           ))}
         </div>
@@ -709,12 +713,12 @@ export function MarketingControlCenter() {
           />
           <button id="wake-hermes-btn" type="submit" disabled={triggering || !daemon.is_online}
             style={{ padding: '7px 16px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 800, cursor: 'pointer', whiteSpace: 'nowrap', background: 'rgba(153,69,255,0.2)', border: '1px solid rgba(153,69,255,0.5)', color: '#9945ff', opacity: (!daemon.is_online || triggering) ? 0.5 : 1 }}>
-            {triggering ? '...' : '🚀 Generar'}
+            {triggering ? '...' : t('hermes_generate_btn')}
           </button>
           <button id="fill-queue-btn" type="button" onClick={handleResearch}
             disabled={researching || !daemon.is_online}
             style={{ padding: '7px 16px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 800, cursor: 'pointer', whiteSpace: 'nowrap', background: 'rgba(20,241,149,0.12)', border: '1px solid rgba(20,241,149,0.35)', color: '#14f195', opacity: (!daemon.is_online || researching) ? 0.5 : 1 }}>
-            {researching ? '...' : '🧠 Llenar Cola'}
+            {researching ? '...' : t('hermes_fill_queue_btn')}
           </button>
           <button id="toggle-console-btn" type="button" onClick={() => setShowConsole(v => !v)}
             style={{ padding: '7px 10px', borderRadius: '8px', fontSize: '0.72rem', background: showConsole ? 'rgba(20,241,149,0.1)' : 'rgba(255,255,255,0.04)', border: `1px solid ${showConsole ? 'rgba(20,241,149,0.3)' : 'rgba(255,255,255,0.07)'}`, color: showConsole ? '#14f195' : 'rgba(255,255,255,0.4)', cursor: 'pointer' }}>

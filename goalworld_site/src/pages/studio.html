@@ -1,62 +1,248 @@
-<!-- meta {"slug":"studio","title":"The Studio · GoalWorld","description":"How GoalWorld turns a manuscript into a canon-locked book, film and interactive story. Built for The Neural Wars, opening to a small cohort of authors.","nav":"STUDIO","preload":""} -->
-<section class="section">
-  <div class="wrap">
-    <p class="kicker">The studio</p>
-    <h1>From manuscript to living world.</h1>
-    <p class="lead">We built a pipeline to take one novel from draft to a finished book, a film in progress and an interactive story &mdash; all from the same canon. Next, we open it to a few other authors.</p>
-    <div class="btn-row"><a class="btn btn-primary" href="#authors">Authors: first cohort</a><a class="btn btn-ghost" href="#living-canon">See Living Canon</a></div>
-  </div>
-</section>
+<!-- meta {"slug":"studio","title":"$t:studio.meta.title","description":"$t:studio.meta.description","nav":"STUDIO","preload":""} -->
+<!-- @component hero {
+  "variant": "compact",
+  "kicker": true,
+  "eyebrow": "$t:studio.hero.eyebrow",
+  "title": "$t:studio.hero.title",
+  "lead": "$t:studio.hero.lead",
+  "ctas": [
+    { "label": "$t:studio.hero.cta_authors", "href": "#authors", "variant": "primary" },
+    { "label": "$t:studio.hero.cta_living", "href": "#living-canon", "variant": "ghost" }
+  ]
+} -->
 
 <section class="section band" id="case">
   <div class="wrap">
-    <p class="kicker">Case study #1</p>
-    <h2>Fractured Code: draft &rarr; book.</h2>
-    <div class="grid grid-3" style="margin-top:1.5rem">
-      <div class="card"><span class="video-tag" style="color:var(--green)">Phase 1</span><h3>Diagnose &amp; redesign</h3><p>A full structural read, then a story memo the author approves before a single line is rewritten.</p></div>
-      <div class="card"><span class="video-tag" style="color:var(--green)">Phase 2</span><h3>Rewrite &amp; line edit</h3><p>Chapter by chapter, against the series bible. The draft grew from about 17k to about 74k words.</p></div>
-      <div class="card"><span class="video-tag" style="color:var(--green)">Phase 3</span><h3>Canon &amp; final read</h3><p>Dates, ages, names and physics checked across the whole book. Open questions go back to the author, not into the text.</p></div>
-    </div>
-    <p class="small muted" style="margin-top:1rem">Every gate is signed by the author. The voice stays theirs.</p>
+    <!-- @component section-header {
+      "kicker": "$t:studio.case.kicker",
+      "title": "$t:studio.case.title"
+    } -->
+    <!-- @component timeline {
+      "columns": 3,
+      "numbered": false,
+      "items": [
+        {
+          "badge": "$t:studio.case.p1_badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:studio.case.p1_title",
+          "body": "$t:studio.case.p1_body"
+        },
+        {
+          "badge": "$t:studio.case.p2_badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:studio.case.p2_title",
+          "body": "$t:studio.case.p2_body"
+        },
+        {
+          "badge": "$t:studio.case.p3_badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:studio.case.p3_title",
+          "body": "$t:studio.case.p3_body"
+        }
+      ]
+    } -->
+    <p class="small muted" style="margin-top:1rem">{{t:studio.case.note}}</p>
   </div>
 </section>
 
-<section class="section" id="living-canon">
+<section class="section" id="gates">
+  <div class="wrap">
+    <!-- @component section-header {
+      "kicker": "$t:studio.gates.kicker",
+      "title": "$t:studio.gates.title",
+      "lead": "$t:studio.gates.lead"
+    } -->
+    <!-- @component timeline {
+      "columns": 4,
+      "numbered": false,
+      "items": [
+        {
+          "badge": "$t:studio.gates.g0_badge",
+          "badgeColor": "var(--code-text)",
+          "title": "$t:studio.gates.g0_title",
+          "body": "$t:studio.gates.g0_body"
+        },
+        {
+          "badge": "$t:studio.gates.g1_badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:studio.gates.g1_title",
+          "body": "$t:studio.gates.g1_body"
+        },
+        {
+          "badge": "$t:studio.gates.g2_badge",
+          "badgeColor": "var(--gw-success-text)",
+          "title": "$t:studio.gates.g2_title",
+          "body": "$t:studio.gates.g2_body"
+        },
+        {
+          "badge": "$t:studio.gates.g3_badge",
+          "badgeColor": "var(--cyan)",
+          "title": "$t:studio.gates.g3_title",
+          "body": "$t:studio.gates.g3_body"
+        }
+      ]
+    } -->
+  </div>
+</section>
+
+<section class="section band" id="living-canon">
   <div class="wrap">
     <div class="grid grid-2" style="align-items:center;gap:2.25rem">
       <div>
-        <p class="kicker">Living Canon</p>
-        <h2>Dynamic cuts. One strict canon.</h2>
-        <p class="lead">A director model writes a scene for a specific audience &mdash; a teen gamer in Italian, a film buff in English, a plain-language viewer. CanonGuard checks it against the world's rules and repairs anything that breaks.</p>
-        <p class="muted">Wrong wrist, wrong scar, a logo sneaking into a shot: caught and fixed before it ships. Built on open models.</p>
-        <div class="btn-row"><a class="btn btn-ghost" href="https://github.com/TheNeuralWars/GoalChain">Code on GitHub</a></div>
+        <p class="kicker">{{t:studio.living.kicker}}</p>
+        <h2>{{t:studio.living.title}}</h2>
+        <p class="lead">{{t:studio.living.lead}}</p>
+        <p class="muted">{{t:studio.living.body}}</p>
+        <!-- @component cta-set {
+          "items": [
+            { "label": "$t:studio.living.cta_gh", "href": "https://github.com/TheNeuralWars/GoalChain", "variant": "ghost" },
+            { "label": "$t:studio.living.cta_demos", "href": "#demos", "variant": "secondary" }
+          ]
+        } -->
       </div>
-      <figure class="video-card" style="margin:0">
-        <img src="/assets/img/keyframe-core-pulse.webp" alt="Core pulse keyframe" width="1200" height="675" loading="lazy" srcset="/assets/img/keyframe-core-pulse-640.webp 640w, /assets/img/keyframe-core-pulse-800.webp 800w, /assets/img/keyframe-core-pulse.webp 1200w" sizes="(max-width: 620px) 92vw, 24rem" />
-        <figcaption><span class="video-tag">Engine</span><strong>Director &rarr; CanonGuard &rarr; Repair</strong></figcaption>
-      </figure>
+      <!-- @component media-card {
+        "kind": "image",
+        "src": "/assets/img/keyframe-core-pulse.webp",
+        "srcset": "/assets/img/keyframe-core-pulse-640.webp 640w, /assets/img/keyframe-core-pulse-800.webp 800w, /assets/img/keyframe-core-pulse.webp 1200w",
+        "sizes": "(max-width: 620px) 340px, 24rem",
+        "alt": "$t:studio.living.img_alt",
+        "width": 1200,
+        "height": 675,
+        "aiTag": "$t:studio.living.img_tag",
+        "title": "$t:studio.living.img_title"
+      } -->
     </div>
+
+    <div class="grid grid-3" style="margin-top:2.25rem">
+      <!-- @component card {
+        "badge": "$t:studio.repair.r1_badge",
+        "badgeColor": "var(--danger)",
+        "title": "$t:studio.repair.r1_title",
+        "body": "$t:studio.repair.r1_body"
+      } -->
+      <!-- @component card {
+        "badge": "$t:studio.repair.r2_badge",
+        "badgeColor": "var(--amber-primary)",
+        "title": "$t:studio.repair.r2_title",
+        "body": "$t:studio.repair.r2_body"
+      } -->
+      <!-- @component card {
+        "badge": "$t:studio.repair.r3_badge",
+        "badgeColor": "var(--gw-success-text)",
+        "title": "$t:studio.repair.r3_title",
+        "body": "$t:studio.repair.r3_body"
+      } -->
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demos">
+  <div class="wrap">
+    <!-- @component section-header {
+      "kicker": "$t:studio.demos.kicker",
+      "title": "$t:studio.demos.title",
+      "lead": "$t:studio.demos.lead"
+    } -->
+    <div class="grid grid-2" style="margin-top:1.75rem">
+      <!-- @component card {
+        "href": "https://goalworld.fun/blast-radius/",
+        "variant": "code",
+        "statusPill": { "state": "live", "label": "$t:studio.demos.d1_pill" },
+        "title": "$t:studio.demos.d1_title",
+        "body": "$t:studio.demos.d1_body",
+        "cta": "$t:studio.demos.d1_cta"
+      } -->
+      <!-- @component card {
+        "href": "https://goalworld.fun/hermes-demo/",
+        "variant": "purple",
+        "statusPill": { "state": "live", "label": "$t:studio.demos.d2_pill" },
+        "title": "$t:studio.demos.d2_title",
+        "body": "$t:studio.demos.d2_body",
+        "cta": "$t:studio.demos.d2_cta"
+      } -->
+    </div>
+  </div>
+</section>
+
+<section class="section band" id="ai-disclosure">
+  <div class="wrap">
+    <!-- @component section-header {
+      "kicker": "$t:studio.disclosure.kicker",
+      "title": "$t:studio.disclosure.title",
+      "lead": "$t:studio.disclosure.lead"
+    } -->
+    <!-- @component timeline {
+      "columns": 3,
+      "numbered": false,
+      "items": [
+        {
+          "badge": "$t:studio.disclosure.c1_badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:studio.disclosure.c1_title",
+          "body": "$t:studio.disclosure.c1_body"
+        },
+        {
+          "badge": "$t:studio.disclosure.c2_badge",
+          "badgeColor": "var(--code-text)",
+          "title": "$t:studio.disclosure.c2_title",
+          "body": "$t:studio.disclosure.c2_body"
+        },
+        {
+          "badge": "$t:studio.disclosure.c3_badge",
+          "badgeColor": "var(--gw-success-text)",
+          "title": "$t:studio.disclosure.c3_title",
+          "body": "$t:studio.disclosure.c3_body"
+        }
+      ]
+    } -->
   </div>
 </section>
 
 <section class="section band" id="slate">
   <div class="wrap">
-    <p class="kicker">Slate</p>
-    <h2>What's on the desk.</h2>
-    <div class="grid grid-3" style="margin-top:1.5rem">
-      <div class="card"><span class="video-tag" style="color:var(--green)">Flagship</span><h3>The Neural Wars</h3><p>Book 1 G2 signed off, in release preparation. Book 2 in production. More outlined.</p></div>
-      <div class="card"><span class="video-tag" style="color:var(--muted)">In development</span><h3>Aethelgard</h3><p>Rune-blood dark fantasy. Concept stage.</p></div>
-      <div class="card"><span class="video-tag" style="color:var(--muted)">In development</span><h3>AeroOlympus</h3><p>Mythic football gods. The bridge to the Matchday Lab. Concept stage.</p></div>
-    </div>
+    <!-- @component section-header {
+      "kicker": "$t:studio.slate.kicker",
+      "title": "$t:studio.slate.title"
+    } -->
+    <!-- @component timeline {
+      "columns": 3,
+      "numbered": false,
+      "items": [
+        {
+          "badge": "$t:studio.slate.s1_badge",
+          "badgeColor": "var(--amber-primary)",
+          "title": "$t:studio.slate.s1_title",
+          "body": "$t:studio.slate.s1_body"
+        },
+        {
+          "badge": "$t:studio.slate.s2_badge",
+          "badgeColor": "var(--muted)",
+          "title": "$t:studio.slate.s2_title",
+          "body": "$t:studio.slate.s2_body"
+        },
+        {
+          "badge": "$t:studio.slate.s3_badge",
+          "badgeColor": "var(--muted)",
+          "title": "$t:studio.slate.s3_title",
+          "body": "$t:studio.slate.s3_body"
+        }
+      ]
+    } -->
   </div>
 </section>
 
 <section class="section" id="authors">
   <div class="wrap" style="max-width:46rem;text-align:center">
-    <p class="kicker" style="justify-content:center">For authors</p>
-    <h2>Bring a world. We'll help it move.</h2>
-    <p class="lead" style="margin-inline:auto">We're planning a small first cohort of sci-fi, fantasy and thriller authors: editorial passes, a canon bible, and a short canon-locked trailer. You keep your rights.</p>
-    <p class="muted">Not open yet. No fees, no contracts, no promises today &mdash; follow @nicopez on X and we'll post when the first cohort is ready. Please don't send manuscripts or ideas yet; we can't accept unsolicited submissions.</p>
-    <div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="https://x.com/nicopez">Follow @nicopez on X for updates</a></div>
+    <!-- @component section-header {
+      "kicker": "$t:studio.authors.kicker",
+      "title": "$t:studio.authors.title",
+      "lead": "$t:studio.authors.lead",
+      "align": "center"
+    } -->
+    <p class="muted">{{t:studio.authors.note}}</p>
+    <!-- @component cta-set {
+      "align": "center",
+      "items": [{ "label": "$t:studio.authors.cta_follow", "href": "https://x.com/nicopez", "variant": "primary" }]
+    } -->
   </div>
 </section>

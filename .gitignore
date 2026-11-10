@@ -11,6 +11,8 @@ Thumbs.db
 # --- Logs ---
 *.log
 *.txt
+!_work/site-overhaul-20261109/evidence/**/*.log
+!_work/site-overhaul-20261109/evidence/**/*.txt
 # ...but the site robots.txt is content, not a log
 !goalworld_site/src/robots.txt
 # ...and llms.txt agent indexes are content too

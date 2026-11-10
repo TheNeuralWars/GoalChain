@@ -1,0 +1,54 @@
+{
+  "surface": "book",
+  "url": "https://goalworld.fun/book.html",
+  "mode": "desktop",
+  "fetchTime": "2026-11-09T17:46:08.721Z",
+  "scores": {
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "coreVitals": {
+    "fcp": "0.3 s",
+    "lcp": "0.3 s",
+    "tbt": "0 ms",
+    "cls": "0",
+    "si": "0.6 s"
+  },
+  "topOpportunities": [
+    {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0,
+      "displayValue": null,
+      "savingsMs": null,
+      "savingsBytes": null
+    },
+    {
+      "id": "cache-insight",
+      "title": "Use efficient cache lifetimes",
+      "score": 50,
+      "displayValue": "Est savings of 15 KiB",
+      "savingsMs": null,
+      "savingsBytes": null
+    },
+    {
+      "id": "image-delivery-insight",
+      "title": "Improve image delivery",
+      "score": 50,
+      "displayValue": "Est savings of 12 KiB",
+      "savingsMs": null,
+      "savingsBytes": null
+    },
+    {
+      "id": "render-blocking-insight",
+      "title": "Render-blocking requests",
+      "score": 50,
+      "displayValue": null,
+      "savingsMs": null,
+      "savingsBytes": null
+    }
+  ],
+  "additionalDiagnostics": []
+}

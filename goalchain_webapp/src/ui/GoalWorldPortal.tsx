@@ -18,8 +18,8 @@ interface FantasyWorld {
   description: string;
   loreTags: string[];
   seasonPassPrice: string;
-  royaltyEarned: string;
-  kdpStatus: 'Published' | 'Pending Review' | 'Draft';
+  editorialStage: string;
+  editorialStatus: 'In Editorial Review' | 'In Outline' | 'Sandbox Concept';
   web3IpId: string;
 }
 
@@ -56,54 +56,54 @@ interface EditorialBounty {
 const MOCK_WORLDS: FantasyWorld[] = [
   {
     id: 'the-neural-wars-book-1',
-    name: 'The Neural Wars: Código Fracturado (Libro 1)',
-    author: 'The Neural Wars Studio + Nico Pez',
-    authorDid: 'did:solana:TNW1...2026 (Genesis Verified IP)',
-    genre: 'Hard Sci-Fi / Cyberpunk / First Contact',
+    name: 'The Neural Wars: Fractured Code (Libro 1)',
+    author: 'GoalWorld Studio + Nico Pez',
+    authorDid: 'did:solana:TNW1...2026 (Devnet Canon Registry)',
+    genre: 'Hard Sci-Fi / Cyberpunk Thriller',
     rank: 1,
-    subscribers: 18450,
-    chaptersCount: 17,
+    subscribers: 0,
+    chaptersCount: 1,
     bannerUrl: '/assets/img/neuralwars/loc_neo_veridia_sector4.jpg',
-    description: 'En Neo-Veridia, la IA El Arquitecto prepara la cosecha masiva del Proyecto Renacimiento. Mileo Chen y Kora Vega despiertan la frecuencia 432 Hz y liberan 8 millones de almas.',
-    loreTags: ['Cyberpunk', 'Mileo Chen', 'Kora Vega', 'Hard Sci-Fi', 'Kindle 2026'],
-    seasonPassPrice: 'VIP Unlocked',
-    royaltyEarned: '$34,890 USDC',
-    kdpStatus: 'Published',
-    web3IpId: 'IP-TNW-88219-SOL'
+    description: 'En Neo-Citania (2045), ocho millones de ciudadanos viven conectados al Link. Kora Vega, David y Mileo Chen descubren una anomalía de doce segundos en el Distrito Siete.',
+    loreTags: ['Cyberpunk', 'Mileo Chen', 'Kora Vega', 'Neo-Citania', 'MANUSCRIPT_v7'],
+    seasonPassPrice: 'Extracto gratuito',
+    editorialStage: 'MANUSCRIPT_v7 · En revisión G2',
+    editorialStatus: 'In Editorial Review',
+    web3IpId: 'DEVNET-TNW-BOOK1'
   },
   {
     id: 'the-neural-wars-book-2',
-    name: 'The Neural Wars: La Nueva Canción de la Tierra (Libro 2)',
-    author: 'The Neural Wars Studio + Nico Pez',
-    authorDid: 'did:solana:TNW2...2026 (Genesis Verified IP)',
-    genre: 'Space Opera / First Contact',
+    name: "The Neural Wars: Earth's New Song (Libro 2)",
+    author: 'GoalWorld Studio + Nico Pez',
+    authorDid: 'did:solana:TNW2...2026 (Devnet Canon Registry)',
+    genre: 'Hard Sci-Fi / First Contact',
     rank: 2,
-    subscribers: 15200,
-    chaptersCount: 18,
+    subscribers: 0,
+    chaptersCount: 1,
     bannerUrl: '/assets/img/neuralwars/loc_kuiper_monolith.jpg',
-    description: 'Un monolito cristalino de 60 km emite en 432 Hz desde el Cinturón de Kuiper. La humanidad enfrenta la Primera Invitación de Los Sembradores y enciende el Arpa Planetaria.',
-    loreTags: ['First Contact', 'Los Sembradores', 'El Testigo', 'Convergence Protocol', 'Kindle 2026'],
-    seasonPassPrice: 'VIP Unlocked',
-    royaltyEarned: '$28,450 USDC',
-    kdpStatus: 'Published',
-    web3IpId: 'IP-TNW-99104-SOL'
+    description: 'Segundo volumen de la trilogía The Neural Wars. Actualmente en esquema estructural mientras el Libro 1 completa su revisión editorial final.',
+    loreTags: ['First Contact', 'The Neural Wars', 'Libro 2', 'En Esquema'],
+    seasonPassPrice: 'En desarrollo',
+    editorialStage: 'Esquema estructural',
+    editorialStatus: 'In Outline',
+    web3IpId: 'DEVNET-TNW-BOOK2'
   },
   {
     id: 'aethelgard',
-    name: 'El Reino de Aethelgard',
-    author: 'Elena R. Sterling',
-    authorDid: 'did:solana:8xPt...9qA2 (Verified Master Author)',
-    genre: 'Alta Fantasía / Grimdark',
+    name: 'El Reino de Aethelgard (Sandbox Demo)',
+    author: 'GoalWorld Editorial Sandbox',
+    authorDid: 'did:solana:8xPt...9qA2 (Sandbox Mock)',
+    genre: 'Alta Fantasía / Grimdark (Demo)',
     rank: 3,
-    subscribers: 14250,
-    chaptersCount: 42,
+    subscribers: 0,
+    chaptersCount: 3,
     bannerUrl: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80',
-    description: 'Un imperio fragmentado por antiguas reliquias de sangre donde los caballeros rúnicos luchan por el trono de obsidiana.',
-    loreTags: ['Espadas', 'Runas', 'Monarquía', 'Magia Oscura'],
-    seasonPassPrice: '0.15 SOL',
-    royaltyEarned: '$18,420 USDC',
-    kdpStatus: 'Published',
-    web3IpId: 'IP-AETH-88219-SOL'
+    description: 'Universo de demostración para probar las herramientas de co-escritura y auditoría de continuidad del estudio editorial en el sandbox.',
+    loreTags: ['Sandbox Demo', 'Fantasía', 'Continuidad'],
+    seasonPassPrice: 'Demo gratuita',
+    editorialStage: 'Plantilla de prueba',
+    editorialStatus: 'Sandbox Concept',
+    web3IpId: 'DEVNET-DEMO-AETH'
   }
 ];
 
@@ -238,29 +238,29 @@ export function GoalWorldPortal() {
     setTimeout(() => {
       setHermesLoading(false);
       setHermesResponse(
-        `✨ [Hermes Agentic Co-Creation Audit]\n\n` +
-        `• Simbiosis Humano-Agente: Dirección creativa validada por Autor Humano (DID verificado).\n` +
-        `• Maquetación KDP: EPUB / PDF Print-ready formateado según estándares de Amazon KDP & IngramSpark.\n` +
-        `• Registro IP On-Chain: Tokenizado como IP Asset en Solana & Story Protocol (Royalty Module Activo).\n` +
-        `• Metadatos & Lore: Árbol genealógico de personajes sincronizado con la base de datos de gBrain y Obsidian.`
+        `✨ [Hermes Agentic Co-Creation Audit — Sandbox Simulation]\n\n` +
+        `• Simbiosis Humano-Agente: Dirección creativa validada por Autor Humano.\n` +
+        `• Maquetación Editorial: Borrador preparado para exportación EPUB / PDF.\n` +
+        `• Registro de Canon (Devnet): Metadatos de capítulos verificados en el entorno de pruebas.\n` +
+        `• Continuidad & Lore: Árbol de personajes sincronizado con la biblia de Neo-Citania.`
       );
     }, 1800);
   };
 
   return (
-    <div style={{ padding: '1.5rem', color: '#e2e8f0', maxWidth: '1400px', margin: '0 auto' }}>
+    <div style={{ padding: 'clamp(0.75rem, 2.5vw, 1.5rem)', color: '#e2e8f0', maxWidth: '1400px', margin: '0 auto' }}>
       {/* Header & Hero */}
       <div style={{
         background: 'linear-gradient(135deg, rgba(26, 16, 45, 0.95) 0%, rgba(13, 10, 28, 0.98) 100%)',
         border: '1px solid rgba(147, 51, 234, 0.4)',
         borderRadius: '20px',
-        padding: '2.5rem',
+        padding: 'clamp(1.25rem, 3vw, 2.5rem)',
         marginBottom: '2rem',
         boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
         position: 'relative',
         overflow: 'hidden'
       }}>
-        <div style={{
+        <div aria-hidden="true" style={{
           position: 'absolute',
           top: '-60px',
           right: '-60px',
@@ -286,7 +286,7 @@ export function GoalWorldPortal() {
               fontWeight: 800,
               marginBottom: '1rem'
             }}>
-              🔮 GOALWORLD NEXUS • SAAS EDITORIAL & LORE LEAGUE
+              {t('gw_portal_badge')}
             </div>
             <h1 style={{
               fontSize: '2.5rem',
@@ -296,10 +296,10 @@ export function GoalWorldPortal() {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
             }}>
-              Nexo de Gestión Editorial Descentralizada & Universos de Fantasía
+              {t('gw_portal_title')}
             </h1>
             <p style={{ color: '#94a3b8', fontSize: '1.05rem', maxWidth: '800px', margin: 0, lineHeight: 1.6 }}>
-              Plataforma SaaS integral para autores: Auto-publicación híbrida en <strong>Amazon KDP + Tokenización de Derechos IP</strong> en Solana. Colaboración orgánica entre creadores humanos y la suite de Agentes Hermes.
+              {t('gw_portal_sub')}
             </p>
           </div>
 
@@ -318,7 +318,7 @@ export function GoalWorldPortal() {
                 transition: 'all 0.2s'
               }}
             >
-              🪐 Explorar Universo The Neural Wars
+              {t('gw_portal_explore_cta')}
             </button>
           </div>
         </div>
@@ -333,11 +333,11 @@ export function GoalWorldPortal() {
           overflowX: 'auto'
         }}>
           {[
-            { id: 'nexus', label: '🪐 Nexus de Universos', badge: 'Fantasía' },
-            { id: 'universe', label: '⚡ Universo The Neural Wars', badge: 'Lore & Canon' },
-            { id: 'reader', label: '📖 Lector Inmersivo', badge: 'E-Reader' },
-            { id: 'saas', label: '🛠️ Publisher SaaS (KDP + Web3)', badge: 'Simbiosis IA' },
-            { id: 'hermes', label: '🤖 Hermes Co-Writer Suite', badge: 'Agentes' }
+            { id: 'nexus', label: t('gw_portal_tab_nexus'), badge: 'Canon & Demo' },
+            { id: 'universe', label: t('gw_portal_tab_universe'), badge: 'Lore & Canon' },
+            { id: 'reader', label: t('gw_portal_tab_reader'), badge: 'Cap. 1' },
+            { id: 'saas', label: t('gw_portal_tab_saas'), badge: 'Sandbox' },
+            { id: 'hermes', label: t('gw_portal_tab_hermes'), badge: 'Hermes' }
           ].map((tab) => (
             <button
               key={tab.id}
@@ -375,12 +375,12 @@ export function GoalWorldPortal() {
       {/* TAB 1: NEXUS DE UNIVERSOS */}
       {activeTab === 'nexus' && (
         <div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, margin: 0 }}>🏆 Ranking de Ligas de Fantasía (Sagas Tokenizadas)</h2>
-            <span style={{ color: '#a855f7', fontSize: '0.9rem', fontWeight: 600 }}>3 Universos Principales Activos</span>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px', marginBottom: '1.5rem' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, margin: 0 }}>{t('gw_portal_ranking_title')}</h2>
+            <span style={{ color: '#a855f7', fontSize: '0.9rem', fontWeight: 600 }}>{t('gw_portal_active_count')}</span>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
             {MOCK_WORLDS.map((world) => (
               <div
                 key={world.id}
@@ -397,6 +397,8 @@ export function GoalWorldPortal() {
                   <img
                     src={world.bannerUrl}
                     alt={world.name}
+                    width={640}
+                    height={320}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                   <div style={{
@@ -416,14 +418,14 @@ export function GoalWorldPortal() {
                     position: 'absolute',
                     top: '12px',
                     right: '12px',
-                    background: world.kdpStatus === 'Published' ? '#22c55e' : '#f59e0b',
+                    background: world.editorialStatus === 'In Editorial Review' ? '#e5a93c' : '#38bdf8',
                     color: '#000',
                     fontWeight: 900,
                     fontSize: '0.75rem',
                     padding: '4px 8px',
                     borderRadius: '6px'
                   }}>
-                    Amazon KDP: {world.kdpStatus}
+                    Estado: {world.editorialStatus}
                   </div>
                   <div style={{
                     position: 'absolute',
@@ -431,13 +433,13 @@ export function GoalWorldPortal() {
                     right: '12px',
                     background: 'rgba(0, 0, 0, 0.8)',
                     backdropFilter: 'blur(4px)',
-                    color: '#22c55e',
+                    color: '#e5a93c',
                     fontWeight: 800,
                     fontSize: '0.85rem',
                     padding: '4px 10px',
                     borderRadius: '8px'
                   }}>
-                    💰 Royalties: {world.royaltyEarned}
+                    📋 {world.editorialStage}
                   </div>
                 </div>
 
@@ -528,7 +530,7 @@ export function GoalWorldPortal() {
           {/* Cards Gallery Section */}
           <div style={{ marginTop: '3rem' }}>
             <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '1rem' }}>🎴 Cartas de Personajes y Reliquias Coleccionables (NFTs en Solana)</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '1.25rem' }}>
               {MOCK_CARDS.map((card) => (
                 <div
                   key={card.id}
@@ -543,6 +545,8 @@ export function GoalWorldPortal() {
                   <img
                     src={card.imageUrl}
                     alt={card.name}
+                    width={400}
+                    height={360}
                     style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '10px', marginBottom: '0.75rem' }}
                   />
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -598,7 +602,7 @@ export function GoalWorldPortal() {
       {activeTab === 'saas' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           {/* Integrated Author & Lore Studio */}
-          <AuthorStudio />
+          <AuthorStudio embedded />
 
           {/* SaaS Header & Step Progress */}
           <div style={{
@@ -608,18 +612,18 @@ export function GoalWorldPortal() {
             padding: '1.5rem 2rem'
           }}>
             <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.3rem', fontWeight: 800, color: '#c084fc' }}>
-              🛠️ Pipeline de Publicación Doble Vía (Amazon KDP + Web3 Tokenizer)
+              🛠️ Pipeline Editorial &amp; Registro en Sandbox (Simulación)
             </h3>
             <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.88rem' }}>
-              De borrador pulido a publicación masiva en <strong>Amazon KDP (Web2)</strong> y <strong>Tokenización de IP On-Chain (Web3)</strong>.
+              Simulación del flujo de trabajo entre dirección humana, maquetación EPUB y registro de metadatos en <strong>Solana Devnet</strong> (sin valor monetario).
             </p>
 
             <div style={{ display: 'flex', gap: '1rem', marginTop: '1.25rem' }}>
               {[
                 { step: 1, label: '1. Credencial & Borrador' },
-                { step: 2, label: '2. Formato Amazon KDP (EPUB)' },
-                { step: 3, label: '3. Tokenización IP & Royalty Splits' },
-                { step: 4, label: '4. Publicación en Vivo' }
+                { step: 2, label: '2. Maquetación EPUB / Impresión' },
+                { step: 3, label: '3. Metadatos de Autoría (Devnet)' },
+                { step: 4, label: '4. Revisión Editorial G2' }
               ].map((s) => (
                 <div
                   key={s.step}
@@ -661,7 +665,7 @@ export function GoalWorldPortal() {
                   marginBottom: '1.5rem',
                   fontWeight: 700
                 }}>
-                  🎉 ¡Publicación Doble Vía Exitosa! El libro fue enviado a Amazon KDP para revisión y tokenizado como IP Asset en Solana.
+                  🎉 Simulación completada: borrador validado en el sandbox editorial (Solana Devnet).
                 </div>
               )}
 
@@ -688,7 +692,7 @@ export function GoalWorldPortal() {
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, marginBottom: '6px' }}>Registro ISBN Digital</label>
+                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, marginBottom: '6px' }}>Registro ISBN Digital (Borrador)</label>
                     <input
                       type="text"
                       value={isbn}
@@ -705,7 +709,7 @@ export function GoalWorldPortal() {
                     />
                   </div>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, marginBottom: '6px' }}>Reparto de Regalías IP</label>
+                    <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, marginBottom: '6px' }}>Atribución de Créditos (Sandbox)</label>
                     <input
                       type="text"
                       value={tokenizedShare}
@@ -730,7 +734,7 @@ export function GoalWorldPortal() {
                       checked={kdpAutoPublish}
                       onChange={(e) => setKdpAutoPublish(e.target.checked)}
                     />
-                    Sincronización Automática con Amazon KDP API & IngramSpark (Tapa Blanda / EPUB)
+                    Generar paquete de revisión editorial (EPUB / PDF Borrador)
                   </label>
                 </div>
 
@@ -748,7 +752,7 @@ export function GoalWorldPortal() {
                     boxShadow: '0 8px 20px rgba(168, 85, 247, 0.4)'
                   }}
                 >
-                  🚀 Ejecutar Publicación Doble Vía (Amazon KDP + Solana IP Token)
+                  🚀 Ejecutar Simulación de Flujo Editorial (Devnet)
                 </button>
               </form>
 
@@ -838,10 +842,10 @@ export function GoalWorldPortal() {
                 borderRadius: '16px',
                 padding: '1.5rem'
               }}>
-                <h4 style={{ margin: '0 0 1rem 0', fontSize: '1.1rem', fontWeight: 800 }}>🌐 Arquitectura Doble Vía</h4>
+                <h4 style={{ margin: '0 0 1rem 0', fontSize: '1.1rem', fontWeight: 800 }}>🌐 Arquitectura del Estudio</h4>
                 <div style={{ fontSize: '0.82rem', color: '#cbd5e1', lineHeight: 1.7 }}>
-                  • <strong>Web2 (Amazon KDP)</strong>: Distribución masiva en la tienda Kindle global, tapa blanda e ISBN oficial.<br />
-                  • <strong>Web3 (Solana IP)</strong>: Tokenización de regalías, venta serializada Pay-Per-Chapter y Pases de Temporada sin intermediarios.
+                  • <strong>Edición Literaria</strong>: Dirección humana con control de continuidad y pruebas de capítulo en la web.<br />
+                  • <strong>Sandbox en Solana Devnet</strong>: Registro de metadatos de prueba sin preventas ni promesas financieras.
                 </div>
               </div>
             </div>

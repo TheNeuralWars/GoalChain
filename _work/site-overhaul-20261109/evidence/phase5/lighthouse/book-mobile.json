@@ -1,0 +1,58 @@
+{
+  "surface": "book",
+  "app": "goalworld_site",
+  "mode": "mobile",
+  "fetchTime": "2026-11-10T00:33:46.859Z",
+  "scores": {
+    "performance": 96,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "coreVitals": {
+    "fcp": "0.8 s",
+    "lcp": "1.8 s",
+    "tbt": "230 ms",
+    "cls": "0",
+    "si": "1.0 s"
+  },
+  "note": null,
+  "topDiagnostics": [
+    {
+      "id": "label-content-name-mismatch",
+      "title": "Elements with visible text labels do not have matching accessible names.",
+      "score": 0,
+      "displayValue": null
+    },
+    {
+      "id": "render-blocking-resources",
+      "title": "Eliminate render-blocking resources",
+      "score": 0,
+      "displayValue": "Est savings of 150 ms"
+    },
+    {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0,
+      "displayValue": null
+    },
+    {
+      "id": "render-blocking-insight",
+      "title": "Render blocking requests",
+      "score": 0,
+      "displayValue": "Est savings of 150 ms"
+    },
+    {
+      "id": "max-potential-fid",
+      "title": "Max Potential First Input Delay",
+      "score": 42,
+      "displayValue": "280 ms"
+    },
+    {
+      "id": "modern-image-formats",
+      "title": "Serve images in next-gen formats",
+      "score": 50,
+      "displayValue": "Est savings of 10 KiB"
+    }
+  ]
+}

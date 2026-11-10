@@ -1,17 +1,27 @@
-<!-- meta {"slug":"live","title":"Live board · GoalWorld","description":"What the GoalWorld studio is shipping right now: hackathon entries, books, film and products — live, submitted and in progress.","nav":"LIVE","preload":""} -->
+<!-- meta {"slug":"live","title":"$t:live.meta.title","description":"$t:live.meta.description","nav":"LIVE","preload":""} -->
 <section class="section">
   <div class="wrap">
-    <p class="eyebrow">Live board &middot; runtime feed</p>
-    <h1>Studio projects, live.</h1>
-    <p class="lead">Everything the studio is building, submitting and shipping. This board reads a small data file, so it updates without a site redesign. Board updated <span data-live-updated>recently</span>.</p>
-    <div class="filter-bar" data-live-filters role="toolbar" aria-label="Filter projects">
-      <span class="eyebrow">Kind</span>
-      <button class="chip" aria-pressed="true" data-f-kind="">All</button><button class="chip" aria-pressed="false" data-f-kind="hackathon">Hackathons</button><button class="chip" aria-pressed="false" data-f-kind="book">Books</button><button class="chip" aria-pressed="false" data-f-kind="film">Film</button><button class="chip" aria-pressed="false" data-f-kind="product">Products</button><button class="chip" aria-pressed="false" data-f-kind="ops">Ops</button>
-      <span class="eyebrow">Status</span>
-      <button class="chip" aria-pressed="true" data-f-status="">Any</button><button class="chip" aria-pressed="false" data-f-status="wip">In progress</button><button class="chip" aria-pressed="false" data-f-status="submitted">Submitted</button><button class="chip" aria-pressed="false" data-f-status="shipped">Live</button>
+    <!-- @component status-pill { "state": "live", "label": "$t:live.hero.pill" } -->
+    <p class="eyebrow">{{t:live.hero.eyebrow}}</p>
+    <h1>{{t:live.hero.title}}</h1>
+    <p class="lead">{{t:live.hero.lead_prefix}} <span data-live-updated>{{t:live.hero.lead_default}}</span>.</p>
+    <!-- @component cta-set {
+      "style": "margin-top:1.1rem;margin-bottom:0.5rem",
+      "items": [
+        { "label": "$t:live.feeds.atom", "href": "/feed.xml", "variant": "ghost" },
+        { "label": "$t:live.feeds.json", "href": "/feed.json", "variant": "ghost" },
+        { "label": "$t:live.feeds.raw", "href": "/data/live-feed.json", "variant": "ghost" }
+      ]
+    } -->
+    <!-- @component section-header { "srOnly": true, "title": "$t:live.filters.sr_title" } -->
+    <div class="filter-bar" data-live-filters role="toolbar" aria-label="{{t:live.filters.aria_label}}">
+      <span class="eyebrow">{{t:live.filters.kind_label}}</span>
+      <button type="button" class="chip" aria-pressed="true" data-f-kind="">{{t:live.filters.kind_all}}</button><button type="button" class="chip" aria-pressed="false" data-f-kind="hackathon">{{t:live.filters.kind_hackathon}}</button><button type="button" class="chip" aria-pressed="false" data-f-kind="book">{{t:live.filters.kind_book}}</button><button type="button" class="chip" aria-pressed="false" data-f-kind="film">{{t:live.filters.kind_film}}</button><button type="button" class="chip" aria-pressed="false" data-f-kind="product">{{t:live.filters.kind_product}}</button><button type="button" class="chip" aria-pressed="false" data-f-kind="ops">{{t:live.filters.kind_ops}}</button>
+      <span class="eyebrow">{{t:live.filters.status_label}}</span>
+      <button type="button" class="chip" aria-pressed="true" data-f-status="">{{t:live.filters.status_any}}</button><button type="button" class="chip" aria-pressed="false" data-f-status="wip">{{t:live.filters.status_wip}}</button><button type="button" class="chip" aria-pressed="false" data-f-status="submitted">{{t:live.filters.status_submitted}}</button><button type="button" class="chip" aria-pressed="false" data-f-status="shipped">{{t:live.filters.status_shipped}}</button>
     </div>
     <p class="small faint" data-live-count aria-live="polite"></p>
-    <div class="live-board" data-live-feed data-detail aria-live="polite" aria-busy="true"><p class="muted">Loading&hellip;</p></div>
-    <p class="small muted" style="margin-top:2rem">&ldquo;Provisional&rdquo; entries may change. Hackathon status reflects submission, not results.</p>
+    <div class="live-board" data-live-feed data-detail aria-live="polite" aria-busy="true"><p class="muted">{{t:live.filters.loading}}</p></div>
+    <p class="small muted" style="margin-top:2rem">{{t:live.filters.note}}</p>
   </div>
 </section>

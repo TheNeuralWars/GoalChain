@@ -1,0 +1,81 @@
+# Proposed Caddy 301 Redirects, Media Aliases & Sub-Site Headers for goalworld.fun
+# DO NOT APPLY AUTOMATICALLY — requires Nico / Hermes CEO review before touching VPS Caddyfile.
+# (Synced with _work/site-overhaul-20261109/CADDY_REDIRECTS.proposed.caddyfile — A-001, A-002, A-011, A-035)
+
+# 1. Legacy lore / reader pages -> /book.html
+redir /goalworld.html /book.html 301
+redir /goalworld /book.html 301
+redir /reader.html /book.html#sample 301
+redir /reader /book.html#sample 301
+redir /go/reader /book.html#sample 301
+redir /go/reader/ /book.html#sample 301
+redir /go/reader/index.html /book.html#sample 301
+redir /go/goalworld /book.html 301
+redir /go/goalworld/ /book.html 301
+
+# 2. Legacy tokenomics / DeFi / protocol pages -> /collect.html (Provenance & Matchday Lab Devnet explainer)
+redir /goalchain.html /collect.html 301
+redir /goalchain /collect.html 301
+redir /protocol.html /collect.html 301
+redir /protocol /collect.html 301
+redir /tokenomics.html /collect.html 301
+redir /tokenomics /collect.html 301
+redir /pre-nft.html /collect.html 301
+redir /pre-nft /collect.html 301
+redir /go/defi /collect.html 301
+redir /go/defi/ /collect.html 301
+
+# 3. Legacy whitepapers / guides -> /faq.html
+redir /mega-guide.html /faq.html 301
+redir /mega-guide /faq.html 301
+redir /mega-guide-v1.html /faq.html 301
+redir /mega-guide-v1 /faq.html 301
+
+# 4. Legacy pitch / press -> /press.html
+redir /pitch.html /press.html 301
+redir /pitch /press.html 301
+
+# 5. Legacy studio / colabs / agents -> /studio.html
+redir /colabs.html /studio.html 301
+redir /colabs /studio.html 301
+redir /agents.html /studio.html 301
+redir /agents /studio.html 301
+redir /go/studio /studio.html 301
+redir /go/studio/ /studio.html 301
+
+# 6. Legacy legal -> /terms.html
+redir /legal.html /terms.html 301
+redir /legal /terms.html 301
+
+# 7. Legacy internal / architecture / map -> /about.html or /roadmap.html
+redir /ceo.html /about.html 301
+redir /ceo /about.html 301
+redir /architecture/archify/goalchain.architecture.html /about.html 301
+redir /map.html /roadmap.html 301
+redir /map /roadmap.html 301
+
+# 8. Legacy play / arcade / go bridges -> https://play.goalworld.fun
+redir /app.html https://play.goalworld.fun/dashboard 301
+redir /arcade.html https://play.goalworld.fun/estadio 301
+redir /play https://play.goalworld.fun/ 301
+redir /play/ https://play.goalworld.fun/ 301
+redir /play/index.html https://play.goalworld.fun/ 301
+redir /play/pack.html https://play.goalworld.fun/estadio 301
+redir /play/penalty.html https://play.goalworld.fun/estadio 301
+redir /go https://play.goalworld.fun/ 301
+redir /go/ https://play.goalworld.fun/ 301
+redir /go/index.html https://play.goalworld.fun/ 301
+redir /go/club https://play.goalworld.fun/club 301
+redir /go/club/ https://play.goalworld.fun/club 301
+redir /go/estadio https://play.goalworld.fun/estadio 301
+redir /go/estadio/ https://play.goalworld.fun/estadio 301
+
+# 9. Clean Media Filename Rewrite (A-011)
+rewrite /assets/img/neuralwars/05_Clips/Clip_08_Kora_Vega_Harmonic_Rings.mp4 /assets/img/neuralwars/05_Clips/Clip_08_Kora_Vega_432Hz_Harmonic_Rings.mp4
+
+# 10. Sub-Site Canonical Link Headers (A-035)
+@blastRadius path /blast-radius /blast-radius/*
+header @blastRadius Link "<https://goalworld.fun/blast-radius/>; rel=\"canonical\""
+
+@hermesDemo path /hermes-demo /hermes-demo/*
+header @hermesDemo Link "<https://goalworld.fun/hermes-demo/>; rel=\"canonical\""

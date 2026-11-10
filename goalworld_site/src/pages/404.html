@@ -1,22 +1,62 @@
-<!-- meta {"slug":"404","title":"Lost in the Link · GoalWorld","description":"This page slipped out of the optimization. Find your way back to GoalWorld — World of Achievements.","nav":"","preload":"","layout":"404"} -->
+<!-- meta {"slug":"404","title":"$t:notfound.meta.title","description":"$t:notfound.meta.description","nav":"","preload":"","layout":"404"} -->
 <section class="notfound">
   <div class="wrap">
     <p class="code" aria-hidden="true">404</p>
-    <h1>Lost in the Link.</h1>
-    <p class="lead" style="margin-inline: auto">
-      This page slipped out of the optimization. The Architect has no record of it &mdash;
-      but the world is still here.
-    </p>
-    <div class="btn-row" style="justify-content: center">
-      <a class="btn btn-primary" href="/">Back to GoalWorld</a>
-      <a class="btn btn-ghost" href="/book.html#sample">Read Fractured Code</a>
-      <a class="btn btn-ghost" href="https://play.goalworld.fun/">Play GoalChain</a>
-    </div>
+    <h1>{{t:notfound.title}}</h1>
+    <p class="lead" style="margin-inline: auto">{{t:notfound.lead}}</p>
+    <!-- @component cta-set {
+      "align": "center",
+      "items": [
+        { "label": "$t:notfound.cta_home", "href": "/", "variant": "primary" },
+        { "label": "$t:notfound.cta_read", "href": "/book.html#sample", "variant": "ghost" },
+        { "label": "$t:notfound.cta_play", "href": "https://play.goalworld.fun/", "variant": "ghost" }
+      ]
+    } -->
+    <!-- @component section-header { "srOnly": true, "title": "$t:notfound.sr_title" } -->
     <div class="grid grid-3 nf-links">
-      <a class="card" href="/book.html#sample"><span class="eyebrow">Read</span><h3>Fractured Code</h3><p>Book 1 of The Neural Wars, free Chapter 1 sample.</p></a>
-      <a class="card" href="https://play.goalworld.fun/"><span class="eyebrow">Play</span><h3>GoalChain Play</h3><p>Matchday demo on Solana Devnet.</p></a>
-      <a class="card" href="/live.html"><span class="eyebrow">Live</span><h3>Live board</h3><p>What the studio is shipping right now.</p></a>
+      <!-- @component card {
+        "href": "/book.html#sample",
+        "badge": "$t:notfound.c1_badge",
+        "badgeColor": "var(--amber-primary)",
+        "title": "$t:notfound.c1_title",
+        "body": "$t:notfound.c1_body"
+      } -->
+      <!-- @component card {
+        "href": "https://play.goalworld.fun/",
+        "badge": "$t:notfound.c2_badge",
+        "badgeColor": "var(--code-text)",
+        "title": "$t:notfound.c2_title",
+        "body": "$t:notfound.c2_body"
+      } -->
+      <!-- @component card {
+        "href": "/live.html",
+        "badge": "$t:notfound.c3_badge",
+        "badgeColor": "var(--amber-primary)",
+        "title": "$t:notfound.c3_title",
+        "body": "$t:notfound.c3_body"
+      } -->
+      <!-- @component card {
+        "href": "/about.html",
+        "badge": "$t:notfound.c4_badge",
+        "badgeColor": "var(--cyan)",
+        "title": "$t:notfound.c4_title",
+        "body": "$t:notfound.c4_body"
+      } -->
+      <!-- @component card {
+        "href": "/cinema.html",
+        "badge": "$t:notfound.c5_badge",
+        "badgeColor": "var(--amber-primary)",
+        "title": "$t:notfound.c5_title",
+        "body": "$t:notfound.c5_body"
+      } -->
+      <!-- @component card {
+        "href": "/studio.html",
+        "badge": "$t:notfound.c6_badge",
+        "badgeColor": "var(--purple-text)",
+        "title": "$t:notfound.c6_title",
+        "body": "$t:notfound.c6_body"
+      } -->
     </div>
-    <form class="nf-search" data-nf-search role="search"><label for="nfq" class="eyebrow">Looking for something?</label><div class="nf-row"><input id="nfq" type="search" placeholder="lore, faq, press, roadmap&hellip;" autocomplete="off" /><button class="btn btn-primary" type="submit">Go</button></div><p class="small faint" data-nf-hint></p></form>
+    <form class="nf-search" data-nf-search role="search"><label for="nfq" class="eyebrow">{{t:notfound.search_label}}</label><div class="nf-row"><input id="nfq" type="search" placeholder="{{t:notfound.search_placeholder}}" autocomplete="off" /><button class="btn btn-primary" type="submit">{{t:notfound.search_btn}}</button></div><p class="small faint" data-nf-hint></p></form>
   </div>
 </section>

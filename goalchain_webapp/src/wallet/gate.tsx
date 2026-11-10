@@ -141,8 +141,7 @@ export function WalletRequired({
   const gate = useWalletGate();
   useEffect(() => {
     gate.ensure();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [gate]);
   if (gate.status !== 'ready') {
     return (
       <>

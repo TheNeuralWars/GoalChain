@@ -1,120 +1,104 @@
-<!-- meta {"slug":"faq","title":"FAQ · GoalWorld","description":"What GoalWorld is, how to read Fractured Code, how GoalChain Play works, what the demo does and does not do, and where to find the community.","nav":"FAQ","preload":"<link rel=\"preload\" as=\"image\" href=\"/assets/img/loc-pavilion-9.webp\" imagesrcset=\"/assets/img/loc-pavilion-9-640.webp 640w, /assets/img/loc-pavilion-9.webp 1200w\" imagesizes=\"(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem\" fetchpriority=\"high\" />"} -->
-<section class="hero" style="padding-bottom: 2.5rem">
-  <div class="hero-bg" aria-hidden="true">
-    <img src="/assets/img/loc-pavilion-9.webp" alt="" width="1200" height="750" fetchpriority="high" srcset="/assets/img/loc-pavilion-9-640.webp 640w, /assets/img/loc-pavilion-9.webp 1200w" sizes="(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem" />
-  </div>
-  <div class="wrap">
-    <p class="eyebrow">FAQ</p>
-    <h1>Questions, answered.</h1>
-    <p class="lead">Straight answers about the books, the game, the demo, and the people building it.</p>
-  </div>
-</section>
+<!-- meta {"slug":"faq","title":"$t:faq.meta.title","description":"$t:faq.meta.description","nav":"FAQ","preload":"<link rel=\"preload\" as=\"image\" href=\"/assets/img/loc-pavilion-9.webp\" imagesrcset=\"/assets/img/loc-pavilion-9-640.webp 640w, /assets/img/loc-pavilion-9.webp 1200w\" imagesizes=\"(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem\" fetchpriority=\"high\" />"} -->
+<!-- @component hero {
+  "variant": "compact",
+  "bgImg": "/assets/img/loc-pavilion-9.webp",
+  "bgWidth": 1200,
+  "bgHeight": 750,
+  "bgSrcset": "/assets/img/loc-pavilion-9-640.webp 640w, /assets/img/loc-pavilion-9.webp 1200w",
+  "bgSizes": "(max-width: 620px) 92vw, (max-width: 980px) 46vw, 24rem",
+  "eyebrow": "$t:faq.hero.eyebrow",
+  "title": "$t:faq.hero.title",
+  "lead": "$t:faq.hero.lead"
+} -->
 
-<section class="section-tight">
+<section class="section-tight" aria-labelledby="faq-list-heading">
   <div class="wrap prose" style="max-width: 78ch">
-    <details class="faq-item" open>
-      <summary>What is GoalWorld?</summary>
-      <p>
-        GoalWorld &mdash; World of Achievements &mdash; is the world layer of a single project:
-        the books and film of <em>The Neural Wars</em>, the football game GoalChain Play, and
-        the studio that produces both. One brand, one world, built in the open.
-      </p>
-    </details>
-
-    <div class="filter-bar faq-tools"><input type="search" class="faq-search" data-faq-search placeholder="Search questions&hellip;" aria-label="Search FAQ" /><button class="chip" type="button" data-faq-all>Expand all</button></div>
-    <p class="small faint" data-faq-count aria-live="polite"></p>
-    <details class="faq-item">
-      <summary>What is The Neural Wars?</summary>
-      <p>
-        A hard sci-fi / cyberpunk saga. Book 1, <em>Fractured Code</em>, is set in Neo-Citania,
-        a city where every mind is connected to the Link &mdash; until a compliance specialist
-        named Mileo Chen hears the truth at 03:14. The 74k-word manuscript has passed Gate 2
-        sign-off and is in release preparation; you can read the <a href="/book.html#sample">Chapter 1 preview free</a>.
-      </p>
-    </details>
-
-    <details class="faq-item">
-      <summary>Where can I read Fractured Code?</summary>
-      <p>
-        Start with the free Chapter 1 sample right here: <a href="/book.html#sample">/book.html#sample</a>.
-        No wallet, no signup, no email. Book 1 is G2 signed off and in release preparation,
-        Book 2 (<em>Earth's New Song</em>) is in production, and a Spanish edition is in the works.
-      </p>
-    </details>
-
-    <details class="faq-item">
-      <summary>What is GoalChain Play?</summary>
-      <p>
-        GoalChain is the matchday engine: a tactical football sandbox on Solana Devnet, built around World Cup
-        2026. You create a manager, build a squad from the Genesis collection, play matches
-        in the Arena with real tactics and substitutions, and call the tournament with the
-        Predictor. It lives at <a href="https://play.goalworld.fun/">play.goalworld.fun</a>.
-      </p>
-    </details>
-
-    <details class="faq-item">
-      <summary>Do I need crypto or real money to play?</summary>
-      <p>
-        No. GoalChain Play is a playable demo running on Solana Devnet. It does not execute
-        real on-chain transactions, and it never requires real capital &mdash; the app is
-        clearly marked wherever a section is simulation only.
-      </p>
-    </details>
-
-    <details class="faq-item">
-      <summary>What is the demo token I see in the Matchday Lab?</summary>
-      <p>
-        Matchday Lab (Devnet) is a separate football sandbox. Any $GCH shown there is a Devnet test token &mdash; used for match entry, boosts and rewards inside the game &mdash; with zero monetary value, no sale and no redemption. Anything token-related that ships for real will be announced from the official
-        channels, never sprung inside the demo.
-      </p>
-    </details>
-
-    <details class="faq-item">
-      <summary>What wallet do I need?</summary>
-      <p>
-        The demo connects with Phantom on Solana Devnet. You can also browse the world, the
-        books and the cinema without any wallet at all.
-      </p>
-    </details>
-
-    <details class="faq-item">
-      <summary>Is the film out?</summary>
-      <p>
-        The official cinematic trailer and film-draft clips are published here and in the
-        cinema section. The full Fractured Code film is still in production &mdash; new
-        chapters are cut and posted as the pipeline produces them.
-      </p>
-    </details>
-
-    <details class="faq-item">
-      <summary>Who is building this?</summary>
-      <p>
-        Nico Pez (<a href="https://x.com/nicopez">@nicopez</a>) with a swarm of AI agents,
-        working in the open. The code, the roadmaps and the production notes live on
-        <a href="https://github.com/TheNeuralWars/GoalChain">GitHub</a>.
-      </p>
-    </details>
-
-    <details class="faq-item">
-      <summary>How do I get in touch?</summary>
-      <p>
-        The fastest way is a DM on X to
-        <a href="https://x.com/nicopez">@nicopez</a>. For anything code or product related,
-        <a href="https://github.com/TheNeuralWars/GoalChain">GitHub</a> is always open.
-      </p>
-    </details>
+    <!-- @component section-header { "srOnly": true, "title": "$t:faq.list.sr_title" } -->
+    <!-- @component faq-accordion {
+      "searchable": true,
+      "searchPlaceholder": "$t:faq.list.search_placeholder",
+      "searchLabel": "$t:faq.list.search_label",
+      "expandLabel": "$t:faq.list.expand_all",
+      "items": [
+        {
+          "open": true,
+          "q": "$t:faq.list.q1",
+          "a": "$t:faq.list.a1"
+        },
+        {
+          "q": "$t:faq.list.q2",
+          "a": "$t:faq.list.a2"
+        },
+        {
+          "q": "$t:faq.list.q3",
+          "a": "$t:faq.list.a3"
+        },
+        {
+          "q": "$t:faq.list.q4",
+          "a": "$t:faq.list.a4"
+        },
+        {
+          "q": "$t:faq.list.q5",
+          "a": "$t:faq.list.a5"
+        },
+        {
+          "q": "$t:faq.list.q6",
+          "a": "$t:faq.list.a6"
+        },
+        {
+          "q": "$t:faq.list.q7",
+          "a": "$t:faq.list.a7"
+        },
+        {
+          "q": "$t:faq.list.q8",
+          "a": "$t:faq.list.a8"
+        },
+        {
+          "q": "$t:faq.list.q9",
+          "a": "$t:faq.list.a9"
+        },
+        {
+          "q": "$t:faq.list.q10",
+          "a": "$t:faq.list.a10"
+        },
+        {
+          "q": "$t:faq.list.q11",
+          "a": "$t:faq.list.a11"
+        },
+        {
+          "q": "$t:faq.list.q12",
+          "a": "$t:faq.list.a12"
+        },
+        {
+          "q": "$t:faq.list.q13",
+          "a": "$t:faq.list.a13"
+        },
+        {
+          "q": "$t:faq.list.q14",
+          "a": "$t:faq.list.a14"
+        },
+        {
+          "q": "$t:faq.list.q15",
+          "a": "$t:faq.list.a15"
+        }
+      ]
+    } -->
   </div>
 </section>
 
 <section class="section band">
   <div class="wrap" style="text-align: center">
-    <h2>Still curious?</h2>
-    <p class="lead" style="margin-inline: auto">
-      The lore goes deep &mdash; Neo-Citania, the Link, the Gardeners. Start with the world guide.
-    </p>
-    <div class="btn-row" style="justify-content: center">
-      <a class="btn btn-primary" href="/about.html">Read the lore</a>
-      <a class="btn btn-ghost" href="https://play.goalworld.fun/">Just play &rarr;</a>
-    </div>
+    <!-- @component section-header {
+      "title": "$t:faq.cta.title",
+      "lead": "$t:faq.cta.lead",
+      "align": "center"
+    } -->
+    <!-- @component cta-set {
+      "align": "center",
+      "items": [
+        { "label": "$t:faq.cta.cta_lore", "href": "/about.html", "variant": "primary" },
+        { "label": "$t:faq.cta.cta_play", "href": "https://play.goalworld.fun/", "variant": "ghost" }
+      ]
+    } -->
   </div>
 </section>

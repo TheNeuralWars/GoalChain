@@ -52,7 +52,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({
     const stakeValueUsd = stakeToken === 'GCH' ? stakeAmount * gchPrice : stakeAmount * solPrice;
 
     // Animate with requestAnimationFrame for smooth transitions
-    let startValues: YieldResult | null = displayValues;
+    const startValues: YieldResult | null = displayValues;
     const targetValues: YieldResult = {
       dailyYield,
       weeklyYield,
@@ -144,7 +144,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({
         alignItems: 'center', 
         gap: '0.5rem' 
       }}>
-        <span role="img" aria-label="calculator">🧮</span> Interactive Yield Calculator
+        <span role="img" aria-label="calculator">🧮</span> Interactive Telemetry Rating Calculator (Devnet)
       </h2>
 
       {/* Strategy Selector */}
@@ -278,24 +278,24 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({
         borderRadius: '16px', 
         padding: '1.5rem' 
       }}>
-        <div className="results-grid" role="list" aria-label="Yield projections">
+        <div className="results-grid" role="list" aria-label="Telemetry projections">
           <div className="yield-result-card daily" role="listitem">
-            <div className="yield-result-label">Daily Yield</div>
+            <div className="yield-result-label">Daily Rating Pulse</div>
             <div className="yield-result-value daily">{formatNumber(values.dailyYield)} $GCH</div>
             <div className="yield-result-usd">≈ {formatUsd(values.dailyYield * gchPrice)} USD</div>
           </div>
           <div className="yield-result-card weekly" role="listitem">
-            <div className="yield-result-label">Weekly Yield</div>
+            <div className="yield-result-label">Weekly Rating Pulse</div>
             <div className="yield-result-value weekly">{formatNumber(values.weeklyYield)} $GCH</div>
             <div className="yield-result-usd">≈ {formatUsd(values.weeklyYield * gchPrice)} USD</div>
           </div>
           <div className="yield-result-card monthly" role="listitem">
-            <div className="yield-result-label">Monthly Yield</div>
+            <div className="yield-result-label">Monthly Rating Pulse</div>
             <div className="yield-result-value monthly">{formatNumber(values.monthlyYield)} $GCH</div>
             <div className="yield-result-usd">≈ {formatUsd(values.monthlyYield * gchPrice)} USD</div>
           </div>
           <div className="yield-result-card yearly" role="listitem">
-            <div className="yield-result-label">Yearly Yield</div>
+            <div className="yield-result-label">Seasonal Rating Pulse</div>
             <div className="yield-result-value yearly">{formatNumber(values.yearlyYield, 2)} $GCH</div>
             <div className="yield-result-usd">≈ {formatUsd(values.yearlyYield * gchPrice)} USD</div>
           </div>
@@ -305,7 +305,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({
         <div className="burn-contribution-section">
           <div className="burn-contribution-info">
             <div className="burn-contribution-label">
-              Your Stake's Daily Burn Contribution (Infinity Burn)
+              Your Stake's Daily Burn Contribution (Devnet Burn Lab)
             </div>
             <div className="burn-contribution-value">
               {formatNumber(values.dailyBurnContribution, 6)} $GCH

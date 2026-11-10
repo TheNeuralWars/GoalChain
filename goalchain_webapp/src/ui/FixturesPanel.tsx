@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { PublicKey } from '@solana/web3.js';
 import {
@@ -104,7 +105,7 @@ export const FixturesPanel: React.FC = () => {
       setLoading(false);
     } catch (err) {
       console.error('Error fetching fixtures:', err);
-      setError('No se pudieron leer fixtures on-chain. Revisa RPC/programa.');
+      setError('rpc_error');
       setLoading(false);
     }
   }, [connection, wallet.publicKey]);
@@ -255,7 +256,155 @@ export const FixturesPanel: React.FC = () => {
               <h2 className="gc-fixtures-heading">
                 {t('fix_list_heading')}
               </h2>
-              {error && <div className="gc-fixtures-error">{error}</div>}
+              {error && (
+                <div
+                  className="gc-fixtures-error glass-card"
+                  role="alert"
+                  style={{
+                    padding: '18px 20px',
+                    borderRadius: 14,
+                    border: '1px solid rgba(248, 113, 113, 0.35)',
+                    background: 'rgba(127, 29, 29, 0.18)',
+                    marginBottom: 16,
+                  }}
+                >
+                  <div style={{ fontWeight: 800, color: '#fca5a5', fontSize: '1rem', marginBottom: 6 }}>
+                    ⚠️ {t('fixtures_rpc_error_title')}
+                  </div>
+                  <p style={{ color: '#cbd5e1', fontSize: '0.9rem', margin: '0 0 14px 0', lineHeight: 1.5 }}>
+                    {t('fixtures_rpc_error_sub')}
+                  </p>
+                  <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                    <button
+                      type="button"
+                      onClick={refresh}
+                      style={{
+                        minHeight: 44,
+                        padding: '8px 16px',
+                        borderRadius: 10,
+                        background: 'rgba(255, 255, 255, 0.08)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        color: '#f8fafc',
+                        fontWeight: 700,
+                        fontSize: '0.88rem',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {t('fixtures_retry_btn')}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setView('bracket')}
+                      style={{
+                        minHeight: 44,
+                        padding: '8px 16px',
+                        borderRadius: 10,
+                        background: '#e5a93c',
+                        border: 'none',
+                        color: '#0a0b0e',
+                        fontWeight: 800,
+                        fontSize: '0.88rem',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {t('fixtures_open_bracket_btn')}
+                    </button>
+                    <Link
+                      to="/estadio?tab=simulator"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        minHeight: 44,
+                        padding: '8px 16px',
+                        borderRadius: 10,
+                        background: 'rgba(16, 185, 129, 0.15)',
+                        border: '1px solid rgba(16, 185, 129, 0.35)',
+                        color: '#34d399',
+                        fontWeight: 700,
+                        fontSize: '0.88rem',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      {t('fixtures_open_sim_btn')}
+                    </Link>
+                  </div>
+                </div>
+              )}
+              {!error && fixtures.length === 0 && (
+                <div
+                  className="glass-card"
+                  data-fixtures-empty
+                  style={{
+                    padding: '22px 24px',
+                    borderRadius: 16,
+                    border: '1px solid rgba(229, 169, 60, 0.25)',
+                    background: 'rgba(15, 23, 42, 0.72)',
+                    marginBottom: 16,
+                    textAlign: 'left',
+                  }}
+                >
+                  <div style={{ fontWeight: 800, color: '#f8fafc', fontSize: '1.05rem', marginBottom: 6 }}>
+                    🏟️ {t('fixtures_empty_title')}
+                  </div>
+                  <p style={{ color: '#94a3b8', fontSize: '0.92rem', margin: '0 0 16px 0', lineHeight: 1.55, maxWidth: '72ch' }}>
+                    {t('fixtures_empty_sub')}
+                  </p>
+                  <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                    <button
+                      type="button"
+                      onClick={() => setView('bracket')}
+                      style={{
+                        minHeight: 44,
+                        padding: '10px 18px',
+                        borderRadius: 10,
+                        background: '#e5a93c',
+                        border: 'none',
+                        color: '#0a0b0e',
+                        fontWeight: 800,
+                        fontSize: '0.9rem',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {t('fixtures_open_bracket_btn')}
+                    </button>
+                    <Link
+                      to="/estadio?tab=simulator"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        minHeight: 44,
+                        padding: '10px 18px',
+                        borderRadius: 10,
+                        background: 'rgba(16, 185, 129, 0.16)',
+                        border: '1px solid rgba(16, 185, 129, 0.38)',
+                        color: '#34d399',
+                        fontWeight: 700,
+                        fontSize: '0.9rem',
+                        textDecoration: 'none',
+                      }}
+                    >
+                      {t('fixtures_open_sim_btn')}
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={refresh}
+                      style={{
+                        minHeight: 44,
+                        padding: '10px 16px',
+                        borderRadius: 10,
+                        background: 'rgba(255, 255, 255, 0.06)',
+                        border: '1px solid rgba(255, 255, 255, 0.14)',
+                        color: '#cbd5e1',
+                        fontWeight: 600,
+                        fontSize: '0.88rem',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {t('fixtures_retry_btn')}
+                    </button>
+                  </div>
+                </div>
+              )}
               {fixtures.map((f) => {
                 const mine = betForFixture(f.pubkey);
                 const canBet = f.status === 'upcoming' || f.status === 'live';

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { THE_NEURAL_WARS_BOOKS, BookData, ChapterData } from './booksData';
+import { useTranslation } from '../i18n';
 
 export type ReaderTheme = 'dark' | 'sepia' | 'light' | 'cosmic';
 export type ReaderFont = 'serif' | 'sans' | 'mono';
@@ -15,11 +16,16 @@ export function KindleReader({
   initialChapterIndex = 0,
   onBackToPortal,
 }: KindleReaderProps) {
+  const { t, language } = useTranslation();
   // Book and Chapter State
   const [selectedBook, setSelectedBook] = useState<BookData>(
     THE_NEURAL_WARS_BOOKS.find((b) => b.id === initialBookId) || THE_NEURAL_WARS_BOOKS[0]
   );
-  const [currentLang, setCurrentLang] = useState<'es' | 'en'>('es');
+  const [currentLang, setCurrentLang] = useState<'es' | 'en'>(language === 'es' ? 'es' : 'en');
+
+  useEffect(() => {
+    setCurrentLang(language === 'es' ? 'es' : 'en');
+  }, [language]);
   const [currentChapterIndex, setCurrentChapterIndex] = useState<number>(initialChapterIndex);
   const [isTocOpen, setIsTocOpen] = useState<boolean>(false);
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
@@ -43,9 +49,9 @@ export function KindleReader({
   const [activeParagraphIndex, setActiveParagraphIndex] = useState<number | null>(null);
   const [isTtsLoading, setIsTtsLoading] = useState<boolean>(false);
 
-  // Solfeggio Web Audio Generator
-  const [isSolfeggioActive, setIsSolfeggioActive] = useState<boolean>(false);
-  const [solfeggioFreq, setSolfeggioFreq] = useState<number>(432);
+  // Ambient Web Audio Generator
+  const [isAmbientActive, setIsAmbientActive] = useState<boolean>(false);
+  const [ambientFreq, setAmbientFreq] = useState<number>(432);
   const audioCtxRef = useRef<AudioContext | null>(null);
   const oscRef = useRef<OscillatorNode | null>(null);
   const gainRef = useRef<GainNode | null>(null);
@@ -114,16 +120,16 @@ export function KindleReader({
     }
   }, [currentLang]);
 
-  // Clean up speech and solfeggio on unmount or chapter change
+  // Clean up speech and ambient on unmount or chapter change
   useEffect(() => {
     return () => {
       stopAudiobook();
-      stopSolfeggio();
+      stopAmbient();
     };
   }, [currentChapterIndex, selectedBook, currentLang]);
 
-  // Web Audio 432 Hz Solfeggio Generator
-  const startSolfeggio = (freq = solfeggioFreq) => {
+  // Web Audio Ambiental Ambient Generator
+  const startAmbient = (freq = ambientFreq) => {
     try {
       if (!audioCtxRef.current) {
         const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
@@ -154,13 +160,13 @@ export function KindleReader({
 
       oscRef.current = osc;
       gainRef.current = gain;
-      setIsSolfeggioActive(true);
+      setIsAmbientActive(true);
     } catch (e) {
-      console.warn('Web Audio Solfeggio not supported or user gesture required', e);
+      console.warn('Web Audio Ambient not supported or user gesture required', e);
     }
   };
 
-  const stopSolfeggio = () => {
+  const stopAmbient = () => {
     if (gainRef.current && audioCtxRef.current) {
       try {
         gainRef.current.gain.exponentialRampToValueAtTime(0.0001, audioCtxRef.current.currentTime + 1);
@@ -175,14 +181,14 @@ export function KindleReader({
         if (oscRef.current) oscRef.current.stop();
       }
     }
-    setIsSolfeggioActive(false);
+    setIsAmbientActive(false);
   };
 
-  const toggleSolfeggio = () => {
-    if (isSolfeggioActive) {
-      stopSolfeggio();
+  const toggleAmbient = () => {
+    if (isAmbientActive) {
+      stopAmbient();
     } else {
-      startSolfeggio(solfeggioFreq);
+      startAmbient(ambientFreq);
     }
   };
 
@@ -299,8 +305,8 @@ export function KindleReader({
       playWithBrowser(pIdx);
     }
 
-    if (isSolfeggioActive) {
-      startSolfeggio();
+    if (isAmbientActive) {
+      startAmbient();
     }
   };
 
@@ -624,9 +630,11 @@ export function KindleReader({
       <header
         style={{
           display: 'flex',
+          flexWrap: 'wrap',
+          gap: '0.6rem',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '0.8rem 1.5rem',
+          padding: '0.8rem clamp(0.75rem, 2.5vw, 1.5rem)',
           background: activeTheme.headerBg,
           borderBottom: `1px solid ${activeTheme.border}`,
           backdropFilter: 'blur(16px)',
@@ -634,7 +642,7 @@ export function KindleReader({
         }}
       >
         {/* Left: Navigation & Book Selector */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem', maxWidth: '100%' }}>
           {onBackToPortal && (
             <button
               onClick={onBackToPortal}
@@ -652,9 +660,9 @@ export function KindleReader({
                 gap: '6px',
                 transition: 'all 0.2s',
               }}
-              title="Volver a GoalWorld Portal"
+              title={t('reader_back_portal')}
             >
-              ◀ Portal
+              {t('reader_back_portal')}
             </button>
           )}
 
@@ -675,7 +683,7 @@ export function KindleReader({
               transition: 'all 0.2s',
             }}
           >
-            <span>📑 Capítulos</span>
+            <span>{t('reader_chapters')}</span>
             <span style={{ fontSize: '0.75rem', opacity: 0.75 }}>
               ({currentChapterIndex + 1}/{chapters.length})
             </span>
@@ -702,7 +710,8 @@ export function KindleReader({
               fontWeight: 600,
               outline: 'none',
               cursor: 'pointer',
-              maxWidth: '240px',
+              maxWidth: 'min(220px, 100%)',
+              minWidth: 0,
             }}
           >
             {THE_NEURAL_WARS_BOOKS.map((b) => (
@@ -714,7 +723,7 @@ export function KindleReader({
         </div>
 
         {/* Right Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem', maxWidth: '100%' }}>
           {/* AUDIOBOOK TOGGLE */}
           <button
             onClick={() => setIsAudioOpen(!isAudioOpen)}
@@ -733,10 +742,10 @@ export function KindleReader({
               boxShadow: isAudioOpen || speechState === 'playing' ? `0 0 15px ${activeTheme.accentGlow}` : 'none',
               transition: 'all 0.2s',
             }}
-            title="Escuchar Audiolibro / Solfeggio 432 Hz"
+            title={t('reader_audiobook')}
           >
             <span>🎧</span>
-            <span>{speechState === 'playing' ? 'Narrando...' : 'Audiolibro'}</span>
+            <span>{speechState === 'playing' ? t('reader_narrating') : t('reader_audiobook')}</span>
           </button>
 
           {/* Language Switcher */}
@@ -801,7 +810,7 @@ export function KindleReader({
         </div>
       </header>
 
-      {/* 3. PREMIUM AUDIOBOOK & SOLFEGGIO CONTROLS DOCK */}
+      {/* 3. PREMIUM AUDIOBOOK & ambient CONTROLS DOCK */}
       {isAudioOpen && (
         <div
           style={{
@@ -917,7 +926,7 @@ export function KindleReader({
             )}
           </div>
 
-          {/* Engine, Voice, Speed, and Solfeggio Controls */}
+          {/* Engine, Voice, Speed, and Ambient Controls */}
           <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
             {/* Voice Engine Toggle */}
             <div style={{ display: 'flex', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '6px', overflow: 'hidden', border: `1px solid ${activeTheme.border}` }}>
@@ -1021,13 +1030,13 @@ export function KindleReader({
               ))}
             </div>
 
-            {/* 432 Hz Solfeggio Meditation Drone */}
+            {/* Ambiental Ambient Meditation Drone */}
             <button
-              onClick={toggleSolfeggio}
+              onClick={toggleAmbient}
               style={{
-                background: isSolfeggioActive ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                border: isSolfeggioActive ? '1px solid #38bdf8' : `1px solid ${activeTheme.border}`,
-                color: isSolfeggioActive ? '#38bdf8' : activeTheme.muted,
+                background: isAmbientActive ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+                border: isAmbientActive ? '1px solid #38bdf8' : `1px solid ${activeTheme.border}`,
+                color: isAmbientActive ? '#38bdf8' : activeTheme.muted,
                 padding: '4px 12px',
                 borderRadius: '16px',
                 cursor: 'pointer',
@@ -1036,12 +1045,12 @@ export function KindleReader({
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                boxShadow: isSolfeggioActive ? '0 0 12px rgba(56, 189, 248, 0.3)' : 'none',
+                boxShadow: isAmbientActive ? '0 0 12px rgba(56, 189, 248, 0.3)' : 'none',
               }}
-              title="Activar Fondo Armónico Solfeggio 432 Hz (Ondas Theta)"
+              title="Activar Fondo Armónico Audio Ambiental (Ondas Theta)"
             >
               <span>🌊</span>
-              <span>{isSolfeggioActive ? '432 Hz Drone Activo' : 'Solfeggio 432 Hz'}</span>
+              <span>{isAmbientActive ? 'Drone Ambiental Activo' : 'Audio Ambiental'}</span>
             </button>
           </div>
         </div>

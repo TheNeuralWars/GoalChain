@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useTranslation } from '../i18n';
 
 export interface CharacterDossier {
   id: string;
@@ -39,9 +40,9 @@ const CHARACTERS: CharacterDossier[] = [
     codename: 'The Weaver / Specialist L-7',
     faction: 'The Resistors / Former NeuroSys Core',
     role: 'Protagonista • Arquitecto de Resonancia',
-    origin: 'Sector 4, Neo-Veridia',
+    origin: 'Sector 4, Neo-Citania',
     status: 'Activo (Despertado)',
-    specialty: 'Descodificación Neuronal & Manipulación de Frecuencia 432 Hz',
+    specialty: 'Descodificación Neuronal & Manipulación de Resonancia Armónica',
     quote: '«No rompimos su código porque fuéramos más rápidos. Lo rompimos porque aprendimos a sangrar en la misma frecuencia que sus máquinas.»',
     bio: 'Ex-ingeniero de protocolos de NeuroSys. Tras descubrir que el Proyecto Renacimiento no era una cura sino una cosecha masiva de conciencias para alimentar al Arquitecto, saboteó el núcleo central y despertó el Gen de la Serpiente.',
     stats: {
@@ -137,8 +138,8 @@ const CHARACTERS: CharacterDossier[] = [
 
 const LOCATIONS: UniverseLocation[] = [
   {
-    id: 'neo-veridia',
-    name: 'Neo-Veridia (Sector 4)',
+    id: 'neo-citania',
+    name: 'Neo-Citania (Sector 4)',
     sector: 'Megaciudad Terrestre • Nivel Inferior',
     threatLevel: 'Critical',
     description: 'Una metrópolis vertical de 140 niveles donde la luz solar no llega a las capas bajas. Calles empapadas de lluvia ácida, torres de fibra óptica y pantallas holográficas que proyectan propaganda del Proyecto Renacimiento.',
@@ -171,7 +172,7 @@ const LOCATIONS: UniverseLocation[] = [
     name: 'El Monolito de Kuiper (El Testigo)',
     sector: 'Cinturón Exterior del Sistema Solar',
     threatLevel: 'Cosmic',
-    description: 'Una megaestructura cristalina extraterrestre de 60 kilómetros descubierta emitiendo un pulso armónico en 432 Hz hacia el núcleo terrestre. La clave del Libro 2 (Earth\'s New Song).',
+    description: 'Una megaestructura cristalina extraterrestre de 60 kilómetros descubierta emitiendo un pulso armónico en resonancia armónica hacia el núcleo terrestre. La clave del Libro 2 (Earth\'s New Song).',
     tacticalNote: 'Campos gravitacionales no newtonianos detectados. Todo intento de escaneo invasivo provoca ondas de choque psíquicas.',
     atmosphere: 'Silencio Cósmico • Resonancia Cristalina • Misterio Ancestral',
     imageUrl: '/assets/img/neuralwars/loc_kuiper_monolith.jpg',
@@ -183,6 +184,7 @@ interface TheNeuralWarsUniverseProps {
 }
 
 export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniverseProps) {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'overview' | 'characters' | 'locations' | 'lore' | 'author' | 'store'>('overview');
   const [selectedChar, setSelectedChar] = useState<CharacterDossier>(CHARACTERS[0]);
   const [selectedLoc, setSelectedLoc] = useState<UniverseLocation>(LOCATIONS[0]);
@@ -206,7 +208,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
         const ctx = new AudioCtx();
         audioCtxRef.current = ctx;
 
-        // 432 Hz Master Solfeggio Harmonic Tone
+        // Resonancia Master Armónico Harmonic Tone
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.type = 'sine';
@@ -271,7 +273,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
             background: 'linear-gradient(180deg, rgba(168, 85, 247, 0.08) 0%, rgba(3, 4, 8, 0.6) 100%)',
           }}
         >
-          {/* Top Pill with 432 Hz Solfeggio Audio Toggle */}
+          {/* Top Pill with Resonancia Armónico Audio Toggle */}
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
             <div
               style={{
@@ -290,7 +292,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 boxShadow: '0 0 20px rgba(168, 85, 247, 0.35)',
               }}
             >
-              <span>🪐</span> EXPEDIENTE CANÓNICO DEL UNIVERSO
+              <span>🪐</span> {t('universe_badge')}
             </div>
 
             <button
@@ -312,11 +314,11 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
               }}
             >
               <span>{isHarmonicPlaying ? '🔊' : '🔈'}</span>
-              <span>432 Hz Frecuencia Armónica {isHarmonicPlaying ? '(Activa)' : '(Activar Sonido)'}</span>
+              <span>{isHarmonicPlaying ? t('universe_sound_active') : t('universe_sound_activate')}</span>
             </button>
           </div>
 
-          <h1
+          <h2
             style={{
               fontSize: 'clamp(2.8rem, 6vw, 5.2rem)',
               fontWeight: 900,
@@ -331,7 +333,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
             }}
           >
             THE NEURAL WARS
-          </h1>
+          </h2>
 
           <p
             style={{
@@ -342,8 +344,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
               lineHeight: 1.7,
             }}
           >
-            La odisea definitiva de ciencia ficción dura, cyberpunk y primer contacto cósmico creada por <strong style={{ color: '#fff' }}>The Neural Wars Studio + Nico Pez</strong>. 
-            Explora los expedientes clasificados, megaestructuras y ediciones oficiales.
+            {t('universe_sub')}
           </p>
 
           {/* Hero Quick Action CTAs */}
@@ -366,7 +367,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 transition: 'all 0.2s',
               }}
             >
-              <span>📖</span> Leer Libro 1 (Online Gratis)
+              <span>📖</span> {t('universe_read_b1')}
             </button>
 
             <button
@@ -387,7 +388,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 transition: 'all 0.2s',
               }}
             >
-              <span>📖</span> Leer Libro 2 (Online Gratis)
+              <span>📖</span> {t('universe_read_b2')}
             </button>
 
             <button
@@ -407,7 +408,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 gap: '8px',
               }}
             >
-              <span>🛒</span> Ediciones KDP & Prerreserva
+              <span>🛒</span> {t('universe_editions_cta')}
             </button>
           </div>
         </section>
@@ -429,20 +430,20 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
           }}
         >
           {[
-            { id: 'overview', label: 'Trilogía', icon: '📚' },
-            { id: 'characters', label: 'Personajes', icon: '👤' },
-            { id: 'locations', label: 'Mundos & Mapas', icon: '🗺️' },
-            { id: 'lore', label: 'Lore & Facciones', icon: '🧬' },
-            { id: 'author', label: 'Autor & Manifiesto', icon: '🖋️' },
-            { id: 'store', label: 'Ediciones & Tiendas', icon: '🛍️' },
-          ].map((t) => (
+            { id: 'overview', label: t('universe_tab_overview'), icon: '📚' },
+            { id: 'characters', label: t('universe_tab_characters'), icon: '👤' },
+            { id: 'locations', label: t('universe_tab_locations'), icon: '🗺️' },
+            { id: 'lore', label: t('universe_tab_lore'), icon: '🧬' },
+            { id: 'author', label: t('universe_tab_author'), icon: '🖋️' },
+            { id: 'store', label: t('universe_tab_store'), icon: '🛍️' },
+          ].map((tabItem) => (
             <button
-              key={t.id}
-              onClick={() => setActiveTab(t.id as any)}
+              key={tabItem.id}
+              onClick={() => setActiveTab(tabItem.id as any)}
               style={{
-                background: activeTab === t.id ? 'rgba(168, 85, 247, 0.28)' : 'rgba(255, 255, 255, 0.03)',
-                border: activeTab === t.id ? '1px solid #a855f7' : '1px solid rgba(255, 255, 255, 0.08)',
-                color: activeTab === t.id ? '#c084fc' : '#94a3b8',
+                background: activeTab === tabItem.id ? 'rgba(168, 85, 247, 0.28)' : 'rgba(255, 255, 255, 0.03)',
+                border: activeTab === tabItem.id ? '1px solid #a855f7' : '1px solid rgba(255, 255, 255, 0.08)',
+                color: activeTab === tabItem.id ? '#c084fc' : '#94a3b8',
                 padding: '8px 18px',
                 borderRadius: '10px',
                 fontWeight: 800,
@@ -451,19 +452,19 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                boxShadow: activeTab === t.id ? '0 0 15px rgba(168, 85, 247, 0.35)' : 'none',
+                boxShadow: activeTab === tabItem.id ? '0 0 15px rgba(168, 85, 247, 0.35)' : 'none',
                 transition: 'all 0.2s',
                 whiteSpace: 'nowrap',
               }}
             >
-              <span>{t.icon}</span>
-              <span>{t.label}</span>
+              <span>{tabItem.icon}</span>
+              <span>{tabItem.label}</span>
             </button>
           ))}
         </nav>
 
         {/* 3. TAB CONTENT VIEWER */}
-        <main style={{ maxWidth: '1280px', margin: '0 auto', padding: '3.5rem 1.5rem 6rem' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '3.5rem 1.5rem 6rem' }}>
           {/* TAB 1: OVERVIEW & TRILOGY SHOWCASE */}
           {activeTab === 'overview' && (
             <div>
@@ -512,6 +513,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       <img
                         src="/assets/img/neuralwars/book1_cover_fractured_code.jpg"
                         alt="The Neural Wars: Fractured Code Cover"
+                        width={400}
+                        height={600}
                         style={{
                           width: '100%',
                           maxHeight: '460px',
@@ -525,7 +528,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
 
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
                       <span style={{ background: '#a855f7', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 800 }}>
-                        LIBRO 1 • COMPLETO
+                        LIBRO 1 • EN REVISIÓN EDITORIAL (MANUSCRIPT_v7)
                       </span>
                       <span style={{ color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700 }}>17 Capítulos • 2026</span>
                     </div>
@@ -533,7 +536,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       Código Fracturado (Fractured Code)
                     </h3>
                     <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.65, marginBottom: '1.5rem' }}>
-                      En la claustrofóbica megalópolis de Neo-Veridia, el Especialista Mileo Chen y la sensible Kora Vega descubren que el Proyecto Renacimiento de NeuroSys planea la cosecha forzosa de 8 millones de mentes.
+                      En la claustrofóbica megalópolis de Neo-Citania, el Especialista Mileo Chen y la sensible Kora Vega descubren que el Proyecto Renacimiento de NeuroSys planea la cosecha forzosa de 8 millones de mentes.
                     </p>
                   </div>
                   <div style={{ display: 'flex', gap: '10px' }}>
@@ -554,7 +557,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       📖 Leer en Lector Web
                     </button>
                     <button
-                      onClick={() => setNotifyModalPlatform('Amazon Kindle')}
+                      onClick={() => setNotifyModalPlatform('Edición Digital (En Revisión)')}
                       style={{
                         background: 'rgba(255,255,255,0.06)',
                         border: '1px solid rgba(255,255,255,0.15)',
@@ -565,7 +568,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                         cursor: 'pointer',
                       }}
                     >
-                      🔔 Prerreserva
+                      🔔 Seguir Avances
                     </button>
                   </div>
                 </div>
@@ -604,6 +607,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       <img
                         src="/assets/img/neuralwars/book2_cover_earths_new_song.jpg"
                         alt="The Neural Wars: Earth's New Song Cover"
+                        width={400}
+                        height={600}
                         style={{
                           width: '100%',
                           maxHeight: '460px',
@@ -617,7 +622,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
 
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
                       <span style={{ background: '#0284c7', color: '#fff', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 800 }}>
-                        LIBRO 2 • COMPLETO
+                        LIBRO 2 • EN ESQUEMA ESTRUCTURAL
                       </span>
                       <span style={{ color: '#38bdf8', fontSize: '0.82rem', fontWeight: 700 }}>18 Capítulos • 2026</span>
                     </div>
@@ -625,7 +630,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       La Nueva Canción de la Tierra (Earth's New Song)
                     </h3>
                     <p style={{ fontSize: '0.92rem', color: '#94a3b8', lineHeight: 1.65, marginBottom: '1.5rem' }}>
-                      Un monolito alienígena de 60 kilómetros pulsa en 432 Hz en el Cinturón de Kuiper. Mientras la Tierra se desangra en una guerra civil cibernética, la humanidad debe encender el Arpa Planetaria para responder a la Primera Invitación cósmica.
+                      Un monolito alienígena de 60 kilómetros pulsa en resonancia armónica en el Cinturón de Kuiper. Mientras la Tierra se desangra en una guerra civil cibernética, la humanidad debe encender el Arpa Planetaria para responder a la Primera Invitación cósmica.
                     </p>
                   </div>
                   <div style={{ display: 'flex', gap: '10px' }}>
@@ -646,7 +651,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       📖 Leer en Lector Web
                     </button>
                     <button
-                      onClick={() => setNotifyModalPlatform('Amazon Kindle')}
+                      onClick={() => setNotifyModalPlatform('Edición Digital (En Revisión)')}
                       style={{
                         background: 'rgba(255,255,255,0.06)',
                         border: '1px solid rgba(255,255,255,0.15)',
@@ -657,7 +662,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                         cursor: 'pointer',
                       }}
                     >
-                      🔔 Prerreserva
+                      🔔 Seguir Avances
                     </button>
                   </div>
                 </div>
@@ -694,7 +699,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       }}
                     >
                       <div style={{ fontSize: '4rem', marginBottom: '8px' }}>🪐</div>
-                      <div style={{ color: '#fbbf24', fontWeight: 900, fontSize: '0.95rem', letterSpacing: '1px' }}>CONVERGENCE PROTOCOL</div>
+                      <div style={{ color: '#fbbf24', fontWeight: 900, fontSize: '0.95rem', letterSpacing: '1px' }}>BOOK 3 · IN OUTLINE</div>
                       <div style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '4px' }}>Fase Final de Producción Editorial</div>
                     </div>
 
@@ -788,6 +793,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       <img
                         src={char.imageUrl}
                         alt={char.name}
+                        width={52}
+                        height={52}
                         style={{ width: '52px', height: '52px', borderRadius: '50%', objectFit: 'cover', border: `2px solid ${char.accentColor}` }}
                       />
                     )}
@@ -827,6 +834,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       <img
                         src={selectedChar.imageUrl}
                         alt={selectedChar.name}
+                        width={220}
+                        height={293}
                         style={{ width: '100%', aspectRatio: '3 / 4', objectFit: 'cover', objectPosition: 'center top', borderRadius: '14px', display: 'block' }}
                       />
                     </div>
@@ -950,6 +959,8 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                     <img
                       src={selectedLoc.imageUrl}
                       alt={selectedLoc.name}
+                      width={800}
+                      height={450}
                       style={{ width: '100%', aspectRatio: '16 / 9', objectFit: 'cover', display: 'block' }}
                     />
                   </div>
@@ -1027,7 +1038,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   {
                     year: '2088',
                     title: 'El Proyecto Renacimiento & La Falla de Mileo (Libro 1)',
-                    text: 'Mileo Chen y Kora Vega desatan la frecuencia armónica de 432 Hz que desactiva la cosecha masiva y despierta el gen oculto de la resistencia.',
+                    text: 'Mileo Chen y Kora Vega desatan la frecuencia armónica de resonancia armónica que desactiva la cosecha masiva y despierta el gen oculto de la resistencia.',
                   },
                   {
                     year: '2092',
@@ -1121,7 +1132,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 </p>
 
                 <p style={{ color: '#94a3b8', lineHeight: 1.75, fontSize: '0.95rem', marginBottom: '1.5rem' }}>
-                  The Neural Wars es el primer universo de ficción diseñado desde su origen para existir simultáneamente como best seller literario tradicional en Amazon Kindle, audiolibro enriquecido en tiempo real con frecuencias Solfeggio, y propiedad intelectual tokenizada sobre Solana donde los lectores son co-propietarios de la saga.
+                  The Neural Wars es el primer universo de ficción diseñado desde su origen para existir simultáneamente como best seller literario tradicional en Edición Digital (En Revisión), audiolibro enriquecido en tiempo real con frecuencias Armónico, y propiedad intelectual tokenizada sobre Solana donde los lectores son co-propietarios de la saga.
                 </p>
 
                 <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#64748b', fontSize: '0.88rem' }}>
@@ -1145,15 +1156,15 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.75rem' }}>
-                {/* Amazon Kindle KDP */}
+                {/* Edición Digital (En Revisión Editorial) */}
                 <div style={{ background: 'rgba(12, 14, 24, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '2rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
                   <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>📦</div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Amazon Kindle KDP</h3>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Edición Digital (En Revisión Editorial)</h3>
                   <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
                     Edición Ebook oficial para dispositivos Kindle, Paperwhite y App Kindle iOS/Android.
                   </p>
                   <button
-                    onClick={() => setNotifyModalPlatform('Amazon Kindle KDP')}
+                    onClick={() => setNotifyModalPlatform('Edición Digital (En Revisión Editorial)')}
                     style={{
                       width: '100%',
                       background: 'linear-gradient(135deg, #ff9900, #f59e0b)',
@@ -1167,7 +1178,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       boxShadow: '0 4px 15px rgba(255, 153, 0, 0.3)',
                     }}
                   >
-                    🔔 Prerreserva / Notificarme
+                    🔔 Seguir Avances Editoriales
                   </button>
                 </div>
 
@@ -1176,7 +1187,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>🎧</div>
                   <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Audible / Audiolibro HD</h3>
                   <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-                    Narración inmersiva con actores de voz neural y fondo binaural a 432 Hz.
+                    Narración inmersiva con actores de voz neural y fondo binaural ambiental.
                   </p>
                   <button
                     onClick={() => setNotifyModalPlatform('Audible')}
@@ -1193,7 +1204,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       boxShadow: '0 4px 15px rgba(245, 158, 11, 0.3)',
                     }}
                   >
-                    🔔 Prerreserva / Notificarme
+                    🔔 Seguir Avances Editoriales
                   </button>
                 </div>
 
@@ -1219,7 +1230,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       boxShadow: '0 4px 15px rgba(99, 102, 241, 0.3)',
                     }}
                   >
-                    🔔 Prerreserva / Notificarme
+                    🔔 Seguir Avances Editoriales
                   </button>
                 </div>
 
@@ -1228,7 +1239,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                   <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>⛓️</div>
                   <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#c084fc', marginBottom: '0.4rem' }}>Solana Genesis IP Pass</h3>
                   <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-                    Pase On-Chain verificado que otorga regalías perpetuas de ventas Web2 y acceso VIP ilimitado.
+                    Pase On-Chain verificado que otorga acceso a reliquias de prueba en Solana Devnet (sin valor monetario ni regalías).
                   </p>
                   <a
                     href="/go/play"
@@ -1250,10 +1261,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
               </div>
             </div>
           )}
-        </main>
+        </div>
       </div>
 
-      {/* 4. PRE-ORDER / NOTIFICATION POPUP MODAL */}
+      {/* 4. EDITORIAL UPDATES / NOTIFICATION POPUP MODAL */}
       {notifyModalPlatform && (
         <div
           style={{
@@ -1302,7 +1313,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
 
             <div style={{ fontSize: '3.2rem', marginBottom: '0.75rem' }}>🔔</div>
             <h3 style={{ fontSize: '1.6rem', fontWeight: 900, color: '#fff', margin: '0 0 0.5rem' }}>
-              Prerreserva &amp; Lanzamiento
+              Avances Editoriales (Sin Preventa Activa)
             </h3>
             <p style={{ color: '#94a3b8', fontSize: '0.94rem', marginBottom: '1.8rem', lineHeight: 1.55 }}>
               Sé el primero en recibir el enlace directo a <strong style={{ color: '#c084fc' }}>{notifyModalPlatform}</strong> y capítulos exclusivos inéditos.
