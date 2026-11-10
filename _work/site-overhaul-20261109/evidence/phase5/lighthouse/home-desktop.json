@@ -2,7 +2,7 @@
   "surface": "home",
   "app": "goalworld_site",
   "mode": "desktop",
-  "fetchTime": "2026-11-10T00:33:35.646Z",
+  "fetchTime": "2026-11-10T01:03:16.863Z",
   "scores": {
     "performance": 100,
     "accessibility": 100,
@@ -12,9 +12,9 @@
   "coreVitals": {
     "fcp": "0.3 s",
     "lcp": "0.8 s",
-    "tbt": "40 ms",
+    "tbt": "30 ms",
     "cls": "0",
-    "si": "0.4 s"
+    "si": "0.5 s"
   },
   "note": null,
   "topDiagnostics": [

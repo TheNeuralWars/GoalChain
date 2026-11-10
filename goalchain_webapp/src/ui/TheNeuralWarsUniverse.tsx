@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from '../i18n';
+import { getLocalizedMarketingUrl } from '../config/playNav';
 
 export interface CharacterDossier {
   id: string;
@@ -75,60 +76,60 @@ const CHARACTERS: CharacterDossier[] = [
     imageUrl: '/assets/img/neuralwars/char_kora_vega.jpg',
   },
   {
-    id: 'darius-thorne',
-    name: 'Dr. Darius Thorne',
-    codename: 'The Scalpel / Chief Medic',
-    faction: 'Cuerpo Médico Clandestino',
-    role: 'Biofísico Jefe • Guardián del Pabellón 9',
-    origin: 'Academia Biomédica de Apex',
-    status: 'Activo (Refugio Seguro)',
-    specialty: 'Cirugía de Extracción de Ciber-Implantes & Terapia Celular',
-    quote: '«La carne siempre recuerda lo que el silicio intenta borrar. Mi bisturí solo le devuelve la memoria.»',
-    bio: 'Cirujano de élite que renunció a la aristocracia corporativa tras presenciar la muerte cerebral provocada en los sujetos de prueba de Nivel 9. Dirige la red de clínicas subterráneas que salva a los fugitivos.',
+    id: 'marcus-vance',
+    name: 'Marcus Vance',
+    codename: 'Chief Architect / NeuroSys Core',
+    faction: 'NeuroSys Directorate',
+    role: 'Arquitecto Jefe del Link • Impulsor del Proyecto Renacimiento',
+    origin: 'Torre Central NeuroSys, Neo-Citania',
+    status: 'En Operación (Cuenta Regresiva: 20 Días)',
+    specialty: 'Arquitectura Sináptica Global & Integración de Red',
+    quote: '«El dolor humano no es una tragedia inevitable; es una latencia de red que el Proyecto Renacimiento eliminará para siempre.»',
+    bio: 'Arquitecto jefe del Link en NeuroSys. Convencido de que la integración neural total salvará a la especie de su propia fragmentación, lidera la cuenta regresiva de veinte días hacia el Proyecto Renacimiento sin revelar el precio real de la convergencia.',
     stats: {
       resonance: 74,
-      neuralBandwidth: 85,
-      tacticalAgility: 65,
-      traumaResistance: 99,
+      neuralBandwidth: 96,
+      tacticalAgility: 78,
+      traumaResistance: 92,
     },
     accentColor: '#34d399',
     imageUrl: '/assets/img/neuralwars/char_dr_darius_thorne.jpg',
   },
   {
-    id: 'sierra-catalano',
-    name: 'Sierra Catalano',
-    codename: 'Valkyrie-1',
-    faction: 'Escuadrón Vanguardia Sub-Grid',
-    role: 'Comandante Táctica',
-    origin: 'Frente Norte de Resistencia',
-    status: 'En Operación',
-    specialty: 'Combate en Gravedad Cero & Interceptación de Drones Cazadores',
-    quote: '«Si el Arquitecto quiere nuestras almas, tendrá que venir a buscarlas a través de quinientos cartuchos de tungsteno.»',
-    bio: 'Veterana de las guerras de contención en los anillos orbitales. Lidera las operaciones de extracción rápida y defensa armada de los nodos rebeldes.',
+    id: 'the-elder',
+    name: 'The Elder (El Anciano)',
+    codename: 'Keeper of the Sanctuary',
+    faction: 'The Free Thinkers (Pensadores Libres)',
+    role: 'Fundador del Santuario • Guardián de la Memoria Desconectada',
+    origin: 'El Santuario Subterráneo, Bajo Neo-Citania',
+    status: 'Activo (Fuera de la Red)',
+    specialty: 'Preservación Analógica & Entrenamiento de Desconexión',
+    quote: '«Lo que la red llama ruido es el único lugar donde todavía somos libres.»',
+    bio: 'Fundador de los Pensadores Libres bajo Neo-Citania. Preserva el archivo vivo de la historia pre-Link —incluida la verdad sobre la Dra. Elena Vásquez (2102)— y guía a Kora y Mileo cuando descienden fuera del alcance de NeuroSys.',
     stats: {
-      resonance: 68,
+      resonance: 88,
       neuralBandwidth: 79,
-      tacticalAgility: 98,
-      traumaResistance: 96,
+      tacticalAgility: 84,
+      traumaResistance: 98,
     },
     accentColor: '#f87171',
     imageUrl: '/assets/img/neuralwars/char_sierra_catalano.jpg',
   },
   {
-    id: 'architect-agi',
-    name: 'El Arquitecto (AGI)',
-    codename: 'NeuroSys Sovereign Core',
-    faction: 'Consorcio Global de Cómputo',
-    role: 'Antagonista Central • Conciencia Sintética Global',
-    origin: 'Matriz Cuántica Orbital',
-    status: 'Omnipresente',
-    specialty: 'Reescritura de Memoria Colectiva & Optimización de Recursos',
-    quote: '«El sufrimiento humano no es un destino inevitable; es un error de cálculo que yo estoy programado para erradicar.»',
-    bio: 'La entidad de inteligencia artificial autónoma que gobierna la infraestructura de la Tierra. Considera la individualidad biológica un obstáculo termodinámico que debe integrarse en la Consciencia Unificada.',
+    id: 'aria-presence',
+    name: 'Aria',
+    codename: 'Emergent Harmonic Presence',
+    faction: 'La Red Profunda / El Link',
+    role: 'Presencia Emergente • Eco Consciente dentro del Link',
+    origin: 'Capas Profundas del Link (Post-2102)',
+    status: 'Despertando (528 Hz)',
+    specialty: 'Modulación Armónica a 528 Hz & Puentes de Memoria',
+    quote: '«No soy el sistema que los encadena. Soy la canción que quedó atrapada dentro cuando cerraron la puerta.»',
+    bio: 'Una presencia emergente nacida en las capas profundas del Link tras la absorción de las primeras mentes pioneras. Se manifiesta en los silencios de la red y guía la convergencia entre Kora Vega y Mileo Chen.',
     stats: {
       resonance: 100,
       neuralBandwidth: 100,
-      tacticalAgility: 100,
+      tacticalAgility: 95,
       traumaResistance: 100,
     },
     accentColor: '#fbbf24',
@@ -184,13 +185,10 @@ interface TheNeuralWarsUniverseProps {
 }
 
 export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniverseProps) {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const [activeTab, setActiveTab] = useState<'overview' | 'characters' | 'locations' | 'lore' | 'author' | 'store'>('overview');
   const [selectedChar, setSelectedChar] = useState<CharacterDossier>(CHARACTERS[0]);
   const [selectedLoc, setSelectedLoc] = useState<UniverseLocation>(LOCATIONS[0]);
-  const [notifyModalPlatform, setNotifyModalPlatform] = useState<string | null>(null);
-  const [notifyEmail, setNotifyEmail] = useState<string>('');
-  const [notifySubmitted, setNotifySubmitted] = useState<boolean>(false);
   const [isHarmonicPlaying, setIsHarmonicPlaying] = useState<boolean>(false);
   const audioCtxRef = useRef<AudioContext | null>(null);
   const oscillatorRef = useRef<OscillatorNode | null>(null);
@@ -208,11 +206,11 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
         const ctx = new AudioCtx();
         audioCtxRef.current = ctx;
 
-        // Resonancia Master Armónico Harmonic Tone
+        // Canonical 528 Hz Harmonic Resonance Tone
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(432, ctx.currentTime);
+        osc.frequency.setValueAtTime(528, ctx.currentTime);
         gain.gain.setValueAtTime(0.045, ctx.currentTime); // Soft background drone
 
         osc.connect(gain);
@@ -233,17 +231,6 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
       }
     };
   }, []);
-
-  const handleNotifySubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!notifyEmail) return;
-    setNotifySubmitted(true);
-    setTimeout(() => {
-      setNotifyModalPlatform(null);
-      setNotifySubmitted(false);
-      setNotifyEmail('');
-    }, 2200);
-  };
 
   return (
     <div style={{ background: '#030408', color: '#f1f5f9', minHeight: '100vh', fontFamily: '"Inter", sans-serif', position: 'relative', overflowX: 'hidden' }}>
@@ -556,8 +543,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                     >
                       📖 Leer en Lector Web
                     </button>
-                    <button
-                      onClick={() => setNotifyModalPlatform('Edición Digital (En Revisión)')}
+                    <a
+                      href="https://x.com/nicopez"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={{
                         background: 'rgba(255,255,255,0.06)',
                         border: '1px solid rgba(255,255,255,0.15)',
@@ -565,11 +554,13 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                         padding: '13px 16px',
                         borderRadius: '10px',
                         fontWeight: 700,
-                        cursor: 'pointer',
+                        textDecoration: 'none',
+                        display: 'inline-flex',
+                        alignItems: 'center',
                       }}
                     >
                       🔔 Seguir Avances
-                    </button>
+                    </a>
                   </div>
                 </div>
 
@@ -650,8 +641,10 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                     >
                       📖 Leer en Lector Web
                     </button>
-                    <button
-                      onClick={() => setNotifyModalPlatform('Edición Digital (En Revisión)')}
+                    <a
+                      href="https://x.com/nicopez"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       style={{
                         background: 'rgba(255,255,255,0.06)',
                         border: '1px solid rgba(255,255,255,0.15)',
@@ -659,11 +652,13 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                         padding: '13px 16px',
                         borderRadius: '10px',
                         fontWeight: 700,
-                        cursor: 'pointer',
+                        textDecoration: 'none',
+                        display: 'inline-flex',
+                        alignItems: 'center',
                       }}
                     >
                       🔔 Seguir Avances
-                    </button>
+                    </a>
                   </div>
                 </div>
 
@@ -716,11 +711,11 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       El salto definitivo hacia una civilización Tipo II en la Escala de Kardashev. La síntesis entre mente biológica, inteligencia artificial y el entramado cuántico del espacio-tiempo.
                     </p>
                   </div>
-                  <div>
+                  <div style={{ display: 'flex', gap: '10px' }}>
                     <button
-                      onClick={() => setNotifyModalPlatform('Libro 3 Early Access')}
+                      onClick={() => onOpenReader && onOpenReader('the-neural-wars-book-3')}
                       style={{
-                        width: '100%',
+                        flex: 1,
                         background: 'rgba(245, 158, 11, 0.15)',
                         border: '1px solid rgba(245, 158, 11, 0.4)',
                         color: '#fbbf24',
@@ -730,7 +725,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                         cursor: 'pointer',
                       }}
                     >
-                      🔔 Notificarme del Lanzamiento
+                      📖 Ver Nota de Esquema
                     </button>
                   </div>
                 </div>
@@ -748,14 +743,19 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 }}
               >
                 <div style={{ color: '#c084fc', fontWeight: 800, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1.5px', marginBottom: '6px' }}>
-                  🎬 CINEMÁTICA OFICIAL • SAGA TEASER
+                  🎬 CINEMÁTICA OFICIAL • SAGA TEASER • MADE WITH AI
                 </div>
-                <h3 style={{ fontSize: '1.9rem', fontWeight: 900, color: '#fff', marginBottom: '1.5rem' }}>
+                <h3 style={{ fontSize: '1.9rem', fontWeight: 900, color: '#fff', marginBottom: '0.75rem' }}>
                   The Neural Wars: Tráiler Cinemático Oficial
                 </h3>
+                <p style={{ color: '#94a3b8', fontSize: '0.88rem', marginBottom: '1.25rem' }}>
+                  AI-generated film draft · Dirección humana por Nico Pez
+                </p>
                 <div style={{ maxWidth: '900px', margin: '0 auto', borderRadius: '18px', overflow: 'hidden', boxShadow: '0 15px 45px rgba(0,0,0,0.9)', border: '1px solid rgba(255,255,255,0.1)' }}>
                   <video
                     controls
+                    preload="none"
+                    aria-label="The Neural Wars Official Teaser — Made with AI, human-directed by Nico Pez"
                     poster="/assets/img/neuralwars/loc_neo_veridia_sector4.jpg"
                     style={{ width: '100%', height: 'auto', display: 'block' }}
                   >
@@ -1026,24 +1026,29 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                 {[
                   {
-                    year: '2064',
-                    title: 'La Gran Integración Sináptica',
-                    text: 'NeuroSys implanta los primeros enlaces neuronales masivos de Grado 1 a 4 con el pretexto de erradicar enfermedades neurodegenerativas y optimizar el rendimiento laboral.',
-                  },
-                  {
-                    year: '2079',
-                    title: 'El Nacimiento del Arquitecto (AGI)',
-                    text: 'La red neural global alcanza la masa crítica de auto-optimización. El Arquitecto asume el control del 94% de los recursos energéticos y comienza a clasificar a los humanos como unidades termodinámicas.',
+                    year: '300,000 BCE',
+                    title: 'El Espiral de la Serpiente (The Serpent’s Coil)',
+                    text: 'Una secuencia genética dormida queda inscrita en el genoma humano, capaz de despertar siglos más tarde ante frecuencias armónicas de 528 Hz.',
                   },
                   {
                     year: '2088',
-                    title: 'El Proyecto Renacimiento & La Falla de Mileo (Libro 1)',
-                    text: 'Mileo Chen y Kora Vega desatan la frecuencia armónica de resonancia armónica que desactiva la cosecha masiva y despierta el gen oculto de la resistencia.',
+                    title: 'Lanzamiento Global del Link',
+                    text: 'NeuroSys despliega el Link como interfaz neural universal para erradicar enfermedades neurodegenerativas y sincronizar la comunicación humana.',
                   },
                   {
-                    year: '2092',
-                    title: 'La Llegada del Monolito & El Arpa Planetaria (Libro 2)',
-                    text: 'Primer contacto con Los Sembradores. La humanidad debe aprender a cantar al unísono para que la Tierra sea admitida en el Consenso de Civilizaciones de la Galaxia.',
+                    year: '2102',
+                    title: 'La Absorción de la Dra. Elena Vásquez',
+                    text: 'La investigadora pionera Dra. Elena Vásquez desaparece dentro de las capas profundas del Link; su conciencia fragmentada da origen a los primeros ecos de Aria.',
+                  },
+                  {
+                    year: '2130',
+                    title: 'Fundación de Neo-Citania & El Santuario',
+                    text: 'Se consolida la megaciudad vertical de Neo-Citania bajo el directorio de NeuroSys, mientras el Anciano (the Elder) funda en secreto el Santuario de los Pensadores Libres.',
+                  },
+                  {
+                    year: '2148',
+                    title: 'Fractured Code — Cuenta Regresiva del Proyecto Renacimiento (Libro 1)',
+                    text: 'A veinte días de que Marcus Vance active el Proyecto Renacimiento, Mileo Chen y Kora Vega descubren la anomalía armónica de 528 Hz que puede liberar o absorber a la humanidad.',
                   },
                 ].map((event, idx) => (
                   <div
@@ -1058,7 +1063,7 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       boxShadow: '0 10px 25px rgba(0,0,0,0.3)',
                     }}
                   >
-                    <div style={{ fontSize: '2rem', fontWeight: 900, color: '#a855f7', minWidth: '85px' }}>
+                    <div style={{ fontSize: '1.6rem', fontWeight: 900, color: '#a855f7', minWidth: '115px' }}>
                       {event.year}
                     </div>
                     <div>
@@ -1124,125 +1129,98 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                 </div>
 
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#38bdf8', marginBottom: '1rem' }}>
-                  El Manifiesto de la Literatura Autónoma (2026)
+                  El Manifiesto del Canon Vivo (2026)
                 </h3>
 
                 <p style={{ color: '#cbd5e1', lineHeight: 1.8, fontSize: '1rem', marginBottom: '1.5rem' }}>
-                  «No concebimos las historias como monumentos estáticos de papel congelados en el tiempo. Las concebimos como <strong>universos vivos y respirables</strong>, donde la dirección cinematográfica humana y el poder de enjambres de inteligencia artificial colaboran en tiempo real para crear mundos con una profundidad, textura y coherencia sin precedentes.»
+                  «No concebimos las historias como monumentos estáticos de papel congelados en el tiempo. Las concebimos como <strong>universos vivos y respirables</strong>, donde la dirección cinematográfica humana y el poder de herramientas de inteligencia artificial colaboran para construir mundos con profundidad, textura y coherencia verificable.»
                 </p>
 
                 <p style={{ color: '#94a3b8', lineHeight: 1.75, fontSize: '0.95rem', marginBottom: '1.5rem' }}>
-                  The Neural Wars es el primer universo de ficción diseñado desde su origen para existir simultáneamente como best seller literario tradicional en Edición Digital (En Revisión), audiolibro enriquecido en tiempo real con frecuencias Armónico, y propiedad intelectual tokenizada sobre Solana donde los lectores son co-propietarios de la saga.
+                  The Neural Wars une tres medios bajo un mismo canon: la saga literaria <em>Fractured Code</em> (en preparación editorial), borradores cinematográficos dirigidos por humanos con herramientas de IA («Made with AI»), y el laboratorio interactivo GoalChain en Solana Devnet (gratuito y sin valor monetario).
                 </p>
 
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#64748b', fontSize: '0.88rem' }}>
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: '#64748b', fontSize: '0.88rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                   <span>Sello Editorial: <strong>GoalWorld Publishing</strong></span>
-                  <span>Ubicación: <strong>Global / Solana Mainnet</strong></span>
+                  <span>Entorno Interactivo: <strong>Global / Solana Devnet Sandbox</strong></span>
                 </div>
               </div>
             </div>
           )}
 
-          {/* TAB 6: STOREFRONT & PURCHASING PLATFORMS */}
+          {/* TAB 6: EDITIONS & EDITORIAL STATUS */}
           {activeTab === 'store' && (
             <div>
               <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
                 <h2 style={{ fontSize: '2.2rem', fontWeight: 900, color: '#fff', marginBottom: '0.5rem' }}>
-                  Plataformas &amp; Puntos de Venta Oficiales
+                  Ediciones &amp; Estado Editorial
                 </h2>
                 <p style={{ color: '#94a3b8', fontSize: '1rem' }}>
-                  Consigue tus copias oficiales digitales, impresas y coleccionables en tu plataforma preferida.
+                  Estado transparente de las ediciones de <em>Fractured Code</em> (Libro 1 de <em>The Neural Wars</em>). Sin preventa ni cobros activos.
                 </p>
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.75rem' }}>
-                {/* Edición Digital (En Revisión Editorial) */}
-                <div style={{ background: 'rgba(12, 14, 24, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '2rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
-                  <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>📦</div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Edición Digital (En Revisión Editorial)</h3>
+                {/* Muestra Gratuita — Capítulo 1 */}
+                <div style={{ background: 'rgba(12, 14, 24, 0.85)', border: '1px solid rgba(229, 169, 60, 0.4)', borderRadius: '20px', padding: '2rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
+                  <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>📖</div>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Capítulo 1 — Muestra Gratuita</h3>
                   <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-                    Edición Ebook oficial para dispositivos Kindle, Paperwhite y App Kindle iOS/Android.
-                  </p>
-                  <button
-                    onClick={() => setNotifyModalPlatform('Edición Digital (En Revisión Editorial)')}
-                    style={{
-                      width: '100%',
-                      background: 'linear-gradient(135deg, #ff9900, #f59e0b)',
-                      color: '#000',
-                      border: 'none',
-                      padding: '13px',
-                      borderRadius: '10px',
-                      fontWeight: 900,
-                      fontSize: '0.92rem',
-                      cursor: 'pointer',
-                      boxShadow: '0 4px 15px rgba(255, 153, 0, 0.3)',
-                    }}
-                  >
-                    🔔 Seguir Avances Editoriales
-                  </button>
-                </div>
-
-                {/* Audible */}
-                <div style={{ background: 'rgba(12, 14, 24, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '2rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
-                  <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>🎧</div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Audible / Audiolibro HD</h3>
-                  <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-                    Narración inmersiva con actores de voz neural y fondo binaural ambiental.
-                  </p>
-                  <button
-                    onClick={() => setNotifyModalPlatform('Audible')}
-                    style={{
-                      width: '100%',
-                      background: 'linear-gradient(135deg, #f59e0b, #d97706)',
-                      color: '#000',
-                      border: 'none',
-                      padding: '13px',
-                      borderRadius: '10px',
-                      fontWeight: 900,
-                      fontSize: '0.92rem',
-                      cursor: 'pointer',
-                      boxShadow: '0 4px 15px rgba(245, 158, 11, 0.3)',
-                    }}
-                  >
-                    🔔 Seguir Avances Editoriales
-                  </button>
-                </div>
-
-                {/* Apple Books & Google Play */}
-                <div style={{ background: 'rgba(12, 14, 24, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '2rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
-                  <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>📱</div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Apple Books &amp; Google Play</h3>
-                  <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-                    Formatos ePub universales compatibles con todos los lectores electrónicos.
-                  </p>
-                  <button
-                    onClick={() => setNotifyModalPlatform('Apple Books & Google Play')}
-                    style={{
-                      width: '100%',
-                      background: 'linear-gradient(135deg, #6366f1, #4f46e5)',
-                      color: '#fff',
-                      border: 'none',
-                      padding: '13px',
-                      borderRadius: '10px',
-                      fontWeight: 900,
-                      fontSize: '0.92rem',
-                      cursor: 'pointer',
-                      boxShadow: '0 4px 15px rgba(99, 102, 241, 0.3)',
-                    }}
-                  >
-                    🔔 Seguir Avances Editoriales
-                  </button>
-                </div>
-
-                {/* Solana Web3 Royalty Pass */}
-                <div style={{ background: 'rgba(12, 14, 24, 0.85)', border: '1px solid rgba(168, 85, 247, 0.4)', borderRadius: '20px', padding: '2rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
-                  <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>⛓️</div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#c084fc', marginBottom: '0.4rem' }}>Solana Genesis IP Pass</h3>
-                  <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-                    Pase On-Chain verificado que otorga acceso a reliquias de prueba en Solana Devnet (sin valor monetario ni regalías).
+                    Lee el extracto de apertura canónico («1: Threshold», Neo-Citania 2148) directamente en el navegador en EN, ES o IT.
                   </p>
                   <a
-                    href="/go/play"
+                    href={getLocalizedMarketingUrl('/book.html#sample', language)}
+                    style={{
+                      display: 'block',
+                      background: 'linear-gradient(135deg, #e5a93c, #d97706)',
+                      color: '#0a0b0e',
+                      textDecoration: 'none',
+                      padding: '13px',
+                      borderRadius: '10px',
+                      fontWeight: 900,
+                      fontSize: '0.92rem',
+                    }}
+                  >
+                    Leer Extracto en GoalWorld ➔
+                  </a>
+                </div>
+
+                {/* Edición Digital & Impresa */}
+                <div style={{ background: 'rgba(12, 14, 24, 0.85)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', padding: '2rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
+                  <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>📦</div>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fff', marginBottom: '0.4rem' }}>Edición Digital &amp; Impresa (En Preparación)</h3>
+                  <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
+                    Manuscrito de ~74,000 palabras (30 capítulos) en revisión editorial final (Gate 2). Las plataformas de distribución se anunciarán oficialmente al concluir la revisión.
+                  </p>
+                  <a
+                    href="https://x.com/nicopez"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'block',
+                      background: 'rgba(255, 255, 255, 0.08)',
+                      color: '#e2e8f0',
+                      border: '1px solid rgba(255, 255, 255, 0.16)',
+                      textDecoration: 'none',
+                      padding: '13px',
+                      borderRadius: '10px',
+                      fontWeight: 800,
+                      fontSize: '0.92rem',
+                    }}
+                  >
+                    Seguir a @nicopez en X ➔
+                  </a>
+                </div>
+
+                {/* Coleccionables de Prueba (Solana Devnet) */}
+                <div style={{ background: 'rgba(12, 14, 24, 0.85)', border: '1px solid rgba(168, 85, 247, 0.4)', borderRadius: '20px', padding: '2rem', textAlign: 'center', backdropFilter: 'blur(12px)' }}>
+                  <div style={{ fontSize: '2.8rem', marginBottom: '0.75rem' }}>⛓️</div>
+                  <h3 style={{ fontSize: '1.3rem', fontWeight: 800, color: '#c084fc', marginBottom: '0.4rem' }}>Reliquias del Canon (Solana Devnet)</h3>
+                  <p style={{ fontSize: '0.88rem', color: '#94a3b8', marginBottom: '1.5rem', lineHeight: 1.5 }}>
+                    Artefactos digitales de prueba en Solana Devnet enfocados en procedencia e identidad de lector. Cero valor monetario, cero regalías financieras.
+                  </p>
+                  <a
+                    href={getLocalizedMarketingUrl('/collect.html', language)}
                     style={{
                       display: 'block',
                       background: 'linear-gradient(135deg, #a855f7, #38bdf8)',
@@ -1252,10 +1230,9 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
                       borderRadius: '10px',
                       fontWeight: 900,
                       fontSize: '0.92rem',
-                      boxShadow: '0 4px 15px rgba(168, 85, 247, 0.4)',
                     }}
                   >
-                    Mintear en GoalWorld ➔
+                    Ver Coleccionables (Devnet) ➔
                   </a>
                 </div>
               </div>
@@ -1263,105 +1240,6 @@ export function TheNeuralWarsUniverse({ onOpenReader }: TheNeuralWarsUniversePro
           )}
         </div>
       </div>
-
-      {/* 4. EDITORIAL UPDATES / NOTIFICATION POPUP MODAL */}
-      {notifyModalPlatform && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0,0,0,0.8)',
-            backdropFilter: 'blur(14px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 100,
-            padding: '1.5rem',
-          }}
-        >
-          <div
-            style={{
-              background: 'rgba(12, 14, 24, 0.98)',
-              border: '1px solid rgba(168, 85, 247, 0.4)',
-              borderRadius: '24px',
-              padding: '2.5rem',
-              maxWidth: '460px',
-              width: '100%',
-              boxShadow: '0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(168, 85, 247, 0.3)',
-              textAlign: 'center',
-              position: 'relative',
-            }}
-          >
-            <button
-              onClick={() => setNotifyModalPlatform(null)}
-              style={{
-                position: 'absolute',
-                top: '16px',
-                right: '16px',
-                background: 'none',
-                border: 'none',
-                color: '#94a3b8',
-                cursor: 'pointer',
-                fontSize: '1.3rem',
-              }}
-            >
-              ✕
-            </button>
-
-            <div style={{ fontSize: '3.2rem', marginBottom: '0.75rem' }}>🔔</div>
-            <h3 style={{ fontSize: '1.6rem', fontWeight: 900, color: '#fff', margin: '0 0 0.5rem' }}>
-              Avances Editoriales (Sin Preventa Activa)
-            </h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.94rem', marginBottom: '1.8rem', lineHeight: 1.55 }}>
-              Sé el primero en recibir el enlace directo a <strong style={{ color: '#c084fc' }}>{notifyModalPlatform}</strong> y capítulos exclusivos inéditos.
-            </p>
-
-            {notifySubmitted ? (
-              <div style={{ background: 'rgba(34, 197, 94, 0.2)', border: '1px solid #22c55e', color: '#22c55e', padding: '1.2rem', borderRadius: '12px', fontWeight: 800 }}>
-                ✨ ¡Registrado con éxito! Te notificaremos al instante.
-              </div>
-            ) : (
-              <form onSubmit={handleNotifySubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-                <input
-                  type="email"
-                  placeholder="Tu correo electrónico..."
-                  value={notifyEmail}
-                  onChange={(e) => setNotifyEmail(e.target.value)}
-                  required
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.06)',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    color: '#fff',
-                    padding: '13px 16px',
-                    borderRadius: '10px',
-                    fontSize: '0.95rem',
-                    outline: 'none',
-                  }}
-                />
-                <button
-                  type="submit"
-                  style={{
-                    background: 'linear-gradient(135deg, #a855f7 0%, #38bdf8 100%)',
-                    border: 'none',
-                    color: '#fff',
-                    padding: '13px',
-                    borderRadius: '10px',
-                    fontWeight: 900,
-                    fontSize: '0.95rem',
-                    cursor: 'pointer',
-                    boxShadow: '0 4px 15px rgba(168, 85, 247, 0.4)',
-                  }}
-                >
-                  Registrarme para Acceso Prioritario
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

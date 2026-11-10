@@ -125,15 +125,15 @@ export function DeFiPortal() {
                 </div>
               </div>
               <div>
-                <div style={{ fontSize: '0.65rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 'bold' }}>Exceso de Retorno</div>
+                <div style={{ fontSize: '0.65rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 'bold' }}>Delta de Reserva (Devnet)</div>
                 <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#fff', marginTop: '2px' }}>
-                  ◎ {opsData.vault_crank.excess_sol.toFixed(3)} SOL
+                  ◎ {opsData.vault_crank.excess_sol.toFixed(3)} SOL (Test)
                 </div>
               </div>
               <div>
-                <div style={{ fontSize: '0.65rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 'bold' }}>Recompra y Quema Estimada</div>
+                <div style={{ fontSize: '0.65rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 'bold' }}>Quema Simulada (Devnet)</div>
                 <div style={{ fontSize: '0.9rem', fontWeight: 800, color: '#14f195', marginTop: '2px' }}>
-                  {Math.round(opsData.vault_crank.estimated_gch_burned).toLocaleString()} $GCH
+                  {Math.round(opsData.vault_crank.estimated_gch_burned).toLocaleString()} $GCH (Test)
                 </div>
               </div>
               <div>

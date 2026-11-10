@@ -4,7 +4,11 @@ Branch: feat/site-overhaul-20261109 (from origin/main 9beaaeee) · Model: Gemini
 Done when: every phase 0–6 is `done` in BACKLOG.json with evidence, and the self-review (phase 6) verdict is PASS.
 
 ## Now
-Phase: 5 — DONE (Zero-error quality gate `npm run qa` + Asset Hygiene `A-043`, `A-044`, `A-045`).
+Phase: 6 (Hermes CEO Gate Self-Review & Final Delivery Pack) — in progress:
+1. Audit full branch diff (`git diff origin/main...HEAD --stat` + deep file-by-file review across `goalworld_site/`, `goalchain_webapp/`, `design/`, `tools/qa/`, `tests/visual/`, `docs/`, and `_work/site-overhaul-20261109/`), screenshots, and QA outputs against `QUALITY_BAR.md`, `copy_deck.md`, and `AGY_QUALITY_REVIEW_20261104_1745.md`.
+2. Write initial `_work/site-overhaul-20261109/SELF_REVIEW.md` with harsh numbered findings (`file:line`, severity `P0`–`P3`, concrete fix), `QUALITY_BAR` checklist, anti-patterns audit, and `TODO(nico)` inventory.
+3. Fix every `P0`/`P1`/`P2` finding discovered during the harsh review, re-run `npm run qa` to verify zero errors across all 11 stages, and update `SELF_REVIEW.md` to final `PASS` verdict.
+4. Write `_work/site-overhaul-20261109/STATUS.md` (`REVIEW: pending`) and `_work/site-overhaul-20261109/PR_BODY.md`, mark `phases.6 = "done"` in `BACKLOG.json`, and commit.
 
 ## Next
 - Start Phase 6 (Hermes CEO Gate Self-Review & Final Delivery Pack):

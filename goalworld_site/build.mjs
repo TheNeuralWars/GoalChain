@@ -122,6 +122,13 @@ function t(key, locale = "en", context = "") {
 function localizeInternalHref(href, locale = "en") {
   if (!href || locale === "en" || typeof href !== "string") return href;
   if (href === "/") return `/${locale}/`;
+  if (href.startsWith("https://play.goalworld.fun") && !href.includes("lang=")) {
+    const hashIdx = href.indexOf("#");
+    const base = hashIdx >= 0 ? href.slice(0, hashIdx) : href;
+    const hash = hashIdx >= 0 ? href.slice(hashIdx) : "";
+    const sep = base.includes("?") ? "&" : "?";
+    return `${base}${sep}lang=${locale}${hash}`;
+  }
   const m = href.match(/^\/([a-z0-9-]+)\.html(#.*)?$/i);
   if (m && INTERNAL_SLUGS.has(m[1].toLowerCase())) {
     const slug = m[1].toLowerCase();
@@ -254,8 +261,9 @@ function renderHero(props) {
 }
 
 function renderSectionHeader(props) {
+  const idAttr = props.id ? ` id="${escAttr(props.id)}"` : "";
   if (props.srOnly) {
-    return `<h2 class="sr-only">${props.title}</h2>`;
+    return `<h2 class="sr-only"${idAttr}>${props.title}</h2>`;
   }
   const alignCenter = props.align === "center";
   const wrapStyle = alignCenter ? ' style="text-align:center"' : "";
@@ -265,7 +273,7 @@ function renderSectionHeader(props) {
     ? `<p class="${props.eyebrow ? "eyebrow" : "kicker"}"${kickerStyle}>${props.kicker}</p>`
     : "";
   const leadHtml = props.lead ? `<p class="lead"${leadStyle}>${props.lead}</p>` : "";
-  return `<header class="section-head"${wrapStyle}>${kickerHtml}<h2>${props.title}</h2>${leadHtml}</header>`;
+  return `<header class="section-head"${wrapStyle}>${kickerHtml}<h2${idAttr}>${props.title}</h2>${leadHtml}</header>`;
 }
 
 function renderCard(props) {
@@ -724,7 +732,13 @@ function build() {
         BODY: fill(localizedBody, chromeVars),
       });
 
-      const html = resolveI18nString(filledHtml, locale, fileLabel);
+      let html = resolveI18nString(filledHtml, locale, fileLabel);
+      if (locale !== "en") {
+        html = html.replace(/href="(https:\/\/play\.goalworld\.fun[^"]*)"/g, (full, url) => {
+          if (url.includes("lang=")) return full;
+          return `href="${localizeInternalHref(url, locale)}"`;
+        });
+      }
 
       const outFile = join(localeDist, `${slug}.html`);
       writeFileSync(outFile, html);

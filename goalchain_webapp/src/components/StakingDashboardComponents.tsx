@@ -170,10 +170,10 @@ export const StatsBreakdownGrid: React.FC<StatsBreakdownGridProps> = ({ metrics,
       desc: 'Protocol fee allocation' 
     },
     { 
-      label: 'Vault Buybacks', 
+      label: 'Simulated Sink Burns', 
       value: metrics.breakdown.vault_buyback_gch, 
       color: 'var(--primary-neon)', 
-      desc: 'Automated market buybacks' 
+      desc: 'Devnet burn-counter telemetry' 
     },
     { 
       label: 'Treasury Fees', 

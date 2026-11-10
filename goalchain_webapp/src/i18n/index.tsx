@@ -114,6 +114,12 @@ export function LanguageProvider({ children, initialLanguage = 'en' }: {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       document.documentElement.lang = language;
+      try {
+        localStorage.setItem('gw_lang', language);
+        localStorage.setItem('gc_lang', language);
+      } catch {
+        // ignore storage errors
+      }
     }
   }, [language]);
 

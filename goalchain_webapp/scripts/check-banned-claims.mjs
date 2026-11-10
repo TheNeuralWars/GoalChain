@@ -29,6 +29,10 @@ const BANNED_CLAIMS = [
   { label: "Convergence Protocol", re: /Convergence\s+Protocol/i },
   { label: "Football Meets DeFi", re: /Football\s+Meets\s+DeFi/i },
   { label: "Stake, Play, Earn", re: /Stake,\s*Play,\s*Earn/i },
+  { label: "% APY", re: /\d+(?:\.\d+)?%\s*APY/i },
+  { label: "Automated market buybacks", re: /Automated\s+market\s+buybacks/i },
+  { label: "propiedad intelectual tokenizada", re: /propiedad\s+intelectual\s+tokenizada/i },
+  { label: "Solana Mainnet", re: /Solana\s+Mainnet(?!\s+or\s+devnet)/i },
 ];
 
 function walk(dir, out = []) {

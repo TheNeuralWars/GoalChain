@@ -2,9 +2,9 @@
   "surface": "book",
   "app": "goalworld_site",
   "mode": "mobile",
-  "fetchTime": "2026-11-10T00:33:46.859Z",
+  "fetchTime": "2026-11-10T01:03:45.956Z",
   "scores": {
-    "performance": 96,
+    "performance": 98,
     "accessibility": 100,
     "bestPractices": 100,
     "seo": 100
@@ -12,9 +12,9 @@
   "coreVitals": {
     "fcp": "0.8 s",
     "lcp": "1.8 s",
-    "tbt": "230 ms",
+    "tbt": "150 ms",
     "cls": "0",
-    "si": "1.0 s"
+    "si": "0.9 s"
   },
   "note": null,
   "topDiagnostics": [
@@ -43,16 +43,16 @@
       "displayValue": "Est savings of 150 ms"
     },
     {
-      "id": "max-potential-fid",
-      "title": "Max Potential First Input Delay",
-      "score": 42,
-      "displayValue": "280 ms"
-    },
-    {
       "id": "modern-image-formats",
       "title": "Serve images in next-gen formats",
       "score": 50,
       "displayValue": "Est savings of 10 KiB"
+    },
+    {
+      "id": "uses-responsive-images",
+      "title": "Properly size images",
+      "score": 50,
+      "displayValue": "Est savings of 6 KiB"
     }
   ]
 }

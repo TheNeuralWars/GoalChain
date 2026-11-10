@@ -396,7 +396,7 @@
       "headings": [
         [
           1,
-          "One universe.Three mediums."
+          "One universe. Three mediums."
         ],
         [
           2,
@@ -1180,7 +1180,7 @@
     },
     {
       "file": "goalchain_webapp/src/ui/KindleReader.tsx",
-      "lines": 1334,
+      "lines": 1340,
       "t_calls": 6
     },
     {
@@ -1260,7 +1260,7 @@
     },
     {
       "file": "goalchain_webapp/src/ui/TheNeuralWarsUniverse.tsx",
-      "lines": 1367,
+      "lines": 1245,
       "t_calls": 13
     },
     {

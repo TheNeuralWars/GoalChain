@@ -208,7 +208,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({
                   padding: '2px 8px',
                   borderRadius: '6px',
                 }}>
-                  {s.apy}% APY
+                  {s.apy}% Sim Index
                 </span>
               </div>
             </button>
@@ -219,7 +219,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({
       {/* Input Controls */}
       <div className="yield-input-group">
         <div>
-          <label className="yield-input-label">Stake Amount ({stakeToken})</label>
+          <label className="yield-input-label">Test Allocation ({stakeToken} · Devnet)</label>
           <div className="yield-input-wrapper">
             <input
               type="number"
@@ -230,9 +230,9 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({
               min="0"
               step="10"
               placeholder="0"
-              aria-label={`Stake amount in ${stakeToken}`}
+              aria-label={`Test allocation in ${stakeToken}`}
             />
-            <div className="token-switcher" role="group" aria-label="Select stake token">
+            <div className="token-switcher" role="group" aria-label="Select test token">
               <button
                 type="button"
                 className={`token-btn gch ${stakeToken !== 'GCH' ? 'inactive' : ''}`}
@@ -255,14 +255,14 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({
 
         <div>
           <label className="yield-input-label">Quick Presets</label>
-          <div className="preset-chips" role="group" aria-label="Preset stake amounts">
+          <div className="preset-chips" role="group" aria-label="Preset test amounts">
             {[100, 500, 1000, 5000, 10000, 50000].map(amt => (
               <button
                 key={amt}
                 type="button"
                 className="preset-chip"
                 onClick={() => handlePresetClick(amt)}
-                aria-label={`Stake ${amt >= 1000 ? amt / 1000 + 'K' : amt} ${stakeToken}`}
+                aria-label={`Select ${amt >= 1000 ? amt / 1000 + 'K' : amt} ${stakeToken}`}
               >
                 {amt >= 1000 ? (amt / 1000) + 'K' : amt}
               </button>
@@ -282,22 +282,22 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({
           <div className="yield-result-card daily" role="listitem">
             <div className="yield-result-label">Daily Rating Pulse</div>
             <div className="yield-result-value daily">{formatNumber(values.dailyYield)} $GCH</div>
-            <div className="yield-result-usd">≈ {formatUsd(values.dailyYield * gchPrice)} USD</div>
+            <div className="yield-result-usd">0 USD · Devnet Test</div>
           </div>
           <div className="yield-result-card weekly" role="listitem">
             <div className="yield-result-label">Weekly Rating Pulse</div>
             <div className="yield-result-value weekly">{formatNumber(values.weeklyYield)} $GCH</div>
-            <div className="yield-result-usd">≈ {formatUsd(values.weeklyYield * gchPrice)} USD</div>
+            <div className="yield-result-usd">0 USD · Devnet Test</div>
           </div>
           <div className="yield-result-card monthly" role="listitem">
             <div className="yield-result-label">Monthly Rating Pulse</div>
             <div className="yield-result-value monthly">{formatNumber(values.monthlyYield)} $GCH</div>
-            <div className="yield-result-usd">≈ {formatUsd(values.monthlyYield * gchPrice)} USD</div>
+            <div className="yield-result-usd">0 USD · Devnet Test</div>
           </div>
           <div className="yield-result-card yearly" role="listitem">
             <div className="yield-result-label">Seasonal Rating Pulse</div>
             <div className="yield-result-value yearly">{formatNumber(values.yearlyYield, 2)} $GCH</div>
-            <div className="yield-result-usd">≈ {formatUsd(values.yearlyYield * gchPrice)} USD</div>
+            <div className="yield-result-usd">0 USD · Devnet Test</div>
           </div>
         </div>
 
@@ -305,18 +305,18 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({
         <div className="burn-contribution-section">
           <div className="burn-contribution-info">
             <div className="burn-contribution-label">
-              Your Stake's Daily Burn Contribution (Devnet Burn Lab)
+              Daily Simulated Burn Counter (Devnet Burn Lab)
             </div>
             <div className="burn-contribution-value">
               {formatNumber(values.dailyBurnContribution, 6)} $GCH
             </div>
             <div className="burn-contribution-basis">
-              Based on {(vaultBuybackCoverage * 100).toFixed(0)}% vault buyback coverage
+              Based on {(vaultBuybackCoverage * 100).toFixed(0)}% simulated burn-ratio weight (Devnet)
             </div>
           </div>
           <div className="stake-value-display">
-            <div className="stake-value-label">Stake Value</div>
-            <div className="stake-value-amount">{formatUsd(values.stakeValueUsd)}</div>
+            <div className="stake-value-label">Monetary Value</div>
+            <div className="stake-value-amount">0 USD (Devnet)</div>
           </div>
         </div>
       </div>

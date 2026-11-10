@@ -16,15 +16,17 @@ export function KindleReader({
   initialChapterIndex = 0,
   onBackToPortal,
 }: KindleReaderProps) {
-  const { t, language } = useTranslation();
+  const { t, language, setLanguage } = useTranslation();
   // Book and Chapter State
   const [selectedBook, setSelectedBook] = useState<BookData>(
     THE_NEURAL_WARS_BOOKS.find((b) => b.id === initialBookId) || THE_NEURAL_WARS_BOOKS[0]
   );
-  const [currentLang, setCurrentLang] = useState<'es' | 'en'>(language === 'es' ? 'es' : 'en');
+  const [currentLang, setCurrentLang] = useState<'en' | 'es' | 'it'>(
+    language === 'es' ? 'es' : language === 'it' ? 'it' : 'en'
+  );
 
   useEffect(() => {
-    setCurrentLang(language === 'es' ? 'es' : 'en');
+    setCurrentLang(language === 'es' ? 'es' : language === 'it' ? 'it' : 'en');
   }, [language]);
   const [currentChapterIndex, setCurrentChapterIndex] = useState<number>(initialChapterIndex);
   const [isTocOpen, setIsTocOpen] = useState<boolean>(false);
@@ -51,7 +53,7 @@ export function KindleReader({
 
   // Ambient Web Audio Generator
   const [isAmbientActive, setIsAmbientActive] = useState<boolean>(false);
-  const [ambientFreq, setAmbientFreq] = useState<number>(432);
+  const [ambientFreq, setAmbientFreq] = useState<number>(528);
   const audioCtxRef = useRef<AudioContext | null>(null);
   const oscRef = useRef<OscillatorNode | null>(null);
   const gainRef = useRef<GainNode | null>(null);
@@ -751,7 +753,9 @@ export function KindleReader({
           {/* Language Switcher */}
           <button
             onClick={() => {
-              setCurrentLang((prev) => (prev === 'es' ? 'en' : 'es'));
+              const nextLang = currentLang === 'en' ? 'es' : currentLang === 'es' ? 'it' : 'en';
+              setCurrentLang(nextLang);
+              setLanguage(nextLang);
               stopAudiobook();
             }}
             style={{
@@ -765,9 +769,9 @@ export function KindleReader({
               fontWeight: 800,
               transition: 'all 0.2s',
             }}
-            title="Alternar Idioma (Español / English)"
+            title="Switch Language (English / Español / Italiano)"
           >
-            {currentLang === 'es' ? '🇪🇸 ES' : '🇺🇸 EN'}
+            {currentLang === 'es' ? '🇪🇸 ES' : currentLang === 'it' ? '🇮🇹 IT' : '🇺🇸 EN'}
           </button>
 
           {/* Settings & Appearance */}
@@ -1240,8 +1244,10 @@ export function KindleReader({
       )}
 
       {/* 6. MAIN READING CONTAINER */}
-      <main
+      <div
         ref={contentRef}
+        role="region"
+        aria-label="Chapter reader"
         onScroll={handleScroll}
         style={{
           flex: 1,
@@ -1328,7 +1334,7 @@ export function KindleReader({
             )}
           </div>
         </article>
-      </main>
+      </div>
     </div>
   );
 }

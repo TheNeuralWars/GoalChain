@@ -38,6 +38,10 @@ BANNED_CLAIMS = [
     ("432 Hz", re.compile(r"\b432\s+Hz\b", re.I)),
     ("$1M", re.compile(r"\$1M\b", re.I)),
     ("Convergence Protocol", re.compile(r"Convergence\s+Protocol", re.I)),
+    ("% APY", re.compile(r"\d+(?:\.\d+)?%\s*APY", re.I)),
+    ("Automated market buybacks", re.compile(r"Automated\s+market\s+buybacks", re.I)),
+    ("propiedad intelectual tokenizada", re.compile(r"propiedad\s+intelectual\s+tokenizada", re.I)),
+    ("Solana Mainnet", re.compile(r"Solana\s+Mainnet(?!\s+or\s+devnet)", re.I)),
 ]
 
 
@@ -175,8 +179,18 @@ def main():
             "has_skip_link": a11y["has_skip_link"],
         })
 
-    # 3. Scan goalchain_webapp for banned claims and i18n gaps
+    # 3. Scan goalchain_webapp + root READMEs for banned claims and i18n gaps
     webapp_dir = ROOT / "goalchain_webapp"
+    extra_docs = [ROOT / "README.md", ROOT / "goalworld_site" / "README.md"]
+    for f in extra_docs:
+        if f.exists():
+            hits = scan_file_for_banned(f)
+            if hits:
+                report["goalchain_webapp_banned"].append({
+                    "file": str(f.relative_to(ROOT)),
+                    "hit_count": len(hits),
+                    "samples": hits[:8],
+                })
     for ext in ("*.tsx", "*.ts", "*.html", "*.json", "*.md"):
         for f in sorted(webapp_dir.rglob(ext)):
             if "node_modules" in f.parts or "dist" in f.parts:

@@ -64,7 +64,7 @@ const MOCK_WORLDS: FantasyWorld[] = [
     subscribers: 0,
     chaptersCount: 1,
     bannerUrl: '/assets/img/neuralwars/loc_neo_veridia_sector4.jpg',
-    description: 'En Neo-Citania (2045), ocho millones de ciudadanos viven conectados al Link. Kora Vega, David y Mileo Chen descubren una anomalía de doce segundos en el Distrito Siete.',
+    description: 'En Neo-Citania (2148), a veinte días del lanzamiento del Proyecto Renacimiento, Kora Vega y Mileo Chen descubren la anomalía armónica de 528 Hz dentro del Link.',
     loreTags: ['Cyberpunk', 'Mileo Chen', 'Kora Vega', 'Neo-Citania', 'MANUSCRIPT_v7'],
     seasonPassPrice: 'Extracto gratuito',
     editorialStage: 'MANUSCRIPT_v7 · En revisión G2',
@@ -124,7 +124,7 @@ const MOCK_CHAPTERS: Chapter[] = [
     chapterNumber: 2,
     readTime: '15 min',
     unlocked: true,
-    price: '0.01 SOL',
+    price: '0.01 SOL (Devnet Test)',
     audioTrack: 'Ecos Marinos de Cristal',
     content: `Descendieron por los peldaños de piedra coralina hacia las criptas sumergidas de Eldoria. El agua resonaba contra los muros iluminados por bioluminiscencia ancestral. Frente al altar de la Emperatriz del Abismo, Valerius desenvainó su espada y pronunció el antiguo juramento de los Guardianes del Crepúsculo.`
   },
@@ -134,7 +134,7 @@ const MOCK_CHAPTERS: Chapter[] = [
     chapterNumber: 3,
     readTime: '18 min',
     unlocked: false,
-    price: '0.02 SOL',
+    price: '0.02 SOL (Devnet Test)',
     audioTrack: 'Tambores de Guerra Titánica',
     content: `Contenido bloqueado. Adquiere el Capítulo 3 o el Pase de Temporada para desbloquear la continuación inmediata y la carta exclusiva de Lord Valerius.`
   }
@@ -166,7 +166,7 @@ const MOCK_BOUNTIES: EditorialBounty[] = [
     id: 'b1',
     title: 'Ilustrar Mapa de las Montañas de Obsidiana',
     assignedTo: 'Agent Visual Engine (Midjourney v6 API)',
-    reward: '0.5 SOL',
+    reward: '0.5 SOL (Devnet Test)',
     status: 'Completed',
     type: 'Illustration'
   },
@@ -174,7 +174,7 @@ const MOCK_BOUNTIES: EditorialBounty[] = [
     id: 'b2',
     title: 'Traducción Editorial al Japonés (Capítulos 1-10)',
     assignedTo: 'Hermes Translator Agent',
-    reward: '1.2 SOL',
+    reward: '1.2 SOL (Devnet Test)',
     status: 'In Progress',
     type: 'Translation'
   },
@@ -182,7 +182,7 @@ const MOCK_BOUNTIES: EditorialBounty[] = [
     id: 'b3',
     title: 'Auditoría de Inconsistencias de Lore en Cap. 3',
     assignedTo: 'Hermes Lore Guard',
-    reward: '0.2 SOL',
+    reward: '0.2 SOL (Devnet Test)',
     status: 'Completed',
     type: 'Lore Audit'
   }
@@ -204,7 +204,7 @@ export function GoalWorldPortal() {
   // SaaS Publishing & Tokenization state
   const [bookTitle, setBookTitle] = useState('');
   const [isbn, setIsbn] = useState('978-3-16-148410-0');
-  const [kdpAutoPublish, setKdpAutoPublish] = useState(true);
+  const [epubDraftPack, setEpubDraftPack] = useState(true);
   const [tokenizedShare, setTokenizedShare] = useState('85% Autor / 10% Editores / 5% Agente');
   const [publishingStep, setPublishingStep] = useState<number>(1);
   const [publishedSuccess, setPublishedSuccess] = useState(false);
@@ -731,8 +731,8 @@ export function GoalWorldPortal() {
                   <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontSize: '0.9rem', fontWeight: 700, color: '#e9d5ff' }}>
                     <input
                       type="checkbox"
-                      checked={kdpAutoPublish}
-                      onChange={(e) => setKdpAutoPublish(e.target.checked)}
+                      checked={epubDraftPack}
+                      onChange={(e) => setEpubDraftPack(e.target.checked)}
                     />
                     Generar paquete de revisión editorial (EPUB / PDF Borrador)
                   </label>

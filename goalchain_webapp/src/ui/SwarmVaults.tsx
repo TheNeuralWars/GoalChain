@@ -26,9 +26,9 @@ const VAULT_STRATEGIES_RAW: VaultStrategyRaw[] = [
         apy: '7.5%',
         color: 'var(--primary-neon)',
         allocations: [
-            { name: 'Drift Hedging', share: 40, color: 'var(--primary-neon)' },
+            { name: 'Matchday Pool Telemetry', share: 40, color: 'var(--primary-neon)' },
             { name: 'Reserve Telemetry', share: 50, color: 'var(--secondary-neon)' },
-            { name: 'Cash', share: 10, color: '#64748b' }
+            { name: 'Sandbox Buffer', share: 10, color: '#64748b' }
         ],
         logKeys: [
             'vault_log_sentinel_1',
@@ -45,10 +45,10 @@ const VAULT_STRATEGIES_RAW: VaultStrategyRaw[] = [
         apy: '9.5%',
         color: 'var(--secondary-neon)',
         allocations: [
-            { name: 'Jupiter LP Pools', share: 60, color: 'var(--secondary-neon)' },
-            { name: 'Drift Hedging', share: 20, color: 'var(--primary-neon)' },
+            { name: 'Cross-Pool Sync', share: 60, color: 'var(--secondary-neon)' },
+            { name: 'Matchday Pool Telemetry', share: 20, color: 'var(--primary-neon)' },
             { name: 'Reserve Telemetry', share: 15, color: '#f59e0b' },
-            { name: 'Cash', share: 5, color: '#64748b' }
+            { name: 'Sandbox Buffer', share: 5, color: '#64748b' }
         ],
         logKeys: [
             'vault_log_arb_1',
@@ -65,9 +65,9 @@ const VAULT_STRATEGIES_RAW: VaultStrategyRaw[] = [
         apy: '14.5%',
         color: 'var(--accent-red)',
         allocations: [
-            { name: 'Drift Speculation', share: 75, color: 'var(--accent-red)' },
-            { name: 'Jupiter LP Pools', share: 15, color: 'var(--secondary-neon)' },
-            { name: 'Cash', share: 10, color: '#64748b' }
+            { name: 'High-Tempo Oracle Sync', share: 75, color: 'var(--accent-red)' },
+            { name: 'Cross-Pool Sync', share: 15, color: 'var(--secondary-neon)' },
+            { name: 'Sandbox Buffer', share: 10, color: '#64748b' }
         ],
         logKeys: [
             'vault_log_orch_1',
@@ -244,7 +244,7 @@ export const SwarmVaults: React.FC = () => {
                             >
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <span>{vault.name}</span>
-                                    <span style={{ color: vault.color, fontWeight: 900 }}>{vault.apy} APY</span>
+                                    <span style={{ color: vault.color, fontWeight: 900 }}>{vault.apy} Sim Index</span>
                                 </div>
                             </button>
                         ))}
@@ -254,7 +254,7 @@ export const SwarmVaults: React.FC = () => {
                     <div className="glass-card" style={{ padding: '16px', borderRadius: '12px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
                             <span style={{ fontSize: '1.2rem', fontWeight: 800, color: '#fff' }}>{activeVault.name}</span>
-                            <span style={{ fontSize: '1rem', fontWeight: 900, color: activeVault.color }}>{activeVault.apy} APY</span>
+                            <span style={{ fontSize: '1rem', fontWeight: 900, color: activeVault.color }}>{activeVault.apy} Sim Index</span>
                         </div>
                         <p style={{ fontSize: '0.78rem', color: '#94a3b8', marginBottom: '12px', lineHeight: '1.4' }}>{activeVault.description}</p>
 

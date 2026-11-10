@@ -1,43 +1,46 @@
-# GoalWorld site — single source of truth
+# GoalWorld site — single source of truth (`goalworld.fun`)
 
-The one landing for **GoalWorld · World of Achievements** (`https://goalworld.fun`).
-Static HTML, zero runtime dependencies, one tiny Node build script.
+The official editorial & studio site for **GoalWorld — Canon. Code. Cinema.** (`https://goalworld.fun`).
+Zero runtime framework dependencies, shared design tokens (`design/tokens.json`), reusable HTML component macros (`COMPONENTS.md`), and full trilingual output (`EN`, `ES`, `IT`).
 
 ```
 goalworld_site/
-├── build.mjs                  # assembles src/ -> dist/ (+ sitemap, press zip)
+├── build.mjs                  # assembles src/ -> dist/ across en/es/it (+ sitemap, feeds, press zip)
+├── COMPONENTS.md              # documentation for <gw-*> build-time component macros
 ├── src/
-│   ├── layout.html            # shared <head>, header, footer (placeholders)
-│   ├── pages/*.html           # one file per page, starts with a meta JSON comment
-│   ├── assets/css/site.css    # design system (Solana neons, Outfit)
-│   ├── assets/js/site.js      # nav toggle only (nothing else needs JS)
-│   ├── assets/fonts/          # self-hosted Outfit (variable, ~46 KB total)
+│   ├── layout.html            # shared <head>, hreflang, JSON-LD, header & footer partials
+│   ├── partials/              # header.html, footer.html, devnet-banner.html
+│   ├── i18n/                  # en.json, es.json, it.json (780 keys per locale, 100% parity)
+│   ├── pages/*.html           # 13 pages, each starting with a meta JSON comment
+│   ├── data/live-feed.json    # structured feed backing /live.html, /feed.xml, and /feed.json
+│   ├── assets/css/tokens.css  # generated from design/tokens.json (do not hand-edit)
+│   ├── assets/css/site.css    # editorial design system (#0a0b0e obsidian + #e5a93c warm amber)
+│   ├── assets/js/site.js      # nav drawer, locale switcher (gw_lang), live-feed filter, reader settings
+│   ├── assets/fonts/          # self-hosted Newsreader, Outfit & JetBrains Mono variable woff2
 │   ├── assets/img/            # web-optimized art (every image < 300 KB)
-│   ├── robots.txt             # keeps the existing AI content-signals block
+│   ├── .well-known/           # security.txt, ai-plugin.json, mcp.json
+│   ├── llms.txt               # structured briefing for AI/LLM agents
+│   ├── robots.txt             # crawler rules + AI content-signals block
 │   └── site.webmanifest
 ├── tools/
 │   ├── make_assets.py         # regenerates src/assets/img from repo masters
-│   ├── check_links.py         # static link checker (+ external URLs)
+│   ├── check_links.py         # static link + asset + canonical + hreflang checker
 │   ├── build_vercel_output.mjs# assembles docs/.site_out for the Vercel project
 │   └── make_press_zip.py      # bundles press downloads
 └── dist/                      # build output (gitignored — never commit)
 ```
 
-## Build
+## Build & Verify
 
 ```bash
+node scripts/build-tokens.mjs
 node goalworld_site/build.mjs
+python3 goalworld_site/tools/check_links.py
 ```
 
-Output: `dist/` with `index.html`, `<page>.html`, an extensionless mirror
-`<page>/index.html` per page (so `/about` works on plain file servers like Caddy),
-`sitemap.xml`, `robots.txt`, `site.webmanifest`, `assets/`, and
-`assets/img/press/press-kit.zip`.
+Output: `dist/` with localized trees at `/` (`en`), `/es/`, and `/it/` (`84` HTML routes total — both `<page>.html` and extensionless `<page>/index.html` per locale so `/about`, `/es/about`, and `/it/about` work on plain file servers like Caddy), plus `sitemap.xml` (with `xhtml:link` `hreflang` alternates), `feed.xml` (RSS 2.0), `feed.json` (JSON Feed 1.1), `robots.txt`, `llms.txt`, `.well-known/*`, `site.webmanifest`, `assets/`, and `assets/img/press/press-kit.zip`.
 
-Every page also ships JSON-LD structured data (schema.org): a `WebPage` node on all
-pages, `Organization` + `WebSite` on the home page, and `FAQPage` on `/faq` generated
-from the visible Q&A text (build-time validation keeps the schema in lockstep with the
-page — the build fails before shipping if they would drift).
+Every page also ships localized JSON-LD structured data (schema.org): `WebPage` + `BreadcrumbList` on all pages, `Organization` + `WebSite` on `/`, `Book` on `/book.html`, `VideoObject` on `/cinema.html`, `SoftwareApplication` on `/studio.html`, and `FAQPage` on `/faq.html` generated from the visible Q&A text (build-time validation keeps the schema in lockstep with the page — the build fails before shipping if they would drift).
 
 ## Pages
 
@@ -56,10 +59,9 @@ page — the build fails before shipping if they would drift).
 | privacy, terms | `/privacy.html`, `/terms.html` | plain-language legal (TODO: lawyer review, see TODO.md) |
 | 404 | `/404.html` | on-brand not-found with search |
 
-### Reader sample (`/go/reader/` & `/book.html#sample`)
-- The free preview on `/book.html#sample` currently carries an opening excerpt placeholder.
-- **After Gate 2 (G2)**: the public sample should be the official Chapter 1 from `MANUSCRIPT_v7` (or `MANUSCRIPT_COMPLETE_2026_EN.md` / `EDICION_2026`).
-- **TODO**: Swap in the full G2-signed Chapter 1 text for `/go/reader/` and `/book.html#sample` once author sign-off is confirmed. Do not invent or alter chapter text. Ensure the free excerpt remains within KDP Select rules (~6% of 74k words) if Select distribution is selected.
+### Reader sample (`/book.html#sample` & `play.goalworld.fun/reader`)
+- The free preview on `/book.html#sample` (and `play.goalworld.fun/reader`) ships the canonical opening excerpt of **Chapter 1: *Threshold*** from `MANUSCRIPT_v7` across `EN`, `ES`, and `IT`, complete with interactive typography size (`S`/`M`/`L`), reading theme (`Dark`/`Sepia`), and reading-progress controls.
+- Full Chapter 1 expansion remains gated on **Gate 2 (G2)** editorial sign-off (`TODO(nico)`). Do not alter canonical prose or exceed ~6% of the 74k-word manuscript if retailer exclusivity is later chosen.
 
 Internal links between `goalworld_site` pages (`/book.html`, `/book.html#sample`,
 `/cinema.html`, `/studio.html`, `/collect.html`, `/live.html`, `/about.html`,

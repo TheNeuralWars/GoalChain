@@ -22,7 +22,7 @@ function StatusDot({ status }: { status: TokenizedAgent['status'] }) {
 }
 
 function AgentCard({ agent, lang }: { agent: TokenizedAgent; lang: string }) {
-  const role = lang === 'es' ? agent.roleEs : agent.roleEn;
+  const role = lang === 'es' ? agent.roleEs : lang === 'it' ? agent.roleIt : agent.roleEn;
   const changeColor = agent.change24h >= 0 ? '#14f195' : '#ef4444';
   const changePrefix = agent.change24h >= 0 ? '+' : '';
 
@@ -47,10 +47,10 @@ function AgentCard({ agent, lang }: { agent: TokenizedAgent; lang: string }) {
         <StatusDot status={agent.status} />
       </div>
 
-      {/* Token price row */}
+      {/* Telemetry score row */}
       <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '14px' }}>
         <span style={{ fontSize: '1.5rem', fontWeight: 800, color: agent.color, fontVariantNumeric: 'tabular-nums' }}>
-          ${agent.tokenPrice.toFixed(2)}
+          {agent.telemetryScore.toFixed(1)} pts
         </span>
         <span style={{ fontSize: '0.72rem', fontWeight: 700, color: changeColor }}>
           {changePrefix}{agent.change24h.toFixed(1)}%
@@ -78,7 +78,7 @@ function AgentCard({ agent, lang }: { agent: TokenizedAgent; lang: string }) {
 // ─────────────────────────────────────────────────────────────────
 export function TokenizedAgentsDashboard() {
   const { language, t } = useTranslation();
-  const totalMarketCap = AGENTS.reduce((s, a) => s + a.tokenPrice * 1000, 0);
+  const avgScore = AGENTS.reduce((s, a) => s + a.telemetryScore, 0) / AGENTS.length;
   const activeCount = AGENTS.filter(a => a.status === 'active').length;
   const totalTasks = AGENTS.reduce((s, a) => s + a.tasksDone, 0);
 
@@ -111,8 +111,8 @@ export function TokenizedAgentsDashboard() {
           <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#14f195' }}>{activeCount}</div>
         </div>
         <div className="glass-card" style={{ padding: '14px 16px', borderRadius: '12px' }}>
-          <div style={{ fontSize: '0.6rem', color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase' }}>Market Cap</div>
-          <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fbbf24' }}>${(totalMarketCap / 1000).toFixed(1)}K <SimulationBadge label="demo" /></div>
+          <div style={{ fontSize: '0.6rem', color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase' }}>Avg Telemetry Index</div>
+          <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fbbf24' }}>{avgScore.toFixed(1)} pts <SimulationBadge label="demo" /></div>
         </div>
         <div className="glass-card" style={{ padding: '14px 16px', borderRadius: '12px' }}>
           <div style={{ fontSize: '0.6rem', color: '#94a3b8', fontWeight: 700, textTransform: 'uppercase' }}>Tasks Completed</div>
