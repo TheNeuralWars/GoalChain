@@ -5,6 +5,7 @@ import { OpsStatusPanel } from './OpsStatusPanel';
 import { SimulationBadge } from '../components/SimulationBadge';
 import { useUser } from '../contexts/UserContext';
 import { useTranslation } from '../i18n/index';
+import { DevnetOnboardingCard } from '../components/DevnetOnboardingCard';
 
 
 export function DashboardGrid() {
@@ -16,6 +17,7 @@ export function DashboardGrid() {
   return (
     <div className="inicio-portal">
       <EconomyConfigBanner />
+      <DevnetOnboardingCard />
       {/* Welcome Hero Banner */}
       <div className="welcome-hero glass-card portal-fade-in">
         <div className="welcome-hero-content">

@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../i18n';
+import { getLocalizedMarketingUrl } from '../config/playNav';
 
 export function PressKit() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const [activeTab, setActiveTab] = useState<'all' | 'players' | 'backgrounds' | 'logos'>('all');
+  const [copiedBoilerplate, setCopiedBoilerplate] = useState(false);
+
+  const handleCopyBoilerplate = async () => {
+    try {
+      await navigator.clipboard.writeText(t('presskit_boilerplate_text'));
+      setCopiedBoilerplate(true);
+      setTimeout(() => setCopiedBoilerplate(false), 2400);
+    } catch {
+      // ignore clipboard error
+    }
+  };
 
   const logos = [
     { name: 'GoalChain 3D Logo Clean', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/logo_3d_clean.png', desc: 'Transparent 3D render logo' },
@@ -77,12 +89,13 @@ export function PressKit() {
 
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a
-              href="https://goalworld.fun/press/PressKit_GoalChain.zip"
-              download="PressKit_GoalChain.zip"
+              href="https://goalworld.fun/assets/img/press/press-kit.zip"
+              download="press-kit.zip"
               className="press-kit-download-btn"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
+                minHeight: '44px',
                 gap: '0.75rem',
                 background: 'linear-gradient(90deg, #9945ff 0%, #7c3aed 100%)',
                 color: '#fff',
@@ -107,10 +120,28 @@ export function PressKit() {
               {t('presskit_download_btn')}
             </a>
             <a
+              href={getLocalizedMarketingUrl('/press.html', language)}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                minHeight: '44px',
+                background: 'rgba(229, 169, 60, 0.14)',
+                color: '#e5a93c',
+                padding: '0.85rem 1.5rem',
+                borderRadius: '8px',
+                fontWeight: '700',
+                textDecoration: 'none',
+                border: '1px solid rgba(229, 169, 60, 0.38)'
+              }}
+            >
+              {t('presskit_canonical_btn')} ↗
+            </a>
+            <a
               href="#guide"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
+                minHeight: '44px',
                 background: 'rgba(255, 255, 255, 0.05)',
                 color: '#e2e8f0',
                 padding: '0.85rem 1.75rem',
@@ -125,6 +156,41 @@ export function PressKit() {
             >
               {t('presskit_guide_btn')}
             </a>
+          </div>
+
+          {/* Official Studio Boilerplate */}
+          <div style={{
+            marginTop: '1.5rem',
+            padding: '1.1rem 1.25rem',
+            background: 'rgba(10, 11, 14, 0.65)',
+            border: '1px solid rgba(229, 169, 60, 0.25)',
+            borderRadius: '12px'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 8 }}>
+              <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#e5a93c', letterSpacing: '0.06em' }}>
+                {t('presskit_boilerplate_label')}
+              </span>
+              <button
+                type="button"
+                onClick={handleCopyBoilerplate}
+                style={{
+                  minHeight: '44px',
+                  padding: '6px 14px',
+                  borderRadius: '8px',
+                  background: copiedBoilerplate ? 'rgba(16, 185, 129, 0.2)' : 'rgba(255, 255, 255, 0.08)',
+                  border: '1px solid rgba(255, 255, 255, 0.18)',
+                  color: copiedBoilerplate ? '#34d399' : '#f8fafc',
+                  fontSize: '0.85rem',
+                  fontWeight: 700,
+                  cursor: 'pointer'
+                }}
+              >
+                {copiedBoilerplate ? t('presskit_copied_btn') : t('presskit_copy_btn')}
+              </button>
+            </div>
+            <p style={{ margin: 0, color: '#cbd5e1', fontSize: '0.9rem', lineHeight: 1.55 }}>
+              {t('presskit_boilerplate_text')}
+            </p>
           </div>
         </div>
       </section>
@@ -355,25 +421,25 @@ export function PressKit() {
           
           <div style={{ background: 'rgba(15, 23, 42, 0.2)', padding: '1.25rem', borderRadius: '8px' }}>
             <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>🎯</span>
-            <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>1. The Hook (First 3 Seconds)</h4>
+            <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>{t('presskit_step1_title')}</h4>
             <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: '1.5' }}>
-              Grab attention immediately. Use screen recordings of the **Pack Opener** or high streaks on the **Penalty Game**. People love watching pack opening luck and interactive gameplay.
+              {t('presskit_step1_desc')}
             </p>
           </div>
 
           <div style={{ background: 'rgba(15, 23, 42, 0.2)', padding: '1.25rem', borderRadius: '8px' }}>
             <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>🎬</span>
-            <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>2. Editing for Retention</h4>
+            <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>{t('presskit_step2_title')}</h4>
             <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: '1.5' }}>
-              Keep it short (10 to 15 seconds max). Use the stadium loops (vertical format) as the background, place the transparent player in the middle, and add quick text captions or sound effects.
+              {t('presskit_step2_desc')}
             </p>
           </div>
 
           <div style={{ background: 'rgba(15, 23, 42, 0.2)', padding: '1.25rem', borderRadius: '8px' }}>
             <span style={{ fontSize: '1.5rem', display: 'block', marginBottom: '0.5rem' }}>📢</span>
-            <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>3. The Call to Action</h4>
+            <h4 style={{ fontWeight: '700', marginBottom: '0.5rem' }}>{t('presskit_step3_title')}</h4>
             <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: '1.5' }}>
-              Always direct viewers to try it themselves: *"Play for free at https://goalworld.fun"*. You can place this in the comments, bio, or as a caption overlay inside the video.
+              {t('presskit_step3_desc')}
             </p>
           </div>
 
@@ -389,7 +455,7 @@ export function PressKit() {
           fontSize: '0.9rem',
           fontWeight: '500'
         }}>
-          💡 **Recommended Hashtags**: `#GoalChain #Solana #SportsFi #WorldCup2026 #Gaming #Crypto #UGC`
+          💡 <strong>{t('presskit_tags_label')}</strong> <code>#GoalWorld #FracturedCode #TheNeuralWars #MatchdayLab #WorldCup2026 #SolanaDevnet</code>
         </div>
       </section>
 

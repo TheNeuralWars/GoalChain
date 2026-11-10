@@ -4,7 +4,7 @@
     "1": "done",
     "2": "done",
     "3": "done",
-    "4": "todo",
+    "4": "done",
     "5": "todo",
     "6": "todo"
   },
@@ -344,10 +344,10 @@
       "phase": 4,
       "priority": "P2",
       "title": "Align in-app AuthorStudio.tsx (/studio) and PressKit.tsx (/presskit) on play.goalworld.fun with canonical studio and press pages",
-      "evidence": "goalchain_webapp/src/ui/AuthorStudio.tsx:1-314; goalchain_webapp/src/ui/PressKit.tsx:1-392",
+      "evidence": "goalchain_webapp/src/ui/AuthorStudio.tsx; goalchain_webapp/src/ui/PressKit.tsx; _work/site-overhaul-20261109/evidence/phase4/phase4_report.json",
       "fix": "Update AuthorStudio.tsx and PressKit.tsx to reflect canonical v7 lore seeds (Neo-Citania, Kora Vega, 528 Hz), honest studio pipeline steps, and canonical press kit links.",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n",
-      "status": "doing"
+      "status": "done"
     },
     {
       "id": "A-039",
@@ -517,6 +517,16 @@
       "evidence": "goalchain_webapp/src/index.css; goalchain_webapp/src/ui/*.tsx; _work/site-overhaul-20261109/evidence/phase2/responsive_report.json (180/180 checks passed); _work/site-overhaul-20261109/evidence/phase2/screenshots/ (180 screenshots <= 400 KB)",
       "fix": "Add one-handed mobile quick-nav/action bar and wallet controls in PlayLayout/PlayNav, convert wide tables and fixed grids across EstadioPortal, ClubPortal, DeFiPortal, StakingBurnDashboard, GoalWorldPortal, KindleReader, AuthorStudio, PressKit, ClassicHub, MarketingControlCenter, CorporateAutopilot, TokenizedAgentsDashboard, CreateUser, and UserProfile to responsive cards/scroll containers, enforce >=44px touch targets on touch viewports, add width/height on all images, and enforce >=14px mobile body text.",
       "verify": "cd goalchain_webapp && npm run build && npm run check:i18n && node ../tests/visual/responsive-suite.mjs",
+      "status": "done"
+    },
+    {
+      "id": "A-052",
+      "phase": 4,
+      "priority": "P1",
+      "title": "Add one-screen Solana Devnet onboarding & first-match flow (DevnetOnboardingCard.tsx), structured empty/error states in FixturesPanel.tsx and LiveEventFeed.tsx, and localized 404/ErrorBoundary in App.tsx",
+      "evidence": "goalchain_webapp/src/components/DevnetOnboardingCard.tsx; goalchain_webapp/src/ui/{DashboardGrid,EstadioPortal,FixturesPanel,LiveEventFeed,App}.tsx; _work/site-overhaul-20261109/evidence/phase4/phase4_report.json",
+      "fix": "Create DevnetOnboardingCard.tsx explaining Solana Devnet (free, zero real money, instant simulation without wallet) with a 1-click Play First Match CTA (/estadio?tab=simulator), upgrade FixturesPanel.tsx and LiveEventFeed.tsx empty/error states across EN/ES/IT, and add RouteErrorBoundary + NotFoundPage catch-all route in App.tsx.",
+      "verify": "cd goalchain_webapp && npm run build && npm run check:i18n && node ../tests/visual/phase4-suite.mjs",
       "status": "done"
     }
   ]

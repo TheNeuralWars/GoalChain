@@ -1,0 +1,200 @@
+{
+  "generatedAt": "2026-11-10T00:01:47.621Z",
+  "totalChecks": 24,
+  "passed": 24,
+  "failed": 0,
+  "screenshotsCount": 17,
+  "maxScreenshotBytes": 154205,
+  "results": [
+    {
+      "id": "gw-book-phase4",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/book.html"
+    },
+    {
+      "id": "gw-cinema-phase4",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/cinema.html"
+    },
+    {
+      "id": "gw-studio-phase4",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/studio.html"
+    },
+    {
+      "id": "gw-collect-phase4",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/collect.html"
+    },
+    {
+      "id": "gw-about-phase4",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/about.html"
+    },
+    {
+      "id": "gw-faq-phase4",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/faq.html"
+    },
+    {
+      "id": "gw-live-phase4",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/live.html"
+    },
+    {
+      "id": "gw-press-phase4",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/press.html"
+    },
+    {
+      "id": "gw-404-phase4",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/404.html"
+    },
+    {
+      "id": "gw-es-book.html",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/es/book.html"
+    },
+    {
+      "id": "gw-es-cinema.html",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/es/cinema.html"
+    },
+    {
+      "id": "gw-es-studio.html",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/es/studio.html"
+    },
+    {
+      "id": "gw-es-collect.html",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/es/collect.html"
+    },
+    {
+      "id": "gw-es-about.html",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/es/about.html"
+    },
+    {
+      "id": "gw-it-book.html",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/it/book.html"
+    },
+    {
+      "id": "gw-it-cinema.html",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/it/cinema.html"
+    },
+    {
+      "id": "gw-it-studio.html",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/it/studio.html"
+    },
+    {
+      "id": "gw-it-collect.html",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/it/collect.html"
+    },
+    {
+      "id": "gw-it-about.html",
+      "status": "pass",
+      "url": "http://127.0.0.1:4410/it/about.html"
+    },
+    {
+      "id": "play-dashboard-onboarding",
+      "status": "pass",
+      "url": "http://127.0.0.1:4411/dashboard"
+    },
+    {
+      "id": "play-estadio-simulator-deeplink",
+      "status": "pass",
+      "url": "http://127.0.0.1:4411/estadio?tab=simulator"
+    },
+    {
+      "id": "play-studio-canonical",
+      "status": "pass",
+      "url": "http://127.0.0.1:4411/studio"
+    },
+    {
+      "id": "play-presskit-canonical",
+      "status": "pass",
+      "url": "http://127.0.0.1:4411/presskit"
+    },
+    {
+      "id": "play-404-catchall",
+      "status": "pass",
+      "url": "http://127.0.0.1:4411/non-existent-route-404"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "gw-book-phase4-1440x900.jpg",
+      "bytes": 154205
+    },
+    {
+      "file": "gw-cinema-phase4-1440x900.jpg",
+      "bytes": 119355
+    },
+    {
+      "file": "gw-studio-phase4-1440x900.jpg",
+      "bytes": 80183
+    },
+    {
+      "file": "gw-collect-phase4-1440x900.jpg",
+      "bytes": 80750
+    },
+    {
+      "file": "gw-about-phase4-1440x900.jpg",
+      "bytes": 95341
+    },
+    {
+      "file": "gw-faq-phase4-1440x900.jpg",
+      "bytes": 82862
+    },
+    {
+      "file": "gw-live-phase4-1440x900.jpg",
+      "bytes": 101989
+    },
+    {
+      "file": "gw-press-phase4-1440x900.jpg",
+      "bytes": 127420
+    },
+    {
+      "file": "gw-404-phase4-1440x900.jpg",
+      "bytes": 54430
+    },
+    {
+      "file": "play-dashboard-onboarding-1440x900.jpg",
+      "bytes": 124521
+    },
+    {
+      "file": "play-estadio-simulator-1440x900.jpg",
+      "bytes": 93429
+    },
+    {
+      "file": "play-studio-phase4-1440x900.jpg",
+      "bytes": 129721
+    },
+    {
+      "file": "play-presskit-phase4-1440x900.jpg",
+      "bytes": 101445
+    },
+    {
+      "file": "play-404-phase4-1440x900.jpg",
+      "bytes": 66808
+    },
+    {
+      "file": "gw-book-phase4-390x844.jpg",
+      "bytes": 55016
+    },
+    {
+      "file": "gw-studio-phase4-390x844.jpg",
+      "bytes": 39164
+    },
+    {
+      "file": "play-dashboard-onboarding-390x844.jpg",
+      "bytes": 50439
+    }
+  ]
+}
