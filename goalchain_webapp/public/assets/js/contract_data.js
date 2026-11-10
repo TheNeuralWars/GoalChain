@@ -186,11 +186,31 @@
         await refreshSelectedMatch();
     };
 
-    window.addEventListener("load", async () => {
-        highlightMatch(activeMatchId);
+    // Boot-light feed: refreshSelectedMatch() pulls in the whole anchor bundle plus
+    // IDL + RPC round-trips, and on classic-dashboard the bracket panel lives in a
+    // hidden tab (bettingTab) — so none of that may run during page boot. The feed
+    // starts when the panel is first shown (switchAppTab('betting') calls
+    // window.initBettingView) or at load on pages where the panel is already visible.
+    // The 20s poll skips ticks while the panel is hidden.
+    function bracketPanelVisible() {
+        const el = document.getElementById("debugMatchId");
+        return !!el && el.offsetParent !== null;
+    }
+
+    let bracketFeedTimer = null;
+    async function startBracketFeed() {
         await refreshSelectedMatch();
-        setInterval(() => {
-            refreshSelectedMatch();
-        }, 20_000);
+        if (!bracketFeedTimer) {
+            bracketFeedTimer = setInterval(() => {
+                if (!bracketPanelVisible()) return;
+                refreshSelectedMatch();
+            }, 20_000);
+        }
+    }
+    window.initBettingView = startBracketFeed;
+
+    window.addEventListener("load", () => {
+        highlightMatch(activeMatchId);
+        if (bracketPanelVisible()) startBracketFeed();
     });
 })();

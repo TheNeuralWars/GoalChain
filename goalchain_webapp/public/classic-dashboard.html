@@ -2036,19 +2036,33 @@
     <script defer src="/vendor/solana-web3.iife.min.js"></script>
     <!-- Anchor only ships its browser build as a bare ES module, so it cannot run as a
          classic script. esm.sh ?bundle serves it as one self-contained file + one buffer
-         polyfill. Load it out of the critical path (idle-scheduled dynamic import) and
-         expose the classic `anchor` global; callers await window.loadAnchor() first.
-         Matches repo Anchor 0.30.1. -->
+         polyfill. Keep it OUT of boot entirely: only wallet-program calls and the
+         Betting MVP bracket panel need it (both behind user actions), and evaluating it
+         during boot cost ~0.8 s of main-thread time (Lighthouse "Unattributable" eval).
+         Callers await window.loadAnchor() before touching the classic `anchor` global;
+         the call is memoized so concurrent callers share one import. After load + idle
+         the module graph is warmed via modulepreload (fetch only — never evaluated) so
+         the first real use stays fast. Matches repo Anchor 0.30.1. -->
     <script type="module">
-        window.loadAnchor = () =>
-            import('https://esm.sh/@coral-xyz/anchor@0.30.1?bundle').then((m) => (window.anchor = m));
-        (window.requestIdleCallback || ((f) => setTimeout(f, 1)))(() => window.loadAnchor());
+        const ANCHOR_MODULE = 'https://esm.sh/@coral-xyz/anchor@0.30.1?bundle';
+        window.loadAnchor = (() => {
+            let pending = null;
+            return () => (pending ||= import(ANCHOR_MODULE).then((m) => (window.anchor = m)));
+        })();
+        window.addEventListener('load', () => {
+            (window.requestIdleCallback || ((f) => setTimeout(f, 1)))(() => {
+                const warm = document.createElement('link');
+                warm.rel = 'modulepreload';
+                warm.href = ANCHOR_MODULE;
+                document.head.appendChild(warm);
+            });
+        });
     </script>
     <script defer src="/assets/js/i18n.js?v=3.0"></script>
     <script defer src="/assets/js/notification_manager.js?v=3.0"></script>
     <script defer src="/assets/js/wallet_connect.js?v=3.0"></script>
     <script defer src="/assets/js/solana_connector.js?v=3.3"></script>
-    <script defer src="/assets/js/contract_data.js?v=3.3"></script>
+    <script defer src="/assets/js/contract_data.js?v=3.4"></script>
     <script defer src="/assets/js/drift_markets.js"></script>
     <script defer src="/assets/js/cnft_scout.js"></script>
     <script defer src="/assets/js/lending_app.js"></script>
@@ -2101,6 +2115,7 @@
             }
             
             // Re-initialize components if needed
+            if (tabId === 'betting' && typeof initBettingView === 'function') initBettingView();
             if (tabId === 'markets') initMarketsView();
             if (tabId === 'academy') initAcademyView();
             if (tabId === 'lending') initLendingView();
