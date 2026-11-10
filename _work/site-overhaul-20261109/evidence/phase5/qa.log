@@ -1,0 +1,210 @@
+GoalWorld Phase 5 — Zero-Error Quality Gate (npm run qa)
+Started at: 2026-11-10T00:32:22.251Z
+
+================================================================================
+[STAGE] 1/11 Site Build (goalworld_site/build.mjs)
+  $ node goalworld_site/build.mjs
+================================================================================
+  tokens check OK — 0 drift across goalworld_site + goalchain_webapp (11 WCAG AA pairs verified)
+  i18n check OK — 780 keys in sync across en, es, it
+  page  404.html  (8.7 KB)
+  page  about.html + about/  (19.7 KB)
+  page  book.html + book/  (22.9 KB)
+  page  cinema.html + cinema/  (16.9 KB)
+  page  collect.html + collect/  (12.6 KB)
+  page  faq.html + faq/  (20.1 KB)
+  page  index.html  (21.1 KB)
+  page  live.html + live/  (9.6 KB)
+  page  press.html + press/  (15.5 KB)
+  page  privacy.html + privacy/  (10.0 KB)
+  page  roadmap.html + roadmap/  (12.8 KB)
+  page  studio.html + studio/  (17.4 KB)
+  page  terms.html + terms/  (10.3 KB)
+  page  es/404.html  (9.0 KB)
+  page  es/about.html + es/about/  (20.6 KB)
+  page  es/book.html + es/book/  (24.4 KB)
+  page  es/cinema.html + es/cinema/  (17.8 KB)
+  page  es/collect.html + es/collect/  (13.3 KB)
+  page  es/faq.html + es/faq/  (21.8 KB)
+  page  es/index.html  (22.1 KB)
+  page  es/live.html + es/live/  (9.8 KB)
+  page  es/press.html + es/press/  (16.0 KB)
+  page  es/privacy.html + es/privacy/  (10.5 KB)
+  page  es/roadmap.html + es/roadmap/  (13.2 KB)
+  page  es/studio.html + es/studio/  (18.6 KB)
+  page  es/terms.html + es/terms/  (10.9 KB)
+  page  it/404.html  (8.9 KB)
+  page  it/about.html + it/about/  (20.5 KB)
+  page  it/book.html + it/book/  (24.3 KB)
+  page  it/cinema.html + it/cinema/  (17.7 KB)
+  page  it/collect.html + it/collect/  (13.2 KB)
+  page  it/faq.html + it/faq/  (20.9 KB)
+  page  it/index.html  (22.0 KB)
+  page  it/live.html + it/live/  (9.8 KB)
+  page  it/press.html + it/press/  (15.9 KB)
+  page  it/privacy.html + it/privacy/  (10.4 KB)
+  page  it/roadmap.html + it/roadmap/  (13.0 KB)
+  page  it/studio.html + it/studio/  (18.3 KB)
+  page  it/terms.html + it/terms/  (10.9 KB)
+  sitemap.xml  (36 urls across 3 locales, lastmod 2026-11-10)
+  feed.xml + feed.json  (10 entries, updated 2026-11-03)
+  press-kit.zip  (355 KB)
+  banned-claims check OK — 0 violations across 80 output files
+  sanity OK — 39 localized pages (13 routes × 3 locales) built into /workspace/goalworld-site-overhaul/goalworld_site/dist
+[PASS] 1/11 Site Build (goalworld_site/build.mjs) (0.18s)
+
+================================================================================
+[STAGE] 2/11 Banned-Claims & Repo Static Audit
+  $ node goalchain_webapp/scripts/check-banned-claims.mjs
+================================================================================
+check-banned-claims: OK — 0 violations across 98 files
+[PASS] 2/11 Banned-Claims & Repo Static Audit (0.06s)
+
+================================================================================
+[STAGE] 2b/11 Deep Static Repo Audit (scan_repo_audit.py)
+  $ python3 _work/site-overhaul-20261109/tools/scan_repo_audit.py
+================================================================================
+Wrote static repo audit to /workspace/goalworld-site-overhaul/_work/site-overhaul-20261109/evidence/audit/repo_static_audit.json
+  goalworld_site HTML files audited: 13
+  docs HTML files audited: 32
+  goalchain_webapp files with banned claims: 0
+  goalworld_site unused assets: 0
+  oversized assets (>250KB): 16
+[PASS] 2b/11 Deep Static Repo Audit (scan_repo_audit.py) (1.02s)
+
+================================================================================
+[STAGE] 3/11 i18n Key Parity (goalchain_webapp EN/ES/IT + goalworld_site EN/ES/IT)
+  $ node goalchain_webapp/scripts/check-i18n-keys.mjs
+================================================================================
+✅ i18n key check passed (914 keys in sync across en.json, es.json, it.json, and translations.ts).
+[PASS] 3/11 i18n Key Parity (goalchain_webapp EN/ES/IT + goalworld_site EN/ES/IT) (0.03s)
+
+================================================================================
+[STAGE] 4/11 Design Token Drift & WCAG AA Contrast Check
+  $ node design/sync-tokens.mjs --check
+================================================================================
+  tokens check OK — 0 drift across goalworld_site + goalchain_webapp (11 WCAG AA pairs verified)
+[PASS] 4/11 Design Token Drift & WCAG AA Contrast Check (0.03s)
+
+================================================================================
+[STAGE] 5/11 HTML Validation (html-validate)
+  $ /workspace/goalworld-site-overhaul/tools/qa/node_modules/.bin/html-validate --config tools/qa/htmlvalidate.json goalworld_site/dist/**/*.html goalchain_webapp/index.html
+================================================================================
+[PASS] 5/11 HTML Validation (html-validate) (1.19s)
+
+================================================================================
+[STAGE] 6/11 CSS Lint (stylelint standard config)
+  $ /workspace/goalworld-site-overhaul/tools/qa/node_modules/.bin/stylelint --config tools/qa/stylelint.config.mjs goalworld_site/src/assets/css/site.css goalchain_webapp/src/styles/tokens.css goalchain_webapp/src/index.css
+================================================================================
+[PASS] 6/11 CSS Lint (stylelint standard config) (0.51s)
+
+================================================================================
+[STAGE] 7/11 JS/TS Lint (eslint)
+  $ /workspace/goalworld-site-overhaul/tools/qa/node_modules/.bin/eslint --config tools/qa/eslint.config.mjs goalworld_site/src/assets/js/site.js goalworld_site/build.mjs design/sync-tokens.mjs goalchain_webapp/scripts/**/*.mjs goalchain_webapp/src/**/*.{ts,tsx}
+================================================================================
+[PASS] 7/11 JS/TS Lint (eslint) (1.47s)
+
+================================================================================
+[STAGE] 8/11 Webapp Build & i18n Check (goalchain_webapp)
+  $ npm --prefix goalchain_webapp run build
+================================================================================
+
+> goalchain_webapp@0.0.0 build
+> node ../design/sync-tokens.mjs --check && node scripts/check-banned-claims.mjs && tsc && vite build
+
+  tokens check OK — 0 drift across goalworld_site + goalchain_webapp (11 WCAG AA pairs verified)
+check-banned-claims: OK — 0 violations across 98 files
+vite v5.4.21 building for production...
+transforming...
+✓ 526 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                     3.23 kB │ gzip:   1.01 kB
+dist/assets/wallet-adapter-CuhqgDVu.css             4.86 kB │ gzip:   1.37 kB
+dist/assets/index-BmsL5D5R.css                    103.28 kB │ gzip:  20.09 kB
+dist/assets/explorerLinks-Be7T4ckB.js               0.15 kB │ gzip:   0.14 kB
+dist/assets/WalletProviders-CYsBoJRj.js             0.82 kB │ gzip:   0.48 kB
+dist/assets/GenesisCollectionGallery-DImtDA54.js    2.86 kB │ gzip:   1.37 kB
+dist/assets/LiveEventFeed-BdY9c81-.js               3.42 kB │ gzip:   1.48 kB
+dist/assets/EstadioPortal-jN3QXc-s.js               4.30 kB │ gzip:   1.29 kB
+dist/assets/NFTMarketplace-B4xTJX34.js              4.51 kB │ gzip:   2.05 kB
+dist/assets/DeFiPortal-DoQC9TSY.js                  5.68 kB │ gzip:   2.11 kB
+dist/assets/CreateUser-t8IhEBlV.js                  6.58 kB │ gzip:   2.05 kB
+dist/assets/TokenizedAgentsDashboard-P_3ArdNA.js    7.47 kB │ gzip:   2.31 kB
+dist/assets/AICommentator-BBGE4H9c.js               8.82 kB │ gzip:   2.94 kB
+dist/assets/SwarmVaults-BDAywUAh.js                 8.95 kB │ gzip:   2.50 kB
+dist/assets/LayeredNftCard-D-8OClw8.js             11.34 kB │ gzip:   3.62 kB
+dist/assets/PressKit-r1MC7s5S.js                   13.74 kB │ gzip:   3.14 kB
+dist/assets/ClubPortal-DatEREbq.js                 16.25 kB │ gzip:   4.78 kB
+dist/assets/TradingTerminal-Cpv3ZiEG.js            17.30 kB │ gzip:   4.78 kB
+dist/assets/AuthorStudio-D6bh3JzI.js               18.66 kB │ gzip:   6.76 kB
+dist/assets/MarketingControlCenter-BzhK3YLh.js     22.00 kB │ gzip:   6.10 kB
+dist/assets/UserProfile-DdvwAn5B.js                24.35 kB │ gzip:   6.61 kB
+dist/assets/WorldCupPredictor-CvWeE7xK.js          25.31 kB │ gzip:   4.56 kB
+dist/assets/StakingBurnDashboard-6TZW7FpB.js       27.51 kB │ gzip:   8.34 kB
+dist/assets/polyfill-DG-Uutyh.js                   27.67 kB │ gzip:   8.44 kB
+dist/assets/KindleReader-CuM74JwU.js               28.58 kB │ gzip:   9.35 kB
+dist/assets/FixturesPanel-DUjZjZ5d.js              30.00 kB │ gzip:   6.25 kB
+dist/assets/MatchSimulator-DluJ-yb9.js             47.20 kB │ gzip:  12.04 kB
+dist/assets/goalchainClient-v4j1hCVN.js            48.83 kB │ gzip:   9.47 kB
+dist/assets/GoalWorldPortal-DpVWgPmv.js            62.10 kB │ gzip:  16.33 kB
+dist/assets/CorporateAutopilot-BG0U3sDW.js         69.72 kB │ gzip:  20.05 kB
+dist/assets/en-deQ9e68P.js                         77.99 kB │ gzip:  27.29 kB
+dist/assets/it-cEh1VMP8.js                         80.31 kB │ gzip:  27.87 kB
+dist/assets/es-qbhqR1VH.js                         80.85 kB │ gzip:  28.62 kB
+dist/assets/index-Cpt8qzhc.js                     109.80 kB │ gzip:  33.29 kB
+dist/assets/wallet-adapter-B790VZpR.js            136.50 kB │ gzip:  43.56 kB
+dist/assets/react-vendor-CGBXU2CE.js              142.42 kB │ gzip:  45.61 kB
+dist/assets/solana-core-_inBLhuB.js               418.11 kB │ gzip: 120.57 kB
+✓ built in 3.23s
+[PASS] 8/11 Webapp Build & i18n Check (goalchain_webapp) (7.68s)
+
+================================================================================
+[STAGE] 8b/11 Webapp i18n Key Check
+  $ npm --prefix goalchain_webapp run check:i18n
+================================================================================
+
+> goalchain_webapp@0.0.0 check:i18n
+> node scripts/check-i18n-keys.mjs
+
+✅ i18n key check passed (914 keys in sync across en.json, es.json, it.json, and translations.ts).
+[PASS] 8b/11 Webapp i18n Key Check (0.12s)
+
+================================================================================
+[STAGE] 9/11 Static Link, Anchor, Hreflang & Sitemap Checker
+  $ python3 goalworld_site/tools/check_links.py
+================================================================================
+pages: 72   links checked: 3640   sitemap urls: 36
+OK — all internal links, hreflang tags, and sitemap URLs resolve
+[PASS] 9/11 Static Link, Anchor, Hreflang & Sitemap Checker (0.15s)
+
+================================================================================
+[STAGE] Playwright QA Suite (Phase 2 Responsive + Phase 3 i18n across 390x844, 820x1180, 1440x900)
+================================================================================
+  Route-viewport checks (390x844, 820x1180, 1440x900): 90/90 passed
+  Console errors: 0 | Failed requests / 404s: 0
+  i18n site pages checked: 39 | Webapp locale checks: 18
+  Saved report: _work/site-overhaul-20261109/evidence/phase5/playwright_summary.json
+[PASS] Playwright QA Suite (47.40s)
+
+================================================================================
+[STAGE] Lighthouse CI (6 Key Pages × Mobile & Desktop = 12 Audits with Budgets)
+================================================================================
+  -> home       [mobile ]: Perf= 97  A11y=100  BP=100  SEO=100  (LCP=2.6 s, TBT=0 ms, CLS=0)
+  -> home       [desktop]: Perf=100  A11y=100  BP=100  SEO=100  (LCP=0.8 s, TBT=40 ms, CLS=0)
+  -> book       [mobile ]: Perf= 96  A11y=100  BP=100  SEO=100  (LCP=1.8 s, TBT=230 ms, CLS=0)
+  -> book       [desktop]: Perf=100  A11y=100  BP=100  SEO=100  (LCP=0.4 s, TBT=0 ms, CLS=0)
+  -> cinema     [mobile ]: Perf= 99  A11y=100  BP=100  SEO=100  (LCP=2.0 s, TBT=0 ms, CLS=0)
+  -> cinema     [desktop]: Perf=100  A11y=100  BP=100  SEO=100  (LCP=0.5 s, TBT=0 ms, CLS=0)
+  -> studio     [mobile ]: Perf= 99  A11y=100  BP=100  SEO=100  (LCP=1.7 s, TBT=100 ms, CLS=0)
+  -> studio     [desktop]: Perf=100  A11y=100  BP=100  SEO=100  (LCP=0.4 s, TBT=0 ms, CLS=0)
+  -> collect    [mobile ]: Perf=100  A11y=100  BP=100  SEO=100  (LCP=1.7 s, TBT=40 ms, CLS=0)
+  -> collect    [desktop]: Perf=100  A11y=100  BP=100  SEO=100  (LCP=0.4 s, TBT=0 ms, CLS=0)
+  -> play-home  [mobile ]: Perf= 96  A11y=100  BP=100  SEO=100  (LCP=2.5 s, TBT=0 ms, CLS=0)
+  -> play-home  [desktop]: Perf=100  A11y=100  BP=100  SEO=100  (LCP=0.5 s, TBT=0 ms, CLS=0)
+  Saved Lighthouse summary: _work/site-overhaul-20261109/evidence/phase5/lighthouse/summary.json
+[PASS] Lighthouse CI (131.21s)
+
+================================================================================
+ALL QA STAGES PASSED (0 ERRORS) in 191.04s
+================================================================================

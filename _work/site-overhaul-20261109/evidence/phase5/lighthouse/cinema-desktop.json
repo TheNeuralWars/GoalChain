@@ -1,0 +1,52 @@
+{
+  "surface": "cinema",
+  "app": "goalworld_site",
+  "mode": "desktop",
+  "fetchTime": "2026-11-10T00:34:19.711Z",
+  "scores": {
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "coreVitals": {
+    "fcp": "0.2 s",
+    "lcp": "0.5 s",
+    "tbt": "0 ms",
+    "cls": "0",
+    "si": "0.2 s"
+  },
+  "note": null,
+  "topDiagnostics": [
+    {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0,
+      "displayValue": null
+    },
+    {
+      "id": "modern-image-formats",
+      "title": "Serve images in next-gen formats",
+      "score": 50,
+      "displayValue": "Est savings of 10 KiB"
+    },
+    {
+      "id": "uses-responsive-images",
+      "title": "Properly size images",
+      "score": 50,
+      "displayValue": "Est savings of 73 KiB"
+    },
+    {
+      "id": "image-delivery-insight",
+      "title": "Improve image delivery",
+      "score": 50,
+      "displayValue": "Est savings of 108 KiB"
+    },
+    {
+      "id": "render-blocking-insight",
+      "title": "Render blocking requests",
+      "score": 50,
+      "displayValue": null
+    }
+  ]
+}

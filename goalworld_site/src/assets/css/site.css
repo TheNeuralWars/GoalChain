@@ -129,6 +129,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
     U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @font-face {
   font-family: "Outfit";
   font-style: normal;
@@ -389,6 +390,7 @@ p { margin: 0 0 1.1em; }
 @media (max-width: 980px) {
   .grid-3, .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
 @media (max-width: 620px) {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .section { padding: 3.25rem 0; }
@@ -587,6 +589,7 @@ p { margin: 0 0 1.1em; }
   gap: 2rem;
   margin-bottom: 2.25rem;
 }
+
 @media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr; } }
 .site-footer .footer-h {
   margin: 0 0 0.85rem;
@@ -634,6 +637,7 @@ p { margin: 0 0 1.1em; }
 @media (prefers-reduced-motion: no-preference) {
   .rise { animation: rise 0.7s var(--ease) both; }
   .rise-2 { animation: rise 0.7s 0.12s var(--ease) both; }
+
   @keyframes rise {
     from { opacity: 0; transform: translateY(18px); }
     to { opacity: 1; transform: none; }
@@ -667,10 +671,12 @@ p { margin: 0 0 1.1em; }
 .cinema-side { display: grid; gap: 1.1rem; }
 .roadmap-list { list-style: none; padding: 0; margin: .5rem 0 0; display: grid; gap: .55rem; color: var(--muted); font-size: .95rem; }
 .roadmap-list b { color: var(--ink); font-weight: 600; }
+
 @media (max-width: 860px) { .feature, .cinema-grid { grid-template-columns: 1fr; } .feature-cover { max-width: 320px; } }
 /* motion + live board */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
+
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 .btn:active { transform: translateY(0) scale(.98); }
 .card, .live-item { will-change: transform; }
@@ -687,9 +693,11 @@ a.live-item:hover { transform: translateY(-3px); border-color: rgba(229, 169, 60
 .status-submitted .live-dot { background: var(--cyan); }
 .status-shipped .live-dot { background: #4ade80; }
 .live-deadline { color: var(--green) !important; margin-top: .5rem !important; font-weight: 600; }
-.live-upd { font-size: .78rem !important; color: var(--faint) !important; margin-top: .5rem !important; }
+.live-upd { font-size: .88rem !important; color: var(--faint) !important; margin-top: .5rem !important; }
 .faint { color: var(--faint); }
+
 @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(229,169,60,.5); } 50% { box-shadow: 0 0 0 6px rgba(229,169,60,0); } }
+
 @media (prefers-reduced-motion: reduce) { .status-wip .live-dot { animation: none; } }
 .expand-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--ease); }
 .expand-panel > div { overflow: hidden; }
@@ -699,6 +707,7 @@ a.live-item:hover { transform: translateY(-3px); border-color: rgba(229, 169, 60
 .expand-btn .chev { display: inline-block; transition: transform .3s var(--ease); }
 .expand-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
 .sticky-cta { display: none; }
+
 @media (max-width: 720px) {
   .bento { grid-template-columns: 1fr; } .bento .span-2 { grid-column: auto; }
   .sticky-cta { display: flex; gap: .5rem; position: fixed; left: .75rem; right: .75rem; bottom: .75rem; z-index: 50; padding: .5rem; border-radius: 16px; background: rgba(18,20,28,.92); border: 1px solid var(--line); backdrop-filter: blur(10px); }
@@ -716,6 +725,7 @@ html, body { overflow-x: clip; }
 .faq-item { border-radius: var(--radius-sm); }
 .faq-item summary { cursor: pointer; }
 .faq-item summary:focus-visible, .chip:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
 @media (prefers-reduced-motion: no-preference) {
   .faq-item[open] > :not(summary) { animation: rise .45s var(--ease) both; }
 }
@@ -752,10 +762,12 @@ html, body { overflow-x: clip; }
 .dl-feature { border-color: rgba(229,169,60,.45); background: rgba(229,169,60,.07); }
 /* mobile */
 .nav-toggle { min-height: 44px; }
+
 @media (max-width: 860px) {
   .legal-layout { grid-template-columns: 1fr; gap: 1.5rem; }
   .toc { position: static; }
 }
+
 @media (max-width: 480px) {
   .wrap { padding-inline: 1.1rem; }
   h1 { font-size: clamp(2.05rem, 10vw, 2.6rem); }
@@ -1043,6 +1055,7 @@ a.lang-pill:hover { color: var(--ink); background: rgba(255, 255, 255, 0.06); }
 .bento, .cinema-side, .sample-reader-box {
   container-type: inline-size;
 }
+
 @container (max-width: 440px) {
   .reader-toolbar {
     flex-direction: column;

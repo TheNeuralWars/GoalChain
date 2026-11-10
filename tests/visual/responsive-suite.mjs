@@ -97,6 +97,17 @@ function startStaticServer(primaryRoot, fallbackRoot, isSpa, port) {
         res.end('/* local preview stub */');
         return;
       }
+      if (urlPath.startsWith('/api/')) {
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(
+          JSON.stringify(
+            urlPath.endsWith('/runs') || urlPath.endsWith('/threads')
+              ? []
+              : { ok: true, status: 'offline', is_online: false }
+          )
+        );
+        return;
+      }
       if (isSpa && !path.extname(rel)) {
         candidates.push(path.join(primaryRoot, 'index.html'));
       }

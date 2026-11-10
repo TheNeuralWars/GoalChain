@@ -1,0 +1,58 @@
+{
+  "surface": "cinema",
+  "app": "goalworld_site",
+  "mode": "mobile",
+  "fetchTime": "2026-11-10T00:34:08.769Z",
+  "scores": {
+    "performance": 99,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "coreVitals": {
+    "fcp": "1.0 s",
+    "lcp": "2.0 s",
+    "tbt": "0 ms",
+    "cls": "0",
+    "si": "1.0 s"
+  },
+  "note": null,
+  "topDiagnostics": [
+    {
+      "id": "render-blocking-resources",
+      "title": "Eliminate render-blocking resources",
+      "score": 0,
+      "displayValue": "Est savings of 150 ms"
+    },
+    {
+      "id": "image-delivery-insight",
+      "title": "Improve image delivery",
+      "score": 0,
+      "displayValue": "Est savings of 135 KiB"
+    },
+    {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0,
+      "displayValue": null
+    },
+    {
+      "id": "render-blocking-insight",
+      "title": "Render blocking requests",
+      "score": 0,
+      "displayValue": "Est savings of 90 ms"
+    },
+    {
+      "id": "modern-image-formats",
+      "title": "Serve images in next-gen formats",
+      "score": 50,
+      "displayValue": "Est savings of 10 KiB"
+    },
+    {
+      "id": "uses-responsive-images",
+      "title": "Properly size images",
+      "score": 50,
+      "displayValue": "Est savings of 13 KiB"
+    }
+  ]
+}

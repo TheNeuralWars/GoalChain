@@ -52,7 +52,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({
     const stakeValueUsd = stakeToken === 'GCH' ? stakeAmount * gchPrice : stakeAmount * solPrice;
 
     // Animate with requestAnimationFrame for smooth transitions
-    let startValues: YieldResult | null = displayValues;
+    const startValues: YieldResult | null = displayValues;
     const targetValues: YieldResult = {
       dailyYield,
       weeklyYield,

@@ -1,0 +1,26 @@
+{
+  "name": "goalworld-qa-gate",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Self-contained zero-error quality gate for GoalWorld (goalworld_site + goalchain_webapp)",
+  "scripts": {
+    "qa": "node run-qa.mjs",
+    "lint:html": "node run-qa.mjs --only=html",
+    "lint:css": "node run-qa.mjs --only=css",
+    "lint:js": "node run-qa.mjs --only=js",
+    "test:playwright": "node run-qa.mjs --only=playwright",
+    "test:lighthouse": "node run-qa.mjs --only=lighthouse"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "eslint": "^9.15.0",
+    "globals": "^15.12.0",
+    "html-validate": "^9.1.0",
+    "lighthouse": "^12.2.1",
+    "playwright-core": "^1.49.0",
+    "stylelint": "^16.11.0",
+    "stylelint-config-standard": "^36.0.1",
+    "typescript-eslint": "^8.15.0"
+  }
+}

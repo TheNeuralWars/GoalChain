@@ -291,7 +291,12 @@ export function CorporateAutopilot() {
     const poll = async () => {
       try {
         const r = await fetch(`${apiBase}/api/ops/agent-wallet`);
-        if (r.ok) { const d = await r.json(); setAgentWallet(d); }
+        if (r.ok) {
+          const d = await r.json();
+          if (typeof d?.balance_usd === 'number' && Array.isArray(d?.funding_events) && Array.isArray(d?.spend_events)) {
+            setAgentWallet(d);
+          }
+        }
       } catch { /* fallback to local state */ }
     };
     poll();
@@ -307,8 +312,8 @@ export function CorporateAutopilot() {
         const d = await r.json();
         setThreads(d);
       }
-    } catch (e) {
-      console.error("Failed to fetch threads:", e);
+    } catch {
+      /* fallback to local Devnet sandbox threads */
     } finally {
       setLoadingThreads(false);
     }
@@ -321,8 +326,8 @@ export function CorporateAutopilot() {
         const d = await r.json();
         setSelectedThreadState(d);
       }
-    } catch (e) {
-      console.error("Failed to fetch thread state:", e);
+    } catch {
+      /* fallback to local state */
     }
   }, [apiBase]);
 

@@ -1,0 +1,58 @@
+{
+  "surface": "play-home",
+  "app": "goalchain_webapp",
+  "mode": "desktop",
+  "fetchTime": "2026-11-10T00:35:24.658Z",
+  "scores": {
+    "performance": 100,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "coreVitals": {
+    "fcp": "0.4 s",
+    "lcp": "0.5 s",
+    "tbt": "0 ms",
+    "cls": "0",
+    "si": "0.4 s"
+  },
+  "note": null,
+  "topDiagnostics": [
+    {
+      "id": "label-content-name-mismatch",
+      "title": "Elements with visible text labels do not have matching accessible names.",
+      "score": 0,
+      "displayValue": null
+    },
+    {
+      "id": "render-blocking-resources",
+      "title": "Eliminate render-blocking resources",
+      "score": 0,
+      "displayValue": "Est savings of 80 ms"
+    },
+    {
+      "id": "unused-css-rules",
+      "title": "Reduce unused CSS",
+      "score": 0,
+      "displayValue": "Est savings of 15 KiB"
+    },
+    {
+      "id": "network-dependency-tree-insight",
+      "title": "Network dependency tree",
+      "score": 0,
+      "displayValue": null
+    },
+    {
+      "id": "render-blocking-insight",
+      "title": "Render blocking requests",
+      "score": 0,
+      "displayValue": "Est savings of 80 ms"
+    },
+    {
+      "id": "uses-long-cache-ttl",
+      "title": "Serve static assets with an efficient cache policy",
+      "score": 50,
+      "displayValue": "2 resources found"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "goalworld_site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "GoalWorld static site generator (goalworld.fun — EN / ES / IT)",
+  "scripts": {
+    "build": "node build.mjs",
+    "check:links": "python3 tools/check_links.py",
+    "qa": "node ../tools/qa/run-qa.mjs"
+  }
+}

@@ -748,7 +748,7 @@ input[type="range"].premium-slider::-moz-range-thumb:hover {
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.slider:before {
+.slider::before {
   position: absolute;
   content: "";
   height: 14px;
@@ -765,7 +765,7 @@ input:checked + .slider {
   border-color: var(--primary-neon);
 }
 
-input:checked + .slider:before {
+input:checked + .slider::before {
   transform: translateX(18px);
   background-color: var(--primary-neon);
   box-shadow: 0 0 8px var(--primary-neon-glow);
@@ -777,7 +777,7 @@ input:checked + .slider-red {
   border-color: var(--accent-red);
 }
 
-input:checked + .slider-red:before {
+input:checked + .slider-red::before {
   transform: translateX(18px);
   background-color: var(--accent-red);
   box-shadow: 0 0 8px var(--accent-red-glow);
@@ -958,6 +958,7 @@ input:checked + .slider-red:before {
 .gc-floating-coach-btn:hover {
   transform: scale(1.1);
 }
+
 @media (max-width: 767px) {
   .gc-floating-coach-btn {
     bottom: 84px; /* Elevate above mobile bottom tab bar */
@@ -991,6 +992,7 @@ input:checked + .slider-red:before {
   opacity: 1;
   visibility: visible;
 }
+
 @media (max-width: 480px) {
   .gc-coach-drawer {
     width: calc(100% - 40px);
@@ -1006,9 +1008,11 @@ input:checked + .slider-red:before {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: var(--gc-space-5);
 }
+
 @media (max-width: 900px) {
   .tt-grid { grid-template-columns: 1fr; gap: var(--gc-space-4); }
 }
+
 @media (max-width: 600px) {
   .tt-grid { gap: var(--gc-space-3); }
 }
@@ -1355,14 +1359,17 @@ input:checked + .slider-red:before {
    ANIMACIONES DEL SISTEMA
    ============================================================ */
 @keyframes gc-fade-in { from { opacity: 0; } to { opacity: 1; } }
+
 @keyframes gc-scale-in {
   from { opacity: 0; transform: scale(0.96) translateY(8px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
+
 @keyframes gc-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
+
 @keyframes gc-toast-in {
   from { opacity: 0; transform: translateX(40px) scale(0.9); }
   to { opacity: 1; transform: translateX(0) scale(1); }
@@ -3300,6 +3307,7 @@ input:checked + .slider-red:before {
 .gc-bcard-minute .gc-live-dot {
   animation-name: gc-live-pulse-green;
 }
+
 @keyframes gc-live-pulse-green {
   0% { box-shadow: 0 0 0 0 rgba(20, 241, 149, 0.7); }
   70% { box-shadow: 0 0 0 7px rgba(20, 241, 149, 0); }
