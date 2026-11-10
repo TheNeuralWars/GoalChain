@@ -2469,3 +2469,102 @@ One entry per daily run (newest last).
   (purge-on-deploy needs CF creds = hard limit), wallet-adapter DM Sans
   (third-party, leave), `test_marketing_html_loads_shell` 5-page pre-existing
   failure (UX decision).
+
+## 2026-11-10 run 20261110T034737Z
+
+- **What:** classic-dashboard (play.goalworld.fun) boot TBT pass — the top
+  logged follow-up of run 20261109. (1) The ~1 MB @coral-xyz/anchor esm.sh
+  bundle is no longer evaluated during boot: the idle self-prefetch was
+  replaced by a memoized first-use `window.loadAnchor()` plus a post-load,
+  idle-scheduled `modulepreload` warm (fetch only — never evaluated at boot).
+  Only wallet-program calls and the Betting MVP bracket panel need anchor,
+  both behind user actions. (2) The bracket feed (anchor + IDL + Devnet RPC +
+  a 20s poll) no longer runs at page load for the hidden `bettingTab`: it now
+  starts when the tab is opened (new `window.initBettingView` hook wired into
+  `switchAppTab('betting')`), and poll ticks skip while the panel is hidden.
+  (3) `contract_data.js` cache key 3.3 -> 3.4 in classic-dashboard.html.
+  `contract_data.js` edited IDENTICALLY in `goalchain_webapp/public/assets/js`
+  (pin) and `docs/assets/js` (source of truth) — pinned-copy invariant kept;
+  behavior on `docs/goalchain.html` is bit-identical (no bracket panel there,
+  same early return as before).
+- **Why:** run 20261109's live Lighthouse attributed ~800 ms eval + ~2.0 s
+  total to "Unattributable" script work in the boot window (the cross-origin
+  anchor import) and TBT was 2.06 s; the bracket refresh also fetched IDL +
+  polled Devnet every 20s for a panel hidden in an unopened tab.
+- **Commit SHA (merge):** `a4649d71` (PR #925, merge commit; feature commit
+  `2a6b95d2`). Pre-merge `origin/main` = `9beaaeee` (rollback:
+  `git revert -m 1 a4649d71` + push — Vercel redeploys the previous build;
+  landing: `scripts/deploy_goalworld_site.sh rollback` if ever needed — the
+  docs/ change rode the automatic 5-min `scripts/pages/deploy_origin.sh`
+  restage, no manual landing deploy).
+- **Live link:** https://play.goalworld.fun/classic-dashboard.html (Vercel on
+  push to main, rollout verified by content signature). docs/ copy live at
+  https://goalworld.fun/assets/js/contract_data.js (origin tree).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261110T034737Z/`
+  - build.txt: exit 0 (tsc + vite build, 9.0s). tests.txt: exit 0
+    (check:i18n — 381 used keys / 694 dict keys, en/es/type in sync;
+    node --check on both contract_data.js copies). npm-ci.txt: exit 0.
+  - Lighthouse (mobile) classic-dashboard, LOCAL same-box A/B (pre-merge):
+    perf 0.93 -> 0.97; TBT 230 ms -> 40 ms; TTI 9.5 s -> 7.1 s;
+    "Unattributable" script eval 245 ms -> 6 ms (hypothesis confirmed: that
+    was the anchor bundle eval); SI/FCP/LCP flat (2.1 s);
+    a11y 1.00 / BP 0.96 / SEO 1.00 unchanged.
+  - Lighthouse (mobile) classic-dashboard, LIVE same-run before -> after:
+    perf 0.93 -> 0.95; TBT 260 ms -> 90 ms; TTI 5.3 s -> 3.8 s;
+    "Unattributable" eval 224 ms -> 7 ms; a11y/BP/SEO 1.00/1.00/1.00
+    unchanged. SI 3.7 -> 5.1 s and FCP/LCP 1.5 -> 1.7 s are lab noise (local
+    SI identical 2.1/2.1 both runs; category scores did not regress).
+  - Lighthouse goalworld.fun/goalchain.html live before -> after: identical
+    scores 0.33 / 0.81 / 0.73 / 1.00 (its pre-existing baseline untouched;
+    TBT 18.7 s -> 20.2 s is that page's known run-to-run churn — not a
+    regression vs baseline scores).
+  - smoke-before/smoke-after: all URLs 200. classic-dashboard.html
+    160,805 -> 161,664 B, new signature live (ANCHOR_MODULE block present,
+    old idle-prefetch 0 lines, contract_data.js?v=3.4);
+    play contract_data.js?v=3.4 = 9,741 B new hash (813c57e8…);
+    goalworld.fun/goalchain.html 200 unchanged (207,592 B, hash 6e0660…).
+    goalworld.fun/assets/js/contract_data.js: NEW at origin
+    (cache-busted hash 813c57e8…; /data/apps/GoalChain/_site_public copy
+    matches; .deploy-last.head=a4649d71) — but the plain URL serves the old
+    copy from the Cloudflare edge (cf-cache-status HIT, max-age=14400) until
+    its TTL lapses; harmless because the change is behavior-identical for
+    goalchain.html (verified: panel absent -> same early return). No CF purge
+    possible (hard limit).
+  - linkcheck: dist pre-merge 24/24 local refs OK (linkcheck.txt);
+    live after 24/24 refs 200 (linkcheck-live-after.txt). (First two live
+    passes were aborted by a checker bug of mine — double-slash URL concat
+    triggered Vercel's 308 normalization — documented in the file; links
+    themselves were never broken.)
+  - functional-check.txt: real click on "Betting MVP" -> lazy anchor import ->
+    IDL fetch -> PDA derive -> Devnet RPC -> "[RPC] Fixture ARG_FRA_FINAL
+    refreshed from Devnet." logged and #matchDisplay rendered (display:block);
+    boot network timeline shows esm.sh fetch-only warm (no eval); minor
+    known race: a click landing before window 'load' fires one extra refresh.
+  - screenshots: shot-local-before/after-classic-dashboard.png (pixel diff
+    2.36%, localized to animated ticker/feed widgets; vision QC: fully
+    rendered, no breakage), shot-live-after-classic-dashboard.png.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) goalchain.html is now the product's
+  biggest perf debt (live perf 0.33, TBT 18.7-20.2 s; penalty_game.js ~36 s
+  total, inline scripts ~28.5 s total, nft_registry.js 1.6 s eval) — needs
+  its own multi-run campaign (it is beyond one run). (2) Cloudflare edge
+  serves unchanged-URL static assets stale up to 4 h (max-age=14400): any
+  docs/assets change needs a ?v bump or content-hash URL to reach users fast
+  (CF purge = hard limit). (3) classic-dashboard residual boot work is
+  modest now (document total ~430 ms live; "Unattributable" total 239 ms) —
+  remaining candidates: per-tab lazy loading of the 8 module scripts, style
+  & layout (~1.4 s) via CSS slimming. (4) Unchanged earlier follow-ups:
+  Zetaris stack wedge (docker rm -f + compose up = Nico decision), omniroute
+  node fork storm + ~540 zombies cleanup, style.css .layer-frame /
+  .manager-license missing art refs (master_frame_v9.png,
+  license_pattern.png, images/hero.png pre-existing 404s), arcade pack-logo
+  black-box polish, logo.png (789 KB) onerror fallback, books-data.json key
+  slimming/precompress (Caddyfile = hard limit), `?lang=es` locale + i18n
+  leftovers pending "remove ES entirely" decision, webapp in-app ES strings
+  (~500 strings / 40 files), dev-facing Spanish in code comments, pack price
+  copy inconsistency (human decision), contract_data.js Anchor->borsh read
+  path, goalworld_site TODO.md human facts (dead Discord invite, X handle
+  404, legal review), Caddyfile cache headers for /assets/* (purge needs CF
+  creds = hard limit), wallet-adapter DM Sans (third-party, leave),
+  `test_marketing_html_loads_shell` 5-page pre-existing failure (UX
+  decision).
