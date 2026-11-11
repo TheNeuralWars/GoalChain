@@ -2568,3 +2568,87 @@ One entry per daily run (newest last).
   creds = hard limit), wallet-adapter DM Sans (third-party, leave),
   `test_marketing_html_loads_shell` 5-page pre-existing failure (UX
   decision).
+
+## 2026-11-11 run 20261111T034707Z
+
+- **What:** classic-dashboard (play.goalworld.fun) per-tab lazy module loading —
+  the next logged perf candidate of runs 20261109/20261110. The four heavy
+  tab-bound modules (~137 KB JS: 3d_gallery.js 22K -> gallery tab, ai_agent.js
+  34K -> ai tab, minigames_hub.js 40K -> games+ai tabs, modifiers_simulator.js
+  41K -> simulator tab) are no longer parsed/evaluated at boot: they load on
+  first tab open via `loadTabScripts()` (promise-memoized injection) before
+  their existing `init*View()` hooks run, with an idle fetch-only
+  `link[rel=preload]` warm (same pattern as run 20261110's lazy anchor). The
+  two manager-tab buttons whose handlers live in minigames_hub.js
+  (`depositToInfinityVault`, `simulateTreasuryShock`) go through a new
+  `lazyCall(src, fn)` wrapper (load on first click). Only
+  `goalchain_webapp/public/classic-dashboard.html` changed (no JS file edits,
+  so no docs/assets pin sync needed — the 4 modules' only consumer is this
+  page; verified by exhaustive 70-global cross-reference). The 12 eager
+  scripts (i18n, wallet, contract_data, drift_markets, cnft_scout,
+  lending_app, helius_sync, live_engine, ...) are untouched.
+- **Why:** four modules that only serve unopened tabs were being evaluated for
+  every visitor at boot; run 20261110's follow-ups named per-tab lazy loading
+  of the module scripts as the next classic-dashboard perf step.
+- **Commit SHA (merge):** `55f41869` (PR #926, merge commit; feature commit
+  `05e30c72`). Pre-merge `origin/main` = `3ed71e1a` (rollback:
+  `git revert -m 1 55f41869` + push — Vercel redeploys the previous build).
+- **Live link:** https://play.goalworld.fun/classic-dashboard.html (Vercel on
+  push to main; rollout verified by content signature: loadTabScripts block
+  present, 12 defer scripts instead of 16, old eager tags gone).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261111T034707Z/`
+  - build.txt: exit 0 (tsc + vite build, 7.0s). tests.txt: exit 0
+    (check:i18n — 381 used / 694 dict keys, en/es/type in sync). npm-ci.txt:
+    exit 0. Inline script blocks node --check clean (3/3).
+  - Lighthouse (mobile) classic-dashboard, LOCAL same-box A/B (pre-merge):
+    TBT 69 -> 35 ms; bootup-time 241 -> 141 ms; perf/a11y/BP/SEO all 1.00
+    both runs (no regression); SI/FCP/LCP flat (1.22 s); TTI 3.56 -> 3.51 s.
+  - Lighthouse (mobile) classic-dashboard, LIVE before -> after: perf/a11y/
+    BP/SEO 1.00/1.00/1.00/1.00 unchanged. TBT 39 -> 38 ms, bootup 149 ->
+    150 ms, SI 1378 -> 1340 (within noise; the lazy modules' ~eval never
+    showed as separate bootup-time items even before — the win is CPU at boot,
+    clearest in the controlled local A/B). NOTE: the first live-after run
+    looked like a regression (perf 0.81, TBT 571 ms) but was CPU contention
+    noise on the box (camoufox 78% CPU; untouched eager helius_sync.js showed
+    an absurd 940 ms eval) — re-run twice: after2 = perf 1.00 / TBT 38 ms,
+    matching live-before. Noisy run saved as lighthouse-live-after*.json.
+  - smoke-before/smoke-after: all URLs 200; classic-dashboard.html
+    161,664 -> 164,333 B (12 defer scripts, loader present, 0 old eager
+    tags); the 4 module URLs unchanged (same hashes as before — untouched).
+  - linkcheck.txt: dist pre-merge 20/20 local refs OK (no links added or
+    changed by this run).
+  - functional-check.txt (Camofox, local preview): boot DOM has zero lazy
+    script tags + 4 preload warms; real clicks on all four lazy tabs render
+    content on demand (gallery: 16 cards + Faremeter modal open/close via
+    lazy handlers; ai: both ai_agent+minigames injected, betbot toggle ran;
+    games + simulator render; feedSimPotion click clean); fresh-boot lazyCall
+    test: shock button injects minigames_hub.js and runs the full staged
+    effect (vault 4,820 -> 9,820 $GCH, 7 terminal lines). Live spot-check
+    after deploy: same boot state, gallery lazy-load, lazyCall — all OK.
+  - screenshots: shot-local-before/after (pixel diff 1.57%, localized to
+    animated ticker/feed/counter widgets; vision QC: fully rendered, no
+    black boxes or breakage), shot-live-after.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) goalchain.html remains the product's
+  biggest perf debt (live perf 0.33 historically, TBT churn; penalty_game.js
+  + inline scripts dominate) — its own campaign, possibly starting with the
+  same lazy-module treatment for its non-default sections. (2) classic-dashboard
+  residual boot work: eager drift_markets/cnft_scout/lending_app could get the
+  same per-tab treatment (small files, low payoff); style & layout (~1.4 s)
+  via CSS slimming. (3) The idle preload warm fetches the 137 KB even if the
+  tabs are never opened — could gate it behind connection.saveData / skip on
+  short sessions if byte cost ever matters. (4) Unchanged earlier follow-ups:
+  Cloudflare edge 4h stale cache for docs/assets (purge = hard limit),
+  Zetaris stack wedge (Nico decision), omniroute fork storm + ~540 zombies
+  cleanup, style.css .layer-frame/.manager-license missing art refs
+  (master_frame_v9.png, license_pattern.png), arcade pack-logo black-box
+  polish, logo.png (789 KB) onerror fallback, books-data.json key slimming
+  (precompress = Caddyfile hard limit), `?lang=es` + i18n leftovers pending
+  "remove ES entirely" decision, webapp in-app ES strings (~500 strings /
+  40 files), dev-facing Spanish in code comments, pack price copy
+  inconsistency (human decision), contract_data.js Anchor->borsh read path,
+  goalworld_site TODO.md human facts (dead Discord invite, X handle 404,
+  legal review), Caddyfile cache headers for /assets/* (purge needs CF
+  creds = hard limit), wallet-adapter DM Sans (third-party, leave),
+  `test_marketing_html_loads_shell` 5-page pre-existing failure (UX
+  decision).
