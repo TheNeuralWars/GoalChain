@@ -423,7 +423,7 @@
                         <!-- Deposit Form -->
                         <div style="display:flex; gap:10px; margin-bottom:15px;">
                             <input type="number" id="vaultDepositAmount" value="5" min="1" max="1000" aria-label="Deposit amount in SOL" style="width:65px; background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:6px; border-radius:6px; font-size:0.7rem; text-align:center;">
-                            <button id="btnVaultDeposit" onclick="depositToInfinityVault()" class="btn btn-primary btn-sm" style="flex:1; font-size:0.65rem; padding:6px; font-weight:bold; background:var(--primary); color:#000; border-radius:6px;">
+                            <button id="btnVaultDeposit" onclick="lazyCall('/assets/js/minigames_hub.js','depositToInfinityVault')" class="btn btn-primary btn-sm" style="flex:1; font-size:0.65rem; padding:6px; font-weight:bold; background:var(--primary);color:#000; border-radius:6px;">
                                 DEPOSIT SOL VIA PHANTOM
                             </button>
                         </div>
@@ -444,7 +444,7 @@
                             <strong style="color: var(--primary);" id="vaultBurnVal">4,820 $GCH</strong>
                         </div>
 
-                        <button id="btnTreasuryShock" onclick="simulateTreasuryShock()" class="btn btn-secondary btn-glow" style="width: 100%; font-size:0.7rem; font-weight:bold;">
+                        <button id="btnTreasuryShock" onclick="lazyCall('/assets/js/minigames_hub.js','simulateTreasuryShock')" class="btn btn-secondary btn-glow" style="width:100%; font-size:0.7rem; font-weight:bold;">
                             SIMULATE SUPPLY SHOCK 🚀
                         </button>
                     </div>
@@ -2067,13 +2067,55 @@
     <script defer src="/assets/js/cnft_scout.js"></script>
     <script defer src="/assets/js/lending_app.js"></script>
     <script defer src="/assets/js/helius_sync.js"></script>
-    <script defer src="/assets/js/3d_gallery.js"></script>
     <script defer src="/assets/js/live_engine.js?v=1.0"></script>
-    <script defer src="/assets/js/ai_agent.js"></script>
-    <script defer src="/assets/js/minigames_hub.js"></script>
-    <script defer src="/assets/js/modifiers_simulator.js"></script>
+    <!-- Heavy per-tab modules (3d_gallery, ai_agent, minigames_hub,
+         modifiers_simulator) load on first tab open via loadTabScripts()
+         below instead of at boot. -->
     
     <script>
+        // Per-tab lazy script loading: the heavy tab modules are fetched on
+        // first tab open instead of at boot (~137 KB of JS eval deferred).
+        const TAB_SCRIPTS = {
+            gallery:   ['/assets/js/3d_gallery.js'],
+            ai:        ['/assets/js/ai_agent.js', '/assets/js/minigames_hub.js'],
+            games:     ['/assets/js/minigames_hub.js'],
+            simulator: ['/assets/js/modifiers_simulator.js'],
+        };
+        const tabScriptPromises = {};
+        function loadScript(src) {
+            return tabScriptPromises[src] || (tabScriptPromises[src] = new Promise((resolve, reject) => {
+                const s = document.createElement('script');
+                s.src = src;
+                s.onload = resolve;
+                s.onerror = () => { delete tabScriptPromises[src]; reject(new Error('Failed to load ' + src)); };
+                document.body.appendChild(s);
+            }));
+        }
+        function loadTabScripts(tabId) {
+            return Promise.all((TAB_SCRIPTS[tabId] || []).map(loadScript));
+        }
+        // Manager-tab buttons whose handlers live in a lazy module: load the
+        // module on first click, then run the handler.
+        function lazyCall(src, fnName) {
+            loadScript(src).then(() => {
+                const fn = window[fnName];
+                if (typeof fn === 'function') fn();
+            }).catch(e => console.error(e));
+        }
+        // Idle fetch-warm for the lazy tab modules (fetch only — evaluation
+        // still happens on first tab open).
+        window.addEventListener('load', () => {
+            (window.requestIdleCallback || ((f) => setTimeout(f, 1)))(() => {
+                [...new Set(Object.values(TAB_SCRIPTS).flat())].forEach(src => {
+                    const link = document.createElement('link');
+                    link.rel = 'preload';
+                    link.as = 'script';
+                    link.href = src;
+                    document.head.appendChild(link);
+                });
+            });
+        });
+
         // ESC key support — closes open modals instead of navigating
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
@@ -2114,15 +2156,26 @@
                 }
             }
             
-            // Re-initialize components if needed
+            // Re-initialize components if needed. Lazy tabs load their
+            // modules on first open, then init.
             if (tabId === 'betting' && typeof initBettingView === 'function') initBettingView();
             if (tabId === 'markets') initMarketsView();
             if (tabId === 'academy') initAcademyView();
             if (tabId === 'lending') initLendingView();
-            if (tabId === 'gallery') initGalleryView();
-            if (tabId === 'ai') { initAIView(); initSentinelDiagnostics(); initMoltbookAndSwitchboard(); }
-            if (tabId === 'games') initGamesView();
-            if (tabId === 'simulator' && typeof initSimulatorView === 'function') initSimulatorView();
+            if (tabId === 'gallery') loadTabScripts('gallery').then(() => {
+                if (typeof initGalleryView === 'function') initGalleryView();
+            });
+            if (tabId === 'ai') loadTabScripts('ai').then(() => {
+                if (typeof initAIView === 'function') initAIView();
+                if (typeof initSentinelDiagnostics === 'function') initSentinelDiagnostics();
+                if (typeof initMoltbookAndSwitchboard === 'function') initMoltbookAndSwitchboard();
+            });
+            if (tabId === 'games') loadTabScripts('games').then(() => {
+                if (typeof initGamesView === 'function') initGamesView();
+            });
+            if (tabId === 'simulator') loadTabScripts('simulator').then(() => {
+                if (typeof initSimulatorView === 'function') initSimulatorView();
+            });
         }
 
         // Initialize Drift markets — re-instantiate the class if the DOM already has the elements
