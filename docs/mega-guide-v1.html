@@ -306,13 +306,21 @@
             ctxP.fillRect(this.x, this.y, this.size, this.size);
         }
     }
-    function animateP() {
+    let lastFrameP = 0;
+    function animateP(ts) {
+        requestAnimationFrame(animateP);
+        // Ambient background: ~30 fps looks the same here and halves the work
+        // of the previous uncapped 60 fps loop.
+        if (ts - lastFrameP < 33) return;
+        lastFrameP = ts;
         ctxP.clearRect(0, 0, canvasP.width, canvasP.height);
         if (particles.length < 60) particles.push(new Particle());
         particles.forEach(p => { p.update(); p.draw(); });
+    }
+    // prefers-reduced-motion: skip the ambient animation entirely.
+    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         requestAnimationFrame(animateP);
     }
-    animateP();
     </script>
 
     <!-- NAV -->
