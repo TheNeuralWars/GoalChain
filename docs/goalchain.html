@@ -294,6 +294,24 @@
       let particles = [];
       let balls = [];
 
+      // The glowing ball is pre-rendered once to an offscreen sprite: drawing
+      // shadowBlur text on every frame was the single most expensive operation
+      // in this loop (mobile main-thread), while drawImage is cheap.
+      const ballGlowSprite = document.createElement("canvas");
+      {
+        const s = 60;
+        ballGlowSprite.width = s;
+        ballGlowSprite.height = s;
+        const bx = ballGlowSprite.getContext("2d");
+        bx.font = "22px Arial";
+        bx.textAlign = "center";
+        bx.textBaseline = "middle";
+        bx.shadowColor = "#14f195";
+        bx.shadowBlur = 15;
+        bx.fillText("⚽", s / 2, s / 2);
+        bx.fillText("⚽", s / 2, s / 2);
+      }
+
       function resizeCanvas() {
         canvasP.width = window.innerWidth;
         canvasP.height = window.innerHeight;
@@ -338,18 +356,17 @@
           if (this.y < 0 || this.y > canvasP.height) this.speedY *= -1;
         }
         draw() {
-          ctxP.save();
-          ctxP.font = "22px Arial";
-          ctxP.textAlign = "center";
-          ctxP.textBaseline = "middle";
-          ctxP.shadowColor = "#14f195";
-          ctxP.shadowBlur = 15;
-          ctxP.fillText("⚽", this.x, this.y);
-          ctxP.restore();
+          ctxP.drawImage(ballGlowSprite, this.x - 30, this.y - 30);
         }
       }
 
-      function animateP() {
+      let lastFrameP = 0;
+      function animateP(ts) {
+        requestAnimationFrame(animateP);
+        // Ambient background: ~30 fps looks the same here and halves the work
+        // of the previous uncapped 60 fps loop.
+        if (ts - lastFrameP < 33) return;
+        lastFrameP = ts;
         ctxP.clearRect(0, 0, canvasP.width, canvasP.height);
         if (particles.length < 80) particles.push(new Particle());
         particles.forEach((p, i) => {
@@ -363,10 +380,14 @@
           b.update();
           b.draw();
         });
-
+      }
+      // prefers-reduced-motion: skip the ambient animation entirely.
+      if (
+        !window.matchMedia ||
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ) {
         requestAnimationFrame(animateP);
       }
-      animateP();
     </script>
 
     <!-- NAV -->
@@ -5608,7 +5629,7 @@
     <script src="assets/js/goalpoints_api.js?v=1.0"></script>
     <script src="assets/js/leaderboard.js?v=4.0"></script>
     <script src="assets/js/mint_engine.js?v=3.0"></script>
-    <script src="assets/js/penalty_game.js?v=4.2"></script>
+    <script src="assets/js/penalty_game.js?v=4.3"></script>
     <script src="https://unpkg.com/@solana/web3.js@1.98.2/lib/index.iife.min.js"></script>
     <script src="assets/js/notification_manager.js?v=3.0"></script>
     <script src="assets/js/solana_integration.js?v=3.1"></script>

@@ -12,7 +12,7 @@ class PenaltyGame {
         // el mapeo de input (que usa getBoundingClientRect — ver handleInput).
         this.width = 800;
         this.height = 500;
-        const dpr = Math.max(1, window.devicePixelRatio || 1);
+        const dpr = Math.min(2, Math.max(1, window.devicePixelRatio || 1));
         this.canvas.width = this.width * dpr;
         this.canvas.height = this.height * dpr;
         this.ctx.scale(dpr, dpr);
@@ -44,7 +44,22 @@ class PenaltyGame {
             e.preventDefault(); this.handleInput(e.touches[0]);
         }, { passive: false });
 
-        this.loop();
+        // Run the render loop only while the canvas is on screen. loop() redraws
+        // every frame forever; on pages that embed the game far below the fold
+        // that burned ~18 s of main-thread time per visit (Lighthouse 2026-11-12).
+        if ('IntersectionObserver' in window) {
+            this._loopRunning = false;
+            this._rafId = null;
+            this._loopObserver = new IntersectionObserver((entries) => {
+                entries.forEach((en) => {
+                    if (en.isIntersecting) this.startLoop();
+                    else this.stopLoop();
+                });
+            }, { rootMargin: '200px' });
+            this._loopObserver.observe(this.canvas);
+        } else {
+            this.startLoop();
+        }
 
         // Escuchar cambios de wallet
         window.addEventListener('walletChanged', (e) => {
@@ -336,9 +351,22 @@ class PenaltyGame {
         ctx.restore();
     }
 
+    startLoop() {
+        if (this._loopRunning) return;
+        this._loopRunning = true;
+        this._rafId = requestAnimationFrame(() => this.loop());
+    }
+
+    stopLoop() {
+        this._loopRunning = false;
+        if (this._rafId) cancelAnimationFrame(this._rafId);
+        this._rafId = null;
+    }
+
     loop() {
+        if (!this._loopRunning) return;
         this.update(); this.draw();
-        requestAnimationFrame(() => this.loop());
+        this._rafId = requestAnimationFrame(() => this.loop());
     }
 }
 
