@@ -2652,3 +2652,105 @@ One entry per daily run (newest last).
   creds = hard limit), wallet-adapter DM Sans (third-party, leave),
   `test_marketing_html_loads_shell` 5-page pre-existing failure (UX
   decision).
+
+## 2026-11-12 run 20261112T034752Z
+
+- **What:** Killed the always-on canvas animation loops on the Matchday page
+  (`docs/goalchain.html`, https://goalworld.fun/goalchain) — the "animation
+  loops deserve a dedicated perf pass" follow-up logged by run 2026-11-04 and
+  re-named as goalchain's biggest perf debt by runs 2026-11-10/2026-11-11.
+  Two endless `requestAnimationFrame` loops ran from load for every visitor:
+  (1) `PenaltyGame.loop()` redrew the 800x500 game canvas every frame forever
+  even with the game section far below the fold (Lighthouse attributed ~18 s
+  of main-thread time per visit; harness measured 41 frames burned in 6 s
+  while off-screen on the old page vs 0 on the new one). Now the loop runs
+  only while the canvas is on screen (IntersectionObserver, 200 px margin,
+  eager fallback for no-IO browsers; startLoop/stopLoop around the existing
+  loop()), and the canvas backing-store DPR is capped at 2. (2) The hero
+  particle canvas (`solanaParticles`, fixed full-viewport) ran uncapped with
+  a per-frame `shadowBlur` text draw for the glowing balls — now a
+  pre-rendered offscreen ball sprite (`drawImage` instead of per-frame
+  shadowBlur, identical look verified by screenshot), a ~30 fps throttle, and
+  a full skip under `prefers-reduced-motion: reduce` (a11y). The same
+  throttle/reduced-motion gate was applied to the particle block of
+  `mega-guide.html` and `mega-guide-v1.html`. `penalty_game.js` pin bumped
+  4.2 → 4.3 on its 3 referencing pages (goalchain, arcade, play/penalty — CF
+  edge serves unchanged asset URLs stale up to 4 h). 6 files, +86/−21; no
+  public copy changed.
+- **Why:** These loops burned main-thread time on every visit regardless of
+  what the visitor looked at — the #1 measured cost of the product's worst
+  page (live perf 0.28, TBT 11.5 s, LCP 15.7 s, main-thread 39.5 s this run;
+  penalty_game.js was the #1 bootup offender at 18 s attributed). Highest
+  measured impact per line of change of anything in the follow-up list.
+- **Commit SHA (merge):** `83099ad2` (PR #927, merge commit; feature
+  `af5e3f83`). Pre-merge `origin/main` = `df8afd83` (rollback:
+  `git revert -m 1 83099ad2` + push + `bash scripts/pages/deploy_origin.sh`).
+- **Live link:** https://goalworld.fun/goalchain (also /goalchain.html;
+  `deploy_origin.sh` restaged `83099ad2` at 2026-11-12 04:26:20 UTC — guard 0
+  internal-only paths; all 5 touched pages' live sha256 == repo files —
+  no edge staleness; served `penalty_game.js?v=4.3` sha matches repo).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261112T034752Z/`
+  - build.txt: `node --check` on penalty_game.js + all 9 inline script blocks
+    of the 3 particle pages — 10/10 exit 0. tests.txt: `docs/tests/
+    test_gw_chrome.py` 8/9 green; the 1 failure
+    (`test_marketing_html_loads_shell`, 5 pages: architecture/archify, 2 film
+    pages, reader pair) is the documented pre-existing baseline — same failure
+    list re-verified on the pre-change tree this run (tests-prechange.txt).
+  - functional-check.txt (Camofox harness, injected main-world probes;
+    camofox console is an isolated world — documented workaround):
+    goalchain local: loop OFF at top (observer installed) → ON when scrolled
+    to #gameplay → OFF on scroll-away; real mousedown shot: SHOOTING →
+    animation runs → goal resolved (goals 1, balance 1000 → 1009); hero
+    particles + glowing balls render identical to before (screenshot
+    shot-local-hero-particles.png); play/penalty and arcade keep their
+    always-on loop (canvas visible at load) — no gameplay change there;
+    mega-guide particle loop alive, 0 errors everywhere. Pre-change A/B:
+    gameCanvas drew 41 frames/6 s completely off-screen (new: 0).
+    Live after-deploy spot-check: same OFF→ON gating confirmed on prod.
+  - Lighthouse (mobile) live before → after on all 5 touched URLs + local
+    same-box A/B (goalchain, 2+2 runs) — see lighthouse-summary.txt. Key
+    numbers: goalchain low-churn mode (== before's mode): perf 0.28 → 0.34,
+    FCP 3.6 → 2.2 s, LCP 15.7 → 15.2 s, TBT 11.5 → 11.7 s, TTI 26.6 → 18.5 s,
+    SI 14.8 → 9.2 s, CLS 0.016 → 0, bootup 2.6 → 2.0 s; penalty_game.js 18 s
+    (#1 offender) → out of top-3 in every after run. NOTE: goalchain TBT/TTI
+    is bimodal (churn bursts; both modes seen on BOTH sides — local pre runs
+    48.8 s + 10.6 s, and run 2026-11-04 live-before 43–55 s) — compare modes,
+    not samples. mega-guide: perf median 0.90 → 0.98. arcade/penalty/
+    mega-guide-v1 flat-or-better. a11y/BP/SEO flat on all 5 URLs — no
+    regression on any gate axis. Local A/B: penalty_game.js total attribution
+    93,537/10,447 ms (2 pre runs, top-2 both) → absent from top-3 (2 new
+    runs); bootup −37%.
+  - smoke-before.txt / smoke-after.txt: all 6 URLs 200; new signatures live
+    (ballGlowSprite + lastFrameP + prefers-reduced-motion on goalchain and
+    mega-guides, pin 4.3 on the 3 penalty pages); live sha == repo sha for
+    all 5 pages. linkcheck.txt: ref-set diff = only the 3 intended ?v pins
+    (no links added/removed).
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) The ~30 fps particle throttle is
+  code-verified but not measurable in the camofox harness (env rAF ticks at
+  ~6.7 Hz, below the 33 ms threshold) — expected win on real devices halves
+  hero-canvas cost again. (2) goalchain.html residual debt remains its own
+  campaign: live-feed/observability polling + ticker churn is what makes TBT
+  bimodal (the 49–52 s mode persists, unchanged by this run), and
+  nft_registry.js ~2.2 s bootup render (one-time) is the next script-level
+  candidate; inline scripts are now the top bootup item. (3) The idle
+  PenaltyGame still redraws a static READY scene every frame while the canvas
+  IS on screen — a draw-on-demand state machine would kill that too (higher
+  risk, separate run). (4) Unchanged earlier follow-ups: goalworld.html
+  (Lore) 16 MB of master-quality JPGs (LCP 12.6 s — webp derivatives already
+  exist in goalworld_site/src/assets/img/), logo_3d_clean.png 528 KB
+  rendered at 32 px (needs resized brand asset), style.css
+  .layer-frame/.manager-license missing art refs (master_frame_v9.png,
+  license_pattern.png, images/hero.png pre-existing 404s), arcade pack-logo
+  black-box polish, logo.png (789 KB) onerror fallback weight, books-data.json
+  key slimming/precompress (Caddyfile = hard limit), Cloudflare edge 4 h
+  stale cache for docs/assets (purge needs CF creds = hard limit),
+  `?lang=es` + i18n leftovers pending "remove ES entirely" decision, webapp
+  in-app ES strings (~500 strings / 40 files), dev-facing Spanish in code
+  comments, pack price copy inconsistency (human decision), contract_data.js
+  Anchor->borsh read path, goalworld_site TODO.md human facts (dead Discord
+  invite, X handle 404, legal review), Caddyfile cache headers for /assets/*
+  (hard limit), wallet-adapter DM Sans (third-party, leave),
+  `test_marketing_html_loads_shell` 5-page pre-existing failure (UX
+  decision), Zetaris stack wedge (Nico decision), omniroute fork storm +
+  ~540 zombies cleanup.
