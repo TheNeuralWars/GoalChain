@@ -2754,3 +2754,91 @@ One entry per daily run (newest last).
   `test_marketing_html_loads_shell` 5-page pre-existing failure (UX
   decision), Zetaris stack wedge (Nico decision), omniroute fork storm +
   ~540 zombies cleanup.
+
+## 2026-11-13 run 20261113T034752Z
+
+- **What:** PenaltyGame draw-on-demand state machine (`docs/assets/js/penalty_game.js`,
+  embedded on https://goalworld.fun/goalchain, /arcade.html, /play/penalty.html) — the
+  "idle PenaltyGame redraws a static READY scene every frame while the canvas IS on
+  screen — a draw-on-demand state machine would kill that too" follow-up flagged by run
+  2026-11-12. The render loop previously stopped only when the canvas left the screen
+  (that run's IntersectionObserver gate); while visible it repainted the static scene
+  every rAF tick forever. Now `loop()` exits whenever nothing animates (new
+  `isAnimating()`: shot flight / result particles / screen shake) and is kicked back on
+  by the two state transitions that need frames — `startShot()` (flight) and `reset()`
+  (one repaint of the fresh READY scene, replacing the RESULT frame after the timed
+  reset; also schedules the first paint at construction). Loop bookkeeping init moved
+  before the `reset()` call it now kicks from. `penalty_game.js` cache pin 4.3 -> 4.4
+  on its 3 referencing pages (CF serves /assets/js/* stale up to 4h under a stable key;
+  no other file references the script — no pinned webapp copy exists). 4 files,
+  +37/−10; zero public-copy change.
+- **Why:** Continuous idle CPU/battery cost for a completely static scene on every page
+  that keeps the game in view (the whole point of /play/penalty): measured 379 draw()
+  frames per 7 s idle on-screen on the old build (Camofox main-world probe A/B) vs 0
+  after. Also the last open item of the penalty-game perf arc (off-screen gating was
+  run 2026-11-12; idle-on-screen was its named follow-up).
+- **Commit SHA (merge):** `7a10f80e` (PR #929, merge commit; feature `29ce2c39`).
+  Pre-merge `origin/main` = `ed00dd5b` (rollback: `git revert -m 1 7a10f80e` + push +
+  `bash scripts/pages/deploy_origin.sh` — docs-surface only, no Vercel/landing change).
+- **Live link:** https://goalworld.fun/play/penalty.html (also /goalchain, /arcade.html;
+  `deploy_origin.sh` restaged `7a10f80e` at 2026-11-13 04:19:11 UTC — guard 0
+  internal-only paths; all 3 touched pages' live sha256 == repo files; served
+  `penalty_game.js?v=4.4` sha == repo — fresh cache key, no edge staleness).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261113T034752Z/`
+  - build.txt: `node --check` + parse on penalty_game.js exit 0. tests.txt:
+    `docs/tests/test_gw_chrome.py` 8/9 green; the 1 failure
+    (`test_marketing_html_loads_shell`, 5 pages: architecture/archify, 2 film pages,
+    reader pair) is the documented pre-existing baseline — identical failure list
+    re-verified on the pre-change tree (tests-prechange.txt).
+  - functional-check.txt (Camofox REST harness + injected main-world probes,
+    harness.py saved): OLD A/B baseline play/penalty idle 7s on-screen = 379 gameCanvas
+    draw() frames (~54 fps) -> NEW = **0** (loop halts after initial paint;
+    `loop:false, animating:false`). Same on arcade (0) and goalchain scrolled to
+    #gameplay (0 gameCanvas frames; only the hero solanaParticles canvas ticks —
+    unchanged). Shot lifecycle intact on all 3 pages both builds: flight (~29-34
+    frames) -> RESULT particles/shake (~30 more) -> loop STOPS at settled result ->
+    timed reset repaints READY once -> 0 further frames. GOAL and SAVED paths verified
+    (bets deducted, prizes paid, goals/saves/streak stats, localStorage balance
+    1000->1009->1018->… consistent across pages); 0 uncaught errors everywhere.
+    Visual parity: 6 old/new play/penalty screenshots byte-identical (md5 2f4a86bd…,
+    static scene renders pixel-identical); vision QC confirms goalie/ball/goal render
+    and the post-reset scene has no leftover result text/particles.
+  - Lighthouse (mobile) live before -> after (full JSONs + lighthouse-summary.txt):
+    | url | perf | a11y | BP | SEO | bootup ms |
+    |---|---|---|---|---|---|
+    | play/penalty | 0.93 -> 0.96 | 0.98 = | 0.96 = | 0.92 = | 181 -> 39 |
+    | arcade | 0.97 -> 0.98 | 1.00 = | 1.00 = | 1.00 = | 379 -> 236 |
+    | goalchain | 0.33 = | 0.81 = | 0.73 = | 1.00 = | flat |
+    Local same-box A/B play/penalty (2+2 runs): a11y/BP/SEO identical both sides
+    (0 regressions), bootup-time 298/146 -> 30/65 ms. goalchain lab numbers flat as
+    expected (Lighthouse does not scroll to the game; its 49-52s TBT churn mode is a
+    separate campaign). The win is continuous idle CPU, measured directly by the frame
+    counters (379 idle frames/7s -> 0).
+  - smoke-before.txt / smoke-after.txt: all 7 URLs 200; pin v=4.3 -> v=4.4 on the 3
+    pages; live-sha == repo-sha for all 3 HTML files and the served JS.
+    linkcheck.txt: ref-set diff = only the 3 intended ?v pins (no links added/removed).
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) goalchain.html remains the product's biggest
+  perf debt — its own campaign: live-feed/observability polling + ticker churn (the
+  bimodal 49-52s TBT mode), nft_registry.js ~2.2s bootup render, inline scripts now
+  the top bootup item. (2) classic-dashboard inline-script churn / CSS slimming
+  (style & layout ~1.4s). (3) style.css `.layer-frame`/`.manager-license` reference
+  `img/templates/master_frame_v9.png` + `img/bg/license_pattern.png` (and
+  `images/hero.png`) — pre-existing 404 background art on live. (4) arcade pack-logo
+  black-box polish; logo.png (789 KB) onerror fallback on arcade/pack/goalchain
+  (only fetched if the primary logo fails — low impact). (5) books-data.json key
+  slimming/precompress (precompress = Caddyfile hard limit). (6) film-draft video
+  posters (`FC-S0x-01.jpg`, 90-267 KB) could use webp derivatives (masters-as-posters
+  also on cinema/other pages). (7) Unchanged decision/hard-limit items: `?lang=es` +
+  i18n leftovers pending "remove ES entirely" decision, webapp in-app ES strings
+  (~500 strings / 40 files), dev-facing Spanish in code comments (incl.
+  penalty_game.js — left untouched), pack price copy inconsistency (human decision),
+  contract_data.js Anchor->borsh read path, goalworld_site TODO.md human facts (dead
+  Discord invite, X handle 404, legal review), Caddyfile cache headers for /assets/*
+  + CF edge 4h stale cache purge (both hard limits), wallet-adapter DM Sans
+  (third-party, leave), `test_marketing_html_loads_shell` 5-page pre-existing failure
+  (UX decision), Zetaris stack wedge (Nico decision), omniroute fork storm + ~540
+  zombies cleanup. NOTE: two older carried-forward items were already done and are
+  dropped from this list: goalworld.html (Lore) 16 MB master-JPG diet (run 2026-11-05,
+  image transfer −83%/view) and logo_3d_clean.png 528 KB brand sweep (runs
+  2026-11-06/07).
