@@ -25,7 +25,12 @@ class PenaltyGame {
         
         // Cargar jugador activo de la colección
         this.loadActivePlayer();
-        
+
+        // Loop bookkeeping must exist before reset(): reset() kicks a
+        // draw-on-demand repaint of the fresh READY scene.
+        this._loopRunning = false;
+        this._rafId = null;
+
         this.reset();
         this.setupBettingUI();
 
@@ -44,12 +49,12 @@ class PenaltyGame {
             e.preventDefault(); this.handleInput(e.touches[0]);
         }, { passive: false });
 
-        // Run the render loop only while the canvas is on screen. loop() redraws
-        // every frame forever; on pages that embed the game far below the fold
-        // that burned ~18 s of main-thread time per visit (Lighthouse 2026-11-12).
+        // Run the render loop only while the canvas is on screen, and (via
+        // loop()'s draw-on-demand exit) only while something actually animates.
+        // The old always-on loop redrew even off-screen and idle canvases —
+        // ~18 s of main-thread time per visit on pages embedding the game far
+        // below the fold (Lighthouse 2026-11-12).
         if ('IntersectionObserver' in window) {
-            this._loopRunning = false;
-            this._rafId = null;
             this._loopObserver = new IntersectionObserver((entries) => {
                 entries.forEach((en) => {
                     if (en.isIntersecting) this.startLoop();
@@ -86,6 +91,10 @@ class PenaltyGame {
         this.result = '';
         this.particles = [];
         this.screenShake = 0;
+        // Draw-on-demand: repaint the fresh static scene once. At construction
+        // this schedules the first paint; after a shot it replaces the RESULT
+        // frame. The loop halts again as soon as nothing animates.
+        this.startLoop();
     }
 
     handleInput(e) {
@@ -157,6 +166,8 @@ class PenaltyGame {
         const difficulty = Math.min(0.2 + (this.streak * 0.05), 0.5);
         const gT = Math.random() < difficulty ? target : this.targets[Math.floor(Math.random() * this.targets.length)];
         this.goalieTarget = { x: gT.x + gT.w / 2, y: gT.y + gT.h / 2, id: gT.id };
+        // Kick the render loop: the shot flight is animated frame by frame.
+        this.startLoop();
     }
 
     update() {
@@ -363,10 +374,26 @@ class PenaltyGame {
         this._rafId = null;
     }
 
+    // True while something on the canvas is actually moving: the shot flight,
+    // result particles or screen shake. READY and settled RESULT are static.
+    isAnimating() {
+        return this.gameState === 'SHOOTING' || this.particles.length > 0 || this.screenShake > 0;
+    }
+
     loop() {
         if (!this._loopRunning) return;
         this.update(); this.draw();
-        this._rafId = requestAnimationFrame(() => this.loop());
+        if (this.isAnimating()) {
+            this._rafId = requestAnimationFrame(() => this.loop());
+        } else {
+            // Draw-on-demand: the scene is static while idle, so stop
+            // scheduling frames until the next state change kicks the loop
+            // (startShot / reset). The last draw already painted the current
+            // scene (READY ball+goalie, or the RESULT text once its particles
+            // and shake settle).
+            this._loopRunning = false;
+            this._rafId = null;
+        }
     }
 }
 
