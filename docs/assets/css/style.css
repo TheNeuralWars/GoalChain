@@ -213,7 +213,7 @@ body {
     justify-content: center; align-items: center; text-align: center;
     padding: 6rem 1.5rem 3rem; position: relative;
     background: linear-gradient(rgba(6, 6, 10, 0.85), rgba(6, 6, 10, 0.9)),
-                url('../images/hero.png') no-repeat center center/cover;
+                url('../images/hero.webp') no-repeat center center/cover;
 }
 .hero-badge {
     background: var(--primary-dim); padding: 0.5rem 1.2rem; border-radius: 20px;
@@ -1041,12 +1041,13 @@ body {
     transition: all 0.3s;
 }
 
-/* Marcos por Rareza */
-.layer-frame.rarity-Mythic { border-color: #ff00ff; box-shadow: inset 0 0 30px rgba(255, 0, 255, 0.5); }
-.layer-frame.rarity-Legendary { border-color: #ffcc00; box-shadow: inset 0 0 30px rgba(255, 204, 0, 0.5); }
-.layer-frame.rarity-Epic { border-color: #9945ff; box-shadow: inset 0 0 30px rgba(153, 69, 255, 0.5); }
-.layer-frame.rarity-Rare { border-color: #00e0ff; box-shadow: inset 0 0 30px rgba(0, 224, 255, 0.5); }
-.layer-frame.rarity-Common { border-color: rgba(255, 255, 255, 0.2); }
+/* Rarity frames — the rarity class lands on the frame element itself
+   (e.g. `layer layer-frame rarity-mythic`), so selectors must match it there. */
+.layer-frame.rarity-mythic { border-color: #ffcc00; box-shadow: inset 0 0 30px rgba(255, 204, 0, 0.5); }
+.layer-frame.rarity-legendary { border-color: #ff00ff; box-shadow: inset 0 0 30px rgba(255, 0, 255, 0.5); }
+.layer-frame.rarity-epic { border-color: #9945ff; box-shadow: inset 0 0 30px rgba(153, 69, 255, 0.5); }
+.layer-frame.rarity-rare { border-color: #00e0ff; box-shadow: inset 0 0 30px rgba(0, 224, 255, 0.5); }
+.layer-frame.rarity-common { border-color: rgba(255, 255, 255, 0.2); }
 
 .layer-ui { 
     z-index: 3; 
@@ -1588,21 +1589,12 @@ body {
     transition: transform 0.5s ease;
 }
 
-/* Layer 2: Master Frame Overlay */
+/* Layer 2: Master Frame Overlay — the frame is the pure-CSS border/glow on
+   .layer-frame above; no bitmap overlay asset is needed (the old
+   master_frame_v9.png reference was a dead 404 and rendered nothing). */
 .layer-frame {
     z-index: 5;
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* Usaremos una imagen de marco genérica que se tiñe por CSS */
-    background-image: url('../img/templates/master_frame_v9.png'); 
-    mix-blend-mode: lighten;
 }
-
-/* Rarity Tinting System */
-.rarity-mythic .layer-frame { filter: drop-shadow(0 0 15px rgba(255,255,255,0.4)) saturate(0); }
-.rarity-legendary .layer-frame { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4)) sepia(1) saturate(5) hue-rotate(10deg); }
-.rarity-epic .layer-frame { filter: drop-shadow(0 0 15px rgba(153, 69, 255, 0.4)) sepia(1) saturate(5) hue-rotate(250deg); }
-.rarity-rare .layer-frame { filter: drop-shadow(0 0 15px rgba(20, 241, 149, 0.4)) sepia(1) saturate(5) hue-rotate(100deg); }
 
 /* Layer 3: Dynamic UI */
 .layer-ui {
@@ -2203,7 +2195,9 @@ body {
 
 /* --- Manager License Card --- */
 .manager-license {
-    background: url('../img/bg/license_pattern.png'), linear-gradient(135deg, #1a1a2e, #0d0d15);
+    background:
+        repeating-linear-gradient(135deg, rgba(153, 69, 255, 0.07) 0 2px, transparent 2px 12px),
+        linear-gradient(135deg, #1a1a2e, #0d0d15);
     border: 2px solid var(--secondary);
     border-radius: 12px;
     padding: 15px;
