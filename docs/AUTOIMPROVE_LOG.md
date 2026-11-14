@@ -2842,3 +2842,134 @@ One entry per daily run (newest last).
   dropped from this list: goalworld.html (Lore) 16 MB master-JPG diet (run 2026-11-05,
   image transfer −83%/view) and logo_3d_clean.png 528 KB brand sweep (runs
   2026-11-06/07).
+
+## 2026-11-14 run 20261114T034707Z
+
+- **What:** Background-art hygiene + diet pass on the shared style sheet and the
+  Matchday page (theme: every background-art reference now renders, or is gone).
+  (1) `.layer-frame` (docs `style.css` + its webapp-public mirror, byte-identical):
+  removed the dead `master_frame_v9.png` overlay ref (live 404 fetched on EVERY
+  card render) and the broken `.rarity-* .layer-frame` descendant tint selectors
+  (the rarity class lands on the frame element itself, so they never matched) —
+  the rarity frame is now the sheet's existing pure-CSS border/glow system
+  (`border: 8px solid transparent` + per-rarity border-color/inset glow) with
+  lowercase same-element selectors matching the emitted markup and the webapp
+  `index.css` palette. Result: marketplace/registry/simulator cards on
+  /goalchain and the classic-dashboard sim card finally render their rarity
+  frames (verified: 8px solid rgb(255,204,0)/rgb(153,69,255)/rgb(255,0,255)
+  computed styles + screenshots; they were fully invisible before).
+  (2) `.manager-license`: dead `license_pattern.png` ref (which fetched an HTML
+  fallback and rendered nothing) → CSS repeating-gradient pattern. (3) `.hero`
+  in style.css: `images/hero.png` 891 KB → `hero.webp` 134 KB. (4)
+  goalchain.html inline backgrounds: `hero_bg.png` 929 KB → `hero_bg.webp`
+  135 KB and `vault_bg.png` 931 KB → `vault_bg.webp` 133 KB (−1.6 MB per visit).
+  (5) goalchain.html's 5 stadium-showcase poster refs
+  (`assets/img/stadiums/{neo_olympus,dome_kronos,titanium_coliseum,obsidian_arena,aether_dome}.jpg`)
+  were pre-existing 404s — 4 of 5 cards rendered flat #111 boxes — extracted
+  poster frames from the SAME-NAMED existing stadium videos (ffmpeg, 960w JPEG
+  q4, 35-85 KB) to fill the already-written refs (zero HTML ref edits).
+  (6) Cache-pin discipline (see Reverted/fix-forward note): the new art refs
+  carry `?v=1` and the style.css pin went 4.x → 4.7 on all 16 referencing
+  pages, because Cloudflare had the old 404s cached (`cf-cache-status: HIT,
+  age: 175615`, `cache-control: public, max-age=604800` — purge = CF creds =
+  hard limit). Mirrors: webapp public `assets/images/hero.webp` added so the
+  shared sheet resolves on both surfaces. 27 files, +46/−58 (follow-up pin
+  commit: 18 files, +23/−23).
+- **Why:** Every item above was a dead or broken background-art reference on a
+  live page: 8 permanent failing fetches (master_frame_v9, license_pattern,
+  5 stadium posters, + the CSS-only hero art nobody could see as designed) and
+  ~2.5 MB of avoidable PNG weight on the flagship page. Kills the last two
+  "pre-existing 404 background art" items that runs 2026-11-11/12/13 kept
+  listing as follow-ups, and restores the intended rarity-frame design that
+  has never rendered (the bitmap it depended on never existed).
+- **Commit SHA (merge):** `c785f727` (PR #931, feature `4ec1e02a`) +
+  `d7aeaf05` (PR #932, feature `7c08bc4c`, the CF-stale-404 cache-pin
+  fix-forward). Pre-merge `origin/main` = `a205a23c` (rollback:
+  `git revert -m 1 d7aeaf05 && git revert -m 1 c785f727` + push +
+  `bash scripts/pages/deploy_origin.sh` — landing restages old tree; webapp:
+  Vercel redeploys the previous build on the revert push).
+- **Live link:** https://goalworld.fun/goalchain (+ /arcade.html, /pre-nft.html,
+  all 16 pinned pages) and https://play.goalworld.fun/classic-dashboard.html.
+  Landing deploy: `deploy_origin.sh` restaged `c785f727` 04:37:35 UTC and
+  `d7aeaf05` 04:40:51 UTC (guard 0 internal-only paths both times); Vercel
+  webapp rolled the second push by 04:43:44 UTC (pin signature poll).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261114T034707Z/`
+  - build.txt: csstree-validator on both style.css mirrors exit 0/0 (twice,
+    incl. after the pin fix); classic-dashboard inline script blocks node
+    --check 4/4. npm-ci.txt: npm ci exit 0. tests-webapp.txt: goalchain_webapp
+    `tsc + vite build` exit 0 (7.8s) + `check:i18n` exit 0 (381 used keys,
+    en/es/type in sync). tests.txt / tests-prechange.txt / tests-pinsfix.txt:
+    `docs/tests/test_gw_chrome.py` 8/9 green BEFORE and AFTER (and after the
+    pin fix); the 1 failure (`test_marketing_html_loads_shell`, 5-page list:
+    architecture/archify, 2 film pages, reader pair) is the documented
+    pre-existing baseline, byte-identical list on the pre-change tree.
+  - Lighthouse (mobile) live goalchain before(2) → after(2): perf
+    0.33/0.33 → 0.35/0.37, a11y 0.81 =, BP 0.73 =, SEO 1.00 =; total
+    transfer 6.04/6.10 MB → 4.80/4.80 MB (**−1.25–1.30 MB**); LCP
+    14.4/15.9 s → 6.6/9.5 s; TBT 52.6/45.4 s → 13.0/9.4 s (goalchain TBT/LCP
+    is the documented bimodal churn — compare modes; both after samples are
+    below both before samples here). Local same-box A/B (8902=pre vs 8901=new,
+    2+2 runs): transfer 7.96/7.38 MB → 6.70/6.11 MB; perf/a11y/BP/SEO
+    identical both sides (0.28–0.31 / 0.81 / 0.73 / 1.00) — zero regression.
+    classic-dashboard live before(2) → after(2): a11y/BP/SEO 1.00 = = =, perf
+    1.00 → 0.95/1.00 (the 0.95 run is SI noise, second run flat). Full JSONs +
+    lighthouse-summary.txt (network-requests art table included).
+  - functional-check.txt (harness-art.py, Camofox REST + computed-style
+    probes; before/after/live-after runs): before — `.layer-frame`
+    `border: 8px solid rgba(0,0,0,0)` + dead master_frame_v9.png fetch +
+    `mix-blend-mode: lighten` on nothing (invisible frames on all surfaces);
+    after — 8px rarity-colored borders (gold/magenta/purple) on
+    marketplace/registry/simulator cards and the dashboard sim card
+    (276×396), `bg: none`; `.manager-license` background
+    `repeating-linear-gradient(...)` replaces the fetched-HTML fallback;
+    hero background = hero_bg.webp. 0 uncaught errors on every run.
+    Visual parity: before/after hero pixel diff mean-abs 1.24/255 (0.9% of
+    pixels >6% — webp under the dark overlay is visually identical);
+    dashboard-top diff 0.05% (license card area only). Vision QC on
+    live-after: stadium cards all show their renders (was 4/5 flat #111),
+    marketplace frames clean (no covered text/corner glitches).
+  - smoke-before.txt / smoke-after.txt / smoke-after-2.txt: all page URLs 200,
+    pins 4.7 live on all sampled pages (dashboard 4.7 after Vercel rollout);
+    all 9 referenced art URLs 200 (posters `?v=1` 35–85 KB, hero_bg/vault_bg
+    webp ~134 KB each, `hero.webp?v=1` 133 KB). linkcheck.txt: ref-set diff =
+    pin changes only; every url() in both style.css mirrors resolves; zero
+    remaining master_frame_v9/license_pattern refs (1 comment line).
+  - Note (fix-forward, not a revert): the FIRST deploy's new art was live at
+    the origin but Cloudflare still served the pre-existing 404s for the exact
+    previously-broken URLs (cached up to 7 d, `max-age=604800` on /assets/*;
+    purge needs CF creds = hard limit). PR #932 added the repo's standard
+    `?v=` cache pins to the new refs and bumped the style.css key to 4.7 (its
+    content changed under the already-cached 4.6 key); re-verified live after.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) goalchain.html remaining weight: the
+  marketplace/registry card backgrounds `assets/img/stadiums/bg_*.png` are
+  677–792 KB PNGs (~2.8 MB of the remaining 4.8 MB page weight) — the same
+  webp diet as this run is the single biggest remaining transfer win;
+  `nft_registry.js` ~2.2 s bootup render and the live-feed/observability
+  polling + ticker churn (bimodal TBT) stay the perf campaign. (2) The
+  unpinned previously-404 URLs (stadium `*.jpg` without `?v`,
+  `assets/images/hero.png`) stay CF-edge-stale up to 7 d — nothing references
+  them anymore; purge = hard limit. (3) Rarity palette divergence across
+  surfaces is now visible: "Style Guide V1.0" in style.css says legendary =
+  silver, 3d_gallery RARITY_COLORS says green, webapp index.css says magenta —
+  this run standardized the docs+classic-dashboard frames on the index.css
+  palette; a human should pick one canon. (4) JS bg fallbacks
+  (`BG_IMAGE_MAP[...] || 'dome_kronos.jpg'`, unpinned) in
+  marketplace/nft_registry/market_simulators are unreachable today (all 528
+  players carry valid bg_type) but would hit the edge-stale 404 if ever hit.
+  (5) docs/index.html + docs/cinema.html (shadowed live by the goalworld_site
+  build) still reference the hero_bg/vault_bg/hero.png masters — left as-is;
+  the PNG masters stay published as their fallback. (6) classic-dashboard
+  inline-script churn / CSS slimming (style & layout ~1.4 s). (7) Unchanged
+  decision/hard-limit items: `?lang=es` + i18n leftovers pending "remove ES
+  entirely" decision, webapp in-app ES strings (~500 strings / 40 files),
+  dev-facing Spanish in code comments, pack price copy inconsistency (human
+  decision), contract_data.js Anchor->borsh read path, goalworld_site TODO.md
+  human facts (dead Discord invite, X handle 404, legal review), Caddyfile
+  cache headers for /assets/* + CF edge purge (both hard limits),
+  books-data.json key slimming/precompress (Caddyfile = hard limit),
+  film-draft video posters webp derivatives, logo.png (789 KB) onerror
+  fallback, arcade pack-logo black-box polish, wallet-adapter DM Sans
+  (third-party, leave), `test_marketing_html_loads_shell` 5-page pre-existing
+  failure (UX decision), Zetaris stack wedge (Nico decision), omniroute fork
+  storm + ~540 zombies cleanup.
