@@ -2973,3 +2973,89 @@ One entry per daily run (newest last).
   (third-party, leave), `test_marketing_html_loads_shell` 5-page pre-existing
   failure (UX decision), Zetaris stack wedge (Nico decision), omniroute fork
   storm + ~540 zombies cleanup.
+
+## 2026-11-15 run 20261115T034737Z
+
+- **What:** Stadium-bg webp diet — the five `BG_IMAGE_MAP` card backgrounds
+  (`bg_{mythic_golden,legendary_purple,epic_cyber,rare_solana,common_street}.png`,
+  660–839 KB 1024×1024 PNGs) converted to 720×720 webp q78 (27–66 KB) and
+  repointed everywhere they load at runtime: the three docs JS maps
+  (`marketplace.js`, `nft_registry.js`, `market_simulators.js`) with
+  goalchain.html script-pin bumps (marketplace 3.0→3.2, nft_registry 3.0→3.2,
+  market_simulators 1.0→1.2) and `goalchain_webapp/src/ui/LayeredNftCard.tsx`
+  map + fallback (play.goalworld.fun cards fetch these from goalworld.fun).
+  PNG masters stay published as fallback. This is follow-up (1) of run
+  20261114 ("the same webp diet … the single biggest remaining transfer
+  win"). Pin discipline note: refs carry `?v=2`/`3.2`/`1.2`, NOT `?v=1`/`3.1`/
+  `1.1` — this zone edge-caches /assets/* misses (see Reverted/fix note), and
+  this run's pre-deploy smoke had already requested the first-choice pins.
+  10 files, +24/−24 (plus 5 new webp, 207 KB total).
+- **Why:** The marketplace/registry/simulator cards on /goalchain fetched up
+  to four of these PNGs per visit — 2.8–2.9 MB of the page's ~4.7 MB total
+  transfer, by far the largest remaining item; the same bgs weigh 139 KB as
+  webp (−2.7 MB/visit, −57% page transfer). Same win applies to
+  play.goalworld.fun's card component via the shared map.
+- **Commit SHA (merge):** `3424349b` (PR #934, feature `f05566b6`). Pre-merge
+  `origin/main` = `52a130a0` (rollback: `git revert -m 1 3424349b` + push —
+  landing restages via deploy_origin.sh, Vercel redeploys the previous build
+  on the revert push).
+- **Live link:** https://goalworld.fun/goalchain (+ the webapp card surfaces on
+  https://play.goalworld.fun). Landing deploy: `scripts/pages/deploy_origin.sh`
+  restaged `3424349b` 04:14:42 UTC (guard 0 internal-only paths). Vercel
+  webapp rolled out ~04:2x UTC (verified: lazy chunk
+  `LayeredNftCard-hVPEd2Dk.js` serves the `bg_*.webp?v=2` map).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261115T034737Z/`
+  - build.txt: `node --check` 3/3 JS maps exit 0; final pin strings verified.
+    npm-ci.txt: npm ci exit 0. tests-webapp.txt: goalchain_webapp
+    `tsc + vite build` exit 0 (6.97s) + `check:i18n` exit 0 (381 used keys,
+    en/es/type in sync); built chunk `LayeredNftCard-q_D5J4oG.js` contains the
+    new map. tests.txt / tests-prechange.txt: `docs/tests/test_gw_chrome.py`
+    8/9 green AFTER and byte-identical BEFORE (stash run) — the 1 failure
+    (`test_marketing_html_loads_shell`, same 5-page list) is the documented
+    pre-existing baseline.
+  - Lighthouse (mobile): live goalchain before(2) → after(4): total transfer
+    4.79/4.68 MB → 2.05/1.94/2.04/1.93 MB (**−57–59%**); bg art 2.89 MB PNG →
+    143 KB webp. a11y 0.81 =, BP 0.73 =, SEO 1.00 = all 6 runs; perf
+    0.28/0.33 → 0.28/0.28/0.35/0.35 (flat). TBT/LCP stay the documented
+    bimodal churn (TBT 45–53 s vs 45–46 s high-churn mode + 9.5–10.2 s
+    low-churn runs after; LCP 8.6–10.9 s bands overlap both sides) — compare
+    modes, not samples. Local A/B (8902=pre vs 8901=new, 2+2 runs): total
+    6.64 MB → 3.90/3.31 MB (−41–50%), bg transfer 2,893 KB → 142 KB,
+    perf/a11y/BP/SEO identical both sides, LCP both new runs (9.8 s) below
+    both pre runs (19.2/24.4 s). play.goalworld.fun before → after
+    (1 run each): 0.98 → 0.97 perf (SI noise on the card-less default route;
+    resource timing confirms bg fetches need interaction — 0 bg fetches both
+    sides). Full JSONs + lighthouse-summary.txt.
+  - harness-before.txt / harness-live-after.txt (Camofox resource timing +
+    screenshots): before 4 bg PNG fetches = **2,825 KB**, after 4 webp
+    fetches = **139 KB** (−2,686 KB/visit measured in-page), 0 uncaught
+    errors both runs. Vision QC on live-after marketplace + registry
+    screenshots: all card backgrounds render, no broken images, no visible
+    webp banding at display size, no layout glitches.
+  - smoke-before.txt / smoke-after.txt: before — PNGs 200 (697–839 KB),
+    live pins old (3.0/3.0/1.0); after — new pins live (3.2/3.2/1.2), all 5
+    webp 200 `image/webp` (27–66 KB), JS maps serve `*.webp?v=2`.
+    linkcheck.txt: every map value + JS fallback resolves on disk (PASS).
+  - **Cache-trap note (self-inflicted, fixed forward):** pre-deploy smoke
+    requested not-yet-live URLs and this zone cached them at the CF edge
+    (`bg_mythic_golden.webp?v=1` 404 HIT age 47 `max-age=604800`;
+    `marketplace.js?v=3.1` 200 HIT of the OLD content `max-age=14400`).
+    All live refs therefore moved to never-requested pins (webp `?v=2`,
+    JS `3.2`/`3.2`/`1.2`) before shipping; the two probed `?v=1` webp URLs
+    stay edge-stale 404 up to 7 d but nothing references them. Lesson:
+    never probe a not-yet-deployed pinned asset URL on goalworld.fun.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) `docs/pre-nft.html` still loads its bg
+  PNGs from the separate `assets/img/nfts/bg/` tree (660 KB–1.4 MB each +
+  4 mp4 loops, 29 MB tree) — same diet applies there (~4 MB/visit on that
+  page; its refs are `nfts/bg/`, not `stadiums/`). (2) 14 stadium bg PNGs in
+  `docs/assets/img/stadiums/` (`bg_rare_1..5`, `bg_epic_1..4`, `bg_common_grass`,
+  `bg_epic_aurora`, `bg_mythic_lunar`, `bg_rare_sunset`, `bg_legendary_hologram`)
+  are referenced only by shadowed `docs/cinema.html` — cleanup/ownership
+  decision. (3) goalchain.html remaining weight: now ~2.0 MB total — next
+  biggest items are the marketplace/registry bootup render + live-feed
+  polling churn (bimodal TBT) carried over from 20261114. (4) Carried:
+  rarity palette canon decision, `?lang=es` i18n leftovers, pack price copy,
+  Caddyfile cache headers + CF purge (hard limits), `test_marketing_html_
+  loads_shell` 5-page pre-existing failure, Zetaris stack wedge (Nico
+  decision).
