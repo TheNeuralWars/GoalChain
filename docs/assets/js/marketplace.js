@@ -16,11 +16,11 @@ const RARITY_PRICES = {
 };
 
 var BG_IMAGE_MAP = window.BG_IMAGE_MAP || {
-    "BG-MYT": "bg_mythic_golden.png",
-    "BG-LEG": "bg_legendary_purple.png",
-    "BG-EPI": "bg_epic_cyber.png",
-    "BG-RAR": "bg_rare_solana.png",
-    "BG-COM": "bg_common_street.png"
+    "BG-MYT": "bg_mythic_golden.webp?v=2",
+    "BG-LEG": "bg_legendary_purple.webp?v=2",
+    "BG-EPI": "bg_epic_cyber.webp?v=2",
+    "BG-RAR": "bg_rare_solana.webp?v=2",
+    "BG-COM": "bg_common_street.webp?v=2"
 };
 
 var BG_VIDEO_MAP = window.BG_VIDEO_MAP || {
