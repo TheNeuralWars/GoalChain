@@ -32,11 +32,11 @@ export interface LayeredNftCardProps {
 }
 
 const BG_IMAGE_MAP: Record<string, string> = {
-  'BG-MYT': 'bg_mythic_golden.png',
-  'BG-LEG': 'bg_legendary_purple.png',
-  'BG-EPI': 'bg_epic_cyber.png',
-  'BG-RAR': 'bg_rare_solana.png',
-  'BG-COM': 'bg_common_street.png',
+  'BG-MYT': 'bg_mythic_golden.webp?v=2',
+  'BG-LEG': 'bg_legendary_purple.webp?v=2',
+  'BG-EPI': 'bg_epic_cyber.webp?v=2',
+  'BG-RAR': 'bg_rare_solana.webp?v=2',
+  'BG-COM': 'bg_common_street.webp?v=2',
 };
 
 const BG_VIDEO_MAP: Record<string, string> = {
@@ -170,7 +170,7 @@ export const LayeredNftCard: React.FC<LayeredNftCardProps> = ({
   };
 
   // Resolve backgrounds
-  const stadiumBgImg = `https://goalworld.fun/assets/img/stadiums/${BG_IMAGE_MAP[player.bg_type || ''] || 'bg_common_street.png'}`;
+  const stadiumBgImg = `https://goalworld.fun/assets/img/stadiums/${BG_IMAGE_MAP[player.bg_type || ''] || 'bg_common_street.webp?v=2'}`;
   const stadiumBgVideo = `https://goalworld.fun/assets/video/stadiums/${BG_VIDEO_MAP[player.bg_type || ''] || 'dome_kronos_vertical.mp4'}`;
 
   return (
