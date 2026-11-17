@@ -3059,3 +3059,112 @@ One entry per daily run (newest last).
   Caddyfile cache headers + CF purge (hard limits), `test_marketing_html_
   loads_shell` 5-page pre-existing failure, Zetaris stack wedge (Nico
   decision).
+## 2026-11-16 run 20261116T034752Z (LOG entry backfilled 2026-11-17 — the run merged
+## but its LOG append was never written; reconstructed from merge commit 73756546
+## and /data/work/autoimprove/evidence/20261116T034752Z/)
+
+- **What:** pre-NFT review gallery fix (`docs/pre-nft.html`): (1) real player art —
+  the gallery sourced card art from `api.goalchain.fun/pilot/v4/{id}.jpg`, which
+  404s for every id, so all 528 cards fell back to the placehold.co box (528
+  failing requests + 528 placeholder fetches per visit); art now comes from
+  `assets/img/nfts/composed/` via the webapp's canonical `getPlayerImagePath`
+  mapping (verified to resolve for all 528 players). (2) The card's designed
+  layered composite completed: the stadium bg layer (CSS + `getStadiumBg()`
+  existed, template element was dropped in d952bdcf) wired back in behind the
+  cutout. (3) Bg refs moved to webp (5 new 720x720 q78 files, 233 KB total vs
+  3.88 MB of PNGs; PNG masters stay published; pins `?v=1`, never probed
+  pre-deploy — CF cache-trap lesson from run 20261115). (4) `loading=lazy` +
+  `decoding=async` on card art and bg layers.
+- **Why:** The page's gallery — the pre-NFT review surface for the 528-card
+  collection — was visually broken (every card a placeholder) and generated
+  1,000+ failing/placeholder requests per visit.
+- **Commit SHA (merge):** `19bd3341` (PR #936, feature `73756546`).
+- **Live link:** https://goalworld.fun/pre-nft.html
+- **QA evidence:** `/data/work/autoimprove/evidence/20261116T034752Z/`
+  - build.txt: inline JS `node --check` exit 0; final ref-string counts verified.
+  - tests.txt / tests-prechange.txt: `docs/tests/test_gw_chrome.py` 8/9 green,
+    byte-identical failure set before/after (documented pre-existing
+    `test_marketing_html_loads_shell` 5-page failure).
+  - linkcheck.txt: new refs resolve on disk (528/528 composed webp, 5/5 bg webp);
+    2 pre-existing missing docs/ refs unchanged (served by the landing overlay);
+    0 new broken links.
+  - Lighthouse (local A/B, pre vs new): perf 0.58 → 0.59–0.67, TBT −15%,
+    failed requests 531 → 3 pre-existing, a11y/BP/SEO flat. Live before/after
+    x3 on /pre-nft.html vs live-before band; screenshots before/after. Note in
+    the summary: the single data resource is the pre-existing players.json fetch
+    (585 KB) on BOTH sides — left for a later run (see run 20261117).
+- **Reverted:** n
+
+## 2026-11-17 run 20261117T034752Z
+
+- **What:** Data-fetch pinning — killed the per-request `Date.now()` cache-busters
+  on the shared player/fixture data fetches and pinned them
+  (`players.json?v=20261117`, `wc2026_fixture.json?v=20261117`) across all five
+  call sites (`nft_registry.js`, `pack_opener.js`, `ai_agent.js`, `3d_gallery.js`
+  carried `?v=${Date.now()}`; `marketplace.js` a bare URL), plus script-pin bumps:
+  marketplace/nft_registry/pack_opener 3.2 -> 3.3 (goalchain.html),
+  pack_opener 3.2 -> 3.3 (arcade.html). Pin-bump rule documented in code comments
+  (bump ?v= whenever the data files change). 7 files, +17/-12.
+- **Why:** players.json (584 KB raw / ~62 KB wire) was fetched 3x per cold
+  /goalchain visit (2 guaranteed network via timestamp busters; the browser
+  dedupes the two identical busters to 1 network + 1 cache) and re-downloaded on
+  EVERY repeat visit — nothing cacheable at the CF edge or in the browser;
+  /arcade re-downloaded it once per visit. Continues the transfer/cache campaign
+  (runs 20261114-16); run 20261116's Lighthouse note flagged this exact fetch as
+  the remaining data resource on both sides of its A/B.
+- **Commit SHA (merge):** `52d45527` (PR #937, feature `f2206118`). Pre-merge
+  `origin/main` = `19bd3341` (rollback: `git revert -m 1 52d45527` + push —
+  landing restages via deploy_origin.sh).
+- **Live link:** https://goalworld.fun/goalchain + https://goalworld.fun/arcade.
+  Landing deploy: `scripts/pages/deploy_origin.sh` restaged `52d45527`
+  04:12:09 UTC (guard 0 internal-only paths).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261117T034752Z/`
+  - build.txt: `node --check` 5/5 JS exit 0; zero residual cache-busted data
+    fetches; all pin strings verified. tests.txt / tests-prechange.txt:
+    `docs/tests/test_gw_chrome.py` 8/9, IDENTICAL failure sets before/after
+    (documented pre-existing `test_marketing_html_loads_shell`). linkcheck.txt:
+    0 new broken refs.
+  - Lighthouse (mobile): local A/B (8902=pre vs 8901=new; 2+2 runs /goalchain,
+    1+1 /arcade): /goalchain data fetches 3x585 KB -> 1x585 KB + 2 deduped (0 B),
+    total transfer 3.31-3.90 -> 2.72-2.73 MB (**-30-34%**), LCP 17.2-20.0 ->
+    13.3-14.5 s (both new runs below both pre runs), perf/a11y/BP/SEO flat
+    (0.29-0.31 / 0.81 / 0.73 / 1.0). Live before -> after: /goalchain data wire
+    129-193 KB -> 65 KB (1x64 KB + 2x0 deduped, **-64-128 KB per cold visit**),
+    total transfer 1.93-1.99 -> 1.87 MB, LCP 9.4-9.9 -> 9.2-9.4 s
+    (equal-or-better), a11y 0.81 =, BP 0.73 =, SEO 1.0 = all runs; perf
+    0.35 -> 0.33 sits inside the documented bimodal TBT churn (live-before
+    landed low-churn 10.2-10.5 s TBT, live-after high-churn 47.6-53.3 s; the
+    local A/B proves the mode is per-run noise, not the change: both modes
+    appear under identical code — local-new runs 48.6 s and 10.9 s). /arcade
+    before -> after: perf 0.97 -> 0.98, cold fetch 1x64 KB unchanged (its win
+    is warm-visit caching). Full JSONs + lighthouse-summary.txt.
+  - harness-before.txt / harness-live-after.txt (Camofox resource timing):
+    before — bare players.json + 2 distinct timestamp-buster URLs (3 fetches /
+    186 KB data on /goalchain; 1 / 62 KB on /arcade, all re-downloaded per
+    load); after — every fetch is `players.json?v=20261117` and warm loads are
+    served from cache with 0 network transfer. 0 uncaught errors both sides.
+    Screenshots before/after; vision QC on live-after goalchain top: renders
+    correctly, no broken layout/images.
+  - smoke-before.txt / smoke-after.txt: before — pages serve pins 3.2, busters
+    live; after — pages serve 3.3 pins, all three pinned JS files serve the NEW
+    content (cache-trap guard: `?v=3.3` verified new content despite
+    cf-cache-status HIT; `?v=3.3` never used in repo history), data pins 200
+    and byte-identical sha256 to the bare URLs (the pre-deploy pin probe was a
+    safe cache warm of unchanged bytes — no content ships under those URLs).
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) players.json is still a 584 KB raw JSON
+  parsed 3x per /goalchain visit (three consumers each call response.json() on
+  the same bytes) — a shared in-page fetch/parse promise, or payload slimming
+  (key diet like books-data.json), is the next data-weight step. (2)
+  burn_tracker.json and the contract IDL fetches use `cache: no-store`
+  intentionally (live data) — leave unless the freshness policy changes. (3)
+  Carried: goalchain.html bootup render + live-feed/observability polling churn
+  (bimodal TBT, ~45 s high-churn mode) stays the big perf campaign; rarity
+  palette canon decision; `?lang=es` i18n leftovers; pack price copy; Caddyfile
+  cache headers + CF purge (hard limits); `test_marketing_html_loads_shell`
+  5-page pre-existing failure; Zetaris stack wedge (Nico decision); pre-nft
+  `nfts/bg` PNG/MP4 orphan cleanup (29 MB tree, only links/downloads now);
+  14 stadium bg PNGs referenced only by shadowed cinema.html.
+- **Housekeeping:** backfilled the missing `## 2026-11-16` LOG entry (run
+  20261116 merged as 19bd3341 but never appended its log; reconstructed from
+  the merge commit + its evidence folder).
