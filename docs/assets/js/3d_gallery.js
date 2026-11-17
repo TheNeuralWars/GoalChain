@@ -85,7 +85,8 @@ async function initGalleryView() {
     container.innerHTML = '<div style="color: var(--text-dim); width: 100%; text-align: center; padding: 40px;">Conectando con el Oráculo 3D...</div>';
 
     try {
-        const response = await fetch(`assets/data/players.json?v=${new Date().getTime()}`);
+        // Pinned data ref — bump ?v= whenever players.json content changes.
+        const response = await fetch('assets/data/players.json?v=20261117');
         const players = await response.json();
         
         container.innerHTML = '';

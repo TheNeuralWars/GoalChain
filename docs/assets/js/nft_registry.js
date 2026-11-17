@@ -73,8 +73,10 @@ let currentSearch = '';
 
 async function initNFTGallery() {
     try {
-        // Cache busting con timestamp para asegurar datos frescos
-        const response = await fetch(`assets/data/players.json?v=${new Date().getTime()}`);
+        // Pinned data ref (same discipline as the art refs): cacheable at the CF edge and
+        // in the browser, deduped with the other consumers of this URL. Bump the pin
+        // whenever players.json content changes.
+        const response = await fetch('assets/data/players.json?v=20261117');
         masterPlayers = await response.json();
         
         renderPlayers();

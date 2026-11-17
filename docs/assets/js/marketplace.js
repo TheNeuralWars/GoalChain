@@ -62,7 +62,8 @@ function getPlayerImagePath(player) {
 
 async function initMarketplace() {
     try {
-        const response = await fetch('assets/data/players.json');
+        // Pinned data ref — bump ?v= whenever players.json content changes.
+        const response = await fetch('assets/data/players.json?v=20261117');
         marketState.players = await response.json();
         
         generateSimulatedListings();
