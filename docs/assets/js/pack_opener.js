@@ -15,7 +15,8 @@ var SURVIVOR_COUNTRIES = [
 
 async function initPackOpener() {
     try {
-        const response = await fetch(`assets/data/players.json?v=${new Date().getTime()}`);
+        // Pinned data ref — bump ?v= whenever players.json content changes.
+        const response = await fetch('assets/data/players.json?v=20261117');
         packState.players = await response.json();
         
         // Override UI texts dynamically for the Survivor Pack launch

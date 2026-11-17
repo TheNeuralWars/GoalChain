@@ -32,8 +32,9 @@ async function initAIView() {
     console.log("🤖 Initializing Rainmaker AI v2.0...");
     try {
         const [playersRes, fixtureRes] = await Promise.all([
-            fetch(`assets/data/players.json?v=${Date.now()}`).then(r => r.json()),
-            fetch(`assets/data/wc2026_fixture.json?v=${Date.now()}`).then(r => r.json())
+            // Pinned data refs — bump ?v= whenever the data files change.
+            fetch('assets/data/players.json?v=20261117').then(r => r.json()),
+            fetch('assets/data/wc2026_fixture.json?v=20261117').then(r => r.json())
         ]);
         aiState.allPlayers = playersRes;
         aiState.fixture = fixtureRes;
