@@ -85,9 +85,9 @@ async function initGalleryView() {
     container.innerHTML = '<div style="color: var(--text-dim); width: 100%; text-align: center; padding: 40px;">Conectando con el Oráculo 3D...</div>';
 
     try {
-        // Pinned data ref — bump ?v= whenever players.json content changes.
-        const response = await fetch('assets/data/players.json?v=20261117');
-        const players = await response.json();
+        // Shared fetch + JSON.parse (see data_loader.js): one parse per page,
+        // shared with the other players.json consumers. Returns a private shallow copy.
+        const players = await GWData.players();
         
         container.innerHTML = '';
         container._players = players.slice(0, 48); // Cap at 48 for performance

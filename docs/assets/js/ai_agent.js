@@ -31,10 +31,11 @@ let countryStats = {};
 async function initAIView() {
     console.log("🤖 Initializing Rainmaker AI v2.0...");
     try {
+        // Shared fetch + JSON.parse (see data_loader.js): one parse per page,
+        // shared with the other data consumers.
         const [playersRes, fixtureRes] = await Promise.all([
-            // Pinned data refs — bump ?v= whenever the data files change.
-            fetch('assets/data/players.json?v=20261117').then(r => r.json()),
-            fetch('assets/data/wc2026_fixture.json?v=20261117').then(r => r.json())
+            GWData.players(),
+            GWData.fixture()
         ]);
         aiState.allPlayers = playersRes;
         aiState.fixture = fixtureRes;
