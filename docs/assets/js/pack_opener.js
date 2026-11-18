@@ -15,9 +15,9 @@ var SURVIVOR_COUNTRIES = [
 
 async function initPackOpener() {
     try {
-        // Pinned data ref — bump ?v= whenever players.json content changes.
-        const response = await fetch('assets/data/players.json?v=20261117');
-        packState.players = await response.json();
+        // Shared fetch + JSON.parse (see data_loader.js): one parse per page,
+        // shared with the other players.json consumers. Returns a private shallow copy.
+        packState.players = await GWData.players();
         
         // Override UI texts dynamically for the Survivor Pack launch
         const openBtn = document.getElementById('openPackBtn');

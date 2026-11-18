@@ -73,11 +73,10 @@ let currentSearch = '';
 
 async function initNFTGallery() {
     try {
-        // Pinned data ref (same discipline as the art refs): cacheable at the CF edge and
-        // in the browser, deduped with the other consumers of this URL. Bump the pin
-        // whenever players.json content changes.
-        const response = await fetch('assets/data/players.json?v=20261117');
-        masterPlayers = await response.json();
+        // Shared fetch + JSON.parse (see data_loader.js): one parse per page,
+        // shared with the other players.json consumers instead of re-parsing the
+        // ~570 KB payload here. Returns a private shallow copy.
+        masterPlayers = await GWData.players();
         
         renderPlayers();
         setupFilterListeners();
