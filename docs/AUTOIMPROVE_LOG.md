@@ -3168,3 +3168,66 @@ One entry per daily run (newest last).
 - **Housekeeping:** backfilled the missing `## 2026-11-16` LOG entry (run
   20261116 merged as 19bd3341 but never appended its log; reconstructed from
   the merge commit + its evidence folder).
+
+## 2026-11-18 run 20261118T034707Z
+
+- **What:** Shared players.json fetch+JSON.parse — added `docs/assets/js/data_loader.js`
+  and converted every players.json consumer to `await GWData.players()` /
+  `GWData.fixture()`. Previously each consumer ran its own
+  `fetch('assets/data/players.json').json()`: the identical URL deduped at the
+  network layer (1 wire fetch/page) but each still ran its OWN `response.json()` —
+  N independent JSON.parse passes over the same ~570 KB payload on the main thread
+  per visit (3 on /goalchain: marketplace, nft_registry, pack_opener). Now one
+  fetch + one parse, shared (fresh shallow array copy per call so a consumer's
+  sort/splice stays local; consumers already copy-before-sort — verified). Consumers
+  converted: nft_registry.js, marketplace.js, pack_opener.js (live) + ai_agent.js,
+  3d_gallery.js (same flaw, currently orphaned/not loaded — kept consistent).
+  `data_loader.js` wired into the 3 live pages (goalchain, arcade, play/pack) before
+  the consumers; consumer script pins bumped to a fresh `?v=3.4` (never used, no
+  cache-trap). This is the "shared fetch/parse promise" step flagged in run
+  20261117's follow-up #1 (next data-weight step).
+- **Why:** /goalchain parsed the same 584 KB players.json 3x per cold visit on the
+  main thread — pure repeated CPU work on the boot path (feeds the bimodal TBT the
+  perf campaign is chasing). Continues the transfer/cache campaign (runs 20261114-17).
+- **Commit SHA (merge):** feature `b6858869` (PR #939, merge `262eac8d`) + hotfix
+  `17f4c87c` (PR #940, merge `7b10656e`). Pre-merge `origin/main` = `087b7b8a`
+  (rollback: `git revert -m 1 262eac8d` + `git revert -m 1 7b10656e`, push; landing
+  restages via `scripts/pages/deploy_origin.sh`). Final `origin/main` = `7b10656e`.
+- **Live link:** https://goalworld.fun/goalchain + /arcade + /play/pack. Landing deploy:
+  `scripts/pages/deploy_origin.sh` restaged `262eac8d` 04:10:54Z then `7b10656e`
+  04:14:19Z (guard 0 internal-only paths).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261118T034707Z/`
+  - build.txt: `node --check` 6/6 JS exit 0; zero residual direct data fetches in the
+    consumers (all on GWData). unit-memo.txt: deterministic proof — 3 concurrent
+    `players()` -> exactly 1 fetch + 1 JSON.parse (was 3), shared parsed objects,
+    independent array copies, in-place mutation isolated, memo reused, fixture memoizes.
+  - tests.txt / tests-prechange.txt: `docs/tests/test_gw_chrome.py` 9 run, failure set
+    byte-identical before/after (documented pre-existing
+    `test_marketing_html_loads_shell`, 5 pages). linkcheck.txt: 0 new broken refs
+    (missing set byte-identical to pre-change: favicon/logo-96/icon-192/legal.html#tos/
+    privacy + the `/assets/...` comment literal — all pre-existing landing-overlay refs).
+  - Lighthouse (mobile): local A/B /goalchain (old 8902 vs new 8901, 2+2 runs):
+    a11y 81=81, seo 100=100, perf 28-31 -> 27-32 (bands overlap), TBT inside the
+    documented bimodal band, bytes unchanged (the win is CPU/parse, not transfer).
+    Live before -> after: /goalchain 30/81/73/100 -> 29/81/73/100, /arcade
+    96/100/100/100 -> 97/100/100/100 — a11y/SEO/bp IDENTICAL, perf within noise
+    (NO regression). lighthouse-summary.txt + full JSONs. Script-order check: data_loader
+    precedes all consumer <script> tags on all 3 pages (script-order.txt).
+  - smoke-before.txt / smoke-after.txt + screenshot-after-goalchain (Lighthouse
+    final-screenshots before/after + fresh headless). Vision QC live-after /goalchain:
+    layout intact, no broken images/boxes, no overlapping text, no errors.
+- **Cache-trap incident (caught + hotfixed same run):** `data_loader.js` is a NEW file,
+  so its URL 404'd at the origin before deploy. The pre-deploy smoke-BEFORE probe hit
+  `data_loader.js?v=1.0` while unpublished -> Cloudflare cached a 404 for `?v=1.0`
+  (max-age=14400, observed cf-cache-status HIT/age:793). For up to 4h real users would
+  fetch that 404 -> `GWData` undefined -> gallery/market/pack fell back to empty.
+  Caught it in the post-deploy smoke (data_loader.js 404 despite the file being on
+  disk), confirmed via fresh cache-busters (`?v=1.1`/`?v=20261118a` -> 200 MISS, correct
+  content). Hotfix PR #940 bumped the pin to `?v=1.1` (confirmed 200/correct) and
+  redeployed. Post-fix smoke verified: all 3 pages reference `?v=1.1` (stale `?v=1.0`
+  gone), `?v=1.1` serves 200 + correct GWData. **Lesson (reinforces run 20261115's CF
+  cache-trap note): NEVER curl/probe a not-yet-deployed resource URL before deploy — it
+  poisons the CF edge with a cached 404 for that exact URL. Verify new resources only
+  AFTER deploy.**
+- **Reverted:** n (the cache-trap was fixed forward with the pin bump + redeploy, verified
+  live; no rollback needed).
