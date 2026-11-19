@@ -423,7 +423,7 @@
                         <!-- Deposit Form -->
                         <div style="display:flex; gap:10px; margin-bottom:15px;">
                             <input type="number" id="vaultDepositAmount" value="5" min="1" max="1000" aria-label="Deposit amount in SOL" style="width:65px; background:#111; color:white; border:1px solid rgba(255,255,255,0.1); padding:6px; border-radius:6px; font-size:0.7rem; text-align:center;">
-                            <button id="btnVaultDeposit" onclick="lazyCall('/assets/js/minigames_hub.js','depositToInfinityVault')" class="btn btn-primary btn-sm" style="flex:1; font-size:0.65rem; padding:6px; font-weight:bold; background:var(--primary);color:#000; border-radius:6px;">
+                            <button id="btnVaultDeposit" onclick="lazyCall('/assets/js/minigames_hub.js?v=20261119','depositToInfinityVault')" class="btn btn-primary btn-sm" style="flex:1; font-size:0.65rem; padding:6px; font-weight:bold; background:var(--primary);color:#000; border-radius:6px;">
                                 DEPOSIT SOL VIA PHANTOM
                             </button>
                         </div>
@@ -444,7 +444,7 @@
                             <strong style="color: var(--primary);" id="vaultBurnVal">4,820 $GCH</strong>
                         </div>
 
-                        <button id="btnTreasuryShock" onclick="lazyCall('/assets/js/minigames_hub.js','simulateTreasuryShock')" class="btn btn-secondary btn-glow" style="width:100%; font-size:0.7rem; font-weight:bold;">
+                        <button id="btnTreasuryShock" onclick="lazyCall('/assets/js/minigames_hub.js?v=20261119','simulateTreasuryShock')" class="btn btn-secondary btn-glow" style="width:100%; font-size:0.7rem; font-weight:bold;">
                             SIMULATE SUPPLY SHOCK 🚀
                         </button>
                     </div>
@@ -2063,10 +2063,10 @@
     <script defer src="/assets/js/wallet_connect.js?v=3.0"></script>
     <script defer src="/assets/js/solana_connector.js?v=3.3"></script>
     <script defer src="/assets/js/contract_data.js?v=3.4"></script>
-    <script defer src="/assets/js/drift_markets.js"></script>
-    <script defer src="/assets/js/cnft_scout.js"></script>
-    <script defer src="/assets/js/lending_app.js"></script>
-    <script defer src="/assets/js/helius_sync.js"></script>
+    <script defer src="/assets/js/drift_markets.js?v=20261119"></script>
+    <script defer src="/assets/js/cnft_scout.js?v=20261119"></script>
+    <script defer src="/assets/js/lending_app.js?v=20261119"></script>
+    <script defer src="/assets/js/helius_sync.js?v=20261119"></script>
     <script defer src="/assets/js/live_engine.js?v=1.0"></script>
     <!-- Heavy per-tab modules (3d_gallery, ai_agent, minigames_hub,
          modifiers_simulator) load on first tab open via loadTabScripts()
@@ -2076,10 +2076,10 @@
         // Per-tab lazy script loading: the heavy tab modules are fetched on
         // first tab open instead of at boot (~137 KB of JS eval deferred).
         const TAB_SCRIPTS = {
-            gallery:   ['/assets/js/3d_gallery.js'],
-            ai:        ['/assets/js/ai_agent.js', '/assets/js/minigames_hub.js'],
-            games:     ['/assets/js/minigames_hub.js'],
-            simulator: ['/assets/js/modifiers_simulator.js'],
+            gallery:   ['/assets/js/3d_gallery.js?v=20261119'],
+            ai:        ['/assets/js/ai_agent.js?v=20261119', '/assets/js/minigames_hub.js?v=20261119'],
+            games:     ['/assets/js/minigames_hub.js?v=20261119'],
+            simulator: ['/assets/js/modifiers_simulator.js?v=20261119'],
         };
         const tabScriptPromises = {};
         function loadScript(src) {
