@@ -160,7 +160,12 @@ function updateWalletUI() {
             const wallet = userWalletAddress;
 
             try {
-                const response = await fetch('http://localhost:3001/api/whitelist', {
+                // Local dev keeps the local API server; deployed hosts use the
+                // public API (goalworld.fun, docs.goalchain.fun, previews).
+                const apiBase = (window.location.protocol === 'file:' || /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname))
+                    ? 'http://localhost:3001'
+                    : 'https://api.goalchain.fun';
+                const response = await fetch(apiBase + '/api/whitelist', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ wallet, email })

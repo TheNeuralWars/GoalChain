@@ -1,4 +1,12 @@
 (function () {
+  // Local dev keeps the local API server; every deployed host (goalworld.fun,
+  // docs.goalchain.fun, play.goalworld.fun, previews) uses the public API.
+  var apiBase =
+    window.location.protocol === "file:" ||
+    /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)
+      ? "http://localhost:3001"
+      : "https://api.goalchain.fun";
+
   function setText(id, value) {
     var el = document.getElementById(id);
     if (!el) return;
@@ -15,7 +23,7 @@
 
   async function loadEconomyMetrics() {
     try {
-      var res = await fetch("http://localhost:3001/api/economy/metrics", {
+      var res = await fetch(apiBase + "/api/economy/metrics", {
         cache: "no-store",
       });
       if (!res.ok) return;
@@ -40,7 +48,7 @@
         setText("kpiUpdatedAt", date.toLocaleString());
       }
 
-      var healthRes = await fetch("http://localhost:3001/api/economy/health", {
+      var healthRes = await fetch(apiBase + "/api/economy/health", {
         cache: "no-store",
       });
       if (healthRes.ok) {
@@ -63,13 +71,21 @@
     }
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () {
-      loadEconomyMetrics();
-      setInterval(loadEconomyMetrics, 30000);
-    });
-  } else {
+  function startPolling() {
     loadEconomyMetrics();
-    setInterval(loadEconomyMetrics, 30000);
+    // Refresh every 30 s while the tab is visible; when it becomes visible
+    // again, refresh once instead of having polled a hidden tab.
+    setInterval(function () {
+      if (!document.hidden) loadEconomyMetrics();
+    }, 30000);
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) loadEconomyMetrics();
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startPolling);
+  } else {
+    startPolling();
   }
 })();
