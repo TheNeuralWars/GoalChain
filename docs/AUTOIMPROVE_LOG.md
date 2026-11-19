@@ -3231,3 +3231,122 @@ One entry per daily run (newest last).
   AFTER deploy.**
 - **Reverted:** n (the cache-trap was fixed forward with the pin bump + redeploy, verified
   live; no rollback needed).
+## 2026-11-19 run 20261119T034737Z
+
+- **What:** Production API-base fix — three doc-surface call sites targeted
+  `http://localhost:3001`, which is dead on every deployed host: (1) the economy KPI
+  panel (`economy_observability.js` on /goalchain + /tokenomics.html) has NEVER worked
+  on goalworld.fun — the two fetches fail at every load and every 30 s forever and the
+  cells sit at `--` ("offline" only after the dead fetch times out ~25 s);
+  (2) the whitelist signup POST (`solana_integration.js`, goalchain/tokenomics/arcade/
+  agents) always failed with "API connection error"; (3) the AI coach backend fallback
+  (`ai_agent.js`, docs copy + webapp mirror serving classic-dashboard) — its host check
+  `origin.includes('goalchain.fun')` is FALSE for `goalworld.fun` / `play.goalworld.fun`
+  (goalchain.fun redirects away), so it always hit localhost and fell back to canned
+  local advice. Fix: resolve the API base the way it should always have been —
+  localhost only for local dev (`localhost`/`127.0.0.1`/`file:`),
+  `https://api.goalchain.fun` otherwise (verified live: both GET /api/economy/* and
+  POST /api/whitelist + /api/coach/chat answer 200 with CORS `*`). Bonus hardening in
+  economy_observability.js: the 30 s poll now skips while the tab is hidden and
+  refreshes once on visibility. Also dropped the webapp `ai_agent.js` mirror's
+  `?v=${Date.now()}` cache-busters on its players/fixture fetches (run 20261117 killed
+  them in docs but missed this copy) -> stable `?v=20261119` pins. Docs JS cache pins
+  bumped to fresh `?v=20261119` (never requested pre-deploy) on all 6 referencing tags.
+  8 files, +46/-19 (feature `2e106400`).
+- **Fix-forward (same run, PR #943, `01079f0c`, 10 pin strings):** the live-after coach
+  check reproduced that Vercel serves `play.goalworld.fun/assets/*` as
+  `cache-control: public, max-age=31536000, immutable` and classic-dashboard.html
+  referenced its JS modules UNPINNED — the fixed ai_agent.js was live on the server
+  while every returning browser kept the old immutable copy (coach still called the
+  dead localhost API). Pinned every previously-unpinned `/assets/js` ref (lazy
+  TAB_SCRIPTS modules, lazyCall srcs, eager defer scripts) to fresh `?v=20261119`
+  keys (other module contents unchanged — one-time refetch only). Re-verified live.
+  **Lesson (new cache-trap surface): play.goalworld.fun /assets/* URLs are immutable-
+  cached for a YEAR — any content change there MUST carry a fresh `?v` pin, same
+  discipline as goalworld.fun's CF edge.**
+- **Why:** the economy KPIs are the trust/observability gate for user acquisition
+  (intake growth-task-5: "the gate of release") and were invisible on the public site;
+  the whitelist (conversion) and the AI coach (engagement) were dead on production;
+  and every visitor fired permanently failing requests every 30 s. The public API
+  already served everything — the frontend just pointed at localhost.
+- **Commit SHA (merge):** `ab0f1287` (PR #942, feature `2e106400`) + `ce81812d`
+  (PR #943, feature `01079f0c`). Pre-merge `origin/main` = `2bfafbc5` (rollback:
+  `git revert -m 1 ce81812d && git revert -m 1 ab0f1287` + push — Vercel redeploys the
+  previous build; landing `scripts/pages/deploy_origin.sh` restages the old tree, or
+  `scripts/deploy_goalworld_site.sh rollback --target /data/apps/GoalChain/_site_public`
+  -> tarball `20261119T045235Z-ab0f1287`). Final `origin/main` = `ce81812d`.
+- **Live link:** https://goalworld.fun/goalchain + /tokenomics.html (+ /arcade.html,
+  /agents.html pins) and https://play.goalworld.fun/classic-dashboard.html. Landing:
+  `deploy_origin.sh` restaged `ab0f1287` 04:51:06 UTC (guard 0 internal-only paths);
+  `deploy_goalworld_site.sh deploy` 04:52:36 UTC (hub unchanged by this run; dry-run
+  first). Vercel rolled `ab0f1287` ~04:53 UTC and `ce81812d` ~05:02 UTC (signature
+  polls: Date.now busters gone, pinned loader live).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261119T034737Z/`
+  - build.txt: `node --check` 4/4 JS exit 0; `?v=20261119` proven fresh (0 pre-change
+    occurrences in the tree); 0 residual old pins/dead fetch strings; inline script
+    blocks 3/3 (classic-dashboard, fix-forward). npm-ci.txt exit 0. tests-webapp.txt:
+    goalchain_webapp `tsc + vite build` exit 0 (7.7s, again 10.4s after the fix-forward)
+    + `check:i18n` exit 0 (381 used keys, en/es/type in sync).
+  - tests.txt / tests-prechange.txt: `docs/tests/test_gw_chrome.py` 9 run; failure set
+    byte-identical before/after (documented pre-existing
+    `test_marketing_html_loads_shell`, 5 pages). linkcheck.txt: ref-set diff vs live =
+    only the 6 intended ?v pins (0 unexpected); on-disk missing set = the documented
+    pre-existing landing-overlay refs (favicon/logo-96/icon-192 + /go/* routes).
+  - Lighthouse (mobile) live before -> after (full JSONs + lighthouse-summary.txt):
+    | url | perf | a11y | BP | SEO |
+    |---|---|---|---|---|
+    | goalchain (x2) | 0.35/0.35 -> 0.35/0.35 | 0.81 = | 0.73 = | 1.00 = |
+    | tokenomics | 0.93 = | 1.00 = | 0.96 -> 1.00 | 1.00 = |
+    | classic-dashboard | 0.95 -> 1.00 | 1.00 = | 1.00 = | 1.00 = |
+    Zero regression on every gate axis (two categories improved). goalchain TBT
+    10.4/9.8 -> 11.3/10.8 s sits in the documented churn band (both sides low-churn
+    mode; the +0.5-1 s is the now-SUCCEEDING metrics+health fetches vs failed ones).
+    Local same-box A/B (8902/8904=pre vs 8901/8903=new): dashboard IDENTICAL
+    (0.98/1.0/0.78/1.0, TBT 40 ms = 40 ms), tokenomics 0.91 -> 0.93, goalchain
+    0.29 -> 0.28 with a11y/BP/SEO identical (local CLS 0.079 carried ZERO attributed
+    shift elements = the documented animation-noise class; live CLS 0/0.016 ->
+    0.016/0.016).
+  - functional-before.txt (live, Camofox): panel cells `--` at t+3/10 s, health flips
+    to "offline" at t+25 s when the dead `http://localhost:3001/api/economy/metrics`
+    fetch finally times out (visible in resource timing); whitelist wires but submit
+    alerts "API connection error (make sure the server is running)" with the request
+    aimed at `http://localhost:3001/api/whitelist`; AI coach stuck at "Pensando...".
+    functional-local.txt (new build on a non-localhost host = the production code
+    path): panel populated with REAL live KPIs (emit/burn 0.008, sink 100.0%, drift 0,
+    net emission 6,265,749 GCH, "warning (2 checks)"), whitelist "Success! ... ✅ You
+    are in!", coach backend guardrail reply — all requests observed at
+    `https://api.goalchain.fun/...`. functional-after.txt + functional-after-coach.txt
+    (live): same three behaviors verified on production after both deploys.
+    functional-localold.txt (same-box old-build control + quirk note): on THIS VPS
+    localhost:3001 IS the API upstream, so the old code "works" from the VPS over
+    plain HTTP — the live HTTPS site fails it for everyone else (mixed-content/dead
+    localhost), which is exactly the before-state.
+  - smoke-before.txt / smoke-after.txt / smoke-after-2.txt: all URLs 200 before and
+    after; live sha == repo sha on all 5 touched pages; the 6 fresh-pin JS URLs serve
+    the NEW content (apiBase signature present, 0 dead localhost fetches; webapp
+    ai_agent.js: 0 Date.now busters, pinned data fetch); classic-dashboard 10 pinned
+    refs / 0 unpinned. NEW pin URLs probed only AFTER deploy (cache-trap discipline).
+  - Screenshots: before/local/after panel + whitelist + coach. Vision QC: before-panel
+    economy cells `--` + "Health: offline"; after-panel all populated (0.008 / 100.0% /
+    6,265,749 GCH / "warning (2 checks)"), layout intact, no overlap or broken art.
+- **Reverted:** n (the immutable-cache gap was fixed forward with the pin PR #943 and
+  re-verified live within the same run).
+- **Side effects disclosed:** (1) the whitelist success-path QA wrote ONE row to the
+  API's whitelist store — wallet `QA-SMOKE-20261119-DO-NOT-LIST`, email
+  `qa-smoke-20261119@users.invalid` (RFC-reserved .invalid, undeliverable); the same
+  form's app.js handler (external Google Apps Script) was neutralized in the harness to
+  avoid any external write. (2) Lighthouse/harness traffic against the live pages only.
+- **Follow-ups noted (not done):** (1) `goalchain_webapp/src/ui/AICommentator.tsx` +
+  `lib/opsClient.ts` keep their own `localhost:3001` defaults (env-driven
+  VITE_API_BASE_URL) — same class on the React app; verify the Vercel env and fix the
+  fallback. (2) goalchain.html bootup render + live-feed/observability polling + ticker
+  churn (bimodal TBT) stays the big perf campaign; players.json payload slimming needs
+  a master-vs-runtime data split first (its weight is in meta.narrative 91 KB /
+  physical.t 56 KB / tm_data+tm_url 87 KB — all feed the Grok art tooling, do not
+  delete). (3) classic-dashboard CSS slimming (style & layout ~1.4 s). (4) Carried:
+  rarity palette canon decision; `?lang=es` i18n leftovers; pack price copy; Caddyfile
+  cache headers + CF purge (hard limits); `test_marketing_html_loads_shell` 5-page
+  pre-existing failure; Zetaris stack wedge (Nico decision); pre-nft `nfts/bg` PNG/MP4
+  orphan cleanup (29 MB tree); 14 stadium bg PNGs referenced only by shadowed
+  cinema.html. (5) The webapp public data files are now pinned `?v=20261119` — future
+  data changes must bump the pin (same convention as the docs pages).
