@@ -32,8 +32,10 @@ async function initAIView() {
     console.log("🤖 Initializing Rainmaker AI v2.0...");
     try {
         const [playersRes, fixtureRes] = await Promise.all([
-            fetch(`assets/data/players.json?v=${Date.now()}`).then(r => r.json()),
-            fetch(`assets/data/wc2026_fixture.json?v=${Date.now()}`).then(r => r.json())
+            // Stable pins (no Date.now() cache-busters — they defeat browser
+            // caching). Bump ?v= whenever the data files change.
+            fetch('assets/data/players.json?v=20261119').then(r => r.json()),
+            fetch('assets/data/wc2026_fixture.json?v=20261119').then(r => r.json())
         ]);
         aiState.allPlayers = playersRes;
         aiState.fixture = fixtureRes;
@@ -629,7 +631,9 @@ Responde en español de forma extremadamente concisa (1-3 oraciones), con emojis
                 stadium,
                 balance
             };
-            var apiBase = window.location.origin.includes('goalchain.fun') ? 'https://api.goalchain.fun' : 'http://localhost:3001';
+            // Local dev keeps the local API server; deployed hosts use the
+            // public API (play.goalworld.fun, previews).
+            var apiBase = (window.location.protocol === 'file:' || /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) ? 'http://localhost:3001' : 'https://api.goalchain.fun';
             const backendRes = await fetch(apiBase + '/api/coach/chat', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

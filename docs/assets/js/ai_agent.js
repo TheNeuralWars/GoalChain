@@ -631,7 +631,9 @@ Responde en español de forma extremadamente concisa (1-3 oraciones), con emojis
                 stadium,
                 balance
             };
-            var apiBase = window.location.origin.includes('goalchain.fun') ? 'https://api.goalchain.fun' : 'http://localhost:3001';
+            // Local dev keeps the local API server; deployed hosts use the
+            // public API (play.goalworld.fun, previews).
+            var apiBase = (window.location.protocol === 'file:' || /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) ? 'http://localhost:3001' : 'https://api.goalchain.fun';
             const backendRes = await fetch(apiBase + '/api/coach/chat', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
