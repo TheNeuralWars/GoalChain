@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from '../i18n/index';
+import { apiBaseUrl } from '../lib/opsClient';
 
 interface CommentaryItem {
     id: number;
@@ -34,8 +35,7 @@ export const AICommentator: React.FC = () => {
         if (!noahQuery.trim()) return;
         setIsQueryingNoah(true);
         try {
-            const apiBaseUrl = (import.meta as any).env?.VITE_API_BASE_URL || 'http://localhost:3001';
-            const res = await fetch(`${apiBaseUrl}/api/noahai/commentary`, {
+            const res = await fetch(`${apiBaseUrl()}/api/noahai/commentary`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
