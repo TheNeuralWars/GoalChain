@@ -3375,7 +3375,12 @@ One entry per daily run (newest last).
   `index-C6R0ZS_T.js` / `AICommentator-BWWRtzXD.js` / `NFTMarketplace-CRhHLmG8.js`).
 - **Live link:** https://play.goalworld.fun (/estadio AI Commentator, /club Market).
   Vercel rolled `904b7104` ~04:19 UTC (index chunk `index-C6R0ZS_T.js` ->
-  `index-Cbu3ZMKX.js`).
+  `index-Cbu3ZMKX.js`). Landing: hub unchanged by this run (goalworld_site/ diff
+  ab0f1287..a125ec0f empty; docs/AUTOIMPROVE_LOG.md is classified internal by
+  stage_public_tree.py `*.md` and not published), still ran the mandated
+  `deploy_goalworld_site.sh deploy` 04:29:58 UTC (dry-run first) — idempotent
+  restage, rollback tarball `20261120T042958Z-a125ec0f.tar.gz`;
+  smoke-after-landing.txt all 200.
 - **QA evidence:** `/data/work/autoimprove/evidence/20261120T034737Z/`
   - build.txt: `tsc && vite build` exit 0 (built with `VITE_API_BASE_URL=https://api.goalchain.io`
     to reproduce the Vercel condition), 7.1s; tests.txt: `check:i18n` exit 0 (381
