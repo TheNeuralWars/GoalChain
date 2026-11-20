@@ -3350,3 +3350,71 @@ One entry per daily run (newest last).
   orphan cleanup (29 MB tree); 14 stadium bg PNGs referenced only by shadowed
   cinema.html. (5) The webapp public data files are now pinned `?v=20261119` — future
   data changes must bump the pin (same convention as the docs pages).
+## 2026-11-20 run 20261120T034737Z
+
+- **What:** Webapp API-base hardening (play.goalworld.fun) — killed the whole
+  "dead API host" bug class in the React app. Vite bakes `VITE_API_BASE_URL` into
+  the bundle at build time and the live Vercel env still carries the legacy
+  `https://api.goalchain.io` (DNS not wired). `opsClient.apiBaseUrl()` already
+  guarded against it, but two ad-hoc call sites bypassed the helper and shipped
+  the dead URL to production (verified baked into the live chunks pre-fix):
+  `ui/AICommentator.tsx` (`'http://localhost:3001'` fallback -> NoahAI commentary
+  silently degraded to invented "Grok (simulated)" mock text) and
+  `ui/NFTMarketplace.tsx` (`|| ''` fallback -> `/api/economy/config` fetch dead,
+  treasury stayed null, SOL buys blocked behind the "SOL OFFLINE" badge).
+  Both now route through the shared `apiBaseUrl()`, which was hardened: in PROD
+  builds any empty, loopback or unparseable base falls back to the public API
+  (`https://crm.goalchain.fun/goalchain-api`). Dev behavior unchanged.
+- **Why:** Carried follow-up #1 from run 20261119, and it turned out to be a live
+  production bug (not just latent): two visible features were broken for every
+  visitor on the current deployment. Small fix, high impact, same class as the
+  classic-dashboard fix last run.
+- **Commit SHA (merge):** `904b7104` (PR #945, feature `c11490ff`). Pre-merge
+  `origin/main` = `48215bcd` (rollback: `git revert -m 1 904b7104` + push; Vercel
+  redeploys the previous build — previous deployment serves chunks
+  `index-C6R0ZS_T.js` / `AICommentator-BWWRtzXD.js` / `NFTMarketplace-CRhHLmG8.js`).
+- **Live link:** https://play.goalworld.fun (/estadio AI Commentator, /club Market).
+  Vercel rolled `904b7104` ~04:19 UTC (index chunk `index-C6R0ZS_T.js` ->
+  `index-Cbu3ZMKX.js`).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261120T034737Z/`
+  - build.txt: `tsc && vite build` exit 0 (built with `VITE_API_BASE_URL=https://api.goalchain.io`
+    to reproduce the Vercel condition), 7.1s; tests.txt: `check:i18n` exit 0 (381
+    used keys, en/es/type in sync). npm-ci.txt exit 0 (424 packages). build-old.txt:
+    identical control build of the pre-change tree, exit 0.
+  - build-static-analysis.txt (fetch-literal extraction, old vs new prod bundles):
+    old bakes `https://api.goalchain.io/api/noahai/commentary` and
+    `https://api.goalchain.io/api/economy/config` as literal fetch URLs (matches the
+    live chunks); new calls the shared helper (`${V()}/api/noahai/commentary`,
+    `${E()}/api/economy/config`) — every API fetch in the app is now helper-driven.
+  - functional-before.txt / functional-after.txt / functional-after-live.txt +
+    4 screenshots (Camofox, production builds served locally, then live):
+    commentator "Grok (simulated) says: ..." (mock catch path, DNS NXDOMAIN
+    confirmed) -> "Grok says: [NoahAI] ..." real API response, verified again on
+    live production; NFT marketplace "SOL OFFLINE" badge present (old) -> absent
+    (new + live), treasury `FB7ttQ1NDMx3n8cByV2qQWwf96VCmVtfvPxTRuuTvXsT` resolved.
+  - Lighthouse (mobile): live before -> after: perf 0.95 -> 0.98, a11y 1.00 =,
+    BP 1.00 =, SEO 1.00 = (lighthouse-live-before/after.json). Local same-box A/B:
+    old 1.00/1.00/0.96/1.00 vs new 0.99/1.00/0.96/1.00 — identical BP 0.96 on both
+    sides (single "errors-in-console" 404 from the plain python http.server preview,
+    before and after) => zero regression on every gate axis.
+  - smoke-before.txt / smoke-after.txt: all URLs 200 before and after; live chunks
+    carry 0 baked stale URLs post-deploy; helper-call signatures present. Link
+    check: no links added/changed (logic-only diff).
+- **Reverted:** n
+- **Side effects disclosed:** one read-only NoahAI POST ("QA smoke: how is the match
+  going?") per tested build against the live API (stateless text generation); no
+  writes, no wallet actions.
+- **Follow-ups noted (not done):** (1) the Vercel env still holds the stale
+  `VITE_API_BASE_URL=https://api.goalchain.io` — the code is now immune, but the
+  env value should be cleaned up by whoever owns the Vercel project settings
+  (Hermes avoids Vercel env/OAuth territory); (2) the NoahAI endpoint answers in
+  Spanish regardless of the UI language — API content-language issue, separate;
+  (3) Club "Market" tab needs a second click on first visit in headless browsers
+  (lazy-chunk race, pre-existing, old and new builds alike); (4) carried from
+  20261119: goalchain.html bootup perf campaign, classic-dashboard CSS slimming,
+  players.json payload split, rarity palette canon decision, `?lang=es` leftovers,
+  pack price copy, Caddyfile cache headers (hard limits), `test_marketing_html_loads_shell`
+  5-page pre-existing failure, Zetaris stack wedge (Nico decision), pre-nft
+  orphan cleanup, 14 stadium bg PNGs shadowed by cinema.html; (5) webapp public
+  data files pinned `?v=20261119` — bump the pin on any data change.
+
