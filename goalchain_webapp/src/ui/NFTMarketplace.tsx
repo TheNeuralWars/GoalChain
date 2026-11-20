@@ -6,6 +6,7 @@ import { LayeredNftCard, PlayerRow } from './LayeredNftCard';
 import { explorerTxUrl } from '../lib/explorerLinks';
 import { useTranslation } from '../i18n/index';
 import type { TranslationKeys } from '../i18n/translations';
+import { apiBaseUrl } from '../lib/opsClient';
 
 const RARITY_PRICES: Record<string, string> = {
   mythic: '25.0 SOL',
@@ -35,8 +36,7 @@ export function NFTMarketplace() {
   useEffect(() => {
     const fetchTreasury = async () => {
       try {
-        const apiBase = import.meta.env.VITE_API_BASE_URL || '';
-        const res = await fetch(`${apiBase}/api/economy/config`);
+        const res = await fetch(`${apiBaseUrl()}/api/economy/config`);
         if (!res.ok) return;
         const data = await res.json();
         const treasury = data?.onchainConfig?.treasuryTokenAccount;

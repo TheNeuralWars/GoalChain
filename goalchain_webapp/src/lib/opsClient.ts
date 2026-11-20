@@ -48,16 +48,28 @@ const STALE_VERCEL_API_URLS = new Set([
   'http://api.goalchain.io',
 ]);
 
+function isLoopbackBase(base: string): boolean {
+  try {
+    const host = new URL(base).hostname;
+    return host === 'localhost' || host === '127.0.0.1' || host === '[::1]' || host === '::1';
+  } catch {
+    return true; // unparseable base is unusable
+  }
+}
+
 export function apiBaseUrl(): string {
   const raw = import.meta.env.VITE_API_BASE_URL?.trim();
-  if (raw) {
-    const base = raw.replace(/\/$/, '');
-    if (STALE_VERCEL_API_URLS.has(base)) {
-      return DEFAULT_API_PROD;
-    }
-    return base;
+  const base = raw ? raw.replace(/\/$/, '') : '';
+  if (STALE_VERCEL_API_URLS.has(base)) {
+    return DEFAULT_API_PROD;
   }
-  return import.meta.env.PROD ? DEFAULT_API_PROD : DEFAULT_API_DEV;
+  // Vite bakes VITE_API_BASE_URL into the bundle at build time, so a stale or
+  // dev-only value can reach Play (where loopback and dead DNS are unreachable).
+  // Production must always resolve to the public API.
+  if (import.meta.env.PROD && (!base || isLoopbackBase(base))) {
+    return DEFAULT_API_PROD;
+  }
+  return base || DEFAULT_API_DEV;
 }
 
 export async function fetchOpsStatus(signal?: AbortSignal): Promise<OpsStatus> {
