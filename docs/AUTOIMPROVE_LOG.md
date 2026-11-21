@@ -3423,3 +3423,99 @@ One entry per daily run (newest last).
   orphan cleanup, 14 stadium bg PNGs shadowed by cinema.html; (5) webapp public
   data files pinned `?v=20261119` — bump the pin on any data change.
 
+## 2026-11-21 run 20261121T034707Z
+
+- **What:** Webapp (play.goalworld.fun) — fixed the "first wallet-gated click is
+  swallowed" bug class at its root. The first wallet-gated interaction (Club
+  Market/Profile tab, Estadio panels, Connect Wallet) called `gate.ensure()`,
+  which flipped `WalletGateBridge`'s rendered element tree from `<>{children}</>`
+  to `<Suspense fallback={null}><LazyWalletProviders>{children}</...>`. React
+  cannot insert an ancestor around mounted children without remounting them
+  (positional reconciliation), so the ENTIRE app remounted mid-interaction: the
+  triggering click was lost (the logged symptom "Club Market tab needs a second
+  click on first visit", run 20261120T034737Z follow-up #3 — reproduced and root
+  caused this run), the page blanked behind the null Suspense fallback while the
+  wallet chunk downloaded, and every piece of component state reset (live-
+  measured: window scroll 300px -> 24px; tab selection -> default). Three layers:
+  (1) `WalletGateBridge` swaps the tree only AFTER the wallet stack module has
+  downloaded (new `stackReady` gate flag) — never mid-flight, no blank window;
+  (2) `WalletGateProvider` warms the chunk at idle (`prefetchOnIdle`), so the
+  one-time remount happens pre-interaction — idle timing keeps the download out
+  of the critical phase (the 2026-10-15 FCP/LCP lesson stays intact);
+  (3) new `src/ui/tabMemory.ts`: session-sticky sub-tabs for all 7 portal tab
+  surfaces (Club, Estadio, DeFi, WorldCupPredictor, PressKit, CorporateAutopilot,
+  GoalWorldPortal) + `ScrollRestore` (layout-effect scroll restore after the
+  remount with input-guarded rAF retries — a naive one-shot `scrollTo` is clamped
+  when the remounted tree is still shorter than the target, measured live).
+- **Why:** It was the top open UX defect on the revenue path: every first visit
+  to the Club Market (NFT marketplace) looked broken (click did nothing) and
+  every first wallet touch silently reset the app. Flagged as follow-up #3 in
+  run 20261120; reproduced 3x on live before fixing.
+- **Commit SHA (merge):** `6e3d7197` (PR #948, feature `6936d27b`). Pre-merge
+  `origin/main` = `ca2e08d9` (rollback: `git revert -m 1 6e3d7197` + push;
+  Vercel redeploys the previous build `index-Cbu3ZMKX.js`).
+- **Live link:** https://play.goalworld.fun/club (+ /estadio, /defi — the fix is
+  app-wide). Vercel rolled `6e3d7197` ~04:12 UTC (index chunk
+  `index-Cbu3ZMKX.js` -> `index-Cq_w7WQ8.js`, `stackReady` signature + deployed
+  `ClubPortal-eQQqCOwQ.js` carries the `club-tabs` sticky key). Landing: hub
+  unchanged by this run (goalworld_site/ diff empty), still ran the mandated
+  `deploy_goalworld_site.sh deploy` 04:25:48 UTC (dry-run first) — idempotent
+  restage, rollback tarball `20261121T042547Z-6e3d7197.tar.gz`;
+  smoke-after-landing.txt all 200.
+- **QA evidence:** `/data/work/autoimprove/evidence/20261121T034707Z/`
+  - build.txt: `tsc && vite build` exit 0 (3 builds as the fix grew: base +
+    ScrollRestore + hardened restore); tests.txt: `check:i18n` exit 0 (381 used
+    keys, en/es/type in sync). npm-ci.txt exit 0. Pre-merge SHA in
+    pre-merge-sha.txt.
+  - functional-before.txt (live, Camofox, 3 sessions): ONE click on Market ->
+    swallowed (active tab stays Squad); capture-click log + MutationObserver +
+    DOM-marker prove the full-app remount (`__marker` destroyed, new
+    `.portal-tabs` node); scroll 300 -> 24 on the same remount; second click
+    works. Root cause documented.
+  - functional-after.txt (new build): A) settled case (vite preview): one click
+    opens Market first try. B) race case (custom slow-chunk proxy delaying the
+    wallet chunks 60s): mid-state — click lands INSTANTLY (Market active),
+    "Loading wallet..." gate visible, page NOT blank, no remount yet; final —
+    exactly ONE remount at chunk-resolve, tab selection survives it
+    (tabMemory), marketplace renders. C) ScrollRestore clamp hardening noted.
+    Screenshots: after-market-tab-local.png, after-market-tab-live.png (vision
+    QC: Market active, marketplace + rarity filters rendered, layout intact).
+  - Lighthouse (mobile): live /club before -> after: perf 0.76 -> 0.88, TBT
+    1171 -> 244 ms, a11y 1.00 =, BP 1.00 =, SEO 1.00 = (CLS 0.0007 -> 0.0004;
+    LCP 1.98 s -> 3.33 s is the documented data-dependent SPA LCP variance —
+    perf score improved and no gate axis regressed).
+    lighthouse-club-local-new.json (pre-merge preview): perf 0.78 / a11y 1.00 /
+    BP 0.96 (localhost-HTTP artifact) / SEO 1.00.
+  - smoke-before.txt / smoke-after.txt: all URLs 200 before and after; live
+    chunk carries the fix signatures. Link check: logic-only diff — zero links
+    added or changed.
+  - Perf review evidence (selection process): classic-dashboard live is now
+    perf 0.95-1.00 / Style & Layout 285-303 ms (lighthouse-live-before*.json)
+    — the carried "CSS slimming (style & layout ~1.4s)" premise NO LONGER
+    reproduces after the 11-19/11-20 API fixes; dropped from the carried list.
+- **Reverted:** n
+- **Side effects disclosed:** the idle warm-up downloads the wallet stack
+  (~555 kB raw / ~164 kB gzip: wallet-adapter + solana-core chunks) at idle on
+  every app visit instead of on first wallet intent. Same bytes the old
+  hover-preload (`onPointerEnter={gate.ensure}`) already fetched, just earlier;
+  no critical-path impact (Lighthouse perf improved). Post-warm the header
+  button shows the stock "Select Wallet" (same as today's post-first-touch
+  state, reached earlier).
+- **Follow-ups noted (not done):** (1) wallet-adapter FACADE is the structural
+  finish: publish wallet context from a side branch (WalletStateBridge) through
+  the gate so the app tree never remounts at all — requires replacing
+  `WalletMultiButton` in ConnectButton/CreateUser (connected-state dropdown
+  re-implementation) and real-wallet signing E2E, not possible headlessly; this
+  run ships the verified mitigation instead. (2) NoahAI API answers in Spanish
+  regardless of UI language — goalchain_api deploy path is outside this
+  runbook's ship section (API serves from crm.goalchain.fun, not this VPS), so
+  it can't be deployed/verified here; needs a deploy runbook for the API. (3)
+  Carried: goalchain.html bootup perf campaign, players.json payload split,
+  rarity palette canon decision, `?lang=es` leftovers, pack price copy, Caddyfile
+  cache headers (hard limits), `test_marketing_html_loads_shell` 5-page
+  pre-existing failure, Zetaris stack wedge (Nico decision), pre-nft orphan
+  cleanup (29 MB), 14 stadium bg PNGs shadowed by cinema.html, goalworld_site
+  TODO.md human facts (dead Discord invite, X handle, legal review); webapp
+  public data files pinned `?v=20261119` (bump on data change). (4) Dropped
+  from carried: classic-dashboard CSS slimming (premise disproven by
+  measurement this run — page is already perf 0.95-1.00).
