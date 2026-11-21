@@ -1,4 +1,5 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect } from 'react';
+import { usePersistentTab } from './tabMemory';
 import { useTranslation } from '../i18n/index';
 import { WalletRequired } from '../wallet/gate';
 import { lazyRoute, prefetchOnIdle } from './routeChunk';
@@ -13,7 +14,7 @@ const LiveEventFeed = lazyRoute(() => import('./LiveEventFeed').then(m => ({ def
 
 export function EstadioPortal() {
   const { t } = useTranslation();
-  const [activeSubTab, setActiveSubTab] = useState<'fixtures' | 'commentator' | 'feed' | 'predictor' | 'simulator'>('fixtures');
+  const [activeSubTab, setActiveSubTab] = usePersistentTab<'fixtures' | 'commentator' | 'feed' | 'predictor' | 'simulator'>('estadio-tabs', 'fixtures');
 
   useEffect(() => {
     // Default panel: prefetch at mount, in parallel with the wallet stack that

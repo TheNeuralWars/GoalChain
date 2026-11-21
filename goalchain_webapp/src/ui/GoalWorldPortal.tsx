@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { usePersistentTab } from './tabMemory';
 import { useTranslation } from '../i18n';
 import { KindleReader } from './KindleReader';
 import { AuthorStudio } from './AuthorStudio';
@@ -190,7 +191,7 @@ const MOCK_BOUNTIES: EditorialBounty[] = [
 
 export function GoalWorldPortal() {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState<'nexus' | 'universe' | 'reader' | 'saas' | 'hermes'>('nexus');
+  const [activeTab, setActiveTab] = usePersistentTab<'nexus' | 'universe' | 'reader' | 'saas' | 'hermes'>('goalworld-tabs', 'nexus');
   const [selectedWorld, setSelectedWorld] = useState<FantasyWorld>(MOCK_WORLDS[0]);
   const [activeChapter, setActiveChapter] = useState<Chapter>(MOCK_CHAPTERS[0]);
   const [fontSize, setFontSize] = useState<number>(18);

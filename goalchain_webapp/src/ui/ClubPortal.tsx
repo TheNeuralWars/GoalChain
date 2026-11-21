@@ -1,4 +1,5 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect } from 'react';
+import { usePersistentTab } from './tabMemory';
 import { SimulationBadge } from '../components/SimulationBadge';
 import { SquadGallery } from './SquadGallery';
 import { AICoach } from './AICoach';
@@ -19,7 +20,7 @@ const NFTMarketplace = lazyRoute(() => import('./NFTMarketplace').then(m => ({ d
 
 export function ClubPortal() {
   const { t } = useTranslation();
-  const [activeSubTab, setActiveSubTab] = useState<'squad' | 'market' | 'coach' | 'profile' | 'arena'>('squad');
+  const [activeSubTab, setActiveSubTab] = usePersistentTab<'squad' | 'market' | 'coach' | 'profile' | 'arena'>('club-tabs', 'squad');
   const { user, isLoggedIn } = useUser();
 
   useEffect(() => {

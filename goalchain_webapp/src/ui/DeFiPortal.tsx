@@ -1,4 +1,5 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
+import { usePersistentTab } from './tabMemory';
 import { SimulationBadge } from '../components/SimulationBadge';
 import { fetchOpsStatus, triggerVaultCrank, type OpsStatus } from '../lib/opsClient';
 
@@ -6,7 +7,7 @@ const TradingTerminal = lazy(() => import('./TradingTerminal').then(m => ({ defa
 const SwarmVaults = lazy(() => import('./SwarmVaults').then(m => ({ default: m.SwarmVaults })));
 
 export function DeFiPortal() {
-  const [activeSubTab, setActiveSubTab] = useState<'trading' | 'vaults'>('trading');
+  const [activeSubTab, setActiveSubTab] = usePersistentTab<'trading' | 'vaults'>('defi-tabs', 'trading');
   const [opsData, setOpsData] = useState<OpsStatus | null>(null);
   const [crankLoading, setCrankLoading] = useState(false);
   const [crankMessage, setCrankMessage] = useState('');

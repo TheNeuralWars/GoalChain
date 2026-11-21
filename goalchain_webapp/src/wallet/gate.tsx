@@ -8,6 +8,9 @@ import React, {
   useState,
 } from 'react';
 
+import { prefetchOnIdle } from '../ui/routeChunk';
+import { ScrollRestore } from '../ui/tabMemory';
+
 /**
  * Wallet gate — the only wallet-related module in the eager bundle.
  *
@@ -25,6 +28,13 @@ export interface WalletGateState {
   /** Base58 wallet address once connected (published by the provider bridge). */
   publicKeyBase58: string | null;
   connected: boolean;
+  /**
+   * True once the wallet stack module has finished downloading. The bridge
+   * keeps rendering the app untouched until this flips (see WalletGateBridge):
+   * swapping the tree while the chunk is still in flight blanks the whole app
+   * behind the Suspense fallback and remounts it mid-interaction.
+   */
+  stackReady: boolean;
   /** Load the wallet chunk if not loaded yet. Idempotent, safe to call often. */
   ensure: () => void;
   /** Open the wallet picker modal (loads the wallet stack on first call). */
@@ -46,6 +56,7 @@ const WalletGateContext = createContext<WalletGateApi | null>(null);
 
 export function WalletGateProvider({ children }: { children: React.ReactNode }) {
   const [status, setStatus] = useState<WalletGateStatus>('idle');
+  const [stackReady, setStackReady] = useState(false);
   const [walletState, setWalletState] = useState<{
     publicKeyBase58: string | null;
     connected: boolean;
@@ -59,14 +70,20 @@ export function WalletGateProvider({ children }: { children: React.ReactNode }) 
     if (statusRef.current !== 'idle') return;
     statusRef.current = 'loading';
     setStatus('loading');
-    // Kick the dynamic import immediately. WalletGateBridge renders the lazy
-    // provider component as soon as status leaves 'idle'.
-    import('./WalletProviders').catch((err) => {
-      console.error('[wallet] failed to load the wallet stack', err);
-      statusRef.current = 'idle';
-      openerRef.current = null;
-      setStatus('idle');
-    });
+    // Kick the dynamic import immediately. WalletGateBridge keeps the current
+    // app tree in place until the module has actually downloaded (stackReady),
+    // then swaps in the lazy provider component — which resolves instantly
+    // from the module cache.
+    import('./WalletProviders')
+      .then(() => {
+        setStackReady(true);
+      })
+      .catch((err) => {
+        console.error('[wallet] failed to load the wallet stack', err);
+        statusRef.current = 'idle';
+        openerRef.current = null;
+        setStatus('idle');
+      });
   }, []);
 
   const openModal = useCallback(() => {
@@ -103,13 +120,37 @@ export function WalletGateProvider({ children }: { children: React.ReactNode }) 
       status,
       publicKeyBase58: walletState.publicKeyBase58,
       connected: walletState.connected,
+      stackReady,
       ensure,
       openModal,
       register,
       publishWalletState,
     }),
-    [status, walletState, ensure, openModal, register, publishWalletState],
+    [status, walletState, stackReady, ensure, openModal, register, publishWalletState],
   );
+
+  // Warm the wallet stack once the browser is idle (auto-improve 2026-11-21).
+  // The provider tree swap is a one-time full app remount (see
+  // WalletGateBridge) — routing it to idle time means it happens before the
+  // user interacts, so no click is ever swallowed and no UI state is lost.
+  // Idle timing keeps the download out of the critical phase (same lesson as
+  // routeChunk's prefetchOnIdle: eager-at-boot measurably delays FCP/LCP);
+  // `timeoutMs` guarantees the warm-up even on pages that stay busy.
+  useEffect(() => {
+    prefetchOnIdle([
+      {
+        prefetch: () => {
+          import('./WalletProviders')
+            .then(() => {
+              setStackReady(true);
+            })
+            .catch(() => {
+              /* offline blip: stay idle; a later hover/click retries via ensure() */
+            });
+        },
+      },
+    ]);
+  }, []);
 
   return <WalletGateContext.Provider value={value}>{children}</WalletGateContext.Provider>;
 }
@@ -159,15 +200,31 @@ export function WalletRequired({
 
 /**
  * Wraps the whole app: while the wallet chunk is idle the app renders without
- * providers (light first paint); once requested, the lazy provider stack wraps
- * the same children.
+ * providers (light first paint); once the stack has downloaded, the lazy
+ * provider stack wraps the same children.
+ *
+ * NOTE: swapping `children` under <LazyWalletProviders> is a one-time FULL APP
+ * REMOUNT — React cannot insert an ancestor around mounted children without
+ * remounting them (positional reconciliation). Two consequences are handled
+ * here and in WalletGateProvider:
+ *   1. Never swap while the chunk is still in flight: the Suspense fallback
+ *      (null) would blank the whole app, and the remount would land
+ *      mid-interaction, swallowing the click that triggered the wallet load
+ *      (observed as "Market tab needs a second click on first visit").
+ *   2. The provider warms the chunk at idle (prefetchOnIdle), so the swap —
+ *      and with it the one remount — happens before user interaction.
+ * Portal sub-tabs are additionally session-sticky (ui/tabMemory.ts) so no tab
+ * selection is ever lost to the remount.
  */
 export function WalletGateBridge({ children }: { children: React.ReactNode }) {
   const gate = useWalletGate();
-  if (gate.status === 'idle') return <>{children}</>;
+  if (!gate.stackReady) return <>{children}</>;
   return (
     <React.Suspense fallback={null}>
-      <LazyWalletProviders>{children}</LazyWalletProviders>
+      <LazyWalletProviders>
+        <ScrollRestore />
+        {children}
+      </LazyWalletProviders>
     </React.Suspense>
   );
 }
