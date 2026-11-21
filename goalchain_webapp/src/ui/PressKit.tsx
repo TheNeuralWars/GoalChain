@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { usePersistentTab } from './tabMemory';
 import { useTranslation } from '../i18n';
 
 export function PressKit() {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState<'all' | 'players' | 'backgrounds' | 'logos'>('all');
+  const [activeTab, setActiveTab] = usePersistentTab<'all' | 'players' | 'backgrounds' | 'logos'>('presskit-tabs', 'all');
 
   const logos = [
     { name: 'GoalChain 3D Logo Clean', path: 'https://raw.githubusercontent.com/TheNeuralWars/GoalChain/main/docs/assets/img/logo_3d_clean.png', desc: 'Transparent 3D render logo' },

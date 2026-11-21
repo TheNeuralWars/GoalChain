@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { usePersistentTab } from './tabMemory';
 import { apiBaseUrl } from '../lib/opsClient';
 import { PlayerQuorumPanel } from './PlayerQuorumPanel';
 import { useTranslation } from '../i18n';
@@ -269,7 +270,7 @@ export function CorporateAutopilot() {
 
   const [activeScenario, setActiveScenario] = useState<string | null>(null);
   const [loadingCheckout, setLoadingCheckout] = useState(false);
-  const [activeTab, setActiveTab]             = useState<'ledger' | 'wallet' | 'safety' | 'threads'>('wallet');
+  const [activeTab, setActiveTab]             = usePersistentTab<'ledger' | 'wallet' | 'safety' | 'threads'>('autopilot-tabs', 'wallet');
 
   // Threads Cockpit State
   const [threads, setThreads] = useState<any[]>([]);

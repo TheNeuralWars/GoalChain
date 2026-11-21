@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { usePersistentTab } from './tabMemory';
 
 interface TeamStats {
   name: string;
@@ -28,7 +29,7 @@ const WC_TEAMS: TeamStats[] = [
 ];
 
 export function WorldCupPredictor() {
-  const [activeSubTab, setActiveSubTab] = useState<'simulator' | 'h2h' | 'standings' | 'pickem'>('simulator');
+  const [activeSubTab, setActiveSubTab] = usePersistentTab<'simulator' | 'h2h' | 'standings' | 'pickem'>('predictor-tabs', 'simulator');
   
   // H2H Predictor states
   const [teamA, setTeamA] = useState<string>('Argentina');
