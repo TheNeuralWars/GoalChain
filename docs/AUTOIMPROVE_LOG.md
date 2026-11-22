@@ -3519,3 +3519,85 @@ One entry per daily run (newest last).
   public data files pinned `?v=20261119` (bump on data change). (4) Dropped
   from carried: classic-dashboard CSS slimming (premise disproven by
   measurement this run — page is already perf 0.95-1.00).
+## 2026-11-22 run 20261122T034752Z
+
+- **What:** docs/goalchain.html (goalworld.fun/goalchain) accessibility overhaul
+  — fixed ALL 6 failing Lighthouse a11y audits (13 color-contrast nodes,
+  2 frame-title, 4 heading-order, 3 label, 1 select-name, 1 landmark-one-main)
+  with surgical, visually-identical changes. (1) Contrast: new page-scoped
+  `--secondary-text` (#b07cff) token for purple TEXT (brand #9945ff is only
+  3.9-4.3:1 on the card backgrounds; borders/dots/gradients keep --secondary
+  — 34 text usages swapped, paired border+text controls aligned);
+  future-game list resting dim 0.6 -> 0.85 opacity (composited items were
+  2.2-2.8:1) + red item #ff4d6a -> #ff6b81 (5.22:1 at rest); Q1 2027 roadmap
+  badge bg #ff4d6a -> #c22743 (white-on-red was 3.5:1 inside its 0.7-opacity
+  wrapper — computed, verified 5.03:1); footer disclaimer + xscout post
+  timestamps rgba(255,255,255,0.3) -> 0.5 (2.51 -> 5.3:1). (2) frame-title:
+  both Discord widget iframes titled. (3) heading-order: the 6 hero portal
+  card titles de-headed to p.hero-portal-card-title (link-card titles, not
+  sections) — kept pixel-identical via `.hero-portal-card
+  .hero-portal-card-title` (must out-specify style.css's `.hero p`, which
+  swallowed the bare class: caught live via computed-style check
+  (19.2px/32px leak -> fixed 15.2px/800/4px = old h4 spec); presale
+  calculator + 5 stadium cards + JS-rendered roadmap cards h4 -> h3 (app.js
+  renderRoadmap template) with page-scoped CSS mirroring the old style.css h4
+  rules (computed: stadium 20px, roadmap 16px = unchanged). (4) label:
+  for/id association for presale SOL input, GCH output and live bet amount
+  (visible labels existed but were unassociated); aria-label on #nftSort.
+  (5) landmark-one-main: content wrapped in `<main id="main-content">`.
+  app.js pin bumped ?v=3.0 -> ?v=3.1 (its only referencing page is
+  goalchain.html; new pin probed only AFTER deploy per cache-trap discipline).
+  Also caught+repaired same-run: a regex heading conversion initially
+  cross-matched tag boundaries (4 wrong opener swaps) — full h1-h6
+  cross-nesting walk proved 0 issues after repair; git diff hunk-by-hunk
+  audit confirmed only intended changes ship.
+- **Why:** The flagship Matchday page hosts the presale calculator and
+  live-betting conversion paths (conversion) but shipped unlabeled inputs,
+  dimmed text down to 2.2:1, untitled iframes, a broken heading outline and
+  no main landmark — the last page on the site below a11y parity (all other
+  live pages already at 1.00). Measurable, high-impact, small.
+- **Commit SHA (merge):** `e62364d8` (PR #950, feature `b3139eef`). Pre-merge
+  `origin/main` = `951d61d2` (rollback: `git revert -m 1 e62364d8` + push;
+  landing `scripts/pages/deploy_origin.sh` restages the old tree, or
+  `scripts/deploy_goalworld_site.sh rollback --target /data/apps/GoalChain/_site_public`
+  -> tarball `20261122T044117Z-e62364d8.tar.gz`).
+- **Live link:** https://goalworld.fun/goalchain. Landing: `deploy_origin.sh`
+  restaged `e62364d8` 04:40:59 UTC (guard 0 internal-only paths);
+  `deploy_goalworld_site.sh deploy` 04:41:18 UTC (hub unchanged by this run;
+  dry-run first) — idempotent restage.
+- **QA evidence:** `/data/work/autoimprove/evidence/20261122T034752Z/`
+  - build.txt: `node --check app.js` exit 0 + HTML parse OK. tests.txt:
+    `docs/tests/test_gw_chrome.py` 9 run; failure set byte-identical to
+    pre-change (documented pre-existing `test_marketing_html_loads_shell`,
+    5 pages). linkcheck.txt: 0 new refs, 0 new broken refs (missing set
+    unchanged: favicon/logo-96 — pre-existing landing-overlay refs).
+  - Lighthouse (mobile, lighthouse-summary.txt): a11y 0.81 -> **1.00** (live),
+    zero failing a11y audits before/after; SEO 1.00 =; BP 0.73 =;
+    perf live-before 0.35 -> live-after band 0.28-0.35 (TBT 9.98s ->
+    10.5/16.5/49.6s = documented bimodal churn, 2 of 3 samples match the
+    before score; diff is HTML/CSS + one template tag literal — no JS-path
+    behavior change). CLS 0.016 =.
+  - functional: DOM proofs on new build + live (1 main landmark, 3 label
+    for=, 2 iframe titles, aria-label, hero title = P 15.2px/800/4px,
+    stadium h3 20px, roadmap h3 16px — all identical to the old specs);
+    before/after screenshots + vision QC (hero row intact/tight spacing;
+    footer disclaimer "very faint" -> "comfortably readable"; Q1 2027 badge
+    readable + still intentionally de-emphasized; stadium cards intact).
+    smoke-before/smoke-after: all URLs 200; live sha == repo sha for
+    goalchain.html AND app.js; signatures verified (34 secondary-text uses,
+    pin app.js?v=3.1 live, 0 old hero h4s).
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) `test_marketing_html_loads_shell`
+  5-page pre-existing failure (architecture/archify + 2 film improve index
+  pages + go/reader + reader.html are app/artifact surfaces, not marketing —
+  needs an explicit page-classification decision to fix honestly). (2) The
+  same contrast pattern may be latent on pages that don't load style.css
+  variants (not flagged — all other live pages audit 1.00). (3) Carried:
+  goalchain.html bootup perf campaign (bimodal TBT 10-50s), players.json
+  payload split, NoahAI language, wallet-adapter facade, rarity palette
+  canon decision, `?lang=es` leftovers, pack price copy, Caddyfile cache
+  headers (hard limits), Zetaris stack wedge (Nico decision), pre-nft orphan
+  cleanup, 14 stadium bg PNGs shadowed by cinema.html, goalworld_site TODO.md
+  human facts (dead Discord invite, X handle, legal review); webapp public
+  data files pinned `?v=20261119` (bump on data change) + docs pins now
+  include app.js `?v=3.1`.
