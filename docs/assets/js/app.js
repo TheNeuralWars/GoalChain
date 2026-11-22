@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="roadmap-dot"></div>
                 <div class="roadmap-date">${phase.date[lang] || phase.date.es}</div>
                 <div class="roadmap-card">
-                    <h4>${t(phase.title_key)}</h4>
+                    <h3>${t(phase.title_key)}</h3>
                     <ul>${phase.items.map(it => `<li class="${it.done ? 'done' : ''}">${it.text[lang] || it.text.es}</li>`).join('')}</ul>
                 </div>
             `;
