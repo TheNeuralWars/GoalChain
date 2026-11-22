@@ -30,6 +30,11 @@
         --primary-neon: #14f195;
         --secondary-neon: #9945ff;
         --accent-red: #ff4b4b;
+        /* Accessible text variant of the secondary purple: #9945ff as small
+           text is only 3.9-4.3:1 on the card backgrounds (WCAG AA needs 4.5:1).
+           Use --secondary-text for purple TEXT; keep --secondary for borders,
+           dots, glows and fills. */
+        --secondary-text: #b07cff;
       }
       
       /* Hero Portals Grid */
@@ -70,17 +75,37 @@
         line-height: 1;
       }
       
-      .hero-portal-card h4 {
+      /* .hero p (style.css) out-specifies a bare class here — keep the
+         descendant selector so the card titles keep the old h4 look. */
+      .hero-portal-card .hero-portal-card-title {
         font-size: 0.95rem;
         font-weight: 800;
         margin: 0 0 4px 0;
         letter-spacing: -0.2px;
       }
-      
+
       .hero-portal-card span {
         font-size: 0.72rem;
         color: rgba(255, 255, 255, 0.5);
         line-height: 1.3;
+      }
+
+      /* a11y (2026-11-22): heading-order — roadmap/stadium card titles are h3
+         now; mirror the style.css h4 rules so their look is unchanged. */
+      .roadmap-card h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+      }
+      .stadium-details h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* a11y (2026-11-22): the resting dim (style.css sets opacity 0.6) made the
+         item text fail WCAG AA (2.2-2.8:1 composited). 0.85 keeps the dimmed
+         look while clearing 4.5:1 for every item color. */
+      .future-game-item {
+        opacity: 0.85;
       }
       
       /* Glow hover behaviors matching play app */
@@ -235,7 +260,7 @@
       }
       
       .xscout-post-time {
-        color: rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.5);
         margin-left: auto;
       }
       
@@ -478,7 +503,7 @@
               style="
                 background: transparent;
                 border: 1px solid var(--secondary);
-                color: var(--secondary);
+                color: var(--secondary-text);
                 font-weight: 900;
                 padding: 5px 20px;
                 border-radius: 20px;
@@ -507,7 +532,7 @@
               >
               <a
                 href="mega-guide-v1.html"
-                style="color: #9945ff; font-weight: 900"
+                style="color: var(--secondary-text); font-weight: 900"
                 data-i18n="nav_guide_v1"
                 >⚽ Starter Guide v1.0 (Original)</a
               >
@@ -764,7 +789,7 @@
         style="
           font-size: 0.75rem;
           font-weight: 900;
-          color: var(--secondary);
+          color: var(--secondary-text);
           letter-spacing: 2.5px;
           text-transform: uppercase;
         "
@@ -787,7 +812,7 @@
       >
       <a
         href="mega-guide-v1.html"
-        style="font-size: 1rem; color: #9945ff; font-weight: 800"
+        style="font-size: 1rem; color: var(--secondary-text); font-weight: 800"
         data-i18n="nav_guide_v1"
         onclick="closeMobile()"
         >⚽ Starter Guide v1.0 (Original)</a
@@ -879,7 +904,7 @@
             "
           ></div>
         </div>
-        <span id="hypePercent" style="color: #9945ff; font-weight: 900"
+        <span id="hypePercent" style="color: var(--secondary-text); font-weight: 900"
           >87%</span
         >
         <span
@@ -927,41 +952,42 @@
         <!-- Inicio Portal -->
         <a href="/go/" class="hero-portal-card hero-portal-card--inicio">
           <div class="hero-portal-card-icon">🏠</div>
-          <h4 data-i18n="portal_inicio">Inicio</h4>
+          <p class="hero-portal-card-title" data-i18n="portal_inicio">Inicio</p>
           <span data-i18n="portal_inicio_desc">Dashboard &amp; Ops</span>
         </a>
         <!-- Estadio Portal -->
         <a href="/go/estadio" class="hero-portal-card hero-portal-card--estadio">
           <div class="hero-portal-card-icon">🏟️</div>
-          <h4 data-i18n="portal_estadio">Estadio Portal</h4>
+          <p class="hero-portal-card-title" data-i18n="portal_estadio">Estadio Portal</p>
           <span data-i18n="portal_estadio_desc">Devnet on-chain betting (World Cup 2026 — honest demo: bet + claim)</span>
         </a>
         <!-- DeFi Portal -->
         <a href="/go/defi" class="hero-portal-card hero-portal-card--defi">
           <div class="hero-portal-card-icon">💱</div>
-          <h4 data-i18n="portal_defi">DeFi Swarm</h4>
+          <p class="hero-portal-card-title" data-i18n="portal_defi">DeFi Swarm</p>
           <span data-i18n="portal_defi_desc">Vibe Swap &amp; Vaults</span>
         </a>
         <!-- Club Portal -->
         <a href="/go/club" class="hero-portal-card hero-portal-card--club">
           <div class="hero-portal-card-icon">👕</div>
-          <h4 data-i18n="portal_club">My Club</h4>
+          <p class="hero-portal-card-title" data-i18n="portal_club">My Club</p>
           <span data-i18n="portal_club_desc">Plantilla &amp; Manager</span>
         </a>
         <!-- GoalWorld Lore Portal -->
         <a href="/go/goalworld" class="hero-portal-card hero-portal-card--lore" style="border: 1px solid rgba(168, 85, 247, 0.4);">
           <div class="hero-portal-card-icon">🔮</div>
-          <h4 style="color: #c084fc;">GoalWorld Lore</h4>
+          <p class="hero-portal-card-title" style="color: #c084fc;">GoalWorld Lore</p>
           <span>Fantasy, KDP &amp; Tokenization</span>
         </a>
         <a href="/go/reader" class="hero-portal-card" style="border: 1px solid rgba(20, 241, 149, 0.35);">
           <div class="hero-portal-card-icon">📖</div>
-          <h4>Books</h4>
+          <p class="hero-portal-card-title">Books</p>
           <span>Fractured Code</span>
         </a>
       </div>
     </header>
 
+    <main id="main-content">
     <!-- PRE-LAUNCH IDO PRESALE WIDGET -->
     <section
       id="presale"
@@ -1134,7 +1160,7 @@
               <span style="color: var(--primary)" data-i18n="presale_progress"
                 >Progress Raised</span
               >
-              <span id="presaleProgressText" style="color: var(--secondary)"
+              <span id="presaleProgressText" style="color: var(--secondary-text)"
                 >1,489.60 SOL (29.79%)</span
               >
             </div>
@@ -1188,7 +1214,7 @@
               margin-bottom: 30px;
             "
           >
-            <h4
+            <h3
               style="
                 color: #fff;
                 margin-top: 0;
@@ -1200,7 +1226,7 @@
               data-i18n="presale_calc_t"
             >
               CALCULADORA DE $GCH
-            </h4>
+            </h3>
 
             <div
               style="
@@ -1213,6 +1239,7 @@
             >
               <div style="text-align: left; flex: 1; min-width: 200px">
                 <label
+                  for="presaleSolInput"
                   style="
                     font-size: 0.75rem;
                     color: var(--text-dim);
@@ -1266,6 +1293,7 @@
               </div>
               <div style="text-align: left; flex: 1; min-width: 200px">
                 <label
+                  for="presaleGchOutput"
                   style="
                     font-size: 0.75rem;
                     color: var(--text-dim);
@@ -2000,7 +2028,7 @@
             <div>
               <h4
                 style="
-                  color: var(--secondary);
+                  color: var(--secondary-text);
                   font-size: 0.8rem;
                   letter-spacing: 2px;
                   margin-bottom: 10px;
@@ -2047,6 +2075,7 @@
             >
               <iframe
                 src="https://discord.com/widget?id=1503668119053406330&theme=dark"
+                title="GoalChain Discord community"
                 width="100%"
                 height="240"
                 allowtransparency="true"
@@ -2378,7 +2407,7 @@
                   class="btn-glow"
                   style="
                     background: rgba(153, 69, 255, 0.2);
-                    border: 1px solid #9945ff;
+                    border: 1px solid var(--secondary-text);
                     color: #fff;
                     padding: 5px 12px;
                     border-radius: 8px;
@@ -2555,7 +2584,7 @@
             "
           >
             <h4
-              style="color: var(--secondary); margin-bottom: 1rem"
+              style="color: var(--secondary-text); margin-bottom: 1rem"
               data-i18n="game_soon_title"
             >
               🎮 Coming Soon (Roadmap 2026/27)
@@ -2573,7 +2602,7 @@
             >
               <li
                 class="future-game-item"
-                style="color: var(--secondary)"
+                style="color: var(--secondary-text)"
                 data-desc-es="Apuestas ultrarrápidas durante partidos reales. Predice penales, córners y goles en vivo con liquidación instantánea."
                 data-desc-en="Ultra-fast betting during real matches. Predict penalties, corners, and live goals with instant settlement."
               >
@@ -2594,11 +2623,11 @@
               </li>
               <li
                 class="future-game-item"
-                style="color: #ff4d6a"
+                style="color: #ff6b81"
                 data-desc-es="Fútbol callejero arcade 3v3. Partidos de alta intensidad en favelas digitales donde las habilidades especiales marcan la diferencia."
                 data-desc-en="3v3 arcade street football. High-intensity matches in digital favelas where special skills make the difference."
               >
-                <span class="badge-dot" style="background: #ff4d6a"></span>
+                <span class="badge-dot" style="background: #ff6b81"></span>
                 <b>Favela Streets</b>
               </li>
               <li
@@ -2653,7 +2682,7 @@
             >
               <h5
                 style="
-                  color: var(--secondary);
+                  color: var(--secondary-text);
                   margin-bottom: 15px;
                   font-size: 0.8rem;
                 "
@@ -2835,7 +2864,7 @@
         }
         #liveMatchPhase {
           font-size: 0.75rem;
-          color: var(--secondary);
+          color: var(--secondary-text);
           letter-spacing: 1px;
           font-weight: bold;
           text-transform: uppercase;
@@ -3109,6 +3138,7 @@
                 <!-- Input Amount -->
                 <div style="margin-bottom: 1.5rem">
                   <label
+                    for="liveBetAmount"
                     style="
                       display: block;
                       font-size: 0.75rem;
@@ -3409,7 +3439,7 @@
               class="search-input"
               data-i18n-ph="nft_search_ph"
             />
-            <select id="nftSort" class="filter-select">
+            <select id="nftSort" class="filter-select" aria-label="Sort players">
               <option value="id-asc" data-i18n="nft_sort_id_asc">
                 Number (Low-High)
               </option>
@@ -3593,7 +3623,7 @@
               border-color: var(--secondary);
             "
           >
-            <span style="font-size: 0.7rem; color: var(--secondary)"
+            <span style="font-size: 0.7rem; color: var(--secondary-text)"
               >MANAGER BENEFITS</span
             >
             <ul
@@ -3697,7 +3727,7 @@
                 z-index: 2;
               "
             >
-              <h4
+              <h3
                 style="
                   color: #ffd700;
                   font-size: 1.25rem;
@@ -3710,7 +3740,7 @@
               >
                 <span>Neo-Olympus Cyber-Arena</span>
                 <span style="font-size: 1rem; color: #ffd700">🏟️</span>
-              </h4>
+              </h3>
               <p
                 data-i18n="stad_olympus_desc"
                 style="
@@ -3835,7 +3865,7 @@
                 z-index: 2;
               "
             >
-              <h4
+              <h3
                 style="
                   color: #ffd700;
                   font-size: 1.25rem;
@@ -3848,7 +3878,7 @@
               >
                 <span>Carbon Dome Kronos</span>
                 <span style="font-size: 1rem; color: #ffd700">🏟️</span>
-              </h4>
+              </h3>
               <p
                 data-i18n="stad_kronos_desc"
                 style="
@@ -3954,8 +3984,8 @@
                 class="stadium-yield-info"
                 style="
                   background: rgba(0, 0, 0, 0.85);
-                  border: 1px solid #9945ff;
-                  color: #9945ff;
+                  border: 1px solid var(--secondary-text);
+                  color: var(--secondary-text);
                   font-weight: bold;
                   z-index: 2;
                 "
@@ -3973,9 +4003,9 @@
                 z-index: 2;
               "
             >
-              <h4
+              <h3
                 style="
-                  color: #9945ff;
+                  color: var(--secondary-text);
                   font-size: 1.25rem;
                   font-weight: 900;
                   margin-bottom: 0.5rem;
@@ -3985,8 +4015,8 @@
                 "
               >
                 <span>Titanium Cyber-Coliseum</span>
-                <span style="font-size: 1rem; color: #9945ff">🏟️</span>
-              </h4>
+                <span style="font-size: 1rem; color: var(--secondary-text)">🏟️</span>
+              </h3>
               <p
                 data-i18n="stad_titanium_desc"
                 style="
@@ -4015,8 +4045,8 @@
                     text-align: center;
                     text-transform: uppercase;
                     font-weight: bold;
-                    border-color: #9945ff;
-                    color: #9945ff;
+                    border-color: var(--secondary-text);
+                    color: var(--secondary-text);
                     background: transparent;
                     cursor: pointer;
                     display: flex;
@@ -4092,8 +4122,8 @@
                 class="stadium-yield-info"
                 style="
                   background: rgba(0, 0, 0, 0.85);
-                  border: 1px solid #9945ff;
-                  color: #9945ff;
+                  border: 1px solid var(--secondary-text);
+                  color: var(--secondary-text);
                   font-weight: bold;
                   z-index: 2;
                 "
@@ -4111,9 +4141,9 @@
                 z-index: 2;
               "
             >
-              <h4
+              <h3
                 style="
-                  color: #9945ff;
+                  color: var(--secondary-text);
                   font-size: 1.25rem;
                   font-weight: 900;
                   margin-bottom: 0.5rem;
@@ -4123,8 +4153,8 @@
                 "
               >
                 <span>Obsidian Arena</span>
-                <span style="font-size: 1rem; color: #9945ff">🏟️</span>
-              </h4>
+                <span style="font-size: 1rem; color: var(--secondary-text)">🏟️</span>
+              </h3>
               <p
                 data-i18n="stad_obsidian_desc"
                 style="
@@ -4153,8 +4183,8 @@
                     text-align: center;
                     text-transform: uppercase;
                     font-weight: bold;
-                    border-color: #9945ff;
-                    color: #9945ff;
+                    border-color: var(--secondary-text);
+                    color: var(--secondary-text);
                     background: transparent;
                     cursor: pointer;
                     display: flex;
@@ -4249,7 +4279,7 @@
                 z-index: 2;
               "
             >
-              <h4
+              <h3
                 style="
                   color: #00e5ff;
                   font-size: 1.25rem;
@@ -4262,7 +4292,7 @@
               >
                 <span>Aether Cyber-Dome</span>
                 <span style="font-size: 1rem; color: #00e5ff">🏟️</span>
-              </h4>
+              </h3>
               <p
                 data-i18n="stad_aether_desc"
                 style="
@@ -4580,7 +4610,7 @@
         <button
           class="filter-btn"
           onclick="filterMarket('legendary')"
-          style="border-color: #9945ff; color: #9945ff"
+          style="border-color: var(--secondary-text); color: var(--secondary-text)"
         >
           LEGENDARY
         </button>
@@ -4731,7 +4761,7 @@
               <div style="opacity: 0.7">
                 <span
                   class="badge"
-                  style="background: #ff4d6a; color: white; margin-bottom: 10px"
+                  style="background: #c22743; color: white; margin-bottom: 10px"
                   >🏟️ Q1 2027</span
                 >
                 <p>
@@ -4818,7 +4848,7 @@
                 <div style="font-size: 1.5rem; margin-bottom: 10px">🔥</div>
                 <h4
                   style="
-                    color: var(--secondary);
+                    color: var(--secondary-text);
                     font-size: 0.9rem;
                     margin-bottom: 8px;
                   "
@@ -4953,7 +4983,7 @@
                     style="
                       font-size: 0.65rem;
                       font-weight: 800;
-                      color: var(--secondary);
+                      color: var(--secondary-text);
                     "
                   >
                     ECOSYSTEM & JACKPOT: 25%
@@ -5086,7 +5116,7 @@
               style="
                 font-size: 1.8rem;
                 font-weight: 900;
-                color: var(--secondary);
+                color: var(--secondary-text);
               "
               id="statMarketCap"
             >
@@ -5095,7 +5125,7 @@
             <div
               style="
                 font-size: 0.6rem;
-                color: var(--secondary);
+                color: var(--secondary-text);
                 margin-top: 5px;
               "
               data-i18n="stat_backed"
@@ -5210,12 +5240,12 @@
               ON-CHAIN SINK COVERAGE
             </div>
             <div
-              style="font-size: 1.8rem; font-weight: 900; color: var(--secondary)"
+              style="font-size: 1.8rem; font-weight: 900; color: var(--secondary-text)"
               id="kpiSinkCoverage"
             >
               --
             </div>
-            <div style="font-size: 0.6rem; color: var(--secondary); margin-top: 5px">
+            <div style="font-size: 0.6rem; color: var(--secondary-text); margin-top: 5px">
               Config drift: <span id="kpiConfigDrift">--</span>
             </div>
           </div>
@@ -5470,6 +5500,7 @@
           <div style="margin-top: 40px; display: flex; justify-content: center">
             <iframe
               src="https://discord.com/widget?id=1503668119053406330&theme=dark"
+              title="GoalChain Discord community"
               width="350"
               height="400"
               allowtransparency="true"
@@ -5481,6 +5512,7 @@
       </div>
     </section>
 
+    </main>
     <!-- FOOTER -->
     <footer class="site-footer">
       <div class="logo" style="margin-bottom: 0.5rem">
@@ -5493,7 +5525,7 @@
       <p
         style="
           font-size: 0.7rem;
-          color: rgba(255, 255, 255, 0.3);
+          color: rgba(255, 255, 255, 0.5);
           max-width: 800px;
           margin: 10px auto;
           line-height: 1.4;
@@ -5623,7 +5655,7 @@
 
     <script src="assets/js/i18n.js?v=3.0"></script>
     <script src="assets/js/play_url.js?v=1.0"></script>
-    <script src="assets/js/app.js?v=3.0"></script>
+    <script src="assets/js/app.js?v=3.1"></script>
     <script src="assets/js/market_simulators.js?v=1.2"></script>
     <script src="assets/js/data_loader.js?v=1.1"></script>
     <script src="assets/js/marketplace.js?v=3.4"></script>
@@ -5902,7 +5934,7 @@
               color: #ccc;
             "
           >
-            <span style="color: #9945ff; font-weight: bold"
+            <span style="color: var(--secondary-text); font-weight: bold"
               >[13:34] NicoPez [PLAY]:</span
             >
             I was debating with a friend, a Play Solana moderator. We started
