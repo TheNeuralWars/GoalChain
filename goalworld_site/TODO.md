@@ -28,8 +28,7 @@ the public pages until resolved.
 - [ ] **Book 1 (`book.html`) launch waitlist / email capture**: No verified backend email capture exists on `origin/main` yet (`docs/reader.html` PR #880 only stored emails in browser `localStorage` with no backend, and `origin/feat/goalworld-waitlist` Cloudflare Worker + KV + Resend is unmerged and pending Stream S6 `WAITLIST_PLAN.md` provider decision + privacy review). Until Nico approves and deploys a live waitlist endpoint, `/book.html#notify` uses the honest CTA *"Follow @nicopez on X for the launch"*.
 - [ ] **Book 1 (`book.html`) Kindle purchase link, pricing & Kindle Unlimited confirmation**: Once Gate 3 store setup, final cover, pricing (manifest draft: $0.99 / $2.99 USD), and Kindle Unlimited enrollment (currently marked *"planned, not verified"*) are live and approved by Nico, replace the disabled *"Coming soon to Kindle"* button on `goalworld_site/src/pages/book.html` with the verified live store URL.
 - [ ] **Sync `docs/reader.html` & `docs/go/reader/books-data.json` with v7 manuscript**: `docs/reader.html` currently serves a pre-v7 Prologue + Chapter 1 draft with canon contradictions (see `/workspace/fc-day/S2_LANDING_REPORT.md`) and unverified pricing/KU claims.
-- [ ] Any date for Book 2 (Earth's New Song) publication — the roadmap
-      intentionally shows no dates.
+- [ ] **Book 2 title & publication date (`[C1]`)**: Confirm final Book 2 title (*Earth's New Song* vs. *Convergence Protocol* in `LORE_QA.md` `[C1]`) and publication timeline; until decided by Nico, `/book.html#saga` displays *"Book 2 of The Neural Wars — forthcoming."* and the roadmap intentionally shows no dates.
 - [ ] A press contact email (currently X DM only).
 - [ ] If/when the Discord or newsletter returns, replace the FAQ answer
       "How do I get in touch?".
