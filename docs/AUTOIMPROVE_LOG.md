@@ -3601,3 +3601,81 @@ One entry per daily run (newest last).
   human facts (dead Discord invite, X handle, legal review); webapp public
   data files pinned `?v=20261119` (bump on data change) + docs pins now
   include app.js `?v=3.1`.
+
+## 2026-11-23 run 20261123T034737Z
+
+- **What:** players.json payload split + fetch pin/cache hygiene (both public
+  surfaces). (1) Split: moved the generation-pipeline-only fields `tm_url` +
+  `tm_data` (transfermarkt provenance — verified zero runtime consumers repo-wide:
+  docs pages, docs/assets/js consumers, webapp React panels, classic-dashboard
+  legacy js, goalchain_api, ops tooling) out of the served players.json into
+  `docs/assets/data/players.pipeline.json` (id -> fields), via the new
+  deterministic idempotent tool `scripts/players_payload_split.py` (`--check`
+  mode). Served payload per consumer 584,394 -> 479,780 bytes (-17.9%); lossless
+  audit: 528 players, 0 unexpected diffs, 927 moved values recovered verbatim,
+  0 lost; webapp copy kept byte-identical. Deliberately NOT split: `physical.t`
+  (53 KB) — image-prompt text used by 4 ops/pipeline scripts (mcp-goalchain-ops,
+  discord_channel_router, generate_player_assets, grok_autonomous_browser);
+  splitting it would need merge-fallbacks in live tooling (follow-up candidate).
+  (2) Pin/cache hygiene: every players.json fetch ref now carries a bumpable
+  `?v=20261123` pin — docs data_loader PLAYERS_URL (20261117 -> 20261123; loader
+  include bumped v1.1 -> v1.2 on goalchain/arcade/play-pack), docs/pre-nft.html
+  (was UNPINNED), webapp classic-dashboard legacy ai_agent.js (20261119 ->
+  20261123) and 3d_gallery.js (live `Date.now()` cache-buster -> pinned), the 3
+  webapp React panels (NFTMarketplace/SquadGallery/GenesisCollectionGallery,
+  all unpinned -> pinned). sw.js CACHE_NAME goalchain-v2 -> goalchain-v3 (drops
+  the stale precache) with the precache URL pinned to match consumers. New
+  `docs/tests/test_players_payload.py` enforces the split invariants so a future
+  wholesale players.json regeneration fails QA until the tool is re-run.
+- **Why:** every gallery/marketplace visit on /goalchain, /arcade, /play/pack,
+  /pre-nft.html and play.goalworld.fun downloaded ~92 KB of provenance fields no
+  page ever renders, and 5 of 8 fetch refs were unpinned (one with a per-request
+  Date.now() buster) — so a players.json content change could take days to reach
+  users behind SW/browser caches (correctness + perf). Carried item "players.json
+  payload split" (from runs 20261121/22) done as the safe minimal slice.
+- **Commit SHA (merge):** `69949438` (PR #951, feature `d3901b10`). Pre-merge
+  `origin/main` = `3eccad7740e0b236ef310d114ca799d3a86e9f0b` (rollback:
+  `git revert -m 1 69949438` + push -> Vercel redeploys webapp; landing
+  `scripts/deploy_goalworld_site.sh rollback --target /data/apps/GoalChain/_site_public`
+  -> tarball `20261123T043615Z-69949438.tar.gz`, docs restage via deploy_origin.sh).
+- **Live links:** https://goalworld.fun/goalchain (+ /arcade, /pre-nft.html,
+  /play/pack) and https://play.goalworld.fun/ (+ /classic-dashboard.html).
+  deploy_origin.sh restaged `69949438` 04:35:58 UTC (guard 0 internal-only
+  paths); deploy_goalworld_site.sh deploy 04:36:15 UTC (dry-run first, hub
+  unchanged — idempotent restage); Vercel webapp auto-deployed from main and was
+  verified live (sw.js goalchain-v3 + pinned precache, slim players.json).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261123T034737Z/`
+  - build.txt: `npm run build` (tsc + vite) exit 0. tests.txt: `check:i18n`
+    exit 0 (381 keys), docs suite 11 tests — only the documented pre-existing
+    `test_marketing_html_loads_shell` failure remains; tests-prechange.txt +
+    tests-failure-set-compare.txt prove the 5-page failure set is byte-identical
+    to pre-change `3eccad77` (no NEW failure); node --check x4 OK; split tool
+    `--check` OK. linkcheck.txt: 0 new broken refs (only same-file pin swaps).
+  - Lighthouse (mobile, lighthouse-summary.txt): a11y/BP/SEO zero regressions
+    (all equal). Perf vs live baseline: goalchain 0.34/0.34 -> 0.34/0.34
+    (local 0.31/0.31 inside documented bimodal band 0.28-0.35); arcade 0.98 ->
+    0.97/0.98; pre-nft 0.61 -> 0.60 (local 0.68); play root 0.77 -> 0.85/0.96
+    (improved); classic-dashboard 0.95 -> 0.96 (improved). CLS equal/better.
+  - smoke-before/smoke-after(-landing).txt: all URLs 200 before/after; live
+    players.json 584,394 -> 479,780 bytes with tm fields gone and
+    players.pipeline.json served (119,098 B, holds tm_url/tm_data); pins live
+    (data_loader v=1.2 + ?v=20261123, old pins gone); live chunk sweep: pinned
+    fetch present in ClubPortal/GenesisCollectionGallery chunks, 0 old unpinned
+    refs; sw.js goalchain-v3 live. functional.txt + 2 screenshots: pre-nft
+    528/528 cards before/after (vision QC: nothing broken), goalchain
+    marketplace+registry 8/536 identical before/after.
+  - TODO post-merge check passed: docs.goalchain.fun/ 308 -> goalworld.fun,
+    docs.goalchain.fun/data/burn_tracker.json 200 JSON.
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) `physical.t` (53 KB) split candidate —
+  needs merge-fallback edits in the 4 ops/pipeline scripts that consume it
+  (design: players.pipeline.json + enrich-on-load with inline fallbacks);
+  deliberately deferred to avoid degrading live image-prompt tooling.
+  (2) Carried: test_marketing_html_loads_shell 5-page classification decision
+  (architecture/archify + 2 film improve index + go/reader + reader.html are
+  app/artifact surfaces), goalchain.html bootup perf campaign (bimodal TBT
+  10-50s), NoahAI API language, wallet-adapter facade, rarity palette canon,
+  `?lang=es` leftovers, pack price copy, Caddyfile cache headers (hard limits),
+  Zetaris stack wedge (Nico decision), pre-nft orphan cleanup, 14 stadium bg
+  PNGs shadowed by cinema.html, goalworld_site TODO.md human facts (dead Discord
+  invite, X handle, legal review).
