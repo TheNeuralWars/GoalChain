@@ -56,7 +56,7 @@ export function NFTMarketplace() {
   useEffect(() => {
     const fetchPlayers = async () => {
       try {
-        const response = await fetch('/assets/data/players.json');
+        const response = await fetch('/assets/data/players.json?v=20261123');
         if (response.ok) {
           const players = await response.json() as PlayerRow[];
           

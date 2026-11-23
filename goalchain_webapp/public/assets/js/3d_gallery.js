@@ -85,7 +85,7 @@ async function initGalleryView() {
     container.innerHTML = '<div style="color: var(--text-dim); width: 100%; text-align: center; padding: 40px;">Conectando con el Oráculo 3D...</div>';
 
     try {
-        const response = await fetch(`assets/data/players.json?v=${new Date().getTime()}`);
+        const response = await fetch('assets/data/players.json?v=20261123');
         const players = await response.json();
         
         container.innerHTML = '';

@@ -17,7 +17,7 @@ export const GenesisCollectionGallery: React.FC = () => {
 
   useEffect(() => {
     (async () => {
-      const pRes = await fetch('/assets/data/players.json');
+      const pRes = await fetch('/assets/data/players.json?v=20261123');
       if (pRes.ok) setPlayers(await pRes.json());
     })();
   }, []);

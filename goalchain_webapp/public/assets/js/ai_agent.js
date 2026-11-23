@@ -34,7 +34,7 @@ async function initAIView() {
         const [playersRes, fixtureRes] = await Promise.all([
             // Stable pins (no Date.now() cache-busters — they defeat browser
             // caching). Bump ?v= whenever the data files change.
-            fetch('assets/data/players.json?v=20261119').then(r => r.json()),
+            fetch('assets/data/players.json?v=20261123').then(r => r.json()),
             fetch('assets/data/wc2026_fixture.json?v=20261119').then(r => r.json())
         ]);
         aiState.allPlayers = playersRes;
