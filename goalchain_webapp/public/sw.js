@@ -4,12 +4,12 @@
  * Non-blocking by design — errors are logged, never throw.
  */
 
-const CACHE_NAME = 'goalchain-v2';
+const CACHE_NAME = 'goalchain-v3';
 const ASSET_URLS = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/assets/data/players.json',
+  '/assets/data/players.json?v=20261123',
 ];
 
 // ─── Install: pre-cache critical assets ────────────────────────────────────

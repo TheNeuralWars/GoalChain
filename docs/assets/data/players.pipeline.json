@@ -1,0 +1,3691 @@
+{
+  "extracted_fields": [
+    "tm_url",
+    "tm_data"
+  ],
+  "players": {
+    "1": {
+      "tm_url": "https://www.transfermarkt.it/lionel-messi/profil/spieler/28003",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "2": {
+      "tm_url": "https://www.transfermarkt.it/emiliano-martinez/profil/spieler/111873",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "3": {
+      "tm_url": "https://www.transfermarkt.it/julian-alvarez/profil/spieler/576024",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "4": {
+      "tm_url": "https://www.transfermarkt.it/enzo-fernandez/profil/spieler/648607",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "5": {
+      "tm_url": "https://www.transfermarkt.it/rodrigo-de-paul/profil/spieler/200631",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "6": {
+      "tm_url": "https://www.transfermarkt.it/lautaro-martinez/profil/spieler/406625",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "7": {
+      "tm_url": "https://www.transfermarkt.it/alexis-mac-allister/profil/spieler/534033",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "8": {
+      "tm_url": "https://www.transfermarkt.it/cristian-romero/profil/spieler/355915",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "9": {
+      "tm_url": "https://www.transfermarkt.it/lisandro-martinez/profil/spieler/372246",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "10": {
+      "tm_url": "https://www.transfermarkt.it/nahuel-molina/profil/spieler/418642",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "11": {
+      "tm_url": "https://www.transfermarkt.it/nicolas-tagliafico/profil/spieler/113949"
+    },
+    "12": {
+      "tm_url": "https://www.transfermarkt.it/kylian-mbappe/profil/spieler/342229",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "13": {
+      "tm_url": "https://www.transfermarkt.it/antoine-griezmann/profil/spieler/125781",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "14": {
+      "tm_url": "https://www.transfermarkt.it/ousmane-dembele/profil/spieler/288230",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "15": {
+      "tm_url": "https://www.transfermarkt.it/eduardo-camavinga/profil/spieler/640428",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "16": {
+      "tm_url": "https://www.transfermarkt.it/theo-hernandez/profil/spieler/339808",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "17": {
+      "tm_url": "https://www.transfermarkt.it/mike-maignan/profil/spieler/182906",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "18": {
+      "tm_url": "https://www.transfermarkt.it/aurelien-tchouameni/profil/spieler/413112",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "19": {
+      "tm_url": "https://www.transfermarkt.it/william-saliba/profil/spieler/495666",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "20": {
+      "tm_url": "https://www.transfermarkt.it/dayot-upamecano/profil/spieler/344695",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "21": {
+      "tm_url": "https://www.transfermarkt.it/jules-kounde/profil/spieler/411975",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "22": {
+      "tm_url": "https://www.transfermarkt.it/adrien-rabiot/profil/spieler/182913",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "23": {
+      "tm_url": "https://www.transfermarkt.it/harry-kane/profil/spieler/132098",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "24": {
+      "tm_url": "https://www.transfermarkt.it/jude-bellingham/profil/spieler/581678",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "25": {
+      "tm_url": "https://www.transfermarkt.it/phil-foden/profil/spieler/406635",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "26": {
+      "tm_url": "https://www.transfermarkt.it/bukayo-saka/profil/spieler/433177",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "27": {
+      "tm_url": "https://www.transfermarkt.it/declan-rice/profil/spieler/357662",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "28": {
+      "tm_url": "https://www.transfermarkt.it/kyle-walker/profil/spieler/95424",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "29": {
+      "tm_url": "https://www.transfermarkt.it/jordan-pickford/profil/spieler/130164",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "30": {
+      "tm_url": "https://www.transfermarkt.it/john-stones/profil/spieler/186590",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "31": {
+      "tm_url": "https://www.transfermarkt.it/trent-alexander-arnold/profil/spieler/314353",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "32": {
+      "tm_url": "https://www.transfermarkt.it/luke-shaw/profil/spieler/183288",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "33": {
+      "tm_url": "https://www.transfermarkt.it/cole-palmer/profil/spieler/568177",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "38": {
+      "tm_url": "https://www.transfermarkt.it/bruno-guimaraes/profil/spieler/520624",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "39": {
+      "tm_url": "https://www.transfermarkt.it/casemiro/profil/spieler/16306",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "40": {
+      "tm_url": "https://www.transfermarkt.it/marquinhos/profil/spieler/181767",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "41": {
+      "tm_url": "https://www.transfermarkt.it/eder-militao/profil/spieler/401530",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "42": {
+      "tm_url": "https://www.transfermarkt.it/danilo/profil/spieler/145707",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "43": {
+      "tm_url": "https://www.transfermarkt.it/lucas-paqueta/profil/spieler/444523",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "44": {
+      "tm_url": "https://www.transfermarkt.it/endrick/profil/spieler/971570",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "45": {
+      "tm_url": "https://www.transfermarkt.it/lamine-yamal/profil/spieler/937958",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "46": {
+      "tm_url": "https://www.transfermarkt.it/pedri/profil/spieler/683840",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "47": {
+      "tm_url": "https://www.transfermarkt.it/rodri/profil/spieler/357565",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "48": {
+      "tm_url": "https://www.transfermarkt.it/gavi/profil/spieler/646740",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "49": {
+      "tm_url": "https://www.transfermarkt.it/nico-williams/profil/spieler/709187",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "50": {
+      "tm_url": "https://www.transfermarkt.it/unai-simon/profil/spieler/262396",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "52": {
+      "tm_url": "https://www.transfermarkt.it/aymeric-laporte/profil/spieler/176553",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "53": {
+      "tm_url": "https://www.transfermarkt.it/robin-le-normand/profil/spieler/351809",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "54": {
+      "tm_url": "https://www.transfermarkt.it/alejandro-balde/profil/spieler/636688",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "55": {
+      "tm_url": "https://www.transfermarkt.it/dani-olmo/profil/spieler/293385",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "56": {
+      "tm_url": "https://www.transfermarkt.it/joshua-kimmich/profil/spieler/161056",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "57": {
+      "tm_url": "https://www.transfermarkt.it/florian-wirtz/profil/spieler/598577",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "58": {
+      "tm_url": "https://www.transfermarkt.it/jamal-musiala/profil/spieler/580195",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "59": {
+      "tm_url": "https://www.transfermarkt.it/kai-havertz/profil/spieler/309400",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "60": {
+      "tm_url": "https://www.transfermarkt.it/ilkay-gundogan/profil/spieler/53622",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "61": {
+      "tm_url": "https://www.transfermarkt.it/antonio-rudiger/profil/spieler/86202",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "62": {
+      "tm_url": "https://www.transfermarkt.it/marc-andre-ter-stegen/profil/spieler/74857",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "63": {
+      "tm_url": "https://www.transfermarkt.it/niclas-fullkrug/profil/spieler/75489",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "64": {
+      "tm_url": "https://www.transfermarkt.it/leroy-sane/profil/spieler/192565",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "65": {
+      "tm_url": "https://www.transfermarkt.it/jonathan-tah/profil/spieler/196357",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "66": {
+      "tm_url": "https://www.transfermarkt.it/maximilian-mittelstadt/profil/spieler/282660",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "67": {
+      "tm_url": "https://www.transfermarkt.it/cristiano-ronaldo/profil/spieler/8198",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "68": {
+      "tm_url": "https://www.transfermarkt.it/bruno-fernandes/profil/spieler/240306",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "69": {
+      "tm_url": "https://www.transfermarkt.it/bernardo-silva/profil/spieler/241641",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "70": {
+      "tm_url": "https://www.transfermarkt.it/rafael-leao/profil/spieler/357164",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "71": {
+      "tm_url": "https://www.transfermarkt.it/ruben-dias/profil/spieler/258004",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "72": {
+      "tm_url": "https://www.transfermarkt.it/joao-mario/profil/spieler/537602",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "73": {
+      "tm_url": "https://www.transfermarkt.it/diogo-costa/profil/spieler/357153",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "74": {
+      "tm_url": "https://www.transfermarkt.it/goncalo-inacio/profil/spieler/549006",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "75": {
+      "tm_url": "https://www.transfermarkt.it/nuno-mendes/profil/spieler/616341",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "76": {
+      "tm_url": "https://www.transfermarkt.it/vitinha/profil/spieler/487469",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "77": {
+      "tm_url": "https://www.transfermarkt.it/joao-neves/profil/spieler/670681",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "78": {
+      "tm_url": "https://www.transfermarkt.it/virgil-van-dijk/profil/spieler/139208",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "79": {
+      "tm_url": "https://www.transfermarkt.it/frenkie-de-jong/profil/spieler/326330",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "80": {
+      "tm_url": "https://www.transfermarkt.it/xavi-simons/profil/spieler/566931",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "81": {
+      "tm_url": "https://www.transfermarkt.it/memphis-depay/profil/spieler/167850",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "82": {
+      "tm_url": "https://www.transfermarkt.it/cody-gakpo/profil/spieler/434675",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "83": {
+      "tm_url": "https://www.transfermarkt.it/nathan-ake/profil/spieler/177476",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "84": {
+      "tm_url": "https://www.transfermarkt.it/denzel-dumfries/profil/spieler/321528",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "85": {
+      "tm_url": "https://www.transfermarkt.it/bart-verbruggen/profil/spieler/565093",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "86": {
+      "tm_url": "https://www.transfermarkt.it/matthijs-de-ligt/profil/spieler/326031",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "87": {
+      "tm_url": "https://www.transfermarkt.it/jeremie-frimpong/profil/spieler/484547",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "88": {
+      "tm_url": "https://www.transfermarkt.it/teun-koopmeiners/profil/spieler/360518",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "89": {
+      "tm_url": "https://www.transfermarkt.it/christian-pulisic/profil/spieler/315779",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "90": {
+      "tm_url": "https://www.transfermarkt.it/weston-mckennie/profil/spieler/332697",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "92": {
+      "tm_url": "https://www.transfermarkt.it/folarin-balogun/profil/spieler/503770",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "93": {
+      "tm_url": "https://www.transfermarkt.it/tyler-adams/profil/spieler/332705",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "94": {
+      "tm_url": "https://www.transfermarkt.it/matt-freese/profil/spieler/509923"
+    },
+    "95": {
+      "tm_url": "https://www.transfermarkt.it/sergino-dest/profil/spieler/361104",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "96": {
+      "tm_url": "https://www.transfermarkt.it/antonee-robinson/profil/spieler/349701",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "97": {
+      "tm_url": "https://www.transfermarkt.it/chris-richards/profil/spieler/578539",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "98": {
+      "tm_url": "https://www.transfermarkt.it/yunus-musah/profil/spieler/503991",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "100": {
+      "tm_url": "https://www.transfermarkt.it/raul-rangel/profil/spieler/728522"
+    },
+    "102": {
+      "tm_url": "https://www.transfermarkt.it/edson-alvarez/profil/spieler/401356",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "103": {
+      "tm_url": "https://www.transfermarkt.it/hirving-lozano/profil/spieler/316889",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "104": {
+      "tm_url": "https://www.transfermarkt.it/luis-chavez/profil/spieler/952717",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "105": {
+      "tm_url": "https://www.transfermarkt.it/johan-vasquez/profil/spieler/72683",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "106": {
+      "tm_url": "https://www.transfermarkt.it/cesar-montes/profil/spieler/387687",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "107": {
+      "tm_url": "https://www.transfermarkt.it/jorge-sanchez/profil/spieler/720491",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "108": {
+      "tm_url": "https://www.transfermarkt.it/gerardo-arteaga/profil/spieler/469718",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "109": {
+      "tm_url": "https://www.transfermarkt.it/orbelin-pineda/profil/spieler/334042",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "110": {
+      "tm_url": "https://www.transfermarkt.it/julian-quinones/profil/spieler/416090"
+    },
+    "111": {
+      "tm_url": "https://www.transfermarkt.it/alphonso-davies/profil/spieler/424204",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "112": {
+      "tm_url": "https://www.transfermarkt.it/jonathan-david/profil/spieler/533738",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "113": {
+      "tm_url": "https://www.transfermarkt.it/cyle-larin/profil/spieler/343463",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "114": {
+      "tm_url": "https://www.transfermarkt.it/stephen-eustaquio/profil/spieler/512913",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "115": {
+      "tm_url": "https://www.transfermarkt.it/tajon-buchanan/profil/spieler/638793",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "116": {
+      "tm_url": "https://www.transfermarkt.it/maxime-crepeau/profil/spieler/189014",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "117": {
+      "tm_url": "https://www.transfermarkt.it/alistair-johnston/profil/spieler/637446",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "118": {
+      "tm_url": "https://www.transfermarkt.it/kamal-miller/profil/spieler/487504",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "119": {
+      "tm_url": "https://www.transfermarkt.it/ismael-kone/profil/spieler/921655",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "120": {
+      "tm_url": "https://www.transfermarkt.it/derek-cornelius/profil/spieler/501712"
+    },
+    "121": {
+      "tm_url": "https://www.transfermarkt.it/richie-laryea/profil/spieler/417753",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "122": {
+      "tm_url": "https://www.transfermarkt.it/achraf-hakimi/profil/spieler/398073",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "123": {
+      "tm_url": "https://www.transfermarkt.it/yassine-bounou/profil/spieler/207834",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "124": {
+      "tm_url": "https://www.transfermarkt.it/hakim-ziyech/profil/spieler/217111",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "125": {
+      "tm_url": "https://www.transfermarkt.it/sofyan-amrabat/profil/spieler/287579",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "126": {
+      "tm_url": "https://www.transfermarkt.it/brahim-diaz/profil/spieler/314678",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "127": {
+      "tm_url": "https://www.transfermarkt.it/nayef-aguerd/profil/spieler/361914",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "128": {
+      "tm_url": "https://www.transfermarkt.it/romain-saiss/profil/spieler/204198",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "129": {
+      "tm_url": "https://www.transfermarkt.it/azzedine-ounahi/profil/spieler/593482",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "130": {
+      "tm_url": "https://www.transfermarkt.it/youssef-en-nesyri/profil/spieler/433049",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "131": {
+      "tm_url": "https://www.transfermarkt.it/noussair-mazraoui/profil/spieler/340456",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "132": {
+      "tm_url": "https://www.transfermarkt.it/amine-adli/profil/spieler/532776",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "133": {
+      "tm_url": "https://www.transfermarkt.it/wataru-endo/profil/spieler/146310",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "134": {
+      "tm_url": "https://www.transfermarkt.it/takefusa-kubo/profil/spieler/405398",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "135": {
+      "tm_url": "https://www.transfermarkt.it/kaoru-mitoma/profil/spieler/504849",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "136": {
+      "tm_url": "https://www.transfermarkt.it/junya-ito/profil/spieler/444096",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "137": {
+      "tm_url": "https://www.transfermarkt.it/ko-itakura/profil/spieler/355816",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "138": {
+      "tm_url": "https://www.transfermarkt.it/takehiro-tomiyasu/profil/spieler/331560",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "139": {
+      "tm_url": "https://www.transfermarkt.it/zion-suzuki/profil/spieler/432298",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "140": {
+      "tm_url": "https://www.transfermarkt.it/hidemasa-morita/profil/spieler/524315",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "141": {
+      "tm_url": "https://www.transfermarkt.it/ritsu-doan/profil/spieler/358504",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "142": {
+      "tm_url": "https://www.transfermarkt.it/kyogo-furuhashi/profil/spieler/489463",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "143": {
+      "tm_url": "https://www.transfermarkt.it/ayase-ueda/profil/spieler/589128",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "144": {
+      "tm_url": "https://www.transfermarkt.it/kalidou-koulibaly/profil/spieler/93128",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "145": {
+      "tm_url": "https://www.transfermarkt.it/sadio-mane/profil/spieler/200512",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "146": {
+      "tm_url": "https://www.transfermarkt.it/edouard-mendy/profil/spieler/442531",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "147": {
+      "tm_url": "https://www.transfermarkt.it/idrissa-gueye/profil/spieler/126665",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "149": {
+      "tm_url": "https://www.transfermarkt.it/nicolas-jackson/profil/spieler/776890",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "150": {
+      "tm_url": "https://www.transfermarkt.it/pape-sarr/profil/spieler/3906",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "151": {
+      "tm_url": "https://www.transfermarkt.it/moussa-niakhate/profil/spieler/291200",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "152": {
+      "tm_url": "https://www.transfermarkt.it/abdou-diallo/profil/spieler/229005",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "153": {
+      "tm_url": "https://www.transfermarkt.it/youssouf-sabaly/profil/spieler/135492",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "154": {
+      "tm_url": "https://www.transfermarkt.it/boulaye-dia/profil/spieler/626913",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "160": {
+      "tm_url": "https://www.transfermarkt.it/ui-jo-hwang/profil/spieler/260166",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "161": {
+      "tm_url": "https://www.transfermarkt.it/woo-yeong-jeong/profil/spieler/297583",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "162": {
+      "tm_url": "https://www.transfermarkt.it/tae-hyeon-kim/profil/spieler/650581",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "163": {
+      "tm_url": "https://www.transfermarkt.it/yu-min-cho/profil/spieler/550942",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "164": {
+      "tm_url": "https://www.transfermarkt.it/hyeon-woo-jo/profil/spieler/779130",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "165": {
+      "tm_url": "https://www.transfermarkt.it/jae-sung-lee/profil/spieler/650983",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "166": {
+      "tm_url": "https://www.transfermarkt.it/mathew-ryan/profil/spieler/128969",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "167": {
+      "tm_url": "https://www.transfermarkt.it/harry-souttar/profil/spieler/298091",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "168": {
+      "tm_url": "https://www.transfermarkt.it/jackson-irvine/profil/spieler/192557",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "169": {
+      "tm_url": "https://www.transfermarkt.it/craig-goodwin/profil/spieler/214798",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "170": {
+      "tm_url": "https://www.transfermarkt.it/mitchell-duke/profil/spieler/177775",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "171": {
+      "tm_url": "https://www.transfermarkt.it/ajdin-hrustic/profil/spieler/265625",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "172": {
+      "tm_url": "https://www.transfermarkt.it/riley-mcgree/profil/spieler/428061",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "173": {
+      "tm_url": "https://www.transfermarkt.it/aziz-behich/profil/spieler/136834",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "174": {
+      "tm_url": "https://www.transfermarkt.it/kye-rowles/profil/spieler/399990",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "175": {
+      "tm_url": "https://www.transfermarkt.it/nathaniel-atkinson/profil/spieler/556038",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "176": {
+      "tm_url": "https://www.transfermarkt.it/martin-boyle/profil/spieler/140554",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "177": {
+      "tm_url": "https://www.transfermarkt.it/salem-al-dawsari/profil/spieler/195332",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "178": {
+      "tm_url": "https://www.transfermarkt.it/firas-al-buraikan/profil/spieler/631922",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "179": {
+      "tm_url": "https://www.transfermarkt.it/saleh-al-shehri/profil/spieler/981954",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "180": {
+      "tm_url": "https://www.transfermarkt.it/abdulelah-al-amri/profil/spieler/509894",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "181": {
+      "tm_url": "https://www.transfermarkt.it/mohammed-al-owaisi/profil/spieler/1077586",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "182": {
+      "tm_url": "https://www.transfermarkt.it/saud-abdulhamid/profil/spieler/631927",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "184": {
+      "tm_url": "https://www.transfermarkt.it/sultan-al-ghannam/profil/spieler/435045",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "185": {
+      "tm_url": "https://www.transfermarkt.it/hassan-tambakti/profil/spieler/509897",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "186": {
+      "tm_url": "https://www.transfermarkt.it/abdulrahman-al-oboud/profil/spieler/441191",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "188": {
+      "tm_url": "https://www.transfermarkt.it/erling-haaland/profil/spieler/418560"
+    },
+    "189": {
+      "tm_url": "https://www.transfermarkt.it/martin-odegaard/profil/spieler/316264"
+    },
+    "190": {
+      "tm_url": "https://www.transfermarkt.it/alexander-sorloth/profil/spieler/238407"
+    },
+    "191": {
+      "tm_url": "https://www.transfermarkt.it/sander-berge/profil/spieler/333014"
+    },
+    "192": {
+      "tm_url": "https://www.transfermarkt.it/kristoffer-ajer/profil/spieler/328658"
+    },
+    "193": {
+      "tm_url": "https://www.transfermarkt.it/oscar-bobb/profil/spieler/661207"
+    },
+    "194": {
+      "tm_url": "https://www.transfermarkt.it/orjan-nyland/profil/spieler/73517"
+    },
+    "195": {
+      "tm_url": "https://www.transfermarkt.it/julian-ryerson/profil/spieler/370789"
+    },
+    "196": {
+      "tm_url": "https://www.transfermarkt.it/david-moller-wolfe/profil/spieler/661427"
+    },
+    "197": {
+      "tm_url": "https://www.transfermarkt.it/antonio-nusa/profil/spieler/894914"
+    },
+    "198": {
+      "tm_url": "https://www.transfermarkt.it/leo-ostigard/profil/spieler/367284"
+    },
+    "199": {
+      "tm_url": "https://www.transfermarkt.it/granit-xhaka/profil/spieler/111455",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "200": {
+      "tm_url": "https://www.transfermarkt.it/gregor-kobel/profil/spieler/257814"
+    },
+    "201": {
+      "tm_url": "https://www.transfermarkt.it/manuel-akanji/profil/spieler/284730",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "202": {
+      "tm_url": "https://www.transfermarkt.it/xherdan-shaqiri/profil/spieler/86792",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "203": {
+      "tm_url": "https://www.transfermarkt.it/breel-embolo/profil/spieler/237662",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "204": {
+      "tm_url": "https://www.transfermarkt.it/remo-freuler/profil/spieler/148252",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "205": {
+      "tm_url": "https://www.transfermarkt.it/dan-ndoye/profil/spieler/365108"
+    },
+    "206": {
+      "tm_url": "https://www.transfermarkt.it/ricardo-rodriguez/profil/spieler/86784",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "207": {
+      "tm_url": "https://www.transfermarkt.it/fabian-scharnhorst/profil/spieler/1432276",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "208": {
+      "tm_url": "https://www.transfermarkt.it/kwadwo-duah/profil/spieler/254955",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "209": {
+      "tm_url": "https://www.transfermarkt.it/silvan-widmer/profil/spieler/168989",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "210": {
+      "tm_url": "https://www.transfermarkt.it/luka-modric/profil/spieler/27992"
+    },
+    "215": {
+      "tm_url": "https://www.transfermarkt.it/ivan-perisic/profil/spieler/42460",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "216": {
+      "tm_url": "https://www.transfermarkt.it/nikola-vlasic/profil/spieler/293200",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "219": {
+      "tm_url": "https://www.transfermarkt.it/martin-baturina/profil/spieler/580451"
+    },
+    "220": {
+      "tm_url": "https://www.transfermarkt.it/ante-budimir/profil/spieler/46413",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "221": {
+      "tm_url": "https://www.transfermarkt.it/tomas-soucek/profil/spieler/283628",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "222": {
+      "tm_url": "https://www.transfermarkt.it/patrik-schick/profil/spieler/242086",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "225": {
+      "tm_url": "https://www.transfermarkt.it/ladislav-krejci/profil/spieler/345911",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "226": {
+      "tm_url": "https://www.transfermarkt.it/vladimir-coufal/profil/spieler/157672",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "229": {
+      "tm_url": "https://www.transfermarkt.it/michal-sadilek/profil/spieler/321204",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "230": {
+      "tm_url": "https://www.transfermarkt.it/david-zima/profil/spieler/544149",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "232": {
+      "tm_url": "https://www.transfermarkt.it/alexander-isak/profil/spieler/349066",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "233": {
+      "tm_url": "https://www.transfermarkt.it/viktor-gyokeres/profil/spieler/325443",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "234": {
+      "tm_url": "https://www.transfermarkt.it/anthony-elanga/profil/spieler/583189",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "235": {
+      "tm_url": "https://www.transfermarkt.it/dejan-kulusevski/profil/spieler/431755",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "236": {
+      "tm_url": "https://www.transfermarkt.it/yasin-ayari/profil/spieler/667287",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "237": {
+      "tm_url": "https://www.transfermarkt.it/lucas-bergvall/profil/spieler/866246",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "238": {
+      "tm_url": "https://www.transfermarkt.it/robin-olsen/profil/spieler/75458",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "239": {
+      "tm_url": "https://www.transfermarkt.it/isak-hien/profil/spieler/503075",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "240": {
+      "tm_url": "https://www.transfermarkt.it/emil-krafth/profil/spieler/184528",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "241": {
+      "tm_url": "https://www.transfermarkt.it/mattias-svanberg/profil/spieler/342405",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "242": {
+      "tm_url": "https://www.transfermarkt.it/jesper-karlsson/profil/spieler/367992",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "243": {
+      "tm_url": "https://www.transfermarkt.it/hakan-calhanoglu/profil/spieler/126414",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "244": {
+      "tm_url": "https://www.transfermarkt.it/arda-guler/profil/spieler/861410",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "245": {
+      "tm_url": "https://www.transfermarkt.it/kenan-yildiz/profil/spieler/845654",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "246": {
+      "tm_url": "https://www.transfermarkt.it/baris-alper-yilmaz/profil/spieler/541537",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "247": {
+      "tm_url": "https://www.transfermarkt.it/ferdi-kadioglu/profil/spieler/369316",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "248": {
+      "tm_url": "https://www.transfermarkt.it/mert-gunok/profil/spieler/51894",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "249": {
+      "tm_url": "https://www.transfermarkt.it/abdulkerim-bardakci/profil/spieler/199316",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "250": {
+      "tm_url": "https://www.transfermarkt.it/samet-akaydin/profil/spieler/295024",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "251": {
+      "tm_url": "https://www.transfermarkt.it/zeki-celik/profil/spieler/251075"
+    },
+    "252": {
+      "tm_url": "https://www.transfermarkt.it/orkun-kokcu/profil/spieler/454567",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "253": {
+      "tm_url": "https://www.transfermarkt.it/kerem-akturkoglu/profil/spieler/382528",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "254": {
+      "tm_url": "https://www.transfermarkt.it/andrew-robertson/profil/spieler/984396",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "255": {
+      "tm_url": "https://www.transfermarkt.it/scott-mctominay/profil/spieler/315969",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "256": {
+      "tm_url": "https://www.transfermarkt.it/john-mcginn/profil/spieler/193116",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "257": {
+      "tm_url": "https://www.transfermarkt.it/billy-gilmour/profil/spieler/423744",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "258": {
+      "tm_url": "https://www.transfermarkt.it/che-adams/profil/spieler/346779",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "259": {
+      "tm_url": "https://www.transfermarkt.it/angus-gunn/profil/spieler/201574",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "260": {
+      "tm_url": "https://www.transfermarkt.it/ryan-porteous/profil/spieler/793682",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "261": {
+      "tm_url": "https://www.transfermarkt.it/jack-hendry/profil/spieler/363223",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "262": {
+      "tm_url": "https://www.transfermarkt.it/kieran-tierney/profil/spieler/300716",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "263": {
+      "tm_url": "https://www.transfermarkt.it/callum-mcgregor/profil/spieler/64309",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "264": {
+      "tm_url": "https://www.transfermarkt.it/lawrence-shankland/profil/spieler/225744",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "265": {
+      "tm_url": "https://www.transfermarkt.it/kevin-de-bruyne/profil/spieler/88755",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "266": {
+      "tm_url": "https://www.transfermarkt.it/romelu-lukaku/profil/spieler/96341",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "267": {
+      "tm_url": "https://www.transfermarkt.it/thibaut-courtois/profil/spieler/108390",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "268": {
+      "tm_url": "https://www.transfermarkt.it/jeremy-doku/profil/spieler/486049",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "269": {
+      "tm_url": "https://www.transfermarkt.it/youri-tielemans/profil/spieler/249565",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "270": {
+      "tm_url": "https://www.transfermarkt.it/leandro-trossard/profil/spieler/144028",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "271": {
+      "tm_url": "https://www.transfermarkt.it/arthur-theate/profil/spieler/368891",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "272": {
+      "tm_url": "https://www.transfermarkt.it/timothy-castagne/profil/spieler/262226",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "273": {
+      "tm_url": "https://www.transfermarkt.it/axel-witsel/profil/spieler/35047",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "274": {
+      "tm_url": "https://www.transfermarkt.it/brandon-mechele/profil/spieler/236168",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "275": {
+      "tm_url": "https://www.transfermarkt.it/maxim-de-cuyper/profil/spieler/429915",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "276": {
+      "tm_url": "https://www.transfermarkt.it/david-alaba/profil/spieler/59016",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "277": {
+      "tm_url": "https://www.transfermarkt.it/marcel-sabitzer/profil/spieler/106987",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "278": {
+      "tm_url": "https://www.transfermarkt.it/christoph-baumgartner/profil/spieler/324278",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "279": {
+      "tm_url": "https://www.transfermarkt.it/konrad-laimer/profil/spieler/223967",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "280": {
+      "tm_url": "https://www.transfermarkt.it/marko-arnautovic/profil/spieler/41384",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "281": {
+      "tm_url": "https://www.transfermarkt.it/patrick-pentz/profil/spieler/223975",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "282": {
+      "tm_url": "https://www.transfermarkt.it/kevin-danso/profil/spieler/263236",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "283": {
+      "tm_url": "https://www.transfermarkt.it/philipp-lienhart/profil/spieler/225657",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "284": {
+      "tm_url": "https://www.transfermarkt.it/stefan-lainer/profil/spieler/85791",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "285": {
+      "tm_url": "https://www.transfermarkt.it/nicolas-seiwald/profil/spieler/404950",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "286": {
+      "tm_url": "https://www.transfermarkt.it/michael-gregoritsch/profil/spieler/155172",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "287": {
+      "tm_url": "https://www.transfermarkt.it/james-rodriguez/profil/spieler/88103",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "288": {
+      "tm_url": "https://www.transfermarkt.it/luis-diaz/profil/spieler/926365",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "289": {
+      "tm_url": "https://www.transfermarkt.it/jefferson-lerma/profil/spieler/262980",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "290": {
+      "tm_url": "https://www.transfermarkt.it/richard-rios/profil/spieler/842997",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "291": {
+      "tm_url": "https://www.transfermarkt.it/daniel-munoz/profil/spieler/822869",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "292": {
+      "tm_url": "https://www.transfermarkt.it/camilo-vargas/profil/spieler/74113",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "293": {
+      "tm_url": "https://www.transfermarkt.it/davinson-sanchez/profil/spieler/341429",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "294": {
+      "tm_url": "https://www.transfermarkt.it/carlos-cuesta/profil/spieler/474589",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "295": {
+      "tm_url": "https://www.transfermarkt.it/jhon-arias/profil/spieler/588989",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "296": {
+      "tm_url": "https://www.transfermarkt.it/jhon-rovira/profil/spieler/846369",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "297": {
+      "tm_url": "https://www.transfermarkt.it/yaser-asprilla/profil/spieler/857818",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "298": {
+      "tm_url": "https://www.transfermarkt.it/moises-caicedo/profil/spieler/687626",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "299": {
+      "tm_url": "https://www.transfermarkt.it/enner-valencia/profil/spieler/139503",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "300": {
+      "tm_url": "https://www.transfermarkt.it/piero-hincapie/profil/spieler/659813",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "301": {
+      "tm_url": "https://www.transfermarkt.it/pervis-estupinan/profil/spieler/349599",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "302": {
+      "tm_url": "https://www.transfermarkt.it/kendry-paez/profil/spieler/1052439",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "303": {
+      "tm_url": "https://www.transfermarkt.it/hernan-galindez/profil/spieler/77127",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "304": {
+      "tm_url": "https://www.transfermarkt.it/willian-pacho/profil/spieler/661171",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "305": {
+      "tm_url": "https://www.transfermarkt.it/felix-torres/profil/spieler/780346",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "306": {
+      "tm_url": "https://www.transfermarkt.it/angelo-preciado/profil/spieler/450241",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "307": {
+      "tm_url": "https://www.transfermarkt.it/alan-franco/profil/spieler/503343",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "308": {
+      "tm_url": "https://www.transfermarkt.it/jeremy-sarmiento/profil/spieler/568005",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "309": {
+      "tm_url": "https://www.transfermarkt.it/julio-enciso/profil/spieler/660867",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "310": {
+      "tm_url": "https://www.transfermarkt.it/miguel-almiron/profil/spieler/272999",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "311": {
+      "tm_url": "https://www.transfermarkt.it/gustavo-gomez/profil/spieler/996195",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "312": {
+      "tm_url": "https://www.transfermarkt.it/omar-alderete/profil/spieler/353032",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "313": {
+      "tm_url": "https://www.transfermarkt.it/roberto-fernandez/profil/spieler/107318",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "314": {
+      "tm_url": "https://www.transfermarkt.it/fabian-balbuena/profil/spieler/285548",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "315": {
+      "tm_url": "https://www.transfermarkt.it/mathias-villasanti/profil/spieler/436385",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "316": {
+      "tm_url": "https://www.transfermarkt.it/diego-gomez/profil/spieler/996897",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "317": {
+      "tm_url": "https://www.transfermarkt.it/ramon-sosa/profil/spieler/745191",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "318": {
+      "tm_url": "https://www.transfermarkt.it/adam-bareiro/profil/spieler/514120",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "320": {
+      "tm_url": "https://www.transfermarkt.it/leandro-bacuna/profil/spieler/126014",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "321": {
+      "tm_url": "https://www.transfermarkt.it/tahith-chong/profil/spieler/344830",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "322": {
+      "tm_url": "https://www.transfermarkt.it/eloy-room/profil/spieler/79294",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "323": {
+      "tm_url": "https://www.transfermarkt.it/riechedly-bazoer/profil/spieler/216443",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "324": {
+      "tm_url": "https://www.transfermarkt.it/armando-obispo/profil/spieler/339337",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "325": {
+      "tm_url": "https://www.transfermarkt.it/jurgen-locadia/profil/spieler/166240",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "326": {
+      "tm_url": "https://www.transfermarkt.it/juninho-bacuna/profil/spieler/348863",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "327": {
+      "tm_url": "https://www.transfermarkt.it/joshua-brenet/profil/spieler/207006",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "328": {
+      "tm_url": "https://www.transfermarkt.it/sherel-floranus/profil/spieler/315211",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "329": {
+      "tm_url": "https://www.transfermarkt.it/gervane-kastaneer/profil/spieler/240752",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "330": {
+      "tm_url": "https://www.transfermarkt.it/shurandy-sambo/profil/spieler/412937",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "331": {
+      "tm_url": "https://www.transfermarkt.it/federico-valverde/profil/spieler/369081",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "332": {
+      "tm_url": "https://www.transfermarkt.it/darwin-nunez/profil/spieler/546543",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "334": {
+      "tm_url": "https://www.transfermarkt.it/jose-maria-gimenez/profil/spieler/250845",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "335": {
+      "tm_url": "https://www.transfermarkt.it/manuel-ugarte/profil/spieler/476701",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "336": {
+      "tm_url": "https://www.transfermarkt.it/rodrigo-bentancur/profil/spieler/354362",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "337": {
+      "tm_url": "https://www.transfermarkt.it/sergio-rochet/profil/spieler/264014",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "338": {
+      "tm_url": "https://www.transfermarkt.it/mathias-olivera/profil/spieler/376514",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "339": {
+      "tm_url": "https://www.transfermarkt.it/agustin-canobbio/profil/spieler/457533",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "340": {
+      "tm_url": "https://www.transfermarkt.it/brian-rodriguez/profil/spieler/465818",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "341": {
+      "tm_url": "https://www.transfermarkt.it/guillermo-varela/profil/spieler/188862",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "344": {
+      "tm_url": "https://www.transfermarkt.it/amar-dedic/profil/spieler/519184",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "347": {
+      "tm_url": "https://www.transfermarkt.it/benjamin-tahirovic/profil/spieler/787907",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "350": {
+      "tm_url": "https://www.transfermarkt.it/srdjan-grahovac/profil/spieler/123158",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "351": {
+      "tm_url": "https://www.transfermarkt.it/nikola-vasilj/profil/spieler/248454",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "353": {
+      "tm_url": "https://www.transfermarkt.it/riyad-mahrez/profil/spieler/171424",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "354": {
+      "tm_url": "https://www.transfermarkt.it/said-benrahma/profil/spieler/290532",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "355": {
+      "tm_url": "https://www.transfermarkt.it/amine-gouiri/profil/spieler/418659",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "356": {
+      "tm_url": "https://www.transfermarkt.it/ismael-bennacer/profil/spieler/351816",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "357": {
+      "tm_url": "https://www.transfermarkt.it/ramy-bensebaini/profil/spieler/284732",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "358": {
+      "tm_url": "https://www.transfermarkt.it/anthony-mandrea/profil/spieler/290559",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "359": {
+      "tm_url": "https://www.transfermarkt.it/aissa-mandi/profil/spieler/80293",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "360": {
+      "tm_url": "https://www.transfermarkt.it/youcef-atal/profil/spieler/416108",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "361": {
+      "tm_url": "https://www.transfermarkt.it/rayan-ait-nouri/profil/spieler/578391",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "362": {
+      "tm_url": "https://www.transfermarkt.it/houssem-aouar/profil/spieler/395693",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "363": {
+      "tm_url": "https://www.transfermarkt.it/baghdad-bounedjah/profil/spieler/209992",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "364": {
+      "tm_url": "https://www.transfermarkt.it/mohammed-kudus/profil/spieler/543499",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "365": {
+      "tm_url": "https://www.transfermarkt.it/inaki-williams/profil/spieler/255508",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "366": {
+      "tm_url": "https://www.transfermarkt.it/thomas-partey/profil/spieler/230784",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "367": {
+      "tm_url": "https://www.transfermarkt.it/jordan-ayew/profil/spieler/108354",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "369": {
+      "tm_url": "https://www.transfermarkt.it/mohammed-salisu/profil/spieler/563963",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "370": {
+      "tm_url": "https://www.transfermarkt.it/tariq-lamptey/profil/spieler/504148",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "371": {
+      "tm_url": "https://www.transfermarkt.it/alidu-seidu/profil/spieler/798404",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "372": {
+      "tm_url": "https://www.transfermarkt.it/ernest-nuamah/profil/spieler/955070",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "373": {
+      "tm_url": "https://www.transfermarkt.it/antoine-semenyo/profil/spieler/583255",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "374": {
+      "tm_url": "https://www.transfermarkt.it/gideon-mensah/profil/spieler/397171",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "375": {
+      "tm_url": "https://www.transfermarkt.it/yoane-wissa/profil/spieler/388165",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "376": {
+      "tm_url": "https://www.transfermarkt.it/chancel-mbemba/profil/spieler/203348",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "377": {
+      "tm_url": "https://www.transfermarkt.it/cedric-bakambu/profil/spieler/127048",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "378": {
+      "tm_url": "https://www.transfermarkt.it/ngalayel-mukau/profil/spieler/1016015",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "379": {
+      "tm_url": "https://www.transfermarkt.it/aaron-wan-bissaka/profil/spieler/477758",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "380": {
+      "tm_url": "https://www.transfermarkt.it/samuel-moutoussamy/profil/spieler/353403",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "381": {
+      "tm_url": "https://www.transfermarkt.it/gael-kakuta/profil/spieler/74297",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "382": {
+      "tm_url": "https://www.transfermarkt.it/arthur-masuaku/profil/spieler/181380",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "384": {
+      "tm_url": "https://www.transfermarkt.it/meschack-elia/profil/spieler/423678",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "386": {
+      "tm_url": "https://www.transfermarkt.it/ryan-mendes/profil/spieler/111627",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "387": {
+      "tm_url": "https://www.transfermarkt.it/logan-costa/profil/spieler/484988",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "388": {
+      "tm_url": "https://www.transfermarkt.it/dailon-livramento/profil/spieler/676411",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "389": {
+      "tm_url": "https://www.transfermarkt.it/vozinha/profil/spieler/242277",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "390": {
+      "tm_url": "https://www.transfermarkt.it/jovane-cabral/profil/spieler/448466",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "391": {
+      "tm_url": "https://www.transfermarkt.it/roberto-lopes/profil/spieler/166158",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "392": {
+      "tm_url": "https://www.transfermarkt.it/steven-moreira/profil/spieler/203517",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "393": {
+      "tm_url": "https://www.transfermarkt.it/jamiro-monteiro/profil/spieler/272930",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "394": {
+      "tm_url": "https://www.transfermarkt.it/wagner-pina/profil/spieler/1072017",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "395": {
+      "tm_url": "https://www.transfermarkt.it/deroy-duarte/profil/spieler/432852",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "396": {
+      "tm_url": "https://www.transfermarkt.it/nuno-da-costa/profil/spieler/306166",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "397": {
+      "tm_url": "https://www.transfermarkt.it/sebastien-haller/profil/spieler/181375",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "398": {
+      "tm_url": "https://www.transfermarkt.it/franck-kessie/profil/spieler/294808",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "399": {
+      "tm_url": "https://www.transfermarkt.it/simon-adingra/profil/spieler/658536",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "400": {
+      "tm_url": "https://www.transfermarkt.it/ousmane-diomande/profil/spieler/974982",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "401": {
+      "tm_url": "https://www.transfermarkt.it/evan-ndicka/profil/spieler/371149",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "402": {
+      "tm_url": "https://www.transfermarkt.it/wilfried-singo/profil/spieler/648779",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "403": {
+      "tm_url": "https://www.transfermarkt.it/seko-fofana/profil/spieler/182893",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "404": {
+      "tm_url": "https://www.transfermarkt.it/ibrahim-sangare/profil/spieler/375885",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "405": {
+      "tm_url": "https://www.transfermarkt.it/yahia-fofana/profil/spieler/418651",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "406": {
+      "tm_url": "https://www.transfermarkt.it/max-gradel/profil/spieler/28140",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "407": {
+      "tm_url": "https://www.transfermarkt.it/oumar-diakite/profil/spieler/851129",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "408": {
+      "tm_url": "https://www.transfermarkt.it/aissa-laidouni/profil/spieler/233782",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "409": {
+      "tm_url": "https://www.transfermarkt.it/hannibal/profil/spieler/607224",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "410": {
+      "tm_url": "https://www.transfermarkt.it/ellyes-skhiri/profil/spieler/290587",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "411": {
+      "tm_url": "https://www.transfermarkt.it/youssef-msakni/profil/spieler/69110",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "412": {
+      "tm_url": "https://www.transfermarkt.it/montassar-talbi/profil/spieler/496706",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "413": {
+      "tm_url": "https://www.transfermarkt.it/aymen-dahmen/profil/spieler/569433",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "414": {
+      "tm_url": "https://www.transfermarkt.it/wajdi-kechrida/profil/spieler/407885",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "415": {
+      "tm_url": "https://www.transfermarkt.it/ali-maaloul/profil/spieler/133042",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "416": {
+      "tm_url": "https://www.transfermarkt.it/mohamed-ali-ben-romdhane/profil/spieler/577881",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "417": {
+      "tm_url": "https://www.transfermarkt.it/elias-achouri/profil/spieler/645589",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "419": {
+      "tm_url": "https://www.transfermarkt.it/duckens-nazon/profil/spieler/345763",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "420": {
+      "tm_url": "https://www.transfermarkt.it/johny-placide/profil/spieler/51035",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "421": {
+      "tm_url": "https://www.transfermarkt.it/frantzdy-pierrot/profil/spieler/492955",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "422": {
+      "tm_url": "https://www.transfermarkt.it/wilson-isidor/profil/spieler/494237",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "423": {
+      "tm_url": "https://www.transfermarkt.it/ricardo-ade/profil/spieler/278145",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "424": {
+      "tm_url": "https://www.transfermarkt.it/carlens-arcus/profil/spieler/371686",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "425": {
+      "tm_url": "https://www.transfermarkt.it/leverton-pierre/profil/spieler/552467",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "426": {
+      "tm_url": "https://www.transfermarkt.it/danley-jean-jacques/profil/spieler/628834",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "427": {
+      "tm_url": "https://www.transfermarkt.it/derrick-etienne-jr-/profil/spieler/354763",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "428": {
+      "tm_url": "https://www.transfermarkt.it/lenny-joseph/profil/spieler/815359",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "429": {
+      "tm_url": "https://www.transfermarkt.it/dominique-simon/profil/spieler/988188",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "430": {
+      "tm_url": "https://www.transfermarkt.it/adalberto-carrasquilla/profil/spieler/375300",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "431": {
+      "tm_url": "https://www.transfermarkt.it/cecilio-waterman/profil/spieler/177064"
+    },
+    "432": {
+      "tm_url": "https://www.transfermarkt.it/luis-ismael-diaz/profil/spieler/338729",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "433": {
+      "tm_url": "https://www.transfermarkt.it/orlando-mosquera/profil/spieler/402979",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "434": {
+      "tm_url": "https://www.transfermarkt.it/amir-murillo/profil/spieler/354482",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "435": {
+      "tm_url": "https://www.transfermarkt.it/jose-pablo-cordoba/profil/spieler/663010",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "436": {
+      "tm_url": "https://www.transfermarkt.it/edgardo-farina/profil/spieler/923177",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "437": {
+      "tm_url": "https://www.transfermarkt.it/eric-davis/profil/spieler/1064313",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "438": {
+      "tm_url": "https://www.transfermarkt.it/anibal-godoy/profil/spieler/161671",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "439": {
+      "tm_url": "https://www.transfermarkt.it/juan-jose-rodriguez/profil/spieler/726200",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "440": {
+      "tm_url": "https://www.transfermarkt.it/jose-tapia/profil/spieler/886388",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "441": {
+      "tm_url": "https://www.transfermarkt.it/mehdi-taremi/profil/spieler/307058",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "442": {
+      "tm_url": "https://www.transfermarkt.it/sardar-azmoun/profil/spieler/180337",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "443": {
+      "tm_url": "https://www.transfermarkt.it/alireza-jahanbakhsh/profil/spieler/213268",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "444": {
+      "tm_url": "https://www.transfermarkt.it/alireza-beiranvand/profil/spieler/229081",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "445": {
+      "tm_url": "https://www.transfermarkt.it/shoja-khalilzadeh/profil/spieler/213715",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "446": {
+      "tm_url": "https://www.transfermarkt.it/milad-tabar/profil/spieler/756573",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "447": {
+      "tm_url": "https://www.transfermarkt.it/ramin-rezaeian/profil/spieler/188312",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "448": {
+      "tm_url": "https://www.transfermarkt.it/saeed-ezatolahi/profil/spieler/292701",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "449": {
+      "tm_url": "https://www.transfermarkt.it/saman-ghoddos/profil/spieler/204294",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "450": {
+      "tm_url": "https://www.transfermarkt.it/ali-gholizadeh/profil/spieler/294772",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "451": {
+      "tm_url": "https://www.transfermarkt.it/morteza-pouraliganji/profil/spieler/132563",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "452": {
+      "tm_url": "https://www.transfermarkt.it/ayman-hussein/profil/spieler/1259887",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "453": {
+      "tm_url": "https://www.transfermarkt.it/ali-jasim/profil/spieler/877672",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "454": {
+      "tm_url": "https://www.transfermarkt.it/zidane-iqbal/profil/spieler/686845",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "455": {
+      "tm_url": "https://www.transfermarkt.it/jalal-hassan/profil/spieler/206782",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "456": {
+      "tm_url": "https://www.transfermarkt.it/rebin-sulaka/profil/spieler/217073",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "457": {
+      "tm_url": "https://www.transfermarkt.it/mohanad-ali/profil/spieler/589646",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "458": {
+      "tm_url": "https://www.transfermarkt.it/hussein-ali/profil/spieler/585325",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "459": {
+      "tm_url": "https://www.transfermarkt.it/saad-natiq/profil/spieler/274615",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "460": {
+      "tm_url": "https://www.transfermarkt.it/amir-al-ammari/profil/spieler/303766",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "461": {
+      "tm_url": "https://www.transfermarkt.it/ibrahim-bayesh/profil/spieler/560957",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "462": {
+      "tm_url": "https://www.transfermarkt.it/youssef-ayman/profil/spieler/561027",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "463": {
+      "tm_url": "https://www.transfermarkt.it/akram-afif/profil/spieler/336646",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "464": {
+      "tm_url": "https://www.transfermarkt.it/almoez-ali/profil/spieler/345095",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "465": {
+      "tm_url": "https://www.transfermarkt.it/meshaal-barsham/profil/spieler/560423",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "467": {
+      "tm_url": "https://www.transfermarkt.it/lucas-mendes/profil/spieler/83983",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "469": {
+      "tm_url": "https://www.transfermarkt.it/boualem-khoukhi/profil/spieler/222669",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "470": {
+      "tm_url": "https://www.transfermarkt.it/jassem-gaber/profil/spieler/735813",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "471": {
+      "tm_url": "https://www.transfermarkt.it/ahmed-fathi/profil/spieler/38168",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "472": {
+      "tm_url": "https://www.transfermarkt.it/yusuf-abdurisag/profil/spieler/589099",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "473": {
+      "tm_url": "https://www.transfermarkt.it/bassam-al-rawi/profil/spieler/376232",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "474": {
+      "tm_url": "https://www.transfermarkt.it/chris-wood/profil/spieler/108725",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "475": {
+      "tm_url": "https://www.transfermarkt.it/liberato-cacace/profil/spieler/469211",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "476": {
+      "tm_url": "https://www.transfermarkt.it/sarpreet-singh/profil/spieler/350357",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "477": {
+      "tm_url": "https://www.transfermarkt.it/joe-bell/profil/spieler/345700",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "478": {
+      "tm_url": "https://www.transfermarkt.it/alex-paulsen/profil/spieler/617009",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "479": {
+      "tm_url": "https://www.transfermarkt.it/michael-boxall/profil/spieler/81723",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "480": {
+      "tm_url": "https://www.transfermarkt.it/nando-pijnaker/profil/spieler/455425",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "482": {
+      "tm_url": "https://www.transfermarkt.it/ben-waine/profil/spieler/539502",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "483": {
+      "tm_url": "https://www.transfermarkt.it/kosta-barbarouses/profil/spieler/50200",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "484": {
+      "tm_url": "https://www.transfermarkt.it/tyler-bindon/profil/spieler/1007720",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "485": {
+      "tm_url": "https://www.transfermarkt.it/mohamed-salah/profil/spieler/148455",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "486": {
+      "tm_url": "https://www.transfermarkt.it/yehia-mostafa/profil/spieler/1371587",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "487": {
+      "tm_url": "https://www.transfermarkt.it/omar-marmoush/profil/spieler/445939",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "488": {
+      "tm_url": "https://www.transfermarkt.it/emam-ashour/profil/spieler/604008"
+    },
+    "489": {
+      "tm_url": "https://www.transfermarkt.it/mohamed-elneny/profil/spieler/160438",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "490": {
+      "tm_url": "https://www.transfermarkt.it/yasser-ibrahim/profil/spieler/106256"
+    },
+    "491": {
+      "tm_url": "https://www.transfermarkt.it/mohamed-el-shenawy/profil/spieler/843863",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "492": {
+      "tm_url": "https://www.transfermarkt.it/mohamed-negm/profil/spieler/1262949",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "493": {
+      "tm_url": "https://www.transfermarkt.it/mohamed-hozian/profil/spieler/968736",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "495": {
+      "tm_url": "https://www.transfermarkt.it/zizo/profil/spieler/332195"
+    },
+    "496": {
+      "tm_url": "https://www.transfermarkt.it/percy-tau/profil/spieler/312239",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "497": {
+      "tm_url": "https://www.transfermarkt.it/ronwen-williams/profil/spieler/175577",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "498": {
+      "tm_url": "https://www.transfermarkt.it/teboho-mokoena/profil/spieler/436372",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "499": {
+      "tm_url": "https://www.transfermarkt.it/themba-zwane/profil/spieler/176578",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "500": {
+      "tm_url": "https://www.transfermarkt.it/khuliso-mudau/profil/spieler/450806",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "501": {
+      "tm_url": "https://www.transfermarkt.it/mothobi-mvala/profil/spieler/370606",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "502": {
+      "tm_url": "https://www.transfermarkt.it/grant-kekana/profil/spieler/43030",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "503": {
+      "tm_url": "https://www.transfermarkt.it/aubrey-modiba/profil/spieler/353432",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "504": {
+      "tm_url": "https://www.transfermarkt.it/evidence-makgopa/profil/spieler/746781",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "505": {
+      "tm_url": "https://www.transfermarkt.it/yaya-sithole/profil/spieler/401736",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "506": {
+      "tm_url": "https://www.transfermarkt.it/thapelo-morena/profil/spieler/297509",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved during image batch DL"
+      }
+    },
+    "508": {
+      "tm_url": "https://www.transfermarkt.it/yazeed-abulaila/profil/spieler/261850",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "510": {
+      "tm_url": "https://www.transfermarkt.it/ali-olwan/profil/spieler/664057",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "511": {
+      "tm_url": "https://www.transfermarkt.it/yazan-al-arab/profil/spieler/539961",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "512": {
+      "tm_url": "https://www.transfermarkt.it/noor-al-rawabdeh/profil/spieler/561485",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "513": {
+      "tm_url": "https://www.transfermarkt.it/rajaei-ayed/profil/spieler/261842",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "514": {
+      "tm_url": "https://www.transfermarkt.it/mahmoud-al-mardi/profil/spieler/401086",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "515": {
+      "tm_url": "https://www.transfermarkt.it/bahaa-faisal/profil/spieler/357015",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "517": {
+      "tm_url": "https://www.transfermarkt.it/ahmad-nasser/profil/spieler/308670",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "518": {
+      "tm_url": "https://www.transfermarkt.it/eldor-shomurodov/profil/spieler/358166",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "519": {
+      "tm_url": "https://www.transfermarkt.it/abbosbek-fayzullaev/profil/spieler/754037",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "521": {
+      "tm_url": "https://www.transfermarkt.it/rustam-ashurmatov/profil/spieler/288883",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "522": {
+      "tm_url": "https://www.transfermarkt.it/farrukh-sayfiev/profil/spieler/212499",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "524": {
+      "tm_url": "https://www.transfermarkt.it/dostonbek-khamdamov/profil/spieler/294502",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    },
+    "526": {
+      "tm_url": "https://www.transfermarkt.it/jamshid-iskanderov/profil/spieler/260857",
+      "tm_data": {
+        "source": "transfermarkt.it",
+        "last_updated": "2026-06",
+        "note": "auto-resolved via VPS script search"
+      }
+    }
+  }
+}

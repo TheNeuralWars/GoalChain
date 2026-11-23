@@ -30,7 +30,7 @@
   'use strict';
 
   // Pinned data refs — bump ?v= whenever the data file content changes.
-  var PLAYERS_URL = 'assets/data/players.json?v=20261117';
+  var PLAYERS_URL = 'assets/data/players.json?v=20261123';
   var FIXTURE_URL = 'assets/data/wc2026_fixture.json?v=20261117';
 
   var parsed = Object.create(null); // url -> Promise<Array|Object>

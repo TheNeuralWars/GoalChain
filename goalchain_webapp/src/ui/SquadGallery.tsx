@@ -111,7 +111,7 @@ export const SquadGallery: React.FC = () => {
         setSquad(detailed);
         setIsDemo(false);
       } else {
-        const res = await fetch('/assets/data/players.json');
+        const res = await fetch('/assets/data/players.json?v=20261123');
         if (res.ok) {
           const players = await res.json() as PlayerRow[];
           const starterPlayers = players.slice(0, 4);
