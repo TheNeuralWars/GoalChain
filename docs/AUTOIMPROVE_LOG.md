@@ -3679,3 +3679,67 @@ One entry per daily run (newest last).
   Zetaris stack wedge (Nico decision), pre-nft orphan cleanup, 14 stadium bg
   PNGs shadowed by cinema.html, goalworld_site TODO.md human facts (dead Discord
   invite, X handle, legal review).
+
+## 2026-11-24 run 20261124T034752Z
+
+- **What:** Page classification for the gw-shell chrome test — resolved the
+  standing `test_marketing_html_loads_shell` failure (5 pages) in
+  `docs/tests/test_gw_chrome.py` with an explicit, documented classification
+  instead of a bare allowlist: APP_SURFACE (`reader.html` + `go/reader/index.html`
+  — the e-reader app ships its own fixed chrome; injecting the fixed top chrome
+  would overlap its layout) and ARTIFACT prefix rules (`architecture/archify/`
+  = archify-generated diagram export; `assets/film/` = film post-production run
+  indexes — not site pages). Prefix rules auto-classify future run outputs
+  (`assets/film/improve_*/...`) so they cannot re-break the suite. Three guard
+  tests pin every exemption to a structural marker (`id="reader-body"`, archify
+  generator meta, `.mp4` run-media links) and assert exempt pages do NOT load
+  gw-shell.js — a stale or repurposed exemption fails loudly and forces a
+  reclassification decision. The module docstring records the decision and the
+  policy for future gaps (add gw-shell.js, or extend the classification with a
+  marker).
+- **Why:** the docs QA suite has carried 1 standing failure across runs
+  20261121/22/23 — each paid the "failure set byte-identical to pre-change"
+  comparison tax and risked masking a NEW failure inside that noise. This was
+  the carried "needs an explicit page-classification decision to fix honestly"
+  item; the decision (chrome contract covers shared-nav marketing pages only;
+  full-bleed apps and generated artifacts are out of contract) is now encoded
+  and guarded, so future QA gates read a clean 14/14.
+- **Commit SHA (merge):** `f6cb4185` (PR #952, feature `894ec65c`). Pre-merge
+  `origin/main` = `641e13168e674ecc17ac59bf288f04929adbc916` (rollback:
+  `git revert -m 1 f6cb4185` + push -> Vercel redeploys webapp; landing
+  `scripts/deploy_goalworld_site.sh rollback --target /data/apps/GoalChain/_site_public`
+  -> tarball `20261124T040055Z-f6cb4185.tar.gz`).
+- **Live links:** no live URL behavior changed — `docs/tests/` is excluded from
+  the published tree by `docs/.assetsignore` (`tests/`), verified live
+  (`goalworld.fun/tests/test_gw_chrome.py` -> 404). Deployed: deploy_origin.sh
+  restaged `f6cb4185` 04:00:22 UTC (guard 0 internal-only paths);
+  `deploy_goalworld_site.sh deploy` 04:00:56 UTC (dry-run first; hub unchanged
+  by this run — idempotent restage). https://goalworld.fun (+ /goalchain,
+  /go/reader/, /reader.html) and https://play.goalworld.fun/ (Vercel auto-deploy
+  from main, live 200).
+- **QA evidence:** `/data/work/autoimprove/evidence/20261124T034752Z/`
+  - tests-prechange.txt: 11 tests, exit 1 (the standing failure) -> tests.txt:
+    14 tests, exit 0, all green (re-run post-merge: OK). build.txt: py_compile
+    OK exit 0 (test-only change; no package build applies — 1 file, +91 lines).
+    linkcheck.txt: 0 new link refs (no HTML touched).
+  - classification.txt: 19 marketing pages (all load gw-shell.js) + 5 classified
+    non-marketing (exactly the prior gap: 2 reader + 1 archify + 2 film run
+    indexes) + 8 redirects unchanged; "marketing missing shell: []".
+  - Lighthouse: N/A — no UI/perf/a11y/SEO surface touched (python test module,
+    nothing served). smoke-before/smoke-after.txt: all URLs 200 before/after
+    with identical sizes (goalworld.fun 20,400B; /goalchain 210,509B;
+    /go/reader/ + /reader.html 35,973B; play 2,267B).
+- **Reverted:** n
+- **Follow-ups noted (not done):** (1) `reader.html` and `go/reader/index.html`
+  are byte-identical (35,973B) duplicate content on two URLs and carry no
+  canonical tag (only 5 pages do) — SEO consolidation candidate.
+  (2) `assets/film/improve_20260914/index.html` ships Spanish copy
+  ("Mejoras (borrador)") on a public URL — translate or get an English Max Law
+  exception. (3) Carried: `physical.t` (53 KB) split candidate (needs
+  merge-fallbacks in the 4 ops/pipeline scripts that consume it),
+  goalchain.html bootup perf campaign (bimodal TBT 10-50s), NoahAI API
+  language, wallet-adapter facade, rarity palette canon decision, `?lang=es`
+  leftovers, pack price copy, Caddyfile cache headers (hard limits), Zetaris
+  stack wedge (Nico decision), pre-nft orphan cleanup, 14 stadium bg PNGs
+  shadowed by cinema.html, goalworld_site TODO.md human facts (dead Discord
+  invite, X handle, legal review).
