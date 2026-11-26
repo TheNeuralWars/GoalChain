@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useMatchSim, createDemoTeams, type PlayerStats } from '../hooks/useMatchSim';
 import type { Team } from '../workers/types';
 import { useUser } from '../contexts/UserContext';
+import { track } from '../analytics/client';
+import { durationSeconds, matchResult } from '../analytics/events';
 
 const MOCK_PLAYERS: PlayerStats[] = [
   { playerId: '1', name: 'Lionel Satoshi', speed: 220, shotPower: 240, stamina: 200, nationId: 1, isEliminated: false, winStreak: 3, hasShieldJersey: true },
@@ -57,6 +59,35 @@ export function MatchSimulator() {
   const [reserves, setReserves] = useState<PlayerStats[]>([]);
   const [selectedSubOutId, setSelectedSubOutId] = useState<string | null>(null);
   const [matchFinished, setMatchFinished] = useState<boolean>(false);
+  // Analytics: wall-clock start of the running match (null = no match in progress).
+  const matchStartRef = useRef<{ at: number; surface: string } | null>(null);
+  const latestScoreRef = useRef<{ home: number; away: number; minute: number }>({ home: 0, away: 0, minute: 0 });
+  latestScoreRef.current = {
+    home: state?.homeScore ?? 0,
+    away: state?.awayScore ?? 0,
+    minute: state?.minute ?? 0,
+  };
+
+  const trackMatchAbandoned = () => {
+    const started = matchStartRef.current;
+    if (!started) return;
+    matchStartRef.current = null;
+    const { home, away, minute } = latestScoreRef.current;
+    track('game_ended', {
+      game: 'match_sim',
+      mode: 'tactical',
+      result: 'abandoned',
+      duration_s: durationSeconds(started.at, Date.now()),
+      surface: started.surface,
+      score_home: home,
+      score_away: away,
+      goal_diff: home - away,
+      match_minute: minute,
+    });
+  };
+
+  // Leaving the page mid-match counts as abandoned.
+  useEffect(() => () => trackMatchAbandoned(), []);
   const [showResultModal, setShowResultModal] = useState<boolean>(false);
 
   // Load GCH balance from localStorage helper
@@ -189,6 +220,22 @@ export function MatchSimulator() {
       if (fulltimeEvent) {
         setMatchFinished(true);
         setShowResultModal(true);
+
+        const started = matchStartRef.current;
+        if (started) {
+          matchStartRef.current = null;
+          track('game_ended', {
+            game: 'match_sim',
+            mode: 'tactical',
+            result: matchResult(state.homeScore, state.awayScore),
+            duration_s: durationSeconds(started.at, Date.now()),
+            surface: started.surface,
+            score_home: state.homeScore,
+            score_away: state.awayScore,
+            goal_diff: state.homeScore - state.awayScore,
+            match_minute: state.minute,
+          });
+        }
         
         // Payout rewards
         if (state.homeScore > state.awayScore) {
@@ -238,6 +285,12 @@ export function MatchSimulator() {
       // Re-initialize and start simulation
       init(homeTeam, awayTeam);
       start();
+
+      // A restart while a match is running ends the previous one first.
+      trackMatchAbandoned();
+      const surface = window.location.pathname;
+      matchStartRef.current = { at: Date.now(), surface };
+      track('game_started', { game: 'match_sim', mode: 'tactical', surface, entry_fee_gch: 50 });
     }
   };
 
@@ -391,7 +444,7 @@ export function MatchSimulator() {
             {isRunning ? '⏸️ Pausar' : '▶️ Continuar'}
           </button>
           <button
-            onClick={() => { stop(); setMatchFinished(false); }}
+            onClick={() => { trackMatchAbandoned(); stop(); setMatchFinished(false); }}
             disabled={events.length === 0 && !isRunning}
             className="btn-outline-red"
             style={{ padding: '8px 16px', fontSize: '0.75rem', fontWeight: 'bold', borderRadius: '8px' }}

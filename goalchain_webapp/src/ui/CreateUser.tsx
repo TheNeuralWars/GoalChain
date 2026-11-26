@@ -3,6 +3,7 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useUser } from '../contexts/UserContext';
 import { useTranslation } from '../i18n/index';
+import { track } from '../analytics/client';
 
 interface CreateUserProps {
   onUserCreated?: (user: { username: string; wallet: string; avatar: string }) => void;
@@ -80,6 +81,8 @@ export const CreateUser: React.FC<CreateUserProps> = ({ onUserCreated }) => {
 
     setIsSubmitting(false);
     setSuccess(true);
+    // No username / wallet in analytics — only categorical choices.
+    track('registration_completed', { method: 'wallet', role: selectedRoleObj.id, avatar: selectedAvatar });
     onUserCreated?.({ username, wallet: walletAddress, avatar: selectedAvatar });
   };
 

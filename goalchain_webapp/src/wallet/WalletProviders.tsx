@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { ConnectionProvider, WalletProvider, useWallet } from '@solana/wallet-adapter-react';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import { PhantomWalletAdapter } from '@solana/wallet-adapter-phantom';
@@ -7,6 +7,7 @@ import { clusterApiUrl } from '@solana/web3.js';
 
 import '@solana/wallet-adapter-react-ui/styles.css';
 import { useWalletGateBridge } from './gate';
+import { track } from '../analytics/client';
 
 /**
  * The real Solana provider stack — code-split on purpose. This module (and the
@@ -18,8 +19,20 @@ import { useWalletGateBridge } from './gate';
 function WalletStateBridge() {
   const gate = useWalletGateBridge();
   const { setVisible } = useWalletModal();
-  const { publicKey, connected } = useWallet();
+  const { publicKey, connected, wallet } = useWallet();
   const publicKeyBase58 = publicKey?.toBase58() ?? null;
+  const walletName = wallet?.adapter.name ?? 'unknown';
+
+  // Analytics: connect/disconnect transitions only (never the address).
+  const wasConnected = useRef(false);
+  useEffect(() => {
+    if (connected && !wasConnected.current) {
+      track('wallet_connected', { wallet_name: walletName, network: 'devnet' });
+    } else if (!connected && wasConnected.current) {
+      track('wallet_disconnected', { wallet_name: walletName });
+    }
+    wasConnected.current = connected;
+  }, [connected, walletName]);
 
   const openModal = useCallback(() => setVisible(true), [setVisible]);
 
